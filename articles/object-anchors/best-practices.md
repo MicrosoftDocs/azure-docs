@@ -9,7 +9,7 @@ ms.topic: best-practice
 ms.service: azure-object-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 ---
-# Best Practices
+# Best practices
 
 We recommend trying some of these steps to get the best results.
 
