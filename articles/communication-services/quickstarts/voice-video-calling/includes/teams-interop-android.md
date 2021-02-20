@@ -107,14 +107,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
-import com.azure.communication.calling.Call;
-import com.azure.communication.calling.CallAgent;
-import com.azure.communication.calling.CallClient;
-import com.azure.communication.calling.HangupOptions;
-import com.azure.communication.calling.JoinCallOptions;
+import com.azure.android.communication.calling.Call;
+import com.azure.android.communication.calling.CallAgent;
+import com.azure.android.communication.calling.CallClient;
+import com.azure.android.communication.calling.HangUpOptions;
+import com.azure.android.communication.calling.JoinCallOptions;
 import com.azure.android.communication.common.CommunicationTokenCredential;
-import com.azure.communication.calling.TeamsMeetingLinkLocator;
+import com.azure.android.communication.calling.TeamsMeetingLinkLocator;
 
 public class MainActivity extends AppCompatActivity {
     private static final String[] allPermissions = new String[] { Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE };
@@ -166,15 +167,19 @@ public class MainActivity extends AppCompatActivity {
                 getApplicationContext(),
                 teamsMeetingLinkLocator,
                 options);
-        call.addOnCallStateChangedListener(p -> setCallStatus(call.getState().toString()));
-        call.addOnIsRecordingActiveChangedListener(p -> setRecordingStatus(call.getIsRecordingActive()));
+        call.addOnStateChangedListener(p -> setCallStatus(call.getState().toString()));
+        call.addOnIsRecordingActiveChangedListener(p -> setRecordingStatus(call.isRecordingActive()));
     }
 
     /**
      * Leave from the meeting
      */
     private void leaveMeeting() {
-        call.hangup(new HangupOptions()).get();
+        try {
+            call.hangUp(new HangUpOptions()).get();
+        } catch (ExecutionException | InterruptedException e) {
+            Toast.makeText(this, "Unable to leave meeting", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
