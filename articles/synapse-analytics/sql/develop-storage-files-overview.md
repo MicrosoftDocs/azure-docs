@@ -110,7 +110,7 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 
 User with the permissions to read table can access external files using an EXTERNAL TABLE created on top of set of Azure Storage folders and files.
 
-User that has [permissions to create external table](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions&preserve-view=true) (for example CREATE TABLE and ALTER ANY CREDENTIAL or REFERENCES DATABASE SCOPED CREDENTIAL) can use the following script to create a table on top of Azure Storage data source:
+User that has [permissions to create external table](/sql/t-sql/statements/create-external-table-transact-sql?preserve-view=true&view=sql-server-ver15#permissions) (for example CREATE TABLE and ALTER ANY CREDENTIAL or REFERENCES DATABASE SCOPED CREDENTIAL) can use the following script to create a table on top of Azure Storage data source:
 
 ```sql
 CREATE EXTERNAL TABLE [dbo].[DimProductexternal]

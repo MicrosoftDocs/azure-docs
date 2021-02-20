@@ -78,9 +78,9 @@ To get the software you'll use to integrate your legacy on-premises app with Azu
 
    c. Add a redirect URI for your application. This URI will match the `oauthRedirectURL` parameter of your Orchestrator's Azure AD B2C connector configuration, for example, `https://example.com/oidc-endpoint`.
 
-2. **Create a user flow**: Create up a [sign and sign in user flow](./tutorial-create-user-flows.md).
+2. **Create a user flow**: Create a [sign-up and sign-in user flow](./tutorial-create-user-flows.md).
 
-3. **Add an IdP**: Choose to sign in your user with either a local account or a social or enterprise [IdP](./tutorial-add-identity-providers.md).
+3. **Add an IdP**: Choose to sign in your user with either a local account or a social or enterprise [IdP](./add-identity-provider.md).
 
 4. **Define user attributes**: Define the attributes to be collected during sign-up.
 

@@ -19,7 +19,7 @@ This article describes available Red Hat Enterprise Linux (RHEL) images in Azure
 For information on Red Hat support policies for all versions of RHEL, see [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata). For pricing details, see [Azure pricing calculator](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 >[!IMPORTANT]
-> RHEL images currently available in Azure Marketplace support either bring-your-own-subscription (BYOS) or pay-as-you-go licensing models. The [Azure Hybrid Use Benefit](../../windows/hybrid-use-benefit-licensing.md) and dynamic switching between BYOS and pay-as-you-go licensing isn't supported. To switch licensing mode, you must redeploy the VM from the corresponding image.
+> RHEL images currently available in Azure Marketplace support either bring-your-own-subscription (BYOS) or pay-as-you-go licensing models. Dynamic switching between BYOS and pay-as-you-go licensing can be done through [Azure Hybrid Use Benefit](../../linux/azure-hybrid-benefit-linux.md).
 
 >[!NOTE]
 > For any problem related to RHEL images in Azure Marketplace, file a support ticket with Microsoft.
@@ -57,10 +57,13 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 ```
 
 >[!NOTE]
-> In general, the comparison of versions to determine the latest follows the rules of the [CompareTo method](/dotnet/api/system.version.compareto?view=netcore-3.1#system_version_compareto_system_version_).
-This image version comparison is done by comparing the values as a [Version](/dotnet/api/system.version.-ctor?view=netframework-4.8) object, not as a string.
+> In general, the comparison of versions to determine the latest follows the rules of the [CompareTo method](/dotnet/api/system.version.compareto#system_version_compareto_system_version_).
+This image version comparison is done by comparing the values as a [Version](/dotnet/api/system.version.-ctor) object, not as a string.
 
 ## RHEL 6 image types
+
+>[!NOTE]
+> As of December 30 2020, RHEL 6.10 entered End Of Life (EOL). For continued support please enable ELS as part of the Extended Life-cycle Support phase, see [Red Hat ELS documentation](./redhat-extended-lifecycle-support.md).
 
 For RHEL 6.x images, the image types are shown in the following table.
 
@@ -103,7 +106,15 @@ Details for RHEL 8 image types are below.
 |RedHat | RHEL | 8 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191023) | These images are RHEL 8 LVM-partitioned images connected to standard Red Hat repositories.
 |RedHat | RHEL | 8-gen2 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191024) | These images are Hyper-V Generation 2 RHEL 8 LVM-partitioned images connected to standard Red Hat repositories. For more information about Generation 2 VMs in Azure, see [Support for Generation 2 VMs on Azure](../../generation-2.md).
 
-## RHEL longer support add-ons
+## RHEL Extended Support add-ons
+
+### Extended Life-cycle Support
+
+The Extended Life-cycle Support (ELS) add-on is an optional subscription that enables critical and important security fixes for releases that have reached End Of Life (EOL). More information on RHEL EUS is available in [Red Hat's documentation](https://access.redhat.com/support/policy/updates/errata#Extended_Life_Cycle_Support).
+
+ELS is currently only available for RHEL 6.10. For pay-as-you-go images, ELS can be enabled by following the steps in the [Red Hat ELS documentation](./redhat-extended-lifecycle-support.md).
+
+If you’re running on an older version, an upgrade to RHEL 6.10 is required before you can enable ELS.
 
 ### Extended Update Support
 

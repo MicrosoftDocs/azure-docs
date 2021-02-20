@@ -22,8 +22,6 @@ This error may occur on many types of service requests that require authenticati
 
 Most often, this error indicates that your Azure role-based access control (Azure RBAC) permissions for the service are not set up correctly. Many actions for an Azure Digital Twins instance require you to have the *Azure Digital Twins Data Owner* role **on the instance you are trying to manage**. 
 
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
-
 ### Cause #2
 
 If you are using a client app to communicate with Azure Digital Twins that is authenticating with an [app registration](how-to-create-app-registration.md), this error may happen because your app registration does not have permissions set up for the Azure Digital Twins service.
@@ -39,7 +37,7 @@ The first solution is to verify that your Azure user has the _**Azure Digital Tw
 Note that this role is different from...
 * the former name for this role during preview, *Azure Digital Twins Owner (Preview)* (the role is the same, but the name has changed)
 * the *Owner* role on the entire Azure subscription. *Azure Digital Twins Data Owner* is a role within Azure Digital Twins and is scoped to this individual Azure Digital Twins instance.
-* the *Owner* role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Data Owner* is the role that should be used for management during preview.
+* the *Owner* role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Data Owner* is the role that should be used for management.
 
 #### Check current setup
 

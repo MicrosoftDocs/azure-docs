@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Machine learning model training using AutoML'
-description: Tutorial for how to train a machine learning model in Azure Synapse using AutoML.
+title: 'Tutorial: Train a model by using automated machine learning'
+description: Tutorial on how to train a machine learning model without code in Azure Synapse Analytics.
 services: synapse-analytics
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
@@ -12,116 +12,108 @@ author: nelgson
 ms.author: negust
 ---
 
-# Tutorial: Code free machine learning model training in Azure Synapse with AutoML (Preview)
+# Tutorial: Train a machine learning model without code
 
-Learn how to easily enrich your data in Spark tables with new machine learning models that you train using [AutoML in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml).  A user in Synapse can simply select a Spark table in the Azure Synapse workspace to use as a training dataset for building machine learning models in a code free experience.
+You can enrich your data in Spark tables with new machine learning models that you train by using [automated machine learning](../../machine-learning/concept-automated-ml.md). In Azure Synapse Analytics, you can select a Spark table in the workspace to use as a training dataset for building machine learning models, and you can do this in a code-free experience.
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to train machine learning models by using a code-free experience in Synapse Studio. Synapse Studio is a feature of Azure Synapse Analytics. 
 
-> [!div class="checklist"]
-> - Train machine learning models using a code free experience in Azure Synapse studio that uses automated ML in Azure ML. The type of model you train depends on the problem you are trying to solve.
+You'll use automated machine learning in Azure Machine Learning, instead of coding the experience manually. The type of model that you train depends on the problem you're trying to solve.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
-- [Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
-- Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../quickstart-create-sql-pool-studio.md).
-- Azure Machine Learning linked service in your Azure Synapse Analytics workspace. For details, see [Create an Azure Machine Learning linked service in Azure Synapse](quickstart-integrate-azure-machine-learning.md).
+- An [Azure Synapse Analytics workspace](../get-started-create-workspace.md). Ensure that it has an Azure Data Lake Storage Gen2 storage account configured as the default storage. For the Data Lake Storage Gen2 file system that you work with, ensure that you're the *Storage Blob Data Contributor*.
+- An Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Quickstart: Create a dedicated SQL pool by using Synapse Studio](../quickstart-create-sql-pool-studio.md).
+- An Azure Machine Learning linked service in your Azure Synapse Analytics workspace. For details, see [Quickstart: Create a new Azure Machine Learning linked service in Azure Synapse Analytics](quickstart-integrate-azure-machine-learning.md).
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com/)
+Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create a Spark table for training dataset
+## Create a Spark table for the training dataset
 
-You will need a Spark table for this tutorial. The following notebook will create a Spark table.
+For this tutorial, you need a Spark table. The following notebook creates one:
 
-1. Download the notebook [Create-Spark-Table-NYCTaxi- Data.ipynb](https://go.microsoft.com/fwlink/?linkid=2149229)
+1. Download the notebook [Create-Spark-Table-NYCTaxi- Data.ipynb](https://go.microsoft.com/fwlink/?linkid=2149229).
 
-1. Import the notebook to Azure Synapse Studio.
-![Import Notebook](media/tutorial-automl-wizard/tutorial-automl-wizard-00a.png)
+1. Import the notebook to Synapse Studio.
+![Screenshot of Azure Synapse Analytics, with the Import option highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-00a.png)
 
-1. Select the Spark pool you want to use and click `Run all`. Run this notebook will get New York taxi data from open dataset and save to your default Spark database.
-![Run all](media/tutorial-automl-wizard/tutorial-automl-wizard-00b.png)
+1. Select the Spark pool that you want to use, and then select **Run all**. This step gets New York taxi data from the open dataset and saves the data to your default Spark database.
+![Screenshot of Azure Synapse Analytics, with Run all and Spark database highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-00b.png)
 
-1. After the notebook run has completed, a new Spark table will be created under the default Spark database. Go to the Data Hub and find the table named with `nyc_taxi`.
-![Spark Table](media/tutorial-automl-wizard/tutorial-automl-wizard-00c.png)
+1. After the notebook run has completed, you see a new Spark table under the default Spark database. From **Data**, find the table named **nyc_taxi**.
+![Screenshot of the Azure Synapse Analytics Data tab, with the new table highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-00c.png)
 
-## Launch AutoML wizard to train a model
+## Open the automated machine learning wizard
 
-Right-click on the Spark table created in the previous step. Select "Machine Learning-> Enrich with new model" to open the wizard.
-![Launch AutoML wizard](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
+To open the wizard:
 
-A configuration panel will appear and you will be asked to provide configuration details for creating an AutoML experiment run in Azure Machine Learning. This run will train multiple models and the best model from a successful run will be registered in the Azure ML model registry:
+1. Right-click the Spark table that you created in the previous step. Then select **Machine Learning** > **Enrich with new model**.
+![Screenshot of the Spark table, with Machine Learning and Enrich with new model highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
 
-![Configure run step1](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00a.png)
+1. Provide configuration details for creating an automated machine learning experiment run in Azure Machine Learning. This run trains multiple models. The best model from a successful run is registered in the Azure Machine Learning model registry.
 
-- **Azure ML workspace**: An Azure ML workspace is required for creation of the AutoML experiment run. You also need to link your Azure Synapse workspace with the Azure ML workspace using a [linked service](quickstart-integrate-azure-machine-learning.md). Once you have all the pre=requisites, you can specify the Azure ML workspace you want to use for this AutoML run.
+   ![Screenshot of configuration specifications for training a machine learning model.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00a.png)
 
-- **Experiment name**: Specify the experiment name. When you submit an AutoML run, you provide an experiment name. Information for the run is stored under that experiment in the Azure ML workspace. This experience will create a new experiment by default and is generating a proposed name, but you can also provide a name of an existing experiment.
+    - **Azure Machine Learning workspace**: An Azure Machine Learning workspace is required for creating an automated machine learning experiment run. You also need to link your Azure Synapse Analytics workspace with the Azure Machine Learning workspace by using a [linked service](quickstart-integrate-azure-machine-learning.md). After you've fulfilled all the prerequisites, you can specify the Azure Machine Learning workspace that you want to use for this automated run.
 
-- **Best model**: Specify the name of the best model from the AutoML run. The best model will be given this name and saved in the Azure ML model registry automatically after this run. An AutoML run will create many machine learning models. Based on the primary metric that you will select in a later step, those models can be compared and the best model can be selected.
+    - **Experiment name**: Specify the experiment name. When you submit an automated machine learning run, you provide an experiment name. Information for the run is stored under that experiment in the Azure Machine Learning workspace. This experience creates a new experiment by default and generates a proposed name, but you can also provide the name of an existing experiment.
 
-- **Target column**: This is what the model is trained to predict. Choose the column that you want to predict.
+    - **Best model name**: Specify the name of the best model from the automated run. The best model is given this name and saved in the Azure Machine Learning model registry automatically after this run. An automated machine learning run creates many machine learning models. Based on the primary metric that you select in a later step, those models can be compared and the best model can be selected.
 
-- **Spark pool**: The Spark pool you want to use for the AutoML experiment run. The computations will be executed on the pool you specify.
+    - **Target column**: This is what the model is trained to predict. Choose the column that you want to predict. (In this tutorial, we select the numeric column `fareAmount` as the target column.)
 
-- **Spark configuration details**: In addition to the Spark pool, you also have the option to provide session configuration details.
+    - **Spark pool**: Specify the Spark pool that you want to use for the automated experiment run. The computations are run on the pool that you specify.
 
-In this tutorial, we select the numeric column `fareAmount` as the target column.
+    - **Spark configuration details**: In addition to the Spark pool, you have the option to provide session configuration details.
 
-Click "Continue".
+1. Select **Continue**.
 
-## Choose task type
+## Choose a task type
 
-Select the machine learning model type for the experiment based on the question you are trying to answer. Since we selected `fareAmount` as the target column, and it is a numeric value, we will select *Regression*.
+Select the machine learning model type for the experiment, based on the question you're trying to answer. Because `fareAmount` is the target column, and it's a numeric value, we recommend that you select **Regression** here. Then select **Continue**.
 
-Click "Continue" to config additional settings.
-
-![Task type selection](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00b.png)
+![Screenshot of Enrich with new model, with Regression highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00b.png)
 
 ## Additional configurations
 
-If you select *Classification* or *Regression* type, the additional configurations are:
+If you selected **Regression** or **Classification** as your model type in the previous section, the following configurations are available:
 
-- **Primary metric**: The metric used to measure how well the model is doing. This is the metric that will be used to compare different models created in the AutoML run, and determine which model performed best.
+- **Primary metric**: Enter the metric that measures how well the model is doing. You use this metric to compare different models created in the automated run and determine which model performed best.
 
-- **Training job time (hours)**: The maximum amount of time, in hours, for an experiment to run and train models. Note that you can also provide values less than 1. For example `0.5`.
+- **Training job time (hours)**: Specify the maximum amount of time, in hours, for an experiment to run and train models. Note that you can also provide values less than 1 (for example, **0.5**).
 
-- **Max concurrent iterations**: Represents the maximum number of iterations that would be executed in parallel.
+- **Max concurrent iterations**: Choose the maximum number of iterations that run in parallel.
 
-- **ONNX model compatibility**: If enabled, the models trained by AutoML will be converted to the ONNX format. This is particularly relevant if you want to use the model for scoring in Azure Synapse SQL pools.
+- **ONNX model compatibility**: If you enable this option, the models trained by automated machine learning are converted to the ONNX format. This is particularly relevant if you want to use the model for scoring in Azure Synapse Analytics SQL pools.
 
 These settings all have a default value that you can customize.
-![additional configurations](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c.png)
+![Screenshot of additional configurations for configuring a regression model.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c.png)
 
-> Note that ff you select "Time series forecasting", there are more configurations required. Forecasting also does not support ONNX model compatibility.
+After all the required configurations are done, you can start your automated run. You can choose **Create run**, which starts your run directly, without code. Alternatively, if you prefer code, you can select **Open in notebook**. This option allows you to see the code that creates the run and then run the notebook.
 
-Once all required configurations are done, you can start AutoML run.
+>[!NOTE]
+>If you selected **Time series forecasting** as your model type in the previous section, you must make additional configurations. Forecasting also doesn't support ONNX model compatibility.
 
-There are two ways to start an AutoML run in Azure Azure Synapse. For a code free experience, you can choose to **Create run** directly. If you prefer code, you can select **Open in notebook**, which allows you to see the code that creates the run and run the notebook.
+### Create a run directly
 
-### Create Run directly
+To start your automated machine learning run directly, select **Start Run**. You see a notification that indicates the run is starting. Then you see another notification that indicates success. You can also check the status in Azure Machine Learning by selecting the link in the notification.
+![Screenshot of successful notification.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00d.png)
 
-Click "Start Run" to start AutoML run directly. There will be a notification that indicates AutoML run is starting.
+### Create a run with a notebook
 
-After the AutoML run is started successfully, you will see another successful notification. You can also click the notification button to check the state of run submission.
-Azure ML by clicking the link in the successful notification.
-![Successful notification](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00d.png)
+To generate a notebook, select **Open In Notebook**. Then select **Run all**. This also gives you an opportunity to add settings to your automated machine learning run.
 
-### Create run with notebook
+![Screenshot of a notebook, with Run all highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00e.png)
 
-Select *Open In Notebook* to generate a notebook. Click *Run all* to execute the notebook.
-This also gives you an opportunity to add additional settings to your AutoML run.
-
-![Open Notebook](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00e.png)
-
-After the run from the notebook has been submitted successfully, there will be a link to the experiment run in the Azure ML workspace in the notebook output. You can click the link to monitor your AutoML run in Azure ML.
-![Notebook run all](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00f.png))
+After you've successfully submitted the run, you see a link to the experiment run in the Azure Machine Learning workspace in the notebook output. Select the link to monitor your automated run in Azure Machine Learning.
+![Screenshot of Azure Synapse Analytics with a link highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00f.png))
 
 ## Next steps
 
-- [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL Pools](tutorial-sql-pool-model-scoring-wizard.md).
-- [Quickstart: Create a new Azure Machine Learning linked service in Azure Synapse](quickstart-integrate-azure-machine-learning.md)
-- [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
+- [Tutorial: Machine learning model scoring wizard (preview) for dedicated SQL pools](tutorial-sql-pool-model-scoring-wizard.md)
+- [Quickstart: Create a new Azure Machine Learning linked service in Azure Synapse Analytics](quickstart-integrate-azure-machine-learning.md)
+- [Machine learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)

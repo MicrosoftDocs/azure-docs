@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 ---
 # Use the Azure portal to manage users on your Azure Stack Edge Pro
@@ -25,19 +25,19 @@ In this article, you learn how to:
 
 ## About users
 
-Users can be read-only or full privilege. As the names indicate, the read-only users can only view the share data. The full privilege users can read share data, write to these shares, and modify or delete the share data.
+Users can be read-only or full privilege. Read-only users can only view the share data. Full privilege users can read share data, write to these shares, and modify or delete the share data.
 
  - **Full privilege user** - A local user with full access.
  - **Read-only user** - A local user with read-only access. These users are associated with shares that allow read-only operations.
 
-The user permissions are first defined when the user is created during share creation. After the permissions associated with a user are defined, these can be modified by using File Explorer.
+The user permissions are first defined when the user is created during share creation. They can be modified by using File Explorer.
 
 
 ## Add a user
 
 Do the following steps in the Azure portal to add a user.
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Overview > Users**. Select **+ Add user** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Users**. Select **+ Add user** on the command bar.
 
     ![Select add user](media/azure-stack-edge-j-series-manage-users/add-user-1.png)
 
@@ -54,7 +54,7 @@ Do the following steps in the Azure portal to add a user.
 ## Modify user
 
 You can change the password associated with a user once the user is created. Select from the list of users. Enter and confirm the new password. Save the changes.
- 
+
 ![Modify user](media/azure-stack-edge-j-series-manage-users/modify-user-1.png)
 
 
@@ -63,7 +63,7 @@ You can change the password associated with a user once the user is created. Sel
 Do the following steps in the Azure portal to delete a user.
 
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Overview > Users**.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Users**.
 
     ![Select user to delete](media/azure-stack-edge-j-series-manage-users/delete-user-1.png)
 

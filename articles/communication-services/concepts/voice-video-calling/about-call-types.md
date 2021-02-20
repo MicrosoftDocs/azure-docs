@@ -44,8 +44,8 @@ We support H.264 (MPEG-4)
 We support up to Full HD 1080p on the native (iOS, Android) SDKs. For Web (JS) SDK we support Standard HD 720p. The quality depends on the available bandwidth.  
 
 ### Rooms concept
-Rooms are are a set of APIs and SDKs that allow you to easily add audio, video, screen sharing, PSTN and SMS interactions to your website or native application.
-During the preview you can use the group ID to join the same conversation. You can create as many group ID as you need and separate the users by the “rooms”. Moving forward will introduce more controls around “rooms” 
+Rooms are a set of APIs and SDKs that allow you to easily add audio, video, screen sharing, PSTN and SMS interactions to your website or native application.
+During the preview you can use the group ID to join the same conversation. You can create as many group IDs as you need and separate the users by the “rooms”. Moving forward will introduce more controls around “rooms” 
 
 ## Next steps
 
@@ -54,5 +54,5 @@ During the preview you can use the group ID to join the same conversation. You c
 
 For more information, see the following articles:
 - Familiarize yourself with general [call flows](../call-flows.md)
-- [Plan your PSTN solution](../telephony-sms/plan-solution.md)
+- [Phone number types](../telephony-sms/plan-solution.md)
 - Learn about the [calling client library capabilities](../voice-video-calling/calling-sdk-features.md)

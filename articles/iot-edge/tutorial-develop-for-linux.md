@@ -28,9 +28,6 @@ In this tutorial, you learn how to:
 > * Build your project as a container and store it in an Azure container registry.
 > * Deploy your code to an IoT Edge device.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-
 ## Prerequisites
 
 A development machine:
@@ -50,6 +47,8 @@ An Azure IoT Edge device on Linux:
 Cloud resources:
 
 * A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Key concepts
 

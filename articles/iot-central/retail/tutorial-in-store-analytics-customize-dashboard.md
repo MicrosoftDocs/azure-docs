@@ -14,7 +14,7 @@ ms.date: 11/12/2019
 # Tutorial:  Customize the operator dashboard and manage devices in Azure IoT Central
 
 
-In this tutorial, as a builder learn how to customize the operator dashboard in your Azure IoT Central in-store analytics application. Application operators can use the customized dashboard to run the application and manage the attached devices.
+In this tutorial, as a builder, you learn how to customize the operator dashboard in your Azure IoT Central in-store analytics application. Application operators can use the customized dashboard to run the application and manage the attached devices.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -239,7 +239,12 @@ To add a command tile to reboot the gateway:
 
 1. Optionally, select the **Reboot** tile to run the reboot command on your gateway.
 
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## Next steps
+
 In this tutorial, you learned how to:
 
 * Change the dashboard name

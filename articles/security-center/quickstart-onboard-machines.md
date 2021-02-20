@@ -34,7 +34,7 @@ Learn more about [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 
 **To deploy Azure Arc:**
 
-- For one machine, follow the instructions in [Quickstart: Connect hybrid machine with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+- For one machine, follow the instructions in [Quickstart: Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - To connect multiple machines at scale to Arc enabled servers, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md)
 
 > [!TIP]
@@ -116,7 +116,7 @@ To add Windows machines, you need the information on the **Agents management** p
 
 When complete, the **Microsoft Monitoring agent** appears in **Control Panel**. You can review your configuration there and verify that the agent is connected.
 
-For further information on installing and configuring the agent, see [Connect Windows machines](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
+For further information on installing and configuring the agent, see [Connect Windows machines](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard).
 
 ::: zone-end
 
@@ -134,4 +134,4 @@ Congratulations! Now you can see your Azure and non-Azure machines together in o
 
 This page showed you how to add your non-Azure machines to Azure Security Center. To monitor their status, use the inventory tools as explained in the following page:
 
-- [Explore and manage your resources with asset inventory and management tools](asset-inventory.md)
+- [Explore and manage your resources with asset inventory](asset-inventory.md)

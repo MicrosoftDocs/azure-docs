@@ -1,19 +1,19 @@
 ---
-title: Understand admin roles for Enterprise in Azure
+title: Understand admin roles for Enterprise Agreements (EA) in Azure
 description: Learn about Enterprise administrator roles in Azure. You can assign five distinct administrative roles.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/10/2020
 ms.author: banders
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
-# Managing Azure Enterprise roles
+# Managing Azure Enterprise Agreement roles
 
-To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement (EA) can assign five distinct administrative roles:
+To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement can assign five distinct administrative roles:
 
 - Enterprise Administrator
 - Enterprise Administrator (read only)<sup>1</sup>
@@ -77,6 +77,8 @@ Users with this role have the highest level of access. They can:
 - Manage notification contacts.
 - View usage across all accounts.
 - View unbilled charges across all accounts.
+- View and manage all reservation orders and reservations that apply to the Enterprise Agreement.
+  - Enterprise administrator (read-only) can view reservation orders and reservations. They can't manage them.
 
 You can have multiple enterprise administrators in an enterprise enrollment. You can grant read-only access to enterprise administrators. They all inherit the department administrator role.
 
@@ -190,12 +192,12 @@ The following table shows the relationship between the Enterprise Agreement admi
 |Account Owner OR Department Admin|✘ Disabled |none|No pricing|
 |None|Not applicable |Owner|Retail pricing|
 
-You set the Enterprise admin role and view charges policies in the Enterprise portal. The Azure role can be updated in the Azure portal. For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You set the Enterprise admin role and view charges policies in the Enterprise portal. The Azure role can be updated in the Azure portal. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 
 ## Next steps
 
 - [Manage access to billing information for Azure](manage-billing-access.md)
-- [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
 - [Azure built-in roles](../../role-based-access-control/built-in-roles.md)

@@ -1,9 +1,6 @@
 ---
 title: 'Tutorial: Configure Apache Ambari email notifications in Azure HDInsight'
 description: This article describes how to use SendGrid with Apache Ambari for email notifications.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020

@@ -112,6 +112,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 > You may also choose to enable SAML-based single sign-on for Zscaler Private Access (ZPA) by following the instructions provided in the [Zscaler Private Access (ZPA) Single sign-on tutorial](./zscalerprivateaccess-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, although these two features complement each other.
 
 > [!NOTE]
+> When users and groups are provisioned or de-provisioned we recommend to periodically restart provisioning to ensure that group memberships are properly updated. Doing a restart will force our service to re-evaluate all the groups and update the memberships.  
+
+> [!NOTE]
 > To learn more about Zscaler Private Access's SCIM endpoint, refer [this](https://www.zscaler.com/partners/microsoft).
 
 ### To configure automatic user provisioning for Zscaler Private Access (ZPA) in Azure AD:

@@ -22,7 +22,7 @@ This Azure Functions sample script creates a function app, which is a container 
 
 ## Sample script
 
-This script creates an Azure Function app using the [Consumption plan](../functions-scale.md#consumption-plan).
+This script creates an Azure Function app using the [Consumption plan](../consumption-plan.md).
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a Consumption plan")]
 

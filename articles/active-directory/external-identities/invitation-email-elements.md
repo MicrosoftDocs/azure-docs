@@ -82,8 +82,8 @@ A guest user can follow these steps to view or export the organizations they've 
 
 The language presented to the guest user in the invitation email is determined by the following settings. These settings are listed in order of precedence. If a setting isn’t configured, the next setting in the list determines the language.
 
-- The **messageLanguage** property of the [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) object if the Create invitation API is used
--	The **preferredLanguage** property specified in the guest's [user object](/graph/api/resources/user?view=graph-rest-1.0)
+- The **messageLanguage** property of the [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo) object if the Create invitation API is used
+-	The **preferredLanguage** property specified in the guest's [user object](/graph/api/resources/user)
 -	The **Notification language** set in the properties of the guest user’s home tenant (for Azure AD tenants only)
 -	The **Notification language** set in the properties of the resource tenant
 

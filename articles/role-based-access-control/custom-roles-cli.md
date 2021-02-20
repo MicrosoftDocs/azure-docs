@@ -239,4 +239,4 @@ az role definition delete --name "Virtual Machine Operator"
 
 - [Tutorial: Create an Azure custom role using Azure CLI](tutorial-custom-role-cli.md)
 - [Azure custom roles](custom-roles.md)
-- [Azure Resource Manager resource provider operations](resource-provider-operations.md)
+- [Azure resource provider operations](resource-provider-operations.md)

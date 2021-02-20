@@ -1,12 +1,9 @@
 ---
 title: InvalidNetworkConfigurationErrorCode error - Azure HDInsight
 description: Various reasons for failed cluster creations with InvalidNetworkConfigurationErrorCode in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 01/22/2020
+ms.date: 01/12/2021
 ---
 
 # Cluster creation fails with InvalidNetworkConfigurationErrorCode in Azure HDInsight
@@ -33,7 +30,7 @@ This error points to a problem with custom DNS configuration. DNS servers within
 
 1. If the above command doesn't return an IP address, then run `nslookup <host_fqdn> 168.63.129.16` (for example, `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`). If this command is able to resolve the IP, it means that either your DNS server isn't forwarding the query to Azure's DNS, or it isn't a VM that is part of the same virtual network as the cluster.
 
-1. If you don't have an Azure VM that can act as a custom DNS server in the cluster’s virtual network, then you need to add this first. Create a VM in the virtual network, which will be configured as DNS forwarder.
+1. If you don't have an Azure VM that can act as a custom DNS server in the cluster's virtual network, then you need to add this first. Create a VM in the virtual network, which will be configured as DNS forwarder.
 
 1. Once you have a VM deployed in your virtual network, configure the DNS forwarding rules on this VM. Forward all iDNS name resolution requests to 168.63.129.16, and the rest to your DNS server. [Here](../hdinsight-plan-virtual-network-deployment.md) is an example of this setup for a custom DNS server.
 
@@ -41,11 +38,11 @@ This error points to a problem with custom DNS configuration. DNS servers within
 
 ---
 
-## "Failed to connect to Azure Storage Account”
+## "Failed to connect to Azure Storage Account"
 
 ### Issue
 
-Error description contains "Failed to connect to Azure Storage Account” or “Failed to connect to Azure SQL".
+Error description contains "Failed to connect to Azure Storage Account" or "Failed to connect to Azure SQL".
 
 ### Cause
 
@@ -67,7 +64,7 @@ Azure Storage and SQL don't have fixed IP Addresses, so we need to allow outboun
 
 ### Issue
 
-Error description contains "Failed to establish an outbound connection from the cluster for the communication with the HDInsight resource provider. Please ensure that outbound connectivity is allowed.”
+Error description contains "Failed to establish an outbound connection from the cluster for the communication with the HDInsight resource provider. Please ensure that outbound connectivity is allowed."
 
 ### Cause
 
@@ -142,6 +139,13 @@ hostname -f
 nslookup <headnode_fqdn> (e.g.nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
 dig @168.63.129.16 <headnode_fqdn> (e.g. dig @168.63.129.16 hn0-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
 ```
+### Cause
+
+Another cause for this `InvalidNetworkConfigurationErrorCode` error code could be the use of the deprecated parameter `EnableVmProtection` in PowerShell or an Azure Runbook.
+
+### Resolution
+
+Use the valid parameters for `Get-AzVirtualNetwork` as documented in the [Az PowerShell SDK](/powershell/module/az.network/get-azvirtualnetwork)
 
 ---
 

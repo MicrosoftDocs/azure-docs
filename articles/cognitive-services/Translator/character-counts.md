@@ -3,13 +3,13 @@ title: Character Counts - Translator
 titleSuffix: Azure Cognitive Services
 description: This article explains how the Azure Cognitive Services Translator counts characters so you can understand how it ingests content.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # How the Translator counts characters

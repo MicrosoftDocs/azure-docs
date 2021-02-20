@@ -20,6 +20,10 @@ highlightedContent:
       itemType: overview
       url: ../iot-fundamentals/iot-introduction.md
     # Card
+    - title: Get started with device development on Azure IoT
+      itemType: get-started
+      url: ../iot-develop/index.yml
+    # Card
     - title: Install VS Code tools for Azure IoT
       itemType: download
       url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
@@ -31,10 +35,6 @@ highlightedContent:
     - title: Browse Azure IoT code samples
       itemType: overview
       url: /samples/browse/?term=iot
-    # Card
-    - title: Secure your Azure IoT deployment
-      itemType: concept
-      url: ../iot-fundamentals/security-recommendations.md
     # Card
     - title: Azure IoT reference architecture
       itemType: architecture
@@ -80,12 +80,12 @@ conceptualContent:
         - url: ../iot-central/core/quick-deploy-iot-central.md
           itemType: quickstart
           text: Create an IoT Central application
-        - url: ../iot-central/core/tutorial-connect-device-nodejs.md
+        - url: ../iot-central/core/tutorial-connect-device.md
           itemType: tutorial
           text: Connect a device
       # footerLink
       footerLink:
-        url: ../iot-central/core/index.yml
+        url: ../iot-central/index.yml
         text: See more
     # Card
     - title: Run cloud intelligence on edge devices
@@ -189,9 +189,6 @@ conceptualContent:
         - url: ../iot-accelerators/about-iot-accelerators.md
           itemType: overview
           text: What are Azure IoT solution accelerators?
-        - url: ../iot-accelerators/quickstart-remote-monitoring-deploy.md
-          itemType: quickstart
-          text: Try a remote monitoring solution
         - url: ../iot-accelerators/quickstart-connected-factory-deploy.md
           itemType: quickstart
           text: Try a connected factory solution

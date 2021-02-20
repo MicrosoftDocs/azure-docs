@@ -34,18 +34,18 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 
 1. Select the database you want to use as the hub database for Data Sync.
 
-    ![Select from the database list, Microsoft Azure portal](./media/sql-data-sync-sql-server-configure/select-sql-database.png)
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/select-sql-database.png" alt-text = "Select from the database list, Microsoft Azure portal":::
 
     > [!NOTE]
     > The hub database is a sync topology's central endpoint, in which a sync group has multiple database endpoints. All other member databases with endpoints in the sync group, sync with the hub database.
 
 1. On the **SQL database** menu for the selected database, select **Sync to other databases**.
 
-    ![Sync to other databases, Microsoft Azure portal](./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png)
+    :::image type="content" source="./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png" alt-text = "Sync to other databases, Microsoft Azure portal":::
 
-1. On the **Sync to other databases** page, select **New Sync Group**. The **New sync group** page opens with **Create sync group (step 1)** highlighted.
+1. On the **Sync to other databases** page, select **New Sync Group**. The **New sync group** page opens with **Create sync group (step 1)**.
 
-   ![Step 1 settings](./media/sql-data-sync-sql-server-configure/stepone.png)
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/new-sync-group-private-link.png" alt-text = "Set up new sync group with private link":::
 
    On the **Create Data Sync Group** page, change the following settings:
 
@@ -55,11 +55,16 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
    | **Sync Metadata Database** | Choose to create a database (recommended) or to use an existing database.<br/><br/>If you choose **New database**, select **Create new database.** Then on the **SQL Database** page, name and configure the new database and select **OK**.<br/><br/>If you choose **Use existing database**, select the database from the list. |
    | **Automatic Sync** | Select **On** or **Off**.<br/><br/>If you choose **On**, enter a number and select **Seconds**, **Minutes**, **Hours**, or **Days** in the **Sync Frequency** section.<br/> The first sync begins after the selected interval period elapses from the time the configuration is saved.|
    | **Conflict Resolution** | Select **Hub win** or **Member win**.<br/><br/>**Hub win** means when conflicts occur, data in the hub database overwrites conflicting data in the member database.<br/><br/>**Member win** means when conflicts occur, data in the member database overwrites conflicting data in the hub database. |
+   | **Use private link** | Choose a service managed private endpoint to establish a secure connection between the sync service and the hub database. |
 
    > [!NOTE]
    > Microsoft recommends to create a new, empty database for use as the **Sync Metadata Database**. Data Sync creates tables in this database and runs a frequent workload. This database is shared as the **Sync Metadata Database** for all sync groups in a selected region and subscription. You can't change the database or its name without removing all sync groups and sync agents in the region.
 
    Select **OK** and wait for the sync group to be created and deployed.
+   
+1. On the **New Sync Group** page, if you selected **Use private link**, you will need to approve the private endpoint connection. The link in the info message will take you to the private endpoint connections experience where you can approve the connection. 
+
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/approve-private-link.png" alt-text = "Approve private link":::
 
 ## Add sync members
 
@@ -67,14 +72,14 @@ After the new sync group is created and deployed, **Add sync members (step 2)** 
 
 In the **Hub Database** section, enter existing credentials for the server on which the hub database is located. Don't enter *new* credentials in this section.
 
-![Step 2 settings](./media/sql-data-sync-sql-server-configure/steptwo.png)
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/steptwo.png" alt-text = "Enter existing credentials for the hub database server":::
 
 ### To add a database in Azure SQL Database
 
 In the **Member Database** section, optionally add a database in Azure SQL Database to the sync group by selecting **Add an Azure SQL Database**. The **Configure Azure SQL Database** page opens.
-
-  ![Step 2 - configure database](./media/sql-data-sync-sql-server-configure/steptwo-configure.png)
-
+  
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/step-two-configure.png" alt-text = "Add a database to the sync group":::
+   
   On the **Configure Azure SQL Database** page, change the following settings:
 
   | Setting                       | Description |
@@ -85,6 +90,7 @@ In the **Member Database** section, optionally add a database in Azure SQL Datab
   | **Azure SQL Database** | Select the existing database in SQL Database. |
   | **Sync Directions** | Select **Bi-directional Sync**, **To the Hub**, or **From the Hub**. |
   | **Username** and **Password** | Enter the existing credentials for the server on which the member database is located. Don't enter *new* credentials in this section. |
+  | **Use private link** | Choose a service managed private endpoint to establish a secure connection between the sync service and the member database. |
 
   Select **OK** and wait for the new sync member to be created and deployed.
 
@@ -96,7 +102,7 @@ In the **Member Database** section, optionally add a SQL Server database to the 
 
 1. Select **Choose the Sync Agent Gateway**. The **Select Sync Agent** page opens.
 
-   ![Creating a sync agent](./media/sql-data-sync-sql-server-configure/steptwo-agent.png)
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/steptwo-agent.png" alt-text = "Creating a sync agent":::
 
 1. On the **Choose the Sync Agent** page, choose whether to use an existing agent or create an agent.
 
@@ -167,10 +173,6 @@ After the new sync group members are created and deployed, **Configure sync grou
 
 ## FAQ
 
-**How frequently can Data Sync synchronize my data?**
-
-The minimal duration between synchronizations is five minutes.
-
 **Does SQL Data Sync fully create tables?**
 
 If sync schema tables are missing in the destination database, SQL Data Sync creates them with the columns you selected. However, this doesn't result in a full-fidelity schema for the following reasons:
@@ -224,6 +226,10 @@ After you export a database as a *.bacpac* file and import the file to create a 
 **Where can I find information on the client agent?**
 
 For frequently asked questions about the client agent, see [Agent FAQ](sql-data-sync-agent-overview.md#agent-faq).
+
+**Is it necessary to manually approve the private link before I can start using it?**
+
+Yes, you must manually approve the service managed private endpoint, in the Private endpoint connections page of the Azure portal during the sync group deployment or by using PowerShell.
 
 ## Next steps
 

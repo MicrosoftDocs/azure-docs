@@ -23,7 +23,7 @@ landingContent:
         - text: Speech containers with Kubernetes and Helm
           url: speech-container-howto-on-premises.md
         - text: Speech containers on Azure container instances
-          url: deploy-speech-on-container-instances.md
+          url: ../containers/azure-container-instance-recipe.md
 - title: Create and configure
   linkLists:
     - linkListType: how-to-guide

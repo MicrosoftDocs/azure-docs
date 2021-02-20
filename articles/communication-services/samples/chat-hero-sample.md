@@ -109,6 +109,7 @@ For more information, see the following articles:
 
 - Learn about [chat concepts](../concepts/chat/concepts.md)
 - Familiarize yourself with our [chat client library](../concepts/chat/sdk-features.md)
+- Review the [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app) sample
 
 ## Additional reading
 

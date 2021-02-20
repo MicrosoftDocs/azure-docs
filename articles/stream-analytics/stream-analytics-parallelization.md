@@ -3,7 +3,7 @@ title: Use query parallelization and scale in Azure Stream Analytics
 description: This article describes how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
 author: JSeb225
 ms.author: jeanb
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
@@ -264,7 +264,7 @@ The following observations use a Stream Analytics job with stateless (passthroug
 | 5K     |    6    |  6 TU   |
 | 10K    |    12   |  10 TU  |
 
-The [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) solution scales linearly in terms of streaming units (SU) and throughput, making it the most efficient and performant way to analyze and stream data out of Stream Analytics. Jobs can be scaled up to 192 SU, which roughly translates to processing up to 200 MB/s, or 19 trillion events per day.
+The [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-eventhubs) solution scales linearly in terms of streaming units (SU) and throughput, making it the most efficient and performant way to analyze and stream data out of Stream Analytics. Jobs can be scaled up to 192 SU, which roughly translates to processing up to 200 MB/s, or 19 trillion events per day.
 
 #### Azure SQL
 |Ingestion Rate (events per second) | Streaming Units | Output Resources  |
@@ -273,7 +273,7 @@ The [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/
 |    5K   |   18 |  P4   |
 |    10K  |   36 |  P6   |
 
-[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)  supports writing in parallel, called Inherit Partitioning, but it's not enabled by default. However, enabling Inherit Partitioning, along with a fully parallel query, may not be sufficient to achieve higher throughputs. SQL write throughputs depend significantly on your database configuration and table schema. The [SQL Output Performance](./stream-analytics-sql-output-perf.md) article has more detail about the parameters that can maximize your write throughput. As noted in the [Azure Stream Analytics output to Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) article, this solution doesn't scale linearly as a fully parallel pipeline beyond 8 partitions and may need repartitioning before SQL output (see [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKUs are needed to sustain high IO rates along with overhead from log backups happening every few minutes.
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-azuresql)  supports writing in parallel, called Inherit Partitioning, but it's not enabled by default. However, enabling Inherit Partitioning, along with a fully parallel query, may not be sufficient to achieve higher throughputs. SQL write throughputs depend significantly on your database configuration and table schema. The [SQL Output Performance](./stream-analytics-sql-output-perf.md) article has more detail about the parameters that can maximize your write throughput. As noted in the [Azure Stream Analytics output to Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) article, this solution doesn't scale linearly as a fully parallel pipeline beyond 8 partitions and may need repartitioning before SQL output (see [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKUs are needed to sustain high IO rates along with overhead from log backups happening every few minutes.
 
 #### Cosmos DB
 |Ingestion Rate (events per second) | Streaming Units | Output Resources  |
@@ -282,7 +282,7 @@ The [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/
 |  5K   |  24   | 60K RU  |
 |  10K  |  48   | 120K RU |
 
-[Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) output from Stream Analytics has been updated to use native integration under [compatibility level 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Compatibility level 1.2 enables significantly higher throughput and reduces RU consumption compared to 1.1, which is the default compatibility level for new jobs. The solution uses CosmosDB containers partitioned on /deviceId and the rest of solution is identically configured.
+[Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-cosmosdb) output from Stream Analytics has been updated to use native integration under [compatibility level 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Compatibility level 1.2 enables significantly higher throughput and reduces RU consumption compared to 1.1, which is the default compatibility level for new jobs. The solution uses CosmosDB containers partitioned on /deviceId and the rest of solution is identically configured.
 
 All [Streaming at Scale Azure samples](https://github.com/Azure-Samples/streaming-at-scale) use an Event Hub as input that is fed by load simulating test clients. Each input event is a 1KB JSON document, which translates configured ingestion rates to throughput rates (1MB/s, 5MB/s and 10MB/s) easily. Events simulate an IoT device sending the following JSON data (in a shortened form) for up to 1K devices:
 

@@ -290,4 +290,4 @@ When you're done with this project, make sure to remove your subscription key fr
 
 ## See also
 
-* [Azure Java SDK reference](/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)
+* [Azure Java SDK reference](/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi)

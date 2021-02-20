@@ -88,7 +88,7 @@ Follow these steps to clean up resources.
 
 ## Next steps
 
-To use the `DataLoads` workload group, a [workload classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) needs to be created to route requests to the workload group.  Continue to the [create workload classifier](quickstart-create-a-workload-classifier-portal.md) tutorial to create a workload classifier for `DataLoads`.
+To use the `DataLoads` workload group, a [workload classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) needs to be created to route requests to the workload group.  Continue to the [create workload classifier](quickstart-create-a-workload-classifier-portal.md) tutorial to create a workload classifier for `DataLoads`.
 
 ## See also
 See the how-to article [Manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md) for details on how to monitor workloads for workload management.

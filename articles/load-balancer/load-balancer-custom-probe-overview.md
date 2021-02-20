@@ -61,7 +61,7 @@ The timeout and interval values specified determine whether an instance will be 
 
 We can illustrate the behavior further with an example. If you have set the number of probe responses to 2 and the interval to 5 seconds, this means 2 probe time-out failures must be observed within a 10 second interval.  Because the time at which a probe is sent is not synchronized when your application may change state, we can bound the time to detect by two scenarios:
 
-1. If your application starts producing a time-out probe response just before the first probe arrives, the detection of these events will take 10 seconds (2 x 5 second intervals) plus the duration of the the application starting to signal a time-out to when the the first probe arrives.  You can assume this detection to take slightly over 10 seconds.
+1. If your application starts producing a time-out probe response just before the first probe arrives, the detection of these events will take 10 seconds (2 x 5 second intervals) plus the duration of the application starting to signal a time-out to when the first probe arrives.  You can assume this detection to take slightly over 10 seconds.
 2. If your application starts producing a time-out probe response just after the first probe arrives, the detection of these events will not begin until the next probe arrives (and times out) plus another 10 seconds (2 x 5 second intervals).  You can assume this detection to take just under 15 seconds.
 
 For this example, once detection has occurred, the platform will then take a small amount of time to react to this change.  This means a depending on 

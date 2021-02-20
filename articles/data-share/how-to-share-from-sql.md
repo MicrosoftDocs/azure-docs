@@ -335,7 +335,7 @@ SQL snapshot performance is impacted by a number of factors. It is always recomm
 * Location of source and target data stores. 
 
 ## Troubleshoot SQL snapshot failure
-The most common cause of snapshot failure is that Data Share does not have permission to the source or target data store. In order to grant Data Share permission to the source or target Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you must run the provided SQL script when connecting to the SQL database using Azure Active Directory authentication. To troubleshoot additional SQL snapshot failure, refer to [Troubleshoot snapshot failure](data-share-troubleshoot.md#snapshot-failed).
+The most common cause of snapshot failure is that Data Share does not have permission to the source or target data store. In order to grant Data Share permission to the source or target Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you must run the provided SQL script when connecting to the SQL database using Azure Active Directory authentication. To troubleshoot additional SQL snapshot failure, refer to [Troubleshoot snapshot failure](data-share-troubleshoot.md#snapshots).
 
 ## Next steps
 You have learned how to share and receive data from SQL sources using Azure Data Share service. To learn more about sharing from other data sources, continue to [supported data stores](supported-data-stores.md).
