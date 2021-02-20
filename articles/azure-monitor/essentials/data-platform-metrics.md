@@ -9,7 +9,7 @@ manager: carmonm
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2019
+ms.date: 02/20/2021
 ms.author: bwren
 ---
 
@@ -101,7 +101,7 @@ This metric can answer questions such as "what was the network throughput for ea
 For most resources in Azure, metrics are stored for 93 days. There are some exceptions:
 
 **Guest OS metrics**
--	**Classic guest OS metrics**. These are performance counters collected by the [Windows Diagnostic Extension (WAD)](../agents/diagnostics-extension-overview.md) or the [Linux Diagnostic Extension (LAD)](../../virtual-machines/extensions/diagnostics-linux.md) and routed to an Azure storage account. Retention for these metrics is guaranteed to be at least 14 days, though no actual expiration date is written to storage. The actual number of days retrieved by the portal can be longer than 14 days if the volume of data being written is not very large. The portal limits it's display based on the volume of data to display.
+-	**Classic guest OS metrics**. These are performance counters collected by the [Windows Diagnostic Extension (WAD)](../agents/diagnostics-extension-overview.md) or the [Linux Diagnostic Extension (LAD)](../../virtual-machines/extensions/diagnostics-linux.md) and routed to an Azure storage account. Retention for these metrics is guaranteed to be at least 14 days, though no actual expiration date is written to the storage account. for performance reasons, the portal limits how much data it displays based on volume. Therefore, the actual number of days retrieved by the portal can be longer than 14 days if the volume of data being written is not very large.  
 -	**Guest OS metrics sent to Azure Monitor Metrics**. These are performance counters collected by the [Windows Diagnostic Extension (WAD)](../agents/diagnostics-extension-overview.md) and sent to the [Azure Monitor data sink](../agents/diagnostics-extension-overview.md#data-destinations), or via the [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/) on Linux machines. Retention for these metrics is 93 days.
 -	**Guest OS metrics collected by Log Analytics agent**. These are performance counters collected by the Log Analytics agent and sent to a Log Analytics workspace. Retention for these metrics is 31 days, and can be extended up to 2 years.
 
