@@ -16,7 +16,7 @@ adobe-target-content: ./quickstart-arm-template-uiex
 
 # Quickstart: Create App Service app using an ARM template
 
-Get started with [Azure App Service](overview.md) by deploying a app to the cloud using an <abbr title="An Azure Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project.">ARM template</abbr> and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart. <abbr title="In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.">The template uses declarative syntax.</abbr>
+Get started with [Azure App Service](overview.md) by deploying a app to the cloud using an <abbr title="A JSON file that declaratively defines one or more Azure resources and dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly.">ARM template</abbr> and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart. <abbr title="In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.">The template uses declarative syntax.</abbr>
 
  If your environment meets the prerequisites and you're familiar with using [ARM templates](../azure-resource-manager/templates/overview.md), select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -43,19 +43,13 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
 
-This template includes two Azure resources and several parameters that are predefined for your convenience.
-
 <details>
-<summary>What resources are defined in the template?</summary>
+<summary>What resources and parameters are defined in the template?</summary>
 
 Two Azure resources are defined in the template:
 
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
-</details>
-
-<details>
-<summary>What parameters are predefined in the template?</summary>
 
 The following table details defaults parameters and their descriptions:
 
@@ -69,6 +63,7 @@ The following table details defaults parameters and their descriptions:
 | repoUrl    | string  | " "                          | External Git repo (optional) |
 
 ---
+
 </details>
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -79,18 +74,14 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 This template includes Azure resources and parameters that are defined for your convenience.
 
 <details>
-<summary>What resources are defined in the template?</summary>
+<summary>What resources and parameters are defined in the template?</summary>
 
 Two Azure resources are defined in the template:
 
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
-</details>
 
-<details>
-<summary>What parameters are defined in the template?</summary>
-
- The following table details defaults parameters and their descriptions:
+The following table details defaults parameters and their descriptions:
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
@@ -111,7 +102,9 @@ Two Azure resources are defined in the template:
 ## 3. Deploy the template
 
 ::: zone pivot="platform-windows"
-Run the code below to deploy a .NET framework app on Windows using Azure CLI. Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name. To learn other <abbr title="You can also use the Azure portal, Azure PowerShell, and REST API.">deployment methods</abbr>, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md). You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
+Run the code below to deploy a .NET framework app on Windows using Azure CLI. 
+
+Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name. To learn other <abbr title="You can also use the Azure portal, Azure PowerShell, and REST API.">deployment methods</abbr>, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md). You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -121,7 +114,9 @@ az deployment group create --resource-group myResourceGroup \
 ```
 ::: zone-end
 ::: zone pivot="platform-linux"
-Run the code below to create a Python app on Linux. Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name.
+Run the code below to create a Python app on Linux. 
+
+Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -134,8 +129,8 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <summary>What's the code doing?</summary>
 <p>The commands do the following actions:</p>
 <ul>
-<li>Create a default <abbr title="Contains all of the Azure resources for the service.">resource group</abbr>.</li>
-<li>Create a default <abbr title="Specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr>.</li>
+<li>Create a default <abbr title="A logical container for related Azure resources that you can manage as a unit.">resource group</abbr>.</li>
+<li>Create a default <abbr title="The plan that specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr>.</li>
 <li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Create an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr></a> with the specified name.</li>
 </ul>
 </details>
@@ -143,7 +138,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 ::: zone pivot="platform-windows"
 <details>
 <summary>How do I deploy a different language stack?</summary>
-To deploy a different language stack, update <abbr title="This template is compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps.">language parameter</abbr> with appropriate values. For Java, see <a href="quickstart-java">Create Java app</a>.
+To deploy a different language stack, update <abbr title="This template is compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps.">language parameter</abbr> with appropriate values. For Java, see <a href="/azure/app-service/quickstart-java-uiex">Create Java app</a>.
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
@@ -186,24 +181,12 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 
 <hr/>
 
-## 6. Next steps
+## Next steps
 
-> [!div class="nextstepaction"]
-> [Deploy from local Git](deploy-local-git.md)
+- [Deploy from local Git](deploy-local-git.md)
+- [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+- [Python with Postgres](tutorial-python-postgresql-app.md)
+- [PHP with MySQL](tutorial-php-mysql-app.md)
+- [Connect to Azure SQL database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
+- [Map custom domain](app-service-web-tutorial-custom-domain-uiex.md)
 
-> [!div class="nextstepaction"]
-> [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
-
-> [!div class="nextstepaction"]
-> [Python with Postgres](tutorial-python-postgresql-app.md)
-
-> [!div class="nextstepaction"]
-> [PHP with MySQL](tutorial-php-mysql-app.md)
-
-> [!div class="nextstepaction"]
-> [Connect to Azure SQL database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
-
-> [!div class="nextstepaction"]
-> [Map custom domain](app-service-web-tutorial-custom-domain.md)
-
-<hr/>

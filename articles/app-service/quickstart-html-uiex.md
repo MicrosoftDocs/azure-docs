@@ -16,15 +16,11 @@ adobe-target-content: ./quickstart-html-uiex
 
 # Create a static HTML web app in Azure
 
-This quickstart shows how to deploy a basic HTML+CSS site to <abbr title="Azure App Service provides a highly scalable, self-patching web hosting service">Azure App Service</abbr>. You'll complete this quickstart in [Cloud Shell](../cloud-shell/overview.md), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
+This quickstart shows how to deploy a basic HTML+CSS site to <abbr title="An HTTP-based service for hosting web applications, REST APIs, and mobile back-end applications.">Azure App Service</abbr>. You'll complete this quickstart in [Cloud Shell](../cloud-shell/overview.md), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
 
-![Home page of sample app](media/quickstart-html/hello-world-in-browser-az.png)
+## 1. Prepare your environment
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-<hr/>
-
-## 1. Download the sample
 
 In [Cloud Shell](../cloud-shell/overview.md), create a quickstart directory and then change to it.
 
@@ -39,12 +35,11 @@ Next, run the following command to clone the sample app repository to your quick
 ```bash
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
-
 <hr/>
 
 ## 2. Create a web app
 
-Change to the directory that contains the sample code and run the `az webapp up` command. In the following example, replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name. Static content is indicated by the `--html` flag.
+Change to the directory that contains the sample code and run the `az webapp up` command. **Replace** `<app-name>` with a globally unique name.
 
 ```bash
 cd html-docs-hello-world
@@ -52,18 +47,31 @@ cd html-docs-hello-world
 az webapp up --location westeurope --name <app_name> --html
 ```
 
-The command may take a few minutes to complete. It lets you know what it's doing, and ends with "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure. Make a note of the `resourceGroup` value. You need it for the [clean up resources](#6-clean-up-resources) section.
+<details>
+<summary>Troubleshooting</summary>
+<ul>
+<li>If the <code>az</code> command isn't recognized, be sure you have the Azure CLI installed as described in <a href="#1-prepare-your-environment">Prepare your environment</a>.</li>
+<li>Replace <code>&lt;app-name&gt;</code> with a name that's unique across all of Azure (<em>valid characters are <code>a-z</code>, <code>0-9</code>, and <code>-</code></em>). A good pattern is to use a combination of your company name and an app identifier.</li>
+<li>The <code>--sku F1</code> argument creates the web app on the Free pricing tier. Omit this argument to use a faster premium tier, which incurs an hourly cost.</li>
+<li>The <code>--html</code> argument says to treat all folder content as static content and disable build automation.</li>
+<li>You can optionally include the argument <code>--location &lt;location-name&gt;</code> where <code>&lt;location-name&gt;</code> is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the <a href="/cli/azure/appservice#az-appservice-list-locations"><code>az account list-locations</code></a> command.</li>
+</ul>
+</details>
+
+The command may take a few minutes to complete. 
 
 <details>
 <summary>What's <code>az webapp up</code> doing?</summary>
 <p>The <code>az webapp up</code> command does the following actions:</p>
 <ul>
-<li>Create a default <abbr title="Contains all of the Azure resources for the service.">resource group</abbr>.</li>
-<li>Create a default <abbr title="Specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr>.</li>
-<li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Create an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr></a> with the specified name.</li>
+<li>Create a default resource group.</li>
+<li>Create a default App Service plan.</li>
+<li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Create an App Service app</a> with the specified name.</li>
 <li><a href="/azure/app-service/deploy-zip">Zip deploy</a> files from the current working directory to the app.</li>
+<li>While running, it provides messages about resource creation, logging, and ZIP deployment.</li>
 </ul>
-While running, it displays information similar to the following example:
+
+When it finishes, it displays information similar to the following example:
 
 ```output
 {
@@ -81,6 +89,8 @@ While running, it displays information similar to the following example:
 
 </details>
 
+You will need the `resourceGroup` value to [clean up resources](#6-clean-up-resources) later.
+
 <hr/>
 
 ## 3. Browse to the app
@@ -91,25 +101,29 @@ The page is running as an Azure App Service web app.
 
 ![Sample app home page](media/quickstart-html/hello-world-in-browser-az.png)
 
-**Congratulations!** You've deployed your first HTML app to App Service.
-
 <hr/>
 
 ## 4. Update and redeploy the app
 
-In the Cloud Shell, **type** `nano index.html` to open the nano text editor. In the `<h1>` heading tag, change "Azure App Service - Sample Static HTML Site" to "Azure App Service", as shown below.
+In the Cloud Shell, **type** `nano index.html` to open the nano text editor. 
+
+In the `<h1>` heading tag, change "Azure App Service - Sample Static HTML Site" to "Azure App Service".
 
 ![Nano index.html](media/quickstart-html/nano-index-html.png)
 
-**Save** your changes and **exit** nano. Use the command `^O` to save and `^X` to exit.
+**Save** your changes by using command `^O`.
 
-You'll now redeploy the app with the same `az webapp up` command.
+**Exit** nano by using command `^X`.
+
+Redeploy the app with `az webapp up` command.
 
 ```bash
-az webapp up --location westeurope --name <app_name> --html
+az webapp up --html
 ```
 
-Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and **refresh** the page.
+Switch back to the browser window that opened in the **Browse to the app** step.
+
+**Refresh** the page.
 
 ![Updated sample app home page](media/quickstart-html/hello-azure-in-browser-az.png)
 
@@ -117,11 +131,13 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ## 5. Manage your new Azure app
 
-To manage the web app you created, in the [Azure portal](https://portal.azure.com), **search** for and **select** **App Services**.
+**Navigate** to the [Azure portal](https://portal.azure.com)., 
+
+**Search** for and **select** **App Services**.
 
 ![Select App Services in the Azure portal](./media/quickstart-html/portal0.png)
 
-On the **App Services** page, select the name of your Azure app.
+**Select** the name of your Azure app.
 
 ![Portal navigation to Azure app](./media/quickstart-html/portal1.png)
 
@@ -145,7 +161,7 @@ This command may take a minute to run.
 
 <hr/>
 
-## 7. Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
-> [Map custom domain](app-service-web-tutorial-custom-domain.md)
+> [Map custom domain](app-service-web-tutorial-custom-domain-uiex.md)
