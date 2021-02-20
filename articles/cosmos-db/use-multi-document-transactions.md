@@ -1,5 +1,5 @@
 ---
-title: Use multi-document transactions in Azure Cosmos DB API for MongoDB.
+title: Use multi-document transactions in Azure Cosmos DB API for MongoDB
 description: Learn how to create a sample Mongo shell app that can execute a multi-document transaction (all-or-nothing semantic) on a fixed collection in Azure Cosmos DB API for MongoDB 4.0. 
 author: gahl-levy
 ms.service: cosmos-db
@@ -65,7 +65,7 @@ All drivers that support wire protocol version 4.0 or greater will support Azure
 
     ```
 
-3. Run the following command to execute the multi-document transaction. The host, port, user, and key can be found in the Azure Portal.
+3. Run the following command to execute the multi-document transaction. The host, port, user, and key can be found in the Azure portal.
 
    ```powershell
    mongo "<HOST>:<PORT>" -u "<USER>" -p "KEY" --ssl connect_friends.js

@@ -18,7 +18,7 @@ By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of th
 
 ## Protocol Support
 
-The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. Note that when using Azure Cosmos DB's API for MongoDB accounts, the 3.6+ versions of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts have the endpoint in the format `*.documents.azure.com`.
+The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. When using Azure Cosmos DB's API for MongoDB accounts, the 3.6+ versions of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts has the endpoint in the format `*.documents.azure.com`.
 
 ## Query language support
 
@@ -105,7 +105,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | top | No |
 | whatsmyuri | Yes |
 
-## <a name="aggregation-pipeline"></a>Aggregation pipeline</a>
+## <a name="aggregation-pipeline"></a>Aggregation pipeline
 
 ### Aggregation commands
 
@@ -540,7 +540,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
 
 ## Compound indexes
 
-[Compound indexes](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) provide a way to create an index for groups of fields for up to 8 fields. This type of index differs from the native MongoDB compound indexes. In Azure Cosmos DB, compound indexes are used for sorting operations that are applied to multiple fields. To create a compound index you need to specify more than one property as the parameter:
+[Compound indexes](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) provide a way to create an index for groups of fields for up to eight fields. This type of index differs from the native MongoDB compound indexes. In Azure Cosmos DB, compound indexes are used for sorting operations that are applied to multiple fields. To create a compound index, you need to specify more than one property as the parameter:
 
 ```javascript
 globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
@@ -562,7 +562,7 @@ Azure Cosmos DB supports automatic, native replication at the lowest layers. Thi
 
 ## Retryable Writes
 
-Cosmos DB does not yet support retryable writes. Client drivers must add the 'retryWrites=false' URL parameter to their connection string. Additional URL parameters can be added by prefixing them with an '&'. 
+Cosmos DB does not yet support retryable writes. Client drivers must add the 'retryWrites=false' URL parameter to their connection string. More URL parameters can be added by prefixing them with an '&'. 
 
 ## Sharding
 
@@ -570,23 +570,23 @@ Azure Cosmos DB supports automatic, server-side sharding. It manages shard creat
 
 ## Sessions
 
-Azure Cosmos DB does not yet support server side sessions commands.
+Azure Cosmos DB does not yet support server-side sessions commands.
 
 ## Time-to-live (TTL)
 
-Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections by going to the [Azure portal](https://portal.azure.com).
+Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections by going to the [Azure portal](https://portal.azure.com).
 
 ## Transactions
 
-Cosmos DB supports transations for unsharded collections. The timeout for transactions is a fixed 5 seconds.
+Azure Cosmos DB supports transactions for unsharded collections. The timeout for transactions is a fixed 5 seconds.
 
 ## User and role management
 
-Cosmos DB does not yet support users and roles. However, Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
+Azure Cosmos DB does not yet support users and roles. However, Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
 
 ## Write Concern
 
-Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) which specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by the client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
+Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/), which specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by the client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
 
 ## Next steps
 
