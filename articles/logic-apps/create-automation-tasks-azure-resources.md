@@ -75,7 +75,7 @@ By comparison, Azure Automation is a cloud-based automation and configuration se
 
    ![Screenshot that shows the selections, "Send monthly cost for resource" and "Next: Authentication"](./media/create-automation-tasks-azure-resources/select-task-template.png)
 
-1. Under **Authentication**, in the **Connections** section, select **Create** for each connection so that you can provide authentication credentials for that connection. The types of connections in each task vary based on the task.
+1. Under **Authentication**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections. The types of connections in each task vary based on the task.
 
    ![Screenshot that shows the selected "Create" option for the Azure Resource Manager connection](./media/create-automation-tasks-azure-resources/create-authenticate-connections.png)
 
@@ -87,7 +87,7 @@ By comparison, Azure Automation is a cloud-based automation and configuration se
 
    ![Screenshot that shows successfully created connection](./media/create-automation-tasks-azure-resources/create-connection-success.png)
 
-1. After you authenticate all the connections, select **Next: Configuration**.
+1. After you authenticate all the connections, select **Next: Configuration** if the next page doesn't appear.
 
 1. Under **Configuration**, provide a name for the task and any other information required for the task. When you're done, select **Create**.
 
