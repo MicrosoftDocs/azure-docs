@@ -35,7 +35,7 @@ This feature is currently supported on the following Windows Virtual Desktop Cli
 - [Windows Store client](connect-microsoft-store.md)
 - [Web client](connect-web.md)
 
-## Configure the certificate authority to issue smart cards
+## Configure the certificate authority to issue certificates
 
 You must properly configure the following certificate templates so that AD FS can use SSO:
 
@@ -129,11 +129,11 @@ Install-Script ConfigureWVDSSO
 > [!Note]
 > You need the `$config` variable values to complete the next part of the instructions, so don't close the PowerShell window you used to complete the previous instructions. You can either keep using the same PowerShell window or leave it open while launching a new PowerShell session.
 
-By default, this will use a shared key as the secret. If you prefer using a certificate, save the pfx file locally on the AD FS server and add the necessary parameters, specifying the path to the pfx file:
+By default, this will use a shared key as the secret. If you prefer using a certificate, save the pfx file locally on the AD FS server and add the necessary parameters, specifying the path to the pfx file and the optional password:
 
 ```powershell
 Install-Script ConfigureWVDSSO
- $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -UseCert -CertPath "<Path to the pfx file>"
+ $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -UseCert -CertPath "<Path to the pfx file>" [-CertPassword "<Pfx password>"]
 ```
 
 If you are enabling SSO in one of the sovereign clouds, you need to change the location of the Windows Virtual Desktop service with additional parameters, replacing WvdWebAppAppUri and RdWebURL with the appropriate values.
