@@ -19,7 +19,7 @@ ms.author: allensu
 
 Azure Load Balancer supports availability zones scenarios. You can use Standard Load Balancer to increase availability throughout your scenario by aligning resources with, and distribution across zones.  Review this document to understand these concepts and fundamental scenario design guidance
 
-A Load Balancer can either be **zone redundant, zonal,** or **non-zonal**. To configure the zone related properties for your load balancer, seect the type of frontend needed.
+A Load Balancer can either be **zone redundant, zonal,** or **non-zonal**. To configure the zone related properties (mentioned above) for your load balancer, select the appropriate type of frontend needed.
 
 ## Zone redundant
 
@@ -59,7 +59,7 @@ Now that you understand the zone related properties for Standard Load Balancer, 
 ### Tolerance to zone failure
 
 - A **zone redundant** Load Balancer can serve a zonal resource in any zone with one IP address.  The IP can survive one or more zone failures as long as at least one zone remains healthy within the region.
-- A **zonal** frontend is a reduction of the service to a single zone and shares fate with the respective zone. If the zone your deployment is in goes down, your deployment will not survive this falure.
+- A **zonal** frontend is a reduction of the service to a single zone and shares fate with the respective zone. If the zone your deployment is in goes down, your deployment will not survive this failure.
 
 It is recommended you use zone redundant Load Balancer for your production workloads.
 
