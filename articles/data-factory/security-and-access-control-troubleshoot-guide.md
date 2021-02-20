@@ -149,7 +149,7 @@ Try to enable public network access on the user interface, as shown in the follo
 ### ADF private DNS zone overrides Azure Resource Manager DNS resolution causing ‘Not found’ error
 
 #### Cause
-Both Azure Resource Manager and ADF are using the same private zone creating a potential conflict on customer’s private DNS with an scenario where the ARM records will not be found.
+Both Azure Resource Manager and ADF are using the same private zone creating a potential conflict on customer’s private DNS with an scenario where the Azure Resource Manager records will not be found.
 
 #### Solution
 1. Find Private DNS zones **privatelink.azure.com** in Azure portal.
