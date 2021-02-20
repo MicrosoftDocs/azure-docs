@@ -1,7 +1,5 @@
 # QuickStart: Add 1:1 video calling to your app
 
-This QuickStart used Azure Communication Client Library 1.0.0.beta-4. 
-
 - [QuickStart: Add 1:1 video calling to your app](#quickstart-add-11-video-calling-to-your-app)
   - [Prerequisites](#prerequisites)
   - [Setting up](#setting-up)
@@ -32,6 +30,7 @@ Open your terminal or command window create a new directory for your app, and na
 
 ### Install the package
 Use the npm install command to install the Azure Communication Services Calling client library for JavaScript.
+This QuickStart used Azure Communication Calling Client Library 1.0.0.beta-6. 
 
         npm install @azure/communication-common --save
         npm install @azure/communication-calling --save
@@ -97,8 +96,8 @@ Here's the code:
 
 Create a file in the root directory of your project called client.js to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements. 
 
-        import { CallClient, CallAgent, Renderer, LocalVideoStream, RemoteVideoStream, RemoteParticipant} from "@azure/communication-calling";
-        import { AzureCommunicationUserCredential } from '@azure/communication-common';
+        import { CallClient, CallAgent, Renderer, LocalVideoStream } from "@azure/communication-calling";
+        import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
         let call;
         let callAgent;
@@ -135,7 +134,7 @@ Add the following code to client.js:
 
         async function init() {
             const callClient = new CallClient();
-            const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+            const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
             callAgent = await callClient.createCallAgent(tokenCredential, { displayName: 'optional ACS user name' });
     
             deviceManager = await callClient.getDeviceManager();
@@ -150,9 +149,10 @@ First you have to enumerate local cameras using the deviceManager getCameraList 
 
 The functions refered here will be explained below. 
 
-        callButton.addEventListener("click", async () => {       
-            const localVideoDevice = deviceManager.getCameraList()[0];
-            localVideoStream = new LocalVideoStream(localVideoDevice);
+        callButton.addEventListener("click", async () => {
+            const videoDevices = await deviceManager.getCameras();
+            const videoDeviceInfo = videoDevices[0];
+            localVideoStream = new LocalVideoStream(videoDeviceInfo);
             placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
 
             localVideoView();
@@ -160,19 +160,19 @@ The functions refered here will be explained below.
             startVideoButton.disabled = true;
 
             const userToCall = calleeInput.value;
-            call = callAgent.call(
-            [{ communicationUserId: userToCall }],
-            placeCallOptions
+            call = callAgent.startCall(
+                [{ communicationUserId: userToCall }],
+                placeCallOptions
             );
 
             call.remoteParticipants.forEach( p => {
-            subscribeToRemoteParticipant(p);
+                subscribeToRemoteParticipant(p);
             })
 
             call.on('remoteParticipantsUpdated', e => {
-            e.added.forEach( p=>{
-                subscribeToRemoteParticipant(p);
-            })
+                e.added.forEach( p=>{
+                    subscribeToRemoteParticipant(p);
+                })
             });
 
             hangUpButton.disabled = false;
@@ -188,7 +188,6 @@ To render a LocalVideoStream, you need to create a new instance of Renderer, and
         }
 
 All remote participants are available through the remoteParticipants collection on a call instance. You can subscribe to the remoteParticipants collection of the current call and inspect the videoStreams collections to list the streams of each participant. You also need to subscribe to the remoteParticipantsUpdated event to handle added remote participants. 
-
 
         function subscribeToRemoteParticipant(p) {
             p.videoStreams.forEach(v => {
@@ -227,45 +226,47 @@ To render a RemoteVideoStream, you need to create a new instance of Renderer, an
         }
 
 ## Receive an incoming call
-To handle incoming calls you need to subscribe to callsUpdated event of callAgent Interface. Once there is an incoming call, you need to enumerate local cameras and construct a LocalVideoStream instance to send a video stream to the other participant. You also need to subscribe to remoteParticipants to handle remote video streams. 
+To handle incoming calls you need to listen to the incomingCall event of callAgent. Once there is an incoming call, you need to enumerate local cameras and construct a LocalVideoStream instance to send a video stream to the other participant. You also need to subscribe to remoteParticipants to handle remote video streams. You can accept or reject the call through the incomingCall instance. 
 
 Put the implementation in init() to handle incoming calls. 
 
-        callAgent.on('callsUpdated', e => {
-            e.added.forEach(addedCall => {
-            if(addedCall.isIncoming) {
-                const localVideoDevice = deviceManager.getCameraList()[0];
-                localVideoStream = new LocalVideoStream(localVideoDevice);
-                localVideoView();
+       callAgent.on('incomingCall', async e => {
+          const videoDevices = await deviceManager.getCameras();
+          const videoDeviceInfo = videoDevices[0];
+          localVideoStream = new LocalVideoStream(videoDeviceInfo);
+          localVideoView();
 
-                addedCall.remoteParticipants.forEach( p => {
+          stopVideoButton.disabled = false;
+          callButton.disabled = true;
+          hangUpButton.disabled = false;
+
+          const addedCall = await e.incomingCall.accept({videoOptions: {localVideoStreams:[localVideoStream]}});
+          call = addedCall;
+
+          addedCall.remoteParticipants.forEach( p => {
+              subscribeToRemoteParticipant(p);
+          })
+
+          addedCall.on('remoteParticipantsUpdated', e => {
+              e.added.forEach( p => {
                 subscribeToRemoteParticipant(p);
-                })
-
-                addedCall.on('remoteParticipantsUpdated', e => {
-                e.added.forEach( p=>{
-                    subscribeToRemoteParticipant(p);
-                })
-                });
-                addedCall.accept({videoOptions: {localVideoStreams:[localVideoStream]}});
-                stopVideoButton.disabled = false;
-                }
-            });
-        })
+              })
+          });        
+      });
 
 ## End the current call
 Add an event listener to end the current call when the hangUpButton is clicked:
 
         hangUpButton.addEventListener("click", async () => {
-        // dispose of the renderers
-        rendererLocal.dispose();
-        rendererRemote.dispose();
-        // end the current call
-        await call.hangUp();
-        // toggle button states
-        hangUpButton.disabled = true;
-        callButton.disabled = false;
-        stopVideoButton.disabled = true;
+            // dispose of the renderers
+            rendererLocal.dispose();
+            rendererRemote.dispose();
+            // end the current call
+            await call.hangUp();
+            // toggle button states
+            hangUpButton.disabled = true;
+            callButton.disabled = false;
+            stopVideoButton.disabled = true;
         });
 
 ## Subscribe to call updates
@@ -287,7 +288,7 @@ You need to subscribe to the event when the remote participant ends the call to 
 You can stop the video during the current call by adding an event listener to the Stop Video button to dispose of the renderer of localVideoStream. 
         
         stopVideoButton.addEventListener("click", async () => {
-            call.stopVideo(localVideoStream);
+            await call.stopVideo(localVideoStream);
             rendererLocal.dispose();
             startVideoButton.disabled = false;
             stopVideoButton.disabled = true;
@@ -296,7 +297,7 @@ You can stop the video during the current call by adding an event listener to th
 You can add an event listener to the Start Video button to turn the video back on when it was stopped during the current call. 
 
         startVideoButton.addEventListener("click", async () => {
-            call.startVideo(localVideoStream);
+            await call.startVideo(localVideoStream);
             localVideoView();
             stopVideoButton.disabled = false;
             startVideoButton.disabled = true;
