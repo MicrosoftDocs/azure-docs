@@ -138,7 +138,7 @@ param demoParam string = 'Contoso'
 
 ---
 
-To specify a default value and other properties for the parameter, use the following syntax.
+To specify a default value along with other properties for the parameter, use the following syntax.
 
 # [JSON](#tab/json)
 
@@ -146,7 +146,11 @@ To specify a default value and other properties for the parameter, use the follo
 "parameters": {
   "demoParam": {
     "type": "string",
-    "defaultValue": "Contoso"
+    "defaultValue": "Contoso",
+    "allowedValues": [
+      "Contoso",
+      "Fabrikam"
+    ]
   }
 }
 ```
@@ -154,7 +158,75 @@ To specify a default value and other properties for the parameter, use the follo
 # [Bicep](#tab/bicep)
 
 ```bicep
-param demoParam string = 'Contoso'
+param demoParam string {
+  default: 'Contoso'
+  allowed: [
+    'Contoso'
+    'Fabrikam'
+  ]
+}
+```
+
+---
+
+You can use expressions with the default value. Expressions aren't allowed with other parameter properties.
+
+# [JSON](#tab/json)
+
+```json
+"parameters": {
+  "location": {
+    "type": "string",
+    "defaultValue": "[resourceGroup().location]"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param location string {
+  default: resourceGroup().location
+}
+```
+
+---
+
+## Length constraint
+
+You can specify minimum and maximum length constraints for string and array parameters. For strings, the length constraints indicate the number of allowed characters. For arrays, the length constraints indicate the number of allowed items.
+
+The following example declares two parameters. One parameter is for a storage account name that must have 3-24 characters. The other parameter is an array that must have from one to five items.
+
+# [JSON](#tab/json)
+
+```json
+"parameters": {
+  "storageAccountName": {
+    "type": "string",
+    "minLength": 3,
+    "maxLength": 24
+  },
+  "appNames": {
+    "type": "array",
+    "minLength": 1,
+    "maxLength": 5
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param storageAccountName string {
+  minLength: 3
+  maxLength: 24
+}
+
+param appNames array {
+  minLength: 1
+  maxLength: 5
+}
 ```
 
 ---
