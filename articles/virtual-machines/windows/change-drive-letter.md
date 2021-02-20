@@ -30,7 +30,7 @@ First, you'll need to attach the data disk to the virtual machine. To do this us
 6. In the **Virtual memory** section, select **Change**.
 7. Select the **C** drive and then click **System managed size** and then click **Set**.
 8. Select the **D** drive and then click **No paging file** and then click **Set**.
-9. Click Apply. You will get a warning that the computer needs to be restarted for the changes to take effect.
+9. Click Apply. You will get a warning that the computer needs to be restarted for the changes to take affect.
 10. Restart the virtual machine.
 
 ## Change the drive letters
@@ -49,7 +49,7 @@ First, you'll need to attach the data disk to the virtual machine. To do this us
 5. In the **Virtual memory** section, select **Change**.
 6. Select the OS drive **C** and click **No paging file** and then click **Set**.
 7. Select the temporary storage drive **T** and then click **System managed size** and then click **Set**.
-8. Click **Apply**. You will get a warning that the computer needs to be restarted for the changes to take effect.
+8. Click **Apply**. You will get a warning that the computer needs to be restarted for the changes to take affect.
 9. Restart the virtual machine.
 
 ## Next steps
