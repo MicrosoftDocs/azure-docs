@@ -77,6 +77,8 @@ By comparison, Azure Automation is a cloud-based automation and configuration se
 
 1. Under **Authentication**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections. The types of connections in each task vary based on the task.
 
+   This example shows only one of the connections that's required by this task.
+
    ![Screenshot that shows the selected "Create" option for the Azure Resource Manager connection](./media/create-automation-tasks-azure-resources/create-authenticate-connections.png)
 
 1. When you're prompted, sign in with your Azure account credentials.
