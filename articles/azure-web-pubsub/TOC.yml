@@ -1,0 +1,26 @@
+- name: Azure Web PubSub service documentation
+  href: index.yml
+
+- name: Overview
+  items:
+  - name: About Azure Web PubSub service
+    href: web-pubsub-overview.md
+
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: TBD
+    href: TBD.md
+
+- name: Tutorials
+  items:
+  - name: TBD
+    href: TBD.md
+
+- name: Samples
+  items:
+  - name: Code samples
+    href: TBD
+  - name: Azure CLI
+    href: web-pubsub-reference-cli.md
+

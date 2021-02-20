@@ -1,0 +1,50 @@
+### YamlMime:Landing
+
+title: Azure Web PubSub service documentation
+summary: Azure Web PubSub service is an Azure-managed service that helps developers easily build web applications with real-time features and publish-subscribe pattern.
+
+metadata:
+  title: Azure Web PubSub service documentation
+  description: Build and scale real-time web app easily based on WebSocket supporting broad range of languages and frameworks.
+  ms.service: #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page
+  author: yjin81
+  ms.author: yajin1
+  ms.date: 01/27/2021 
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Web PubSub service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Web PubSub service?
+            url: web-pubsub-overview.md
+
+  # Card 
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Serverless - C#
+            url: web-pubsub-quickstart-functions-csharp.md
+          - text: Serverless - Java
+            url: web-pubsub-quickstart-functions-java.md
+          - text: Serverless - JavaScript
+            url: web-pubsub-quickstart-functions-javascript.md
+          - text: Serverless - Python
+            url: web-pubsub-quickstart-functions-python.md
+
+  # Card
+  - title: Build Azure Web PubSub service applications
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Azure Web PubSub Code Samples
+            url: TBD.md
+          - text: Azure CLI
+            url: web-pubsub-reference-cli.md
