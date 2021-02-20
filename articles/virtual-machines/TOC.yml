@@ -892,8 +892,8 @@
             href: ./linux/disk-encryption-key-vault-aad.md
           - name: Disk encryption scenarios for Linux
             href: ./linux/disk-encryption-linux-aad.md
-      -name: Windows
-       items:
+      - name: Windows
+        items:
         - name: Disk encryption scenarios for Windows
           href: ./windows/disk-encryption-windows.md
         - name: Quickstarts
