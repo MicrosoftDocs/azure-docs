@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/15/2020
+ms.date: 02/19/2021
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -15,20 +15,18 @@ ms.date: 09/15/2020
 > [!NOTE]
 > To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
-Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data during a support request.
+Most operations, support, and troubleshooting performed by Microsoft personnel and sub-processors does not require access to customer data. In those rare circumstances where such access is required, Customer Lockbox for Microsoft Azure provides an interface for customers to review a customer data access request and approve or reject the request. It is used in cases where a Microsoft engineer needs to access customer data, whether in response to a customer-initiated support ticket or a problem identified by Microsoft.
 
-This article covers how Customer Lockbox requests are initiated, tracked, and stored for later reviews and audits.
+This article covers how to enable Customer Lockbox and how Lockbox requests are initiated, tracked, and stored for later reviews and audits.
 
-Customer Lockbox is now generally available and currently enabled for remote desktop access to virtual machines.
+## Supported services and scenarios (General Availability)
 
-## Supported services and scenarios in preview
+The following services are now generally available for Customer Lockbox:
 
-The following services are now currently in preview for Customer Lockbox:
-
-- API Management
+- Azure API Management
 ​- Azure App Service​​
-- Cognitive Services
-- Container Registry
+- Azure Cognitive Services
+- Azure Container Registry
 - Azure Database for MySQL​
 - Azure Databricks
 - Azure Data Box
@@ -36,34 +34,23 @@ The following services are now currently in preview for Customer Lockbox:
 - Azure Data Factory
 - Azure Database for PostgreSQL
 - Azure Functions
-- HDInsight
+- Azure HDInsight
 - Azure Kubernetes Service
 - Azure Monitor
 - Azure Storage
-- Azure SQL DB
+- Azure SQL Database
 - Azure subscription transfers
 - Azure Synapse Analytics
-- Virtual machines (now also covering access to memory dumps and managed disks)
+- Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
 
 To enable Customer Lockbox for these preview offerings for your organization, sign up for [Customer Lockbox for Azure Public Preview](https://aka.ms/customerlockbox/insiderprogram).
 
-## Supported services and scenarios in general availability
+## Enable Customer Lockbox
 
-The following services and scenarios are currently in general availability for Customer Lockbox.
-
-### Remote desktop access to virtual machines
-
-Customer Lockbox is currently enabled for remote desktop access requests to virtual machines. The following workloads are supported:
-- Platform as a service (PaaS) - Azure Cloud Services (web role and worker role)
-- Infrastructure as a service (IaaS) - Windows and Linux (Azure Resource Manager only)
-- Virtual machine scale set - Windows and Linux
+You can now enable Customer Lockbox from the [Administration module](https://ms.portal.azure.com/#blade/Microsoft_Azure_Lockbox/LockboxMenu/Overview) in the Customer Lockbox blade.  
 
 > [!NOTE]
-> IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
-
-#### Detailed audit logs
-
-For scenarios that involve remote desktop access, you can use Windows event logs to review the actions taken by the Microsoft engineer. Consider using Azure Security Center to collect your event logs and copy the data to your workspace for analysis. For more information, see [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md).
+> To enable Customer Lockbox, the user account needs to have the [Global Administrator role assigned](../../active-directory/roles/manage-roles-portal.md).
 
 ## Workflow
 
@@ -94,7 +81,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
     ![Azure Customer Lockbox - email notification](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
-8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox:
+8. The email notification provides a link to the **Customer Lockbox** blade in the Administration module. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox:
 
     ![Azure Customer Lockbox - landing page](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
 
@@ -138,12 +125,12 @@ We've introduced a new baseline control ([3.13](../benchmarks/security-control-i
 
 Customer Lockbox requests aren't triggered in the following engineering support scenarios:
 
-- A Microsoft engineer needs to do an activity that falls outside of standard operating procedures. For example, to recover or restore services in unexpected or unpredictable scenarios.
+- Emergency scenarios that fall outside of standard operating procedures. For example, a major service outage requires immediate attention to recover or restore services in an unexpected or unpredictable scenario. These “break glass” events are rare and, in most instances, do not require any access to customer data to resolve
 
-- A Microsoft engineer accesses the Azure platform as part of troubleshooting and inadvertently has access to customer data. For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. However, if the customer encrypted the data while it was in transit, the engineer cannot read the data.
+- A Microsoft engineer accesses the Azure platform as part of troubleshooting and is inadvertently exposed to customer data. For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. It is rare that such scenarios would result in access to meaningful quantities of customer data, but customers can further protect their data through use of in transit and at rest [encryption](encryption-overview.md).
 
 ## Next steps
 
-Customer Lockbox is automatically available for all customers who have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
+Customer Lockbox is available for all customers who have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**. You can enable Customer Lockbox from the [Administration module](https://ms.portal.azure.com/#blade/Microsoft_Azure_Lockbox/LockboxMenu/Overview) in the Customer Lockbox blade.
 
-When you have an eligible support plan, no action is required by you to enable Customer Lockbox. Customer Lockbox requests are initiated by a Microsoft engineer if this action is needed to progress a support ticket that is filed from somebody in your organization.
+Customer Lockbox requests are initiated by a Microsoft engineer if this action is needed to progress a support case.
