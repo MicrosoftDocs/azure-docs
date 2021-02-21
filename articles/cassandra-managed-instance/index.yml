@@ -51,6 +51,8 @@ landingContent:
       - linkListType: how-to-guide
         links: 
           - text: Manage resources with Azure CLI
-            url: manage-with-cli.md      
+            url: manage-with-cli.md  
+          - text: Manage with Azure Resource Manager
+            url: manage-with-azure-resource-manager.md                  
           - text: Visualize Metrics in Prometheus with Grafana
             url: visualize-prometheus-grafana.md                               

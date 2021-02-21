@@ -20,6 +20,8 @@
   items:
     - name: Manage with Azure CLI
       href: manage-with-cli.md
+    - name: Manage with Azure Resource Manager
+      href: manage-with-azure-resource-manager.md      
     - name: Visualize metrics in Prometheus with Grafana
       href: visualize-prometheus-grafana.md      
           
