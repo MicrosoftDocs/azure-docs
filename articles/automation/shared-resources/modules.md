@@ -3,7 +3,7 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 ms.topic: conceptual
 ---
 
@@ -35,7 +35,11 @@ These are known limitations with the sandbox. The recommended workaround is to d
 
 ## Default modules
 
-The following table lists modules that Azure Automation imports by default when you create your Automation account. Automation can import newer versions of these modules. However, you can't remove the original version from your Automation account, even if you delete a newer version. Note that these default modules include several AzureRM modules. 
+The following table lists modules that Azure Automation imports by default when you create your Automation account. Automation can import newer versions of these modules. However, you can't remove the original version from your Automation account, even if you delete a newer version. Note that these default modules include several AzureRM modules.
+
+The default modules are also known as global modules. In the Azure portal,  the **Global module** property will be **true** when viewing a module that was imported when the account was created.
+
+![Screenshot of global module property in Azure Portal](../media/modules/automation-global-modules.png)
 
 Automation doesn't import the root Az module automatically into any new or existing Automation accounts. For more about working with these modules, see [Migrating to Az modules](#migrate-to-az-modules).
 

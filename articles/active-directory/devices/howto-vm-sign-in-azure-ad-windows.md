@@ -190,9 +190,9 @@ az role assignment create \
 
 For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see the following articles:
 
-- [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-- [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
-- [Add or remove Azure role assignments using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+- [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## Using Conditional Access
 

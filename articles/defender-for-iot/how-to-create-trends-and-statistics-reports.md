@@ -21,19 +21,29 @@ You can create widget graphs and pie charts to gain insight into network trends 
 The dashboard consists of widgets that graphically describe the following types of information:
 
 - Traffic by port
+- Top traffic by port
 - Channel bandwidth
 - Total bandwidth
 - Active TCP connection
+- Top Bandwidth by VLAN
 - Devices:
   - New devices
   - Busy devices
   - Devices by vendor
   - Devices by OS
+  - Number of devices per VLAN
   - Disconnected devices
-- Connectivity drop by hours
+- Connectivity drops by hours
 - Alerts for incidents by type
 - Database table access
 - Protocol dissection widgets
+- DELTAV
+  - DeltaV roc operations distribution
+  - DeltaV roc events by name
+  - DeltaV events by time
+- AMS
+  - AMS traffic by server port
+  - AMS traffic by command
 - Ethernet and IP address:
   - Ethernet and IP address traffic by CIP service
   - Ethernet and IP address traffic by CIP class
@@ -44,6 +54,15 @@ The dashboard consists of widgets that graphically describe the following types 
 - Siemens S7:
   - S7 traffic by control function
   - S7 traffic by subfunction
+- VLAN
+  - Number of devices per VLAN
+  - Top bandwidth by VLAN
+- 60870-5-104
+  - IEC-60870 Traffic by ASDU
+- BACNET
+  - BACnet Services
+- DNP3
+  -	DNP3 traffic by function
 - SRTP:
   - SRTP traffic by service code
   - SRTP errors by day

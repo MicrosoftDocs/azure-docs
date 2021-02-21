@@ -1,14 +1,9 @@
 ---
 title: Incrementally copy data by
 description: These tutorials show you how to incrementally copy data from a source data store to a destination data store. The first one copies data from one table.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
@@ -16,7 +11,7 @@ ms.date: 01/22/2018
 
 # Incrementally load data from a source data store to a destination data store
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In a data integration solution, incrementally (or delta) loading data after an initial full data load is a widely used scenario. The tutorials in this section show you different ways of loading data incrementally by using Azure Data Factory.
 
