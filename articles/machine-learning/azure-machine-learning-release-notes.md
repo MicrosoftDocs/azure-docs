@@ -50,8 +50,6 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + added python 3.7 classifiers to azureml-interpret and azureml-explain-model packages
   + **azureml-interpret**
     + added python 3.7 classifiers to azureml-interpret and azureml-explain-model packages
-  + **azureml-pipeline-core**
-    + Fixed a typo called out by customers in the reference documentation
   + **azureml-train-automl-client**
     + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
     + AutoML will now generate two log files instead of one. Log statements will go to one or the other depending on which process the log statement was generated in.
