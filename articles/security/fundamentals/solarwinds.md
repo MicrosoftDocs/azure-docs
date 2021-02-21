@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/04/2021
+ms.date: 02/21/2021
 ms.author: bagol
 
 ---
 
 # Securing your system against systemic-identity compromise
 
-In December 2020, a massive systemic-identity compromise was [discovered by FireEye in the SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html) (Solorigate).
+In December 2020, a systemic-identity compromise was [discovered by FireEye in the SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html) (Solorigate).
 
-The Solorigate attack is an example of how a systemic-identity compromise can provide attackers with a foothold into affected customer networks, which they can then use to gain elevated credentials. The attackers can use those credentials to access global administrator accounts or trusted SAML token-signing certificates. 
+The Solorigate attack is an example of how a systemic-identity compromise can provide attackers with a foothold into affected customer networks and elevated credentials. The attackers can use those credentials to access global administrator accounts or trusted SAML token-signing certificates. 
 
-The global administrator account or certificates enable the attackers to forge SAML tokens that can impersonate any of the organization's existing users and accounts, including highly privileged accounts.
+If you do not adequately secure your global administrator accounts or certificates, then the global administrator account or certificates enable the attackers to forge SAML tokens that can impersonate any of the organization's existing users and accounts, including highly privileged accounts.
 
-Providing full security coverage is a [shared responsibility](shared-responsibility.md). This article provides information both about the steps that Microsoft has taken to shut down the Solorigate attack and steps you can take to identify risks and evidence of compromise while hardening your system against attacks.
+Providing full security coverage is a [shared responsibility](shared-responsibility.md). This article provides information both about the steps that Microsoft has taken to shut down the Solorigate attack and steps you can take to identify risks and evidence of compromise while hardening your system against attacks. For more information, see additional [Microsoft references for Solorigate](#microsoft-references-for-solorigate).
 
 **Microsoft swiftly took the following steps against the Solorigate attack**:
 
-- **Disclosed the set of complex techniques** used by the advanced threat actor in the attack, affecting several key customers.
+- **Disclosed the set of complex techniques** used by the advanced threat actor in the attack.
 
--  **Removed the digital certificates used by the files infected with the trojan,** causing all Windows systems to immediately stop trusting those compromised files. 
+-  **Removed the digital certificates used by the files infected with the trojan,** causing Windows systems to immediately stop trusting those compromised files.
 
 - **Updated Azure Sentinel detections and hunting queries, and added a new workbook** to detect and alert for infected files on the system.
 
@@ -41,7 +41,7 @@ Providing full security coverage is a [shared responsibility](shared-responsibil
 - **Sinkholed one of the domains used** for the malware's command-and-control servers.
 
 > [!IMPORTANT]
-> The Solorigate attack is an ongoing investigation, and our teams continue to act as first responders. As new information becomes available, we provide updates through the Microsoft Security Response Center (MSRC) blog at [https://aka.ms/solorigate](https://aka.ms/solorigate).
+> The Solorigate attack is an ongoing investigation. As new information becomes available, we provide updates through the Microsoft Security Response Center (MSRC) blog at [https://aka.ms/solorigate](https://aka.ms/solorigate).
 > 
 
 > [!NOTE]
@@ -51,7 +51,9 @@ Providing full security coverage is a [shared responsibility](shared-responsibil
 
 ## Using Azure Sentinel to respond to a systemic-identity compromise
 
-1. Make sure that you have the following Azure Sentinel connectors set up in order to stream a range of alerts and queries for known patterns related to the Solorigate attack:
+We recommend that Azure Sentinel customers to start their investigations in Azure Sentinel, which can stream a range of alerts and queries for known patterns related to the Solorigate attack.
+
+1. Make sure that you have the following Azure Sentinel connectors set up:
 
     - [Windows security events](/azure/sentinel/connect-windows-security-events.md) 
     - [Microsoft 365 Defender](/azure/sentinel/connect-microsoft-365-defender.md) 
@@ -77,7 +79,7 @@ The **SolarWinds Post Compromise Hunting** workbook queries logs collected by Az
 > [!TIP]
 > Modify the **Hunting Timeframe** in each section to update the query results shown.    
 
-## Using Microsoft 365 Defender resources to secure your network after a systemic-identity compromise
+## Using Microsoft 365 Defender resources to secure your network against a systemic-identity compromise
 
 We recommend that Microsoft 365 Defender customers to start their investigations with the following threat analytics reports, created by Microsoft specifically for Solorigate:
 
@@ -109,7 +111,7 @@ For more information, see:
 > These reports are available only to Microsoft Defender for Endpoint customers and Microsoft 365 Defender early adopters. 
 > 
 
-## Using Azure Active Directory to secure your network after a systemic-identity compromise
+## Using Azure Active Directory to secure your network against a systemic-identity compromise
 
 Use Azure Active Directory services to protect and defend your network by performing the following steps in your system:
 
@@ -132,7 +134,7 @@ The **Sensitive Operations Report** indicates suspicious activity detected in yo
 For more information, see [Active Directory best practices](/azure/active-directory/develop/identity-platform-integration-checklist) and [Blocking legacy authentication](/azure/active-directory/fundamentals/concept-fundamentals-block-legacy-authentication) in the Azure Active Directory documentation.
 ## Microsoft references for Solorigate
 
-For more information about securing your system after Solorigate, see any of the following Microsoft resources:
+For more information about securing your system against Solorigate, see any of the following Microsoft resources:
 
 |Source  |Links  |
 |---------|---------|

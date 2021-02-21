@@ -82,7 +82,7 @@ Find a project as follows:
 3. Select the appropriate subscription and Azure Migrate project.
 
 
-### Find a legacy project
+### Find a classic Azure Migrate project
 
 If you created the project in the [previous version](migrate-services-overview.md#azure-migrate-versions) of Azure Migrate, find it as follows:
 
@@ -122,7 +122,7 @@ Note that:
        
     - If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal and find the workspace.
        
-2. [Follow the instructions](../azure-monitor/platform/delete-workspace.md) to delete the workspace.
+2. [Follow the instructions](../azure-monitor/logs/delete-workspace.md) to delete the workspace.
 
 ## Next steps
 

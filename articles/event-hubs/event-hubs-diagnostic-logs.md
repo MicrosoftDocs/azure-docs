@@ -9,10 +9,10 @@ ms.date: 10/27/2020
 
 You can view two types of logs for Azure Event Hubs:
 
-* **[Activity logs](../azure-monitor/platform/platform-logs-overview.md)**: These logs have information about operations done on a job. The logs are always enabled. You can see activity log entries by selecting **Activity log** in the left pane for your event hub namespace in the Azure portal. For example: "Create or Update Namespace", "Create or Update Event Hub".
+* **[Activity logs](../azure-monitor/essentials/platform-logs-overview.md)**: These logs have information about operations done on a job. The logs are always enabled. You can see activity log entries by selecting **Activity log** in the left pane for your event hub namespace in the Azure portal. For example: "Create or Update Namespace", "Create or Update Event Hub".
 
     ![Activity log for an Event Hubs namespace](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md)**: Diagnostic logs provide richer information about operations and actions that are conducted against your namespace by using the API, or through management clients on the language SDK. 
+* **[Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)**: Diagnostic logs provide richer information about operations and actions that are conducted against your namespace by using the API, or through management clients on the language SDK. 
     
     The following section shows you how to enable diagnostic logs for an Event Hubs namespace.
 
@@ -31,7 +31,7 @@ Diagnostic logs are disabled by default. To enable diagnostic logs, follow these
 
     New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, in the **Diagnostics logs** pane.
 
-    For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../azure-monitor/platform/platform-logs-overview.md).
+    For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Diagnostic logs categories
 
