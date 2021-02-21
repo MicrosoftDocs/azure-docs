@@ -912,7 +912,7 @@ productDirectory:
         - hybrid
       url: /azure-stack/
     # Card
-    - title: Azure Stack HCI (Preview)
+    - title: Azure Stack HCI
       summary: Integrate hyperconverged infrastructure with Azure and hybrid services to run virtual workloads on premises
       imageSrc: https://static.docs.com/ui/media/product/azure/stack-hci.svg
       azureCategories:

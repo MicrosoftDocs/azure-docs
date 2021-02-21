@@ -62,7 +62,7 @@ Where `--enable-private-cluster` is a mandatory flag for a private cluster.
 > [!NOTE]
 > If the Docker bridge address CIDR (172.17.0.1/16) clashes with the subnet CIDR, change the Docker bridge address appropriately.
 
-## Configure Private DNS Zone
+## Configure Private DNS Zone 
 
 The following parameters can be leveraged to configure Private DNS Zone.
 
@@ -75,7 +75,7 @@ The following parameters can be leveraged to configure Private DNS Zone.
 * The AKS Preview version 0.4.71 or later
 * The api version 2020-11-01 or later
 
-### Create a private AKS cluster with Private DNS Zone
+### Create a private AKS cluster with Private DNS Zone (Preview)
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [none|system|custom private dns zone ResourceId]
