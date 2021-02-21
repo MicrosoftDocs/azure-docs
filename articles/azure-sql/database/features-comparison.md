@@ -154,7 +154,7 @@ Azure SQL Database and Azure SQL Managed Instance support various data tools tha
 | Azure portal | Yes | Yes |
 | Azure CLI | Yes | Yes|
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | Yes | Yes |
-| Azure Powershell | Yes | Yes |
+| Azure PowerShell | Yes | Yes |
 | [BACPAC file (export)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Yes - see [SQL Database export](database-export.md) | Yes - see [SQL Managed Instance export](database-export.md) |
 | [BACPAC file (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Yes - see [SQL Database import](database-import.md) | Yes - see [SQL Managed Instance import](database-import.md) |
 | [Data Quality Services (DQS)](/sql/data-quality-services/data-quality-services) | No | No |
@@ -164,7 +164,7 @@ Azure SQL Database and Azure SQL Managed Instance support various data tools tha
 | [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Yes [version 18.0 and higher](/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Yes | Yes |
 | [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | No - see [Extended events](xevent-db-diff-from-svr.md) | Yes |
-| [System Center Operations Manager (SCOM)](/system-center/scom/welcome) | [Yes](https://www.microsoft.com/download/details.aspx?id=38829) | Yes, [in preview](https://www.microsoft.com/download/details.aspx?id=38829) |
+| [System Center Operations Manager](/system-center/scom/welcome) | [Yes](https://www.microsoft.com/download/details.aspx?id=38829) | [Yes](https://www.microsoft.com/en-us/download/details.aspx?id=101203) |
 
 ## Migration methods
 
