@@ -34,7 +34,7 @@ landingContent:
           - text: Connect a cluster to Azure Arc
             url: quickstart-connect-cluster.md
 
-   - title: Deploy configurations using GitOps
+  - title: Deploy configurations using GitOps
     linkLists:
       - linkListType: tutorial
         links:
