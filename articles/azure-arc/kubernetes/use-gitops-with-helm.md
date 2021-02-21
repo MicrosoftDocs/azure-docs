@@ -19,7 +19,7 @@ This article shows you how to configure and use Helm with Azure Arc enabled Kube
 
 ## Before you begin
 
-Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./connect-cluster.md).
+Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./quickstart-connect-cluster.md).
 
 ## Overview of using GitOps and Helm with Azure Arc enabled Kubernetes
 

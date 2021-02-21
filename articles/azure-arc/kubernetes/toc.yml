@@ -8,6 +8,10 @@
   items:
   - name: Deploy configurations using GitOps
     href: tutorial-use-gitops-connected-cluster.md
+- name: Quickstarts
+  items:
+  - name: Connect a cluster to Azure Arc
+    href: quickstart-connect-cluster.md
 - name: Concepts
   items:
   - name: Agent architecture
@@ -20,8 +24,6 @@
   items:
   - name: Connect to Azure Arc
     items:
-    - name: Connect cluster
-      href: connect-cluster.md
     - name: Onboarding service principal
       href: create-onboarding-service-principal.md
   - name: Scenarios

@@ -45,6 +45,6 @@ This at-scale enforcement ensures a common baseline configuration (containing co
 
 ## Next steps
 
-* [Connect a cluster to Azure Arc](./connect-cluster.md)
-* [Create configurations on your Arc enabled Kubernetes cluster](./tutorial-use-gitops-connected-cluster.md)
+* [Connect a cluster to Azure Arc](./quickstart-connect-cluster.md)
+* [Create configurations on your Arc enabled Kubernetes cluster](./use-gitops-connected-cluster.md)
 * [Use Azure Policy to apply configurations at scale](./use-azure-policy.md)
