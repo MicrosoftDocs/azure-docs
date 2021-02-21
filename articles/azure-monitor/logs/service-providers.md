@@ -44,7 +44,7 @@ The advantages of the distributed architecture are:
 
 The disadvantages of the distributed architecture are:
 
-* Centrally visualizing and analyzing data across customer tenants with tools such as Azure Monitor Workbooks can result in slower experiences , especially when analyzing data across more than 50+ workspaces.
+* Centrally visualizing and analyzing data [across customer tenants](cross-workspace-query.md) with tools such as Azure Monitor Workbooks can result in slower experiences, especially when analyzing data across more than 50+ workspaces.
 * If customers are not onboarded for Azure delegated resource management, service provider administrators must be provisioned in the customer directory, and it is harder for the service provider to manage a large number of customer tenants at once.
 
 ### 2. Central - Logs are stored in a workspace located in the service provider tenant
