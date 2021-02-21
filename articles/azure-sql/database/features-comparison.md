@@ -8,10 +8,10 @@ ms.subservice: features
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
+author: danimir
+ms.author: danil
 ms.reviewer: bonova, sstein, danil
-ms.date: 02/19/2021
+ms.date: 02/21/2021
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
