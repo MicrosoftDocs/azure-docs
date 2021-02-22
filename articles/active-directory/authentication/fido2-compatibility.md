@@ -50,7 +50,7 @@ The following are the minimum browser version requirements.
 | Chrome | 76 |
 | Edge | Windows 10 version 1903 <sup>1<sup> |
 | Firefox | 66 |
-<sup>1<sup>All versions of the new Chromium based Microsoft Edge support Fido2. Support on Microsoft Edge legacy was added in 1903.
+<sup>1</sup>All versions of the new Chromium based Microsoft Edge support Fido2. Support on Microsoft Edge legacy was added in 1903.
 
 ## Next steps
 [Enable passwordless security key sign-in (preview)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key)
