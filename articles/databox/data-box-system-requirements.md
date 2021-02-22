@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/23/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 # Azure Data Box system requirements
