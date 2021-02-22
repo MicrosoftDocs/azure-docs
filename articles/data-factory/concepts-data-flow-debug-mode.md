@@ -7,7 +7,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/04/2020
+ms.date: 02/19/2021
 ---
 
 # Mapping data flow Debug Mode
@@ -35,9 +35,9 @@ In most cases, it's a good practice to build your Data Flows in debug mode so th
 
 ## Cluster status
 
-The cluster status indicator at the top of the design surface turns green when the cluster is ready for debug. If your cluster is already warm, then the green indicator will appear almost instantly. If your cluster wasn't already running when you entered debug mode, then you'll have to wait 5-7 minutes for the cluster to spin up. The indicator will spin until its ready.
+The cluster status indicator at the top of the design surface turns green when the cluster is ready for debug. If your cluster is already warm, then the green indicator will appear almost instantly. If your cluster wasn't already running when you entered debug mode, then the Spark cluster will perform a cold boot. The indicator will spin until the environment is ready for interactive debugging.
 
-When you are finished with your debugging, turn the Debug switch off so that your Azure Databricks cluster can terminate and you'll no longer be billed for debug activity.
+When you are finished with your debugging, turn the Debug switch off so that your Spark cluster can terminate and you'll no longer be billed for debug activity.
 
 ## Debug settings
 
