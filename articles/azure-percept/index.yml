@@ -5,37 +5,30 @@ summary: Azure Percept is an end-to-end edge AI platform. # < 160 chars
 metadata:
   title: Azure Percept documentation
   description: Azure Percept is an end-to-end edge AI platform.
-  services: rtos
-  ms.service: rtos
+  services: azure-percept
+  ms.service: azure-percept
   ms.topic: landing-page 
   author: elqu20 
   ms.author: v-elqu 
   ms.date: 02/11/2021 
 
 landingContent:
-  - title: Get started with Azure Percept DK
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Unbox and assemble your Azure Percept DK
-            url: quickstart-percept-dk-unboxing.md
-
-  - title: Prototyping with Azure Percept DK
+  - title: What is Azure Percept?
     linkLists:
       - linkListType: overview
         links:
+          - text: Azure Percept platform overview
+            url: overview-azure-percept.md
+          - text: Azure Percept Studio overview
+            url: overview-azure-percept-studio.md
+          - text: Azure Percept DK overview
+            url: overview-azure-percept-dk.md
+          - text: Azure Percept Audio overview
+            url: overview-azure-percept-audio.md
+          - text: Azure Percept security overview
+            url: overview-percept-security.md
           - text: Azure Percept AI models
             url: overview-ai-models.md
-      - linkListType: tutorial
-        links:
-          - text: Create a no-code vision solution
-            url: tutorial-nocode-vision.md
-      - linkListType: how-to-guide
-        links:
-          - text: Connect to your Azure Percept DK over serial
-            url: how-to-connect-to-percept-dk-over-serial.md
-          - text: Connect to your Azure Percept DK over SSH
-            url: how-to-ssh-into-percept-dk.md
       - linkListType: reference
         links:
           - text: Azure Percept DK datasheet
@@ -44,3 +37,45 @@ landingContent:
             url: azure-percept-vision-datasheet.md
           - text: Azure Percept Audio datasheet
             url: azure-percept-audio-datasheet.md
+
+  - title: Get started with Azure Percept DK
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Unbox and assemble your Azure Percept DK
+            url: quickstart-percept-dk-unboxing.md
+          - text: Complete the Azure Percept DK setup experience
+            url: quickstart-percept-dk-setup.md
+      - linkListType: tutorial
+        links:
+          - text: Create a no-code vision solution
+            url: tutorial-nocode-vision.md
+      - linkListType: how-to-guide
+        links:
+          - text: View your devkit's video stream
+            url: how-to-view-video-stream.md
+          - text: Deploy an AI model to your devkit
+            url: how-to-deploy-model.md
+          - text: Capture images for a vision project
+            url: how-to-capture-images.md
+          - text: View your devkit's telemetry
+            url: how-to-view-telemetry.md
+          - text: Connect to your Azure Percept DK over SSH
+            url: how-to-ssh-into-percept-dk.md
+          - text: Connect to your Azure Percept DK over serial
+            url: how-to-connect-to-percept-dk-over-serial.md
+
+  - title: Get started with Azure Percept Audio
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure Percept Audio setup
+            url: quickstart-percept-audio-setup.md
+      - linkListType: tutorial
+        links:
+          - text: Create a no-code speech solution
+            url: tutorial-nocode-speech.md
+      - linkListType: concept
+        links:
+          - text: LED and button behavior
+            url: audio-button-led-behavior.md
