@@ -119,19 +119,19 @@ Once you have the required packages installed, you need to provision the device 
       sudo aziotctl config apply
    ```
 
-5 Optionally, you can verify that the services are running by
+5. Optionally, you can verify that the services are running by
 
-   ```shell
-      sudo systemctl list-units --type=service | grep 'adu-agent\.service\|deliveryoptimization-agent\.service'
-   ```
+    ```shell
+       sudo systemctl list-units --type=service | grep 'adu-agent\.service\|deliveryoptimization-agent\.service'
+    ```
 
-The output should read:
+    The output should read:
 
-```markdown
-adu-agent.service                   loaded active running Device Update for IoT Hub Agent daemon.
+    ```markdown
+       adu-agent.service                   loaded active running Device Update for IoT Hub Agent daemon.
 
-deliveryoptimization-agent.service               loaded active running deliveryoptimization-agent.service: Performs content delivery optimization tasks   `
-```
+       deliveryoptimization-agent.service               loaded active running deliveryoptimization-agent.service: Performs content delivery optimization tasks   `
+    ```
 
 ## Add a tag to your device
 
