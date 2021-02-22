@@ -243,6 +243,7 @@ Azure does not automatically delete intermediate data written with `OutputFileDa
 * Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](../storage/blobs/storage/blobs/storage-lifecycle-management-concepts.md)) 
 * Regularly review and delete no-longer-needed data
 
+For more information, see [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md).
 
 ## Next steps
 
