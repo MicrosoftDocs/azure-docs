@@ -1,5 +1,5 @@
 ---
-title: Configure a SharePoint Online indexer
+title: Configure a SharePoint Online indexer (preview)
 titleSuffix: Azure Cognitive Search
 description: Set up a SharePoint Online indexer to automate indexing of document library content for full text search operations in Azure Cognitive Search.
 
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ---
 
-# How to configure SharePoint Online indexing in Cognitive Search
+# How to configure SharePoint Online indexing in Cognitive Search (preview)
 
 > [!IMPORTANT] 
 > SharePoint Online support is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
