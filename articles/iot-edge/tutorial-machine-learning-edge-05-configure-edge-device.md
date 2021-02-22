@@ -38,7 +38,7 @@ In this section, we create the self-signed certificates by using a Docker image 
 1. Sign in to your development VM.
 1. Create a new folder with the path and name **c:\edgeCertificates**.
 
-1. If not already running, start **Docker for Windows** from the Windows Start menu.
+1. If it's not already running, start **Docker for Windows** from the Windows Start menu.
 
 1. Open Visual Studio Code.
 
@@ -75,13 +75,13 @@ In this section, we create the self-signed certificates by using a Docker image 
 
 ## Upload certificates to Azure Key Vault
 
-To store our certificates securely and make them accessible from multiple devices, we'll upload the certificates into Azure Key Vault. As you can see from the preceding list, we have two types of certificate files: PFX and PEM. We'll treat the PFX file as Key Vault certificates to be uploaded to Key Vault. The PEM files are plain text, and we'll treat them as Key Vault secrets. We'll use the Key Vault associated with the Azure Machine Learning workspace we created by running the [Jupyter notebooks](tutorial-machine-learning-edge-04-train-model.md#run-the-jupyter-notebooks).
+To store our certificates securely and make them accessible from multiple devices, we'll upload the certificates into Azure Key Vault. As you can see from the preceding list, we have two types of certificate files: PFX and PEM. We'll treat the PFX file as Key Vault certificates to be uploaded to Key Vault. The PEM files are plain text, and we'll treat them as Key Vault secrets. We'll use the Key Vault instance associated with the Azure Machine Learning workspace we created by running the [Jupyter notebooks](tutorial-machine-learning-edge-04-train-model.md#run-the-jupyter-notebooks).
 
 1. From the [Azure portal](https://portal.azure.com), go to your Azure Machine Learning workspace.
 
-1. From the overview page of the Machine Learning workspace, find the name of the **Key Vault**.
+1. From the overview page of the Machine Learning workspace, find the name for **Key Vault**.
 
-    ![Screenshot that shows copying the Key Vault name.](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
+    ![Screenshot that shows copying the key vault name.](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
 
 1. On your development machine, upload the certificates to Key Vault. Replace **\<subscriptionId\>** and **\<keyvaultname\>** with your resource information.
 
@@ -89,7 +89,7 @@ To store our certificates securely and make them accessible from multiple device
     c:\source\IoTEdgeAndMlSample\CreateCertificates\upload-keyvaultcerts.ps1 -SubscriptionId <subscriptionId> -KeyVaultName <keyvaultname>
     ```
 
-1. If prompted, sign in to Azure.
+1. If you're prompted, sign in to Azure.
 
 1. The script will run for a few minutes with output that lists the new Key Vault entries.
 
@@ -111,7 +111,7 @@ For this tutorial, we create the new device identity by using Visual Studio Code
 
 1. The new device appears in the list of devices.
 
-    ![Screenshot that shows a view of aaTurbofanEdgeDevice in Visual Studio Code Explorer.](media/tutorial-machine-learning-edge-05-configure-edge-device/iot-hub-devices-list.png)
+    ![Screenshot that shows a view of the device in Visual Studio Code Explorer.](media/tutorial-machine-learning-edge-05-configure-edge-device/iot-hub-devices-list.png)
 
 ## Deploy an Azure virtual machine
 
@@ -157,7 +157,7 @@ Next, run the script to create the virtual machine for your IoT Edge device.
     .\Create-EdgeVm.ps1
     ```
 
-1. When prompted, provide values for each parameter. For subscription, resource group, and location, we recommend you use the same values as you have for all resources throughout this tutorial.
+1. When you're prompted, provide values for each parameter. For subscription, resource group, and location, we recommend you use the same values as you have for all resources throughout this tutorial.
 
     * **Azure Subscription ID**: Found in the Azure portal.
     * **Resource Group Name**: Memorable name for grouping the resources for this tutorial.
@@ -190,9 +190,9 @@ The next several sections configure the Azure virtual machine we created. The fi
     ssh -l <username> iotedge-<suffix>.<region>.cloudapp.azure.com
     ```
 
-1. When prompted to validate the authenticity of the host, enter **yes** and select **Enter**.
+1. When you're prompted to validate the authenticity of the host, enter **yes** and select **Enter**.
 
-1. When prompted, provide your password.
+1. When you're prompted, provide your password.
 
 1. Ubuntu displays a welcome message, and then you should see a prompt like `<username>@<machinename>:~$`.
 
@@ -238,8 +238,8 @@ We'll deal with the leaf device later in the tutorial. In this section, download
 The IoT Edge runtime uses the file /etc/iotedge/config.yaml to persist its configuration. We need to update three pieces of information in this file:
 
 * **Device connection string**: The connection string from this device's identity in IoT Hub
-* **Certificates:** The certificates to use for connections made with downstream devices
-* **Hostname:** The fully qualified domain name (FQDN) of the VM IoT Edge device
+* **Certificates**: The certificates to use for connections made with downstream devices
+* **Hostname**: The fully qualified domain name (FQDN) of the VM IoT Edge device
 
 The Azure IoT Edge on Ubuntu image that we used to create the IoT Edge VM comes with a shell script that updates the config.yaml file with the connection string.
 
