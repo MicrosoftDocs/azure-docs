@@ -344,7 +344,7 @@ kubectl -n itops get all
 ```
 ## Clean up resources
 
-Delete a `sourceControlConfiguration` using the Azure CLI or Azure portal. After you initiate the delete command, the `sourceControlConfiguration` resource will be deleted immediately in Azure. Full deletion of the associated objects from the cluster should happen within 10 minutes. If the `sourceControlConfiguration` is in a failed state when removed, the full deletion of associated objects can take up to an hour.
+Delete a configuration using the Azure CLI or Azure portal. After you run the delete command, the configuration resource will be deleted immediately in Azure. Full deletion of the associated objects from the cluster should happen within 10 minutes. If the configuration is in a failed state when removed, the full deletion of associated objects can take up to an hour.
 
 When a configuration with `namespace` scope is deleted, the namespace is not deleted by Azure Arc to avoid breaking these existing workloads. If needed, you can delete this namespace manually using `kubectl`.
 
