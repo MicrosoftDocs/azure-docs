@@ -97,20 +97,11 @@ Azure API for FHIR service is provisioned.
 
 ### When the Azure storage account is in the same region
 
-The configuration process is the same as above except a private IP
-address is used instead. To find the private IP address, which is
-specific to each hosting environment for Azure API for FHIR, take the following steps:
+The configuration process is the same as above except a specific IP
+address range in CIDR format is used instead, 100.64.0.0/10. 
 
-1.  Enable AuditLogs in Diagnostic setting for the Azure API for FHIR
-    service from the portal. Specify a storage account. For more info on to enable AuditLogs, see
-    [Enable Diagnostic Logging in Azure API for
-    FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/enable-diagnostic-logging).
-
-2.  Run the \$export. To speed up the process, use query parameters
-    "\_type=patient" and "\_since=xxx".
-
-3.  Locate the logs in the specified storage account and look for originating IP address, which should look like
-    either 10.0.2.0/24 or 100.64.0.0/10.
+Note that because the actual IP address used by the service changes, the IP address range, including 100.64.0.0–100.127.255.255. 
+must be specified.
     
 ## Next steps
 
