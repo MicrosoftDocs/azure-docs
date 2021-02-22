@@ -11,10 +11,12 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Update your Azure Percept DK over the air
 
+Follow this guide to learn how to update the carrier board of your Azure Percept DK over-the-air with Device Update for IoT Hub.
+
 ## Import your update file and manifest file.
 
-	>[!Note]
-	>If you have already imported the update, you can skip directly to **Create a Device Updated Group**.
+> [!NOTE]
+> If you have already imported the update, you can skip directly to **Create a Device Updated Group**.
 
 1. Navigate to the Azure IoT Hub that you are using for your Azure Percept device. On the left-hand menu panel, select **Device Updates** under **Automatic Device Management**.
  
@@ -46,8 +48,8 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ## Create a Device Update Group
 Device Update for IoT Hub allows you to target an update to specific groups of Azure Percept DKs. To create a group, you must add a tag to your target set of devices in Azure IoT Hub.
 
-	>[!Note]
-	>If you have already created a group, you can skip directly to the next step.
+> [!NOTE]
+> If you have already created a group, you can skip directly to the next step.
 
 Group Tag Requirements:
 - You can add any value to your tag except for **Uncategorized**, which is a reserved value.
@@ -59,13 +61,13 @@ Group Tag Requirements:
 
 1. Add a Tag to your device(s).
 	1. From **IoT Edge** on the left navigation pane, find your Azure Percept DK and navigate to its **Device Twin**.
-	1. Add a new **Device Update for IoT Hub** tag value as shown below (Change <CustomTagValue> to your value, i.e. AzurePerceptGroup1). Learn more about device twin [JSON document tags](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins#device-twins).
+	1. Add a new **Device Update for IoT Hub** tag value as shown below (Change <CustomTagValue> to your value, i.e. AzurePerceptGroup1). Learn more about device twin [JSON document tags](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins#device-twins).
 
-```
-"tags": {
-"ADUGroup": "<CustomTagValue>"
-},
-```
+    ```
+    "tags": {
+    "ADUGroup": "<CustomTagValue>"
+    },
+    ```
 
  
 1. Click **Save** and resolve any formatting issues.
@@ -94,3 +96,7 @@ Group Tag Requirements:
 1. Select the **Deployments** tab at the top of the **Device updates** page.
  
 1. Select your deployment to view the deployment details. You may need to click **Refresh** until the **Status** changes to **Succeeded**.
+
+## Next steps
+
+Your dev kit is now successfully updated. You may continue development and operation with your devkit.

@@ -1,6 +1,6 @@
 ---
-title: Configure voice assistant application using IoT Hub
-description: Configure voice assistant application using IoT Hub
+title: Configure voice assistant application using Azure IoT Hub
+description: Configure voice assistant application using Azure IoT Hub
 author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
@@ -9,9 +9,11 @@ ms.date: 02/15/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Configure voice assistant application using IoT Hub
+# Configure voice assistant application using Azure IoT Hub
 
 This article describes how to configure your voice assistant application using IoT Hub. For a step-by-step tutorial that guides you through the process of creating a voice assistant using demo template, see [Build a no-code voice assistant with Azure Percept Studio and Azure Percept Audio](./tutorial-nocode-speech.md).
+
+## Update your voice assistant configuration
 
 1. Open the [Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home) and type **IoT Hub** into the search bar. Click on the icon to open the IoT Hub page.
 
@@ -27,11 +29,9 @@ This article describes how to configure your voice assistant application using I
 
 1. Verify that the following entry is present under the **Container Registry Credentials** section. Add credentials if required.
 
-    Name|Address|Username|Password
-    ----|-------|--------|--------
-    azureedgedevices|azureedgedevices.azurecr.io|devkitprivatepreviewpull|***
-
-    **NOTE:** If you do not have a password for the container registry, please reach to your primary contact for the Santa Cruz private preview program.
+    |Name|Address|Username|Password|
+    |----|-------|--------|--------|
+    |azureedgedevices|azureedgedevices.azurecr.io|devkitprivatepreviewpull|
 
 1. In the **IoT Edge Modules** section, select **azureearspeechclientmodule**.
 
@@ -39,9 +39,9 @@ This article describes how to configure your voice assistant application using I
 
 1. Click on the **Module Settings** tab. Verify the following configuration:
 
-    Image URI|Restart Policy|Desired Status
-    ---------|--------------|--------------
-    azureedgedevices.azurecr.io/azureearspeechclientmodule:preload-devkit |always|running
+    |Image URI|Restart Policy|Desired Status|
+    |---------|--------------|--------------|
+    |azureedgedevices.azurecr.io/azureearspeechclientmodule:preload-devkit |always|running|
 
     If your settings do not match, edit them and click **Update**.
 
@@ -72,7 +72,8 @@ This article describes how to configure your voice assistant application using I
     }
     ```
 
-    **Note**: The keyword used above is a default publicly available keyword. If you wish to use your own, you can add your own custom keyword by uploading a created table file to blob storage. Blob storage needs to be configured with either anonymous container access or anonymous blob access.
+    > [!NOTE]
+    > The keyword used above is a default publicly available keyword. If you wish to use your own, you can add your own custom keyword by uploading a created table file to blob storage. Blob storage needs to be configured with either anonymous container access or anonymous blob access.
 
 ## How to find out appId, key and region
 
@@ -106,3 +107,7 @@ To locate your **appID**, **key**, and **region**, go to [Speech Studio](https:/
 1. Click **Review + Create**.
 
 1. Click **Create**.
+
+## Next steps
+
+After updating your voice assistant configuration, return to the demo in Azure Percept Studio to interact with the application.

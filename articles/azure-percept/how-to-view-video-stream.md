@@ -43,4 +43,4 @@ Follow this guide to view the RTSP video stream from the Vision SoM of the Azure
 
 ## Next steps
 
-Learn how to view your [Azure Percept DK telemetry](how-to-view-telemetry.md).
+Learn how to view your [Azure Percept DK telemetry](./how-to-view-telemetry.md).

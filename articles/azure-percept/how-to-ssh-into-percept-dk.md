@@ -15,11 +15,10 @@ Follow the steps below to set up an SSH connection to your Azure Percept DK thro
 
 ## Prerequisites
 
-
 - A Windows, Linux, or OS X based host computer with Wi-Fi capability
 - An SSH client
 	- If your host computer runs Windows, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) is an effective SSH client, and will be used throughout this guide.
-	- If your host computer runs Linux or OS X, SSH services are included in those operating systems and can be run without a seperate client application. Check your opterating system product documentation for more information on how to run SSH services.
+	- If your host computer runs Linux or OS X, SSH services are included in those operating systems and can be run without a separate client application. Check your operating system product documentation for more information on how to run SSH services.
 - Azure Percept DK
 
 ## Initiate the SSH connection
@@ -32,7 +31,6 @@ Follow the steps below to set up an SSH connection to your Azure Percept DK thro
 
     > [!WARNING]
     > While connected to the Azure Percept DK Wi-Fi access point, your host computer will temporarily lose its connection to the Internet. Active video conference calls, web streaming, or other network-based experiences will be interrupted until step 3 of the Azure Percept DK on-boarding experience is completed.
-
 
 1. Open PuTTY. Enter the following and click **Open** to SSH into your devkit:
 

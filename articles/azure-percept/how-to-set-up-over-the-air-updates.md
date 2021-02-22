@@ -14,7 +14,7 @@ Keep your Azure Percept DK secure and up to date using over-the-air updates. In 
 
 ## Create a Device Update Account
 
-1. Go to the [Azure Portal](https://portal.azure.com) and sign in with the Azure account you are using with Azure Percept 
+1. Go to the [Azure portal](https://portal.azure.com) and sign in with the Azure account you are using with Azure Percept 
 
 1. In the search window at the top of the page, begin typing “Device Update for IoT Hub”
 
@@ -56,7 +56,9 @@ The final step will enable you to grant permissions to users to publish and depl
  
 3. For **Role**, select **Device Update Administrator**. For **Assign access to** select **User, group, or service principle**. For **Select** select your account or the account of the person who will be deploying updates. Then, click **Save**. 
 
-	> [TIP]
-	> If you would like to give more people in your organization access, you can repeat this step and make each of these users a **Device Update Administrator**.
- 
-You are now set and can update your Azure Percept dev kit over-the-air using Device Update for IoT Hub. Navigate to the Azure IoT Hub that you are using for your Azure Percept device.
+	> [!TIP]
+    > If you would like to give more people in your organization access, you can repeat this step and make each of these users a **Device Update Administrator**.
+
+## Next steps
+
+You are now set and can [update your Azure Percept dev kit over-the-air](./how-to-update-over-the-air.md) using Device Update for IoT Hub. Navigate to the Azure IoT Hub that you are using for your Azure Percept device.

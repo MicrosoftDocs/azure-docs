@@ -11,12 +11,14 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # How to update Azure Percept DK over a USB connection
 
+Follow this guide to learn how to perform a USB update for the carrier board of your Azure Percept DK.
+
 ## Prerequisites
 - Host computer with an available USB-C or USB-A port.
 - Azure Percept DK (dev kit) carrier board and supplied USB-C to USB-C cable. If your host computer has a USB-A port but not a USB-C port, you may use a USB-C to USB-A cable (sold separately).
 - Install [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (admin access needed).
 - Install the NXP UUU tool. [Download the Latest Release](https://github.com/NXPmicro/mfgtools/releases) uuu.exe file (for Windows) or the uuu file (for Linux) under the Assets tab.
-- [Install 7zip](https://www.7-zip.org/). This software will be used for extracting the raw image file from its XZ compressed file. Download and install the appropriate .exe file.
+- [Install 7-Zip](https://www.7-zip.org/). This software will be used for extracting the raw image file from its XZ compressed file. Download and install the appropriate .exe file.
 
 ## Steps
 1.	Download the following [three USB Update files](https://go.microsoft.com/fwlink/?linkid=2155734):
@@ -25,7 +27,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 	- fast-hab-fw.raw
  
 1. Extract to pe101-uefi-***&lt;version number&gt;***.raw  from the compressed pe101-uefi***&lt;version number&gt;***.raw.xz file. 
-Not sure how to extract? Download and Install 7zip, then right-click on the **.xz** image file and select 7-Zip &gt; Extract Here.
+Not sure how to extract? Download and Install 7-Zip, then right-click on the **.xz** image file and select 7-Zip &gt; Extract Here.
 
 1. Copy the following three files to the folder that contains the UUU tool:
 	- Extracted  pe101-uefi-***&lt;version number&gt;***.raw file (from step 2).
@@ -42,7 +44,7 @@ Not sure how to extract? Download and Install 7zip, then right-click on the **.x
 	
 After running these commands, you may see a message stating "Waiting for device..." in the command prompt. This is expected and you should proceed to the next step.
 	
-1. Connect the dev kit carrier board to the host computer via a USB cable. Always connect from the carrier boards USB-C port to either the host computer's USB-C or USB-A port (USB-C to USB-A cable sold seperately), depending on which ports are available. 
+1. Connect the dev kit carrier board to the host computer via a USB cable. Always connect from the carrier boards USB-C port to either the host computer's USB-C or USB-A port (USB-C to USB-A cable sold separately), depending on which ports are available. 
  
 1. In the SSH/PuTTY terminal, enter the following commands to set the dev kit into USB mode and then to reboot the dev kit.
 	- ```flagutil    -wBfRequestUsbFlash    -v1```
@@ -54,5 +56,6 @@ After running these commands, you may see a message stating "Waiting for device.
 
 1. Power the carrier board back on.
 
-Your dev kit is now successfully updated.
+## Next steps
 
+Your dev kit is now successfully updated. You may continue development and operation with your devkit.

@@ -1,3 +1,14 @@
+---
+title: Configure voice assistant application within Azure Percept Studio
+description: Configure voice assistant application within Azure Percept Studio
+author: elqu20
+ms.author: v-elqu
+ms.service: azure-percept
+ms.topic: how-to
+ms.date: 02/15/2021
+ms.custom: template-how-to #Required; leave this attribute/value as-is.
+---
+
 # Managing your voice assistant
 
 This article describes how to configure the keyword and commands of your voice assistant application within [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). For guidance on configuring your keyword within IoT Hub instead of the portal, please see this [how-to article](./how-to-configure-voice-assistant.md).
@@ -44,7 +55,7 @@ A keyword is a word or short phrase used to activate a voice assistant. For exam
 
 With [Speech Studio](https://speech.microsoft.com/), you can create a custom keyword for your voice assistant. It takes up to 30 minutes to train a basic custom keyword model.
 
-Follow the [Speech Studio documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) for guidance on creating a custom keyword. Once configured, your new keyword will be available in the Project Santa Cruz portal for use with your voice assistant application.
+Follow the [Speech Studio documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) for guidance on creating a custom keyword. Once configured, your new keyword will be available in the Project Santa Cruz portal for use with your voice assistant application.
 
 ## Commands configuration
 
@@ -72,4 +83,8 @@ Custom commands make it easy to build rich voice commanding apps optimized for v
 
 With [Speech Studio](https://speech.microsoft.com/), you can create custom commands for your voice assistant to execute.
 
-Follow the [Speech Studio documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstart-custom-commands-application) for guidance on creating custom commands. Once configured, your new commands will be available in the Project Santa Cruz portal for use with your voice assistant application.
+Follow the [Speech Studio documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-custom-commands-application) for guidance on creating custom commands. Once configured, your new commands will be available in Azure Percept Studio for use with your voice assistant application.
+
+## Next steps
+
+After building a voice assistant application, try developing a [no-code vision solution](./tutorial-nocode-vision) with your Azure Percept DK.
