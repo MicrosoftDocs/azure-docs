@@ -62,7 +62,7 @@ It is important to know how much headroom, or typically unutilized, bandwidth yo
 
 - Are you an existing Azure ExpressRoute customer? View your [circuit usage](https://docs.microsoft.com/azure/expressroute/expressroute-monitoring-metrics-alerts#circuits-metrics) in the Azure portal.
 - You can Contact your ISP. They should have reports to share with you illustrating your existing daily and monthly utilization.
-3. There are several tools that can measure utilization by monitoring your network traffic at your router/switch level including:
+- There are several tools that can measure utilization by monitoring your network traffic at your router/switch level including:
   - [Solarwinds Bandwidth Analyzer Pack](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
   - [Paessler PRTG](https://www.paessler.com/bandwidth_monitoring)
   - [Cisco Network Assistant](https://www.cisco.com/c/en/us/products/cloud-systems-management/network-assistant/index.html)
