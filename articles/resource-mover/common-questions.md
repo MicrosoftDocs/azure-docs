@@ -49,7 +49,7 @@ You can't select disks as resources to the moved across regions. However, disks 
 
 ### What does it mean to move a resource group?
 
-When a resource is selected for move, the corresponding resource group is added automatically for moving. This is so the destinatiogn resource can be placed in a resource group. You can choose to customize and provide an existing resource group, after it's added for move. Moving a resource roup doesn't mean that all the resources in the source resource group will be moved.
+When a resource is selected for move, the corresponding resource group is added automatically for moving. This is so that the destination resource can be placed in a resource group. You can choose to customize and provide an existing resource group, after it's added for move. Moving a resource group doesn't mean that all the resources in the source resource group will be moved.
 
 ### Can I move resources across subscriptions when I move them across regions?
 
