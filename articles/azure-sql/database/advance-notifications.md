@@ -6,11 +6,11 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ---
 # Advance notifications for planned maintenance events (Preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

@@ -8,7 +8,7 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 02/17/2021
+ms.date: 03/02/2021
 ---
 # Configure maintenance window (Preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -248,7 +248,8 @@ The following example creates a new managed instance and sets the maintenance wi
 
 -----
 
-## Set the maintenance window for an existing database, elastic pool, or managed instance
+## Configure maintenance window for existing databases
+
 
 When applying a maintenance window selection to a database, a brief failover (several seconds) may be experienced in some cases as Azure applies the required changes.
 
