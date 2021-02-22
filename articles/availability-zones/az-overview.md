@@ -87,7 +87,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 
 > [!div class="mx-tableFixed"]
 > | Foundational                           | Mainstream                                        | 
-> |----------------------------------------|---------------------------------------------------|-
+> |----------------------------------------|---------------------------------------------------|
 > | Storage Accounts                       | API Management                                    | 
 > | Application Gateway                    | App Configuration                                 | 
 > | Azure Backup                           | App Service                                       | 
