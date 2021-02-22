@@ -19,7 +19,7 @@ ms.author: memildin
 Azure Security Center provides unified security management and advanced threat protection for workloads running in Azure, on-premises, and in other clouds. It delivers visibility and control over hybrid cloud workloads, active defenses that reduce your exposure to threats, and intelligent detection to help you keep pace with rapidly evolving cyber risks.
 
 
-## Free option vs Azure Defender enabled
+## Security Center free vs Azure Defender enabled
 
 Security Center is offered in two modes:
 
