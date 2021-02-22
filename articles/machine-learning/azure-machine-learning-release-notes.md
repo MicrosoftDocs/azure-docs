@@ -28,11 +28,6 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
   + **azureml-synapse**
     + [Experimental feature] Add support of spark magic to run interactive session in synapse spark pool.
 + **Bug fixes and improvements**
-  + **automl-client-core-nativeclient**
-    + AutoML will now generate two log files instead of one. Log statements will go to one or the other depending on which process the log statement was generated in.
-  + **azureml-automl-core**
-    + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
-    + AutoML will now generate two log files instead of one. Log statements will go to one or the other depending on which process the log statement was generated in.
   + **azureml-automl-runtime**
     + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
     + AutoML will now generate two log files instead of one. Log statements will go to one or the other depending on which process the log statement was generated in.
@@ -51,12 +46,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
   + **azureml-interpret**
     + added python 3.7 classifiers to azureml-interpret and azureml-explain-model packages
   + **azureml-train-automl-client**
-    + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
-    + AutoML will now generate two log files instead of one. Log statements will go to one or the other depending on which process the log statement was generated in.
     + Fixed a bug that prevented AutoML experiments performed on Azure Databricks clusters from being cancelled.
-  + **azureml-train-automl-runtime**
-    + AutoML will now generate two log files instead of one. Log statements will go to one or the other depending on which process the log statement was generated in.
-    + Remove unnecessary in-sample prediction during model training with cross-validations. This may decrease model training time in some cases, especially for time-series forecasting models.
 
 
 ## 2021-02-09
