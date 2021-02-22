@@ -18,13 +18,19 @@ You'll notice that the 'generate' task created a directory with the same name as
 
 ### Install the package
 
-Open the **pom.xml** file in your text editor. Add the following dependency element to the group of dependencies.
+Open the **pom.xml** file in your text editor. Add the following dependency elements to the group of dependencies.
 
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-phonenumbers</artifactId>
-    <version>1.0.0-beta.5</version> 
+    <version>1.0.0-beta.5</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+    <version>1.2.3</version>
 </dependency>
 ```
 
@@ -47,6 +53,7 @@ import java.util.*;
 import java.time.*;
 
 import com.azure.core.http.*;
+import com.azure.identity.*;
 
 public class App
 {
@@ -91,6 +98,8 @@ PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
     .buildClient();
 ```
 
+## Manage Phone Numbers
+
 ### Search for Available Phone Numbers
 
 In order to purchase phone numbers, you must first search for available phone numbers. To search for phone numbers, provide the area code, assignment type, [phone number capabilities](../../../concepts/telephony-sms/plan-solution.md#phone-number-capabilities-in-azure-communication-services), [phone number type](../../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services), and quantity. Note that for the toll-free phone number type, providing the area code is optional.
@@ -122,7 +131,7 @@ System.out.println("Purchase phone numbers operation is: " + purchaseResponse.ge
 
 ### Get Phone Number(s)
 
-After a purchasing number, you can retrieve it from the client. 
+After a purchasing number, you can retrieve it from the client.
 ```java
 AcquiredPhoneNumber phoneNumber = phoneNumberClient.getPhoneNumber("+18001234567");
 System.out.println("Phone Number Country Code: " + phoneNumber.getCountryCode());
@@ -153,7 +162,7 @@ System.out.println("Phone Number SMS capabilities: " + phoneNumber.getCapabiliti
 
 You can release a purchased phone number.
 ```java
-PollResponse<PhoneNumberOperation> releaseResponse = 
+PollResponse<PhoneNumberOperation> releaseResponse =
     phoneNumberClient.beginReleasePhoneNumber("+18001234567", Context.NONE).waitForCompletion();
 System.out.println("Release phone number operation is: " + releaseResponse.getStatus());
 ```

@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Manage Phone Numbers using Azure Communication Services
-description: Learn how to manage Communication Services phone numbers using Azure Communication Services
+description: Learn how to manage phone numbers using Azure Communication Services
 author: prakulka
 manager: nmurav
 services: azure-communication-services
