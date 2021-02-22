@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 02/22/2021
 ---
 
 # What's new in Azure Sentinel
@@ -48,7 +48,7 @@ If you have [UEBA enabled](ueba-enrichments.md), and have selected a timeframe o
 
 We've improved the Azure Sentinel incident searching experience, enabling you to navigate faster through incidents as you investigate a specific threat.
 
-When searching for incidents in Azure Sentinel, you're now able to search by any of the following incident details:
+When searching for incidents in Azure Sentinel, you're now able to search by the following incident details:
 
 - ID
 - Title
