@@ -20,7 +20,7 @@ ms.date: 03/01/2021
 > 
 > The [REST API version 2020-06-30-Preview](search-api-preview.md) provides this feature. There is currently no portal or SDK support.
 
-This document shows how to use Azure Cognitive Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in SharePoint Online document libraries into an Azure Cognitive Search index.   First, it explains the basics of setting up and configuring the indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
+This article shows how to use Azure Cognitive Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in SharePoint Online document libraries into an Azure Cognitive Search index. First, it explains the basics of setting up and configuring the indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
 
 ## Functionality
 An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from a data source. The SharePoint Online indexer will connect to your SharePoint Online site and index documents from one or more Document Libraries. The indexer provides the following functionality:
