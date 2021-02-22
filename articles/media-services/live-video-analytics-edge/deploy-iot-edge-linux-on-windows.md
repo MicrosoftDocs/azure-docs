@@ -37,18 +37,18 @@ In this article, you'll learn how to deploy Live Video Analytics on an edge devi
     bash -c "$(curl -sL https://aka.ms/lva-edge/prep_device)"
     ```
 
-Live Video Analytics module runs on the edge device with non-privileged [local user accounts](deploy-iot-edge-device.md#create-and-use-local-user-account-for-deployment). Additionally, it [needs certain local folders](deploy-iot-edge-device.md#granting-permissions-to-device-storage) for storing application configuration data. Finally, for this how-to guide we are leveraging a [RTSP simulator](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) that relays a video feed in real time to LVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
-
-The prep-device script automates these tasks away, so you can run one command and have all relevant input and configuration folders, video input files, and user accounts with privileges created seamlessly. Once the command finishes successfully, you should see the following folders created on your edge device. 
-
-* `/home/lvaedgeuser/samples`
-* `/home/lvaedgeuser/samples/input`
-* `/var/lib/azuremediaservices`
-* `/var/media`
-
-Note the video files (*.mkv) in the /home/lvaedgeuser/samples/input folder, which serve as input files to be analyzed. 
-
-:::image type="content" source="./media/deploy-iot-edge-linux-on-windows/azure-iot-edge-manager-analysis.png" alt-text="Analysis":::
+    Live Video Analytics module runs on the edge device with non-privileged [local user accounts](deploy-iot-edge-device.md#create-and-use-local-user-account-for-deployment). Additionally, it [needs certain local folders](deploy-iot-edge-device.md#granting-permissions-to-device-storage) for storing application configuration data. Finally, for this how-to guide we are leveraging a [RTSP simulator](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) that relays a video feed in real time to LVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
+    
+    The prep-device script used above automates these tasks away, so you can run one command and have all relevant input and configuration folders, video input files, and user accounts with privileges created seamlessly. Once the command finishes successfully, you should see the following folders created on your edge device. 
+    
+    * `/home/lvaedgeuser/samples`
+    * `/home/lvaedgeuser/samples/input`
+    * `/var/lib/azuremediaservices`
+    * `/var/media`
+    
+    Note the video files (*.mkv) in the /home/lvaedgeuser/samples/input folder, which serve as input files to be analyzed. 
+    
+    :::image type="content" source="./media/deploy-iot-edge-linux-on-windows/azure-iot-edge-manager-analysis.png" alt-text="Analysis":::
 1. Now that you have the edge device set up, registered to the hub and running successfully with the correct folder structures created, the next step is to set up the following additional Azure resources and deploy the LVA module. 
 
     * Storage account
