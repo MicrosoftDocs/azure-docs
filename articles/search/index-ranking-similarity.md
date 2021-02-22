@@ -13,18 +13,17 @@ ms.date: 03/02/2021
 
 # Configure ranking algorithms in Azure Cognitive Search
 
-Azure Cognitive Search supports three similarity ranking algorithms:
+Azure Cognitive Search supports two similarity ranking algorithms:
 
 + A *classic similarity* algorithm, used by all search services up until July 15, 2020.
 + An implementation of the *Okapi BM25* algorithm, used in all search services created after July 15.
-+ A *semantic search* algorithm currently in public preview, that adds [semantic ranking an responses](semantic-how-to-query-response.md).
 
 BM25 ranking is the new default because it tends to produce search rankings that align better with user expectations. It also enables configuration options for tuning results based on factors such as document size. For new services created after July 15, 2020, BM25 is used automatically and is the sole similarity algorithm. If you try to set similarity to ClassicSimilarity on a new service, a 400 error will be returned because that algorithm is not supported by the service.
 
 For older services created before July 15, 2020, classic similarity remains the default algorithm. Older services can set properties on a search index to invoke BM25, as explained below. If you are switching from classic to BM25, you can expect to see some differences how search results are ordered.
 
 > [!NOTE]
-> Semantic search is a preview feature that narrows the gap between expectations and results even more. But unlike the other algorithms, it is an add-on feature with certain [availability and pricing](semantic-search-overview.md#availability-and-pricing) requirements. To use the preview semantic search algorithm, you must create a new service, and you must specify a [semantic query type](semantic-how-to-query-request.md). For more information, see [Semantic search overview](semantic-search-overview.md).
+> Semantic search is an additional semantic re-ranking algorithm that narrows the gap between expectations and results even more. Unlike the other algorithms, it is an add-on feature that iterates over an existing result set. To use the preview semantic search algorithm, you must create a new service, and you must specify a [semantic query type](semantic-how-to-query-request.md). For more information, see [Semantic search overview](semantic-search-overview.md).
 
 ## Create a search index for BM25 scoring
 

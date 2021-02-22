@@ -11,7 +11,24 @@ ms.date: 03/02/2021
 ---
 # Similarity and scoring in Azure Cognitive Search
 
-This article describes the ranking algorithms available in Azure Cognitive Search. It also introduces two related features. *Scoring profiles*, logic that you add to a search index schema to provide criteria for adjusting a search score, such as raising the score if a match was found in a particular field. The *featuresMode* parameter unpacks a search score to show more detail, useful if you are building a custom scoring module.
+This article describes the two similarity ranking algorithms in Azure Cognitive Search. It also introduces two related features: *scoring profiles* (criteria for adjusting a search score) and the *featuresMode* parameter (unpacks a search score to show more detail). 
+
+A third semantic re-ranking algorithm is currently in public preview. For more information, start with [Semantic search overview](semantic-search-overview.md).
+
+## Similarity ranking algorithms
+
+Azure Cognitive Search supports two similarity ranking algorithms.
+
+| Algorithm | Score | Availability |
+|-----------|-------|--------------|
+| ClassicSimilarity | @search.score | Used by all search services up until July 15, 2020. |
+| BM25Similarity | @search.score | Used by all search services created after July 15. Older services that use classic by default can [opt in to BM25](index-ranking-similarity.md). |
+
+Both classic and BM25 are TF-IDF-like retrieval functions that use the term frequency (TF) and the inverse document frequency (IDF) as variables to calculate relevance scores for each document-query pair, which is then used for ranking While conceptually similar to classic, BM25 takes its root in probabilistic information retrieval to improve upon it. BM25 also offers advanced customization options, such as allowing the user to decide how the relevance score scales with the term frequency of matched terms.
+
+The following video segment fast-forwards to an explanation of the generally available ranking algorithms used in Azure Cognitive Search. You can watch the full video for more background.
+
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
 ## Relevance scoring
 
@@ -27,22 +44,6 @@ If you want to break the tie among repeating scores, you can add an **$orderby**
 
 > [!NOTE]
 > A `@search.score = 1.00` indicates an un-scored or un-ranked result set. The score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or a **$filter** expression.
-
-## Similarity ranking algorithms
-
-Azure Cognitive Search supports three similarity ranking algorithms.
-
-| Algorithm | Score | Availability |
-|-----------|-------|--------------|
-| ClassicSimilarity | @search.score | Used by all search services up until July 15, 2020. |
-| BM25Similarity | @search.score | Used by all search services created after July 15. Older services that use classic by default can [opt in to BM25](index-ranking-similarity.md). |
-| [Semantic](semantic-how-to-query-response.md) | @search.rerankerScoresemanticScore | Currently in public preview, with [restricted availability](semantic-search-overview.md#availability-and-pricing) based on service, tier, and region. |
-
-Both classic and BM25 are TF-IDF-like retrieval functions that use the term frequency (TF) and the inverse document frequency (IDF) as variables to calculate relevance scores for each document-query pair, which is then used for ranking While conceptually similar to classic, BM25 takes its root in probabilistic information retrieval to improve upon it. BM25 also offers advanced customization options, such as allowing the user to decide how the relevance score scales with the term frequency of matched terms.
-
-The following video segment fast-forwards to an explanation of the generally available ranking algorithms used in Azure Cognitive Search. You can watch the full video for more background.
-
-> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643] 
 
 <a name="scoring-statistics"></a>
 
