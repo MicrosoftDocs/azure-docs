@@ -17,6 +17,21 @@ This article describes how to add IPv6 support to connect via ExpressRoute to yo
 > [!Note]
 > This feature is currently available for preview in [Azure regions with Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region#azure-regions-with-availability-zones). Your ExpressRoute circuit can therefore be created using any peering location, but the IPv6-based deployments it connects to must be in a region with Availability Zones.
 
+## Register for Public Preview
+Before adding IPv6 support, you must first enroll your subscription. To enroll, please do the following via Azure PowerShell:
+1.  Sign in to Azure and select the subscription. You must do this for the subscription containing your ExpressRoute circuit, as well as the subscription containing your Azure deployments (if they are different).
+
+```azurepowershell-interactive
+Connect-AzAccount 
+
+Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+```
+
+2. Register your subscription for Public Preview using the following command:
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName AllowIpv6PrivatePeering -ProviderNamespace Microsoft.Network
+```
+
 ## Sign in to the Azure portal
 
 From a browser, go to the [Azure portal](https://portal.azure.com), and then sign in with your Azure account.
