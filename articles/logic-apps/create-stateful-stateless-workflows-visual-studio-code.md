@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 03/02/2021
 ---
 
 # Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -62,6 +62,8 @@ This article shows how to create your logic app and a workflow in Visual Studio 
 
 #### Windows and Linux
 
+Currently, the designer in Visual Studio Code doesn't work on Linux OS, but you can still deploy logic apps that use the Logic Apps Preview runtime to Linux-based virtual machines. For now, you can build your logic apps in Visual Studio Code on Windows or macOS and then deploy to a Linux-based virtual machine.
+
 1. Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179).
 
 1. To run the emulator, you need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
@@ -94,7 +96,7 @@ When you later try to open the designer for a workflow in your logic app, you ge
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your logic app.
 
-  * [Azure Functions Core Tools 3.0.2931 or later](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.2931) by using the Microsoft Installer (MSI).
+  * [Azure Functions Core Tools 3.0.3245 or later](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.3245) by using the Microsoft Installer (MSI) version, which is `func-cli-3.0.3245-x*.msi`.
 
     These tools include a version of the same runtime that powers the Azure Functions runtime, which the Preview extension uses in Visual Studio Code.
 
@@ -122,6 +124,12 @@ When you later try to open the designer for a workflow in your logic app, you ge
        After the installation completes, the Preview extension appears in the **Extensions: Installed** list.
 
        ![Screenshot that shows Visual Studio Code's installed extensions list with the "Azure Logic Apps (Preview)" extension underlined.](./media/create-stateful-stateless-workflows-visual-studio-code/azure-logic-apps-extension-installed.png)
+
+       > [!TIP]
+       > If the extension doesn't appear in the installed list, try restarting Visual Studio Code.
+
+
+* To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [NodeJS versions 10.x.x, 11.x.x, or 12.x.x](https://nodejs.org/download/release/), and make this installation available in your PATH.
 
 * To locally run webhook-based triggers and actions, such as the [built-in HTTP Webhook trigger](../connectors/connectors-native-webhook.md), in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
 
@@ -161,9 +169,7 @@ Any logic apps that you created with the **Azure Logic Apps (Private Preview)** 
 
 1. To make sure that all the extensions are correctly installed, reload or restart Visual Studio Code.
 
-1. Enable or confirm that Visual Studio Code automatically finds and installs extension updates so that your PublicPreview extension gets the latest updates. Otherwise, you have to manually uninstall the outdated version and install the latest version.
-
-   To check this setting, follow these steps:
+1. Confirm that Visual Studio Code automatically finds and installs extension updates so that your Preview extension gets the latest updates. Otherwise, you have to manually uninstall the outdated version and install the latest version.
 
    1. On the **File** menu, go to **Preferences** **>** **Settings**.
 
@@ -171,26 +177,24 @@ Any logic apps that you created with the **Azure Logic Apps (Private Preview)** 
 
    1. Confirm that **Auto Check Updates** and **Auto Update** are selected.
 
-1. Enable or confirm that these extension settings have the correct selections:
+By default, the following settings are enabled and set for the Logic Apps preview extension:
 
-   * **Azure Logic Apps V2: Panel Mode**
-   * **Azure Logic Apps V2: Project Runtime**
+* **Azure Logic Apps V2: Project Runtime**, which is set to version **~3**
 
-   1. On the **File** menu, go to **Preferences** **>** **Settings**.
+  > [!NOTE]
+  > This version is required to use the [Inline Code Operations actions](../logic-apps/logic-apps-add-run-inline-code.md).
 
-   1. On the **User** tab, go to **>** **Extensions** **>** **Azure Logic Apps (Preview)**.
+* **Azure Logic Apps V2: Experimental View Manager**, which enables the latest designer in Visual Studio Code. If you experience problems on the designer, such as dragging and dropping items, turn off this setting.
 
-   1. Confirm these extension settings:
+To find these settings, follow these steps:
 
-      * Under **Azure Logic Apps V2: Panel Mode**, confirm that **Enable panel mode** is selected.
+1. On the **File** menu, go to **Preferences** **>** **Settings**.
 
-      * Under **Azure Logic Apps V2: Project Runtime**, confirm that the version is set to **~3**.
+1. On the **User** tab, go to **>** **Extensions** **>** **Azure Logic Apps (Preview)**.
 
-        > [!IMPORTANT]
-        > To use [Inline Code Operations actions](../logic-apps/logic-apps-add-run-inline-code.md), which is 
-        > currently unavailable for macOS and Linux, the **Project Runtime** setting requires version 3.
+   For example, you can find the **Azure Logic Apps V2: Project Runtime** setting here or use the search box to find other settings:
 
-      ![Screenshot that shows Visual Studio Code settings for "Azure Logic Apps (Preview)" extension.](./media/create-stateful-stateless-workflows-visual-studio-code/azure-logic-apps-preview-settings.png)
+   ![Screenshot that shows Visual Studio Code settings for "Azure Logic Apps (Preview)" extension.](./media/create-stateful-stateless-workflows-visual-studio-code/azure-logic-apps-preview-settings.png)
 
 <a name="connect-azure-account"></a>
 
@@ -242,9 +246,14 @@ Before you can create your logic app, create a local project so that you can man
 
 1. Provide a name for your workflow and press Enter. This example uses `Fabrikam-Stateful-Workflow` as the name.
 
-   ![Screenshot that shows the "Create new Stateful Workflow (3/3)" box and "Fabrikam-Stateful-Workflow" as the workflow name.](./media/create-stateful-stateless-workflows-visual-studio-code/name-your-workflow.png)
+   ![Screenshot that shows the "Create new Stateful Workflow (3/4)" box and "Fabrikam-Stateful-Workflow" as the workflow name.](./media/create-stateful-stateless-workflows-visual-studio-code/name-your-workflow.png)
 
    Visual Studio Code finishes creating your project and opens the **workflow.json** file for your workflow.
+
+   > [!NOTE]
+   > If you're prompted to select how to open your project, select **Open in current window** 
+   > if you want to open your project in the current Visual Studio Code window. To open a new 
+   > instance for Visual Studio Code, select **Open in new window**.
 
 1. From the Visual Studio toolbar, open the Explorer pane, if not already open.
 
@@ -279,7 +288,7 @@ Before you can create your logic app, create a local project so that you can man
 
    ![Screenshot that shows Explorer pane and shortcut window for the workflow.json file with "Open in Designer" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/open-definition-file-in-designer.png)
 
-   If you get the error message that the `Workflow design time could not be started`, check the following conditions:
+1. If you get the error message that the `Workflow design time could not be started`, check the following conditions:
 
    * **Windows or Linux**: Make sure that the Azure Storage Emulator is running. Otherwise, see [Troubleshoot problems and errors](#troubleshooting).
 

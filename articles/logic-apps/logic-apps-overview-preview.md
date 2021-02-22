@@ -178,7 +178,9 @@ In Azure Logic Apps Preview, these capabilities have changed, or they are curren
 
 * **OS support**: Currently, the designer in Visual Studio Code doesn't work on Linux OS, but you can still deploy logic apps that use the Logic Apps Preview runtime to Linux-based virtual machines. For now, you can build your logic apps in Visual Studio Code on Windows or macOS and then deploy to a Linux-based virtual machine.
 
-* **Triggers and actions**: Some built-in triggers are unavailable, such as Sliding Window and Batch. To start your workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). Built-in triggers and actions run natively in the Azure Logic Apps Preview runtime, while managed connectors are deployed in Azure. In the designer, built-in triggers and actions appear under the **Built-in** tab, while managed connector triggers and actions appear under the **Azure** tab.
+* **Triggers and actions**: Built-in triggers and actions run natively in the Azure Logic Apps Preview runtime, while managed connectors are deployed in Azure. Some built-in triggers are unavailable, such as Sliding Window and Batch. Built-in trigger and action availability also differs between Visual Studio Code and the Azure portal.
+
+  To start your workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). In the designer, built-in triggers and actions appear under the **Built-in** tab, while managed connector triggers and actions appear under the **Azure** tab.
 
   > [!NOTE]
   > To run locally in Visual Studio Code, webhook-based triggers and actions require additional setup. For more information, see 
@@ -211,7 +213,7 @@ In Azure Logic Apps Preview, these capabilities have changed, or they are curren
 
       * Inline Code Operations actions no longer require an integration account.
 
-      * For macOS and Linux, **Inline Code Operations** is now available when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
+      * For macOS and Linux, **Inline Code Operations** is now supported when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
 
       * You no longer have to restart your logic app if you make changes in an **Inline Code Operations** action.
 
