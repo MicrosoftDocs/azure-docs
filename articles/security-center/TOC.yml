@@ -296,7 +296,7 @@
       href: faq-vms.md
     - name: Existing users of Azure Log Analytics
       href: faq-azure-monitor-logs.md
-  - name: Built-in security policies
+  - name: Azure Policy built-ins
     displayName: samples, policy
     href: policy-reference.md
   - name: Azure roadmap blog
