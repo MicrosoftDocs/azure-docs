@@ -145,11 +145,11 @@ For Cosmos DB, equivalent metrics are as shown below:
 | Index Size | IndexUsage||
 | Service Unavailable | ServiceAvailability||
 | TotalRequestUnits | TotalRequestUnits||
-| Throttled Requests | TotalRequests with dimension "StatusCode" = "429"||
-| Internal Server Errors | TotalRequests with dimension "StatusCode" = "500"}||
-| Http 401 | TotalRequests with dimension "StatusCode" = "401"||
-| Http 400 | TotalRequests with dimension "StatusCode" = "400"||
-| Total Requests | TotalRequests||
+| Throttled Requests | TotalRequests with dimension "StatusCode" = "429"| 'Average' aggregation type is corrected to 'Count'|
+| Internal Server Errors | TotalRequests with dimension "StatusCode" = "500"}| 'Average' aggregation type is corrected to 'Count'|
+| Http 401 | TotalRequests with dimension "StatusCode" = "401"| 'Average' aggregation type is corrected to 'Count'|
+| Http 400 | TotalRequests with dimension "StatusCode" = "400"| 'Average' aggregation type is corrected to 'Count'|
+| Total Requests | TotalRequests| 'Max' aggregation type is corrected to 'Count'|
 | Mongo Count Request Charge| MongoRequestCharge with dimension "CommandName" = "count"||
 | Mongo Count Request Rate | MongoRequestsCount with dimension "CommandName" = "count"||
 | Mongo Delete Request Charge | MongoRequestCharge with dimension "CommandName" = "delete"||
@@ -159,12 +159,12 @@ For Cosmos DB, equivalent metrics are as shown below:
 | Mongo Query Request Charge | MongoRequestCharge with dimension "CommandName" = "find"||
 | Mongo Query Request Rate | MongoRequestsCount with dimension "CommandName" = "find"||
 | Mongo Update Request Charge | MongoRequestCharge with dimension "CommandName" = "update"||
-| Mongo Insert Failed Requests | MongoRequestCount with dimensions "CommandName" = "insert" and "Status" = "failed"||
-| Mongo Query Failed Requests | MongoRequestCount with dimensions "CommandName" = "query" and "Status" = "failed"||
-| Mongo Count Failed Requests | MongoRequestCount with dimensions "CommandName" = "count" and "Status" = "failed"||
-| Mongo Update Failed Requests | MongoRequestCount with dimensions "CommandName" = "update" and "Status" = "failed"||
-| Mongo Other Failed Requests | MongoRequestCount with dimensions "CommandName" = "other" and "Status" = "failed"||
-| Mongo Delete Failed Requests | MongoRequestCount with dimensions "CommandName" = "delete" and "Status" = "failed"||
+| Mongo Insert Failed Requests | MongoRequestCount with dimensions "CommandName" = "insert" and "Status" = "failed"| 'Average' aggregation type is corrected to 'Count'|
+| Mongo Query Failed Requests | MongoRequestCount with dimensions "CommandName" = "query" and "Status" = "failed"| 'Average' aggregation type is corrected to 'Count'|
+| Mongo Count Failed Requests | MongoRequestCount with dimensions "CommandName" = "count" and "Status" = "failed"| 'Average' aggregation type is corrected to 'Count'|
+| Mongo Update Failed Requests | MongoRequestCount with dimensions "CommandName" = "update" and "Status" = "failed"| 'Average' aggregation type is corrected to 'Count'|
+| Mongo Other Failed Requests | MongoRequestCount with dimensions "CommandName" = "other" and "Status" = "failed"| 'Average' aggregation type is corrected to 'Count'|
+| Mongo Delete Failed Requests | MongoRequestCount with dimensions "CommandName" = "delete" and "Status" = "failed"| 'Average' aggregation type is corrected to 'Count'|
 
 ### How equivalent action groups are created
 
