@@ -17,7 +17,7 @@ This article provides a guide to integrating a Veeam infrastructure with Azure B
 
 ## Reference architecture for on-premises to Azure and In-Azure deployments
 
-![Veeam to Azure Reference Architecture](../media/veeam-arch.png)
+![Veeam to Azure Reference Architecture](../media/veeam-architecture.png)
 
 Your existing Veeam deployment can easily integrate with Azure by adding an Azure Storage Account, or multiple accounts, as a Cloud Backup Repository. Veeam also allows you to recover backups from on-premises within Azure giving you a recovery-on-demand site in Azure.
 
