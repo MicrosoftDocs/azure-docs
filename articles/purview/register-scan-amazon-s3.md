@@ -72,10 +72,9 @@ The following table maps the regions where you data is stored to the region wher
 
 Ensure that you've performed the following prerequisites before adding your Amazon S3 buckets as Purview data sources and scanning your S3 data.
 
-> [!TIP]
-> When adding your buckets as Purview resources, you'll need the values of your AWS ARN, bucket name, and sometimes your AWS account ID.
-> For more information, see [Retrieve your new Role ARN](#retrieve-your-new-role-arn), [Retrieve your Amazon S3 bucket name](#retrieve-your-amazon-s3-bucket-name), and [Locate your AWS account ID](#locate-your-aws-account-id).
->
+- You need to be an Azure Purview Data Source Admin
+
+- When adding your buckets as Purview resources, you'll need the values of your [AWS ARN](#retrieve-your-new-role-arn), [bucket name](#retrieve-your-amazon-s3-bucket-name), and sometimes your [AWS account ID](#locate-your-aws-account-id).
 
 ### Create a Purview account
 
