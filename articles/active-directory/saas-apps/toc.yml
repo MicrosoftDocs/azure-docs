@@ -67,6 +67,8 @@
         href: airtable-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
+      - name: AKASHI
+        href: akashi-tutorial.md
       - name: Alcumus Info Exchange
         href: alcumus-info-tutorial.md
       - name: AlertMedia
@@ -563,6 +565,8 @@
         href: empactis-tutorial.md
       - name: EmpCenter
         href: empcenter-tutorial.md
+      - name: Enablon
+        href: enablon-tutorial.md
       - name: Encompass
         href: encompass-tutorial.md
       - name: Envi MMIS
@@ -708,6 +712,8 @@
         href: glassfrog-tutorial.md
       - name: GlobalOne
         href: globalone-tutorial.md
+      - name: GlobeSmart
+        href: globesmart-tutorial.md
       - name: GoLinks
         href: golinks-tutorial.md
       - name: GoToMeeting
@@ -788,6 +794,8 @@
         href: hr2day-tutorial.md
       - name: HRworks Single Sign-On
         href: hrworks-single-sign-on-tutorial.md
+      - name: HSB ThoughtSpot
+        href: hsb-thoughtspot-tutorial.md
       - name: Hub Planner
         href: hub-planner-tutorial.md
       - name: HubSpot SAML
@@ -806,6 +814,8 @@
         href: iamip-patent-platform-tutorial.md
       - name: IBM Digital Business Automation on Cloud
         href: ibm-digital-business-automation-on-cloud-tutorial.md
+      - name: IBMid
+        href: ibmid-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
@@ -968,6 +978,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
+      - name: Kendis - Azure AD Integration
+        href: kendis-scaling-agile-platform-tutorial.md
       - name: KFAdvance
         href: kfadvance-tutorial.md
       - name: Khoros Care
@@ -1082,6 +1094,8 @@
         href: maptician-tutorial.md 
       - name: Marketo
         href: marketo-tutorial.md
+      - name: Maverics Identity Orchestrator SAML Connector
+        href: maverics-identity-orchestrator-saml-connector-tutorial.md
       - name: Maxient Conduct Manager Software
         href: maxient-conduct-manager-software-tutorial.md
       - name: MaxxPoint
@@ -1295,7 +1309,9 @@
       - name: Panorays
         href: panorays-tutorial.md
       - name: Pantheon
-        href: pantheon-tutorial.md        
+        href: pantheon-tutorial.md 
+      - name: Parkalot - Car park management
+        href: parkalot-car-park-management-tutorial.md       
       - name: PatentSQUARE
         href: patentsquare-tutorial.md
       - name: Pavaso Digital Close
@@ -1350,6 +1366,8 @@
         href: podbean-tutorial.md
       - name: PolicyStat
         href: policystat-tutorial.md
+      - name: PoolParty Semantic Suite
+        href: poolparty-semantic-suite-tutorial.md
       - name: PostBeyond
         href: postbeyond-tutorial.md
       - name: Powerschool Performance Matters
@@ -1458,6 +1476,8 @@
         href: reviewsnap-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-tutorial.md
+      - name: Rewatch
+        href: rewatch-tutorial.md
       - name: RFPIO
         href: rfpio-tutorial.md
       - name: RightAnswers
@@ -1590,6 +1610,8 @@
         href: sharepoint-on-premises-tutorial.md
       - name: ShareVault
         href: sharevault-tutorial.md
+      - name: SharingCloud
+        href: sharingcloud-tutorial.md
       - name: Shibumi
         href: shibumi-tutorial.md
       - name: ShipHazmat
@@ -2014,6 +2036,8 @@
         href: zscaler-two-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-tutorial.md
+      - name: Zuddl
+        href: zuddl-tutorial.md
       - name: Zwayam
         href: zwayam-tutorial.md
   - name: User provisioning tutorials
@@ -2109,6 +2133,8 @@
         href: fuze-provisioning-tutorial.md
       - name: G Suite
         href: g-suite-provisioning-tutorial.md
+      - name: getAbstract
+        href: getabstract-provisioning-tutorial.md
       - name: GitHub
         href: github-provisioning-tutorial.md
       - name: GitHub AE
@@ -2121,14 +2147,20 @@
         href: gtmhub-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
+      - name: HelloID
+        href: helloid-provisioning-tutorial.md
       - name: Hootsuite
         href: hootsuite-provisioning-tutorial.md
+      - name: Hoxhunt
+        href: hoxhunt-provisioning-tutorial.md
+      - name: Ideo
+        href: ideo-provisioning-tutorial.md        
       - name: Infor CloudSuite
         href: infor-cloudsuite-provisioning-tutorial.md
-      - name: Ideo
-        href: ideo-provisioning-tutorial.md
       - name: Insight4GRC
         href: insight4grc-provisioning-tutorial.md
+      - name: Iris Intranet
+        href: iris-intranet-provisioning-tutorial.md        
       - name: iPass SmartConnect
         href: ipass-smartconnect-provisioning-tutorial.md
       - name: iProva

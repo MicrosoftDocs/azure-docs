@@ -79,7 +79,7 @@ Loading data into a non-empty table with a clustered index can often contain a m
 
 ## Optimize deletes
 
-DELETE is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To select the data, create a new table with [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Once created, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to swap out your old table with the newly created table.
+DELETE is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To select the data, create a new table with [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Once created, use [RENAME](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest&preserve-view=true) to swap out your old table with the newly created table.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.

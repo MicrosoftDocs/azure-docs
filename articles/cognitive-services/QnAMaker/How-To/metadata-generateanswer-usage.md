@@ -286,3 +286,5 @@ The **Publish** page also provides information to [generate an answer](../Quicks
 
 > [!div class="nextstepaction"]
 > [Get analytics on your knowledge base](../how-to/get-analytics-knowledge-base.md)
+> [!div class="nextstepaction"]
+> [Confidence score](../Concepts/confidence-score.md)

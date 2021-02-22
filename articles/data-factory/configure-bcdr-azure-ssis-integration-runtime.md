@@ -1,14 +1,10 @@
 ---
 title: Configure Azure-SSIS integration runtime for SQL Database failover
 description: This article describes how to configure the Azure-SSIS integration runtime with Azure SQL Database geo-replication and failover for the SSISDB database
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.devlang: powershell
 author: swinarko
 ms.author: sawinark
-manager: mflasko
-ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/06/2020

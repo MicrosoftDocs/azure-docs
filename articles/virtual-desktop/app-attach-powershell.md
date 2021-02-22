@@ -25,6 +25,7 @@ Here's what you need to configure MSIX app attach:
 
 - A functioning Windows Virtual Desktop deployment. To learn how to deploy Windows Virtual Desktop (classic), see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Windows Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
 - A Windows Virtual Desktop host pool with at least one active session host.
+- This host pool must be in the validation environment.
 - A Desktop remote app group.
 - The MSIX packaging tool.
 - An MSIX-packaged application expanded into an MSIX image that's uploaded into a file share.
