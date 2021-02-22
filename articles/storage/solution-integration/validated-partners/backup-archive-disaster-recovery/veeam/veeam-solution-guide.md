@@ -13,7 +13,7 @@ ms.subservice: Blob Storage
 
 # Backup to Azure with Veeam
 
-This article provides a guide to integrating a Veeam infrastructure with Azure Blob Storage. It includes pre-requisites, Azure Storage principles, implementation and operational guidance. This articles only addresses using Azure as an offsite Backup target and a recovery site in the event of a disaster which prevents normal operation within your primary site. Veeam also offers a lower RTO solution, Veeam replication, as a means to have a standby VM ready to boot and recover more quickly in the event of a disaster and protection of resources within an Azure Production environment. Veeam does also dedicated tools to Backup Azure and Office 365 resources. These capabilities are out of scope for this document. 
+This article provides a guide to integrating a Veeam infrastructure with Azure Blob Storage. It includes pre-requisites, Azure Storage principles, implementation, and operational guidance. This article only addresses using Azure as an offsite Backup target and a recovery site in the event of a disaster, which prevents normal operation within your primary site. Veeam also offers a lower RTO solution, Veeam replication, as a means to have a standby VM ready to boot and recover more quickly in the event of a disaster and protection of resources within an Azure Production environment. Veeam does also dedicate tools to Backup Azure and Office 365 resources. These capabilities are out of scope for this document. 
 
 ## Reference architecture for on-premises to Azure and In-Azure deployments
 
@@ -37,7 +37,7 @@ A little upfront planning will make sure you join the ranks of the many, many ha
 
 ### Are you new to Azure?
 
-Microsoft offers a framework to follow to get you started with Azure. The [Cloud Adoption Framework](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/) \(CAF\) is a detailed approach to enterprise digital transformation and comprehensive guide to planning a production grade Cloud Adoption. The CAF includes a step-by-step [Azure Setup Guide](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/) for those new to Azure to help you get up and running quickly and securely and you can find an interactive version in the [Azure Portal](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade). You will find sample architectures and specific best practices for deploying applications and free training resources to put you on the path to Azure expertise.
+Microsoft offers a framework to follow to get you started with Azure. The [Cloud Adoption Framework](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/) \(CAF\) is a detailed approach to enterprise digital transformation and comprehensive guide to planning a production grade Cloud Adoption. The CAF includes a step-by-step [Azure Setup Guide](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/) for those new to Azure to help you get up and running quickly and securely and you can find an interactive version in the [Azure portal](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade). You will find sample architectures and specific best practices for deploying applications and free training resources to put you on the path to Azure expertise.
 
 ### Consider the network between your location and Azure
 
@@ -47,7 +47,7 @@ Azure Data Box provides a means to transfer your initial backup baseline to Azur
 
 ![Azure Storage Data Transfer Estimator](../media/azstoragetransfer.png)
 
-Remember, you will require enough network capacity to support daily data transfers within the required transfer window (aka Backup window) without impacting Production applications. This section will outline the tools and techniques available to assess your network needs.
+Remember, you will require enough network capacity to support daily data transfers within the required transfer window (Backup window) without impacting Production applications. This section will outline the tools and techniques available to assess your network needs.
 
 #### How can you determine how much bandwidth you will need?
 
@@ -60,7 +60,7 @@ Multiple assessment options are available to determine change rate and total bac
 
 It is important to know how much headroom, or typically unutilized, bandwidth you have available on a day-to-day basis. This will allow you to properly assess if you can meet your goals for initial time to upload, when not using Azure Data Box for offline seeding, and for completing daily backups based on the change rate identified above and your backup window. Below are methods you can use to identify the bandwidth headroom your backups to Azure are free to consume.
 
-1. Are you an existing Azure ExpressRoute customer? View your [circuit usage](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-monitoring-metrics-alerts#circuits-metrics) in the Azure Portal.
+1. Are you an existing Azure ExpressRoute customer? View your [circuit usage](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-monitoring-metrics-alerts#circuits-metrics) in the Azure portal.
 2. You can Contact your ISP. They should have reports to share with you illustrating your existing daily and monthly utilization.
 3. There are several tools that can measure utilization by monitoring your network traffic at your router/switch level including:
   - [Solarwinds Bandwidth Analyzer Pack](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
@@ -86,22 +86,22 @@ When using Azure as a backup target, customers make use of [Azure Blob Storage](
 |  | Hot Tier   |Cool Tier   | Archive Tier |
 | ----------- | ----------- | -----------  | -----------  |
 | Availability | 99.9%         | 99%         | Offline      |
-| Usage Charges | Higher storage costs, Lower access and transaction costs | Lower storage costs, higher access and transaction costs | Lowest storage costs, highest access and transaction costs |
+| Usage Charges | Higher storage costs, Lower access, and transaction costs | Lower storage costs, higher access, and transaction costs | Lowest storage costs, highest access, and transaction costs |
 | Minimum Data Retention Required | NA | 30 days | 180 days |
 | Latency (Time to First Byte) | Milliseconds | Milliseconds | Hours |
 
 #### Sample Backup to Azure cost model
 
-The concept of pay-per-use can be daunting to customers who are new to the Public Cloud. While you pay for only the capacity used, you do also pay for transactions (read and or writes) and [egress for data](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) read back to your on-premises environment when [Azure Express Route Direct Local or Express Route Unlimited Data plan](https://azure.microsoft.com/en-us/pricing/details/expressroute/) are in use where data egress from Azure is included. You can perform what if analysis based on list pricing or with [Azure Storage Reserved Capacity pricing](https://docs.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations), which can deliver up to 38% savivgs, in the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/). Here is an example pricing exercise to model the monthly cost of backing up to Azure, this is an example only and ***your pricing may vary due to activities not captured here:***
+The concept of pay-per-use can be daunting to customers who are new to the Public Cloud. While you pay for only the capacity used, you do also pay for transactions (read and or writes) and [egress for data](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) read back to your on-premises environment when [Azure Express Route Direct Local or Express Route Unlimited Data plan](https://azure.microsoft.com/en-us/pricing/details/expressroute/) are in use where data egress from Azure is included. You can perform what if analysis based on list pricing or with [Azure Storage Reserved Capacity pricing](https://docs.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations), which can deliver up to 38% savings, in the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/). Here is an example pricing exercise to model the monthly cost of backing up to Azure, this is an example only and ***your pricing may vary due to activities not captured here:***
 
 
 |Cost Factor  |Monthly Cost  |
 |---------|---------|
-|100TB of Backup Data on Cool Storage     |$1556.48         |
-|2TB of new data written per day x 30 Days     |$72 in transactions          |
+|100 TB of Backup Data on Cool Storage     |$1556.48         |
+|2 TB of new data written per day x 30 Days     |$72 in transactions          |
 |Monthly Estimated Total     |$1628.48         |
 |---------|---------|
-|One Time Restore of 5TB to on-premises over Public Internet   | $527.26         |
+|One Time Restore of 5 TB to on-premises over Public Internet   | $527.26         |
 
 >[!Note] This estimate was generated in the Azure Pricing Calculator using East US Pay-as-you-go pricing and is based on the Veeam default of 256kb chunk size for WAN transfers. This example may not be applicable towards your requirements.
 
@@ -109,9 +109,9 @@ The concept of pay-per-use can be daunting to customers who are new to the Publi
 
 This section provides a brief guide to adding Azure Storage to an on-premises Veeam deployment. If you are interested in detailed guidance and planning considerations, we recommend reviewing the [Veeam Cloud Connect Backup Guide](https://helpcenter.veeam.com/docs/backup/cloud/cloud_backup.html?ver=100).
 
-1. Open the Azure Portal, and search for "Storage Accounts" or click on the default services icon. <br>![Azure Portal](../media/azureportal.png)<br>![Storage Accounts in the Azure Portal](../media/locatestorageaccount.png)
+1. Open the Azure portal, and search for "Storage Accounts" or click on the default services icon. <br>![Azure Portal](../media/azureportal.png)<br>![Storage Accounts in the Azure Portal](../media/locatestorageaccount.png)
 
-2. Choose to Add an account, and select or create a Resource Group, provide a unique name, choose the region, select "Standard" Performance, always leave account kind as "Storage V2," choose the replication level which meets your SLAs, and the default tier your backup software will leverage. An Azure Storage account makes Hot, Cool, and Archive tiers available within a single account and Veeam policies allow you to leverage multiple tiers to effectively manage the lifecycle of your data. Proceed to the next step. <br>![Creating a Storage Account](../media/accountcreate1.png)
+2. Choose to Add an account, and select or create a Resource Group, provide a unique name, choose the region, select "Standard" Performance, always leave account kind as "Storage V2," choose the replication level, which meets your SLAs, and the default tier your backup software will leverage. An Azure Storage account makes Hot, Cool, and Archive tiers available within a single account and Veeam policies allow you to leverage multiple tiers to effectively manage the lifecycle of your data. Proceed to the next step. <br>![Creating a Storage Account](../media/accountcreate1.png)
 
 3. Stick with the default networking options for now and move on to "Data Protection." Here, you can choose to enable "Soft Delete" which allows you to recover an accidentally deleted Backup file within the defined retention period and offers protection against accidental or malicious deletion. <br>![Creating a Storage Account Part 2](../media/accountcreate2.png)
 
@@ -119,7 +119,7 @@ This section provides a brief guide to adding Azure Storage to an on-premises Ve
 
 5. Add tags for organization if you leverage tagging and create your account. You now have petabytes of on-demand storage at your disposal!
 
-6. Two quick steps are all that are now required before you can add the account to your Veeam environment. Navigate to the account you just created in the Azure Portal and select "Containers" under the "Blob Service" menu in the Portal blade. Add a new container and choose a meaningful name. Then, navigate to the "Access Keys" item under "Settings" and copy the "Storage account name" and one of the two access keys. You will need the Container name, Account Name, and Access Key in our next steps.<br>![Creating a Container](../media/containerb.png)<br>![Grab that Account Info](../media/accesskey.png)
+6. Two quick steps are all that are now required before you can add the account to your Veeam environment. Navigate to the account you created in the Azure Portal and select "Containers" under the "Blob Service" menu in the Portal blade. Add a new container and choose a meaningful name. Then, navigate to the "Access Keys" item under "Settings" and copy the "Storage account name" and one of the two access keys. You will need the Container name, Account Name, and Access Key in our next steps.<br>![Creating a Container](../media/containerb.png)<br>![Grab that Account Info](../media/accesskey.png)
 >[!Note]Veeam Backup and Replication does offer additional options to connect to Azure. For the use case of this article, leveraging Microsoft Azure Blob Storage as a backup target, using above method is the recommended best practice.
 
 7. ***(Optional)*** You can add additional layers of security to your deployment.<br>
@@ -132,22 +132,22 @@ This section provides a brief guide to adding Azure Storage to an on-premises Ve
 
     ![Resource Lock](../media/resourcelock.png)
     d. Configure additional [security best practices](https://docs.microsoft.com/azure/storage/blobs/security-recommendations), i.e. leveraging [storage firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal) to restrict access from outside Azure networks. 
-8. In the Veaam Backup and Replication Management Console, navigate to "Backup Infrastructure" --> right click in the overview pane and select "Add Backup Repository" to open the configuration wizard. In the dialog box select object storage --> Microsoft Azure Blob Storage --> Azure Blob Storage.<br>![Veeam Repository Wizard Screen a](../media/veeamrepoa.png)<br>![Veeam Repository Wizard Screen b](../media/veeamrepob.png)<br>![Veeam Repository Wizard Screen c](../media/veeamrepoc.png)
+8. In the Veaam Backup and Replication Management Console, navigate to "Backup Infrastructure" --> right click in the overview pane and select "Add Backup Repository" to open the configuration wizard. In the dialog box, select object storage --> Microsoft Azure Blob Storage --> Azure Blob Storage.<br>![Veeam Repository Wizard Screen a](../media/veeamrepoa.png)<br>![Veeam Repository Wizard Screen b](../media/veeamrepob.png)<br>![Veeam Repository Wizard Screen c](../media/veeamrepoc.png)
 
 9. Next, specify a name and a description of your new Microsoft Azure Blob Repository.<br>![Veeam Repository Wizard Screen d](../media/veeamrepod.png)
 
-10. In the next step add the credentials to access your Azure Storage Account. Select "Microsoft Azure Storage Account" in the Cloud Credential Manager, enter your storage account name and access key. Select Azure Global in the region selector and any gateway server if applicable.<br>![Veeam Repository Wizard Screen e](../media/veeamrepoe.png)
+10. In the next step, add the credentials to access your Azure Storage Account. Select "Microsoft Azure Storage Account" in the Cloud Credential Manager, enter your storage account name and access key. Select Azure Global in the region selector and any gateway server if applicable.<br>![Veeam Repository Wizard Screen e](../media/veeamrepoe.png)
 >[!Note]If you choose not to use a Veeam gateway server, make sure that all scale-out repository extents have direct internet access.
 
-11. On the container register select your Azure Storage Container and select or create a folder to store your Backups in. You can also define a softlimit on the overall storage capacity to be used by Veeam (recommended). Review the displayed information in the summary section and complete the configuration tool. The new repository can then be selected in your backup job configuration.<br>![Veeam Repository Wizard Screen f](../media/veeamrepof.png)<br>![Veeam Repository Wizard Screen g](../media/veeamrepog.png)
+11. On the container register, select your Azure Storage Container and select or create a folder to store your Backups in. You can also define a soft limit on the overall storage capacity to be used by Veeam (recommended). Review the displayed information in the summary section and complete the configuration tool. The new repository can then be selected in your backup job configuration.<br>![Veeam Repository Wizard Screen f](../media/veeamrepof.png)<br>![Veeam Repository Wizard Screen g](../media/veeamrepog.png)
 
 ### Azure alerting and performance monitoring
 
 It is advisable to monitor both your Azure resources and Veeam's ability to leverage them as you would with any storage target you rely on to store your backups. A combination of Azure Monitor and Veeams monitoring capabilities (i.e. the statistics tab in the jobs node of the Veeam Management Console or more advanced options like Veeam One Reporter) will help you keep your environment healthy.
 
-#### Microsoft Azure Portal
+#### Microsoft Azure portal
 
-Microsoft Azure provides a robust monitoring solution in the form of [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/monitor-azure-resource). You can [configure Azure Monitor](https://docs.microsoft.com/en-us/azure/storage/common/monitor-storage?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-powershell#configuration) to track Azure Storage capacity, transactions, availability, authentication, and more. The full reference of metrics tracked may be found [here](https://docs.microsoft.com/en-us/azure/storage/common/monitor-storage-reference). A few useful metrics to track are BlobCapacity - to make sure you remain below the maximum [Storage Account Capacity limit](https://docs.microsoft.com/en-us/azure/storage/common/scalability-targets-standard-account), Ingress and Egress - to track the amount of data being written to and read from your Azure Storage account, and SuccessE2ELatency - to track the roundtrip time for requests to and from Azure Storage and your MediaAgent. 
+Microsoft Azure provides a robust monitoring solution in the form of [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/monitor-azure-resource). You can [configure Azure Monitor](https://docs.microsoft.com/en-us/azure/storage/common/monitor-storage?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-powershell#configuration) to track Azure Storage capacity, transactions, availability, authentication, and more. The full reference of metrics tracked may be found [here](https://docs.microsoft.com/en-us/azure/storage/common/monitor-storage-reference). A few useful metrics to track are BlobCapacity - to make sure you remain below the maximum [Storage Account Capacity limit](https://docs.microsoft.com/en-us/azure/storage/common/scalability-targets-standard-account), Ingress, and Egress - to track the amount of data being written to and read from your Azure Storage account, and SuccessE2ELatency - to track the roundtrip time for requests to and from Azure Storage and your MediaAgent. 
 
 You can also [create log alerts](https://docs.microsoft.com/en-us/azure/service-health/alerts-activity-log-service-notifications) to track Azure Storage service health and view the [Azure Status Dashboard](https://status.azure.com/en-us/status) at anytime.
 
@@ -165,7 +165,7 @@ When you need assistance with your Backup to Azure Solution, we recommend openin
 
 Navigate to the [Veeam Customer Support Portal](https://www.veeam.com/support.html), Sign in, and open a case.
 
-If you need to understand the support options available to you by Veeam, please see [Veeam Customer Support Policy](https://www.veeam.com/veeam_software_support_policy_ds.pdf)
+If you need to understand the support options available to you by Veeam, see [Veeam Customer Support Policy](https://www.veeam.com/veeam_software_support_policy_ds.pdf)
 
 You may also call in to open a case:
 
@@ -173,7 +173,7 @@ You may also call in to open a case:
 
 #### How to open a case with the Azure support team
 
-Within the [Azure Portal](https://portal.azure.com) search for "Support" in the Search Bar at the top of the portal and choose "+ New Support Request" 
+Within the [Azure portal](https://portal.azure.com) search for "Support" in the Search Bar at the top of the portal and choose "+ New Support Request" 
 >[!Note] When opening a case, please be specific that you need assistance with "Azure Storage" or "Azure Networking" and **NOT** "Azure Backup." Azure Backup is a Microsoft Azure native service and your case will be routed incorrectly.
 
 ### Links to relevant Veeam documentation

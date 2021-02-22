@@ -13,7 +13,7 @@ ms.subservice: Blob Storage
 
 # Backup to Azure with Commvault
 
-This article provides a guide to integrating a Commvault infrastructure with Azure Blob Storage. It includes pre-requisites, Azure Storage principles, implementation and operational guidance. This articles only addresses using Azure as an offsite Backup target and a recovery site in the event of a disaster which prevents normal operation within your primary site. Commvault also offers a lower RTO solution, Commvault Live Sync, as a means to have a standby VM ready to boot and recover more quickly in the event of a disaster and protection of resources within an Azure Production environment. These capabilities are out of scope for this document. 
+This article provides a guide to integrating a Commvault infrastructure with Azure Blob Storage. It includes pre-requisites, Azure Storage principles, implementation, and operational guidance. This article only addresses using Azure as an offsite Backup target and a recovery site in the event of a disaster, which prevents normal operation within your primary site. Commvault also offers a lower RTO solution, Commvault Live Sync, as a means to have a standby VM ready to boot and recover more quickly in the event of a disaster and protection of resources within an Azure Production environment. These capabilities are out of scope for this document. 
 
 ## Reference architecture for on-premises to Azure and In-Azure deployments
 
@@ -45,13 +45,13 @@ Azure Data Box provides a means to transfer your initial backup baseline to Azur
 
 ![Azure Storage Data Transfer Estimator](../media/azstoragetransfer.png)
 
-Remember, you will require enough network capacity to support daily data transfers within the required transfer window (aka Backup window) without impacting Production applications. This section will outline the tools and techniques available to assess your network needs.
+Remember, you will require enough network capacity to support daily data transfers within the required transfer window (Backup window) without impacting Production applications. This section will outline the tools and techniques available to assess your network needs.
 
 #### How can you determine how much bandwidth you will need?
 
 1.  Reports from your backup software. 
   Commvault provides standard reports to determine [change rate](https://documentation.commvault.com/commvault/v11_sp19/article?p=39699.htm) and [total backup set size](https://documentation.commvault.com/commvault/v11_sp19/article?p=39621.htm) for the initial baseline transfer to Azure.
-2. Backup software independent assessment and reporting tools like:
+2. Backup software-independent assessment and reporting tools like:
   - [MiTrend](https://mitrend.com/)
   - [Aptare](https://www.veritas.com/insights/aptare-it-analytics)
   - [Datavoss](https://www.datavoss.com/)
@@ -60,7 +60,7 @@ Remember, you will require enough network capacity to support daily data transfe
 
 It is important to know how much headroom, or typically unutilized, bandwidth you have available on a day-to-day basis. This will allow you to properly assess if you can meet your goals for initial time to upload, when not using Azure Data Box for offline seeding, and for completing daily backups based on the change rate identified above and your backup window. Below are methods you can use to identify the bandwidth headroom your backups to Azure are free to consume.
 
-1. Are you an existing Azure ExpressRoute customer? View your [circuit usage](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-monitoring-metrics-alerts#circuits-metrics) in the Azure Portal.
+1. Are you an existing Azure ExpressRoute customer? View your [circuit usage](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-monitoring-metrics-alerts#circuits-metrics) in the Azure portal.
 2. You can Contact your ISP. They should have reports to share with you illustrating your existing daily and monthly utilization.
 3. There are several tools that can measure utilization by monitoring your network traffic at your router/switch level including:
   - [Solarwinds Bandwidth Analyzer Pack](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
@@ -86,22 +86,22 @@ When using Azure as a backup target, customers make use of [Azure Blob Storage](
 |  | Hot Tier   |Cool Tier   | Archive Tier |
 | ----------- | ----------- | -----------  | -----------  |
 | Availability | 99.9%         | 99%         | Offline      |
-| Usage Charges | Higher storage costs, Lower access and transaction costs | Lower storage costs, higher access and transaction costs | Lowest storage costs, highest access and transaction costs |
+| Usage Charges | Higher storage costs, Lower access, and transaction costs | Lower storage costs, higher access, and transaction costs | Lowest storage costs, highest access, and transaction costs |
 | Minimum Data Retention Required | NA | 30 days | 180 days |
 | Latency (Time to First Byte) | Milliseconds | Milliseconds | Hours |
 
 #### Sample Backup to Azure cost model
 
-The concept of pay-per-use can be daunting to customers who are new to the Public Cloud. While you pay for only the capacity used, you do also pay for transactions (read and or writes) and [egress for data](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) read back to your on-premises environment when [Azure Express Route Direct Local or Express Route Unlimited Data plan](https://azure.microsoft.com/en-us/pricing/details/expressroute/) are in use where data egress from Azure is included. You can perform what if analysis based on list pricing or with [Azure Storage Reserved Capacity pricing](https://docs.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations), which can deliver up to 38% savivgs, in the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/). Here is an example pricing exercise to model the monthly cost of backing up to Azure, this is an example only and ***your pricing may vary due to activities not captured here:***
+The concept of pay-per-use can be daunting to customers who are new to the Public Cloud. While you pay for only the capacity used, you do also pay for transactions (read and or writes) and [egress for data](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) read back to your on-premises environment when [Azure Express Route Direct Local or Express Route Unlimited Data plan](https://azure.microsoft.com/en-us/pricing/details/expressroute/) are in use where data egress from Azure is included. You can perform what if analysis based on list pricing or with [Azure Storage Reserved Capacity pricing](https://docs.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations), which can deliver up to 38% savings, in the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/). Here is an example pricing exercise to model the monthly cost of backing up to Azure, this is an example only and ***your pricing may vary due to activities not captured here:***
 
 
 |Cost Factor  |Monthly Cost  |
 |---------|---------|
-|100TB of Backup Data on Cool Storage     |$1556.48         |
-|2TB of new data written per day x 30 Days     |$39 in transactions          |
+|100 TB of Backup Data on Cool Storage     |$1556.48         |
+|2 TB of new data written per day x 30 Days     |$39 in transactions          |
 |Monthly Estimated Total     |$1595.48         |
 |---------|---------|
-|One Time Restore of 5TB to on-premises over Public Internet   | $491.26         |
+|One Time Restore of 5 TB to on-premises over Public Internet   | $491.26         |
 
 
 >[!Note] This estimate was generated in the Azure Pricing Calculator using East US Pay-as-you-go pricing and is based on the Commvault default of 32MB sub-chunk size which generates 65,536 PUT Requests, aka write transactions, per day. This example may not be applicable towards your requirements.
@@ -110,9 +110,9 @@ The concept of pay-per-use can be daunting to customers who are new to the Publi
 
 This section provides a brief guide to adding Azure Storage to an on-premises Commvault deployment. If you are interested in detailed guidance and planning considerations, we recommend reviewing the [Commvault Azure Architecture Guide](https://www.commvault.com/resources/public-cloud-architecture-guide-for-microsoft-azure-v11-sp16).
 
-1. Open the Azure Portal, and search for "Storage Accounts" or click on the default services icon. <br>![Azure Portal](../media/azureportal.png)<br>![Storage Accounts in the Azure Portal](../media/locatestorageaccount.png)
+1. Open the Azure portal, and search for "Storage Accounts" or click on the default services icon. <br>![Azure Portal](../media/azureportal.png)<br>![Storage Accounts in the Azure Portal](../media/locatestorageaccount.png)
 
-2. Choose to Add an account, and select or create a Resource Group, provide a unique name, choose the region, select "Standard" Performance, always leave account kind as "Storage V2," choose the replication level which meets your SLAs, and the default tier your backup software will leverage. An Azure Storage account makes Hot, Cool, and Archive tiers available within a single account and Commvault policies allow you to leverage multiple tiers to effectively manage the lifecycle of your data. Proceed to the next step. <br>![Creating a Storage Account](../media/accountcreate1.png)
+2. Choose to Add an account, and select or create a Resource Group, provide a unique name, choose the region, select "Standard" Performance, always leave account kind as "Storage V2," choose the replication level, which meets your SLAs, and the default tier your backup software will leverage. An Azure Storage account makes Hot, Cool, and Archive tiers available within a single account and Commvault policies allow you to leverage multiple tiers to effectively manage the lifecycle of your data. Proceed to the next step. <br>![Creating a Storage Account](../media/accountcreate1.png)
 
 3. Stick with the default networking options for now and move on to "Data Protection." Here, you can choose to enable "Soft Delete" which allows you to recover an accidentally deleted Backup file within the defined retention period and offers protection against accidental or malicious deletion. <br>![Creating a Storage Account Part 2](../media/accountcreate2.png)
 
@@ -120,7 +120,7 @@ This section provides a brief guide to adding Azure Storage to an on-premises Co
 
 5. Add tags for organization if you leverage tagging and create your account. You now have petabytes of on-demand storage at your disposal!
 
-6. Two quick steps are all that are now required before you can add the account to your Commvault environment. Navigate to the account you just created in the Azure Portal and select "Containers" under the "Blob Service" menu in the Portal blade. Add a new container and choose a meaningful name. Then, navigate to the "Access Keys" item under "Settings" and copy the "Storage account name" and one of the two access keys. You will need the Container name, Account Name, and Access Key in our next steps.<br>![Creating a Container](../media/container.png)<br>![Grab that Account Info](../media/accesskey.png)
+6. Two quick steps are all that are now required before you can add the account to your Commvault environment. Navigate to the account you created in the Azure portal and select "Containers" under the "Blob Service" menu in the Portal blade. Add a new container and choose a meaningful name. Then, navigate to the "Access Keys" item under "Settings" and copy the "Storage account name" and one of the two access keys. You will need the Container name, Account Name, and Access Key in our next steps.<br>![Creating a Container](../media/container.png)<br>![Grab that Account Info](../media/accesskey.png)
 
 7. ***(Optional)*** You can add additional layers of security to your deployment.<br>
      - Configure Role Based Access to limit who can make changes to your Storage Account. [Learn more here](https://docs.microsoft.com/en-us/azure/storage/common/authorization-resource-provider?toc=/azure/storage/blobs/toc.json)
@@ -133,7 +133,7 @@ This section provides a brief guide to adding Azure Storage to an on-premises Co
     ![Resource Lock](../media/resourcelock.png)
     
     d. Configure additional [security best practices](https://docs.microsoft.com/azure/storage/blobs/security-recommendations), i.e. leveraging [storage firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal) to restrict access from outside Azure networks.
-8. In the Commvault Command Center, navigate to "Manage" --> "Security" --> "Credential Manager." Choose a "Cloud Account," "Vendor Type" of Microsoft Azure Storage, select the "MediaAgent" which will transfer data to and from Azure, add the Storage Account Name and Access Key.<br>![Commvault Credential](../media/commvaultcredential.png)
+8. In the Commvault Command Center, navigate to "Manage" --> "Security" --> "Credential Manager." Choose a "Cloud Account," "Vendor Type" of Microsoft Azure Storage, select the "MediaAgent", which will transfer data to and from Azure, add the Storage Account Name and Access Key.<br>![Commvault Credential](../media/commvaultcredential.png)
 
 9. Next, navigate to "Storage" --> "Cloud" in Commvault Command Center. Choose to "Add." Enter a friendly name for the Storage Account and then select "Microsoft Azure Storage" from the "Type" list. Select a Media Agent server to be used to transfer backups to Azure Storage. Add the container you created, choose the Storage Tier to leverage within the Azure Storage account, and select the Credentials created in Step #8. Finally, choose whether or not to transfer deduplicated backups or not and a location for the deduplication database.<br> ![Commvault Add Storage](../media/commvaultaddstorage.png)
 
@@ -177,8 +177,8 @@ Toll Free: +1 877-780-3077
 
 #### How to open a case with the Azure support team
 
-Within the [Azure Portal](https://portal.azure.com) search for "Support" in the Search Bar at the top of the portal and choose "+ New Support Request" 
->[!Note] When opening a case, please be specific that you need assistance with "Azure Storage" or "Azure Networking" and **NOT** "Azure Backup." Azure Backup is a Microsoft Azure native service and your case will be routed incorrectly.
+Within the [Azure portal](https://portal.azure.com) search for "Support" in the Search Bar at the top of the portal and choose "+ New Support Request" 
+>[!Note] When opening a case, be specific that you need assistance with "Azure Storage" or "Azure Networking" and **NOT** "Azure Backup." Azure Backup is a Microsoft Azure native service and your case will be routed incorrectly.
 
 ### Links to relevant Commvault documentation
 
