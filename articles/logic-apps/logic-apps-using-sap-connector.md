@@ -25,7 +25,7 @@ This article explains how you can access your SAP resources from Logic Apps usin
 
     * If you're running your logic app in multi-tenant Azure, see the [multi-tenant prerequisites](#multi-tenant-azure-prerequisites).
 
-    * If you're running your logic app in a Premium-level[ integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), see the [ISE prerequisites](#ise-prerequisites).
+    * If you're running your logic app in a Premium-level [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), see the [ISE prerequisites](#ise-prerequisites).
 
 * An [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Logic Apps. For information about what SAP servers and SAP actions you can use with the connector, see [SAP compatibility](#sap-compatibility).
 
@@ -1320,11 +1320,18 @@ If you experience an issue with duplicate IDocs being sent to SAP from your logi
 
 ## Known issues and limitations
 
-Here are the currently known issues and limitations for the managed (non-ISE) SAP connector:
+Here are the currently known issues and limitations for the managed (non-ISE) SAP connector: 
 
-* The SAP trigger doesn't support data gateway clusters. In some failover cases, the data gateway node that communicates with the SAP system might differ from the active node, which results in unexpected behavior. For send scenarios, data gateway clusters are supported.
+* In general, the SAP trigger doesn't support data gateway clusters. In some failover cases, the data gateway node that communicates with the SAP system might differ from the active node, which results in unexpected behavior.
+
+  * For send scenarios, data gateway clusters in failover mode are supported. 
+
+  * Data gateway clusters in load balancing mode aren't supported by stateful SAP actions. These actions include **Create stateful session**, **Commit BAPI transaction**, **Rollback BAPI transaction**, **Close stateful session**, and all actions that specify a **Session ID** value. Stateful communications must remain on the same data gateway cluster node. 
+
+  * For stateful SAP actions, use the data gateway either in non-cluster mode or in a cluster that's set up for failover only.
 
 * The SAP connector currently doesn't support SAP router strings. The on-premises data gateway must exist on the same LAN as the SAP system you want to connect.
+
 
 ## Connector reference
 
