@@ -38,7 +38,7 @@ When an allocation request is pinned to a cluster, there's a higher chance of fa
 
 ### Error Message
 
-In Azure Portal, navigate to your cloud service and in the sidebar select *Operation logs (classic)* to view the logs.
+In Azure portal, navigate to your cloud service and in the sidebar select *Operation logs (classic)* to view the logs.
 
 See further solutions for the exceptions below:
 
@@ -76,7 +76,7 @@ Here are the common allocation scenarios that cause an allocation request to be 
    * Create a new deployment in the existing cloud service. This will re-attempt to allocation on all clusters in the region. Ensure the cloud service is not tied to an affinity group.
 3. Reserved IP -  This solution will preserve your existing IP address, but will cause downtime to your application.  
 
-   * Create a ReservedIP for your existing deployment using Powershell
+   * Create a ReservedIP for your existing deployment using PowerShell
 
      ```azurepowershell
      New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
