@@ -11,7 +11,7 @@ ms.date: 2/19/2021
 
 # Co-sell with Microsoft sales teams and partners overview
 
-Co-selling with Microsoft is defined as any collaborative engagement between Microsoft and our partner ecosystem. This includes building demand, sales planning, sharing sales leads, accelerating partner-to-partner empowered selling, and delivering marketplace-led commerce.
+Co-selling with Microsoft is defined as any collaborative engagement between Microsoft and our partner ecosystem. This process includes building demand, sales planning, sharing sales leads, accelerating partner-to-partner empowered selling, and delivering marketplace-led commerce.
 
 When you choose to co-sell an offer, you can work directly with Microsoft sales teams and Microsoft partners on joint selling opportunities. This unlocks benefits when selling through the commercial marketplace online stores: Azure Marketplace and Microsoft AppSource.
 
@@ -19,7 +19,7 @@ Co-selling opportunities are the result of [acting on a lead](./partner-center-p
 
 [![Diagram showing how Co-sell happens when sales leads are shared, accepted, and won against Microsoft-managed customers..](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png#lightbox)
 
-These solutions (also called offers) can include software built with your intellectual property (IP) as well as services that support Microsoft technologies.
+These solutions (also called offers) can include software built with your intellectual property (IP) and services that support Microsoft technologies.
 
 ## Co-sell opportunities
 
@@ -28,7 +28,7 @@ A co-sell opportunity is any type of collaboration with Microsoft sales teams, M
 - **Co-sell with Microsoft sales teams** – Work with one or more Microsoft sales teams to actively fulfill customer needs. This can include selling your offers, Microsoft’s offers, or both. You and Microsoft sales teams can identify and share customer opportunities in which your solutions may be a good fit.
 - **Partner to Partner (P2P)** – Work with another Microsoft partner to actively solve a customer problem.
 - **Private deal** – Share what you are independently working on with Microsoft so it will be reflected in the Microsoft reporting system for analysis and forecasting.
-- **Solution Assessment (SA)** – Work with a set of partners who are vetted by the solution assessments business team for performing technology assessments for customers using or planning to use Microsoft technologies.
+- **Solution Assessment (SA)** – Work with partners who are vetted by the solution assessments business team to access the technology needs of customers who are using or planning to use Microsoft technologies.
 
 ## Co-sell statuses
 
@@ -49,7 +49,7 @@ To learn how to achieve co-sell ready and/or Azure IP co-sell status, see [Co-se
 
 ## Benefits of co-sell incentivized status
 
-_Co-sell incentivized_ status, includes _Azure IP Co-sell incentivized_ and _Biz Apps ISV Connect Premium incentive_. These statuses incentivize partners to sell your offer. To achieve this status, you must also achieve Co-sell ready status. Co-sell incentivized status earns all the benefits of Co-sell ready solutions and can earn additional incentives for Microsoft sales teams, and be eligible for more commercial marketplace benefits.
+_Co-sell incentivized_ status, includes _Azure IP Co-sell incentivized_ and _Biz Apps ISV Connect Premium incentive_. These statuses incentivize partners to sell your offer. To achieve this status, you must also achieve Co-sell ready status. Co-sell incentivized status earns all the benefits of Co-sell ready solutions. This status can earn more incentives for Microsoft sales teams, and be eligible for more commercial marketplace benefits.
 
 Azure IP Co-sell incentivized status can be applied to these offer types:
 
@@ -69,7 +69,7 @@ Offers that achieve Azure IP Co-sell incentivized or Biz Apps ISV Connect Premiu
 
 - The marketplace service fee is reduced from 20% to 10%. This discount applies to your infrastructure as a service (IaaS) solution or software as a service (SaaS) solution sold through the commercial marketplace. For more information, see [Commercial marketplace service fees](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
 - Cloud Solution Provider (CSP) partners receive a 10% incentive to sell your IaaS solution or SaaS offer. To learn more about the CSP program, see [Cloud Solution Provider program](cloud-solution-providers.md).
-- Sales of your offer through the commercial marketplace will contribute towards customers’ Azure consumption commitments. Eligible customers will see the offer marked as **Azure benefit eligible** in Azure portal. For more details, see [Azure consumption commitment benefit](azure-consumption-commitment-benefit.md).
+- Sales of your offer through the commercial marketplace will contribute towards customers’ Azure consumption commitments. Eligible customers will see the offer marked as **Azure benefit eligible** in Azure portal. For more information, see [Azure consumption commitment benefit](azure-consumption-commitment-benefit.md).
 - Offers that achieve Azure IP Co-sell incentivized or Biz Apps ISV Connect Premium incentive status will receive a **Preferred solutions** badge on the offer listing page in the online stores. The badge promotes an offer's quality, performance, and ability to address customer needs in a certain industry vertical or solution area. To learn more, see [Preferred solutions in Microsoft AppSource and Azure Marketplace](preferred-solutions.md).
 
 To learn how to achieve co-sell ready and co-sell incentivized status, see [Co-sell ready and co-sell incentivized requirements](co-sell-requirements.md).
