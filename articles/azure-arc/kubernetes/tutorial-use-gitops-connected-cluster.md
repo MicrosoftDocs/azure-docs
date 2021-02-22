@@ -25,7 +25,7 @@ In this tutorial, you will apply configurations using GitOps on an Azure Arc ena
   (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An existing Azure Arc enabled Kubernetes connected cluster.
     - If you haven't connected a cluster yet, walk through our [Connect an Azure Arc enabled Kubernetes cluster quickstart](quickstart-connect-cluster.md).
-- An understanding of hte benefits and architecture of this feature. Read more in [Configurations and GitOps - Azure Arc enabled Kubernetes article](conceptual-configurations.md).
+- An understanding of the benefits and architecture of this feature. Read more in [Configurations and GitOps - Azure Arc enabled Kubernetes article](conceptual-configurations.md).
 
 ## Create a configuration
 
