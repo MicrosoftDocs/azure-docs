@@ -13,9 +13,6 @@ ms.author: raynew
 
 Learn how to move Azure resources to a different region using PowerShell in Azure Resource Mover. 
 
-> [!NOTE]
-> Azure Resource Mover is currently in preview.
-
 
 
 ## Before you start

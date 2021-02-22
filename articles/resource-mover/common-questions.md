@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 02/21/2021
 ms.author: raynew
 
 ---
@@ -20,6 +20,15 @@ This article answers common questions about [Azure Resource Mover](overview.md).
 ### Can I move resources across any regions?
 
 Currently, you can move resources from any source public region to any target public region, depending on the [resource types available in that region](https://azure.microsoft.com/global-infrastructure/services/). Moving resources in Azure Government regions isn't currently supported.
+
+### What regions are currently supported?
+
+Azure Resource Mover is currently available as follows:
+
+**Support** | **Details**
+--- | ---
+Move support | Azure resources that are supported for move with Resource Mover can be moved from any public region to another public region.
+Metadata support |  Supported regions for storing metadata about machines to be moved include East US2, North Europe, Southeast Asia, Japan East, UK South, and Australia East as metadata regions. <br/><br/> Moving resources within the Azure China region is also supported with the metadata region China North2.
 
 ### What resources can I move across regions using Resource Mover?
 
