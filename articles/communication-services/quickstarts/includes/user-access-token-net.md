@@ -15,7 +15,7 @@ ms.author: tchladek
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
@@ -41,7 +41,7 @@ dotnet build
 While still in the application directory, install the Azure Communication Services Administration library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Administration --version 1.0.0-beta.3
+dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
 ```
 
 ### Set up the app framework
@@ -108,13 +108,13 @@ Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {
 Console.WriteLine(token);
 ```
 
-Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expiresOn` response property indicates the lifetime of the access token. 
+Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expiresOn` response property indicates the lifetime of the access token.
 
 ## Refresh access tokens
 
 To refresh an access token, pass an instance of the `CommunicationUser` object into `IssueTokenAsync`. If you've stored this `Id` and need to create a new `CommunicationUser`, you can do so by passing your stored `Id` into the `CommunicationUser` constructor as follows:
 
-```csharp  
+```csharp
 // In this example, userId is a string containing the Id property of a previously-created CommunicationUser
 identityToRefresh = new CommunicationUser(userId);
 tokenResponse = await client.IssueTokenAsync(identityToRefresh, scopes: new [] { CommunicationTokenScope.VoIP });
@@ -124,7 +124,7 @@ tokenResponse = await client.IssueTokenAsync(identityToRefresh, scopes: new [] {
 
 In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `RevokeTokensAsync` invalidates all active access tokens, that were issued to the identity.
 
-```csharp  
+```csharp
 await client.RevokeTokensAsync(identity);
 Console.WriteLine($"\nSuccessfully revoked all access tokens for identity with ID: {identity.Id}");
 ```

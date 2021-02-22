@@ -14,8 +14,6 @@ ms.service: azure-communication-services
 
 # Event Handling in Azure Communication Services
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 Azure Communication Services integrates with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to deliver real-time event notifications in a reliable, scalable and secure manner. The purpose of this article is to help you configure your applications to listen to Communication Services events. For example, you may want to update a database, create a work item and deliver a push notification whenever an SMS message is received by a phone number associated with your Communication Services resource.
 
 Azure Event Grid is a fully managed event routing service, which uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../../azure-functions/functions-overview.md) and [Azure Logic Apps](../../azure-functions/functions-overview.md). It can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](../../event-grid/overview.md).
@@ -27,7 +25,7 @@ Azure Event Grid is a fully managed event routing service, which uses a publish-
 
 ## Events types
 
-Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. 
+Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers.
 
 Azure Communication Services emits the following event types:
 
@@ -203,7 +201,7 @@ This section contains an example of what that data would look like for each even
 }]
 ```
 
-### Microsoft.Communication.ChatThreadCreatedWithUser event 
+### Microsoft.Communication.ChatThreadCreatedWithUser event
 
 ```json
 [{
@@ -261,7 +259,7 @@ This section contains an example of what that data would look like for each even
 }]
 ```
 
-### Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser event 
+### Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser event
 
 ```json
 [{

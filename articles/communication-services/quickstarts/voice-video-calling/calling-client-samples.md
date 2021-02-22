@@ -15,8 +15,6 @@ zone_pivot_groups: acs-plat-web-ios-android
 
 # Quickstart: Use the Communication Services calling client library
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 Get started with Azure Communication Services by using the Communication Services calling client library to add voice and video calling to your app.
 
 ::: zone pivot="platform-web"

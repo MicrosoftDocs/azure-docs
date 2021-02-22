@@ -38,8 +38,8 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
-    <artifactId>azure-communication-administration</artifactId>
-    <version>1.0.0-beta.3</version> 
+    <artifactId>azure-communication-identity</artifactId>
+    <version>1.0.0-beta.5</version>
 </dependency>
 ```
 
@@ -100,7 +100,7 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
 
 You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](/java/api/overview/azure/core-http-netty-readme?preserve-view=true&view=azure-java-stable) that is provided by `azure-core`.
 
-You can also provide the entire connection string using the connectionString() function instead of providing the endpoint and access key. 
+You can also provide the entire connection string using the connectionString() function instead of providing the endpoint and access key.
 ```java
 // Your can find your connection string from your resource in the Azure Portal
 String connectionString = "<connection_string>";
@@ -138,7 +138,7 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 To refresh an access token, use the `CommunicationUser` object to reissue:
 
-```java  
+```java
 // Value existingIdentity represents identity of Azure Communication Services stored during identity creation
 CommunicationUser identity = new CommunicationUser(existingIdentity);
 response = communicationIdentityClient.issueToken(identity, scopes);
@@ -148,7 +148,7 @@ response = communicationIdentityClient.issueToken(identity, scopes);
 
 In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `revokeTokens` invalidates all active access tokens, that were issued to the identity.
 
-```java  
+```java
 communicationIdentityClient.revokeTokens(identity, OffsetDateTime.now());
 System.out.println("\nSuccessfully revoked all access tokens for identity with ID: " + identity.getId());
 ```

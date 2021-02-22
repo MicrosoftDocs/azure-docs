@@ -14,9 +14,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Quickstart: Create and manage access tokens
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-Get started with Azure Communication Services by using the Communication Services Administration client library. It allows you to create identities and manage your access tokens. Identity is representing entity of your application in the Azure Communication Service (for example, user or device). Access tokens let your Chat and Calling client libraries authenticate directly against Azure Communication Services. We recommend generating access tokens on a server-side service. Access tokens are then used to initialize the Communication Services client libraries on client devices.
+Get started with Azure Communication Services by using the Communication Services Identity client library. It allows you to create identities and manage your access tokens. Identity is representing entity of your application in the Azure Communication Service (for example, user or device). Access tokens let your Chat and Calling client libraries authenticate directly against Azure Communication Services. We recommend generating access tokens on a server-side service. Access tokens are then used to initialize the Communication Services client libraries on client devices.
 
 Any prices seen in images throughout this tutorial are for demonstration purposes only.
 
@@ -75,4 +73,3 @@ You may also want to:
  - [Learn about authentication](../concepts/authentication.md)
  - [Add chat to your app](./chat/get-started.md)
  - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
- 

@@ -14,8 +14,6 @@ ms.service: azure-communication-services
 ---
 # Authenticate to Azure Communication Services
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 This article provides information on authenticating clients to Azure Communication Services using *access keys* and *user access tokens*. Every client interaction with Azure Communication Services needs to be authenticated.
 
 The following table describes which authentication options are supported by the Azure Communication Services client libraries:
