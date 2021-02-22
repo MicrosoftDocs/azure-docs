@@ -1,3 +1,14 @@
+---
+title: Hotpatching (preview)
+description: Learn how hotpatching works and how to enable it
+author: ju-shim
+ms.service: virtual-machines
+ms.subservice: automanage
+ms.workload: infrastructure
+ms.topic: conceptual
+ms.date: 02/22/2021
+ms.author: jushiman
+---
 
 # Hotpatching (Preview)
 
@@ -168,6 +179,10 @@ There are some important considerations to running a Windows Server Azure editio
 ### What types of updates are covered by Hotpatch?
 
 * Hotpatch currently covers Windows security updates.
+
+### Hotpatching is not working as expected. How can I get help?
+
+* You can file a [technical support case ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the Service option, search for and select **Virtual Machine running Windows** under Compute. Select **Azure Features** for the problem type and **Automatic VM Guest Patching** for the problem subtype.
 
 ### When are Hotpatch updates installed?
 
