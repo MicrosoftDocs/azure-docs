@@ -107,7 +107,7 @@ Use `SendMessage` to send a message to a thread.
 - Use `senderDisplayName` to specify the display name of the sender. If not specified, empty string will be set.
 
 ```csharp
-var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", type: );
+var messageId = await chatThreadClient.SendMessageAsync(content:"hello world");
 ```
 ## Get a message
 
