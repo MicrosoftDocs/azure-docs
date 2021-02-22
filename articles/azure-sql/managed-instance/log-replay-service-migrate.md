@@ -98,7 +98,7 @@ The following are highly recommended as best practices:
 Some of the following approaches can be utilized to copy backups to the blob storage in migrating databases to managed instance using LRS:
 - Using SQL Server native [BACKUP TO URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url) functionality.
 - Using [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10), or [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer) to copy backups to a blob container.
-- Using Storage Explorer in Azure Portal.
+- Using Storage Explorer in Azure portal.
 
 ## Create Azure Blob and SAS authentication token
 
