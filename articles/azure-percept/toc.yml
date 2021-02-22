@@ -3,32 +3,106 @@
 
 - name: Overview
   items:
+    - name: Azure Percept platform
+      href: overview-azure-percept.md   
+    - name: Azure Percept Studio
+      href: overview-azure-percept-studio.md   
+    - name: Azure Percept DK
+      href: overview-azure-percept-dk.md   
+    - name: Azure Percept Audio
+      href: overview-azure-percept-audio.md   
     - name: Azure Percept AI models
       href: overview-ai-models.md      
+    - name: Advanced development
+      href: overview-advanced-code.md   
+    - name: Azure Percept security
+      href: overview-percept-security.md   
+    - name: 80/20 integration
+      href: overview-8020-integration.md   
+    - name: Update your Percept devices
+      href: overview-update-experience.md   
 
 - name: Quickstarts
   items:
-    - name: Unbox and assemble your Azure Percept DK
-      href: quickstart-percept-dk-unboxing.md         
+    - name: Set up your Azure Percept devices
+      items:
+        - name: Unbox and assemble your Azure Percept DK
+          href: quickstart-percept-dk-unboxing.md
+        - name: Complete the Azure Percept DK setup experience
+          href: quickstart-percept-dk-setup.md
+        - name: Azure Percept Audio setup
+          href: quickstart-percept-audio-setup.md
 
 - name: Tutorials
   items:
-    - name: Start prototyping with your Azure Percept DK
+    - name: Start prototyping with Azure Percept
       items:
         - name: Build and deploy a no-code vision solution
           href: tutorial-nocode-vision.md         
+        - name: Build and deploy a no-code speech solution
+          href: tutorial-nocode-speech.md         
+    - name: Advanced development
+      items:
+        - name: Advanced development tutorial (cloud)
+          href: advanced_development_cloud.md         
+        - name: Advanced development tutorial (local)
+          href: advanced_development_local.md     
 
 - name: Concepts
   items:
+    - name: Azure Percept Audio
+      items:
+        - name: LED and button behavior
+          href: audio-button-led-behavior.md        
 
-- name: How-to guides   
+- name: How-to guides
   items:
+    - name: Vision solution development with Azure Percept DK
+      items:
+        - name: View your devkit's video stream
+          href: how-to-view-video-stream.md
+        - name: Deploy an AI model to your devkit
+          href: how-to-deploy-model.md
+        - name: Capture images for a vision project
+          href: how-to-capture-images.md
+        - name: View your devkit's telemetry
+          href: how-to-view-telemetry.md
+    - name: Speech solution development with Azure Percept DK
+      items:
+        - name: Configure your voice assistant in Azure Percept Studio
+          href: how-to-configure-voice-assistant.md
+        - name: Configure your voice assistant in IoT Hub
+          href: how-to-manage-voice-assistant.md
+    - name: Update your Azure Percept devices
+      items:
+        - name: Set up over-the-air updates
+          href: how-to-set-up-ota.md
+        - name: Update your Azure Percept DK over-the-air
+          href: how-to-ota-update.md
+        - name: Update your Azure Percept DK via USB
+          href: how-to-update-via-usb.md
     - name: Connect to your Azure Percept DK
       items:
         - name: Connect over SSH
           href: how-to-ssh-into-percept-dk.md
         - name: Connect over serial
           href: how-to-connect-to-percept-dk-over-serial.md     
+    - name: Tools
+      items:
+        - name: Devtools pack installer
+          href: dev-tools-installer.md
+    - name: Troubleshooting
+      items:
+        - name: Troubleshooting overview
+          href: troubleshooting-main.md
+        - name: Setup experience troubleshooting
+          href: how-to-troubleshoot-setup.md
+        - name: General Azure Percept DK troubleshooting
+          href: general-devkit-troubleshooting.md
+        - name: Vision solution troubleshooting
+          href: vision-solution-troubleshooting.md
+        - name: Azure Percept Audio troubleshooting
+          href: audio-accessory-speech-module-troubleshooting.md
 
 - name: Reference
   items:
