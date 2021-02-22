@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/19/2021
+ms.date: 02/22/2021
 ms.author: thweiss
 ---
 
@@ -177,7 +177,7 @@ Create a role named *MyReadOnlyRole* that only contains read actions:
 ```azurecli
 resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
-az cosmosdb sql role definition create -a $accountName -g $resourceGroupName -b @role-definition-ro.json
+az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-ro.json
 ```
 
 Create a role named *MyReadWriteRole* that contains all actions:
@@ -199,13 +199,13 @@ Create a role named *MyReadWriteRole* that contains all actions:
 ```
 
 ```azurecli
-az cosmosdb sql role definition create -a $accountName -g $resourceGroupName -b @role-definition-rw.json
+az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-rw.json
 ```
 
 List the role definitions you've created to fetch their IDs:
 
 ```azurecli
-az cosmosdb sql role definition list -a $accountName -g $resourceGroupName
+az cosmosdb sql role definition list --account-name $accountName --resource-group $resourceGroupName
 ```
 
 ```
@@ -299,7 +299,7 @@ resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
 readOnlyRoleDefinitionId = '<roleDefinitionId>' // as fetched above
 principalId = '<aadPrincipalId>'
-az cosmosdb sql role assignment create -a $accountName -g $resourceGroupName -s "/" -p $principalId -d $readOnlyRoleDefinitionId
+az cosmosdb sql role assignment create --account-name $accountName --resource-group --scope "/" --principalId $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
 ## Initialize the SDK with Azure AD
