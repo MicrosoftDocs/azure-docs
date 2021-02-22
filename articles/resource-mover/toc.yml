@@ -14,6 +14,8 @@
     href: tutorial-move-region-virtual-machines.md
   - name: Move encrypted Azure VMs to another region
     href: tutorial-move-region-encrypted-virtual-machines.md
+  - name: Move resources across regions with PowerShell
+    href: tutorial-move-region-powershell.md
   - name: Move SQL resources to another region
     href: tutorial-move-region-sql.md
 - name: Concepts
@@ -28,8 +30,6 @@
   items:
   - name: Move across regions
     items:
-    - name: Move across regions with PowerShell
-      href: move-region-powershell.md
     - name: Move Azure VMs to availability zones
       href: move-region-availability-zone.md
     - name: Move across regions (from resource group)
