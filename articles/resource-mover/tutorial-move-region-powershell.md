@@ -13,7 +13,6 @@ ms.author: raynew
 # Move resources across regions in PowerShell
 
 In this article, learn how to move Azure resources to a different Azure region, using PowerShell in [Azure Resource Mover](overview.md).
-.
 
 In this tutorial, you learn how to:
 
@@ -49,7 +48,7 @@ Most move resources operations are the same whether using the Azure portal or Po
 --- | --- | ---
 **Create a move collection** | A move collection (a list of all the resources you're moving) is created automatically. Required identity permissions are assigned in the backend by the portal. | You use PowerShell cmdlets to:<br/><br/> - Create a resource group for the move collection and specify the location for it.<br/><br/> - Assign a managed identity to the collection.<br/><br/> - Add resources to the collection.
 **Remove a move collection** | You can't directly remove a move collection in the portal. | You use a PowerShell cmdlet to remove a move collection.
-**Resource move operations**<br/><br/> (Prepare, initiate move, commit etc).| Single steps with automatic validation by Resource Mover. | PowerShell cmdlets to:<br/><br/> 1) Validate dependencies.<br/><br/> 2) Perform the move.
+**Resource move operations**<br/><br/> (Prepare, initiate move, commit etc.).| Single steps with automatic validation by Resource Mover. | PowerShell cmdlets to:<br/><br/> 1) Validate dependencies.<br/><br/> 2) Perform the move.
 **Delete source resources** | Directly in the Resource Mover portal. | PowerShell cmdlets at the resource-type level.
 
 
@@ -388,7 +387,7 @@ Invoke-AzResourceMoverDiscard -ResourceGroupName "RG-MoveCollection-demoRMS" -Mo
 
     ![Output text after committing the move](./media/tutorial-move-region-powershell/commit-move.png)
 
-2. Verify that all resource resources have moved to the target region:
+2. Verify that all resources have moved to the target region:
 
     ```azurepowershell-interactive
     Get-AzResourceMoverMoveResource  -ResourceGroupName “RG-MoveCollection-demoRMS ” -MoveCollectionName “PS-centralus-westcentralus-demoRMS”   
