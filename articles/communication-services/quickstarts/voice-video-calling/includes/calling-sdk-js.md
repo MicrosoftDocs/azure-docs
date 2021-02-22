@@ -7,7 +7,7 @@ ms.author: mikben
 ---
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 - Optional: Complete the quickstart for [getting started with adding calling to your application](../getting-started-with-calling.md)
@@ -51,7 +51,7 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## Place an outgoing call
 
-To create and start a call you need to use one of the APIs on CallAgent and provide a user that you've created through the Communication Services administration client library.
+To create and start a call you need to use one of the APIs on CallAgent and provide a user that you've created through the Communication Services identity client library.
 
 Call creation and start is synchronous. The Call instance allows you to subscribe to call events.
 
@@ -237,10 +237,10 @@ To mute or unmute the local endpoint you can use the `mute` and `unmute` asynchr
 
 ```js
 
-//mute local device 
+//mute local device
 await call.mute();
 
-//unmute local device 
+//unmute local device
 await call.unmute();
 
 ```
@@ -383,7 +383,7 @@ To list the video streams and screen sharing streams of remote participants, ins
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.type;
 ```
- 
+
 To render a `RemoteVideoStream`, you have to subscribe to a `isAvailableChanged` event.
 If the `isAvailable` property changes to `true`, a remote participant is sending a stream.
 Once that happens, create a new instance of `Renderer`, and then create a new `RendererView` instance using the asynchronous
@@ -573,7 +573,7 @@ const isRecordingActiveChangedHandler = () => {
 };
 
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
-               
+
 ```
 
 ## Call Transfer management
