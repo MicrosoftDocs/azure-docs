@@ -37,7 +37,7 @@ The [example repository](https://github.com/Azure/arc-k8s-demo) used in this art
 
 The `config-agent` polls Azure for new or updated configurations. This task will take up to 30 seconds.
 
-If you are associating a private repository with the `sourceControlConfiguration`, complete the steps below in [Apply configuration from a private Git repository](#apply-configuration-from-a-private-git-repository).
+If you are associating a private repository with the configuration, complete the steps below in [Apply configuration from a private Git repository](#apply-configuration-from-a-private-git-repository).
 
 ## Use Azure CLI
 Use the Azure CLI extension for `k8sconfiguration` to link a connected cluster to the [example Git repository](https://github.com/Azure/arc-k8s-demo). 
