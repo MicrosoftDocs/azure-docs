@@ -180,10 +180,6 @@ There are some important considerations to running a Windows Server Azure editio
 
 * Hotpatch currently covers Windows security updates.
 
-### Hotpatching is not working as expected. How can I get help?
-
-* You can file a [technical support case ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the Service option, search for and select **Virtual Machine running Windows** under Compute. Select **Azure Features** for the problem type and **Automatic VM Guest Patching** for the problem subtype.
-
 ### When are Hotpatch updates installed?
 
 * You will be able to configure Hotpatch updates to install immediately or configure them to be installed on a schedule. We recommend using Azure Update Management to configure a separate, faster cadence schedule for the installation of Hotpatch updates, alongside other types of updates.
@@ -221,3 +217,7 @@ There are some important considerations to running a Windows Server Azure editio
 ### Will I be charged during the preview?
 
 * The license for Windows Server Azure Edition is free during the preview, however the cost of any underlying infrastructure set up for your VM (storage, compute, networking, etc.) will still be charged to your subscription.
+
+### How can I get troubleshooting support for Hotpatching?**
+
+* You can file a [technical support case ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the Service option, search for and select **Virtual Machine running Windows** under Compute. Select **Azure Features** for the problem type and **Automatic VM Guest Patching** for the problem subtype.
