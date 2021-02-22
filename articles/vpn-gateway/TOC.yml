@@ -205,6 +205,8 @@
         href: vpn-gateway-bgp-resource-manager-ps.md
       - name: Azure CLI
         href: bgp-how-to-cli.md
+    - name: BGP diagnostics
+      href: bgp-diagnostics.md
     - name: Configure forced tunneling
       items:
       - name: Azure PowerShell
