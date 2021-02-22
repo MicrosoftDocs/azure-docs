@@ -29,7 +29,8 @@ Your existing Veeam deployment can easily integrate with Azure by adding an Azur
 | Azure Blob | v10a | v10a | NA | 10a* |
 | Azure Files | v10a | v10a | NA | 10a* | 
 
->[!Note]Veeam Backup and replication does support REST API only for Azure Data Box, therefore Azure Data Box Disk is not supported. Support for the Archive Tier of Azure Blob Storage is expected in Veeam v11.
+> [!Note]
+Veeam Backup and Replication does support REST API only for Azure Data Box, therefore Azure Data Box Disk is not supported. Support for the Archive Tier of Azure Blob Storage is expected in Veeam v11.
 
 ## Before you begin
 
@@ -103,44 +104,77 @@ The concept of pay-per-use can be daunting to customers who are new to the Publi
 |---------|---------|
 |One Time Restore of 5 TB to on-premises over Public Internet   | $527.26         |
 
->[!Note] This estimate was generated in the Azure Pricing Calculator using East US Pay-as-you-go pricing and is based on the Veeam default of 256kb chunk size for WAN transfers. This example may not be applicable towards your requirements.
+> [!Note]
+This estimate was generated in the Azure Pricing Calculator using East US Pay-as-you-go pricing and is based on the Veeam default of 256kb chunk size for WAN transfers. This example may not be applicable towards your requirements.
 
 ## Implementation and operational guidance
 
 This section provides a brief guide to adding Azure Storage to an on-premises Veeam deployment. If you are interested in detailed guidance and planning considerations, we recommend reviewing the [Veeam Cloud Connect Backup Guide](https://helpcenter.veeam.com/docs/backup/cloud/cloud_backup.html?ver=100).
 
-1. Open the Azure portal, and search for "Storage Accounts" or click on the default services icon. <br>![Azure Portal](../media/azure-portal.png)<br>![Storage Accounts in the Azure Portal](../media/locate-storage-account.png)
+1. Open the Azure portal, and search for "Storage Accounts" or click on the default services icon.
 
-2. Choose to Add an account, and select or create a Resource Group, provide a unique name, choose the region, select "Standard" Performance, always leave account kind as "Storage V2," choose the replication level, which meets your SLAs, and the default tier your backup software will leverage. An Azure Storage account makes Hot, Cool, and Archive tiers available within a single account and Veeam policies allow you to leverage multiple tiers to effectively manage the lifecycle of your data. Proceed to the next step. <br>![Creating a Storage Account](../media/account-create-1.png)
+      ![Azure Portal](../media/azure-portal.png)
 
-3. Stick with the default networking options for now and move on to "Data Protection." Here, you can choose to enable "Soft Delete" which allows you to recover an accidentally deleted Backup file within the defined retention period and offers protection against accidental or malicious deletion. <br>![Creating a Storage Account Part 2](../media/account-create-2.png)
+      ![Storage Accounts in the Azure Portal](../media/locate-storage-account.png)
 
-4. Next, we recommend the default settings from the "Advanced" screen for Backup to Azure use cases.<br>![Creating a Storage Account Part 3](../media/account-create-3.png) 
+2. Choose to Add an account, and select or create a Resource Group, provide a unique name, choose the region, select "Standard" Performance, always leave account kind as "Storage V2," choose the replication level, which meets your SLAs, and the default tier your backup software will leverage. An Azure Storage account makes Hot, Cool, and Archive tiers available within a single account and Veeam policies allow you to leverage multiple tiers to effectively manage the lifecycle of your data. Proceed to the next step. 
+    
+      ![Creating a Storage Account](../media/account-create-1.png)
+
+3. Stick with the default networking options for now and move on to "Data Protection." Here, you can choose to enable "Soft Delete" which allows you to recover an accidentally deleted Backup file within the defined retention period and offers protection against accidental or malicious deletion. 
+    ![Creating a Storage Account Part 2](../media/account-create-2.png)
+
+4. Next, we recommend the default settings from the "Advanced" screen for Backup to Azure use cases.
+
+    ![Creating a Storage Account Part 3](../media/account-create-3.png) 
 
 5. Add tags for organization if you leverage tagging and create your account. You now have petabytes of on-demand storage at your disposal!
 
-6. Two quick steps are all that are now required before you can add the account to your Veeam environment. Navigate to the account you created in the Azure Portal and select "Containers" under the "Blob Service" menu in the Portal blade. Add a new container and choose a meaningful name. Then, navigate to the "Access Keys" item under "Settings" and copy the "Storage account name" and one of the two access keys. You will need the Container name, Account Name, and Access Key in our next steps.<br>![Creating a Container](../media/container-b.png)<br>![Grab that Account Info](../media/access-key.png)
->[!Note]Veeam Backup and Replication does offer additional options to connect to Azure. For the use case of this article, leveraging Microsoft Azure Blob Storage as a backup target, using above method is the recommended best practice.
+6. Two quick steps are all that are now required before you can add the account to your Veeam environment. Navigate to the account you created in the Azure Portal and select "Containers" under the "Blob Service" menu in the Portal blade. Add a new container and choose a meaningful name. Then, navigate to the "Access Keys" item under "Settings" and copy the "Storage account name" and one of the two access keys. You will need the Container name, Account Name, and Access Key in our next steps.
 
-7. ***(Optional)*** You can add additional layers of security to your deployment.<br>
-     a.) Configure Role Based Access to limit who can make changes to your Storage Account. [Learn more here](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider?toc=/azure/storage/blobs/toc.json)
-<br>
-    b.) Restrict access to the account to specific network segments with [Storage Firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal) to prevent access attempts from outside your corporate network.
+    ![Creating a Container](../media/container-b.png)
+    
+    ![Grab that Account Info](../media/access-key.png)
+    
+    > [!Note]
+Veeam Backup and Replication does offer additional options to connect to Azure. For the use case of this article, leveraging Microsoft Azure Blob Storage as a backup target, using above method is the recommended best practice.
+
+7. ***(Optional)*** You can add additional layers of security to your deployment.
+
+     1. Configure Role Based Access to limit who can make changes to your Storage Account. [Learn more here](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider?toc=/azure/storage/blobs/toc.json)
+
+    1. Restrict access to the account to specific network segments with [Storage Firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal) to prevent access attempts from outside your corporate network.
 
     ![Storage Firewall](../media/storage-firewall.png) 
 
-    c.) Set a [Delete Lock](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on the account to prevent accidental deletion of the Storage Account.
+    1. Set a [Delete Lock](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on the account to prevent accidental deletion of the Storage Account.
 
     ![Resource Lock](../media/resource-lock.png)
-    d.) Configure additional [security best practices](https://docs.microsoft.com/azure/storage/blobs/security-recommendations). 
-8. In the Veaam Backup and Replication Management Console, navigate to "Backup Infrastructure" --> right click in the overview pane and select "Add Backup Repository" to open the configuration wizard. In the dialog box, select object storage --> Microsoft Azure Blob Storage --> Azure Blob Storage.<br>![Veeam Repository Wizard Screen a](../media/veeam-repo-a.png)<br>![Veeam Repository Wizard Screen b](../media/veeam-repo-b.png)<br>![Veeam Repository Wizard Screen c](../media/veeam-repo-c.png)
+    1.) Configure additional [security best practices](https://docs.microsoft.com/azure/storage/blobs/security-recommendations). 
+8. In the Veaam Backup and Replication Management Console, navigate to "Backup Infrastructure" --> right click in the overview pane and select "Add Backup Repository" to open the configuration wizard. In the dialog box, select object storage --> Microsoft Azure Blob Storage --> Azure Blob Storage.
+    
+    ![Veeam Repository Wizard Screen a](../media/veeam-repo-a.png)
 
-9. Next, specify a name and a description of your new Microsoft Azure Blob Repository.<br>![Veeam Repository Wizard Screen d](../media/veeam-repo-d.png)
+    ![Veeam Repository Wizard Screen b](../media/veeam-repo-b.png)
 
-10. In the next step, add the credentials to access your Azure Storage Account. Select "Microsoft Azure Storage Account" in the Cloud Credential Manager, enter your storage account name and access key. Select Azure Global in the region selector and any gateway server if applicable.<br>![Veeam Repository Wizard Screen e](../media/veeam-repo-e.png)
->[!Note]If you choose not to use a Veeam gateway server, make sure that all scale-out repository extents have direct internet access.
+    ![Veeam Repository Wizard Screen c](../media/veeam-repo-c.png)
 
-11. On the container register, select your Azure Storage Container and select or create a folder to store your Backups in. You can also define a soft limit on the overall storage capacity to be used by Veeam (recommended). Review the displayed information in the summary section and complete the configuration tool. The new repository can then be selected in your backup job configuration.<br>![Veeam Repository Wizard Screen f](../media/veeam-repo-f.png)<br>![Veeam Repository Wizard Screen g](../media/veeam-repo-g.png)
+9. Next, specify a name and a description of your new Microsoft Azure Blob Repository.
+    
+    ![Veeam Repository Wizard Screen d](../media/veeam-repo-d.png)
+
+10. In the next step, add the credentials to access your Azure Storage Account. Select "Microsoft Azure Storage Account" in the Cloud Credential Manager, enter your storage account name and access key. Select Azure Global in the region selector and any gateway server if applicable.
+    
+    ![Veeam Repository Wizard Screen e](../media/veeam-repo-e.png)
+
+> [!Note]
+If you choose not to use a Veeam gateway server, make sure that all scale-out repository extents have direct internet access.
+
+11. On the container register, select your Azure Storage Container and select or create a folder to store your Backups in. You can also define a soft limit on the overall storage capacity to be used by Veeam (recommended). Review the displayed information in the summary section and complete the configuration tool. The new repository can then be selected in your backup job configuration.
+
+    ![Veeam Repository Wizard Screen f](../media/veeam-repo-f.png)
+    
+    ![Veeam Repository Wizard Screen g](../media/veeam-repo-g.png)
 
 ### Azure alerting and performance monitoring
 
@@ -175,7 +209,8 @@ You may also call in to open a case:
 #### How to open a case with the Azure support team
 
 Within the [Azure portal](https://portal.azure.com) search for "Support" in the Search Bar at the top of the portal and choose "+ New Support Request" 
->[!Note] When opening a case, please be specific that you need assistance with "Azure Storage" or "Azure Networking" and **NOT** "Azure Backup." Azure Backup is a Microsoft Azure native service and your case will be routed incorrectly.
+> [!Note]
+When opening a case, please be specific that you need assistance with "Azure Storage" or "Azure Networking" and **NOT** "Azure Backup." Azure Backup is a Microsoft Azure native service and your case will be routed incorrectly.
 
 ### Links to relevant Veeam documentation
 
