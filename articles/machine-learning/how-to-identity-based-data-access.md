@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 02/12/2021
+ms.date: 02/22/2021
 ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
 
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my compute to train my machine learning models.
@@ -44,11 +44,9 @@ Usually, your authentication credentials are kept in a datastore, which is used 
 When you use identity-based data access, Azure Machine Learning prompts you for your Azure Active Directory token for data access authentication, instead of keeping your credentials in the datastore. Which allows for data access management at the storage level and keeps credentials confidential. 
 
 The same behavior applies when you,
-* [Create a dataset directly from storage urls](#use-data-in-storage). 
 
-* Work with data interactively, via
-    * Jupyter notebook on your local machine or [compute instance](concept-compute-instance.md).
-    * Azure Machine Learning studio, which includes data profile and preview, automated machine learning, designer, and data labeling projects. 
+* [Create a dataset directly from storage urls](#use-data-in-storage). 
+* Work with data interactively via a Jupyter notebook on your local machine or [compute instance](concept-compute-instance.md).
 
 > [!NOTE]
 > Credentials stored using credential-based authentication include: subscription ID, shared access signature (SAS) tokens, storage access keys and service principal information like, client ID and tenant ID.
@@ -66,6 +64,7 @@ Certain machine learning scenarios involve training models with private data. In
     - [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md)
     - [Azure Data Lake Gen 1](../data-lake-store/index.yml)
     - [Azure Data Lake Gen 2](../storage/blobs/data-lake-storage-introduction.md)
+    - [Azure SQL database](../azure-sql/database/sql-database-paas-overview.md)
 
 - The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py), or access to [Azure Machine Learning studio](https://ml.azure.com/).
 
