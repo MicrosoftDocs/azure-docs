@@ -43,8 +43,8 @@
       items: 
         - name: Managed identity
           href: managed-identity.md
-        - name: Private link
-          href: private-link.md
+        - name: Networking options
+          href: networking-options.md
         - name: Token rotation
           href: token-rotation.md
 - name: How-to guides
@@ -61,6 +61,8 @@
       href: publish-devops.md
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
+    - name: Create private endpoint Access
+    - href: private-link.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator
