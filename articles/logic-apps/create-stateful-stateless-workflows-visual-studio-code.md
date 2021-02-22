@@ -495,17 +495,29 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
 
 #### Set up the forwarding URL in your app settings
 
-1. In Visual Studio Code, at your project's root level, open the **local.settings.json** file.
+1. In Visual Studio Code, on the designer, add the **HTTP + Webhook** trigger or action.
 
-1. In the `Values` object, add a property named `Workflows.WebhookRedirectHostUri`, and set the value to the forwarding URL that you previously created, for example:
+1. When the prompt appears for the host endpoint location, enter the forwarding (redirection) URL that you previously created.
 
+   > [!NOTE]
+   > Ignoring the prompt causes a warning to appear that you must provide the forwarding URL, 
+   > so select **Configure**, and enter the URL. After you finish this step, the prompt won't 
+   > reappear for subsequent webhook triggers or actions that you might add.
+   >
+   > To make the prompt reappear, at your project's root level, open the **local.settings.json** 
+   > file's shortcut menu, and select **Configure Webhook Redirect Endpoint**. The prompt now 
+   > appears so you can provide the forwarding URL.
+
+   Visual Studio Code adds the forwarding URL to the **local.settings.json** file at your project's root level. In the `Values` object, the property named `Workflows.WebhookRedirectHostUri` now appears and is set to the forwarding URL, for example:
+   
    ```json
    {
       "IsEncrypted": false,
       "Values": {
          "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+         "FUNCTIONS_WORKER_RUNTIME": "node",
          "FUNCTIONS_V2_COMPATIBILITY_MODE": "true",
+         <...>
          "Workflows.WebhookRedirectHostUri": "http://xxxXXXXxxxXXX.ngrok.io",
          <...>
       }
