@@ -55,7 +55,7 @@ From the project directory:
 Use the following code to begin:
 
 ```java
-import com.azure.communication.administration.*;
+import com.azure.communication.identity.*;
 import com.azure.communication.common.*;
 import java.io.*;
 import java.util.*;

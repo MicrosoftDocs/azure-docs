@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create and manage access tokens
 titleSuffix: An Azure Communication Services quickstart
-description: Learn how to manage identities and access tokens using the Azure Communication Services Administration client library.
+description: Learn how to manage identities and access tokens using the Azure Communication Services Identity client library.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -62,7 +62,7 @@ In this quickstart, you learned how to:
 > [!div class="checklist"]
 > * Manage identities
 > * Issue access tokens
-> * Use the Communication Services Administration client library
+> * Use the Communication Services Identity client library
 
 
 > [!div class="nextstepaction"]
