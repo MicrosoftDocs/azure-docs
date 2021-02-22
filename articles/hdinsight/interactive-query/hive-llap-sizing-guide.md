@@ -219,7 +219,7 @@ Total cluster capacity = 100 GB memory, divided between LLAP, Workload Managemen
  - Workload management queue capacity = 20 GB
  - Default queue capacity = 10 GB
 
-With 20 GB in workload management queue capacity, a resource plan can specify `QUERY_PARALLELISM` value as five, which means workload management can launch five Tez AMs with 4 GB container size each. If `QUERY_PARALLELISM` is higher than the capacity, you may see some Tez AMs hung in `ACCEPTED` state. The Hiveserver2 Interactive cannot submit query fragments to the Tez AMs that are not in `RUNNING` state.
+With 20 GB in workload management queue capacity, a resource plan can specify `QUERY_PARALLELISM` value as five, which means workload management can launch five Tez AMs with 4 GB container size each. If `QUERY_PARALLELISM` is higher than the capacity, you may see some Tez AMs stop responding in `ACCEPTED` state. The Hiveserver2 Interactive cannot submit query fragments to the Tez AMs that are not in `RUNNING` state.
 
 
 #### **Next Steps**

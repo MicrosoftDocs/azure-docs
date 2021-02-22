@@ -31,7 +31,7 @@ In the Conditional Access, these client apps are known to be protected with an a
 > Not all applications are supported as approved applications or support application protection policies. For a list of eligible client apps, see [App protection policy requirement](concept-conditional-access-grant.md#require-app-protection-policy).
 
 > [!NOTE]
-> "Require one of the selected controls" under grant controls is like an OR clause. This is used within policy to enable users to utilize apps that support either the **Require app protection policy** or **Require approved client app** grant controls. **Require app protection policy** is enforced if an app is supported in both policies. For more information on which apps support the **Require app protection policy** grant control, see [App protection policy requirement](concept-conditional-access-grant.md#require-app-protection-policy).
+> "Require one of the selected controls" under grant controls is like an OR clause. This is used within policy to enable users to utilize apps that support either the **Require app protection policy** or **Require approved client app** grant controls. **Require app protection policy** is enforced when the app supports that grant control. For more information on which apps support the **Require app protection policy** grant control, see [App protection policy requirement](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## Scenario 1: Microsoft 365 apps require approved apps with app protection policies
 

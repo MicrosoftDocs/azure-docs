@@ -2,9 +2,6 @@
 title: Use Apache Pig
 titleSuffix: Azure HDInsight
 description: Learn how to use Pig with Apache Hadoop on HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to

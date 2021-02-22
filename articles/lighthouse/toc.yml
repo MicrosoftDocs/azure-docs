@@ -45,6 +45,14 @@
       href: security-baseline.md
 - name: How-to guides
   items:
+  - name: Customer actions
+    items:
+    - name: View and manage service providers 
+      displayName: customer, update, visibility, control
+      href: ./how-to/view-manage-service-providers.md
+    - name: View service provider activity
+      displayName: monitor, log, customer, visibility, transparency, control
+      href: ./how-to/view-service-provider-activity.md
   - name: Onboard a customer to Azure Lighthouse
     displayName: resource management
     href: ./how-to/onboard-customer.md
@@ -87,14 +95,6 @@
       href: ./how-to/deploy-policy-remediation.md
   - name: Azure Sentinel integration
     href: ./how-to/manage-sentinel-workspaces.md
-  - name: Customer actions
-    items:
-    - name: View and manage service providers 
-      displayName: customer, update
-      href: ./how-to/view-manage-service-providers.md
-    - name: View service provider activity
-      displayName: monitor, log
-      href: ./how-to/view-service-provider-activity.md
 - name: Reference
   items:
   - name: Azure CLI

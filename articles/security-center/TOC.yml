@@ -274,8 +274,6 @@
   - name: Protect your Kubernetes workloads
     displayName: k8s, containers, aks
     href: kubernetes-workload-protections.md
-  - name: Manage investigation user data
-    href: security-center-investigation-user-data.md
   - name: Gain tenant-wide visibility
     href: security-center-management-groups.md
   - name: Customize your SQL information protection policy
@@ -298,7 +296,7 @@
       href: faq-vms.md
     - name: Existing users of Azure Log Analytics
       href: faq-azure-monitor-logs.md
-  - name: Built-in security policies
+  - name: Azure Policy built-ins
     displayName: samples, policy
     href: policy-reference.md
   - name: Azure roadmap blog

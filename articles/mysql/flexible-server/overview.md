@@ -126,20 +126,22 @@ The service runs the community version of MySQL. This allows full application co
 
 One of the advantage of running your workload in Azure is it's global reach. The flexible server for Azure Database for MySQL is available today in following Azure regions:
 
-- West Europe
-- North Europe
-- UK South
-- East US 2
-- West US 2
-- Central US
-- East US
-- Canada Central
-- Southeast Asia
-- Korea Central
-- Japan East
-- Australia East
+| Region | Availability | Zone redundant HA | 
+| --- | --- | --- |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: |
+| UK South | :heavy_check_mark: | :x: | 
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Central US | :heavy_check_mark: | :x: | 
+| East US | :heavy_check_mark: | :heavy_check_mark: |
+| Canada Central | :heavy_check_mark: | :x: | 
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
+| Korea Central | :heavy_check_mark: | :x: | 
+| Japan East | :heavy_check_mark: | :x: | 
+| Australia East | :heavy_check_mark: | :heavy_check_mark: |
 
-We are working on adding new servers soon.
+We are working on adding new regions soon.
 
 ## Contacts
 For any questions or suggestions you might have on Azure Database for MySQL flexible server, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address is not a technical support alias.

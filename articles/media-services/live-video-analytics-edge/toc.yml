@@ -128,4 +128,10 @@
     href: production-readiness.md
   - name: Transparency and responsible AI principles
     href: https://azure.microsoft.com/resources/transparency-note-live-video-analytics-lva/
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/?category=media
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/media-services/
 

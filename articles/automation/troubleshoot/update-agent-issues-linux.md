@@ -2,13 +2,9 @@
 title: Troubleshooting Linux update agent issues in Azure Automation
 description: This article tells how to troubleshoot and resolve issues with the Linux Windows update agent in Update Management.
 services: automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/25/2021
-ms.topic: conceptual
-ms.service: automation
+ms.topic: troubleshooting
 ms.subservice: update-management
-manager: carmonm
 ---
 
 # Troubleshoot Linux update agent issues
@@ -61,7 +57,7 @@ The operating system check verifies if the Hybrid Runbook Worker is running one 
 
 ### Log Analytics agent
 
-This check ensures that the Log Analytics agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux).
+This check ensures that the Log Analytics agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/vm/quick-collect-linux-computer.md#install-the-agent-for-linux).
 
 ### Log Analytics agent status
 
