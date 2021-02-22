@@ -78,6 +78,18 @@
           href: synapse-link-use-cases.md
         - name: Synapse Link FAQ
           href: synapse-link-frequently-asked-questions.md
+    - name: Backup and restore
+      items:
+        - name: Backup and restore introduction
+          href: online-backup-and-restore.md
+        - name: Continuous backup
+          items:
+          - name: Continuous backup - Introduction
+            href: continuous-backup-restore-introduction.md
+          - name: Continuous backup - FAQ
+            href: continuous-backup-restore-frequently-asked-questions.md
+          - name: Continuous backup - Resource model
+            href: continuous-backup-restore-resource-model.md
     - name: Optimize your Azure Cosmos DB cost
       items:
         - name: Plan and manage costs
@@ -112,18 +124,6 @@
       href: concepts-limits.md
     - name: Enterprise readiness 
       items:
-        - name: Backup and restore introduction
-          href: online-backup-and-restore.md
-        - name: Continuous backup
-          items:
-          - name: Continuous backup - Introduction
-            href: continuous-backup-restore-introduction.md
-          - name: Continuous backup - FAQ
-            href: continuous-backup-restore-frequently-asked-questions.md
-          - name: Continuous backup - Resource model
-            items:
-            - name: Resource model overview
-              href: continuous-backup-restore-resource-model.md
         - name: Compliance
           href: compliance.md
     - name: Automatic recommendations
@@ -1364,6 +1364,22 @@
           href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Use Power BI with Synapse Link
           href: synapse-link-power-bi.md
+    - name: Backup and restore
+      items:
+        - name: Manage continuous backup
+          items:
+            - name: Continuous backup - Permissions and roles
+              href: continuous-backup-restore-permissions.md
+            - name: Continuous backup - Portal
+              href: continuous-backup-restore-portal.md
+            - name: Continuous backup - PowerShell
+              href: continuous-backup-restore-powershell.md
+            - name: Continuous backup - CLI
+              href: continuous-backup-restore-command-line.md
+            - name: Continuous backup - ARM
+              href: continuous-backup-restore-template.md
+        - name: Manage periodic backup
+          href: configure-periodic-backup-restore.md 
     - name: Security
       items:
         - name: Configure IP firewall
@@ -1383,20 +1399,6 @@
           href: how-to-setup-cmk.md
     - name: Enterprise readiness
       items:
-        - name: Manage continuous backup
-          items:
-            - name: Continuous backup - Permissions and roles
-              href: continuous-backup-restore-permissions.md
-            - name: Continuous backup - Portal
-              href: continuous-backup-restore-portal.md
-            - name: Continuous backup - PowerShell
-              href: continuous-backup-restore-powershell.md
-            - name: Continuous backup - CLI
-              href: continuous-backup-restore-command-line.md
-            - name: Continuous backup - ARM
-              href: continuous-backup-restore-template.md
-        - name: Manage periodic backup
-          href: configure-periodic-backup-restore.md 
         - name: Request quota increase
           href: create-support-request-quota-increase.md
     - name: Monitor
