@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Return your Azure Stack Edge Pro device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to wipe the data and then return your Azure Stack Edge Pro device. After you've returned the device, you can also delete the resource associated with the device.
 

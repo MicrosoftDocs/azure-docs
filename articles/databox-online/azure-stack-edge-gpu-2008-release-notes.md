@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/07/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Azure Stack Edge Pro with GPU Preview release notes
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 The following release notes identify the critical open issues and the resolved issues for 2008 preview release for your Azure Stack Edge Pro devices with GPU.
 
