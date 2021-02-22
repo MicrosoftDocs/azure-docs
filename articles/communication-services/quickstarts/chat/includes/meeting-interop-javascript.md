@@ -298,7 +298,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Open your browser and navigate to http://localhost:8080/. You should see the following:
 
-:::image type="content" source="../media/javascript/acs-join-teams-meeting-chat-quickstart.PNG" alt-text="Screenshot of the completed JavaScript Application.":::
+:::image type="content" source="../acs-join-teams-meeting-chat-quickstart.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
 Insert the Teams meeting link and thread ID into the text boxes. Press *Join Teams Meeting* to join the Teams meeting and chat from within your Communication Services application. Navigate to the bottom of the page to start chatting.
 
