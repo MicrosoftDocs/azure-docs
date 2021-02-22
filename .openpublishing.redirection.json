@@ -14430,6 +14430,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/restorable-database-accounts-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-database-accounts-list-by-location.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/listbylocation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-sql-resources-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlresources/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-sql-databases-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqldatabases/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-sql-containers-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlcontainers/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-resources-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbresources/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-collections-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbcollections/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-databases-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbdatabases/list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/create-documentdb-nodejs.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-nodejs",
       "redirect_document_id": true
