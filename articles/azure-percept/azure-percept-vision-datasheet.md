@@ -3,7 +3,7 @@ title: Azure Percept Vision datasheet
 description: Check out the Azure Percept Vision datasheet for detailed device specifications
 author: elqu20
 ms.author: v-elqu
-ms.service: rtos #temporary, will update to azure-percept once available
+ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
 ---
@@ -32,7 +32,3 @@ Specifications listed below are for the Azure Percept Vision device, included in
 |Operating Temperature           |0 to 27 degrees C (Azure Percept Vision SoM assembly with housing) <br> -10 to 70 degrees C (Vision SoM chip) |
 |Touch Temperature               |<= 48 degrees C |
 |Relative Humidity               |8% to 90%    |
-
-<!---
-Update ms.service.
---->

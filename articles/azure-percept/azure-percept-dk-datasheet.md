@@ -3,7 +3,7 @@ title: Azure Percept DK datasheet
 description: Check out the Azure Percept DK datasheet for detailed device specifications
 author: elqu20
 ms.author: v-elqu
-ms.service: rtos #temporary, will update to azure-percept once available
+ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
 ---
@@ -33,7 +33,3 @@ ms.date: 02/16/2021
 |Relative Humidity               |8% to 90%    |
 |Power Supply                    |19VDC at 3.42A (65W) |
 |Vibration                       |2.0Grms from 1 to 300Hz.     |
-
-<!---
-Update ms.service.
---->

@@ -3,7 +3,7 @@ title: Azure Percept Audio datasheet
 description: Check out the Azure Percept Audio datasheet for detailed device specifications
 author: elqu20
 ms.author: v-elqu
-ms.service: rtos #temporary, will update to azure-percept once available
+ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
 ---
@@ -28,7 +28,3 @@ ms.date: 02/16/2021
 |Operating Temperature           |-20 to 70 degrees C     |
 |Relative Humidity               |8% to 90%    |
 |Vibration                       |2.0Grms from 1 to 300Hz.     |
-
-<!---
-Update ms.service.
---->
