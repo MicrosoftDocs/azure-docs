@@ -23290,6 +23290,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-central/healthcare/howto-health-data-triage.md",
+      "redirect_url": "/azure/iot-central/healthcare/tutorial-health-data-triage/",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/iot-central/core/index.yml",
       "redirect_url": "/azure/iot-central/",
       "redirect_document_id": false
@@ -64133,6 +64138,11 @@
         "source_path": "articles/virtual-machines/troubleshooting/windows-update-installation-capacity.md",
         "redirect_url": "/troubleshoot/azure/virtual-machines/windows-update-installation-capacity",
         "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/azure-monitor/app/usage-send-user-context.md",
+      "redirect_url": "/azure/azure-monitor/app/usage-overview",
+      "redirect_document_id": false
+  }
   ]
 }
