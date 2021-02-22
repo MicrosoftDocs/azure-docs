@@ -24,7 +24,7 @@ Microsoft Connected Cache is an intelligent, transparent cache for content publi
 
 1. Microsoft Connected Cache is deployed as an IoT Edge module to the on-prem server.
 2. Device Update for Azure IoT Hub clients are configured to download content from Microsoft Connected Cache by virtue of 
-the GatewayHostName attribute of the device connection string for IoT leaf devices **OR** parent_hostname set in the config.yaml for IoT Edge child devices.
+the GatewayHostName attribute of the device connection string for IoT leaf devices **OR** parent_hostname set in the config.toml for IoT Edge child devices.
 3. Device Update for Azure IoT Hub clients in both cases receive update content download commands from the Device Update for Azure IoT Hub service and request update content to the Microsoft Connected Cache instead of the CDN. Microsoft Connected Cache by default is configured to listen on http port 80, and the Delivery Optimization client makes the content request on port 80 so the parent must be configured to listen on this port.  Only the http protocol is supported at this time.
 4. The Microsoft Connected Cache server downloads content from the CDN, seeds its local cache stored on disk and delivers the content to the Device Update for Azure IoT Hub client.
    
