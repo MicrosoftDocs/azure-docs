@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 11/20/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Troubleshooting certificate errors
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 The article provides troubleshooting common certificate errors when installing certificates to your Azure Stack Edge Pro device.
 
