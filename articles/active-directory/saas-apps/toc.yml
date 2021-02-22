@@ -1878,6 +1878,8 @@
         href: userecho-tutorial.md
       - name: UserVoice
         href: uservoice-tutorial.md
+      - name: ValidSign
+        href: validsign-tutorial.md
       - name: Velpic SAML
         href: velpicsaml-tutorial.md
       - name: Veracode
