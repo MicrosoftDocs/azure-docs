@@ -217,8 +217,6 @@ dataprep_step = PythonScriptStep(
     compute_target=compute_target, 
     runconfig=aml_run_config,
     arguments=[titanic_ds.as_named_input('titanic_ds').as_mount(), prepped_data_path],
-    inputs=[titanic_ds.as_named_input("titanic_ds")],
-    outputs=[prepped_data_path],
     allow_reuse=True
 )
 ```
@@ -321,7 +319,7 @@ The `automl_settings` dictionary is passed to the `AutoMLConfig` constructor as 
 - `compute_target` is the previously defined `compute_target` that, in this example, is an inexpensive CPU-based machine. If you're using AutoML's Deep Learning facilities, you would want to change the compute target to be GPU-based
 - `featurization` is set to `auto`. More details can be found in the [Data Featurization](./how-to-configure-auto-train.md#data-featurization) section of the automated ML configuration document 
 - `label_column_name` indicates which column we are interested in predicting 
-- `training_data` is set to the `PipelineOutputTabularDataset` objects made from the outputs of the data preparation step 
+- `training_data` is set to the `OutputTabularDatasetConfig` objects made from the outputs of the data preparation step 
 
 The `AutoMLStep` itself takes the `AutoMLConfig` and has, as outputs, the `PipelineData` objects created to hold the metrics and model data. 
 

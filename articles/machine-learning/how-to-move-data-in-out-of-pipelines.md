@@ -15,7 +15,6 @@ ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
 
 # Moving data into and between ML pipeline steps (Python)
 
-
 This article provides code for importing, transforming, and moving data between steps in an Azure Machine Learning pipeline. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](concept-ml-pipelines.md).
 
 This article will show you how to:
@@ -197,7 +196,7 @@ with open(args.output_path, 'w') as f:
 
 After the initial pipeline step writes some data to the `OutputFileDatasetConfig` path and it becomes an output of that initial step, it can be used as an input to a later step. 
 
-In the following code, 
+In the following code: 
 
 * `step1_output_data` indicates that the output of the PythonScriptStep, `step1` is written to the ADLS Gen 2 datastore, `my_adlsgen2` in upload access mode. Learn more about how to [set up role permissions](how-to-access-data.md#azure-data-lake-storage-generation-2) in order to write data back to ADLS Gen 2 datastores. 
 
@@ -235,6 +234,14 @@ If you'd like to make your `OutputFileDatasetConfig` available for longer than t
 step1_output_ds = step1_output_data.register_on_complete(name='processed_data', 
                                                          description = 'files from step1`)
 ```
+
+## Delete `OutputFileDatasetConfig` contents when no longer needed
+
+Azure does not automatically delete intermediate data written with `OutputFileDatasetConfig`. To avoid storage charges for large amounts of unneeded data, you should either:
+
+* Programmatically delete intermediate data at the end of a pipeline run, when it is no longer needed
+* Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](../storage/blobs/storage/blobs/storage-lifecycle-management-concepts.md)) 
+* Regularly review and delete no-longer-needed data
 
 
 ## Next steps
