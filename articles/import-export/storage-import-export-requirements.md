@@ -40,7 +40,7 @@ Azure Import/Export service supports the following types of storage accounts:
 - General Purpose v1 storage accounts (both Classic or Azure Resource Manager deployments)
 
 > [!IMPORTANT]
-> The Azure Import/Export service does not support Network File System (NFS) 3.0-enabled storage accounts.
+> The Azure Import/Export service does not support Network File System (NFS) v3-enabled storage accounts.
 
 For more information about storage accounts, see [Azure storage accounts overview](../storage/common/storage-account-overview.md).
 

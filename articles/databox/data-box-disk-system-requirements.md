@@ -77,7 +77,7 @@ Here is a list of the supported storage types for the Data Box Disk.
 | Blob storage account | |
 
 > [!IMPORTANT]
-> The Azure Import/Export service does not support Network File System (NFS) 3.0-enabled storage accounts.
+> The Azure Import/Export service does not support Network File System (NFS) v3-enabled storage accounts.
 
 ## Supported storage types for upload
 
