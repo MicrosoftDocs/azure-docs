@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Backup and Recovery
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -22,7 +22,7 @@ Backup and Recovery covers controls to ensure that data and configuration backup
 
 Ensure you are backing up systems and data to maintain business continuity after an unexpected event. This should be defined by any objectives for Recovery Point Objective (RPO) and Recovery Time Objective (RTO).
 
-Enable Azure Backup and configure the backup source (e.g. Azure VMs, SQL Server, HANA databases, or File Shares), as well as the desired frequency and retention period.  
+Enable Azure Backup and configure the backup source (e.g. Azure VMs, SQL Server, HANA databases, or File Shares), as well as the desired frequency and retention period.
 
 For a higher level of protection, you can enable geo-redundant storage option to replicate backup data to a secondary region and recover using cross region restore.
 
@@ -50,7 +50,7 @@ For a higher level of protection, you can enable geo-redundant storage option to
 |--|--|--|--|
 | BR-2 | 10.2 | CP-9 |
 
-Ensure your backups are protected against attacks. This should include encryption of the backups to protect against loss of confidentiality.   
+Ensure your backups are protected against attacks. This should include encryption of the backups to protect against loss of confidentiality.
 
 For on-premises backups using Azure Backup, encryption-at-rest is provided using the passphrase you provide. For regular Azure service backups, backup data is automatically encrypted using Azure platform-managed keys. You can choose to encrypt the backups using customer managed key. In this case, ensure this customer-managed key in the key vault is also in the backup scope. 
 
@@ -100,7 +100,7 @@ Periodically perform data restoration of your backup. Ensure that you can restor
 |--|--|--|--|
 | BR-4 | 10.4 | CP-9 |
 
-Ensure you have measures in place to prevent and recover from loss of keys. Enable soft delete and purge protection in Azure Key Vault to protect keys against accidental or malicious deletion.  
+Ensure you have measures in place to prevent and recover from loss of keys. Enable soft delete and purge protection in Azure Key Vault to protect keys against accidental or malicious deletion.
 
 - [How to enable soft delete and purge protection in Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 

@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Endpoint Security
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -22,13 +22,13 @@ Endpoint Security covers controls in endpoint detection and response. This inclu
 
 Enable Endpoint Detection and Response (EDR) capabilities for servers and clients and integrate with SIEM and Security Operations processes.
 
-Microsoft Defender Advanced Threat Protection provides EDR capability as part of an enterprise endpoint security platform to prevent, detect, investigate, and respond to advanced threats. 
+Microsoft Defender for Endpoint provides EDR capability as part of an enterprise endpoint security platform to prevent, detect, investigate, and respond to advanced threats.
 
-- [Microsoft Defender Advanced Threat Protection Overview](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
+- [Microsoft Defender for Endpoint Overview](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
 
-- [Microsoft Defender ATP service for Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)
+- [Microsoft Defender for Endpoint for Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)
 
-- [Microsoft Defender ATP service for non-Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
+- [Microsoft Defender for Endpoint for non-Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
 **Responsibility**: Customer
 
@@ -52,7 +52,7 @@ Use a centrally managed endpoint anti-malware solution capable of real time and 
 
 Azure Security Center can automatically identify the use of a number of popular anti-malware solutions for your virtual machines and report the endpoint protection running status and make recommendations. 
 
-Microsoft Antimalware for Azure Cloud Services is the default anti-malware for Windows virtual machines (VMs). For Linux VMs, use third-party antimalware solution.  Also, you can use Azure Security Center's Threat detection for data services to detect malware uploaded to Azure Storage accounts. 
+Microsoft Antimalware for Azure Cloud Services is the default anti-malware for Windows virtual machines (VMs). For Linux VMs, use third-party antimalware solution. Also, you can use Azure Security Center's Threat detection for data services to detect malware uploaded to Azure Storage accounts. 
 
 - [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../fundamentals/antimalware.md)
 

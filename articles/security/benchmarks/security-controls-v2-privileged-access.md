@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Privileged Access
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -27,7 +27,7 @@ The most critical built-in roles in Azure AD are Global Administrator and the Pr
 
 - Privileged Role Administrator: Users with this role can manage role assignments in Azure AD, as well as within Azure AD Privileged Identity Management (PIM). In addition, this role allows management of all aspects of PIM and administrative units.
 
-Note: You may have other critical roles that need to be governed if you use custom roles with certain privileged permissions assigned. And you may also want to apply similar controls to the administrator account of critical business assets.  
+Note: You may have other critical roles that need to be governed if you use custom roles with certain privileged permissions assigned. And you may also want to apply similar controls to the administrator account of critical business assets.
 
 You can enable just-in-time (JIT) privileged access to Azure resources and Azure AD using Azure AD Privileged Identity Management (PIM). JIT grants temporary permissions to perform privileged tasks only when users need it. PIM can also generate security alerts when there is suspicious or unsafe activity in your Azure AD organization.
 
@@ -151,7 +151,7 @@ Use Azure AD entitlement management features to automate access request workflow
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
-| PA-6 | 4.6, 11.6, 12.12 | AC-2, SC-3,  SC-7 |
+| PA-6 | 4.6, 11.6, 12.12 | AC-2, SC-3, SC-7 |
 
 Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration, including strong authentication, software and hardware baselines, and restricted logical and network access. 
 
@@ -190,9 +190,9 @@ Use built-in roles to allocate permission and only create custom role when requi
 
 - [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
+- [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)    
+- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 

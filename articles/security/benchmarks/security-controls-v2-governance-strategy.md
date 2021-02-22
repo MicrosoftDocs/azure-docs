@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Governance and Strategy
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -20,15 +20,15 @@ Governance and Strategy provides guidance for ensuring a coherent security strat
 |--|--|--|--|
 | GS-1 | 2, 13 | SC, AC |
 
-Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
+Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems.
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
 - Data classification standard in accordance with the business risks
 
-- Security organization visibility into risks and asset inventory 
+- Security organization visibility into risks and asset inventory
 
-- Security organization approval of Azure services for use 
+- Security organization approval of Azure services for use
 
 - Security of assets through their lifecycle
 
@@ -123,7 +123,7 @@ Ensure you document and communicate a clear strategy for roles and responsibilit
 |--|--|--|--|
 | GS-5 | 9 | CA, SC |
 
-Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
+Establish an Azure network security approach as part of your organization's overall security access control strategy.
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
@@ -161,9 +161,9 @@ For more information, see the following references:
 |--|--|--|--|
 | GS-6 | 16, 4 | AC, AU, SC |
 
-Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
+Establish an Azure identity and privileged access approaches as part of your organization's overall security access control strategy.
 
-This strategy should include documented guidance, policy, and standards for the following elements: 
+This strategy should include documented guidance, policy, and standards for the following elements:
 
 - A centralized identity and authentication system and its interconnectivity with other internal and external identity systems
 
@@ -171,7 +171,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 - Protection of highly privileged users
 
-- Anomaly user activities monitoring and handling  
+- Anomaly user activities monitoring and handling
 
 - User identity and access review and reconciliation process
 
@@ -201,7 +201,7 @@ Establish a logging and threat response strategy to rapidly detect and remediate
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
-- The security operations (SecOps) organization’s role and responsibilities 
+- The security operations (SecOps) organization's role and responsibilities 
 
 - A well-defined incident response process aligning with NIST or another industry framework 
 

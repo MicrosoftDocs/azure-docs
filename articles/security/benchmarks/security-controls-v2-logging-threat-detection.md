@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Logging and Threat Detection
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -24,7 +24,7 @@ Ensure you are monitoring different types of Azure assets for potential threats 
 
 Use the Azure Security Center built-in threat detection capability, which is based on monitoring Azure service telemetry and analyzing service logs. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the system and copies the data to your workspace for analysis. 
 
-In addition, use Azure Sentinel to build analytics rules, which hunt threats that match  specific criteria across your environment. The rules generate incidents when the criteria are matched, so that you can investigate each incident. Azure Sentinel can also import third party threat intelligence to enhance its threat detection capability. 
+In addition, use Azure Sentinel to build analytics rules, which hunt threats that match specific criteria across your environment. The rules generate incidents when the criteria are matched, so that you can investigate each incident. Azure Sentinel can also import third-party threat intelligence to enhance its threat detection capability. 
 
 - [Threat protection in Azure Security Center](../../security-center/azure-defender.md)
 
@@ -42,7 +42,7 @@ In addition, use Azure Sentinel to build analytics rules, which hunt threats tha
 
 - [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -63,7 +63,7 @@ Azure AD provides the following user logs that can be viewed in Azure AD reporti
 
 -	Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
-Azure Security Center can also alert on certain suspicious activities such as an excessive number of failed authentication attempts, and deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (such as virtual machines, containers, app service), data resources (such as SQL DB and storage), and Azure service layers. This capability allows you to see account anomalies inside the individual resources.
+Azure Security Center can also alert on certain suspicious activities such as an excessive number of failed authentication attempts, and deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center's Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (such as virtual machines, containers, app service), data resources (such as SQL DB and storage), and Azure service layers. This capability allows you to see account anomalies inside the individual resources.
 
 - [Audit activity reports in Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
@@ -79,9 +79,9 @@ Azure Security Center can also alert on certain suspicious activities such as an
 
 - [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Threat intelligence](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -114,7 +114,7 @@ Ensure you are collecting DNS query logs to assist in correlating other network 
 
 - [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -142,7 +142,7 @@ You can use Azure Security Center and Azure Policy to enable resource logs and l
 
 Infrastructure and endpoint security 
 
-- [Application security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Application security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Threat intelligence](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -158,7 +158,7 @@ Ensure you are integrating Azure activity logs into your central logging. Ingest
 
 In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.
 
-Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently. 
+Many organizations choose to use Azure Sentinel for "hot" data that is used frequently and Azure Storage for "cold" data that is used less frequently. 
 
 - [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
@@ -196,9 +196,9 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Security operations](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Security compliance management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -208,7 +208,7 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
-Microsoft maintains time sources for most Azure PaaS and SaaS services. For your virtual machines, use Microsoft default NTP server for time synchronization unless you have a specific requirement.  If you need to stand up your own network time protocol (NTP) server, ensure you secure the UDP service port 123.
+Microsoft maintains time sources for most Azure PaaS and SaaS services. For your virtual machines, use Microsoft default NTP server for time synchronization unless you have a specific requirement. If you need to stand up your own network time protocol (NTP) server, ensure you secure the UDP service port 123.
 
 All logs generated by resources within Azure provide time stamps with the time zone specified by default.
 
