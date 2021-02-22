@@ -23,7 +23,7 @@ This tutorial shows you how to use Azure Functions to connect to resources in an
 
 ## Create a function app in a Premium plan
 
-First, you create a C# function app in the [Premium plan] as this tutorial will use C#. This plan provides serverless scale while supporting virtual network integration.
+First, you create a C# function app in the [Premium plan] as this tutorial will use C#. Other languages are also supported in Windows. This plan provides serverless scale while supporting virtual network integration.
 
 1. From the Azure portal menu or the **Home** page, select **Create a resource**.
 
@@ -295,25 +295,31 @@ To use your function app with virtual networks, you'll need to join it to a subn
 
 ## Deploy a service bus trigger and http trigger to your function app
 
-1. Clone the following Git repository which contains an HTTP Trigger and Service Bus Queue Trigger.
+1. Clone the following Git repository from Azure Samples which contains an HTTP Trigger and Service Bus Queue Trigger.
 
     ```git
-    git clone https://github.com/cachai2/functions-vnet-tutorial.git
+    git clone https://github.com/Azure-Samples/functions-vnet-tutorial
     ```
 
-1. Open the cloned repository in VS Code.
+1. Create a new repository with your own Github account and push the cloned code to it.
 
-1. Go to your subscription in the Azure view of the left menu, right-click Application Settings. Select **Download Remote Settings...**. This will create a **local.settings.json** file in your folder with the correct app settings for your function project.
+1. In your function app, select **Deployment Center** from the left menu. Then, select **Settings**.
 
-    :::image type="content" source="./media/functions-create-vnet/12.vscode-download-settings.png" alt-text="Download Settings":::
+1. On the **Settings** tab, use the deployment settings as specified below:
 
-1. Deploy to the portal. Select your function app, and then, select the blue upwards arrow to deploy.
+    | Setting      | Suggested value  | Description      |
+    | ------------ | ---------------- | ---------------- |
+    | **Source** | Github | You should have created a Github repo with the sample code in step 2. | 
+    | **Organization**  | myOrganization | This is the organization your repo is checked into. |
+    | **Repository** | myRepo | The repo you created with the sample code. |
+    | **Branch** | master | This is the repo you just created, so use the master branch. |
+    | **Runtime stack** | .NET | The sample code is in C#. |
 
-    :::image type="content" source="./media/functions-create-vnet/13.vscode-deploy.png" alt-text="Deploy Function App":::
+1. Select **Save**. 
 
-1. Your deployment will be complete once you get the message, **Deployment from <functionapp> completed.** in the bottom right of your VS Code view.
+    :::image type="content" source="./media/functions-create-vnet/12.deploy-portal.png" alt-text="Navigate to Function App Private Endpoint":::
 
-1. Once your function app is secured behind a private endpoint, you'll need to add your local machine to your virtual network before deploying again. This can be done using ExpressRoute private peering or a VPN.
+1. Congratulations! You have successfully deployed your sample function app.
 
 ## Lock down your function app with a private endpoint
 
