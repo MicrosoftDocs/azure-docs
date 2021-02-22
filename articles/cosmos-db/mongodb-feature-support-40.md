@@ -18,7 +18,7 @@ By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of th
 
 ## Protocol Support
 
-The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. Note that when using Azure Cosmos DB's API for MongoDB accounts, the 3.6+ versions of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts have the endpoint in the format `*.documents.azure.com`.
+The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. When using Azure Cosmos DB's API for MongoDB accounts, the 3.6+ versions of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts has the endpoint in the format `*.documents.azure.com`.
 
 ## Query language support
 
@@ -84,7 +84,6 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | reIndex | Yes |
 | renameCollection | No |
 
-
 ### Diagnostics commands
 
 | Command | Supported |
@@ -106,9 +105,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | top | No |
 | whatsmyuri | Yes |
 
-<a name="aggregation-pipeline"></a>
-
-## Aggregation pipeline</a>
+## <a name="aggregation-pipeline"></a>Aggregation pipeline
 
 ### Aggregation commands
 
@@ -429,11 +426,11 @@ In an [upgrade scenario](mongodb-version-upgrade.md), documents written prior to
 
 In the $regex queries, left-anchored expressions allow index search. However, using 'i' modifier (case-insensitivity) and 'm' modifier (multiline) causes the collection scan in all expressions.
 
-When there's a need to include '$' or '|', it is best to create two (or more) regex queries. For example, given the following original query: ```find({x:{$regex: /^abc$/})```, it has to be modified as follows:
+When there's a need to include '$' or '|', it is best to create two (or more) regex queries. For example, given the following original query: `find({x:{$regex: /^abc$/})`, it has to be modified as follows:
 
-```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```
+`find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})`
 
-The first part will use the index to restrict the search to those documents beginning with ^abc and the second part will match the exact entries. The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^abc |^def/})``` matches the documents in which field 'x' has values that begin with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+The first part will use the index to restrict the search to those documents beginning with ^abc and the second part will match the exact entries. The bar operator '|' acts as an "or" function - the query `find({x:{$regex: /^abc |^def/})` matches the documents in which field 'x' has values that begin with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: `find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })`.
 
 ### Array operators
 
@@ -487,7 +484,6 @@ The first part will use the index to restrict the search to those documents begi
 | $push | Yes |
 | $pushAll | Yes |
 
-
 #### Update modifiers
 
 | Command | Supported |
@@ -534,25 +530,25 @@ When using the `findOneAndUpdate` operation, sort operations on a single field a
 ```javascript
 globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
 {
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 4
+    "_t" : "CreateIndexesResponse",
+    "ok" : 1,
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 1,
+    "numIndexesAfter" : 4
 }
 ```
 
 ## Compound indexes
 
-[Compound indexes](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) provide a way to create an index for groups of fields for up to 8 fields. This type of index differs from the native MongoDB compound indexes. In Azure Cosmos DB, compound indexes are used for sorting operations that are applied to multiple fields. To create a compound index you need to specify more than one property as the parameter:
+[Compound indexes](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) provide a way to create an index for groups of fields for up to eight fields. This type of index differs from the native MongoDB compound indexes. In Azure Cosmos DB, compound indexes are used for sorting operations that are applied to multiple fields. To create a compound index, you need to specify more than one property as the parameter:
 
 ```javascript
 globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
 {
-        "createdCollectionAutomatically" : false, 
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 2,
-        "ok" : 1
+    "createdCollectionAutomatically" : false, 
+    "numIndexesBefore" : 1,
+    "numIndexesAfter" : 2,
+    "ok" : 1
 }
 ```
 
@@ -566,7 +562,7 @@ Azure Cosmos DB supports automatic, native replication at the lowest layers. Thi
 
 ## Retryable Writes
 
-Cosmos DB does not yet support retryable writes. Client drivers must add the 'retryWrites=false' URL parameter to their connection string. Additional URL parameters can be added by prefixing them with an '&'. 
+Cosmos DB does not yet support retryable writes. Client drivers must add the 'retryWrites=false' URL parameter to their connection string. More URL parameters can be added by prefixing them with an '&'. 
 
 ## Sharding
 
@@ -574,28 +570,26 @@ Azure Cosmos DB supports automatic, server-side sharding. It manages shard creat
 
 ## Sessions
 
-Azure Cosmos DB does not yet support server side sessions commands.
+Azure Cosmos DB does not yet support server-side sessions commands.
 
 ## Time-to-live (TTL)
 
-Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections by going to the [Azure portal](https://portal.azure.com).
+Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections by going to the [Azure portal](https://portal.azure.com).
 
 ## Transactions
 
-Cosmos DB supports transations for unsharded collections. The timeout for transactions is a fixed 5 seconds.
+Azure Cosmos DB supports transactions for unsharded collections. The timeout for transactions is a fixed 5 seconds.
 
 ## User and role management
 
-Cosmos DB does not yet support users and roles. However, Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
+Azure Cosmos DB does not yet support users and roles. However, Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
 
 ## Write Concern
 
-Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) which specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by the client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
+Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/), which specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by the client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
 
 ## Next steps
 
 - Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
 - Learn how to [use Robo 3T](mongodb-robomongo.md) with Azure Cosmos DB's API for MongoDB.
 - Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.
-
-<sup>Note: This article describes a feature of Azure Cosmos DB that provides wire protocol compatibility with MongoDB databases. Microsoft does not run MongoDB databases to provide this service. Azure Cosmos DB is not affiliated with MongoDB, Inc.</sup>

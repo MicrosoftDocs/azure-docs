@@ -96,31 +96,31 @@ You can use wildcard indexes to support queries against unknown fields. Let's im
 Here is part of an example document in that collection:
 
 ```json
-  "children": [
-     {
-         "firstName": "Henriette Thaulow",
-         "grade": "5"
-     }
-  ]
+"children": [
+   {
+     "firstName": "Henriette Thaulow",
+     "grade": "5"
+   }
+]
 ```
 
 Here's another example, this time with a slightly different set of properties in `children`:
 
 ```json
-  "children": [
-      {
-        "familyName": "Merriam",
-        "givenName": "Jesse",
-        "pets": [
-            { "givenName": "Goofy" },
-            { "givenName": "Shadow" }
-            ]
-      },
-      {
-        "familyName": "Merriam",
-        "givenName": "John",
-      }
-  ]
+"children": [
+    {
+     "familyName": "Merriam",
+     "givenName": "Jesse",
+     "pets": [
+         { "givenName": "Goofy" },
+         { "givenName": "Shadow" }
+         ]
+   },
+   {
+     "familyName": "Merriam",
+     "givenName": "John",
+   }
+]
 ```
 
 In this collection, documents can have many different possible properties. If you wanted to index all the data in the `children` array, you have two options: create separate indexes for each individual property or create one wildcard index for the entire `children` array.
@@ -135,8 +135,8 @@ The following command creates a wildcard index on any properties within `childre
 
 You can create the following index types using wildcard syntax:
 
-- Single field
-- Geospatial
+* Single field
+* Geospatial
 
 ### Indexing all properties
 
@@ -157,35 +157,39 @@ Documents with many fields may have a high Request Unit (RU) charge for writes a
 
 Wildcard indexes do not support any of the following index types or properties:
 
-- Compound
-- TTL
-- Unique
+* Compound
+* TTL
+* Unique
 
 **Unlike in MongoDB**, in Azure Cosmos DB's API for MongoDB you **can't** use wildcard indexes for:
 
-- Creating a wildcard index that includes multiple specific fields
+* Creating a wildcard index that includes multiple specific fields
 
-`db.coll.createIndex(
-    { "$**" : 1 },
-    { "wildcardProjection " :
-        {
-           "children.givenName" : 1,
-           "children.grade" : 1
-        }
-    }
-)`
+  ```json
+  db.coll.createIndex(
+      { "$**" : 1 },
+      { "wildcardProjection " :
+          {
+             "children.givenName" : 1,
+             "children.grade" : 1
+          }
+      }
+  )
+  ```
 
-- Creating a wildcard index that excludes multiple specific fields
+* Creating a wildcard index that excludes multiple specific fields
 
-`db.coll.createIndex(
-    { "$**" : 1 },
-    { "wildcardProjection" :
-        {
-           "children.givenName" : 0,
-           "children.grade" : 0
-        }
-    }
-)`
+  ```json
+  db.coll.createIndex(
+      { "$**" : 1 },
+      { "wildcardProjection" :
+          {
+             "children.givenName" : 0,
+             "children.grade" : 0
+          }
+      }
+  )
+  ```
 
 As an alternative, you could create multiple wildcard indexes.
 
@@ -205,11 +209,11 @@ The following command creates a unique index on the field `student_id`:
 ```shell
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 {
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 4
+    "_t" : "CreateIndexesResponse",
+    "ok" : 1,
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 1,
+    "numIndexesAfter" : 4
 }
 ```
 
@@ -220,23 +224,23 @@ The following commands create a sharded collection ```coll``` (the shard key is 
 ```shell
 globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { university: "hashed"}});
 {
-        "_t" : "ShardCollectionResponse",
-        "ok" : 1,
-        "collectionsharded" : "test.coll"
+    "_t" : "ShardCollectionResponse",
+    "ok" : 1,
+    "collectionsharded" : "test.coll"
 }
 globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 3,
-        "numIndexesAfter" : 4
+    "_t" : "CreateIndexesResponse",
+    "ok" : 1,
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 3,
+    "numIndexesAfter" : 4
 }
 ```
 
 In the preceding example, omitting the ```"university":1``` clause returns an error with the following message:
 
-```"cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }"```
+*cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }*
 
 ### TTL indexes
 
@@ -281,7 +285,7 @@ Here are some examples that show how to use the `currentOp` command to track ind
 
 The index progress details show the percentage of progress for the current index operation. Here's an example that shows the output document format for different stages of index progress:
 
-- An index operation on a "foo" collection and "bar" database that is 60 percent complete will have the following output document. The `Inprog[0].progress.total` field shows 100 as the target completion percentage.
+* An index operation on a "foo" collection and "bar" database that is 60 percent complete will have the following output document. The `Inprog[0].progress.total` field shows 100 as the target completion percentage.
 
    ```json
    {
@@ -305,7 +309,7 @@ The index progress details show the percentage of progress for the current index
    }
    ```
 
-- If an index operation has just started on a "foo" collection and "bar" database, the output document might show 0 percent progress until it reaches a measurable level.
+* If an index operation has just started on a "foo" collection and "bar" database, the output document might show 0 percent progress until it reaches a measurable level.
 
    ```json
    {
@@ -329,7 +333,7 @@ The index progress details show the percentage of progress for the current index
    }
    ```
 
-- When the in-progress index operation finishes, the output document shows empty `inprog` operations.
+* When the in-progress index operation finishes, the output document shows empty `inprog` operations.
 
    ```json
    {
