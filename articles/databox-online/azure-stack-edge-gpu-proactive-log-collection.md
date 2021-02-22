@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Proactive log collection on your Azure Stack Edge device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 You can enable proactive log collection on your Azure Stack Edge device based on the system health indicators to help efficiently troubleshoot any device issues. This article describes what is proactive log collection, how to enable it and how data is handled when proactive log collection is enabled.
    
@@ -19,7 +21,7 @@ The information in this article applies to Azure Stack Edge Pro GPU, Azure Stack
 
 ## About proactive log collection
 
-Microsoft Customer Support and Engineering teams use system logs from your Azure Stack Edge device to efficiently identify and fix issues that might come up during operation. Proactive log collection is a method that alerts Microsoft that an issue/event (see the Proactive log collection indicators section for events being tracked) has been detected by the customer’s Azure Stack Edge appliance. The support logs pertaining to the issue are automatically uploaded to an Azure Storage account managed and controlled by Microsoft. Microsoft Support and Microsoft engineers review these support logs to determine the best course of action to resolve the issue with the customer.    
+Microsoft Customer Support and Engineering teams use system logs from your Azure Stack Edge device to efficiently identify and fix issues that might come up during operation. Proactive log collection is a method that alerts Microsoft that an issue/event (see the Proactive log collection indicators section for events being tracked) has been detected by the customer’s Azure Stack Edge appliance. The support logs pertaining to the issue are automatically uploaded to an Azure Storage account managed and controlled by Microsoft. Microsoft Support and Microsoft engineers review these support logs to determine the best course of action to resolve the issue with the customer.
 
 > [!NOTE]
 > These logs are only used for debugging purposes and providing support to the customers in case of issues. 
