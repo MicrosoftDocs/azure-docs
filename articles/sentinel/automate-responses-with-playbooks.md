@@ -29,11 +29,12 @@ SIEM/SOC teams are typically inundated with security alerts and incidents on a r
 
 Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions.
 
-A playbook is a collection of these remediation actions that can be run from Azure Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively. 
+A playbook is a collection of these remediation actions that can be run from Azure Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
 
 Playbooks are created and applied at the subscription level, but the **Playbooks** tab (in the new **Automation** blade) displays all the playbooks available across any selected subscriptions.
 
 ### Azure Logic Apps basic concepts
+
 Playbooks in Azure Sentinel are based on workflows built in [Azure Logic Apps](../logic-apps/logic-apps-overview.md), a cloud service that helps you schedule, automate, and orchestrate tasks and workflows across systems throughout the enterprise. This means that playbooks can take advantage of all the power and customizability of Logic Apps' built-in templates.
 
 > [!NOTE]
@@ -55,6 +56,7 @@ Azure Logic Apps communicates with other systems and services using connectors. 
   - [Incident trigger](/connectors/azuresentinel/#triggers): the playbook receives the incident as its input, along with all its included alerts and entities.
 
     > [!IMPORTANT]
+    >
     > - The **incident trigger** feature for playbooks is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 - **Actions:** Actions are all the steps that happen after the trigger. They can be arranged sequentially, in parallel, or in a matrix of complex conditions.
@@ -120,7 +122,7 @@ Create an automation rule for all incident creation, and attach a playbook that 
 
 - Start when a [new Azure Sentinel incident is created](/connectors/azuresentinel/#triggers).
 
-- Create a new ticket in ServiceNow.
+- Create a new ticket in [ServiceNow](/connectors/service-now/).
 
 - Include in the ticket the incident name, important fields, and a URL to the Azure Sentinel incident for easy pivoting.
 
@@ -165,7 +167,7 @@ Two examples:
 
 1. Respond to an analytics rule that indicates a compromised machine, as discovered by [Microsoft Defender for Endpoint](/windows/security/threat-protection/):
 
-   - Start when a new Azure Sentinel incident is created.
+   - Start when a [new Azure Sentinel incident is created](/connectors/azuresentinel/#triggers).
 
    - Use the **Entities - Get Hosts** action in Azure Sentinel to parse the suspicious machines that are included in the incident entities.
 
@@ -183,7 +185,7 @@ Running them automatically means to set them as an automated response in an anal
 
 Security operations teams can significantly reduce their workload by fully automating the routine responses to recurring types of incidents and alerts, allowing you to concentrate more on unique incidents and alerts, analyzing patterns, threat hunting, and more.
 
-Setting automated response means that every time an analytics rule is triggered, in addition to creating an alert, the rule will run a playbook, which will receive as an input the alert created by the rule. 
+Setting automated response means that every time an analytics rule is triggered, in addition to creating an alert, the rule will run a playbook, which will receive as an input the alert created by the rule.
 
 If the alert creates an incident, the incident will trigger an automation rule which may in turn run a playbook, which will receive as an input the incident created by the alert.
 
@@ -199,7 +201,7 @@ For playbooks that are triggered by alert creation and receive alerts as their i
 
 For playbooks that are triggered by incident creation and receive incidents as their inputs (their first step is “When an Azure Sentinel Incident is triggered”), create an automation rule and define a **Run playbook** action in it. This can be done in 2 ways:
 
-- Edit the analytics rule that generates the incident you want to define an automated response for. Under **Incident automation** in the **Automated response** tab, create an automation rule. This will create a automated response only for this analytics rule. 
+- Edit the analytics rule that generates the incident you want to define an automated response for. Under **Incident automation** in the **Automated response** tab, create an automation rule. This will create a automated response only for this analytics rule.
 
 - From the **Automation rules** tab in the **Automation** blade, create a new automation rule and specify the appropriate conditions and desired actions. This automation rule will be applied to any analytics rule that fulfills the specified conditions.
 
@@ -249,7 +251,7 @@ API connections are used to connect Logic Apps to other services. Every time a n
 
 To see all the API connections, enter *API connections* in the header search box of the Azure Portal. Note the columns of interest:
 
-- Display name - the "friendly" name you give to the connection every time you create one. 
+- Display name - the "friendly" name you give to the connection every time you create one.
 - Status - indicates the connection status: error, connected.
 - Resource group - API connections are created in the resource group of the playbook (Logic Apps) resource.
 
