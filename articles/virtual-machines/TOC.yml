@@ -789,7 +789,7 @@
     href: ./linux/co-location.md
   - name: Network performance
     href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
-  - name: States and lifecycle
+  - name: States, lifecycle and billing
     href: states-lifecycle.md
   - name: Autoscale
     href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
