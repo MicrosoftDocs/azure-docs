@@ -2,12 +2,12 @@
 title: 'Azure VPN Gateway: Configure packet capture'
 description: Learn about packet capture functionality that you can use on VPN gateways to help narrow down the cause of a problem.  
 services: vpn-gateway
-author: radwiv
+author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.author: radwiv
+ms.author: alzam
 ---
 
 # Configure packet capture for VPN gateways

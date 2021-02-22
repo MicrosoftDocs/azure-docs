@@ -8,7 +8,7 @@ author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 02/18/2021
+ms.date: 02/22/2021
 ms.author: alzam
 
 ---
@@ -78,4 +78,4 @@ Remove-AzResourceGroup -Name ResourceGroupName
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
+For more information about the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).

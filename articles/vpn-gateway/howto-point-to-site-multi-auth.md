@@ -1,13 +1,13 @@
 ---
-title: 'Connect to a VNet using P2S VPN & multiple authentication: portal'
+title: 'Connect to a VNet using P2S VPN & multiple authentication types: portal'
 titleSuffix: Azure VPN Gateway
-description: Connect Windows, macOS, and Linux clients securely to an Azure virtual network using P2S. This article uses the Azure portal.
+description: Connect to a VNet via P2S using multiple authentication types in the Azure portal.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/09/2020
+ms.date: 02/22/2021
 ms.author: cherylmc
 
 ---
@@ -70,10 +70,10 @@ The client address pool is a range of private IP addresses that you specify. The
 
 1. Once the virtual network gateway has been created, navigate to the **Settings** section of the virtual network gateway page. In **Settings**, select **Point-to-site configuration**. Select **Configure now** to open the configuration page.
 
-   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png" alt-text="Point-to-site configuration page" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png":::
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png" alt-text="Screenshot of point-to-site configuration page." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png":::
 1. On the **Point-to-site configuration** page, you can configure a variety of settings. In the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration.
 
-   :::image type="content" source="./media/howto-point-to-site-multi-auth/address.jpg" alt-text="address pool":::
+   :::image type="content" source="./media/howto-point-to-site-multi-auth/address.jpg" alt-text="Screenshot of address pool.":::
 
 1. Continue to the next section to configure authentication and tunnel types.
 
@@ -81,7 +81,7 @@ The client address pool is a range of private IP addresses that you specify. The
 
 In this section, you configure authentication type and tunnel type. On the **Point-to-site configuration** page, if you don't see **Tunnel type** or **Authentication type**, your gateway is using the Basic SKU. The Basic SKU does not support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and recreate the gateway using a different gateway SKU.
 
-   :::image type="content" source="./media/howto-point-to-site-multi-auth/multiauth.jpg" alt-text="Authentication type":::
+   :::image type="content" source="./media/howto-point-to-site-multi-auth/multiauth.jpg" alt-text="Screenshot of authentication type.":::
 
 ### <a name="tunneltype"></a>Tunnel type
 
