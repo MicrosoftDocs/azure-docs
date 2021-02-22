@@ -3,6 +3,7 @@ title: Technical details and requirements for migrating to Azure Cloud Services 
 description: Provides technical details and requirements for migrating from Azure Cloud Services (classic) to Azure Cloud Services (extended support)
 author: tanmaygore
 ms.service: cloud-services-extended-support
+ms.subservice: classic-to-arm-migration
 ms.reviwer: mimckitt
 ms.topic: how-to
 ms.date: 02/06/2020
@@ -27,18 +28,18 @@ This article discusses the technical details regarding the migration tool as per
  
 ### Certificate migration
 - In Cloud Services (extended support), certificates are stored in a Key Vault. As part of migration, we create a Key Vault for the customers having the Cloud Service name and transfer all certificates from Azure Service Manager to Key Vault. 
-- This information relationship between Cloud Service and Key Vault is specified in the Template or passed through PowerShell or Azure CLI. 
+- The reference to this Key Vault is specified in the template or passed through PowerShell or Azure CLI. 
 
 ### Service Configuration and Service Definition files
 - The .cscfg and .csdef files needs to be updated for Cloud Services (extended support) with minor changes. 
-- The names of resources like virtual network and virtual network SKU are different. For more information, see [Available VM sizes](available-sizes.md)
-- Customers can retrieve their new deployments through [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) and [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
+- The names of resources like virtual network and VM SKU are different. See [Translation of resources and naming convention post migration](#translation-of-resources-and-naming-convention-post-migration)
+- Customers can retrieve their new deployments through [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) and [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/get). 
 
 ### Cloud Service (hosted service) and deployments
-- Cloud Services (extended support) do not support the concept of a hosted service. Each deployment is an independent Cloud Service. 
-- If you have two slots in your Cloud Services (classic), you need to delete one slot (staging) and use the migration tool to move the other (production) slot to Azure Resource Manager. 
-- The Public IP Address on the Cloud Service deployment remains the same after migration to Azure Resource Manager and is exposed as a Basic SKU IP (dynamic or static) resource in the customer’s subscription. 
-- The DNS name for the migrated Cloud Service uses the same name and DNS domain as used in RDFE (cloudapp.azure.net).
+- Cloud Services (extended support) does not support the concept of hosted service. Each deployment is independent. 
+- If you have two slots in your Cloud Service (classic), you need to delete one slot (staging) and use the migration tool to move the other (production) slot to Azure Resource Manager. 
+- The public IP address on the Cloud Service deployment remains the same after migration to Azure Resource Manager and is exposed as a Basic SKU IP (dynamic or static) resource. 
+- The DNS name and domain (cloudapp.azure.net) for the migrated cloud service remains the same. 
 
 ### Virtual network migration
 - If a Cloud Services deployment is in a virtual network, then during migration all Cloud Services and associated virtual network resources are migrated together. 
@@ -67,13 +68,13 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 |---|---|---|---|
 | Cloud Service | `cloudservicename` | Not associated| Not associated |
 | Deployment (portal created) <br><br> Deployment (non-portal created)  | `deploymentname` | Cloud Services (extended support) | `deploymentname` |  
-| Virtual Network | `vnetname` <br><br> `Group resourcegroupname` <br><br> `vnetname` |  Virtual Network (not portal created) <br><br> Virtual Network (portal created) <br><br> Virtual Networks (Default) | `vnetname` <br><br> `group-resourcegroupname-vnetname` <br><br> `DefaultRdfevirtual networkvnetid`|
-| Not associated | Not associated | Key Vault | `csname` | 
-| Not associated | Not associated | Resource Group for Cloud Service Deployments | `csname-migrated` | 
+| Virtual Network | `vnetname` <br><br> `Group resourcegroupname` <br><br> `vnetname` |  Virtual Network (not portal created) <br><br> Virtual Network (portal created) <br><br> Virtual Networks (Default) | `vnetname` <br><br> `group-resourcegroupname-vnetname` <br><br> `DefaultRdfevirtualnetwork_vnetid`|
+| Not associated | Not associated | Key Vault | `cloudservicename` | 
+| Not associated | Not associated | Resource Group for Cloud Service Deployments | `cloudservicename-migrated` | 
 | Not associated | Not associated | Resource Group for Virtual Network | `vnetname-migrated` <br><br> `group-resourcegroupname-vnetname-migrated`|
-| Not associated | Not associated | Public IP (Dynamic) | `csnameContractContract` | 
+| Not associated | Not associated | Public IP (Dynamic) | `cloudservicenameContractContract` | 
 | Reserved IP Name | `reservedipname` | Reserved IP (non-portal created) <br><br> Reserved IP (portal created) | `reservedipname` <br><br> `group-resourcegroupname-reservedipname` | 
-| Not associated| Not associated | Load Balancer | `deploymentname`-lb|
+| Not associated| Not associated | Load Balancer | `deploymentname-lb`|
 
 
 
@@ -97,5 +98,3 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 
 ### How much time can the operations take?<br>
 Validate is designed to be quick. Prepare is longest running and takes some time depending on total number of role instances being migrated. Abort and commit can also take time but will take less time compared to prepare. All operations will time out after 24 hrs. 
-
-
