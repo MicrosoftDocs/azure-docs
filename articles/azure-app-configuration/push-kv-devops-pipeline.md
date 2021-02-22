@@ -57,7 +57,7 @@ Assign the proper App Configuration role assignments to the credentials being us
 This section will cover how to use the Azure App Configuration Push task in an Azure DevOps build pipeline.
 
 1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. Documentation for build pipelines can be found [here](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
-      - If you're creating a new build pipeline, on the last step of the process, on the **Review** tab, select **Show assistant** on the right side of the pipeline, and search for the **Azure App Configuration Push** task.
+      - If you're creating a new build pipeline, on the last step of the process, on the **Review** tab, select **Show assistant** on the right side of the pipeline.
       ![Screenshot shows the Show assistant button for a new pipeline.](./media/new-pipeline-show-assistant.png)
       - If you're using an existing build pipeline, click the **Edit** button at the top-right.
       ![Screenshot shows the Edit button for an existing pipeline.](./media/existing-pipeline-show-assistant.png)
