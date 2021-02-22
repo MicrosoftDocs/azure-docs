@@ -176,7 +176,11 @@
       - name: Work with VPN client profile files
         href: about-vpn-profile-download.md 
       - name: Intune - Deploy VPN client profile
-        href: vpn-profile-intune.md       
+        href: vpn-profile-intune.md
+    - name: Multiple authentication types
+      items:
+      - name: Azure portal
+        href: howto-point-to-site-multi-auth.md          
     - name: OpenVPN
       items:
       - name: Configure OpenVPN tunnel type
