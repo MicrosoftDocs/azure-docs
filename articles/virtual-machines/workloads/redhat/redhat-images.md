@@ -57,7 +57,6 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 ```
 
 >[!NOTE]
->[!NOTE]
 > In general, the comparison of versions to determine the latest follows the rules of the [CompareTo method](/dotnet/api/system.version.compareto#system_version_compareto_system_version_).
 This image version comparison is done by comparing the values as a [Version](/dotnet/api/system.version.-ctor) object, not as a string.
 
