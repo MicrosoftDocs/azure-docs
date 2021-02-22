@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy configurations using GitOps on an Azure Arc enabled cluster'
+title: 'Tutorial: Deploy configurations using GitOps on an Azure Arc enabled Kubernetes cluster'
 description: This tutorial demonstrates applying configurations on an Azure Arc enabled Kubernetes cluster. For a conceptual take on this process, see the Configurations and GitOps - Azure Arc enabled Kubernetes article. 
 author: shashankbarsin
 ms.author: shasb
