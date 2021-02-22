@@ -66,6 +66,8 @@
         href: create-profile-container-adds.md
       - name: Use Azure Files and AD DS
         href: create-file-share.md
+      - name: Install OFfice with FSLogix app containers
+        href: fslogix-office-app-rule-editor.md
   - name: Configure host pool settings
     items:
       - name: RDP properties
