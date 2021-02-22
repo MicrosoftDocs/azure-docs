@@ -81,6 +81,9 @@ Let's jump straight into creating the identity. If you run into a problem, check
 
 You've created your Azure AD application and service principal.
 
+> [!NOTE]
+> One can register multiple applications with the same name in Azure AD but they would have different Application (client) IDs.
+
 ## Assign a role to the application
 
 To access resources in your subscription, you must assign a role to the application. Decide which role offers the right permissions for the application. To learn about the available roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
