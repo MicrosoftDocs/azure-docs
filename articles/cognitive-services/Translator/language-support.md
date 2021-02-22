@@ -31,8 +31,12 @@ Translator supports the following languages for text to text translation.
 | Language | Language code |
 |:-|:-:|
 | Afrikaans | `af` |
+| Albanian | `sq` |
+| Amharic | `am` |
 | Arabic | `ar` |
+| Armenian | `hy` |
 | Assamese | `as` |
+| Azerbaijani | `az` |
 | Bangla | `bn` |
 | Bosnian (Latin) | `bs` |
 | Bulgarian | `bg` |
@@ -70,9 +74,11 @@ Translator supports the following languages for text to text translation.
 | Kazakh | `kk` |
 | Klingon | `tlh-Latn` |
 | Klingon (plqaD) | `tlh-Piqd` |
+| Khmer | `km` |
 | Korean | `ko` |
 | Kurdish (Central) | `ku` |
 | Kurdish (Northern) | `kmr` |
+| Lao | `lo` |
 | Latvian | `lv` |
 | Lithuanian | `lt` |
 | Malagasy | `mg` |
@@ -81,6 +87,8 @@ Translator supports the following languages for text to text translation.
 | Maltese | `mt` |
 | Maori | `mi` |
 | Marathi | `mr` |
+| Myanmar | `my` |
+| Nepali | `ne` |
 | Norwegian | `nb` |
 | Odia | `or` |
 | Pashto | `ps` |
@@ -104,6 +112,7 @@ Translator supports the following languages for text to text translation.
 | Tamil | `ta` |
 | Telugu | `te` |
 | Thai | `th` |
+| Tigrinya | `ti` |
 | Tongan | `to` |
 | Turkish | `tr` |
 | Ukrainian | `uk` |
