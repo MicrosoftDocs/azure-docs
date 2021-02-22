@@ -5,9 +5,9 @@ documentationCenter: ''
 author: barclayn
 manager: daveba
 ms.service: identity
-ms.topic: how-to
+ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 02/19/2021
+ms.date: 02/22/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I want to connect verifiable credentials to work with my identity provider
