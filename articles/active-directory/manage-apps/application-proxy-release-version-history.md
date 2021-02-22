@@ -17,7 +17,7 @@ ms.reviewer: japere
 # Azure AD Application Proxy: Version release history
 This article lists the versions and features of Azure Active Directory (Azure AD) Application Proxy that have been released. The Azure AD team regularly updates Application Proxy with new features and functionality. Application Proxy connectors are updated automatically when a new version is released. 
 
-We recommend making sure that auto-updates are enabled for your connectors to ensure you have the latest features and bug fixes. Microsoft provides direct support for the lastest connector version and one version before.
+We recommend making sure that auto-updates are enabled for your connectors to ensure you have the latest features and bug fixes. Microsoft provides direct support for the latest connector version and one version before.
 
 Here is a list of related resources:
 
@@ -42,7 +42,7 @@ This version is only available for install via the download page. An auto-upgrad
 
 ### Fixed issues
 - Fixed a websocket issue that forced lowercase strings.
-- Fixed an issue that caused connectors to be occassionally unresponsive.
+- Fixed an issue that caused connectors to be occasionally unresponsive.
 
 ## 1.5.1626.0
 
