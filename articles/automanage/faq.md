@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: troubleshooting
-ms.date: 09/04/2020
+ms.date: 02/22/2021
 ms.author: deanwe
 ---
 
@@ -22,7 +22,7 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 **What are all of the prerequisites required to enable Azure Automanage?**
 
 The following are prerequisites for enabling Azure Automanage:
-- Windows Server VMs only
+- Supported [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions) and [Linux distros](automanage-virtual-machines.md)
 - VMs must be in a supported region
 - User must have correct permissions
 - Non-scale set VMs only
@@ -37,12 +37,12 @@ If you are using a new Automanage Account when enabling, you must have either th
 
 **What regions are supported?**
 
-VMs in the following regions are supported: West Europe, East US, West US 2, Canada Central, West Central US, Japan East.
+VMs in the following regions are supported: West Europe, North Europe, Central US, East US, East US 2, West US, West US 2, Canada Central, West Central US, South Central US, Japan East, UK South, AU East, AU Southeast.
 
 
 **Which capabilities does Azure Automanage automate?**
 
-Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the services listed [here](virtual-machines-best-practices.md).
+Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the services listed [here](automanage-virtual-machines.md).
 
 **Does Azure Automanage work with Azure Arc-enabled VMs?**
 
@@ -50,12 +50,12 @@ Automanage currently does not support Arc-enabled VMs.
 
 **Can I customize configurations on Azure Automanage?**
 
-Customers can customize settings for specific services, like Azure Backup retention, through configuration preferences. For the full list of settings that can be changed, see our documentation [here](virtual-machines-best-practices.md).
+Customers can customize settings for specific services, like Azure Backup retention, through configuration preferences. For the full list of settings that can be changed, see our documentation [here](automanage-virtual-machines.md#customizing-an-environment-using-preferences).
 
 
 **Does Azure Automanage work with both Linux and Windows VMs?**
 
-Currently, Automanage supports Windows Server Azure VMs.
+Yes, see the supported [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions) and [Linux distros](automanage-virtual-machines.md).
 
 
 **Can I selectively apply Automanage on only a set of VMs?**
