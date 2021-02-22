@@ -112,3 +112,10 @@ The export script action likely doubles the storage usage due to Hive. However, 
 1. Specify `--run-script=false` to skip execution of the generated Hive script. The Hive export and import scripts would still be saved to the export path.
 
 2. Execute snippets of the Hive export and import scripts database-by-database or table-by-table, manually cleaning up the export path after each migrated database or table.
+
+## Next steps
+
+* [Azure Data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [Use external metadata stores](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation)
+* [Storage types and features](../hdinsight-hadoop-compare-storage-options.md#storage-types-and-features)
+* [Script action to a running cluster](../hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster)
