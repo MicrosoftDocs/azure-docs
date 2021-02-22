@@ -19,6 +19,9 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## February 2021
 
+* The `2021-01-15` model version for the PII endpoint in [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.1-preview.x, which provides 
+  * Expanded support for 9 new languages
+  * Improved AI quality of named entity categories for supported languages.
 * The S0 through S4 pricing tiers are being retired on March 8th, 2021. If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you should update it to use the Standard (S) [pricing tier](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier).
 
 ## January 2021
