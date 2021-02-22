@@ -30,7 +30,7 @@ To update your local package just select a newer version from the Mixed Reality 
 
 ## Install Remote Rendering package manually
 
-To install the Remote Rendering package manually you need to:
+To install the Remote Rendering package manually, you need to:
 
 1. Download the package from the Mixed Reality Packages NPM feed at `https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Unity-packages/npm/registry`.
     * You can either use [NPM](https://www.npmjs.com/get-npm) and run the following command to download the package to the current folder.
@@ -38,7 +38,7 @@ To install the Remote Rendering package manually you need to:
       npm pack com.microsoft.azure.remote-rendering --registry https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Unity-packages/npm/registry
       ```
 
-    * Or you can use the PowerShell script at `Scripts/DownloadUnityPackages.ps1` from the [azure-remote-rendering github repository](https://github.com/Azure/azure-remote-rendering).
+    * Or you can use the PowerShell script at `Scripts/DownloadUnityPackages.ps1` from the [azure-remote-rendering GitHub repository](https://github.com/Azure/azure-remote-rendering).
         * Edit the contents of `Scripts/unity_sample_dependencies.json` to
           ```json
           {
@@ -59,7 +59,7 @@ To install the Remote Rendering package manually you need to:
 
 1. [Install the downloaded package](https://docs.unity3d.com/Manual/upm-ui-tarball.html) with Unity's Package Manager.
 
-To update your local package just re-run the respective command you used and re-import the package. Updating the package may occasionally lead to console errors. If this occurs, try closing and reopening the project.
+To update your local package just rerun the respective command you used and reimport the package. Updating the package may occasionally lead to console errors. If this occurs, try closing and reopening the project.
 
 ## Unity render pipelines
 
