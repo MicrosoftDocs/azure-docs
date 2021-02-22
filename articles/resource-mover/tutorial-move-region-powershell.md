@@ -417,6 +417,6 @@ In this tutorial, you:
 Now, trying moving Azure VMs using the portal
 
 > [!div class="nextstepaction"]
-> [Move Azure SQL resources](./tutorial-move-region-virtual-machines.md)
+> [Move Azure VMs in the portal](./tutorial-move-region-virtual-machines.md)
 
 
