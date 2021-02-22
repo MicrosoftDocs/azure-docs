@@ -72,9 +72,9 @@ Translator supports the following languages for text to text translation.
 | Japanese | `ja` |
 | Kannada | `kn` |
 | Kazakh | `kk` |
+| Khmer | `km` |
 | Klingon | `tlh-Latn` |
 | Klingon (plqaD) | `tlh-Piqd` |
-| Khmer | `km` |
 | Korean | `ko` |
 | Kurdish (Central) | `ku` |
 | Kurdish (Northern) | `kmr` |
