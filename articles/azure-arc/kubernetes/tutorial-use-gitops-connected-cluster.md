@@ -35,7 +35,7 @@ The [example repository](https://github.com/Azure/arc-k8s-demo) used in this art
 * Deployment: `cluster-config/azure-vote`
 * ConfigMap: `team-a/endpoints`
 
-The `config-agent` polls Azure for new or updated `sourceControlConfiguration`. This task will take up to 30 seconds.
+The `config-agent` polls Azure for new or updated configurations. This task will take up to 30 seconds.
 
 If you are associating a private repository with the `sourceControlConfiguration`, complete the steps below in [Apply configuration from a private Git repository](#apply-configuration-from-a-private-git-repository).
 
