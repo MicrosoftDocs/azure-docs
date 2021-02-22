@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/06/2021
+ms.date: 02/04/2021
 ---
 
 # Data transformation expressions in mapping data flow
@@ -71,6 +71,54 @@ ___
 <code><b>atan2(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Returns the angle in radians between the positive x-axis of a plane and the point given by the coordinates.  
 * ``atan2(0, 0) -> 0.0``  
+___
+### <code>between</code>
+<code><b>between(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : any) => boolean</b></code><br/><br/>
+Checks if the first value is in between two other values inclusively. Numeric, string and datetime values can be compared  
+* ``between(10, 5, 24)``
+* ``true``
+* ``between(currentDate(), currentDate() + 10, currentDate() + 20)``
+* ``false``
+___
+### <code>bitwiseAnd</code>
+<code><b>bitwiseAnd(<i>&lt;value1&gt;</i> : integral, <i>&lt;value2&gt;</i> : integral) => integral</b></code><br/><br/>
+Bitwise And operator across integral types. Same as & operator  
+* ``bitwiseAnd(0xf4, 0xef)``
+* ``0xe4``
+* ``(0xf4 & 0xef)``
+* ``0xe4``
+___
+### <code>bitwiseOr</code>
+<code><b>bitwiseOr(<i>&lt;value1&gt;</i> : integral, <i>&lt;value2&gt;</i> : integral) => integral</b></code><br/><br/>
+Bitwise Or operator across integral types. Same as | operator  
+* ``bitwiseOr(0xf4, 0xef)``
+* ``0xff``
+* ``(0xf4 | 0xef)``
+* ``0xff``
+___
+### <code>bitwiseXor</code>
+<code><b>bitwiseXor(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
+Bitwise Or operator across integral types. Same as | operator  
+* ``bitwiseXor(0xf4, 0xef)``
+* ``0x1b``
+* ``(0xf4 ^ 0xef)``
+* ``0x1b``
+* ``(true ^ false)``
+* ``true``
+* ``(true ^ true)``
+* ``false``
+___
+### <code>blake2b</code>
+<code><b>blake2b(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => string</b></code><br/><br/>
+Calculates the Blake2 digest of set of column of varying primitive datatypes given a bit length which can only be multiples of 8 between 8 & 512. It can be used to calculate a fingerprint for a row  
+* ``blake2b(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))``
+* ``'c9521a5080d8da30dffb430c50ce253c345cc4c4effc315dab2162dac974711d'``
+___
+### <code>blake2bBinary</code>
+<code><b>blake2bBinary(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => binary</b></code><br/><br/>
+Calculates the Blake2 digest of set of column of varying primitive datatypes given a bit length which can only be multiples of 8 between 8 & 512. It can be used to calculate a fingerprint for a row  
+* ``blake2bBinary(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))``
+* ``unHex('c9521a5080d8da30dffb430c50ce253c345cc4c4effc315dab2162dac974711d')``
 ___
 ### <code>case</code>
 <code><b>case(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, <i>&lt;false_expression&gt;</i> : any, ...) => any</b></code><br/><br/>
@@ -226,6 +274,10 @@ ___
 Comparison equals operator ignoring case. Same as <=> operator.  
 * ``'abc'<=>'Abc' -> true``  
 * ``equalsIgnoreCase('abc', 'Abc') -> true``  
+___
+### <code>escape</code>
+<code><b>escape(<i>&lt;string_to_escape&gt;</i> : string, <i>&lt;format&gt;</i> : string) => string</b></code><br/><br/>
+Escapes a string according to a format. Literal values for acceptable format are 'json', 'xml', 'ecmascript', 'html', 'java'.
 ___
 ### <code>factorial</code>
 <code><b>factorial(<i>&lt;value1&gt;</i> : number) => long</b></code><br/><br/>
@@ -766,6 +818,12 @@ Matches the type of the column. Can only be used in pattern expressions.number m
 * ``typeMatch(type, 'number')``  
 * ``typeMatch('date', 'datetime')``  
 ___
+### <code>unescape</code>
+<code><b>unescape(<i>&lt;string_to_escape&gt;</i> : string, <i>&lt;format&gt;</i> : string) => string</b></code><br/><br/>
+Unescapes a string according to a format. Literal values for acceptable format are 'json', 'xml', 'ecmascript', 'html', 'java'.
+* ```unescape('{\\\\\"value\\\\\": 10}', 'json')```
+* ```'{\\\"value\\\": 10}'```
+___
 ### <code>upper</code>
 <code><b>upper(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
 Uppercases a string.  
@@ -1085,6 +1143,30 @@ Sorts the array using the provided predicate function. Sort expects a reference 
 * ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``  
 * ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``  
 
+## Cached lookup functions
+The following functions are only available when using a cached lookup when you've included a cached sink.
+___
+### <code>lookup</code>
+<code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
+Looks up the first row from the cached sink using the specified keys that match the keys from the cached sink.
+* ``cacheSink#lookup(movieId)``  
+___
+### <code>mlookup</code>
+<code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
+Looks up the all matching rows from the cached sink using the specified keys that match the keys from the cached sink.
+* ``cacheSink#mlookup(movieId)``  
+___
+### <code>output</code>
+<code><b>output() => any</b></code><br/><br/>
+Returns the first row of the results of the cache sink
+* ``cacheSink#output()``  
+___
+### <code>outputs</code>
+<code><b>output() => any</b></code><br/><br/>
+Returns the entire output row set of the results of the cache sink
+* ``cacheSink#outputs()``
+___
+
 
 ## Conversion functions
 
@@ -1246,30 +1328,6 @@ Selects a column value by its relative position(1 based) in the stream. If the p
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
 * ``toString(byPosition(1234))``  
-
-## Cached lookup functions
-The following functions are only available when using a cached lookup when you've included a cached sink.
-___
-### <code>lookup</code>
-<code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
-Looks up the first row from the cached sink using the specified keys that match the keys from the cached sink.
-* ``cacheSink#lookup(movieId)``  
-___
-### <code>mlookup</code>
-<code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
-Looks up the all matching rows from the cached sink using the specified keys that match the keys from the cached sink.
-* ``cacheSink#mlookup(movieId)``  
-___
-### <code>output</code>
-<code><b>output() => any</b></code><br/><br/>
-Returns the first row of the results of the cache sink
-* ``cacheSink#output()``  
-___
-### <code>outputs</code>
-<code><b>output() => any</b></code><br/><br/>
-Returns the entire output row set of the results of the cache sink
-* ``cacheSink#outputs()``
-___
 
 ## Window functions
 The following functions are only available in window transformations.

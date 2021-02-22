@@ -91,6 +91,9 @@ You can use the following combinations of authorization and Azure Storage types:
 
 When accessing storage that is protected with the firewall, you can use **User Identity** or **Managed Identity**.
 
+> [!NOTE]
+> The firewall feature on Storage is in public preview and is available in all public cloud regions. 
+
 #### User Identity
 
 To access storage that is protected with the firewall via User Identity, you can use PowerShell module Az.Storage.
@@ -151,12 +154,13 @@ Follow these steps to configure your storage account firewall and add an excepti
     ```powershell
         $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
         $rule.ResourceAccessRules | ForEach-Object { 
-        if ($_.ResourceId -cmatch "\/subscriptions\/(\w\-*)+\/resourcegroups\/(.)+") { 
-            Write-Host "Storage account network rule is successfully configured." -ForegroundColor Green
-            $rule.ResourceAccessRules
-        } else {
-            Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Red
-            $rule.ResourceAccessRules
+            if ($_.ResourceId -cmatch "\/subscriptions\/(\w\-*)+\/resourcegroups\/(.)+") { 
+                Write-Host "Storage account network rule is successfully configured." -ForegroundColor Green
+                $rule.ResourceAccessRules
+            } else {
+                Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Red
+                $rule.ResourceAccessRules
+            }
         }
     ```
 
@@ -190,7 +194,7 @@ To ensure a smooth Azure AD pass-through experience, all users will, by default,
 
 ## Server-scoped credential
 
-Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage. A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below).
+Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage. A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below).
 
 > [!NOTE]
 > The `FOR CRYPTOGRAPHIC PROVIDER` argument is not supported.

@@ -115,15 +115,7 @@ The GA of this feature is planned before MySQL v5.6 retirement. However, the fea
 
 ### Will this cause downtime of the server and if so, how long?
 
-Yes, the server will be unavailable during the upgrade process so we recommend you perform this operation during your planned maintenance window. The estimated downtime depends on the database size, storage size provisioned (IOPs provisioned), and the number of tables on the database. The upgrade time is directly proportional to the number of tables on the server.The upgrades of Basic SKU servers are expected to take longer time as it is on standard storage platform. To estimate the downtime for your server environment, we recommend to first perform upgrade on restored copy of the server.  
-
-### It is noted that it is not supported on replica server yet. What does that mean concrete?
-
-Currently, major version upgrade is not supported for replica server, which means you should not run it for servers involved in replication (either source or replica server). If you would like to test the upgrade of the servers involved in replication before we add the replica support for upgrade feature, we would recommend following steps:
-
-1. During your planned maintenance, [stop replication and delete replica server](howto-read-replicas-portal.md) after capturing its name and all the configuration information (Firewall settings, server parameter configuration if it is different from source server).
-2. Perform upgrade of the source server.
-3. Provision a new read replica server with the same name and configuration settings captured in step 1. The new replica server will be on v5.7 automatically after the source server is upgraded to v5.7.
+Yes, the server will be unavailable during the upgrade process so we recommend you perform this operation during your planned maintenance window. The estimated downtime depends on the database size, storage size provisioned (IOPs provisioned), and the number of tables on the database. The upgrade time is directly proportional to the number of tables on the server.The upgrades of Basic SKU servers are expected to take longer time as it is on standard storage platform. To estimate the downtime for your server environment, we recommend to first perform upgrade on restored copy of the server. Consider [performing minimal downtime major version upgrade from MySQL 5.6 to MySQL 5.7 using read replica.](#perform-minimal-downtime-major-version-upgrade-from-mysql-56-to-mysql-57-using-read-replicas)
 
 ### What will happen if we do not choose to upgrade our MySQL v5.6 server before February 5, 2021?
 

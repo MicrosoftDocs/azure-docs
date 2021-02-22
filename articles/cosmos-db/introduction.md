@@ -42,7 +42,7 @@ Build fast with open source APIs, multiple SDKs, schemaless data and no-ETL anal
 - Build apps on Core (SQL) API using the languages of your choice with SDKs for .NET, Java, Node.js and Python. Or your choice of drivers for any of the other database APIs.
 - Run no-ETL analytics over the near-real time operational data stored in Azure Cosmos DB with Azure Synapse Analytics.
 - Change feed makes it easy to track and manage changes to database containers and create triggered events with Azure Functions.
-- Azure Cosmos DB’s schema-less service automatically indexes all your data, regardless of the data model, to delivery blazing fast queries.
+- Azure Cosmos DB’s schema-less service automatically indexes all your data, regardless of the data model, to deliver blazing fast queries.
 
 ### Mission-critical ready
 

@@ -252,7 +252,7 @@ Parameters of the `Publish-GuestConfigurationPackage` cmdlet:
 The example below publishes the package to a storage container name 'guestconfiguration'.
 
 ```azurepowershell-interactive
-Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
+Publish-GuestConfigurationPackage -Path ./AuditFilePathExists/AuditFilePathExists.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
 ```
 
 Once a Guest Configuration custom policy package has been created and uploaded, create the Guest
@@ -345,6 +345,28 @@ describe file(attr_path) do
 end
 ```
 
+Add the property **AttributesYmlContent** in your configuration with any string as the value.
+The Guest Configuration agent automatically creates the YAML file
+used by InSpec to store attributes. See the example below.
+
+```powershell
+Configuration AuditFilePathExists
+{
+    Import-DscResource -ModuleName 'GuestConfiguration'
+
+    Node AuditFilePathExists
+    {
+        ChefInSpecResource 'Audit Linux path exists'
+        {
+            Name = 'linux-path'
+            AttributesYmlContent = "fromParameter"
+        }
+    }
+}
+```
+
+Recompile the MOF file using the examples given in this document.
+
 The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a
 parameter named **Parameter**. This parameter takes a hashtable including all details about each
 parameter and automatically creates all the required sections of the files used to create each Azure
@@ -358,44 +380,27 @@ $PolicyParameterInfo = @(
     @{
         Name = 'FilePath'                             # Policy parameter name (mandatory)
         DisplayName = 'File path.'                    # Policy parameter display name (mandatory)
-        Description = "File path to be audited."      # Policy parameter description (optional)
-        ResourceType = "ChefInSpecResource"           # Configuration resource type (mandatory)
+        Description = 'File path to be audited.'      # Policy parameter description (optional)
+        ResourceType = 'ChefInSpecResource'           # Configuration resource type (mandatory)
         ResourceId = 'Audit Linux path exists'        # Configuration resource property name (mandatory)
-        ResourcePropertyName = "AttributesYmlContent" # Configuration resource property name (mandatory)
+        ResourcePropertyName = 'AttributesYmlContent' # Configuration resource property name (mandatory)
         DefaultValue = '/tmp'                         # Policy parameter default value (optional)
     }
 )
 
 # The hashtable also supports a property named 'AllowedValues' with an array of strings to limit input to a list
 
-New-GuestConfigurationPolicy
-    -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
+$uri = 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D'
+
+New-GuestConfigurationPolicy -ContentUri $uri `
     -DisplayName 'Audit Linux file path.' `
     -Description 'Audit that a file path exists on a Linux machine.' `
     -Path './policies' `
     -Parameter $PolicyParameterInfo `
+    -Platform 'Linux' `
     -Version 1.0.0
 ```
 
-For Linux policies, include the property **AttributesYmlContent** in your configuration and
-overwrite the values as needed. The Guest Configuration agent automatically creates the YAML file
-used by InSpec to store attributes. See the example below.
-
-```powershell
-Configuration AuditFilePathExists
-{
-    Import-DscResource -ModuleName 'GuestConfiguration'
-
-    Node AuditFilePathExists
-    {
-        ChefInSpecResource 'Audit Linux path exists'
-        {
-            Name = 'linux-path'
-            AttributesYmlContent = "path: /tmp"
-        }
-    }
-}
-```
 
 ## Policy lifecycle
 

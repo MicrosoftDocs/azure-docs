@@ -128,7 +128,7 @@ For more detailed information about deployment commands and options for deployin
 
 For tenant level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data. [Subscription](deploy-to-subscription.md) and [management group](deploy-to-management-group.md) deployments also require a location. For [resource group](deploy-to-resource-group.md) deployments, the location of the resource group is used to store the deployment data.
 
-You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named **azuredeploy.json** creates a default deployment name of **azuredeploy**.
+You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named _azuredeploy.json_ creates a default deployment name of **azuredeploy**.
 
 For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. For example, if you create a tenant deployment with the name **deployment1** in **centralus**, you can't later create another deployment with the name **deployment1** but a location of **westus**. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
 

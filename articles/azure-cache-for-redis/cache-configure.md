@@ -232,10 +232,7 @@ The **Schedule updates** blade allows you to designate a maintenance window for 
 
 To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. The maintenance window time is in UTC.
 
-> [!IMPORTANT]
-> The **Schedule updates** functionality is only available for Premium tier caches. For more information and instructions, see [Azure Cache for Redis administration - Schedule updates](cache-administration.md#schedule-updates).
->
->
+For more information and instructions, see [Azure Cache for Redis administration - Schedule updates](cache-administration.md#schedule-updates)
 
 ### Geo-replication
 
@@ -340,10 +337,10 @@ Click **Alert rules** to configure alerts based on Azure Cache for Redis metrics
 
 ### Diagnostics
 
-By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/platform/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#export-cache-metrics) used to store cache diagnostics.
+By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#export-cache-metrics) used to store cache diagnostics.
 
 >[!NOTE]
->In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+>In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 >
 >
 
