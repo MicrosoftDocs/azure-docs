@@ -329,13 +329,19 @@ Once you know the state of the Azure connectivity and of the Azure subscription,
 
 ### Recovering from loss of connectivity
 
-If a firewall or a proxy is preventing access to Azure, add the following domain addresses in the firewall/proxy profile allow list:
+If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow the following URLs and IP addresses:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* IP addresses
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 Once connectivity to Azure is restored to the Azure Backup Server, the Azure subscription state determines the operations that can be performed. Once the server is **Connected**, use the table in [Network connectivity](backup-mabs-install-azure-stack.md#network-connectivity) to see the available operations.
 

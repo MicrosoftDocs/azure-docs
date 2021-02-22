@@ -25,9 +25,9 @@ To get started, you'll need:
 
 - An Azure AD subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
 
-- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that is linked to your Azure subscription.
+- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-- Configured Azure AD B2C environment for using [custom policies](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started), if you wish to integrate Nevis into your sign-up policy flow.
+- Configured Azure AD B2C environment for using [custom policies](./custom-policy-get-started.md), if you wish to integrate Nevis into your sign-up policy flow.
 
 ## Scenario description
 
@@ -129,9 +129,9 @@ You'll receive two emails:
 
 4. **Save** the changes to the file.
 
-5. Follow the [instructions](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#2-create-an-azure-blob-storage-account) and upload the **nevis.html** file to your Azure blob storage.
+5. Follow the [instructions](./customize-ui-with-html.md#2-create-an-azure-blob-storage-account) and upload the **nevis.html** file to your Azure blob storage.
 
-6. Follow the [instructions](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#3-configure-cors) and enable Cross-Origin Resource Sharing (CORS) for this file.
+6. Follow the [instructions](./customize-ui-with-html.md#3-configure-cors) and enable Cross-Origin Resource Sharing (CORS) for this file.
 
 7. Once the upload is complete and CORS is enabled, select the **nevis.html** file in the list.
 
@@ -263,6 +263,6 @@ You'll receive two emails:
 
 For additional information, review the following articles
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -56,7 +56,7 @@ To enable sign-in for users with a Facebook account in Azure Active Directory B2
 
 ::: zone pivot="b2c-user-flow"
 
-## Configure a Facebook account as an identity provider
+## Configure Facebook as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
@@ -66,25 +66,6 @@ To enable sign-in for users with a Facebook account in Azure Active Directory B2
 1. For the **Client ID**, enter the App ID of the Facebook application that you created earlier.
 1. For the **Client secret**, enter the App Secret that you recorded.
 1. Select **Save**.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## Add Facebook as an identity provider
-
-1. In the `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** file, replace the value of `client_id` with the Facebook application ID:
-
-   ```xml
-   <TechnicalProfile Id="Facebook-OAUTH">
-     <Metadata>
-     <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
-       <Item Key="client_id">00000000000000</Item>
-   ```
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
 
 ## Add Facebook identity provider to a user flow 
 
@@ -99,6 +80,32 @@ To enable sign-in for users with a Facebook account in Azure Active Directory B2
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## Create a policy key
+
+You need to store the App Secret that you previously recorded in your Azure AD B2C tenant.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
+3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+4. On the Overview page, select **Identity Experience Framework**.
+5. Select **Policy Keys** and then select **Add**.
+6. For **Options**, choose `Manual`.
+7. Enter a **Name** for the policy key. For example, `FacebookSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
+8. In **Secret**, enter your App Secret that you previously recorded.
+9. For **Key usage**, select `Signature`.
+10. Click **Create**.
+
+## Configure a Facebook account as an identity provider
+
+1. In the `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** file, replace the value of `client_id` with the Facebook application ID:
+
+   ```xml
+   <TechnicalProfile Id="Facebook-OAUTH">
+     <Metadata>
+     <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
+       <Item Key="client_id">00000000000000</Item>
+   ```
 
 ## Upload and test the policy
 

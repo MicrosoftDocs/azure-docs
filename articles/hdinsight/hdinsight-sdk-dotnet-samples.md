@@ -1,9 +1,6 @@
 ---
 title: 'Azure HDInsight: .NET samples'
 description: Find C# .NET examples on GitHub for common tasks using the HDInsight SDK for .NET.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 12/06/2019

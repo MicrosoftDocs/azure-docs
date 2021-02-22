@@ -20,7 +20,7 @@ Shared Image Gallery is a service that helps you build structure and organizatio
 - Versioning and grouping of images for easier management.
 - Highly available images with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.
 - Premium storage support (Premium_LRS).
-- Sharing across subscriptions, and even between Active Directory (AD) tenants, using RBAC.
+- Sharing across subscriptions, and even between Active Directory (AD) tenants, using Azure RBAC.
 - Scaling your deployments with image replicas in each region.
 
 Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
@@ -142,14 +142,14 @@ The regions a Shared Image version is replicated to can be updated after creatio
 
 ## Access
 
-As the Shared Image Gallery, Image Definition, and Image version are all resources, they can be shared using the built-in native Azure RBAC controls. Using RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the Shared Image version, they can deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:
+As the Shared Image Gallery, Image Definition, and Image version are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the Shared Image version, they can deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:
 
 | Shared with User     | Shared Image Gallery | Image Definition | Image version |
 |----------------------|----------------------|--------------|----------------------|
 | Shared Image Gallery | Yes                  | Yes          | Yes                  |
 | Image Definition     | No                   | Yes          | Yes                  |
 
-We recommend sharing at the Gallery level for the best experience. We do not recommend sharing individual image versions. For more information about RBAC, see [Manage access to Azure resources using RBAC](../role-based-access-control/role-assignments-portal.md).
+We recommend sharing at the Gallery level for the best experience. We do not recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
 
 Images can also be shared, at scale, even across tenants using a multi-tenant app registration. For more information about sharing images across tenants, see "Share gallery VM images across Azure tenants" using the [Azure CLI](./linux/share-images-across-tenants.md) or [PowerShell](./windows/share-images-across-tenants.md).
 
@@ -184,10 +184,10 @@ Image version:
 
 The following SDKs support creating Shared Image Galleries:
 
-- [.NET](/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
-- [Java](/java/azure/?view=azure-java-stable)
+- [.NET](/dotnet/api/overview/azure/virtualmachines/management)
+- [Java](/java/azure/)
 - [Node.js](/javascript/api/@azure/arm-compute)
-- [Python](/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Python](/python/api/overview/azure/virtualmachines)
 - [Go](/azure/go/)
 
 ## Templates

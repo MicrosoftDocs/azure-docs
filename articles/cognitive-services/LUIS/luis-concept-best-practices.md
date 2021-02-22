@@ -136,7 +136,7 @@ Use [active learning](luis-how-to-review-endpoint-utterances.md)'s **Review endp
 
 ## Do monitor the performance of your app
 
-Monitor the prediction accuracy using a [batch test](luis-concept-batch-test.md) set.
+Monitor the prediction accuracy using a [batch test](./luis-how-to-batch-test.md) set.
 
 Keep a separate set of utterances that aren't used as [example utterances](luis-concept-utterance.md) or endpoint utterances. Keep improving the app for your test set. Adapt the test set to reflect real user utterances. Use this test set to evaluate each iteration or version of the app.
 

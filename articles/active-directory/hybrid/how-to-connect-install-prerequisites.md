@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -68,6 +68,7 @@ To read more about securing your Active Directory environment, see [Best practic
     - You must configure TLS/SSL certificates. For more information, see [Managing SSL/TLS protocols and cipher suites for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) and [Managing SSL certificates in AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - You must configure name resolution. 
 - If your global administrators have MFA enabled, the URL https://secure.aadcdn.microsoftonline-p.com *must* be in the trusted sites list. You're prompted to add this site to the trusted sites list when you're prompted for an MFA challenge and it hasn't been added before. You can use Internet Explorer to add it to your trusted sites.
+- If you plan to use Azure AD Connect Health for syncing, ensure that the prerequisites for Azure AD Connect Health are also met. For more information, see [Azure AD Connect Health agent installation](how-to-connect-health-agent-install.md).
 
 #### Harden your Azure AD Connect server 
 We recommend that you harden your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment. Following these recommendations will help to mitigate some security risks to your organization.
@@ -161,6 +162,17 @@ Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypt
     "SchUseStrongCrypto"=dword:00000001
     ```
 1. If you also want to enable TLS 1.2 between the sync engine server and a remote SQL Server, make sure you have the required versions installed for [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
+
+### DCOM prerequisites on the synchronization server
+During the installation of the synchronization service, Azure AD Connect checks for the presence of the following registry key:
+
+- HKEY_LOCAL_MACHINE:  Software\Microsoft\Ole
+
+Under this registry key, Azure AD Connect will check to see if the following values are present and uncorrupted: 
+
+- [MachineAccessRestriction](https://docs.microsoft.com/windows/win32/com/machineaccessrestriction)
+- [MachineLaunchRestriction](https://docs.microsoft.com/windows/win32/com/machinelaunchrestriction)
+- [DefaultLaunchPermission](https://docs.microsoft.com/windows/win32/com/defaultlaunchpermission)
 
 ## Prerequisites for federation installation and configuration
 ### Windows Remote Management
