@@ -2,7 +2,7 @@
 title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template) and Bicep file.
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 02/22/2021
 ---
 
 # Parameters in ARM templates
@@ -55,7 +55,7 @@ param demoArray array
 
 ## Secure parameters
 
-You can mark specific parameters as secure. The parameter must be either a string or object. When you mark a parameter as secure, the value of the parameter isn't saved to the deployment history and isn't logged.
+You can mark string or object parameters as secure. The value of a secure parameter isn't saved to the deployment history and isn't logged.
 
 # [JSON](#tab/json)
 
@@ -86,7 +86,7 @@ param demoSecretObject object {
 
 ## Allowed values
 
-You specify which values are allowed for parameter. You provide the allowed values in an array.
+You can define allowed values for a parameter. You provide the allowed values in an array. The deployment fails during validation if a value is passed in for the parameter that isn't one of the allowed values.
 
 # [JSON](#tab/json)
 
@@ -169,7 +169,9 @@ param demoParam string {
 
 ---
 
-You can use expressions with the default value. Expressions aren't allowed with other parameter properties.
+You can use expressions with the default value. You can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions in the parameters section. These functions get the runtime state of a resource, and can't be executed before deployment when parameters are resolved.
+
+Expressions aren't allowed with other parameter properties.
 
 # [JSON](#tab/json)
 
@@ -185,18 +187,40 @@ You can use expressions with the default value. Expressions aren't allowed with 
 # [Bicep](#tab/bicep)
 
 ```bicep
-param location string {
-  default: resourceGroup().location
-}
+param location string = resourceGroup().location
 ```
 
 ---
 
-## Length constraint
+You can use another parameter value to build a default value. The following template constructs a host plan name from the site name.
 
-You can specify minimum and maximum length constraints for string and array parameters. For strings, the length constraints indicate the number of allowed characters. For arrays, the length constraints indicate the number of allowed items.
+# [JSON](#tab/json)
 
-The following example declares two parameters. One parameter is for a storage account name that must have 3-24 characters. The other parameter is an array that must have from one to five items.
+```json
+"parameters": {
+  "siteName": {
+    "type": "string",
+    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
+  },
+  "hostingPlanName": {
+    "type": "string",
+    "defaultValue": "[concat(parameters('siteName'),'-plan')]"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param siteName string = 'site${uniqueString(resourceGroup().id)}'
+param hostingPlanName string = '${siteName}-plan'
+```
+
+## Length constraints
+
+You can specify minimum and maximum lengths for string and array parameters. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
+
+The following example declares two parameters. One parameter is for a storage account name that must have 3-24 characters. The other parameter is an array that must have from 1-5 items.
 
 # [JSON](#tab/json)
 
@@ -231,137 +255,224 @@ param appNames array {
 
 ---
 
-## Define parameter
+## Integer constraints
 
-The following example shows a simple parameter definition. It defines a parameter named `storageSKU`. The parameter is a string value, and only accepts values that are valid for its intended use. The parameter uses a default value when no value is provided during deployment.
+You can set minimum and maximum values for integer parameters. You can set one or both constraints.
+
+# [JSON](#tab/json)
 
 ```json
 "parameters": {
-  "storageSKU": {
-    "type": "string",
-    "allowedValues": [
-      "Standard_LRS",
-      "Standard_ZRS",
-      "Standard_GRS",
-      "Standard_RAGRS",
-      "Premium_LRS"
-    ],
-    "defaultValue": "Standard_LRS",
-    "metadata": {
-      "description": "The type of replication to use for the storage account."
-    }
+  "month": {
+    "type": "int",
+    "minValue": 1,
+    "maxValue": 12
   }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param month int {
+  minValue: 1
+  maxValue: 12
+}
+```
+
+---
+
+## Description
+
+You can add a description to a parameter to help users of your template understand the value to provide. When deploying the template through the portal, the text you provide in the description is automatically used as a tip for that parameter. Only add a description when the text provides more information than can be inferred from the parameter name.
+
+# [JSON](#tab/json)
+
+```json
+"parameters": {
+  "virtualMachineSize": {
+    "type": "string",
+    "metadata": {
+      "description": "Must be at least Standard_A3 to support 2 NICs."
+    },
+    "defaultValue": "Standard_DS1_v2"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param virtualMachineSize string {
+  default: 'Standard_DS1_v2'
+  metadata: {
+    description: 'Must be at least Standard_A3 to support 2 NICs.'
+  }
+}
+```
+
+---
 
 ## Use parameter
 
-In the template, you reference the value for the parameter by using the [parameters](template-functions-deployment.md#parameters) function. In the following example, the parameter value is used to set SKU for the storage account.
+In a JSON template, you reference the value for the parameter by using the [parameters](template-functions-deployment.md#parameters) function. In Bicep, you use the parameter name. The following example uses a parameter value for a Key Vault name.
+
+# [JSON](#tab/json)
 
 ```json
-"resources": [
-  {
-    "type": "Microsoft.Storage/storageAccounts",
-    "sku": {
-      "name": "[parameters('storageSKU')]"
-    },
-    ...
-  }
-]
-```
-
-## Template functions
-
-When specifying the default value for a parameter, you can use most template functions. You can use another parameter value to build a default value. The following template demonstrates the use of functions in the default value. When no name is provided for the site, it creates a unique string value and appends it to **site**. When no name is provided for the host plan, it takes the value for the site, and appends **-plan**.
-
-```json
-"parameters": {
-  "siteName": {
-    "type": "string",
-    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]",
-    "metadata": {
-      "description": "The site name. To use the default value, do not specify a new value."
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vaultName": {
+      "type": "string",
+      "defaultValue": "[format('keyVault{0}', uniqueString(resourceGroup().id))]"
     }
   },
-  "hostingPlanName": {
-    "type": "string",
-    "defaultValue": "[concat(parameters('siteName'),'-plan')]",
-    "metadata": {
-      "description": "The host name. To use the default value, do not specify a new value."
+  "resources": [
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "apiVersion": "2019-09-01",
+      "name": "[parameters('vaultName')]",
+      ...
     }
-  }
+  ]
 }
 ```
 
-You can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions in the parameters section. These functions get the runtime state of a resource, and can't be executed before deployment when parameters are resolved.
+# [Bicep](#tab/bicep)
+
+```bicep
+param vaultName string = 'keyVault${uniqueString(resourceGroup().id)}'
+
+resource keyvault 'Microsoft.KeyVault/vaults@2019-09-01' = {
+  name: vaultName
+  ...
+}
+```
+
+---
 
 ## Objects as parameters
 
 It can be easier to organize related values by passing them in as an object. This approach also reduces the number of parameters in the template.
 
-The following example shows a parameter that is an object. The default value shows the expected properties for the object.
+The following example shows a parameter that is an object. The default value shows the expected properties for the object. Those properties are used when defining the resource to deploy.
+
+# [JSON](#tab/json)
 
 ```json
-"parameters": {
-  "VNetSettings": {
-    "type": "object",
-    "defaultValue": {
-      "name": "VNet1",
-      "location": "eastus",
-      "addressPrefixes": [
-        {
-          "name": "firstPrefix",
-          "addressPrefix": "10.0.0.0/22"
-        }
-      ],
-      "subnets": [
-        {
-          "name": "firstSubnet",
-          "addressPrefix": "10.0.0.0/24"
-        },
-        {
-          "name": "secondSubnet",
-          "addressPrefix": "10.0.1.0/24"
-        }
-      ]
-    }
-  }
-},
-```
-
-You reference the properties of the object by using the dot operator.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Network/virtualNetworks",
-    "apiVersion": "2015-06-15",
-    "name": "[parameters('VNetSettings').name]",
-    "location": "[parameters('VNetSettings').location]",
-    "properties": {
-      "addressSpace":{
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vNetSettings": {
+      "type": "object",
+      "defaultValue": {
+        "name": "VNet1",
+        "location": "eastus",
         "addressPrefixes": [
-          "[parameters('VNetSettings').addressPrefixes[0].addressPrefix]"
+          {
+            "name": "firstPrefix",
+            "addressPrefix": "10.0.0.0/22"
+          }
+        ],
+        "subnets": [
+          {
+            "name": "firstSubnet",
+            "addressPrefix": "10.0.0.0/24"
+          },
+          {
+            "name": "secondSubnet",
+            "addressPrefix": "10.0.1.0/24"
+          }
         ]
-      },
-      "subnets":[
-        {
-          "name":"[parameters('VNetSettings').subnets[0].name]",
-          "properties": {
-            "addressPrefix": "[parameters('VNetSettings').subnets[0].addressPrefix]"
-          }
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-06-01",
+      "name": "[parameters('vNetSettings').name]",
+      "location": "[parameters('vNetSettings').location]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('vNetSettings').addressPrefixes[0].addressPrefix]"
+          ]
         },
-        {
-          "name":"[parameters('VNetSettings').subnets[1].name]",
-          "properties": {
-            "addressPrefix": "[parameters('VNetSettings').subnets[1].addressPrefix]"
+        "subnets": [
+          {
+            "name": "[parameters('vNetSettings').subnets[0].name]",
+            "properties": {
+              "addressPrefix": "[parameters('vNetSettings').subnets[0].addressPrefix]"
+            }
+          },
+          {
+            "name": "[parameters('vNetSettings').subnets[1].name]",
+            "properties": {
+              "addressPrefix": "[parameters('vNetSettings').subnets[1].addressPrefix]"
+            }
           }
-        }
+        ]
+      }
+    }
+  ]
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param vNetSettings object = {
+  name: 'VNet1'
+  location: 'eastus'
+  addressPrefixes: [
+    {
+      name: 'firstPrefix'
+      addressPrefix: '10.0.0.0/22'
+    }
+  ]
+  subnets: [
+    {
+      name: 'firstSubnet'
+      addressPrefix: '10.0.0.0/24'
+    }
+    {
+      name: 'secondSubnet'
+      addressPrefix: '10.0.1.0/24'
+    }
+  ]
+}
+resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
+  name: vNetSettings.name
+  location: vNetSettings.location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        vNetSettings.addressPrefixes[0].addressPrefix
       ]
     }
+    subnets: [
+      {
+        name: vNetSettings.subnets[0].name
+        properties: {
+          addressPrefix: vNetSettings.subnets[0].addressPrefix
+        }
+      }
+      {
+        name: vNetSettings.subnets[1].name
+        properties: {
+          addressPrefix: vNetSettings.subnets[1].addressPrefix
+        }
+      }
+    ]
   }
-]
+}
 ```
+
+---
 
 ## Example templates
 
