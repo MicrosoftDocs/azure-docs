@@ -368,6 +368,6 @@ customer can do.
 
 ## Next steps
 
-Advance to the next article to learn how to use Helm with source control configuration.
+Advance to the next article to learn how to use Helm with configurations.
 > [!div class="nextstepaction"]
 > [Use Helm with source control configuration](./use-gitops-with-helm.md)
