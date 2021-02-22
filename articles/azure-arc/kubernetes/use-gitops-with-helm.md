@@ -3,7 +3,7 @@ title: "Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster(Previe
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/15/2021
+ms.date: 02/19/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -19,7 +19,7 @@ This article shows you how to configure and use Helm with Azure Arc enabled Kube
 
 ## Before you begin
 
-Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./connect-cluster.md).
+Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./quickstart-connect-cluster.md).
 
 ## Overview of using GitOps and Helm with Azure Arc enabled Kubernetes
 
