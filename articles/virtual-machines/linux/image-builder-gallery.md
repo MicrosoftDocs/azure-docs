@@ -5,8 +5,9 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2019
 ms.topic: how-to
-ms.service: virtual-machines-linux
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: danis
 ---
 # Preview: Create a Linux image and distribute it to a Shared Image Gallery 
