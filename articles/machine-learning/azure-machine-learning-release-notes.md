@@ -23,6 +23,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
   + **azureml-core**
     + [Experimental feature] Add support to link synapse workspace into AML as an linked service
     + [Experimental feature] Add support to attach synapse spark pool into AML as a compute
+    + [Experimental feature] Add support for identity based data access. Users can register datastore or datasets without providing credentials. In such case, users' AAD token or managed identity of compute target will be used for authentication. Learn more [here](https://aka.ms/data-access).
   + **azureml-pipeline-steps**
     + [Experimental feature] Add support for [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep?view=azure-ml-py)
   + **azureml-synapse**
@@ -37,7 +38,6 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
   + **azureml-contrib-interpret**
     + azureml-contrib-interpret README is updated to reflect that package will be removed in next update after being deprecated since October, use azureml-interpret package instead
   + **azureml-core**
-    + Ability to create a new workspace with default system datastores "workspacefilestore" and "workspaceblobstore" with no credentials.
     + Previously, it was possible to create a provisioning configuration with the minimum node count less than the maximum node count. This has now been fixed. If you now try to create a provisioning configuration with `min_nodes < max_nodes` the SDK will raise a `ComputeTargetException`.
     +  Fixes bug in wait_for_completion in AmlCompute which caused the function to return control flow before the operation was actually complete
     + Run.fail() is now deprecated, use Run.tag() to mark run as failed or use Run.cancel() to mark the run as canceled.
