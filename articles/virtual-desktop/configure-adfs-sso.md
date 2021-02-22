@@ -97,7 +97,7 @@ Once you create these certificate templates, you must enable them on the certifi
 5. Select both **ADFS Enrollment Agent** and **ADFS SSO**, then select **OK**. You should see both templates in the middle-pane.
     ![A screenshot showing list of certificate templates that can be issued, including the new "ADFS Enrollment Agent" and "ADFS SSO".](media/adfs-certificate-templates.png)
 
-## Configure the AD FS servers
+## Configure the AD FS Servers
 
 You must configure the AD FS servers to leverage the new certificate templates and set the relying-party trust to support SSO.
 
@@ -113,97 +113,128 @@ On the AD FS VMs, run the following PowerShell command to configure AD FS to use
 
 You must create a relying-party trust between your AD FS server and the Windows Virtual Desktop service so single sign-on certificate requests can be forwarded correctly to your domain environment.
 
+When configuring AD FS single sign-on you must choose shared key or certificate
+
+- If you have single ADFS server can choose shared key or certificate. 
+- If you have multiple ADFS servers it is required to choose certificate.
+
+The shared key or certififcate used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Windows Virtual Desktop service can access it.
+
 The PowerShell script **ConfigureWVDSSO.ps1** available in the [PowerShell Gallery](https://www.powershellgallery.com/packages/ConfigureWVDSSO) will configure your AD FS server for the relying-party trust.
 
 This script only has one required parameter:
 
 - *ADFSAuthority* - This is the URL that resolves to your AD FS and uses "/adfs" as its suffix. For example, `https://adfs.contoso.com/adfs`.
 
-To configure AD FS single sign-on for users in your Windows Virtual Desktop tenant, run the following PowerShell cmdlet on the AD FS server with `ADFSServiceUrl` replaced with the full URL to reach your AD FS service:
-
-```powershell
-Install-Script ConfigureWVDSSO
- $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>"
-```
+### Configure AD FS single sign-on
 
 > [!Note]
 > You need the `$config` variable values to complete the next part of the instructions, so don't close the PowerShell window you used to complete the previous instructions. You can either keep using the same PowerShell window or leave it open while launching a new PowerShell session.
 
-By default, this will use a shared key as the secret. If you prefer using a certificate, save the pfx file locally on the AD FS server and add the necessary parameters, specifying the path to the pfx file and the optional password:
+- If using shared key in Key Vault, run the following PowerShell cmdlet on the AD FS server with ADFSServiceUrl replaced with the full URL to reach your AD FS service:
 
-```powershell
-Install-Script ConfigureWVDSSO
- $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -UseCert -CertPath "<Path to the pfx file>" [-CertPassword "<Pfx password>"]
-```
+  Public Cloud
+  
+  ```powershell
+  Install-Script ConfigureWVDSSO
+  $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>"
+  ```
 
-If you are enabling SSO in one of the sovereign clouds, you need to change the location of the Windows Virtual Desktop service with additional parameters, replacing WvdWebAppAppUri and RdWebURL with the appropriate values.
+  Sovereign Cloud
+  
+  ```powershell
+  Install-Script ConfigureWVDSSO
+  $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -WvdWebAppAppIDUri "https://www.wvd.microsoft.com" -RdWebURL "https://rdweb.wvd.azure.us" 
+  ```
 
-```powershell
-Install-Script ConfigureWVDSSO
- $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -WvdWebAppAppIDUri "https://www.wvd.microsoft.com" -RdWebURL "https://rdweb.wvd.microsoft.com"
-```
+- If using certificate in Key Vault, run the following PowerShell cmdlet on the AD FS server with ADFSServiceUrl replaced with the full URL to reach your AD FS service:
 
-## Store the shared key or certificate in Azure Key Vault
+  Public Cloud:
+ 
+   ```powershell
+    Install-Script ConfigureWVDSSO
+    $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -UseCert -CertPath "<Path to the pfx file>" -CertPassword <Password to the pfx file>
+    ```
 
-The certificate or key used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Windows Virtual Desktop service can access it.
+  Sovereign Cloud
+ 
+   ```powershell
+    Install-Script ConfigureWVDSSO
+      $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -WvdWebAppAppIDUri "https://www.wvd.microsoft.com" -RdWebURL "https://rdweb.wvd.azure.us" -UseCert -CertPath "<Path to the pfx file>" -CertPassword <Password to the pfx file>
+    ```
 
-To set the access policy on the Key Vault, run the following in PowerShell:
+### Set the access policy on the Key Vault
 
-```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName "<Key Vault Name>" -ServicePrincipalName 9cdead84-a844-4324-93f2-b2e6bb768d07 -PermissionsToSecrets get
-```
+- To set the access policy on the Key Vault, run the following in PowerShell:
 
-Next, you must store the secret (shared key or certificate) in Key Vault.
+  ```powershell
+  Set-AzKeyVaultAccessPolicy -VaultName "<Key Vault Name>" -ServicePrincipalName 9cdead84-a844-4324-93f2-b2e6bb768d07 -PermissionsToSecrets get
+  ```
 
-If using a shared key, run the following in PowerShell:
+### Store the shared key or certificate in Azure Key Vault
 
-```powershell
-$hp = Get-AzWvdHostPool -ResourceGroupName "<Host Pool Resource Group Name>" -Name "<Host Pool Name>"
-$secret = Set-AzKeyVaultSecret -VaultName "<Key Vault Name>" -Name "adfsssosecret" -SecretValue (ConvertTo-SecureString -String $config.SSOClientSecret  -AsPlainText -Force) -Tag @{ 'AllowedWVDSubscriptions' = $hp.Id.Split('/')[2]}
-```
+- If using shared key in Key Vault, run the following in PowerShell:
 
-If using a certificate, run the following in PowerShell:
+  ```powershell
+  $hp = Get-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" 
+  $secret = Set-AzKeyVaultSecret -VaultName "<Key Vault Name>" -Name "adfsssosecret" -SecretValue (ConvertTo-SecureString -String $config.SSOClientSecret  -AsPlainText -Force) -Tag @{ 'AllowedWVDSubscriptions' = $hp.Id.Split('/')[2]}
+  ```
 
-```powershell
-$hp = Get-AzWvdHostPool -ResourceGroupName "<Host Pool Resource Group Name>" -Name "<Host Pool Name>"
-$secret = Import-AzKeyVaultCertificate -VaultName "<Key Vault Name>" -Name "adfsssosecret" -Tag @{ 'AllowedWVDSubscriptions' = $hp.Id.Split('/')[2]} -FilePath "<Path to pfx>" -Password (ConvertTo-SecureString -String "<pfx password>"  -AsPlainText -Force)
-```
+- If using certificate in Key Vault, run the following in PowerShell:
 
-## Update your Windows Virtual Desktop Host Pool
+  ```powershell
+  $hp = Get-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" 
+  $secret = Import-AzKeyVaultCertificate -VaultName "<Key Vault Name>" -Name "adfsssosecret" -Tag @{ 'AllowedWVDSubscriptions' = $hp.Id.Split('/')[2]} -FilePath "<Path to pfx>" -Password (ConvertTo-SecureString -String "<pfx password>"  -AsPlainText -Force)
+  ```
+
+### Update your Windows Virtual Desktop Host Pool
 
 It's time to configure the AD FS SSO parameters on your Windows Virtual Desktop Host Pool. To do this, [set up your PowerShell environment](powershell-module.md) for Windows Virtual Desktop if you haven't already and connect to your account.
 
 After that, update the SSO information for your Host Pool by running the following cmdlet in the same PowerShell window on the AD FS VM.
 
-```powershell
-Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority "<ADFSServiceUrl>" -SsoClientId "https://www.wvd.microsoft.com" -SsoSecretType SharedKeyInKeyVault -SsoClientSecretKeyVaultPath $secret.Id
-```
+- If using shared key in Key Vault, run the following in PowerShell:
 
-If you are enabling SSO in one of the sovereign clouds, you'll need to change the SsoClientID with the appropriate URL.
+  Public Cloud:
 
-If using a certificate instead of a shared key, replace the **SsoSecretType** with CertificateInKeyVault.
+  ```powershell
+  Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority "<ADFSServiceUrl>" -SsoClientId "https://www.wvd.microsoft.com" -SsoSecretType SharedKeyInKeyVault -SsoClientSecretKeyVaultPath $secret.Id
+  ```
+
+  Sovereign Cloud
+
+  ```powershell
+  Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority "<ADFSServiceUrl>" -SsoClientId "https://www.wvd.microsoft.us" -SsoSecretType SharedKeyInKeyVault -SsoClientSecretKeyVaultPath $secret.Id
+  ```
+
+- If using certificate in Key Vault, run the following in PowerShell:
+
+  Public Cloud:
+
+  ```powershell
+  Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority "<ADFSServiceUrl>" -SsoClientId "https://www.wvd.microsoft.com" -SsoSecretType CertificateInKeyVault -SsoClientSecretKeyVaultPath $secret.Id
+  ```
+
+  Sovereign Cloud
+
+  ```powershell
+  Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority "<ADFSServiceUrl>" -SsoClientId "https://www.wvd.microsoft.us" -SsoSecretType CertificateInKeyVault -SsoClientSecretKeyVaultPath $secret.Id
+  ```
 
 ## Removing SSO
 
-To disable SSO on the Host Pool, run the following cmdlet:
+- To disable SSO on the Host Pool, run the following cmdlet:
 
-```powershell
-Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority '' -SsoClientId '' -SsoSecretType SharedKeyInKeyVault -SsoClientSecretKeyVaultPath ''
-```
+  ```powershell
+  Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority '' -SsoClientId '' -SsoSecretType SharedKeyInKeyVault -SsoClientSecretKeyVaultPath ''
+  ```
 
-To also remove the configuration from your AD FS server, run the following:
+- To also remove the configuration from your AD FS server, run the following:
 
-```powershell
-Install-Script UnConfigureWVDSSO
-UnConfigureSSOClient.ps1
-```
-
-If you are disabling SSO in one of the sovereign clouds, you'll need to change the location of the Windows Virtual Desktop service by replacing WvdWebAppAppUri with the appropriate URL.
-
-```powershell
-Install-Script UnConfigureWVDSSO
-UnConfigureSSOClient.ps1 -WvdWebAppAppIDUri "https://www.wvd.microsoft.com"
-```
+  ```powershell
+  Install-Script UnConfigureWVDSSO
+  UnConfigureSSOClient.ps1 -WvdWebAppAppIDUri "https://www.wvd.microsoft.com" -WvdClientAppApplicationID "a85cf173-4192-42f8-81fa-777a763e6e2c"
+  ```
 
 ## Next steps
 
