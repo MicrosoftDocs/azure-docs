@@ -17,7 +17,7 @@ TPM endpoint service is enabled with diagnostic setting and can be used to monit
 
 Setup Azure Attestation service. 
 
-[Set up Azure Attestation with Azure PowerShell](./quickstart-powershell.md#:~:text=%20Quickstart%3A%20Set%20up%20Azure%20Attestation%20with%20Azure,Register%20Microsoft.Attestation%20resource%20provider.%20Register%20the...%20More%20)
+[Set up Azure Attestation with Azure PowerShell](./quickstart-powershell.md)
 
 ```powershell
 
