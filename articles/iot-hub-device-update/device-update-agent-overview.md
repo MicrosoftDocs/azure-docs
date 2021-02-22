@@ -17,13 +17,13 @@ The Device Update Agent consists of two conceptual layers:
 allowing for messaging to flow between the Device Update Agent and Device Update Services.
 * The Platform Layer is responsible for the high-level update actions of Download, Install, and Apply that may be platform, or device specific.
 
-:::image type="content" source="media/agent-overview/client-agent-reference-implementations.png" alt-text="Agent Implementations." lightbox="media/agent-overview/client-agent-reference-implementations.png":::
+:::image type="content" source="media/understand-device-update/client-agent-reference-implementations.png" alt-text="Agent Implementations." lightbox="media/understand-device-update/client-agent-reference-implementations.png":::
 
 ## The Interface Layer
 
 The Interface layer is made up of the [ADU Core Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) and the [Device Information Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface).
 
-These interfaces rely on a configuration file for default values. The default values include aduc_manfuacter and aduc_model for the AzureDeviceUpdateCore interface and model and manufacturer for the DeviceInformation interface. [Learn More](device-update-configuration-file.md) the configuration file.
+These interfaces rely on a configuration file for default values. The default values include aduc_manufacturer and aduc_model for the AzureDeviceUpdateCore interface and model and manufacturer for the DeviceInformation interface. [Learn More](device-update-configuration-file.md) the configuration file.
 
 ### ADU Core Interface
 
@@ -60,7 +60,7 @@ The Linux Platform Layer implementation can be found in the
 This layer can integrate with different Update Handlers to implement the
 installer. For
 instance, the `SWUpdate` Update Handler invokes a shell script to call into the
-`SWUpdate` executable to do an update.
+`SWUpdate` executable to perform an update.
 
 ## Update Handlers
 
@@ -69,7 +69,7 @@ of the update. Update Handler implementations are in `src/content_handlers`.
 
 ### Simulator Update Handler
 
-The Simulator Update Handler is used by the Simulator Platform Layer and can
+The Simulator Update Handler are used by the Simulator Platform Layer and can
 be used with the Linux Platform Layer to fake interactions with a Content
 Handler. The Simulator Update Handler implements the Update Handler APIs with
 mostly no-ops. The implementation of the Simulator Update Handler can be found below:
@@ -86,7 +86,7 @@ More](device-update-plug-and-play.md) about `installedCriteria` and the `AzureDe
 
 The `SWUpdate` Update Handler" integrates with the `SWUpdate` command-line
 executable and other shell commands to implement A/B updates specifically for
-the Raspberry Pi reference Yocto image. Find the latest Raspberry Pi reference Yocto image [here](https://github.com/Azure/iot-hub-device-update/releases). The `SWUpdate` Update Handler is implemented in [src/content_handlers/swupdate_content_handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/swupdate_handler).
+the Raspberry Pi reference image. Find the latest Raspberry Pi reference image [here](https://github.com/Azure/iot-hub-device-update/releases). The `SWUpdate` Update Handler is implemented in [src/content_handlers/swupdate_content_handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/swupdate_handler).
 
 ### APT Update Handler
 
@@ -95,10 +95,8 @@ install or update the specified Debian package(s).
 
 ## Self-update Device update agent
 
-The device update agent and its dependencies can be updated through the Device Update for IoT Hub pipeline. If you are using an image-based update, include the device update agent in your image. If you are using a package-based update, include the device update agent and its desired version in the apt manifest like any other package. [Learn more](device-update-apt-manifest.md) about apt manifest. 
-
+The device update agent and its dependencies can be updated through the Device Update for IoT Hub pipeline. If you are using an image-based update, include the latest device update agent in your new image. If you are using a package-based update, include the device update agent and its desired version in the apt manifest like any other package. [Learn more](device-update-apt-manifest.md) about apt manifest. You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins). [Learn more about device properties under ADU Core Interface](device-update-plug-and-play.md#device-properties).
 
 ## Next Steps
+[Understand Device Update agent configuration file](device-update-configuration-file.md)
 
-> [!div class="nextstepaction"]
-> [Understand Device Update agent configuration file](device-update-configuration-file.md)

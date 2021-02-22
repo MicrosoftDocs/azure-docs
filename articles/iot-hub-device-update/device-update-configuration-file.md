@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
-# Device Update Configuration File
+# Device Update for IoT Hub Configuration File
 
 The "adu-conf.txt" is an optional file that can be created to manage the following configurations.
 
@@ -31,7 +31,7 @@ Within Linux system, in the partition or disk called `adu`, create a text file c
 
 |Name|Description|
 |-----------|--------------------|
-|connection_string|Pre-provisioned connection string the device can use to connect to the IoT Hub.|
+|connection_string|Pre-provisioned connection string the device can use to connect to the IoT Hub. Note: Not required if you are provisioning Device Update Agent through the [Azure IoT Identity Service](https://azure.github.io/iot-identity-service/)|
 |aduc_manufacturer|Reported by the `AzureDeviceUpdateCore:4.ClientMetadata:4` interface to classify the device for targeting the update deployment.|
 |aduc_model|Reported by the `AzureDeviceUpdateCore:4.ClientMetadata:4` interface to classify the device for targeting the update deployment.|
 |manufacturer|Reported by the Device Update Agent as part of the `DeviceInformation` interface.|
@@ -41,9 +41,9 @@ Within Linux system, in the partition or disk called `adu`, create a text file c
 
 ```markdown
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;connection_string = `HostName=<yourIoTHubName>;DeviceId=<yourDeviceId>;SharedAccessKey=<yourSharedAccessKey>`</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aduc_manufacturer = <value to send through `AzureDeviceUpdateCore:4.ClientMetadata:4.deviceProperties["manufacturer"]`></br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aduc_model = <value to send through `AzureDeviceUpdateCore:4.ClientMetadata:4.deviceProperties["model"]`></br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;manufacturer = <value to send through `DeviceInformation.manufacturer`></br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model = <value to send through `DeviceInformation.manufacturer`></br>
+connection_string = `HostName=<yourIoTHubName>;DeviceId=<yourDeviceId>;SharedAccessKey=<yourSharedAccessKey>`
+aduc_manufacturer = <value to send through `AzureDeviceUpdateCore:4.ClientMetadata:4.deviceProperties["manufacturer"]`
+aduc_model = <value to send through `AzureDeviceUpdateCore:4.ClientMetadata:4.deviceProperties["model"]`
+manufacturer = <value to send through `DeviceInformation.manufacturer`
+model = <value to send through `DeviceInformation.manufacturer`
 ```
