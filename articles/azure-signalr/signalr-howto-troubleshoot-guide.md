@@ -329,6 +329,76 @@ This section describes several possibilities leading to server connection drop, 
 
 Server-service connection is closed by **ASRS**(**A**zure **S**ignal**R** **S**ervice).
 
+For ping timeout, it may be caused by high CPU usage or thread pool starvation in server-side.
+
+For Aspnet SignalR, we had fixed a known issue in SDK 1.6.0, please upgrade SDK to newest version.
+
+### Thread pool starvation
+
+If your server is starving, that means no thread is working on message processing, all of threads are hanging in a certain method.
+
+Normally, it should be caused by async over sync, or `Task.Result`/`Task.Wait()` in async methods.
+
+See [ASP.NET Core Performance Best Practices](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices?view=aspnetcore-5.0#avoid-blocking-calls)
+
+See more about [thread pool starvation](https://docs.microsoft.com/en-us/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall)
+
+#### How to detect thread pool starvation
+
+* Check your thread count, and there is no spikes at that time.
+  * If using Azure App Service, you can find it in metrics, thread count, use the `Max` aggregation.
+  * If using dotnet framework, you can find it in the performance monitor in your server VM.
+  * If using dotnet core in a container, see [Collect diagnostics in containers](https://docs.microsoft.com/en-us/dotnet/core/diagnostics/diagnostics-in-containers)
+* Use code to detect thread pool starvation:
+
+    ```cs
+    public class ThreadPoolStarvationDetector : EventListener
+    {
+        private const int EventIdForThreadPoolWorkerThreadAdjustmentAdjustment = 55;
+        private const uint ReasonForStarvation = 6;
+
+        private readonly ILogger<ThreadPoolStarvationDetector> _logger;
+
+        public ThreadPoolStarvationDetector(ILogger<ThreadPoolStarvationDetector> logger)
+        {
+            _logger = logger;
+        }
+
+        protected override void OnEventSourceCreated(EventSource eventSource)
+        {
+            if (eventSource.Name == "Microsoft-Windows-DotNETRuntime")
+            {
+                EnableEvents(eventSource, EventLevel.Informational, EventKeywords.All);
+            }
+        }
+
+        protected override void OnEventWritten(EventWrittenEventArgs eventData)
+        {
+            // See: https://docs.microsoft.com/en-us/dotnet/framework/performance/thread-pool-etw-events#threadpoolworkerthreadadjustmentadjustment
+            if (eventData.EventId == EventIdForThreadPoolWorkerThreadAdjustmentAdjustment &&
+                eventData.Payload[3] as uint? == ReasonForStarvation)
+            {
+                _logger.LogWarning("Thread pool starvation detected!");
+            }
+        }
+    }
+    ```
+    
+    Add it to your service like following:
+    
+    ```cs
+    service.AddSingleton<ThreadPoolStarvationDetector>();
+    ```
+    
+    Then check your log when server connection disconnected by ping timeout.
+
+#### How to find root cause for thread pool starvation
+
+There are following ways to find the root cause:
+
+* Catch a dump file, then analysis the call stack.
+* Use [clrmd](https://github.com/microsoft/clrmd) to dump it when detected starvation, then log the call stack.
+
 ### Troubleshooting guide
 
 1. Open app server-side log to see if anything abnormal took place
