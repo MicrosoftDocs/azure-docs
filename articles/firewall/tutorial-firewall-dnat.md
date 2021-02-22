@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Tutorial: Filter inbound Internet traffic with Azure Firewall DNAT using the Azure portal
 
-You can configure Azure Firewall Destination Network Address Translation (DNAT) to translate and filter inbound Internet traffic to your subnets. When you configure DNAT, the NAT rule collection action is set to **Dnat**. Each rule in the NAT rule collection can then be used to translate your firewall public IP and port to a private IP and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
+You can configure Azure Firewall Destination Network Address Translation (DNAT) to translate and filter inbound Internet traffic to your subnets. When you configure DNAT, the NAT rule collection action is set to **Dnat**. Each rule in the NAT rule collection can then be used to translate your firewall public IP address and port to a private IP address and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
 
 In this tutorial, you learn how to:
 
@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 2. On the Azure portal home page, select **Resource groups**, then select **Add**.
 4. For **Subscription**, select your subscription.
 1. For **Resource group name**, type **RG-DNAT-Test**.
-5. For **Region**, select a region. All subsequent resources that you create must be in the same region.
+5. For **Region**, select a region. All other resources that you create must be in the same region.
 6. Select **Review + create**.
 1. Select **Create**.
 
@@ -76,7 +76,7 @@ First, create the VNets and then peer them.
 1. From the Azure portal home page, select **All services**.
 2. Under **Networking**, select **Virtual networks**.
 3. Select **Add**.
-7. For **Resource group**, select **RG-DNAT-Test**.
+1. For **Resource group**, select **RG-DNAT-Test**.
 1. For **Name**, type **VN-Spoke**.
 1. For **Region**, select the same region that you used before.
 1. Select **Next: IP Addresses**.
@@ -95,7 +95,7 @@ Now peer the two VNets.
 1. Select the **VN-Hub** virtual network.
 2. Under **Settings**, select **Peerings**.
 3. Select **Add**.
-4. Under **This virtual network**, for the **Peering link name** type **Peer-HubSpoke**.
+4. Under **This virtual network**, for the **Peering link name**, type **Peer-HubSpoke**.
 5. Under **Remote virtual network**, for **Peering link name**, type **Peer-SpokeHub**. 
 1. Select **VN-Spoke** for the virtual network.
 1. Accept all the other defaults, and then select **Add**.
@@ -123,9 +123,9 @@ Create a workload virtual machine, and place it in the **SN-Workload** subnet.
 
 1. For **Virtual network**, select **VN-Spoke**.
 2. For **Subnet**, select **SN-Workload**.
-3. For **Public IP** select **None**.
+3. For **Public IP**, select **None**.
 4. For **Public inbound ports**, select **None**. 
-2. Leave the other default settings and select **Next : Management**.
+2. Leave the other default settings and select **Next: Management**.
 
 **Management**
 
@@ -200,7 +200,7 @@ For the **SN-Workload** subnet, you configure the outbound default route to go t
 7. For **Protocol**, select **TCP**.
 1. For **Source type**, select **IP address**.
 1. For **Source**, type *. 
-1. For **Destination Addresses** type the firewall's public IP address. 
+1. For **Destination Addresses**, type the firewall's public IP address. 
 1. For **Destination ports**, type **3389**. 
 1. For **Translated Address** type the private IP address for the Srv-Workload virtual machine. 
 1. For **Translated port**, type **3389**. 
@@ -208,7 +208,7 @@ For the **SN-Workload** subnet, you configure the outbound default route to go t
 
 ## Test the firewall
 
-1. Connect a remote desktop to firewall public IP address. You should connect to the **Srv-Workload** virtual machine.
+1. Connect a remote desktop to firewall public IP address. You should be connected to the **Srv-Workload** virtual machine.
 2. Close the remote desktop.
 
 ## Clean up resources
