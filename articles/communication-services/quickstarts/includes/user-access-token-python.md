@@ -76,11 +76,11 @@ print("\nCreated an identity with ID: " + identity.identifier + ":")
 
 ## Issue access tokens
 
-Use the `issue_token` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed based on string representation of Azure Communication Service identity.
+Use the `get_token` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `CommunicationUserIdentifier` can be constructed based on string representation of Azure Communication Service identity.
 
 ```python
 # Issue an access token with the "voip" scope for an identity
-token_result = client.issue_token(identity, ["voip"])
+token_result = client.get_token(identity, ["voip"])
 expires_on = token_result.expires_on.strftime('%d/%m/%y %I:%M %S %p')
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token_result.token)
@@ -90,12 +90,12 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Refresh access tokens
 
-To refresh an access token, use the `CommunicationUser` object to reissue:
+To refresh an access token, use the `CommunicationUserIdentifier` object to reissue:
 
 ```python
 # Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-identity = CommunicationUser(existingIdentity)
-token_result = client.issue_token( identity, ["voip"])
+identity = CommunicationUserIdentifier(existingIdentity)
+token_result = client.get_token( identity, ["voip"])
 ```
 
 ## Revoke access tokens
