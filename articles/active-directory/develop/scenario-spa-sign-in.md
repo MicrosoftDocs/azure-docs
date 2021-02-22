@@ -197,7 +197,7 @@ function handleResponse(response) {
     }
 }
 
-myMsal.handleRedirectPromise(handleResponse);
+myMsal.handleRedirectPromise().then(handleResponse);
 
 myMsal.loginRedirect(loginRequest);
 ```
