@@ -64,7 +64,7 @@ az group create --name ExampleGroup --location "Central US"
 To deploy a local template, use the `--template-file` parameter in the deployment command. The following example also shows how to set a parameter value that comes from the template.
 
 ```azurecli-interactive
-az deployment group create \
+az group deployment create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file azuredeploy.json \
@@ -90,7 +90,7 @@ az group create --name ExampleGroup --location "Central US"
 To deploy an external template, use the `template-uri` parameter.
 
 ```azurecli-interactive
-az deployment group create \
+az group deployment create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
@@ -102,7 +102,7 @@ The preceding example requires a publicly accessible URI for the template, which
 To deploy remote linked templates with relative path that are stored in a storage account, use `query-string` to specify the SAS token:
 
 ```azurecli-interactive
-az deployment group create \
+az group deployment create \
   --name linkedTemplateWithRelativePath \
   --resource-group myResourceGroup \
   --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
@@ -179,7 +179,7 @@ To pass parameter values, you can use either inline parameters or a parameter fi
 To pass inline parameters, provide the values in `parameters`. For example, to pass a string and array to a template in a Bash shell, use:
 
 ```azurecli-interactive
-az deployment group create \
+az group deployment create \
   --resource-group testgroup \
   --template-file demotemplate.json \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
@@ -190,7 +190,7 @@ If you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, pass 
 You can also get the contents of file and provide that content as an inline parameter.
 
 ```azurecli-interactive
-az deployment group create \
+az group deployment create \
   --resource-group testgroup \
   --template-file demotemplate.json \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
@@ -222,7 +222,7 @@ In this case, you can pass in a JSON string to set the parameter as shown in the
 
 ```bash
 tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
-az deployment group create --name addstorage  --resource-group myResourceGroup \
+az group deployment create --name addstorage  --resource-group myResourceGroup \
 --template-file $templateFile \
 --parameters resourceName=abcdef4556 resourceTags="$tags"
 ```
@@ -238,7 +238,7 @@ For more information about the parameter file, see [Create Resource Manager para
 To pass a local parameter file, use `@` to specify a local file named _storage.parameters.json_.
 
 ```azurecli-interactive
-az deployment group create \
+az group deployment create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
