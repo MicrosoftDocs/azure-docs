@@ -14,7 +14,7 @@
     href: automanage-windows-server.md
     items:
       - name: Hotpatching
-        href: automanage-virtual-machines.md
+        href: automanage-hotpatch.md
 - name: How to
   expanded: true
   items:

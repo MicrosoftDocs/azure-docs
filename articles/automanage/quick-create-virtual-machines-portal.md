@@ -43,11 +43,11 @@ Sign in to the [Azure portal](https://aka.ms/AutomanagePortal-Ignite21).
 
 4. Choose your Automanage settings (Environment, Preferences, Automanage Account) and hit **Enable**.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\VMManage-Enable.png" alt-text="Enable on sinlge VM.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\VMManage-Enable.png" alt-text="Enable on single VM.":::
 
-## Enable Automanage for mulitple VMs
+## Enable Automanage for multiple VMs
 
-1. In the search bar, search for and select **Automanage – Azure virtual machine best practices**.
+1. In the search bar, search for and select **Automanage – Azure machine best practices**.
 
 2. Select the **Enable on existing VM**.
 
