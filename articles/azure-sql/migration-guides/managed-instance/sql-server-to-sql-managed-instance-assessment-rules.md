@@ -21,29 +21,29 @@ This article provides a list of the rules used to assess the feasibility of migr
 ## AnalysisCommand job<a id="AnalysisCommandJob"></a>
 
 **Title: AnalysisCommand job step is not supported in Azure SQL Managed Instance.**   
+**Category**: Warning   
+
 
 **Description**   
-Category: Warning   
 It is a job step that runs an Analysis Services command. AnalysisCommand job step is not supported in Azure SQL Managed Instance.
 
-
 **Recommendation**     
-Review impacted objects section to see all jobs using Analysis Service Command job step and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine.
+Review impacted objects section in Azure Migrate to see all jobs using Analysis Service Command job step and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
 ## AnalysisQuery job<a id="AnalysisQueryJob<"></a>
+**Category**: Warning   
 
 **Title: AnalysisQuery job step is not supported in Azure SQL Managed Instance.**   
 
+
 **Description**   
-Category: Warning   
 It is a job step that runs an Analysis Services query. AnalysisQuery job step is not supported in Azure SQL Managed Instance.
 
 
-
 **Recommendation**   
-Review impacted objects section to see all jobs using Analysis Service Query job step and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine.
+Review impacted objects section in Azure Migrate to see all jobs using Analysis Service Query job step and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
@@ -51,9 +51,12 @@ More information: [SQL Server Agent differences in Azure SQL Managed Instance ](
 ## Assembly from file<a id="AssemblyFromFile"></a>
 
 **Title: 'CREATE ASSEMBLY' and 'ALTER ASSEMBLY' with a file parameter are unsupported in Azure SQL Managed Instance.**   
+**Category**: Warning   
+
+**Category**   
+Warning   
 
 **Description**   
-Category: Issue   
 Azure SQL Managed Instance cannot access file shares or Windows folders. See the "Impacted Objects" section for the specific uses of BULK INSERT statements that do not reference an Azure blob. Objects with 'BULK INSERT' where the source is not Azure blob storage will not work after migrating to Azure SQL Managed Instance.
 
 
@@ -65,9 +68,9 @@ More information: [CLR differences in Azure SQL Managed Instance ](../../managed
 ## Bulk insert<a id="BulkInsert"></a>
 
 **Title: BULK INSERT with non-Azure blob data source is not supported in Azure SQL Managed Instance.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 Azure SQL Managed Instance cannot access file shares or Windows folders. See the "Impacted Objects" section for the specific uses of BULK INSERT statements that do not reference an Azure blob. Objects with 'BULK INSERT' where the source is not Azure blob storage will not work after migrating to Azure SQL Managed Instance.
 
 
@@ -80,9 +83,9 @@ More information: [Bulk Insert and OPENROWSET differences in Azure SQL Managed I
 ## CLR Security<a id="ClrStrictSecurity"></a>
 
 **Title: CLR assemblies marked as SAFE or EXTERNAL_ACCESS are considered UNSAFE** 
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 CLR Strict Security mode is enforced in Azure SQL Managed Instance. This mode is enabled by default and introduces breaking changes for databases containing user-defined CLR assemblies marked either SAFE or EXTERNAL_ACCESS.
 
 
@@ -94,9 +97,10 @@ More information: [CLR strict security](/sql/database-engine/configure-windows/c
 ## Compute clause<a id="ComputeClause"></a>
 
 **Title: COMPUTE clause is discontinued and has been removed.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
+Category:    
 The COMPUTE clause generates totals that appear as additional summary columns at the end of the result set. However, this clause is no longer supported in Azure SQL Managed Instance.
 
 
@@ -123,9 +127,9 @@ More information: [Discontinued Database Engine Functionality in SQL Server](/pr
 ## Cryptographic provider<a id="CryptographicProvider"></a>
 
 **Title: A use of CREATE CRYPTOGRAPHIC PROVIDER or ALTER CRYPTOGRAPHIC PROVIDER was found, which is not supported in Azure SQL Managed Instance.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 Azure SQL Managed Instance does not support CRYPTOGRAPHIC PROVIDER statements because it cannot access files. See the Impacted Objects section for the specific uses of CRYPTOGRAPHIC PROVIDER statements. Objects with 'CREATE CRYPTOGRAPHIC PROVIDER' or 'ALTER CRYPTOGRAPHIC PROVIDER' will not work correctly after migrating to Azure SQL Managed Instance.
 
 
@@ -137,9 +141,9 @@ More information: [Cryptographic provider differences in Azure SQL Managed Insta
 ## Database compatibility<a id="DbCompatLevelLowerThan100"></a>
 
 **Title: Database compatibility level below 100 is not supported** 
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 Database Compatibility Level is a valuable tool to assist in database modernization, by allowing the SQL Server Database Engine to be upgraded, while keeping connecting applications functional status by maintaining the same pre-upgrade Database Compatibility Level. Azure SQL Managed Instance doesn't support compatibility levels below 100. When the database with compatibility level below 100 is restored on Azure SQL Managed Instance, the compatibility level is upgraded to 100. 
 
 
@@ -151,9 +155,9 @@ More information: [Supported compatibility levels in Azure SQL Managed Instance 
 ## Database principal alias<a id="DatabasePrincipalAlias"></a>
 
 **Title: SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed in Azure SQL Managed Instance.
 
 
@@ -165,9 +169,9 @@ More information: [Discontinued Database Engine Functionality in SQL Server](/pr
 ## DISABLE_DEF_CNST_CHK option<a id="DisableDefCNSTCHK"></a>
 
 **Title: SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed in Azure SQL Managed Instance.
 
 
@@ -176,9 +180,9 @@ More information: [Discontinued Database Engine Functionality in SQL Server](/pr
 ## FASTFIRSTROW hint<a id="FastFirstRowHint"></a>
 
 **Title: FASTFIRSTROW query hint is discontinued and has been removed.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 FASTFIRSTROW query hint is discontinued and has been removed in Azure SQL Managed Instance.
 
 
@@ -190,10 +194,10 @@ More information: [Discontinued Database Engine Functionality in SQL Server](/pr
 ## FileStream<a id="FileStream"></a>
 
 **Title: Filestream and Filetable are not supported in Azure SQL Managed Instance.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
-The Filestream feature, which allows you to store unstructured data such as text documents, images, and videos in NTFS file system, is not supported in Azure SQL Managed Instance. This database can't be migrated as the backup containing Filestream filegroups can't be restored on Azure SQL Managed Instance.
+The Filestream feature, which allows you to store unstructured data such as text documents, images, and videos in NTFS file system, is not supported in Azure SQL Managed Instance. **This database can't be migrated as the backup containing Filestream filegroups can't be restored on Azure SQL Managed Instance.**
 
 
 **Recommendation**   
@@ -204,28 +208,28 @@ More information: [Streaming Blobs To and From SQL Azure blog](https://azure.mic
 ## Heterogeneous MS DTC<a id="MIHeterogeneousMSDTCTransactSQL"></a>
 
 **Title: BEGIN DISTRIBUTED TRANSACTION with non-SQL Server remote server is not supported in Azure SQL Managed Instance.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 Distributed transaction started by Transact SQL BEGIN DISTRIBUTED TRANSACTION and managed by Microsoft Distributed Transaction Coordinator (MS DTC) is not supported in Azure SQL Managed Instance if the remote server is not SQL Server. 
 
 
 **Recommendation**   
-Review impacted objects section to see all objects using BEGIN DISTRUBUTED TRANSACTION. Consider migrating the participant databases to Azure SQL Managed Instance where distributed transactions across multiple instances are supported (Currently in preview). Alternatively, migrate to SQL Server on Azure Virtual Machine.
+Review impacted objects section in Azure Migrate to see all objects using BEGIN DISTRUBUTED TRANSACTION. Consider migrating the participant databases to Azure SQL Managed Instance where distributed transactions across multiple instances are supported (Currently in preview). Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
 More information: [Transactions across multiple servers for Azure SQL Managed Instance ](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
 
 ## Homogenous MS DTC<a id="MIHomogeneousMSDTCTransactSQL"></a>
 
 **Title: BEGIN DISTRIBUTED TRANSACTION is supported across multiple servers for Azure SQL Managed Instance.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 Distributed transaction started by Transact SQL BEGIN DISTRIBUTED TRANSACTION and managed by Microsoft Distributed Transaction Coordinator (MS DTC) is supported across multiple servers for Azure SQL Managed Instance.
 
 
 **Recommendation**   
-Review impacted objects section to see all objects using BEGIN DISTRUBUTED TRANSACTION. Consider migrating the participant databases to Azure SQL Managed Instance where distributed transactions across multiple instances are supported (Currently in preview). Alternatively, migrate to SQL Server on Azure Virtual Machine. 
+Review impacted objects section in Azure Migrate to see all objects using BEGIN DISTRUBUTED TRANSACTION. Consider migrating the participant databases to Azure SQL Managed Instance where distributed transactions across multiple instances are supported (Currently in preview). Alternatively, migrate to SQL Server on Azure Virtual Machine. 
 
 More information: [Transactions across multiple servers for Azure SQL Managed Instance](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
 
@@ -233,9 +237,9 @@ More information: [Transactions across multiple servers for Azure SQL Managed In
 ## Linked server (non-SQL provider)<a id="LinkedServerWithNonSQLProvider"></a>
 
 **Title: Linked server with non-SQL Server Provider is not supported in Azure SQL Managed Instance.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 Linked servers enable the SQL Server Database Engine to execute commands against OLE DB data sources outside of the instance of SQL Server. Linked server with non-SQL Server Provider is not supported in Azure SQL Managed Instance. 
 
 
@@ -253,14 +257,14 @@ More information: [Linked Server differences in Azure SQL Managed Instance](../.
 ## Merge job<a id="MergeJob"></a>
 
 **Title: Merge job step is not supported in Azure SQL Managed Instance.**   
+**Category**: Warning   
 
 **Description**   
-Category: Warning   
 It is a job step that activates the replication Merge Agent. The Replication Merge Agent is a utility executable that applies the initial snapshot held in the database tables to the Subscribers. It also merges incremental data changes that occurred at the Publisher after the initial snapshot was created, and reconciles conflicts either according to the rules you configure or using a custom resolver you create. Merge job step is not supported in Azure SQL Managed Instance.
 
 
 **Recommendation**   
-Review impacted objects section to see all jobs using Merge job step and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine
+Review impacted objects section in Azure Migrate to see all jobs using Merge job step and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine
 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
@@ -268,10 +272,10 @@ More information: [SQL Server Agent differences in Azure SQL Managed Instance ](
 ## MI database size<a id="MIDatabaseSize<"></a>
 
 **Title: Azure SQL Managed Instance does not support database size greater than 8 TB.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
-The size of the database is greater than maximum instance reserved storage. This database can't be selected for migration as the size exceeded the allowed limit.
+The size of the database is greater than maximum instance reserved storage. **This database can't be selected for migration as the size exceeded the allowed limit.**
 
 
 **Recommendation**   
@@ -284,9 +288,9 @@ More information: [Hardware generation characteristics of Azure SQL Managed Inst
 ## MI instance size<a id="MIInstanceSize<"></a>
 
 **Title: Maximum instance storage size in Azure SQL Managed Instance cannot be greater than 8 TB.**   
+**Category**: Warning   
 
 **Description**   
-Category: Warning   
 The size of all databases is greater than maximum instance reserved storage.  
 
 
@@ -299,11 +303,11 @@ More information: [Hardware generation characteristics of Azure SQL Managed Inst
 ## Multiple log files<a id="MultipleLogFiles<"></a>
 
 **Title: Azure SQL Managed Instance does not support multiple log files.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
-SQL Server allows a database to log to multiple files. This database has multiple log files which is not supported in Azure SQL Managed Instance. This database can't be migrated as the backup can't be restored on Azure SQL Managed Instance. 
-
+SQL Server allows a database to log to multiple files. This database has multiple log files which is not supported in Azure SQL Managed Instance. **This database can't be migrated as the backup can't be restored on Azure SQL Managed Instance. 
+**
 
 **Recommendation**   
 Azure SQL Managed Instance supports only a single log per database. You need to delete all but one of the log files before migrating this database to Azure: 
@@ -319,9 +323,9 @@ More information: [Unsupported database options in Azure SQL Managed Instance  ]
 ## Next column<a id="NextColumn"></a>
 
 **Title: Tables and Columns named NEXT will lead to an error In Azure SQL Managed Instance.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 Tables or columns named NEXT were detected. Sequences, introduced in Microsoft SQL Server, use the ANSI standard NEXT VALUE FOR function. If a table or a column is named NEXT and the column is aliased as VALUE, and if the ANSI standard AS is omitted, the resulting statement can cause an error.
 
 
@@ -333,9 +337,9 @@ Rewrite statements to include the ANSI standard AS keyword when aliasing a table
 ## Non-ANSI style left outer join<a id="NonANSILeftOuterJoinSyntax"></a>
 
 **Title: Non-ANSI style left outer join is discontinued and has been removed.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 Non-ANSI style left outer join is discontinued and has been removed in Azure SQL Managed Instance. 
 
 
@@ -347,9 +351,9 @@ More information: [Discontinued Database Engine Functionality in SQL Server](/pr
 ## Non-ANSI style right outer join<a id="NonANSIRightOuterJoinSyntax"></a>
 
 **Title: Non-ANSI style right outer join is discontinued and has been removed.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 Non-ANSI style right outer join is discontinued and has been removed in Azure SQL Managed Instance. 
 
 
@@ -362,9 +366,9 @@ Use ANSI join syntax.
 ## Databases exceed 100 <a id="NumDbExceeds100"></a>
 
 **Title: Azure SQL Managed Instance supports a maximum of 100 databases per instance.**   
+**Category**: Warning   
 
 **Description**   
-Category: Warning
 Maximum number of databases supported in Azure SQL Managed Instance is 100, unless the instance storage size limit has been reached.
 
 
@@ -377,9 +381,9 @@ More information: [Azure SQL Managed Instance Resource Limits ](../../managed-in
 ## OPENROWSET (non-blob data source)<a id="OpenRowsetWithNonBlobDataSourceBulk"></a>
 
 **Title: OpenRowSet used in bulk operation with non-Azure blob storage data source is not supported in Azure SQL Managed Instance.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 OPENROWSET supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset. OPENROWSET with non-Azure blob storage data source is not supported in Azure SQL Managed Instance. 
 
 
@@ -392,9 +396,9 @@ More information: [Bulk Insert and OPENROWSET differences in Azure SQL Managed I
 ## OPENROWSET (non-SQL provider)<a id="OpenRowsetWithNonSQLProvider"></a>
 
 **Title: OpenRowSet with non-SQL provider is not supported in Azure SQL Managed Instance.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 This method is an alternative to accessing tables in a linked server and is a one-time, ad hoc method of connecting and accessing remote data by using OLE DB. OpenRowSet with non-SQL provider is not supported in Azure SQL Managed Instance. 
 
 
@@ -408,29 +412,29 @@ More information: [Bulk Insert and OPENROWSET differences in Azure SQL Managed I
 ## PowerShell job<a id="PowerShellJob"></a>
 
 **Title: PowerShell job step is not supported in Azure SQL Managed Instance.**   
+**Category**: Warning   
 
 **Description**   
-Category: Warning   
 It is a job step that runs a PowerShell script. PowerShell job step is not supported in Azure SQL Managed Instance. 
 
 
 
 **Recommendation**   
-Review impacted objects section to see all jobs using PowerShell job step and evaluate if the job step or the impacted object can be removed.  Evaluate if Azure Automation can be used. Alternatively, migrate to SQL Server on Azure Virtual Machine
+Review impacted objects section in Azure Migrate to see all jobs using PowerShell job step and evaluate if the job step or the impacted object can be removed.  Evaluate if Azure Automation can be used. Alternatively, migrate to SQL Server on Azure Virtual Machine
 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
 ## Queue Reader job<a id="QueueReaderJob"></a>
 
 **Title: Queue Reader job step is not supported in Azure SQL Managed Instance.**   
+**Category**: Warning   
 
 **Description**   
-Category: Warning   
 It is a job step that activates the replication Queue Reader Agent. The Replication Queue Reader Agent is an executable that reads messages stored in a Microsoft SQL Server queue or a Microsoft Message Queue and then applies those messages to the Publisher. Queue Reader Agent is used with snapshot and transactional publications that allow queued updating. Queue Reader job step is not supported in Azure SQL Managed Instance.
 
 
 **Recommendation**   
-Review impacted objects section to see all jobs using Queue Reader job step and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine.
+Review impacted objects section in Azure Migrate to see all jobs using Queue Reader job step and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
@@ -438,9 +442,9 @@ More information: [SQL Server Agent differences in Azure SQL Managed Instance ](
 ## RAISERROR<a id="RAISERROR"></a>
 
 **Title: Legacy style RAISERROR calls should be replaced with modern equivalents.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 RAISERROR calls like the below example are termed as legacy-style because they do not include the commas and the parenthesis. RAISERROR 50001 'this is a test'. This method of calling RAISERROR is discontinued and removed in Azure SQL Managed Instance.
 
 
@@ -453,9 +457,9 @@ More information: [Discontinued Database Engine Functionality in SQL Server](/pr
 ## Service broker<a id="ServiceBrokerWithNonLocalAddress"></a>
 
 **Title: Service Broker feature is partially supported in Azure SQL Managed Instance.**   
+**Category**: Issue   
 
 **Description**   
-Category: Issue   
 SQL Server Service Broker provides native support for messaging and queuing applications in the SQL Server Database Engine. This database has cross-instance Service Broker enabled which is not supported in Azure SQL Managed Instance. 
 
 
@@ -467,10 +471,10 @@ More information: [Service Broker differences in Azure SQL Managed Instance ](..
 ## SQL Mail<a id="SqlMail"></a>
 
 **Title: SQL Mail has been discontinued.**   
+**Category**: Warning   
 
 
 **Description**   
-Category: Warning   
 SQL Mail has been discontinued and removed in Azure SQL Managed Instance.
 
 
@@ -485,9 +489,9 @@ More information: [Discontinued Database Engine Functionality in SQL Server](/pr
 
 
 **Title: Detected statements that reference removed system stored procedures that are not available in Azure SQL Managed Instance.**   
+**Category**: Warning   
 
 **Description**   
-Category: Warning   
 Following unsupported system and extended stored procedures cannot be used in Azure SQL Managed Instance - `sp_dboption`, `sp_addserver`, `sp_dropalias`,`sp_activedirectory_obj`, `sp_activedirectory_scp`, and `sp_activedirectory_start`. 
 
 
@@ -501,15 +505,16 @@ More information: [Discontinued Database Engine Functionality in SQL Server](/pr
 ## Transact-SQL job<a id="TransactSqlJob"></a>
 
 **Title: TSQL job step includes unsupported commands in Azure SQL Managed Instance**   
+**Category**: Warning   
+
 
 **Description**   
-Category: Warning   
 It is a job step that runs TSQL scripts at scheduled time. TSQL job step includes unsupported commands which are not supported in Azure SQL Managed Instance.
 
 
 
 **Recommendation**   
-Review impacted objects section to see all jobs that include unsupported commands in Azure SQL Managed Instance and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine.
+Review impacted objects section in Azure Migrate to see all jobs that include unsupported commands in Azure SQL Managed Instance and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
@@ -517,15 +522,16 @@ More information: [SQL Server Agent differences in Azure SQL Managed Instance ](
 ## Trace flags<a id="TraceFlags"></a>
 
 **Title: Trace flags not supported in Azure SQL Managed Instance were found**   
+**Category**: Warning   
+
 
 **Description**   
-Category: Warning   
 Azure SQL Managed Instance supports only limited number of global trace flags. Session trace flags aren't supported.
 
 
 
 **Recommendation**   
-Review impacted objects section to see all trace flags that are not supported in Azure SQL Managed Instance and evaluate if they can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine.
+Review impacted objects section in Azure Migrate to see all trace flags that are not supported in Azure SQL Managed Instance and evaluate if they can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
 More information: [Trace flags](/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql#trace-flags)
 
@@ -533,9 +539,10 @@ More information: [Trace flags](/sql/t-sql/database-console-commands/dbcc-traceo
 ## Windows authentication<a id="WindowsAuthentication"></a>
 
 **Title: Database users mapped with Windows authentication (integrated security) are not supported in Azure SQL Managed Instance**   
+**Category**: Warning   
+
 
 **Description**   
-Category: Warning   
 Azure SQL Managed Instance supports two types of authentication: 
 - SQL Authentication, which uses a username and password
 - Azure Active Directory Authentication, which uses identities managed by Azure Active Directory and is supported for managed and integrated domains. 
@@ -552,15 +559,16 @@ More information: [SQL Managed Instance security capabilities](../../database/se
 ## XP_cmdshell<a id="XpCmdshell"></a>
 
 **Title: xp_cmdshell is not supported in Azure SQL Managed Instance.**   
+**Category**: Issue   
+
 
 **Description**   
-Category: Issue   
 Xp_cmdshell which spawns a Windows command shell and passes in a string for execution is not supported in Azure SQL Managed Instance. 
 
 
 
 **Recommendation**   
-Review impacted objects section to see all objects using xp_cmdshell and evaluate if the reference to xp_cmdshell or the impacted object can be removed. Consider exploring Azure Automation that delivers cloud-based automation and configuration service. Alternatively, migrate to SQL Server on Azure Virtual Machine.
+Review impacted objects section in Azure Migrate to see all objects using xp_cmdshell and evaluate if the reference to xp_cmdshell or the impacted object can be removed. Consider exploring Azure Automation that delivers cloud-based automation and configuration service. Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
 More information: [Stored Procedure differences in Azure SQL Managed Instance](../../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers)
 
