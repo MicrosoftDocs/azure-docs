@@ -4,7 +4,7 @@ description: Learn how to redirect hard-coded links for apps published with Azur
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

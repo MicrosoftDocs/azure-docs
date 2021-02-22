@@ -174,4 +174,4 @@ In this tutorial, you secured an IIS web server with a TLS/SSL certificate store
 Follow this link to see pre-built virtual machine script samples.
 
 > [!div class="nextstepaction"]
-> [Windows virtual machine script samples](./powershell-samples.md)
+> [Windows virtual machine script samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine)

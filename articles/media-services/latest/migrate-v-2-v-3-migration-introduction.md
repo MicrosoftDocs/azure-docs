@@ -1,10 +1,9 @@
 ---
-title: Migrate from Azure Media Services v2 to v3 introduction | Microsoft Docs
+title: Migrate from Media Services v2 to v3 introduction
 description: This article is an introduction to migrating from Media Services v2 to v3.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
-
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media

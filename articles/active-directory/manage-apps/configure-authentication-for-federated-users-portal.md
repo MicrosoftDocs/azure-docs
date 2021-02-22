@@ -4,7 +4,7 @@ description: Learn how to configure Home Realm Discovery policy for Azure Active
 services: active-directory
 documentationcenter: 
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services

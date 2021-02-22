@@ -38,8 +38,8 @@ The number of training images per project and tags per project are expected to i
 |Max image height/width in pixels|10,240|10,240|
 |Max image size (training image upload) |6 MB|6 MB|
 |Max image size (prediction)|4 MB|4 MB|
-|Max regions per object detection training image|300|300|
-|Max tags per classification image|100|100|
+|Max number of regions per image (object detection)|300|300|
+|Max number of tags per image (classification)|100|100|
 
 > [!NOTE]
 > Images smaller than than 256 pixels will be accepted but upscaled.

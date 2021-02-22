@@ -40,10 +40,8 @@
   items:
   - name: Migrate SQL Server
     items: 
-    - name: to Azure SQL Database (offline)
+    - name: to Azure SQL Database
       href: tutorial-sql-server-to-azure-sql.md
-    - name: to Azure SQL Database (online)
-      href: tutorial-sql-server-azure-sql-online.md
     - name: to Azure SQL Managed Instance (offline)
       href: tutorial-sql-server-to-managed-instance.md
     - name: to Azure SQL Managed Instance (online)

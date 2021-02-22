@@ -1,14 +1,13 @@
 ---
-title: High Availability with Media Services and Video on Demand (VOD)
+title: High Availability with Media Services Video on Demand
 description: This article is an overview of the Azure services you can use to facilitate high availability for the VOD application.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
-ms.subservice:  
+ms.subservice: 
 ms.workload: 
 ms.topic: conceptual
 ms.custom: 

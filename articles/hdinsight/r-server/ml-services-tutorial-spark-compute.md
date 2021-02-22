@@ -1,9 +1,6 @@
 ---
 title: 'Tutorial: Use R in a Spark compute context in Azure HDInsight'
 description: Tutorial - Get started with R and Spark on an Azure HDInsight Machine Learning services cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial

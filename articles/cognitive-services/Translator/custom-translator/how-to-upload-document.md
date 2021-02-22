@@ -2,12 +2,12 @@
 title: How to upload a document - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: The document upload feature uploads parallel documents (two documents where one is the origin and the other is the translation) into the service.  
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to know how to upload document, so that I can start uploading my documents to train my model .
 ---

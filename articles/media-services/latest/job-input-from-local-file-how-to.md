@@ -1,12 +1,11 @@
 ---
-title: Create an Azure Media Services job input from a local file | Microsoft Docs
+title: Create a job input from a local file
 description: This article demonstrates how to create an Azure Media Services job input from a local file.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to
@@ -20,7 +19,7 @@ ms.author: inhenkel
 
 In Media Services v3, when you submit Jobs to process your videos, you have to tell Media Services where to find the input video. The input video can be stored as a Media Service Asset, in which case you create an input asset based on a file (stored locally or in Azure Blob storage). This topic shows how to create a job input from a local file. For a full example, see this [GitHub sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
 
-## Prerequisites 
+## Prerequisites
 
 * [Create a Media Services account](./create-account-howto.md).
 

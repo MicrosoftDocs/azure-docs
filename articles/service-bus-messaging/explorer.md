@@ -32,9 +32,9 @@ To use the Service Bus Explorer tool, you will need to do the following tasks:
     - [Quickstart - Create Queues](service-bus-quickstart-portal.md)
     - [Quickstart - Create Topics](service-bus-quickstart-topics-subscriptions-portal.md)
 - Ensure that you are a member of one of these roles on the namespace: 
-    - [Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 
-    - [Contributor](../role-based-access-control/built-in-roles.md#contributor) 
-    - [Owner](/role-based-access-control/built-in-roles.md#owner)
+    - [Service Bus Data Owner](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) 
+    - [Contributor](/azure/role-based-access-control/built-in-roles#contributor) 
+    - [Owner](/azure/role-based-access-control/built-in-roles#owner)
 
 
 ## Using the Service Bus Explorer

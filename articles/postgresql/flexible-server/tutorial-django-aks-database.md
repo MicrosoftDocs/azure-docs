@@ -104,7 +104,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## Create an Azure Database for PostgreSQL - Flexible Server
-Create a flexible server with the [az postgreSQL flexible-server create](/azure/postgresql/flexible-server?view=azure-cli-latest&preserve-view=true)command. The following command creates a server using service defaults and values from your Azure CLI's local context:
+Create a flexible server with the [az postgreSQL flexible-server create](./index.yml?preserve-view=true&view=azure-cli-latest)command. The following command creates a server using service defaults and values from your Azure CLI's local context:
 
 ```azurecli-interactive
 az postgres flexible-server create --public-access <YOUR-IP-ADDRESS>

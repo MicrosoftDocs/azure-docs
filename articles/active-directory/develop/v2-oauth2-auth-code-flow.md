@@ -40,11 +40,11 @@ If you attempt to use the authorization code flow and see this error:
 
 `access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
 
-Then you need to visit your app registration and update the redirect URI for your app to type `spa`.
+Then, visit your app registration and update the redirect URI for your app to type `spa`.
 
 ## Request an authorization code
 
-The authorization code flow begins with the client directing the user to the `/authorize` endpoint. In this request, the client requests the `openid`, `offline_access`, and `https://graph.microsoft.com/mail.read ` permissions from the user.  Some permissions are admin-restricted, for example writing data to an organization's directory by using `Directory.ReadWrite.All`. If your application requests access to one of these permissions from an organizational user, the user receives an error message that says they're not authorized to consent to your app's permissions. To request access to admin-restricted scopes, you should request them directly from a company administrator.  For more information, read [Admin-restricted permissions](v2-permissions-and-consent.md#admin-restricted-permissions).
+The authorization code flow begins with the client directing the user to the `/authorize` endpoint. In this request, the client requests the `openid`, `offline_access`, and `https://graph.microsoft.com/mail.read ` permissions from the user.  Some permissions are admin-restricted, for example writing data to an organization's directory by using `Directory.ReadWrite.All`. If your application requests access to one of these permissions from an organizational user, the user receives an error message that says they're not authorized to consent to your app's permissions. To request access to admin-restricted scopes, you should request them directly from a Global Administrator.  For more information, read [Admin-restricted permissions](v2-permissions-and-consent.md#admin-restricted-permissions).
 
 ```
 // Line breaks for legibility only
