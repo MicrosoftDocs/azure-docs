@@ -26,7 +26,7 @@ The new certificate is rolled out and in effect starting February 15, 2021 (02/1
 
 ## What change was performed on February 15, 2021 (02/15/2021)?
 
-On February 15, 2021, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) was replaced with the compliant version of the same [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to ensure existing customers do not need to change anything and there is no impact to their connections to the server. During this change, the [Baltimore root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) was **not replaced** with [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and that change is deferred to allow more time for customers to make the change.
+On February 15, 2021, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) was replaced with a **compliant version** of the same [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to ensure existing customers do not need to change anything and there is no impact to their connections to the server. During this change, the [Baltimore root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) was **not replaced** with [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and that change is deferred to allow more time for customers to make the change.
 
 ## Do I need to make any changes on my client to maintain connectivity?
 
@@ -99,40 +99,50 @@ You will start to connectivity errors while connecting to your Azure Database fo
 
 No, you don't need to restart the database server to start using the new certificate. This root certificate is a client-side change and the incoming client connections need to use the new certificate to ensure that they can connect to the database server.
 
-### 3. What is the impact if using App Service with Azure Database for MySQL?
+### 3. How do I know if I'm using SSL/TLS with root certificate verification?
+
+You can identify whether your connections verify the root certificate by reviewing your connection string.
+
+- If your connection string includes `sslmode=verify-ca` or `sslmode=verify-identity`, you need to update the certificate.
+- If your connection string includes `sslmode=disable`, `sslmode=allow`, `sslmode=prefer`, or `sslmode=require`, you don't need to update certificates.
+- If your connection string doesn't specify sslmode, you don't need to update certificates.
+
+If you're using a client that abstracts the connection string away, review the client's documentation to understand whether it verifies certificates.
+
+### 4. What is the impact if using App Service with Azure Database for MySQL?
 
 For Azure app services connecting to Azure Database for MySQL, there are two possible scenarios and depending on how on you're using SSL with your application.
 
 * This new certificate has been added to App Service at platform level. If you're using the SSL certificates included on App Service platform in your application, then no action is needed. This is the most common scenario. 
 * If you're explicitly including the path to SSL cert file in your code, then you would need to download the new cert and produce a combined certificate as mentioned above and use the certificate file. A good example of this scenario is when you use custom containers in App Service as shared in the [App Service documentation](../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress). This is uncommon scenario but we have seen some users using this.
 
-### 4. What is the impact if using Azure Kubernetes Services (AKS) with Azure Database for MySQL?
+### 5. What is the impact if using Azure Kubernetes Services (AKS) with Azure Database for MySQL?
 
 If you're trying to connect to the Azure Database for MySQL using Azure Kubernetes Services (AKS), it's similar to access from a dedicated customers host environment. Refer to the steps [here](../aks/ingress-own-tls.md).
 
-### 5. What is the impact if using Azure Data Factory to connect to Azure Database for MySQL?
+### 6. What is the impact if using Azure Data Factory to connect to Azure Database for MySQL?
 
 For a connector using Azure Integration Runtime, the connector leverage certificates in the Windows Certificate Store in the Azure-hosted environment. These certificates are already compatible to the newly applied certificates and therefore no action is needed.
 
 For a connector using Self-hosted Integration Runtime where you explicitly include the path to SSL cert file in your connection string, you'll need to download the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and update the connection string to use it.
 
-### 6. Do I need to plan a database server maintenance downtime for this change?
+### 7. Do I need to plan a database server maintenance downtime for this change?
 
 No. Since the change here is only on the client side to connect to the database server, there's no maintenance downtime needed for the database server for this change.
 
-### 7. If I create a new server after February 15, 2021 (02/15/2021), will I be impacted?
+### 8. If I create a new server after February 15, 2021 (02/15/2021), will I be impacted?
 
 For servers created after February 15, 2021 (02/15/2021), you will continue to use the [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) for your applications to connect using SSL.
 
-### 10. How often does Microsoft update their certificates or what is the expiry policy?
+### 9. How often does Microsoft update their certificates or what is the expiry policy?
 
 These certificates used by Azure Database for MySQL are provided by trusted Certificate Authorities (CA). So the support of these certificates on Azure Database for MySQL is tied to the support of these certificates by CA. The [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificate is scheduled to expire in 2025 so Microsoft will need to perform a certificate change before the expiry. Also in case if there are unforeseen bugs in these predefined certificates, Microsoft will need to make the certificate rotation at the earliest as the change performed on February 15, 2021.
 
-### 11. If I'm using read replicas, do I need to perform this update only on source server or the read replicas?
+### 10. If I'm using read replicas, do I need to perform this update only on source server or the read replicas?
 
 Since this update is a client-side change, if the client used to read data from the replica server, you'll need to apply the changes for those clients as well.
 
-### 12. If I'm using Data-in replication, do I need to perform any action?
+### 11. If I'm using Data-in replication, do I need to perform any action?
 
 If you're using [Data-in replication](concepts-data-in-replication.md) to connect to Azure Database for MySQL, there are two things to consider:
 
@@ -152,14 +162,14 @@ If you're using [Data-in replication](concepts-data-in-replication.md) to connec
 * If the data-replication is between two Azure Database for MySQL, then you'll need to reset the replica by executing 
 **CALL mysql.az_replication_change_master** and provide the new dual root certificate as last parameter [master_ssl_ca](howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication)
 
-### 13. Do we have server-side query to verify if SSL is being used?
+### 12. Do we have server-side query to verify if SSL is being used?
 
 To verify if you're using SSL connection to connect to the server refer [SSL verification](howto-configure-ssl.md#step-4-verify-the-ssl-connection).
 
-### 14. Is there an action needed if I already have the DigiCertGlobalRootG2 in my certificate file?
+### 13. Is there an action needed if I already have the DigiCertGlobalRootG2 in my certificate file?
 
 No. There's no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
 
-###    15. What if I have further questions?
+### 14. What if I have further questions?
 
 If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforMySQL@service.microsoft.com). If you have a support plan and you need technical help, [contact us](mailto:AzureDatabaseforMySQL@service.microsoft.com).
