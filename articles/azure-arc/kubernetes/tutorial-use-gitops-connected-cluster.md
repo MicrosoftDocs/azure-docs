@@ -14,7 +14,7 @@ ms.custom: template-tutorial
 In this tutorial, you will apply configurations using GitOps on an Azure Arc enabled Kubernetes cluster. You'll learn how to:
 
 > [!div class="checklist"]
-> * Create a configuration using an example Git repository
+> * Create a configuration on an Azure Arc enabled Kubernetes cluster using an example Git repository.
 > * Validate the `sourceControlConfiguration` was successfully created.
 > * Apply configuration form a private Git repository.
 > * Validate the Kubernetes configuration.
