@@ -68,7 +68,7 @@ If you're not able to add a co-administrator, contact a service administrator or
 
     :::image type="content" source="media/in-place-migration-portal-5.png" alt-text="Image shows validation failure error.":::
 
-      After Prepare, all Cloud Services in a virtual network is available for read operations using both Cloud Services (classic) and Cloud Services (extended support) Azure portal blade. The Cloud Service (extended support) deploy can now be tested to ensure proper functioning before finalizing the migration. 
+      After Prepare, all Cloud Services in a virtual network are available for read operations using both Cloud Services (classic) and Cloud Services (extended support) Azure portal blade. The Cloud Service (extended support) deploy can now be tested to ensure proper functioning before finalizing the migration. 
  
     :::image type="content" source="media/in-place-migration-portal-6.png" alt-text="Image shows testing APIs in portal blade.":::
 
