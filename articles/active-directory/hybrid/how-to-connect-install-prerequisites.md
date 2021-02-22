@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -162,6 +162,17 @@ Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypt
     "SchUseStrongCrypto"=dword:00000001
     ```
 1. If you also want to enable TLS 1.2 between the sync engine server and a remote SQL Server, make sure you have the required versions installed for [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
+
+### DCOM prerequisites on the synchronization server
+During the installation of the synchronization service, Azure AD Connect checks for the presence of the following registry key:
+
+- HKEY_LOCAL_MACHINE:  Software\Microsoft\Ole
+
+Under this registry key, Azure AD Connect will check to see if the following values are present and uncorrupted: 
+
+- [MachineAccessRestriction](https://docs.microsoft.com/windows/win32/com/machineaccessrestriction)
+- [MachineLaunchRestriction](https://docs.microsoft.com/windows/win32/com/machinelaunchrestriction)
+- [DefaultLaunchPermission](https://docs.microsoft.com/windows/win32/com/defaultlaunchpermission)
 
 ## Prerequisites for federation installation and configuration
 ### Windows Remote Management

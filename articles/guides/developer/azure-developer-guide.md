@@ -304,7 +304,7 @@ When you allow access to Azure resources, it's always a best practice to provide
 
   > **When to use**: When you need fine-grained access management for users and groups or when you need to make a user an owner of a subscription.
   >
-  > **Get started**: To learn more, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+  > **Get started**: To learn more, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 - **Service principal objects**: Along with providing access to user principals and groups, you can grant the same access to a service principal.
 

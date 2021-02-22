@@ -50,7 +50,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | East US            | North Europe         |                     | Australia East |
 | East US 2          | UK South             |                     |                |
 | South   Central US | West Europe          |                     |                |
-| US   Gov Virginia* |                      |                     |                |
+| US Gov Virginia    |                      |                     |                |
 | West   US 2        |                      |                     |                |
 
 

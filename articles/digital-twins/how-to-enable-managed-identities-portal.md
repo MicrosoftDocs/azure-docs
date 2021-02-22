@@ -102,9 +102,10 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
     :::image type="content" source="media/how-to-enable-managed-identities/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal showing the Access control (IAM) page for an event hub. The + Add button is highlighted." lightbox="media/how-to-enable-managed-identities/add-role-assignment-1.png":::
 
 1. On the following **Add role assignment** page, fill in the values:
-    * **Role**: Select the desired role from the dropdown menu
-    * **Assign access to**: Choose **User, group or service principal**
-    * **Select**: Here, you'll select the managed identity of your Azure Digital Twins instance that's being assigned the role. The name of the managed identity matches the name of the instance, so search for the name of your Azure Digital Twins instance. When you select the result, the identity for the instance will show up in the **Selected members** section.
+    * **Role**: Select the desired role from the dropdown menu.
+    * **Assign access to**: Under **System assigned managed identity**, select **Digital Twins**.
+    * **Subscription**: Select your subscription. This will display all the Azure Digital Twins managed identities within the selected subscription.
+    * **Select**: Here, you'll select the managed identity of your Azure Digital Twins instance that's being assigned the role. The name of the managed identity matches the name of the instance, so choose the name of your Azure Digital Twins instance. When you select it, the identity for the instance will show up in the **Selected members** section at the bottom of the pane.
 
     :::row:::
         :::column:::
