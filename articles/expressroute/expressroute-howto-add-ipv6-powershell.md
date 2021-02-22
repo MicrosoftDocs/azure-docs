@@ -33,10 +33,12 @@ Connect-AzAccount
 Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
 ```
 
-2. Register your subscription for Public Preview using the following command:
+2. Request to register your subscription for Public Preview using the following command:
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName AllowIpv6PrivatePeering -ProviderNamespace Microsoft.Network
 ```
+
+Your request will then be approved by the ExpressRoute team within 2-3 business days.
 
 ## Add IPv6 Private Peering to your ExpressRoute circuit
 

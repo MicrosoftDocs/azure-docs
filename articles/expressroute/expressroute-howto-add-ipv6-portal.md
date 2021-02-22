@@ -32,6 +32,8 @@ Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
 Register-AzProviderFeature -FeatureName AllowIpv6PrivatePeering -ProviderNamespace Microsoft.Network
 ```
 
+Your request will then be approved by the ExpressRoute team within 2-3 business days.
+
 ## Sign in to the Azure portal
 
 From a browser, go to the [Azure portal](https://portal.azure.com), and then sign in with your Azure account.
