@@ -75,7 +75,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     - **Group owner(s)** (Only available when performing a review on a Team or group)
     - **Selected user(s) or groups(s)**
     - **Users review own access**
-    - **(Preview) Managers of users.**
+    - **Managers of users.**
     If you choose either **Managers of users** or **Group owners**  you also have the option to specify a fallback reviewer. Fallback reviewers are asked to do a review when the user has no manager specified in the directory or the group does not have an owner.
 
     ![new access review](./media/create-access-review/new-access-review.png)
