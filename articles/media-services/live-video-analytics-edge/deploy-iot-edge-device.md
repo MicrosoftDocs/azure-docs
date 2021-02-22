@@ -56,8 +56,8 @@ Follow the steps in this article to get credentials to access the Media Service 
 To run the Live Video Analytics on IoT Edge module create a local user account with as few privileges as possible. As an example, run the following commands on your Linux machine:
 
 ```
-sudo groupadd -g 1010 localuser
-sudo useradd --home-dir /home/edgeuser --uid 1010 --gid 1010 edgeuser
+sudo groupadd -g 1010 localusergroup
+sudo useradd --home-dir /home/edgeuser --uid 1010 --gid 1010 lvaedgeuser
 ```
 
 ## Granting permissions to device storage
@@ -68,14 +68,14 @@ Now that you have created a local user account,
 
 ```
 sudo mkdir -p /var/lib/azuremediaservices
-sudo chown -R edgeuser /var/lib/azuremediaservices
+sudo chown -R lvaedgeuser /var/lib/azuremediaservices
 ```
 
 * You will also need a folder to [record videos to a local file](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources). Use the following commands to create a local folder for the same:
 
 ```
 sudo mkdir -p /var/media
-sudo chown -R edgeuser /var/media
+sudo chown -R lvaedgeuser /var/media
 ```
 
 ## Deploy Live Video Analytics Edge module
