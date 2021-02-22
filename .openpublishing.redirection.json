@@ -64133,6 +64133,11 @@
         "source_path": "articles/virtual-machines/troubleshooting/windows-update-installation-capacity.md",
         "redirect_url": "/troubleshoot/azure/virtual-machines/windows-update-installation-capacity",
         "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/azure-monitor/app/usage-send-user-context.md",
+      "redirect_url": "/azure/azure-monitor/app/usage-overview",
+      "redirect_document_id": false
+  }
   ]
 }
