@@ -133,6 +133,7 @@ Translator detects the following languages for translation and transliteration.
 | Language | Language code |
 |:-|:-:|
 | Afrikaans | `af` |
+| Albanian | `sq` |
 | Arabic | `ar` |
 | Bulgarian | `bg` |
 | Catalan | `ca` |
@@ -155,6 +156,7 @@ Translator detects the following languages for translation and transliteration.
 | Hungarian | `hu` |
 | Icelandic | `is` |
 | Indonesian | `id` |
+| Inuktitut | `iu` |
 | Irish | `ga` |
 | Italian | `it` |
 | Japanese | `ja` |
