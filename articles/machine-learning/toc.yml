@@ -531,6 +531,8 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Deploy ML pipelines (Python)
           href: how-to-deploy-pipelines.md
+        - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
+          href: how-to-use-synapsesparkstep.md
         - name: Trigger a pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Designer (drag-n-drop)
