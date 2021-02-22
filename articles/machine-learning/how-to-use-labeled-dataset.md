@@ -36,6 +36,9 @@ When you complete a data labeling project, you can export the label data from a 
 ### COCO 
 
  The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *export/coco*. 
+ 
+>[!NOTE]
+>In Object detection projects, the exported "bbox": [x,y,width,height]" values in COCO file are normalized. They are scaled to 1. Example : a bounding box at (10, 10) location, with 30 pixels width , 60 pixels height, in a 640x480 pixel image will be annotated as (0.015625. 0.02083, 0.046875, 0.125). Since the coordintes are normalized, it will show as '0.0' as "width" and "height" for all images. The actual width and height can be obtained using Python library like OpenCV  or Pillow(PIL).
 
 ### Azure Machine Learning dataset
 

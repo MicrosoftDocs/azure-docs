@@ -89,9 +89,9 @@ To create the virtual network in the Azure portal:
    | **Field** | Value |
    | --- | --- |
    | **Name** |autoHAVNET |
-   | **Address space** |10.33.0.0/24 |
+   | **Address space** |10.0.0.0/24 |
    | **Subnet name** |Admin |
-   | **Subnet address range** |10.33.0.0/29 |
+   | **Subnet address range** |10.0.0.0/29 |
    | **Subscription** |Specify the subscription that you intend to use. **Subscription** is blank if you only have one subscription. |
    | **Resource group** |Choose **Use existing** and pick the name of the resource group. |
    | **Location** |Specify the Azure location. |

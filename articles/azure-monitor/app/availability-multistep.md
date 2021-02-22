@@ -32,7 +32,7 @@ To locate the testing tools pre-requisite. Launch the **Visual Studio Installer*
 > [!WARNING]
 > We no longer recommend using the multi-step recorder. The recorder was developed for static HTML pages with basic interactions, and does not provide a functional experience for modern web pages.
 
-For guidance on creating Visual Studio web tests consult the [official Visual Studio 2019 documentation](/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
+For guidance on creating Visual Studio web tests consult the [official Visual Studio 2019 documentation](/visualstudio/test/how-to-create-a-web-service-test).
 
 ## Upload the web test
 

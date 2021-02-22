@@ -197,7 +197,7 @@ Access denied:  to sign-in you be assigned a role with action 'Microsoft.Compute
 Access denied
 ```
 > [!NOTE]
-> If you are running into issues with Azure role assignments, see [Troubleshoot Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
+> If you are running into issues with Azure role assignments, see [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit).
 
 ### Continued SSH sign-in prompts
 

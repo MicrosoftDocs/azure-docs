@@ -152,8 +152,9 @@ datastore_paths = [(datastore, 'weather/2018/11.csv'),
 
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
+### Set data schema
 
-By default, when you create a TabularDataset, column data types are inferred automatically. If the inferred types don't match your expectations, you can specify column types by using the following code. The parameter `infer_column_type` is only applicable for datasets created from delimited files. [Learn more about supported data types](/python/api/azureml-core/azureml.data.dataset_factory.datatype?preserve-view=true&view=azure-ml-py).
+By default, when you create a TabularDataset, column data types are inferred automatically. If the inferred types don't match your expectations, you can update your dataset schema by specifying column types with the following code. The parameter `infer_column_type` is only applicable for datasets created from delimited files. [Learn more about supported data types](/python/api/azureml-core/azureml.data.dataset_factory.datatype?preserve-view=true&view=azure-ml-py).
 
 
 ```Python

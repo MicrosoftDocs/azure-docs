@@ -1,9 +1,6 @@
 ---
 title: InvalidNetworkConfigurationErrorCode error - Azure HDInsight
 description: Various reasons for failed cluster creations with InvalidNetworkConfigurationErrorCode in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/12/2021

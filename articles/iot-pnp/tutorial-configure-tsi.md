@@ -1,6 +1,6 @@
 ---
-title: Use Azure Time Series Insights to store and analyze your Azure IoT Plug and Play device telemetry  
-description: Set up a Time Series Insights environment and connect your IoT hub to view and analyze telemetry from your IoT Plug and Play devices.
+title: Tutorial - Use Azure Time Series Insights to store and analyze your Azure IoT Plug and Play device telemetry  
+description: Tutorial - Set up a Time Series Insights environment and connect your IoT hub to view and analyze telemetry from your IoT Plug and Play devices.
 author: lyrana
 ms.author: lyhughes
 ms.date: 10/14/2020
@@ -11,11 +11,16 @@ services: iot-pnp
 # As an IoT solution builder, I want to historize and analyze data from my IoT Plug and Play devices by routing to Time Series Insights.
 ---
 
-# Preview tutorial: Create and configure a Time Series Insights Gen2 environment
+# Tutorial: Create and configure a Time Series Insights Gen2 environment
 
 In this tutorial, you learn how to create and configure an [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md) environment to integrate with your IoT Plug and Play solution. Use Time Series Insights to collect, process, store, query, and visualize time series data at the scale of Internet of Things (IoT).
 
-First, you provision a Time Series Insights environment and connect your IoT hub as a streaming event source. Then you work through model synchronization to author your [Time Series Model](../time-series-insights/concepts-model-overview.md). You use the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) sample model files that you used for the temperature controller and thermostat devices.
+In this tutorial, you
+
+> [!div class="checklist"]
+> * Provision a Time Series Insights environment and connect your IoT hub as a streaming event source.
+> * Work through model synchronization to author your [Time Series Model](../time-series-insights/concepts-model-overview.md).
+> * Use the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) sample model files that you used for the temperature controller and thermostat devices.
 
 > [!NOTE]
 > This integration between Time Series Insights and IoT Plug and Play is in preview. The way that DTDL device models map to the Time Series Insights Time Series Model might change. 
@@ -219,10 +224,11 @@ Go back to the charting pane and expand **Device Fleet** > your device. Select *
 
 ![Screenshot showing how to change the instance type for thermostat2.](./media/tutorial-configure-tsi/charting-values.png)
 
+## Clean up resources
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
+
 ## Next steps
 
-* To learn more about the various charting options, including interval sizing and y-axis controls, see [Azure Time Series Insights Explorer](../time-series-insights/concepts-ux-panels.md).
-
-* For an in-depth overview of your environment's Time Series Model, see [Time Series Model in Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md).
-
-* To dive into the query APIs and the Time Series Expression syntax, see [Azure Time Series Insights Gen2 Query APIs](/rest/api/time-series-insights/reference-query-apis).
+> [!div class="nextstepaction"]
+> To learn more about the various charting options, including interval sizing and y-axis controls, see [Azure Time Series Insights Explorer](../time-series-insights/concepts-ux-panels.md).

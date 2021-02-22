@@ -5,8 +5,9 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/29/2020
 ms.topic: how-to
-ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subervice: image-builder
+ms.colletion: windows
 ms.reviewer: danis
 ---
 # Use Azure Image Builder for Windows VMs allowing access to an existing Azure VNET
@@ -253,7 +254,7 @@ $runOutJsonStatus
 ```
 ## Create a VM
 
-Now the build is finished, you can build a VM from the image. Use the examples from the [PowerShell New-AzVM  documentation](/powershell/module/az.compute/new-azvm?view=azps-2.5.0#description).
+Now the build is finished, you can build a VM from the image. Use the examples from the [PowerShell New-AzVM  documentation](/powershell/module/az.compute/new-azvm#description).
 
 ## Clean Up
 
@@ -291,4 +292,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## Next steps
 
-Learn more about [Azure Shared Image Galleries](shared-image-galleries.md).
+Learn more about [Azure Shared Image Galleries](../shared-image-galleries.md).

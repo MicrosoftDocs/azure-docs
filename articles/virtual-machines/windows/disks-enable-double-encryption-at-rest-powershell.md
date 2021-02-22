@@ -17,7 +17,7 @@ Azure Disk Storage supports double encryption at rest for managed disks. For con
 
 ## Prerequisites
 
-Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), and sign in to an Azure account using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-4.3.0).
+Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), and sign in to an Azure account using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ## Getting started
 

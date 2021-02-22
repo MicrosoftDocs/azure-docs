@@ -20,6 +20,10 @@ In this tutorial, you learn how to:
 > * Create an application template
 > * Walk through the application template
 
+## Prerequisites
+
+An Azure subscription is recommended. Alternatively, you can use a free, 7-day trial. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
+
 ## Create an application template
 
 Navigate to the [Azure IoT Central application manager website](https://apps.azureiotcentral.com/). Select **Build** from the left-hand navigation bar and then select the **Healthcare** tab.
@@ -125,4 +129,4 @@ If you're not going to continue to use this application, delete the application 
 Advance to the next article to learn how to create a provider dashboard that connects to your IoT Central application.
 
 > [!div class="nextstepaction"]
-> [Build a provider dashboard](howto-health-data-triage.md)
+> [Build a provider dashboard](tutorial-health-data-triage.md)

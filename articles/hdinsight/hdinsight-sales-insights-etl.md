@@ -1,9 +1,6 @@
 ---
 title: 'Tutorial: Create an end-to-end ETL pipeline to derive sales insights in Azure HDInsight'
 description: Learn how to use create ETL pipelines with Azure HDInsight to derive insights from sales data by using Spark on-demand clusters and Power BI.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
