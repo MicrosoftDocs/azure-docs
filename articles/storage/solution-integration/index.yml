@@ -20,35 +20,41 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Azure Storage Analytics partners
+  - title: Azure Storage Analytics and Big Data partners
     linkLists:
       - linkListType: overview
         links:
           - text: Validated Azure Storage Analytics partners
             url: .\validated-partners\analytics\partner-overview.md
   # Card
-  - title: Azure Storage Archive and BCDR partners
+  - title: Azure Storage Archive, Backup and BCDR partners
     linkLists:
       - linkListType: overview
         links:
           - text: Validated Azure Storage Archive and BCDR partners
             url: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Commvault quickstart guide
+            url: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
+          - text: Veeam quickstart guide
+            url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
    # Card
-  - title:  Azure Storage container solution partners
+  - title: Azure Storage container solution partners
     linkLists:
       - linkListType: overview
         links:
           - text: Validated Azure Storage container solution partners
             url: .\validated-partners\container-solutions\partner-overview.md
    # Card
-  - title: Azure Storage data management partners
+  - title: Azure Storage data management and migration partners
     linkLists:
       - linkListType: overview
         links:
-          - text: Validated Azure Storage data management partners
+          - text: Validated Azure Storage data management and migration partners
             url: .\validated-partners\data-management\partner-overview.md
                      # Card
-  - title:  Azure Storage primary and secondary Storage partners
+  - title: Azure Storage primary and secondary Storage partners
     linkLists:
       - linkListType: overview
         links:
