@@ -6,7 +6,7 @@ author: mibufo
 ms.author: v-mibufo
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.date: 02/04/2020
+ms.date: 02/22/2021
 ---
 
 # Troubleshoot LocationNotFoundForRoleSize when deploying a Cloud service (classic) to Azure
