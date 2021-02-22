@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 02/22/2021
 tags: connectors
 ---
 
@@ -620,6 +620,14 @@ To send IDocs from SAP to your logic app, you need the following minimum configu
     * For your **RFC Destination**, enter a name.
     
     * On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**. For your **Program ID**, enter a value. In SAP, your logic app's trigger will be registered by using this identifier.
+
+    > [!IMPORTANT]
+    > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** when you configure your logic app and SAP server. Otherwise, you might receive the following errors in the tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
+    >
+    > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
+    > * **Non-ABAP RFC client (partner type) not supported**
+    >
+    > For more information from SAP, see the following notes (login required) <https://launchpad.support.sap.com/#/notes/2399329> and <https://launchpad.support.sap.com/#/notes/353597>.
     
     * On the **Unicode** tab, for **Communication Type with Target System**, select **Unicode**.
 
@@ -732,6 +740,14 @@ You can set up SAP to [send IDocs in packets](https://help.sap.com/viewer/8f3819
 Here's an example that shows how to extract individual IDocs from a packet by using the [`xpath()` function](./workflow-definition-language-functions-reference.md#xpath):
 
 1. Before you start, you need a logic app with an SAP trigger. If you don't already have this logic app, follow the previous steps in this topic to [set up a logic app with an SAP trigger](#receive-message-from-sap).
+
+    > [!IMPORTANT]
+    > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** when you configure your logic app and SAP server. Otherwise, you might receive the following errors in the tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
+    >
+    > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
+    > * **Non-ABAP RFC client (partner type) not supported**
+    >
+    > For more information from SAP, see the following notes (login required) <https://launchpad.support.sap.com/#/notes/2399329> and <https://launchpad.support.sap.com/#/notes/353597>.
 
    For example:
 
