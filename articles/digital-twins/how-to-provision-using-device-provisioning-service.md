@@ -25,12 +25,16 @@ For more information about the _provision_ and _retire_ stages, and to better un
 
 ## Prerequisites
 
-Before you can set up the provisioning, you need to have an **Azure Digital Twins instance** that contains models and twins. This instance should also be set up with the ability to update digital twin information based on data. 
+Before you can set up the provisioning, 
 
-If you do not have this set up already, you can create it by following the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md). The tutorial will walk you through setting up an Azure Digital Twins instance with models and twins, a connected Azure [IoT Hub](../iot-hub/about-iot-hub.md), and several [Azure functions](../azure-functions/functions-overview.md) to propagate data flow.
+-  You need to have an **Azure Digital Twins instance** that contains models and twins. This instance should also be set up with the ability to update digital twin information based on data.
+- You need an Azure [IoT Hub](../iot-hub/about-iot-hub.md), and several [Azure functions](../azure-functions/functions-overview.md) to propagate data flow.
+    
+If you do not have these set up already, you can create them by following the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md).
 
 You will need the following values later in this article from when you set up your instance. If you need to gather these values again, use the links below for instructions.
 * Azure Digital Twins instance **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
+* Azure function app name that you created in the [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)
 * Azure Event Hubs **_connection string_** ([find in portal](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
 This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
@@ -79,11 +83,11 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### Create an Azure function
 
-Next, you'll create an HTTP request-triggered function inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), or your own.
+Next, you'll create an HTTP request-triggered function inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), or your own. 
 
 This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device. For more information about using HTTP requests with Azure functions, see [*Azure Http request trigger for Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
-Inside your function app project, add a new function. Also, add a new NuGet package to the project: `Microsoft.Azure.Devices.Provisioning.Service`.
+Inside your function app project, add a new function. Also, add a new NuGet package to the project: `Microsoft.Azure.Devices.Provisioning.Service`. You might need to add other packages mentioned in [this](tutorial-code.md#set-up-project) section if you haven't already.
 
 In the newly created function code file, paste in the following code.
 
