@@ -15,7 +15,7 @@ In this tutorial, you will apply configurations using GitOps on an Azure Arc ena
 
 > [!div class="checklist"]
 > * Create a configuration on an Azure Arc enabled Kubernetes cluster using an example Git repository.
-> * Validate the `sourceControlConfiguration` was successfully created.
+> * Validate that the configuration was successfully created.
 > * Apply configuration form a private Git repository.
 > * Validate the Kubernetes configuration.
 
