@@ -96,6 +96,7 @@ Azure Cognitive Search currently supports Availability Zones for Standard tier o
 + Australia East (created January 30, 2021 or later)
 + Canada Central (created January 30, 2021 or later)
 + Central US (created December 4, 2020 or later)
++ East US (created January 27, 2021 or later)
 + East US 2 (created January 30, 2021 or later)
 + France Central (created October 23, 2020 or later)
 + Japan East (created January 30, 2021 or later)

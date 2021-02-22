@@ -255,7 +255,7 @@
   - name: Dedicated hosts
     items:
     - name: Overview
-      href: ./linux/dedicated-hosts.md
+      href: dedicated-hosts.md
     - name: CLI
       href: ./linux/dedicated-hosts-cli.md
     - name: Portal
@@ -328,12 +328,12 @@
     - name: Create LAMP stack
       href: ./linux/tutorial-lamp-stack.md
     - name: Secure web server with TLS\SSL
-      displayname: SSL TLS
       items:
       - name: Linux
         href: ./linux/tutorial-secure-web-server.md
       - name: Windows
         href: ./windows/tutorial-secure-web-server.md
+      displayname: SSL TLS
   - name: Connect to Linux VMs
     items:
     - name: SSH for Linux VMs
@@ -362,8 +362,8 @@
       href: /azure/developer/chef/windows-vm-configure
     - name: Use Java
       href: ./windows/java.md
-    - name: Use Python
-      href: ./windows/python.md
+    - name: Python
+      href: https://docs.microsoft.com/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=/azure/virtual-machines/context/context
     - name: Use ARM template
       displayName: Azure Resource Manager template
       href: ./windows/ps-template.md
@@ -791,8 +791,6 @@
     href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
   - name: States and lifecycle
     href: states-lifecycle.md
-  - name: Autoscale
-    href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
   - name: High availability
     href: manage-availability.md
   - name: Availability sets
