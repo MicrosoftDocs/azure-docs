@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/19/2021
+ms.date: 02/22/2021
 
 ms.author: justinha
 author: sopand
@@ -46,9 +46,9 @@ To access authentication method usage and insights:
 
 You can access the [**Registration tab**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) to show the number of users capable of multi-factor authentication, passowordless authentication, and self-service password reset. 
 
-Click **Users capable of Azure multi-factor authentication**, **Users capable of passwordless authentication**, or **Users capable of self-service password reset**, or insights to pre-filter a list of user registration details.
+Click **Users capable of Azure Multi-Factor Authentication**, **Users capable of passwordless authentication**, or **Users capable of self-service password reset**, or insights to pre-filter a list of user registration details.
 
-- **Users Capable of Azure multi-factor authentication** shows the breakdown of users capable of MFA in Azure AD. Users are considered capable if they are both registered for a strong authentication method and enabled by policy to use that method to perform MFA. This number does not reflect users registered for MFA outside of Azure AD. 
+- **Users Capable of Azure Multi-Factor Authentication** shows the breakdown of users capable of MFA in Azure AD. Users are considered capable if they are both registered for a strong authentication method and enabled by policy to use that method to perform MFA. This number does not reflect users registered for MFA outside of Azure AD. 
 - **Users capable of passwordless authentication** shows the breakdown of users capable of signing in without a password. This includes users registered for FIDO2, Windows Hello for Business, and Passwordless Phone sign-in with the Microsoft Authenticator app. 
 - **Users capable of self-service password reset** shows the breakdown of users capable of self-service password reset. Users are considered capable of SSPR if they are both registered for enough methods to satisfy an organization's SSPR policy and enabled to perform SSPR. 
 
