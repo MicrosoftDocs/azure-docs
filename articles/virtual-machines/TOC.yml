@@ -255,7 +255,7 @@
   - name: Dedicated hosts
     items:
     - name: Overview
-      href: ./linux/dedicated-hosts.md
+      href: dedicated-hosts.md
     - name: CLI
       href: ./linux/dedicated-hosts-cli.md
     - name: Portal

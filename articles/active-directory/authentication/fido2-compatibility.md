@@ -32,7 +32,7 @@ This table shows support for authenticating Azure Active Directory (Azure AD) an
 
 ## Unsupported browsers
 
-The following operating system and browser combinations are not supported, but future support and testing is being investigated. If you would like to see additional operating system and browser support, please leave feedback using the product feedback tool at the bottom of the page.
+The following operating system and browser combinations are not supported, but future support and testing is being investigated. If you would like to see other operating system and browser support, please leave feedback using the product feedback tool at the bottom of the page.
 
 | Operating system | Browser |
 | ---- | ---- |
@@ -41,15 +41,16 @@ The following operating system and browser combinations are not supported, but f
 | Android | Chrome |
 | ChromeOS | Chrome |
 
-## Operating system versions tested
+## Minimum browser version
 
-The information in the table above was tested for the following operating system versions.
+The following are the minimum browser version requirements. 
 
-| Operating system | Latest tested version |
+| Browser | Minimum version |
 | --- | --- |
-| Windows | Windows 10 20H2 |
-| macOS | OS X 11 Big Sur |
-| Linux | Fedora 32 Workstation |
+| Chrome | 76 |
+| Edge | Windows 10 version 1903 <sup>1<sup> |
+| Firefox | 66 |
+<sup>1</sup>All versions of the new Chromium based Microsoft Edge support Fido2. Support on Microsoft Edge legacy was added in 1903.
 
 ## Next steps
 [Enable passwordless security key sign-in (preview)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key)
