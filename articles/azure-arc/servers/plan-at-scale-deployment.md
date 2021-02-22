@@ -1,7 +1,7 @@
 ---
 title: How to plan for an at-scale deployment of Azure Arc enabled servers
 description: Learn how to enable large number of machines to Azure Arc enabled servers and configure essential security, management, and monitoring capabilities in Azure.
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 ---
 
@@ -24,8 +24,8 @@ The purpose of this article is to ensure you are prepared for a successful deplo
 
 ## Prerequisites
 
-* Your machines runs a [supported operating system](agent-overview.md#supported-operating-systems) for the Connected Machine agent.
-* Your machines have connectivity from your on-premises network or other cloud environment to resources in Azure.
+* Your machines run a [supported operating system](agent-overview.md#supported-operating-systems) for the Connected Machine agent.
+* Your machines have connectivity from your on-premises network or other cloud environment to resources in Azure, either directly or through a proxy server.
 * To install and configure the Arc enabled servers Connected Machine agent, an account with elevated (that is, an administrator or as root) privileges on the machines.
 * To onboard machines, you are a member of the **Azure Connected Machine Onboarding** role.
 * To read, modify, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role.
@@ -37,22 +37,8 @@ In this phase, system engineers or administrators enable the core features in th
 |Task |Detail |
 |-----|-------|
 | [Create a resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | A dedicated resource group to include only Arc enabled servers and centralize management and monitoring of these resources. |
-| [Azure Monitor Logs](../../azure-monitor/logs/data-platform-logs.md) | Decide if you want to use an existing Log Analytics workspace or   
+| Apply [Tags](../../azure-resource-manager/management/tag-resources.md) to help organize machines. | Evaluate and develop an IT-aligned tagging strategy that can help reduce the complexity of managing your Arc enabled servers and simplify making management decisions. |
+| Design or deploy [Azure Monitor Logs](../../azure-monitor/logs/data-platform-logs.md) | Evaluate [design and deployment considerations](../../azure-monitor/logs/design-logs-deployment.md) to determine if your organization should use an existing or implement another Log Analytics workspace to store collected log data from hybrid servers and machines. |
+| [Develop an Azure Policy](../../governance/policy/overview.md) governance plan | Determine how you will implement governance of hybrid servers and machines at the subscription or resource group scope with Azure Policy. |
+| Configure [Role based access control](../../role-based-access-control/overview.md) (RBAC)| 
 
-
-
-* Verify your corporate policies allows the Azure Arc enabled servers agent to be installed and security controls permit the agents to run.
-
-* Set up a Resource Health alert to know when an Arc enabled servers agent has stopped sending heartbeats to Azure.
-
-* Set up an Azure Monitor alert to identify machines running outdated versions of the Arc agent.
-
-* Identify machines compatible with Azure Arc enabled servers and confirm there aren't any naming conflicts.
-
-* Decide on an approach for organizing machines into one or more resource groups and tagging.
-
-* Establish how you'll assign Azure policies - at the subscription or resource group scope.
-
-* Replace standalone agents with Azure Arc enabled servers extensions for simplified management and centralized reporting.
-
-* Develop a migration plan for any machines that may relocate to Azure in the future.
