@@ -93,6 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| ----------------- | --------- |
 	| firstname | user.givenname |
 	| lastname | user.surname |
+    | email | user.mail |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
