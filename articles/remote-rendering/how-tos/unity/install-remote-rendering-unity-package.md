@@ -22,7 +22,7 @@ To add the package to a project you need to:
 1. Follow the [full instructions](https://aka.ms/MRFeatureToolDocs) on how to use the tool.
 1. On the **Discover Features** page tick the box for the **Microsoft Azure Remote Rendering** package and select the version of the package you wish to add to your project
 
-![Mixed_Reality_feature_tool_package](media/mixed_reality_feature_tool_package.png)
+![Mixed_Reality_feature_tool_package](media/mixed-reality-feature-tool-package.png)
 
 To update your local package just select a newer version from the Mixed Reality Feature Tool and install it. Updating the package may occasionally lead to console errors. If this occurs, try closing and reopening the project.
 
