@@ -214,7 +214,7 @@ In the [Azure portal](https://portal.azure.com), add one or more authorization p
 1. To include the `Authorization` header from the access token in the request-based trigger outputs, see [Include 'Authorization' header in request trigger outputs](#include-auth-header).
 
 
-Workflow properties like policies aren't exposed in your logic app's code view in the Azure portal. To access your policies programmatically, call the following API through Azure Resource Manager (ARM): `https://management.azure.com/subscriptions/YOUR-SUBSCRIBER-ID/resourceGroups/YOUR-RESOURCE-GROUP-ID/providers/Microsoft.Logic/workflows/YOUR-WORKFLOW-NAME?api-version=2016-10-01&_=1612212851820`. Be sure to replace the placeholder values for your subscriber ID, resource group ID, and workflow name.
+Workflow properties such as policies don't appear in your logic app's code view in the Azure portal. To access your policies programmatically, call the following API through Azure Resource Manager (ARM): `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820`. Make sure that you replace the placeholder values for your Azure subscription ID, resource group name, and workflow name.
 
 
 <a name="define-authorization-policy-template"></a>
