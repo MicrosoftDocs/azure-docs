@@ -65,7 +65,7 @@ Yes. You can restage applications you've already restaged, and this shouldn't ca
 
 ## Does MSIX app attach support self-signed certificates?
 
-Yes. The self-signed certificate needs to be installed in all the session host VMs where MSIX app attach is leveraged to host the self-signed application.
+Yes. You need to install the self-signed certificate on all the session host VMs where MSIX app attach is used to host the self-signed application.
 
 
 ## Next steps
