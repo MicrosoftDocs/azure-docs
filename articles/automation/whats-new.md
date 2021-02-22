@@ -21,7 +21,7 @@ This page is updated monthly, so revisit it regularly.
 
 ## February 2021
 
-### Support for Automation and State Configuration declared GA in Japan West.
+### Support for Automation and State Configuration declared GA in Japan West
 
 **Type:** New feature
 
@@ -37,17 +37,17 @@ You can use the new Azure Policy compliance rule to allow creation of jobs, webh
 
 **Type:** New feature
 
-Automation Update Management feature is available in East US, France Central, and North Europe regions. See [Supported region mapping](how-to/region-mappings.md) for updates to the documentation to reflect this change.
+Automation Update Management feature is available in East US, France Central, and North Europe regions. See [Supported region mapping](how-to/region-mappings.md) for updates to the documentation reflecting this change.
 
 ## January 2021
 
-### Support for Automation and State Configuration declared GA in Switzerland West.
+### Support for Automation and State Configuration declared GA in Switzerland West
 
 **Type:** New feature
 
-Automation account and State Configuration availability in the UAE North region. For more information, read the [announcement](https://azure.microsoft.com/updates/azure-automation-in-switzerland-west-region/).
+Automation account and State Configuration availability in the Switzerland West region. For more information, read the [announcement](https://azure.microsoft.com/updates/azure-automation-in-switzerland-west-region/).
 
-### Added Python 3 script to import multiple modules with dependencies.
+### Added Python 3 script to import multiple modules with dependencies
 
 **Type:** New feature
 
@@ -60,13 +60,13 @@ The script is available for download from our (GitHub organization)[https://gith
 
 The Hybrid Runbook Worker feature supports CentOS 8.x, REHL 8.x, and SLES 15 distributions for only process automation on Hybrid Runbook Workers.  See [Supported operating systems](automation-linux-hrw-install.md#supported-linux-operating-systems) for updates to the documentation to reflect these changes.
 
-### Update Management & Change Tracking availability in Australia East, East Asia, West US & Central US regions.
+### Update Management & Change Tracking availability in Australia East, East Asia, West US & Central US regions
 
 **Type:** New feature
 
 Automation account, Change Tracking and Inventory, and Update Management are available in Australia East, East Asia, West US & Central US regions. 
 
-### Introduced public preview of Python 3 runbooks in US Government cloud.
+### Introduced public preview of Python 3 runbooks in US Government cloud
 
 **Type:** New feature
 Azure Automation introduces public preview support of Python 3 cloud and hybrid runbook execution in US Government cloud regions.  For more information, see the [announcement](https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/).
