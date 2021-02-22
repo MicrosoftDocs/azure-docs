@@ -100,20 +100,20 @@ Related links:
 
 ### Configure service access
 
-Currently, Azure Security Center can't perform [image vulnerability scanning](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in a registry that restricts access to private endpoints, selected subnets, or IP addresses. Also, resources of the following services are unable to access a container registry with network restrictions:
+Currently, access to a container registry with network restrictions isn't allowed from several Azure services:
 
-* Azure DevOps Services 
-* Azure Container Instances
-* Azure Container Registry Tasks
+* Azure Security Center can't perform [image vulnerability scanning](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in a registry that restricts access to private endpoints, selected subnets, or IP addresses. 
+* Resources of certain Azure services are unable to access a container registry with network restrictions, including Azure App Service and  Azure Container Instances.
 
 If access or integration of these Azure services with your container registry is required, remove the network restriction. For example, remove the registry's private endpoints, or remove or modify the registry's public access rules.
+
+Starting January 2021, you can configure a network-restricted registry to [allow access](allow-access-trusted-services.md) from select trusted services.
 
 Related links:
 
 * [Azure Container Registry image scanning by Security Center](../security-center/defender-for-container-registries-introduction.md)
 * Provide [feedback](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
-* [Configure public IP network rules](container-registry-access-selected-networks.md)
-* [Connect privately to an Azure container registry using Azure Private Link](container-registry-private-link.md)
+* [Allow trusted services to securely access a network-restricted container registry](allow-access-trusted-services.md)
 
 
 ## Advanced troubleshooting
@@ -135,5 +135,5 @@ If you don't resolve your problem here, see the following options.
   * [Troubleshoot registry login](container-registry-troubleshoot-login.md) 
   * [Troubleshoot registry performance](container-registry-troubleshoot-performance.md)
 * [Community support](https://azure.microsoft.com/support/community/) options
-* [Microsoft Q&A](/answers/products/)
+* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
 * [Open a support ticket](https://azure.microsoft.com/support/create-ticket/)

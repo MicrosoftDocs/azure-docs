@@ -13,21 +13,21 @@ ms.date: 02/01/2021
 
 # How to index plain text blobs in Azure Cognitive Search
 
-When using a [blob indexer](search-howto-indexing-azure-blob-storage.md) to extract searchable text for full text search, you can invoke various parsing modes to get better indexing outcomes. By default, the indexer parses blob content as a single chunk of text. However, if all blobs contain plain text in the same encoding, you can significantly improve indexing performance by using the `text` parsing mode.
+When using a [blob indexer](search-howto-indexing-azure-blob-storage.md) to extract searchable blob text for full text search, you can assign a parsing mode to get better indexing outcomes. By default, the indexer parses blob content as a single chunk of text. However, if all blobs contain plain text in the same encoding, you can significantly improve indexing performance by using the `text` parsing mode.
 
-You should use the `text` parsing mode when:
+Recommendations for use `text` parsing include:
 
 + File type is .txt
 + Files are of any type, but the content itself is text (for example, program source code, HTML, XML, and so forth). For files in a mark up language, any syntax characters will come through as static text.
 
-Recall that indexers serialize to JSON. The contents of the entire text file will be indexed within a one large field as `"content": "<file-contents>"`. New line and return instructions are expressed as `\r\n\`.
+Recall that all indexers serialize to JSON. By default, the contents of the entire text file will be indexed within one large field as `"content": "<file-contents>"`. Any new line and return instructions are embedded in the content field and expressed as `\r\n\`.
 
-If you want a more granular outcome, consider the following solutions:
+If you want a more granular outcome, and if the file type is compatible, consider the following solutions:
 
 + [`delimitedText`](search-howto-index-csv-blobs.md) parsing mode, if the source is CSV
 + [`jsonArray` or `jsonLines`](search-howto-index-json-blobs.md), if the source is JSON
 
-A third option for breaking content in multiple parts requires advanced features in the form of [AI enrichment](cognitive-search-concept-intro.md). It adds analysis that identifies and assigns chunks of the file to different search fields. You might find a full or partial solution through [built-in skills](cognitive-search-predefined-skills.md), but a more likely solution would be  learning model that understands your content, articulated in custom learning model, wrapped in a [custom skill](cognitive-search-custom-skill-interface.md).
+A third option for breaking content into multiple parts requires advanced features in the form of [AI enrichment](cognitive-search-concept-intro.md). It adds analysis that identifies and assigns chunks of the file to different search fields. You might find a full or partial solution through [built-in skills](cognitive-search-predefined-skills.md), but a more likely solution would be  learning model that understands your content, articulated in custom learning model, wrapped in a [custom skill](cognitive-search-custom-skill-interface.md).
 
 ## Set up plain text indexing
 

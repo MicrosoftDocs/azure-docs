@@ -90,7 +90,7 @@ If you don't want to use the automation, use the steps in the following sections
 
 ### Choose the Azure AD tenant
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 
 
@@ -200,7 +200,7 @@ This project has web app and web API projects. To deploy them to Azure websites,
 
 ### Create and publish dotnet-web-daemon-v2 to an Azure website
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. In the upper-left corner, select **Create a resource**.
 1. Select **Web** > **Web App**, and then give your website a name. For example, name it **dotnet-web-daemon-v2-contoso.azurewebsites.net**.
 1. Select the information for **Subscription**, **Resource group**, and **App service plan and location**. **OS** is **Windows**, and **Publish** is **Code**.
@@ -221,7 +221,7 @@ Visual Studio will publish the project and automatically open a browser to the p
 
 ### Update the Azure AD tenant application registration for dotnet-web-daemon-v2
 
-1. Go back to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Go back to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. In the left pane, select the **Azure Active Directory** service, and then select **App registrations**.
 1. Select the **dotnet-web-daemon-v2** application.
 1. On the **Authentication** page for your application, update the **Front-channel logout URL** fields with the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession`.

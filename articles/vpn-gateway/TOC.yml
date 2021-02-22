@@ -14,7 +14,21 @@
 - name: Samples
   items:
   - name: Azure PowerShell
-    href: powershell-samples.md
+    items:
+    - name: Sample scripts
+      href: powershell-samples.md
+    - name: Create a VPN gateway
+      href: scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md
+    - name: VPN gateway + P2S RADIUS
+      href: scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md
+    - name: VPN gateway + P2S certificate authentication
+      href: scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md
+    - name: VPN gateway + Site-to-Site
+      href: scripts/vpn-gateway-sample-site-to-site-powershell.md
+    - name: VNet-to-VNet
+      href: scripts/vpn-gateway-sample-vnet-vnet-powershell.md
+    - name: Download VPN device template
+      href: scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md
 - name: Concepts
   items:
   - name: Work remotely
@@ -101,8 +115,6 @@
       href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
     - name: VPN over private peering
       href: site-to-site-vpn-private-peering.md
-  - name: Site-to-Site connection between Azure and AWS
-    href: create-vpn-azure-aws-managed-solutions.md
   - name: VNet-to-VNet connections
     items:
     - name: Configure VNet-to-VNet connections
@@ -161,13 +173,13 @@
         href: openvpn-azure-ad-mfa.md
       - name: Configure a VPN client
         href: openvpn-azure-ad-client.md
-      - name: About the client VPN profile download file
+      - name: Work with VPN client profile files
         href: about-vpn-profile-download.md 
       - name: Intune - Deploy VPN client profile
         href: vpn-profile-intune.md       
     - name: OpenVPN
       items:
-      - name: Configure OpenVPN for Point-to-Site connections
+      - name: Configure OpenVPN tunnel type
         href: vpn-gateway-howto-openvpn.md
       - name: Configure OpenVPN clients
         href: vpn-gateway-howto-openvpn-clients.md

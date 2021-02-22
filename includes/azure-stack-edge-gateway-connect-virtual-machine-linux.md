@@ -6,7 +6,7 @@ ms.date: 08/03/2020
 ms.author: alkohli
 ---
 
-Connect to the VM using the private IP that you passed during the VM creation.
+Connect to the VM by using the private IP that you passed during the VM creation.
 
 Open an SSH session to connect with the IP address.
 
@@ -65,4 +65,4 @@ If you used a public IP address during VM creation, you can use that IP to conne
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.
+The public IP in this case will be the same as the private IP that you passed during the creation of the virtual network interface.

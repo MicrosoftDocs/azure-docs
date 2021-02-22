@@ -31,7 +31,7 @@
   items:
   - name: Test your model
     href: test-your-model.md
-  - name: Improve your classifier
+  - name: Improve your model
     href: getting-started-improving-your-classifier.md
   - name: Select a domain
     href: select-domain.md
@@ -98,6 +98,6 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
-    href: custom-vision-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md
   - name: Release Notes
     href: release-notes.md
