@@ -113,12 +113,12 @@ On the AD FS VMs, run the following PowerShell command to configure AD FS to use
 
 You must create a relying-party trust between your AD FS server and the Windows Virtual Desktop service so single sign-on certificate requests can be forwarded correctly to your domain environment.
 
-When configuring AD FS single sign-on you must choose shared key or certificate
+When configuring AD FS single sign-on you must choose shared key or certificate:
 
-- If you have single ADFS server can choose shared key or certificate. 
-- If you have multiple ADFS servers it is required to choose certificate.
+- If you have a single AD FS server, you can choose shared key or certificate. 
+- If you have multiple AD FS servers,  it's required to choose certificate.
 
-The shared key or certififcate used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Windows Virtual Desktop service can access it.
+The shared key or certificate used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Windows Virtual Desktop service can access it.
 
 The PowerShell script **ConfigureWVDSSO.ps1** available in the [PowerShell Gallery](https://www.powershellgallery.com/packages/ConfigureWVDSSO) will configure your AD FS server for the relying-party trust.
 
@@ -163,7 +163,7 @@ This script only has one required parameter:
       $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -WvdWebAppAppIDUri "https://www.wvd.microsoft.com" -RdWebURL "https://rdweb.wvd.azure.us" -UseCert -CertPath "<Path to the pfx file>" -CertPassword <Password to the pfx file>
     ```
 
-### Set the access policy on the Key Vault
+### Set the access policy on the Azure Key Vault
 
 - To set the access policy on the Key Vault, run the following in PowerShell:
 
