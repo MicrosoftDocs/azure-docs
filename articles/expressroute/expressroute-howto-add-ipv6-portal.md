@@ -71,6 +71,13 @@ Follow the steps below if you plan to connect to a new set of Azure resources in
 
 4. [Link your virtual network to your ExpressRoute circuit](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
 
+## Limitations
+While IPv6 support is available for connections to deployments in regions with Availability Zones, it does not support the following use cases:
+
+* Connections to deployments in Azure via a non-AZ ExpressRoute gateway SKU
+* Connections to deployments in non-AZ regions
+* Global Reach connections between ExpressRoute circuits
+
 ## Next steps
 
 To troubleshoot ExpressRoute problems, see the following articles:
