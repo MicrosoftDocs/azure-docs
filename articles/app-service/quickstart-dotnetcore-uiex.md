@@ -16,7 +16,7 @@ adobe-target-content: ./quickstart-dotnetcore-uiex
 
 ::: zone pivot="platform-windows"  
 
-In this quickstart, you'll learn how to create and deploy your first ASP.NET Core web app to [Azure App Service](overview.md). <abbr title="An HTTP-based service for hosting web applications, REST APIs, and mobile back-end applications. ">App Service</abbr> supports .NET 5.0 apps.
+In this quickstart, you'll learn how to create and deploy your first ASP.NET Core web app to <abbr title="An HTTP-based service for hosting web applications, REST APIs, and mobile back-end applications.">Azure App Service</abbr>. App Service supports .NET 5.0 apps.
 
 When you're finished, you'll have an Azure <abbr title="A logical container for related Azure resources that you can manage as a unit.">resource group</abbr>, consisting of an <abbr title="The plan that specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr> and an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr> with a deployed sample ASP.NET Core application.
 
@@ -24,7 +24,7 @@ When you're finished, you'll have an Azure <abbr title="A logical container for 
 
 ## 1. Prepare your environment
 
-- **Get an Azure account** with an active <abbr title="The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization. ">subscription</abbr>. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
+- **Get an Azure account** with an active <abbr title="The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.">subscription</abbr>. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - **Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>** with the **ASP.NET and web development** workload.
 
 <details>
@@ -89,7 +89,12 @@ When you're finished, you'll have an Azure <abbr title="A logical container for 
    
    ![Create new Hosting Plan](./media/quickstart-dotnetcore/create-new-hosting-plan-vs2019.png)
 
-1. In **Name**, enter a <abbr title="Valid characters are a-z, A-Z, 0-9, and -. You can accept the automatically generated unique name. The URL of the web app is http://<app-name>.azurewebsites.net, where <app-name> is your app name.">unique app name</abbr>.
+1. In **Name**, enter a unique app name.
+
+    <details>
+        <summary>Which characters can I use?</summary>
+        Valid characters are a-z, A-Z, 0-9, and -. You can accept the automatically generated unique name. The URL of the web app is http://<code>&lt;app-name&gt;.azurewebsites.net</code>, where <code>&lt;app-name&gt;</code> is your app name.
+    </details>
 
 1. Select **Create** to create the Azure resources. 
 
@@ -97,7 +102,12 @@ When you're finished, you'll have an Azure <abbr title="A logical container for 
 
 1. Wait for the wizard to finish creating Azure resources. Select **Finish** to close the wizard.
 
-1. In the **Publish** page, click **Publish** to <abbr title="Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.">deploy your project</abbr>. 
+1. In the **Publish** page, click **Publish** to deploy your project. 
+
+    <details>
+        <summary>What's Visual Studio doing?</summary>
+        Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.
+    </details>
 
    ![Published ASP.NET web app running in Azure](./media/quickstart-dotnetcore/web-app-running-live.png)
 
@@ -300,7 +310,7 @@ http://<app_name>.azurewebsites.net
     
 1. **Save your changes**.
 
-1. **Run** `az webapp up` to <abbr title="The first time you ran the command, it saved the app name, resource group, and App Service plan in the .azure/config file from the project root. When you run it again from the project root, it uses the values saved in .azure/config, detects that the App Service resources already exists, and performs Zip deploy again.">redeploy</abbr>:
+1. **Run** `az webapp up` to redeploy:
 
 ```azurecli
 az webapp up --os-type linux
@@ -308,7 +318,7 @@ az webapp up --os-type linux
 
 <details>
 <summary>What's <code>az webapp up</code> doing this time?</summary>
-<p></p>
+The first time you ran the command, it saved the app name, resource group, and App Service plan in the <i>.azure/config</i> file from the project root. When you run it again from the project root, it uses the values saved in <i>.azure/config</i>, detects that the App Service resources already exists, and performs Zip deploy again.
 </details>
 
 1. Once deployment has completed, **hit refresh** in the browser window that previously opened.
