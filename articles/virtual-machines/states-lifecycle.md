@@ -22,6 +22,9 @@ Azure Resources explorer provides a simple UI for viewing the VM running state: 
 Provisioning states are visible on VM properties and instance view. Power states are available in instance view of VM.
 
 To retrieve the power state of all the VMs in your subscription, use the [Virtual Machines - List All API](/rest/api/compute/virtualmachines/listall) with parameter **statusOnly** set to *true*.
+
+> [!NOTE]
+> [Virtual Machines - List All API](/rest/api/compute/virtualmachines/listall) with parameter statusOnly set to true will retrieve the power states of all VMs in a subscription. However, in some rare situations, the power state may not be able to be retrieved due to reliability issues in the implementation. In such situations, we recommend retrying using the same API. If the issue persists, [open a support ticket](https://azure.microsoft.com/support/create-ticket/). 
  
 ## Power states and billing
 
@@ -36,11 +39,11 @@ The following table provides a  description of each instance state and indicates
 | Starting| Virtual Machine is powering up. |Not billed* | 
 | Running | Virtual Machine is fully up. This is the standard working state. | Billed | 
 | Stopping | This is a transitional state between running and stopped. | Billed| 
-|Stopped | The Virtual Machine is has been shut down from within the Guest OS or using PowerOff APIs. In this state, the virtual machine is still leasing the underlying hardware. | Billed | 
+|Stopped | The Virtual Machine is has been shut down from within the Guest OS or using PowerOff APIs. In this state, the virtual machine is still leasing the underlying hardware. This state is also referred to as *Stopped (Allocated)*. | Billed | 
 | Deallocating | This is the transitional state between running and deallocated. | Not billed* | 
-| Deallocated | The Virtual Machine has released the lease on the underlying hardware and is completely powered off. | Not billed* | 
+| Deallocated | The Virtual Machine has released the lease on the underlying hardware and is completely powered off. This state is also referred to as *Stopped (Deallocated)*. | Not billed* | 
 
-&#42; Some Azure resources, such as Disks and Networking will continue to incur charges.
+&#42; Some Azure resources, such as [Disks](https://azure.microsoft.com/pricing/details/managed-disks) and [Networking](https://azure.microsoft.com/pricing/details/bandwidth/) will continue to incur charges.
 
 
 ## Provisioning states
@@ -49,28 +52,29 @@ A provisioning state is the status of a user-initiated, control-plane operation 
 
 :::image type="content" source="./media/virtual-machines-common-states-lifecycle/vm-provisioning-states.png" alt-text="Image shows the provisioning states a VM can go through.":::
 
-| State | Description | Power state | 
-|---|---|---|
-| Create | Virtual machine creation | Starting | 
-| Update | Updates the model for an existing virtual machine. Some non=model changes to a virtual machine such as start and restart fall under the update state | Running | 
-| Delete | Virtual machine deletion | Deallocating | 
-| Deallocate | Virtual machine is fully stopped and removed from the underlying host. Deallocating a virtual machine is considered an update and will display provisioning states similar to updating. | Deallocating | 
+| State | Description | Power state | Billing | 
+|---|---|---|---|
+| Create | Virtual machine creation | Starting | Not billed* | 
+| Update | Updates the model for an existing virtual machine. Some non=model changes to a virtual machine such as start and restart fall under the update state | Running | Billed | 
+| Delete | Virtual machine deletion | Deallocating | Not billed* |
+| Deallocate | Virtual machine is fully stopped and removed from the underlying host. Deallocating a virtual machine is considered an update and will display provisioning states similar to updating. | Deallocating | Not billed* | 
+
+&#42; Some Azure resources, such as [Disks](https://azure.microsoft.com/pricing/details/managed-disks) and [Networking](https://azure.microsoft.com/pricing/details/bandwidth/) will continue to incur charges.
 
 ## OS Provisioning states
 OS Provisioning states only apply to virtual machines created with an OS image. Specialized images will not display these states. 
 
 :::image type="content" source="./media/virtual-machines-common-states-lifecycle/os-provisioning-states.png" alt-text="Image shows the OS provisioning states a VM can go through.":::
 
-| State | Description | Power state | 
-|---|---|---|
-| OSProvisioningInProgress | The VM is running and the installation of the Guest OS is in progress | Running | 
-| OSProvisioningComplete | This is a short-lived state. The virtual machine quickly transitions from this state to **Success**. If extensions are still being installed you will continue to see this state until they are complete. | Running | 
-| Succeeded | The user-initiated actions have completed. | Running | 
-| Failed | Represents a failed operation. Refer to the error codes to get more information and possible solutions. | Running  | 
+| State | Description | Power state | Billing | 
+|---|---|---|---|
+| OSProvisioningInProgress | The VM is running and the installation of the Guest OS is in progress | Running | Billed | 
+| OSProvisioningComplete | This is a short-lived state. The virtual machine quickly transitions from this state to **Success**. If extensions are still being installed you will continue to see this state until they are complete. | Running | Billed | 
+| Succeeded | The user-initiated actions have completed. | Running | Billed | 
+| Failed | Represents a failed operation. Refer to the error codes to get more information and possible solutions. | Running  | Billed | 
 
 
 ## Next steps
-To learn more about monitoring your VM, see [Monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md).
-
-
-
+- Review the [Azure Cost Management and Billing documentation](https://docs.microsoft.com/azure/cost-management-billing/)
+- Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to plan your deployments.
+- Learn more about monitoring your VM, see [Monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md).
