@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 01/18/2021
 ---
 
-# Understanding the changes in the Root CA change for Azure Database for MySQL
+# Understanding the changes in the Root CA change for Azure Database for MySQL Single Server
 
-Azure Database for MySQL successfully completed the root certificate change on **February 15, 2021 (02/15/2021)** as part of standard maintenance and security best practices. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
+Azure Database for MySQL Single Server successfully completed the root certificate change on **February 15, 2021 (02/15/2021)** as part of standard maintenance and security best practices. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
 
 > [!NOTE]
 > This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
@@ -18,7 +18,7 @@ Azure Database for MySQL successfully completed the root certificate change on *
 
 ## Why root certificate update is required?
 
-Azure database for MySQL users can only use the predefined certificate to connect to an Azure Database for MySQL server, which is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). However, [Certificate Authority (CA) Browser forum](https://cabforum.org/) recently published reports of multiple certificates issued by CA vendors to be non-compliant.
+Azure database for MySQL users can only use the predefined certificate to connect to their MySQL server, which is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). However, [Certificate Authority (CA) Browser forum](https://cabforum.org/) recently published reports of multiple certificates issued by CA vendors to be non-compliant.
 
 As per the industry's compliance requirements, CA vendors began revoking CA certificates for non-compliant CAs, requiring servers to use certificates issued by compliant CAs, and signed by CA certificates from those compliant CAs. Since Azure Database for MySQL used one of these non-compliant certificates, we needed to rotate the certificate to the compliant version to minimize the potential threat to your MySQL servers.
 
@@ -78,6 +78,9 @@ To avoid your application's availability being interrupted due to certificates
 * Replace the original root CA pem file with the combined root CA file and restart your application/client.
 * In future, after the new certificate deployed on the server side, you can change your CA pem file to DigiCertGlobalRootG2.crt.pem.
 
+> [!NOTE]
+> Please do not drop or alter **Baltimore certificate** until the cert change is made. We will send a communication once the change is done, after which it is safe for them to drop the Baltimore certificate. 
+
 ## Why was BaltimoreCyberTrustRoot certificate not replaced to DigiCertGlobalRootG2 during this change on February 15, 2021?
 
 We evaluated the customer readiness for this change and realized many customers were looking for additional lead time to manage this change. In the interest of providing more lead time to customers for readiness, we have decided to defer the certificate change to DigiCertGlobalRootG2 for at least a year providing sufficient lead time to the customers and end users. 
@@ -114,7 +117,7 @@ If you're using a client that abstracts the connection string away, review the c
 For Azure app services connecting to Azure Database for MySQL, there are two possible scenarios and depending on how on you're using SSL with your application.
 
 * This new certificate has been added to App Service at platform level. If you're using the SSL certificates included on App Service platform in your application, then no action is needed. This is the most common scenario. 
-* If you're explicitly including the path to SSL cert file in your code, then you would need to download the new cert and produce a combined certificate as mentioned above and use the certificate file. A good example of this scenario is when you use custom containers in App Service as shared in the [App Service documentation](../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress). This is uncommon scenario but we have seen some users using this.
+* If you're explicitly including the path to SSL cert file in your code, then you would need to download the new cert and produce a combined certificate as mentioned above and use the certificate file. A good example of this scenario is when you use custom containers in App Service as shared in the [App Service documentation](../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress). This is an uncommon scenario but we have seen some users using this.
 
 ### 5. What is the impact if using Azure Kubernetes Services (AKS) with Azure Database for MySQL?
 
@@ -136,7 +139,7 @@ For servers created after February 15, 2021 (02/15/2021), you will continue to u
 
 ### 9. How often does Microsoft update their certificates or what is the expiry policy?
 
-These certificates used by Azure Database for MySQL are provided by trusted Certificate Authorities (CA). So the support of these certificates on Azure Database for MySQL is tied to the support of these certificates by CA. The [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificate is scheduled to expire in 2025 so Microsoft will need to perform a certificate change before the expiry. Also in case if there are unforeseen bugs in these predefined certificates, Microsoft will need to make the certificate rotation at the earliest as the change performed on February 15, 2021.
+These certificates used by Azure Database for MySQL are provided by trusted Certificate Authorities (CA). So the support of these certificates is tied to the support of these certificates by CA. The [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificate is scheduled to expire in 2025 so Microsoft will need to perform a certificate change before the expiry. Also in case if there are unforeseen bugs in these predefined certificates, Microsoft will need to make the certificate rotation at the earliest similar to the change performed on February 15, 2021 to ensure the service is secure and compliant at all times.
 
 ### 10. If I'm using read replicas, do I need to perform this update only on source server or the read replicas?
 
@@ -157,7 +160,7 @@ If you're using [Data-in replication](concepts-data-in-replication.md) to connec
     Master_SSL_Key                : ~\azure_mysqlclient_key.pem
     ```
 
-    If you do see that the certificate is provided for the CA_file, SSL_Cert, and SSL_Key, you'll need to update the file by adding the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and creating a combined cert file.
+    If you do see that the certificate is provided for the CA_file, SSL_Cert, and SSL_Key, you'll need to update the file by adding the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and create a combined cert file.
 
 * If the data-replication is between two Azure Database for MySQL, then you'll need to reset the replica by executing 
 **CALL mysql.az_replication_change_master** and provide the new dual root certificate as last parameter [master_ssl_ca](howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication)
