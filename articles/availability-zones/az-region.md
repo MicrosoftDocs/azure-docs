@@ -165,7 +165,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     Azure Blueprints                          |     :globe_with_meridians:             |
 |     Azure Bot Services                        |     :globe_with_meridians:             |
 |     Azure   Defender for IoT                  |     :globe_with_meridians:             |
-|     Azure Frontdoor                           |     :globe_with_meridians:             |
+|     Azure Front Door                           |     :globe_with_meridians:             |
 |     Azure   Information Protection            |     :globe_with_meridians:             |
 |     Azure   Lighthouse                        |     :globe_with_meridians:             |
 |     Azure Managed   Applications              |     :globe_with_meridians:             |
@@ -182,7 +182,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     Intune                                    |     :globe_with_meridians:             |
 |     Microsoft   Azure Peering Service         |     :globe_with_meridians:             |
 |     Microsoft   Azure portal                  |     :globe_with_meridians:             |
-|     Microsoft Cloud APp Security              |     :globe_with_meridians:             |
+|     Microsoft Cloud App Security              |     :globe_with_meridians:             |
 |     Microsoft Graph                           |     :globe_with_meridians:             |
 |     Security   Center                         |     :globe_with_meridians:             |
 |     Traffic   Manager                         |     :globe_with_meridians:             |
