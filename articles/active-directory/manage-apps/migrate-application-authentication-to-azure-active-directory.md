@@ -500,7 +500,8 @@ Depending on how you configure your app, verify that SSO works properly.
 | ------------------------ | --------------------------------------------------- |
 | **OAuth / OpenID Connect** | Select **Enterprise applications &gt; Permissions** and ensure you have consented to the application to be used in your organization in the user settings for your app. |
 | **SAML-based SSO** | Use the [Test SAML Settings](./debug-saml-sso-issues.md) button found under **Single Sign-On.** |
-| **Password-Based SSO** | Download and install the [MyApps Secure Sign-in Extension](../user-help/my-apps-portal-end-user-access.md#my-apps-secure-sign-in-extension). This extension helps you start any of your organization's cloud apps that require you to use an SSO process. |
+| **Password-Based SSO** | Download and install the [MyApps Secure Sign-in Extension](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). This extension helps you start any of your organization's cloud apps that require you to use an SSO process. |
+
 | **[Application Proxy](./application-proxy.md)** | Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](./application-proxy-troubleshoot.md) for further assistance. |
 
 ### Troubleshoot
@@ -549,11 +550,13 @@ Once you have migrated the apps, you can enrich your user’s experience in many
 
 **Make apps discoverable**
 
-**Point your user** to the [MyApps](../user-help/my-apps-portal-end-user-access.md#my-apps-secure-sign-in-extension)portal experience. Here, they can access all cloud-based apps, apps you make available by using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md), and apps using [Application Proxy](./application-proxy.md) provided they have permissions to access those apps.
+**Point your user** to the [MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)portal experience. Here, they can access all cloud-based apps, apps you make available by using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md), and apps using [Application Proxy](./application-proxy.md) provided they have permissions to access those apps.
+
 
 You can guide your users on how to discover their apps:
 
-- Use the [Existing Single Sign-on](./view-applications-portal.md#existing-single-sign-on) feature to **link your users to any app**
+- Use the [Existing Single Sign-on](./view-applications-portal.md) feature to **link your users to any app**
+
 
 - Enable [Self-Service Application Access](./manage-self-service-access.md)to an app and **let users add apps that you curate**
 
