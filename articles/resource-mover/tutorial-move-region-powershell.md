@@ -145,8 +145,6 @@ You grant the managed identity access to the Resource Mover subscription. You mu
     New-AzRoleAssignment -ObjectId $identityPrincipalId -RoleDefinitionName "User Access Administrator" -Scope "/subscriptions/$subscriptionId"
     ``` 
 
-```
-
 ## Add resources to the move collection
 
 Retrieve the IDs for existing source resources you want to move. Then, add resources to the move collection.
