@@ -5,12 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 01/20/2021
+ms.date: 02/22/2021
 ---
 
 # Export flows from Power Automate and deploy to Azure Logic Apps
 
-> For flows created after October 2020, you can no longer export from Power Automate and deploy to Azure Logic Apps.
+> In October 2020, Power Automate standardized new flow creation on [Open API 2.0](https://swagger.io/specification/v2/), which provides unique benefits. 
+> However, with this update, you can no longer export flows created after August 2019 from Power Automate and deploy to Azure Logic Apps. The export 
+> capability was disabled on August 2, 2019 and removed on October 21, 2020.
 
 To extend and expand your flow's capabilities, you can migrate that flow from [Power Automate](https://flow.microsoft.com) to [Azure Logic Apps](../logic-apps/logic-apps-overview.md). You can export your flow as an Azure Resource Manager template for a logic app, deploy that logic app template to an Azure resource group, and then open that logic app in the Logic App Designer.
 
