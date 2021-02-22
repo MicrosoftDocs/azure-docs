@@ -131,7 +131,7 @@ If the version that you want to install isn't listed, follow the [Offline or spe
 ::: moniker-end
 
 <!-- 1.2 -->
-::: moniker range=">=2020-11"
+::: moniker range=">=iotedge-2020-11"
 
 ## Install the IoT Edge security daemon and identity service
 
@@ -159,7 +159,7 @@ Check to see which versions of IoT Edge are available.
 If you want to install the most recent version of the security daemon, use the following command that also installs the latest version of the identity service package:
 
    ```bash
-   sudo apt-get install -y aziot-edge
+   sudo apt-get install aziot-edge
    ```
 
 <!-- commenting out for public preview. reintroduce at GA
@@ -206,7 +206,6 @@ Find the provisioning configurations of the file and uncomment the **Manual prov
    provisioning:
      source: "manual"
      device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-     dynamic_reprovisioning: false
    ```
 
 Update the value of **device_connection_string** with the connection string from your IoT Edge device. Make sure that any other provisioning sections are commented out. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
@@ -240,7 +239,6 @@ Find the provisioning configurations of the file and uncomment the **Manual prov
    [provisioning]
    source = "manual"
    connection_string = "<ADD DEVICE CONNECTION STRING HERE>"
-   dynamic_reprovisioning = false
    ```
 
 Update the value of **connection_string** with the connection string from your IoT Edge device.
@@ -278,7 +276,7 @@ On the IoT Edge device, open the configuration file.
 Find the provisioning configurations section of the file and uncomment the **Manual provisioning configuration using an X.509 identity certificate** section. Make sure that any other provisioning sections are commented out. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
 
    ```yml
-   # Manual provisioning configuration using a connection string
+   # Manual provisioning configuration using an x.509 identity certificate
    provisioning:
      source: "manual"
      authentication:
@@ -287,7 +285,6 @@ Find the provisioning configurations section of the file and uncomment the **Man
        device_id: "<REQUIRED DEVICE ID PROVISIONED IN IOTHUB>"
        identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
        identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
-     dynamic_reprovisioning: false
    ```
 
 Update the following fields:
@@ -320,12 +317,11 @@ After entering the provisioning information in the configuration file, restart t
 Find the provisioning configurations section of the file and uncomment the **Manual provisioning configuration using an X.509 identity certificate** section. Make sure that any other provisioning sections are commented out.
 
    ```toml
-   # Manual provisioning configuration using a connection string
+   # Manual provisioning configuration using x.509 certificates
    [provisioning]
    source = "manual"
    iothub_hostname = "<REQUIRED IOTHUB HOSTNAME>"
    device_id = "<REQUIRED DEVICE ID PROVISIONED IN IOTHUB>"
-   dynamic_reprovisioning = false   
 
    [provisioning.authentication]
    method = "x509"
@@ -471,7 +467,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
       curl -L <identity service link> -o aziot-identity-service.deb && sudo dpkg -i ./aziot-identity-service.deb
       ```
 
-   3. Find the **iotedge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
+   3. Find the **aziot-edge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
 
    4. Use the copied link in the following command to install that version of the IoT Edge security daemon.
 
@@ -494,7 +490,7 @@ Remove the IoT Edge runtime.
 ::: moniker range="iotedge-2018-06"
 
 ```bash
-sudo apt-get remove --purge iotedge
+sudo apt-get remove iotedge
 ```
 
 ::: moniker-end
@@ -503,10 +499,12 @@ sudo apt-get remove --purge iotedge
 ::: moniker range=">=iotedge-2020-11"
 
 ```bash
-sudo apt-get remove --purge aziot-edge
+sudo apt-get remove aziot-edge
 ```
 
 ::: moniker-end
+
+Use the flag `--purge` if you want to delete all the files associated with IoT Edge, including your configuration files. Leave this flag out if you want to reinstall IoT Edge and use the same configuration information in the future.
 
 When the IoT Edge runtime is removed, any containers that it created are stopped but still exist on your device. View all containers to see which ones remain.
 
