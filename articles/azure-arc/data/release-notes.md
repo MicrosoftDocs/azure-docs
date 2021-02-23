@@ -14,6 +14,8 @@ ms.topic: conceptual
 
 # Release notes - Azure Arc enabled data services (Preview)
 
+This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc enabled data services. 
+
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## February 2021
@@ -23,12 +25,17 @@ ms.topic: conceptual
 Azure Data CLI (`azdata`) version number: 20.3.0. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 Additional updates include:
-- SQL Managed Instance introduces support for high availability
-- Azure Data Studio intrudes support for multiple data controllers
 
-### Known issues
+- Azure Arc enabled SQL Managed Instance
+   - High availability
 
-- Connected cluster mode is disabled
+- Azure Arc enabled PostgreSQL Hyperscale
+   Azure Data Studio: 
+   - The overview page now shows the status of the server group itemized per node
+   - A new properties pages is now available to show more details about the server group
+   - Configure Postgres engine parameters from **Node Parameters** page=
+
+For issues associated with this release, see [Known issues - Azure Arc enabled data services (Preview)](known-issues.md)
 
 ## January 2021
 
