@@ -27,6 +27,7 @@ The Windows Virtual Desktop agent is initially installed in one of two ways. If 
 ## Agent update process
 
 The Windows Virtual Desktop service updates the agent whenever an update becomes available. Agent updates can include new functionality or fixes for previous issues. Once the initial version of the Windows Virtual Desktop agent is installed, the agent regularly queries the Windows Virtual Desktop service to determine if there’s a newer version of the agent, stack, or monitoring component available. If a newer version of any of the components has already been deployed, the updated component is automatically installed.
+
 New versions of the agent are rolled out in moderated progressions called flights over the course of a weeklong deployment period to all Azure subscriptions. If you have multiple Azure subscriptions, you may see VMs in one subscription receive the agent update before your VMs in your other subscription. If you have VMs in different regions in the same Azure subscription, you may see VMs in one region receive the agent update before your VMs in another region. All VM agents in all subscriptions will be updated by the end of the deployment period. The Windows Virtual Desktop flighting system enhances the reliability of the service by ensuring the stability and quality of the agent update.
 
 
