@@ -30,6 +30,21 @@ The purpose of this article is to ensure you are prepared for a successful deplo
 * To onboard machines, you are a member of the **Azure Connected Machine Onboarding** role.
 * To read, modify, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role.
 
+## Pilot
+
+Before deploying to all production machines, start by evaluating this deployment process before adopting it broadly in your environment. For a pilot, identify a representative sampling of machines that aren't critical to your companies ability to conduct business.
+
+Establish a formal plan describing the scope and details of the pilot, to include the following:
+
+* Objectives - Describes the business and technical drivers that led to the decision that a pilot is necessary.
+* Selection criteria - Specifies the criteria used to select which aspects of the solution will be demonstrated via a pilot.
+* Scope - Describes the scope of the pilot, which includes but not limited to solution components, anticipated schedule, duration of the pilot, and number of machines to target.
+* Success criteria and metrics - Define the pilot's success criteria and specific measures used to determine level of success.
+* Training plan - Describes the plan for training system engineers, administrators, etc. during the pilot.
+* Transition plan - Describes the strategy and criteria used to guide transition from pilot to production.
+* Rollback - Describes the procedures for rolling back a pilot to pre-deployment state.
+Risks - List all identified risks for conducting the pilot and associated with production deployment.
+
 ## Phase 1: Build a foundation
 
 In this phase, system engineers or administrators enable the core features in their organizations Azure subscription to start the foundation before enabling your machines for management by Arc enabled servers and other Azure services.
@@ -38,10 +53,12 @@ In this phase, system engineers or administrators enable the core features in th
 |-----|-------|---------|
 | [Create a resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | A dedicated resource group to include only Arc enabled servers and centralize management and monitoring of these resources. | One hour |
 | Apply [Tags](../../azure-resource-manager/management/tag-resources.md) to help organize machines. | Evaluate and develop an IT-aligned [tagging strategy](/cloud-adoption-framework/decision-guides/resource-tagging/) that can help reduce the complexity of managing your Arc enabled servers and simplify making management decisions. | One day |
-| Design and deploy [Azure Monitor Logs](../../azure-monitor/logs/data-platform-logs.md) | Evaluate [design and deployment considerations](../../azure-monitor/logs/design-logs-deployment.md) to determine if your organization should use an existing or implement another Log Analytics workspace to store collected log data from hybrid servers and machines. | One day |
+| Design and deploy [Azure Monitor Logs](../../azure-monitor/logs/data-platform-logs.md) | Evaluate [design and deployment considerations](../../azure-monitor/logs/design-logs-deployment.md) to determine if your organization should use an existing or implement another Log Analytics workspace to store collected log data from hybrid servers and machines.<sup>1</sup> | One day |
 | [Develop an Azure Policy](../../governance/policy/overview.md) governance plan | Determine how you will implement governance of hybrid servers and machines at the subscription or resource group scope with Azure Policy. | One day |
 | Configure [Role based access control](../../role-based-access-control/overview.md) (RBAC) | Develop an access plan to control who has access to manage Arc enabled servers and ability to view their data from other Azure services and solutions. | One day |
 | Identify machines with Log Analytics agent already installed. | Run the following Kusto query:<br> `Heartbeat | where TimeGenerated > ago(30d) | where ResourceType == "machines" and (ComputerEnvironment == "Non-Azure") | summarize by Computer, ResourceProvider, ResourceType, ComputerEnvironment` to support conversion of existing Log Analytics agent deployments to extension-managed agent. | One hour |
+
+<sup>1</sup> An important consideration as part of evaluating your Log Analytics workspace design, is integration with Azure Automation in support of its Update Management and Change Tracking and Inventory feature, as well as Azure Security Center and Azure Sentinel. If your organization already has an Automation account and enabled these management features linked with a Log Analytics workspace, evaluate whether you can centralize and streamline management operations, as well as minimize cost, by leveraging those existing resources versus creating a duplicate account, workspace, etc.
 
 ## Phase 2: Deploy Arc enabled servers
 
@@ -60,6 +77,6 @@ Phase 3 sees administrators or system engineers enabling automation of manual ta
 |Task |Detail |Duration |
 |-----|-------|---------|
 |Create a Resource Health alert to be notified or trigger an action if a server stops sending heartbeats to Azure. |If a server stops sending heartbeats to Azure for longer than 15 minutes, it can mean that it is offline, the network connection has been blocked, or the agent is not running. Develop a plan for how you’ll respond and investigate these incidents and use [Resource Health alerts](../..//service-health/resource-health-alert-monitor-guide.md) to get notified when they start.<br><br> **Resource type** = **Azure Arc enabled servers**<br>**Current resource status** = **Unavailable**<br> **Previous resource status** = **Available** |One hour |
-|Create an Azure Advisor alert to be notified when Azure Arc servers are running outdated versions of the Arc enabled servers agent.|For the best experience and most recent security and bug fixes, we recommend keeping the Azure Arc enabled servers agent up to date. Out of date agents will be identified with an [Azure Advisor alert](../../advisor/advisor-alerts-portal.md).<br><br> **Recommendation type** = **Upgrade to the latest version of the Azure Connected Machine Agent** |One hour |
+|Create an Azure Advisor alert to be notified when Azure Arc servers are running outdated versions of the Arc enabled servers agent.|For the best experience and most recent security and bug fixes, we recommend keeping the Azure Arc enabled servers agent up to date. Out-of-date agents will be identified with an [Azure Advisor alert](../../advisor/advisor-alerts-portal.md).<br><br> **Recommendation type** = **Upgrade to the latest version of the Azure Connected Machine Agent** |One hour |
 |Assign Azure Policies to your subscription or resource group scope |Assign the **Enable Azure Monitor for VMs** policy and others that meet your needs to the subscription or resource group scope, to ensure all your Arc enabled servers are automatically configured for monitoring with Azure Monitor for VMs.| Varies |
 |
