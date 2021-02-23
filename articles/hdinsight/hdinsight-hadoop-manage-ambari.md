@@ -1,13 +1,10 @@
 ---
 title: Monitor and manage Azure HDInsight using Ambari Web UI 
 description: Learn how to use Apache Ambari UI to monitor and manage HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/16/2020
+ms.date: 01/12/2021
 ---
 
 # Manage HDInsight clusters by using the Apache Ambari Web UI
@@ -134,7 +131,7 @@ Selecting any of these links opens a new tab in your browser, which displays the
 Working with users, groups, and permissions is supported. For local administration, see [Authorize users for Apache Ambari Views](./hdinsight-authorize-users-to-ambari.md). For domain-joined clusters, see [Manage domain-joined HDInsight clusters](./domain-joined/hdinsight-security-overview.md).
 
 > [!WARNING]  
-> Do not change the password of the Ambari watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password breaks the ability to use script actions or perform scaling operations with your cluster.
+> Do not delete or change the password of the Ambari watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password breaks the ability to use script actions or perform scaling operations with your cluster.
 
 ### Hosts
 

@@ -39,6 +39,8 @@ The table in this article provides information on the Peering Service connectivi
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |Asia |
 | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |Africa|
 | [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |Europe|
+| [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |Africa|
+| [MainOne](https://www.mainone.net/connectivity-services/microsoft-azure-peering-service/) |Africa|
 
 > [!NOTE]
 >For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.

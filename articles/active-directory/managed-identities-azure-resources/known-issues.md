@@ -13,10 +13,10 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 02/04/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref, devx-track-azurecli
+ms.custom: has-adal-ref
 ---
 
 # FAQs and known issues with managed identities for Azure resources
@@ -44,6 +44,10 @@ App registrations have two components: An Application Object + A Service Princip
 Managed Identities for Azure resources have only one of those components: A Service Principal Object. 
 
 Managed identities don't have an application object in the directory, which is what is commonly used to grant app permissions for MS graph. Instead, MS graph permissions for managed identities need to be granted directly to the Service Principal.  
+
+### Can the same managed identity be used across multiple regions?
+
+In short, yes you can use user assigned managed identities in more than one Azure region. The longer answer is that while user assigned managed identities are created as regional resources the associated [service principal](../develop/app-objects-and-service-principals.md#service-principal-object) (SPN) created in Azure AD is available globally. The service principal can be used from any Azure region and its availability is dependent on the availability of Azure AD. For example, if you created a user assigned managed identity in the South-Central region and that region becomes unavailable this issue only impacts [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md) activities on the managed identity itself.  The activities performed by any resources already configured to use the managed identities would not be impacted.
 
 ### Does managed identities for Azure resources work with Azure Cloud Services?
 

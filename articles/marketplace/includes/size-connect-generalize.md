@@ -48,31 +48,31 @@ The following process generalizes a Linux VM and redeploys it as a separate VM. 
 
 Use the following script to export the snapshot into a VHD in your storage account.
 
-```JSON
+```azurecli-interactive
 #Provide the subscription Id where the snapshot is created
-subscriptionId=yourSubscriptionId
+$subscriptionId=yourSubscriptionId
 
 #Provide the name of your resource group where the snapshot is created
-resourceGroupName=myResourceGroupName
+$resourceGroupName=myResourceGroupName
 
 #Provide the snapshot name
-snapshotName=mySnapshot
+$snapshotName=mySnapshot
 
 #Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
 #Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
-sasExpiryDuration=3600
+$sasExpiryDuration=3600
 
 #Provide storage account name where you want to copy the underlying VHD file. 
-storageAccountName=mystorageaccountname
+$storageAccountName=mystorageaccountname
 
 #Name of the storage container where the downloaded VHD will be stored.
-storageContainerName=mystoragecontainername
+$storageContainerName=mystoragecontainername
 
 #Provide the key of the storage account where you want to copy the VHD 
-storageAccountKey=mystorageaccountkey
+$storageAccountKey=mystorageaccountkey
 
 #Give a name to the destination VHD file to which the VHD will be copied.
-destinationVHDFileName=myvhdfilename.vhd
+$destinationVHDFileName=myvhdfilename.vhd
 
 az account set --subscription $subscriptionId
 

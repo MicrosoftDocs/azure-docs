@@ -145,4 +145,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## Next steps
 
-You've now created a dedicated SQL pool (formerly SQL DW), created a firewall rule, and connected to your dedicated SQL pool. To learn more, continue to the [Load data into a dedicated SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article.
+You've now created a dedicated SQL pool (formerly SQL DW), created a firewall rule, and connected to your dedicated SQL pool. To learn more, continue to the [Load data into a dedicated SQL pool](./load-data-from-azure-blob-storage-using-copy.md) article.

@@ -102,7 +102,7 @@ Deploy SQL Managed Instance in a dedicated subnet inside the virtual network. Th
 - **Sufficient IP addresses:** The SQL Managed Instance subnet must have at least 32 IP addresses. For more information, see [Determine the size of the subnet for SQL Managed Instance](vnet-subnet-determine-size.md). You can deploy managed instances in [the existing network](vnet-existing-add-subnet.md) after you configure it to satisfy [the networking requirements for SQL Managed Instance](#network-requirements). Otherwise, create a [new network and subnet](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
-> When you create a managed instance, a network intent policy is applied on the subnet to prevent noncompliant changes to networking setup. After the last instance is removed from the subnet, the network intent policy is also removed. Rules below are for the informational purposes only, and you should not deploy them using ARM template / PowerShell / CLI. If you want to use the latest official template you could always [retrieve it from the portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+> When you create a managed instance, a network intent policy is applied on the subnet to prevent noncompliant changes to networking setup. After the last instance is removed from the subnet, the network intent policy is also removed. Rules below are for the informational purposes only, and you should not deploy them using ARM template / PowerShell / CLI. If you want to use the latest official template you could always [retrieve it from the portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ### Mandatory inbound security rules with service-aided subnet configuration
 
@@ -306,12 +306,13 @@ If the virtual network includes a custom DNS, the custom DNS server must be able
 
 **TLS 1.2 is enforced on outbound connections**: In January 2020 Microsoft enforced TLS 1.2 for intra-service traffic in all Azure services. For Azure SQL Managed Instance, this resulted in TLS 1.2 being enforced on outbound connections used for replication and linked server connections to SQL Server. If you are using versions of SQL Server older than 2016 with SQL Managed Instance, please ensure that [TLS 1.2 specific updates](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) have been applied.
 
-The following virtual network features are currently not supported with SQL Managed Instance:
+The following virtual network features are currently *not supported* with SQL Managed Instance:
 
 - **Microsoft peering**: Enabling [Microsoft peering](../../expressroute/expressroute-faqs.md#microsoft-peering) on ExpressRoute circuits peered directly or transitively with a virtual network where SQL Managed Instance resides affects traffic flow between SQL Managed Instance components inside the virtual network and services it depends on, causing availability issues. SQL Managed Instance deployments to virtual network with Microsoft peering already enabled are expected to fail.
 - **Global virtual network peering**: [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md) connectivity across Azure regions doesn't work for SQL Managed Instances placed in subnets created before 9/22/2020.
 - **AzurePlatformDNS**: Using the AzurePlatformDNS [service tag](../../virtual-network/service-tags-overview.md) to block platform DNS resolution would render SQL Managed Instance unavailable. Although SQL Managed Instance supports customer-defined DNS for DNS resolution inside the engine, there is a dependency on platform DNS for platform operations.
 - **NAT gateway**: Using [Azure Virtual Network NAT](../../virtual-network/nat-overview.md) to control outbound connectivity with a specific public IP address would render SQL Managed Instance unavailable. The SQL Managed Instance service is currently limited to use of basic load balancer that doesn't provide coexistence of inbound and outbound flows with Virtual Network NAT.
+- **IPv6 for Azure Virtual Network**: Deploying SQL Managed Instance to [dual stack IPv4/IPv6 virtual networks](../../virtual-network/ipv6-overview.md) is expected to fail. Associating network security group (NSG) or route table (UDR) containing IPv6 address prefixes to SQL Managed Instance subnet, or adding IPv6 address prefixes to NSG or UDR that is already associated with Managed instance subnet, would render SQL Managed Instance unavailable. SQL Managed Instance deployments to a subnet with NSG and UDR that already have IPv6 prefixes are expected to fail.
 
 ## Next steps
 

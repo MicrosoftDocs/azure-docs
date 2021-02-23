@@ -59,6 +59,10 @@ This error could be caused by either of two reasons:
 * The certificate subject name is limited to 200 characters.
 * The certificate password is limited to 200 characters.
 
+
+### Error "The specified PEM X.509 certificate content is in an unexpected format. Please check if certificate is in valid PEM format."
+Please verify that the content in the PEM file is uses UNIX-style line separators `(\n)`
+
 ### Can I import an expired certificate to Azure Key Vault?
 	
 No, expired PFX certificates can't be imported to Key Vault.

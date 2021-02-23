@@ -154,7 +154,7 @@ There are multiple ways you can configure role assignments for VM:
 - Using the Azure Cloud Shell experience
 
 > [!NOTE]
-> The Virtual Machine Administrator Login and Virtual Machine User Login roles use dataActions and thus cannot be assigned at management group scope. Currently these roles can only be assigned at the subscription scope.
+> The Virtual Machine Administrator Login and Virtual Machine User Login roles use dataActions and thus cannot be assigned at management group scope. Currently these roles can only be assigned at the subscription, resource group or resource scope.
 
 ### Using Azure AD Portal experience
 
@@ -190,9 +190,9 @@ az role assignment create \
 
 For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see the following articles:
 
-- [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-- [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
-- [Add or remove Azure role assignments using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+- [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## Using Conditional Access
 
@@ -331,6 +331,9 @@ If you see the following error message when you initiate a remote desktop connec
 ![Your account is configured to prevent you from using this device.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
 Verify that you have [configured Azure RBAC policies](../../virtual-machines/linux/login-using-aad.md) for the VM that grants the user either the Virtual Machine Administrator Login or Virtual Machine User Login role:
+
+> [!NOTE]
+> If you are running into issues with Azure role assignments, see [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit).
  
 #### Unauthorized client
 
@@ -345,7 +348,9 @@ Verify that the Windows 10 PC you are using to initiate the remote desktop conne
 > [!NOTE]
 > Windows 10 Build 20H1 added support for an Azure AD registered PC to initiate RDP connection to your VM. When using an Azure AD registered (not Azure AD joined or hybrid Azure AD joined) PC as the RDP client to initiate connections to your VM, you must enter credentials in the format AzureAD\UPn (e.g. AzureAD\john@contoso.com).
 
-Also, verify the AADLoginForWindows extension has not been uninstalled after Azure AD join has completed.
+Verify that the AADLoginForWindows extension was not uninstalled after the Azure AD join finished.
+
+Also, make sure that the security policy “Network security: Allow PKU2U authentication requests to this computer to use online identities” is enabled on both the server *and* the client.
  
 #### MFA sign-in method required
 

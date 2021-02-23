@@ -7,7 +7,7 @@ ms.date: 09/23/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Azure Key Vault secret client library for .NET (SDK v4)
@@ -103,7 +103,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS or Linux
@@ -155,7 +155,7 @@ Your secret is now saved as `secret.Value`.
 
 ### Delete a secret
 
-Finally, let's delete the secret from your key vault with the [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) and [PurgeDeletedSecretAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.purgedeletedsecretasync) methods.
+Finally, let's delete the secret from your key vault with the [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) and [PurgeDeletedSecretAsync](/dotnet/api/azure.security.keyvault.keys.keyclient) methods.
 
 ```csharp
 var operation = await client.StartDeleteSecretAsync("mySecret");
@@ -202,7 +202,7 @@ Modify the .NET Core console app to interact with the Key Vault by completing th
     
                 Console.WriteLine($"Retrieving your secret from {keyVaultName}.");
                 var secret = await client.GetSecretAsync(secretName);
-                Console.WriteLine($"Your secret is '{secret.Value}'.");
+                Console.WriteLine($"Your secret is '{secret.Value.Value}'.");
     
                 Console.Write($"Deleting your secret from {keyVaultName} ...");
                 DeleteSecretOperation operation = await client.StartDeleteSecretAsync(secretName);
@@ -248,4 +248,4 @@ To learn more about Key Vault and how to integrate it with your apps, see the fo
 - See an [Access Key Vault from App Service Application Tutorial](../general/tutorial-net-create-vault-azure-web-app.md)
 - See an [Access Key Vault from Virtual Machine Tutorial](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- Review the [Key Vault security overview](../general/security-overview.md)

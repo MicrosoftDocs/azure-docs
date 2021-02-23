@@ -4,13 +4,13 @@ description: Describes how to view support requests, send messages, change the r
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 06/30/2020
+ms.date: 12/14/2020
 # To add: close and reopen, review request status, update contact info
 ---
 
 # Manage an Azure support request
 
-After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support).
+After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support), or by using [Azure CLI](/cli/azure/azure-cli-support-request).
 
 ## View support requests
 
@@ -115,9 +115,17 @@ Follow these guidelines when you use the file upload option:
 | -           | -     | -           | -     | -        | -          | .zix    |
 | -           | -     | -           | -     | -        | -          | .zzz    |
 
+## Close a support request
+
+If you need to close a support request, [send a message](#send-a-message) asking that the request be closed.
+
 ## Reopen a closed request
 
 If you need to reopen a closed support request, create a [new message](#send-a-message), which automatically reopens the request.
+
+## Cancel a support plan
+
+If you need to cancel a support plan, see [Cancel a support plan](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
 
 ## Next steps
 

@@ -1,13 +1,11 @@
 ---
 title: Troubleshoot security and access control issues
 description: Learn how to troubleshoot security and access control issues in Azure Data Factory. 
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 02/04/2021
 ms.author: lle
-ms.reviewer: craigg
 ---
 
 # Troubleshoot Azure Data Factory security and access control issues
@@ -18,114 +16,114 @@ This article explores common troubleshooting methods for security and access con
 
 ## Common errors and messages
 
-
-### Connectivity issue of copy activity in Cloud Data Store
+### Connectivity issue in the copy activity of the cloud datastore
 
 #### Symptoms
 
-Various kinds of error messages could be returned when connectivity issue occurred for source/sink data store.
+Various error messages might be returned when connectivity issues occur in the source or sink datastore.
 
 #### Cause 
 
-The problem is mostly caused by following factors:
+The problem is usually caused by one of the following factors:
 
-1. Proxy setting in self-hosted IR's node (If you are using self-hosted IR)
+* The proxy setting in the self-hosted integration runtime (IR) node, if you're using a self-hosted IR.
 
-1. Firewall setting in the self-hosted IR's node (If you are using self-hosted IR)
+* The firewall setting in the self-hosted IR node, if you're using a self-hosted IR.
 
-1. Firewall setting in Cloud Data Store
+* The firewall setting in the cloud datastore.
 
 #### Resolution
 
-1. Check following points first to make sure the issue is caused by connectivity issue:
+* To ensure that this is a connectivity issue, check the following points:
 
-   - The error is thrown from the source/sink connectors.
+   - The error is thrown from the source or sink connectors.
+   - The failure is at the start of the copy activity.
+   - The failure is consistent for Azure IR or the self-hosted IR with one node, because it could be a random failure in a multiple-node self-hosted IR if only some of the nodes have the issue.
 
-   - The activity fails at the start of the copy
+* If you're using a **self-hosted IR**, check your proxy, firewall, and network settings, because connecting to the same datastore could succeed if you're using an Azure IR. To troubleshoot this scenario, see:
 
-   - It is a consistent failure for Azure IR or self-hosted IR with one node, as it could be a random failure for multiple-node self-hosted IR if only part of the nodes has the issue.
-
-1. Check your proxy, firewall, and network settings if you are using **self-hosted IR** as the run to the same data store could succeed in Azure IR. Please refer to following links for troubleshoot:
-
-   [Self-hosted IR Ports and Firewalls](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#ports-and-firewalls)
-   [ADLS Connector](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store)
+   * [Self-hosted IR ports and firewalls](./create-self-hosted-integration-runtime.md#ports-and-firewalls)
+   * [Azure Data Lake Storage connector](./connector-azure-data-lake-store.md)
   
-1. If you are using **Azure IR**, please try disabling the firewall setting of data store. Through this way, the issue for following two circumstances can be fixed:
+* If you're using an **Azure IR**, try to disable the firewall setting of the datastore. This approach can resolve the issues in the following two situations:
   
-   * [Azure IR IP Addresses](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) are not in allow list.
+   * [Azure IR IP addresses](./azure-integration-runtime-ip-addresses.md) are not in the allow list.
+   * The *Allow trusted Microsoft services to access this storage account* feature is turned off for [Azure Blob Storage](./connector-azure-blob-storage.md#supported-capabilities) and [Azure Data Lake Storage Gen 2](./connector-azure-data-lake-storage.md#supported-capabilities).
+   * The *Allow access to Azure services* setting isn't enabled for Azure Data Lake Storage Gen1.
 
-   * *Allow trusted Microsoft services to access this storage account* feature is turned off for [Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#supported-capabilities) and [ADLS Gen 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#supported-capabilities).
-
-   * *Allow access to Azure services* is not enabled for ADLS Gen1.
-
-1. If above methods are not working, please contact Microsoft for help.
+If none of the preceding methods works, contact Microsoft for help.
 
 
 ### Invalid or empty authentication key issue after public network access is disabled
 
 #### Symptoms
 
-After disabling public network access for Data Factory, because self-hosted integration runtime throws following error: “The Authentication key is invalid or empty.”
+After you disable public network access for Data Factory, the self-hosted integration runtime throws the following error: “The Authentication key is invalid or empty.”
 
 #### Cause
 
-The problem is most likely caused by DNS resolution issue, as disabling public connectivity and establishing a private endpoint does no help for reconnecting.
+The problem is most likely caused by a Domain Name System (DNS) resolution issue, because disabling public connectivity and establishing a private endpoint prevents reconnection.
 
-You can follow below steps to verify if Data Factory FQDN is resolved to public IP address:
+To verify whether the Data Factory fully qualified domain name (FQDN) is resolved to the public IP address, do the following:
 
-1. Confirm that you have created the Azure VM in the same VNET as Data Factory private endpoint.
+1. Confirm that you've created the Azure virtual machine (VM) in the same virtual network as the Data Factory private endpoint.
 
-2. Run PsPing and Ping from Azure VM to Data Factory FQDN:
-
-   `ping <dataFactoryName>.<region>.datafactory.azure.net`
+2. Run PsPing and Ping from the Azure VM to the Data Factory FQDN:
 
    `psping.exe <dataFactoryName>.<region>.datafactory.azure.net:443`
+   `ping <dataFactoryName>.<region>.datafactory.azure.net`
 
    > [!Note]
-   > A port is required to be specified for PsPing command, while 443 port is not a must.
+   > You must specify a port for the PsPing command. Port 443 is shown here but is not required.
 
-3. Check if both commands resolved to an ADF public IP that based on specified region (format xxx.xxx.xxx.0).
+3. Check to see whether both commands resolve to an Azure Data Factory public IP that's based on a specified region. The IP should be in the following format: `xxx.xxx.xxx.0`
 
 #### Resolution
 
-- You can refer to the article in [Azure Private Link for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints). The instruction is for configuring the private DNS zone/server to resolve Data Factory FQDN to private IP address.
+To resolve the issue, do the following:
 
-- If you are not willing to configure the private DNS zone/server currently, please take below steps as temporary solution. However, custom DNS is still recommended as long-term solution.
+- As option, we would like to suggest you to manually add a "Virtual Network link" under the Data Factory "Private link DNS Zone". For details, refer to the [Azure Private Link for Azure Data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints) article. The instruction is for configuring the private DNS zone or custom DNS server to resolve the Data Factory FQDN to a private IP address. 
 
-  1. Change the host file in windows and map private IP (ADF Private endpoint) to ADF FQDN.
+- However, if you don't want to configure the private DNS zone or custom DNS server, try the following temporary solution:
+
+  1. Change the host file in Windows, and map the private IP (the Azure Data Factory private endpoint) to the Azure Data Factory FQDN.
   
-     Navigate to path "C:\Windows\System32\drivers\etc" in Azure VM and open the **host** file with notepad. Add the line of mapping private IP to FQDN at the end of the file, and save the change.
+     In the Azure VM, go to `C:\Windows\System32\drivers\etc`, and then open the *host* file in Notepad. Add the line that maps the private IP to the FQDN at the end of the file, and save the change.
      
-     ![Add mapping to host](media/self-hosted-integration-runtime-troubleshoot-guide/add-mapping-to-host.png)
+     ![Screenshot of mapping the private IP to the host.](media/self-hosted-integration-runtime-troubleshoot-guide/add-mapping-to-host.png)
 
-  1. Rerun the same commands in above verification steps to check the response, which should contain the private IP.
+  1. Rerun the same commands as in the preceding verification steps to check the response, which should contain the private IP.
 
-  1. Re-register the self-hosted integration runtime and the problem should be solved.
- 
+  1. Re-register the self-hosted integration runtime, and the issue should be resolved.
 
 ### Unable to register IR authentication key on Self-hosted VMs due to private link
 
 #### Symptoms
 
-Unable to register IR authentication key on self-hosted VM due to private link enabled.
+You're unable to register the IR authentication key on the self-hosted VM because the private link is enabled. You receive the following error message:
 
-The error information shows as below:
-
-`
-Failed to get service token from ADF service with key *************** and time cost is: 0.1250079 seconds, the error code is: InvalidGatewayKey, activityId is: XXXXXXX and detailed error message is Client IP address is not valid private ip Cause Data factory couldn’t access the public network thereby not able to reach out to the cloud to make the successful connection.
-`
+"Failed to get service token from ADF service with key *************** and time cost is: 0.1250079 seconds, the error code is: InvalidGatewayKey, activityId is: XXXXXXX and detailed error message is Client IP address is not valid private ip Cause Data factory couldn’t access the public network thereby not able to reach out to the cloud to make the successful connection."
 
 #### Cause
 
-The issue could be caused by the VM in which you're the trying to install the self-hosted IR. To connect to the cloud, you should ensure that public network access is enabled.
+The issue could be caused by the VM in which you're trying to install the self-hosted IR. To connect to the cloud, ensure that public network access is enabled.
 
 #### Resolution
 
- **Solution 1:** You can follow below steps to resolve the issue:
+**Solution 1**
+ 
+To resolve the issue, do the following:
 
-1. Go to the [Factories - Update](https://docs.microsoft.com/rest/api/datafactory/Factories/Update) page.
+1. Go to the [Factories - Update](/rest/api/datafactory/Factories/Update) page.
 
 1. At the upper right, select the **Try it** button.
+1. Under **Parameters**, complete the required information. 
+1. Under **Body**, paste the following property:
+
+    ```
+    { "tags": { "publicNetworkAccess":"Enabled" } }
+    ```
+1. Select **Run** to run the function. 
 
 1. Under **Parameters**, complete the required information. 
 
@@ -135,19 +133,18 @@ The issue could be caused by the VM in which you're the trying to install the se
     ``` 
 
 1. Select **Run** to run the function. 
-
 1. Confirm that **Response Code: 200** is displayed. The property you pasted should be displayed in the JSON definition as well.
 
 1. Add the IR authentication key again in the integration runtime.
 
 
-**Solution 2:** You can refer to below article for solution:
+**Solution 2**
 
-https://docs.microsoft.com/azure/data-factory/data-factory-private-link
+To resolve the issue, go to [Azure Private Link for Azure Data Factory](./data-factory-private-link.md).
 
 Try to enable public network access on the user interface, as shown in the following screenshot:
 
-![Enable public network access](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+![Screenshot of the "Enabled" control for "Allow public network access" on the Networking pane.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
 
 ## Next steps
 

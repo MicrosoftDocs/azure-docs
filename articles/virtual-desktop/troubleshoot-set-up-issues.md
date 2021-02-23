@@ -3,7 +3,8 @@ title: Windows Virtual Desktop environment host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -43,9 +44,21 @@ If your operation goes over the quota limit, you can do one of the following thi
 
 ### Error: Can't see user assignments in app groups.
 
-Cause: This error usually happens after you've moved the subscription from 1 Azure Active Directory (AD) tenant to another. If your old assignments are still tied to the old Azure AD tenant, the Azure portal will lose track of them.
+**Cause**: This error usually happens after you've moved the subscription from 1 Azure Active Directory (AD) tenant to another. If your old assignments are still tied to the old Azure AD tenant, the Azure portal will lose track of them.
 
-Fix: You'll need to reassign users to app groups.
+**Fix**: You'll need to reassign users to app groups.
+
+### I only see US when setting the location for my service objects
+
+**Cause**: Azure doesn't currently support that region for the Windows Virtual Desktop service. To learn about which geographies we support, check out [Data locations](data-locations.md). If Windows Virtual Desktop supports the location but it still doesn't appear when you're trying to select a location, that means your resource provider hasn't updated yet.
+
+**Fix**: To get the latest list of regions, re-register the resource provider:
+
+1. Go to **Subscriptions** and select the relevant subscription.
+2. Select **Resource Provider**.
+3. Select **Microsoft.DesktopVirtualization**, then select **Re-register** from the action menu.
+
+When you re-register the resource provider, you won't see any specific UI feedback or update statuses. The re-registration process also won't interfere with your existing environments.
 
 ## Azure Resource Manager template errors
 
@@ -263,6 +276,7 @@ the VM.\\\"
 
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
+- To troubleshoot issues related to the Windows Virtual Desktop agent or session connectivity, see [Troubleshoot common Windows Virtual Desktop Agent issues](troubleshoot-agent.md).
 - To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
 - To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).

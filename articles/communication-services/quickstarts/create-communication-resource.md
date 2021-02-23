@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
 ---
 # Quickstart: Create and manage Communication Services resources
-
+ 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication services resources can be provisioned through the Azure portal or with the .NET management client library. The management client library allows you to create, configure, update and delete your resource and interfaces with [Azure Resource Manager](../../azure-resource-manager/management/overview.md), Azure's deployment and management service. All functionality available in the client libraries is available in the Azure portal. 
@@ -23,6 +23,10 @@ Get started with Azure Communication Services by provisioning your first Communi
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]
+::: zone-end
+
+::: zone pivot="platform-azcli"
+[!INCLUDE [Azure CLI](./includes/create-resource-azcli.md)]
 ::: zone-end
 
 ::: zone pivot="platform-net"
@@ -36,6 +40,14 @@ Connection strings allow the Communication Services client libraries to connect 
 After navigating to your Communication Services resource, select **Keys** from the navigation menu and copy the **Connection string** or **Endpoint** values for usage by the Communication Services client libraries. Note that you have access to primary and secondary keys. This can be useful in scenarios where you would like to provide temporary access to your Communication Services resources to a third party or staging environment.
 
 :::image type="content" source="./media/key.png" alt-text="Screenshot of Communication Services Key page.":::
+
+You can also access key information using Azure CLI:
+
+```azurecli
+az communication list --resource-group "<resourceGroup>"	
+
+az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
+```
 
 ## Store your connection string
 

@@ -4,7 +4,6 @@ description: Frequently asked questions about HDInsight
 keywords: frequently asked questions, faq
 author: Ramakoni1
 ms.author: ramakoni
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
@@ -57,7 +56,7 @@ Yes. To install additional components or customize cluster configuration, use:
 
 - [HDInsight Application Platform](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) to install applications.
 
-For a list of supported components see [What are the Apache Hadoop components and versions available with HDInsight?](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
+For a list of supported components see [What are the Apache Hadoop components and versions available with HDInsight?](./hdinsight-component-versioning.md)
 
 ### Can I upgrade the individual components that are pre-installed on the cluster?
 
@@ -193,7 +192,8 @@ In scenarios in which you must control the schedule, you can use the following s
 
 1. Disable automatic execution using the following command:
    
-   `/usr/local/vbin/azsecd config -s clamav -d Disabled`
+  sudo `usr/local/bin/azsecd config -s clamav -d Disabled`
+  sudo service azsecd restart 
    
 1. Add a Cron job that runs the following command as root:
    

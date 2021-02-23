@@ -10,18 +10,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 11/23/2020
+ms.date: 01/07/2021
 ms.author: vinigam
 #Customer intent: I need to migrate from Network Performance Monitor to Connection Monitor. 
 ---
 # Migrate to Connection Monitor from Network Performance Monitor
 
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, migrate your tests from Network Performance Monitor to the new Connection Monitor in Azure Network Watcher before 29 February 2024.
+
 You can migrate tests from Network Performance Monitor (NPM) to new, improved Connection Monitor with a single click and with zero downtime. To learn more about the benefits, see [Connection Monitor](./connection-monitor-overview.md).
 
-
->[!NOTE]
-> Only tests from Service Connectivity Monitor can be migrated to Connection Monitor.
->
 
 ## Key points to note
 
@@ -47,7 +46,7 @@ To migrate the tests from Network Performance Monitor to Connection Monitor, do 
 
 	:::image type="content" source="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png" alt-text="Migrate tests from Network Performance Monitor to Connection Monitor" lightbox="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png":::
 	
-1. In the drop-down lists, select your subscription and workspace, and then select the NPM feature you want to migrate. Currently, you can migrate tests only from Service Connectivity Monitor.  
+1. In the drop-down lists, select your subscription and workspace, and then select the NPM feature you want to migrate. 
 1. Select **Import** to migrate the tests.
 
 After the migration begins, the following changes take place: 
@@ -69,5 +68,5 @@ After the migration, be sure to:
 ## Next steps
 
 To learn more about Connection Monitor, see:
-* [Migrate from Connection Monitor to Connection Monitor](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
+* [Migrate from Connection Monitor (classic) to Connection Monitor](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
 * [Create Connection Monitor by using the Azure portal](./connection-monitor-create-using-portal.md)

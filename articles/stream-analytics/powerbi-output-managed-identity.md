@@ -95,7 +95,7 @@ Azure Resource Manager allows you to fully automate the deployment of your Strea
     Deploy the job above to the Resource group **ExampleGroup** using the below Azure CLI command:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. After the job is created, use Azure Resource Manager to retrieve the job's full definition.

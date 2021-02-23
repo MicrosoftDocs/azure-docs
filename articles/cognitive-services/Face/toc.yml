@@ -5,6 +5,8 @@
   items:
   - name: What is the Face service?
     href: Overview.md
+  - name: What's new
+    href: releasenotes.md
 - name: Quickstarts
   items:
   - name: Using the client library or REST API
@@ -32,7 +34,9 @@
   - name: Specify a face recognition model
     href: Face-API-How-to-Topics/specify-recognition-model.md
   - name: Specify a face detection model
-    href: Face-API-How-to-Topics/specify-detection-model.md  
+    href: Face-API-How-to-Topics/specify-detection-model.md
+  - name: Mitigate latency when using the Face service
+    href: Face-API-How-to-Topics/how-to-mitigate-latency.md
   - name: Use the large-scale feature
     href: Face-API-How-to-Topics/how-to-use-large-scale.md
   - name: Analyze videos in real time
@@ -46,7 +50,8 @@
     - name: Configure containers
       href: face-resource-container-config.md
     - name: Use container instances
-      href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+      maintainContext: true
+      href: ../containers/azure-container-instance-recipe.md
     - name: Cognitive Services containers documentation
       href: ../containers/index.yml
 - name: Scenario deep-dives
@@ -96,6 +101,4 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
   - name: Encryption
-    href: face-encryption-of-data-at-rest.md
-  - name: Release notes
-    href: ReleaseNotes.md
+    href: encrypt-data-at-rest.md

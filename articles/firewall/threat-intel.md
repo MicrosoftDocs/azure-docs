@@ -48,6 +48,6 @@ The following log excerpt shows a triggered rule:
 
 ## Next steps
 
-- See [Azure Firewall Log Analytics samples](log-analytics-samples.md)
+- See [Azure Firewall Log Analytics samples](./firewall-workbook.md)
 - Learn how to [deploy and configure an Azure Firewall](tutorial-firewall-deploy-portal.md)
 - Review the [Microsoft Security intelligence report](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)

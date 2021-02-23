@@ -149,7 +149,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **When I use what-if, I see changes in properties that aren't in my template. Is this "noise" expected?**
 
-  What-if is in preview. We're working on reducing the noise. You help us improve by submitting issues in our GitHub repo here: https://aka.ms/WhatIfIssues
+  We're working on reducing the noise. You help us improve by submitting issues in our GitHub repo here: https://aka.ms/WhatIfIssues
 
 ## Template visualizer
 

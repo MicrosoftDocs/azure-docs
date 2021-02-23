@@ -1,9 +1,6 @@
 ---
 title: 'Quickstart: Create Apache Spark cluster on Azure HDInsight with Azure PowerShell'
 description: This quickstart shows how to use Azure PowerShell to create an Apache Spark cluster in Azure HDInsight, and run a simple Spark SQL query.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
@@ -13,7 +10,7 @@ ms.custom: mvc, devx-track-azurepowershell
 
 # Quickstart: Create Apache Spark cluster in Azure HDInsight using PowerShell
 
-In this quickstart, you use Azure PowerShell to create an Apache Spark cluster in Azure HDInsight. You then create a Jupyter notebook, and use it to run Spark SQL queries against Apache Hive tables. Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises. The Apache Spark framework for Azure HDInsight enables fast data analytics and cluster computing using in-memory processing. Jupyter notebook lets you interact with your data, combine code with markdown text, and do simple visualizations.
+In this quickstart, you use Azure PowerShell to create an Apache Spark cluster in Azure HDInsight. You then create a Jupyter Notebook, and use it to run Spark SQL queries against Apache Hive tables. Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises. The Apache Spark framework for Azure HDInsight enables fast data analytics and cluster computing using in-memory processing. Jupyter Notebook lets you interact with your data, combine code with markdown text, and do simple visualizations.
 
 [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md) | [Apache Spark](https://spark.apache.org/) | [Apache Hive](https://hive.apache.org/) | [Jupyter Notebook](https://jupyter.org/)
 
@@ -132,7 +129,7 @@ When you run the PowerShell script, you are prompted to enter the following valu
 
 If you run into an issue with creating HDInsight clusters, it could be that you don't have the right permissions to do so. For more information, see [Access control requirements](../hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
-## Create a Jupyter notebook
+## Create a Jupyter Notebook
 
 [Jupyter Notebook](https://jupyter.org/) is an interactive notebook environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown text and perform simple visualizations.
 

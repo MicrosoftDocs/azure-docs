@@ -54,78 +54,78 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
 
 ###  <a name="RDBMSSP"></a> RDBMS Scalability and Performance  
 
-|Feature|Azure Arc enabled SQL Managed Instance|
-|-------------|----------------|
-|Columnstore|	Yes|
-|Large object binaries in clustered columnstore indexes|	Yes|
-|Online nonclustered columnstore index rebuild|	Yes|
-|In-Memory OLTP|	Yes|
-|Persistent Main Memory|	Yes|
-|Table and index partitioning|	Yes
-|Data compression|	Yes|
-|Resource Governor|	Yes|
-|Partitioned Table Parallelism|	Yes|
-|NUMA Aware and Large Page Memory and Buffer Array Allocation|	Yes|
-|IO Resource Governance|	Yes|
-|Delayed Durability|	Yes|
-|Automatic Tuning|	Yes|
-|Batch Mode Adaptive Joins|	Yes|
-|Batch Mode Memory Grant Feedback|	Yes|
-|Interleaved Execution for Multi-Statement Table Valued Functions|	Yes|
-|Bulk insert improvements	|Yes|
+| Feature | Azure Arc enabled SQL Managed Instance |
+|--|--|
+| Columnstore | Yes |
+| Large object binaries in clustered columnstore indexes | Yes |
+| Online nonclustered columnstore index rebuild | Yes |
+| In-Memory OLTP | Yes |
+| Persistent Main Memory | Yes |
+| Table and index partitioning | Yes |
+| Data compression | Yes |
+| Resource Governor | Yes |
+| Partitioned Table Parallelism | Yes |
+| NUMA Aware and Large Page Memory and Buffer Array Allocation | Yes |
+| IO Resource Governance | Yes |
+| Delayed Durability | Yes |
+| Automatic Tuning | Yes |
+| Batch Mode Adaptive Joins | Yes |
+| Batch Mode Memory Grant Feedback | Yes |
+| Interleaved Execution for Multi-Statement Table Valued Functions | Yes |
+| Bulk insert improvements | Yes |
 
-###  <a name="RDBMSS"></a> RDBMS Security  
-|Feature|Azure Arc enabled SQL Managed Instance|
-|-------------|----------------|
-|Row-level security|	Yes|
-|Always Encrypted|	Yes|
-|Always Encrypted with Secure Enclaves|	No|
-|Dynamic data masking|	Yes|
-|Basic auditing|	Yes|
-|Fine grained auditing|	Yes|
-|Transparent database encryption|	Yes|
-|User-defined roles|	Yes|
-|Contained databases|	Yes|
-|Encryption for backups|	Yes|
+###  <a name="RDBMSS"></a> RDBMS Security
+
+| Feature | Azure Arc enabled SQL Managed Instance |
+|--|--|
+| Row-level security | Yes |
+| Always Encrypted | Yes |
+| Always Encrypted with Secure Enclaves | No |
+| Dynamic data masking | Yes |
+| Basic auditing | Yes |
+| Fine grained auditing | Yes |
+| Transparent database encryption | Yes |
+| User-defined roles | Yes |
+| Contained databases | Yes |
+| Encryption for backups | Yes |
 
 ###  <a name="RDBMSM"></a> RDBMS Manageability  
 
-|Feature|Azure Arc enabled SQL Managed Instance|
-|-------------|----------------|
-|Dedicated admin connection|	Yes|
-|PowerShell scripting support|	Yes|
-|Support for data-tier application component operations - extract, deploy, upgrade, delete|	Yes
-|Policy automation (check on schedule and change)	|Yes|
-|Performance data collector|	Yes|
-|Standard performance reports	|Yes|
-|Plan guides and plan freezing for plan guides|	Yes|
-|Direct query of indexed views (using NOEXPAND hint)|	Yes|
-|Automatic indexed views maintenance	|Yes|
-|Distributed partitioned views|	Yes|
-|Parallel indexed operations	|Yes|
-|Automatic use of indexed view by query optimizer|	Yes|
-|Parallel consistency check	|Yes|
-
+| Feature | Azure Arc enabled SQL Managed Instance |
+|--|--|
+| Dedicated admin connection | Yes |
+| PowerShell scripting support | Yes |
+| Support for data-tier application component operations - extract, deploy, upgrade, delete | Yes |
+| Policy automation (check on schedule and change) | Yes |
+| Performance data collector | Yes |
+| Standard performance reports | Yes |
+| Plan guides and plan freezing for plan guides | Yes |
+| Direct query of indexed views (using NOEXPAND hint) | Yes |
+| Automatic indexed views maintenance | Yes |
+| Distributed partitioned views | Yes |
+| Parallel indexed operations | Yes |
+| Automatic use of indexed view by query optimizer | Yes |
+| Parallel consistency check | Yes |
 
 ### <a name="Programmability"></a> Programmability  
 
-|Feature|Azure Arc enabled SQL Managed Instance|
-|-------------|----------------|
-|JSON|	Yes	|		|
-|Query Store	|Yes	|		
-|Temporal|	Yes	|		
-|Native XML support|	Yes	|		
-|XML indexing	|Yes	|		
-|MERGE & UPSERT capabilities|	Yes	|		
-|Date and Time datatypes	|Yes	|		
-|Internationalization support|	Yes	|		
-|Full-text and semantic search |	No		|
-|Specification of language in query	|Yes		|	
-|Service Broker (messaging)|	Yes		|	
-|Transact-SQL endpoints|	Yes	|		
-|Graph|	Yes	|	
-|Machine Learning Services| No	|	
-|PolyBase| No	|
+| Feature | Azure Arc enabled SQL Managed Instance |
+|--|--|
+| JSON | Yes |
+| Query Store | Yes |  |
+| Temporal | Yes |  |
+| Native XML support | Yes |  |
+| XML indexing | Yes |  |
+| MERGE & UPSERT capabilities | Yes |  |
+| Date and Time datatypes | Yes |  |
+| Internationalization support | Yes |  |
+| Full-text and semantic search | No |
+| Specification of language in query | Yes |  |
+| Service Broker (messaging) | Yes |  |
+| Transact-SQL endpoints | Yes |  |
+| Graph | Yes |  |
+| Machine Learning Services | No |  |
+| PolyBase | No |
 
 
 ### Tools

@@ -23,7 +23,7 @@ Privileged Access covers controls to protect privileged access to your Azure ten
 Limit the number of highly privileged user accounts, and protect these accounts at an elevated level. 
 The most critical built-in roles in Azure AD are Global Administrator and the Privileged Role Administrator, because users assigned to these two roles can delegate administrator roles. With these privileges, users can directly or indirectly read and modify every resource in your Azure environment:
 
-- Global Administrator / Company Administrator: Users with this role have access to all administrative features in Azure AD, as well as services that use Azure AD identities.
+- Global Administrator: Users with this role have access to all administrative features in Azure AD, as well as services that use Azure AD identities.
 
 - Privileged Role Administrator: Users with this role can manage role assignments in Azure AD, as well as within Azure AD Privileged Identity Management (PIM). In addition, this role allows management of all aspects of PIM and administrative units.
 
@@ -155,9 +155,9 @@ Use Azure AD entitlement management features to automate access request workflow
 
 Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration, including strong authentication, software and hardware baselines, and restricted logical and network access. 
 
-- [Understand privileged access workstations](../../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Deploy a privileged access workstation](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Deploy a privileged access workstation](/security/compass/privileged-access-deployment)
 
 **Responsibility**: Customer
 
@@ -215,4 +215,3 @@ In support scenarios where Microsoft needs to access customer data, Customer Loc
 - [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
 
 - [Identity and key management](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
-

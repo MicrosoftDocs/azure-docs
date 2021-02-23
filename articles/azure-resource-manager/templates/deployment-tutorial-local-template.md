@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Deploy a local Azure Resource Manager template
 description: Learn how to deploy an Azure Resource Manager template (ARM template) from your local computer
-ms.date: 05/20/2020
+ms.date: 02/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:

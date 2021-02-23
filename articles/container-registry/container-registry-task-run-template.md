@@ -53,7 +53,7 @@ az deployment group create \
     registryName=mycontainerregistry \
     repository=helloworld-node \
     taskRunName=testrun \
-    sourceLocation=https://github.com/Azure-Samples/acr-build-helloworld-node.git
+    sourceLocation=https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
  ```
 
 The previous command passes the parameters on the command line. If desired, pass them in a [parameters file](../azure-resource-manager/templates/parameter-files.md).
@@ -199,7 +199,7 @@ az deployment group create \
     taskRunName=basetask \
     userAssignedIdentity=$resourceID \
     customRegistryIdentity=$clientID \
-    sourceLocation=https://github.com/<your-GitHub-ID>/acr-build-helloworld-node.git \
+    sourceLocation=https://github.com/<your-GitHub-ID>/acr-build-helloworld-node.git#main \
     dockerFilePath=Dockerfile-test \
     customRegistry=mybaseregistry.azurecr.io
 ```

@@ -112,6 +112,12 @@ To enable data collection, you need to:
 
 1. To create a new image and deploy the machine learning model, see [How to deploy and where](how-to-deploy-and-where.md).
 
+1. Add the 'Azure-Monitoring' pip package to the conda-dependencies of the web service environment:
+  ```Python
+    env = Environment('webserviceenv')
+    env.python.conda_dependencies = CondaDependencies.create(conda_packages=['numpy'],pip_packages=['azureml-defaults','azureml-monitoring','inference-schema[numpy-support]'])
+  ```
+
 
 ## Disable data collection
 

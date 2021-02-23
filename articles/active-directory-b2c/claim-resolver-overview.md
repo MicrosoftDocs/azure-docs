@@ -84,7 +84,7 @@ The following sections list available claim resolvers.
 | {Context:DateTimeInUtc} |The date time in UTC.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |The policy deployment mode.  | Production |
 | {Context:IPAddress} | The user IP address. | 11.111.111.11 |
-| {Context:KMSI} | Indicates whether [Keep me signed in](custom-policy-keep-me-signed-in.md) checkbox is selected. |  true |
+| {Context:KMSI} | Indicates whether [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) checkbox is selected. |  true |
 
 ### Claims 
 

@@ -18,8 +18,8 @@ Content Moderator is an AI service that lets you handle content that is potentia
 
 Use the Content Moderator REST API to:
 
-* [Moderate text](#moderate-text)
-* [Moderate images](#moderate-images)
+* Moderate text
+* Moderate images
 
 ## Prerequisites
 

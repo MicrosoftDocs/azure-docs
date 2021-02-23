@@ -65,7 +65,10 @@ class MyComponent extends React.Component {
     ...
 }
 
-export default withAITracking(reactPlugin, appInsights, MyComponent);
+// withAITracking takes 4 parameters ( reactPlugin, Component, ComponentName, className) 
+// the first two are required and the other two are optional.
+
+export default withAITracking(reactPlugin, MyComponent);
 ```
 
 ## Configuration
@@ -219,4 +222,4 @@ Check out the [Application Insights React demo](https://github.com/Azure-Samples
 ## Next steps
 
 - To learn more about the JavaScript SDK, see the [Application Insights JavaScript SDK documentation](javascript.md).
-- To learn about the Kusto query language and querying data in Log Analytics, see the [Log query overview](../../azure-monitor/log-query/log-query-overview.md).
+- To learn about the Kusto query language and querying data in Log Analytics, see the [Log query overview](../../azure-monitor/logs/log-query-overview.md).

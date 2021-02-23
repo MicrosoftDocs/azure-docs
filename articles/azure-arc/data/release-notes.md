@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 12/09/2020
+ms.date: 02/11/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
@@ -15,6 +15,33 @@ ms.topic: conceptual
 # Release notes - Azure Arc enabled data services (Preview)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## January 2021
+
+### New capabilities and features
+
+Azure Data CLI (`azdata`) version number: 20.3.0. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+
+
+Additional updates include:
+- Localized portal available for 17 new languages
+- Minor changes to Kube-native .yaml files
+- New versions of Grafana and Kibana
+- Issues with Python environments when using azdata in notebooks in Azure Data Studio resolved
+- The pg_audit extension is now available for PostgreSQL Hyperscale
+- A backup ID is no longer required when doing a full restore of a PostgreSQL Hyperscale database
+- The status (health state) is reported for each of the PostgreSQL instances that constitute a sever group
+
+   In earlier releases, the status was aggregated at the server group level and not itemized at the PostgreSQL node level.
+
+- PostgreSQL deployments now honor the volume size parameters indicated in create commands
+- The engine version parameters is now honored when editing a server group
+- The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed
+
+    It is now in the form: `ServergroupName{c, w}-n`. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
+   - `Postgres01c-0` (coordinator node)
+   - `Postgres01w-0` (worker node)
+   - `Postgres01w-1` (worker node)
 
 ## December 2020
 
@@ -25,7 +52,7 @@ Azure Data CLI (`azdata`) version number: 20.2.5. Download at [https://aka.ms/az
 View endpoints for SQL Managed Instance and PostgreSQL Hyperscale using the Azure Data CLI (`azdata`) with `azdata arc sql endpoint list` and `azdata arc postgres endpoint list` commands.
 
 Edit SQL Managed Instance resource (CPU core and memory) requests and limits using Azure Data Studio.
-	 
+
 Azure Arc enabled PostgreSQL Hyperscale now supports point in time restore in addition to full backup restore for both versions 11 and 12 of PostgreSQL. The point in time restore capability allows you to indicate a specific date and time to restore to.
 
 The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed. It is now in the form: ServergroupName{r, s}-_n_. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
@@ -125,9 +152,9 @@ Azure Arc enabled data services is released for public preview. Arc enabled data
 For instructions see [What are Azure Arc enabled data services?](overview.md)
 
 ## Next steps
-  
+
 > **Just want to try things out?**  
-> Get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on AKS, AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
+> Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on AKS, AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
 - [Install the client tools](install-client-tools.md)
 - [Create the Azure Arc data controller](create-data-controller.md) (requires installing the client tools first)

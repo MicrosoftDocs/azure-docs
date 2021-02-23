@@ -2,7 +2,7 @@
 title: Deploy multiple instances of resources
 description: Use copy operation and arrays in an Azure Resource Manager template (ARM template) to deploy resource type many times.
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 12/21/2020
 ---
 # Resource iteration in ARM templates
 
@@ -183,43 +183,6 @@ For example, to serially deploy storage accounts two at a time, use:
 
 The `mode` property also accepts **parallel**, which is the default value.
 
-## Depend on resources in a loop
-
-You specify that a resource is deployed after another resource by using the `dependsOn` element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the dependsOn element. The following example shows how to deploy three storage accounts before deploying the virtual machine. The full virtual machine definition isn't shown. Notice that the copy element has name set to `storagecopy` and the dependsOn element for the virtual machine is also set to `storagecopy`.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "copy": {
-        "name": "storagecopy",
-        "count": 3
-      },
-      "properties": {}
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2015-06-15",
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
-      "dependsOn": ["storagecopy"],
-      ...
-    }
-  ],
-  "outputs": {}
-}
-```
-
 ## Iteration for a child resource
 
 You can't use a copy loop for a child resource. To create more than one instance of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the type and name properties.
@@ -280,16 +243,14 @@ The following examples show common scenarios for creating more than one instance
 |[Copy storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Deploys more than one storage account with an index number in the name. |
 |[Serial copy storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Deploys several storage accounts one at time. The name includes the index number. |
 |[Copy storage with array](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Deploys several storage accounts. The name includes a value from an array. |
-|[VM deployment with a variable number of data disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Deploys several data disks with a virtual machine. |
-|[Multiple security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Deploys several security rules to a network security group. It constructs the security rules from a parameter. For the parameter, see [multiple NSG parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## Next steps
 
+* To set dependencies on resources that are created in a copy loop, see [Define the order for deploying resources in ARM templates](define-resource-dependency.md).
 * To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
+* For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * For other uses of the copy element, see:
   * [Property iteration in ARM templates](copy-properties.md)
   * [Variable iteration in ARM templates](copy-variables.md)
   * [Output iteration in ARM templates](copy-outputs.md)
 * For information about using copy with nested templates, see [Using copy](linked-templates.md#using-copy).
-* If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
-* To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

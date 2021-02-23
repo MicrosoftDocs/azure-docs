@@ -25,7 +25,7 @@ ms.author: sebansal
 To complete this article:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- User would need to have RBAC bult-in role assigned eg. contributor. [Learn more here](../../role-based-access-control/role-assignments-portal.md)
+- User would need to have an Azure built-in role assigned eg. contributor. [Learn more here](../../role-based-access-control/role-assignments-portal.md)
 - Your Azure AD user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
 
     1. Run the following Azure PowerShell or Azure CLI command by select **Try it**, and then paste the script into the shell pane. To paste the script, right-click the shell, and then select **Paste**.
@@ -216,4 +216,4 @@ In this quickstart, you created a key vault and a key using an ARM template, and
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- Review the [Key Vault security overview](../general/security-overview.md)

@@ -73,7 +73,7 @@ Perform the following steps:
 1. Select **Azure Active Directory** > **App registrations** > **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.
 1. In **Redirect URI**, select **Web** and type `<app-url>/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
-1. Select **Create**.
+1. Select **REGISTER**.
 1. After the app registration is created, copy the **Application (client) ID** and the **Directory (tenant) ID** for later.
 1. Select **Authentication**. Under **Implicit grant**, enable **ID tokens** to allow OpenID Connect user sign-ins from App Service.
 1. (Optional) Select **Branding**. In **Home page URL**, enter the URL of your App Service app and select **Save**.

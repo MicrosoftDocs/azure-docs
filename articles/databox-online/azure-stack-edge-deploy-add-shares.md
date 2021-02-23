@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ---
@@ -37,7 +37,7 @@ Before you add shares to Azure Stack Edge Pro, make sure that:
 
 To create a share, do the following procedure:
 
-1. In the [Azure portal](https://portal.azure.com/), select your Azure Stack Edge resource and then go to the **Overview**. Your device should be online.
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Stack Edge resource and then go to the **Overview**. Your device should be online. Select **Cloud storage gateway**.
 
    ![Device online](./media/azure-stack-edge-deploy-add-shares/device-online-1.png)
 
