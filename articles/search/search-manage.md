@@ -16,7 +16,7 @@ ms.date: 06/24/2020
 > [!div class="op_single_selector"]
 >
 > * [PowerShell](search-manage-powershell.md)
-> * [Azure CLI](search-manage-azurecli.md)
+> * [Azure CLI](search-manage-azure-cli.md)
 > * [REST API](/rest/api/searchmanagement/)
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)

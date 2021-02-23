@@ -16,7 +16,7 @@ ms.date: 02/09/2021
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [Azure CLI](search-manage-azurecli.md)
+> * [Azure CLI](search-manage-azure-cli.md)
 > * [REST API](/rest/api/searchmanagement/)
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
