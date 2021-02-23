@@ -27,7 +27,7 @@ An indexer in Azure Cognitive Search is a crawler that extracts searchable data 
 + Index content from one or more SharePoint Online Document Libraries.
 + Index content from SharePoint Online Document Libraries that are in the same tenant as your Azure Cognitive Search service. The indexer will not work with SharePoint sites that are in a different tenant than your Azure Cognitive Search service. 
 + The indexer will support incremental indexing meaning that it will identify which content in the Document Library has changed and only index the updated content on future indexing runs. For example, if 5 PDFs are originally indexed by the indexer, then 1 is updated, then the indexer runs again, the indexer will only index the 1 PDF that was updated.
-+ Text and normalized images will be extracted by default from the documents that are indexed. Optionally a skillset can be added to the pipeline for further content enrichment. More information on skillsets can be found [here](cognitive-search-working-with-skillsets.md).
++ Text and normalized images will be extracted by default from the documents that are indexed. Optionally a skillset can be added to the pipeline for further content enrichment. More information on skillsets can be found in the article [Skillset concepts in Azure Cognitive Search](cognitive-search-working-with-skillsets.md).
 
 ## Supported document formats
 
@@ -46,7 +46,7 @@ To set up the SharePoint Online Indexer, you will need to perform some actions i
 ### Step 1: Enable system assigned managed identity
 When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used by the indexer.
 
-![Enable system assigned managed identity](media/search-howto-index-sharepoint-online/Enable-system-assigned-managed-identity.png "Enable system assigned managed identity")
+![Enable system assigned managed identity](media/search-howto-index-sharepoint-online/enable-managed-identity.png "Enable system assigned managed identity")
 
 After selecting **Save** you will see an Object ID that has been assigned to your search service.
 
@@ -74,13 +74,13 @@ The SharePoint Online indexer will use this AAD application for authentication.
 
 1.	Select the **Authentication** tab. Set **Allow public client flows** to **Yes** then select **Save**.
 
-1.	Select **+ Add a platform**, then **Mobile and desktop applications**, then check **https://login.microsoftonline.com/common/oauth2/nativeclient**, then **Configure**.
+1.	Select **+ Add a platform**, then **Mobile and desktop applications**, then check `https://login.microsoftonline.com/common/oauth2/nativeclient`, then **Configure**.
 
     ![AAD app authentication configuration](media/search-howto-index-sharepoint-online/aad-app-authentication-configuration.png "AAD app authentication configuration")
 
 1.	Give admin consent (Only required for certain tenants).
 
-    Some tenants are locked down in such a way that admin concent is required for these delegated API permissions. If that is the case, you’ll need to have an admin grant admin consent for this AAD application before creating the indexer. 
+    Some tenants are locked down in such a way that admin consent is required for these delegated API permissions. If that is the case, you’ll need to have an admin grant admin consent for this AAD application before creating the indexer. 
 
     Because not all tenant have this requirement, we recommend first skipping this step and continuing on with the instructions. You’ll know if you need admin consent if when creating the indexer, the authentication fails telling you that you need an admin to approve the authentication. In that case, have a tenant admin grant consent using the button below.
 
@@ -97,7 +97,7 @@ A data source specifies which data to index, credentials needed to access the da
 For SharePoint indexing, the data source must have the following required properties:
 + **name** is the unique name of the data source within your search service.
 + **type** must be "sharepoint". This is case sensitive.
-+ **credentials** provide the SharePoint Online endpoint and the AAD application (client) ID. An example SharePoint Online endpoint is *https://microsoft.sharepoint.com/teams/MySharePointSite*. You can get the SharePoint Online endpoint by navigating to the home page of your SharePoint site and copying the URL from the browser.
++ **credentials** provide the SharePoint Online endpoint and the AAD application (client) ID. An example SharePoint Online endpoint is `https://microsoft.sharepoint.com/teams/MySharePointSite`. You can get the SharePoint Online endpoint by navigating to the home page of your SharePoint site and copying the URL from the browser.
 + **container** specifies which document library to index. More information on creating the container can be found in the [Controlling which documents are indexed](#controlling-which-documents-are-indexed) section of this document.
 
 To create a data source:
@@ -213,7 +213,7 @@ api-key: [admin key]
 More information on the indexer status can be found here: [Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
 
 ## Updating the data source
-If there are no updates to the data source object, the indexer can run on a schedule without any user interaction. However, every time the Azure Cognitive Search data source object is updated, you will need to login again in order for the indexer to run. For example, if you change the data source query, you will need to login again using the *https://microsoft.com/devicelogin* and a new code.
+If there are no updates to the data source object, the indexer can run on a schedule without any user interaction. However, every time the Azure Cognitive Search data source object is updated, you will need to login again in order for the indexer to run. For example, if you change the data source query, you will need to login again using the `https://microsoft.com/devicelogin` and a new code.
 
 Once the data source has been updated, follow the below steps:
 
@@ -227,7 +227,7 @@ Once the data source has been updated, follow the below steps:
 
     More information on the indexer run request can be found here: [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer).
 
-1.	Check the indexer status. If the last indexer run has an error telling you to go to *https://microsoft.com/devicelogin*, go to that page and provide the new code. 
+1.	Check the indexer status. If the last indexer run has an error telling you to go to `https://microsoft.com/devicelogin`, go to that page and provide the new code. 
 
     ```http
     GET https://[service name].search.windows.net/indexers/sharepoint-indexer/status?api-version=2020-06-30-Preview
@@ -249,10 +249,10 @@ If you have set the indexer to index document metadata, the following metadata w
 
 | Identifier | Type | Description | 
 | ------------- | -------------- | ----------- |
-| metadata_spo_site_library_item_id | Edm.String | The combination key of site id, library id and item id which uniquely identifies an item in a document library for a site. |
-| metadata_spo_site_id | Edm.String | The Id of the SharePoint Online site. |
-| metadata_spo_library_id | Edm.String | The Id of document library. |
-| metadata_spo_item_id | Edm.String | The Id of the (document) item in the library. |
+| metadata_spo_site_library_item_id | Edm.String | The combination key of site ID, library ID and item ID which uniquely identifies an item in a document library for a site. |
+| metadata_spo_site_id | Edm.String | The ID of the SharePoint Online site. |
+| metadata_spo_library_id | Edm.String | The ID of document library. |
+| metadata_spo_item_id | Edm.String | The ID of the (document) item in the library. |
 | metadata_spo_item_last_modified | Edm.DateTimeOffset | The last modified date/time (UTC) of the item. |
 | metadata_spo_item_name | Edm.String | The name of the item. |
 | metadata_spo_item_size | Edm.Int64 | The size (in bytes) of the item. | 
@@ -270,12 +270,12 @@ A single SharePoint Online indexer can index content from one or more Document L
 The data source *container* has two properties: *name* and *query*. 
 
 ### Name
-The *name* property is required and be one of three values:
-1. *defaultSiteLibrary*
+The *name* property is required and must be one of three values:
++ *defaultSiteLibrary*
     + Index all the content from the sites default document library.
-2.	*allSiteLibraries*
++	*allSiteLibraries*
     + Index all the content from all the document libraries in a site. This will not index document libraries from a subsite. Those can be specified in the *query* though.
-3.	*useQuery*
++	*useQuery*
     + Only index content defined in the *query*.
 
 ### Query
