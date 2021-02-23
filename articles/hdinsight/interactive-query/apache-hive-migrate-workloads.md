@@ -1,9 +1,9 @@
 ---
 title: Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
 description: Learn how to migrate Apache Hive workloads on HDInsight 3.6 to HDInsight 4.0.
-author: kevxmsft
-ms.author: kevx
-ms.reviewer: 
+author: kevxmsft, msft-tacox
+ms.author: kevx, tacox
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/4/2020
