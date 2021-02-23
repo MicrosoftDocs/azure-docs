@@ -349,9 +349,15 @@ Users in this role can manage Microsoft 365 apps' cloud settings. This includes 
 
 Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
 
+> [!IMPORTANT]
+> This role can reset passwords and invalidate refresh tokens for only non-administrators. This role should not be used as it is deprecated and it will no longer be returned in API.
+
 ### [Partner Tier2 Support](#partner-tier2-support-permissions)
 
 Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
+
+> [!IMPORTANT]
+> This role can reset passwords and invalidate refresh tokens for all non-administrators and administrators (including Global Administrators). This role should not be used as it is deprecated and it will no longer be returned in API.
 
 ### [Password Administrator](#password-administrator-permissions)
 
