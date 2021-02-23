@@ -52,3 +52,5 @@ landingContent:
         links: 
           - text: Manage resources with Azure CLI
             url: manage-resources-cli.md 
+          - text: Visualize metrics in Prometheus with Grafana
+            url: visualize-prometheus-grafana.md
