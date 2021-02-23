@@ -295,7 +295,7 @@ az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last
 
 ## Troubleshooting
 
-Once you start the LRS, use the monitoring cmdlets (get-azsqlinstancedatabaselogreplay or az_sql_midb_log_replay_show) to see the status of the operation. If after some time LRS fails to start with an error please check for these as some of the most common issues:
+Once you start the LRS, use the monitoring cmdlets (get-azsqlinstancedatabaselogreplay or az_sql_midb_log_replay_show) to see the status of the operation. If after some time LRS fails to start with an error please check for some of the most common issues:
 - Was the database backup on the SQL Server made using the **CHECKSUM** option?
 - Are the permissions on the SAS token **Read** and **List** only for the LRS service?
 - Was the SAS token for LRS copied starting after the question mark "?" with content starting similar to this "sv=2020-02-10..."? 
