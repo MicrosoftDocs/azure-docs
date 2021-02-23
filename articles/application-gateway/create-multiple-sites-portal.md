@@ -216,9 +216,9 @@ After the application gateway is created with its public IP address, you can get
 
     ![Record application gateway DNS address](./media/create-multiple-sites-portal/public-ip.png)
 
-2. Copy the IP address and use it as the value for a new *www* A records in your hosts file.
+2. Copy the IP address and use it as the value for new entries your `hosts` file.
 1. On your local machine, open an administrative command prompt, and navigate to `c:\Windows\System32\drivers\etc`.
-1. Open the hosts file, and add the following entries, where `x.x.x.x` is the application gateway's public IP address:
+1. Open the `hosts` file, and add the following entries, where `x.x.x.x` is the application gateway's public IP address:
    ```dos
    # Copyright (c) 1993-2009 Microsoft Corp.
    #
