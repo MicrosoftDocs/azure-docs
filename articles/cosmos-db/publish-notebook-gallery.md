@@ -51,7 +51,7 @@ Use the following steps to publish a notebook:
    * **Name:** A friendly name to identify your notebook.
    * **Description:**  A short description of what your notebook does.
    * **Tags:** Tags are optional and are used to filter results when searched by a keyword.
-   * **Cover image:** An image that’s used on the cover page when the notebook is published. Choose an image file with aspect ratio 256x144. You can either upload an **Custom image** from your computer or provide a publicly accessible **URL** where the image is located.
+   * **Cover image:** An image that’s used on the cover page when the notebook is published. Choose an image file with aspect ratio 256x144. You can either upload a **Custom image** from your computer or provide a publicly accessible **URL** where the image is located.
 
    :::image type="content" source="./media/publish-notebook-gallery/publish-notebook.png" alt-text="Fill out the publish to gallery form.":::
 
@@ -62,7 +62,7 @@ Use the following steps to publish a notebook:
 
 1. After the notebook is published to the gallery, you can see it within the **My published work** tab. You can also remove or delete notebooks you’ve published from the public gallery.
 
-1. You can also report a notebook that violates the code of conduct. If a violation is found, Cosmos DB automatically removes the notebook from gallery. If a notebook is removed, users can see it under the **My published work** tab with the removed note. To report a notebook, go to the **Data Explorer** > **Notebooks** > **Gallery** > **Public gallery** tab. Open the notebook you want to report, hover on the **Help** button on the right hand corner and select **Report Abuse**.
+1. You can also report a notebook that violates the code of conduct. If a violation is found, Cosmos DB automatically removes the notebook from gallery. If a notebook is removed, users can see it under the **My published work** tab with the removed note. To report a notebook, go to the **Data Explorer** > **Notebooks** > **Gallery** > **Public gallery** tab. Open the notebook you want to report, hover on the **Help** button on the right-hand corner and select **Report Abuse**.
 
    :::image type="content" source="./media/publish-notebook-gallery/report-notebook-violation.png" alt-text="Report a notebook that violates the code of conduct.":::
 
