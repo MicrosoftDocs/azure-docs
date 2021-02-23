@@ -36,7 +36,7 @@ landingContent:
           - text: Unbox and assemble your Azure Percept DK
             url: quickstart-percept-dk-unboxing.md
           - text: Connect Azure Percept DK to Azure and deploy a vision AI model
-            url: quickstart-percept-dk-setup.md
+            url: quickstart-percept-dk-set-up.md
       - linkListType: reference
         links:
           - text: Azure Percept DK datasheet
@@ -83,7 +83,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create a no-code voice assistant
-            url: tutorial-nocode-speech.md
+            url: tutorial-no-code-speech.md
       - linkListType: how-to-guide
         links:
           - text: Configure your voice assistant
