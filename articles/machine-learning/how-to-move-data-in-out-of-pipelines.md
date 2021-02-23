@@ -24,7 +24,7 @@ This article will show you how to:
 - Split `Dataset` data into subsets, such as training and validation subsets
 - Create `OutputFileDatasetConfig` objects to transfer data to the next pipeline step
 - Use `OutputFileDatasetConfig` objects as input to pipeline steps
-- Create new `Dataset` objects from `OutputFileDatasetConfig` you wish to persist
+- Create new `Dataset` objects from `OutputFileDatasetConfig` you wisƒh to persist
 
 ## Prerequisites
 
@@ -219,7 +219,7 @@ step2 = PythonScriptStep(
     script_name="step2.py",
     compute_target=compute,
     runconfig = aml_run_config,
-    arguments = ["--pd", step1_output_data.as_input]
+    arguments = ["--pd", step1_output_data.as_input()]
 
 )
 
