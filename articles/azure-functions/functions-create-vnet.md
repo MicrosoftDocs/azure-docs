@@ -317,6 +317,8 @@ To use your function app with virtual networks, you'll need to join it to a subn
 
     :::image type="content" source="./media/functions-create-vnet/12.deploy-portal.png" alt-text="Navigate to Function App Private Endpoint":::
 
+1. Your initial deployment may take a few minutes. You will see a **Success (Active)** Status message in the **Logs** tab when your app is successfully deployed. If needed, refresh the page. 
+
 1. Congratulations! You have successfully deployed your sample function app.
 
 ## Lock down your function app with a private endpoint
