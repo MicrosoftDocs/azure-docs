@@ -15,7 +15,7 @@ Customer intent: As an IT admin, I need to understand how to activate Azure Stac
 
 This tutorial describes how you can activate your Azure Stack Edge Pro R device by using the local web UI.
 
-The activation process can take around 5 minutes to complete.
+The activation process can take around 5 minutes to complete.  
 
 In this tutorial, you learned about:
 

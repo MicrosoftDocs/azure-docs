@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Proactive log collection on your Azure Stack Edge device
 
-Proactive log collection gathers system health indicators on your Azure Stack Edge device to help you efficiently troubleshoot any device issues. Proactive log collection is enabled by default. This article describes what is logged, how Microsoft handles the data, and how to disable or enable proactive log collection.
+Proactive log collection gathers system health indicators on your Azure Stack Edge device to help you efficiently troubleshoot any device issues. Proactive log collection is enabled by default. This article describes what is logged, how Microsoft handles the data, and how to disable or enable proactive log collection. 
 
 The information in this article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
 
