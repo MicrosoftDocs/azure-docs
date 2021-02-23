@@ -306,7 +306,7 @@ Since the required environment variables will be set for you by Azure ML, you ca
 
 The following code snippet configures a 2-node, 2-process-per-node PyTorch job:
 ```python
-from azureml.core import ScriptRunConfig, Environment, Experiment
+from azureml.core import ScriptRunConfig
 from azureml.core.runconfig import PyTorchConfiguration
 
 curated_env_name = 'AzureML-PyTorch-1.6-GPU'
@@ -347,7 +347,7 @@ python -m torch.distributed.launch --nproc_per_node <num processes per node> \
 2. Create a `PyTorchConfiguration` and specify the `node_count`. You do not need to set `process_count` as Azure ML will default to launching one process per node, which will run the launch command you specified.
 
 ```python
-from azureml.core import ScriptRunConfig, Environment, Experiment
+from azureml.core import ScriptRunConfig
 from azureml.core.runconfig import PyTorchConfiguration
 
 curated_env_name = 'AzureML-PyTorch-1.6-GPU'
@@ -366,7 +366,7 @@ src = ScriptRunConfig(
 run = Experiment(ws, 'experiment_name').submit(src)
 ```
 
-For a full tutorial on running distributed PyTorch on Azure ML, see [Distributed PyTorch with DistributedDataParallel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-nccl-gloo).
+For a full tutorial on running distributed PyTorch on Azure ML, see [Distributed PyTorch with DistributedDataParallel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-distributeddataparallel).
 
 ### Troubleshooting
 
