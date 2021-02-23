@@ -1,24 +1,30 @@
 ---
-title: Create a project for image labeling or text labeling
+title: Image labeling and text labeling
 titleSuffix: Azure Machine Learning
-description: Learn how to create and run projects to label images or label text for machine learning. Use ML assisted labeling, or human in the loop labeling, to aid with the task.
+description: Learn how to create and run projects to label images or label text. Use ML assisted labeling, or human in the loop labeling, to aid with the task.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 07/27/2020
+ms.date: 02/23/2021
 ms.custom: data4ml
 ---
 
-# Create a data labeling project and export labels 
+# Create a data labeling project and export labels
 
 Learn how to create and run projects to label images or label text data in Azure Machine Learning.  Use machine-learning-assisted data labeling, or human-in-the-loop labeling, to aid with the task.
 
 ## Data labeling capabilities
 
 > [!Important]
-> Data images or text must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.)
+> Data images or text must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload files during project creation.)
+
+Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe", ".jfif", ".bmp", ".tif", ".tiff". Each file is an item to be labeled.
+Text data can be either ".txt" or ".csv" files.
+
+    * For ".txt" files, each file represents one item to be labeled.
+    * For ".csv" files, each row of the file is one item to be labeled.
 
 Azure Machine Learning data labeling is a central place to create, manage, and monitor labeling projects:
  - Coordinate data, labels, and team members to efficiently manage labeling tasks. 
@@ -41,8 +47,6 @@ Labeling projects are administered from Azure Machine Learning. You use the **La
 If your data is already in Azure Blob storage, you should make it available as a datastore before you create the labeling project. For an example of using a datastore, see [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
 
 To create a project, select **Add project**. Give the project an appropriate name and select **Labeling task type**. Project name cannot be reused, even if the project is deleted in future.
-
-
 
 ### Image labeling project
 
@@ -80,6 +84,7 @@ To create a project, select **Add project**. Give the project an appropriate nam
 
 ## Specify the data to label
 
+
 If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. Or, select **Create a dataset** to use an existing Azure datastore or to upload local files.
 
 > [!NOTE]
@@ -101,7 +106,6 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Provide a description for your dataset.
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
-
 
 ### Create a dataset from uploaded data
 
