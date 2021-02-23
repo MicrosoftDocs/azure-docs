@@ -29,11 +29,7 @@ You can copy data from Informix source to any supported sink data store, or copy
 To use this Informix connector, you need to:
 
 - Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-- Install the Informix ODBC driver for the data store on the Integration Runtime machine. For driver installation and setup, refer [Informix Object Interface for C++ Guide](https://www.ibm.com/support/knowledgecenter/SSGU8G_11.70.0/com.ibm.cpp.doc/cpp.htm) article for details.
-
-> [!NOTE] 
-> If above "Informix Object Interface for C++ Guide" is not applicable, you can contact IBM support team for the right drivers to install.
-
+- Install the Informix ODBC driver for the data store on the Integration Runtime machine. For driver installation and setup, refer [Informix ODBC Driver Guide](https://www.ibm.com/support/knowledgecenter/SSGU8G_11.70.0/com.ibm.odbc.doc/odbc.htm) article in IBM Knowledge Center for details, or contact IBM support team for driver installation guidance.
 
 ## Getting started
 
