@@ -270,9 +270,9 @@ In this tutorial, you learned how to:
 
 * Upload a certificate to Key Vault.
 * Validate a domain.
-* Enable HTTPS for you custom domain.
+* Enable HTTPS for your custom domain.
 
-To learn how to set up a geo-filtering policy for you Front Door, continue to the next tutorial.
+To learn how to set up a geo-filtering policy for your Front Door, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Set up a geo-filtering policy](front-door-geo-filtering.md)
