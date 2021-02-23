@@ -45,6 +45,6 @@ This article describes how the [Azure Backup service](./backup-overview.md) rest
 
 ## Next steps
 
-- [Frequently asked questions about VM restore](./backup-azure-vm-backup-faq.yml#restore)
+- [Frequently asked questions about VM restore](/azure/backup/backup-azure-vm-backup-faq#restore)
 - [Supported restore methods](./backup-support-matrix-iaas.md#supported-restore-methods)
 - [Troubleshoot restore issues](./backup-azure-vms-troubleshoot.md#restore)

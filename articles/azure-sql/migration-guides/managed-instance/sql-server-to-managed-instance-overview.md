@@ -157,7 +157,7 @@ Beyond the high availability architecture that is included in SQL Managed Instan
 
 #### SQL Agent jobs
 
-Use the offline Azure Database Migration Service (DMS) option to migrate [SQL Agent jobs](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md#offline-migrations). Otherwise, script the jobs in Transact-SQL (T-SQL) using SQL Server Management Studio and then manually recreate them on the target SQL Managed Instance. 
+Use the offline Azure Database Migration Service (DMS) option to migrate [SQL Agent jobs](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). Otherwise, script the jobs in Transact-SQL (T-SQL) using SQL Server Management Studio and then manually recreate them on the target SQL Managed Instance. 
 
 > [!IMPORTANT]
 > Currently, Azure DMS only supports jobs with T-SQL subsystem steps. Jobs with SSIS package steps will have to be manually migrated. 
