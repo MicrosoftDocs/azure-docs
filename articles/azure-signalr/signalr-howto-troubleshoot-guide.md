@@ -138,7 +138,7 @@ For a SignalR persistent connection, it first `/negotiate` to Azure SignalR serv
 
 * Following [How to view outgoing requests](#view_request) to get the request from the client to the service.
 * Check the URL of the request when 404 occurs. If the URL is targeting to your web app, and similar to `{your_web_app}/hubs/{hubName}`, check if the client `SkipNegotiation` is `true`. When using Azure SignalR, the client receives redirect URL when it first negotiates with the app server. The client should **NOT** skip negotiation when using Azure SignalR.
-* Another 404 can happen when the connect request is handled more than **5** seconds after `/negotiate` is called. Check the timestamp of the client request, and open an issue to us if the request to the service has a slow response.
+* Another 404 can happen when the connect request is handled more than **5** seconds after `/negotiate` is called. Check the timestamp of the client request, and open a customer support ticket to us with [network trace details](https://docs.microsoft.com/aspnet/core/signalr/diagnostics?view=aspnetcore-5.0#network-traces) if the request to the service has a slow response. We could help you investigate what happens and make some recommendations with this support ticket. 
 
 [Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
