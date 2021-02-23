@@ -37,7 +37,6 @@ An SMS receiver configured as part of an action group receives an SMS when an al
 >If a user has unsubscribed from SMS alerts, but is then added to a new action group; they WILL receive SMS alerts for that new action group, but remain unsubscribed from all previous action groups.
 
 ## Next Steps
-Get an [overview of activity log alerts](../platform/alerts-overview.md) and learn how to get alerted  
+Get an [overview of activity log alerts](./alerts-overview.md) and learn how to get alerted  
 Learn more about [SMS rate limiting](alerts-rate-limiting.md)  
-Learn more about [action groups](../platform/action-groups.md)
-
+Learn more about [action groups](./action-groups.md)
