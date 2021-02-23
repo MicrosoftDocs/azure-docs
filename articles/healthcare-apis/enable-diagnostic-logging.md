@@ -19,7 +19,7 @@ In this article, you will learn how to enable diagnostic logging in Azure API fo
 1. To enable diagnostic logging in Azure API for FHIR, select your Azure API for FHIR service in the Azure portal 
 2. Navigate to **Diagnostic settings** 
 
-   :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Add Azure FHIR Diagnostic Settings." lightbox="media/diagnostic-logging/diagnostic-settings-screen.png.png":::
+   :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Add Azure FHIR Diagnostic Settings." lightbox="media/diagnostic-logging/diagnostic-settings-screen.png":::
 
 3. Select **+ Add diagnostic setting**
 
