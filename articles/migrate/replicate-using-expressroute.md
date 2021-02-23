@@ -33,7 +33,7 @@ In this article, you'll learn
 
 In the agentless method of migrating VMware virtual machines to Azure, the Azure Migrate appliance first uploads replication data to a storage account (cache storage account) in your subscription. Replicated data from the cache storage account is then moved to replica-managed disks in your subscription by the Azure Migrate service. To use a private peering circuit for replication, you'll create and attach a private endpoint to the cache storage account use. Private endpoints use one or more private IP addresses from your virtual network (VNet), effectively bringing the storage account into your Azure VNet. The private endpoint allows the Azure Migrate appliance to connect to the cache storage account using ExpressRoute private peering and transfer data directly on the private IP address. <br/>  
 
-![Replication process](./media/replicate-using-expressroute/replicationprocess.png)
+![Replication process](./media/replicate-using-expressroute/replication-process.png)
 
 > [!Important]
 >
@@ -47,7 +47,7 @@ In the agentless method of migrating VMware virtual machines to Azure, the Azure
 
 The Azure user creating the private endpoint should have the following permissions on the resource group and virtual network that the private endpoint will be created in.
 
-**Usecase** | **Permissions** 
+**Use case** | **Permissions** 
 --- | --- 
  Create and manage private endpoints. | Microsoft.Network/privateEndpoint/write/action<br/>Microsoft.Network/privateEndpoint/read/action  
 |Attach a private endpoint to a VNet/subnet.<br/>This is required on the virtual network where the private endpoint will be created.| Microsoft.Network/virtualNetworks/subnet/join/action  Microsoft.Network/virtualNetworks/join/action
@@ -66,47 +66,47 @@ To create and locate the storage account:
 2. Navigate to the resource group of the Azure Migrate project.
 3. Locate the cache storage account by identifying the prefix **“lsa”** in the storage account name.
 
-![Resource group view](./media/replicate-using-expressroute/storageaccountinrg.png)
+![Resource group view](./media/replicate-using-expressroute/storage-account-name.png)
 
 > [!Tip]
 If you have more than one storage account with the prefix **"lsa"** in your resource group, you can verify the storage account by navigating to the replication settings and target configuration menu for any of the replicating VMs in the project. <br/>
-![Replication settings overview](./media/replicate-using-expressroute/storageaccountname.jpg)
+![Replication settings overview](./media/replicate-using-expressroute/storage-account.png)
 
 ### 3. Upgrade  cache storage account to General Purpose v2 
 
 You can create private endpoints only on a General Purpose v2 (GPv2) storage account. If the cache storage account is not a GPv2 storage account, upgrade it to GPv2 using the following steps:
 
 1. Navigate to your storage account.
-2. In the **Settings** section, select **Configuration**.
-3. Under **Account kind**, select on Upgrade.
+2. Select **Configuration**.
+3. Under **Account kind**, select **Upgrade**.
 4. Under **Confirm upgrade**, type in the name of your account.
 5. Select **Upgrade** at the bottom of the page.
 
-![Upgrade storage account](./media/replicate-using-expressroute/upgradestorageaccount.png)
+![Upgrade storage account](./media/replicate-using-expressroute/upgrade-storage-account.png)
 
 ### 4. Create a private endpoint for the storage account
 
 1. Go to your storage account, select **Networking** from the left menu, and select the **Private endpoint connections** tab.  
 2. Select **+ Private endpoint**.
 
-    2a. In the **Create a private endpoint** window – select the **subscription** and **resource group**. Provide a name for your private endpoint and select the storage account region.  
-    ![PE configuration window](./media/replicate-using-expressroute/storagepecreation.jpg)
+    a. In the **Create a private endpoint** window – select the **subscription** and **resource group**. Provide a name for your private endpoint and select the storage account region.  
+    ![PE configuration window](./media/replicate-using-expressroute/storage-account-private-endpoint-creation.png)
 
-    2b. In the **Resource** tab, select the **Connection method**. Provide the **Subscription name** that the  storage account is in. Choose **Microsoft.Storage/storageAccounts** as the **Resource type**. In **Resource**, provide the name of the GPv2 type replication storage account. Select **Blob** as the **Target sub-resource**.  
-    ![storageaccountpesettings](./media/replicate-using-expressroute/storageaccountpesettings.jpg)
+    b. In the **Resource** tab, provide the **Subscription name** that the storage account is in. Choose **Microsoft.Storage/storageAccounts** as the **Resource type**. In **Resource**, provide the name of the GPv2 type replication storage account. Select **Blob** as the **Target sub-resource**.  
+    ![storageaccountpesettings](./media/replicate-using-expressroute/storage-account-private-endpoint-settings.png)
 
-    2c. In the **Configuration** tab, select the **Virtual network** and **Subnet** for the storage account’s private endpoint.  
+    c. In the **Configuration** tab, select the **Virtual network** and **Subnet** for the storage account’s private endpoint.  
 
     > [!Note]
     > The virtual network must contain the ExpressRoute gateway endpoint or must be connected to the virtual network with the ExpressRoute gateway. 
 
     In the **Private DNS Integration** section, select **Yes** and integrate with a private DNS zone. Selecting **Yes** automatically links the DNS zone to the selected virtual network and adds the DNS records that are required for DNS resolution of new IPs and fully qualified domain names created for the private endpoint. Learn more about [private DNS zones.](https://docs.microsoft.com/azure/dns/private-dns-overview)
 
-    ![privatednszone](./media/replicate-using-expressroute/privatednszone.png)
+    ![privatednszone](./media/replicate-using-expressroute/private-dns-zone.png)
 
-    2d. You can also add **Tags** for your private endpoint.  
+    d. You can also add **Tags** for your private endpoint.  
 
-    2e. Continue to **Review + create** once done entering details. When the validation completes, select **Create** to create the private endpoint.
+    e. Continue to **Review + create** once done entering details. When the validation completes, select **Create** to create the private endpoint.
 
     > [!Note]
     > If the user creating the private endpoint is also the owner of the storage account, the private endpoint will be auto-approved. Otherwise, the owner must approve the private endpoint for usage. 
@@ -120,7 +120,7 @@ If you did not select the option to integrate with a private DNS zone at the tim
 
 1. Create a private DNS zone. 
 
-    ![createprivatedns](./media/replicate-using-expressroute/createprivatedns.png)
+    ![createprivatedns](./media/replicate-using-expressroute/create-private-dns.png)
 
     a.	On the **Private DNS zones** page, select the **+Add** button to start creating a new zone.  
     b.	On the **Create private DNS zone** page, fill in the required details. Enter the name of the private DNS zone as _privatelink_.blob.core.windows.net. 
@@ -145,7 +145,7 @@ If you did not select the option to integrate with a private DNS zone at the tim
 ## Replicate data using an ExpressRoute circuit with Microsoft peering
 
 You can use Microsoft peering or an existing public peering domain (deprecated for new ExpressRoute connections) to route your replication traffic through an ExpressRoute circuit as illustrated in the diagram below.
-![replicationwithmicrosoftpeering](./media/replicate-using-expressroute/replicationwithmicrosoftpeering.png)
+![replicationwithmicrosoftpeering](./media/replicate-using-expressroute/replication-with-microsoft-peering.png)
 
 Even with replication data going over the Microsoft peered circuit, you'll still need internet connectivity from the on-premises site for other communication (control plane) with the Azure Migrate service. There are some additional URLs, that are not reachable over ExpressRoute, that the replication appliance / Hyper-V host needs access to orchestrate the replication process. You can review the URL requirements based on the migration scenario, [VMware agentless migrations](https://docs.microsoft.com/azure/migrate/migrate-appliance#public-cloud-urls) or [agent-based migrations](https://docs.microsoft.com/azure/migrate/migrate-replication-appliance).  
 
@@ -168,10 +168,10 @@ In case you use a proxy at your on-premises site and wish to use ExpressRoute fo
 
 Follow the steps below to configure the Proxy bypass list on the Configuration server and Process servers:
 
-- [Download PsExec tool](https://docs.microsoft.com/sysinternals/downloads/psexec) to access system user context.
-- Open Internet Explorer in system user context by running the following command line psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
-- Add proxy settings in IE.
-- In the bypass list, add the Azure storage URL .*.blob.core.windows.net.  
+1. [Download PsExec tool](https://docs.microsoft.com/sysinternals/downloads/psexec) to access system user context.
+2. Open Internet Explorer in system user context by running the following command line psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
+3. Add proxy settings in IE.
+4. In the bypass list, add the Azure storage URL.*.blob.core.windows.net.  
 
 The above bypass rules will ensure that the replication traffic can flow through ExpressRoute while the management communication can go through the proxy for the Internet.  
 
