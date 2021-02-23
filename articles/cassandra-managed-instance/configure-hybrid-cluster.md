@@ -16,14 +16,14 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This quickstart demonstrates how to use the Azure CLI commands to configure a hybrid cluster, where you have existing datacenters in an on premises or self-hosted environment, and want to use Azure Managed Instance for Apache Cassandra to deploy additional cloud datacenters into that cluster.
+This quickstart demonstrates how to use the Azure CLI commands to configure a hybrid cluster. If you have existing datacenters in an on premises or self-hosted environment, you can use Azure Managed Instance for Apache Cassandra to add and maintain other cloud datacenters in that cluster.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.12.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-- We assume you have an Azure [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) with connectivity to your self-hosted or on premises environment. For more information on connecting on premises environments to Azure, consult our article on how to [Connect an on-premises network to Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/).
+- We assume you have an Azure [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) with connectivity to your self-hosted or on premises environment. For more information on connecting on premises environments to Azure, see our article on how to [Connect an on-premises network to Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/).
 
-## <a id="create-account"></a>Confure a hybrid cluster
+## <a id="create-account"></a>Configure a hybrid cluster
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to your VNet resource. 
 
@@ -31,7 +31,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
    :::image type="content" source="./media/configure-hybrid-cluster/subnet.png" alt-text="Configure a new subnet" lightbox="./media/configure-hybrid-cluster/subnet.png" border="true":::
 
-1. Go back to the subnets tab, then in the address bar after "subnets", type the name of your new dedicated subnet, followed by "overview", e.g. /subnets/cassandra-managed-instance/overview:
+1. Go back to the subnets tab, then in the address bar after "subnets", type the name of your new dedicated subnet, followed by "overview", for example, /subnets/cassandra-managed-instance/overview:
 
    :::image type="content" source="./media/configure-hybrid-cluster/subnet-overview.png" alt-text="Get overview" lightbox="./media/configure-hybrid-cluster/subnet.png" border="true":::
 
@@ -39,7 +39,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
    :::image type="content" source="./media/configure-hybrid-cluster/resource-id.png" alt-text="Copy resource id" lightbox="./media/configure-hybrid-cluster/resource-id.png" border="true":::
 
-1. Now we are going to configure resources for our hybrid cluster, using Azure CLI. Since you already have a cluster, the cluster name here will only be a bookmarking (logical) resource, so that we can identify the name of the existing cluster. Hence, you should use the name of your existing cluster when defining `clusterName` and `clusterNameOverride` below. You will also need to provide the seed nodes, public client certificates, and gossip certificates in your existing cluster, in the fields provided below. You will also need to use the resource id you copied above for `delegatedManagementSubnetId`.
+1. Now we are going to configure resources for our hybrid cluster, using Azure CLI. Since you already have a cluster, the cluster name here will only be a bookmarking (logical) resource, so that we can identify the name of the existing cluster. Hence, you should use the name of your existing cluster when defining `clusterName` and `clusterNameOverride` below. You will need to provide the seed nodes, public client certificates, and gossip certificates in your existing cluster. You'll also need to use the resource ID you copied above for `delegatedManagementSubnetId`.
     
     ```azurecli-interactive
     resourceGroupName='MyResourceGroup'
@@ -75,9 +75,9 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
         --resource-group $resourceGroupName \
     ```
 
-1. The above command will return information about the Azure Managed Instance for Apache Cassandra environment. You will need the public certificates and gossip certificate, as these are the corresponding artefacts that will be used in the managed instance datacenters you will create:
+1. The above command will return information about the Azure Managed Instance for Apache Cassandra environment. You'll need the public certificates and gossip certificates so that you can install them on the nodes in your existing datacenter:
 
-   :::image type="content" source="./media/configure-hybrid-cluster/get-cluster.png" alt-text="Copy resource id" lightbox="./media/configure-hybrid-cluster/get-cluster.png" border="true":::
+   :::image type="content" source="./media/configure-hybrid-cluster/get-cluster.png" alt-text="Copy resource ID" lightbox="./media/configure-hybrid-cluster/get-cluster.png" border="true":::
 
 1. Next, you can create a new datacenter in the hybrid cluster, ensuring that you specify the appropriate details:
 
@@ -113,12 +113,12 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
         --data-center-name $dataCenterName 
     ```
 
-1. The above command will bring back the new datacenter's seed nodes, which you will need to add to your existing datacenter's cassandra.yaml (along with the public certificates, and gossip certificates, that you collected earlier):
+1. The above command will bring back the new datacenter's seed nodes, which you will need to add to your existing datacenter's cassandra.yaml. You will also need to install the the managed instance public certificates and gossip certificates that you collected earlier):
 
 
-   :::image type="content" source="./media/configure-hybrid-cluster/get-datacenter.png" alt-text="Copy resource id" lightbox="./media/configure-hybrid-cluster/get-datacenter.png" border="true":::
+   :::image type="content" source="./media/configure-hybrid-cluster/get-datacenter.png" alt-text="Get datacenter" lightbox="./media/configure-hybrid-cluster/get-datacenter.png" border="true":::
 
-1. Finally, you will need to update the replication strategy to include both datacenters across the cluster:
+1. Finally, you'll need to update the replication strategy to include both datacenters across the cluster:
 
     ```SQL
     ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3};
