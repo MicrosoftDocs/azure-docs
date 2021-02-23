@@ -122,8 +122,8 @@ Here's what's included in an AVS assessment:
 | **Discount (%)** | Lists any subscription-specific discount you receive on top of the Azure offer. The default setting is 0%. |
 | **Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Although it has no impact on Azure VMware solutions pricing due to the node-based price, customers can still apply the on-premises OS or SQL licenses (Microsoft based) in AVS using Azure Hybrid Benefits. Other software OS vendors will have to provide their own licensing terms such as RHEL for example. |
 | **vCPU Oversubscription** | Specifies the ratio of number of virtual cores tied to one physical core in the AVS node. The default value in the calculations is 4 vCPU:1 physical core in AVS. API users can set this value as an integer. Note that vCPU Oversubscription > 4:1 may impact workloads depending on their CPU usage. When sizing we always assume 100% utilization of the cores chosen. |
-| **Memory overcommit factor** | Specifies the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5 for example is 50%, and 2 would be using 200% of available memory.You can only add values from 0.5 to 10 up to one decimal place. |
-| **Dedupe and compression factor** | Specifies the anticipated dedupe and compression factor for your workloads. Actual value can be obtained from on prem vSAN or storage config. These vary by workload. A value of 3 would mean 3x so for 300GB disk only 100GB storage would be used. A value of 1 would mean no dedupe or compression. You can only add values from 1 to 10 up to one decimal place. |
+| **Memory overcommit factor** | Specifies the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5 for example is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place. |
+| **Dedupe and compression factor** | Specifies the anticipated dedupe and compression factor for your workloads. Actual value can be obtained from on-premises vSAN or storage config. These vary by workload. A value of 3 would mean 3x so for 300GB disk only 100GB storage would be used. A value of 1 would mean no dedupe or compression. You can only add values from 1 to 10 up to one decimal place. |
 
 ## Azure VMware Solution (AVS) suitability analysis
 
@@ -155,7 +155,7 @@ Along with VM properties, the assessment looks at the guest operating system of 
 After a machine is marked as ready for AVS, AVS Assessment makes node sizing recommendations, which involve identifying the appropriate on-premises VM requirements and finding the total number of AVS nodes required. These recommendations vary, depending on the assessment properties specified.
 
 - If the assessment uses*performance-based sizing*, Azure Migrate considers the performance history of the machine to make the appropriate sizing recommendation for AVS. This method is especially helpful if you've over-allocated the on-premises VM, but utilization is low and you want to right-size the VM in AVS to save costs. This method will help you optimize the sizes during migration.
-- If you don't want to consider the performance data for VM sizing and want to take the on-premises machines as-is to AVS, you can set the sizing criteria to*as on-premises*. Then, the assessment will size the VMs based on the on-premises configuration without considering the utilization data.
+- If you don't want to consider the performance data for VM sizing and want to take the on-premises machines as-is to AVS, you can set the sizing criteria to* as on-premises*. Then, the assessment will size the VMs based on the on-premises configuration without considering the utilization data.
 
 ### FTT Sizing Parameters
 
@@ -182,7 +182,7 @@ For performance-based sizing, Azure Migrate appliance profiles the on-premises e
 
 After the effective utilization value is determined, the storage, network, and compute sizing is handled as follows.
 
-**Storage sizing**: Azure Migrate uses the total on-premises VM disk space as a calculation parameter to determine AVS vSAN storage requirements in addition to the customer-selected FTT setting. FTT - Failures to tolerate as well as requiring a minimum no of nodes per FTT option will determine the total vSAN storage required combined with the VM disk requirement.
+**Storage sizing**: Azure Migrate uses the total on-premises VM disk space as a calculation parameter to determine AVS vSAN storage requirements in addition to the customer-selected FTT setting. FTT - Failures to tolerate as well as requiring a minimum no of nodes per FTT option will determine the total vSAN storage required combined with the VM disk requirement. Storage utilization is currently not taken into consideration and the logic only looks at allocated storage per VM.
 
 **Network sizing**: AVS assessments currently does not take any network settings into consideration.
 
@@ -198,9 +198,9 @@ If you use *as on-premises sizing*, AVS assessment doesn't consider the performa
 
 ### CPU utilization on AVS nodes
 
-CPU utilization assumes 100% usage of the available cores. To reduce the no of nodes required one can increase the oversubscription from 4:1 to say 6:1 based on workload characteristics and on prem experience. Unlike for disk, AVS does not place any limits on CPU utilization, it's up to customers to ensure their cluster performs optimally so if "running hot" is required adjust accordingly. To allow more room for growth, reduce the oversubscription or increase the value for growth factor.
+CPU utilization assumes 100% usage of the available cores. To reduce the no of nodes required one can increase the oversubscription from 4:1 to say 6:1 based on workload characteristics and on-premises experience. Unlike for disk, AVS does not place any limits on CPU utilization, it's up to customers to ensure their cluster performs optimally so if "running hot" is required adjust accordingly. To allow more room for growth, reduce the oversubscription or increase the value for growth factor.
 
-CPU utilzation also already accounts for management overhead from vCenter, NSX manager and other smaller resources.
+CPU utilization also already accounts for management overhead from vCenter, NSX manager and other smaller resources.
 
 ### Memory utilization on AVS nodes
 
@@ -214,10 +214,10 @@ Storage utilization is calculated based on the following sequence:
 
 1. Size required for VM's (either allocated as is or performance based used space)
 2. Apply growth factor if any
-3. Add mgmt overhead and apply FTT ratio
+3. Add management overhead and apply FTT ratio
 4. Apply dedupe and compression factor
 5. Apply required 25% slack for vSAN
-6. Result available storage for VMs out of total storage including managment overhead.
+6. Result available storage for VMs out of total storage including management overhead.
 
 The available storage on a 3 node cluster will be based on the default storage policy which is Raid-1 and uses thick provisioning. When calculating for erasure coding or Raid-5 for example, a minimum of 4 nodes is required. Note that in AVS the storage policy has to be changed by the admin to allow for more space.
 

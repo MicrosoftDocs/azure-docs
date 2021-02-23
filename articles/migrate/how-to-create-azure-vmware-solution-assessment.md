@@ -76,8 +76,8 @@ There are two types of sizing criteria that you can use to create Azure VMware S
     - The **Node type** is defaulted to **AV36**. Azure Migrate recommends the node of nodes needed to migrate the VMs to AVS.
     - In **FTT setting, RAID level**, select the Failure to Tolerate and RAID combination.  The selected FTT option, combined with the on-premises VM disk requirement, determines the total vSAN storage required in AVS.
     - In **CPU Oversubscription**, specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.
-    - In **Memory overcommit factor**, specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5 for example is 50%, and 2 would be using 200% of available memory.You can only add values from 0.5 to 10 up to one decimal place.
-    - In **Dedupe and compression factor**, specify the anticipated dedupe and compression factor for your workloads. Actual value can be obtained from on prem vSAN or storage config and this may vary by workload. A value of 3 would mean 3x so for 300GB disk only 100GB storage would be used. A value of 1 would mean no dedupe or compression. You can only add values from 1 to 10 up to one decimal place.
+    - In **Memory overcommit factor**, specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5 for example is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
+    - In **Dedupe and compression factor**, specify the anticipated dedupe and compression factor for your workloads. Actual value can be obtained from on-premises vSAN or storage config and this may vary by workload. A value of 3 would mean 3x so for 300GB disk only 100GB storage would be used. A value of 1 would mean no dedupe or compression. You can only add values from 1 to 10 up to one decimal place.
 1. In **Node Size**: 
     - In **Sizing criterion**, select if you want to base the assessment on static metadata, or on performance-based data. If you use performance data:
         - In **Performance history**, indicate the data duration on which you want to base the assessment
@@ -146,7 +146,7 @@ compression and deduplication.
     - **Readiness unknown**: Azure Migrate couldn't determine the readiness of the machine because of insufficient metadata collected from the on-premises environment.
 
 3. Review the Suggested tool:
-    - **VMware HCX or Enterprise**: For VMware machines, VMWare Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+    - **VMware HCX or Enterprise**: For VMware machines, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
     - **Unknown**: For machines imported via a CSV file, the default migration tool is unknown. Though for VMware machines, it is suggested to use the VMware Hybrid Cloud Extension (HCX) solution. 
 
 4. Click on an **AVS readiness** status. You can view VM readiness details, and drill down to see VM details, including compute, storage, and network settings.
