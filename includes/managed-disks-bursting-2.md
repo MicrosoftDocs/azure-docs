@@ -98,15 +98,15 @@ The following examples show how bursting works with various VM and disk combinat
 
  When the VM boots up it retrieves data from the OS disk. Since the OS disk is part of a VM that is booting, the OS disk will be full of bursting credits. These credits will allow the OS disk burst its startup at 170 MB/s second.
 
-![VM sends a request for 192 MB/s of throughput to OS disk, OS disk responds with 170 MB/s data.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-startup.jpg)
+![VM sends a request for 192 MB/s of throughput to OS disk, OS disk responds with 170 MB/s data.](media/managed-disks-bursting/nonbursting-vm-bursting-disk/nonbursting-vm-bursting-disk-startup.jpg)
 
 After the boot up is complete, an application is then run on the VM and has a non-critical workload. This workload requires 15 MB/S that gets spread evenly across all the disks.
 
-![Application sends request for 15 MB/s of throughput to VM, VM takes request and sends each of its disks a request for 5 MB/s, each disk returns 5 MB/s, VM returns 15 MB/s to application.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-idling.jpg)
+![Application sends request for 15 MB/s of throughput to VM, VM takes request and sends each of its disks a request for 5 MB/s, each disk returns 5 MB/s, VM returns 15 MB/s to application.](media/managed-disks-bursting/nonbursting-vm-bursting-disk/nonbursting-vm-bursting-disk-idling.jpg)
 
 Then the application needs to process a batched job that requires 192 MB/s. 2 MB/s are used by the OS disk and the rest are evenly split between the data disks.
 
-![Application sends request for 192 MB/s of throughput to VM, VM takes request and sends the bulk of its request to the data disks (95 MB/s each) and 2 MB/s to the OS disk, the data disks burst to meet the demand and all disks return the requested throughput to the VM, which returns it to the application.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
+![Application sends request for 192 MB/s of throughput to VM, VM takes request and sends the bulk of its request to the data disks (95 MB/s each) and 2 MB/s to the OS disk, the data disks burst to meet the demand and all disks return the requested throughput to the VM, which returns it to the application.](media/managed-disks-bursting/nonbursting-vm-bursting-disk/nonbursting-vm-bursting-disk-bursting.jpg)
 
 ### Burstable virtual machine with non-burstable disks
 **VM and disk combination:** 

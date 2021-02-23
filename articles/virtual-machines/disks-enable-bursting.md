@@ -123,3 +123,6 @@ With the `2020-09-30` disk API, you can enable on-demand bursting on newly-creat
 ```
 ---
  
+## Next steps
+
+To learn how to gain insight into your bursting resources, see [Disk bursting metrics](disks-metrics.md).
