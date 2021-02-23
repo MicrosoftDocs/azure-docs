@@ -3,7 +3,7 @@ title: Using MSIXMGR tool - Azure
 description: How to use the MSIXMGR tool for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/19/2021
+ms.date: 02/23/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -18,7 +18,7 @@ The MSIXMGR tool is for expanding MSIX-packaged applications into MSIX images. T
 
 Before you can follow the instructions in this article, you'll need to do the following things:
 
-- Download MSIXMGR from <https://aka.ms/msixmgr>
+- [Download the MSIXMGR tool](https://aka.ms/msixmgr)
 - Get an MSIX-packaged application (.MSIX file)
 - Get administrative permissions on the machine where you'll create the MSIX image
 
@@ -28,13 +28,13 @@ Expansion is the process of taking an MSIX packaged application (.MSIX) and unzi
 
 To expand an MSIX file:
 
-1.  Download MSIXMGR from <https://aka.ms/msixmgr>.
+1. [Download the MSIXMGR tool](https://aka.ms/msixmgr) if you haven't already.
 
-2.  Unzip MSIXMGR.zip into a local folder.
+2. Unzip MSIXMGR.zip into a local folder.
 
-3.  Open **Command prompt (CMD)** in elevated mode.
+3. Open a command prompt in elevated mode.
 
-4.  Find the local folder from step 2.
+4. Find the local folder from step 2.
 
 5. Run the following command in the command prompt to create an MSIX image.
 
@@ -65,3 +65,17 @@ Here's how you'd use that command to make a VHDX:
 ```cmd
 msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\packageName_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\packageName.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps
 ```
+
+## Next steps
+
+Learn more about MSIX app attach at [What is MSIX app attach?](what-is-app-attach.md)
+
+To learn how to set up app attach, check out these articles:
+
+- [Set up MSIX app attach with the Azure portal](app-attach-azure-portal.md)
+- [Set up MSIX app attach using PowerShell](app-attach-powershell.md)
+- [Create PowerShell scripts for MSIX app attach](app-attach.md)
+- [Prepare an MSIX image for Windows Virtual Dekstop](app-attach-image-prep.md)
+- [Set up a file share for MSIX app attach](app-attach-file-share.md)
+
+If you have questions about MSIX app attach, see our [App attach FAQ](app-attach-faq.md) and [App attach glossary](app-attach-glossary.md).
