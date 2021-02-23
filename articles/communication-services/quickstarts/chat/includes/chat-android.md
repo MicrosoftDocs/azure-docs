@@ -101,12 +101,13 @@ import com.azure.android.core.http.HttpHeader;
 final String endpoint = "https://<resource>.communication.azure.com";
 final String userAccessToken = "<user_access_token>";
 
-ChatClient client = new ChatClient.Builder()
-    .endpoint(endpoint)
-    .credentialInterceptor(chain -> chain.proceed(chain.request()
-        .newBuilder()
-        .header(HttpHeader.AUTHORIZATION, userAccessToken)
-        .build());
+ChatAsyncClient client = new ChatAsyncClient.Builder()
+        .endpoint(endpoint)
+        .credentialInterceptor(chain -> chain.proceed(chain.request()
+            .newBuilder()
+            .header(HttpHeader.AUTHORIZATION, userAccessToken)
+            .build()))
+        .build();
 ```
 
 1. Use the `AzureCommunicationChatServiceAsyncClient.Builder` to configure and create an instance of `AzureCommunicationChatClient`.
@@ -131,43 +132,34 @@ Replace the comment `<CREATE A CHAT THREAD>` with the following code:
 //  The list of ChatParticipant to be added to the thread.
 List<ChatParticipant> participants = new ArrayList<>();
 // The communication user ID you created before, required.
-final String id = "<user_id>";
+String id = "<user_id>";
 // The display name for the thread participant.
-final String displayName = "initial participant";
+String displayName = "initial participant";
 participants.add(new ChatParticipant()
-    .setId(id)
+    .setId(new CommunicationUserIdentifier(id))
     .setDisplayName(displayName));
 
 // The topic for the thread.
 final String topic = "General";
-// The model to pass to the create method.
-CreateChatThreadRequest thread = new CreateChatThreadRequest()
-    .setTopic(topic)
-    .setParticipants(participants);
+        // The model to pass to the create method.
+        CreateChatThreadRequest thread = new CreateChatThreadRequest()
+        .setTopic(topic)
+        .setParticipants(participants);
 
-// optional, set a repeat request ID 
-final String repeatabilityRequestID = '123';
+// optional, set a repeat request ID
+final String repeatabilityRequestID = "123";
 
-client.createChatThread(thread, repeatabilityRequestID, new Callback<CreateChatThreadResult>() {
-    public void onSuccess(CreateChatThreadResult result, okhttp3.Response response) {
-        // MultiStatusResponse is the result returned from creating a thread.
-        // It has a 'multipleStatus' property which represents a list of IndividualStatusResponse.
-        String threadId;
-        List<IndividualStatusResponse> statusList = result.getMultipleStatus();
-        for (IndividualStatusResponse status : statusList) {
-            if (status.getId().endsWith("@thread.v2")
-                && status.getType().contentEquals("Thread")) {
-                threadId = status.getId();
-                break;
-            }
+        client.createChatThread(thread, repeatabilityRequestID, new Callback<CreateChatThreadResult>() {
+public void onSuccess(CreateChatThreadResult result, okhttp3.Response response) {
+        ChatThread chatThread = result.getChatThread();
+        String threadId = chatThread.getId();
+        // take further action
         }
-        // Take further action.
-    }
 
-    public void onFailure(Throwable throwable, okhttp3.Response response) {
+public void onFailure(Throwable throwable, okhttp3.Response response) {
         // Handle error.
-    }
-});
+        }
+        });
 ```
 
 Replace `<user_id>` with a valid Communication Services user ID. We'll use the `threadId` from the response returned to the completion handler in later steps.
@@ -177,10 +169,10 @@ Replace `<user_id>` with a valid Communication Services user ID. We'll use the `
 Now that we've created a Chat thread we'll obtain a `ChatThreadClient` to perform operations within the thread. Replace the comment `<CREATE A CHAT THREAD CLIENT>` with the following code:
 
 ```
-ChatThreadClient threadClient =
-        new ChatThreadClient.Builder()
-            .endpoint(<endpoint>))
-            .build();
+ChatThreadAsyncClient threadClient =
+        new ChatThreadAsyncClient.Builder()
+                .endpoint(endpoint)
+                .build();
 ```
 
 Replace `<endpoint>` with your Communication Services endpoint.
@@ -194,26 +186,26 @@ Replace the comment `<SEND A MESSAGE>` with the following code:
 final String content = "Test message 1";
 // The display name of the sender, if null (i.e. not specified), an empty name will be set.
 final String senderDisplayName = "An important person";
-SendChatMessageRequest message = new SendChatMessageRequest()
-    .setType(ChatMessageType.TEXT)
-    .setContent(content)
-    .setSenderDisplayName(senderDisplayName);
+        SendChatMessageRequest message = new SendChatMessageRequest()
+        .setType(ChatMessageType.TEXT)
+        .setContent(content)
+        .setSenderDisplayName(senderDisplayName);
 
 // The unique ID of the thread.
-final String threadId = "<thread_id>";
+String threadId = "<thread_id>";
 threadClient.sendChatMessage(threadId, message, new Callback<String>() {
-    @Override
-    public void onSuccess(String messageId, Response response) {
-        // A string is the response returned from sending a message, it is an id, 
-        // which is the unique ID of the message.
-        final String chatMessageId = messageId;
-        // Take further action.
-    }
+        @Override
+        public void onSuccess(String messageId, okhttp3.Response response) {
+                // A string is the response returned from sending a message, it is an id,
+                // which is the unique ID of the message.
+                final String chatMessageId = messageId;
+                // Take further action.
+        }
 
-    @Override
-    public void onFailure(Throwable throwable, Response response) {
-        // Handle error.
-    }
+        @Override
+        public void onFailure(Throwable throwable, okhttp3.Response response) {
+                // Handle error.
+        }
 });
 ```
 
@@ -225,29 +217,29 @@ Replace the comment `<ADD A USER>` with the following code:
 
 ```java
 //  The list of ChatParticipant to be added to the thread.
-List<ChatParticipant> participants = new ArrayList<>();
+participants = new ArrayList<>();
 // The CommunicationUser.identifier you created before, required.
-final String id = "<user_id>";
+id = "<user_id>";
 // The display name for the thread participant.
-final String displayName = "a new participant";
-participants.add(new ChatParticipant().setId(id).setDisplayName(displayName));
+displayName = "a new participant";
+participants.add(new ChatParticipant().setId(new CommunicationUserIdentifier(id)).setDisplayName(displayName));
 // The model to pass to the add method.
-AddChatParticipantsRequest participants = new AddChatParticipantsRequest()
-    .setParticipants(participants);
+AddChatParticipantsRequest addParticipantsRequest = new AddChatParticipantsRequest()
+.setParticipants(participants);
 
 // The unique ID of the thread.
-final String threadId = "<thread_id>";
-threadClient.addChatParticipants(threadId, participants, new Callback<Void>() {
-    @Override
-    public void onSuccess(Void result, Response response) {
-        // Take further action.
-    }
-
-    @Override
-    public void onFailure(Throwable throwable, Response response) {
-        // Handle error.
-    }
-});
+threadId = "<thread_id>";
+threadClient.addChatParticipants(threadId, addParticipantsRequest, new Callback<AddChatParticipantsResult>() {
+        @Override
+        public void onSuccess(AddChatParticipantsResult result, okhttp3.Response response) {
+                // Take further action.
+                }
+        
+        @Override
+        public void onFailure(Throwable throwable, okhttp3.Response response) {
+                // Handle error.
+                }
+        });
 ```
 
 1. Replace `<user_id>` with the Communication Services user ID of the user to be added. 
@@ -259,7 +251,7 @@ Replace the `<LIST USERS>` comment with the following code:
 
 ```java
 // The unique ID of the thread.
-final String threadId = "<thread_id>";
+threadId = "<thread_id>";
 
 // The maximum number of participants to be returned per page, optional.
 final int maxPageSize = 10;
@@ -271,49 +263,51 @@ threadClient.listChatParticipantsPages(threadId,
     maxPageSize,
     skip,
     new Callback<AsyncPagedDataCollection<ChatParticipant, Page<ChatParticipant>>>() {
-    @Override
-    public void onSuccess(AsyncPagedDataCollection<ChatParticipant, Page<ChatParticipant>> firstPage,
-        Response response) {
-        // pageCollection enables enumerating list of chat participants.
-        pageCollection.getFirstPage(new Callback<Page<ChatParticipant>>() {
+        @Override
+        public void onSuccess(AsyncPagedDataCollection<ChatParticipant, Page<ChatParticipant>> pageCollection,
+            okhttp3.Response response) {
+            // pageCollection enables enumerating list of chat participants.
+            pageCollection.getFirstPage(new Callback<Page<ChatParticipant>>() {
             @Override
-            public void onSuccess(Page<ChatParticipant> firstPage, Response response) {
-                for (ChatParticipant participant : firstPage.getItems()) {
+            public void onSuccess(Page<ChatParticipant> firstPage, okhttp3.Response response) {
+                    for (ChatParticipant participant : firstPage.getItems()) {
                     // Take further action.
-                }
-                retrieveNextParticipantsPages(firstPage.getPageId(), pageCollection);
+                    }
+                pageCollection.getPage(firstPage.getNextPageId(), new Callback<Page<ChatParticipant>>() {
+                    @Override
+                    public void onSuccess(Page<ChatParticipant> result, Response response) {
+                            pageCollection.getPage(result.getPreviousPageId(), new Callback<Page<ChatParticipant>>() {
+                        @Override
+                        public void onSuccess(Page<ChatParticipant> result, Response response) {
+                                // Take further action.
+                        }
+    
+                        @Override
+                        public void onFailure(Throwable throwable, Response response) {
+                                // Take further action.
+                        }
+                        });
+                    }
+    
+                    @Override
+                    public void onFailure(Throwable throwable, Response response) {
+                            // Take further action.
+                            }
+                });
             }
 
             @Override
-            public void onFailure(Throwable throwable, Response response) {
+            public void onFailure(Throwable throwable, okhttp3.Response response) {
+                    // Handle error.
+            }
+            });
+        }
+
+        @Override
+        public void onFailure(Throwable throwable, okhttp3.Response response) {
                 // Handle error.
-            }
-         }
-    }
-
-    @Override
-    public void onFailure(Throwable throwable, Response response) {
-        // Handle error.
-    }
+        }
 });
-
-void listChatParticipantsNext(String nextLink,
-    AsyncPagedDataCollection<Page<ChatParticipant>> pageCollection) {
-        @Override
-        public void onSuccess(Page<ChatParticipant> nextPage, Response response) {
-            for (ChatParticipant participant : nextPage.getItems()) {
-                // Take further action.
-            }
-            if (nextPage.getPageId() != null) {
-                retrieveNextParticipantsPages(nextPage.getPageId(), pageCollection);
-            }
-        }
-
-        @Override
-        public void onFailure(Throwable throwable, Response response) {
-            // Handle error.
-        }
-}
 ```
 
 Replace `<thread_id>` with the thread ID you're listing users for.
@@ -324,17 +318,17 @@ Replace the `<REMOVE A USER>` comment with the following code:
 
 ```java
 // The unique ID of the thread.
-final String threadId = "<thread_id>";
+threadId = "<thread_id>";
 // The unique ID of the participant.
 final String participantId = "<participant_id>";
 threadClient.removeChatParticipant(threadId, participantId, new Callback<Void>() {
     @Override
-    public void onSuccess(Void result, Response response) {
-        // Take further action.
+    public void onSuccess(Void result, okhttp3.Response response) {
+            // Take further action.
     }
-
+    
     @Override
-    public void onFailure(Throwable throwable, Response response) {
+    public void onFailure(Throwable throwable, okhttp3.Response response) {
         // Handle error.
     }
 });
