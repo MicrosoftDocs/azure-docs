@@ -25,7 +25,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + [Experimental feature] Add support to attach synapse spark pool into AML as a compute
     + [Experimental feature] Add support for identity based data access. Users can register datastore or datasets without providing credentials. In such case, users' AAD token or managed identity of compute target will be used for authentication. Learn more [here](https://aka.ms/data-access).
   + **azureml-pipeline-steps**
-    + [Experimental feature] Add support for [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep?view=azure-ml-py)
+    + [Experimental feature] Add support for [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep?preserve-view=true&view=azure-ml-py)
   + **azureml-synapse**
     + [Experimental feature] Add support of spark magic to run interactive session in synapse spark pool.
 + **Bug fixes and improvements**
