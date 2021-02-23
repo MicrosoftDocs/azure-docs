@@ -13,4 +13,14 @@
       href: ./apache-kafka-confluent-cloud/manage.md
     - name: Troubleshoot
       href: ./apache-kafka-confluent-cloud/troubleshoot.md
-      
+  - name: Datadog
+    items:
+    - name: Overview
+      displayName: Datadog, Monitoring
+      href: ./datadog/overview.md
+    - name: Create
+      href: ./datadog/create.md
+    - name: Manage
+      href: ./datadog/manage.md
+    - name: Troubleshoot
+      href: ./datadog/troubleshoot.md
