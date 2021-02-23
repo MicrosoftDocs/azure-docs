@@ -146,7 +146,7 @@ This should capture all application bundle identifiers visible to the SSO extens
 
 #### Allow user to sign-in from unknown applications and the Safari browser.
 
-By default, the Microsoft Enterprise SSO plug-in provides SSO for authorized apps only when a user has signed in from an app that uses a Microsoft identity platform library like ADAL or MSAL. The Microsoft Enterprise SSO plug-in can also acquire a shared credential when it is called by another app that uses a Microsoft identity platform library during a new token acquisition.
+By default the Microsoft Enterprise SSO plug-in provides SSO for authorized apps only when a user has signed in from an app that uses a Microsoft identity platform library like ADAL or MSAL. The Microsoft Enterprise SSO plug-in can also acquire a shared credential when it is called by another app that uses a Microsoft identity platform library during a new token acquisition.
 
 Enabling `browser_sso_interaction_enabled` flag enables app that do not use a Microsoft identity platform library to do the initial bootstrapping and get a shared credential. It also allows Safari browser to do the initial bootstrapping and get a shared credential. If the Microsoft Enterprise SSO plug-in doesn’t have a shared credential yet, it will try to get one whenever a sign-in is requested from an Azure AD URL inside Safari browser, ASWebAuthenticationSession, SafariViewController, or another permitted native application.  
 
@@ -154,7 +154,19 @@ Enabling `browser_sso_interaction_enabled` flag enables app that do not use a Mi
 - **Type**: `Integer`
 - **Value**: 1 or 0
 
-We recommend enabling this flag to get more consistent experience across all apps. It is disabled by default. 
+For macOS apps we recommend enabling this flag to get more consistent experience across all apps. Most iOS and iPadOS use the Microsoft Authenticator application for sign-in and do not need this setting. If you have applicaitions that do not use the Microsoft Authenticator this flag may be useful. It is disabled by default.
+
+#### Disable asking for MFA on inital bootstrapping
+
+By default the Microsoft Enterprise SSO plug-in always prompts the user for Multi-factor authentication (MFA) when doing initial bootstrapping and getting a shared credential, even if it's not required for the current application the user has launched. This is so that the shared credential can be used easily across all additional applications without prompting the user if MFA is required. This reduces the times the user needs to be prompted on the device and is generally a good decision.
+
+Enabling `browser_sso_disable_mfa` turns this off and will only prompt the user when MFA is required by an application or resource. 
+
+- **Key**: `browser_sso_disable_mfa`
+- **Type**: `Integer`
+- **Value**: 1 or 0
+
+We recommend keeping this flag disabled as it reduces the times the user needs to be prompted on the device. If your organization rarely use MFA you may want to enable the flag, but we'd rather you use start to use MFA as it's much safer. For this reason, it is disabled by default.
 
 #### Disable OAuth2 application prompts
 
