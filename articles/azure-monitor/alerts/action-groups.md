@@ -147,7 +147,7 @@ Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functio
 You may have a limited number of Function actions in an Action Group.
 
 ### ITSM
-ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../platform/itsmc-overview.md).
+ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](./itsmc-overview.md).
 
 You may have a limited number of ITSM actions in an Action Group. 
 
@@ -329,7 +329,7 @@ Please see [Action Group IP Addresses](../app/ip-addresses.md) for source IP add
 ## Next steps
 * Learn more about [SMS alert behavior](./alerts-sms-behavior.md).  
 * Gain an [understanding of the activity log alert webhook schema](./activity-log-alerts-webhook.md).  
-* Learn more about [ITSM Connector](../platform/itsmc-overview.md).
+* Learn more about [ITSM Connector](./itsmc-overview.md).
 * Learn more about [rate limiting](./alerts-rate-limiting.md) on alerts.
-* Get an [overview of activity log alerts](../platform/alerts-overview.md), and learn how to receive alerts.  
+* Get an [overview of activity log alerts](./alerts-overview.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](../../service-health/alerts-activity-log-service-notifications-portal.md).
