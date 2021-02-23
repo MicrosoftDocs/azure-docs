@@ -22,7 +22,7 @@ This article offers query examples and more detailed instructions for using the 
 
 This article begins with sample queries that illustrate the query language structure and common query operations for digital twins. It then describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
 
-> [!TIP]
+> [!NOTE]
 > If you're running the sample queries below with an API or SDK call, you'll need to condense the query text into a single line.
 
 ## Show all digital twins
@@ -37,7 +37,7 @@ Get digital twins by **properties** (including ID and metadata):
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!TIP]
+> [!NOTE]
 > The ID of a digital twin is queried using the metadata field `$dtId`.
 
 You can also get twins based on **whether a certain property is defined**. Here is a query that gets twins that have a defined *Location* property:
@@ -51,6 +51,10 @@ This can help you to get twins by their *tag* properties, as described in [Add t
 You can also get twins based on the **type of a property**. Here is a query that gets twins whose *Temperature* property is a number:
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty3":::
+
+>[!TIP]
+> If a property is of type `Map`, you can use the map keys and values directly in the query, like this:
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty4":::
 
 ## Query by model
 
@@ -221,7 +225,12 @@ The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-This call returns query results in the form of a [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) object.
+The query used in this call returns a list of digital twins, which the above example represents with [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) objects. The return type of your data for each query will depend on what terms you specify with the `SELECT` statement:
+* Queries that begin with `SELECT * FROM ...` will return a list of digital twins (which can be serialized as `BasicDigitalTwin` objects, or other custom digital twin types that you may have created).
+* Queries that begin in the format `SELECT <A>, <B>, <C> FROM ...` will return a dictionary with keys `<A>`, `<B>`, and `<C>`.
+* Other formats of `SELECT` statements can be crafted to return custom data. You might consider creating your own classes to handle very customized result sets. 
+
+### Query with paging
 
 Query calls support paging. Here is a complete example using `BasicDigitalTwin` as query result type with error handling and paging:
 
