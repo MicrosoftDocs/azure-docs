@@ -18,5 +18,5 @@ The following table includes links to Azure Resource Manager templates for Azure
 
 | Example | Description |
 |-|-|
-| [App Service](./sample-app-service.md) | Creates an App Service app with a public endpoint, and a Front Door profile.  |
+| [App Service](https://azure.microsoft.com/resources/templates/201-front-door-standard-premium-app-service-public/) | Creates an App Service app with a public endpoint, and a Front Door profile.  |
 | | |
