@@ -43,11 +43,9 @@ The following services are now generally available for Customer Lockbox:
 - Azure Synapse Analytics
 - Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
 
-To enable Customer Lockbox for these preview offerings for your organization, sign up for [Customer Lockbox for Azure Public Preview](https://aka.ms/customerlockbox/insiderprogram).
-
 ## Enable Customer Lockbox
 
-You can now enable Customer Lockbox from the [Administration module](https://ms.portal.azure.com/#blade/Microsoft_Azure_Lockbox/LockboxMenu/Overview) in the Customer Lockbox blade.  
+You can now enable Customer Lockbox from the [Administration module](https://aka.ms/customerlockbox/administration) in the Customer Lockbox blade.  
 
 > [!NOTE]
 > To enable Customer Lockbox, the user account needs to have the [Global Administrator role assigned](../../active-directory/roles/manage-roles-portal.md).
@@ -62,7 +60,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 3. An Azure Support Engineer reviews the service request and determines the next steps to resolve the issue.
 
-4. If the support engineer can't troubleshoot the issue by using standard tools and telemetry, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer. Or, it can be from a different engineer because the problem is escalated to the Azure DevOps team.
+4. If the support engineer can't troubleshoot the issue by using standard tools and telemetry, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer or from a different engineer because the problem is escalated to the Azure DevOps team.
 
 5. After the access request is submitted by the Azure Engineer, Just-In-Time service evaluates the request taking into account factors such as:
     - The scope of the resource
@@ -119,17 +117,17 @@ As an example:
 
 ## Customer Lockbox integration with Azure Security Benchmark
 
-We've introduced a new baseline control ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) in Azure Security Benchmark that covers Customer Lockbox applicability. Customers can now leverage benchmark to review Customer Lockbox applicability for a service.
+We've introduced a new baseline control ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) in Azure Security Benchmark that covers Customer Lockbox applicability. Customers can now leverage the benchmark to review Customer Lockbox applicability for a service.
 
 ## Exclusions
 
-Customer Lockbox requests aren't triggered in the following engineering support scenarios:
+Customer Lockbox requests are not triggered in the following engineering support scenarios:
 
 - A Microsoft engineer needs to do an activity that falls outside of standard operating procedures. For example, to recover or restore services in unexpected or unpredictable scenarios.
 - A Microsoft engineer accesses the Azure platform as part of troubleshooting and inadvertently has access to customer data. For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. In this scenario, if the customer encrypts the data while it is in transit then the engineer cannot read the data.
 
 ## Next steps
 
-Customer Lockbox is available for all customers who have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**. You can enable Customer Lockbox from the [Administration module](https://ms.portal.azure.com/#blade/Microsoft_Azure_Lockbox/LockboxMenu/Overview) in the Customer Lockbox blade.
+Customer Lockbox is available for all customers who have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**. You can enable Customer Lockbox from the [Administration module](https://aka.ms/customerlockbox/administration) in the Customer Lockbox blade.
 
 Customer Lockbox requests are initiated by a Microsoft engineer if this action is needed to progress a support case.
