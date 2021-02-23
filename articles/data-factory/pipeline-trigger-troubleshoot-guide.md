@@ -98,8 +98,8 @@ Known Facts about *ForEach*
  
 **Resolution**
 
- * You should not use *SetVariable* actvity inside *For Each* that runs in parallel.
- * Taking in consideration the way the queues are constructed, customer can improve the foreach performance by setting multiple foreaches where each foreach will have items with similar processing time. This will ensure that long runs are processed in parallel rather sequentially.
+ * You should not use *SetVariable* activity inside *For Each* that runs in parallel.
+ * Taking in consideration the way the queues are constructed, customer can improve the foreach performance by setting multiple *foreaches* where each foreach will have items with similar processing time. This will ensure that long runs are processed in parallel rather sequentially.
 
 ## Next steps
 
