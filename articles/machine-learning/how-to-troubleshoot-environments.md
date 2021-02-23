@@ -150,7 +150,7 @@ See the following scenarios to troubleshoot possible service-side failures.
 Possible issues:
 - The path name to the container registry might not be resolving correctly. Check that image names use double slashes and the direction of slashes on Linux versus Windows hosts is correct.
 - If a container registry behind a virtual network is using a private endpoint in [an unsupported region](../private-link/private-link-overview.md#availability), configure the container registry by using the service endpoint (public access) from the portal and retry.
-- After you put the container registry behind a virtual network, run the [Azure Resource Manager template](./how-to-network-security-overview.md#azure-container-registry) so the workspace can communicate with the container registry instance.
+- After you put the container registry behind a virtual network, run the [Azure Resource Manager template](./how-to-network-security-overview.md) so the workspace can communicate with the container registry instance.
 
 ### You get a 401 error from a workspace container registry
 
@@ -182,7 +182,7 @@ Check if the [correct tag](./how-to-use-environments.md#create-an-environment) i
 
 If you're using default Docker images and enabling user-managed dependencies, use the MicrosoftContainerRegistry and AzureFrontDoor.FirstParty [service tags](./how-to-network-security-overview.md) to allowlist Azure Container Registry and its dependencies.
 
- For more information, see [Enabling virtual networks](./how-to-network-security-overview.md#azure-container-registry).
+ For more information, see [Enabling virtual networks](./how-to-network-security-overview.md).
 
 ### You need to create an ICM
 
