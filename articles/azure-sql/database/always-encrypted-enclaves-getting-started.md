@@ -79,7 +79,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
 
   ```PowerShell
   Connect-AzAccount
-  $subscriptionId = <your subscription ID>
+  $subscriptionId = "<your subscription ID>"
   Set-AzContext -Subscription $subscriptionId
   ```
 
@@ -89,15 +89,15 @@ In this step, you will create a new Azure SQL Database logical server and a new 
   > You need to create your resource group in a region (location) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-vcore.md#dc-series-1). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
 
   ```powershell
-  $resourceGroupName = "your new resource group name"
-  $location = "<Azure region that supports DC-series in SQL Database and Microsoft Azure Attestation>"
+  $resourceGroupName = "<your new resource group name>"
+  $location = "Azure region supporting DC-series and Microsoft Azure Attestation"
   New-AzResourceGroup -Name $resourceGroupName -Location $location
   ```
 
 4. Create an Azure SQL logical server. When prompted, enter the server administrator name and a password. Make sure you remember the admin name and the password - you will need them later to connect to the server.
 
   ```powershell
-  $serverName = "<server name>" 
+  $serverName = "<your server name>" 
   New-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -Location $location 
   ```
 
@@ -133,7 +133,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
     -ComputeGeneration $generation
   ```
 
-8. Retrieve and save the information about your server and the database. You will need this information, as well as the admin user and the password from step 3 in this section, in later sections.
+8. Retrieve and save the information about your server and the database. You will need this information, as well as the admin name and the password from step 4 in this section, in later sections.
 
   ```powershell
   Write-Host 
@@ -169,7 +169,7 @@ In this step, You'll create and configure an attestation provider in Microsoft A
 3. Create an attestation provider. 
 
   ```powershell
-  $attestationProviderName = "<attestation provider name>" 
+  $attestationProviderName = "<your attestation provider name>" 
   New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
   ```
 
@@ -187,7 +187,7 @@ In this step, You'll create and configure an attestation provider in Microsoft A
     -PolicyFormat  $policyFormat
   ```
 
-5. Grant your Azure SQL logical server access to your attestation provider. In this step, we're using the object ID of the managed service identity that you assigned to your server earlier.
+5. Grant your Azure SQL logical server access to your attestation provider. In this step, you're using the object ID of the managed service identity that you assigned to your server earlier.
 
   ```powershell
   New-AzRoleAssignment -ObjectId $serverObjectId `
@@ -213,7 +213,7 @@ In this step, You'll create and configure an attestation provider in Microsoft A
 In this step, you'll create a table and populate it with some data that you'll later encrypt and query.
 
 1. Open SSMS and connect to the **ContosoHR** database in the Azure SQL logical server you created **without** Always Encrypted enabled in the database connection.
-    1. In the **Connect to Server** dialog, specify your server name (for example, *myserver123.database.windows.net*), and enter the administrator user name and the password, you specified when you created the server.
+    1. In the **Connect to Server** dialog, specify the fully qualified name of your server (for example, *myserver123.database.windows.net*), and enter the administrator user name and the password, you specified when you created the server.
     2. Click **Options >>** and select the **Connection Properties** tab. Make sure to select the **ContosoHR** database (not the default, master database). 
     3. Select the **Always Encrypted** tab.
     4. Make sure the **Enable Always Encrypted (column encryption)** checkbox is **not** selected.
@@ -295,7 +295,7 @@ In this step, you'll encrypt the data stored in the **SSN** and **Salary** colum
 
 1. Open a new SSMS instance and connect to your database **with** Always Encrypted enabled for the database connection.
     1. Start a new instance of SSMS.
-    2. In the **Connect to Server** dialog, specify your server name (for example, *myserver123.database.windows.net*), and enter the administrator user name and the password, you specified when you created the server.
+    2. In the **Connect to Server** dialog, specify the fully qualified name of your server (for example, *myserver123.database.windows.net*), and enter the administrator user name and the password, you specified when you created the server.
     3. Click **Options >>** and select the **Connection Properties** tab. Make sure to select the **ContosoHR** database (not the default, master database). 
     4. Select the **Always Encrypted** tab.
     5. Make sure the **Enable Always Encrypted (column encryption)** checkbox is selected.
