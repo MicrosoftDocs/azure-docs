@@ -32,7 +32,7 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
  > [!NOTE]
    >  If you use build 1903/1909 then you may need to update the following group policy for optimal performance. These changes are not needed for any other Windows builds.
    >  
-   >  [Computer Configuration->Policies->Windows Settings->Administrative Templates->Windows Components->Remote Desktop Services->Remote Desktop Session Host->Remote Session    Enviroment], set the Policy [Use WDDM graphics display driver for Remote Desktop Connections] to Disabled.
+   >  [Computer Configuration->Policies->Windows Settings->Administrative Templates->Windows Components->Remote Desktop Services->Remote Desktop Session Host->Remote Session    Environment], set the Policy [Use WDDM graphics display driver for Remote Desktop Connections] to Disabled.
    >  
 
 
