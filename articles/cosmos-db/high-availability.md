@@ -106,7 +106,7 @@ The following table summarizes the high availability capability of various accou
 |Read availability SLA  | 99.99% | 99.995% | 99.995% | 99.999% |
 |Zone failures – data loss | Data loss | No data loss | No data loss | No data loss |
 |Zone failures – availability | Availability loss | No availability loss | No availability loss | No availability loss |
-|Regional outage – data loss | Data loss |  Data loss | Dependent on consistency level. See [Consistency, availability, and performance tradeoffs](consistency-levels-tradeoffs.md) for more information. | Dependent on consistency level. See [Consistency, availability, and performance tradeoffs](consistency-levels-tradeoffs.md) for more information.
+|Regional outage – data loss | Data loss |  Data loss | Dependent on consistency level. See [Consistency, availability, and performance tradeoffs](./consistency-levels.md) for more information. | Dependent on consistency level. See [Consistency, availability, and performance tradeoffs](./consistency-levels.md) for more information.
 |Regional outage – availability | Availability loss | Availability loss | No availability loss for read region failure, temporary for write region failure | No availability loss |
 |Price (***1***) | N/A | Provisioned RU/s x 1.25 rate | Provisioned RU/s x 1.25 rate (***2***) | Multi-region write rate |
 
