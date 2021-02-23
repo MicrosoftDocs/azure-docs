@@ -99,7 +99,7 @@ After your AKS service has finished provisioning, return to the real-time infere
     
     |Advanced setting|Description|
     |---|---|
-    |Enable Application Insights diagnostics and data collection| Whether to enable Azure Application Ingishts to collect data from the deployed endpoints. </br> By default: false |
+    |Enable Application Insights diagnostics and data collection| Whether to enable Azure Application Insights to collect data from the deployed endpoints. </br> By default: false |
     |Scoring timeout| A timeout in milliseconds to enforce for scoring calls to the web service.</br>By default: 60000|
     |Auto scale enabled|   Whether to enable autoscaling for the web service.</br>By default: true|
     |Min replicas| The minimum number of containers to use when autoscaling this web service.</br>By default: 1|
@@ -136,9 +136,9 @@ For more information on consuming your web service, see [Consume a model deploye
 
 ## Limitations
 
-If you make some modifications in your training pipeline, you should re-submit the training pipeline, **Update**  the inference pipeline and run the inference pipeline again.
+If you make some modifications in your training pipeline, you should resubmit the training pipeline, **Update** the inference pipeline and run the inference pipeline again.
 
-Note that only models will be updated in the inference pipeline, while data transformation will not be updated.
+Note that only trained models will be updated in the inference pipeline, while data transformation will not be updated.
 
 To use the updated transformation in inference pipeline, you need to register the transformation output of the transformation module as dataset.
 
