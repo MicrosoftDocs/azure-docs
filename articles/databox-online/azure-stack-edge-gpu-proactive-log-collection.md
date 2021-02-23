@@ -13,8 +13,6 @@ ms.author: alkohli
 
 # Proactive log collection on your Azure Stack Edge device
 
-
-
 Proactive log collection gathers system health indicators on your Azure Stack Edge device to help you efficiently troubleshoot any device issues. Proactive log collection is enabled by default. This article describes what is logged, how Microsoft handles the data, and how to disable or enable proactive log collection.
 
 The information in this article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
@@ -32,10 +30,11 @@ Microsoft Customer Support and Engineering teams use system logs from your Azure
 Proactive log collection is enabled by default. You can disable proactive log collection when trying to activate the device via the local UI. 
 
 1. In the local web UI of the device, go to the **Get started** page.
+
 2. On the **Activation** tile, select **Activate**. 
 
     ![Local web UI "Cloud details" page 1](./media/azure-stack-edge-pro-r-deploy-activate/activate-1.png)
-    
+
 3. In the **Activate** pane:
 
    1. Enter the **Activation key** that you got in [Get the activation key for Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-prep.md#get-the-activation-key).
@@ -48,13 +47,7 @@ Proactive log collection is enabled by default. You can disable proactive log co
 
    1. Select **Activate**.
 
-      ![Local web UI "Cloud details" page 2](./media/azure-stack-edge-pro-r-deploy-activate/activate-2.png)<!--Updated screen needed. Reduce teh screen size.-->
-
-<!--Updates to UI text:
-
-"Based on system health proactive log collection indicators, logs are proactively uploaded to an Azure Storage account to help Microsoft Support troubleshoot issues if they arise. Learn more. (provide link) 
-
-If you click the “Disable” button you agree to deactivate the proactive log collection. After the proactive log collection is disabled, logs will no longer be uploaded automatically when one of the proactive log collection indicators is detected. To learn more about Microsoft privacy practices, see the Microsoft Privacy Statement."-->
+   ![Local web UI "Cloud details" page 2](./media/azure-stack-edge-pro-r-deploy-activate/activate-2.png)
 
 ## Proactive log collection indicators
 
