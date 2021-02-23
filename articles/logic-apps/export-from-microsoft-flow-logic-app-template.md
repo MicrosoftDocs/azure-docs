@@ -14,9 +14,9 @@ To extend and expand your flow's capabilities, you can migrate that flow from [P
 
 > [!IMPORTANT]
 > Export to Azure Logic Apps is unavailable for Power Automate flows created after August 2020. In October 2020, 
-> Power Automate introduced a new flow format, which is incompatible with Logic Apps workflows. As a result, 
-> you can't export flows created from this new format as Logic Apps templates, so export to Logic Apps for 
-> these flows was disabled and removed. Instead, you have to manually create logic apps for these flows.
+> Power Automate standardized new flow creation on the [OpenAPI 2.0 protocol](https://swagger.io/specification/v2/). 
+> New flows based on this protocol are incompatible with Logic Apps workflows. As a result, exporting these flows 
+> to Logic Apps was disabled. Instead, you have to manually create logic apps for these flows.
 
 Not all Power Automate connectors are available in Azure Logic Apps. You can migrate only Power Automate flows that have the equivalent connectors in Azure Logic Apps. For example, the Button trigger, the Approval connector, and Notification connector are specific to Power Automate. 
 
