@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 02/22/2021
 ms.author: thweiss
 ---
 
@@ -177,7 +177,7 @@ Create a role named *MyReadOnlyRole* that only contains read actions:
 ```azurecli
 resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
-az cosmosdb sql role definition create -a $accountName -g $resourceGroupName -b @role-definition-ro.json
+az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-ro.json
 ```
 
 Create a role named *MyReadWriteRole* that contains all actions:
@@ -199,13 +199,13 @@ Create a role named *MyReadWriteRole* that contains all actions:
 ```
 
 ```azurecli
-az cosmosdb sql role definition create -a $accountName -g $resourceGroupName -b @role-definition-rw.json
+az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-rw.json
 ```
 
 List the role definitions you've created to fetch their IDs:
 
 ```azurecli
-az cosmosdb sql role definition list -a $accountName -g $resourceGroupName
+az cosmosdb sql role definition list --account-name $accountName --resource-group $resourceGroupName
 ```
 
 ```
@@ -299,7 +299,7 @@ resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
 readOnlyRoleDefinitionId = '<roleDefinitionId>' // as fetched above
 principalId = '<aadPrincipalId>'
-az cosmosdb sql role assignment create -a $accountName -g $resourceGroupName -s "/" -p $principalId -d $readOnlyRoleDefinitionId
+az cosmosdb sql role assignment create --account-name $accountName --resource-group --scope "/" --principalId $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
 ## Initialize the SDK with Azure AD
@@ -314,6 +314,9 @@ The way you create a `TokenCredential` instance is beyond the scope of this arti
 The examples below use a service principal with a `ClientSecretCredential` instance.
 
 ### In .NET
+
+> [!NOTE]
+> You must use the `preview` version of the Azure Cosmos DB .NET SDK to access this feature.
 
 ```csharp
 TokenCredential servicePrincipal = new ClientSecretCredential(
@@ -344,7 +347,7 @@ When using the Azure Cosmos DB RBAC, [diagnostic logs](cosmosdb-monitor-resource
 
 This additional information flows in the **DataPlaneRequests** log category and consists of two extra columns:
 
-- `aadPrincipalId_g` shows the principal ID of the AAD identity that was used to issue the request.
+- `aadPrincipalId_g` shows the principal ID of the AAD identity that was used to authenticate the request.
 - `aadAppliedRoleAssignmentId_g` shows the [role assignment](#role-assignments) that was honored when authorizing the request.
 
 ## Frequently asked questions
@@ -352,6 +355,10 @@ This additional information flows in the **DataPlaneRequests** log category and 
 ### Which Azure Cosmos DB APIs are supported by RBAC?
 
 Only the SQL API is currently supported.
+
+### Is it possible to manage role definitions and role assignments from the Azure portal?
+
+Azure portal support for role management is not available yet.
 
 ### Which SDKs in Azure Cosmos DB SQL API support RBAC?
 
