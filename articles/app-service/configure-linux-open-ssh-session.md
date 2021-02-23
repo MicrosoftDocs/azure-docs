@@ -46,6 +46,13 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 > [!TIP]
 > `&` at the end of the command is just for convenience if you are using Cloud Shell. It runs the process in the background so that you can run the next command in the same shell.
 
+> [!NOTE]
+> If this command fails, make sure [remote debugging](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0) is *disabled* with the following command:
+>
+> ```azurecli-interactive
+> az webapp config set --resource-group <resource-group-name> -n <app-name> --remote-debugging-enabled=false
+> ```
+
 The command output gives you the information you need to open an SSH session.
 
 ```output
