@@ -43,7 +43,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + Run.fail() is now deprecated, use Run.tag() to mark run as failed or use Run.cancel() to mark the run as canceled.
     + Show error message 'Environment name expected str, {} found' when provided environment name is not a string.
   + **azureml-train-automl-client**
-    + Fixed a bug that prevented AutoML experiments performed on Azure Databricks clusters from being cancelled.
+    + Fixed a bug that prevented AutoML experiments performed on Azure Databricks clusters from being canceled.
 
 
 ## 2021-02-09
