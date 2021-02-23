@@ -616,6 +616,8 @@
         href: concepts-hyperscale-monitoring.md
       - name: Audit logs
         href: concepts-hyperscale-audit.md
+    - name: Columnar storage
+      href: concepts-hyperscale-columnar.md
     - name: Configuration options
       href: concepts-hyperscale-configuration-options.md
     - name: Prepay for reserved capacity
