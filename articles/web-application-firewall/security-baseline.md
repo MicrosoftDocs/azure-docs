@@ -163,7 +163,7 @@ Azure Sentinel has a built-in Azure WAF workbook, which provides an overview of 
 ### 2.5: Configure security log storage retention
 
 **Guidance**: Send the Azure Web Application Firewall (WAF) logs to a custom storage account and define the retention policy. Use Azure Monitor to set your Log Analytics workspace retention period based on your organization's compliance requirements.
-- [Configure monitoring for a storage account](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Configure monitoring for a storage account](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Azure Security Center monitoring**: Not applicable
 

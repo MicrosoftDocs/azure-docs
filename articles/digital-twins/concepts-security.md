@@ -93,7 +93,7 @@ Azure supports two types of managed identities: system-assigned and user-assigne
 
 You can use a system-assigned managed identity for your Azure Digital Instance to authenticate to a [custom-defined endpoint](concepts-route-events.md#create-an-endpoint). Azure Digital Twins supports system-assigned identity-based authentication to endpoints for [Event Hub](../event-hubs/event-hubs-about.md) and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and to an [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md) endpoint for [dead-letter events](concepts-route-events.md#dead-letter-events). [Event Grid](../event-grid/overview.md) endpoints are currently not supported for managed identities.
 
-For instructions on how to enable a system-managed identity for Azure Digital Twins and use it to route events, see [*How-to: Enable a managed identity for routing events (preview)*](how-to-enable-managed-identities.md).
+For instructions on how to enable a system-managed identity for Azure Digital Twins and use it to route events, see [*How-to: Enable a managed identity for routing events (preview)*](./how-to-enable-managed-identities-portal.md).
 
 ## Private network access with Azure Private Link (preview)
 
@@ -107,7 +107,7 @@ The private endpoint uses an IP address from your Azure VNet address space. Netw
 
 Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure, as well as avoid data exfiltration from your VNet.
 
-For instructions on how to set up Private Link for Azure Digital Twins, see [*How-to: Enable private access with Private Link (preview)*](how-to-enable-private-link.md).
+For instructions on how to set up Private Link for Azure Digital Twins, see [*How-to: Enable private access with Private Link (preview)*](./how-to-enable-private-link-portal.md).
 
 ### Design considerations 
 
