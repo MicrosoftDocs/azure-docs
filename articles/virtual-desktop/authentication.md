@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 02/23/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -23,7 +23,7 @@ These are the currently supported sign-in methods:
 - Windows Desktop client
     - Username and password
     - Smartcard
-    - Windows Hello
+    - Windows Hello for Business
 - Windows Store client
     - Username and password
 - Web client
@@ -36,7 +36,7 @@ These are the currently supported sign-in methods:
     - Username and password
 
 >[!NOTE]
->Smartcard and Windows Hello can only use Kerberos to sign in. Signing in with Kerberos requires line of sight to the domain controller.
+>Smartcard and Windows Hello for Business can only use Kerberos to sign in. Signing in with Kerberos requires line of sight to the domain controller.
 
 ## Hybrid identity
 
