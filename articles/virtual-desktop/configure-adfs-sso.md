@@ -187,7 +187,7 @@ This script only has one required parameter:
   $secret = Import-AzKeyVaultCertificate -VaultName "<Key Vault Name>" -Name "adfsssosecret" -Tag @{ 'AllowedWVDSubscriptions' = $hp.Id.Split('/')[2]} -FilePath "<Path to pfx>" -Password (ConvertTo-SecureString -String "<pfx password>"  -AsPlainText -Force)
   ```
 
-### Update your Windows Virtual Desktop Host Pool
+## Configure your Windows Virtual Desktop Host Pool
 
 It's time to configure the AD FS SSO parameters on your Windows Virtual Desktop Host Pool. To do this, [set up your PowerShell environment](powershell-module.md) for Windows Virtual Desktop if you haven't already and connect to your account.
 
@@ -220,6 +220,18 @@ After that, update the SSO information for your Host Pool by running the followi
   ```powershell
   Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority "<ADFSServiceUrl>" -SsoClientId "https://www.wvd.microsoft.us" -SsoSecretType CertificateInKeyVault -SsoClientSecretKeyVaultPath $secret.Id
   ```
+
+### Configure additional host pool
+
+When you need to configure additional host pool later on, you can retrieve the settings from an existing host pool and use the same to configure the new one.
+
+To retrieve the configuration of the existing host pool, run the following in PowerShell:
+
+```powershell
+Get-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" | fl *
+```
+
+Follow the steps to Configure a host pool above using the same SsoClientId, SsoClientSecretKeyVaultPath, SsoSecretType, and SsoadfsAuthority values.
 
 ## Removing SSO
 
