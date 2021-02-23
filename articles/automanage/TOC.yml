@@ -9,8 +9,8 @@
   expanded: true
   items:
   - name: Automanage for Linux
-    href: automanage-virtual-machines.md
-    - name: Automanage for Windows Server
+    href: automanage-linux.md
+  - name: Automanage for Windows Server
     href: automanage-windows-server.md
     items:
       - name: Hotpatching

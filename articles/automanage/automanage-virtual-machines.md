@@ -36,7 +36,7 @@ Lastly, the experience is incredibly simple.
 
 There are several prerequisites to consider before trying to enable Azure Automanage on your virtual machines.
 
-- Supported [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions) and [Linux distros](automanage-virtual-machines.md)
+- Supported [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions) and [Linux distros](automanage-linux.md#supported-linux-distributions-and-versions)
 - VMs must be in a supported region (see paragraph below)
 - User must have correct permissions (see paragraph below)
 - Automanage does not support Sandbox subscriptions at this time
@@ -53,7 +53,7 @@ You must have the **Contributor** role on the resource group containing your VMs
 :::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services.png" alt-text="Intelligently onboard services.":::
 
 For the complete list of participating Azure services, as well as their supported environment, see the following:
-- [Automanage for Linux](automanage-windows-server.md)
+- [Automanage for Linux](automanage-linux.md)
 - [Automanage for Windows Server](automanage-windows-server.md)
 
  We will automatically onboard you to these participating services. They are essential to our best practices white paper, which you can find in our [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
@@ -76,7 +76,7 @@ When you are enabling Automanage for your virtual machine, an environment is req
 
 ### Default environments
 
-There are two environments currently available. 
+There are two environments currently available.
 
 - **Dev/Test** environment is designed for Dev/Test machines.
 - **Production** environment is for production.
@@ -85,7 +85,7 @@ The reason for this differentiator is because certain services are recommended b
 
 ### Customizing an environment using preferences
 
-In addition to the standard services we onboard you to, we allow you to configure a certain subset of preferences. These preferences are allowed within a range of configuration options. For example, in the case of Azure Backup we will allow you to define the frequency of the backup and which day of the week it occurs on. 
+In addition to the standard services we onboard you to, we allow you to configure a certain subset of preferences. These preferences are allowed within a range of configuration options. For example, in the case of Azure Backup we will allow you to define the frequency of the backup and which day of the week it occurs on.
 
 > [!NOTE]
 > In the Dev/Test environment, we will not backup the VM at all.

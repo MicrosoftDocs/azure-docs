@@ -221,3 +221,8 @@ There are some important considerations to running a Windows Server Azure editio
 ### How can I get troubleshooting support for Hotpatching?**
 
 * You can file a [technical support case ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the Service option, search for and select **Virtual Machine running Windows** under Compute. Select **Azure Features** for the problem type and **Automatic VM Guest Patching** for the problem subtype.
+
+## Next steps
+
+* Learn about Azure Update Management [here](https://docs.microsoft.com/azure/automation/update-management/overview).
+* Learn more about Automatic VM Guest Patching [here](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching)

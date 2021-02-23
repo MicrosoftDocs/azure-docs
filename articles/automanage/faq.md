@@ -22,7 +22,7 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 **What are all of the prerequisites required to enable Azure Automanage?**
 
 The following are prerequisites for enabling Azure Automanage:
-- Supported [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions) and [Linux distros](automanage-virtual-machines.md)
+- Supported [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions) and [Linux distros](automanage-linux.md#supported-linux-distributions-and-versions)
 - VMs must be in a supported region
 - User must have correct permissions
 - Non-scale set VMs only
@@ -55,7 +55,7 @@ Customers can customize settings for specific services, like Azure Backup retent
 
 **Does Azure Automanage work with both Linux and Windows VMs?**
 
-Yes, see the supported [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions) and [Linux distros](automanage-virtual-machines.md).
+Yes, see the supported [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions) and [Linux distros](automanage-linux.md#supported-linux-distributions-and-versions).
 
 
 **Can I selectively apply Automanage on only a set of VMs?**
