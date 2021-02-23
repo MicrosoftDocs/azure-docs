@@ -193,7 +193,6 @@
         "articles/azure-arc/servers/**/*.md": "mgoedtel",
         "articles/azure-functions/**/*.md": "ggailey777",
         "articles/azure-government/**/*.md": "stevevi",
-        "articles/azure-monitor/app/*.md": "lgayhardt",
         "articles/azure-monitor/containers/**/*.md": "bwren",
         "articles/azure-monitor/insights/container-insights*.md": "bwren",
         "articles/azure-monitor/log-query/*.md": "bwren",
@@ -260,7 +259,6 @@
         "articles/governance/policy/**/*.md": "DCtheGeek",
         "articles/governance/resource-graph/**/*.md": "DCtheGeek",
         "articles/hdinsight/*.md": "JasonWHowell",
-        "articles/hdinsight/domain-joined/*.md": "omidm1",
         "articles/hdinsight/kafka/*.md": "arnabganguly",
         "articles/hdinsight/**/*.md": "JasonWHowell",
         "articles/jenkins/**/*.md": "TomArcherMsft",
@@ -541,7 +539,6 @@
         "articles/azure-monitor/insights/container-insights*.md": "bwren",
         "articles/azure-monitor/log-query/*.md": "robb",
         "articles/azure-monitor/platform/*.md": "robb",
-        "articles/azure-monitor/app/*.md": "lagayhar",
         "articles/azure-monitor/agents/*.md": "bwren",
         "articles/azure-monitor/alerts/*.md": "robb",
         "articles/azure-monitor/autoscale/*.md": "robb",
@@ -603,7 +600,6 @@
         "articles/governance/policy/**/*.md": "dacoulte",
         "articles/governance/resource-graph/**/*.md": "dacoulte",
         "articles/hdinsight/*.md": "jasonh",
-        "articles/hdinsight/domain-joined/*.md": "omidm",
         "articles/hdinsight/kafka/*.md": "argangu",
         "articles/hdinsight/**/*.md": "jasonh",
         "articles/jenkins/**/*.md": "tarcher",
@@ -1030,7 +1026,7 @@
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability.md",
           "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md",
           "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md",
-          "articles/vmware-cloudsimple/on-premises-dns-setup.md",
+          "articles/vmware-cloudsimple/on-premises-dns-setup.md"
         ]
       },
       "sensitive-language-bl": {
