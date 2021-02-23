@@ -15,11 +15,15 @@ ms.date: 03/02/2021
 > [!IMPORTANT]
 > Semantic query type is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, learn how to attach the semantic query subsystems of Azure Cognitive Search to use semantic ranking, semantic captions, and semantic answer. Setting **`queryType`** parameter to **`semantic`** enables these capabilities. This article explains how to structure both query requests and responses.
+In this article, learn how to attach the semantic query subsystems of Azure Cognitive Search to use semantic ranking, semantic captions, and semantic answers. Setting the queryType parameter to **semantic** enables these capabilities. 
 
-During public preview, there is no charge for semantic search. However, as features transition to general availability, the cost of computations will be a billable event. When details become available, you'll find the information documented in the [pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
+During the initial preview launch, there is no charge for semantic search. For up-to-date information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 ## Prerequisites
+
++ Access to semantic search preview: [sign up](https://aka.ms/SemanticSearchPreviewSignup)
+
++ A search service at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe, West Europe
 
 + An existing search index, containing English content
 
@@ -27,11 +31,11 @@ During public preview, there is no charge for semantic search. However, as featu
 
   The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query.
 
-+ [A query request](/rest/api/searchservice/preview-api/search-documents) that uses spell correction must have the following three parameters: `api-version=2020-06-30-Preview`, `queryType=semantic`, `queryLanguage=en-us`, `searchFields=<ordered-field-list>`.
++ A [Search Documents](/rest/api/searchservice/preview-api/search-documents) request with the semantic option. A semantic query uses "api-version=2020-06-30-Preview", "queryType=semantic", "queryLanguage=en-us", and "searchFields=<ordered-field-list>".
 
 ## What's a semantic query?
 
-In Cognitive Search, a query is a parameterized specification of a round trip **`search`** operation. A semantic query adds parameters that invoke the semantic query subsystems that can intuit context and meaning of matching results, and promote the more meaningful matches to the top.
+In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* adds parameters that invoke the semantic query subsystems that can intuit context and meaning of matching results, and promote the more meaningful matches to the top.
 
 The following request is representative of a semantic query.
 
@@ -45,33 +49,93 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
 }
 ```
 
-The full specification of the REST API can be found at [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents). Internally, a semantic query is compatible with the simple query type. The operands and grouping used for **`queryType=simple`** will resolve for **`queryType=semantic`** but in general, free form text with no syntax will produce better results. The query syntax for full Lucence is not compatible.
+As with all queries in Cognitive Search, the request targets the documents collection of a single index. Furthermore, a semantic query undergoes the same sequence of parsing, analysis, and scanning as a non-semantic query. The difference lies in how relevance is computed. As defined in this preview release, a semantic query is one whose *results* are re-processed using advanced algorithms, providing a way to surface the matches deemed most relevant by the semantic ranker, rather than the scores assigned by the default similarity ranking algorithm. 
 
-All of the parameters in the request above are required for a semantic query.
+In this preview, only the top 50 matches from the initial results can be semantically ranked, and all results will include captions automatically. Optionally, you can specify an **`answer`** parameter on the request to invoke a language representation model. This model formulates up to 3 potential answers to the query, and bubbles them up to the top of the results.
+
+## Query using REST APIs
+
+The full specification of the REST API can be found at [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents).
+
+Semantic queries are intended for natural language queries, questions like "what is the best plant for pollinators" or "how to fry an egg". If you want the response to include answers, you can add an  optional **`answer`** parameter on the request.
+
+### Formulate the request
+
+The following semantic query request uses the hotels-sample-index:
+
+```http
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview      
+{
+    "search": "newer hotel near the water with a great restaurant",
+    "queryType": "semantic",
+    "searchFields": "HotelName,Category,Description",
+    "queryLanguage": "en-us",
+    "speller": "lexicon",
+    "answers": "extractive|count-3",
+    "highlightPreTag": "<strong>",
+    "highlightPostTag": "</strong>",
+    "select": "HotelId,HotelName,Description,Category",
+    "count": true
+}
+```
+
+In a semantic query, the order of fields in "searchFields" reflects the priority or relative importance of the field in semantic rankings. Only string fields or the top-level field in a collection can be used.
+
++ Concise fields, such as HotelName or a title, should precede verbose fields like Description.
+
++ If your index has a URL field that is textual (human readable such as www.domain.com/name-of-the-document-and-other-details and not machine focused such as www.domain.com/?id=23463&param=eis), put it second in the list (put it first if there is no concise title field).
+
++ If there is only one field specified, then it will be considered as a descriptive field for semantic ranking of documents.  
+
++ If there are no fields specified, then all searchable fields will be considered for semantic ranking of documents. However, this is not recommended since it may not yield the most optimal results from your search index.
+
+Answers and captions can apply highlight formatting to passages in the document that answer the query or summarize the response. Answers are optional, but all semantic responses will include a caption. If you include highlightPreTag and highlightPostTag, both answers and captions will incorporate formatting into the results.
+
+Other parameters (such as speller, select, and count) improve the quality of the request and readability of the response. None of them are required.
+
+### Review the response
+
+Response for the above query returns the following match as the top pick. Captions are returned automatically, and if you specify highlight format tags in the query, relevant terms will be immediately noticeable in the results. For more information about semantic responses, see [Semantic ranking and responses](semantic-how-to-query-response.md).
+
+```json
+"@odata.count": 29,
+"value": [
+    {
+        "@search.score": 1.8920634,
+        "@search.rerankerScore": 1.1091284966096282,
+        "@search.captions": [
+            {
+                "text": "Oceanside Resort. Budget. New Luxury Hotel. Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
+                "highlights": "<strong>Oceanside Resort.</strong> Budget. New Luxury Hotel. Be the first to stay.<strong> Bay views</strong> from every room, location near the pier, rooftop pool, waterfront dining & more."
+            }
+        ],
+        "HotelId": "18",
+        "HotelName": "Oceanside Resort",
+        "Description": "New Luxury Hotel.  Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
+        "Category": "Budget"
+    },
+```
+
+### Parameters used in a semantic query
+
+The following table summarizes the query parameters used in a semantic query. For a comprehensive list of all parameters, see [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents)
 
 | Parameter | Description |
 |----------|-------------|
-| **`queryType=semantic`** | Required for semantic queries. Invokes the semantic ranking algorithm. |
-| **`queryLanguage=en-us`** | Required for semantic queries. Currently, only `"en-us"` is implemented. |
-| **`searchFields=<fields>`** | Required for semantic queries. Specifies the fields over which semantic ranking occurs. In contrast with simple and full query types, when used in a semantic query, this parameter is required. </br></br>The order in which fields are listed determines precedence, with "title" having priority over "url" and so forth, in how results are ranked. If you have a title or a short field that describes your document, we recommend that to be your first field. Follow that by the url (if any), then the body of the document, and then any other relevant fields. |
+| "queryType": "semantic" | Required for semantic queries. Invokes the semantic ranking algorithms and models. |
+| "queryLanguage": "english" | Required for semantic queries. Currently, only `"en-us"` is implemented. |
+| "searchFields": "<fields>" | Optional but recommended. Specifies the fields over which semantic ranking occurs. In contrast with simple and full query types, when used in a semantic query, this parameter is required. </br></br>The order in which fields are listed determines precedence, with "title" having priority over "url" and so forth, in how results are ranked. If you have a title or a short field that describes your document, we recommend that to be your first field. Follow that by the url (if any), then the body of the document, and then any other relevant fields. |
+| "answers": "extractive|count-3" | Optional. Returns up to three possible answers to the query, derived from content in the document. |
 
-## Using semantic search with other features
+The queryLanguage parameter required for a semantic query is independent of any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. Specified in a query request, the queryLanguage determines which dictionaries are used as an input to the [semantic ranking algorithm](semantic-how-to-query-response.md). In contrast, language analyzers are used when indexing and retrieving strings in the search index.
 
-The following table lists other query features and provides usage recommendations.
+In a query request, if you are also using [spelling correction](speller-how-to-add.md), the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts. 
 
-| Feature | Recommendation |
-|---------|----------------|
-| [filter expressions](search-query-odata-filter.md) | Compatible |
-| [spell check](speller-how-to-add.md) | Compatible |
-| [Orderby expressions](search-query-odata-orderby.md) | Avoid. Explicit rankings will override semantic ranking |
-| Autocomplete | Avoid|
-| Suggestions | Avoid |
-| [Scoring profiles](index-add-scoring-profiles.md) | Compatible. Recall that semantic ranking and responses are built over an initial result set. Any logic that improves the quality of the initial results will carry over to semantic search. |
-| top, skip parameters | The default result set is 50 matches. You can experiment with a larger result set, up to 1000 matches, to see if semantic ranking performs better over a larger base. |
+While content in a search index can be composed in multiple languages, the query input is most likely in one. The search engine doesn't check for compatibility of queryLanguage, language analyzer, and the language in which content is composed, so be sure to scope queries accordingly to avoid producing incorrect results.
 
-## Example queries
+## Query with Search explorer
 
-The following query targets the built-in Hotels sample index, using API version 2020-06-30-Preview, and will run in Search explorer. The `$select` clause limits the results to just a few fields, making it easier to scan in Search explorer.
+The following query targets the built-in Hotels sample index, using API version 2020-06-30-Preview, and runs in Search explorer. The `$select` clause limits the results to just a few fields, making it easier to scan in the verbose JSON in Search explorer.
 
 ### With queryType=semantic
 
@@ -84,10 +148,10 @@ The first few results are as follows.
 ```json
 {
     "@search.score": 0.38330218,
-    "@search.semanticScore": 0.9754053303040564,
+    "@search.rerankerScore": 0.9754053303040564,
     "HotelId": "18",
     "HotelName": "Oceanside Resort",
-    "Description": "New Luxury Hotel.  Be the first to stay. Bay views from every room, location near the piper, rooftop pool, waterfront dining & more.",
+    "Description": "New Luxury Hotel. Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
     "Tags": [
         "view",
         "laundry service",
@@ -96,10 +160,10 @@ The first few results are as follows.
 },
 {
     "@search.score": 1.8920634,
-    "@search.semanticScore": 0.8829904259182513,
+    "@search.rerankerScore": 0.8829904259182513,
     "HotelId": "36",
     "HotelName": "Pelham Hotel",
-    "Description": "Stunning Downtown Hotel with indoor Pool.  Ideally located close to theatres, museums and the convention center. Indoor Pool and Sauna and fitness centre.  Popular Bar & Restaurant",
+    "Description": "Stunning Downtown Hotel with indoor Pool. Ideally located close to theatres, museums and the convention center. Indoor Pool and Sauna and fitness centre. Popular Bar & Restaurant",
     "Tags": [
         "view",
         "pool",
@@ -108,7 +172,7 @@ The first few results are as follows.
 },
 {
     "@search.score": 0.95706713,
-    "@search.semanticScore": 0.8538530203513801,
+    "@search.rerankerScore": 0.8538530203513801,
     "HotelId": "22",
     "HotelName": "Stone Lion Inn",
     "Description": "Full breakfast buffet for 2 for only $1.  Excited to show off our room upgrades, faster high speed WiFi, updated corridors & meeting space. Come relax and enjoy your stay.",
@@ -122,7 +186,7 @@ The first few results are as follows.
 
 ### With queryType (default)
 
-For comparison, run the same query as above, removing `&queryType=semantic&queryLanguage=english&searchFields=Description,Tags`. Notice that there is no `"@search.semanticScore"` in these results.
+For comparison, run the same query as above, removing `&queryType=semantic&queryLanguage=english&searchFields=Description,Tags`. Notice that there is no `"@search.rerankerScore"` in these results, and that different hotels appear in the top three results.
 
 ```json
 {
@@ -162,9 +226,10 @@ For comparison, run the same query as above, removing `&queryType=semantic&query
 
 ## Next steps
 
+Recall that semantic ranking and responses are built over an initial result set. Any logic that improves the quality of the initial results will carry forward to semantic search. As a next step, review the features that contribute to initial results, including analyzers that affect how strings are tokenized, scoring profiles that can tune results, and the default relevance algorithm.
+
++ [Analyzers for text processing](search-analyzers.md)
++ [Similarity and scoring in Cognitive Search](index-similarity-and-scoring.md)
++ [Add scoring profiles](index-add-scoring-profiles.md)
 + [Semantic search overview](semantic-search-overview.md)
 + [Add spell check to query inputs](speller-how-to-add.md)
-+ [Structure a semantic response](semantic-how-to-query-response.md)
-+ [Create a basic query](search-query-create.md)
-+ [Use full Lucene query syntax](query-Lucene-syntax.md)
-+ [Use simple query syntax](query-simple-syntax.md)
