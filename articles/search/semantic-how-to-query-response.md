@@ -17,7 +17,9 @@ ms.custom: references_regions
 > [!IMPORTANT]
 > The semantic ranking algorithm and semantic answers/captions are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article describes the semantic ranking algorithm and how a semantic response is shaped. You can specify semantic answers or captions in the query request to retrieve the most relevant answer or caption from each matching document.
+Semantic ranking improves the precision of search results by reranking the top matches using a semantic ranking model trained for queries expressed in natural language as opposed to keywords.
+
+This article describes the semantic ranking algorithm and how a semantic response is shaped. You can specify semantic answers or captions in the query request to retrieve the most relevant answers or captions from each matching document.
 
 ## Prerequisites
 
@@ -29,13 +31,15 @@ A semantic response includes new properties for scores, captions, and answers. A
 
 As with all queries, a response is composed of all fields marked as retrievable, or just those fields listed in the select statement. It also includes an "answer" field and "captions".
 
-+ For each semantic result, there is one "answer", returned as a distinct field that you can choose to render in a search page. Formulation of answer is automated: reading through all the documents in the initial results, running extractive summarization, followed by machine reading comprehension, and finally promoting a direct answer to the user’s question in the answer field.
++ For each semantic result, by default, there is one "answer", returned as a distinct field that you can choose to render in a search page. You can specify up to five. Formulation of answer is automated: reading through all the documents in the initial results, running extractive summarization, followed by machine reading comprehension, and finally promoting a direct answer to the user’s question in the answer field.
 
-+ A "caption" is an extraction-based summarization of document content, returned in plain text or with highlights. Highlights are applied using machine reading comprehension to identify which strings should be emphasized. Highlights draw your attention to the most relevant passages, so that you can quickly scan a page of results to find the right document.
++ A "caption" is an extraction-based summarization of document content, returned in plain text or with highlights. Captions are included automatically and cannot be suppressed. Highlights are applied using machine reading comprehension to identify which strings should be emphasized. Highlights draw your attention to the most relevant passages, so that you can quickly scan a page of results to find the right document.
+
+A semantically re-ranked result set orders results by the @search.rerankerScore value. If you add an OrderBy clause, an HTTP 400 error will be returned because that clause is not supported in a semantic query.
 
 ## Example
 
-The @search.rerankerScore exists alongside the standard @search.score, and unless you override ranking with an OrderBy clause, it's used to re-rank the results.
+The @search.rerankerScore exists alongside the standard @search.score and is used to re-rank the results.
 
 Given the following query:
 

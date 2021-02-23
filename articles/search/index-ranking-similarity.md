@@ -18,7 +18,7 @@ Azure Cognitive Search supports two similarity ranking algorithms:
 + A *classic similarity* algorithm, used by all search services up until July 15, 2020.
 + An implementation of the *Okapi BM25* algorithm, used in all search services created after July 15.
 
-BM25 ranking is the new default because it tends to produce search rankings that align better with user expectations. It also enables configuration options for tuning results based on factors such as document size. For new services created after July 15, 2020, BM25 is used automatically and is the sole similarity algorithm. If you try to set similarity to ClassicSimilarity on a new service, a 400 error will be returned because that algorithm is not supported by the service.
+BM25 ranking is the new default because it tends to produce search rankings that align better with user expectations. It also enables configuration options for tuning results based on factors such as document size. For new services created after July 15, 2020, BM25 is used automatically and is the sole similarity algorithm. If you try to set similarity to ClassicSimilarity on a new service, an HTTP 400 error will be returned because that algorithm is not supported by the service.
 
 For older services created before July 15, 2020, classic similarity remains the default algorithm. Older services can set properties on a search index to invoke BM25, as explained below. If you are switching from classic to BM25, you can expect to see some differences how search results are ordered.
 

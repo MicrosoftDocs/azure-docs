@@ -79,7 +79,11 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 }
 ```
 
-In a semantic query, the order of fields in "searchFields" reflects the priority or relative importance of the field in semantic rankings. Only string fields or the top-level field in a collection can be used.
+Omit "orderBy" clauses in a semantic query. The semantic score is used to order results, and if you include explicit sort logic, an HTTP 400 error is returned.
+
+In a semantic query, the order of fields in "searchFields" reflects the priority or relative importance of the field in semantic rankings. Only top-level string fields (standalone or in a collection) will be used. Because searchFields has other behaviors in simple and full Lucene queries (there is no implied priority order), other non-string fields and subfields can be specified, but they won't be used be used in semantic ranking.
+
+When specifying searchFields, follow these guidelines:
 
 + Concise fields, such as HotelName or a title, should precede verbose fields like Description.
 
@@ -95,7 +99,9 @@ Other optional parameters (such as speller, select, and count) improve the quali
 
 ### Review the response
 
-Response for the above query returns the following match as the top pick. Captions are returned automatically, and if you specify highlight format tags in the query, relevant terms will be immediately noticeable in the results. For more information about semantic responses, see [Semantic ranking and responses](semantic-how-to-query-response.md).
+Response for the above query returns the following match as the top pick. Captions are returned automatically, with plain text and highlighted versions. By default, highlighting is styled as `</em>`, but you can customize the style using the hit highlighting tagging properties. For more information about semantic responses, see [Semantic ranking and responses](semantic-how-to-query-response.md).
+
+Highlights will be tagged regardless of if the customer specify custom tags in the request. If the customer doesnt set any value, we use the default <em> and </em>
 
 ```json
 "@odata.count": 29,
@@ -127,7 +133,7 @@ The following table summarizes the query parameters used in a semantic query. Fo
 | "searchFields": "<fields>" | Optional but recommended. Specifies the fields over which semantic ranking occurs. In contrast with simple and full query types, when used in a semantic query, this parameter is required. </br></br>The order in which fields are listed determines precedence, with "title" having priority over "url" and so forth, in how results are ranked. If you have a title or a short field that describes your document, we recommend that to be your first field. Follow that by the url (if any), then the body of the document, and then any other relevant fields. |
 | "answers": "extractive|count3" | Optional field to specify that semantic answers be included in the result. Answers can be configured to return a maximum of five. This example shows a count of three answers. |
 
-The queryLanguage parameter required for a semantic query must be consistent with [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. If queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene").
+The queryLanguage parameter required for a semantic query must be consistent with [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. If queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"). Any language-agnostic analyzers, such as keyword or simple, have no conflict with queryLanguage values.
 
 In a query request, if you are also using [spelling correction](speller-how-to-add.md), the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts. 
 
