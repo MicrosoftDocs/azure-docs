@@ -320,7 +320,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 ## SBD configuration
 * NOTE : Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host]. We show both the commands that need to be run as well as the output of those commands.
 
-1.  Make sure the iSCSI or FC disk is visible on both nodes. This example will use a FC based SBD device.Reference http://www.linux-ha.org/wiki/SBD_Fencing .
+1.  Make sure the iSCSI or FC disk is visible on both nodes. This example will use a FC based SBD device.For more information about SBD fencing, see the [reference documentation](http://www.linux-ha.org/wiki/SBD_Fencing).
 2.  The LUN-ID must be identically on all nodes.
   
 3.  Check multipath status for the sbd device.
