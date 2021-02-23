@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Enable on-demand bursting
 
-Premium solid-state drives (SSD) have two available bursting models; credit-based bursting and on-demand bursting. This article covers how to switch to on-demand bursting. Disks that use the on-demand model can burst beyond their original provisioned targets. Noncredit bursting occurs as often as needed by the workload, up to the maximum burst target. Noncredit bursting incurs additional charges.
+Premium solid-state drives (SSD) have two available bursting models; credit-based bursting and on-demand bursting. This article covers how to switch to on-demand bursting. Disks that use the on-demand model can burst beyond their original provisioned targets. On-demand bursting occurs as often as needed by the workload, up to the maximum burst target. On-demand bursting incurs additional charges.
 
 For details on disk bursting, see [Managed disk bursting](disk-bursting.md).
 
@@ -46,7 +46,7 @@ $diskConfig = New-AzDiskConfig -Location 'WestCentralUS' -CreateOption Empty -Di
 $dataDisk = New-AzDisk -ResourceGroupName <myResourceGroupDisk> -DiskName <myDataDisk> -Disk $diskConfig
 ```
 
-### Enable on-demand bursting on an existing disk - PowerShell
+### Enable on-demand bursting on an existing disk
 
 A managed disk must be larger than 512 GiB to enable on-demand bursting. Replace the `<myResourceGroupDisk>`, `<myDataDisk>` parameters and run this command to enable on-demand bursting on an existing disk:
 
@@ -56,14 +56,14 @@ New-AzDiskUpdateConfig -BurstingEnabled $true | Update-AzDisk -ResourceGroupName
 
 # [Azure CLI](#tab/azure-cli)
 
-lOn-demand bursting cmdlets are available in version 2.19.0 and newer of the [Azure CLI module](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Alternatively, you may use the [Azure Cloud Shell](https://shell.azure.com/).
+On-demand bursting cmdlets are available in version 2.19.0 and newer of the [Azure CLI module](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Alternatively, you may use the [Azure Cloud Shell](https://shell.azure.com/).
 
 ### Create and attach a on-demand bursting data disk
 
 A managed disk must be larger than 512 GiB to enable on-demand bursting. Replace the `<yourDiskName>`, `<yourResourceGroup>`, and `<yourVMName>` parameters, then run the following commands to create a premium SSD with on-demand bursting:
 
 ```azurecli
-az disk create -g <yourResourceGroup> -n <yourDiskName> --size-gb 1024 --sku Premium_LRS -l westcentralus --enable-bursting $true
+az disk create -g <yourResourceGroup> -n <yourDiskName> --size-gb 1024 --sku Premium_LRS -l westcentralus --enable-bursting true
 
 az vm disk attach --vm-name <yourVMName> --name <yourDiskName> --resource-group <yourResourceGroup>
 ```
