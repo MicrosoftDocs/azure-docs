@@ -70,7 +70,7 @@ Clusters created before 2020-10-15 do not support export/import of the default m
 For such clusters, follow the guide [Copy Hive tables across Storage Accounts](./hive-migration-across-storage-accounts.md), using a second cluster with an [external Hive metastore DB](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation.md). The second cluster can use the same storage account but must use a new default filesystem.
 
 ### Option to "shallow" copy
-Storage consumption would double when tables are "deep" copied using the above guide.
+Storage consumption would double when tables are "deep" copied using the above guide. You need to manually clean the data in the source storage container.
 We can, instead, "shallow" copy the tables if they are non-transactional. All Hive tables in HDInsight 3.6 are non-transactional by default, but only external tables are non-transactional in HDInsight 4.0. Transactional tables must be deep copied. Follow these steps to shallow copy non-transactional tables:
 
 1. Execute script [hive-ddls.sh](https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive-ddls.sh) on the source cluster's primary headnode to generate the DDL for every Hive table.
