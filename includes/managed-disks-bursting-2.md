@@ -71,7 +71,7 @@ By default, bursting is enabled for virtual machines that support it.
 
 The bursting credit system applies in the same manner at both the VM level and disk level. Your resource, either a VM or disk, will start with fully stocked credits in its own burst bucket. These credits allow you to burst for up to 30 minutes at the maximum burst rate. You accumulate credits whenever the resource's IOPS or MB/s are being utilized below the resource's performance target. If your resource has accrued bursting credits and your workload needs the extra performance, your resource can use those credits to go above its performance limits and increase its performance to meet the workload demands.
 
-![Bursting bucket Diagram](media/managed-disks-bursting/bucket-diagram.jpg)
+![Bursting bucket diagram.](media/managed-disks-bursting/bucket-diagram.jpg)
 
 How you spend your available credits is up to you. You can use your 30 minutes of burst credits consecutively or sporadically throughout the day. When resources are deployed they come with a full allocation of credits. When those deplete, it takes less than a day to restock. Credits can be spent at your discretion, the burst bucket does not need to be full in order for resources to burst. Burst accumulation varies depending on each resource, since it is based on unused IOPS and MB/s below their performance targets. Higher baseline performance resources can accrue their bursting credits faster than lower baseline performing resources. For example, a P1 disk idling will accrue 120 IOPS per second, whereas an idling P20 disk would accrue 2,300 IOPS per second.
 
