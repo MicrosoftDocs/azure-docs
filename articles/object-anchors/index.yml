@@ -39,8 +39,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Model ingestion
-            url: ./quickstarts/get-started-model-ingestion.md
+          - text: Model conversion
+            url: ./quickstarts/get-started-model-conversion.md
           - text: Unity HoloLens
             url: ./quickstarts/get-started-unity-hololens.md
           - text: Unity HoloLens with MRTK
