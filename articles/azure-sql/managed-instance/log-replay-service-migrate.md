@@ -101,7 +101,7 @@ The following are highly recommended as best practices:
 
 ## Steps to execute
 
-## Make backups on the SQL Server
+### Make backups on the SQL Server
 
 Backups on the SQL Server can be made with either of the following two options:
 
@@ -142,14 +142,14 @@ GO
 
 Files backed up to the local storage will need to be uploaded to the Azure Blob Storage. In case your corporate policy allows it, alternative way to make backups directly to Azure Blob Storage is documented in the following tutorial: [Use Azure Blob storage service with SQL Server](https://docs.microsoft.com/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage). If using this alternative approach, ensure that all backups are made with CHECKSUM option enabled.
 
-## Copy backups from SQL Server to Azure Blob Storage
+### Copy backups from SQL Server to Azure Blob Storage
 
 Some of the following approaches can be utilized to upload backups to the blob storage in migrating databases to managed instance using LRS:
 - Using SQL Server native [BACKUP TO URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url) functionality.
 - Using [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10), or [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer) to upload backups to a blob container.
 - Using Storage Explorer in Azure portal.
 
-## Create Azure Blob and SAS authentication token
+### Create Azure Blob and SAS authentication token
 
 Azure Blob Storage is used as an intermediary storage for backup files between SQL Server and SQL Managed Instance. Follow these steps to create Azure Blob Storage container:
 
@@ -174,7 +174,7 @@ Once a blob container has been created, generate SAS authentication token with R
 > - The token must have the appropriate time validity. Please ensure time zones between the token and managed instance are taken into consideration.
 > - Please ensure token is copied starting from "sv=2020-10..." until the end of the string.
 
-## Log in to Azure and select subscription
+### Log in to Azure and select subscription
 
 Use the following PowerShell cmdlet to log in to Azure:
 
