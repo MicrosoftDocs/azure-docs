@@ -11,13 +11,11 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Azure Percept Audio and speech module troubleshooting
 
-## Speech module troubleshooting
+Use the guidelines below to troubleshoot voice assistant application issues.
 
-Use the guidelines below to troubleshoot voice assistant application issues. 
+## Collecting speech module logs
 
-### Collecting speech module logs
-
-To run these commands, [connect to the Azure Percept DK Wi-Fi access point and connect to the dev kit over SSH](how-to-ssh-into-percept-dk.md) and enter the commands in the SSH terminal.
+To run these commands, [connect to the Azure Percept DK Wi-Fi access point and connect to the dev kit over SSH](./how-to-ssh-into-percept-dk.md) and enter the commands in the SSH terminal.
 
 ```console
  iotedge logs azureearspeechclientmodule
@@ -35,22 +33,18 @@ After redirecting output to a .txt file, copy the file to your host PC via SCP:
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-[local host file path] refers to the location on your host PC which you would like to copy the .txt file to. [remote username] is the SSH username chosen during the [OOBE](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/getting_started/oobe.md) setup process. If you did not set up an SSH login during the OOBE, your remote username is root.
+[local host file path] refers to the location on your host PC which you would like to copy the .txt file to. [remote username] is the SSH username chosen during the [setup experience](./quickstart-percept-dk-set-up.md). If you did not set up an SSH login during the OOBE, your remote username is root.
 
-### Checking runtime status of the speech module
+## Checking runtime status of the speech module
 
 Check if the runtime status of **azureearspeechclientmodule** shows as **running**. To locate the runtime status of your device modules, open the [Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home) and navigate to **All resources** -> **\<your IoT hub>** -> **IoT Edge** -> **\<your device ID>**. Click the **Modules** tab to see the runtime status of all installed modules.
 
-
-:::image type="content" source="./media/audio-accessory-speech-module-troubleshooting/ota_iot_edge_device_page.png" alt-text="Image.":::
-
+:::image type="content" source="./media/troubleshoot-audio-accessory-speech-module/over-the-air-iot-edge-device-page.png" alt-text="Edge device page in the Azure portal.":::
 
 If the runtime status of **azureearspeechclientmodule** is not listed as **running**, click **Set modules** -> **azureearspeechclientmodule**. On the **Module Settings** page, set **Desired Status** to **running** and click **Update**.
 
+:::image type="content" source="./media/troubleshoot-audio-accessory-speech-module/firmware-desired-status-stopped.png" alt-text="Set modules screen in the Azure portal.":::
 
-:::image type="content" source="./media/audio-accessory-speech-module-troubleshooting/firmware_desired_status_stopped.png" alt-text="Image.":::
-
-    
 ## Understanding Ear SoM LED indicators
 
 You can use LED indicators to understand which state you device is in. Usually it takes around 2 minutes for the module to fully initialize after *power on*. As it goes through initialization steps you will see:
@@ -68,3 +62,7 @@ You can use LED indicators to understand which state you device is in. Usually i
 |3x blinking blue            |keyword recognized |
 |3x racing blue              |processing |
 |3x red                      |mute |
+
+## Next steps
+
+See the [general troubleshooting guide](./troubleshoot-dev-kit.md) for more information on troubleshooting your Azure Percept DK.

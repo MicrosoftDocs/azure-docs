@@ -1,3 +1,14 @@
+---
+title: Get started with Azure Percept advanced development locally
+description: Get started with local machine learning development using VS Code + Jupyter Notebooks on AzureML
+author: elqu20
+ms.author: v-elqu
+ms.service: azure-percept
+ms.topic: tutorial
+ms.date: 02/10/2021
+ms.custom: template-tutorial
+---
+
 # Getting started with machine learning development using VS Code + Jupyter Notebooks on AzureML
 
 This article walks you through the process of setting up an Azure Machine Learning workspace, creating a compute instance, setting up a Visual Studio Code development environment on your local machine, and running the cells of a preconfigured sample Jupyter notebook within VS Code.
@@ -12,23 +23,23 @@ performed within the notebook through your remote compute instance.
 
 ## Prerequisites
 
-- [Azure Machine Learning Subscription](https://azure.microsoft.com/en-us/free/services/machine-learning/)
-- [Azure Percept DK with Azure Percept Vision SoM connected](overview-azure-percept-dk.md)
-- [Azure Percept DK on-boarding experience](./quickstart-percept-dk-setup.md) completed
+- [Azure Machine Learning Subscription](https://azure.microsoft.com/free/services/machine-learning/)
+- [Azure Percept DK with Azure Percept Vision SoM connected](./overview-azure-percept-dk.md)
+- [Azure Percept DK on-boarding experience](./quickstart-percept-dk-set-up.md) completed
 
 ## Download Azure Percept GitHub repository
 
 1. Go to the [Azure Percept DK GitHub repository](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview).
 1. Clone the repository or download the ZIP file. Near the top of the screen, click **Code** -> **Download ZIP**.
 
-    :::image type="content" source="./media/advanced_development_local/download_zip.png" alt-text="Image.":::
+    :::image type="content" source="./media/advanced-development-local/download-zip.png" alt-text="GitHub download screen.":::
 
 ## Create an Azure Machine Learning workspace and remote compute instance
 
 1. Go to the [Azure Machine Learning Portal](https://ml.azure.com).
 1. Select your directory, Azure subscription, and Machine Learning workspace from the drop down menus and click **Get started**.
 
-    :::image type="content" source="./media/advanced_development_local/ml_portal_get_started.png" alt-text="Image.":::
+    :::image type="content" source="./media/advanced-development-local/machine-learning-portal-get-started.png" alt-text="Azure ML "get started" screen.":::
 
     If you don’t have an Azure Machine Learning workspace yet, click **Create a new workspace**. In the new browser tab, do the following:
 
@@ -40,12 +51,12 @@ performed within the notebook through your remote compute instance.
     1. Click **Review and create**.
     1. On the next page, review your selections and click **Create**.
 
-        :::image type="content" source="./media/advanced_development_local/workspace_review_and_create.png" alt-text="Image.":::
+        :::image type="content" source="./media/advanced-development-local/workspace-review-and-create.png" alt-text="Workspace creation screen in Azure ML.":::
 
     Please allow a few minutes for workspace creation. After the workspace creation is complete, you will see green check marks next to
     your resources and **Your deployment is complete** at the top of the Machine Learning Services overview page.
 
-    :::image type="content" source="./media/advanced_development_local/workspace_creation_complete.png" alt-text="Image.":::
+    :::image type="content" source="./media/advanced-development-local/workspace-creation-complete-zoom.png" alt-text="Workspace creation confirmation." lightbox= "./media/advanced-development-local/workspace-creation-complete.png":::
 
     Once your workspace creation is complete, return to the machine learning portal tab and click **Get started**.
 
@@ -55,7 +66,7 @@ performed within the notebook through your remote compute instance.
    clicking on **New**. In the **New compute instance** window, enter a **Compute name**, choose a **Virtual machine type**,
    and select a **Virtual machine size**. Click **Create**.
 
-    :::image type="content" source="./media/advanced_development_local/new_compute_instance.png" alt-text="Image.":::
+    :::image type="content" source="./media/advanced-development-local/new-compute-instance.png" alt-text="New compute instance creation screen.":::
 
     Once you click **Create**, it takes a few minutes to create the compute instance. Your **Compute** status will display a green circle and **\<your compute name> - Running** after compute creation is complete. This compute instance runs the Jupyter server and will be leveraged for this tutorial.
 
@@ -92,7 +103,7 @@ performed within the notebook through your remote compute instance.
 
     - Option 1 - Connect to an existing or new machine learning remote compute instance which already has the curated ML packages. **This is the option we will be using in this tutorial**.
 
-    - Option 2 - Set up a conda environment on a local machine (the tutorial for using a local compute instance will be coming soon).
+    - Option 2 - Set up a conda environment on a local machine.
    	    1. Open an Anaconda or Miniconda command prompt and run the following command to create an environment named **myenv** with the specified packages:
 
             `conda create -n myenv python=3.7 pandas jupyter seaborn scikit-learn keras tensorflow=1.15`
@@ -120,32 +131,31 @@ performed within the notebook through your remote compute instance.
     1. Open the command palette in Visual Studio Code by selecting **View** > **Command Palette** from the menu bar.
     1. Enter **Azure: Sign In** into the command palette to start the login process.
 
-        :::image type="content" source="./media/advanced_development_local/transfer_learning_azure_sign_in.png" alt-text="Image.":::
+        :::image type="content" source="./media/advanced-development-local/transfer-learning-azure-sign-in-zoom.png" alt-text="Azure sign in screen." lightbox= "./media/advanced-development-local/transfer-learning-azure-sign-in.png":::
 
     1. Activate the Python extension and Azure account by clicking the Azure icon on the left-hand side of VS Code.
 
-        :::image type="content" source="./media/advanced_development_local/azure_icon.png" alt-text="Image.":::
+        :::image type="content" source="./media/advanced-development-local/azure-icon.png" alt-text="Azure icon in VS Code.":::
 
     1. Open the Transferlearningusing_SSDLiteV2 Model_VSCode.ipynb notebook from the **myworkspace** folder.
     1. Open the command palette. Enter and select **Python: specify local or remote Jupyter server for connections**.
     1. You should see a list of connection options to choose from. Select **Azure ML Compute Instances**.
 
-        :::image type="content" source="./media/advanced_development_local/azure_ml_compute_instances.png" alt-text="Image.":::
+        :::image type="content" source="./media/advanced-development-local/azure-machine-learning-compute-instances.png" alt-text="Azure ML compute instance options in VS Code.":::
 
     1. Follow the guided prompts to choose a subscription, workspace, and remote compute instance. Select the workspace and remote compute instance created earlier in this tutorial. You also have the option of creating a new compute instance.
     1. After selecting a compute instance, you’ll be prompted to reload your VS Code window. Once you reload, select
        the **Python 3.6 - AzureML** kernel. You can now run any of the cells in your notebook. Running a notebook cell will instantiate the connection between your notebook and your compute instance. The notebook toolbar will be updated to reflect the compute instance you’re working on.
 
-        :::image type="content" source="./media/advanced_development_local/kernel.png" alt-text="Image.":::
+        :::image type="content" source="./media/advanced-development-local/kernel-zoom.png" alt-text="Kernel selection in VS Code." lightbox= "./media/advanced-development-local/kernel.png":::
 
 ## Working with the notebook
 
 You are now ready to run the notebook to train your custom bowl detector in VS Code and deploy it to your devkit. Make sure to run
 each cell of the notebook individually as some of the cells require input parameters before executing the script. Cells that require input parameters may be edited directly in the notebook. To run a cell, click the play icon on the left side of the cell:
 
-:::image type="content" source="./media/advanced_development_local/run_cell1.png" alt-text="Image.":::
+:::image type="content" source="./media/advanced-development-local/run-cell-1.png" alt-text="Notebook highlighting cell icon.":::
 
-
-## Additional Azure ML notebooks
+## Next steps
 
 For additional Azure Machine Learning service example notebooks, please visit this [repo](https://github.com/Azure/MachineLearningNotebooks/tree/2aa7c53b0ce84e67565d77e484987714fdaed36e/how-to-use-azureml).

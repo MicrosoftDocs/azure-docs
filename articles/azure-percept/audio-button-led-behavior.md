@@ -11,6 +11,8 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Azure Percept Audio button and LED behavior
 
+See the following guidance for information on the button and LED states of the Azure Percept Audio.
+
 ## Button behavior
 
 You can use the buttons to control the behavior of the device.
@@ -32,3 +34,7 @@ You can use LED indicators to understand which state you device is in.
 |L01 & L02 & L03|	LED array flashing, 20fps |	Listening or speaking|
 |L01 & L02 & L03|	LED array racing, 20fps|	Thinking|
 |L01 & L02 & L03|	3x red, static on |	Mute|
+
+## Next steps
+
+For troubleshooting tips for your Azure Percept Audio device, see this [guide](./troubleshoot-audio-accessory-speech-module.md).

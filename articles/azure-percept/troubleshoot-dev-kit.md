@@ -11,10 +11,12 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Azure Percept DK (dev kit) troubleshooting
 
+See the guidance below for general troubleshooting tips for the Azure Percept DK.
+
 ## General troubleshooting commands
 
 To run these commands, 
-1. Connect to the [dev kit's Wi-Fi AP](./quickstart-percept-dk-setup.md)
+1. Connect to the [dev kit's Wi-Fi AP](./quickstart-percept-dk-set-up.md)
 1. [SSH into the dev kit](./how-to-ssh-into-percept-dk.md)
 1. Enter the commands in the SSH terminal
 
@@ -30,9 +32,9 @@ After redirecting output to a .txt file, copy the file to your host PC via SCP:
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-[local host file path] refers to the location on your host PC that you would like to copy the .txt file to. [remote username] is the SSH username chosen during the [OOBE](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/getting_started/oobe.md) setup process. If you did not set up an SSH login during the OOBE, your remote username is root.
+```[local host file path]``` refers to the location on your host PC that you would like to copy the .txt file to. ```[remote username]``` is the SSH username chosen during the [setup experience](./quickstart-percept-dk-set-up.md). If you did not set up an SSH login during the OOBE, your remote username is ```root```.
 
-For additional information on the Azure Iot Edge commands, see the [Azure IoT Edge device troubleshooting documentation](https://docs.microsoft.com/en-us/azure/iot-edge/troubleshoot).
+For additional information on the Azure IoT Edge commands, see the [Azure IoT Edge device troubleshooting documentation](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 
 |Category:         |Command:                    |Function:                  |
 |------------------|----------------------------|---------------------------|
@@ -47,18 +49,18 @@ For additional information on the Azure Iot Edge commands, see the [Azure IoT Ed
 |Wi-Fi             |```/data/misc/wifi/hostapd_virtual.conf``` |check wifi access point configuration details |
 |OOBE              |```journalctl -u oobe -b```       |check OOBE logs |
 |Telemetry         |```azure-device-health-id```      |find unique telemetry HW_ID |
-|Azure Iot Edge          |```sudo iotedge check```          |run configuration and connectivity checks for common issues |
+|Azure IoT Edge          |```sudo iotedge check```          |run configuration and connectivity checks for common issues |
 |Azure IoT Edge          |```sudo iotedge logs [container name]``` |check container logs, such as speech and vision modules |
-|Azure Iot Edge          |```sudo iotedge support-bundle --since 1h``` |collect module logs, IoT Edge security manager logs, container engine logs, 'iotedge check' JSON output, and other useful debug information from the past hour |
-|Azure Iot Edge          |```sudo journalctl -u iotedge -f``` |view the logs of the IoT Edge security manager |
-|Azure Iot Edge          |```sudo systemctl restart iotedge``` |restart the IoT Edge Security Daemon |
-|Azure IoT Edge          |```sudo iotedge list```           |list the deployed iotedge modules |
+|Azure IoT Edge          |```sudo iotedge support-bundle --since 1h``` |collect module logs, Azure IoT Edge security manager logs, container engine logs, ```iotedge check``` JSON output, and other useful debug information from the past hour |
+|Azure IoT Edge          |```sudo journalctl -u iotedge -f``` |view the logs of the Azure IoT Edge security manager |
+|Azure IoT Edge          |```sudo systemctl restart iotedge``` |restart the Azure IoT Edge Security Daemon |
+|Azure IoT Edge          |```sudo iotedge list```           |list the deployed Azure IoT Edge modules |
 |Other             |```df [option] [file]```          |display information on available/total space in specified file system(s) |
 |Other             |```ip route get 1.1.1.1```        |display device IP and interface information |
 |Other             |```ip route get 1.1.1.1 \| awk '{print $7}'``` <br> ```ifconfig [interface]``` |display device IP address only |
 
 
-The journalctl Wi-Fi commands can be combined into the following single command:
+The ```journalctl``` Wi-Fi commands can be combined into the following single command:
 
 ```console
 journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd -b
@@ -68,12 +70,12 @@ journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u syste
 
 |Command:                        |Function:                  |
 |--------------------------------|---------------------------|
-|[docker ps](https://docs.docker.com/engine/reference/commandline/ps/) |shows which containers are running |
-|[docker images](https://docs.docker.com/engine/reference/commandline/images/) |shows which images are on the device |
-|[docker rmi [image id] -f](https://docs.docker.com/engine/reference/commandline/rmi/) |deletes an image from the device |
-|[docker logs -f edgeAgent](https://docs.docker.com/engine/reference/commandline/logs/) <br> docker logs -f [module_name] |takes container logs of specified module |
-|[docker image prune](https://docs.docker.com/engine/reference/commandline/image_prune/) |removes all dangling images |
-|watch docker ps <br> watch ifconfig [interface] |check docker container download status |
+|```docker ps``` |[shows which containers are running](https://docs.docker.com/engine/reference/commandline/ps/) |
+|```docker images``` |[shows which images are on the device](https://docs.docker.com/engine/reference/commandline/images/)|
+|```docker rmi [image id] -f``` |[deletes an image from the device](https://docs.docker.com/engine/reference/commandline/rmi/) |
+|```docker logs -f edgeAgent``` <br> ```docker logs -f [module_name]``` |[takes container logs of specified module](https://docs.docker.com/engine/reference/commandline/logs/) |
+|```docker image prune``` |[removes all dangling images](https://docs.docker.com/engine/reference/commandline/image_prune/) |
+|```watch docker ps``` <br> ```watch ifconfig [interface]``` |check docker container download status |
 
 ## USB Updating
 

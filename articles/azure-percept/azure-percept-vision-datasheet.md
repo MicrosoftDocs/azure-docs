@@ -10,7 +10,7 @@ ms.date: 02/16/2021
 
 # Azure Percept Vision datasheet
 
-Specifications listed below are for the Azure Percept Vision device, included in the [Azure Percept DK](azure-percept-dk-datasheet.md).
+Specifications listed below are for the Azure Percept Vision device, included in the [Azure Percept DK](./azure-percept-dk-datasheet.md).
 
 |Product Specification           |Value     |
 |--------------------------------|---------------------|

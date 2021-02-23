@@ -29,7 +29,7 @@
         - name: Unbox and assemble your Azure Percept DK
           href: quickstart-percept-dk-unboxing.md
         - name: Complete the Azure Percept DK setup experience
-          href: quickstart-percept-dk-setup.md
+          href: quickstart-percept-dk-set-up.md
         - name: Azure Percept Audio setup
           href: quickstart-percept-audio-setup.md
 
@@ -40,13 +40,13 @@
         - name: Build and deploy a no-code vision solution
           href: tutorial-nocode-vision.md         
         - name: Build and deploy a no-code speech solution
-          href: tutorial-nocode-speech.md         
+          href: tutorial-no-code-speech.md         
     - name: Advanced development
       items:
         - name: Advanced development tutorial (cloud)
-          href: advanced_development_cloud.md         
+          href: advanced-development-cloud.md         
         - name: Advanced development tutorial (local)
-          href: advanced_development_local.md     
+          href: advanced-development-local.md     
 
 - name: Concepts
   items:
@@ -76,9 +76,9 @@
     - name: Update your Azure Percept devices
       items:
         - name: Set up over-the-air updates
-          href: how-to-set-up-ota.md
+          href: how-to-set-up-over-the-air-updates.md
         - name: Update your Azure Percept DK over-the-air
-          href: how-to-ota-update.md
+          href: how-to-update-over-the-air.md
         - name: Update your Azure Percept DK via USB
           href: how-to-update-via-usb.md
     - name: Connect to your Azure Percept DK
@@ -93,16 +93,14 @@
           href: dev-tools-installer.md
     - name: Troubleshooting
       items:
-        - name: Troubleshooting overview
-          href: troubleshooting-main.md
         - name: Setup experience troubleshooting
           href: how-to-troubleshoot-setup.md
         - name: General Azure Percept DK troubleshooting
-          href: general-devkit-troubleshooting.md
+          href: troubleshoot-dev-kit.md
         - name: Vision solution troubleshooting
           href: vision-solution-troubleshooting.md
         - name: Azure Percept Audio troubleshooting
-          href: audio-accessory-speech-module-troubleshooting.md
+          href: troubleshoot-audio-accessory-speech-module.md
 
 - name: Reference
   items:
