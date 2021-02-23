@@ -822,6 +822,8 @@
     href: managed-disks-overview.md
   - name: Select a disk type for IaaS VMs
     href: disks-types.md
+  - name: Disk redundancy options
+    href: disks-redundancy.md
   - name: Shared disks
     href: disks-shared.md
   - name: Enable shared disks
@@ -952,8 +954,10 @@
       href: premium-storage-performance.md
     - name: Disk related metrics
       href: disks-metrics.md
-    - name: Disk bursting
+    - name: Disk bursting models
       href: disk-bursting.md
+    - name: Enable on-demand bursting
+      href: disks-enable-bursting.md
     - name: Disk performance tiers
       href: disks-change-performance.md
     - name: Change disk performance tier
