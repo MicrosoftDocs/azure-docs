@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/23/2020
+ms.date: 02/23/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Mini R is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -60,7 +60,7 @@ The Azure Stack Edge Mini R solution comprises of an Azure Stack Edge resource, 
 
 * **Azure Stack Edge Mini R physical device** - An ultra portable, rugged, compute and storage device supplied by Microsoft. The device has an onboard battery and weighs less than 7 lbs.
 
-    ![Azure Stack Edge Mini R device](media/azure-stack-edge-k-series-overview/perspective-view-1.png)
+    ![Azure Stack Edge Mini R device](media/azure-stack-edge-mini-r-overview/perspective-view-1.png)
 
 * **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage a rugged, Azure Stack Edge Mini R device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
 
