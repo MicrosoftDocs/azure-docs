@@ -1220,7 +1220,7 @@ The Cosmos DB input binding is listed first in the list of bindings found in the
   "type": "cosmosDB",
   "databaseName": "MyDatabase",
   "collectionName": "MyCollection",
-  "createIfNotExists": false,
+  "createIfNotExists": false,
   "partitionKey": "{queueTrigger_payload_property}",
   "connectionStringSetting": "CosmosDBConnection",
   "direction": "out"
