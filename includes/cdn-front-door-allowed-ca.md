@@ -49,6 +49,7 @@ The following CAs are allowed when you create your own certificate:
 - GlobalSign Root CA
 - Go Daddy Root Certificate Authority - G2
 - Go Daddy Secure Certificate Authority - G2
+- Hongkong Post Root CA 1
 - Let's Encrypt Authority X3
 - Microsec e-Szigno Root CA 2009
 - QuoVadis Root CA2 G3
