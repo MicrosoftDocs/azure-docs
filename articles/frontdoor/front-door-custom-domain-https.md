@@ -130,12 +130,7 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
     Azure Front Door lists the following information: 
     - The key vault accounts for your subscription ID. 
     - The certificates (secrets) under the selected key vault. 
-    - The available certificate versions. 
-
-> [!NOTE]
-> Leaving the certificate version as blank would lead to:
-> - The latest version of the certificate getting selected.
-> - Automatic rotation of certificates to the latest version, when a newer version of the certificate is available in your Key Vault.
+    - The available certificate versions.
  
 5. When you use your own certificate, domain validation is not required. Proceed to [Wait for propagation](#wait-for-propagation).
 
