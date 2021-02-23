@@ -23,7 +23,7 @@ In this article, you'll learn how to deploy Live Video Analytics on an edge devi
 
 The following depicts the overall flow of the document and in 5 simple steps you should be all set up to run Live Video Analytics on a Windows device  that has EFLOW:
 
-:::image type="content" source="./media/deploy-iot-edge-linux-on-windows/eflow.png" alt-text="Deployments steps - windows admin center":::
+:::image type="content" source="./media/deploy-iot-edge-linux-on-windows/eflow.png" alt-text="IoT Edge for Linux on Windows (EFLOW) diagram":::
 
 1. [Install EFLOW](https://aka.ms/AzEFLOW-install) on your Windows device. 
 
