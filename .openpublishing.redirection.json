@@ -16695,6 +16695,66 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-configure-gpu-modules.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-configure-gpu-modules"
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-configure-tls-settings.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-configure-tls-settings"
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-connect-resource-manager"
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-add-shares.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-add-shares"
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-add-storage-accounts.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-add-storage-accounts"
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-stateless-application-kubernetes"
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-cli-python.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-cli-python"
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-compute.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-compute"
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-overview.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-pro-r-overview"
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-set-azure-resource-manager-password.md",
+      "redirect_url": "/azure-stack-edge-gpu-set-azure-resource-manager-password"
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-create-kubernetes-cluster.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-kubernetes-cluster"
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-create-iot-edge-module.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-iot-edge-module"
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/databox-online/data-box-edge-limits.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-limits",
       "redirect_document_id": false
