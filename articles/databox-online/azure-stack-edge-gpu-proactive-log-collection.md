@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 02/23/2021
 ms.author: alkohli
 ---
 
@@ -27,23 +27,32 @@ Microsoft Customer Support and Engineering teams use system logs from your Azure
 
 ## Enabling proactive log collection
 
-You can enable the proactive log collection when trying to activate the device via the local UI. 
+Proactive log collection is enabled by default. You can disable proactive log collection when trying to activate the device via the local UI. 
 
-1. In the local web UI of the device, go to **Get started** page.
+1. In the local web UI of the device, go to the **Get started** page.
 2. On the **Activation** tile, select **Activate**. 
 
     ![Local web UI "Cloud details" page 1](./media/azure-stack-edge-pro-r-deploy-activate/activate-1.png)
     
 3. In the **Activate** pane:
-    1. Enter the **Activation key** that you got in [Get the activation key for Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-prep.md#get-the-activation-key).
 
-    1. You can enable proactive log collection to let Microsoft collect logs based on the health status of the device. The logs collected this way are uploaded to an Azure Storage account.
-    
-    1. Select **Apply**.
+   1. Enter the **Activation key** that you got in [Get the activation key for Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-prep.md#get-the-activation-key).
 
-    ![Local web UI "Cloud details" page 2](./media/azure-stack-edge-pro-r-deploy-activate/activate-2.png)
+      Once activated, proactive log collection is enabled by default, allowing Microsoft to collect logs based on the health status of the device. These logs are uploaded to an Azure Storage account. 
 
+      You can disable proactive log collection to stop Microsoft from collecting logs.
 
+   1. If you want to disable proactive log collection on the device, select **Disable**.
+
+   1. Select **Activate**.
+
+      ![Local web UI "Cloud details" page 2](./media/azure-stack-edge-pro-r-deploy-activate/activate-2.png)<!--Updated screen needed. Reduce teh screen size.-->
+
+<!--Updates to UI text:
+
+"Based on system health proactive log collection indicators, logs are proactively uploaded to an Azure Storage account to help Microsoft Support troubleshoot issues if they arise. Learn more. (provide link) 
+
+If you click the “Disable” button you agree to deactivate the proactive log collection. After the proactive log collection is disabled, logs will no longer be uploaded automatically when one of the proactive log collection indicators is detected. To learn more about Microsoft privacy practices, see the Microsoft Privacy Statement."-->
 
 ## Proactive log collection indicators
 
@@ -66,7 +75,7 @@ Besides proactive log collection, which collects specific logs pertaining to a s
 
 ## Handling data
 
-If a customer enables proactive log collection, they agree to Microsoft collecting logs from the Azure Stack Edge device as described herein. The customer also acknowledges and consents to the upload and retention of those logs in an Azure Storage account managed and controlled by Microsoft.
+When proactive log collection is enabled, the customer agrees to Microsoft collecting logs from the Azure Stack Edge device as described herein. The customer also acknowledges and consents to the upload and retention of those logs in an Azure Storage account managed and controlled by Microsoft.
 
 Microsoft uses the data for troubleshooting system health and issues only. The data is not used for marketing, advertising, or any other commercial purposes without the customer consent. 
 
