@@ -25,8 +25,6 @@ Because the default metastore DB has limited compute capacity, we recommend low 
 
 Source and target DBs must use the same HDInsight version and the same Storage Accounts. If upgrading HDInsight versions from 3.6 to 4.0, complete the steps in this article first. Then, follow the official upgrade steps [here](./apache-hive-migrate-workloads.md).
 
-Optionally, see a separate guide for [Hive Workload Migration across Storage Accounts](./hive-migration-across-storage-accounts.md).
-
 ## Prerequisites
 
 If using [Azure Data Lake Storage Gen1](../overview-data-lake-storage-gen1.md), Hive table locations are likely dependent on the cluster's HDFS configurations for Azure Data Lake Storage Gen1. Run the following script action to make these locations portable to other clusters. See [Script action to a running cluster](../hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster).
