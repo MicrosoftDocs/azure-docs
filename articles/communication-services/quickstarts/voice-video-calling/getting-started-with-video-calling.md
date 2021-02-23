@@ -110,7 +110,6 @@ Create a file in the root directory of your project called client.js to contain 
         let placeCallOptions;
         let deviceManager;
         let localVideoStream;
-        let remoteVideoStream;
         let rendererLocal;
         let rendererRemote;
 
@@ -165,15 +164,7 @@ The functions refered here will be explained below.
                 placeCallOptions
             );
 
-            call.remoteParticipants.forEach( p => {
-                subscribeToRemoteParticipant(p);
-            })
-
-            call.on('remoteParticipantsUpdated', e => {
-                e.added.forEach( p=>{
-                    subscribeToRemoteParticipant(p);
-                })
-            });
+            subscribeToRemoteParticipantInCall(call);
 
             hangUpButton.disabled = false;
             callButton.disabled = true;
@@ -187,39 +178,51 @@ To render a LocalVideoStream, you need to create a new instance of Renderer, and
             document.getElementById("myVideo").appendChild(view.target);
         }
 
-All remote participants are available through the remoteParticipants collection on a call instance. You can subscribe to the remoteParticipants collection of the current call and inspect the videoStreams collections to list the streams of each participant. You also need to subscribe to the remoteParticipantsUpdated event to handle added remote participants. 
+All remote participants are available through the remoteParticipants collection on a call instance. You need to subscribe to the remote participants of the current call and listen to the event 'remoteParticipantsUpdated' to subscribe to added remote participants.
 
-        function subscribeToRemoteParticipant(p) {
-            p.videoStreams.forEach(v => {
-                handleVideoStreams(v);
+        function subscribeToRemoteParticipantInCall(callInstance) {
+            callInstance.remoteParticipants.forEach( p => {
+                subscribeToRemoteParticipant(p);
+            })
+            callInstance.on('remoteParticipantsUpdated', e => {
+                e.added.forEach( p => {
+                    subscribeToRemoteParticipant(p);
+                })
+            });   
+        }
+
+You can subscribe to the remoteParticipants collection of the current call and inspect the videoStreams collections to list the streams of each participant. You also need to subscribe to the remoteParticipantsUpdated event to handle added remote participants. 
+
+        function subscribeToRemoteParticipant(remoteParticipant) {
+            remoteParticipant.videoStreams.forEach(v => {
+                handleVideoStream(v);
             });
-            p.on('videoStreamsUpdated', e => {
+            remoteParticipant.on('videoStreamsUpdated', e => {
                 e.added.forEach(v => {
-                handleVideoStreams(v);
+                    handleVideoStream(v);
                 })
             });
         }
 
 You have to subscribe to a isAvailableChanged event to render the remoteVideoStream. If the isAvailable property changes to true, a remote participant is sending a stream. Whenever availability of a remote stream changes you can choose to destroy the whole Renderer, a specific RendererView or keep them, but this will result in displaying blank video frame.
 
-        function handleVideoStreams(v) {
-            remoteVideoStream = v;
-            remoteVideoView();
+        function handleVideoStream(remoteVideoStream) {
+            remoteVideoView(remoteVideoStream);
             remoteVideoStream.on('availabilityChanged', async () => {
                 if (remoteVideoStream.isAvailable) {
-                    remoteVideoView();
+                    remoteVideoView(remoteVideoStream);
                 } else {
                     rendererRemote.dispose();
                 }
             });
             if (remoteVideoStream.isAvailable) {
-                remoteVideoView();
+              remoteVideoView(remoteVideoStream);
             }
         }
 
 To render a RemoteVideoStream, you need to create a new instance of Renderer, and then create a new RendererView instance using the asynchronous createView method. You may then attach view.target to any UI element. 
 
-        async function remoteVideoView() {
+        async function remoteVideoView(remoteVideoStream) {
             rendererRemote = new Renderer(remoteVideoStream);
             const view = await rendererRemote.createView();
             document.getElementById("remoteVideo").appendChild(view.target);
@@ -243,15 +246,7 @@ Put the implementation in init() to handle incoming calls.
           const addedCall = await e.incomingCall.accept({videoOptions: {localVideoStreams:[localVideoStream]}});
           call = addedCall;
 
-          addedCall.remoteParticipants.forEach( p => {
-              subscribeToRemoteParticipant(p);
-          })
-
-          addedCall.on('remoteParticipantsUpdated', e => {
-              e.added.forEach( p => {
-                subscribeToRemoteParticipant(p);
-              })
-          });        
+          subscribeToRemoteParticipantInCall(addedCall);   
       });
 
 ## End the current call
@@ -271,6 +266,8 @@ Add an event listener to end the current call when the hangUpButton is clicked:
 
 ## Subscribe to call updates
 You need to subscribe to the event when the remote participant ends the call to dispose of video renderers and toggle button states. 
+
+Put the implementation in init() to subscribe to the 'callsUpdated' event. 
 
         callAgent.on('callsUpdated', e => {
             e.removed.forEach(removedCall => {
@@ -310,7 +307,7 @@ Use the webpack-dev-server to build and run your app. Run the following command 
 
 Open your browser and navigate to http://localhost:8080/. You should see the following:
 
-![1:1 Video Calling page](VideoCalling.PNG)
+:::image type="content" source="/media/javascript/1on1-video-calling.png" alt-text="1 on 1 video calling page":::
 
 You can make an 1:1 outgoing video call by providing a user ID in the text field and clicking the Start Call button. 
 
