@@ -3,7 +3,7 @@ title: Windows Virtual Desktop Install Microsoft Office FSLogix application cont
 description: How to use the app rule editor to create an FSLogix application container with Office in Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 02/23/2021
 ms.author: helohr
 manager: lizross
 ---
