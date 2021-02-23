@@ -48,7 +48,7 @@ The following are the minimum browser version requirements.
 | Browser | Minimum version |
 | --- | --- |
 | Chrome | 76 |
-| Edge | Windows 10 version 1903 <sup>1<sup> |
+| Edge | Windows 10 version 1903 <sup>1</sup> |
 | Firefox | 66 |
 <sup>1</sup>All versions of the new Chromium based Microsoft Edge support Fido2. Support on Microsoft Edge legacy was added in 1903.
 
