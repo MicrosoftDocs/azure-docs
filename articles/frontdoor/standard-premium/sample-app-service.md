@@ -264,8 +264,13 @@ The following diagram illustrates the components of this sample.
 }
 ```
 
-> [!NOTE]
-> After deploying this template, wait a few minutes before you attempt to access your Front Door endpoint to allow time for Front Door to propagate the settings throughout its network.
+## Validate deployment
+
+Once you have deployed the Azure Resource Manager template, wait a few minutes before you attempt to access your Front Door endpoint to allow time for Front Door to propagate the settings throughout its network.
+
+You can then access the Front Door endpoint. You should see an App Service welcome page.
+
+You can also attempt to access the App Service hostname directly. You should see a _Forbidden_ error, since your App Service instance has been configured to block requests that don't come through your Front Door profile.
 
 ## Next steps
 
