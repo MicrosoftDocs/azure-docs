@@ -284,7 +284,6 @@ When you have downloaded your log data, you can view the log entries in the file
 ## Next steps
 
 * To learn more about Storage Analytics, see [Storage Analytics](storage-analytics.md) for Storage Analytics.
-* [Configure Storage Analytics metrics]().
 * For more information about using a .NET language to configure Storage Logging, see [Storage Client Library Reference](/previous-versions/azure/dn261237(v=azure.100)). 
 * For general information about configuring Storage Logging using the REST API, see [Enabling and Configuring Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
 * Learn more about the format of Storage Analytics logs. See [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format).

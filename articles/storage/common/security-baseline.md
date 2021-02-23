@@ -187,7 +187,7 @@ Storage Accounts should use a virtual network service endpoint
 
 **Guidance**: Azure Storage Analytics provides logs for blobs, queues, and tables. You can use the Azure portal to configure which logs are recorded for your account. 
 
-- [How to configure monitoring for your Azure Storage account](./manage-storage-analytics-logs.md#configure-monitoring-for-a-storage-account)
+- [How to configure monitoring for your Azure Storage account](./manage-storage-analytics-logs.md)
 
 **Azure Security Center monitoring**: Currently not available
 

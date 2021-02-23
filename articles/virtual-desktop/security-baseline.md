@@ -816,7 +816,7 @@ Microsoft Antimalware for Azure Cloud Services is the default anti-malware for W
 
 - [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md) 
 
-- [Supported endpoint protection solutions](../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions)
+- [Supported endpoint protection solutions](../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -874,7 +874,7 @@ Overview of security features in Azure Backup /azure/backup/security-overview
 
 - [Encryption of backup data using customer-managed keys](../backup/encryption-at-rest-with-cmk.md) 
 
-- [How to backup Key Vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?amp;preserve-view=true&view=azurermps-6.13.0)
+- [How to backup Key Vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?preserve-view=true&view=azurermps-6.13.0)
 
 - [Security features to help protect hybrid backups from attacks](../backup/backup-azure-security-feature.md#prevent-attacks)
 
@@ -921,11 +921,11 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Appropriate cryptographic standards
 
 For more information, see the following references:
-- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+- [Cloud Adoption Framework - Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark - Asset management](../security/benchmarks/security-controls-v2-asset-management.md)
 
