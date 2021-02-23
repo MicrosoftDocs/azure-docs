@@ -31,9 +31,9 @@ An indexer in Azure Cognitive Search is a crawler that extracts searchable data 
 
 ## Supported document formats
 
-The Azure Cognitive Search blob indexer can extract text from the following document formats:
+The Azure Cognitive Search SharePoint Online indexer can extract text from the following document formats:
 
-[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
+[!INCLUDE [search-document-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## Incremental indexing and deletion detection
 By default, the SharePoint Online indexer supports incremental indexing meaning that it will identify which content in the Document Library has changed and only index the updated content on future indexing runs. For example, if 5 Word documents are originally indexed by the indexer, then 1 is updated, then the indexer runs again, the indexer will only re-index the 1 Word document that was updated.
@@ -261,6 +261,8 @@ If you have set the indexer to index document metadata, the following metadata w
 | metadata_spo_item_weburi | Edm.String | The URI of the item. |
 | metadata_spo_item_path | Edm.String | The combination of the parent path and item name. | 
 
+The SharePoint Online indexer also supports metadata specific to each document type. More information can be found in [Content metadata properties used in Azure Cognitive Search](search-blob-metadata-properties.md).
+
 <a name="controlling-which-documents-are-indexed"></a>
 
 ## Controlling which documents are indexed
@@ -359,4 +361,4 @@ You can also continue indexing if errors happen at any point of processing, eith
 
 ## See also
 + [Indexers in Azure Cognitive Search](search-indexer-overview.md)
-+ [Content metadata properties used in blob and SharePoint Online document indexing in Azure Cognitive Search](search-blob-metadata-properties.md)
++ [Content metadata properties used in Azure Cognitive Search](search-blob-metadata-properties.md)
