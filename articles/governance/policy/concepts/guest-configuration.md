@@ -25,7 +25,7 @@ the machine. They don't apply configurations. The exception is one built-in poli
 To audit the state of machines in your environment, including machines in Azure and Arc Connected
 Machines, review the following details.
 
-> [!VIDEO https://youtu.be/ASIHC59OuZI]
+> [!VIDEO https://youtu.be/Y6ryD3gTHOs]
 
 ## Resource provider
 
