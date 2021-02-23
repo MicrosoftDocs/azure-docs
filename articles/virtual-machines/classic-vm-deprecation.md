@@ -4,6 +4,7 @@ description: This article provides a high-level overview of the retirement of VM
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020

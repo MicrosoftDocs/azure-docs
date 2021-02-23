@@ -82,7 +82,7 @@ az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 
 
 ### Configuration Parameters
 
-To customize the creation of the configuration, [learn about additional parameters you may use](./use-gitops-connected-cluster.md#additional-parameters).
+To customize the creation of the configuration, [learn about additional parameters you may use](./tutorial-use-gitops-connected-cluster.md#additional-parameters).
 
 ## Validate the Configuration
 

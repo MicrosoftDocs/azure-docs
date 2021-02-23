@@ -67,6 +67,8 @@
         href: airtable-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
+      - name: Akamai
+        href: akamai-tutorial.md
       - name: AKASHI
         href: akashi-tutorial.md
       - name: Alcumus Info Exchange
@@ -980,6 +982,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
+      - name: Kemp LoadMaster Azure AD integration
+        href: kemp-tutorial.md
       - name: Kendis - Azure AD Integration
         href: kendis-scaling-agile-platform-tutorial.md
       - name: KFAdvance
@@ -1872,6 +1876,8 @@
         href: ungerboeck-software-tutorial.md
       - name: UNIFI
         href: unifi-tutorial.md
+      - name: uniFLOW Online
+        href: uniflow-online-tutorial.md
       - name: Upshotly
         href: upshotly-tutorial.md
       - name: Upwork Enterprise
@@ -1908,6 +1914,8 @@
         href: visitly-tutorial.md
       - name: Visma
         href: visma-tutorial.md
+      - name: VMware Horizon - Unified Access Gateway
+        href: vmware-horizon-unified-access-gateway-tutorial.md
       - name: Vocoli
         href: vocoli-tutorial.md
       - name: Vodeclic

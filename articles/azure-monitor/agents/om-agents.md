@@ -36,8 +36,8 @@ Before starting, review the following requirements.
 * Azure Monitor only supports System Center Operations Manager 2016 or later, Operations Manager 2012 SP1 UR6 or later, and Operations Manager 2012 R2 UR2 or later. Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
 * Integrating System Center Operations Manager 2016 with US Government cloud requires an updated Advisor management pack included with Update Rollup 2 or later. System Center Operations Manager 2012 R2 requires an updated Advisor management pack included with Update Rollup 3 or later.
 * All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent communication may fail and generate errors in the Operations Manager event log.
-* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](../platform/design-logs-deployment.md).
-* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](../platform/manage-access.md#manage-access-using-azure-permissions).
+* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](../logs/design-logs-deployment.md).
+* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](../logs/manage-access.md#manage-access-using-azure-permissions).
 
 * Supported Regions - Only the following Azure regions are supported by System Center Operations Manager to connect to a Log Analytics workspace:
     - West Central US
@@ -91,7 +91,7 @@ The information below list the proxy and firewall configuration information requ
 
 ### TLS 1.2 protocol
 
-To insure the security of data in transit to Azure Monitor, we strongly encourage you to configure the agent and management group to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. For additional information, review [Sending data securely using TLS 1.2](../platform/data-security.md#sending-data-securely-using-tls-12).
+To insure the security of data in transit to Azure Monitor, we strongly encourage you to configure the agent and management group to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. For additional information, review [Sending data securely using TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12).
 
 ## Connecting Operations Manager to Azure Monitor
 
@@ -341,4 +341,3 @@ In the future if you plan on reconnecting your management group to a Log Analyti
 ## Next steps
 
 To add functionality and gather data, see [Add Azure Monitor solutions from the Solutions Gallery](../insights/solutions.md).
-
