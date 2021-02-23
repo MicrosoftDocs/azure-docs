@@ -59,7 +59,7 @@ Requests to the Translator service require a read-only key for authenticating ac
 
 ## Create your Azure blob storage containers
 
-You'll need to  [**create containers**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source, target, and optional glossary files.
+You'll need to  [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source, target, and optional glossary files.
 
 * **Source container**. This container is where you upload your files for translation (required).
 * **Target container**. This container is where your translated files will be stored (required).  
@@ -215,7 +215,7 @@ The following headers are included with each Document Translator API request:
 > * You can also use a GET Jobs request to retrieve the  job `id`  for a Document Translation operation.
 > * For the samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  
 >
-> See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
+> See [Azure Cognitive Services security](../../cognitive-services-security.md?tabs=command-line%2ccsharp) for ways to securely store and access your credentials.
 
 <!-- markdownlint-disable MD024 -->
 ### POST request body without optional glossaryURL
@@ -1249,7 +1249,7 @@ The table below lists the limits for data that you send to Document Translation.
 
 * [Translator v3 API reference](../reference/v3-0-reference.md)
 * [Language support](../language-support.md)
-* [Subscriptions in Azure API Management](/azure/api-management/api-management-subscriptions).
+* [Subscriptions in Azure API Management](../../../api-management/api-management-subscriptions.md).
 
 ## Next steps
 
