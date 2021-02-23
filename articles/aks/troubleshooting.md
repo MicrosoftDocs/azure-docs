@@ -447,5 +447,5 @@ AKS is investigating the capability to mutate active labels on a node pool to im
 
 
 <!-- LINKS - internal -->
-[view-master-logs]: view-master-logs.md
+[view-master-logs]: ./view-control-plane-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md
