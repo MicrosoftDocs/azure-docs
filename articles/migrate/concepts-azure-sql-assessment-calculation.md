@@ -120,10 +120,9 @@ If you select the target deployment type as **Recommended** in the Azure SQL ass
 
 #### Potentially ready for Azure VM
 
-If the SQL instance is not ready for Azure SQL Database and Azure SQL Managed Instance, the Recommended deployment type is marked as *Potentially ready for Azure VM*.
-- The user is recommended to create an assessment in Azure Migrate with assessment type as "Azure VM" to determine if the server on which the instance is running is ready to migrate to an Azure VM instead. Note that:
-    - Azure VM assessments in Azure Migrate are currently lift and shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. 
-    - When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) for SQL Server on Azure virtual machines.
+If the SQL instance is not ready for Azure SQL Database and Azure SQL Managed Instance, the Recommended deployment type is marked as *Potentially ready for Azure VM*. The user is recommended to create an assessment in Azure Migrate with assessment type as "Azure VM" to determine if the server on which the instance is running is ready to migrate to an Azure VM instead. 
+>[!NOTE]
+>Azure VM assessments in Azure Migrate are currently lift and shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [**review the performance guidelines**](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) for SQL Server on Azure virtual machines.
 
 
 ## Calculate sizing
@@ -131,7 +130,7 @@ If the SQL instance is not ready for Azure SQL Database and Azure S
 ### Azure SQL configuration
 
 After the assessment determines the readiness and the recommended Azure SQL deployment type, it computes a specific service tier and Azure SQL configuration(SKU size) that can meet or exceed the on-premises SQL instance performance:
-1. During the discovery process, Azure Migrate collects SQL instance configuration and performance that includes:
+- During the discovery process, Azure Migrate collects SQL instance configuration and performance that includes:
     - vCores (allocated) and CPU utilization (%)
         - CPU utilization for a SQL instance is the percentage of allocated CPU utilized by the instance on the SQL server
         - CPU utilization for a database is the percentage of allocated CPU utilized by the database on the SQL instance
@@ -142,7 +141,7 @@ After the assessment determines the readiness and the recommended Azure SQL depl
     - Latency of IO operations
     - Total DB size and database file organizations
         - Database size is calculated by adding all the data and log files.
-1. The assessment aggregates all the configuration and performance data and tries to find the best match across various Azure SQL service tiers and configurations, and picks a configuration that can match or exceed the SQL instance performance requirements, optimizing the cost.
+- The assessment aggregates all the configuration and performance data and tries to find the best match across various Azure SQL service tiers and configurations, and picks a configuration that can match or exceed the SQL instance performance requirements, optimizing the cost.
 
 ### Confidence ratings 
 Each Azure SQL assessment is associated with a confidence rating. The rating ranges from one (lowest) to five (highest) stars. The confidence rating helps you estimate the reliability of the size recommendations Azure Migrate provides.

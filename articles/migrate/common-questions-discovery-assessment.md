@@ -48,7 +48,7 @@ For "Performance-based" assessment, the assessment report export says 'Percentag
 
 - If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
 
-Note- If any of the performance counters are missing, Azure Migrate falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
+If any of the performance counters are missing, Azure Migrate falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
 
 ## Why is performance data missing for some/all SQL instances/databases in my Azure SQL assessment?
 
@@ -109,9 +109,8 @@ If your instance is ready for both Azure SQL DB and Azure SQL MI, we recommend t
 
 ## Why is my instance marked as Potentially ready for Azure VM in my Azure SQL assessment?
 This can happen when the target deployment type chosen in the assessment properties is **Recommended** and the SQL instance is not ready for Azure SQL Database and Azure SQL Managed Instance. The user is recommended to create an assessment in Azure migrate with assessment type as **Azure VM** to determine if the Server on which the instance is running is ready to migrate to an Azure VM.<br/>
-The user is recommended to create an assessment in Azure Migrate with assessment type as **Azure VM** to determine if the server on which the instance is running is ready to migrate to an Azure VM instead. Note that:
-- Azure VM assessments in Azure Migrate are currently lift and shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. 
-- When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) for SQL Server on Azure virtual machines.
+> [!Note]
+> Azure VM assessments in Azure Migrate are currently lift and shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [**review the performance guidelines**](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) for SQL Server on Azure virtual machines.
 
 ## I can't see some databases in my assessment even though the instance is part of the assessment
 

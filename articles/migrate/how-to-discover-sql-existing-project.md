@@ -44,15 +44,13 @@ Discovering SQL Server instances and databases running on on-premises machines h
          :::image type="content" source="./media/how-to-discover-sql-existing-project/discovery-appliance-version.png" alt-text="Check the appliance version":::
     - In the manage credentials and discovery sources panel of the Appliance configuration manager, add Domain or SQL Server Authentication credentials that have Sysadmin access on the SQL Server instance and databases to be discovered. 
     You can leverage either the automatic credential mapping feature of the appliance, or manually map the credentials to the respective server as highlighted [here](https://review.docs.microsoft.com/azure/migrate/tutorial-discover-vmware?branch=release-migrate-sql-scenario#start-continuous-discovery).
-        
-    Some points to note:
-    - Please ensure that software inventory is enabled already, or provide Domain or Non-domain credentials to enable the same. Software inventory must be performed to discover SQL Server instances.
-    - Appliance will attempt to validate the Domain credentials with AD, as they are added. Please ensure that appliance server has network line of sight to the AD server associated with the credentials. Credentials associated with SQL Server Authentication are not validated. 
+        - Please ensure that software inventory is enabled already, or provide Domain or Non-domain credentials to enable the same. Software inventory must be performed to discover SQL Server instances.
+        - Appliance will attempt to validate the Domain credentials with AD, as they are added. Please ensure that appliance server has network line of sight to the AD server associated with the credentials. Credentials associated with SQL Server Authentication are not validated. 
 
 3. Once the desired credentials are added please select Start Discovery, to begin the scan.
 
-> [!Note] 
->Please allow SQL discovery to run for sometime before creating assessments for Azure SQL. If the discovery of SQL Server instances and databases is not allowed to complete, the respective instances are marked as **Unknown** in the assessment report.
+    > [!Note] 
+    >Please allow SQL discovery to run for sometime before creating assessments for Azure SQL. If the discovery of SQL Server instances and databases is not allowed to complete, the respective instances are marked as **Unknown** in the assessment report.
 
 ## Next steps
 
