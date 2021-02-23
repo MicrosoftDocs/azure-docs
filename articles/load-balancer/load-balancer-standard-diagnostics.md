@@ -67,7 +67,7 @@ To view the metrics for your Standard Load Balancer resources:
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
-For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account by adding a [Diagnostic Setting](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) for the 'All Metrics' category. 
+For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account by adding a [Diagnostic Setting](../azure-monitor/essentials/diagnostic-settings.md) for the 'All Metrics' category. 
 
 ### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
 
@@ -245,8 +245,8 @@ Health status for the Standard Load Balancer resources is exposed via the existi
 | Resource health status | Description |
 | --- | --- |
 | Available | Your standard load balancer resource is healthy and available. |
-| Degraded | Your standard load balancer has platform or user initiated events impacting performance. The Datapath Availability metric has reported less than 90% but greater than 25% health for at least two minutes. You will experience moderate to severe performance impact. [Follow the troubleshooting RHC guide](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) to determine whether there are user initiated events causing impacting your availability.
-| Unavailable | Your standard load balancer resource is not healthy. The Datapath Availability metric has reported less the 25% health for at least two minutes. You will experience significant performance impact or lack of availability for inbound connectivity. There may be user or platform events causing unavailability. [Follow the troubleshooting RHC guide](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) to determine whether there are user initiated events impacting your availability. |
+| Degraded | Your standard load balancer has platform or user initiated events impacting performance. The Datapath Availability metric has reported less than 90% but greater than 25% health for at least two minutes. You will experience moderate to severe performance impact. [Follow the troubleshooting RHC guide](./troubleshoot-rhc.md) to determine whether there are user initiated events causing impacting your availability.
+| Unavailable | Your standard load balancer resource is not healthy. The Datapath Availability metric has reported less the 25% health for at least two minutes. You will experience significant performance impact or lack of availability for inbound connectivity. There may be user or platform events causing unavailability. [Follow the troubleshooting RHC guide](./troubleshoot-rhc.md) to determine whether there are user initiated events impacting your availability. |
 | Unknown | Resource health status for your standard load balancer resource has not been updated yet or has not received Data Path availability information for the last 10 minutes. This state should be transient and will reflect correct status as soon as data is received. |
 
 To view the health of your public Standard Load Balancer resources:
@@ -273,7 +273,7 @@ Generic resource health status description are available in the [RHC documentati
 
 ## Next steps
 
-- Learn about using [Insights](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) to view these metrics preconfigured for your Load Balancer
+- Learn about using [Insights](./load-balancer-insights.md) to view these metrics preconfigured for your Load Balancer
 - Learn more about [Standard Load Balancer](./load-balancer-overview.md).
 - Learn more about your [Load balancer outbound connectivity](./load-balancer-outbound-connections.md).
 - Learn about [Azure Monitor](../azure-monitor/overview.md).
