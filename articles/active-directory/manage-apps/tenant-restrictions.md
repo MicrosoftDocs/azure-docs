@@ -67,15 +67,13 @@ The following configuration is required to enable tenant restrictions through yo
 For each outgoing request to login.microsoftonline.com, login.microsoft.com, and login.windows.net, insert two HTTP headers: *Restrict-Access-To-Tenants* and *Restrict-Access-Context*.
 
 > [!NOTE]
-> When configuring SSL interception and header injection, ensure that traffic to https://device.login.microsoftonline.com is excluded. This URL is used for device authentication and performing TLS break-and-inspect may interfere with Client Certificate authentication, which may cause issues with device registration and device-based Conditional Access.
-
-
+> Do not include subdomains under `*.login.microsoftonline.com` in your proxy configuration. Doing so will include device.login.microsoftonline.com and will interfere with Client Certificate authentication, which is used in Device Registration and Device-based Conditional Access scenarios. Configure your proxy server to exclude device.login.microsoftonline.com from TLS break-and-inspect and header injection.
 
 The headers should include the following elements:
 
 - For *Restrict-Access-To-Tenants*, use a value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list, as well as the directory ID itself. For an example of all three ways of describing a tenant, the name/value pair to allow Contoso, Fabrikam, and Microsoft looks like: `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
 
-- For *Restrict-Access-Context*, use a value of a single directory ID, declaring which tenant is setting the tenant restrictions. For example, to declare Contoso as the tenant that set the tenant restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  You **must** use your own directory ID in this spot.
+- For *Restrict-Access-Context*, use a value of a single directory ID, declaring which tenant is setting the tenant restrictions. For example, to declare Contoso as the tenant that set the tenant restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  You **must** use your own directory ID in this spot in order to get logs for these authentications.
 
 > [!TIP]
 > You can find your directory ID in the [Azure Active Directory portal](https://aad.portal.azure.com/). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**. 
@@ -85,9 +83,6 @@ The headers should include the following elements:
 To prevent users from inserting their own HTTP header with non-approved tenants, the proxy needs to replace the *Restrict-Access-To-Tenants* header if it is already present in the incoming request.
 
 Clients must be forced to use the proxy for all requests to login.microsoftonline.com, login.microsoft.com, and login.windows.net. For example, if PAC files are used to direct clients to use the proxy, end users shouldn't be able to edit or disable the PAC files.
-
-> [!NOTE]
-> Do not include subdomains under *.login.microsoftonline.com in your proxy configuration. Doing so will include device.login.microsoftonline.com and may interfere with Client Certificate authentication, which is used in Device Registration and Device-based Conditional Access scenarios. Configure your proxy server to exclude device.login.microsoftonline.com from TLS break-and-inspect and header injection.
 
 ## The user experience
 
@@ -109,8 +104,6 @@ While configuration of tenant restrictions is done on the corporate proxy infras
 
 The admin for the tenant specified as the Restricted-Access-Context tenant can use this report to see sign-ins blocked because of the tenant restrictions policy, including the identity used and the target directory ID. Sign-ins are included if the tenant setting the restriction is either the user tenant or resource tenant for the sign-in.
 
-At this time, authentication to [consumer applications ](#blocking-consumer-applications)("MSA" apps) does not appear in the logs, as login.live.com is hosted separately from Azure AD.
-
 > [!NOTE]
 > The report may contain limited information, such as target directory ID, when a user who is in a tenant other than the Restricted-Access-Context tenant signs in. In this case, user identifiable information, such as name and user principal name, is masked to protect user data in other tenants ("00000000-0000-0000-0000-00000000@domain.com") 
 
@@ -121,9 +114,6 @@ Like other reports in the Azure portal, you can use filters to specify the scope
 - **Status**
 - **Date**
 - **Date (UTC)** (where UTC is Coordinated Universal Time)
-- **MFA Auth Method** (multifactor authentication method)
-- **MFA Auth Detail** (multifactor authentication detail)
-- **MFA Result**
 - **IP Address**
 - **Client**
 - **Username**
@@ -163,8 +153,7 @@ Fiddler is a free web debugging proxy that can be used to capture and modify HTT
 
    2. Add the following lines at the beginning of the `OnBeforeRequest` function. Replace \<List of tenant identifiers\> with a domain registered with your tenant (for example, `contoso.onmicrosoft.com`). Replace \<directory ID\> with your tenant's Azure AD GUID identifier.  You **must** include the correct GUID identifier in order for the logs to appear in your tenant. 
 
-      ```JScript.NET
-
+```JScript.NET
     // Allows access to the listed tenants.
       if (
           oSession.HostnameIs("login.microsoftonline.com") ||
@@ -183,10 +172,9 @@ Fiddler is a free web debugging proxy that can be used to capture and modify HTT
       {
           oSession.oRequest["sec-Restrict-Tenant-Access-Policy"] = "restrict-msa";
       }
+```
 
-      ```
-
-      If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
+If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 
@@ -216,6 +204,8 @@ Some organizations attempt to fix this by blocking `login.live.com` in order to 
 ### Configuration for consumer apps
 
 While the `Restrict-Access-To-Tenants` header functions as an allow-list, the MSA block works as a deny signal, telling the Microsoft account platform to not allow users to sign in to consumer applications. To send this signal, a `sec-Restrict-Tenant-Access-Policy` header is injected to traffic visiting `login.live.com` using the same corporate proxy or firewall as [above](#proxy-configuration-and-requirements). The value of the header must be `restrict-msa`. When the header is present and a consumer app is attempting to sign in a user directly, that sign in will be blocked.
+
+At this time, authentication to consumer applications does not appear in the [admin logs](#admin-experience), as login.live.com is hosted separately from Azure AD.
 
 ### What the header does and does not block
 
