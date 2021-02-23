@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/howto-authentication-methods-usage-insights.md",
+      "redirect_url": "/active-directory/authentication/howto-authentication-methods-activity",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/python.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/python",
       "redirect_document_id": false
