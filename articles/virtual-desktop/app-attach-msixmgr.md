@@ -75,7 +75,7 @@ To learn how to set up app attach, check out these articles:
 - [Set up MSIX app attach with the Azure portal](app-attach-azure-portal.md)
 - [Set up MSIX app attach using PowerShell](app-attach-powershell.md)
 - [Create PowerShell scripts for MSIX app attach](app-attach.md)
-- [Prepare an MSIX image for Windows Virtual Dekstop](app-attach-image-prep.md)
+- [Prepare an MSIX image for Windows Virtual Desktop](app-attach-image-prep.md)
 - [Set up a file share for MSIX app attach](app-attach-file-share.md)
 
 If you have questions about MSIX app attach, see our [App attach FAQ](app-attach-faq.md) and [App attach glossary](app-attach-glossary.md).
