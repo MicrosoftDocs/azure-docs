@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/18/2021
+ms.date: 02/23/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with SAML SSO for Jira by resolution GmbH
@@ -120,11 +120,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Hover over the cog at the right side and click **Manage apps**.
     
-	![Screenshot that shows an arrow pointing at the "Cog" icon, and "Manage apps" selected from the drop-down.](./media/samlssojira-tutorial/addon-1.png)
+	![Screenshot that shows an arrow pointing at the "Cog" icon, and "Manage apps" selected from the drop-down.](./media/samlssojira-tutorial/add-on-1.png)
 
 3. If you are redirected to Administrator Access page, enter the **Password** and click the **Confirm** button.
 
-	![Screenshot that shows the "Administrator Access" page.](./media/samlssojira-tutorial/addon-2.png)
+	![Screenshot that shows the "Administrator Access" page.](./media/samlssojira-tutorial/add-on-2.png)
 
 4. Jira normally redirects you to the Atlassian marketplace. If not, click on **Find new apps** in the left panel. Search for **SAML Single Sign On (SSO) for JIRA** and click the **Install** button to install the SAML plugin.
 
@@ -140,17 +140,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot that shows the "S A M L Single Sign On (S S O) Jira, S A M L/S S O" app with the "Manage" button selected.](./media/samlssojira-tutorial/store-4.png)
     
-8. Afterwards, click **Configure** to configure the just installed plugin.
+7. Afterwards, click **Configure** to configure the just installed plugin.
 
 	![Screenshot that shows the "Manage apps" page, with the "Configure" button selected for the "S A M L SingleSignOn for Jira" app.](./media/samlssojira-tutorial/store-5.png)
 
-9. In the **SAML SingleSignOn Plugin Configuration** wizard, click **Add new IdP** to configure Azure AD as a new Identity Provider.
+8. In the **SAML SingleSignOn Plugin Configuration** wizard, click **Add new IdP** to configure Azure AD as a new Identity Provider.
 
-	![Screenshot shows the "Welcome" page, with the "Add new I d P" button selected.](./media/samlssojira-tutorial/addon-4.png) 
+	![Screenshot shows the "Welcome" page, with the "Add new I d P" button selected.](./media/samlssojira-tutorial/add-on-4.png) 
 
-10. On the **Choose your SAML Identity Provider** page, perform the following steps:
+9. On the **Choose your SAML Identity Provider** page, perform the following steps:
 
-	![Screenshot that shows the "Choose your S A M L Identity Provider" page with the "I d P Type" and "Name" text boxes highlighted, and the "Next" button selected.](./media/samlssojira-tutorial/addon-5a.png)
+	![Screenshot that shows the "Choose your S A M L Identity Provider" page with the "I d P Type" and "Name" text boxes highlighted, and the "Next" button selected.](./media/samlssojira-tutorial/identity-provider.png)
  
 	a. Set **Azure AD** as the IdP type.
 	
@@ -160,13 +160,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	
 	d. Click **Next**.
 	
-11. On the **Identity provider configuration** page, click **Next**.
+10. On the **Identity provider configuration** page, click **Next**.
  
-	![Screenshot that shows the "Identity provider configuration" page.](./media/samlssojira-tutorial/addon-5b.png)
+	![Screenshot that shows the "Identity provider configuration" page.](./media/samlssojira-tutorial/configuration.png)
 
-12. On **Import SAML IdP Metadata** page, perform the following steps:
+11. On **Import SAML IdP Metadata** page, perform the following steps:
 
-	![Screenshot that shows the "Import S A M L I d P Metadata" page with the "Select Metadata X M L File" action selected.](./media/samlssojira-tutorial/addon-5c.png)
+	![Screenshot that shows the "Import S A M L I d P Metadata" page with the "Select Metadata X M L File" action selected.](./media/samlssojira-tutorial/metadata.png)
 
     a. Click the **Select Metadata XML File** button and pick the **Federation Metadata XML** file you downloaded before.
 
@@ -176,21 +176,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
      
     d. Click the **Next** button.
     
-13. On **User ID attribute and transformation** page, click the **Next** button.
+12. On **User ID attribute and transformation** page, click the **Next** button.
 
-	![Screenshot that shows the "User I D attribute and transformation" page with the "Next" button selected.](./media/samlssojira-tutorial/addon-5d.png)
+	![Screenshot that shows the "User I D attribute and transformation" page with the "Next" button selected.](./media/samlssojira-tutorial/transformation.png)
 	
-14. On the **User creation and update** page, click **Save & Next** to save the settings.
+13. On the **User creation and update** page, click **Save & Next** to save the settings.
 	
-	![Screenshot that shows the "User creation and update" page with the "Save & Next" button selected.](./media/samlssojira-tutorial/addon-6a.png)
+	![Screenshot that shows the "User creation and update" page with the "Save & Next" button selected.](./media/samlssojira-tutorial/update.png)
 	
-15. On the **Test your settings** page, click **Skip test & configure manually** to skip the user test for now. This will be performed in the next section and requires some settings in the Azure portal.
+14. On the **Test your settings** page, click **Skip test & configure manually** to skip the user test for now. This will be performed in the next section and requires some settings in the Azure portal.
 	
-	![Screenshot that shows the "Test your settings" page with the "Skip test & configure manually" button selected.](./media/samlssojira-tutorial/addon-6b.png)
+	![Screenshot that shows the "Test your settings" page with the "Skip test & configure manually" button selected.](./media/samlssojira-tutorial/test.png)
 	
-16. Click **OK** to skip the warning.
+15. Click **OK** to skip the warning.
 	
-	![Screenshot that shows the warning dialog with the "O K" button selected.](./media/samlssojira-tutorial/addon-6c.png)
+	![Screenshot that shows the warning dialog with the "O K" button selected.](./media/samlssojira-tutorial/warning.png)
 
 ### Create SAML SSO for Jira by resolution GmbH test user
 
@@ -253,11 +253,11 @@ To activate SSO redirect, do the following in **your Jira instance**:
 1. Access the configuration page of the SAML SSO plugin in Jira.
 1. Click on **Redirection** in the left panel.
 
-   ![Partial screenshot of the Jira SAML SingleSignOn Plugin Configuration page highlighting the Redirection link in the left navigation.](./media/samlssojira-tutorial/ssore-1.png)
+   ![Partial screenshot of the Jira SAML SingleSignOn Plugin Configuration page highlighting the Redirection link in the left navigation.](./media/samlssojira-tutorial/configure-1.png)
 
 1. Tick **Enable SSO Redirect**.
 
-   ![Partial screenshot of the Jira SAML SingleSignOn Plugin Configuration page highlighting the selected "Enable SSO Redirect" check box.](./media/samlssojira-tutorial/ssore-2.png) 
+   ![Partial screenshot of the Jira SAML SingleSignOn Plugin Configuration page highlighting the selected "Enable SSO Redirect" check box.](./media/samlssojira-tutorial/configure-2.png) 
 
 1. Press the **Save Settings** button in the top right corner.
 

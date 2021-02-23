@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/18/2021
+ms.date: 02/23/2021
 ms.author: jeedes
 ---
 
@@ -130,7 +130,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 5. In the top right corner, click **Add IdP Configuration**. 
 
-	![Zscaler Private Access Administrator idp](./media/zscalerprivateaccess-tutorial/saml.png)
+	![Zscaler Private Access Administrator idp](./media/zscalerprivateaccess-tutorial/metadata.png)
 
 6. On the **Add IdP Configuration** page perform the following steps:
  
