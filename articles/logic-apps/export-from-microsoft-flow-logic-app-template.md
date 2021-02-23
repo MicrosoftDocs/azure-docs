@@ -14,7 +14,7 @@ To extend and expand your flow's capabilities, you can migrate that flow from [P
 
 > [!IMPORTANT]
 > Export to Azure Logic Apps is unavailable for Power Automate flows created after August 2020. In October 2020, 
-> Power Automate introduced a new flow format, which is incompatibile with Logic Apps workflows. As a result, 
+> Power Automate introduced a new flow format, which is incompatible with Logic Apps workflows. As a result, 
 > you can't export flows created from this new format as Logic Apps templates, so export to Logic Apps for 
 > these flows was disabled and removed. Instead, you have to manually create logic apps for these flows.
 
