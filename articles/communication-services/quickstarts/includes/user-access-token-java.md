@@ -115,8 +115,8 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
 Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. Store received identity with mapping to your application's users. For example, by storing them in your application server's database. The identity is required later to issue access tokens.
 
 ```java
-CommunicationUserIdentifier identity = communicationIdentityClient.createUser();
-System.out.println("\nCreated an identity with ID: " + identity.getId());
+CommunicationUserIdentifier user = communicationIdentityClient.createUser();
+System.out.println("\nCreated an identity with ID: " + user.getId());
 ```
 
 ## Issue access tokens
@@ -124,12 +124,28 @@ System.out.println("\nCreated an identity with ID: " + identity.getId());
 Use the `getToken` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `user` can be constructed based on string representation of Azure Communication Service identity.
 
 ```java
-// Issue an access token with the "voip" scope for an identity
-List<String> scopes = new ArrayList<>(Arrays.asList("voip"));
-AccessToken accessToken = communicationIdentityClient.getToken(identity, scopes);
+// Issue an access token with the "voip" scope for a user identity
+List<String> scopes = new ArrayList<>(Arrays.asList(CommunicationTokenScope.VOIP));
+AccessToken accessToken = communicationIdentityClient.getToken(user, scopes);
 OffsetDateTime expiresAt = accessToken.getExpiresAt();
 String token = accessToken.getToken();
 System.out.println("\nIssued an access token with 'voip' scope that expires at: " + expiresAt + ": " + token);
+```
+
+## Create an identity and issue token in one call
+
+Alternatively, use the 'createUserWithToken' method to to create a new entry in the directory with a unique `Id` and
+issue an access token.
+
+```java
+List<CommunicationTokenScope> scopes = Arrays.asList(CommunicationTokenScope.CHAT);
+CommunicationUserIdentifierWithTokenResult result = client.createUserWithToken(scopes);
+CommunicationUserIdentifier user = result.getUser();
+System.out.println("\nCreated a user identity with ID: " + user.getId());
+AccessToken accessToken = result.getUserToken();
+OffsetDateTime expiresAt = accessToken.getExpiresAt();
+String token = accessToken.getToken();
+System.out.println("\nIssued an access token with 'chat' scope that expires at: " + expiresAt + ": " + token);
 ```
 
 Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expiresAt` property indicates the lifetime of the access token.
@@ -149,8 +165,8 @@ response = communicationIdentityClient.getToken(identity, scopes);
 In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `revokeTokens` invalidates all active access tokens, that were issued to the identity.
 
 ```java
-communicationIdentityClient.revokeTokens(identity);
-System.out.println("\nSuccessfully revoked all access tokens for identity with ID: " + identity.getId());
+communicationIdentityClient.revokeTokens(user);
+System.out.println("\nSuccessfully revoked all access tokens for user identity with ID: " + user.getId());
 ```
 
 ## Delete an identity
@@ -158,8 +174,8 @@ System.out.println("\nSuccessfully revoked all access tokens for identity with I
 Deleting an identity revokes all active access tokens and prevents you from issuing access tokens for the identity. It also removes all the persisted content associated with the identity.
 
 ```java
-communicationIdentityClient.deleteUser(identity);
-System.out.println("\nDeleted the identity with ID: " + identity.getId());
+communicationIdentityClient.deleteUser(user);
+System.out.println("\nDeleted the user identity with ID: " + user.getId());
 ```
 
 ## Run the code
