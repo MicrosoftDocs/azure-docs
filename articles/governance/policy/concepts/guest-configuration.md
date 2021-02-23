@@ -307,6 +307,13 @@ Guest Configuration built-in policy samples are available in the following locat
 - [Built-in initiatives - Guest Configuration](../samples/built-in-initiatives.md#guest-configuration)
 - [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
 
+### Video overview
+
+The following overview of Azure Policy Guest Configuration is from ITOps Talks 2021. For more information, visit
+[Governing baselines in hybrid server environments using Azure Policy Guest Configuration](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245).
+
+> [!VIDEO https://youtu.be/PLLJHTdC8jY]
+
 ## Next steps
 
 - Learn how to view the details each setting from the
