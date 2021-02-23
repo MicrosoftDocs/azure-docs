@@ -177,6 +177,8 @@
         href: awarego-tutorial.md
       - name: AWS ClientVPN
         href: aws-clientvpn-tutorial.md
+      - name: AWS Single Sign-On
+        href: aws-single-sign-on-tutorial.md
       - name: Axiad Cloud
         href: axiad-cloud-tutorial.md
     - name: B
@@ -2081,6 +2083,8 @@
         href: atlassian-cloud-provisioning-tutorial.md
       - name: Azure Databricks SCIM Connector
         href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
+      - name: AWS Single Sign-On
+        href: aws-single-sign-on-provisioning-tutorial.md
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Bizagi Studio for Digital Process Automation

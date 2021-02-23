@@ -30,7 +30,7 @@ Workbook authors can easily query across multiple resources creating a truly uni
 
 ## Metrics
 
-Azure resources emit [metrics](../platform/data-platform-metrics.md) that can be accessed via workbooks. Metrics can be accessed in workbooks through a specialized control that allows you to specify the target resources, the desired metrics, and their aggregation. This data can then be plotted in charts or grids.
+Azure resources emit [metrics](../essentials/data-platform-metrics.md) that can be accessed via workbooks. Metrics can be accessed in workbooks through a specialized control that allows you to specify the target resources, the desired metrics, and their aggregation. This data can then be plotted in charts or grids.
 
 ![Screenshot of workbook metrics charts of cpu utilization](./media/workbooks-data-sources/metrics-graph.png)
 
@@ -142,6 +142,6 @@ This provider supports [JSONPath](workbooks-jsonpath.md).
 
 ## Next steps
 
-* [Get started](../platform/workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](../platform/workbooks-access-control.md) and share access to your workbook resources.
-* [Log Analytics query optimization tips](../log-query/query-optimization.md)
+* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
+* [Control](./workbooks-access-control.md) and share access to your workbook resources.
+* [Log Analytics query optimization tips](../logs/query-optimization.md)
