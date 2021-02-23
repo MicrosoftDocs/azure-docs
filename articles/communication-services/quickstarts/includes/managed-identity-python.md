@@ -67,7 +67,7 @@ Add the following `import` to your code to use the Azure Identity.
 from azure.identity import DefaultAzureCredential
 ```
 
-The examples below are using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
+The examples below are using the [DefaultAzureCredential](/python/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
 
 ### Create an identity and issue a token
 
@@ -117,7 +117,7 @@ def send_sms(resource_endpoint, from_phone_number, to_phone_number, message_cont
 You may also want to:
 
 - [Learn more about Azure role-based access control](../../../articles/role-based-access-control/index.yml)
-- [Learn more about Azure identity library for .NET](/dotnet/api/overview/azure/identity-readme)
+- [Learn more about Azure identity library for .NET](/python/api/overview/azure/identity-readme)
 - [Creating user access tokens](../quickstarts/access-tokens.md)
 - [Send an SMS message](../quickstarts/telephony-sms/send.md)
 - [Learn more about SMS](../concepts/telephony-sms/concepts.md)
