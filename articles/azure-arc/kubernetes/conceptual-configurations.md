@@ -2,7 +2,7 @@
 title: "Configurations and GitOps - Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
@@ -16,7 +16,7 @@ In relation to Kubernetes, GitOps is the practice of declaring the desired state
 * YAML-format manifests describing any valid Kubernetes resources, including Namespaces, ConfigMaps, Deployments, DaemonSets, etc.
 * Helm charts for deploying applications.
 
-[Flux](https://docs.fluxcd.io/), a popular open-source tool in the GitOps space, can be deployed on the Kubernetes cluster to ease the flow of configurations from a Git repo to a Kubernetes cluster. Flux supports the deployment of its operator at both the cluster and namespace scopes. A flux operator deployed with namespace scope can only deploy Kubernetes objects within that specific namespace. The ability to choose between cluster or namespace scope helps you achieve multi-tenant deployment patterns on the same Kubernetes cluster.
+[Flux](https://docs.fluxcd.io/), a popular open-source tool in the GitOps space, can be deployed on the Kubernetes cluster to ease the flow of configurations from a Git repository to a Kubernetes cluster. Flux supports the deployment of its operator at both the cluster and namespace scopes. A flux operator deployed with namespace scope can only deploy Kubernetes objects within that specific namespace. The ability to choose between cluster or namespace scope helps you achieve multi-tenant deployment patterns on the same Kubernetes cluster.
 
 ## Configurations
 
@@ -24,7 +24,7 @@ In relation to Kubernetes, GitOps is the practice of declaring the desired state
 
 The connection between your cluster and a Git repository is created as a `Microsoft.KubernetesConfiguration/sourceControlConfigurations` extension resource on top of the Azure Arc enabled Kubernetes resource (represented by `Microsoft.Kubernetes/connectedClusters`) in Azure Resource Manager. 
 
-The `sourceControlConfiguration` resource properties are used to deploy Flux operator on the cluster with the appropriate parameters, such as the Git repo from which to pull manifests and the polling interval at which to pull them. The `sourceControlConfiguration` data is stored encrypted, at rest in an Azure Cosmos DB database to ensure data confidentiality.
+The `sourceControlConfiguration` resource properties are used to deploy Flux operator on the cluster with the appropriate parameters, such as the Git repository from which to pull manifests and the polling interval at which to pull them. The `sourceControlConfiguration` data is stored encrypted and at rest in an Azure Cosmos DB database to ensure data confidentiality.
 
 The `config-agent` running in your cluster is responsible for:
 * Tracking new or updated `sourceControlConfiguration` extension resources on the Azure Arc enabled Kubernetes resource.
@@ -34,17 +34,17 @@ The `config-agent` running in your cluster is responsible for:
 You can create multiple namespace-scoped `sourceControlConfiguration` resources on the same Azure Arc enabled Kubernetes cluster to achieve multi-tenancy.
 
 > [!NOTE]
-> * Since the `config-agent` monitors for new or updated `sourceControlConfiguration` extension resources to be available on Azure Arc enabled Kubernetes resource, agents require connectivity for the desired state to be pulled down to the cluster. Whenever agents aren't able to connect to Azure, the desired state properties declared on the `sourceControlConfiguration` resource in Azure Resource Manager are not applied on the cluster.
-> * Sensitive customer inputs like private key, known hosts content, HTTPS username, and token/password are not stored for more than 48 hours in the Azure Arc enabled Kubernetes services. If you are using sensitive inputs for configurations, be advised to bring the clusters online as regularly as possible.
+> * `config-agent` continually monitors for new or updated `sourceControlConfiguration` extension resources available on the Azure Arc enabled Kubernetes resource. Thus, agents require consistent connectivity to pull the desired state properties to the cluster. If agents are unable to connect to Azure, the desired state is not applied on the cluster.
+> * Sensitive customer inputs like private key, known hosts content, HTTPS username, and token or password are stored for up to 48 hours in the Azure Arc enabled Kubernetes services. If you are using sensitive inputs for configurations, bring the clusters online as regularly as possible.
 
 ## Apply configurations at scale
 
-Since Azure Resource Manager manages your configurations, you can use Azure Policy to automate the creation of the same configuration on all Azure Arc enabled Kubernetes resources within the scope of a subscription or a resource group. 
+Since Azure Resource Manager manages your configurations, you can automate creating the same configuration across all Azure Arc enabled Kubernetes resources using Azure Policy, within scope of a subscription or a resource group. 
 
-This at-scale enforcement ensures that a common baseline configuration (containing configurations like ClusterRoleBindings, RoleBindings, and NetworkPolicy) can be applied across the entire fleet or inventory of Azure Arc enabled Kubernetes clusters.
+This at-scale enforcement ensures a common baseline configuration (containing configurations like ClusterRoleBindings, RoleBindings, and NetworkPolicy) can be applied across an entire fleet or inventory of Azure Arc enabled Kubernetes clusters.
 
 ## Next steps
 
-* [Connect a cluster to Azure Arc](./connect-cluster.md)
+* [Connect a cluster to Azure Arc](./quickstart-connect-cluster.md)
 * [Create configurations on your Arc enabled Kubernetes cluster](./use-gitops-connected-cluster.md)
 * [Use Azure Policy to apply configurations at scale](./use-azure-policy.md)
