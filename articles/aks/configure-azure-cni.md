@@ -151,7 +151,7 @@ A drawback with the traditional CNI is the exhaustion of Pod IP addresses as the
 
 * **Scalable and Flexible**: Node and Pod subnets can be scaled independently. A single Pod subnet can be shared across multiple node pools of a cluster or across multiple AKS clusters deployed in the same VNet. You can also configure a separate Pod subnet for a node pool.  
 
-* **High performance**: Since Pods are assigned VNet IPs there is direct, on the wire, connectivity between Pods and with other VNet resources. The solution supports very large clusters without any degradation in performance. 
+* **High performance**: Since Pods are assigned VNet IPs they have direct connectivity to other cluster Pods and resources in the VNet. The solution supports very large clusters without any degradation in performance.
 
 * **Separate VNet Policies for Pods**: Since pods have a separate subnet you can configure separate VNet policies for them that are different from node policies. This enables many useful scenarios such as - allowing internet connectivity only for Pods and not for nodes, fixing the source IP for Pods in a node pool using a VNet Network NAT, using NSGs to filter traffic between node pools.  
 
@@ -213,6 +213,17 @@ $subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
 az aks create -n $clusterName -g $resourceGroup -l $location --max-pods 250 --node-count 2 --network-plugin azure --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet  
 ```
 
+#### Adding nodepools
+
+When adding nodepools, reference the node subnet using `--vnet-subnet-id` and the pod subnet using `--pod-subnet-id`. The following example creates two new subnets which are then referenced in the creation of a new nodepool:
+
+```azurecli-interactive
+az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name node2subnet --address-prefixes 10.242.0.0/16 -o none 
+az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name pod2subnet --address-prefixes 10.243.0.0/16 -o none 
+
+az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newNodepool1 --max-pods 250 --node-count 2 --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet  --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/pod2subnet --no-wait 
+```
+
 ## Frequently asked questions
 
 The following questions and answers apply to the **Azure CNI** networking configuration.
@@ -223,7 +234,7 @@ The following questions and answers apply to the **Azure CNI** networking config
 
 * *What source IP do external systems see for traffic that originates in an Azure CNI-enabled pod?*
 
-  Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod. 
+  Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod.
 
 * *Can I configure per-pod network policies?*
 
@@ -245,10 +256,6 @@ The following questions and answers apply to the **Azure CNI** networking config
 
 ### Dynamic allocation of IP addresses and enhanced subnet support FAQs
 The following questions and answers apply to the **Azure CNI network configuration when using Dynamic allocation of IP addresses and enhanced subnet support**.
-
-* *What virtual network policies can be configured for pods?*
-
-  The following VNet policies can be configured for pods – NSG, UDR, Regional and Global Peering, Private Link, Service Endpoints, DNS resolution (both custom and Azure DNS, including Private Zones), placing pods directly behind a Standard Load Balancer (ELB only), and Gateways.
 
 * *Can I assign multiple pod subnets to a cluster/node-pool?*
 
