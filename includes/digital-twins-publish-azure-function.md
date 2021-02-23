@@ -36,7 +36,7 @@ In the *Function App (Windows) - Create new* window, fill in the fields as follo
 
 Then, select **Create**.
 
-This should bring you back to the *Functions instance* page, where your new function app is now visible underneath your resource group. Select *Finish*.
+After a short wait while the app service is created, the dialog should return to the *Functions instance* page, with your new function app appearing in the **Function Apps** area nested underneath your resource group. Select *Finish*.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Publish Azure function in Visual Studio: Functions instance (after function app)":::
 
@@ -53,4 +53,6 @@ On the *Publish* pane that opens back in the main Visual Studio window, check th
 >
 > Follow the prompts to upgrade to the latest Azure Functions runtime version. This issue might occur if you're using an older version of Visual Studio.
 
-For your function app to be able to access Azure Digital Twins, it needs to have a system-managed identity and have permissions to access your Azure Digital Twins instance. You'll set that up next.
+Your function app is now published to Azure. 
+
+For your function app to be able to access Azure Digital Twins, it will need to have a system-managed identity with permissions to access your Azure Digital Twins instance. You'll set that up next.
