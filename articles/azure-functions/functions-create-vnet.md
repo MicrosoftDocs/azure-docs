@@ -381,6 +381,8 @@ The following DNS zones were created in this tutorial:
 - privatelink.servicebus.windows.net
 - privatelink.azurewebsites.net
 
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+
 ## Next steps
 
 In this tutorial, you created a Premium function app, storage account, and Service Bus, and you secured them all behind private endpoints! Learn more about the various networking features available below:
