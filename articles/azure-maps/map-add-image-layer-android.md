@@ -44,7 +44,7 @@ ImageLayer layer = new ImageLayer(
 map.layers.add(layer, "labels");
 ```
 
-Alternatively, a URL to an image hosted on the online can be specified. However, if you have the option to add the image to your projects `drawable` folder, that will load faster since the the image will be locally available and won't have to be downloaded.
+Alternatively, a URL to an image hosted on the online can be specified. However, if your scenario allows, add the image to your projects `drawable` folder, that will load faster since the image will be locally available and won't have to be downloaded.
 
 ```java
 //Create an image layer.
