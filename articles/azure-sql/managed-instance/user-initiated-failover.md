@@ -38,7 +38,7 @@ You might consider executing a [manual failover](../database/high-availability-s
 User initiating a failover will need to have one of the following Azure roles:
 
 - Subscription Owner role, or
-- Managed Instance Contributor role, or
+- [Managed Instance Contributor](../../role-based-access-control/built-in-roles#sql-managed-instance-contributor.md) role, or
 - Custom role with the following permission:
   - `Microsoft.Sql/managedInstances/failover/action`
 
