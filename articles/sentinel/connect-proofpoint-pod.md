@@ -31,9 +31,9 @@ This article explains how to connect your Proofpoint On Demand Email Security ap
 
 - You must have read and write permission on the Azure Sentinel workspace.
 
-- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
-- You must have read and write permissions to Azure Functions in order to create a Function App. [Learn more about Azure Functions](/azure/azure-functions/).
+- You must have read and write permissions to Azure Functions in order to create a Function App. [Learn more about Azure Functions](../azure-functions/index.yml).
 
 - You must have the following Websocket API credentials: ProofpointClusterID, ProofpointToken. [Learn more about Websocket API](https://proofpointcommunities.force.com/community/s/article/Proofpoint-on-Demand-Pod-Log-API).
 

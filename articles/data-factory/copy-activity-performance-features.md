@@ -1,14 +1,9 @@
 ---
 title: Copy activity performance optimization features
 description: Learn about the key features that help you optimize the copy activity performance in Azure Data Factory。
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020

@@ -41,7 +41,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 
 **Requirement** | **VMware** 
 --- | ---
-**Permissions** | To access the appliance web app locally or remotely, you need to be a domain admin, or local admin on the appliance machine.
+**Permissions** | To access the appliance web app locally or remotely,you need to have a local or domain user account with administrative privileges on the appliance server.
 **Appliance components** | The appliance has the following components:<br/><br/> - **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.<br/> - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure.<br/>- **Collector agent**: The agent collects performance data. Used when assessing machines for migration to Azure.<br/>- **Auto update service**: Updates appliance components (runs every 24 hours).<br/>- **DRA agent**: Orchestrates VM replication, and coordinates communication between replicated machines and Azure. Used only when replicating VMware VMs to Azure using agentless migration.<br/>- **Gateway**: Sends replicated data to Azure. Used only when replicating VMware VMs to Azure using agentless migration.
 **Supported deployment** | Deploy as VMware VM using OVA template.<br/><br/> Deploy as a VMware VM or physical machine using PowerShell installation script.
 **Project support** |  An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
@@ -61,7 +61,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 
 **Requirement** | **Hyper-V** 
 --- | ---
-**Permissions** | To access the appliance web app locally or remotely, you need to be a domain admin, or local admin on the appliance machine.
+**Permissions** | To access the appliance web app locally or remotely,you need to have a local or domain user account with administrative privileges on the appliance server.
 **Appliance components** | The appliance has the following components:<br/><br/>- **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.<br/> - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure.<br/>- **Collector agent**: The agent collects performance data. Used when assessing machines for migration to Azure.<br/>- **Auto update service**: Updates appliance components (runs every 24 hours).
 **Supported deployment** | Deploy as Hyper-V VM using a VHD template.<br/><br/> Deploy as a Hyper-V VM or physical machine using a PowerShell installation script.
 **Project support** |  An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
@@ -78,7 +78,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 
 **Requirement** | **Physical** 
 --- | ---
-**Permissions** | To access the appliance web app locally or remotely, you need to be a domain admin, or local admin on the appliance machine.
+**Permissions** | To access the appliance web app locally or remotely,you need to have a local or domain user account with administrative privileges on the appliance server.
 **Appliance components** | The appliance has the following components: <br/><br/> - **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.<br/> - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure.<br/>- **Collector agent**: The agent collects performance data. Used when assessing machines for migration to Azure.<br/>- **Auto update service**: Updates appliance components (runs every 24 hours).
 **Supported deployment** | Deploy as a dedicated physical machine, or a VM, using a PowerShell installation script. The script is available for download from the portal.
 **Project support** |  An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 

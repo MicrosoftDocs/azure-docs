@@ -1,9 +1,6 @@
 ---
 title: See Interactive Query Hive data with Power BI in Azure HDInsight
 description: Use Microsoft Power BI to visualize Interactive Query Hive data from Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to

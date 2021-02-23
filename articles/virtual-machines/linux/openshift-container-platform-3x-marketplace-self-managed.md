@@ -3,8 +3,9 @@ title: Deploy OpenShift Container Platform 3.11 Self-Managed Marketplace Offer i
 description: Deploy OpenShift Container Platform 3.11 Self-Managed Marketplace Offer in Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

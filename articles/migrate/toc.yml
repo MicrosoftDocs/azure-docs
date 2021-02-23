@@ -170,6 +170,8 @@
     items:
     - name: Add migration tools
       href: how-to-migrate.md
+    - name: Replicate using ExpressRoute
+      href: replicate-using-expressroute.md
     - name: Prepare machines for migration
       href: prepare-for-migration.md
     - name: Prepare Windows 2003 servers for migration
@@ -190,6 +192,8 @@
       href: how-to-delete-project.md
     - name: Work with previous version of Azure Migrate
       href: migrate-v1.md
+    - name: Manage migration projects with Azure Lighthouse
+      href: ../lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 - name: Troubleshoot
   items:
   - name: General

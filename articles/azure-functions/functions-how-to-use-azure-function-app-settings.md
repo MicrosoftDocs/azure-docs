@@ -33,6 +33,8 @@ These settings are stored encrypted. To learn more, see [Application settings se
 
 # [Portal](#tab/portal)
 
+To find the application settings, see [Get started in the Azure portal](#get-started-in-the-azure-portal). 
+
 The **Application settings** tab maintains settings that are used by your function app. You must select **Show values** to see the values in the portal. 
 To add a setting in the portal, select **New application setting** and add the new key-value pair.
 

@@ -2,12 +2,12 @@
 title: FAQs about FHIR services in Azure - Azure API for FHIR
 description: Get answers to frequently asked questions about the Azure API for FHIR, such as the storage location of data behind FHIR APIs and version support.
 services: healthcare-apis
-author: matjazl
+author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/03/2020
-ms.author: matjazl
+ms.date: 1/21/2021
+ms.author: cavoeg
 ---
 
 # Frequently asked questions about the Azure API for FHIR
@@ -110,6 +110,9 @@ You can see more details at this [community post](https://chat.fhir.org/#narrow/
 ### How does $export work?
 
 $export is part of the FHIR specification: https://hl7.org/fhir/uv/bulkdata/export/index.html. If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account - you can simply call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, check out our [article on $export](./export-data.md).
+
+### Is de-identified export available at Patient and Group level as well?
+Anonymized export is currently supported only on a full system export (/$export), and not for Patient export (/Patient/$export). We are working on making it available at the Patient level as well.
 
 ## Using Azure API for FHIR
 

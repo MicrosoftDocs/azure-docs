@@ -85,6 +85,10 @@ See the developer guide for your language to learn more about writing logs from 
 + [PowerShell](functions-reference-powershell.md#logging)
 + [Python](functions-reference-python.md#logging)
 
+## Analyze data
+
+By default, the data collected from your function app is stored in Application Insights. In the [Azure portal](https://portal.azure.com), Application Insights provides an extensive set of visualizations of your telemetry data. You can drill into error logs and query events and metrics. To learn more, including basic examples of how to view and query your collected data, see [Analyze Azure Functions telemetry in Application Insights](analyze-telemetry-data.md). 
+
 ## Streaming Logs
 
 While developing an application, you often want to see what's being written to the logs in near real time when running in Azure.

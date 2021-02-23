@@ -86,5 +86,5 @@ SELECT request_id, [label], classifier_name, group_name, command
 
 - [Workload Isolation](sql-data-warehouse-workload-isolation.md)
 - [How-To Create a Workload Group](quickstart-configure-workload-isolation-tsql.md)
-- [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
+- [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql??view=azure-sqldw-latest&preserve-view=true)
 - [CREATE WORKLOAD GROUP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest&preserve-view=true)

@@ -116,7 +116,7 @@ When you're configuring VM backups, we suggest following these practices:
 - If you're restoring VMs from a single vault, we highly recommend that you use different [general-purpose v2 storage accounts](../storage/common/storage-account-upgrade.md) to ensure that the target storage account doesn't get throttled. For example, each VM must have a different storage account. For example, if 10 VMs are restored, use 10 different storage accounts.
 - For backup of VMs that are using premium storage with Instant Restore, we recommend allocating *50%* free space of the total allocated storage space, which is required **only** for the first backup. The 50% free space isn't a requirement for backups after the first backup is complete
 - The limit on the number of disks per storage account is relative to how heavily the disks are being accessed by applications that are running on an infrastructure as a service (IaaS) VM. As a general practice, if 5 to 10 disks or more are present on a single storage account, balance the load by moving some disks to separate storage accounts.
-- To restore VMs with managed disks using PowerShell, provide the additional parameter ***TargetResourceGroupName*** to specify the resource group to which managed disks will be restored, [Learn more here](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-managed-disks).
+- To restore VMs with managed disks using PowerShell, provide the additional parameter ***TargetResourceGroupName*** to specify the resource group to which managed disks will be restored, [Learn more here](./backup-azure-vms-automation.md#restore-managed-disks).
 
 ## Backup costs
 

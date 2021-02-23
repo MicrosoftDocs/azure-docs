@@ -4,7 +4,7 @@ description: This article describes how Azure Cosmos DB provides high availabili
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/18/2021
+ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -76,7 +76,7 @@ For the rare cases of regional outage, Azure Cosmos DB makes sure your database 
 
 * During a read region outage, Azure Cosmos accounts using any consistency level or strong consistency with three or more read regions will remain highly available for reads and writes.
 
-* Azure Cosmos accounts using strong consistency with two or fewer read regions (which includes the read & write region) will lose read write availability during a read region outage.
+* Azure Cosmos accounts using strong consistency with three or fewer total regions (one write, two read) will lose write availability during a read region outage. However, customers with four or more total regions can opt-in to using dynamic read quorums by submitting a support ticket. Accounts which maintain at least two read regions in this configuration will maintain write availability.
 
 * The impacted region is automatically disconnected and will be marked offline. The [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md) will redirect read calls to the next available region in the preferred region list.
 

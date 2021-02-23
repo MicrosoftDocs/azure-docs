@@ -36,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Notion supports **SP and IDP** initiated SSO
 * Notion supports **Just In Time** user provisioning
 > [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+> Identifier of this application is a fixed string value so one Notion workspace can be configured in one tenant.
 
 
 ## Adding Notion from the gallery
@@ -76,16 +76,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    In the **Reply URL** text box, type a URL using the following pattern:
+    In the **Reply URL** text box, enter the URL with the following pattern that you can obtain from your Notion workspace **Settings & Members** > **Security & identity** > **Single sign-on URL**:
     `https://www.notion.so/sso/saml/<CUSTOM_ID>`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://www.notion.so/sso/saml/<CUSTOM_ID>`
+    In the **Sign-on URL** text box, enter the following URL:
+    `https://www.notion.so/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Notion Client support team](mailto:team@makenotion.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Notion application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -100,7 +100,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| lastName | user.surname |
 
 
-1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url**. Go to your **Notion** workspace **Settings & Members** > **Security & identity**, and paste the value you copied into the **IDP metadata URL** field.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
@@ -130,7 +130,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Notion SSO
 
-To configure single sign-on on **Notion** side, you need to send the **App Federation Metadata Url** to [Notion support team](mailto:team@makenotion.com). They set this setting to have the SAML SSO connection set properly on both sides.
+Go to your **Notion** workspace **Settings & Members** > **Security & identity**, and paste the **App Federation Metadata Url** value you copied into the **IDP metadata URL** field.
+
+On the same settings page, under **Email domains** click **Contact support** to add your organization's email domain(s).
+
+After your email domains are approved and added, enable SAML SSO using the **Enable SAML** toggle.
+
+After successful testing, you may enforce SAML SSO using the **Enforce SAML** toggle. Please note that your Notion workspace administrastrators retain the ability to log in with email, but all other members will have to use SAML SSO to log in to Notion.
 
 ### Create Notion test user
 
@@ -150,11 +156,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Notion for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Notion tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Notion for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Notion tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Notion for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure Notion you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure Notion you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

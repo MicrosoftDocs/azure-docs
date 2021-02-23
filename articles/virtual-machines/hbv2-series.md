@@ -3,7 +3,7 @@ title: HBv2-series - Azure Virtual Machines
 description: Specifications for the HBv2-series VMs.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
@@ -21,6 +21,8 @@ HBv2-series VMs feature 200 Gb/sec Mellanox HDR InfiniBand. These VMs are connec
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
 | Size | vCPU | Processor | Memory (GiB) | Memory bandwidth GB/s | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (Gb/s) | MPI support | Temp storage (GiB) | Max data disks | Max Ethernet vNICs |

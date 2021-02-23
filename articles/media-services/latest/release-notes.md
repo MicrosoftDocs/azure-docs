@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services v3 release notes | Microsoft Docs
+title: Azure Media Services v3 release notes 
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -438,5 +438,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 ## Next steps
 
 - [Overview](media-services-overview.md)
-- [Media Services v3 Documentation updates](docs-release-notes.md)
 - [Media Services v2 release notes](../previous/media-services-release-notes.md)

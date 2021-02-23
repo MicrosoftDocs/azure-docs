@@ -1,6 +1,6 @@
 ---
 title: Microsoft identity platform admin consent protocols
-description: A description of authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
+description: A description of authorization in the Microsoft identity platform, including scopes, permissions, and consent.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -23,7 +23,7 @@ Some permissions require consent from an administrator before they can be grante
 
 Typically, when you build an application that uses the admin consent endpoint, the app needs a page or view in which the admin can approve the app's permissions. This page can be part of the app's sign-up flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
-When you sign the user into your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow our [Microsoft identity platform protocol tutorials](active-directory-v2-protocols.md).
+When you sign the user into your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow the [Microsoft identity platform protocol tutorials](active-directory-v2-protocols.md).
 
 ## Request the permissions from a directory admin
 

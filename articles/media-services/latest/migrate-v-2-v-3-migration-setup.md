@@ -1,6 +1,6 @@
 ---
-title: Media Services v2 to v3 migration checklist | Microsoft Docs
-description: This article is a checklist that will assist you min migrating from Azure Media Services v2 to v3.
+title: Media Services v2 to v3 migration setup 
+description: This article will assist you with setting up your environment for migrating from Azure Media Services v2 to v3.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila

@@ -77,7 +77,7 @@ Available resources:
 + **Clusters per region** have a default limit of 200. These are shared between a training cluster and a compute instance. (A compute instance is considered a single-node cluster for quota purposes.)
 
 > [!TIP]
-> To learn more about which VM family to request a quota increase for, check out [virtual machine sizes in Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). For instance GPU VM families start with an "N" in their family name (eg. NCv3 series)
+> To learn more about which VM family to request a quota increase for, check out [virtual machine sizes in Azure](../virtual-machines/sizes.md). For instance GPU VM families start with an "N" in their family name (eg. NCv3 series)
 
 The following table shows additional limits in the platform. Please reach out to the AzureML product team through a **technical** support ticket to request an exception.
 

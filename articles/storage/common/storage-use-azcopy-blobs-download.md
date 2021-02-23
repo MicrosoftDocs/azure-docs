@@ -138,7 +138,7 @@ Then, use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--list
 
 #### Download a blob snapshot
 
-You can download a [blob snapshot](/azure/storage/blobs/snapshots-overview) by referencing the **DateTime** value of a blob snapshot. 
+You can download a [blob snapshot](../blobs/snapshots-overview.md) by referencing the **DateTime** value of a blob snapshot. 
 
 |    |     |
 |--------|-----------|
