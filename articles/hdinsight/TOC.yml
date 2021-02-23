@@ -660,7 +660,7 @@
       - name: Use Apache Kafka with IoT Hub
         href: ./kafka/apache-kafka-connector-iot-hub.md
       - name: Confluent Schema Registry
-        href: ./kafka/schema-registry.md
+        href: ./kafka/apache-kafka-producer-consumer-api.md
       - name: Create streaming pipelines
         items:
         - name: Apache Spark, Apache Kafka, and Azure Cosmos DB
@@ -827,6 +827,8 @@
         href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
     - name: Manage
       items:
+      - name: Copy Hive tables across Storage Accounts
+        href: ./interactive-query/hive-migration-across-storage-accounts.md
       - name: Migrate Hive workloads to HDInsight 4.0
         href: ./interactive-query/apache-hive-migrate-workloads.md
       - name: Optimize Apache Hive queries
