@@ -25,7 +25,7 @@ Only the billing administrator of an account can transfer ownership of a subscri
 
 ## Transfer billing ownership of an Azure subscription
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator of the billing account that has the subscription that you want to transfer. If you're not sure if you're and administrator, or if you need to determine who is, see [Determine account billing administrator](../understand/subscription-transfer.md#whoisaa).
+1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator of the billing account that has the subscription that you want to transfer. If you're not sure if you're and administrator, or if you need to determine who is, see [Determine account billing administrator](add-change-subscription-administrator.md#whoisaa).
 1. Search for **Cost Management + Billing**.  
    ![Screenshot that shows Azure portal search](./media/billing-subscription-transfer/billing-search-cost-management-billing.png)
 1. Select **Subscriptions** from the left-hand pane. Depending on your access, you may need to select a billing scope and then select **Subscriptions** or **Azure subscriptions**.

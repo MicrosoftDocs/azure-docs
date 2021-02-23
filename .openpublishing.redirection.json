@@ -13368,7 +13368,7 @@
     },
     {
       "source_path_from_root": "/articles/billing-subscription-transfer.md",
-      "redirect_url": "/azure/billing/billing-subscription-transfer",
+      "redirect_url": "/azure/cost-management-billing/manage/subscription-transfer",
       "redirect_document_id": false
     },
     {
@@ -15788,7 +15788,12 @@
     },
     {
       "source_path_from_root": "/articles/billing/billing-subscription-transfer.md",
-      "redirect_url": "/azure/cost-management-billing/manage/billing-subscription-transfer",
+      "redirect_url": "/azure/cost-management-billing/manage/subscription-transfer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cost-managemenet-billing/understand/subscription-transfer.md",
+      "redirect_url": "/azure/cost-management-billing/manage/subscription-transfer",
       "redirect_document_id": true
     },
     {
