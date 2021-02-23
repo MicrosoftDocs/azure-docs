@@ -77,7 +77,7 @@ Development values for dataset parameters can be configured in [debug settings](
 
 **Skip line count**: The **Skip line count** field specifies how many lines to ignore at the beginning of the dataset.
 
-**Sampling**: Enable **Sampling** to limit the number of rows from your source. Use this setting when you test or sample data from your source for debugging purposes.
+**Sampling**: Enable **Sampling** to limit the number of rows from your source. Use this setting when you test or sample data from your source for debugging purposes. This is very useful when executing data flows in debug mode from a pipeline.
 
 To validate your source is configured correctly, turn on debug mode and fetch a data preview. For more information, see [Debug mode](concepts-data-flow-debug-mode.md).
 
