@@ -145,24 +145,23 @@ The following screenshot from the Azure portal shows an example of configuring t
 
 ## Dynamic allocation of IPs and enhanced subnet support (preview)
 
-A drawback with the traditional CNI is the exhaustion of Pod IP addresses as the AKS cluster grows, resulting in the need to rebuild the entire cluster in a bigger subnet. The new dynamic IP allocation capability in Azure CNI solves this problem by allotting Pod IPs from a subnet separate from the subnet hosting the AKS cluster.  It offers the following benefits:
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+A drawback with the traditional CNI is the exhaustion of pod IP addresses as the AKS cluster grows, resulting in the need to rebuild the entire cluster in a bigger subnet. The new dynamic IP allocation capability in Azure CNI solves this problem by allotting pod IPs from a subnet separate from the subnet hosting the AKS cluster.  It offers the following benefits:
 
 * **Better IP utilization**: IPs are dynamically allocated to cluster Pods from the Pod subnet. This leads to better utilization of IPs in the cluster compared to the traditional CNI solution which does static allocation of IPs for every node.  
 
-* **Scalable and Flexible**: Node and Pod subnets can be scaled independently. A single Pod subnet can be shared across multiple node pools of a cluster or across multiple AKS clusters deployed in the same VNet. You can also configure a separate Pod subnet for a node pool.  
+* **Scalable and flexible**: Node and pod subnets can be scaled independently. A single pod subnet can be shared across multiple node pools of a cluster or across multiple AKS clusters deployed in the same VNet. You can also configure a separate pod subnet for a node pool.  
 
-* **High performance**: Since Pods are assigned VNet IPs they have direct connectivity to other cluster Pods and resources in the VNet. The solution supports very large clusters without any degradation in performance.
+* **High performance**: Since pod are assigned VNet IPs they have direct connectivity to other cluster pod and resources in the VNet. The solution supports very large clusters without any degradation in performance.
 
-* **Separate VNet Policies for Pods**: Since pods have a separate subnet you can configure separate VNet policies for them that are different from node policies. This enables many useful scenarios such as - allowing internet connectivity only for Pods and not for nodes, fixing the source IP for Pods in a node pool using a VNet Network NAT, using NSGs to filter traffic between node pools.  
+* **Separate VNet policies for pods**: Since pods have a separate subnet you can configure separate VNet policies for them that are different from node policies. This enables many useful scenarios such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for pod in a node pool using a VNet Network NAT, and using NSGs to filter traffic between node pools.  
 
-* **Kubernetes Network Policies**: Both the Azure Network Policies and Calico work with this new solution.  
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
+* **Kubernetes network policies**: Both the Azure Network Policies and Calico work with this new solution.  
 
 ### Install the `aks-preview` Azure CLI 
 
-You also need the *aks-preview* Azure CLI extension.. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+You will need the *aks-preview* Azure CLI extension. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -174,7 +173,7 @@ az extension update --name aks-preview
 
 ### Register the `PodSubnetPreview` preview feature
 
-To use the feature, you must enable the `PodSubnetPreview` feature flag on your subscription.
+To use the feature, you must also enable the `PodSubnetPreview` feature flag on your subscription.
 
 Register the `PodSubnetPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
@@ -203,7 +202,7 @@ The prerequisites already listed for Azure CNI still apply, but there are a few 
 
 ### Planning IP addressing
 
-When using this feature, planning is much simpler. Since the nodes and pods scale independently, their address spaces can also be planned separately. Since pod subnets can be configured to the granularity of a node pool, customers can always add a new subnet when they add a node pool. The system pods in a cluster/node pool also receive IPs from the pod subnet, so this needs to be accounted for. 
+When using this feature, planning is much simpler. Since the nodes and pods scale independently, their address spaces can also be planned separately. Since pod subnets can be configured to the granularity of a node pool, customers can always add a new subnet when they add a node pool. The system pods in a cluster/node pool also receive IPs from the pod subnet, so this needs to be accounted for.
 
 The planning of IPs for K8S services and Docker bridge remain unchanged. 
 
@@ -345,6 +344,9 @@ Learn more about networking in AKS in the following articles:
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
+[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
+[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
 [az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true

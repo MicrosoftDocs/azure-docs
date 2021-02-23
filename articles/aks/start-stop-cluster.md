@@ -10,7 +10,7 @@ author: palma21
 
 # Stop and Start an Azure Kubernetes Service (AKS) cluster (preview)
 
-Your AKS workloads may not need to run continuously, for example a development cluster that is used only during business hours. This leads to times where your Azure Kubernetes Service (AKS) cluster might be idle, running no more than the system components. You can reduce the cluster footprint by [scaling all the `User` node pools to 0](scale-cluster.md#scale-user-node-pools-to-0), but your [`System` pool](use-system-pools.md) is still required to run the system components while the cluster is running. 
+Your AKS workloads may not need to run continuously, for example a development cluster that is used only during business hours. This leads to times where your Azure Kubernetes Service (AKS) cluster might be idle, running no more than the system components. You can reduce the cluster footprint by [scaling all the `User` node pools to 0](scale-cluster.md#scale-user-node-pools-to-0), but your [`System` pool](use-system-pools.md) is still required to run the system components while the cluster is running.
 To optimize your costs further during these periods, you can completely turn off (stop) your cluster. This action will stop your control plane and agent nodes altogether, allowing you to save on all the compute costs, while maintaining all your objects and cluster state stored for when you start it again. You can then pick up right where you left of after a weekend or to have your cluster running only while you run your batch jobs.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
@@ -18,7 +18,6 @@ To optimize your costs further during these periods, you can completely turn off
 ## Before you begin
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
-
 
 ### Limitations
 
@@ -29,7 +28,7 @@ When using the cluster start/stop feature, the following restrictions apply:
 - During preview, you need to stop the cluster autoscaler (CA) before attempting to stop the cluster.
 - You can only start or delete a stopped AKS cluster. To perform any operation like scale or upgrade, start your cluster first.
 
-### Install the `aks-preview` Azure CLI 
+### Install the `aks-preview` Azure CLI
 
 You also need the *aks-preview* Azure CLI extension version 0.4.64 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
 
@@ -39,7 +38,7 @@ az extension add --name aks-preview
 
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
-``` 
+```
 
 ### Register the `StartStopPreview` preview feature
 
@@ -92,7 +91,6 @@ If the `provisioningState` shows `Stopping` that means your cluster hasn't fully
 > [!IMPORTANT]
 > If you are using [Pod Disruption Budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) the stop operation can take longer as the drain process will take more time to complete.
 
-
 ## Start an AKS Cluster
 
 You can use the `az aks start` command to start a stopped AKS cluster's nodes and control plane. The cluster is restarted with the previous control plane state and number of agent nodes.  
@@ -119,7 +117,6 @@ You can verify when your cluster has started by using the [az aks show][az-aks-s
 ```
 
 If the `provisioningState` shows `Starting` that means your cluster hasn't fully started yet.
-
 
 ## Next steps
 
