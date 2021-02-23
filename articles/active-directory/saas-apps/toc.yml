@@ -67,6 +67,8 @@
         href: airtable-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
+      - name: Akamai
+        href: akamai-tutorial.md
       - name: AKASHI
         href: akashi-tutorial.md
       - name: Alcumus Info Exchange
@@ -175,6 +177,8 @@
         href: awarego-tutorial.md
       - name: AWS ClientVPN
         href: aws-clientvpn-tutorial.md
+      - name: AWS Single Sign-On
+        href: aws-single-sign-on-tutorial.md
       - name: Axiad Cloud
         href: axiad-cloud-tutorial.md
     - name: B
@@ -708,6 +712,8 @@
         href: github-tutorial.md
       - name: GitHub AE
         href: github-ae-tutorial.md
+      - name: GitHub Enterprise Cloud - Enterprise Account
+        href: github-enterprise-cloud-enterprise-account-tutorial.md  
       - name: GlassFrog
         href: glassfrog-tutorial.md
       - name: GlobalOne
@@ -814,6 +820,8 @@
         href: iamip-patent-platform-tutorial.md
       - name: IBM Digital Business Automation on Cloud
         href: ibm-digital-business-automation-on-cloud-tutorial.md
+      - name: IBMid
+        href: ibmid-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
@@ -976,7 +984,9 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
-      - name: Kendis-Scaling Agile Platform
+      - name: Kemp LoadMaster Azure AD integration
+        href: kemp-tutorial.md
+      - name: Kendis - Azure AD Integration
         href: kendis-scaling-agile-platform-tutorial.md
       - name: KFAdvance
         href: kfadvance-tutorial.md
@@ -1474,6 +1484,8 @@
         href: reviewsnap-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-tutorial.md
+      - name: Rewatch
+        href: rewatch-tutorial.md
       - name: RFPIO
         href: rfpio-tutorial.md
       - name: RightAnswers
@@ -1690,6 +1702,8 @@
         href: softeon-tutorial.md
       - name: Software AG Cloud
         href: software-ag-cloud-tutorial.md
+      - name: SolarWinds Service Desk
+        href: samanage-tutorial.md  
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-tutorial.md
       - name: Sonarqube
@@ -1864,6 +1878,8 @@
         href: ungerboeck-software-tutorial.md
       - name: UNIFI
         href: unifi-tutorial.md
+      - name: uniFLOW Online
+        href: uniflow-online-tutorial.md
       - name: Upshotly
         href: upshotly-tutorial.md
       - name: Upwork Enterprise
@@ -1900,6 +1916,8 @@
         href: visitly-tutorial.md
       - name: Visma
         href: visma-tutorial.md
+      - name: VMware Horizon - Unified Access Gateway
+        href: vmware-horizon-unified-access-gateway-tutorial.md
       - name: Vocoli
         href: vocoli-tutorial.md
       - name: Vodeclic
@@ -2065,6 +2083,8 @@
         href: atlassian-cloud-provisioning-tutorial.md
       - name: Azure Databricks SCIM Connector
         href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
+      - name: AWS Single Sign-On
+        href: aws-single-sign-on-provisioning-tutorial.md
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Bizagi Studio for Digital Process Automation

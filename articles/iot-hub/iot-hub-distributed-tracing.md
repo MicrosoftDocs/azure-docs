@@ -251,7 +251,7 @@ To see all the traces logged by an IoT Hub, query the log store that you selecte
 
 ### Query using Log Analytics
 
-If you've set up [Log Analytics with resource logs](../azure-monitor/platform/resource-logs.md#send-to-azure-storage), query by looking for logs in the `DistributedTracing` category. For example, this query shows all the traces logged:
+If you've set up [Log Analytics with resource logs](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage), query by looking for logs in the `DistributedTracing` category. For example, this query shows all the traces logged:
 
 ```Kusto
 // All distributed traces 
