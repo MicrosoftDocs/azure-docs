@@ -3,7 +3,7 @@ title: Use managed identities in Communication Services (Python)
 titleSuffix: An Azure Communication Services quickstart
 description: Managed identities let you authorize Azure Communication Services access from applications running in Azure VMs, function apps, and other resources.
 services: azure-communication-services
-author: stefang931
+author: turalf
 ms.service: azure-communication-services
 ms.topic: how-to
 ms.date: 23/02/2021
