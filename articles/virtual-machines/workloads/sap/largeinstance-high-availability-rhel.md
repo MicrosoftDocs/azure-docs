@@ -14,9 +14,10 @@ ms.date: 02/08/2021
   
 
 In this article, you learn how to configure the Pacemaker cluster in RHEL 7.6 to automate an SAP HANA database failover. You need to have a good understanding of Linux, SAP HANA, and Pacemaker to complete the steps in this guide.
-Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host] 
+
 
 ## Configure your Pacemaker cluster
+* NOTE : Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host]. We show both the commands that need to be run as well as the output of those commands.
 
 Before you can begin configuring the cluster, set up SSH key exchange to establish trust between nodes.
 
@@ -92,7 +93,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	SELinux status: disabled
 	```
 
-5. Configure NTP (Network Time Protocol). The time and time zones for both cluster nodes must match.
+5. Configure NTP (Network Time Protocol). The time and time zones for both cluster nodes must match. Use the following command to open `chrony.conf` and verify the contents of the file.
     1. Below contents should be added to config file, do change the actual values as per your environment.
     	```
     	vi /etc/chrony.conf
@@ -171,6 +172,8 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	```
 
   ## Configure Watchdog
+
+* NOTE : Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host]. We show both the commands that need to be run as well as the output of those commands.
 
 1. Make sure, that the watchdog daemon is not running at this time (on all systems).
 	```
@@ -315,8 +318,9 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	```
 
 ## SBD configuration
-Reference http://www.linux-ha.org/wiki/SBD_Fencing
-1.  Make sure the iSCSI or FC disk is visible on both nodes. This example will use a FC based SBD device.
+* NOTE : Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host]. We show both the commands that need to be run as well as the output of those commands.
+
+1.  Make sure the iSCSI or FC disk is visible on both nodes. This example will use a FC based SBD device.Reference http://www.linux-ha.org/wiki/SBD_Fencing .
 2.  The LUN-ID must be identically on all nodes.
   
 3.  Check multipath status for the sbd device.
@@ -402,6 +406,7 @@ Reference http://www.linux-ha.org/wiki/SBD_Fencing
 	```
 
 ## Cluster initialization
+* NOTE : Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host]. We show both the commands that need to be run as well as the output of those commands.
 
 1.  Set up the cluster user password (all nodes).
 	```
@@ -490,7 +495,7 @@ Reference http://www.linux-ha.org/wiki/SBD_Fencing
 	pcsd: active/disabled
 	```
 
-8. If one node is not joining the cluster check if the firewalld is still running.
+8. If one node is not joining the cluster check if the firewall is still running.
 
   
 
@@ -634,7 +639,7 @@ Reference http://www.linux-ha.org/wiki/SBD_Fencing
 
 18. Test the SBD fencing by crashing the kernel.
 
-  * Trigger the Kernel Crash
+   * Trigger the Kernel Crash
 
 	```
 	echo c > /proc/sysrq-trigger
@@ -643,8 +648,7 @@ Reference http://www.linux-ha.org/wiki/SBD_Fencing
 	set as panic_wdt_timeout in the /etc/sysconfig/ipmi config file.
 	```
   
-
-  * Second test to run is to fence a node using PCS commands
+   * Second test to run is to fence a node using PCS commands
 	```
 	pcs stonith fence sollabdsm36
 	```
@@ -652,12 +656,14 @@ Reference http://www.linux-ha.org/wiki/SBD_Fencing
 
 19. For the rest of the SAP HANA clustering you can disable STONITH by setting:
 
-  * pcs property set stonith-enabled=false
-  * This parameter must be set to true for productive usage!!! 
-  * If not set to true this cluster will be not supported.
-  * pcs property set stonith-enabled=true 
+   * pcs property set stonith-enabled=false
+   * This parameter must be set to true for productive usage!!! 
+   * If not set to true this cluster will be not supported.
+   * pcs property set stonith-enabled=true 
 
 ## HANA Integration into the Cluster
+
+* NOTE : Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host]. We show both the commands that need to be run as well as the output of those commands.
 
 To integrate HANA into the cluster we first need to differentiate between two options.
 Option one is the cost optimized solution where the customer can use the secondary system to run e.g. the QAS system on it. This isnot 	recommended because there is no system available to test updates on the cluster software, OS, HANA… or even configurationupdates can 	lead to unplanned downtime of the PRD system. AND in addition to this, if the PRD system must be activated on thesecondary system it is 	required to shutdown the QAS system on the secondary node. But it is an option
@@ -985,6 +991,7 @@ global.ini
 
 
 ## Configure SAP HANA in a Pacemaker cluster
+* NOTE : Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host]. We show both the commands that need to be run as well as the output of those commands.
 
 This guide will assume that following things are working properly:  
 
