@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
 ---
@@ -24,7 +24,7 @@ This tutorial describes how to connect to the local APIs on your Azure Stack Edg
 
 Azure Resource Manager provides a consistent management layer to call the Azure Stack Edge Pro device API and perform operations such as create, update, and delete VMs. The architecture of the Azure Resource Manager is detailed in the following diagram.
 
-![Diagram for Azure Resource Manager](media/azure-stack-edge-j-series-connect-resource-manager/edge-device-flow.svg)
+![Diagram for Azure Resource Manager](media/azure-stack-edge-gpu-connect-resource-manager/edge-device-flow.svg)
 
 
 ## Endpoints on Azure Stack Edge Pro device
@@ -56,7 +56,7 @@ The following sections detail each of the above steps in connecting to Azure Res
 
 ## Prerequisites
 
-Before you begin, make sure that the client used for connecting to device via Azure Resource Manager is using TLS 1.2. For more information, go to [Configure TLS 1.2 on Windows client accessing Azure Stack Edge Pro device](azure-stack-edge-j-series-configure-tls-settings.md).
+Before you begin, make sure that the client used for connecting to device via Azure Resource Manager is using TLS 1.2. For more information, go to [Configure TLS 1.2 on Windows client accessing Azure Stack Edge Pro device](azure-stack-edge-gpu-configure-tls-settings.md).
 
 ## Step 1: Configure Azure Stack Edge Pro device 
 
@@ -256,7 +256,7 @@ On your Windows client that you are using to connect to the device, take the fol
 
 1. Start **Notepad** as an administrator, and then open the **hosts** file located at C:\Windows\System32\Drivers\etc.
 
-    ![Windows Explorer hosts file](media/azure-stack-edge-j-series-connect-resource-manager/hosts-file.png)
+    ![Windows Explorer hosts file](media/azure-stack-edge-gpu-connect-resource-manager/hosts-file.png)
 
 2. Add the following entries to your **hosts** file replacing with appropriate values for your device: 
 
@@ -275,7 +275,7 @@ On your Windows client that you are using to connect to the device, take the fol
 
 3. For reference, use the following image. Save the **hosts** file.
 
-    ![hosts file in Notepad](media/azure-stack-edge-j-series-connect-resource-manager/hosts-file-notepad.png)
+    ![hosts file in Notepad](media/azure-stack-edge-gpu-connect-resource-manager/hosts-file-notepad.png)
 
 ## Step 6: Verify endpoint name resolution on the client
 
@@ -285,7 +285,7 @@ Check if the endpoint name is resolved on the client that you are using to conne
 
     Add the `-a` switch to the command line as shown in the example below. If the host name is returnable, it will also return this potentially valuable information in the reply.
 
-    ![Ping in command prompt](media/azure-stack-edge-j-series-connect-resource-manager/ping-command-prompt.png)
+    ![Ping in command prompt](media/azure-stack-edge-gpu-connect-resource-manager/ping-command-prompt.png)
 
 
 
@@ -340,7 +340,7 @@ Set the Azure Resource Manager environment and verify that your device to client
 
             - **Username** - *EdgeArmUser*
 
-            - **Password** - [Set the password for Azure Resource Manager](azure-stack-edge-j-series-set-azure-resource-manager-password.md) and use this password to sign in. 
+            - **Password** - [Set the password for Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) and use this password to sign in. 
 
             ```powershell
             PS C:\windows\system32> $pass = ConvertTo-SecureString "<Your password>" -AsPlainText -Force;

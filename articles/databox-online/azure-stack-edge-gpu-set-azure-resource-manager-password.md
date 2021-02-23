@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 02/21/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
 ---
@@ -25,15 +25,15 @@ This article describes how to set your Azure Resource Manager password. You need
 
 1. In the Azure portal, go to the Azure Stack Edge resource you created to manage your device. Go to **Edge services > Cloud storage gateway**.
 
-    ![Reset EdgeARM user password 1](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-1.png)
+    ![Reset EdgeARM user password 1](media/azure-stack-edge-gpu-set-azure-resource-manager-password/set-edgearm-password-1.png)
 
 2. In the right pane, from the command bar, select **Reset Edge ARM password**. 
 
-    ![Reset EdgeARM user password 2](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-2.png)
+    ![Reset EdgeARM user password 2](media/azure-stack-edge-gpu-set-azure-resource-manager-password/set-edgearm-password-2.png)
 
 3. In the **Reset EdgeArm user password** blade, provide a password to connect to your device local APIs via the Azure Resource Manager. Confirm the password and select **Reset**.
 
-    ![Reset EdgeARM user password 3](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-3.png)
+    ![Reset EdgeARM user password 3](media/azure-stack-edge-gpu-set-azure-resource-manager-password/set-edgearm-password-3.png)
 
 
 
@@ -49,17 +49,17 @@ This article describes how to set your Azure Resource Manager password. You need
     - Resource group
     - CIK encryption key: Select view and then copy the **Encryption Key**.
 
-    ![Get CIK encryption key](media/azure-stack-edge-j-series-set-azure-resource-manager-password/get-cik-portal.png)
+    ![Get CIK encryption key](media/azure-stack-edge-gpu-set-azure-resource-manager-password/get-cik-portal.png)
  
 3. Identify a password that you will use to connect to Azure Resource Manager.
 
 4. Start the cloud shell. Select on the icon in the top right corner:
 
-    ![Start cloud shell](media/azure-stack-edge-j-series-set-azure-resource-manager-password/start-cloud-shell.png) 
+    ![Start cloud shell](media/azure-stack-edge-gpu-set-azure-resource-manager-password/start-cloud-shell.png) 
 
     Once the cloud shell has started, you may need to switch to PowerShell.
 
-    ![Cloud shell](media/azure-stack-edge-j-series-set-azure-resource-manager-password/cloud-shell.png)   
+    ![Cloud shell](media/azure-stack-edge-gpu-set-azure-resource-manager-password/cloud-shell.png)   
 
 
 5. Set context. Type:
@@ -147,4 +147,4 @@ Use the new password to connect to Azure Resource Manager.-->
 
 ## Next steps
 
-[Connect to Azure Resource Manager](azure-stack-edge-j-series-connect-resource-manager.md)
+[Connect to Azure Resource Manager](azure-stack-edge-gpu-connect-resource-manager.md)

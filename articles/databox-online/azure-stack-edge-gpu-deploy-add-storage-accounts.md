@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ---
@@ -73,7 +73,7 @@ To verify the connection, you would typically need the following information (ma
 
 You already have the storage account name and the blob service endpoint. You can get the storage account access key by connecting to the device via the Azure Resource Manager using an Azure PowerShell client.
 
-Follow the steps in [Connect to the device via Azure Resource Manager](azure-stack-edge-j-series-connect-resource-manager.md). Once you have signed into the local device APIs via the Azure Resource Manager, get the list of storage accounts on the device. Run the following cmdlet:
+Follow the steps in [Connect to the device via Azure Resource Manager](azure-stack-edge-gpu-connect-resource-manager.md). Once you have signed into the local device APIs via the Azure Resource Manager, get the list of storage accounts on the device. Run the following cmdlet:
 
 `Get-AzureRMStorageAccount`
 
@@ -147,7 +147,7 @@ Take the following steps to import the certificates on Azure Storage Explorer:
 2. To import SSL certificates, go to **Edit > SSL certificates > Import certificates**.
 
   
-   ![Import cert into Storage Explorer](./media/azure-stack-edge-j-series-deploy-add-storage-accounts/import-cert-storage-explorer-1.png) 
+   ![Import cert into Storage Explorer](./media/azure-stack-edge-gpu-deploy-add-storage-accounts/import-cert-storage-explorer-1.png) 
 
 3. Navigate and provide the signing chain and blob certificates. Both the signing chain and the blob certificate should be in PEM format which is the same as Base64-encoded format on Windows system. You will be notified that the certificates were successfully imported.
 
@@ -172,5 +172,3 @@ To learn how to transform your data by using Azure Stack Edge Pro, advance to th
 
 > [!div class="nextstepaction"]
 > [Transform data with Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-configure-compute.md)
-
-

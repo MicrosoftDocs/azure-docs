@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ---
@@ -40,11 +40,11 @@ To create a share, do the following procedure:
 
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Stack Edge resource and then go to the **Overview**. Your device should be online. Select **Cloud storage gateway**.
 
-   ![Device online](./media/azure-stack-edge-j-series-deploy-add-shares/device-online-1.png)
+   ![Device online](./media/azure-stack-edge-gpu-deploy-add-shares/device-online-1.png)
 
 2. Select **+ Add share** on the device command bar.
 
-   ![Add a share](./media/azure-stack-edge-j-series-deploy-add-shares/select-add-share-1.png)
+   ![Add a share](./media/azure-stack-edge-gpu-deploy-add-shares/select-add-share-1.png)
 
 3. In the **Add share** pane, follow these steps:
 
@@ -69,11 +69,11 @@ To create a share, do the following procedure:
      
     - **SMB share**: Under **All privilege local user**, select **Create new** or **Use existing**. If you create a new local user, enter a username and password, and then confirm the password. This action assigns permissions to the local user. Modification of share-level permissions is currently not supported. If you select the **Allow only read operations** check box for this share data, you can specify read-only users.
     
-        ![Add SMB share](./media/azure-stack-edge-j-series-deploy-add-shares/add-share-smb-1.png)
+        ![Add SMB share](./media/azure-stack-edge-gpu-deploy-add-shares/add-share-smb-1.png)
    
     - **NFS share**: Enter the IP addresses of allowed clients that can access the share.
 
-        ![Add NFS share](./media/azure-stack-edge-j-series-deploy-add-shares/add-share-nfs-1.png)
+        ![Add NFS share](./media/azure-stack-edge-gpu-deploy-add-shares/add-share-nfs-1.png)
    
 4. Select **Create** to create the share.
     
@@ -100,7 +100,7 @@ On your Windows client that you are using to connect to the device, take the fol
 
 1. Start **Notepad** as an administrator, and then open the **hosts** file located at `C:\Windows\System32\Drivers\etc`.
 
-    ![Windows Explorer hosts file](media/azure-stack-edge-j-series-deploy-add-shares/client-hosts-file-1.png)
+    ![Windows Explorer hosts file](media/azure-stack-edge-gpu-deploy-add-shares/client-hosts-file-1.png)
 
 
 2. Add the following entry to your **hosts** file replacing with appropriate values for your device: 
@@ -110,7 +110,7 @@ On your Windows client that you are using to connect to the device, take the fol
     ``` 
     You can get the device IP from the **Network** and the device friendly name from the **Device** page in the local web UI. The following screenshot of the hosts file shows the entry:
 
-    ![Windows Explorer hosts file 2](media/azure-stack-edge-j-series-deploy-add-shares/client-hosts-file-2.png)
+    ![Windows Explorer hosts file 2](media/azure-stack-edge-gpu-deploy-add-shares/client-hosts-file-2.png)
 
 ### Connect to an SMB share
 
@@ -142,11 +142,11 @@ On your Windows Server client connected to your Azure Stack Edge Pro device, con
 
 4. In the **Run** window, specify the `\\<device name>`, and then select **OK**.  
 
-    ![Windows Run dialog](media/azure-stack-edge-j-series-deploy-add-shares/run-window-1.png)
+    ![Windows Run dialog](media/azure-stack-edge-gpu-deploy-add-shares/run-window-1.png)
 
    File Explorer opens. You should now be able to view the shares that you created as folders. In File Explorer, double-click a share (folder) to view the content.
  
-    ![Connect to SMB share](./media/azure-stack-edge-j-series-deploy-add-shares/file-explorer-smbshare-1.png)
+    ![Connect to SMB share](./media/azure-stack-edge-gpu-deploy-add-shares/file-explorer-smbshare-1.png)
 
     The data is written to these shares as it is generated and the device pushes the data to cloud.
 
