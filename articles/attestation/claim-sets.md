@@ -41,9 +41,9 @@ policy_signer | x-ms-policy-signer
 
 ### Common outgoing claims across all attestation types
 
-Below claims are generated in the attestation token by the service. These are applicable for all attestation types. 
+Below claims are included in the attestation token for all attestation types by the service.
 
-Source: Defined by [IETF JWT](https://tools.ietf.org/html/rfc7519)
+Source: As defined by [IETF JWT](https://tools.ietf.org/html/rfc7519)
 
 - **"jti" (JWT ID) Claim**
 - **"iss" (Issuer) Claim**
@@ -51,11 +51,12 @@ Source: Defined by [IETF JWT](https://tools.ietf.org/html/rfc7519)
 - **"exp" (Expiration Time) Claim**
 - **"nbf" (Not Before) Claim**
 
-Source: Defined by [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
+Source: As defined by [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
 
 - **"Nonce claim" (nonce)**
 
 Below claims are included in the attestation token by default based on the incoming claims:
+
 - **x-ms-ver**: JWT schema version (expected to be "1.0")
 - **x-ms-attestation-type**: String value representing attestation type 
 - **x-ms-policy-hash**: String value containing SHA256 hash of the policy text computed by BASE64URL(SHA256(UTF8(BASE64URL(UTF8(policy text)))))
