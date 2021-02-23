@@ -1,0 +1,38 @@
+### YamlMime:Landing
+
+title: IoT Device and Application Development Documentation
+summary: Explore the Azure IoT documentation for developing embedded devices and building device-enabled cloud applications. 
+
+metadata:
+  title: IoT device and application development
+  description: Learn how to use Azure IoT to do embedded device development and build device-enabled cloud applications.
+  services: iot-develop
+  ms.service: iot-develop
+  ms.topic: landing-page
+  author: timlt
+  ms.author: timlt
+  ms.date: 01/11/2021
+
+landingContent:
+  - title: About IoT device and application development
+    linkLists:
+    - linkListType: overview
+      links:
+        - text: What is Azure IoT device and application development?
+          url: about-iot-develop.md
+        - text: Which SDK should I use? 
+          url: about-iot-sdks.md
+  - title: Get started with device application development
+    linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Send device telemetry to IoT Central
+          url: quickstart-send-telemetry-python.md
+        - text: Send device telemetry to IoT Hub
+          url: quickstart-send-telemetry-cli-python.md
+  - title: Get started with embedded device development
+    linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Get started with embedded device development
+          url: quickstart-device-development.md

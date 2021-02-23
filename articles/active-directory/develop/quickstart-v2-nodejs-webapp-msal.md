@@ -24,9 +24,6 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node) with the authorization code flow.
 
-> [!IMPORTANT]
-> MSAL Node [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
-
 ## Prerequisites
 
 * Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)

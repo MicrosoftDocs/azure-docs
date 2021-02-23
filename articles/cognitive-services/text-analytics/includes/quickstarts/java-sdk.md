@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/20/2021
+ms.date: 02/09/2021
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
@@ -21,10 +21,6 @@ ms.reviewer: tasharm, assafi, sumeh
 # [Version 3.0](#tab/version-3)
 
 [Reference documentation](/java/api/overview/azure/ai-textanalytics-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
-
-# [Version 2.1](#tab/version-2)
-
-This article only describes version 3.x of the API.
 
 ---
 
@@ -71,10 +67,6 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), which contains the code examples in this quickstart. 
-
-# [Version 2.1](#tab/version-2)
-
-This article only describes version 3.x of the API.
 
 ---
 
@@ -131,10 +123,6 @@ public static void main(String[] args) {
         AnalyzeOperationExample(client)
 }
 ```
-
-# [Version 2.1](#tab/version-2)
-
-This article only describes version 3.x of the API.
 
 ---
 
@@ -316,10 +304,6 @@ Recognized document sentiment: positive, positive score: 1.0, neutral score: 0.0
 Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
 Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
 ```
-
-# [Version 2.1](#tab/version-2)
-
-This article only describes version 3.x of the API.
 
 ---
 
@@ -566,10 +550,6 @@ Matches:
 Text: BASIC, Score: 0.33
 ```
 
-# [Version 2.1](#tab/version-2)
-
-This article only describes version 3.x of the API.
-
 ---
 
 ## Key phrase extraction
@@ -679,9 +659,5 @@ You can also use the Analyze operation to detect PII and key phrase extraction. 
 # [Version 3.0](#tab/version-3)
 
 This feature is not available in version 3.0.
-
-# [Version 2.1](#tab/version-2)
-
-This feature is not available in version 2.1.
 
 ---
