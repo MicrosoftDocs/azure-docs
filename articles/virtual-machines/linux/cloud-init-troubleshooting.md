@@ -54,7 +54,7 @@ While the VM is running, you will need the logs from the VM to understand why pr
 
 - [Serial Console](../troubleshooting/serial-console-grub-single-user-mode.md)
 
-- [Enable Boot Diagnostics](./tutorial-monitor.md#enable-boot-diagnostics) before creating the VM and then [View](./tutorial-monitor.md#view-boot-diagnostics) them during the boot.
+- [Enable Boot Diagnostics](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) before creating the VM and then [View](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) them during the boot.
 
 - [Run AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) to attach and mount the OS disk, which will allow you to collect these logs:
 ```bash
@@ -129,4 +129,4 @@ Not every failure in cloud-init results in a fatal provisioning failure. For exa
 
 ## Next steps
 
-If you still cannot isolate why cloud-init did not run the configuration, you need to look more closely at what happens in each cloud-init stage, and when modules run. See [Diving deeper into cloud-init configuration](./cloud-init-deep-dive.md) for more information. 
+If you still cannot isolate why cloud-init did not run the configuration, you need to look more closely at what happens in each cloud-init stage, and when modules run. See [Diving deeper into cloud-init configuration](./cloud-init-deep-dive.md) for more information.
