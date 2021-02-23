@@ -132,6 +132,8 @@ The files should be uploaded to the following path in the storage account's defa
 abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
+You may need to add the ```python``` folder within the ```libraries``` folder if it does not already exist.
+
 >[!IMPORTANT]
 >Custom-packages can be added or modified between sessions. However, you will need to wait for the pool and session to restart to see the updated package.
 

@@ -54,5 +54,5 @@ During the preview you can use the group ID to join the same conversation. You c
 
 For more information, see the following articles:
 - Familiarize yourself with general [call flows](../call-flows.md)
-- [Plan your PSTN solution](../telephony-sms/plan-solution.md)
+- [Phone number types](../telephony-sms/plan-solution.md)
 - Learn about the [calling client library capabilities](../voice-video-calling/calling-sdk-features.md)
