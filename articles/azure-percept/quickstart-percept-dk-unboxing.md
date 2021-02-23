@@ -3,7 +3,7 @@ title: Unbox and assemble your Azure Percept DK components
 description: Learn how to unbox, connect, and power on your Azure Percept DK
 author: elqu20
 ms.author: v-elqu
-ms.service: rtos #temporary, will update to azure-percept once available
+ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/16/2021
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
