@@ -17,7 +17,7 @@ Disks using the on-demand bursting model of disk bursting can burst beyond origi
 
 If you expect your workloads to frequently run beyond the provisioned perf target, disk bursting won't be cost-effective. In this case, we recommend that you change your disk's performance tier to a [higher tier](../articles/virtual-machines/disks-performance-tiers.md) instead, for better baseline performance. Review your billing details and assess that against the traffic pattern of your workloads.
 
-#### Limitations
+Before you enable on-demand bursting, understand the following:
 
 [!INCLUDE [managed-disk-bursting-regions-limitations](managed-disk-bursting-regions-limitations.md)]
 
