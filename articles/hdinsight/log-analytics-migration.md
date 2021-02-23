@@ -9,7 +9,7 @@ ms.date: 02/16/2020
 
 # HDInsight Customer Log Analytics Migration Guidance
 
-Azure HDInsight is an enterprise-ready, managed-cluster service. This service runs open-source analytics frameworks like Apache Spark, Hadoop, and Kafka on Azure. Azure HDInsight has integrated with other Azure services to enable customers to better manage their big data analytics applications.
+ Azure HDInsight is an enterprise-ready, managed-cluster service. This service runs open-source analytics frameworks like Apache Spark, Hadoop, HBase and Kafka on Azure. Azure HDInsight has integrated with other Azure services to enable customers to better manage their big data analytics applications.
 
 Log Analytics provides a tool in the Azure portal to edit and run log queries. The queries come from data collected by Azure Monitor Logs and interactively analyze their results. Customers can use Log Analytics queries to retrieve records that match specific criteria. They can also use queries to identify trends, analyze patterns, and provide insights into their data.
 
@@ -28,8 +28,6 @@ Because of customer feedback, the HDInsight team invested in the new Azure Monit
 - Higher reliability
 - Faster log delivery
 - Resource-based table grouping and default queries
-
-Also, there are 30 new tables that provide the same information as the 90+ tables from the legacy system. 
 
 ## Benefits of the new Azure Monitor integration
 
@@ -146,7 +144,7 @@ Refer to the [mapping table](#appendix-1-table-mapping) between the old table/sc
 
 We also improved the out-of-box dashboards both at the cluster-level. There's a button on the top right of every graph that allows you to see the underlying query that produces the information. The graph is a great way to familiarize yourself with how the new tables can be queried effectively. You can access the out-of-box dashboards by following the instructions that you'll find in the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections.
 
-### Use an HDInsight workload-specific monitoring dashboard in Azure Monitor
+### Use an HDInsight workload-specific monitoring dashboard
 
 If you're using the out-of-box monitoring dashboard for HDInsight clusters like HDInsight Spark Monitoring and HDInsight Interactive Monitoring, we're working to provide you the same capabilities on the Azure Monitor portal.
 
@@ -157,7 +155,7 @@ You'll see that there's an HDInsight option in Azure Monitor.
 The HDInsight Monitor portal provides you the capability of monitoring multiple HDInsight clusters in one place. We organize the clusters based on the workload type, so you see types like Spark, HBase, and Hive. Instead of going to multiple dashboards, now you can monitor all your HDInsight clusters in this view.
 
 > [!NOTE]
-> This feature is planned to be released by <XX of 2021>. For more information, see the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections in this article.
+> For more information, see the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections in this article.
 
 ## Enable both integrations to accelerate the migration
 
@@ -178,11 +176,10 @@ Creating new clusters with classic Azure Monitor integration is available after 
 
 ## Release and support timeline
 
-- Customers can enable the new Azure Monitoring integration after February 20, 2021.
-- Classic Azure Monitoring integration will be unavailable after July 1, 2021. Until then, there will be limited support for all the running clusters with classic Azure Monitoring integration
-  - Issues will be investigated once customers submit a support ticket.
+- Classic Azure Monitoring integration will be unavailable after <TBD>. You can't enable classic Azure Monitoring integration after that date.
+- Existing classic Azure monitoring integrations will continue to work. There will be limited support for the classic Azure Monitoring integration. 
+  - Issues will be investigated once customers submit the support ticket.
   - If solution requires image change, customers should move to the new integration.
-  - If the solution requires an RP change or Sibyl update, we'll include the fix and deploy the mitigation along in the regular release cycle.
   - We won't patch the classic Azure Monitoring integration clusters except for critical security issues.
 
 ## Appendix 1: Table mapping
@@ -197,7 +194,7 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
 
 | Workload | Details |
 | --- | --- |
-| General | <ul><li>**New table**: HDInsightAmbariSystemMetrics</li><li>**Old table**: metrics\_cpu\_nice\_clmetrics\_cpu\_system\_clmetrics\_cpu\_user\_cl metrics\_memory\_cache\_CLmetrics\_memory\_swap\_CLmetrics\_memory\_total\_CLmetrics\_memory\_buffer\_CLmetrics\_load\_1min\_CLmetrics\_load\_cpu\_CL metrics\_load\_nodes\_CLmetrics\_load\_procs\_CLmetrics\_network\_in\_CLmetrics\_network\_out\_CL</li><li>**Description**: This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edgenodes) instead of just the two headnodes. Each metric is no w column and each metric is reported once per record.</li></ul>|
+| General | <ul><li>**New table**: HDInsightAmbariSystemMetrics</li><li>**Old table**: metrics\_cpu\_nice\_clmetrics\_cpu\_system\_clmetrics\_cpu\_user\_cl metrics\_memory\_cache\_CLmetrics\_memory\_swap\_CLmetrics\_memory\_total\_CLmetrics\_memory\_buffer\_CLmetrics\_load\_1min\_CLmetrics\_load\_cpu\_CL metrics\_load\_nodes\_CLmetrics\_load\_procs\_CLmetrics\_network\_in\_CLmetrics\_network\_out\_CL</li><li>**Description**: This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edgenodes) instead of just the two headnodes. Each metric is now a column and each metric is reported once per record.</li></ul>|
 | General | <ul><li>**New table**: HDInsightAmbariClusterAlerts</li><li>**Old table**: metrics\_cluster\_alerts\_CL</li><li>**Description**: This table contains Ambari Cluster Alerts from each node in the cluster (except for edgenodes). Each alert is a record in this table.</li></ul>|
 
 *******************************************************
@@ -205,7 +202,7 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
 
 | Workload | New Table (Azure Monitor) | Description | Old Table (Azure Monitor (Classic) |
 | --- | --- | --- | --- |
-| **General** | **HDInsightAmbariSystemMetrics** | This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edgenodes) instead of just the two headnodes. Each metric is no w column and each metric is reported once per record. | metrics\_cpu\_nice\_clmetrics\_cpu\_system\_clmetrics\_cpu\_user\_cl metrics\_memory\_cache\_CLmetrics\_memory\_swap\_CLmetrics\_memory\_total\_CLmetrics\_memory\_buffer\_CLmetrics\_load\_1min\_CLmetrics\_load\_cpu\_CL metrics\_load\_nodes\_CLmetrics\_load\_procs\_CLmetrics\_network\_in\_CLmetrics\_network\_out\_CL
+| **General** | **HDInsightAmbariSystemMetrics** | This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edgenodes) instead of just the two headnodes. Each metric is now a column and each metric is reported once per record. | metrics\_cpu\_nice\_clmetrics\_cpu\_system\_clmetrics\_cpu\_user\_cl metrics\_memory\_cache\_CLmetrics\_memory\_swap\_CLmetrics\_memory\_total\_CLmetrics\_memory\_buffer\_CLmetrics\_load\_1min\_CLmetrics\_load\_cpu\_CL metrics\_load\_nodes\_CLmetrics\_load\_procs\_CLmetrics\_network\_in\_CLmetrics\_network\_out\_CL
  |
 | **General** | **HDInsightAmbariClusterAlerts** | This table contains Ambari Cluster Alerts from each node in the cluster (except for edgenodes). Each alert is a record in this table. | metrics\_cluster\_alerts\_CL
  |
