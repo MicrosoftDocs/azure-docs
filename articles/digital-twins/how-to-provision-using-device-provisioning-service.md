@@ -111,9 +111,11 @@ Ensure that the permissions and Managed Identity role assignment are configured 
 
 Next, you'll need to create an enrollment in Device Provisioning Service using a **custom allocation function**. Follow the instructions to do this in the [*Create the enrollment*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) of the custom allocation policies article in the Device Provisioning Services documentation.
 
-While going through that flow, you will link the enrollment to the function you just created by selecting your function during the step to **Select how you want to assign devices to hubs**. Next, you will also link to your IoT-hub you created earlier by selecting its name from the dropdown link during the step **Select how you want to assign devices to hubs**. After creating the enrollment, the enrollment primary or secondary SAS key will be used later to configure the device simulator for this article.                   
+While going through that flow, you will link the enrollment to the function you just created by selecting *Custom (Use Azure Function)* during the step to **Select how you want to assign devices to hubs**. Next, you will also link to your IoT-hub you created earlier by selecting its name from the dropdown link during the step to **Select the IoT hubs this group can be assigned to:**.                   
 
 :::image type="content" source="media/how-to-provision-using-dps/link-enrollment-group-to-iothub.png" alt-text="Select *Custom(Use Azure Function)* in the section **Select how you want to assign devices to hubs** and assign your IoT-hub to your enrollment group in the section **Select the IoT hubs this group can be assigned to:** by selecting your IoT-hub name from the dropdown":::
+
+After creating the enrollment, the enrollment primary or secondary SAS key will be used later to configure the device simulator for this article.
 
 ### Set up the device simulator
 
@@ -125,7 +127,19 @@ Open a command window and navigate into the downloaded folder, and then into the
 npm install
 ```
 
-Next, copy the *.env.template* file to a new file called *.env*, and fill in these settings:
+Next, in your device simulator directory, copy the .env.template file to a new file called .env, and gather the following values to fill in the settings:
+
+* PROVISIONING_IDSCOPE: To get this value, navigate to your device provisioning service in the Azure portal, then select *Overview* in the menu options and look for the field *ID Scope*.
+
+    :::image type="content" source="media/how-to-provision-using-dps/id-scope.png" alt-text="The Azure portal view of the device provisioning *Overview* page to copy the **ID Scope** value" lightbox="media/how-to-provision-using-dps/id-scope.png":::
+
+* PROVISIONING_REGISTRATION_ID: You can choose a registration ID for your device.
+
+* PROVISIONING_SYMMETRIC_KEY: To get this primary key, navigate to your device provisioning service in the Azure portal, select *Manage enrollments*, then select the enrollment group that you created earlier and copy the *Primary Key*.
+
+    :::image type="content" source="media/how-to-provision-using-dps/sas-primary-key.png" alt-text="The Azure portal view of the device provisioning *Overview* page to copy the **ID Scope** value" lightbox="media/how-to-provision-using-dps/sas-primary-key.png":::
+
+Now, use the values above to update .env file settings.
 
 ```cmd
 PROVISIONING_HOST = "global.azure-devices-provisioning.net"
@@ -134,15 +148,6 @@ PROVISIONING_REGISTRATION_ID = "<Device Registration ID>"
 ADT_MODEL_ID = "dtmi:contosocom:DigitalTwins:Thermostat;1"
 PROVISIONING_SYMMETRIC_KEY = "<Device Provisioning Service enrollment primary or secondary SAS key>"
 ```
-PROVISIONING_IDSCOPE: To get this value, navigate to your device provisioning service in the Azure portal, then select *Overview* in the menu options and look for the field *ID Scope*.
-
-:::image type="content" source="media/how-to-provision-using-dps/id-scope.png" alt-text="The Azure portal view of the device provisioning *Overview* page to copy the **ID Scope** value" lightbox="media/how-to-provision-using-dps/id-scope.png":::
-
-PROVISIONING_REGISTRATION_ID: You can choose a registration ID for your device.
-
-PROVISIONING_SYMMETRIC_KEY: To get this primary key, navigate to your device provisioning service in the Azure portal, select *Manage enrollments*, then select the group that you created earlier and copy the *Primary Key*.
-
-:::image type="content" source="media/how-to-provision-using-dps/sas-primary-key.png" alt-text="The Azure portal view of the device provisioning *Overview* page to copy the **ID Scope** value" lightbox="media/how-to-provision-using-dps/sas-primary-key.png":::
 
 Save and close the file.
 
