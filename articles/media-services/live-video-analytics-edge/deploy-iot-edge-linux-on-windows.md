@@ -6,9 +6,9 @@ ms.date: 02/18/2021
 
 ---
 
-# Deploy to an IoT Edge for Linux on Windows device
+# Deploy to an IoT Edge for Linux on Windows (EFLOW) device
 
-In this article, you'll learn how to deploy Live Video Analytics on an edge device that has IoT Edge for Linux on Windows. Once you have finished following the steps in this document, you will be able to run a [media graph](media-graph-concept.md) that detects motion in a video and emits such events to the IoT hub in the cloud. You can then switch out the media graph for advanced scenarios and bring the power of Live Video Analytics to your Windows-based IoT Edge device.
+In this article, you'll learn how to deploy Live Video Analytics on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows?view=iotedge-2018-06). Once you have finished following the steps in this document, you will be able to run a [media graph](media-graph-concept.md) that detects motion in a video and emits such events to the IoT hub in the cloud. You can then switch out the media graph for advanced scenarios and bring the power of Live Video Analytics to your Windows-based IoT Edge device.
 
 ## Prerequisites 
 
@@ -17,15 +17,19 @@ In this article, you'll learn how to deploy Live Video Analytics on an edge devi
     > [!NOTE]
     > You will need an Azure subscription with permissions for creating service principals (**owner role** provides this). If you do not have the right permissions, reach out to your account administrator to grant you the right permissions.
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Read [What is IoT Edge for Linux on Windows](https://aka.ms/AzEFLOW-docs).
+* Read [What is EFLOW](https://aka.ms/AzEFLOW-docs).
 
 ## Deployment Steps
 
-1. [Install IoT Edge for Linux on Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-on-windows?view=iotedge-2018-06&tabs=windowsadmincenter) on your Windows device. 
+The following depicts the overall flow of the document and in 5 simple steps you should be all set up to run Live Video Analytics on a Windows device  that has EFLOW:
+
+:::image type="content" source="./media/deploy-iot-edge-linux-on-windows/eflow.png" alt-text="Deployments steps - windows admin center":::
+
+1. [Install EFLOW](https://aka.ms/AzEFLOW-install) on your Windows device. 
 
     1. If you are using your Windows PC, then on the [Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview) start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. 
     1. Any additional servers, PCs, or clusters that you manage will also show up here.
-    1. You can use Windows Admin Center to install and manage Azure IoT Edge for Linux on Windows on either your local device or remote managed devices. In this guide, the local host connection served as the target device for the deployment of Azure IoT Edge for Linux on Windows. Hence you see the localhost also listed as an IoT Edge device.
+    1. You can use Windows Admin Center to install and manage Azure EFLOW on either your local device or remote managed devices. In this guide, the local host connection served as the target device for the deployment of Azure IoT Edge for Linux on Windows. Hence you see the localhost also listed as an IoT Edge device.
 
     :::image type="content" source="./media/deploy-iot-edge-linux-on-windows/windows-admin-center.png" alt-text="Deployments steps - windows admin center":::
 1. Click on the IoT Edge device to connect to it and you should see an Overview and Command Shell tab. The command shell tab is where you can issue commands to your edge device.
@@ -80,7 +84,7 @@ In this article, you'll learn how to deploy Live Video Analytics on an edge devi
     You should see the following four modules deployed and running on your edge device. Please note that the resource creation script deploys the LVA module along with IoT Edge modules (edgeAgent and edgeHub) and an RTSP simulator module to provide the simulated RTSP video feed.
     
     :::image type="content" source="./media/deploy-iot-edge-linux-on-windows/running.png" alt-text="See status":::
-1. With the modules deployed and set up, you are ready to run your first LVA media graph on IoT Edge for Linux on Windows. You can run a simple motion detection graph as below and visualize the results by executing the following steps:
+1. With the modules deployed and set up, you are ready to run your first LVA media graph on EFLOW. You can run a simple motion detection graph as below and visualize the results by executing the following steps:
 
     :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Motion detection graph":::
 
@@ -92,6 +96,9 @@ In this article, you'll learn how to deploy Live Video Analytics on an edge devi
     1. [Observe the results](get-started-detect-motion-emit-events-quickstart.md#observe-results) on the Hub.
     1. Invoke [clean up methods](get-started-detect-motion-emit-events-quickstart.md#invoke-graphinstancedeactivate).
     1. Delete your resources if not needed further.
+
+        > [!IMPORTANT]
+        > Undeleted resources can still be active and incur Azure costs.
     
 ## Next steps
 
