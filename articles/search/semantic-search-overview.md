@@ -16,7 +16,7 @@ ms.custom: references_regions
 > [!IMPORTANT]
 > Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Semantic search is a collection of query-side features that bind semantic ranking and extraction to the query pipeline in Azure Cognitive Search to create a more natural query experience. The top 50 results from the [full text search engine](search-lucene-query-architecture.md) can be re-ranked to find the most intuitive matches. 
+Semantic search is a collection of query-side features that bind semantic ranking and extraction to the query pipeline in Azure Cognitive Search to create a more natural query experience. The top 50 results from the [full text search engine](search-lucene-query-architecture.md) are re-ranked to find the most intuitive matches. 
 
 The underlying technology leverages the investments from Bing and Microsoft Research, and is integrated into the Cognitive Search infrastructure. To use it, you'll need small modifications to query syntax, but no additional configuration or reindexing is required.
 
@@ -25,7 +25,7 @@ Public preview features include:
 + Semantic ranking algorithm that looks for cues in the content to determine relevance
 + Semantic captions that highlight relevant passages
 + Semantic answers to the query, also formulated from results
-+ Spell correction that catches typos before the string reaches the query parser
++ Spell check that corrects typos before the query terms reach the search engine
 
 ## Semantic search architecture
 

@@ -89,7 +89,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Language considerations
 
-The queryLanguage parameter required for speller is independent of any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. Specified in a query request, the queryLanguage determines which dictionaries are used for spell check, and is also used as an input to the [semantic ranking algorithm](semantic-how-to-query-response.md) if you are using it. In contrast, language analyzers are used during indexing, and while retrieving matching documents in the search index.
+The queryLanguage parameter required for speller must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. Specified in a query request, the queryLanguage determines which dictionaries are used for spell check, and is also used as an input to the [semantic ranking algorithm](semantic-how-to-query-response.md) if you are using it. In contrast, language analyzers are used during indexing, and while retrieving matching documents in the search index. If queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene").
 
 In a query request, the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts. 
 
