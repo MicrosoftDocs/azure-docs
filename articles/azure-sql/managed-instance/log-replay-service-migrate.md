@@ -112,9 +112,9 @@ Set databases you wish to migrate to the full recovery mode to allow log backups
 
 ```SQL
 -- To permit log backups, before the full database backup, modify the database to use the full recovery model.
-USE master;
+USE master
 ALTER DATABASE SampleDB
-SET RECOVERY FULL;
+SET RECOVERY FULL
 ```
 
 To manually make full, diff and log backup of your database on the local storage, use the provided sample T-SQL scripts below. Ensure that CHECKSUM option is enabled as this is a mandatory requirement for LRS.
