@@ -109,13 +109,13 @@ Use Azure AD single sign-on (SSO) to manage and secure access to your organizati
 
 Azure AD supports strong authentication controls through multi-factor authentication (MFA) and strong passwordless methods.
 
-- Multi-factor authentication: Enable Azure AD MFA and follow Azure Security Center identity and access management recommendations for your MFA setup. MFA can be enforced on all users, select users, or at the per-user level based on sign-in conditions and risk factors. 
+- Multi-factor authentication: Enable Azure AD MFA and follow Azure Security Center identity and access management recommendations for your MFA setup. MFA can be enforced on all users, select users, or at the per-user level based on sign-in conditions and risk factors.
 
-- Passwordless authentication: Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards. 
+- Passwordless authentication: Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
 
 For administrator and privileged users, ensure the highest level of the strong authentication method is used, followed by rolling out the appropriate strong authentication policy to other users.
 
-If legacy password-based authentication is still used for Azure AD authentication, please be aware that cloud-only accounts (user accounts created directly in Azure) have a default baseline password policy. And hybrid accounts (user accounts that come from on-premises Active Directory) follow the on-premises password policies. When using password-based authentication, Azure AD provides a password protection capability that prevents users from setting passwords that are easy to guess. Microsoft provides a global list of banned passwords that is updated based on telemetry, and customers can augment the list based on their needs (e.g. branding, cultural references, etc.). This password protection can be used for cloud-only and hybrid accounts.
+If legacy password-based authentication is still used for Azure AD authentication, please be aware that cloud-only accounts (user accounts created directly in Azure) have a default baseline password policy. And hybrid accounts (user accounts that come from on-premises Active Directory) follow the on-premises password policies. When using password-based authentication, Azure AD provides a password protection capability that prevents users from setting passwords that are easy to guess. Microsoft provides a global list of banned passwords that is updated based on telemetry, and customers can augment the list based on their needs (such as branding, cultural references, etc.). This password protection can be used for cloud-only and hybrid accounts.
 
 Note: Authentication based on password credentials alone is susceptible to popular attack methods. For higher security, use strong authentication such as MFA and a strong password policy. For third-party applications and marketplace services that may have default passwords, you should change them during initial service setup.
 
@@ -216,7 +216,7 @@ Use Azure AD conditional access for more granular access control based on user-d
 
 Implement Azure DevOps Credential Scanner to identify credentials within the code. Credential Scanner also encourages moving discovered credentials to more secure locations such as Azure Key Vault.
 
-For GitHub, you can use native secret scanning feature to identify credentials or other form of secrets within the code.
+For GitHub, you can use the native secret scanning feature to identify credentials or other form of secrets within the code.
 
 - [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 

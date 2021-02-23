@@ -52,7 +52,7 @@ Use Azure Sentinel to discover the use of legacy insecure protocols such as SSL/
 |--|--|--|--|
 | NS-2 | N/A | CA-3, AC-17, MA-4 |
 
-Use Azure ExpressRoute or Azure virtual private network (VPN) to create private connections between Azure datacenters and on-premises infrastructure in a colocation environment. ExpressRoute connections do not go over the public internet , and they offer more reliability, faster speeds, and lower latencies than typical internet connections. For point-to-site VPN and site-to-site VPN, you can connect on-premises devices or networks to a virtual network using any combination of these VPN options and Azure ExpressRoute.
+Use Azure ExpressRoute or Azure virtual private network (VPN) to create private connections between Azure datacenters and on-premises infrastructure in a colocation environment. ExpressRoute connections don't go over the public internet , and they offer more reliability, faster speeds, and lower latencies than typical internet connections. For point-to-site VPN and site-to-site VPN, you can connect on-premises devices or networks to a virtual network using any combination of these VPN options and Azure ExpressRoute.
 
 To connect two or more virtual networks in Azure together, use virtual network peering or Private Link. Network traffic between peered virtual networks is private and is kept on the Azure backbone network.
 

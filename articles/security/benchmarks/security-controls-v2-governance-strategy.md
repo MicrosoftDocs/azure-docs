@@ -103,7 +103,7 @@ Continuously measure and mitigate risks to your individual assets and the enviro
 |--|--|--|--|
 | GS-4 | N/A | PL, PM |
 
-Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
+Ensure that you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
 - [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
@@ -125,7 +125,7 @@ Ensure you document and communicate a clear strategy for roles and responsibilit
 
 Establish an Azure network security approach as part of your organization's overall security access control strategy.
 
-This strategy should include documented guidance, policy, and standards for the following elements: 
+This strategy should include documented guidance, policy, and standards for the following elements:
 
 - Centralized network management and security responsibility
 
@@ -137,7 +137,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 - Hybrid cloud and on-premises interconnectivity strategy
 
-- Up-to-date network security artifacts (e.g. network diagrams, reference network architecture)
+- Up-to-date network security artifacts (such as network diagrams, reference network architecture)
 
 For more information, see the following references:
 

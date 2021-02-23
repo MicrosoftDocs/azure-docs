@@ -76,9 +76,9 @@ Microsoft Antimalware for Azure Cloud Services is the default anti-malware for W
 |--|--|--|--|
 | ES-3 | 8.2 | SI-2, SI-3 |
 
-Ensure anti-malware signatures are updated rapidly and consistently. 
+Ensure anti-malware signatures are updated rapidly and consistently.
 
-Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure all endpoints are up to date with the latest signatures. Microsoft Antimalware will automatically install the latest signatures and engine updates by default. For Linux, use third-party antimalware solution.
+Follow recommendations in Azure Security Center: "Compute & Apps" to ensure all endpoints are up to date with the latest signatures. Microsoft Antimalware will automatically install the latest signatures and engine updates by default. For Linux, ensure the signatures are updated in the third-party antimalware solution.
 
 - [How to deploy Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../fundamentals/antimalware.md)
 

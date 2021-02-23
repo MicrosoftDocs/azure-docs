@@ -153,11 +153,11 @@ Use Azure AD entitlement management features to automate access request workflow
 |--|--|--|--|
 | PA-6 | 4.6, 11.6, 12.12 | AC-2, SC-3, SC-7 |
 
-Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration, including strong authentication, software and hardware baselines, and restricted logical and network access. 
+Secured, isolated workstations are critically important for the security of sensitive roles like administrator, developer, and critical service operator. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration, including strong authentication, software and hardware baselines, and restricted logical and network access. 
 
-- [Understand privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+- [Understand privileged access workstations](/security/compass/privileged-access-deployment)
 
-- [Deploy a privileged access workstation](/security/compass/privileged-access-deployment)
+- [Deploy a privileged access workstation](../../active-directory/devices/howto-azure-managed-workstation)
 
 **Responsibility**: Customer
 
@@ -176,7 +176,8 @@ Secured, isolated workstations are critically important for the security of sens
 | PA-7 | 14.6 | AC-2, AC-3, SC-3 |
 
 Azure role-based access control (Azure RBAC) allows you to manage Azure resource access through role assignments. You can assign these roles to users, group service principals, and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell, and the Azure portal. The privileges you assign to resources through Azure RBAC should always be limited to what's required by the roles. Limited privileges complement the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM), and those privileges should be reviewed periodically.
-Use built-in roles to allocate permission and only create custom role when required. 
+
+Use built-in roles to allocate permissions and only create custom roles when required.
 
 - [What is Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
 
