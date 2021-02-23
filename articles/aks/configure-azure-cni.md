@@ -250,9 +250,9 @@ $subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
 az aks create -n $clusterName -g $resourceGroup -l $location --max-pods 250 --node-count 2 --network-plugin azure --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet  
 ```
 
-#### Adding nodepools
+#### Adding node pool
 
-When adding nodepools, reference the node subnet using `--vnet-subnet-id` and the pod subnet using `--pod-subnet-id`. The following example creates two new subnets that are then referenced in the creation of a new nodepool:
+When adding node pool, reference the node subnet using `--vnet-subnet-id` and the pod subnet using `--pod-subnet-id`. The following example creates two new subnets that are then referenced in the creation of a new node pool:
 
 ```azurecli-interactive
 az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name node2subnet --address-prefixes 10.242.0.0/16 -o none 
@@ -295,9 +295,9 @@ The following questions and answers apply to the **Azure CNI** networking config
 
 The following questions and answers apply to the **Azure CNI network configuration when using Dynamic allocation of IP addresses and enhanced subnet support**.
 
-* *Can I assign multiple pod subnets to a cluster/node-pool?*
+* *Can I assign multiple pod subnets to a cluster/node pool?*
 
-  Only one subnet can be assigned to a cluster or node-pool. However, multiple clusters or node-pools can share a single subnet.
+  Only one subnet can be assigned to a cluster or node pool. However, multiple clusters or node pools can share a single subnet.
 
 * *Can I assign Pod subnets from a different VNet altogether?*
 
