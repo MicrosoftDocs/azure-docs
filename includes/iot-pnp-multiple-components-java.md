@@ -10,6 +10,14 @@ This tutorial shows you how to build a multiple component sample IoT Plug and Pl
 
 This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Java and is included in the Azure IoT device SDK for Java. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
+In this tutorial, you:
+
+> [!div class="checklist"]
+> * Download the sample code.
+> * Build the sample code.
+> * Run the sample device application and validate that it connects to your IoT hub.
+> * Review the source code.
+
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
@@ -130,5 +138,3 @@ Use the Azure IoT explorer tool to view the telemetry and properties from the tw
 :::image type="content" source="media/iot-pnp-multiple-components-java/multiple-component.png" alt-text="Multiple component device in Azure IoT explorer":::
 
 You can also use the Azure IoT explorer tool to call commands in either of the two thermostat components, or in the default component.
-
-[!INCLUDE [iot-pnp-clean-resources.md](iot-pnp-clean-resources.md)]

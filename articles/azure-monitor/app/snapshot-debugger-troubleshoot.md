@@ -31,9 +31,10 @@ If that doesn't solve the problem, then refer to the following manual troublesho
 
 Make sure you're using the correct instrumentation key in your published application. Usually, the instrumentation key is read from the ApplicationInsights.config file. Verify the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
 
-## <a id="SSL"></a>Check SSL client settings (ASP.NET)
+## <a id="SSL"></a>Check TLS/SSL client settings (ASP.NET)
 
-If you have an ASP.NET application hosted in Azure App Service or in IIS on a virtual machine, your application could fail to connect to the Snapshot Debugger service due to a missing SSL security protocol.
+If you have an ASP.NET application that it is hosted in Azure App Service or in IIS on a virtual machine, your application could fail to connect to the Snapshot Debugger service due to a missing SSL security protocol.
+
 [The Snapshot Debugger endpoint requires TLS version 1.2](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). The set of SSL security protocols is one of the quirks enabled by the httpRuntime targetFramework value in the system.web section of web.config.
 If the httpRuntime targetFramework is 4.5.2 or lower, then TLS 1.2 isn't included by default.
 
@@ -61,6 +62,10 @@ If you're using a preview version of .NET Core or your application references Ap
 
 ## Check the Diagnostic Services site extension' Status Page
 If Snapshot Debugger was enabled through the [Application Insights pane](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) in the portal, it was enabled by the Diagnostic Services site extension.
+
+> [!NOTE]
+> Codeless installation of Application Insights Snapshot Debugger follows the .NET Core support policy.
+> For more information about supported runtimes, see [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 You can check the Status Page of this extension by going to the following url:
 `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
