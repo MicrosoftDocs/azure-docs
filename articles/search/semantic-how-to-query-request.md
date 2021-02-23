@@ -81,7 +81,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 Omit "orderBy" clauses in a semantic query. The semantic score is used to order results, and if you include explicit sort logic, an HTTP 400 error is returned.
 
-In a semantic query, the order of fields in "searchFields" reflects the priority or relative importance of the field in semantic rankings. Only top-level string fields (standalone or in a collection) will be used. Because searchFields has other behaviors in simple and full Lucene queries (there is no implied priority order), other non-string fields and subfields can be specified, but they won't be used be used in semantic ranking.
+In a semantic query, the order of fields in "searchFields" reflects the priority or relative importance of the field in semantic rankings. Only top-level string fields (standalone or in a collection) will be used. Because searchFields has other behaviors in simple and full Lucene queries (there is no implied priority order), other non-string fields and subfields can be specified, but they won't be used in semantic ranking.
 
 When specifying searchFields, follow these guidelines:
 
@@ -100,8 +100,6 @@ Other optional parameters (such as speller, select, and count) improve the quali
 ### Review the response
 
 Response for the above query returns the following match as the top pick. Captions are returned automatically, with plain text and highlighted versions. By default, highlighting is styled as `</em>`, but you can customize the style using the hit highlighting tagging properties. For more information about semantic responses, see [Semantic ranking and responses](semantic-how-to-query-response.md).
-
-Highlights will be tagged regardless of if the customer specify custom tags in the request. If the customer doesnt set any value, we use the default <em> and </em>
 
 ```json
 "@odata.count": 29,
