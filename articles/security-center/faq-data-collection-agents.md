@@ -27,7 +27,7 @@ No. Workspaces created by Security Center, while configured for Azure Monitor lo
 
 - **Azure Defender off** – Security Center enables the "SecurityCenterFree" solution on the default workspace. You won't be billed if Azure Defender is off.
 
-- **Azure Defender on** – Security Center enables the 'Security' solution on the default workspace.
+- **Azure Defender on** – Security Center enables the "Security" solution on the default workspace.
 
 For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
