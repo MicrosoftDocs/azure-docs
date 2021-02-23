@@ -1,7 +1,7 @@
 ---
 title: Configure a SharePoint Online indexer (preview)
 titleSuffix: Azure Cognitive Search
-description: Set up a SharePoint Online indexer to automate indexing of document library content for full text search operations in Azure Cognitive Search.
+description: Set up a SharePoint Online indexer to automate indexing of document library content in Azure Cognitive Search.
 
 manager: luisca
 author: MarkHeff
@@ -14,26 +14,31 @@ ms.date: 03/01/2021
 # How to configure SharePoint Online indexing in Cognitive Search (preview)
 
 > [!IMPORTANT] 
-> SharePoint Online support is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> SharePoint Online support is currently in a **gated public preview**. You can request access to the gated preview by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview).
 >
-> **You can request access to this gated preview by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview).**
+> Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 > The [REST API version 2020-06-30-Preview](search-api-preview.md) provides this feature. There is currently no portal or SDK support.
 
-This article shows how to use Azure Cognitive Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in SharePoint Online document libraries into an Azure Cognitive Search index. First, it explains the basics of setting up and configuring the indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
+This article describes how to use Azure Cognitive Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in SharePoint Online document libraries into an Azure Cognitive Search index. First, it explains the basics of setting up and configuring the indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
 
 ## Functionality
 An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from a data source. The SharePoint Online indexer will connect to your SharePoint Online site and index documents from one or more Document Libraries. The indexer provides the following functionality:
 + Index content from one or more SharePoint Online Document Libraries.
 + Index content from SharePoint Online Document Libraries that are in the same tenant as your Azure Cognitive Search service. The indexer will not work with SharePoint sites that are in a different tenant than your Azure Cognitive Search service. 
 + The indexer will support incremental indexing meaning that it will identify which content in the Document Library has changed and only index the updated content on future indexing runs. For example, if 5 PDFs are originally indexed by the indexer, then 1 is updated, then the indexer runs again, the indexer will only index the 1 PDF that was updated.
-+ Text and normalized images will be extracted by default from the documents that are indexed. Optionally a skillset can be added to the pipeline for further content enrichment. More information on skillsets can be found here.
++ Text and normalized images will be extracted by default from the documents that are indexed. Optionally a skillset can be added to the pipeline for further content enrichment. More information on skillsets can be found [here](cognitive-search-working-with-skillsets.md).
 
 ## Supported document formats
 
 The Azure Cognitive Search blob indexer can extract text from the following document formats:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
+
+## Incremental indexing and deletion detection
+By default, the SharePoint Online indexer supports incremental indexing meaning that it will identify which content in the Document Library has changed and only index the updated content on future indexing runs. For example, if 5 Word documents are originally indexed by the indexer, then 1 is updated, then the indexer runs again, the indexer will only re-index the 1 Word document that was updated.
+
+Deletion detection is also supported by default. This means that if a document is deleted from a SharePoint Online document library, the indexer will detect the delete during a future indexer run and remove the document from the index.
 
 ## Setting up SharePoint Online indexing
 To set up the SharePoint Online Indexer, you will need to perform some actions in the Azure portal and some actions using the preview REST API. This preview isn’t supported by the SDK.
@@ -53,10 +58,10 @@ The SharePoint Online indexer will use this AAD application for authentication.
 1.	Navigate to the [Azure portal](https://portal.azure.com/).
 
 1.	Open the menu on the left side of the main page and select **Azure Active Directory** then select **App registrations**. Select **+ New registration**.
-    1.	Input your app name.
-    2.	Single tenant
-    3.	No redirect uri required.
-    4.	Select "Register"
+    1.	Provide a name for your app.
+    2.	Select **Single tenant**.
+    3.	No redirect URI required.
+    4.	Select **Register**
 
 1.	Select **API permissions** from the menu on the left, then **Add a permission**, then **Microsoft Graph** then **Delegated permissions**. Add the following API permissions: 
     1.	**Delegated - Files.Read.All** 
@@ -65,7 +70,7 @@ The SharePoint Online indexer will use this AAD application for authentication.
 
     ![Delegated API permissions](media/search-howto-index-sharepoint-online/delegated-api-permissions.png "Delegated API permissions")
 
-    Using delegated permissions means that the indexer will access the SharePoint site in the user context. So when you run the indexer it will only have access to the content that the logged in user has access to. User login happens when [creating the indexer](TODO - add link to lower in the page) or updating the date source. 
+    Using delegated permissions means that the indexer will access the SharePoint site in the user context. So when you run the indexer it will only have access to the content that the logged in user has access to. User login happens when creating the indexer or updating the date source. The login step is described later in this article.
 
 1.	Select the **Authentication** tab. Set **Allow public client flows** to **Yes** then select **Save**.
 
@@ -73,13 +78,15 @@ The SharePoint Online indexer will use this AAD application for authentication.
 
     ![AAD app authentication configuration](media/search-howto-index-sharepoint-online/aad-app-authentication-configuration.png "AAD app authentication configuration")
 
-1.	Give admin consent – Only required for certain tenants
+1.	Give admin consent (Only required for certain tenants).
 
     Some tenants are locked down in such a way that admin concent is required for these delegated API permissions. If that is the case, you’ll need to have an admin grant admin consent for this AAD application before creating the indexer. 
 
     Because not all tenant have this requirement, we recommend first skipping this step and continuing on with the instructions. You’ll know if you need admin consent if when creating the indexer, the authentication fails telling you that you need an admin to approve the authentication. In that case, have a tenant admin grant consent using the button below.
 
     ![AAD app grant admin consent](media/search-howto-index-sharepoint-online/aad-app-grant-admin-consent.png "AAD app grant admin consent")
+
+<a name="create-data-source"></a>
 
 ### Step 3: Create data source
 > [!IMPORTANT] 
@@ -89,9 +96,9 @@ A data source specifies which data to index, credentials needed to access the da
 
 For SharePoint indexing, the data source must have the following required properties:
 + **name** is the unique name of the data source within your search service.
-+ **type** must be “sharepoint”. This is case sensitive. 
-+ **credentials** provide the SharePoint Online endpoint and the AAD application (client) ID. An example SharePoint Online endpoint for a Teams site is *https://microsoft.sharepoint.com/teams/MySharePointSite*.
-+ **container** specifies a which document library to index. More information on creating the container can be found in the [Controlling which document libraries are indexed](TODO - Add intra doc link) section of this document.
++ **type** must be "sharepoint". This is case sensitive.
++ **credentials** provide the SharePoint Online endpoint and the AAD application (client) ID. An example SharePoint Online endpoint is *https://microsoft.sharepoint.com/teams/MySharePointSite*. You can get the SharePoint Online endpoint by navigating to the home page of your SharePoint site and copying the URL from the browser.
++ **container** specifies which document library to index. More information on creating the container can be found in the [Controlling which documents are indexed](#controlling-which-documents-are-indexed) section of this document.
 
 To create a data source:
 
@@ -106,7 +113,6 @@ api-key: [admin key]
     "credentials" : { "connectionString" : "SharePointOnlineEndpoint=[SharePoint Online site url];ApplicationId=[AAD App ID]" },
     "container" : { "name" : "defaultSiteLibrary", "query" : null }
 }
-
 ```
 
 ### Step 4: Create an index
@@ -139,7 +145,7 @@ For more information, see [Create Index (REST API)](https://docs.microsoft.com/r
 ### Step 5: Create an indexer
 An indexer connects a data source with a target search index and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create the indexer!
 
-During this section you’ll be asked to login with your organization credentials that have access to the SharePoint site that you want to index content from. If possible, we recommend creating a organizational new user account and giving that new user the exact permissions that you want the indexer to have.
+During this section you’ll be asked to login with your organization credentials that have access to the SharePoint site. If possible, we recommend creating a new organizational user account and giving that new user the exact permissions that you want the indexer to have.
 
 There are a few steps to creating the indexer:
 
@@ -158,7 +164,7 @@ There are a few steps to creating the indexer:
     
     ```
 
-1.	When creating the indexer for the first time it will fail and you’ll see the following error. Go to the link in the error message. If you don’t go to the link within 10 minutes the code will expire and you’ll need to recreate the [data source](TODO - add internal link).
+1.	When creating the indexer for the first time it will fail and you’ll see the following error. Go to the link in the error message. If you don’t go to the link within 10 minutes the code will expire and you’ll need to recreate the [data source](#create-data-source).
 
     ```http
     {
@@ -185,18 +191,18 @@ There are a few steps to creating the indexer:
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30-Preview
-        Content-Type: application/json
-        api-key: [admin key]
+    Content-Type: application/json
+    api-key: [admin key]
     
-        {
-          "name" : "sharepoint-indexer",
-          "dataSourceName" : "sharepoint-datasource",
-          "targetIndexName" : "sharepoint-index"
-        }
+    {
+        "name" : "sharepoint-indexer",
+        "dataSourceName" : "sharepoint-datasource",
+        "targetIndexName" : "sharepoint-index"
+    }
     ```
 
 ### Step 6: Check the indexer status
-After the indexer has been created you can check the indexer status by making the following request. 
+After the indexer has been created you can check the indexer status by making the following request.
 
 ```http
 GET https://[service name].search.windows.net/indexers/sharepoint-indexer/status?api-version=2020-06-30-Preview
@@ -204,10 +210,10 @@ Content-Type: application/json
 api-key: [admin key]
 ```
 
-More information on the indexer status can be found here: [Get Indexer Status[](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+More information on the indexer status can be found here: [Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
 
 ## Updating the data source
-Every time the Azure Cognitive Search data source object is updated, you will need to login again in order for the indexer to run. For example, if you change the data source query, you will need to login again using the *https://microsoft.com/devicelogin* and a new code. 
+If there are no updates to the data source object, the indexer can run on a schedule without any user interaction. However, every time the Azure Cognitive Search data source object is updated, you will need to login again in order for the indexer to run. For example, if you change the data source query, you will need to login again using the *https://microsoft.com/devicelogin* and a new code.
 
 Once the data source has been updated, follow the below steps:
 
@@ -244,7 +250,7 @@ If you have set the indexer to index document metadata, the following metadata w
 | Identifier | Type | Description | 
 | ------------- | -------------- | ----------- |
 | metadata_spo_site_library_item_id | Edm.String | The combination key of site id, library id and item id which uniquely identifies an item in a document library for a site. |
-| metadata_spo_site_id | Edm.String | The Id of the SharePoint online site. |
+| metadata_spo_site_id | Edm.String | The Id of the SharePoint Online site. |
 | metadata_spo_library_id | Edm.String | The Id of document library. |
 | metadata_spo_item_id | Edm.String | The Id of the (document) item in the library. |
 | metadata_spo_item_last_modified | Edm.DateTimeOffset | The last modified date/time (UTC) of the item. |
@@ -255,21 +261,23 @@ If you have set the indexer to index document metadata, the following metadata w
 | metadata_spo_item_weburi | Edm.String | The URI of the item. |
 | metadata_spo_item_path | Edm.String | The combination of the parent path and item name. | 
 
-## Controlling which document libraries are indexed
+<a name="controlling-which-documents-are-indexed"></a>
+
+## Controlling which documents are indexed
 A single SharePoint Online indexer can index content from one or more Document Libraries. Use the *container* parameter when creating your data source to indicate the document libraries that you want to index. 
 The data source *container* has two properties: *name* and *query*. 
 
 ### Name
-The name property is required and be one of three values:
+The *name* property is required and be one of three values:
 1. *defaultSiteLibrary*
     + Index all the content from the sites default document library.
 2.	*allSiteLibraries*
-    + Index all the content from all the document libraries in a site. This will not index document libraries from a subsite. Those can be specified in the query though.
+    + Index all the content from all the document libraries in a site. This will not index document libraries from a subsite. Those can be specified in the *query* though.
 3.	*useQuery*
-    + Only index content defined in the query.
+    + Only index content defined in the *query*.
 
 ### Query
-The *query* property is made up of keyword/value pairs. The below are the keywords that can be used. The values are either site urls, library urls, or folder urls. 
+The *query* property is made up of keyword/value pairs. The below are the keywords that can be used. The values are either site urls or document library urls.
 
 > [!NOTE]
 > To get the value for a particular keyword, we recommend opening SharePoint Online in a browser, navigating to the Document Library that you’re trying to include/exclude and copying the URI from the browser. This is the easiest way to get the value to use with a keyword in the query.
@@ -277,7 +285,7 @@ The *query* property is made up of keyword/value pairs. The below are the keywor
 | Keyword | Query Description | Example |
 | ------------- | -------------- | ----------- |
 | null | If null or empty, index either the default document library or all document libraries depending on the container name.	| Index all content from the default site library: <br><br>  ``` "container" : { "name" : "defaultSiteLibrary", "query" : null } ``` |
-| includeLibrariesInSite | Index content from all libraries in defined site in the connection string. These are limited to subsites of your site <br><br> The *query* value for this keyword should be the URI of the site or subsite. | Index all content from all the document libraries in subsite1. <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/mysite" } ``` |
+| includeLibrariesInSite | Index content from all libraries in defined site in the connection string. These are limited to subsites of your site <br><br> The *query* value for this keyword should be the URI of the site or subsite. | Index all content from all the document libraries in mysite. <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/mysite" } ``` |
 | includeLibrary | Index content from this library. <br><br> The *query* value for this keyword should be in one of the following formats: <br><br> Example 1: <br><br> *includeLibrary=[site or subsite]/[document library]* <br><br> Example 2: <br><br> URI copied from your browser. | Index all content from MyDocumentLibrary: <br><br> Example 1: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/mysite/MyDocumentLibrary" } ``` <br><br> Example 2: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx" } ``` |
 | excludeLibrary |	Do not index content from this library. <br><br> The *query* value for this keyword should be in one of the following formats: <br><br> Example 1: <br><br> *excludeLibrary=[site or subsite URI]/[document library]* <br><br> Example 2: <br><br> URI copied from your browser. | Index all the content from all my libraries except for MyDocumentLibrary: <br><br> Example 1: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mysite.sharepoint.com/subsite1; excludeLibrary=https://mysite.sharepoint.com/subsite1/MyDocumentLibrary" } ``` <br><br> Example 2: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/teams/mysite; excludeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx" } ``` |
 
@@ -348,11 +356,6 @@ You can also continue indexing if errors happen at any point of processing, eith
     "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
 }
 ```
-
-## Incremental indexing and deletion detection 
-By default, the SharePoint indexer supports incremental indexing meaning that it will identify which content in the Document Library has changed and only index the updated content on future indexing runs. For example, if 5 Word documents are originally indexed by the indexer, then 1 is updated, then the indexer runs again, the indexer will only re-index the 1 Word document that was updated.
-
-Deletion detection is also supported by default. This means that if a document is deleted from a SharePoint Online document library, the indexer will detect the delete during a future indexer run and remove the document from the index.
 
 ## See also
 + [Indexers in Azure Cognitive Search](search-indexer-overview.md)
