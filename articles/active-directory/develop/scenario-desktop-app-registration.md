@@ -37,10 +37,10 @@ If your desktop application uses interactive authentication, you can sign in use
 
 The redirect URIs to use in a desktop application depend on the flow you want to use.
 
-- If you use interactive authentication or device code flow, use `https://login.microsoftonline.com/common/oauth2/nativeclient`. To achieve this configuration, select the corresponding URL in the **Authentication** section for your application.
+- If you use interactive authentication, you should use one of the recommended values - `https://login.microsoftonline.com/common/oauth2/nativeclient` (for apps using embedded browsers) or `http://localhost` (for apps that use system browsers). To achieve this configuration, select the corresponding URL in the **Authentication** section for your application.
 
   > [!IMPORTANT]
-  > Using `https://login.microsoftonline.com/common/oauth2/nativeclient` as the redirect URI is recommended as a security best practice.  If no redirect URI is specified, MSAL.NET uses `urn:ietf:wg:oauth:2.0:oob` by default which is not recommneded.  This default will be updated as a breaking change in the next major release.
+  > Using `https://login.microsoftonline.com/common/oauth2/nativeclient` or `http://localhost` as the redirect URI is recommended as a security best practice.  If no redirect URI is specified, MSAL.NET uses `urn:ietf:wg:oauth:2.0:oob` by default which is not recommneded.  This default will be updated as a breaking change in the next major release.
 
 - If you build a native Objective-C or Swift app for macOS, register the redirect URI based on your application's bundle identifier in the following format: `msauth.<your.app.bundle.id>://auth`. Replace `<your.app.bundle.id>` with your application's bundle identifier.
 - If your app uses only Integrated Windows Authentication or a username and a password, you don't need to register a redirect URI for your application. These flows do a round trip to the Microsoft identity platform v2.0 endpoint. Your application won't be called back on any specific URI.
