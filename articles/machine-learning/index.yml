@@ -28,9 +28,9 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Get started tutorial (Python)
+          - text: Get started with Python scripts
             url: tutorial-1st-experiment-sdk-setup-local.md
-          - text: Use Jupyter Notebooks tutorial
+          - text: Get started with Jupyter notebooks (Python)
             url: tutorial-1st-experiment-sdk-setup.md
           - text: Batch inference with ML pipelines (Python)
             url: tutorial-pipeline-batch-scoring-classification.md            

@@ -14,7 +14,7 @@ ms.custom: fasttrack-edit
 ---
 # Scenario: Any-to-any
 
-When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In an Any-to-any scenario, any spoke can reach another spoke. When multiple hubs exist, hub-to-hub routing (also known as inter-hub) is enabled by default in Standard Virtual WAN. You can create this configuration using a variety of different methods such as the Azure portal, or an [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/201-virtual-wan-with-all-gateways/). For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md). 
+When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In an Any-to-any scenario, any spoke can reach another spoke. When multiple hubs exist, hub-to-hub routing (also known as inter-hub) is enabled by default in Standard Virtual WAN. You can create this configuration using a variety of different methods such as the Azure portal, or an [Azure Quickstart Template](quickstart-any-to-any-template.md). For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md). 
 
 ## <a name="design"></a>Design
 

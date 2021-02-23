@@ -250,9 +250,21 @@ In your **Program** class, save a reference to the URL of the image you want to 
 
 ### Call the Read API
 
-Add the following method, which calls the **ReadAsync** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image. Next, get the operation ID returned from the **ReadAsync** call, and use it to poll the service for the results of the operation. Finally, print the extracted text to the console.
+Define the new method for reading text. Add the code below, which calls the **ReadAsync** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_url)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readfileurl_1)]
+
+### Get Read results
+
+Next, get the operation ID returned from the **ReadAsync** call, and use it to query the service for operation results. The following code checks the operation until the results are returned. It then prints the extracted text data to the console.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readfileurl_2)]
+
+### Display Read results
+
+Add the following code to parse and display the retrieved text data, and finish the method definition.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readfileurl_3)]
 
 ## Run the application
 

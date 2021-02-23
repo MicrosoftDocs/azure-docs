@@ -186,7 +186,7 @@ The *"Cloud Foundry.omsview"* is a preview version of the Cloud Foundry OMS view
 
 ### 2. Create alert rules
 
-You can [create the alerts](../azure-monitor/platform/alerts-overview.md), and customize the queries and threshold values as needed. The following are recommended alerts:
+You can [create the alerts](../azure-monitor/alerts/alerts-overview.md), and customize the queries and threshold values as needed. The following are recommended alerts:
 
 | Search query                                                                  | Generate alert based on | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
