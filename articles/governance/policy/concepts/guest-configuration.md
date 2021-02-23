@@ -20,12 +20,12 @@ At this time, most Azure Policy Guest Configuration policy definitions only audi
 the machine. They don't apply configurations. The exception is one built-in policy
 [referenced below](#applying-configurations-using-guest-configuration).
 
+[A video walk-through of this document is available](https://youtu.be/Y6ryD3gTHOs)
+
 ## Enable Guest Configuration
 
 To audit the state of machines in your environment, including machines in Azure and Arc Connected
 Machines, review the following details.
-
-> [!VIDEO https://youtu.be/Y6ryD3gTHOs]
 
 ## Resource provider
 
