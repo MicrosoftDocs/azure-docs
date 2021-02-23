@@ -100,8 +100,7 @@ Azure API for FHIR service is provisioned.
 The configuration process is the same as above except a specific IP
 address range in CIDR format is used instead, 100.64.0.0/10. 
 
-Note that because the actual IP address used by the service changes, the IP address range, including 100.64.0.0–100.127.255.255. 
-must be specified.
+Note that because the actual IP address used by the service changes for each $export request, the IP address range, 100.64.0.0 – 100.127.255.255, must be specified.
     
 ## Next steps
 
