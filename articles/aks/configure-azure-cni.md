@@ -143,7 +143,7 @@ The following screenshot from the Azure portal shows an example of configuring t
 
 ![Advanced networking configuration in the Azure portal][portal-01-networking-advanced]
 
-## Dynamic allocation of IPs and enhanced subnet support
+## Dynamic allocation of IPs and enhanced subnet support (preview)
 
 A drawback with the traditional CNI is the exhaustion of Pod IP addresses as the AKS cluster grows, resulting in the need to rebuild the entire cluster in a bigger subnet. The new dynamic IP allocation capability in Azure CNI solves this problem by allotting Pod IPs from a subnet separate from the subnet hosting the AKS cluster.  It offers the following benefits:
 
@@ -221,7 +221,7 @@ When adding nodepools, reference the node subnet using `--vnet-subnet-id` and th
 az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name node2subnet --address-prefixes 10.242.0.0/16 -o none 
 az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name pod2subnet --address-prefixes 10.243.0.0/16 -o none 
 
-az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newNodepool1 --max-pods 250 --node-count 2 --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet  --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/pod2subnet --no-wait 
+az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newNodepool --max-pods 250 --node-count 2 --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet  --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/pod2subnet --no-wait 
 ```
 
 ## Frequently asked questions
