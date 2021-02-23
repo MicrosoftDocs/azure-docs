@@ -14,6 +14,7 @@ ms.date: 02/08/2021
   
 
 In this article, you learn how to configure the Pacemaker cluster in RHEL 7.6 to automate an SAP HANA database failover. You need to have a good understanding of Linux, SAP HANA, and Pacemaker to complete the steps in this guide.
+Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host] 
 
 ## Configure your Pacemaker cluster
 
@@ -44,25 +45,23 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 
 	```
 
-2. 	Create and exchange the SSH keys
+2. 	Create and exchange the SSH keys.
+    1. Generate ssh keys
 
-	```
-	[root@sollabdsm35 ~]# ssh-keygen -t rsa -b 1024
+	   ```
+	   [root@sollabdsm35 ~]# ssh-keygen -t rsa -b 1024
+	   [root@sollabdsm36 ~]# ssh-keygen -t rsa -b 1024
+       ```
+    2. Copy keys to the other hosts for passwordless ssh
+    
+       ```
+       [root@sollabdsm35 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm35
+       [root@sollabdsm35 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm36
+       [root@sollabdsm36 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm35
+       [root@sollabdsm36 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm36
+       ```
 
-	[root@sollabdsm36 ~]# ssh-keygen -t rsa -b 1024
-
-	
-
-	[root@sollabdsm35 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm35
-
-	[root@sollabdsm35 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm36
-
-	[root@sollabdsm36 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm35
-
-	[root@sollabdsm36 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm36
-	```
-
-3.	Disable selinux on both nodes
+3.	Disable selinux on both nodes.
 	```
 	[root@sollabdsm35 ~]# vi /etc/selinux/config
 
@@ -80,7 +79,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 
 	```  
 
-4. Reboot the servers and then use the following command to verify the status of SELINUX
+4. Reboot the servers and then use the following command to verify the status of SELINUX.
 	```
 	[root@sollabdsm35 ~]# sestatus
 
@@ -94,65 +93,65 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	```
 
 5. Configure NTP (Network Time Protocol). The time and time zones for both cluster nodes must match.
-	```
-	vi /etc/chrony.conf
-
-	 Use public servers from the pool.ntp.org project.
-
-	 Please consider joining the pool (http://www.pool.ntp.org/join.html).
-
-	server 0.rhel.pool.ntp.org iburst
-
+    1. Below contents should be added to config file, do change the actual values as per your environment.
+    	```
+    	vi /etc/chrony.conf
+    
+    	 Use public servers from the pool.ntp.org project.
+    
+    	 Please consider joining the pool (http://www.pool.ntp.org/join.html).
+    
+    	server 0.rhel.pool.ntp.org iburst
+       ```
 	
-
-	systemctl enable chronyd
-
-	systemctl start chronyd
-
-	
-
-	chronyc tracking
-
-	Reference ID : CC0BC90A (voipmonitor.wci.com)
-
-	Stratum : 3
-
-	Ref time (UTC) : Thu Jan 28 18:46:10 2021
-
-	
-
-	chronyc sources
-
-	210 Number of sources = 8
-
-	MS Name/IP address Stratum Poll Reach LastRx Last sample
-
-	===============================================================================
-
-	^+ time.nullroutenetworks.c> 2 10 377 1007 -2241us[-2238us] +/- 33ms
-
-	^* voipmonitor.wci.com 2 10 377 47 +956us[ +958us] +/- 15ms
-
-	^- tick.srs1.ntfo.org 3 10 177 801 -3429us[-3427us] +/- 100ms
-	```
+    2. Enable chrony service. 
+      
+        ```
+    	systemctl enable chronyd
+    
+    	systemctl start chronyd
+    
+    	
+    
+    	chronyc tracking
+    
+    	Reference ID : CC0BC90A (voipmonitor.wci.com)
+    
+    	Stratum : 3
+    
+    	Ref time (UTC) : Thu Jan 28 18:46:10 2021
+    
+    	
+    
+    	chronyc sources
+    
+    	210 Number of sources = 8
+    
+    	MS Name/IP address Stratum Poll Reach LastRx Last sample
+    
+    	===============================================================================
+    
+    	^+ time.nullroutenetworks.c> 2 10 377 1007 -2241us[-2238us] +/- 33ms
+    
+    	^* voipmonitor.wci.com 2 10 377 47 +956us[ +958us] +/- 15ms
+    
+    	^- tick.srs1.ntfo.org 3 10 177 801 -3429us[-3427us] +/- 100ms
+    	```
 
 6. Update the System
-
-  *  First install the latest updates on the system before we start to install the SBD device.
-
-  * If you don’t want a complete update of the system (even it is recommended), at least these packages need to be updated.
-
-    * resource-agents-sap-hana
-    *  selinux-policy
-    *  iscsi-initiator-utils
+    1. First install the latest updates on the system before we start to install the SBD device.
+    1. If you don’t want a complete update of the system (even it is recommended), at least these packages need to be updated.
+        1. resource-agents-sap-hana
+        1. selinux-policy
+        1. iscsi-initiator-utils
 
   
-	```
-	node1:~ # yum update
-	```
+	    ```
+	    node1:~ # yum update
+	    ```
  
 
-7. Install the SAP HANA and RHEL-HA repositories
+7. Install the SAP HANA and RHEL-HA repositories.
 
 	```
 	subscription-manager repos –list
@@ -164,7 +163,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	```
 	  
 
-8. Install the Pacemaker, SBD, OpenIPMI, ipmitools and fencing_sbd tools on all nodes
+8. Install the Pacemaker, SBD, OpenIPMI, ipmitools and fencing_sbd tools on all nodes.
 
 	```	
 	yum install pcs sbd fence-agent-sbd.x86_64 OpenIPMI
@@ -173,7 +172,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 
   ## Configure Watchdog
 
-1. Make sure, that the watchdog daemon is not running at this time (on all systems)
+1. Make sure, that the watchdog daemon is not running at this time (on all systems).
 	```
 	 [root@sollabdsm35 ~]# systemctl disable watchdog
 	[root@sollabdsm36 ~]# systemctl disable watchdog
@@ -195,64 +194,60 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	```
 
 2. The default linux watchdog which will be installed during the installation is the iTCO watchdog wich is not supported by UCS and HPE SDFlex systems. Therefore, this watchdog must be disabled.
-  * The wrong watchdog is installed and loaded on the system:
-	```
+    1. The wrong watchdog is installed and loaded on the system:
+	   ```
+   
+	   sollabdsm35:~ # lsmod |grep iTCO
+   
+	   iTCO_wdt 13480 0
+   
+	   iTCO_vendor_support 13718 1 iTCO_wdt
+	   ```
 
-	sollabdsm35:~ # lsmod |grep iTCO
-
-	iTCO_wdt 13480 0
-
-	iTCO_vendor_support 13718 1 iTCO_wdt
-	```
-
-  * Unload the wrong driver from the environment:
-	```	
-	sollabdsm35:~ # modprobe -r iTCO_wdt iTCO_vendor_support
-
-	sollabdsm36:~ # modprobe -r iTCO_wdt iTCO_vendor_support
-	```	
+    2. Unload the wrong driver from the environment:
+	   ```	
+	   sollabdsm35:~ # modprobe -r iTCO_wdt iTCO_vendor_support
+   
+	   sollabdsm36:~ # modprobe -r iTCO_wdt iTCO_vendor_support
+	   ```	
 	  	
-  * To make sure the driver is not loaded during the next system boot the
-	```
-	driver must be blacklisted.
+    3. To make sure the driver is not loaded during the next system boot the driver must be blacklisted.
+	   ```
+	   To Blacklist the iTCO modules. Add end off the file:
+   
+	   sollabdsm35:~ # vi /etc/modprobe.d/50-blacklist.conf
+   
+	    unload the iTCO watchdog modules
+   
+	   blacklist iTCO_wdt
+   
+	   blacklist iTCO_vendor_support
+       ```
+    4. Copy the file to secondary host
+       ```
+	   sollabdsm35:~ # scp /etc/modprobe.d/50-blacklist.conf sollabdsm35:
+	   /etc/modprobe.d/50-blacklist.conf
+	   ```  
 
-	To Blacklist the iTCO modules. Add end off the file:
-
-	sollabdsm35:~ # vi /etc/modprobe.d/50-blacklist.conf
-
-	 unload the iTCO watchdog modules
-
-	blacklist iTCO_wdt
-
-	blacklist iTCO_vendor_support
-
-	
-
-	sollabdsm35:~ # scp /etc/modprobe.d/50-blacklist.conf sollabdsm35:
-	/etc/modprobe.d/50-blacklist.conf
-	```  
-
-  * test if the ipmi service is started. It is important that the IPMI
-Timer is not running. The timer management will be done from the SBD
-pacemaker service.
-	```
-	sollabdsm35:~ # ipmitool mc watchdog get
-
-	Watchdog Timer Use: BIOS FRB2 (0x01)
-
-	Watchdog Timer Is: Stopped
-
-	Watchdog Timer Actions: No action (0x00)
-
-	Pre-timeout interval: 0 seconds
-
-	Timer Expiration Flags: 0x00
-
-	Initial Countdown: 0 sec
-
-	Present Countdown: 0 sec
-
-	``` 
+    5. Test if the ipmi service is started. It is important that the IPMI timer is not running. The timer management will be done from the SBD pacemaker service.
+	   ```
+	   sollabdsm35:~ # ipmitool mc watchdog get
+   
+	   Watchdog Timer Use: BIOS FRB2 (0x01)
+   
+	   Watchdog Timer Is: Stopped
+   
+	   Watchdog Timer Actions: No action (0x00)
+   
+	   Pre-timeout interval: 0 seconds
+   
+	   Timer Expiration Flags: 0x00
+   
+	   Initial Countdown: 0 sec
+   
+	   Present Countdown: 0 sec
+   
+	   ``` 
 
 3. By default the required device is /dev/watchdog will not be created.
 
@@ -264,7 +259,7 @@ pacemaker service.
 	ls: cannot access /dev/watchdog: No such file or directory
 	```
 
-4. Configure the IPMI watchdog
+4. Configure the IPMI watchdog.
 
 	```	
 	sollabdsm35:~ # mv /etc/sysconfig/ipmi /etc/sysconfig/ipmi.org
@@ -279,12 +274,14 @@ pacemaker service.
 	IPMI_POWEROFF=no
 	IPMI_POWERCYCLE=no
 	IPMI_IMB=no
-
+    ```
+5. Copy the wathcdog config file to secondary.
+    ```
 	sollabdsm35:~ # scp /etc/sysconfig/ipmi
 	sollabdsm36:/etc/sysconfig/ipmi
-
-	Enable and start the ipmi service.
-
+    ```
+6.  Enable and start the ipmi service.
+	```
 	[root@sollabdsm35 ~]# systemctl enable ipmi
 
 	Created symlink from
@@ -300,10 +297,9 @@ pacemaker service.
 	/usr/lib/systemd/system/ipmi.service.
 
 	[root@sollabdsm36 ~]# systemctl start ipmi
-	 Now the IPMI service is started and the device /dev/watchdog is created – But the timer is still stopped. Later the SBD will manage the 	watchdog reset and enables the IPMI timer!!:
-
-	Check that the /dev/watchdog exists but is not in use.
-
+	 Now the IPMI service is started and the device /dev/watchdog is created – But the timer is still stopped. Later the SBD will manage the watchdog reset and enables the IPMI timer.
+7.  Check that the /dev/watchdog exists but is not in use.
+    ```
 	[root@sollabdsm35 ~]# ipmitool mc watchdog get
 	Watchdog Timer Use: SMS/OS (0x04)
 	Watchdog Timer Is: Stopped
@@ -319,10 +315,11 @@ pacemaker service.
 	```
 
 ## SBD configuration
+Reference http://www.linux-ha.org/wiki/SBD_Fencing
 1.  Make sure the iSCSI or FC disk is visible on both nodes. This example will use a FC based SBD device.
-2.  The LUN-ID must be identically on all nodes!!!
+2.  The LUN-ID must be identically on all nodes.
   
-3.  Reference http://www.linux-ha.org/wiki/SBD_Fencing
+3.  Check multipath status for the sbd device.
 	```
 	multipath -ll
 	3600a098038304179392b4d6c6e2f4b62 dm-5 NETAPP ,LUN C-Mode
@@ -336,7 +333,7 @@ pacemaker service.
 	`- 10:0:3:2 sdl 8:176 active ready running
 	```
 
-4.  Creating the SBD discs and set up the cluster primitive fencing (must be executed on first node)
+4.  Creating the SBD discs and set up the cluster primitive fencing (must be executed on first node).
 	```
 	sbd -d /dev/mapper/3600a098038304179392b4d6c6e2f4b62 -4 20 -1 10 create 
 
@@ -349,7 +346,7 @@ pacemaker service.
 	Device /dev/mapper/3600a098038304179392b4d6c6e2f4b62 is initialized.
 	```
 
-5.  Copy the SBD config over to node2
+5.  Copy the SBD config over to node2.
 	```
 	vi /etc/sysconfig/sbd
 
@@ -386,7 +383,7 @@ pacemaker service.
 	==Header on disk /dev/mapper/3600a098038304179392b4d6c6e2f4b62 is dumped
 	```
 
-7.  Add the SBD device in the SBD config file
+7.  Add the SBD device in the SBD config file.
 
 	```
 	\# SBD_DEVICE specifies the devices to use for exchanging sbd messages
@@ -406,7 +403,7 @@ pacemaker service.
 
 ## Cluster initialization
 
-1.  Set up the cluster user password (all nodes)
+1.  Set up the cluster user password (all nodes).
 	```
 	passwd hacluster
 	```
@@ -416,7 +413,7 @@ pacemaker service.
 	```
   
 
-3.  Stop the firewall and disable it on (all nodes)
+3.  Stop the firewall and disable it on (all nodes).
 	```
 	systemctl disable firewalld 
 
@@ -425,14 +422,14 @@ pacemaker service.
 	systemctl stop firewalld
 	```
 
-4.  Start pcsd service
+4.  Start pcsd service.
 	```
 	systemctl start pcsd
 	```
   
   
 
-5.  Run the cluster authentication only from node1
+5.  Run the cluster authentication only from node1.
 
 	```
 	pcs cluster auth sollabdsm35 sollabdsm36
@@ -449,13 +446,13 @@ pacemaker service.
 
 	 ``` 
 
-6.  Create the cluster
+6.  Create the cluster.
 	```
 	pcs cluster setup --start --name hana sollabdsm35 sollabdsm36
 	```
   
 
-7.  Check the cluster status
+7.  Check the cluster status.
 
 	```
 	pcs cluster status
@@ -503,14 +500,14 @@ pacemaker service.
 	```
   
 
-10. Stop the cluster restart the cluster services (on all nodes)
+10. Stop the cluster restart the cluster services (on all nodes).
 
 	```
 	pcs cluster stop --all
 	```
 
 
-11. Restart the cluster services (on all nodes)
+11. Restart the cluster services (on all nodes).
 
 	```
 	systemctl stop pcsd
@@ -522,7 +519,7 @@ pacemaker service.
 	systemctl start pcsd
 	```
 
-12. Corosync must start the SBD service
+12. Corosync must start the SBD service.
 
 	```
 	systemctl status sbd
@@ -535,7 +532,7 @@ pacemaker service.
 	Active: active (running) since Wed 2021-01-20 01:43:41 EST; 9min ago
 	```
 
-13. Restart the cluster (if not automatically started from pcsd)
+13. Restart the cluster (if not automatically started from pcsd).
 
 	```
 	pcs cluster start –-all
@@ -550,7 +547,7 @@ pacemaker service.
 	```
   
 
-14. Enable Stonith settings
+14. Enable Stonith settings.
 	```
 	pcs stonith enable SBD --device=/dev/mapper/3600a098038304179392b4d6c6e2f4d65
 	pcs property set stonith-watchdog-timeout=20
@@ -558,7 +555,7 @@ pacemaker service.
 	```
   
 
-15. Check the new cluster status with now one resource
+15. Check the new cluster status with now one resource.
 	```
 	pcs status
 
@@ -624,7 +621,7 @@ pacemaker service.
 	sbd 117569 root 5w CHR 10,130 0t0 323812 /dev/watchdog
 	```
 
-17. Check the SBD status
+17. Check the SBD status.
 
 	```
 	sbd -d /dev/mapper/3600a098038304445693f4c467446447a list
@@ -635,7 +632,7 @@ pacemaker service.
 	```
   
 
-18. Test the SBD fencing by crashing the kernel
+18. Test the SBD fencing by crashing the kernel.
 
   * Trigger the Kernel Crash
 
@@ -661,11 +658,11 @@ pacemaker service.
   * pcs property set stonith-enabled=true 
 
 ## HANA Integration into the Cluster
-```
+
 To integrate HANA into the cluster we first need to differentiate between two options.
 Option one is the cost optimized solution where the customer can use the secondary system to run e.g. the QAS system on it. This isnot 	recommended because there is no system available to test updates on the cluster software, OS, HANA… or even configurationupdates can 	lead to unplanned downtime of the PRD system. AND in addition to this, if the PRD system must be activated on thesecondary system it is 	required to shutdown the QAS system on the secondary node. But it is an option
 A much better option is to create a cost optimized scenario where the data base can be switched over directly. Only this scenario is	described here in this document. In this case we recommend installing one cluster for the QAS system and a separate cluster forthe PRD 	system. Only in this case it is possible to test all components before it goes into production.
-```
+
 
 * This process is build of the RHEL description on page:
 
@@ -673,248 +670,242 @@ A much better option is to create a cost optimized scenario where the data base 
 
  ### Steps to follow to configure HSR
 
-1.  These are the actions to execute on node1 (primary)
+1.  These are the actions to execute on node1 (primary).
+    1. Make sure, that the database logmode is set to normal.
 
-	```
-	  Make sure, that the database logmode is set to normal
-
-	* su - hr2adm
-
-	* hdbsql -u system -p SAPhana10 -i 00 "select value from
-	"SYS"."M_INIFILE_CONTENTS" where key='log_mode'"
-
-	
-
-	VALUE
-
-	"normal"
-
-	SAP HANA system replication will only work after initial backup has
+	   ```  
+   
+	   * su - hr2adm
+   
+	   * hdbsql -u system -p SAPhana10 -i 00 "select value from
+	   "SYS"."M_INIFILE_CONTENTS" where key='log_mode'"
+   
+	   
+   
+	   VALUE
+   
+	   "normal"
+       ```
+    2. SAP HANA system replication will only work after initial backup has
 	been performed. The following command will create an initial backup in
 	the /tmp/ directory. Please select a propper Backup filesystem for the
 	data base. 
-
-	* hdbsql -i 00 -u system -p SAPhana10 "BACKUP DATA USING FILE
-	('/tmp/backup')"
-
-
-
-	Backup files were created
-
-	ls -l /tmp
-
-	total 2031784
-
-	-rw-r----- 1 hr2adm sapsys 155648 Oct 26 23:31 backup_databackup_0_1
-
-	-rw-r----- 1 hr2adm sapsys 83894272 Oct 26 23:31 backup_databackup_2_1
-
-	-rw-r----- 1 hr2adm sapsys 1996496896 Oct 26 23:31 backup_databackup_3_1
-
-	
-	
-
-	Backup all database containers of this database.
-
-	* hdbsql -i 00 -u system -p SAPhana10 -d SYSTEMDB "BACKUP DATA USING
-	FILE ('/tmp/sydb')"
-
+       ```
+	   * hdbsql -i 00 -u system -p SAPhana10 "BACKUP DATA USING FILE
+	   ('/tmp/backup')"
+   
+   
+   
+	   Backup files were created
+   
+	   ls -l /tmp
+   
+	   total 2031784
+   
+	   -rw-r----- 1 hr2adm sapsys 155648 Oct 26 23:31 backup_databackup_0_1
+   
+	   -rw-r----- 1 hr2adm sapsys 83894272 Oct 26 23:31 backup_databackup_2_1
+   
+	   -rw-r----- 1 hr2adm sapsys 1996496896 Oct 26 23:31 backup_databackup_3_1
+   
+	   ```
 	
 
-	* hdbsql -i 00 -u system -p SAPhana10 -d SYSTEMDB "BACKUP DATA FOR HR2
-	USING FILE ('/tmp/rh2')"
+	3. Backup all database containers of this database.
+       ```
+   
+	   * hdbsql -i 00 -u system -p SAPhana10 -d SYSTEMDB "BACKUP DATA USING
+	   FILE ('/tmp/sydb')"
+   
+	   
+   
+	   * hdbsql -i 00 -u system -p SAPhana10 -d SYSTEMDB "BACKUP DATA FOR HR2
+	   USING FILE ('/tmp/rh2')"
+   
+	   ```
 
+	4. Enable the HSR process on the source system.
+       ```
+	   hdbnsutil -sr_enable --name=DC1
+
+	   nameserver is active, proceeding ...
+
+	   successfully enabled system as system replication source site
+
+	   done.
+       ```
+
+	5. check the status of the primary system
+       ```
+	   hdbnsutil -sr_state
+    
+	   System Replication State
+   
+   
+	   online: true
+   
+	   mode: primary
+   
+	   operation mode: primary
+   
+	   site id: 1
+   
+	   site name: DC1
+   
+	   
+   
+	   is source system: true
+   
+	   is secondary/consumer system: false
+   
+	   has secondaries/consumers attached: false
+   
+	   is a takeover active: false
+   
+	   
+   
+	   Host Mappings:
+   
+	   ~~~~~~~~~~~~~~
+   
+	   Site Mappings:
+   
+	   ~~~~~~~~~~~~~~
+   
+	   DC1 (primary/)
+   
+	   Tier of DC1: 1
+   
+	   Replication mode of DC1: primary
+   
+	   Operation mode of DC1:
+   
+	   done.
+	   ```
+
+ 2. These are the actions to execute on node2 (secondary).
+     1. Stop the database.
+	   ```
+	   su – hr2adm
+    
+	   sapcontrol -nr 00 -function StopSystem
+       ```
 	
 
-	##### Enable the HSR process on the source system
-
-	* hdbnsutil -sr_enable --name=DC1
-
-	nameserver is active, proceeding ...
-
-	successfully enabled system as system replication source site
-
-	done.
-
-	* check the status of the primary system
-
-	  * hdbnsutil -sr_state
-
-	
-
-	System Replication State
-
-
-	online: true
-
-	mode: primary
-
-	operation mode: primary
-
-	site id: 1
-
-	site name: DC1
-
-	
-
-	is source system: true
-
-	is secondary/consumer system: false
-
-	has secondaries/consumers attached: false
-
-	is a takeover active: false
-
-	
-
-	Host Mappings:
-
-	~~~~~~~~~~~~~~
-
-	Site Mappings:
-
-	~~~~~~~~~~~~~~
-
-	DC1 (primary/)
-
-	Tier of DC1: 1
-
-	Replication mode of DC1: primary
-
-	Operation mode of DC1:
-
-	done.
-	```
-
- 2. These are the actions to execute on node2 (secondary)
-	```
-
-	* Stop the database
-
-	  * su – hr2adm
-
-	* sapcontrol -nr 00 -function StopSystem
-
-	
-
-	* (SAP HANA2.0 only) Copy the SAP HANA system PKI SSFS_HR2.KEY and
+	 2. (SAP HANA2.0 only) Copy the SAP HANA system PKI SSFS_HR2.KEY and
 	SSFS_HR2.DAT files from primary node to secondary node.
+	   ```
+	   scp
+	   root@node1:/usr/sap/HR2/SYS/global/security/rsecssfs/key/SSFS_HR2.KEY
+	   /usr/sap/HR2/SYS/global/security/rsecssfs/key/SSFS_HR2.KEY
+   
+	   
+   
+	   scp
+	   root@node1:/usr/sap/HR2/SYS/global/security/rsecssfs/data/SSFS_HR2.DAT
+	   /usr/sap/HR2/SYS/global/security/rsecssfs/data/SSFS_HR2.DAT
+       ```
 
+     3. Enable secondary as the replication site.
+       ``` 
+	   su - hr2adm
+   
+	   hdbnsutil -sr_register --remoteHost=node1 --remoteInstance=00
+	   --replicationMode=syncmem --name=DC2
+   
+	   
+   
+	   adding site ...
+   
+	   --operationMode not set; using default from global.ini/[system_replication]/operation_mode: logreplay
+   
+	   nameserver node2:30001 not responding.
+   
+	   collecting information ...
+   
+	   updating local ini files ...
+   
+	   done.
+   
+	   ```
+
+	 4. Start the DB.
+       ```
+	   sapcontrol -nr 00 -function StartSystem 
+       ```
 	
-
-	  * scp
-	root@node1:/usr/sap/HR2/SYS/global/security/rsecssfs/key/SSFS_HR2.KEY
-	/usr/sap/HR2/SYS/global/security/rsecssfs/key/SSFS_HR2.KEY
-
-	
-
-	  * scp
-	root@node1:/usr/sap/HR2/SYS/global/security/rsecssfs/data/SSFS_HR2.DAT
-	/usr/sap/HR2/SYS/global/security/rsecssfs/data/SSFS_HR2.DAT
-
-
-	* As (hr2adm)
-
-	  * hdbnsutil -sr_register --remoteHost=node1 --remoteInstance=00
-	--replicationMode=syncmem --name=DC2
-
-	
-
-	adding site ...
-
-	--operationMode not set; using default from global.ini/[system_replication]/operation_mode: logreplay
-
-	nameserver node2:30001 not responding.
-
-	collecting information ...
-
-	updating local ini files ...
-
-	done.
-
-	
-
-	* Start the DB
-
-	  * sapcontrol -nr 00 -function StartSystem 
-
-	
-
-	* hdbnsutil -sr_state
-
-	
-	~~~~~~~~~
-	System Replication State
-
-
-
-	online: true
-
-	mode: syncmem
-
-	operation mode: logreplay
-
-	site id: 2
-
-	site name: DC2
-
-	
-
-	is source system: false
-
-	is secondary/consumer system: true
-
-	has secondaries/consumers attached: false
-
-	is a takeover active: false
-
-	active primary site: 1
-
-	
-
-	primary primarys: node1
-
-	Host Mappings:
-
-
-
-	node2 -> [DC2] node2
-
-	node2 -> [DC1] node1
-
-	
-
-	Site Mappings:
-
-
-
-	DC1 (primary/primary)
-
-	|---DC2 (syncmem/logreplay)
-
-	
-
-	Tier of DC1: 1
-
-	Tier of DC2: 2
-
-	
-
-	Replication mode of DC1: primary
-
-	Replication mode of DC2: syncmem
-
-	Operation mode of DC1: primary
-
-	Operation mode of DC2: logreplay
-
-	
-
-	Mapping: DC1 -> DC2
-
-	done.
-	~~~~~~~~~~~~~~
-	```
+     5. Check the DB state.
+       ```
+	   hdbnsutil -sr_state
+   
+	   ~~~~~~~~~
+	   System Replication State
+   
+	   online: true
+   
+	   mode: syncmem
+   
+	   operation mode: logreplay
+   
+	   site id: 2
+   
+	   site name: DC2	
+   
+	   is source system: false
+   
+	   is secondary/consumer system: true
+   
+	   has secondaries/consumers attached: false
+   
+	   is a takeover active: false
+   
+	   active primary site: 1
+   
+	   
+   
+	   primary primarys: node1
+   
+	   Host Mappings:
+   
+   
+   
+	   node2 -> [DC2] node2
+   
+	   node2 -> [DC1] node1
+   
+	   
+   
+	   Site Mappings:
+   
+   
+   
+	   DC1 (primary/primary)
+   
+	   |---DC2 (syncmem/logreplay)
+   
+	   
+   
+	   Tier of DC1: 1
+   
+	   Tier of DC2: 2
+   
+	   
+   
+	   Replication mode of DC1: primary
+   
+	   Replication mode of DC2: syncmem
+   
+	   Operation mode of DC1: primary
+   
+	   Operation mode of DC2: logreplay
+   
+	   
+   
+	   Mapping: DC1 -> DC2
+   
+	   done.
+	   ~~~~~~~~~~~~~~
+	   ```
 
 3. It is also possible to get more information on the replication status:
 	```
@@ -961,7 +952,7 @@ A much better option is to create a cost optimized scenario where the data base 
 
 #### Network Setup for HANA System Replication
 
-```
+
 To be sure that the replication traffic is using the right VLAN for the replication it is important to configure it properly in the global.ini. If you skip this step HANA will use the Access VLAN for the replication what you might not like.
 
 Examples
@@ -991,21 +982,19 @@ global.ini
 [system_replication_hostname_resolution]
 
 <ip-address_site>=<internal-host-name_site>
-```
 
-## Configuring SAP HANA in a pacemaker cluster
 
-###  This guide will assume that following things are working properly:
+## Configure SAP HANA in a Pacemaker cluster
 
-  
+This guide will assume that following things are working properly:  
 
-• Pacemaker cluster is configured according to documentation and has proper and working fencing
+* Pacemaker cluster is configured according to documentation and has proper and working fencing
 
-• SAP HANA startup on boot is disabled on all cluster nodes as the start and stop will be managed by the cluster
+* SAP HANA startup on boot is disabled on all cluster nodes as the start and stop will be managed by the cluster
 
-• SAP HANA system replication and takeover using tools from SAP are working properly between cluster nodes
+* SAP HANA system replication and takeover using tools from SAP are working properly between cluster nodes
 
-• SAP HANA contains monitoring account that can be used by the cluster from both cluster nodes
+* SAP HANA contains monitoring account that can be used by the cluster from both cluster nodes
 
 Both nodes are subscribed to 'High-availability' and 'RHEL for SAP HANA' (RHEL 6,RHEL 7) channels
 
@@ -1016,13 +1005,13 @@ Both nodes are subscribed to 'High-availability' and 'RHEL for SAP HANA' (RHEL 6
 https://access.redhat.com/solutions/645843 --> quorum Policy
 
 ### Steps to configure 
-1. Configure pcs 
+1. Configure pcs.
 	```
 	[root@node1 ~]# pcs property unset no-quorum-policy (optional – only if it was set before)
 	[root@node1 ~]# pcs resource defaults resource-stickiness=1000
 	[root@node1 ~]# pcs resource defaults migration-threshold=5000
 	```
-2.  Configure corosync
+2.  Configure corosync.
 	```
 	https://access.redhat.com/solutions/1293523 --> quorum information RHEL7
 
@@ -1089,7 +1078,7 @@ https://access.redhat.com/solutions/645843 --> quorum Policy
 	```
   
 
-1.  Create cloned SAPHanaTopology resource
+1.  Create cloned SAPHanaTopology resource.
 	```
 	pcs resource create SAPHanaTopology_HR2_00 SAPHanaTopology SID=HR2 InstanceNumber=00 --clone clone-max=2 clone-node-max=1 interleave=true
 	SAPHanaTopology resource is gathering status and configuration of SAP
@@ -1125,7 +1114,7 @@ https://access.redhat.com/solutions/645843 --> quorum Policy
 
 	```
 
-3.  Create Primary/Secondary SAPHana resource
+3.  Create Primary/Secondary SAPHana resource.
 
 	```
 	SAPHana resource is responsible for starting, stopping and relocating the SAP HANA database. This resource must be run as a Primary/	Secondary cluster resource. The resource has the following attributes.
@@ -1148,7 +1137,7 @@ https://access.redhat.com/solutions/645843 --> quorum Policy
 	```
   
 
-5.  Create the HANA resource
+5.  Create the HANA resource.
 	```
 	pcs resource create SAPHana_HR2_00 SAPHana SID=HR2 InstanceNumber=00 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 	AUTOMATED_REGISTER=true primary notify=true clone-max=2 clone-node-max=1 interleave=true
 
@@ -1250,7 +1239,7 @@ https://access.redhat.com/solutions/645843 --> quorum Policy
 	+ primary-SAPHana_HR2_00 : 100
 	```
 
-6.  Create Virtual IP address resource
+6.  Create Virtual IP address resource.
 
 	```
 	Cluster will contain Virtual IP address in order to reach the Primary instance of SAP HANA. Below is example command to create IPaddr2 	resource with IP 10.7.0.84/24
@@ -1270,7 +1259,7 @@ https://access.redhat.com/solutions/645843 --> quorum Policy
 		stop interval=0s timeout=20s (vip_HR2_00-stop-interval-0s)
 	```
 
-7.  Create constraints
+7.  Create constraints.
 
 	```
 	For correct operation we need to ensure that SAPHanaTopology resources are started before starting the SAPHana resources and also that 	the virtual IP address is present on the node where the Primary resource of SAPHana is running. To achieve this, the following 2 	constraints need to be created.
@@ -1283,7 +1272,7 @@ https://access.redhat.com/solutions/645843 --> quorum Policy
 
 #### (SAP Hana takeover by cluster)
 
-```
+
 To test out the move of the SAPHana resource from one node to another, use the command below. Note that the option --primary shouldNOT 	be used when running the below command due to the way how the SAPHana resource works internally.
 pcs resource move SAPHana_HR2_00-primary
 
@@ -1291,8 +1280,8 @@ IMPORTANT: After each pcs resource move command invocation the cluster
 creates location constraints to achieve the move of the resource.
 These constraints must be removed in order to allow automatic failover
 in the future.
-To remove them you can use the command :
-
+To remove them you can use the command following command.
+```
 pcs resource clear SAPHana_HR2_00-primary
 crm_mon -A1
 Node Attributes:
@@ -1322,16 +1311,12 @@ Node Attributes:
 ```
   
 
-* Login to HANA as verification
+* Login to HANA as verification.
 
   * demoted host:
 
 	```
 	hdbsql -i 00 -u system -p SAPhana10 -n 10.7.0.82
-
-	
-
-
 
 	result:
 
@@ -1339,7 +1324,6 @@ Node Attributes:
 	failed, rc=111:Connection refused (10.7.0.82:30015))
 	```
   
-
   * Promoted host:
 
 	```
