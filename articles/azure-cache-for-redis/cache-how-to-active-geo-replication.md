@@ -35,10 +35,9 @@ Active geo-replication groups two or more Enterprise Azure Cache for Redis insta
 
 1. Repeat the above steps for each additional cache instance in the geo-replication group.
 
-## Remove a cache instance
+## Remove from an active geo-replication group
 
-## Delete a group
-
+To remove a cache instance from an active geo-replication group, simply delete the instance. The remaining instances will reconfigure themselves automatically.
 
 ## Next steps
 
