@@ -48,7 +48,7 @@ We've improved the Azure portal experience in the following ways:
 
 ### EU metadata storage now in public preview
 
-We're now hosting a public preview of the Europe (EU) geography as a storage option for service metadata in Windows Virtual Desktop. Customers can choose between West or North Europe when they create their service objects. The service objects and metadata for the host pools will be stored in the Azure geography associated wtih each region. To learn more, read [our blog post announcing the public preview](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/announcing-public-preview-of-windows-virtual-desktop-service/m-p/2143939).
+We're now hosting a public preview of the Europe (EU) geography as a storage option for service metadata in Windows Virtual Desktop. Customers can choose between West or North Europe when they create their service objects. The service objects and metadata for the host pools will be stored in the Azure geography associated with each region. To learn more, read [our blog post announcing the public preview](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/announcing-public-preview-of-windows-virtual-desktop-service/m-p/2143939).
 
 ### Teams on Windows Virtual Desktop plugin updates
 
