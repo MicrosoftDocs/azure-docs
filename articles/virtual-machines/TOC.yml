@@ -822,6 +822,8 @@
     href: managed-disks-overview.md
   - name: Select a disk type for IaaS VMs
     href: disks-types.md
+  - name: Disk redundancy options
+    href: disks-redundancy.md
   - name: Shared disks
     href: disks-shared.md
   - name: Enable shared disks
