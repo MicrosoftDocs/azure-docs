@@ -90,13 +90,13 @@ compatible. The following table shows a list of supported operating systems on A
 
 |Publisher|Name|Versions|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 - 18.04|
-|Credativ|Debian|8 and later|
-|Microsoft|Windows Server|2012 and later|
+|Canonical|Ubuntu Server|14.04 - 20.04|
+|Credativ|Debian|8 - 10|
+|Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows Client|Windows 10|
-|OpenLogic|CentOS|7.3 and later|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
-|Suse|SLES|12 SP3-SP5|
+|OpenLogic|CentOS|7.3 -8|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 8|
+|Suse|SLES|12 SP3-SP5, 15|
 
 Custom virtual machine images are supported by Guest Configuration policy definitions as long as
 they're one of the operating systems in the table above.
