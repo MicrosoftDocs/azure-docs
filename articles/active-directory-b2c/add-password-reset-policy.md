@@ -28,6 +28,8 @@ Password reset policy allows users to reset their own forgotten password. The pa
 
 ![Password reset flow](./media/add-password-reset-policy/password-reset-flow.png)
 
+Note: Password reset flow is only applicable to local accounts in Azure AD B2C with [email address](https://docs.microsoft.com/azure/active-directory-b2c/identity-provider-local?pivots=b2c-user-flow#email-sign-in) or [username](https://docs.microsoft.com/azure/active-directory-b2c/identity-provider-local?pivots=b2c-user-flow#username-sign-in) with password and does not apply to federated accounts. 
+
 ## Prerequisites
 
 If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
@@ -63,6 +65,18 @@ To enable users of your application to reset their password, you use a password 
 Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset, and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md).
 
 ::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+## Common password reset scenarios 
+
+### Force password reset first logon
+A common practice after migrating users to Azure AD B2C with random passwords, is to have the users verify their email address and reset their password during first login. Please find the sample [here](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-first-logon) for this scenario. 
+
+### Password reset without being able to use the last password
+Some security practices demands that the new password created is not the same as the old password. Please find the sample [here](https://github.com/azure-ad-b2c/samples/tree/master/policies/password-reset-not-last-password) for this scenario. 
+
+::: zone pivot="b2c-custom-policy"
 
 ## Next steps
 
