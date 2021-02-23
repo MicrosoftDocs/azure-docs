@@ -91,7 +91,7 @@ QUERY="SELECT DBS.NAME, TBLS.TBL_NAME, SDS.LOCATION FROM SDS, TBLS, DBS WHERE TB
 sudo python "$SCRIPT" --query "$QUERY" > $OUTPUT_FILE
 ```
 
-## Further Reading
+## Next steps
 
 1) [Migrate workloads from HDInsight 3.6 to 4.0](./apache-hive-migrate-workloads.md)
 2) [Hive Workload Migration across Storage Accounts](./hive-migration-across-storage-accounts.md)
