@@ -110,10 +110,10 @@ In certain cases you might require to pass back certain values from notebook bac
 
 1. In your notebook, you may call [dbutils.notebook.exit("returnValue")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) and corresponding "returnValue" will be returned to data factory.
 
-2. You can consume the output in data factory by using expression such as `'@activity('databricks notebook activity name').output.runOutput'`.
+2. You can consume the output in data factory by using expression such as `@{activity('databricks notebook activity name').output.runOutput}`. 
 
    > [!IMPORTANT]
-   > If you are passing JSON object you can retrieve values by appending property names. Example: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
+   > If you are passing JSON object you can retrieve values by appending property names. Example: `@{activity('databricks notebook activity name').output.runOutput.PropertyName}`
 
 ## How to upload a library in Databricks
 
