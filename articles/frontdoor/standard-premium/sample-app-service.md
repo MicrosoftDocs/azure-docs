@@ -256,6 +256,10 @@ The following diagram illustrates the components of this sample.
     }
   ],
   "outputs": {
+    "appServiceHostName": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Web/sites', parameters('appName'))).defaultHostName]"
+    },
     "frontDoorEndpointHostName": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.Cdn/profiles/afdEndpoints', split(format('{0}/{1}', variables('frontDoorProfileName'), parameters('frontDoorEndpointName')), '/')[0], split(format('{0}/{1}', variables('frontDoorProfileName'), parameters('frontDoorEndpointName')), '/')[1])).hostName]"
