@@ -710,7 +710,7 @@
       - name: Peering Service
         tocHref: /azure/peering-service/
         topicHref: /azure/peering-service/
-      - name: Route Server
+      - name: Route Server (Preview)
         tocHref: /azure/route-server/
         topicHref: /azure/route-server/
       - name: Traffic Manager
