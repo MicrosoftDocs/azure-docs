@@ -152,8 +152,6 @@
       href: how-to-create-a-group.md
     - name: Create an Azure VM assessment
       href: how-to-create-assessment.md
-    - name: Create an Azure SQL assessment
-      href: how-to-create-azure-sql-assessment.md 
     - name: Create an AVS assessment
       href: how-to-create-azure-vmware-solution-assessment.md
     - name: Assess a SQL Server database
