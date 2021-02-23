@@ -299,7 +299,7 @@ Once you start the LRS, use the monitoring cmdlets (get-azsqlinstancedatabaselog
 - Was the database backup on the SQL Server made using the **CHECKSUM** option?
 - Are the permissions on the SAS token **Read** and **List** only for the LRS service?
 - Was the SAS token for LRS copied starting after the question mark "?" with content starting similar to this "sv=2020-02-10..."? 
-- Is the SAS **token validity** time applicable for the time window of starting and completing the migration? Please note that there could be mismatches due to the different **time zones** used for SQL Managed Instance and the SAS token. Try re-generating the SAS token with extending the token validity of the time window before and after the planned migration.
+- Is the SAS **token validity** time applicable for the time window of starting and completing the migration? Please note that there could be mismatches due to the different **time zones** used for SQL Managed Instance and the SAS token. Try re-generating the SAS token with extending the token validity of the time window before and after the current date.
 - Are database name, resource group name, and managed instance name spelled correctly?
 - In case of autocomplete, was a valid filename for the last backup file specified?
 
