@@ -20,7 +20,9 @@ Blob storage now supports the Network File System (NFS) 3.0 protocol. This artic
 
 ## Add clients to increase throughput 
 
-Azure Blob Storage scales linearly until it reaches the maximum storage account egress and ingress limit. Therefore, your applications can achieve higher throughput by using more clients.  The following chart shows how bandwidth increases as you add more clients. In this chart, a client is a Virtual Machine (VM) and the account uses the standard performance tier. 
+Azure Blob Storage scales linearly until it reaches the maximum storage account egress and ingress limit. Therefore, your applications can achieve higher throughput by using more clients.  To view storage account egress and ingress limits, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md).
+
+The following chart shows how bandwidth increases as you add more clients. In this chart, a client is a Virtual Machine (VM) and the account uses the standard performance tier. 
 
 > [!div class="mx-imgBorder"]
 > ![Standard performance](./media/network-file-system-protocol-support-performance/standard-performance-tier.png)
@@ -39,18 +41,10 @@ Each bar in the following chart shows the difference in achieved bandwidth betwe
 > [!div class="mx-imgBorder"]
 > ![Relative performance](./media/network-file-system-protocol-support-performance/relative-performance.png)
 
-## Avoid frequent overwrites 
+## Avoid frequent overwrites on date
 
 It takes longer time to complete an overwrite operation than a new write operation. That's because an NFS overwrite operation, especially a partial in-place file edit, is a combination of several underlying blob operations: a read, a modify, and a write operation. Therefore, an application that requires frequent in place edits is not suited for NFS enabled blob storage accounts. 
 
-## Decrease latency with premium block blobs and Azure HPC cache
-
-Latency, sometimes referenced as response time, is the amount of time that an application must wait for a request to be completed. 
-
-For workloads that are sensitive to latency, we recommend that you use premium block blobs as it offers lower and more consistent latency than standard block blobs. For more information, see [Latency in Blob storage](storage-blobs-latency.md).
-
-You can also lower latency and increase input/output operations per second (IOPS) by adding an Azure High Performance Computing (HPC) Cache in front of an NFS 3.0 enabled storage account. By caching files in Azure blob storage, Azure HPC Cache brings the scalability of cloud computing to your existing workflow. See [Add storage targets](hpc-cache-add-storage.md).
- 
 ## The impact of metadata operations
  
 NFS file system metadata operations are mapped to hierarchical namespace operations and blob operations. If your application or workload performs numerous metadata operations, we don't recommend that you use this feature because those types of applications aren't expected to perform well. 
@@ -58,8 +52,6 @@ NFS file system metadata operations are mapped to hierarchical namespace operati
 ## Other best practice recommendations 
 
 - Use VMs with sufficient network bandwidth.
-
-- Use the **5.3+** kernel version, and mount by using the `nconnect=16` option.
 
 - Use multiple mount points when your workloads allow  it.
 
