@@ -20,18 +20,21 @@ The commands described in this article are from the `AzureEFLOW.psm1` file, whic
 
 The **Deploy-Eflow** command is the main deployment method. The deployment command creates the virtual machine, provisions files, and deploys the IoT Edge agent module. While none of the parameters are required, they can be used to provision your IoT Edge device during the deployment and modify settings for the virtual machine during creation. For a full list, use the command `Get-Help Deploy-Eflow -full`.  
 
+>[!NOTE]
+>For the provisioning type, **X509** and **symmetric** currently exclusively refer to X509 and symmetric key provisioning using an [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md). Manual X509 and symmetric key provisioning methods are not currently supported.
+
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
 | eflowVhdxDir | Directory path | Directory where deployment stores VHDX file for VM. |
 | provisioningType | **manual**, **TPM**, **X509**, or **symmetric** |  Defines the type of provisioning you wish to use for your IoT Edge device. |
 | devConnString | The device connection string of an existing IoT Edge device | Device connection string for manually provisioning an IoT Edge device (**manual**). |
-| symmKey | The primary key for an existing DPS enrollment or the primary key of an existing IoT Edge device registered using symmetric keys | Symmetric key for provisioning an IoT Edge device (**DPS**, **symmetric**). |
-| scopeId | The scope ID for an existing DPS instance. | Scope ID for provisioning an IoT Edge device (**DPS**). |
-| registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DPS**). |
-| identityCertLocVm | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity certificate on your virtual machine for provisioning an IoT Edge device (**DPS**, **X509**). |
-| identityCertLocWin | Directory path | Absolute source path of the identity certificate in Windows for provisioning an IoT Edge device (**DPS**, **X509**). |
-| identityPkLocVm |  | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity private key on your virtual machine for provisioning an IoT Edge device (**DPS**, **X509**). |
-| identityPkLocWin | Directory path | Absolute source path of the identity private key in Windows for provisioning an IoT Edge device (**DPS**, **X509**). |
+| symmKey | The primary key for an existing DPS enrollment or the primary key of an existing IoT Edge device registered using symmetric keys | Symmetric key for provisioning an IoT Edge device (**X509** or **symmetric**). |
+| scopeId | The scope ID for an existing DPS instance. | Scope ID for provisioning an IoT Edge device (**X509** or **symmetric**). |
+| registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**X509** or **symmetric**). |
+| identityCertLocVm | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity certificate on your virtual machine for provisioning an IoT Edge device (**X509** or **symmetric**). |
+| identityCertLocWin | Directory path | Absolute source path of the identity certificate in Windows for provisioning an IoT Edge device (**X509** or **symmetric**). |
+| identityPkLocVm |  | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity private key on your virtual machine for provisioning an IoT Edge device (**X509** or **symmetric**). |
+| identityPkLocWin | Directory path | Absolute source path of the identity private key in Windows for provisioning an IoT Edge device (**X509** or **symmetric**). |
 | vmSizeDefintion | No longer than 30 characters | Definition of the number of cores and available RAM for the virtual machine. **Default value**: Standard_K8S_v1. |
 | vmDiskSize | Between 8 GB and 256 GB | Maximum disk size of the dynamically expanding virtual hard disk. **Default value**: 16 GB. |
 | vmUser | No longer than 30 characters | Username for logging on to the virtual machine. |
