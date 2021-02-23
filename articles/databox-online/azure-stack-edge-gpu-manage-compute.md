@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 02/23/2021
 ms.author: alkohli
 ---
 # Manage compute on your Azure Stack Edge Pro GPU
