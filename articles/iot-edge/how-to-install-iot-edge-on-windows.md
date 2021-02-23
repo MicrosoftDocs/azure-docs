@@ -337,3 +337,5 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
 ## Next steps
 
 Continue to [deploy IoT Edge modules](how-to-deploy-modules-portal.md) to learn how to deploy modules onto your device.
+
+Refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#Deploy-Eflow) to all the commands available through PowerShell.

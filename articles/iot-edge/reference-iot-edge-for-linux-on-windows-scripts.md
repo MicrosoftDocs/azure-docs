@@ -12,15 +12,15 @@ services: iot-edge
 
 # PowerShell scripts for IoT Edge for Linux on Windows
 
-Understand the PowerShell scripts that deploy, provision, and status your IoT Edge for Linux on Windows virtual machine.
+Understand the PowerShell scripts that deploy, provision, and get the status your IoT Edge for Linux on Windows virtual machine.
 
-The commands described in this article are from the `AzureEFLOW.psm1` file, which can be found on your system in your `WindowsPowerShell` directory under `Modules\AzureEFLOW`.
+The commands described in this article are from the `AzureEFLOW.psm1` file, which can be found on your system in your `WindowsPowerShell` directory under `C:\Program Files\WindowsPowerShellModules\AzureEFLOW`.
 
 ## Deploy-Eflow
 
-The **Deploy-Eflow** command is the main deployment method. The deployment command provisions files and deploy the IoT Edge agent module. While none of the parameters are required, they can be used to provision your IoT Edge device during the deployment and modify settings for the virtual machine during creation. For a full list, use the command `Get-Help Deploy-Eflow -full`.  
+The **Deploy-Eflow** command is the main deployment method. The deployment command creates the virtual machine, provisions files, and deploys the IoT Edge agent module. While none of the parameters are required, they can be used to provision your IoT Edge device during the deployment and modify settings for the virtual machine during creation. For a full list, use the command `Get-Help Deploy-Eflow -full`.  
 
-| Parameter | Accepted values | Comments |S
+| Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
 | eflowVhdxDir | Directory path | Directory where deployment stores VHDX file for VM. |
 | provisioningType | **manual**, **TPM**, **X509**, or **symmetric** |  Defines the type of provisioning you wish to use for your IoT Edge device. |
@@ -38,9 +38,8 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | vnetType | **Transparent** or **ICS** | The type of virtual switch. **Default value**: Transparent. |
 | vnetName | No longer than 64 characters | The name of the virtual switch. **Default value**: External. |
 | enableVtpm | None | **Switch parameter**. Create the virtual machine with TPM enabled or disabled. |
-| iotedgePackageVersion | No longer than 30 characters |  Version of Moby package to be verified or installed on the virtual machine.  **Default value:** 19.03.11. |
-| iotedgePackageVersion | No longer than 30 characters | Version of IoE Edge package to be verified or installed on the virtual machine. **Default value:** 1.0.10. |
-| mobyPackageVersion | No longer than 30 characters |  |
+| mobyPackageVersion | No longer than 30 characters |  Version of Moby package to be verified or installed on the virtual machine.  **Default value:** 19.03.11. |
+| iotedgePackageVersion | No longer than 30 characters | Version of IoT Edge package to be verified or installed on the virtual machine. **Default value:** 1.1.0. |
 | installPackages | None | **Switch parameter**. When toggled, the script will attempt to install the Moby and IoT Edge packages rather than only verifying the packages are present. |
 
 ## Verify-EflowVm
