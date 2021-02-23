@@ -7,6 +7,7 @@ ms.date: 01/27/2020
 ---
 
 # IP addresses used by Azure Monitor
+
 [Azure Monitor](../overview.md) uses a number of IP addresses. Azure Monitor is made up of core platform metrics and log in addition to Log Analytics and Application Insights. You might need to know these addresses if the app or infrastructure that you are monitoring is hosted behind a firewall.
 
 > [!NOTE]
