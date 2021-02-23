@@ -31,8 +31,6 @@ Migration of Hive tables to a new Storage Account needs to be done as a separate
 
 * If using [Azure Data Lake Storage Gen1](../overview-data-lake-storage-gen1.md), Hive table locations are likely dependent on the cluster's HDFS configurations. Run the following script action to make these locations portable to other clusters. See [Script action to a running cluster](../hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster).
 
-    The action is similar to replacing symlinks with their full paths.
-
     |Property | Value |
     |---|---|
     |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive-adl-expand-location-v01.sh`|
