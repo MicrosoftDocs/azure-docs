@@ -16685,6 +16685,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-k-series-overview.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-mini-r-overview"
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/databox-online/data-box-edge-limits.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-limits",
       "redirect_document_id": false

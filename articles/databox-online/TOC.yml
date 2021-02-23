@@ -105,7 +105,7 @@
   - name: Overview
     items:
     - name: What is Azure Stack Edge Mini R?
-      href: azure-stack-edge-k-series-overview.md
+      href: azure-stack-edge-mini-r-overview.md
   - name: Concepts
     items:
     - name: Ready safety
