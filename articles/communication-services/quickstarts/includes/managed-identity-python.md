@@ -13,7 +13,7 @@ ms.reviewer: mikben
 
 # Use managed identities (Python)
 
-Get started with Azure Communication Services by using managed identities in .NET. The Communication Services Identity, SMS client libraries support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+Get started with Azure Communication Services by using managed identities in Python. The Communication Services Identity, SMS client libraries support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 This quickstart shows you how to authorize access to the Identity SMS client libraries from an Azure environment that supports managed identities. It also describes how to test your code in a development environment.
 
@@ -117,7 +117,7 @@ def send_sms(resource_endpoint, from_phone_number, to_phone_number, message_cont
 You may also want to:
 
 - [Learn more about Azure role-based access control](../../../articles/role-based-access-control/index.yml)
-- [Learn more about Azure identity library for .NET](/python/api/overview/azure/identity-readme)
+- [Learn more about Azure identity library for Python](/python/api/overview/azure/identity-readme)
 - [Creating user access tokens](../quickstarts/access-tokens.md)
 - [Send an SMS message](../quickstarts/telephony-sms/send.md)
 - [Learn more about SMS](../concepts/telephony-sms/concepts.md)
