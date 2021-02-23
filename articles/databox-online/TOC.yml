@@ -57,7 +57,7 @@
   - name: Overview
     items:
     - name: What is Azure Stack Edge Pro R?
-      href: azure-stack-edge-j-series-overview.md
+      href: azure-stack-edge-pro-r-overview.md
   - name: Concepts
     items:
     - name: Ready safety
@@ -175,7 +175,7 @@
     - name: Deploy IoT Edge samples
       items:
       - name: Module from Nvidia gallery
-        href: azure-stack-edge-j-series-configure-gpu-modules.md 
+        href: azure-stack-edge-gpu-configure-gpu-modules.md 
       - name: GPU module from Git repo
         href: azure-stack-edge-gpu-deploy-sample-module.md 
       - name: GPU module via Marketplace
@@ -193,7 +193,7 @@
         - name: Compute acceleration
           href: azure-stack-edge-gpu-deploy-compute-acceleration.md 
         - name: Stateless app
-          href: azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md 
+          href: azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md 
         - name: Statically provisioned stateful app 
           href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md 
         - name: Dynamically provisioned stateful app
@@ -203,7 +203,7 @@
         - name: Stateless app
           href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md 
         - name: Develop C# module
-          href: azure-stack-edge-j-series-create-iot-edge-module.md 
+          href: azure-stack-edge-gpu-create-iot-edge-module.md 
       - name: Via Azure Arc (Preview)
         items:
         - name: Enable Arc on Kubernetes cluster
@@ -215,11 +215,11 @@
     - name: Configure Azure Resource Manager (Preview)
       items:
       - name: Connect via Azure PowerShell
-        href: azure-stack-edge-j-series-connect-resource-manager.md 
+        href: azure-stack-edge-gpu-connect-resource-manager.md 
       - name: Set Azure Resource Manager password
-        href: azure-stack-edge-j-series-set-azure-resource-manager-password.md 
+        href: azure-stack-edge-gpu-set-azure-resource-manager-password.md 
       - name: Configure client TLS settings
-        href: azure-stack-edge-j-series-configure-tls-settings.md 
+        href: azure-stack-edge-gpu-configure-tls-settings.md 
     - name: Deploy VMs (Preview)
       items:
       - name: Deploy VMs - Azure portal
@@ -233,7 +233,7 @@
       - name: Deploy VMs - Azure PowerShell script
         href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md 
       - name: Deploy VMs - Azure CLI/Python
-        href: azure-stack-edge-j-series-deploy-virtual-machine-cli-python.md 
+        href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md 
       - name: Deploy Custom Script Extension on VMs
         href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md 
       - name: Create VM image
@@ -251,15 +251,15 @@
       - name: Troubleshoot certificate errors
         href: azure-stack-edge-gpu-certificate-troubleshooting.md 
     - name: Manage Edge compute 
-      href: azure-stack-edge-j-series-manage-compute.md
+      href: azure-stack-edge-gpu-manage-compute.md
     - name: Manage Edge container registry
       href: azure-stack-edge-gpu-edge-container-registry.md 
     - name: Manage storage gateway
       items:
       - name: Add, connect to share
-        href: azure-stack-edge-j-series-deploy-add-shares.md 
+        href: azure-stack-edge-gpu-deploy-add-shares.md 
       - name: Add, connect to storage accounts
-        href: azure-stack-edge-j-series-deploy-add-storage-accounts.md         
+        href: azure-stack-edge-gpu-deploy-add-storage-accounts.md         
       - name: Shares
         href: azure-stack-edge-gpu-manage-shares.md 
       - name: Users
