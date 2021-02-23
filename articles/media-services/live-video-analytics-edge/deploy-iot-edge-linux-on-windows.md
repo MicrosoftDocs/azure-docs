@@ -17,7 +17,7 @@ In this article, you'll learn how to deploy Live Video Analytics on an edge devi
     > [!NOTE]
     > You will need an Azure subscription with permissions for creating service principals (**owner role** provides this). If you do not have the right permissions, reach out to your account administrator to grant you the right permissions.
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Read [What is IoT Edge for Linux on Windows](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows?view=iotedge-2018-06).
+* Read [What is IoT Edge for Linux on Windows](https://aka.ms/AzEFLOW-docs).
 
 ## Deployment Steps
 
