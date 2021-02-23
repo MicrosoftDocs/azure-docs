@@ -1,7 +1,7 @@
 ---
 title: How to plan for an at-scale deployment of Azure Arc enabled servers
 description: Learn how to enable large number of machines to Azure Arc enabled servers and configure essential security, management, and monitoring capabilities in Azure.
-ms.date: 02/19/2021
+ms.date: 02/23/2021
 ms.topic: conceptual
 ---
 
@@ -32,18 +32,18 @@ The purpose of this article is to ensure you are prepared for a successful deplo
 
 ## Pilot
 
-Before deploying to all production machines, start by evaluating this deployment process before adopting it broadly in your environment. For a pilot, identify a representative sampling of machines that aren't critical to your companies ability to conduct business.
+Before deploying to all production machines, start by evaluating this deployment process before adopting it broadly in your environment. For a pilot, identify a representative sampling of machines that aren't critical to your companies ability to conduct business. You'll want to be sure to allow enough time to run the pilot and assess its impact: we recommend a minimum of 30 days.
 
-Establish a formal plan describing the scope and details of the pilot, to include the following:
+Establish a formal plan describing the scope and details of the pilot. The following is a sample of what a plan should include to help get you started.
 
 * Objectives - Describes the business and technical drivers that led to the decision that a pilot is necessary.
 * Selection criteria - Specifies the criteria used to select which aspects of the solution will be demonstrated via a pilot.
 * Scope - Describes the scope of the pilot, which includes but not limited to solution components, anticipated schedule, duration of the pilot, and number of machines to target.
 * Success criteria and metrics - Define the pilot's success criteria and specific measures used to determine level of success.
-* Training plan - Describes the plan for training system engineers, administrators, etc. during the pilot.
+* Training plan - Describes the plan for training system engineers, administrators, etc. who are new to Azure and it services during the pilot.
 * Transition plan - Describes the strategy and criteria used to guide transition from pilot to production.
 * Rollback - Describes the procedures for rolling back a pilot to pre-deployment state.
-Risks - List all identified risks for conducting the pilot and associated with production deployment.
+* Risks - List all identified risks for conducting the pilot and associated with production deployment.
 
 ## Phase 1: Build a foundation
 
@@ -79,4 +79,9 @@ Phase 3 sees administrators or system engineers enabling automation of manual ta
 |Create a Resource Health alert to be notified or trigger an action if a server stops sending heartbeats to Azure. |If a server stops sending heartbeats to Azure for longer than 15 minutes, it can mean that it is offline, the network connection has been blocked, or the agent is not running. Develop a plan for how you’ll respond and investigate these incidents and use [Resource Health alerts](../..//service-health/resource-health-alert-monitor-guide.md) to get notified when they start.<br><br> **Resource type** = **Azure Arc enabled servers**<br>**Current resource status** = **Unavailable**<br> **Previous resource status** = **Available** |One hour |
 |Create an Azure Advisor alert to be notified when Azure Arc servers are running outdated versions of the Arc enabled servers agent.|For the best experience and most recent security and bug fixes, we recommend keeping the Azure Arc enabled servers agent up to date. Out-of-date agents will be identified with an [Azure Advisor alert](../../advisor/advisor-alerts-portal.md).<br><br> **Recommendation type** = **Upgrade to the latest version of the Azure Connected Machine Agent** |One hour |
 |Assign Azure Policies to your subscription or resource group scope |Assign the **Enable Azure Monitor for VMs** policy and others that meet your needs to the subscription or resource group scope, to ensure all your Arc enabled servers are automatically configured for monitoring with Azure Monitor for VMs.| Varies |
-|
+
+## Next steps
+
+* Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
+
+* Learn how to simplify deployment with other Azure services like Azure Automation [State Configuration](../../automation/automation-dsc-overview.md) and other supported [Azure VM extensions](manage-vm-extensions.md).
