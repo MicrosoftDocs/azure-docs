@@ -19,7 +19,7 @@ In this article, you'll learn how to deploy Live Video Analytics on an edge devi
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Read [What is EFLOW](https://aka.ms/AzEFLOW-docs).
 
-## Deployment Steps
+## Deployment steps
 
 The following depicts the overall flow of the document and in 5 simple steps you should be all set up to run Live Video Analytics on a Windows device  that has EFLOW:
 
