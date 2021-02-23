@@ -5,7 +5,7 @@ author: craigktreasure
 manager: virivera
 
 ms.author: crtreasu
-ms.date: 04/01/2020
+ms.date: 02/22/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ---
@@ -17,7 +17,7 @@ You'll learn how to:
 
 > [!div class="checklist"]
 > * Create an Object Anchors account
-> * Ingest a 3D model to create an Object Anchors model
+> * Convert a 3D model to create an Object Anchors model
 
 ## Prerequisites
 
@@ -71,11 +71,11 @@ First, you need to create an account with the Object Anchors service.
 
 [!INCLUDE [Clone Sample Repo](../../../includes/object-anchors-clone-sample-repository.md)]
 
-## Ingest a 3D model
+## Convert a 3D model
 
-Now, you can go ahead and ingest your 3D model.
+Now, you can go ahead and convert your 3D model.
 
-1. Open `quickstarts/ingestion/Ingestion.sln` in Visual Studio. This solution contains a C# console project.
+1. Open `quickstarts/conversion/Conversion.sln` in Visual Studio. This solution contains a C# console project.
 
 2. Open the `Configuration.cs` file located in the root of the project and replace the `set-me` values on following fields:
 
@@ -89,27 +89,35 @@ Now, you can go ahead and ingest your 3D model.
 
     | Field                    | Description                       |
     | ---                      | ---                               |
-    | InputAssetPath                 | Absolute path to a 3D model on your local machine (there's a sample model in `assets/models` folder you can use). Supported file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
-    | Unit                     | The unit of measurement of your 3D model. All the supported units of measurement can be accessed using the `Microsoft.Azure.ObjectAnchors.Ingestion.Unit` enumeration. |
+    | InputAssetPath           | Absolute path to a 3D model on your local machine (there's a sample model in `assets/models` folder you can use). Supported file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
+    | AssetDimensionUnit       | The unit of measurement of your 3D model. All the supported units of measurement can be accessed using the `Azure.MixedReality.ObjectAnchors.Conversion.AssetLengthUnit` enumeration. |
     | Gravity                  | The direction of the gravity vector of the 3D model. This 3D vector gives the downward direction in the coordinate system of your model. For example if negative `y` represents the downward direction in the model's 3D space, this value would be `Vector3(0.0f, -1.0f, 0.0f)`. |
 
-3. Build and run the project to upload your 3D model, register a new ingestion job with the service, and wait for it to be completed. Once the job is completed, the Object Anchors model will be downloaded either next to the file specified in the `InputAssetPath` or the path specified in `OutputModelDirectoryPath`. You should see something similar to the following console output:
+3. Build and run the project to upload your 3D model, register a new conversion job with the service, and wait for it to be completed. Once the job is completed, the Object Anchors model will be downloaded next to the file specified in the `InputAssetPath`. You should see something similar to the following console output:
 
    ```shell
-    Successfully created model ingestion job. Job ID: ******************************
+    Asset   : ***********
+    Gravity : ***********
+    Unit    : ***********
+    Attempting to upload asset...
+    Attempting to create asset conversion job...
+    Successfully created asset conversion job. Job ID: ***********
     Waiting for job completion...
-    Model ingestion job completed successfully.
+
+    Asset conversion job completed successfully.
+    Attempting to download result as '***********'...
+    Success!
    ```
 
    Make a note of the **Job ID** for future reference. It may be useful when debugging or troubleshooting.
 
-4. Once the job is completed successfully, you should see file with the format `<Model-Filename-Without-Extension>_<JobID>.ou` in the specified output location. For example, if your 3D model filename is `chair.ply` and your job ID is `00000000-0000-0000-0000-000000000000` then the filename the service outputs will be `chair_00000000-0000-0000-0000-000000000000.ou`.
+4. Once the job is completed successfully, you should see a file with the format `<Model-Filename-Without-Extension>_<JobID>.ou` in the specified output location. For example, if your 3D model filename is `chair.ply` and your job ID is `00000000-0000-0000-0000-000000000000` then the filename the service outputs will be `chair_00000000-0000-0000-0000-000000000000.ou`.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 ## Next steps
 
-In this quickstart, you created an Object Anchors account and ingested a 3D model to create an Object Anchors model. To learn how to integrate that model with the Object Anchors SDK in your mixed reality app, continue with any of the following articles:
+In this quickstart, you created an Object Anchors account and converted a 3D model to create an Object Anchors model. To learn how to integrate that model with the Object Anchors SDK in your mixed reality app, continue with any of the following articles:
 
 > [!div class="nextstepaction"]
 > [Unity HoloLens](get-started-unity-hololens.md)
