@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: overview
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/22/2021
+ms.date: 02/23/2021
 ms.custom: references_regions
 ---
 
@@ -47,7 +47,7 @@ Automation Update Management feature is available in East US, France Central, an
 
 Automation account and State Configuration availability in the Switzerland West region. For more information, read the [announcement](https://azure.microsoft.com/updates/azure-automation-in-switzerland-west-region/).
 
-### Added Python 3 script to import multiple modules with dependencies
+### Added Python 3 script to import module with multiple dependencies
 
 **Type:** New feature
 
