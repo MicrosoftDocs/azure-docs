@@ -21,7 +21,7 @@ The commands described in this article are from the `AzureEFLOW.psm1` file, whic
 The **Deploy-Eflow** command is the main deployment method. The deployment command creates the virtual machine, provisions files, and deploys the IoT Edge agent module. While none of the parameters are required, they can be used to provision your IoT Edge device during the deployment and modify settings for the virtual machine during creation. For a full list, use the command `Get-Help Deploy-Eflow -full`.  
 
 >[!NOTE]
->For the provisioning type, **X509** and **symmetric** currently exclusively refer to X509 and symmetric key provisioning using an [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md). Manual X509 and symmetric key provisioning methods are not currently supported.
+>For the provisioning type, **X509** currently exclusively refers to X509 provisioning using an [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md). The manual X509 provisioning method is not currently supported.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
