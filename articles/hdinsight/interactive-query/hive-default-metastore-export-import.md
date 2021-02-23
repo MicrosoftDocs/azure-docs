@@ -1,6 +1,6 @@
 ---
-title: Migrate Default Hive Metastore to External Metastore
-description: Migrate Default Hive Metastore to External Metastore
+title: Migrate default Hive metastore to external metastore on Azure HDInsight
+description: Migrate default Hive metastore to external metastore on Azure HDInsight
 author: kevxmsft
 ms.author: kevx
 ms.reviewer: 
@@ -15,11 +15,11 @@ This article shows how to migrate metadata from a [default metastore DB](../hdin
 
 ## Why migrate to external metastore DB
 
-1. Default metastore DB is limited to basic SKU and cannot handle production scale workloads.
+* Default metastore DB is limited to basic SKU and cannot handle production scale workloads.
 
-2. External metastore DB enables customer to horizontally scale Hive compute resources by adding new HDInsight clusters sharing the same metastore DB.
+* External metastore DB enables customer to horizontally scale Hive compute resources by adding new HDInsight clusters sharing the same metastore DB.
 
-3. For HDInsight 3.6 to 4.0 migration, it is mandatory to migrate metadata to external metastore DB before upgrading the Hive schema version. See [migrating workloads from HDInsight 3.6 to HDInsight 4.0](./apache-hive-migrate-workloads.md).
+* For HDInsight 3.6 to 4.0 migration, it is mandatory to migrate metadata to external metastore DB before upgrading the Hive schema version. See [migrating workloads from HDInsight 3.6 to HDInsight 4.0](./apache-hive-migrate-workloads.md).
 
 Because the default metastore DB has limited compute capacity, we recommend low utilization from other jobs on the cluster while migrating metadata.
 
@@ -35,7 +35,7 @@ The action is similar to replacing symlinks with their full paths.
 |---|---|
 |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive-adl-expand-location-v01.sh`|
 |Node type(s)|Head|
-|Parameters||
+|Parameters|""|
 
 ## Migrate with Export/Import using sqlpackage
 
