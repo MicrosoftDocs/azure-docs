@@ -50,16 +50,16 @@ initialCassandraAdminPassword='myPassword'
 
 # You can override cluster name of the original name is not legal for an Azure resource:
 # overrideClusterName='ClusterNameIllegalForAzureResource'
+# the default cassandra version will be v3.11
 
 az cassandra-mi cluster create \
-    --clusterName $clusterName \
-    --resourceGroupName $resourceGroupName \
-    --delegatedManagementSubnetId $delegatedManagementSubnetId \
-    --cassandraVersion $cassandraVersion \
-    --initialCassandraAdminPassword $initialCassandraAdminPassword \
-    --externalSeedNodes 10.52.221.2,10.52.221.3,10.52.221.4
-    --clientCertificates 'BEGIN CERTIFICATE-----\n...Base64 encoded certificate 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...Base64 encoded certificate 2...\n-----END CERTIFICATE-----' \
-    --externalGossipCertificates 'BEGIN CERTIFICATE-----\n...Base64 encoded certificate 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...Base64 encoded certificate 2...\n-----END CERTIFICATE-----' \
+    --cluster-name $clusterName \
+    --resource-group $resourceGroupName \
+    --delegated-management-subnet-id $delegatedManagementSubnetId \
+    --initial-cassandra-admin-password $initialCassandraAdminPassword \
+    --external-seed-nodes 10.52.221.2,10.52.221.3,10.52.221.4
+    --client-certificates 'BEGIN CERTIFICATE-----\n...Base64 encoded certificate 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...Base64 encoded certificate 2...\n-----END CERTIFICATE-----' \
+    --external-gossip-certificates 'BEGIN CERTIFICATE-----\n...Base64 encoded certificate 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...Base64 encoded certificate 2...\n-----END CERTIFICATE-----' \
 ```
 
 ### <a id="delete-cluster"></a>Delete a managed instance cluster
@@ -71,8 +71,8 @@ resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 
 az cassandra-mi cluster delete \
-    --clusterName $clusterName \
-    --resourceGroupName $resourceGroupName \
+    --cluster-name $clusterName \
+    --resource-group $resourceGroupName \
 ```
 
 ### <a id="get-cluster-details"></a>Get the cluster details
@@ -84,21 +84,10 @@ resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 
 az cassandra-mi cluster get \
-    --clusterName $clusterName \
-    --resourceGroupName $resourceGroupName \
+    --cluster-name $clusterName \
+    --resource-group $resourceGroupName \
 ```
 
-### <a id="update-cluster"></a>Update an existing managed instance cluster
-
-Update an existing managed Cassandra cluster:
-
-```azurecli-interactive
-subscriptionId='MySubscriptionId'
-clusterName='cassandra-hybrid-cluster'
-
-az cassandra-mi cluster update \
-    --subscriptionId $subscriptionId 
-```
 
 ### <a id="list-clusters-resource-group"></a>List the clusters by resource group
 
@@ -109,8 +98,8 @@ subscriptionId='MySubscriptionId'
 resourceGroupName='MyResourceGroup'
 
 az cassandra-mi list-clusters \
-    --subscriptionId $subscriptionId \
-    --resourceGroupName $resourceGroupName \
+    --subscription-id $subscriptionId \
+    --resource-group $resourceGroupName \
 ```
 
 ### <a id="list-clusters-subscription"></a>List clusters by subscription ID
@@ -121,7 +110,7 @@ List clusters by subscription ID:
 subscriptionId='MySubscriptionId'
 
 az cassandra-mi list-clusters \
-    --subscriptionId $subscriptionId \
+    --subscription-id $subscriptionId \
 ```
 
 ## <a id="managed-instance-datacenter"></a>The managed instance datacenters
@@ -138,6 +127,7 @@ The following sections demonstrate how to manage Azure Managed Instance for Apac
 
 Create a datacenter:
 
+
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
@@ -145,13 +135,16 @@ dataCenterName='dc1'
 dataCenterLocation='West US'
 delegatedSubnetId= '/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
 
+# available regions in public preview are: East Us, West Us, East US 2, West US 2, Central US, 
+# South Central US, North Europe, West Europe, South East Asia, Australia East
+
 az cassandra-mi datacenter create \
-    --resourceGroupName $resourceGroupName \
-    --clusterName $clusterName \
-    --dataCenterName $dataCenterName \
-    --dataCenterLocation $dataCenterLocation \
-    --delegatedSubnetId $delegatedSubnetId \
-    --nodeCount 9 
+    --resource-group $resourceGroupName \
+    --cluster-name $clusterName \
+    --data-center-name $dataCenterName \
+    --data-center-location $dataCenterLocation \
+    --delegated-subnet-id $delegatedSubnetId \
+    --node-count 9 
 ```
 
 ### <a id="delete-datacenter"></a>Delete a datacenter
@@ -164,9 +157,9 @@ clusterName='cassandra-hybrid-cluster'
 dataCenterName='dc1'
 
 az cassandra-mi datacenter delete \
-    --resourceGroupName $resourceGroupName \
-    --clusterName $clusterName \
-    --dataCenterName $dataCenterName 
+    --resource-group $resourceGroupName \
+    --cluster-name $clusterName \
+    --data-center-name $dataCenterName 
 ```
 
 ### <a id="get-datacenter-details"></a>Get datacenter details
@@ -179,9 +172,9 @@ clusterName='cassandra-hybrid-cluster'
 dataCenterName='dc1'
 
 az cassandra-mi datacenter get \
-    --resourceGroupName $resourceGroupName \
-    --clusterName $clusterName \
-    --dataCenterName $dataCenterName 
+    --resource-group $resourceGroupName \
+    --cluster-name $clusterName \
+    --data-center-name $dataCenterName 
 ```
 
 ### <a id="update-datacenter"></a>Update or scale a datacenter
@@ -196,10 +189,10 @@ dataCenterLocation='West US'
 delegatedSubnetId= '/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
 
 az cassandra-mi datacenter update \
-    --resourceGroupName $resourceGroupName \
-    --clusterName $clusterName \
-    --dataCenterName $dataCenterName \
-    --nodeCount 13 
+    --resource-group $resourceGroupName \
+    --cluster-name $clusterName \
+    --data-center-name $dataCenterName \
+    --node-count 13 
 ```
 
 ### <a id="get-datacenters-cluster"></a>Get the datacenters in a cluster
@@ -211,8 +204,8 @@ resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 
 az cassandra-mi list-datacenters \
-    --resourceGroupName $resourceGroupName \
-    --clusterName $clusterName
+    --resource-group $resourceGroupName \
+    --cluster-name $clusterName
 ```
 
 ## Next steps

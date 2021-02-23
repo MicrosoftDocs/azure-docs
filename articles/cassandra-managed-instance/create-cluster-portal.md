@@ -45,7 +45,12 @@ An Azure subscription or free Azure Cosmos DB trial account
    * **Initial Cassandra admin password** - Password that is used to create the cluster.
    * **Confirm Cassandra admin password** - Reenter the password.
 
+    > [!NOTE] 
+    > The following regions are available in public preview: East US, West US, East US 2, West US 2, Central US, South Central US, North Europe, West Europe, South East Asia, Australia East 
+
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Fill out the create cluster form." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
+
+
 
 1. Next select the **Networking** tab.
 
