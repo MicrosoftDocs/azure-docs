@@ -154,9 +154,54 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
  
    e.    Select **Create**. 
 
-    ![Screenshot of select Create Private Endpoint2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
+    ![Screenshot of select Private Endpoint details.](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
 You've now created a new private endpoint that is connected to this AMPLS.
+
+## Review and validate your Private Link setup
+
+### Reviewing your Endpoint's DNS settings
+The Private Endpoint you created should now have an four DNS zones configured:
+
+[![Screenshot of Private Endpoint DNS zones.](./media/private-link-security/private-endpoint-dns-zones.png)](./media/private-link-security/private-endpoint-dns-zones-expanded.png#lightbox)
+
+* privatelink-monitor-azure-com
+* privatelink-oms-opinsights-azure-com
+* privatelink-ods-opinsights-azure-com
+* privatelink-agentsvc-azure-automation-net
+
+Each of these zones maps specific Azure Monitor endpoints to private IPs from the pool of IPs of the Private Endpoint's VNet.
+
+#### Privatelink-monitor-azure-com
+This zone covers the global endpoints used by Azure Monitor, meaning these endpoints serve requests considering all resources, not a specific one. This zone should have endpoints mapped for:
+* `in.ai` - (Application Insights ingestion endpoint, you will see a global and a regional entry
+* `api` - Application Insights and Log Analytics API endpoint
+* `live` - Application Insights live metrics endpoint
+* `profiler` - Application Insights profiler endpoint
+* `snapshot` - Application Insights snapshots endpoint
+[![Screenshot of Private DNS zone monitor-azure-com.](./media/private-link-security/dns-zone-privatelink-monitor-azure-com.png)](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-expanded.png#lightbox)
+
+#### privatelink-oms-opinsights-azure-com
+This zone covers workspace-specific mapping to OMS endpoints. You should see an entry for each workspace linked to the AMPLS connected with this Private Endpoint.
+[![Screenshot of Private DNS zone oms-opinsights-azure-com.](./media/private-link-security/dns-zone-privatelink-oms-opinsights-azure-com.png)](./media/private-link-security/dns-zone-privatelink-oms-opinsights-azure-com-expanded.png#lightbox)
+
+#### privatelink-ods-opinsights-azure-com
+This zone covers workspace-specific mapping to ODS endpoints - the ingestion endpoint of Log Analytics. You should see an entry for each workspace linked to the AMPLS connected with this Private Endpoint.
+[![Screenshot of Private DNS zone ods-opinsights-azure-com.](./media/private-link-security/dns-zone-privatelink-ods-opinsights-azure-com.png)](./media/private-link-security/dns-zone-privatelink-ods-opinsights-azure-com-expanded.png#lightbox)
+
+#### privatelink-agentsvc-azure-automation-net
+This zone covers workspace-specific mapping to the agent service automation endpoints. You should see an entry for each workspace linked to the AMPLS connected with this Private Endpoint.
+[![Screenshot of Private DNS zone agent svc-azure-automation-net.](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net.png)](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net-expanded.png#lightbox)
+
+### Validating you are communicating over a Private Link
+* To validate your requests are now sent through the Private Endpoint and to the private IP-mapped endpoints, you can review them with a network tracking to tools, or even your browser. For example, when attempting to query your workspace or application, make sure the request is sent to the private IP mapped to the API endpoint, in this example it's *172.17.0.9*.
+
+    Note: Some browsers may use other DNS settings (see [Browser DNS settings](#browser-dns-settings)). Make sure your DNS settings apply.
+
+* To make sure your workspace or component aren't receiving requests from public networks (not connected through AMPLS), set the resource's public ingestion and query flags to *No* as explained in [Manage access from outside of private links scopes](#manage-access-from-outside-of-private-links-scopes).
+
+* From a client on your protected network, use `nslookup` to any of the endpoints listed in your DNS zones. It should be resolved by your DNS server to the mapped private IPs instead of the public IPs used by default.
+
 
 ## Configure Log Analytics
 
@@ -167,7 +212,7 @@ Go to the Azure portal. In your Log Analytics workspace resource menu, there's a
 ### Connected Azure Monitor Private Link scopes
 All scopes connected to the workspace show up in this screen. Connecting to scopes (AMPLSs) allows network traffic from the virtual network connected to each AMPLS to reach this workspace. Creating a connection through here has the same effect as setting it up on the scope, as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources). To add a new connection, select **Add** and select the Azure Monitor Private Link Scope. Select **Apply** to connect it. Note that a workspace can connect to 5 AMPLS objects, as mentioned in [Restrictions and limitations](#restrictions-and-limitations). 
 
-### Access from outside of private links scopes
+### Manage access from outside of private links scopes
 The settings on the bottom part of this page control access from public networks, meaning networks not connected through the scopes listed above. Setting **Allow public network access for ingestion** to **No** blocks ingestion of logs from machines outside of the connected scopes. Setting **Allow public network access for queries** to **No** blocks queries coming from machines outside of the scopes. That includes queries run via workbooks, dashboards, API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal, and that query Log Analytics data also have to be running within the private-linked VNET.
 
 ### Exceptions
@@ -204,7 +249,7 @@ Second, you can control how this resource can be reached from outside of the pri
 
 You’ll need to add resources hosting the monitored workloads to the private link. Here’s [documentation](../../app-service/networking/private-endpoint.md) for how to do this for App Services.
 
-Restricting access in this manner only applies to data in the Application Insights resource. Configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. Instead, restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md).
+Restricting access in this manner only applies to data in the Application Insights resource. However, configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. So, you should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md).
 
 > [!NOTE]
 > To fully secure workspace-based Application Insights, you need to lock down both access to Application Insights resource as well as the underlying Log Analytics workspace.
@@ -219,8 +264,7 @@ As explained in [Planning your Private Link setup](#planning-your-private-link-s
 * Use custom DNS zones for specific apps - this solution allows you to access select Application Insights components over a Private Link, while keeping all other traffic over the public routes.
     - Set up a [custom private DNS zone](https://docs.microsoft.com/azure/private-link/private-endpoint-dns), and give it a unique name, such as internal.monitor.azure.com
     - Create an AMPLS and a Private Endpoint, and choose **not** to auto-integrate with private DNS
-    - Go to Private Endpoint -> DNS Configuration and review the suggested mapping of FQDNs similar to this:
-    ![Screenshot of suggested DNS zone configuration](./media/private-link-security/private-endpoint-fqdns.png)
+    - Go to Private Endpoint -> DNS Configuration and review the suggested mapping of FQDNs.
     - Choose to Add Configuration and pick the internal.monitor.azure.com zone you just created
     - Add records for the above
     ![Screenshot of configured DNS zone](./media/private-link-security/private-endpoint-global-dns-zone.png)

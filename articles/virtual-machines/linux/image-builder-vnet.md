@@ -5,8 +5,9 @@ author: danielsollondon
 ms.author: danis
 ms.date: 08/10/2020
 ms.topic: how-to
-ms.service: virtual-machines-linux
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: danis
 ---
 
