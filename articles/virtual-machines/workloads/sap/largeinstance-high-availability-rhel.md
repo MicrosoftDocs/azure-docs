@@ -11,13 +11,17 @@ ms.date: 02/08/2021
 
 # Azure Large Instances high availability for SAP on RHEL
 
-  
-
 In this article, you learn how to configure the Pacemaker cluster in RHEL 7.6 to automate an SAP HANA database failover. You need to have a good understanding of Linux, SAP HANA, and Pacemaker to complete the steps in this guide.
 
+The following table includes the host names that are used throughout this article. The code blocks in the article show the commands that need to be run, as well as the output of those commands. Pay close attention to which node is referenced in each command.
+
+| Type | Host name | Node|
+|-------|-------------|------|
+|Primary host|`sollabdsm35`|node 1|
+|Secondary host|`sollabdsm36`|node 2|
 
 ## Configure your Pacemaker cluster
-* NOTE : Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host]. We show both the commands that need to be run as well as the output of those commands.
+
 
 Before you can begin configuring the cluster, set up SSH key exchange to establish trust between nodes.
 
@@ -47,13 +51,13 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	```
 
 2. 	Create and exchange the SSH keys.
-    1. Generate ssh keys
+    1. Generate ssh keys.
 
 	   ```
 	   [root@sollabdsm35 ~]# ssh-keygen -t rsa -b 1024
 	   [root@sollabdsm36 ~]# ssh-keygen -t rsa -b 1024
        ```
-    2. Copy keys to the other hosts for passwordless ssh
+    2. Copy keys to the other hosts for passwordless ssh.
     
        ```
        [root@sollabdsm35 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm35
@@ -80,7 +84,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 
 	```  
 
-4. Reboot the servers and then use the following command to verify the status of SELINUX.
+4. Reboot the servers and then use the following command to verify the status of selinux.
 	```
 	[root@sollabdsm35 ~]# sestatus
 
@@ -94,7 +98,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	```
 
 5. Configure NTP (Network Time Protocol). The time and time zones for both cluster nodes must match. Use the following command to open `chrony.conf` and verify the contents of the file.
-    1. Below contents should be added to config file, do change the actual values as per your environment.
+    1. The following contents should be added to config file. Change the actual values as per your environment.
     	```
     	vi /etc/chrony.conf
     
@@ -140,11 +144,11 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
     	```
 
 6. Update the System
-    1. First install the latest updates on the system before we start to install the SBD device.
-    1. If you don’t want a complete update of the system (even it is recommended), at least these packages need to be updated.
-        1. resource-agents-sap-hana
-        1. selinux-policy
-        1. iscsi-initiator-utils
+    1. First, install the latest updates on the system before you start to install the SBD device.
+    1. If you don’t want a complete update of the system, even if is recommended, update the following packages at a minimum.
+        1. `resource-agents-sap-hana`
+        1. `selinux-policy`
+        1. `iscsi-initiator-utils`
 
   
 	    ```
@@ -173,14 +177,14 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 
   ## Configure Watchdog
 
-* NOTE : Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host]. We show both the commands that need to be run as well as the output of those commands.
+In this section, you learn how to configure Watchdog. This section uses the same two hosts, `sollabdsm35` and `sollabdsm36`, referenced at the beginning of this article.
 
-1. Make sure, that the watchdog daemon is not running at this time (on all systems).
+1. Make sure that the watchdog daemon is not running on any systems.
 	```
-	 [root@sollabdsm35 ~]# systemctl disable watchdog
+	[root@sollabdsm35 ~]# systemctl disable watchdog
 	[root@sollabdsm36 ~]# systemctl disable watchdog
-	 [root@sollabdsm35 ~]# systemctl stop watchdog
-	root@sollabdsm36 ~]# systemctl stop watchdog
+	[root@sollabdsm35 ~]# systemctl stop watchdog
+	[root@sollabdsm36 ~]# systemctl stop watchdog
 	[root@sollabdsm35 ~]# systemctl status watchdog
 
 	● watchdog.service - watchdog daemon
@@ -196,7 +200,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 
 	```
 
-2. The default linux watchdog which will be installed during the installation is the iTCO watchdog wich is not supported by UCS and HPE SDFlex systems. Therefore, this watchdog must be disabled.
+2. The default Linux watchdog, which will be installed during the installation, is the iTCO watchdog which is not supported by UCS and HPE SDFlex systems. Therefore, this watchdog must be disabled.
     1. The wrong watchdog is installed and loaded on the system:
 	   ```
    
@@ -214,9 +218,8 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	   sollabdsm36:~ # modprobe -r iTCO_wdt iTCO_vendor_support
 	   ```	
 	  	
-    3. To make sure the driver is not loaded during the next system boot the driver must be blacklisted.
+    3. To make sure the driver is not loaded during the next system boot, the driver must be blocklisted. To blocklist the iTCO modules, add the following to the end of the `50-blacklist.conf` file:
 	   ```
-	   To Blacklist the iTCO modules. Add end off the file:
    
 	   sollabdsm35:~ # vi /etc/modprobe.d/50-blacklist.conf
    
@@ -226,7 +229,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
    
 	   blacklist iTCO_vendor_support
        ```
-    4. Copy the file to secondary host
+    4. Copy the file to secondary host.
        ```
 	   sollabdsm35:~ # scp /etc/modprobe.d/50-blacklist.conf sollabdsm35:
 	   /etc/modprobe.d/50-blacklist.conf
@@ -300,6 +303,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	/usr/lib/systemd/system/ipmi.service.
 
 	[root@sollabdsm36 ~]# systemctl start ipmi
+	```
 	 Now the IPMI service is started and the device /dev/watchdog is created – But the timer is still stopped. Later the SBD will manage the watchdog reset and enables the IPMI timer.
 7.  Check that the /dev/watchdog exists but is not in use.
     ```
@@ -318,9 +322,9 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	```
 
 ## SBD configuration
-* NOTE : Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host]. We show both the commands that need to be run as well as the output of those commands.
+In this section, you learn how to configure SBD. This section uses the same two hosts, `sollabdsm35` and `sollabdsm36`, referenced at the beginning of this article.
 
-1.  Make sure the iSCSI or FC disk is visible on both nodes. This example will use a FC based SBD device.For more information about SBD fencing, see the [reference documentation](http://www.linux-ha.org/wiki/SBD_Fencing).
+1.  Make sure the iSCSI or FC disk is visible on both nodes. This example uses an FC-based SBD device. For more information about SBD fencing, see the [reference documentation](http://www.linux-ha.org/wiki/SBD_Fencing).
 2.  The LUN-ID must be identically on all nodes.
   
 3.  Check multipath status for the sbd device.
@@ -337,7 +341,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	`- 10:0:3:2 sdl 8:176 active ready running
 	```
 
-4.  Creating the SBD discs and set up the cluster primitive fencing (must be executed on first node).
+4.  Creating the SBD discs and set up the cluster primitive fencing. This step must be executed on first node.
 	```
 	sbd -d /dev/mapper/3600a098038304179392b4d6c6e2f4b62 -4 20 -1 10 create 
 
@@ -406,13 +410,13 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	```
 
 ## Cluster initialization
-* NOTE : Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host]. We show both the commands that need to be run as well as the output of those commands.
+In this section, you initialize the cluster. This section uses the same two hosts, `sollabdsm35` and `sollabdsm36`, referenced at the beginning of this article.
 
 1.  Set up the cluster user password (all nodes).
 	```
 	passwd hacluster
 	```
-2.  Start PCS on all systems
+2.  Start PCS on all systems.
 	```
 	systemctl enable pcsd
 	```
@@ -639,7 +643,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 
 18. Test the SBD fencing by crashing the kernel.
 
-   * Trigger the Kernel Crash
+   * Trigger the Kernel Crash.
 
 	```
 	echo c > /proc/sysrq-trigger
@@ -648,7 +652,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	set as panic_wdt_timeout in the /etc/sysconfig/ipmi config file.
 	```
   
-   * Second test to run is to fence a node using PCS commands
+   * Second test to run is to fence a node using PCS commands.
 	```
 	pcs stonith fence sollabdsm36
 	```
@@ -657,17 +661,14 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 19. For the rest of the SAP HANA clustering you can disable STONITH by setting:
 
    * pcs property set stonith-enabled=false
-   * This parameter must be set to true for productive usage!!! 
-   * If not set to true this cluster will be not supported.
+   * This parameter must be set to true for productive usage. If this parameter is not set to true, the cluster will be not supported.
    * pcs property set stonith-enabled=true 
 
-## HANA Integration into the Cluster
+## HANA integration into the cluster
 
-* NOTE : Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host]. We show both the commands that need to be run as well as the output of those commands.
+In this section, you integrate HANA into the cluster. This section uses the same two hosts, `sollabdsm35` and `sollabdsm36`, referenced at the beginning of this article.
 
-To integrate HANA into the cluster we first need to differentiate between two options.
-Option one is the cost optimized solution where the customer can use the secondary system to run e.g. the QAS system on it. This isnot 	recommended because there is no system available to test updates on the cluster software, OS, HANA… or even configurationupdates can 	lead to unplanned downtime of the PRD system. AND in addition to this, if the PRD system must be activated on thesecondary system it is 	required to shutdown the QAS system on the secondary node. But it is an option
-A much better option is to create a cost optimized scenario where the data base can be switched over directly. Only this scenario is	described here in this document. In this case we recommend installing one cluster for the QAS system and a separate cluster forthe PRD 	system. Only in this case it is possible to test all components before it goes into production.
+There are two options for integrating HANA. The first option is a cost optimized solution where you can use the secondary system to run the QAS system. We don't recommend this method because it leaves no system to test updates on the cluster software, operating system, or HANA, and configuration updates can lead to unplanned downtime of the PRD system. Additionally, if the PRD system needs to be activated on the secondary system, the QAS must be shut down on the secondary node. The second option is to install the QAS system on one cluster and use a second cluster for the PRD. This option also allows you to test all components before they are put into production. This article shows you how to configure the second option.
 
 
 * This process is build of the RHEL description on page:
