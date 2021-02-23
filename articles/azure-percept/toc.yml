@@ -20,7 +20,7 @@
     - name: 80/20 integration
       href: overview-8020-integration.md   
     - name: Update your Percept devices
-      href: update_experience_overview.md   
+      href: overview-update-experience.md   
 
 - name: Quickstarts
   items:
@@ -70,17 +70,17 @@
     - name: Speech solution development with Azure Percept DK
       items:
         - name: Configure your voice assistant in Azure Percept Studio
-          href: voice-assistant-config.md
+          href: how-to-configure-voice-assistant.md
         - name: Configure your voice assistant in IoT Hub
-          href: manage-voice-assistant-using-iot-hub.md
+          href: how-to-manage-voice-assistant.md
     - name: Update your Azure Percept devices
       items:
         - name: Set up over-the-air updates
-          href: how-to-set-up-ota.md
+          href: how-to-set-up-over-the-air-updates.md
         - name: Update your Azure Percept DK over-the-air
-          href: how-to-ota-update.md
+          href: how-to-update-over-the-air.md
         - name: Update your Azure Percept DK via USB
-          href: usb-update.md
+          href: how-to-update-via-usb.md
     - name: Connect to your Azure Percept DK
       items:
         - name: Connect over SSH
@@ -93,8 +93,16 @@
           href: dev-tools-installer.md
     - name: Troubleshooting
       items:
+        - name: Troubleshooting overview
+          href: troubleshooting-main.md
         - name: Setup experience troubleshooting
           href: how-to-troubleshoot-setup.md
+        - name: General Azure Percept DK troubleshooting
+          href: general-devkit-troubleshooting.md
+        - name: Vision solution troubleshooting
+          href: vision-solution-troubleshooting.md
+        - name: Azure Percept Audio troubleshooting
+          href: audio-accessory-speech-module-troubleshooting.md
 
 - name: Reference
   items:

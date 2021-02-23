@@ -19,3 +19,7 @@ This [Jupyter notebook](https://github.com/microsoft/Project-Santa-Cruz-Private-
 - [Cloud development](./advanced_development_cloud.md): in this tutorial, you will run the notebook in the [Azure Machine Learning Portal](https://ml.azure.com) with a remote compute instance.
 
 - [Local development](./advanced_development_local.md): in this tutorial, you will run the notebook locally within VS Code with a remote compute instance.
+
+## Next steps
+
+Learn about all of the available [Azure Percept AI models](./overview-ai-models.md).

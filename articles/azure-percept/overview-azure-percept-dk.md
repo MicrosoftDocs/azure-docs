@@ -37,10 +37,13 @@ Azure Percept DK is an edge AI development kit designed for developing vision AI
 
 ## Get Started with the Azure Percept DK
 
-- Order one at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 - Complete these Quick Starts
 	- [Unbox and assemble the Azure Percept DK](./quickstart-percept-dk-unboxing.md)
-	- [Set up the Azure Percept DK and run your first vision AI model](./quickstart-percept-dk-setup.md)
+	- [Set up the Azure Percept DK and run your first vision AI model](./quickstart-percept-dk-set-up.md)
 - Start building proof of concepts with these tutorials
 	- [Create a no-code vision solution in Azure Percept Studio](./tutorial-nocode-vision.md)
-	- [Create a voice assistant in Azure Percept Studio](./tutorial-nocode-speech.md)
+	- [Create a voice assistant in Azure Percept Studio](./tutorial-no-code-speech.md)
+
+## Next steps
+
+Order an Azure Percept DK at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).

@@ -11,8 +11,12 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Azure Percept DK 80/20 integration overview
 
-The Azure Percept DK and Audio Accessory were designed to integrate with the [80/20 railing system](https://8020.net/). Each hardware component is built with the notches and protrusions to fit in the 1010 extrusion type. This integration enables customers and solution buiders to more easily extend their proof of concepts to production environments.
+The Azure Percept DK and Audio Accessory were designed to integrate with the [80/20 railing system](https://8020.net/). Each hardware component is built with the notches and protrusions to fit in the 1010 extrusion type. This integration enables customers and solution builders to more easily extend their proof of concepts to production environments.
 
+<!---
 ## Check out this video for more information on how to use Azure Percept DK with 80/20
+--->
 
-***Coming soon***
+## Next steps
+
+Learn about the [Azure Percept Audio accessory](./overview-azure-percept-audio.md).
