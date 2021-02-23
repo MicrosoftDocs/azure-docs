@@ -109,14 +109,16 @@ $vmss.VirtualMachineProfile.SecurityProfile.UefiSettings
 
 ## Add custom Linux kernel module signing keys 
 
-Use the serial console to add custom kernel module signing keys.
+Use the serial console to add custom kernel module signing keys. 
 
-1.	Enable Azure Serial Console for Linux.
+1.	Enable Azure Serial Console for Linux. For more information, see [Serial Console for Linux](serial-console-linux.md).
 2.	Log on to the VM using Azure Serial Console.
 3.	Type: `sudo mokutil --disable-validation`
+:::image type="content" source="media/trusted-launch/mok-mangement.png" alt-text="Mokutil being used in the serial console.":::
 4.	Reboot the machine from Azure Serial Console by typing `sudo reboot`. A 10 second countdown will begin.
 6.	Press up or down key to interrupt the countdown and wait in UEFI console mode. If the timer is not interrupted booting process continues and all the MOK changes are lost.
 7.	Select the appropriate action from the menu.
+:::image type="content" source="media/trusted-launch/serial-console-reboot.png" alt-text="Screenshot of the possible actions you can select from the menu.":::
 
 # Next steps
 
