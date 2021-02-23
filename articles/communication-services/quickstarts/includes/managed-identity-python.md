@@ -6,8 +6,8 @@ services: azure-communication-services
 author: stefang931
 ms.service: azure-communication-services
 ms.topic: how-to
-ms.date: 12/04/2020
-ms.author: gistefan
+ms.date: 23/02/2021
+ms.author: turalf
 ms.reviewer: mikben
 ---
 
