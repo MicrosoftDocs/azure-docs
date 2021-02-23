@@ -41,6 +41,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + Previously, it was possible to create a provisioning configuration with the minimum node count less than the maximum node count. This has now been fixed. If you now try to create a provisioning configuration with `min_nodes < max_nodes` the SDK will raise a `ComputeTargetException`.
     +  Fixes bug in wait_for_completion in AmlCompute which caused the function to return control flow before the operation was actually complete
     + Run.fail() is now deprecated, use Run.tag() to mark run as failed or use Run.cancel() to mark the run as canceled.
+    + Show error message 'Environment name expected str, {} found' when provided environment name is not a string.
   + **azureml-train-automl-client**
     + Fixed a bug that prevented AutoML experiments performed on Azure Databricks clusters from being cancelled.
 
