@@ -143,7 +143,7 @@ storage](https://docs.citusdata.com/en/stable/use_cases/timeseries.html#archivin
 
 ## Limitations
 
-Future versions of Hyperscale (Citus) will incrementally lift the current limitations:
+Hyperscale (Citus) currently has limitations with columnar tables:
 
 * Append-only (no UPDATE/DELETE support)
 * No space reclamation (for example, rolled-back transactions may still consume disk space)
