@@ -69,7 +69,6 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
     - In **Target location**, specify the Azure region to which you want to migrate.
        - Size and cost recommendations are based on the location that you specify.
-       - You can currently assess for four regions (Australia East, East US, West Europe, West US)
    - The **Storage type** is defaulted to **vSAN**. This is the default storage type for an AVS private cloud.
    - **Reserved Instances** aren't currently supported for AVS nodes.
 1. In **VM Size**:

@@ -108,19 +108,19 @@ Here's what's included in an AVS assessment:
 
 | **Property** | **Details** |
 | - | - |
-| **Target location** | Specifies the AVS private cloud location to which you want to migrate. AVS Assessment in currently supports four target regions: Australia East, East US, West Europe, West US. |
+| **Target location** | Specifies the AVS private cloud location to which you want to migrate. |
 | **Storage type** | Specifies the storage engine to be used in AVS. AVS currently only supports vSAN as a default storage type but more storage options will be coming as per roadmap. |
 | **Reserved Instances (RIs)** | This property helps you specify Reserved Instances in AVS if purchased and the term of the Reserved Instance. Used to calculate costs. |
-| **Node type** | Specifies the[AVS Node type](../azure-vmware/concepts-private-clouds-clusters.md) used to be used in Azure. The default node type is AV36. More node types might be available in future.  Azure Migrate will recommend a required number of nodes for the VMs to be migrated to AVS. |
+| **Node type** | Specifies the [AVS Node type](../azure-vmware/concepts-private-clouds-clusters.md) used to be used in Azure. The default node type is AV36. More node types might be available in future.  Azure Migrate will recommend a required number of nodes for the VMs to be migrated to AVS. |
 | **FTT Setting, RAID Level** | Specifies the valid combination of Failures to Tolerate and Raid combinations. The selected FTT option combined with RAID level and the on-premises VM disk requirement will determine the total vSAN storage required in AVS. Total available storage after calculations also includes a) space reserved for management objects such as vCenter and b) 25% storage slack required for vSAN operations. |
 | **Sizing criterion** | Sets the criteria to be used to determine memory, cpu and storage requirements for AVS nodes. You can opt for*performance-based* sizing or *as on-premises* without considering the performance history. To simply lift and shift choose as on-premises. To obtain usage based sizing choose performance based. |
 | **Performance history** | Sets the duration to consider in evaluating the performance data of machines. This property is applicable only when the sizing criteria is*performance-based*. |
 | **Percentile utilization** | Specifies the percentile value of the performance sample set to be considered for right-sizing. This property is applicable only when the sizing is performance-based. |
 | **Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory and disk). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage. For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. |
-| **Offer** | Displays the[Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in. Azure Migrate estimates the cost accordingly. |
+| **Offer** | Displays the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in. Azure Migrate estimates the cost accordingly. |
 | **Currency** | Shows the billing currency for your account. |
 | **Discount (%)** | Lists any subscription-specific discount you receive on top of the Azure offer. The default setting is 0%. |
-| **Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Although it has no impact on Azure VMware solutions pricing due to the node-based price, customers can still apply the on-premises OS or SQL licenses (Microsoft based) in AVS using Azure Hybrid Benefits. Other software OS vendors will have to provide their own licensing terms such as RHEL for example. |
+| **Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Although it has no impact on Azure VMware solutions pricing due to the node-based price, customers can still apply the on-premises OS or SQL licenses (Microsoft based) in AVS using Azure Hybrid Benefits. Other software OS vendors will have to provide their own licensing terms such as RHEL for example. |
 | **vCPU Oversubscription** | Specifies the ratio of number of virtual cores tied to one physical core in the AVS node. The default value in the calculations is 4 vCPU:1 physical core in AVS. API users can set this value as an integer. Note that vCPU Oversubscription > 4:1 may impact workloads depending on their CPU usage. When sizing we always assume 100% utilization of the cores chosen. |
 | **Memory overcommit factor** | Specifies the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5 for example is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place. |
 | **Dedupe and compression factor** | Specifies the anticipated dedupe and compression factor for your workloads. Actual value can be obtained from on-premises vSAN or storage config. These vary by workload. A value of 3 would mean 3x so for 300GB disk only 100GB storage would be used. A value of 1 would mean no dedupe or compression. You can only add values from 1 to 10 up to one decimal place. |
@@ -276,7 +276,7 @@ As the pricing for Azure VMware Solution (AVS) is per node, the total cost does 
 
 In the Azure readiness report for Azure VMware Solution (AVS) assessment, you can see the following suggested tools:
 
-- **VMware HCX or Enterprise**: For VMware machines, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud.[Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+- **VMware HCX or Enterprise**: For VMware machines, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 - **Unknown**: For machines imported via a CSV file, the default migration tool is unknown. Though for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution.
 
 ## Next steps
