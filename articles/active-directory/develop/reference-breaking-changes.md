@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 > Get notified of updates to this page by pasting this URL into your RSS feed reader:<br/>`https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us`
 
-The authentication system alters and adds features on an ongoing basis to improve security and standards compliance. To stay up-to-date with the most recent developments, this article provides you with information about the following details:
+The authentication system alters and adds features on an ongoing basis to improve security and standards compliance. To stay up to date with the most recent developments, this article provides you with information about the following details:
 
 - Latest features
 - Known issues
@@ -43,7 +43,7 @@ Applications using dynamic consent today are given all of the permissions they h
 
 In order to reduce the number of unnecessary Conditional Access prompts, Azure AD is changing the way that unrequested scopes are provided to applications so that only explicitly requested scopes trigger Conditional Access. This change may cause apps reliant on Azure AD's previous behavior (namely, providing all permissions even when they were not requested) to break, as the tokens they request will be missing permissions.
 
-Apps will now recieve access tokens with a mix of permissions in this - those requested, as well as those they have consent for that do not require Conditional Access prompts.  The scopes of the access  is reflected in the token response's `scope` parameter. 
+Apps will now receive access tokens with a mix of permissions in this - those requested, as well as those they have consent for that do not require Conditional Access prompts.  The scopes of the access token is reflected in the token response's `scope` parameter. 
 
 **Examples**
 
