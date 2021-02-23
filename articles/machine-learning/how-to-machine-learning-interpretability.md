@@ -32,7 +32,7 @@ Enabling the capability of explaining a machine learning model is important duri
 
 + During the inferencing phase, as having transparency around deployed models empowers executives to understand "when deployed" how the model is working and how its decisions are treating and impacting people in real life. 
 
-## Model interpretability with Azure Machine Learning
+## Interpretability with Azure Machine Learning
 
 The model interpretability classes are made available through the following SDK package: (Learn how to [install SDK packages for Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
 
