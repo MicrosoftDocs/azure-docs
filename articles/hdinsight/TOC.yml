@@ -809,6 +809,8 @@
         href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
     - name: Manage
       items:
+      - name: Migrate Default Hive Metastore to External Metastore
+        href: ./interactive-query/hive-default-metastore-export-import.md
       - name: Migrate Hive workloads to HDInsight 4.0
         href: ./interactive-query/apache-hive-migrate-workloads.md
       - name: Optimize Apache Hive queries
