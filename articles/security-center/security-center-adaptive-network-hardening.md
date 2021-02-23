@@ -16,13 +16,13 @@ ms.date: 03/11/2020
 ms.author: memildin
 ---
 
-# Adaptive network hardening in Azure Security Center
+# Improve your network security posture with adaptive network hardening
 Learn how to configure adaptive network hardening in Security Center.
 
 ## Availability
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|General Availability (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|Write permissions on the machine’s NSGs|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|

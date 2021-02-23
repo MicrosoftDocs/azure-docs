@@ -63,3 +63,5 @@ There are two ways you can subscribe to a Workspace. The client can try to disco
 ## Next steps
 
 To learn more about how to use the Windows Desktop client, check out [Get started with the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop/).
+
+If you're an admin who's interested in learning more in-depth information about how to use Windows Desktop, check out [Windows Desktop client for admins](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin).

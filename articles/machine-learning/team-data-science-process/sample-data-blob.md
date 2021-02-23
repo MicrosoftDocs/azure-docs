@@ -1,6 +1,6 @@
 ---
-title: Sample data in Azure blob storage - Team Data Science Process
-description: Sampling data stored in Azure blob storage by downloading it programmatically and then sampling it using procedures written in Python.
+title: Sample data in Azure Blob Storage - Team Data Science Process
+description: Sampling data stored in Azure Blob Storage by downloading it programmatically and then sampling it using procedures written in Python.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,17 +12,17 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
-# <a name="heading"></a>Sample data in Azure blob storage
+# <a name="heading"></a>Sample data in Azure Blob Storage
 
-This article covers sampling data stored in Azure blob storage by downloading it programmatically and then sampling it using procedures written in Python.
+This article covers sampling data stored in Azure Blob Storage by downloading it programmatically and then sampling it using procedures written in Python.
 
 **Why sample your data?**
 If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. Sampling facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
 
-This sampling task is a step in the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+This sampling task is a step in the [Team Data Science Process (TDSP)](./index.yml).
 
 ## Download and down-sample data
-1. Download the data from Azure blob storage using the Blob service from the following sample Python code: 
+1. Download the data from Azure Blob Storage using the Blob service from the following sample Python code: 
 
     ```python
     from azure.storage.blob import BlobService
@@ -96,7 +96,6 @@ You can use the following sample code to down-sample the data and use it directl
         print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
     ```
 
-3. Read the data from the Azure blob using Azure Machine Learning [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) as shown in the image below:
+3. Read the data from the Azure blob using Azure Machine Learning [Import Data](/azure/machine-learning/studio-module-reference/import-data) as shown in the image below:
 
 ![reader blob](./media/sample-data-blob/reader_blob.png)
-

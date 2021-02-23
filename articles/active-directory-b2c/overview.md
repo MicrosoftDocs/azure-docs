@@ -75,7 +75,7 @@ WoodGrove Groceries offers several sign-in options based on the relationship the
 
 * **Individual** customers can sign up or sign in with individual accounts, such as with a social identity provider or an email address and password.
 * **Business** customers can sign up or sign in with their enterprise credentials.
-* **Partners** and suppliers are individuals who supply the grocery store with products to sell. Partner identity is provided by [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
+* **Partners** and suppliers are individuals who supply the grocery store with products to sell. Partner identity is provided by [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md).
 
 ![Individual (B2C), business (B2C), and partner (B2B) sign-in pages](./media/overview/woodgrove-overview.png)
 
@@ -107,7 +107,7 @@ This policy presents the user with an option to use their corporate credentials 
 
 The **Sign in with your supplier account** link uses Azure Active Directory B2B's collaboration functionality. Azure AD B2B is a family of features in Azure Active Directory to manage partner identities. Those identities can be federated from Azure Active Directory for access into Azure AD B2C-protected applications.
 
-Learn more about Azure AD B2B in [What is guest user access in Azure Active Directory B2B?](../active-directory/b2b/what-is-b2b.md).
+Learn more about Azure AD B2B in [What is guest user access in Azure Active Directory B2B?](../active-directory/external-identities/what-is-b2b.md).
 
 <!-- UNCOMMENT WHEN REPO IS UPDATED WITH LATEST DEMO CODE
 ### Sample code

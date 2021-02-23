@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 11/02/2020
 ms.author: jeedes
 ---
 # Tutorial: Integrate Atlassian Cloud with Azure Active Directory
@@ -152,7 +152,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    
 1. Your Atlassian Cloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. You can edit the attribute mapping by clicking on **Edit** icon. 
 
-   ![attributes](./media/atlassian-cloud-tutorial/default-attributes.png)
+   ![attributes](./media/atlassian-cloud-tutorial/edit-attribute.png)
    
    1. Attribute mapping for an Azure AD tenant with a Microsoft 365 license
       
@@ -166,7 +166,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
       
       c. The final attribute mappings should look as follows.
 
-      ![image 2](common/default-attributes.png)
+      ![image 2](./media/atlassian-cloud-tutorial/default-attributes-1.png)
       
    1. Attribute mapping for an Azure AD tenant without a Microsoft 365 license 
 
@@ -180,7 +180,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
          
       c. The final attribute mappings should look as follows.
 
-      ![image 4](common/default-attributes.png)
+      ![image 4](./media/atlassian-cloud-tutorial/default-attributes-2.png)
      
 ### Create an Azure AD test user
 
@@ -244,6 +244,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 You can also use Microsoft Access Panel to test the application in any mode. When you click the Atlassian Cloud tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Atlassian Cloud for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 
-## Next Steps
+## Next steps
 
 Once you configure Atlassian Cloud you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

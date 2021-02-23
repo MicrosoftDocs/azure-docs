@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Get started in Jupyter Notebooks (Python)"
 titleSuffix: Azure Machine Learning
-description: Setup for Jupyter Notebook tutorials. Create an Azure Machine Learning workspace, clone Jupyter Notebooks into the workspace, and create a compute instance where you run the notebooks.
+description: Setup for Jupyter Notebook tutorials. Create  a workspace, clone  notebooks into the workspace, and create a compute instance where you run the notebooks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,6 +10,7 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
+adobe-target: true
 ---
 
 # Tutorial: Get started with Azure Machine Learning in Jupyter Notebooks
@@ -75,7 +76,7 @@ You complete the following experiment setup and run steps in Azure Machine Learn
     > [!IMPORTANT]
     > You can view notebooks in the **samples** folder but you can't run a notebook from there. To run a notebook, make sure you open the cloned version of the notebook in the **User Files** section.
     
-1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials/image-classification-mnist-data** folder.
+1. Select the **img-classification-part1-training.ipynb** file in your **tutorials/image-classification-mnist-data** folder.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Screenshot that shows the Open tutorials folder.":::
 

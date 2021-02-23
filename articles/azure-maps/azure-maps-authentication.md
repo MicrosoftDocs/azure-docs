@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: "Learn about two ways of authenticating requests in Azure Maps: shared key authentication and Azure Active Directory (Azure AD) authentication."
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/27/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -79,7 +79,7 @@ Azure Maps supports access to all principal types for [Azure role-based access c
 
 The next sections discuss concepts and components of Azure Maps integration with Azure RBAC. As part of the process to set up your Azure Maps account, an Azure AD directory is associated to the Azure subscription which the Azure Maps account resides. 
 
-When you configure Azure RBAC, you choose a security principal and apply it to a role assignment. To learn how to add role assignments on the Azure portal, see [Add or remove Azure role assignments](../role-based-access-control/role-assignments-portal.md).
+When you configure Azure RBAC, you choose a security principal and apply it to a role assignment. To learn how to add role assignments on the Azure portal, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
 
 ### Picking a role definition
 

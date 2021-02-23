@@ -78,6 +78,9 @@ All the role assignments at the HSM level for a specific user **user1@contoso.co
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user@contoso.com
 ```
 
+> [!NOTE]
+> When scope is / (or /keys) the list command only lists all the role assignments at the top level and does not show role assignments at individual key level.
+
 All role assignments for a specific user **user2@contoso.com** for a specific key **myrsakey**.
 
 ```azurecli-interactive
@@ -109,7 +112,7 @@ az keyvault role definition list --hsm-name ContosoMHSM
 
 ## Next steps
 
-- See an overview of [Azure role-based access control (RBAC)](../../role-based-access-control/overview.md).
+- See an overview of [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 - See a tutorial on [Managed HSM role management](role-management.md)
 - Learn more about [Managed HSM access control model](access-control.md)
 - See all the [built-in roles for Managed HSM local RBAC](built-in-roles.md)

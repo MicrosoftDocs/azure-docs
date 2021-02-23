@@ -10,6 +10,9 @@
   - name: Secure virtual hub - ARM template
     displayName: Resource Manager
     href: quick-secure-virtual-hub.md
+  - name: Deploy firewall with policy - ARM template
+    displayName: Resource Manager
+    href: quick-firewall-policy.md
 - name: Tutorials
   items:
   - name: Secure your virtual hub - portal
@@ -40,6 +43,10 @@
     href: threat-intelligence-settings.md
   - name: FQDN in network rules
     href: fqdn-filtering-network-rules.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Deploy security partner providers

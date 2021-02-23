@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 # Introduction to Azure managed disks
 
@@ -39,6 +39,10 @@ Managed disks support [Availability Zones](../availability-zones/az-overview.md)
 
 To protect against regional disasters, [Azure Backup](../backup/backup-overview.md) can be used to create a backup job with time-based backups and backup retention policies. This allows you to perform VM or managed disk restorations at will. Currently Azure Backup supports disk sizes up to 32 tebibyte (TiB) disks. [Learn more](../backup/backup-support-matrix-iaas.md) about Azure VM backup support.
 
+#### Azure Disk Backup
+
+Azure Backup offers Azure Disk Backup (preview) as a  native, cloud-based backup solution that protects your data in managed disks. It's a simple, secure, and cost-effective solution that enables you to configure protection for managed disks in a few steps. Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for configured duration using backup policy. For details on Azure Disk Backup, see [Overview of Azure Disk Backup (in preview)](../backup/disk-backup-overview.md).
+
 ### Granular access control
 
 You can use [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) to assign specific permissions for a managed disk to one or more users. Managed disks expose a variety of operations, including read, write (create/update), delete, and retrieving a [shared access signature (SAS) URI](../storage/common/storage-sas-overview.md) for the disk. You can grant access to only the operations a person needs to perform their job. For example, if you don't want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don't want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
@@ -65,7 +69,7 @@ Managed disks offer two different kinds of encryption. The first is Server Side 
 
 Server-side encryption provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. Server-side encryption is enabled by default for all managed disks, snapshots, and images, in all the regions where managed disks are available. (Temporary disks, on the other hand, are not encrypted by server-side encryption unless you enable encryption at host; see [Disk Roles: temporary disks](#temporary-disk)).
 
-You can either allow Azure to manage your keys for you, these are platform-managed keys, or you can manage the keys yourself, these are customer-managed keys. Visit the [Server-side encryption of Azure Disk Storage](windows/disk-encryption.md) article for details.
+You can either allow Azure to manage your keys for you, these are platform-managed keys, or you can manage the keys yourself, these are customer-managed keys. Visit the [Server-side encryption of Azure Disk Storage](./disk-encryption.md) article for details.
 
 
 #### Azure Disk Encryption
@@ -90,7 +94,7 @@ This disk has a maximum capacity of 4,095 GiB.
 
 ### Temporary disk
 
-Most VMs contain a temporary disk, which is not a managed disk. The temporary disk provides short-term storage for applications and processes, and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](./manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#understand-vm-reboots---maintenance-vs-downtime) or when you [redeploy a VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). During a successful standard reboot of the VM, data on the temporary disk will persist. For more information about VMs without temporary disks, see [Azure VM sizes with no local temporary disk](azure-vms-no-temp-disk.md).
+Most VMs contain a temporary disk, which is not a managed disk. The temporary disk provides short-term storage for applications and processes, and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](./manage-availability.md#understand-vm-reboots---maintenance-vs-downtime) or when you [redeploy a VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). During a successful standard reboot of the VM, data on the temporary disk will persist. For more information about VMs without temporary disks, see [Azure VM sizes with no local temporary disk](azure-vms-no-temp-disk.md).
 
 On Azure Linux VMs, the temporary disk is typically /dev/sdb and on Windows VMs the temporary disk is D: by default. The temporary disk is not encrypted by server side encryption unless you enable encryption at host.
 

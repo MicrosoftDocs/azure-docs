@@ -1,21 +1,17 @@
 ---
 title: Incrementally copy multiple tables using Azure portal
 description: In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to a database in Azure SQL Database.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/10/2020
+ms.date: 02/18/2021
 ---
 
 # Incrementally load data from multiple tables in SQL Server to a database in Azure SQL Database using the Azure portal
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to a database in Azure SQL Database.    
 
@@ -163,8 +159,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime 
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime 
 WHERE [TableName] = @TableName
 
 END
@@ -232,7 +228,7 @@ END
 ## Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**: 
+2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**: 
    
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 

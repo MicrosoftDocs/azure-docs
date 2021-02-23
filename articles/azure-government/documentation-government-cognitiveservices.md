@@ -636,8 +636,6 @@ You can also test out different languages and texts by replacing the "text", "fr
 
 ```csharp
 using System;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using System.Collections.Generic;
 using Microsoft.Rest;
 using System.Net.Http;

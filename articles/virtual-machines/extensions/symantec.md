@@ -4,6 +4,7 @@ description: Learn how to install and configure the Symantec Endpoint Protection
 author: roiyz
 tags: azure-service-management
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/31/2017

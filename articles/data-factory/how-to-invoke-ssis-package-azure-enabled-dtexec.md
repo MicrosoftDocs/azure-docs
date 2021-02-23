@@ -1,16 +1,11 @@
 ---
 title: Execute SQL Server Integration Services (SSIS) packages with the Azure-enabled dtexec utility
 description: Learn how to execute SQL Server Integration Services (SSIS) packages with the Azure-enabled dtexec utility. 
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/12/2020
 author: swinarko
 ms.author: sawinark
-manager: mflasko
-ms.reviewer: douglasl
 ---
 
 # Run SQL Server Integration Services packages with the Azure-enabled dtexec utility
@@ -19,7 +14,7 @@ ms.reviewer: douglasl
 
 This article describes the Azure-enabled dtexec (AzureDTExec) command prompt utility. It's used to run SQL Server Integration Services (SSIS) packages on the Azure-SSIS Integration Runtime (IR) in Azure Data Factory.
 
-The traditional dtexec utility comes with SQL Server. For more information, see [dtexec utility](/sql/integration-services/packages/dtexec-utility?view=sql-server-2017). It's often invoked by third-party orchestrators or schedulers, such as ActiveBatch and Control-M, to run SSIS packages on-premises. 
+The traditional dtexec utility comes with SQL Server. For more information, see [dtexec utility](/sql/integration-services/packages/dtexec-utility). It's often invoked by third-party orchestrators or schedulers, such as ActiveBatch and Control-M, to run SSIS packages on-premises. 
 
 The modern AzureDTExec utility comes with a SQL Server Management Studio (SSMS) tool. It can also be invoked by third-party orchestrators or schedulers to run SSIS packages in Azure. It facilitates the lifting and shifting or migration of your SSIS packages to the cloud. After migration, if you want to keep using third-party orchestrators or schedulers in your day-to-day operations, they can now invoke AzureDTExec instead of dtexec.
 
@@ -28,7 +23,7 @@ AzureDTExec runs your packages as Execute SSIS Package activities in Data Factor
 AzureDTExec can be configured via SSMS to use an Azure Active Directory (Azure AD) application that generates pipelines in your data factory. It can also be configured to access file systems, file shares, or Azure Files where you store your packages. Based on the values you give for its invocation options, AzureDTExec generates and runs a unique Data Factory pipeline with an Execute SSIS Package activity in it. Invoking AzureDTExec with the same values for its options reruns the existing pipeline.
 
 ## Prerequisites
-To use AzureDTExec, download and install the latest version of SSMS, which is version 18.3 or later. Download it from [this website](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+To use AzureDTExec, download and install the latest version of SSMS, which is version 18.3 or later. Download it from [this website](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## Configure the AzureDTExec utility
 Installing SSMS on your local machine also installs AzureDTExec. To configure its settings, start SSMS with the **Run as administrator** option. Then select **Tools** > **Migrate to Azure** > **Configure Azure-enabled DTExec**.
@@ -77,10 +72,10 @@ The utility is installed at `{SSMS Folder}\Common7\IDE\CommonExtensions\Microsof
   /De MyEncryptionPassword
 ```
 
-Invoking AzureDTExec offers similar options as invoking dtexec. For more information, see [dtexec Utility](/sql/integration-services/packages/dtexec-utility?view=sql-server-2017). Here are the options that are currently supported:
+Invoking AzureDTExec offers similar options as invoking dtexec. For more information, see [dtexec Utility](/sql/integration-services/packages/dtexec-utility). Here are the options that are currently supported:
 
 - **/F[ile]**: Loads a package that's stored in file system, file share, or Azure Files. As the value for this option, you can specify the UNC path for your package file in file system, file share, or Azure Files with its .dtsx extension. If the UNC path specified contains any space, put quotation marks around the whole path.
-- **/Conf[igFile]**: Specifies a configuration file to extract values from. Using this option, you can set a run-time configuration for your package that differs from the one specified at design time. You can store different settings in an XML configuration file and then load them before your package execution. For more information, see [SSIS package configurations](/sql/integration-services/packages/package-configurations?view=sql-server-2017). To specify the value for this option, use the UNC path for your configuration file in file system, file share, or Azure Files with its dtsConfig extension. If the UNC path specified contains any space, put quotation marks around the whole path.
+- **/Conf[igFile]**: Specifies a configuration file to extract values from. Using this option, you can set a run-time configuration for your package that differs from the one specified at design time. You can store different settings in an XML configuration file and then load them before your package execution. For more information, see [SSIS package configurations](/sql/integration-services/packages/package-configurations). To specify the value for this option, use the UNC path for your configuration file in file system, file share, or Azure Files with its dtsConfig extension. If the UNC path specified contains any space, put quotation marks around the whole path.
 - **/Conn[ection]**: Specifies connection strings for existing connection managers in your package. Using this option, you can set run-time connection strings for existing connection managers in your package that differ from the ones specified at design time. Specify the value for this option as follows: `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]`.
 - **/Set**: Overrides the configuration of a parameter, variable, property, container, log provider, Foreach enumerator, or connection in your package. This option can be specified multiple times. Specify the value for this option as follows: `property_path;value`. For example, `\package.variables[counter].Value;1` overrides the value of `counter` variable as 1. You can use the **Package Configuration** wizard to find, copy, and paste the value of `property_path` for items in your package whose value you want to override. For more information, see [Package Configuration wizard](/sql/integration-services/packages/legacy-package-deployment-ssis).
 - **/De[crypt]**: Sets the decryption password for your package that's configured with the **EncryptAllWithPassword**/**EncryptSensitiveWithPassword** protection level.

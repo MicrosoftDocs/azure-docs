@@ -1,5 +1,5 @@
 ---
-title: 'CLI: Back up an app'
+title: 'CLI: Backup an app'
 description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to back up an app.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 
 # Back up an app using CLI
@@ -34,14 +34,14 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Creates a resource group in which all resources are stored. |
-| [`az storage account create`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) | Creates a storage account. |
-| [`az storage container create`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) | Creates an Azure storage container. |
-| [`az storage container generate-sas`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-generate-sas) | Generates an SAS token for an Azure storage container.  |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Creates an App Service plan. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an App Service app. |
-| [`az webapp config backup create`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-create) | Creates a backup for an App Service app. |
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Gets a list of backups for an App Service app. |
+| [`az group create`](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) | Creates a storage account. |
+| [`az storage container create`](/cli/azure/storage/container#az-storage-container-create) | Creates an Azure storage container. |
+| [`az storage container generate-sas`](/cli/azure/storage/container#az-storage-container-generate-sas) | Generates an SAS token for an Azure storage container.  |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Creates an App Service plan. |
+| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Creates an App Service app. |
+| [`az webapp config backup create`](/cli/azure/webapp/config/backup#az-webapp-config-backup-create) | Creates a backup for an App Service app. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az-webapp-config-backup-list) | Gets a list of backups for an App Service app. |
 
 ## Next steps
 

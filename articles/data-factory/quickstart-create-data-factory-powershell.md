@@ -1,21 +1,14 @@
 ﻿---
 title: Copy data in Blob Storage using Azure Data Factory 
-description: Create an Azure data factory using PowerShell to copy data from one location in Azure Blob storage to another location.
-services: data-factory
-documentationcenter: ''
+description: Create an Azure Data Factory using PowerShell to copy data from one location in Azure Blob storage to another location.
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
 ---
-# Quickstart: Create an Azure data factory using PowerShell
+# Quickstart: Create an Azure Data Factory using PowerShell
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -23,7 +16,7 @@ ms.author: jingwang
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This quickstart describes how to use PowerShell to create an Azure data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](transform-data-using-spark.md).
+This quickstart describes how to use PowerShell to create an Azure Data Factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](transform-data-using-spark.md).
 
 > [!NOTE]
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
@@ -35,6 +28,9 @@ This quickstart describes how to use PowerShell to create an Azure data factory.
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+
+>[!WARNING]
+>If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
 
 #### Log in to PowerShell
 
@@ -94,7 +90,7 @@ Install the latest Azure PowerShell modules by following instructions in [How to
 
 Note the following points:
 
-* The name of the Azure data factory must be globally unique. If you receive the following error, change the name and try again.
+* The name of the Azure Data Factory must be globally unique. If you receive the following error, change the name and try again.
 
     ```
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
@@ -336,12 +332,12 @@ $RunId = Invoke-AzDataFactoryV2Pipeline `
             -PipelineRunId $RunId
 
         if ($Run) {
-            if ($run.Status -ne 'InProgress') {
+            if ( ($Run.Status -ne "InProgress") -and ($Run.Status -ne "Queued") ) {
                 Write-Output ("Pipeline run finished. The status is: " +  $Run.Status)
                 $Run
                 break
             }
-            Write-Output "Pipeline is running...status: InProgress"
+            Write-Output ("Pipeline is running...status: " + $Run.Status)
         }
 
         Start-Sleep -Seconds 10

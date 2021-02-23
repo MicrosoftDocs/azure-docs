@@ -1,6 +1,6 @@
 ---
-title: Resources for developing a Synapse SQL pool in Azure Synapse Analytics
-description: Development concepts, design decisions, recommendations, and coding techniques for Azure Synapse Analytics.
+title: Resources for developing a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
+description: Development concepts, design decisions, recommendations, and coding techniques for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,13 +12,15 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Design decisions and coding techniques for a Synapse SQL pool in Azure Synapse Analytics 
- In this article, you'll find additional resources to help you better understand key design decisions, recommendations, and coding techniques for a SQL pool in Azure Synapse.
+# Design decisions and coding techniques for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
+
+ In this article, you'll find additional resources to help you better understand key design decisions, recommendations, and coding techniques for a dedicated SQL pool (formerly SQL DW) in Azure Synapse.
 
 ## Key design decisions
-The following articles highlight concepts and design decisions for developing a distributed data warehouse using the SQL pool capability in Azure Synapse:
 
-* [connections](../sql/connect-overview.md)
+The following articles highlight concepts and design decisions for developing a distributed data warehouse using the dedicated SQL pool (formerly SQL DW) capability in Azure Synapse:
+
+* [connections](sql-data-warehouse-connect-overview.md)
 * [concurrency](resource-classes-for-workload-management.md)
 * [transactions](sql-data-warehouse-develop-transactions.md)
 * [user-defined schemas](sql-data-warehouse-develop-user-defined-schemas.md)
@@ -29,7 +31,8 @@ The following articles highlight concepts and design decisions for developing a 
 * [statistics](sql-data-warehouse-tables-statistics.md)
 
 ## Development recommendations and coding techniques
-The following articles feature specific coding techniques, tips, and recommendations for developing a SQL pool:
+
+The following articles feature specific coding techniques, tips, and recommendations for developing a dedicated SQL pool (formerly SQL DW):
 
 * [stored procedures](sql-data-warehouse-develop-stored-procedures.md)
 * [labels](sql-data-warehouse-develop-label.md)
@@ -41,4 +44,5 @@ The following articles feature specific coding techniques, tips, and recommendat
 * [variable assignment](sql-data-warehouse-develop-variable-assignment.md)
 
 ## Next steps
+
 For more reference information, see [T-SQL statements](sql-data-warehouse-reference-tsql-statements.md).

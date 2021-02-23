@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 To delegate access to Privileged Identity Management (PIM), a Global Administrator can assign other users to the Privileged Role Administrator role. By default, Security administrators and Security readers have read-only access to Privileged Identity Management. To grant access to Privileged Identity Management, the first user can assign others to the **Privileged Role Administrator** role. The Privileged Role Administrator role is required for managing Azure AD roles only. Privileged Role Administrator permissions aren't required to manage settings for Azure resources.
 
 > [!NOTE]
-> Managing Privileged Identity Management requires Azure Multi-Factor Authentication. Because Microsoft accounts can't register for Azure Multi-Factor Authentication, a user who signs in with a Microsoft account can't access Privileged Identity Management.
+> Managing Privileged Identity Management requires Azure AD Multi-Factor Authentication. Because Microsoft accounts can't register for Azure AD Multi-Factor Authentication, a user who signs in with a Microsoft account can't access Privileged Identity Management.
 
 Make sure there are always at least two users in a Privileged Role Administrator role, in case one user is locked out or their account is deleted.
 

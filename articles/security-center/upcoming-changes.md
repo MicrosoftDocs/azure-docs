@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2020
+ms.date: 02/17/2021
 ms.author: memildin
 
 ---
@@ -27,60 +27,78 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-### Recommendations related to Azure Security Benchmark to be added (preview)
+- [Two legacy recommendations will no longer write data directly to Azure activity log](#two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log)
+- [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
+- [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)
+- [Deprecation of 11 Azure Defender alerts](#deprecation-of-11-azure-defender-alerts)
 
-| Aspect | Details |
-|---------|---------|
-|Announcement date | 26 October 2020  |
-|Date for this change  |  November 2020 |
-|Impact     | Potentially, more recommendations to review.<br>No immediate impact on secure score - Preview recommendations don't affect your secure score.<br>No immediate impact on health status of your resources - Preview recommendations don't render a resource "Unhealthy".|
-|  |  |
 
-Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
+### Two legacy recommendations will no longer write data directly to Azure activity log 
 
-The following 29 new recommendations will be added to Security Center to increase the coverage of the benchmark.
+**Estimated date for change:** March 2021
 
-Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+Security Center passes the data for almost all security recommendations to Azure Advisor which, in turn, writes it to [Azure activity log](../azure-monitor/essentials/activity-log.md).
 
-- Azure Backup should be enabled for virtual machines
-- Audit retention for SQL servers should be set to at least 90 days
-- Diagnostic logs should be enabled in App Service 
-- Enforce SSL connection should be enabled for MySQL database servers
-- Enforce SSL connection should be enabled for PostgreSQL database servers
-- FTPS should be required in your API app
-- FTPS should be required in your function app
-- FTPS should be required in your web app
-- Geo-redundant backup should be enabled for Azure Database for MariaDB
-- Geo-redundant backup should be enabled for Azure Database for MySQL
-- Geo-redundant backup should be enabled for Azure Database for PostgreSQL
-- Java should be updated to the latest version for your API app
-- Java should be updated to the latest version for your function app
-- Java should be updated to the latest version for your web app
-- Managed identity should be used in your API app
-- Managed identity should be used in your function app
-- Managed identity should be used in your web app
-- PHP should be updated to the latest version for your API app
-- PHP should be updated to the latest version for your web app
-- Private endpoint should be enabled for MariaDB servers
-- Private endpoint should be enabled for MySQL servers
-- Private endpoint should be enabled for PostgreSQL servers
-- Python should be updated to the latest version for your API app
-- Python should be updated to the latest version for your function app
-- Python should be updated to the latest version for your web app
-- TLS should be updated to the latest version for your API app
-- TLS should be updated to the latest version for your function app
-- TLS should be updated to the latest version for your web app
-- Web apps should request an SSL certificate for all incoming requests
+For two recommendations, the data is simultaneously written directly to Azure activity log. With this change, Security Center will stop writing data for these legacy security recommendations directly to activity Log. Instead, we'll export the data to Azure Advisor as we do for all the other recommendations. 
 
-Related links:
+The two legacy recommendations are:
+- Endpoint protection health issues should be resolved on your machines
+- Vulnerabilities in security configuration on your machines should be remediated
 
-- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)
-- [Learn more about Azure API apps](../app-service/app-service-web-tutorial-rest-api.md)
-- [Learn more about Azure function apps](../azure-functions/functions-overview.md)
-- [Learn more about Azure web apps](../app-service/overview.md)
-- [Learn more about Azure Database for MariaDB](../mariadb/overview.md)
-- [Learn more about Azure Database for MySQL](../mysql/overview.md)
-- [Learn more about Azure Database for PostgreSQL](../postgresql/overview.md)
+If you've been accessing information for these two recommendations in activity log's "Recommendation of type TaskDiscovery" category, this will no longer be available.
+
+### Two recommendations from "Apply system updates" security control being deprecated 
+
+**Estimated date for change:** February 2021
+
+The following two recommendations are scheduled to be deprecated in February 2021:
+
+- **Your machines should be restarted to apply system updates**. This might result in a slight impact on your secure score.
+- **Monitoring agent should be installed on your machines**. This recommendation relates to on-premises machines only and some of its logic will be transferred to another recommendation, **Log Analytics agent health issues should be resolved on your machines**. This might result in a slight impact on your secure score.
+
+We recommend checking your continuous export and workflow automation configurations to see whether these recommendations are included in them. Also, any dashboards or other monitoring tools that might be using them should be updated accordingly.
+
+Learn more about these recommendations in the [security recommendations reference page](recommendations-reference.md).
+
+
+### Enhancements to SQL data classification recommendation
+
+**Estimated date for change:** Q2 2021
+
+The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently b0df6f56-862d-4730-8597-38c0fd4ebd59).
+
+
+### Deprecation of 11 Azure Defender alerts
+
+**Estimated date for change:** March 2021
+
+Next month, the eleven Azure Defender alerts listed below will be deprecated.
+
+- New alerts will replace these two alerts and provide better coverage:
+
+    | AlertType                | AlertDisplayName                                                         |
+    |--------------------------|--------------------------------------------------------------------------|
+    | ARM_MicroBurstDomainInfo | PREVIEW - MicroBurst toolkit "Get-AzureDomainInfo" function run detected |
+    | ARM_MicroBurstRunbook    | PREVIEW - MicroBurst toolkit "Get-AzurePasswords" function run detected  |
+    |                          |                                                                          |
+
+- These nine alerts relate to an Azure Active Directory Identity Protection connector that has already been deprecated:
+
+    | AlertType           | AlertDisplayName              |
+    |---------------------|-------------------------------|
+    | UnfamiliarLocation  | Unfamiliar sign-in properties |
+    | AnonymousLogin      | Anonymous IP address          |
+    | InfectedDeviceLogin | Malware linked IP address     |
+    | ImpossibleTravel    | Atypical travel               |
+    | MaliciousIP         | Malicious IP address          |
+    | LeakedCredentials   | Leaked credentials            |
+    | PasswordSpray       | Password Spray                |
+    | LeakedCredentials   | Azure AD threat intelligence  |
+    | AADAI               | Azure AD AI                   |
+    |                     |                               |
+ 
+
+
 
 ## Next steps
 

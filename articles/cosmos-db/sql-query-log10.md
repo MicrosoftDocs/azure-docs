@@ -3,6 +3,7 @@ title: LOG10 in Azure Cosmos DB query language
 description: Learn about the LOG10 SQL system function in Azure Cosmos DB to return the base-10 logarithm of the specified numeric expression
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins

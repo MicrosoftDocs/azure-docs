@@ -64,7 +64,7 @@ Each of these options is described in the [detailed instructions](status-monitor
   - The [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) cmdlet can be used to verify that enablement succeeded.
   - We recommend you use [Live Metrics](./live-stream.md) to quickly determine if your app is sending telemetry.
 
-  - You can also use [Log Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry:
+  - You can also use [Log Analytics](../logs/log-analytics-tutorial.md) to list all the cloud roles currently sending telemetry:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -73,9 +73,9 @@ Each of these options is described in the [detailed instructions](status-monitor
 
 View your telemetry:
 
-* [Explore metrics](../platform/metrics-charts.md) to monitor performance and usage.
+* [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage.
 * [Search events and logs](./diagnostic-search.md) to diagnose problems.
-* [Use Analytics](../log-query/log-query-overview.md) for more advanced queries.
+* [Use Analytics](../logs/log-query-overview.md) for more advanced queries.
 * [Create dashboards](./overview-dashboard.md).
 
 Add more telemetry:
@@ -83,4 +83,3 @@ Add more telemetry:
 * [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
 * [Add web client telemetry](./javascript.md) to see exceptions from web page code and to enable trace calls.
 * [Add the Application Insights SDK to your code](./asp-net.md) so you can insert trace and log calls.
-

@@ -3,8 +3,8 @@ title: Continuous patient monitoring architecture in Azure IoT Central | Microso
 description: Tutorial - Learn about a continuous patient monitoring solution architecture.
 author: philmea
 ms.author: philmea
-ms.date: 09/14/2020
-ms.topic: overview
+ms.date: 12/11/2020
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
@@ -40,7 +40,7 @@ Use machine learning models with your FHIR data to generate insights and support
 
 ### Provider dashboard
 
-Use the Azure API for FHIR data to build a patient insights dashboard or integrate it directly into an electronic medical record used by care teams. Care teams can use the dashboard to assist patients and identify early warning signs of deterioration. To learn more, see the [Build a Power BI provider dashboard](howto-health-data-triage.md) tutorial.
+Use the Azure API for FHIR data to build a patient insights dashboard or integrate it directly into an electronic medical record used by care teams. Care teams can use the dashboard to assist patients and identify early warning signs of deterioration. To learn more, see the [Build a Power BI provider dashboard](tutorial-health-data-triage.md) tutorial.
 
 ## Next steps
 

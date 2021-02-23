@@ -29,11 +29,24 @@ Learn how to use the Azure portal to set up and manage data encryption for your 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
+  * Retention days set to 90 days
+  
+    ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
+    ```
 
 * The key must have the following attributes to use as a customer-managed key:
   * No expiration date
   * Not disabled
-  * Able to perform get, wrap key, unwrap key operations
+  * Perform **get**, **wrap**, **unwrap** operations
+  * recoverylevel attribute set to **Recoverable** (this requires soft-delete enabled with retention period set to 90 days)
+  * Purge protection enabled
+
+You can verify the above attributes of the key by using the following command:
+
+```azurecli-interactive
+az keyvault key show --vault-name <key_vault_name> -n <key_name>
+```
 
 ## Set the right permissions for key operations
 

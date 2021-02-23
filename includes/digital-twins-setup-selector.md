@@ -13,4 +13,5 @@
 > [!div class="op_single_selector"]
 > * [Portal](../articles/digital-twins/how-to-set-up-instance-portal.md)
 > * [CLI](../articles/digital-twins/how-to-set-up-instance-cli.md)
+> * [PowerShell](../articles/digital-twins/how-to-set-up-instance-powershell.md)
 > * [Scripted](../articles/digital-twins/how-to-set-up-instance-scripted.md)

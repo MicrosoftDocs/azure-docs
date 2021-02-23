@@ -45,7 +45,7 @@ The architecture is designed to ensure that a privileged account is granted only
 |---|---|---|
 |Secure Devices |<ul><li>Privileged Workstation</li><li>Mobile Device</li><li>Microsoft Intune</li><li>Group Policy</li><li>Jump Server / Bastion Host</li><li>Just in Time (JIT) Administration</li></ul> |<ul><li>Privileged workstations</li><li>Jump boxes</li></ul>|
 |Secure Communication |<ul><li>Azure portal</li><li>Azure VPN Gateway</li><li>Remote Desktop (RD) Gateway</li><li>Network Security Groups (NSGs)</li></ul> |<ul><li>Network segmentation and segregation</li></ul>|
-|Strong Authentication |<ul><li>Domain Controller (DC)</li><li>Azure Active Directory (Azure AD)</li><li>Network Policy Server (NPS)</li><li>Azure MFA</li></ul> |<ul><li>Multi-factor authentication</li></ul> |
+|Strong Authentication |<ul><li>Domain Controller (DC)</li><li>Azure Active Directory (Azure AD)</li><li>Network Policy Server (NPS)</li><li>Azure AD MFA</li></ul> |<ul><li>Multi-factor authentication</li></ul> |
 |Strong Authorisation |<ul><li>Identity and Access Management (IAM)</li><li>Privileged Identity Management (PIM)</li><li>Conditional Access</li></ul>|<ul><li>Privileged access control</li></ul>|
 |||
 
@@ -67,7 +67,7 @@ Gaining access for administration is a multi-step process involving the componen
 |---|---|
 |Privileged Workstation sign in |The administrator signs in the privileged workstation using administrative credentials. Group Policy controls prevent non-administrative accounts from authenticating to the privileged workstation and prevents administrative accounts from authenticating to non-privileged workstations. Microsoft Intune manages the compliance of the privileged workstation to ensure that it is up-to-date with software patches, antimalware, and other compliance requirements. |
 |Azure portal sign in |The administrator opens a web browser to the Azure portal, which is encrypted using Transport Layer Security (TLS), and signs in on using administrative credentials. The authentication request is processed through Azure Active Directory directly or through authentication mechanisms such as Active Directory Federation Services (AD FS) or Pass-through authentication. |
-|Azure MFA |Azure MFA sends an authentication request to the registered mobile device of the privileged account. The mobile device is managed by Intune to ensure compliance with security requirements. The administrator must authenticate first to the mobile device and then to the Microsoft Authenticator App using a PIN or Biometric system before the authentication attempt is authorised to Azure MFA. |
+|Azure AD MFA |Azure AD MFA sends an authentication request to the registered mobile device of the privileged account. The mobile device is managed by Intune to ensure compliance with security requirements. The administrator must authenticate first to the mobile device and then to the Microsoft Authenticator App using a PIN or Biometric system before the authentication attempt is authorised to Azure AD MFA. |
 |Conditional Access |Conditional Access policies check the authentication attempt to ensure that it meets the necessary requirements such as the IP address the connection is coming from, group membership for the privileged account, and the management and compliance status of the privileged workstation as reported by Intune. |
 |Privileged Identity Management (PIM) |Through the Azure portal the administrator can now activate or request activation for the privileged roles for which they have authorisation through PIM. PIM ensures that privileged accounts do not have any standing administrative privileges and that all requests for privileged access are only for the time required to perform administrative tasks. PIM also provides logging of all requests and activations for auditing purposes. |
 |Identity and Access Management|Once the privileged account has been securely identified and roles activated, the administrator is provided access to the Azure subscriptions and resources that they have been assigned permissions to through Identity and Access Management.|
@@ -81,8 +81,8 @@ Once the privileged account has completed the steps to gain administrative acces
 |Just in Time (JIT) Access|To obtain access to virtual machines, the Administrator uses JIT to request access to RDP to the Jump Server from the RD Gateway IP address and RDP or SSH from the Jump Server to the relevant workload virtual machines.|
 |Azure VPN Gateway|The administrator now establishes a Point-to-Site IPSec VPN connection from their privileged workstation to the Azure VPN Gateway, which performs certificate  authentication to establish the connection.|
 |RD Gateway|The administrator now attempts an RDP connection to the Jump Server with the RD Gateway specified in the Remote Desktop Connection configuration. The RD Gateway has a private IP address that is reachable through the Azure VPN Gateway connection. Policies on the RD Gateway control whether the privileged account is authorised to access the requested Jump Server. The RD Gateway prompts the administrator for credentials and forwards the authentication request to the Network Policy Server (NPS).|
-|Network Policy Server (NPS)|The NPS receives the authentication request from the RD Gateway and validates the username and password against Active Directory before sending a request to Azure Active Directory to trigger an Azure MFA authentication request.|
-|Azure MFA|Azure MFA sends an authentication request to the registered mobile device of the privileged account. The mobile device is managed by Intune to ensure compliance with security requirements. The administrator must authenticate first to the mobile device and then to the Microsoft Authenticator App using a PIN or Biometric system before the authentication attempt is authorised to Azure MFA.|
+|Network Policy Server (NPS)|The NPS receives the authentication request from the RD Gateway and validates the username and password against Active Directory before sending a request to Azure Active Directory to trigger an Azure AD MFA authentication request.|
+|Azure AD MFA|Azure AD MFA sends an authentication request to the registered mobile device of the privileged account. The mobile device is managed by Intune to ensure compliance with security requirements. The administrator must authenticate first to the mobile device and then to the Microsoft Authenticator App using a PIN or Biometric system before the authentication attempt is authorised to Azure AD MFA.|
 |Jump Server|Once successfully authenticated, the RDP connection is encrypted using Transport Layer Security (TLS) and then sent through the encrypted IPSec tunnel to the Azure VPN Gateway, through the RD Gateway and on to the Jump Server. From the Jump Server, the administrator can now RDP or SSH to workload virtual machines as specified in the JIT request.|
 
 ## General guidance
@@ -123,7 +123,7 @@ The privileged workstation is a hardened machine that can be used to perform adm
 
 |Resources|Link|
 |---|---|
-|Privileged Access Workstations Architecture Overview|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)|
+|Privileged Access Workstations Architecture Overview|[https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/](/security/compass/privileged-access-deployment)|
 |Securing Privileged Access Reference Material|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)|
 
 ### Mobile device
@@ -233,20 +233,20 @@ identities and provides authentication and authorisation for an Azure environmen
 
 ### Network Policy Server (NPS)
 
-An NPS is an authentication and policy server that provides advanced authentication and authorisation processes. The NPS server in this architecture is provided to integrate Azure MFA authentication with RD Gateway authentication requests. The NPS has a specific plug-in to support integration with Azure MFA in Azure AD.
+An NPS is an authentication and policy server that provides advanced authentication and authorisation processes. The NPS server in this architecture is provided to integrate Azure AD MFA authentication with RD Gateway authentication requests. The NPS has a specific plug-in to support integration with Azure AD MFA in Azure AD.
 
 |Resources |Link |
 |---|---|
 |Network Policy Server Documentation|[https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top](/windows-server/networking/technologies/nps/nps-top)|
 
-### Azure MFA
+### Azure AD MFA
 
-Azure MFA is an authentication service provided within Azure Active Directory to enable authentication requests beyond a username and password for accessing cloud resources such as the Azure portal. Azure MFA supports a range of authentication methods and this architecture utilises the Microsoft Authenticator App for enhanced security and integration with the NPS.
+Azure AD MFA is an authentication service provided within Azure Active Directory to enable authentication requests beyond a username and password for accessing cloud resources such as the Azure portal. Azure AD MFA supports a range of authentication methods and this architecture utilises the Microsoft Authenticator App for enhanced security and integration with the NPS.
 
 |Resources |Link |
 |---|---|
-|How it works: Azure Multi-Factor Authentication|[https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks](../active-directory/authentication/concept-mfa-howitworks.md)|
-|How to: Deploy cloud-based Azure Multi-Factor Authentication|[https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted](../active-directory/authentication/howto-mfa-getstarted.md)|
+|How it works: Azure AD Multi-Factor Authentication|[https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks](../active-directory/authentication/concept-mfa-howitworks.md)|
+|How to: Deploy cloud-based Azure AD Multi-Factor Authentication|[https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted](../active-directory/authentication/howto-mfa-getstarted.md)|
 
 ## Strong authorisation
 

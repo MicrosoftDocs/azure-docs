@@ -3,6 +3,7 @@ title: Conflict resolution types and resolution policies in Azure Cosmos DB
 description: This article describes the conflict categories and conflict resolution policies in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown

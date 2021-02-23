@@ -67,10 +67,10 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 ### Grant access to your key vault
 
-Create an access policy for your key vault that grants secret permission to your user account
+Create an access policy for your key vault that grants certificate permission to your user account
 
 ```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create
 ```
 
 #### Set environment variables
@@ -83,7 +83,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS or Linux
@@ -212,5 +212,5 @@ az group delete --resource-group KeyVault-PythonQS-rg
 - [Overview of Azure Key Vault](../general/overview.md)
 - [Secure access to a key vault](../general/secure-your-key-vault.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
-- [Azure Key Vault best practices](../general/best-practices.md)
+- [Key Vault security overview](../general/security-overview.md)
 - [Authenticate with Key Vault](../general/authentication.md)

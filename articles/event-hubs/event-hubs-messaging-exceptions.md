@@ -2,7 +2,7 @@
 title: Azure Event Hubs - exceptions (legacy)
 description: This article provides a list of Azure Event Hubs messaging exceptions and suggested actions.
 ms.topic: article
-ms.date: 11/02/2020
+ms.date: 02/10/2021
 ---
 
 # Event Hubs messaging exceptions - .NET (legacy)
@@ -120,16 +120,16 @@ This error can occur for one of two reasons:
     
     On the **Overview** page, in the **Show metrics** section, switch to the **Throughput** tab. Select the chart to open it in a larger window with 1-minute intervals on the x-axis. Look at the peak values and divide them by 60 to get incoming bytes/second or outgoing bytes/second. Use similar approach to calculate number of requests per second at peak times on the **Requests** tab. 
 
-    If you see values higher than number of TUs * limits (1 MB per second for ingress or 1000 requests for ingress/second, 2 MB per second for egress), increase the number of TUs by using the **Scale** (on the left menu) page of an Event Hubs namespace to manually scale higher or to use the [Auto-inflate](event-hubs-auto-inflate.md) feature of Event Hubs. Note that auto-Inflate can only increase up to 20 TUS. To raise it to exactly 40 TUs, submit a [support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+    If you see values higher than number of TUs * limits (1 MB per second for ingress or 1000 requests for ingress/second, 2 MB per second for egress), increase the number of TUs by using the **Scale** (on the left menu) page of an Event Hubs namespace to manually scale higher or to use the [Auto-inflate](event-hubs-auto-inflate.md) feature of Event Hubs. Note that auto-Inflate can only increase up to 20 TUS. To raise it to exactly 40 TUs, submit a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
-### Error code 50001
+### Error code 50008
 
 This error should rarely occur. It happens when the container running code for your namespace is low on CPU – not more than a few seconds before the Event Hubs load balancer begins.
 
-**Resolution**: Limit on calls to the GetRuntimeInformation method. Azure Event Hubs supports up to 50 calls per second to the GetRuntimeInfo per second. You may receive an exception similar to the following one once the limit is reached:
+**Resolution**: Limit calls to the GetRuntimeInformation method. Azure Event Hubs supports up to 50 calls per second per consumer group to the GetRuntimeInfo per second. You may receive an exception similar to the following one once the limit is reached:
 
 ```
-ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.
+ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50008. Please wait 10 seconds and try again.
 ```
 
 

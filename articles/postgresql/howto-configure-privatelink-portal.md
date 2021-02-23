@@ -217,7 +217,7 @@ After you've created **myVm**, connect to it from the internet as follows:
     Address:  10.1.3.4
     ```
 
-3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
+3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) to do the operation.
 
 4. In **New connection**, enter or select this information:
 

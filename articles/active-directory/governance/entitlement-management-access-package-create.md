@@ -105,6 +105,9 @@ On the **Resource roles** tab, you select the resources to include in the access
 
 1. Click **Next**.
 
+>[!NOTE]
+>You can add dynamic groups to a catalog and to an access package. However, you will be able to select only the Owner role when managing a dynamic group resource in an access package.
+
 ## Requests
 
 On the **Requests** tab, you create the first policy to specify who can request the access package and also approval settings. Later, you can create more request policies to allow additional groups of users to request the access package with their own approval settings.
@@ -123,7 +126,7 @@ On the **Review + create** tab, you can review your settings and check for any v
 
 1. Review the access package's settings
 
-    ![Access package - Policy- Enable policy setting](./media/entitlement-management-access-package-create/review-create.png)
+    ![Access package - Enable policy setting](./media/entitlement-management-access-package-create/review-create.png)
 
 1. Click **Create** to create the access package.
 

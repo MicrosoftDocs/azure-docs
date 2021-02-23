@@ -17,14 +17,14 @@ ms.reviewer: bagovind
 ---
 # List Azure role assignments using Azure CLI
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using Azure CLI.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] This article describes how to list role assignments using Azure CLI.
 
 > [!NOTE]
 > If your organization has outsourced management functions to a service provider who uses [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md), role assignments authorized by that service provider won't be shown here.
 
 ## Prerequisites
 
-- [Bash in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure)
+- [Bash in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure)
 
 ## List role assignments for a user
 
@@ -181,4 +181,4 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## Next steps
 
-- [Add or remove Azure role assignments using Azure CLI](role-assignments-cli.md)
+- [Assign Azure roles using Azure CLI](role-assignments-cli.md)

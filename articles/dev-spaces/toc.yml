@@ -47,8 +47,6 @@
       href: how-to/setup-cicd.md
     - name: Use GitHub Actions with Azure Dev Spaces (preview)
       href: how-to/github-actions.md
-    - name: Use Azure Dev Spaces plug-in for Jenkins
-      href: /azure/developer/jenkins/azure-dev-spaces-and-aks
     - name: Business continuity and disaster recovery for Azure Dev Spaces
       href: how-to/dev-spaces-business-continuity.md
     - name: Interact with Windows containers

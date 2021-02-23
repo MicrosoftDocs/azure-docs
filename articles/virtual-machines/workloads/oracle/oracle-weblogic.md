@@ -2,18 +2,19 @@
 title: What are solutions for running Oracle WebLogic Server on Azure Virtual Machines
 description: Learn how to run Oracle WebLogic Server on Microsoft Azure Virtual Machines.
 author: rezar
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: rezar
-ms.reviewer: cynthn
 
 ---
 # What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?
 
 This page describes the solutions for running Oracle WebLogic Server (WLS) on Azure virtual machines. These solutions are jointly developed and supported by Oracle and Microsoft.
 
-It is also possible to run WLS on the Azure Kubernetes Service. The solutions to do so are described in [this Microsoft article](/azure/virtual-machines/workloads/oracle/weblogic-aks).
+It is also possible to run WLS on the Azure Kubernetes Service. The solutions to do so are described in [this Microsoft article](./weblogic-aks.md).
 
 WLS is a leading Java application server running some of the most mission critical enterprise Java applications across the globe. WLS forms the middleware foundation for the Oracle software suite. Oracle and Microsoft are committed to empowering WLS customers with choice and flexibility to run workloads on Azure as a leading cloud platform.
 

@@ -4,6 +4,7 @@ description: Learn how to create a live weather dashboard in Power BI using Azur
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
@@ -43,7 +44,7 @@ Azure Analysis Services provides a fully managed platform as a service that host
 
 ### Ingest weather data into Azure Cosmos DB
 
-Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) to Azure Cosmos DB. You can set up an [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) job to periodically load the latest weather data into Azure Cosmos DB using the HTTP Source and Cosmos DB sink.
+Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dataset?groups=climate5434&#topic=climate_navigation) to Azure Cosmos DB. You can set up an [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) job to periodically load the latest weather data into Azure Cosmos DB using the HTTP Source and Cosmos DB sink.
 
 
 ### Connect Power BI to Azure Cosmos DB
@@ -89,7 +90,7 @@ Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dat
 
 ### Ingest weather data into Azure Cosmos DB 
 
-Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) to Azure Cosmos DB. You can set up an Azure Data Factory(ADF) job to periodically load the latest weather data into Azure Cosmos DB using the HTTP Source and Cosmos DB Sink.
+Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dataset?groups=climate5434&#topic=climate_navigation) to Azure Cosmos DB. You can set up an Azure Data Factory(ADF) job to periodically load the latest weather data into Azure Cosmos DB using the HTTP Source and Cosmos DB Sink.
 
 ### Connect Azure Analysis Services to Azure Cosmos account
 

@@ -212,4 +212,4 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## Next steps
 
-Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn how to redirect HTTP traffic to an HTTPS endpoint.
+Visit [Application Gateway redirect overview](./redirect-overview.md) to learn how to redirect HTTP traffic to an HTTPS endpoint.

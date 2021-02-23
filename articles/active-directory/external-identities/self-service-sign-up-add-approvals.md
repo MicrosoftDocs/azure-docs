@@ -23,6 +23,9 @@ This article gives an example of how to integrate with an approval system. In th
 - Automatically approve the user and allow Azure AD to create the user account.
 - Trigger a manual review. If the request is approved, the approval system uses Microsoft Graph to provision the user account. The approval system can also notify the user that their account has been created.
 
+> [!IMPORTANT]
+>**Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
+
 ## Register an application for your approval system
 
 You need to register your approval system as an application in your Azure AD tenant so it can authenticate with Azure AD and have permission to create users. Learn more about [authentication and authorization basics for Microsoft Graph](/graph/auth/auth-concepts).
@@ -266,7 +269,7 @@ After obtaining manual approval, the custom approval system creates a [user](/gr
 > [!IMPORTANT]
 > The approval system should explicitly check that `identities`, `identities[0]` and `identities[0].issuer` are present and that `identities[0].issuer` equals 'facebook' or 'google' to use this method.
 
-If your user signed in with a Google or Facebook account, you can use the [User creation API](/graph/api/user-post-users?tabs=http&view=graph-rest-1.0).
+If your user signed in with a Google or Facebook account, you can use the [User creation API](/graph/api/user-post-users?tabs=http).
 
 1. The approval system uses receives the HTTP request from the user flow.
 
@@ -326,7 +329,7 @@ Content-type: application/json
 
 ### For a federated Azure Active Directory user
 
-If a user signs in with a federated Azure Active Directory account, you must use the [invitation API](/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
+If a user signs in with a federated Azure Active Directory account, you must use the [invitation API](/graph/api/invitation-post) to create the user and then optionally the [user update API](/graph/api/user-update) to assign more attributes to the user.
 
 1. The approval system receives the HTTP request from the user flow.
 

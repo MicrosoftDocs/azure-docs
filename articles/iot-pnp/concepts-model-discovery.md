@@ -116,11 +116,11 @@ Solutions can use the [model repository](concepts-model-repository.md) to retrie
 
 After you identify the model ID for a new device connection, follow these steps:
 
-1. Retrieve the model definition using the model ID from the model repository. For more information, see [Get Models](/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+1. Retrieve the model definition using the model ID from the model repository. For more information, see [Device model Repository](concepts-model-repository.md).
 
 1. Using the model definition of the connected device, you can enumerate the capabilities of the device.
 
-1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](quickstart-service-node.md).
+1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](quickstart-service.md).
 
 ### Custom store
 
@@ -132,12 +132,12 @@ After you identify the model ID for a new device connection, follow these steps:
 
 1. Using the model definition of the connected device, you can enumerate the capabilities of the device. 
 
-1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](quickstart-service-node.md).  
+1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](quickstart-service.md).  
 
 ## Next steps
 
 Now that you've learned how to integrate IoT Plug and Play models in an IoT solution, some suggested next steps are:
 
-- [Interact with a device from your solution](quickstart-service-node.md)
+- [Interact with a device from your solution](quickstart-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT explorer](howto-use-iot-explorer.md)

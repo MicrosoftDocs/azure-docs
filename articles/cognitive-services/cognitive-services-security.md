@@ -217,5 +217,5 @@ The Speech service doesn't currently support Customer Lockbox. However, customer
 
 ## Next steps
 
-* Explore the various [Cognitive Services](welcome.md)
+* Explore the various [Cognitive Services](./what-are-cognitive-services.md)
 * Learn more about [Cognitive Services Virtual Networks](cognitive-services-virtual-networks.md)

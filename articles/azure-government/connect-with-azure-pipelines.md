@@ -29,7 +29,7 @@ This article helps you use Azure Pipelines to set up continuous integration (CI)
 Before starting this tutorial, you must have the following:
 
 + [Create an organization in Azure DevOps](/azure/devops/organizations/accounts/create-organization?view=vsts)
-+ [Create and add a project to the Azure DevOps organization](/azure/devops/organizations/projects/create-project?;bc=%252fazure%252fdevops%252fuser-guide%252fbreadcrumb%252ftoc.json&tabs=new-nav&toc=%252fazure%252fdevops%252fuser-guide%252ftoc.json&view=vsts)
++ [Create and add a project to the Azure DevOps organization](/azure/devops/organizations/projects/create-project?;bc=%2fazure%2fdevops%2fuser-guide%2fbreadcrumb%2ftoc.json&tabs=new-nav&toc=%2fazure%2fdevops%2fuser-guide%2ftoc.json&view=vsts)
 + Install and set up [Azure Powershell](/powershell/azure/install-az-ps)
 
 If you don't have an active Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.

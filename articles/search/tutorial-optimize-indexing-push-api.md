@@ -3,12 +3,12 @@ title: 'C# tutorial optimize indexing with the push API'
 titleSuffix: Azure Cognitive Search
 description: Learn how to efficiently index data using Azure Cognitive Search's push API. This tutorial and sample code are in C#.
 
-manager: liamca
+manager: luisca
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/12/2020
+ms.date: 1/29/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -69,7 +69,7 @@ API calls require the service URL and an access key. A search service is created
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-   ![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+   ![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
 
 ## 2 - Set up your environment
 
@@ -158,7 +158,7 @@ The schema of your index can have a significant impact on indexing speeds. Becau
 Azure Cognitive Search supports the following APIs to load single or multiple documents into an index:
 
 + [Add, Update, or Delete Documents (REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [IndexDocumentsAction class](/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet) or [IndexDocumentsBatch class](/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
++ [IndexDocumentsAction class](/dotnet/api/azure.search.documents.models.indexdocumentsaction) or [IndexDocumentsBatch class](/dotnet/api/azure.search.documents.models.indexdocumentsbatch)
 
 Indexing documents in batches will significantly improve indexing performance. These batches can be up to 1000 documents, or up to about 16 MB per batch.
 

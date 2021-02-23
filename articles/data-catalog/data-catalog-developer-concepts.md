@@ -8,6 +8,9 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ---
 # Azure Data Catalog developer concepts
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 Microsoft **Azure Data Catalog** is a fully managed cloud service that provides capabilities for data source discovery and for crowdsourcing data source metadata. Developers can use the service via its REST APIs. Understanding the concepts implemented in the service is important for developers to successfully integrate with **Azure Data Catalog**.
 
 ## Key concepts 

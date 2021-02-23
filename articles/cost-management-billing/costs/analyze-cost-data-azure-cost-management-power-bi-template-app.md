@@ -3,7 +3,7 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Azure Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2020
+ms.date: 1/29/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -14,9 +14,9 @@ ms.reviewer: benshy
 
 This article explains how to install and use the Azure Cost Management Power BI app. The app helps you analyze and manage your Azure costs in Power BI. You can use the app to monitor costs, usage trends, and identify cost optimization options to reduce your expenditures.
 
-You can use the app as-is, or you can modify it to extend the default filters, views, and visualizations to customize for your needs. Then, use it to join additional data to create customized reports to get holistic views of your overall business cost.
+The Azure Cost Management Power BI app currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
-The Azure Cost Management Power BI App currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
+The app limits customizability. If you want to modify and extend the default filters, views, and visualizations to customize for your needs, use [Azure Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) instead. With the Azure Cost Management connector you can join additional data from other sources to create customized reports to get holistic views of your overall business cost. The connector also supports Microsoft Customer Agreements.
 
 > [!NOTE]
 > Power BI template apps don't support downloading the PBIX file.
@@ -199,8 +199,8 @@ The following information summarizes the data available through the app. There's
 | [**Budgets**](/rest/api/consumption/budgets/get#definitions) | Budget details to view actual costs or usage against existing budget targets. |
 | [**Pricesheets**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) | Applicable meter rates for the provided billing profile or EA enrollment. |
 | [**RI charges**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges#response) | Charges associated to your reserved instances over the last 24 months. |
-| [**RI recommendations (shared)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | Reserved instance purchase recommendations based on all your subscription usage trends for the last 7, 30, or 60 days. |
-| [**RI recommendations (single)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | Reserved instance purchase recommendations based on your single subscription usage trends for the last 7, 30, or 60 days. |
+| [**RI recommendations (shared)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | Reserved instance purchase recommendations based on all your subscription usage trends for the last 7 days. |
+| [**RI recommendations (single)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | Reserved instance purchase recommendations based on your single subscription usage trends for the last 7 days. |
 | [**RI usage details**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#response) | Consumption details for your existing reserved instances over the last month. |
 | [**RI usage summary**](/rest/api/consumption/reservationssummaries/list) | Daily Azure reservation usage percentage. |
 | [**Usage details**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) | A breakdown of consumed quantities and estimated charges for the given billing profile in the EA enrollment. |

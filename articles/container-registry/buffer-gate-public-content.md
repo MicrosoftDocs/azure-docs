@@ -4,7 +4,7 @@ description: Practices and workflows in Azure Container Registry to manage depen
 author: dlepow
 ms.topic: article
 ms.author: danlep
-ms.date: 10/29/2020
+ms.date: 11/20/2020
 ---
 
 # Manage public content with Azure Container Registry
@@ -22,8 +22,10 @@ Without proper controls, having dependencies on public registry content can intr
 
 As a first step, if you currently pull public images from Docker Hub as part of a build or deployment workflow, we recommend that you [authenticate using a Docker Hub account](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) instead of making an anonymous pull request.
 
+When making frequent anonymous pull requests you might see Docker errors similar to `ERROR: toomanyrequests: Too Many Requests.` or `You have reached your pull rate limit.` Authenticate to Docker Hub to prevent these errors.
+
 > [!NOTE]
-> Effective November 2, 2020, [download rate limits](https://docs.docker.com/docker-hub/download-rate-limit) apply to anonymous and authenticated requests to Docker Hub from Docker Free Plan accounts and are enforced by IP address and Docker ID, respecitively. 
+> Effective November 2, 2020, [download rate limits](https://docs.docker.com/docker-hub/download-rate-limit) apply to anonymous and authenticated requests to Docker Hub from Docker Free Plan accounts and are enforced by IP address and Docker ID, respectively. 
 >
 > When estimating your number of pull requests, take into account that when using cloud provider services or working behind a corporate NAT, multiple users will be presented to Docker Hub in aggregate as a subset of IP addresses. Adding Docker paid account authentication to requests made to Docker Hub will avoid potential service disruptions due to rate-limit throttling.
 >

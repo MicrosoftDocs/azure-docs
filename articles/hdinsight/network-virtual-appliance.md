@@ -1,9 +1,6 @@
 ---
 title: Configure network virtual appliance in Azure HDInsight
 description: Learn how to configure a number of additional features for your network virtual appliance in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
@@ -52,6 +49,7 @@ The list below only gives a few FQDNs that may be needed for OS and security pat
 | security.ubuntu.com:80                                                |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
+| microsoft.com/pki/mscorp/cps/default.htm:443                                      |
 | microsoft.com:80                                                      |
 |login.windows.net:443                                                  |
 |login.microsoftonline.com:443                                          |

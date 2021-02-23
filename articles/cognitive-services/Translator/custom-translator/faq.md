@@ -2,12 +2,12 @@
 title: Frequently asked questions - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: This article contains answers to frequently asked questions about the Azure Cognitive Services Custom Translator.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: reference
 #Customer intent: As a Custom Translator user, I want to review frequently asked questions.
 ---
@@ -51,7 +51,7 @@ The deployment generally takes less than an hour.
 Deployed systems can be accessed via the Microsoft Translator Text API V3 by
 specifying the CategoryID. More information about the Translator Text API can
 be found in the [API
-Reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+Reference](../reference/v3-0-reference.md)
 webpage.
 
 ## How do I skip alignment and sentence breaking if my data is already sentence aligned?

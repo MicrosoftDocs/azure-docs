@@ -3,6 +3,7 @@ title: CONCAT in Azure Cosmos DB query language
 description: Learn about how the CONCAT SQL system function in Azure Cosmos DB returns a string that is the result of concatenating two or more string values
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins

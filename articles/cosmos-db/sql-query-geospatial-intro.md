@@ -3,6 +3,7 @@ title: Geospatial and GeoJSON location data in Azure Cosmos DB
 description: Understand how to create spatial objects with Azure Cosmos DB and the SQL API.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande

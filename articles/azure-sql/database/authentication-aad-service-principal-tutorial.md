@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/21/2020
+ms.date: 02/11/2021
 ---
 
 # Tutorial: Create Azure AD users using Azure AD applications
@@ -174,7 +174,7 @@ For more information on how to create an Azure AD application, see the article [
 
 ### Permissions required to set or unset the Azure AD admin
 
-In order for the service principal to set or unset an Azure AD admin for Azure SQL, an additional API Permission is necessary. The [Directory.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) Application API permission will need to be added to your application in Azure AD.
+In order for the service principal to set or unset an Azure AD admin for Azure SQL, an additional API Permission is necessary. The [Directory.Read.All](/graph/permissions-reference#application-permissions-18) Application API permission will need to be added to your application in Azure AD.
 
 :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Directory.Reader.All permissions in Azure AD":::
 
@@ -228,35 +228,27 @@ Once a service principal is created in Azure AD, create the user in SQL Database
 
     ```powershell
     # PowerShell script for creating a new SQL user called myapp using application AppSP with secret
-
-    $tenantId = "<TenantId>"   #  tenantID (Azure Directory ID) were AppSP resides
-    $clientId = "<ClientId>"   #  AppID also ClientID for AppSP     
-    $clientSecret = "<ClientSecret>"   #  client secret for AppSP 
-    $Resource = "https://database.windows.net/"
+    # AppSP is part of an Azure AD admin for the Azure SQL server below
     
-    $adalPath  = "${env:ProgramFiles}\WindowsPowerShell\Modules\AzureRM.profile\5.8.3"
-    # To install the latest AzureRM.profile version execute  -Install-Module -Name AzureRM.profile
-    $adal      = "$adalPath\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
-    $adalforms = "$adalPath\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll"
-    [System.Reflection.Assembly]::LoadFrom($adal) | Out-Null
-      $resourceAppIdURI = 'https://database.windows.net/'
-
-      # Set Authority to Azure AD Tenant
-      $authority = 'https://login.windows.net/' + $tenantId
-
-      $ClientCred = [Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential]::new($clientId, $clientSecret)
-      $authContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]::new($authority)
-      $authResult = $authContext.AcquireTokenAsync($resourceAppIdURI,$ClientCred)
-      $Tok = $authResult.Result.CreateAuthorizationHeader()
-      $Tok=$Tok.Replace("Bearer ","")
-      Write-host "token"
-      $Tok
-      Write-host  " "
-
+    # Download latest  MSAL  - https://www.powershellgallery.com/packages/MSAL.PS
+    Import-Module MSAL.PS
+    
+    $tenantId = "<TenantId>"   # tenantID (Azure Directory ID) were AppSP resides
+    $clientId = "<ClientId>"   # AppID also ClientID for AppSP     
+    $clientSecret = "<ClientSecret>"   # Client secret for AppSP 
+    $scopes = "https://database.windows.net/.default" # The end-point
+    
+    $result = Get-MsalToken -RedirectUri $uri -ClientId $clientId -ClientSecret (ConvertTo-SecureString $clientSecret -AsPlainText -Force) -TenantId $tenantId -Scopes $scopes
+    
+    $Tok = $result.AccessToken
+    #Write-host "token"
+    $Tok
+      
     $SQLServerName = "<server name>"    # Azure SQL logical server name 
-    Write-Host "Create SQL connectionstring"
-    $conn = New-Object System.Data.SqlClient.SQLConnection 
     $DatabaseName = "<database name>"     # Azure SQL database name
+    
+    Write-Host "Create SQL connection string"
+    $conn = New-Object System.Data.SqlClient.SQLConnection 
     $conn.ConnectionString = "Data Source=$SQLServerName.database.windows.net;Initial Catalog=$DatabaseName;Connect Timeout=30"
     $conn.AccessToken = $Tok
     
@@ -270,20 +262,11 @@ Once a service principal is created in Azure AD, create the user in SQL Database
     
     Write-host "results"
     $command.ExecuteNonQuery()
-    $conn.Close()  
+    $conn.Close()
     ``` 
 
     Alternatively, you can use the code sample in the blog, [Azure AD Service Principal authentication to SQL DB - Code Sample](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467). Modify the script to execute a DDL statement `CREATE USER [myapp] FROM EXTERNAL PROVIDER`. The same script can be used to create a regular Azure AD user a group in SQL Database.
 
-    > [!NOTE]
-    > If you need to install the module AzureRM.profile, you will need to open PowerShell as an administrator. You can use the following commands to automatically install the latest AzureRM.profile version, and set `$adalpath` for the above script:
-    > 
-    > ```powershell
-    > Install-Module AzureRM.profile -force
-    > Import-Module AzureRM.profile
-    > $version = (Get-Module -Name AzureRM.profile).Version.toString()
-    > $adalPath = "${env:ProgramFiles}\WindowsPowerShell\Modules\AzureRM.profile\${version}"
-    > ```
     
 2. Check if the user *myapp* exists in the database by executing the following command:
 

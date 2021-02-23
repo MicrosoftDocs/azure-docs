@@ -1,20 +1,20 @@
 ---
 title: Using user-defined schemas 
-description: Tips for using T-SQL user-defined schemas to develop solutions in Synapse SQL pool.
+description: Tips for using T-SQL user-defined schemas to develop solutions for dedicated SQL pools in Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT 
+author: MSTehrani 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# User-defined schemas in Synapse SQL pool
-This article focuses on providing several tips for using T-SQL user-defined schemas to develop solutions in Synapse SQL pool.
+# User-defined schemas for dedicated SQL pools in Azure Synapse Analytics
+This article focuses on providing several tips for using T-SQL user-defined schemas to develop solutions in dedicated SQL pool.
 
 ## Schemas for application boundaries
 
@@ -22,7 +22,7 @@ Traditional data warehouses often use separate databases to create application b
 
 As an example, a traditional SQL Server data warehouse might include a staging database, a data warehouse database, and some data mart databases. In this topology, each database operates as a workload and security boundary in the architecture.
 
-By contrast, SQL pool runs the entire data warehouse workload within one database. Cross database joins aren't permitted. SQL pool expects all tables used by the warehouse to be stored within the one database.
+By contrast, a dedicated SQL pool runs the entire data warehouse workload within one database. Cross database joins aren't permitted. Dedicated SQL pool expects all tables used by the warehouse to be stored within the one database.
 
 > [!NOTE]
 > SQL pool does not support cross database queries of any kind. Consequently, data warehouse implementations that leverage this pattern will need to be revised.
@@ -32,11 +32,11 @@ By contrast, SQL pool runs the entire data warehouse workload within one databas
 ## Recommendations
 What follows are recommendations for consolidating workloads, security, domain, and functional boundaries by using user-defined schemas:
 
-- Use one SQL pool database to run your entire data warehouse workload.
-- Consolidate your existing data warehouse environment to use one SQL pool database.
+- Use one database in a dedicated SQL pool to run your entire data warehouse workload.
+- Consolidate your existing data warehouse environment to use one dedicated SQL pool database.
 - Leverage **user-defined schemas** to provide the boundary previously implemented using databases.
 
-If user-defined schemas have not been used previously, then you have a clean slate. Use the old database name as the basis for your user-defined schemas in the SQL pool database.
+If user-defined schemas have not been used previously, then you have a clean slate. Use the old database name as the basis for your user-defined schemas in the dedicated SQL pool database.
 
 If schemas have already been used, then you have a few options:
 
@@ -45,7 +45,7 @@ If schemas have already been used, then you have a few options:
 - Retain the legacy schema names by implementing views over the table in an extra schema to re-create the old schema structure.
 
 > [!NOTE]
-> On first inspection option 3 may seem like the most appealing option. However, the devil is in the detail. Views are read only in SQL pool. Any data or table modification would need to be performed against the base table. Option 3 also introduces a layer of views into your system. You might want to give this some additional thought if you are using views in your architecture already.
+> On first inspection option 3 may seem like the most appealing option. However, the devil is in the detail. Views are read only in dedicated SQL pool. Any data or table modification would need to be performed against the base table. Option 3 also introduces a layer of views into your system. You might want to give this some additional thought if you are using views in your architecture already.
 > 
 > 
 

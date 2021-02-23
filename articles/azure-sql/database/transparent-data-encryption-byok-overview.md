@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 03/18/2020
+ms.date: 02/01/2021
 ---
 # Azure SQL Transparent Data Encryption with customer-managed key
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -73,7 +73,7 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 - Key vault and SQL Database/managed instance must belong to the same Azure Active Directory tenant. Cross-tenant key vault and server interactions are not supported. To move resources afterwards, TDE with AKV will have to be reconfigured. Learn more about [moving resources](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- [Soft-delete](../../key-vault/general/soft-delete-overview.md) feature must be enabled on the key vault, to protect from data loss accidental key (or key vault) deletion happens. Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer in the meantime. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. Soft-delete feature is off by default and can be enabled via [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) or [the CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). It cannot be enabled via the Azure portal.  
+- [Soft-delete](../../key-vault/general/soft-delete-overview.md) feature must be enabled on the key vault, to protect from data loss accidental key (or key vault) deletion happens. Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer in the meantime. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. Soft-delete feature is off by default and can be enabled via [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) or [the CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli). It cannot be enabled via the Azure portal.  
 
 - Grant the server or managed instance access to the key vault (get, wrapKey, unwrapKey) using its Azure Active Directory identity. When using the Azure portal, the Azure AD identity gets automatically created. When using PowerShell or the CLI, the Azure AD identity must be explicitly created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) and [Configure TDE with BYOK for SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) for detailed step-by-step instructions when using PowerShell.
 
@@ -152,7 +152,7 @@ It may happen that someone with sufficient access rights to the key vault accide
 
 - deleting the managed identity of the server in Azure Active Directory
 
-Learn more about [the common causes for database to become inaccessible](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible).
+Learn more about [the common causes for database to become inaccessible](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current&preserve-view=true#common-errors-causing-databases-to-become-inaccessible).
 
 ## Monitoring of the customer-managed TDE
 
@@ -160,7 +160,7 @@ To monitor database state and to enable alerting for loss of TDE protector acces
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). An inaccessible database that has lost access to the TDE protector will show as "Unavailable" after the first connection to the database has been denied.
 - [Activity Log](../../service-health/alerts-activity-log-service-notifications-portal.md) when access to the TDE protector in the customer-managed key vault fails, entries are added to the activity log.  Creating alerts for these events will enable you to reinstate access as soon as possible.
-- [Action Groups](../../azure-monitor/platform/action-groups.md) can be defined to send you notifications and alerts based on your preferences, e.g. Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
+- [Action Groups](../../azure-monitor/alerts/action-groups.md) can be defined to send you notifications and alerts based on your preferences, e.g. Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
 
 ## Database backup and restore with customer-managed TDE
 
@@ -176,17 +176,15 @@ If the key that is needed for restoring a backup is no longer available to the t
 
 To mitigate it, run the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet for the target server or [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) for the target managed instance to return the list of available keys and identify the missing ones. To ensure all backups can be restored, make sure the target server for the restore has access to all of keys needed. These keys don't need to be marked as TDE protector.
 
-To learn more about backup recovery for SQL Database, see [Recover a database in SQL Database](recovery-using-backups.md). To learn more about backup recovery for SQL Pool, see [Recover a SQL Pool](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). For SQL Server's native backup/restore with SQL Managed Instance, see [Quickstart: Restore a database to SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
+To learn more about backup recovery for SQL Database, see [Recover a database in SQL Database](recovery-using-backups.md). To learn more about backup recovery for dedicated SQL pool in Azure Synapse Analytics, see [Recover a dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). For SQL Server's native backup/restore with SQL Managed Instance, see [Quickstart: Restore a database to SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
 
 Additional consideration for log files: Backed up log files remain encrypted with the original TDE protector, even if it was rotated and the database is now using a new TDE protector.  At restore time, both keys will be needed to restore the database.  If the log file is using a TDE protector stored in Azure Key Vault, this key will be needed at restore time, even if the database has been changed to use service-managed TDE in the meantime.
 
 ## High availability with customer-managed TDE
 
-Even in cases when there is no configured geo-redundancy for server, it is highly recommended to configure the server to use two different key vaults in two different regions with the same key material. It can be accomplished by creating a TDE protector using the primary key vault co-located in the same region as the server and cloning the key into a key vault in a different Azure region, so that the server has access to a second key vault should the primary key vault experience an outage while the database is up and running.
+Even in cases when there is no configured geo-redundancy for server, it is highly recommended to configure the server to use two different key vaults in two different regions with the same key material. The key in the secondary key vault in the other region should not be marked as TDE protector, and it's not even allowed. If there is an outage affecting the primary key vault, and only then, the system will automatically switch to the other linked key with the same thumbprint in the secondary key vault, if it exists. Note though that switch will not happen if TDE protector is inaccessible because of revoked access rights, or because key or key vault is deleted, as it may indicate that customer intentionally wanted to restrict server from accessing the key.Providing the same key material to two key vaults in different regions can be done by creating the key outside of the key vault, and importing them into both key vaults. 
 
-Use the Backup-AzKeyVaultKey cmdlet to retrieve the key in encrypted format from the primary key vault and then use the Restore-AzKeyVaultKey cmdlet and specify a key vault in the second region to clone the key. Alternatively, use the Azure portal to back up and restore the key. The key in the secondary key vault in the other region should not be marked as TDE protector, and it's not even allowed.
-
-If there is an outage affecting the primary key vault, and only then, the system will automatically switch to the other linked key with the same thumbprint in the secondary key vault, if it exists. Note though that switch will not happen if TDE protector is inaccessible because of revoked access rights, or because key or key vault is deleted, as it may indicate that customer intentionally wanted to restrict server from accessing the key.
+Alternatively, it can be accomplished by generating key using the primary key vault co-located in the same region as the server and cloning the key into a key vault in a different Azure region. Use the [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Backup-AzKeyVaultKey) cmdlet to retrieve the key in encrypted format from the primary key vault and then use the [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet and specify a key vault in the second region to clone the key. Alternatively, use the Azure portal to back up and restore the key. Key backup/restore operation is only allowed between key vaults within the same Azure subscription and [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
 ![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 

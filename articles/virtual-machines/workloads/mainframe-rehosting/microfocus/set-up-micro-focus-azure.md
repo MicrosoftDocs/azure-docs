@@ -39,7 +39,7 @@ Before getting started, check out these prerequisites:
     > [!Note]
     > There are a few options for controlling access to your VMs:
     > -   A best practice is to set up [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/).
-    > -   A [site-to-site virtual private network (VPN)](../../../../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md)
+    > -   A [site-to-site virtual private network (VPN)](../../../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
     tunnel.
     > -   A jumpbox VM.
 

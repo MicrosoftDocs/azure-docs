@@ -36,7 +36,7 @@ Azure SQL Database can be configured to use one of two types of authentication:
 
 - **Azure Active Directory authentication** uses identities managed by Azure Active Directory and is supported for managed and integrated domains. To use Azure Active Directory Authentication, you must create another server admin called the "Azure AD admin," which is allowed to administer Azure AD users and groups. This admin can also perform all operations that a regular server admin can.
 
-[Azure Active Directory authentication](../../active-directory/develop/authentication-scenarios.md) is a mechanism of connecting to Azure SQL Database and Azure Synapse Analytics by using identities in Azure Active Directory (AD). Azure AD provides an alternative to SQL Server authentication so you can stop the proliferation of user identities across database servers. Azure AD authentication enables you to centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management.  
+[Azure Active Directory authentication](../../active-directory/develop/authentication-vs-authorization.md) is a mechanism of connecting to Azure SQL Database and Azure Synapse Analytics by using identities in Azure Active Directory (AD). Azure AD provides an alternative to SQL Server authentication so you can stop the proliferation of user identities across database servers. Azure AD authentication enables you to centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management.  
 
 ### Benefits of using Azure AD instead of SQL authentication
 
@@ -46,7 +46,7 @@ Azure SQL Database can be configured to use one of two types of authentication:
 - Uses contained database users to authenticate identities at the database level.
 - Supports token-based authentication for applications connecting to SQL Database.
 - Supports domain federation with Active Directory Federation Services (ADFS) or native user/password authentication for a local Azure AD without domain synchronization.
-- Supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes [Multi-Factor Authentication (MFA)](/azure/active-directory/authentication/multi-factor-authentication). MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [Universal Authentication with SQL Database and Azure Synapse Analytics](../../azure-sql/database/authentication-mfa-ssms-overview.md).
+- Supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes [Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md). MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [Universal Authentication with SQL Database and Azure Synapse Analytics](../../azure-sql/database/authentication-mfa-ssms-overview.md).
 
 To learn more about Azure AD authentication, see:
 

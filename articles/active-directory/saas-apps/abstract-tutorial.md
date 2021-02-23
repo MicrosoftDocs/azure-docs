@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+    ![The Certificate download link](common/copy-metadataurl.png)
 
 ### Configure Abstract SSO
 
@@ -126,11 +126,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the applications list, select **Abstract**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -142,7 +142,7 @@ To test SSO on Abstract:
 
 1. Open the [Abstract web app](https://app.abstract.com/).
 2. Go to the **Permissions** page in the left side bar.
-3. Click **Test with my Account**. If the test fails, please [contact our support team](https://www.abstract.com/help/contact/).
+3. Click **Test with my Account**. If the test fails, please [contact our support team](https://help.abstract.com/hc/).
 
 >[!Note]
 >You will need to authenticate with an organization Admin account to access the SSO settings on Abstract.

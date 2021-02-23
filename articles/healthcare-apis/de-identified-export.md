@@ -17,6 +17,9 @@ The $export command can also be used to export de-identified data from the FHIR 
 
  `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
 
+> [!Note] 
+> Right now the Azure API for FHIR only supports de-identified export at the system level ($export).
+
 |Query parameter            | Example |Optionality| Description|
 |---------------------------|---------|-----------|------------|
 | _\_anonymizationConfig_   |DemoConfig.json|Required for de-identified export |Name of the configuration file. See the configuration file format [here](https://github.com/microsoft/FHIR-Tools-for-Anonymization#configuration-file-format). This file should be kept inside a container named **anonymization** within the same Azure storage account that is configured as the export location. |

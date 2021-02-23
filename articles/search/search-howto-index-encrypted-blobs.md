@@ -32,7 +32,7 @@ This example assumes that you have already uploaded your files to Azure Blob Sto
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
-+ [Azure Cognitive Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tiers) (Basic or above, in any region)
++ [Azure Cognitive Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tier-descriptions) (Basic or above, in any region)
 + [Azure Function](https://azure.microsoft.com/services/functions/)
 + [Postman desktop app](https://www.getpostman.com/)
 
@@ -124,24 +124,23 @@ To get the value for `admin-key`, use the Azure Cognitive Search admin api-key y
 
 ![Postman app variables tab](media/indexing-encrypted-blob-files/postman-variables-window.jpg "Postman's variables window")
 
-
 | Variable    | Where to get it |
 |-------------|-----------------|
 | `admin-key` | On the **Keys** page of the Azure Cognitive Search service.  |
-| `search-service-name` | The name of the Azure Cognitive Search service. The URL is `https://{{search-service-name}}.search.windows.net`. | 
-| `storage-connection-string` | In the storage account, on the **Access Keys** tab, select **key1** > **Connection string**. | 
-| `storage-container-name` | The name of the blob container that has the encrypted files to be indexed. | 
-| `function-uri` |  In the Azure Function under **Essentials** on the main page. | 
-| `function-code` | In the Azure Function, by navigating to **App keys**, clicking to show the **default** key, and copying the value. | 
+| `search-service-name` | The name of the Azure Cognitive Search service. The URL is `https://{{search-service-name}}.search.windows.net`. |
+| `storage-connection-string` | In the storage account, on the **Access Keys** tab, select **key1** > **Connection string**. |
+| `storage-container-name` | The name of the blob container that has the encrypted files to be indexed. |
+| `function-uri` |  In the Azure Function under **Essentials** on the main page. |
+| `function-code` | In the Azure Function, by navigating to **App keys**, clicking to show the **default** key, and copying the value. |
 | `api-version` | Leave as **2020-06-30**. |
-| `datasource-name` | Leave as **encrypted-blobs-ds**. | 
-| `index-name` | Leave as **encrypted-blobs-idx**. | 
-| `skillset-name` | Leave as **encrypted-blobs-ss**. | 
-| `indexer-name` | Leave as **encrypted-blobs-ixr**. | 
+| `datasource-name` | Leave as **encrypted-blobs-ds**. |
+| `index-name` | Leave as **encrypted-blobs-idx**. |
+| `skillset-name` | Leave as **encrypted-blobs-ss**. |
+| `indexer-name` | Leave as **encrypted-blobs-ixr**. |
 
 ### Review the request collection in Postman
 
-When you run this guide, you must issue four HTTP requests: 
+When you run this guide, you must issue four HTTP requests:
 
 - **PUT request to create the index**: This index holds the data that Azure Cognitive Search uses and returns.
 - **POST request to create the datasource**: This datasource connects your Azure Cognitive Search service to your storage account and therefore encrypted blob files. 

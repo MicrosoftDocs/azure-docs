@@ -8,9 +8,7 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: 'Azure, SQL Server, SAP, AlwaysOn'
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

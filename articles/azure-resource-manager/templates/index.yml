@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 10/26/2020
+  ms.date: 11/06/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -58,27 +58,19 @@ landingContent:
         links:
           - text: Beginner tutorials
             url: template-tutorial-create-first-template.md
-          - text: Deployment
-            url: deployment-tutorial-local-template.md
-          - text: Template specs
-            url: template-specs-create-linked.md
-          - text: Advanced templates
-            url: template-tutorial-use-template-reference.md
-          - text: Deployment Manager
-            url: deployment-manager-tutorial.md
       - linkListType: learn
         links:
-          - text: Consistent infrastructure
-            url: /learn/modules/create-azure-resource-manager-template-vs-code/
-          - text: Multiple environments
-            url: /learn/modules/modify-azure-resource-manager-template-reuse/
-          - text: Validate deployments
-            url: /learn/modules/arm-template-test/
-          - text: Deploy templates
-            url: /learn/modules/deploy-templates-command-line-github-actions/
+          - text: Deploy with ARM templates
+            url: /learn/paths/deploy-manage-resource-manager-templates/
   # Card
   - title: Develop templates
     linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Advanced templates
+            url: template-tutorial-use-template-reference.md
+          - text: Template specs
+            url: template-specs-create-linked.md
       - linkListType: how-to-guide
         links:
           - text: Use functions
@@ -101,6 +93,10 @@ landingContent:
   # Card
   - title: Deploy templates
     linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deployment
+            url: deployment-tutorial-local-template.md
       - linkListType: how-to-guide
         links:
           - text: PowerShell

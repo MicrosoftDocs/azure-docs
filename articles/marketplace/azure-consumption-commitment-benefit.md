@@ -7,7 +7,7 @@ ms.topic: article
 author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Azure consumption commitment benefit
@@ -19,14 +19,14 @@ A select set of Microsoft commercial marketplace offers will contribute towards 
 
 We validate all offers that participate in this program to ensure you receive high-quality solutions.
 
-To take advantage of this benefit, simply purchase a qualifying offer on Azure Marketplace using a subscription that’s related to your Azure agreement. Azure prepayment and monetary commitments are not eligible for this benefit.
+To take advantage of this benefit, simply purchase a qualifying offer on Azure Marketplace using a subscription that’s related to your Azure agreement. Azure Prepayment (previously called monetary commitment) are not eligible for this benefit.
 
 > [!IMPORTANT]
 > Exclusions may apply to CtC agreements signed prior to this marketplace benefit. If you have questions about eligibility, contact your Microsoft account executive.
 
 ## Determine if your organization has an Azure consumption commitment (MACC/CtC)
 
-If you are unsure if your organization has a qualifying agreement, sign in to the Marketplace experience within the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) under a tenant associated with your organization. If you see the **Azure benefit eligible** option within the Pricing filter, you have a qualifying Azure consumption commitment. Qualifying Azure Marketplace purchases will contribute towards your organization’s Azure consumption commitment if purchased directly through the Azure Marketplace.
+If you are unsure if your organization has a qualifying agreement, sign in to the Marketplace experience within the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) under a tenant associated with your organization. If you see the option to select **Azure benefit eligible only** as a filter option, you have a qualifying Azure consumption commitment. Qualifying Azure Marketplace purchases will contribute towards your organization’s Azure consumption commitment if purchased directly through the Azure Marketplace.
 
 [![Azure benefit eligible menu option.](media/azure-benefit/azure-benefit-eligible.png)](media/azure-benefit/azure-benefit-eligible.png#lightbox)
 

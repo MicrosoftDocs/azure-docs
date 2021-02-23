@@ -223,7 +223,7 @@ Similarly, you can reference other data disks attached to the VM, either by usin
 **Unmanaged disk**
 
 ```powershell
-($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
+($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).DiskSizeGB = 1023
 ```
 
 ## Expand the volume within the OS

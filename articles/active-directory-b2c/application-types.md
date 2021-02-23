@@ -137,7 +137,7 @@ Applications that contain long-running processes or that operate without the pre
 
 Although the OAuth 2.0 client credentials grant flow is not currently directly supported by the Azure AD B2C authentication service, you can set up client credential flow using Azure AD and the Microsoft identity platform /token endpoint for an application in your Azure AD B2C tenant. An Azure AD B2C tenant shares some functionality with Azure AD enterprise tenants.
 
-To set up client credential flow, see [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). A successful authentication results in the receipt of a token formatted so that it can be used by Azure AD as described in [Azure AD token reference](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+To set up client credential flow, see [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). A successful authentication results in the receipt of a token formatted so that it can be used by Azure AD as described in [Azure AD token reference](../active-directory/develop/id-tokens.md).
 
 For instructions on registering a management application, see [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-get-started.md).
 

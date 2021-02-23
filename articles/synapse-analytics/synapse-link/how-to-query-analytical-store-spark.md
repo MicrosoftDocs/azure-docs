@@ -12,12 +12,12 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link (preview)
+# Interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
 
-In this article, you'll learn how to interact with Azure Cosmos DB using Synapse Apache Spark. With its full support for Scala, Python, SparkSQL, and C#, Synapse Apache Spark is central to analytics, data engineering, data science, and data exploration scenarios in [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+In this article, you'll learn how to interact with Azure Cosmos DB using Synapse Apache Spark. With its full support for Scala, Python, SparkSQL, and C#, Synapse Apache Spark is central to analytics, data engineering, data science, and data exploration scenarios in [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md).
 
 The following capabilities are supported while interacting with Azure Cosmos DB:
-* Synapse Apache Spark allows you to analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link in near real-time without impacting the performance of your transactional workloads. The following two options are available to query the Azure Cosmos DB [analytical store](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) from Spark:
+* Synapse Apache Spark allows you to analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link in near real-time without impacting the performance of your transactional workloads. The following two options are available to query the Azure Cosmos DB [analytical store](../../cosmos-db/analytical-store-introduction.md) from Spark:
     + Load to Spark DataFrame
     + Create Spark table
 * Synapse Apache Spark also allows you to ingest data into Azure Cosmos DB. It is important to note that data is always ingested into Azure Cosmos DB containers through the transactional store. When Synapse Link is enabled, any new inserts, updates, and deletes are then automatically synced to the analytical store.
@@ -205,7 +205,7 @@ In this example, you'll learn how to reference external libraries from JAR files
     ]
 }
 ```
-If you are looking to submit remote Spark job definitions to a Synapse Spark pool, you can learn how to reference external libraries by following this [tutorial](../spark/apache-spark-job-definitions.md).
+If you are looking to submit remote Spark job definitions to a serverless Apache Spark pool, you can learn how to reference external libraries by following this [tutorial](../spark/apache-spark-job-definitions.md).
 
 ## Next steps
 

@@ -1,9 +1,6 @@
 ---
 title: Configure OS patching schedule for Azure HDInsight clusters
 description: Learn how to configure OS patching schedule for Linux-based HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -59,7 +56,7 @@ The `install-updates-schedule-reboots` script accepts two numeric parameters, as
 
 | Parameter | Accepted values | Definition |
 | --- | --- | --- |
-| Type of updates to install | 0,  1, or 2 | A value of 0 installs only kernel updates. A value of 1 installs all updates, and 2 installs only kernel + security updates. If no parameter is provided, the default is 0. |
+| Type of updates to install | 0,  1, or 2 | A value of 0 installs only kernel updates. A value of 1 installs kernel + security updates and 2 installs all updates. If no parameter is provided, the default is 0. |
 | Type of restart to perform | 0, 1, or 2 | A value of 0 disables restart. A value of 1 enables schedule restart, and 2 enables immediate restart. If no parameter is provided, the default is 0. The user must change input parameter 1 to input parameter 2. |
 
 > [!NOTE]

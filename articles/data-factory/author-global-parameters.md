@@ -1,12 +1,10 @@
 ---
 title: Global parameters
 description: Set global parameters for each of your Azure Data Factory environments
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.date: 08/31/2020
 ---
 

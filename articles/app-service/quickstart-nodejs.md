@@ -6,6 +6,7 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
+adobe-target: true
 
 ---
 # Create a Node.js web app in Azure

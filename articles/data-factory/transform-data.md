@@ -1,13 +1,10 @@
 ---
 title: Transform data
 description: Transform data or process data in Azure Data Factory using Hadoop, Azure Machine Learning Studio (classic), or Azure Data Lake Analytics.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
 ---
@@ -42,9 +39,9 @@ Data Factory supports the following data transformation activities that can be a
 
 Mapping data flows are visually designed data transformations in Azure Data Factory. Data flows allow data engineers to develop graphical data transformation logic without writing code. The resulting data flows are executed as activities within Azure Data Factory pipelines that use scaled-out Spark clusters. Data flow activities can be operationalized via existing Data Factory scheduling, control, flow, and monitoring capabilities. For more information, see [mapping data flows](concepts-data-flow-overview.md).
 
-### Wrangling data flows
+### Data wrangling
 
-Wrangling data flows in Azure Data Factory allow you to do code-free data preparation at cloud scale iteratively. Wrangling data flows integrate with [Power Query Online](/power-query/) and makes Power Query M functions available for data wrangling at cloud scale via spark execution. For more information, see [wrangling data flows](wrangling-data-flow-overview.md).
+Power Query in Azure Data Factory enables cloud-scale data wrangling, which allows you to do code-free data preparation at cloud scale iteratively. Data wrangling integrates with [Power Query Online](/power-query/) and makes Power Query M functions available for data wrangling at cloud scale via spark execution. For more information, see [data wrangling in ADF](wrangling-overview.md).
 
 ## External transformations
 
@@ -73,7 +70,7 @@ Over time, the predictive models in the Studio (classic) scoring experiments nee
 See [Use Azure Machine Learning Studio (classic) activities](transform-data-using-machine-learning.md) for details about these Studio (classic) activities. 
 
 ### Stored procedure activity
-You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure activity](transform-data-using-stored-procedure.md) article for details.  
+You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics, SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure activity](transform-data-using-stored-procedure.md) article for details.  
 
 ### Data Lake Analytics U-SQL activity
 Data Lake Analytics U-SQL activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL activity](transform-data-using-data-lake-analytics.md) article for details. 

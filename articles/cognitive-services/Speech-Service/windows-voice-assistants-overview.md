@@ -32,7 +32,7 @@ When the user speaks a keyword, the software or hardware keyword spotter on the 
 
 ### Registration
 
-The first time a voice activated application is run, it registers its app ID and keyword information through the ConversationalAgent APIs. AAR registers all configurations in the global mapping with the hardware or software keyword spotter on the system, allowing them to detect the application's keyword. The application also [registers with the Background Service](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task).
+The first time a voice activated application is run, it registers its app ID and keyword information through the ConversationalAgent APIs. AAR registers all configurations in the global mapping with the hardware or software keyword spotter on the system, allowing them to detect the application's keyword. The application also [registers with the Background Service](/windows/uwp/launch-resume/register-a-background-task).
 
 Note that this means an application cannot be activated by voice until it has been run once and registration has been allowed to complete.
 

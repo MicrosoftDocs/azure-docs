@@ -41,7 +41,7 @@ You learn how to use Azure Machine Learning Studio (classic) to do weather forec
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
 - An [Azure Machine Learning Studio (classic)](https://studio.azureml.net/) account.
-- An [Azure Storage account](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts), A **General-purpose v2** account is preferred, but any Azure Storage account that supports Azure Blob storage will also work.
+- An [Azure Storage account](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts), A **General-purpose v2** account is preferred, but any Azure Storage account that supports Azure Blob storage will also work.
 
 > [!Note]
 > This article uses Azure Stream Analytics and several other paid services. Extra charges are incurred in Azure Stream Analytics when data must be transferred across Azure regions. For this reason, it would be good to ensure that your Resource Group, IoT Hub, and Azure Storage account -- as well as the Machine Learning Studio (classic) workspace and Azure Stream Analytics Job added later in this tutorial -- are all located in the same Azure region. You can check regional support for Azure Machine Learning Studio (classic) and other Azure services on the [Azure product availability by region page](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).

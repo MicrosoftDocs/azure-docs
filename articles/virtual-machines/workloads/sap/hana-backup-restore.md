@@ -6,9 +6,7 @@ documentationcenter:
 author: saghorpa
 manager: gwallace
 editor:
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

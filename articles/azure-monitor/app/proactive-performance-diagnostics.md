@@ -66,12 +66,12 @@ Emails about Smart Detections performance anomalies are limited to one email per
 * *Can I create my own anomaly detection rules or customize existing rules?*
 
   * Not yet, but you can:
-    * [Set up alerts](../platform/alerts-log.md) that tell you when a metric crosses a threshold.
+    * [Set up alerts](../alerts/alerts-log.md) that tell you when a metric crosses a threshold.
     * [Export telemetry](./export-telemetry.md) to a [database](./code-sample-export-sql-stream-analytics.md) or [to Power BI](./export-power-bi.md), where you can analyze it yourself.
 * *How often is the analysis performed?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).
-* *So does this replace [metric alerts](../platform/alerts-log.md)?*
+* *So does this replace [metric alerts](../alerts/alerts-log.md)?*
   * No.  We don't commit to detecting every behavior that you might consider abnormal.
 
 
@@ -95,7 +95,7 @@ Where is the problem? Is the server slow to respond, is the page very long, or d
 
 Open the Browsers metric blade. The segmented display of browser page load time shows where the time is going. 
 
-* If **Send Request Time** is high, either the server is responding slowly, or the request is a post with a lot of data. Look at the [performance metrics](./web-monitor-performance.md#metrics) to investigate response times.
+* If **Send Request Time** is high, either the server is responding slowly, or the request is a post with a lot of data. Look at the [performance metrics](./performance-counters.md) to investigate response times.
 * Set up [dependency tracking](./asp-net-dependencies.md) to see whether the slowness is due to external services or your database.
 * If **Receiving Response** is predominant, your page and its dependent parts - JavaScript, CSS, images and so on (but not asynchronously loaded data) are long. Set up an [availability test](./monitor-web-app-availability.md), and be sure to set the option to load dependent parts. When you get some results, open the detail of a result and expand it to see the load times of different files.
 * High **Client Processing time** suggests scripts are running slowly. If the reason isn't obvious, consider adding some timing code and send the times in trackMetric calls.
@@ -171,11 +171,10 @@ These diagnostic tools help you inspect the telemetry from your app:
 
 * [Profiler](profiler.md) 
 * [snapshot debugger](./snapshot-debugger.md)
-* [Analytics](../log-query/get-started-portal.md)
-* [Analytics smart diagnostics](../log-query/log-query-overview.md)
+* [Analytics](../logs/log-analytics-tutorial.md)
+* [Analytics smart diagnostics](../logs/log-query-overview.md)
 
 Smart detections are completely automatic. But maybe you'd like to set up some more alerts?
 
-* [Manually configured metric alerts](../platform/alerts-log.md)
+* [Manually configured metric alerts](../alerts/alerts-log.md)
 * [Availability web tests](./monitor-web-app-availability.md)
-

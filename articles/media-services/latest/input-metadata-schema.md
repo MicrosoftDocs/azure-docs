@@ -61,7 +61,7 @@ Contains a collection of AssetFile elements for the encoding job.
 
 ## VideoTracks
 
-| Name |  | Description |
+| Name | Description |
 | --- | --- |
 | **FourCC**<br />Required |Video codec FourCC code that is reported by ffmpeg.<br /><br />Example: `"FourCC": "avc1"` |
 | **Profile** |Video track's profile. <br /><br />Example: `"Profile": "Main"`|

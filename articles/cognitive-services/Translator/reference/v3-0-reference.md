@@ -3,13 +3,13 @@ title: Translator V3.0 Reference
 titleSuffix: Azure Cognitive Services
 description: Reference documentation for the Translator V3.0. Version 3 of the Translator provides a modern JSON-based Web API.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Translator v3.0
@@ -30,18 +30,29 @@ Microsoft Translator is served out of multiple datacenter locations. Currently t
 
 * **Americas:** East US, South Central US, West Central US, and West US 2 
 * **Asia Pacific:** Korea South, Japan East, Southeast Asia, and Australia East
-* **Europe:** North Europe and West Europe
+* **Europe:** North Europe, West Europe, Switzerland North<sup>1,2</sup>, and Switzerland West<sup>1,2</sup>
 
 Requests to the Microsoft Translator are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the Azure geography.
 
-To force the request to be handled by a specific Azure geography, change the Global endpoint in the API request to the desired regional endpoint:
+To force the request to be handled by a specific Azure geography, change the Global endpoint in the API request to the desired geographical endpoint:
 
-|Description|Azure geography|Base URL|
+|Description|Azure geography|Base URL (geographical endpoint)|
 |:--|:--|:--|
 |Azure|Global (non-regional)|	api.cognitive.microsofttranslator.com|
 |Azure|United States|	api-nam.cognitive.microsofttranslator.com|
 |Azure|Europe|	api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia Pacific|	api-apc.cognitive.microsofttranslator.com|
+
+<sup>1</sup> Customer with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the ‘Resource region’ ‘Switzerland North’ or ‘Switzerland West’, then use the resource’s custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with ‘Resource region’ as ‘Switzerland North’ and your resource name is ‘my-ch-n’ then your custom endpoint is “https://my-ch-n.cognitiveservices.azure.com”. And a sample request to translate is:
+```curl
+// Pass secret key and region using headers to a custom endpoint
+curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
+-H "Ocp-Apim-Subscription-Key: xxx" \
+-H "Ocp-Apim-Subscription-Region: switzerlandnorth" \
+-H "Content-Type: application/json" \
+-d "[{'Text':'Hello'}]" -v
+```
+<sup>2</sup>Custom Translator is not currently available in Switzerland.
 
 ## Authentication
 
@@ -142,7 +153,7 @@ An authentication token is valid for 10 minutes. The token should be reused when
 
 ## Virtual Network support
 
-The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, please see [Configuring Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, please see [Configuring Azure Cognitive Services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal). 
 
 Once you turn on this capability, you must use the custom endpoint to call the Translator. You cannot use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you cannot authenticate with an access token.
 
@@ -225,7 +236,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 503000| Service is temporarily unavailable. Please retry. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 
 ## Metrics 
-Metrics allow you to view the translator usage and availability information in Azure portal, under metrics section as shown in the below screenshot. For more information, see [Data and platform metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Metrics allow you to view the translator usage and availability information in Azure portal, under metrics section as shown in the below screenshot. For more information, see [Data and platform metrics](../../../azure-monitor/essentials/data-platform-metrics.md).
 
 ![Translator Metrics](../media/translatormetrics.png)
 

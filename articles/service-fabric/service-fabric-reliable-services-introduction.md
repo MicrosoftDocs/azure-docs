@@ -5,7 +5,6 @@ author: masnider
 ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: masnider
-ms.custom: sfrev
 ---
 # Reliable Services overview
 

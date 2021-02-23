@@ -1,9 +1,6 @@
 ---
 title: Create Apache Hadoop clusters using Azure CLI - Azure HDInsight
 description: Learn how to create Azure HDInsight clusters using the cross-platform Azure CLI.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
@@ -18,13 +15,9 @@ The steps in this document walk-through creating a HDInsight 3.6 cluster using t
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Prerequisites
-
-Azure CLI. If you haven't installed the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) for steps.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Create a cluster
 
@@ -44,7 +37,7 @@ Azure CLI. If you haven't installed the Azure CLI, see [Install the Azure CLI](/
     |`--workernode-count`| The number of worker nodes in the cluster. This article uses the variable `clusterSizeInNodes` as the value passed to `--workernode-count`. |
     |`--version`| The HDInsight cluster version. This article uses the variable `clusterVersion` as the value passed to `--version`. See also: [Supported HDInsight versions](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
     |`--type`| Type of HDInsight cluster, like: hadoop, interactivehive, hbase, kafka, storm, spark, rserver, mlservices.  This article uses the variable `clusterType` as the value passed to `--type`. See also: [Cluster types and configuration](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
-    |`--component-version`|The versions of various Hadoop components, in space-separated versions in 'component=version' format. This article uses the variable `componentVersion` as the value passed to `--component-version`. See also: [Hadoop components](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).|
+    |`--component-version`|The versions of various Hadoop components, in space-separated versions in 'component=version' format. This article uses the variable `componentVersion` as the value passed to `--component-version`. See also: [Hadoop components](./hdinsight-component-versioning.md).|
 
     Replace `RESOURCEGROUPNAME`, `LOCATION`, `CLUSTERNAME`, `STORAGEACCOUNTNAME`, and `PASSWORD` with the desired values. Change values for the other variables as desired. Then enter the CLI commands.
 

@@ -181,11 +181,11 @@ Next, be sure to update the image references in the deployment.template.json fil
 
 * edgeAgent:
 
-    `"image": "<registry name and server>/azureiotedge-agent:1.0",`
+    `"image": "<registry name and server>/azureiotedge-agent:1.1",`
 
 * edgeHub:
 
-    `"image": "<registry name and server>/azureiotedge-hub:1.0",`
+    `"image": "<registry name and server>/azureiotedge-hub:1.1",`
 
 ## Networking
 

@@ -50,7 +50,7 @@ In order for the parent subscription with the virtual hub to modify and access t
 1. Next, add the remote tenant subscription and the parent tenant subscription to the current session of PowerShell. Run the following command. If you are signed into the parent, you only need to run the command for the remote tenant.
 
    ```azurepowershell-interactive
-   Add-AzAccount "xxxxx-b34a-4df9-9451-4402dcaecc5b"
+   Add-AzAccount -SubscriptionId "xxxxx-b34a-4df9-9451-4402dcaecc5b"
    ```
 
 1. Verify that the role assignment is successful by logging into Azure PowerShell using the parent credentials, and running the following command:

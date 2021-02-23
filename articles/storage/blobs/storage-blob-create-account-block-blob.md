@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Create a BlockBlobStorage account
 
 The BlockBlobStorage account kind lets you create block blobs with premium performance characteristics. This type of storage account is optimized for workloads with high transactions rates or that require very fast access times. This article shows how to create a BlockBlobStorage account by using the Azure portal, the Azure CLI, or Azure PowerShell.
 
-For more information about BlockBlobStorage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+For more information about BlockBlobStorage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
 ## Prerequisites
 
@@ -190,6 +190,6 @@ To create a block blob account by using the Azure CLI, you must first install Az
 
 ## Next steps
 
-- For more information about storage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+- For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
-- For more information about resource groups, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+- For more information about resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).

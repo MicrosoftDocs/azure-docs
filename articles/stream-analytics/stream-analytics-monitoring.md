@@ -1,9 +1,8 @@
 ---
 title: Understand job monitoring in Azure Stream Analytics
 description: This article describes how to monitor Azure Stream Analytics jobs in the Azure portal.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
@@ -37,13 +36,13 @@ The window will appear as shown:
 | Out-of-Order Events    | Number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the Out of Order Tolerance Window setting. |
 | Output Events          | Amount of data sent by the Stream Analytics job to the output target, in number of events. |
 | Runtime Errors         | Total number of errors related to query processing (excluding errors found while ingesting events or outputting results) |
-| SU % Utilization       | The utilization of the Streaming Unit(s) assigned to a job from the Scale tab of the job. Should this indicator reach 80%, or above, there is high probability that event processing may be delayed or stopped making progress. |
+| SU % Utilization       | If resource utilization is consistently over 80%, the watermark delay is rising, and the number of backlogged events is rising, consider increasing streaming units. High utilization indicates that the job is using close to the maximum allocated resources. |
 | Watermark Delay       | The maximum watermark delay across all partitions of all outputs in the job. |
 
 You can use these metrics to [monitor the performance of your Stream Analytics job](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 
 
 ## Customizing Monitoring in the Azure portal
-You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](../azure-monitor/platform/data-platform.md).
+You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](../azure-monitor/data-platform.md).
 
   ![Stream Analytics query monitor time graph](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 

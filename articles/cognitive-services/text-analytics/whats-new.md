@@ -8,18 +8,59 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 02/16/2021
 ms.author: aahi
+ms.custom: references_regions 
 ---
 
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## February 2021
+
+* The `2021-01-15` model version for the PII endpoint in [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.1-preview.x, which provides 
+  * Expanded support for 9 new languages
+  * Improved AI quality of named entity categories for supported languages.
+* The S0 through S4 pricing tiers are being retired on March 8th, 2021. If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you should update it to use the Standard (S) [pricing tier](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier).
+
+## January 2021
+
+* The `2021-01-15` model version for [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.x, which provides 
+  * Expanded language support for [several general entity categories](named-entity-types.md). 
+  * Improved AI quality of general entity categories for all supported v3 languages. 
+
+* The `2021-01-05` model version for [language detection](how-tos/text-analytics-how-to-language-detection.md), which provides additional [language support](language-support.md?tabs=language-detection).
+
+These model versions are currently unavailable in the East US region. 
+
+> [!div class="nextstepaction"]
+> [Learn more about about the new NER model](https://azure.microsoft.com/updates/text-analytics-ner-improved-ai-quality)
+
+## December 2020
+
+* [Updated pricing](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) details for the Text Analytics API
+
+## November 2020
+
+* A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) with Text Analytics API v3.1-preview.3 for the new asynchronous [Analyze API](how-tos/text-analytics-how-to-call-api.md?tabs=analyze), which supports batch processing for NER, PII, and key phrase extraction operations.
+* A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) with Text Analytics API v3.1-preview.3 for the new asynchronous [Text Analytics for health](how-tos/text-analytics-for-health.md) hosted API with support for batch processing.
+* Both new features listed above are only available in the following regions: `West US 2`, `East US 2`, `Central US`, `North Europe` and `West Europe` regions.
+* Portuguese (Brazil) `pt-BR` is now supported in [Sentiment Analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) v3.x, starting with model version `2020-04-01`. It adds to the existing `pt-PT` support for Portuguese.
+* Updated client libraries, which include asynchronous Analyze, and Text Analytics for health operations. You can find examples on GitHub:
+
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+
+
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics API v3.1-Preview.3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
+
 ## October 2020
 
 * Hindi support for Sentiment Analysis v3.x, starting with model version `2020-04-01`. 
-* Model verion `2020-09-01` for the v3 /languages endpoint, which adds increased language detection and accuracy improvements.
+* Model version `2020-09-01` for the v3 /languages endpoint, which adds increased language detection and accuracy improvements.
 * v3 availability in Central India and UAE North.
 
 ## September 2020
@@ -35,12 +76,12 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
     * v3.0-preview.1
     
 > [!div class="nextstepaction"]
-> [Learn more about Text Analytics API v3.1-Preview.2](quickstarts/text-analytics-sdk.md)
+> [Learn more about Text Analytics API v3.1-Preview.2](quickstarts/client-libraries-rest-api.md)
 
 ### Text Analytics for health container updates
 
 The following updates are specific to the September release of the Text Analytics for health container only.
-* A new container image with tag `1.1.013530001-amd64-preview` with the new model-version `2020-09-03` has been released to the containerpreview repository. 
+* A new container image with tag `1.1.013530001-amd64-preview` with the new model-version `2020-09-03` has been released to the container preview repository. 
 * This model version provides improvements in entity recognition, abbreviation detection, and latency enhancements.
 
 > [!div class="nextstepaction"]
@@ -135,14 +176,12 @@ The names of the following properties in the JSON response have been changed, wh
 * `type` has been renamed to `category`
 * `subtype` has been renamed to `subcategory`
 
-[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
-
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
 
 ### Text Analytics API v3.1 Public Preview
    * New Sentiment Analysis feature - [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
-   * New [Personal (`PII`) domain filter](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) for protected health information (`PHI`).
+   * New Personal (`PII`) domain filter for protected health information (`PHI`).
 
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3.1 Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
@@ -152,13 +191,13 @@ The names of the following properties in the JSON response have been changed, wh
 ### SDK support for Text Analytics API v3 Public Preview
 
 As part of the [unified Azure SDK release](https://techcommunity.microsoft.com/t5/azure-sdk/january-2020-unified-azure-sdk-release/ba-p/1097290), the Text Analytics API v3 SDK is now available as a public preview for the following programming languages:
-   * [C#](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-csharp)
-   * [Python](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-python)
-   * [JavaScript (Node.js)](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript)
-   * [Java](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-java)
+   * [C#](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-csharp&tabs=version-3)
+   * [Python](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-python&tabs=version-3)
+   * [JavaScript (Node.js)](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-javascript&tabs=version-3)
+   * [Java](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-java&tabs=version-3)
    
-   > [!div class="nextstepaction"]
-> [Learn more about Text Analytics API v3 SDK](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3)
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics API v3 SDK](./quickstarts/client-libraries-rest-api.md?tabs=version-3)
 
 ### Named Entity Recognition v3 public preview
 
@@ -180,9 +219,6 @@ Additional entity types are now available in the Named Entity Recognition (NER) 
     * Phone Number (US only)
     * URL
     * IP Address
-
-> [!div class="nextstepaction"]
-> [Learn more about Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
 
 ### October 2019
 

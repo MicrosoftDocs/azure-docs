@@ -3,6 +3,7 @@ title: Type checking functions in Azure Cosmos DB query language
 description: Learn about type checking SQL system functions in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
@@ -33,4 +34,4 @@ The following functions support type checking against input values, and each ret
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduction to Azure Cosmos DB](introduction.md)
 - [User Defined Functions](sql-query-udfs.md)
-- [Aggregates](sql-query-aggregates.md)
+- [Aggregates](sql-query-aggregate-functions.md)
