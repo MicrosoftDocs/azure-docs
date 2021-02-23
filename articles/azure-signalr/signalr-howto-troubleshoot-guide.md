@@ -339,9 +339,9 @@ If your server is starving, that means no thread is working on message processin
 
 Normally, it should be caused by async over sync, or `Task.Result`/`Task.Wait()` in async methods.
 
-See [ASP.NET Core Performance Best Practices](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices?view=aspnetcore-5.0#avoid-blocking-calls)
+See [ASP.NET Core Performance Best Practices](https://docs.microsoft.com/aspnet/core/performance/performance-best-practices#avoid-blocking-calls)
 
-See more about [thread pool starvation](https://docs.microsoft.com/en-us/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall)
+See more about [thread pool starvation](https://docs.microsoft.com/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall)
 
 #### How to detect thread pool starvation
 
@@ -349,8 +349,8 @@ See more about [thread pool starvation](https://docs.microsoft.com/en-us/archive
   * If using Azure App Service, you can find it in metrics, thread count, use the `Max` aggregation like following:
     
     ![metrics-threadcount](media/signalr-howto-troubleshoot-guide/metrics-threadcount.png)
-  * If using dotnet framework, you can find it in the performance monitor in your server VM.
-  * If using dotnet core in a container, see [Collect diagnostics in containers](https://docs.microsoft.com/en-us/dotnet/core/diagnostics/diagnostics-in-containers).
+  * If using dotnet framework, you can find [metrics](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters) in the performance monitor in your server VM.
+  * If using dotnet core in a container, see [Collect diagnostics in containers](https://docs.microsoft.com/dotnet/core/diagnostics/diagnostics-in-containers).
 * Use code to detect thread pool starvation:
 
     ```cs
@@ -398,7 +398,7 @@ See more about [thread pool starvation](https://docs.microsoft.com/en-us/archive
 
 There are following ways to find the root cause:
 
-* Catch a dump file, then analysis the call stack.
+* Dump memory, then analysis the call stack, see [collecting-and-analyzing-memory-dumps](https://devblogs.microsoft.com/dotnet/collecting-and-analyzing-memory-dumps/).
 * Use [clrmd](https://github.com/microsoft/clrmd) to dump it when detected starvation, then log the call stack.
 
 ### Troubleshooting guide
