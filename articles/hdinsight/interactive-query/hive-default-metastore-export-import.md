@@ -89,9 +89,9 @@ QUERY="SELECT DBS.NAME, TBLS.TBL_NAME, SDS.LOCATION FROM SDS, TBLS, DBS WHERE TB
 sudo python "$SCRIPT" --query "$QUERY" > $OUTPUT_FILE
 ```
 
-## Next steps
+## Further reading
 
-1) [Migrate workloads from HDInsight 3.6 to 4.0](./apache-hive-migrate-workloads.md)
-2) [Hive Workload Migration across Storage Accounts](./hive-migration-across-storage-accounts.md)
-3) [Connect to Beeline on HDInsight](../hadoop/connect-install-beeline.md)
-4) [Troubleshoot Permission Error Create Table](./interactive-query-troubleshoot-permission-error-create-table.md)
+* [Migrate workloads from HDInsight 3.6 to 4.0](./apache-hive-migrate-workloads.md)
+* [Hive Workload Migration across Storage Accounts](./hive-migration-across-storage-accounts.md)
+* [Connect to Beeline on HDInsight](../hadoop/connect-install-beeline.md)
+* [Troubleshoot Permission Error Create Table](./interactive-query-troubleshoot-permission-error-create-table.md)
