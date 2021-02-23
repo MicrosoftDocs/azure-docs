@@ -52,7 +52,7 @@ You can configure automatic scaling of messaging units by using conditions. This
 You can't set a schedule to autoscale on a specific days or date range for a default condition. This scale condition is executed when none of the other scale conditions with schedules match. 
 
 ### Scale based on a metric
-The following procedure shows you how to add a condition to automatically increase messaging units (scale out) when the CPU usage is greater than 75% and decrease messaging units (scale in) when the CPU usage is less than 25%. Increments are done from 1 to 2, 2 to 4, and 4 to 8. Similarly, decrements are done from 8 to 4, 4 to 2, and 2 to 1. 
+The following procedure shows you how to add a condition to automatically increase messaging units (scale out) when the CPU usage is greater than 75% and decrease messaging units (scale in) when the CPU usage is less than 25%. Increments are done from 1 to 2, 2 to 4, 4 to 8, and 8 to 16. Similarly, decrements are done from 16 to 8, 8 to 4, 4 to 2, and 2 to 1. 
 
 1. On the **Autoscale setting** page, select **Custom auto scale** for the **Choose how to scale your resource** option. 
 1. In the **Default** section of the page, specify a **name** for the default condition. Select the **pencil** icon to edit the text. 
@@ -69,7 +69,7 @@ The following procedure shows you how to add a condition to automatically increa
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Default - scale out if CPU usage is greater than 75%":::       
 
         > [!NOTE]
-        > The autoscale feature increases the messaging units for the namespace if the overall CPU usage goes above 75% in this example. Increments are done from 1 to 2, 2 to 4, and 4 to 8. 
+        > The autoscale feature increases the messaging units for the namespace if the overall CPU usage goes above 75% in this example. Increments are done from 1 to 2, 2 to 4, 4 to 8, and 8 to 16. 
 1. Select **+ Add a rule** again, and follow these steps on the **Scale rule** page:
     1. Select a metric from the **Metric name** drop-down list. In this example, it's **CPU**. 
     1. Select an operator and threshold values. In this example, they're **Less than** and **25** for **Metric threshold to trigger scale action**. 
@@ -79,7 +79,7 @@ The following procedure shows you how to add a condition to automatically increa
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Default - scale in if CPU usage is less than 25%":::       
 
         > [!NOTE]
-        > The autoscale feature decreases the messaging units for the namespace if the overall CPU usage goes below 25% in this example. Decrements are done from 8 to 4, 4 to 2, and 2 to 1. 
+        > The autoscale feature decreases the messaging units for the namespace if the overall CPU usage goes below 25% in this example. Decrements are done from 16 to 8, 8 to 4, 4 to 2, and 2 to 1. 
 1. Set the **minimum** and **maximum** and **default** number of messaging units.
 
     :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Default rule based on a metric":::
