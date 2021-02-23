@@ -123,15 +123,15 @@ map.layers.add(new PolygonLayer(source,
 ), "labels");
 ```
 
-For this sample the following image was loaded into the drawable folder of the app.
+For this sample, the following image was loaded into the drawable folder of the app.
 
 | ![Purple arrow icon image](media/how-to-add-shapes-to-android-map/fill_checker_red.png)|
 |:-----------------------------------------------------------------------:|
 | fill_checker_red.png                                                    |
 
-The following is a screenshot of the above code rendering a polygon will a fill pattern on the map.
+The following is a screenshot of the above code rendering a polygon with a fill pattern on the map.
 
-![Polygon will a fill pattern rendered on map](media/how-to-add-shapes-to-android-map/android-polygon-pattern.jpg)
+![Polygon with a fill pattern rendered on map](media/how-to-add-shapes-to-android-map/android-polygon-pattern.jpg)
 
 ## Next steps
 

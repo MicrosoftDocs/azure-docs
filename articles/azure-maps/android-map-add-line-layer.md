@@ -159,7 +159,7 @@ map.layers.add(new LineLayer(source,
 ));
 ```
 
-The following screenshot shows the above code rendering two lines in a line layer with their color being retrieved from a data driven style expression based on a property in the line features.
+The following screenshot shows the above code displaying a line rendered using a gradient stroke color.
 
 ![Map with a line rendered as a gradient path in a line layer](media/android-map-add-line-layer/android-line-layer-gradient.jpg)
 
@@ -229,7 +229,7 @@ For this sample, the following image was loaded into the drawable folder of the 
 |:-----------------------------------------------------------------------:|
 |                                                  |
 
-The screenshot below shows the above code rendering a line with arrow icons displayed along it.
+The screenshot below shows the above code displaying a line with arrow icons displayed along it.
 
 ![Map with data-drive styled lines with arrows rendered in a line layer](media/android-map-add-line-layer/android-symbols-along-line-path.png)
 

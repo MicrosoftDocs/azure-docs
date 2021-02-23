@@ -41,7 +41,7 @@ var datasource = new atlas.source.DataSource(null, {
 > [!TIP]
 > If two data points are close together on the ground, it's possible the cluster will never break apart, no matter how close the user zooms in. To address this, you can set the `clusterMaxZoom` option to disable the clustering logic and simply display everything.
 
-Here are additional methods that the `DataSource` class provides for clustering:
+The `DataSource` class provides the following methods related to clustering as well.
 
 | Method | Return type | Description |
 |--------|-------------|-------------|

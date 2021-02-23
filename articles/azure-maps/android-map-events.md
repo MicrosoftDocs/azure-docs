@@ -23,7 +23,7 @@ The map manages all events through its `events` property. The following table li
 | `OnCameraIdle`         | `()`                 | <p>Fired after the last frame rendered before the map enters an "idle" state:<ul><li>No camera transitions are in progress.</li><li>All currently requested tiles have loaded.</li><li>All fade/transition animations have completed.</li></ul></p> |
 | `OnCameraMove`         | `()`                 | Fired repeatedly during an animated transition from one view to another, as the result of either user interaction or methods. |
 | `OnCameraMoveCanceled` | `()`                 | Fired when a movement request to the camera has been canceled. |
-| `OnCameraMoveStarted`  | `(int reason)`       | Fired just before the map begins a transition from one view to another, as the result of either user interaction or methods. The `reason` argument of the event listener returns an integer value that provides details of how the camera movement was initiated. The following is the list of possible reasons:<ul><li>1: Gesture</li><li>2: Developer animation</li><li>3: API Animation</li></ul>   |
+| `OnCameraMoveStarted`  | `(int reason)`       | Fired just before the map begins a transition from one view to another, as the result of either user interaction or methods. The `reason` argument of the event listener returns an integer value that provides details of how the camera movement was initiated. The following list outlines the possible reasons:<ul><li>1: Gesture</li><li>2: Developer animation</li><li>3: API Animation</li></ul>   |
 | `OnClick`              | `(double lat, double lon)` | Fired when the map is pressed and released at the same point on the map. |
 | `OnFeatureClick`       | `(List<Feature>)`    | Fired when the map is pressed and released at the same point on a feature.  |
 | `OnLayerAdded` | `(Layer layer)` | Fired when a layer is added to the map. |
@@ -56,7 +56,7 @@ For more information, see the [Navigating the map](how-to-use-android-map-contro
 
 ## Scope feature events to layer
 
-When adding the `OnFeatureClick` or `OnLongFeatureClick` events to the map, a layer instance or layer ID can be passed in as a second parameter. When a layer is passed in, the event will only fire if the event occurs on that layer. Events scoped to layers is supported by the symbol, bubble, line, and polygon layers.
+When adding the `OnFeatureClick` or `OnLongFeatureClick` events to the map, a layer instance or layer ID can be passed in as a second parameter. When a layer is passed in, the event will only fire if the event occurs on that layer. Events scoped to layers are supported by the symbol, bubble, line, and polygon layers.
 
 ```java
 //Create a data source.
