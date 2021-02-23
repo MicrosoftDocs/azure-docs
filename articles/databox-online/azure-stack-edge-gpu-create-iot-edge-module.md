@@ -113,7 +113,7 @@ Create a C# solution template that you can customize with your own code.
 
     ![Create new solution 4](./media/azure-stack-edge-j-series-create-iot-edge-module/create-new-solution-4.png)
 
-5. Browse and point to the **EdgeSolution** folder that you created earlier. The VS Code window loads your IoT Edge solution workspace with its five top-level components. You won't edit the **.vscode** folder, **.gitignore** file, **.env** file, and the **deployment.template.json** in this article.
+5. Browse and point to the **EdgeSolution** folder that you created earlier. The VS Code window loads your IoT Edge solution workspace with its five top-level components. You won't edit the `.vscode` folder, **.gitignore** file, **.env** file, and the **deployment.template.json** in this article.
     
     The only component that you modify is the modules folder. This folder has the C# code for your module and Docker files to build your module as a container image.
 
