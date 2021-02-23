@@ -346,9 +346,11 @@ See more about [thread pool starvation](https://docs.microsoft.com/en-us/archive
 #### How to detect thread pool starvation
 
 * Check your thread count, and there is no spikes at that time.
-  * If using Azure App Service, you can find it in metrics, thread count, use the `Max` aggregation.
+  * If using Azure App Service, you can find it in metrics, thread count, use the `Max` aggregation like following:
+    
+    ![metrics-threadcount](media/signalr-howto-troubleshoot-guide/metrics-threadcount.png)
   * If using dotnet framework, you can find it in the performance monitor in your server VM.
-  * If using dotnet core in a container, see [Collect diagnostics in containers](https://docs.microsoft.com/en-us/dotnet/core/diagnostics/diagnostics-in-containers)
+  * If using dotnet core in a container, see [Collect diagnostics in containers](https://docs.microsoft.com/en-us/dotnet/core/diagnostics/diagnostics-in-containers).
 * Use code to detect thread pool starvation:
 
     ```cs
