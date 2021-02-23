@@ -121,7 +121,7 @@ Cognitive Services that provide exported models for other machine learning tools
 
 |Cognitive Service|Model information|
 |--|--|
-|[Custom Vision](./custom-vision-service/overview.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
+|[Custom Vision](./custom-vision-service/overview.md)|[Export](./custom-vision-service/export-model-python.md) for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
 
 ## Learn more
 
