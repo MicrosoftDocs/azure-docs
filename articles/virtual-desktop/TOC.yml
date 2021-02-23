@@ -104,6 +104,8 @@
           href: app-attach-image-prep.md
         - name: Set up a file share
           href: app-attach-file-share.md
+        - name: Set up the MSIXMGR tool
+          href: app-attach-msixmgr.md
   - name: Use Microsoft Teams
     href: teams-on-wvd.md
   - name: Set up Azure AD Multi-Factor Authentication
