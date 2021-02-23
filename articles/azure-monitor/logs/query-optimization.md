@@ -146,7 +146,7 @@ by CounterPath
 
 CPU consumption might also be impacted by where conditions or extended columns that require intensive computing. All trivial string comparisons such as [equal ==](/azure/kusto/query/datatypes-string-operators) and [startswith](/azure/kusto/query/datatypes-string-operators) have roughly the same CPU impact while advanced text matches have more impact. Specifically, the [has](/azure/kusto/query/datatypes-string-operators) operator is more efficient that the [contains](/azure/kusto/query/datatypes-string-operators) operator. Due to string handling techniques, it is more efficient to look for strings that are longer than four characters than short strings.
 
-For example, the following queries produce similar results, depending on Computer naming policy, but the second one is more efficient:
+For example, the following queries produce similar results, depending on Computer naming policy, but the third one is more efficient:
 
 ```Kusto
 //less efficient – due to filter based on contains
