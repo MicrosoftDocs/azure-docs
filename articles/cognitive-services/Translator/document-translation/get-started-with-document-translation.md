@@ -22,6 +22,8 @@ To get started, you'll need:
 
 * An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account.
 
+* A completed [**Document Translation (Preview) form**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) to enable your Azure subscription to use the new Document Translation feature.
+
 > [!NOTE]
 > Document Translation is currently only supported in the Translator (single-service) resource, **not** the Cognitive Services (multi-service) resource.
 
