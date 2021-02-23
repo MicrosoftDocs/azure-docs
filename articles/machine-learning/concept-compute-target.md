@@ -97,15 +97,21 @@ See the following table to learn more about supported series and restrictions.
 | **Supported VM series**  | **Restrictions** |
 |------------|------------|
 | D | None. |
+| DDSv4 | None. |
 | Dv2 | None. |  
 | Dv3 | None.|
 | DSv2 | None. | 
 | DSv3 | None.|
+| EAv4 | None. |
+| Ev3 | None. |
 | FSv2 | None. | 
+| H | None. |
+| HB | Requires approval. |
 | HBv2 | Requires approval. |  
 | HCS | Requires approval. |  
 | M | Requires approval. |
-| NC | None. |    
+| NC | None. |  
+| NC Promo | None. |
 | NCsv2 | Requires approval. |
 | NCsv3 | Requires approval. |  
 | NDs | Requires approval. |
