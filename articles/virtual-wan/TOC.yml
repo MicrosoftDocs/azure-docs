@@ -78,6 +78,10 @@
       href: virtual-wan-ipsec.md
     - name: Multiple ISP links - Azure path selection
       href: path-selection-multiple-links.md
+  - name: Point-to-site
+    items:
+    - name: About custom IPsec policies
+      href: point-to-site-custom-ipsec.md
   - name: Security
     items:
     - name: Security baseline
