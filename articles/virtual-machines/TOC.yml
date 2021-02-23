@@ -792,7 +792,7 @@
   - name: States and lifecycle
     href: states-lifecycle.md
   - name: Autoscale
-    href: ./virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
+    href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
   - name: High availability
     href: manage-availability.md
   - name: Availability sets

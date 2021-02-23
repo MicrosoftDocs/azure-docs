@@ -130,7 +130,7 @@ Windows Server support for node pool includes some limitations that are part of 
 
 AKS provides SLA guarantees as an optional add-on feature with [Uptime SLA][uptime-sla]. 
 
-The Free SLA offered by default doesn't guarantee a highly available API Server endpoint (our Service Level Objective is 99.5%). It could happen that transient connectivity issues are observed in case of upgrades, unhealthy underlay nodes, platform maintenance, etc... If your workload doesn't tolerate APIServer restarts, then we suggest using Uptime SLA.
+The Free SKU offered by default doesn't have a associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. It could happen that transient connectivity issues are observed in case of upgrades, unhealthy underlay nodes, platform maintenance, application overwhelming the API Server with requests, etc. If your workload doesn't tolerate API Server restarts, then we suggest using Uptime SLA.
 
 ## Can I apply Azure reservation discounts to my AKS agent nodes?
 
