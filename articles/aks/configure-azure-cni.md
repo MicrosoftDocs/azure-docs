@@ -157,6 +157,43 @@ A drawback with the traditional CNI is the exhaustion of Pod IP addresses as the
 
 * **Kubernetes Network Policies**: Both the Azure Network Policies and Calico work with this new solution.  
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+
+### Install the `aks-preview` Azure CLI 
+
+You also need the *aks-preview* Azure CLI extension.. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+``` 
+
+### Register the `PodSubnetPreview` preview feature
+
+To use the feature, you must enable the `PodSubnetPreview` feature flag on your subscription.
+
+Register the `PodSubnetPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "PodSubnetPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSubnetPreview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
 ### Additional prerequisites
 
 The prerequisites already listed for Azure CNI still apply, but there are a few additional limitations:
@@ -175,7 +212,7 @@ The planning of IPs for K8S services and Docker bridge remain unchanged.
 The pods per node values when using Azure CNI with dynamic allocation of IPs have changed slightly from the traditional CNI behavior:
 
 |CNI|Deployment Method|Default|Configurable at deployment|
-|--|--|--|--|
+|--|--| :--: |--|
 |Traditional Azure CNI|Azure CLI|30|Yes (up to 250)|
 |Azure CNI with dynamic allocation of IPs|Azure CLI|110|Yes (up to 250)|
 
@@ -308,6 +345,10 @@ Learn more about networking in AKS in the following articles:
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az_aks_show
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
