@@ -20,7 +20,7 @@ This quickstart shows you how to authorize access to the Identity and SMS client
 ## Prerequisites
 
  - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
- - An active Communication Services resource and connection string. [Create a Communication Services resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
+ - An active Communication Services resource and connection string. [Create a Communication Services resource](./create-communication-resource.md?pivots=platform-azp&tabs=windows).
 
 ## Setting Up
 
@@ -71,7 +71,7 @@ using Azure.Communication.Configuration;
 using Azure.Communication.Sms;
 ```
 
-The examples below are using the [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
+The examples below are using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
 
 ### Create an identity and issue a token
 
@@ -119,7 +119,7 @@ The following code example shows how to create a service client object with Azur
 You may also want to:
 
 - [Learn more about Azure role-based access control](../../../articles/role-based-access-control/index.yml)
-- [Learn more about Azure identity library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
+- [Learn more about Azure identity library for .NET](/dotnet/api/overview/azure/identity-readme)
 - [Creating user access tokens](../quickstarts/access-tokens.md)
 - [Send an SMS message](../quickstarts/telephony-sms/send.md)
 - [Learn more about SMS](../concepts/telephony-sms/concepts.md)
