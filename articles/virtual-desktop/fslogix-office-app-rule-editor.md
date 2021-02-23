@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop Install Microsoft Office FSLogix application containers - Azure
+title: Install Microsoft Office FSLogix application containers in Windows Virtual Desktop - Azure
 description: How to use the app rule editor to create an FSLogix application container with Office in Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
