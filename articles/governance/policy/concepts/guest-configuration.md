@@ -309,10 +309,9 @@ Guest Configuration built-in policy samples are available in the following locat
 
 ### Video overview
 
-The following overview of Azure Policy Guest Configuration is from ITOps Talks 2021. For more information, visit
-[Governing baselines in hybrid server environments using Azure Policy Guest Configuration](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245).
+The following overview of Azure Policy Guest Configuration is from ITOps Talks 2021.
 
-> [!VIDEO https://youtu.be/PLLJHTdC8jY]
+[Governing baselines in hybrid server environments using Azure Policy Guest Configuration](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245)
 
 ## Next steps
 
