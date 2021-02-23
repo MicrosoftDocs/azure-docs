@@ -2,7 +2,7 @@
 title: Use private endpoints to integrate Azure Functions with a virtual network
 description: A step-by-step tutorial that shows you how to connect a function to an Azure virtual network and lock it down with private endpoints
 ms.topic: article
-ms.date: 2/16/2021
+ms.date: 2/22/2021
 
 #Customer intent: As an enterprise developer, I want to create a function that can connect to a virtual network with private endpoints to secure my function app.
 ---
@@ -23,7 +23,7 @@ This tutorial shows you how to use Azure Functions to connect to resources in an
 
 ## Create a function app in a Premium plan
 
-First, you create a C# function app in the [Premium plan] as this tutorial will use C#. Other languages are also supported in Windows. This plan provides serverless scale while supporting virtual network integration.
+First, you create a .NET function app in the [Premium plan] as this tutorial will use C#. Other languages are also supported in Windows. This plan provides serverless scale while supporting virtual network integration.
 
 1. From the Azure portal menu or the **Home** page, select **Create a resource**.
 
@@ -37,7 +37,7 @@ First, you create a C# function app in the [Premium plan] as this tutorial will 
     | **[Resource Group](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which to create your function app. |
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     |**Publish**| Code | Option to publish code files or a Docker container. |
-    | **Runtime stack** | C# | This tutorial uses C# |
+    | **Runtime stack** | .NET | This tutorial uses .NET |
     |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
 
     ![Basics page](./media/functions-premium-create/function-app-create-basics.png)
@@ -295,13 +295,11 @@ To use your function app with virtual networks, you'll need to join it to a subn
 
 ## Deploy a service bus trigger and http trigger to your function app
 
-1. Clone the following Git repository from Azure Samples which contains an HTTP Trigger and Service Bus Queue Trigger.
+1. In GitHub, browse to the following sample repository, which contains a function app with an HTTP Trigger and Service Bus Queue Trigger.
 
-    ```git
-    git clone https://github.com/Azure-Samples/functions-vnet-tutorial
-    ```
+    <https://github.com/Azure-Samples/functions-vnet-tutorial>
 
-1. Create a new repository with your own Github account and push the cloned code to it.
+1. At the top of the page, select the **Fork** button to create a fork of this repository in your own GitHub account or organization. 
 
 1. In your function app, select **Deployment Center** from the left menu. Then, select **Settings**.
 
@@ -310,9 +308,9 @@ To use your function app with virtual networks, you'll need to join it to a subn
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Source** | Github | You should have created a Github repo with the sample code in step 2. | 
-    | **Organization**  | myOrganization | This is the organization your repo is checked into. |
+    | **Organization**  | myOrganization | This is the organization your repo is checked into, usually your account. |
     | **Repository** | myRepo | The repo you created with the sample code. |
-    | **Branch** | master | This is the repo you just created, so use the master branch. |
+    | **Branch** | main | This is the repo you just created, so use the master branch. |
     | **Runtime stack** | .NET | The sample code is in C#. |
 
 1. Select **Save**. 
