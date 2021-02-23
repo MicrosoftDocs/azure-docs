@@ -14,8 +14,6 @@ ms.service: azure-communication-services
 
 # What is Azure Communication Services?
 
-[!INCLUDE [Public Preview Notice](./includes/public-preview-include.md)]
-
 Azure Communication Services allows you to easily add real-time multimedia voice, video, and telephony-over-IP communications features to your applications. The Communication Services client libraries also allow you to add chat and SMS functionality to your communications solutions.
 
 <br>

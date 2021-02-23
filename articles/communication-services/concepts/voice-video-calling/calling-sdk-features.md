@@ -13,8 +13,6 @@ ms.service: azure-communication-services
 ---
 # Calling client library overview
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 There are two separate families of Calling client libraries, for *clients* and *services.* Currently available client libraries are intended for end-user experiences: websites and native apps.
 
 The Service client libraries are not yet available, and provide access to the raw voice and video data planes, suitable for integration with bots and other services.
@@ -23,35 +21,35 @@ The Service client libraries are not yet available, and provide access to the ra
 
 The following list presents the set of features which are currently available in the Azure Communication Services Calling client libraries.
 
-| Group of features | Capability                                                                                                          | JS  | Java (Android) | Objective-C (iOS) 
+| Group of features | Capability                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
-| Core Capabilities | Place a one-to-one call between two users                                                                           | ✔️   | ✔️            | ✔️  
-|                   | Place a group call with more than two users (up to 350 users)                                                       | ✔️   | ✔️            | ✔️ 
-|                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️            | ✔️ 
-|                   | Join a group call after it has started                                                                              | ✔️   | ✔️            | ✔️ 
+| Core Capabilities | Place a one-to-one call between two users                                                                           | ✔️   | ✔️            | ✔️
+|                   | Place a group call with more than two users (up to 350 users)                                                       | ✔️   | ✔️            | ✔️
+|                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️            | ✔️
+|                   | Join a group call after it has started                                                                              | ✔️   | ✔️            | ✔️
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️            | ✔️
-|                   | Turn your video on/off                                                         | ✔️   | ✔️            | ✔️ 
-|                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️            | ✔️         
-|                   | Switch between cameras                                                                                              | ✔️   | ✔️            | ✔️           
-|                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️            | ✔️           
-|                   | Active speaker                                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Choose speaker for calls                                                                                            | ✔️   | ✔️            | ✔️           
-|                   | Choose microphone for calls                                                                                         | ✔️   | ✔️            | ✔️           
-|                   | Show state of a participant<br/>*Idle, Early media, Connecting, Connected, On hold, In Lobby, Disconnected*         | ✔️   | ✔️            | ✔️           
-|                   | Show state of a call<br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️   | ✔️            | ✔️           
-|                   | Show if a participant is muted                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Show the reason why a participant left a call                                                                       | ✔️   | ✔️            | ✔️     
-| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ❌            | ❌           
-|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ❌            | ❌           
-|                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   | ❌            | ❌           
-|                   | Participant can view remote screen share                                                                            | ✔️   | ✔️            | ✔️         
-| Roster            | List participants                                                                                                   | ✔️   | ✔️            | ✔️           
-|                   | Remove a participant                                                                                                | ✔️   | ✔️            | ✔️         
-| PSTN              | Place a one-to-one call with a PSTN participant                                                                     | ✔️   | ✔️            | ✔️   
+|                   | Turn your video on/off                                                         | ✔️   | ✔️            | ✔️
+|                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️            | ✔️
+|                   | Switch between cameras                                                                                              | ✔️   | ✔️            | ✔️
+|                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️            | ✔️
+|                   | Active speaker                                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Choose speaker for calls                                                                                            | ✔️   | ✔️            | ✔️
+|                   | Choose microphone for calls                                                                                         | ✔️   | ✔️            | ✔️
+|                   | Show state of a participant<br/>*Idle, Early media, Connecting, Connected, On hold, In Lobby, Disconnected*         | ✔️   | ✔️            | ✔️
+|                   | Show state of a call<br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️   | ✔️            | ✔️
+|                   | Show if a participant is muted                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Show the reason why a participant left a call                                                                       | ✔️   | ✔️            | ✔️
+| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ❌            | ❌
+|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ❌            | ❌
+|                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   | ❌            | ❌
+|                   | Participant can view remote screen share                                                                            | ✔️   | ✔️            | ✔️
+| Roster            | List participants                                                                                                   | ✔️   | ✔️            | ✔️
+|                   | Remove a participant                                                                                                | ✔️   | ✔️            | ✔️
+| PSTN              | Place a one-to-one call with a PSTN participant                                                                     | ✔️   | ✔️            | ✔️
 |                   | Place a group call with PSTN participants                                                                           | ✔️   | ✔️            | ✔️
 |                   | Promote a one-to-one call with a PSTN participant into a group call                                                 | ✔️   | ✔️            | ✔️
-|                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️            | ✔️   
-| General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   |  ✔️  | ✔️            | ✔️   
+|                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️            | ✔️
+| General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   |  ✔️  | ✔️            | ✔️
 
 ## JavaScript calling client library support by OS and browser
 
@@ -91,7 +89,7 @@ The Communication Services calling client library supports the following streami
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**# of outgoing streams that can be sent simultaneously** |1 audio/video or 1 audio/screen sharing | 1 audio/video | 
+|**# of outgoing streams that can be sent simultaneously** |1 audio/video or 1 audio/screen sharing | 1 audio/video |
 |**# of incoming streams that can be rendered simultaneously** |1 audio/video or 1 audio/screen sharing| 6 audio/video or 1 screen sharing |
 
 Note that in group scenarios, one mixed audio stream is used to support all audio participants.
@@ -102,6 +100,6 @@ Note that in group scenarios, one mixed audio stream is used to support all audi
 > [Get started with calling](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 For more information, see the following articles:
-- Familiarize yourself with general [call flows](../call-flows.md) 
+- Familiarize yourself with general [call flows](../call-flows.md)
 - Learn about [call types](../voice-video-calling/about-call-types.md)
 - Learn about [phone number types](../telephony-sms/plan-solution.md)

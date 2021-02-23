@@ -13,8 +13,6 @@ ms.service: azure-communication-services
 ---
 # Client libraries and REST APIs
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 Azure Communication Services capabilities are conceptually organized into six areas. Some areas have fully open-sourced client libraries. The Calling client library uses proprietary network interfaces and is currently closed-source, and the Chat library includes a closed-source dependency. Samples and additional technical details for client libraries are published in the [Azure Communication Services GitHub repo](https://github.com/Azure/communication).
 
 ## Client libraries
@@ -32,7 +30,7 @@ Note that the Azure Resource Manager, Administration, and SMS client libraries a
 
 ### Languages and publishing locations
 
-Publishing locations for individual client library packages are detailed below. 
+Publishing locations for individual client library packages are detailed below.
 
 | Area           | JavaScript | .NET | Python | Java SE | iOS | Android | Other                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
@@ -89,10 +87,10 @@ The following timeouts apply to the Communication Services calling client librar
 | Promote 1:1 call to a group call timeout | 115 |
 
 
-## API stability expectations 
+## API stability expectations
 
 > [!IMPORTANT]
-> This section provides guidance on REST APIs and client libraries marked **stable**. APIs marked pre-release, preview, or beta may be changed or deprecated **without notice**. Currently Azure Communication Services is in a **public preview**, and APIs are marked as such.
+> This section provides guidance on REST APIs and client libraries marked **stable**. APIs marked pre-release, preview, or beta may be changed or deprecated **without notice**.
 
 In the future we may retire versions of the Communication Services client libraries, and we may introduce breaking changes to our REST APIs and released client libraries. Azure Communication Services will *generally* follow two supportability policies for retiring service versions:
 

@@ -12,8 +12,6 @@ ms.service: azure-communication-services
 
 # Tutorial: Prepare a web app for Azure Communication Services (Node.js)
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 Azure Communication Services allows you to add real-time communications to your applications. In this tutorial, you'll learn how to set up a web application that supports Azure Communication Services. This is an introductory tutorial intended for new developers who want to get started with real-time communications.
 
 By the end of this tutorial, you'll have a baseline web application configured with Azure Communication Services client libraries that you can use to begin building your real-time communications solution.
@@ -52,7 +50,7 @@ Your local development environment will be configured like this:
 
 We'll use Node.js to download and install various dependencies we need for our client-side application. We'll use it to generate static files that we'll then host in Azure, so you don't need to worry about configuring it on your server.
 
-Windows developers can follow [this NodeJS tutorial](/windows/nodejs/setup-on-windows) to configure Node, nvm, and npm. 
+Windows developers can follow [this NodeJS tutorial](/windows/nodejs/setup-on-windows) to configure Node, nvm, and npm.
 
 We tested this tutorial using the LTS 12.20.0 version. After you install nvm, use the following PowerShell command to deploy the version that you want to use:
 
@@ -156,7 +154,7 @@ module.exports ={
     output: {
         filename:'app.js',
         path: path.resolve(__dirname, 'dist'),
-    }     
+    }
 }
 ```
 
@@ -213,7 +211,7 @@ Your file now should look like this:
 }
 ```
 
-You added the command that can be used from npm. 
+You added the command that can be used from npm.
 
 :::image type="content" source="./media/step-one-pic-12.png" alt-text="Modifying package.json":::
 
@@ -274,13 +272,13 @@ npm run build:dev
 The console will show you where the server is running. By default, it's `http://localhost:8080`. The build:dev command is the command we added to our `package.json` earlier.
 
  :::image type="content" source="./media/step-one-pic-16.png" alt-text="Starting a development server":::
- 
+
  Navigate to the address in your browser and you should see the page and alert, configured on previous steps.
- 
+
   :::image type="content" source="./media/step-one-pic-17.png" alt-text="Html page":::
-  
- 
-While the server is running, you can change the code, and the server and the HTML page will automatically reload. 
+
+
+While the server is running, you can change the code, and the server and the HTML page will automatically reload.
 
 Next, go to the `app.js` file in Visual Studio Code and delete `alert('Hello world alert!');`. Save your file and verify that the alert disappears from your browser.
 
@@ -318,11 +316,11 @@ const { merge } = require('webpack-merge');
  ```
 
 Note this configuration will be merged with the webpack.common.js (where we specified the input file and where to store the results) and will set the mode to "production."
- 
+
 In `package.json`, add the following code:
 
 ```JavaScript
-"build:prod": "webpack --config webpack.prod.js" 
+"build:prod": "webpack --config webpack.prod.js"
 ```
 
 Your file should look like this:
@@ -336,14 +334,14 @@ Your file should look like this:
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack-dev-server --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js" 
+    "build:prod": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@azure/communication-calling": "^1.0.0-beta.3",
-    "@azure/communication-common": "^1.0.0-beta.3"
+    "@azure/communication-calling": "^1.0.0-beta.6",
+    "@azure/communication-common": "^1.0.0-beta.5"
   },
   "devDependencies": {
     "webpack": "^4.42.0",
@@ -363,13 +361,13 @@ In the terminal run:
 npm run build:prod
 ```
 
-The command will create a `dist` folder and production-ready `app.js` static file in it. 
+The command will create a `dist` folder and production-ready `app.js` static file in it.
 
  :::image type="content" source="./media/step-one-pic-21.png" alt-text="Production build":::
- 
- 
+
+
 ### Deploy your app to Azure Storage
- 
+
 Copy `index.html` and `app.css` to the `dist` folder.
 
 In the `dist` folder, create a new file and name it `404.html`. Copy the following markup into that file:
@@ -394,45 +392,45 @@ Save the file (Ctrl + S).
 Right-click and select deploy to Static Website via Azure Storage.
 
 :::image type="content" source="./media/step-one-pic-22.png" alt-text="Start deploying to Azure":::
- 
+
 In the `Select subscription` field, select "Sign in to Azure (or "Create a Free Azure Account" if you haven't created a subscription before)
- 
+
 :::image type="content" source="./media/step-one-pic-23.png" alt-text="Sign in to Azure":::
- 
+
 Select `Create new Storage Account` > `Advanced`:
 
  :::image type="content" source="./media/step-one-pic-24.png" alt-text="Creating the Storage Account Group":::
- 
+
  Provide the name of the storage group:
- 
+
  :::image type="content" source="./media/step-one-pic-25.png" alt-text="Adding a name for the account":::
- 
+
 Create a new resource group if needed:
- 
+
   :::image type="content" source="./media/step-one-pic-26.png" alt-text="Creating new group":::
-  
+
   Answer "Yes" to Would you like to enable static website hosting?"
-  
+
   :::image type="content" source="./media/step-one-pic-27.png" alt-text="Selecting option to enable static website hosting":::
-  
+
 Accept the default file name in "Enter the index document name," as we created the file `index.html`.
 
-Type the `404.html` for "Enter the 404 error document path".  
-  
-Select the location of the application. The location you select will define which media processor will be used in your future calling application in group calls. 
+Type the `404.html` for "Enter the 404 error document path".
+
+Select the location of the application. The location you select will define which media processor will be used in your future calling application in group calls.
 
 Azure Communication Services selects the Media Processor based on the application location.
 
 :::image type="content" source="./media/step-one-pic-28.png" alt-text="Select location":::
-  
-Wait until the resource and your website are created. 
- 
+
+Wait until the resource and your website are created.
+
 Click "Browse to website":
 
 :::image type="content" source="./media/step-one-pic-29.png" alt-text="Deployment completed":::
- 
+
 From your browser's development tools, you can inspect the source and see our file, prepared for production.
- 
+
 :::image type="content" source="./media/step-one-pic-30.png" alt-text="Website":::
 
 Go to the [Azure portal](https://portal.azure.com/#home), select your resource group, select the application you created, and navigate to `Settings` > `Static website`. You can see that static websites are enabled and note the primary endpoint, Index document, and Error path document files.
@@ -443,7 +441,7 @@ Under "Blob service" select the "Containers" and you'll see two containers creat
 
 :::image type="content" source="./media/step-one-pic-32.png" alt-text="Container configuration":::
 
-If you go to `$web` you'll see your files you created in Visual Studio and deployed to Azure. 
+If you go to `$web` you'll see your files you created in Visual Studio and deployed to Azure.
 
 :::image type="content" source="./media/step-one-pic-33.png" alt-text="Deployment":::
 
