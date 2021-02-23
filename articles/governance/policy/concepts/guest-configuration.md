@@ -20,12 +20,12 @@ At this time, most Azure Policy Guest Configuration policy definitions only audi
 the machine. They don't apply configurations. The exception is one built-in policy
 [referenced below](#applying-configurations-using-guest-configuration).
 
+[A video walk-through of this document is available](https://youtu.be/Y6ryD3gTHOs).
+
 ## Enable Guest Configuration
 
 To audit the state of machines in your environment, including machines in Azure and Arc Connected
 Machines, review the following details.
-
-> [!VIDEO https://youtu.be/ASIHC59OuZI]
 
 ## Resource provider
 
@@ -306,6 +306,13 @@ Guest Configuration built-in policy samples are available in the following locat
 - [Built-in policy definitions - Guest Configuration](../samples/built-in-policies.md#guest-configuration)
 - [Built-in initiatives - Guest Configuration](../samples/built-in-initiatives.md#guest-configuration)
 - [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+
+### Video overview
+
+The following overview of Azure Policy Guest Configuration is from ITOps Talks 2021. For more information, visit
+[Governing baselines in hybrid server environments using Azure Policy Guest Configuration](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245).
+
+> [!VIDEO https://youtu.be/PLLJHTdC8jY]
 
 ## Next steps
 
