@@ -19,21 +19,21 @@ This article covers information about Hotpatching for Windows Server Azure Editi
 
 ## Overview
 
-Hotpatching is a new way to install updates on a Windows Server Azure Edition VM that doesn’t require a reboot after installation, by patching the in-memory code of running processes without the need to restart the process.
+Hotpatching is a new way to install updates on a Windows Server Azure Edition VM that doesn’t require a reboot after installation. Hotpatching works by patching the in-memory code of running processes without the need to restart the process.
 
-This will keep your VMs up-to-date and secure, with higher availability and a reduced number of Patch Tuesday reboots. You will be able to manage via the Azure portal or Azure CLI, with enhanced patch orchestration via Azure Update Management.
+Hotpatching keeps your VMs up-to-date and secure, with higher availability, and fewer Patch Tuesday reboots. You can manage Hotpatching via the Azure portal or Azure CLI, with enhanced patch orchestration via Azure Update Management.
 
 ## How Hotpatching works
 
-Hotpatching works by first establishing a baseline with a Windows Update Latest Cumulative Update. Hotpatches are periodically released (for example, on the second Tuesday of the month) that build on that baseline, with updates that do not require a reboot. Periodically (starting at every three months), the baseline is refreshed with a new Latest Cumulative Update.
+Hotpatching works by first establishing a baseline with a Windows Update Latest Cumulative Update. Hotpatches are periodically released (for example, on the second Tuesday of the month) that build on that baseline. Hotpatches will contain updates that don't require a reboot. Periodically (starting at every three months), the baseline is refreshed with a new Latest Cumulative Update.
 
     :::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Hotpatch Sample Schedule.":::
 
 There are two types of baselines: **Planned baselines** and **unplanned baselines**.
 *  **Planned baselines** are released on a regular cadence, with hotpatch releases in between.  Planned baselines include all the updates in a comparable _Latest Cumulative Update_ for that month, and require a reboot.
     * The sample schedule above illustrates four planned baseline releases in a calendar year (five total in the diagram), and eight hotpatch releases.
-* **Unplanned baselines** are released when an important update (such as a zero-day fix) needs to be released, and that particular update can't be released as a Hotpatch (that is, without a reboot).  When this occurs, a hotpatch release will be replaced with an unplanned baseline in that month.  Unplanned baselines also include all the updates in a comparable _Latest Cumulative Update_ for that month, and also require a reboot.
-    * The sample schedule above illustrates two unplanned baselines that would replace the hotpatch releases for those months (the actual number of unplanned baselines in a year is not known in advance).
+* **Unplanned baselines** are released when an important update (such as a zero-day fix) needs to be released, and that particular update can't be released as a Hotpatch.  When unplanned baseline are released, a hotpatch release will be replaced with an unplanned baseline in that month.  Unplanned baselines also include all the updates in a comparable _Latest Cumulative Update_ for that month, and also require a reboot.
+    * The sample schedule above illustrates two unplanned baselines that would replace the hotpatch releases for those months (the actual number of unplanned baselines in a year isn't known in advance).
 
 
 ## How to get started
@@ -42,11 +42,11 @@ To start using Hotpatching on a new VM, follow these steps:
 * Enable preview access
     * One-time preview access enablement is required per subscription.
     * Preview access can be enabled through API, PowerShell, or CLI as described in the following section.
-* Create a VM from the Azure Portal
-    * During the preview, you will use a special link to start creating a new VM.
+* Create a VM from the Azure portal
+    * During the preview, you'll use a special link to start creating a new VM.
 * Supply VM details
     * Ensure that _Windows Server 2019 Datacenter: Azure Edition_ is selected in the Image dropdown)
-    * On the Management tab step, scroll down to the ‘Guest OS updates’ section. You will see Hotpatching set to On and Patch installation defaulted to Azure-orchestrated patching.
+    * On the Management tab step, scroll down to the ‘Guest OS updates’ section. You'll see Hotpatching set to On and Patch installation defaulted to Azure-orchestrated patching.
 * Create your new VM
 
 ## Enabling preview access
@@ -132,49 +132,49 @@ During the preview, [Automatic VM Guest Patching](https://docs.microsoft.com/azu
 
 ### How does automatic VM guest patching work?
 
-With [Automatic VM Guest Patching](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) is enabled on a VM, the available Critical and Security patches for that VM are downloaded and applied automatically on the VM. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
+When [Automatic VM Guest Patching](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) is enabled on a VM, the available Critical and Security patches for that VM are downloaded and applied automatically on the VM. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
 
-With Hotpatch enabled on _Windows Server 2019 Datacenter: Azure Edition_ VMs, most monthly updates are delivered as hotpatches that do not require reboots. In certain months, a planned or unplanned baseline update will require VM reboots. Additional Critical or Security patches may also be available periodically, which may require VM reboots.
+With Hotpatch enabled on _Windows Server 2019 Datacenter: Azure Edition_ VMs, most monthly updates are delivered as hotpatches that don't require reboots. In certain months, a planned or unplanned baseline update will require VM reboots. Extra Critical or Security patches may be available periodically, which may also require VM reboots.
 
 The VM is assessed automatically every few days and multiple times within any 30-day period to determine the applicable patches for that VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
 
-Patches are installed within 30 days of the monthly patch releases, following [availability-first principles](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching). Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM will be automatically assessed and applicable patches will be installed automatically during the next periodic assessment (usually within a few days) when the VM is powered on.
+Patches are installed within 30 days of the monthly patch releases, following [availability-first principles](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching). Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM will be assessed and applicable patches will be installed automatically during the next periodic assessment when the VM is powered on. The next periodic assessment usually happens within a few days.
 
-Definition updates and other patches not classified as Critical or Security will not be installed through automatic VM guest patching.
+Definition updates and other patches not classified as Critical or Security won't be installed through automatic VM guest patching.
 
 ## Understanding the patch status for your VM
 
-To view the patch status for your VM, navigate to the ‘Guest + host updates’ section for your VM on the Azure Portal. Under the ‘Guest OS updates’ section, click on ‘Go to Hotpatch (Preview)’ to view the latest patch status for your VM.
+To view the patch status for your VM, navigate to the **Guest + host updates** section for your VM on the Azure portal. Under the **Guest OS updates** section, click on ‘Go to Hotpatch (Preview)’ to view the latest patch status for your VM.
 
-On this screen, you can view the Hotpatch status for your VM and also can review if there any available patches for your VM that have not been installed. As described in the ‘Patch installation’ section above, all security and critical updates will be automatically installed on your VM using [Automatic VM Guest Patching](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) and no extra actions are required. Patches with other update classifications are not automatically installed and you can view these available updates in the list of available patches under the ‘Update compliance’ tab. You can also view the history of update deployments on your VM through the ‘Update history’. Update history from the past 30 days is displayed, along with patch installation details.
+On this screen, you'll see the Hotpatch status for your VM. You can also review if there any available patches for your VM that haven't been installed. As described in the ‘Patch installation’ section above, all security and critical updates will be automatically installed on your VM using [Automatic VM Guest Patching](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) and no extra actions are required. Patches with other update classifications are not automatically installed, but are viewable in the list of available patches under the ‘Update compliance’ tab. You can also view the history of update deployments on your VM through the ‘Update history’. Update history from the past 30 days is displayed, along with patch installation details.
 
 
     :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Hotpatch Management.":::
 
-With automatic VM guest patching, your VM is periodically and automatically assessed for available updates. These periodic assessments ensure that available patches are detected, and you can view the results of the assessment on the Updates screen above, including the time of the last assessment. You can also choose to trigger an on-demand patch assessment for your VM at any time using the ‘Assess now’ option and review the results after assessment completes.
+With automatic VM guest patching, your VM is periodically and automatically assessed for available updates. These periodic assessments ensure that available patches are detected. You can view the results of the assessment on the Updates screen above, including the time of the last assessment. You can also choose to trigger an on-demand patch assessment for your VM at any time using the ‘Assess now’ option and review the results after assessment completes.
 
-Similar to on-demand assessment, you can also choose to install patches on-demand for your VM using the ‘Install updates now’ option. Here you can choose to install all updates under specific patch classifications, and specify updates to include or exclude by providing a list of individual KBs. Patches installed on-demand are not installed using availability-first principles and these updates may require additional reboots and VM downtime for update installation.
+Similar to on-demand assessment, you can also choose to install patches on-demand for your VM using the ‘Install updates now’ option. Here you can choose to install all updates under specific patch classifications. You can also specify updates to include or exclude by providing a list of individual knowledge base articles. Patches installed on-demand aren't installed using availability-first principles and may require more reboots and VM downtime for update installation.
 
 ## Supported updates
 
 Hotpatching covers Windows Security updates and maintains parity with the content of security updates issued to in the regular (non-Hotpatch) Windows update channel.
 
-There are some important considerations to running a Windows Server Azure edition VM with Hotpatching. Reboots are still required to install updates that are not included in the Hotpatch program, and reboots are require periodically after a new baseline has been installed to keep the VM in sync with non-security patches included in the latest cumulative update.
+There are some important considerations to running a Windows Server Azure edition VM with Hotpatching. Reboots are still required to install updates that aren't included in the Hotpatch program. Reboots are also required periodically after a new baseline has been installed to keep the VM in sync with non-security patches included in the latest cumulative update.
 * Patches that are currently not included in the Hotpatch program include non-security updates released for Windows, and non-Windows updates (such as .NET patches).  These types of patches need to be installed during a baseline month, and will require a reboot.
 
 ## Frequently asked questions
 
 ### What is hotpatching?
 
-* Hotpatching is a new way to install updates on a Windows Server 2019 Datacenter: Azure Edition VM in Azure that doesn’t require a reboot after installation, by patching the in-memory code of running processes without the need to restart the process.
+* Hotpatching is a new way to install updates on a Windows Server 2019 Datacenter: Azure Edition VM in Azure that doesn’t require a reboot after installation. Hotpatching works by patching the in-memory code of running processes without the need to restart the process.
 
 ### How does hotpatching work?
 
-* Hotpatching works by establishing a baseline with a Windows Update Latest Cumulative Update, then builds upon that baseline with updates that don’t require a reboot to take effect.  Periodically, the baseline is updated with a new cumulative update (which includes all security and quality updates and requiring a reboot).
+* Hotpatching works by establishing a baseline with a Windows Update Latest Cumulative Update, then builds upon that baseline with updates that don’t require a reboot to take effect.  Periodically, the baseline is updated with a new cumulative update which includes all security and quality updates and requires a reboot.
 
 ### Why should I use Hotpatch?
 
-* When you use Hotpatch on Windows Server 2019 Datacenter: Azure Edition, your VM will have higher availability (less reboots), and faster updates (smaller packages that are installed faster without the need to restart processes), resulting in a VM that is always up to date and secure.
+* When you use Hotpatch on Windows Server 2019 Datacenter: Azure Edition, your VM will have higher availability (fewer reboots), and faster updates (smaller packages that are installed faster without the need to restart processes), resulting in a VM that is always up to date and secure.
 
 ### What types of updates are covered by Hotpatch?
 
@@ -182,11 +182,11 @@ There are some important considerations to running a Windows Server Azure editio
 
 ### When are Hotpatch updates installed?
 
-* You will be able to configure Hotpatch updates to install immediately or configure them to be installed on a schedule. We recommend using Azure Update Management to configure a separate, faster cadence schedule for the installation of Hotpatch updates, alongside other types of updates.
+* You'll be able to configure Hotpatch updates to install immediately or configure them to be installed on a schedule. We recommend using Azure Update Management to configure a separate, faster cadence for the installation of Hotpatch updates, alongside other types of updates.
 
 ### When will I receive the first Hotpatch update?
 
-* Hotpatch updates are typically released on the second Tuesday of each month. See below for more details about the Hotpatch schedule.
+* Hotpatch updates are typically released on the second Tuesday of each month. For more details about the Hotpatch schedule, see below.
 
 ### What will the Hotpatch schedule look like?
 
@@ -196,7 +196,7 @@ There are some important considerations to running a Windows Server Azure editio
 
 ### Are reboots still needed for a VM enrolled in Hotpatch?
 
-* Reboots are still required to install updates not included in the Hotpatch program, and are required periodically after a baseline (Windows Update Latest Cumulative Update) has been installed to keep the VM in sync with all the patches included in the cumulative update. Baselines (which require a reboot) will start out on a three-month cadence and increase over time to 6+ months.
+* Reboots are still required to install updates not included in the Hotpatch program, and are required periodically after a baseline (Windows Update Latest Cumulative Update) has been installed. This keeps your VM in sync with all the patches included in the cumulative update. Baselines (which require a reboot) will start out on a three-month cadence and increase over time to 6+ months.
 
 ### Are my applications affected when a Hotpatch update is installed?
 
@@ -204,19 +204,19 @@ There are some important considerations to running a Windows Server Azure editio
 
 ### Can I turn off Hotpatch on my VM?
 
-* You can turn off Hotpatch on a VM via the Azure portal.  This will unenroll the VM from Hotpatch, which reverts the VM to typical update behavior for Windows Server.  Once you unenroll from Hotpatch on a VM, you can re-enroll that VM when the next Hotpatch baseline is released.
+* You can turn off Hotpatch on a VM via the Azure portal.  Turning Hotpatch off will unenroll the VM from Hotpatch, which reverts the VM to typical update behavior for Windows Server.  Once you unenroll from Hotpatch on a VM, you can re-enroll that VM when the next Hotpatch baseline is released.
 
 ### Can I upgrade from my existing Windows Server OS?
 
-* Upgrading from existing versions of Windows Server (that is, Windows Server 2016 or 2019 non-Azure editions) is not supported currently. Upgrading to future releases of Windows Server Azure Edition will be supported.
+* Upgrading from existing versions of Windows Server (that is, Windows Server 2016 or 2019 non-Azure editions) isn't supported currently. Upgrading to future releases of Windows Server Azure Edition will be supported.
 
-### Can I use this for production workloads during the preview?
+### Can I use Hotpatch for production workloads during the preview?
 
 * Previews are intended for testing purposes only and not for use in production environments.
 
 ### Will I be charged during the preview?
 
-* The license for Windows Server Azure Edition is free during the preview, however the cost of any underlying infrastructure set up for your VM (storage, compute, networking, etc.) will still be charged to your subscription.
+* The license for Windows Server Azure Edition is free during the preview. However, the cost of any underlying infrastructure set up for your VM (storage, compute, networking, etc.) will still be charged to your subscription.
 
 ### How can I get troubleshooting support for Hotpatching?**
 
