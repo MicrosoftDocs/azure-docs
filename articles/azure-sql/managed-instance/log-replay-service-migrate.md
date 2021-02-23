@@ -121,21 +121,21 @@ GO
 To manually make full, diff and log backup of your database on the local storage, use the provided sample T-SQL scripts below. Ensure that CHECKSUM option is enabled as this is a mandatory requirement for LRS.
 
 ```SQL
--- Example on how to make full database backup to Azure Blob Storage
+-- Example on how to make full database backup to the local disk
 BACKUP DATABASE [SampleDB]
-TO URL = ‘https://<storageaccount>.blob.core.windows.net/<containername>/SampleDB_full_14_43.bak'
+TO DISK='C:\BACKUP\SampleDB_full_14_43.bak',
 WITH INIT, COMPRESSION, CHECKSUM
 GO
 
--- Example on how to make differential database backup to Azure Blob Storage
+-- Example on how to make differential database backup to the locak disk
 BACKUP DATABASE [SampleDB]
-TO URL = ‘https://<storageaccount>.blob.core.windows.net/<containername>/SampleDB_diff_14_44.bak'
+TO DISK='C:\BACKUP\SampleDB_diff_14_44.bak',
 WITH DIFFERENTIAL, COMPRESSION, CHECKSUM
 GO
 
--- Example on how to make the log backup to Azure Blob Storage
+-- Example on how to make the log backup
 BACKUP LOG [SampleDB]
-TO URL = ‘https://<storageaccount>.blob.core.windows.net/<containername>/SampleDB_log_14_44.bak'
+TO DISK='C:\BACKUP\SampleDB_log_14_45.bak',
 WITH CHECKSUM
 GO
 ```
