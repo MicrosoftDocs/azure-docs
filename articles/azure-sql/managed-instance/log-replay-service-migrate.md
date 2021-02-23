@@ -198,7 +198,7 @@ To start LRS service in autocomplete mode, use the following PowerShell, or CLI 
 
 Start LRS in autocomplete mode - PowerShell example:
 
-```powershell
+```PowerShell
 Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 	-InstanceName "ManagedInstance01" `
 	-Name "ManagedDatabaseName" `
@@ -211,7 +211,7 @@ Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 
 Start LRS in autocomplete mode - CLI example:
 
-```cli
+```CLI
 az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb -a --last-bn "backup.bak"
 	--storage-uri "https://test.blob.core.windows.net/testing"
 	--storage-sas "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
@@ -221,7 +221,7 @@ az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb -a --last
 
 Start LRS in continuous mode - PowerShell example:
 
-```powershell
+```PowerShell
 Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 	-InstanceName "ManagedInstance01" `
 	-Name "ManagedDatabaseName" `
@@ -231,7 +231,7 @@ Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 
 Start LRS in continuous mode - CLI example:
 
-```cli
+```CLI
 az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
 	--storage-uri "https://test.blob.core.windows.net/testing"
 	--storage-sas "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
@@ -244,7 +244,7 @@ az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
 
 To monitor the migration operation progress, use the following PowerShell command:
 
-```powershell
+```PowerShell
 Get-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 	-InstanceName "ManagedInstance01" `
 	-Name "ManagedDatabaseName"
@@ -252,7 +252,7 @@ Get-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 
 To monitor the migration operation progress, use the following CLI command:
 
-```cli
+```CLI
 az sql midb log-replay show -g mygroup --mi myinstance -n mymanageddb
 ```
 
@@ -262,7 +262,7 @@ In case you need to stop the migration, use the following cmdlets. Stopping the 
 
 To stop\abort the migration process, use the following PowerShell command:
 
-```powershell
+```PowerShell
 Stop-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 	-InstanceName "ManagedInstance01" `
 	-Name "ManagedDatabaseName"
@@ -270,7 +270,7 @@ Stop-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 
 To stop\abort the migration process, use the following CLI command:
 
-```cli
+```CLI
 az sql midb log-replay stop -g mygroup --mi myinstance -n mymanageddb
 ```
 
@@ -280,7 +280,7 @@ In case LRS is started in continuous mode, once you have ensured that all backup
 
 To complete the migration process in LRS continuous mode, use the following PowerShell command:
 
-```powershell
+```PowerShell
 Complete-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 -InstanceName "ManagedInstance01" `
 -Name "ManagedDatabaseName" `
@@ -289,7 +289,7 @@ Complete-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 
 To complete the migration process in LRS continuous mode, use the following CLI command:
 
-```cli
+```CLI
 az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last-backup-name "backup.bak"
 ```
 
