@@ -38,11 +38,11 @@ Disk configuration: Premium SSD – 1 TiB (P30), Disk bursting enabled.
 
 In this billing hour, the cost of bursting consists of two charges:
 
-The first charge is the burst enablement flat fee of X (determined by your region). This flat fee is always charged on the disk disregard of the attach status until it is disabled. 
+The first charge is the burst enablement flat fee of $X (determined by your region). This flat fee is always charged on the disk disregard of the attach status until it is disabled. 
 
-Second is the burst transaction cost. Disk bursting occurred in two time slots. From 00:10:01 – 00:10:10, the accumulated burst transaction is (6,000 – 5,000) X 10 = 10,000. From 00:59:01 – 01:00:00, the accumulated burst transaction is (7,000 – 5,000) X 60 = 120,000. The total burst transactions are 10,000 + 120,000 = 130,000. Burst transaction cost will be charged at Y based on 13 x per 10,000 transaction units (based on regional pricing).
+Second is the burst transaction cost. Disk bursting occurred in two time slots. From 00:10:01 – 00:10:10, the accumulated burst transaction is (6,000 – 5,000) X 10 = 10,000. From 00:59:01 – 01:00:00, the accumulated burst transaction is (7,000 – 5,000) X 60 = 120,000. The total burst transactions are 10,000 + 120,000 = 130,000. Burst transaction cost will be charged at $Y based on 13 units of 10,000 transactions (based on regional pricing).
 
-With that, the total cost on disk bursting of this billing hour equals to X + Y. The same calculation would apply for bursting over provisioned target of MBps. We translate the overage of MB to transactions with IO size of 256KB. If your disk traffic exceed both provisioned IOPS and MBps target, you can refer to the example below to calculate the burst transactions. 
+With that, the total cost on disk bursting of this billing hour equals to $X + $Y. The same calculation would apply for bursting over provisioned target of MBps. We translate the overage of MB to transactions with IO size of 256KB. If your disk traffic exceed both provisioned IOPS and MBps target, you can refer to the example below to calculate the burst transactions. 
 
 Disk configuration: Premium SSD – 1 TB (P30), Disk bursting enabled.
 
