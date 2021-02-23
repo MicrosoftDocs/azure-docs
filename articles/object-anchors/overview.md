@@ -5,7 +5,7 @@ author: craigktreasure
 manager: vriveras
 
 ms.author: crtreasu
-ms.date: 04/01/2020
+ms.date: 02/18/2021
 ms.topic: overview
 ms.service: azure-object-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
@@ -15,6 +15,8 @@ ms.service: azure-object-anchors
 Welcome to Azure Object Anchors. Azure Object Anchors enables an application to detect an object in the physical world using a 3D model and estimate its 6DoF pose. The 6DoF (6 degrees of freedom) pose is defined as a rotation and translation between a 3D model and its physical counterpart, the real object. Azure Object Anchors consists of a model ingestion service and a runtime SDK. The service inputs a user provided 3D object model and outputs an Azure Object Anchors binary model. The Azure Object Anchors model is used along with the runtime SDK to enable a HoloLens application to load an object model, detect, and track instance(s) of that model in the physical world.
 
 Azure Object Anchors is composed of a managed service and a client SDK for HoloLens.
+
+:::image type="content" source="./media/aoa-overview.jpg" alt-text="Azure Object Anchors in action":::
 
 ## Examples
 
