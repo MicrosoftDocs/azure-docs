@@ -183,7 +183,7 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
     3. Update your dependencies block. Add a new implementation dependency line for the latest Azure Maps Android SDK:
 
         ```Java
-        implementation "com.microsoft.azure.maps:mapcontrol:0.6"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.7"
         ```
 
         > [!Note]

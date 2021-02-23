@@ -657,7 +657,7 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 
 In addition to using a smooth gradient to colorize a heat map, colors can be specified within a set of ranges by using a `step` expression. Using a `step` expression for colorizing the heat map visually breaks up the density into ranges that resembles a contour or radar style map.  
 
-```java 
+```java
 HeatMapLayer layer = new HeatMapLayer(dataSource,
     heatmapColor(
         step(
@@ -674,6 +674,36 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 ```
 
 For more information, see the [Add a heat map layer](map-add-heat-map-layer-android.md) documentation.
+
+### Line progress expression
+
+A line progress expression retrieves the progress along a gradient line in a line layer and is defined as `lineProgress()`. This value is a number between 0 and 1. It's used in combination with an `interpolation` or `step` expression. This expression can only be used with the `strokeGradient` option of the line layer.
+
+> [!NOTE]
+> The `strokeGradient` option of the line layer requires the `lineMetrics` option of the data source to be set to `true`.
+
+**Example**
+
+This example uses the `lineProgress()` expression to apply a color gradient to the stroke of a line.
+
+```javascript
+LineLayer layer = new LineLayer(source,
+    strokeGradient(
+        interpolate(
+            linear(),
+            lineProgress(),
+            stop(0, color(Color.BLUE)),
+            stop(0.1, color(Color.argb(255, 65, 105, 225))), //Royal Blue
+            stop(0.3, color(Color.CYAN)),
+            stop(0.5, color(Color.argb(255,0, 255, 0))), //Lime
+            stop(0.7, color(Color.YELLOW)),
+            stop(1, color(Color.RED))
+        )
+    )
+);
+```
+
+[See live example](map-add-line-layer.md#line-stroke-gradient)
 
 ### Text field format expression
 

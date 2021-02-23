@@ -107,7 +107,7 @@ The next step in building your application is to install the Azure Maps Android 
     3. Update your dependencies block and add a new implementation dependency line for the latest Azure Maps Android SDK:
 
         ```java
-        implementation "com.microsoft.azure.maps:mapcontrol:0.6"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.7"
         ```
 
         > [!Note]

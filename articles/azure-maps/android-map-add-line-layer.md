@@ -105,20 +105,21 @@ The following screenshot shows the above code rendering two lines in a line laye
 
 ![Map with data-drive styled lines rendered in a line layer](media/android-map-add-line-layer/android-line-layer-data-drive-style.png)
 
-## Add symbols along a line
+## Add a stroke gradient to a line
 
-This sample shows how to add arrow icons along a line on the map. When using a symbol layer, set the `symbolPlacement` option to `SymbolPlacement.LINE`. This option will render the symbols along the line and rotate the icons (0 degrees = right).
+You may apply a single stroke color to a line. You can also fill a line with a gradient of colors to show transition from one line segment to the next line segment. For example, line gradients can be used to represent changes over time and distance, or different temperatures across a connected line of objects. In order to apply this feature to a line, the data source must have the `lineMetrics` option set to `true`, and then a color gradient expression can be passed to the `strokeColor` option of the line. The stroke gradient expression has to reference the `lineProgress` data expression that exposes the calculated line metrics to the expression.
 
 ```java
 //Create a data source and add it to the map.
-DataSource source = new DataSource();
+source = new DataSource(
+    //Enable line metrics on the data source. This is needed to enable support for strokeGradient.
+    withLineMetrics(true)
+);
 map.sources.add(source);
 
-//Load a image of an arrow into the map image sprite and call it "arrow-icon".
-map.images.add("arrow-icon", R.drawable.purple-arrow-right);
-
-//Create and add a line to the data source.
-source.add(LineString.fromLngLats(Arrays.asList(
+//Create a line and add it to the data source.
+source.add(LineString.fromLngLats(
+    Arrays.asList(
         Point.fromLngLat(-122.18822, 47.63208),
         Point.fromLngLat(-122.18204, 47.63196),
         Point.fromLngLat(-122.17243, 47.62976),
@@ -134,7 +135,65 @@ source.add(LineString.fromLngLats(Arrays.asList(
         Point.fromLngLat(-122.11595, 47.66712),
         Point.fromLngLat(-122.11063, 47.66735),
         Point.fromLngLat(-122.10668, 47.67035),
-        Point.fromLngLat(-122.10565, 47.67498))));
+        Point.fromLngLat(-122.10565, 47.67498)
+    )
+));
+
+//Create a line layer and pass in a gradient expression for the strokeGradient property.
+map.layers.add(new LineLayer(source,
+    strokeWidth(6f),
+
+    //Pass an interpolate or step expression that represents a gradient.
+    strokeGradient(
+        interpolate(
+            linear(),
+            lineProgress(),
+            stop(0, color(Color.BLUE)),
+            stop(0.1, color(Color.argb(255, 65, 105, 225))), //Royal Blue
+            stop(0.3, color(Color.CYAN)),
+            stop(0.5, color(Color.argb(255,0, 255, 0))), //Lime
+            stop(0.7, color(Color.YELLOW)),
+            stop(1, color(Color.RED))
+        )
+    )
+));
+```
+
+The following screenshot shows the above code rendering two lines in a line layer with their color being retrieved from a data driven style expression based on a property in the line features.
+
+![Map with a line rendered as a gradient path in a line layer](media/android-map-add-line-layer/android-line-layer-gradient.jpg)
+
+## Add symbols along a line
+
+This sample shows how to add arrow icons along a line on the map. When using a symbol layer, set the `symbolPlacement` option to `SymbolPlacement.LINE`. This option will render the symbols along the line and rotate the icons (0 degrees = right).
+
+```java
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
+
+//Load a image of an arrow into the map image sprite and call it "arrow-icon".
+map.images.add("arrow-icon", R.drawable.purple-arrow-right);
+
+//Create and add a line to the data source.
+source.add(LineString.fromLngLats(Arrays.asList(
+    Point.fromLngLat(-122.18822, 47.63208),
+    Point.fromLngLat(-122.18204, 47.63196),
+    Point.fromLngLat(-122.17243, 47.62976),
+    Point.fromLngLat(-122.16419, 47.63023),
+    Point.fromLngLat(-122.15852, 47.62942),
+    Point.fromLngLat(-122.15183, 47.62988),
+    Point.fromLngLat(-122.14256, 47.63451),
+    Point.fromLngLat(-122.13483, 47.64041),
+    Point.fromLngLat(-122.13466, 47.64422),
+    Point.fromLngLat(-122.13844, 47.65440),
+    Point.fromLngLat(-122.13277, 47.66515),
+    Point.fromLngLat(-122.12779, 47.66712),
+    Point.fromLngLat(-122.11595, 47.66712),
+    Point.fromLngLat(-122.11063, 47.66735),
+    Point.fromLngLat(-122.10668, 47.67035),
+    Point.fromLngLat(-122.10565, 47.67498)))
+);
 
 //Create a line layer and add it to the map.
 map.layers.add(new LineLayer(source,

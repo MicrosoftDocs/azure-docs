@@ -26,9 +26,15 @@ The map manages all events through its `events` property. The following table li
 | `OnCameraMoveStarted`  | `(int reason)`       | Fired just before the map begins a transition from one view to another, as the result of either user interaction or methods. The `reason` argument of the event listener returns an integer value that provides details of how the camera movement was initiated. The following is the list of possible reasons:<ul><li>1: Gesture</li><li>2: Developer animation</li><li>3: API Animation</li></ul>   |
 | `OnClick`              | `(double lat, double lon)` | Fired when the map is pressed and released at the same point on the map. |
 | `OnFeatureClick`       | `(List<Feature>)`    | Fired when the map is pressed and released at the same point on a feature.  |
+| `OnLayerAdded` | `(Layer layer)` | Fired when a layer is added to the map. |
+| `OnLayerRemoved` | `(Layer layer)` | Fired when a layer is removed from the map. |
+| `OnLoaded` | `()` | Fired immediately after all necessary resources have been downloaded and the first visually complete rendering of the map has occurred. |
 | `OnLongClick`          | `(double lat, double lon)` | Fired when the map is pressed, held for a moment, and then released at the same point on the map. |
 | `OnLongFeatureClick `  | `(List<Feature>)`    | Fired when the map is pressed, held for a moment, and then released at the same point on a feature. |
 | `OnReady`              | `(AzureMap map)`     | Fired when the map initially is loaded or when the app orientation change and the minimum required map resources are loaded and the map is ready to be programmatically interacted with. |
+| `OnSourceAdded` | `(Source source)` | Fired when a `DataSource` or `VectorTileSource` is added to the map. |
+| `OnSourceRemoved` | `(Source source)` | Fired when a `DataSource` or `VectorTileSource` is removed from the map. |
+| `OnStyleChange` | `()` | Fired when the map's style loads or changes. |
 
 The following code shows how to add the `OnClick`, `OnFeatureClick`, and `OnCameraMove` events to the map.
 
@@ -50,7 +56,7 @@ For more information, see the [Navigating the map](how-to-use-android-map-contro
 
 ## Scope feature events to layer
 
-When adding the `OnFeatureClick` or `OnLongFeatureClick` events to the map, a layer ID can be passed in as a second parameter. When a layer ID is passed in, the event will only fire if the event occurs on that layer. Events scoped to layers is supported by the symbol, bubble, line, and polygon layers.
+When adding the `OnFeatureClick` or `OnLongFeatureClick` events to the map, a layer instance or layer ID can be passed in as a second parameter. When a layer is passed in, the event will only fire if the event occurs on that layer. Events scoped to layers is supported by the symbol, bubble, line, and polygon layers.
 
 ```java
 //Create a data source.
@@ -67,12 +73,12 @@ map.layers.add(layer);
 //Add a feature click event to the map and pass the layer ID to limit the event to the specified layer.
 map.events.add((OnFeatureClick) (features) -> {
     //One or more features clicked.
-}, layer.getId());
+}, layer);
 
 //Add a long feature click event to the map and pass the layer ID to limit the event to the specified layer.
 map.events.add((OnLongFeatureClick) (features) -> {
     //One or more features long clicked.
-}, layer.getId());
+}, layer);
 ```
 
 ## Next steps

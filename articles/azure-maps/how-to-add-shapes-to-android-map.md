@@ -92,6 +92,47 @@ The following screenshot shows the above code rendering a polygon with its outli
 > [!TIP]
 > When outlining a polygon with a line layer, be sure to close all rings in polygons such that each array of points has the same start and end point. If this is not done, the line layer may not connect the last point of the polygon to the first point.
 
+## Fill a polygon with a pattern
+
+In addition to filling a polygon with a color, you may use an image pattern to fill the polygon. Load an image pattern into the maps image sprite resources and then reference this image with the `fillPattern` option of the polygon layer.
+
+```java
+//Load an image pattern into the map image sprite.
+map.images.add("fill-checker-red", R.drawable.fill_checker_red);
+
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
+
+//Create a polygon.
+source.add(Polygon.fromLngLats(
+    Arrays.asList(
+        Arrays.asList(
+            Point.fromLngLat(-50, -20),
+            Point.fromLngLat(0, 40),
+            Point.fromLngLat(50, -20),
+            Point.fromLngLat(-50, -20)
+        )
+    )
+));
+
+//Create and add a polygon layer to render the polygon on the map, below the label layer.
+map.layers.add(new PolygonLayer(source,
+        fillPattern("fill-checker-red"),
+        fillOpacity(0.5f)
+), "labels");
+```
+
+For this sample the following image was loaded into the drawable folder of the app.
+
+| ![Purple arrow icon image](media/how-to-add-shapes-to-android-map/fill_checker_red.png)|
+|:-----------------------------------------------------------------------:|
+| fill_checker_red.png                                                    |
+
+The following is a screenshot of the above code rendering a polygon will a fill pattern on the map.
+
+![Polygon will a fill pattern rendered on map](media/how-to-add-shapes-to-android-map/android-polygon-pattern.jpg)
+
 ## Next steps
 
 See the following articles for more code samples to add to your maps:
@@ -104,3 +145,6 @@ See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
 > [Add a line layer](android-map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Add a polygon extrusion layer](map-extruded-polygon-android.md)

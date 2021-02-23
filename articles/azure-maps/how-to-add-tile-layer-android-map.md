@@ -31,6 +31,7 @@ The tile URL passed into a Tile layer must be an http/https URL to a TileJSON re
 * `{quadkey}` - Tile quadkey identifier based on the Bing Maps tile system naming convention.
 * `{bbox-epsg-3857}` - A bounding box string with the format `{west},{south},{east},{north}` in the EPSG 3857 Spatial Reference System.
 * `{subdomain}` - A placeholder for the subdomain values, if the subdomain value is specified.
+* `azmapsdomain.invalid` - A placeholder to align the domain and authentication of tile requests with the same values used by the map. Use this when calling a tile service hosted by Azure Maps.
 
 ## Prerequisites
 
@@ -58,10 +59,7 @@ The following screenshot shows the above code displaying a tile layer of nautica
 
 ## Next steps
 
-See the following article to learn more about ways to set map styles
+See the following article to learn more about ways to overlay imagery on a map.
 
 > [!div class="nextstepaction"]
-> [Change the map style](set-android-map-styles.md)
-
-> [!div class="nextstepaction"]
-> [Add a heat map](map-add-heat-map-layer-android.md)
+> [Image layer](how-to-add-image-layer-android-map.md)
