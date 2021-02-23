@@ -285,7 +285,7 @@ been compiled in).
 compression method does not support the level chosen, the closest level will be
 selected instead.
 
-#### Return Value
+#### Return value
 
 N/A
 
