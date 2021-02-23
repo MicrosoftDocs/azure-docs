@@ -42,7 +42,7 @@ LRS will monitor Azure Blob Storage for any new differential, or log backups add
 
 LRS does not require a specific backup file naming convention as it scans all files placed on Azure Blob Storage and it constructs the backup chain from reading the file headers only. Databases are in "restoring" state during the migration process, as they are restored in [NORECOVERY](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=sql-server-ver15#comparison-of-recovery-and-norecovery) mode, and cannot be used for reading or writing until the migration process has been fully completed. 
 
-In case of migrating several databases, backups for each database need to be placed in a separate folder on Azure Blob Storage. LRS needs to be started separately for each database and different paths to separate Azure Blob Storage folders needs to be specified. 
+In migrating several databases, backups for each database need to be placed in a separate folder on Azure Blob Storage. LRS needs to be started separately for each database and different paths to separate Azure Blob Storage folders needs to be specified. 
 
 LRS can be started in autocomplete, or continuous mode. When started in autocomplete mode, the migration will complete automatically when the last backup file name specified has been restored. When started in continuous mode, the service will continuously restore any new backup files added, and the migration will complete on the manual cutover only. It is recommended that the manual cutover is executed only after the final log-tail backup has been taken and shown as restored on SQL Managed Instance. The final cutover step will make the database come online and available for read and write use on SQL Managed Instance.
 
@@ -108,7 +108,7 @@ Backups on the SQL Server can be made with either of the following two options:
 - Backup to the local disk storage, then upload files to Azure Blob Storage, in case your environment is restrictive of direct backup to Azure Blob Storage.
 - Backup directly to Azure Blob Storage with "TO URL" option in T-SQL, in case your environment and security procedures allow you to do so. 
 
-Set databases you wish to migrate to the full recovery mode to allow log backups and to prevent any loss to workload backups.
+Set databases you wish to migrate to the full recovery mode to allow log backups.
 
 ```SQL
 -- To permit log backups, before the full database backup, modify the database to use the full recovery model.
@@ -164,7 +164,7 @@ Once a blob container has been created, generate SAS authentication token with R
 4. Right click on the blob container
 5. Select Get Shared Access Signature
 6. Select the token expiry timeframe. Ensure the token is valid for duration of your migration.
-	- Please note that time zone of the token and your SQL Managed Instance might mismatch. Ensure that SAS token has the appropriate time validity taking time zones into consideration. If possible, set the time zone to somewhat earlier and later time of your planned migration window.
+	- Note that time zone of the token and your SQL Managed Instance might mismatch. Ensure that SAS token has the appropriate time validity taking time zones into consideration. If possible, set the time zone to an earlier and later time of your planned migration window.
 8. Ensure Read and List only permissions are selected
 9. Click create
 10. Copy the token after the question mark "?" and onwards. The SAS token is typically starting with "sv=2020-10" in the URI for use in your code.
@@ -295,13 +295,13 @@ az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last
 
 ## Troubleshooting
 
-Once you start the LRS, use the monitoring cmdlets (get-azsqlinstancedatabaselogreplay or az_sql_midb_log_replay_show) to see the status of the operation. If after some time LRS fails to start with an error please check for some of the most common issues:
+Once you start the LRS, use the monitoring cmdlets (get-azsqlinstancedatabaselogreplay or az_sql_midb_log_replay_show) to see the status of the operation. If after some time LRS fails to start with an error, please check for some of the most common issues:
 - Was the database backup on the SQL Server made using the **CHECKSUM** option?
 - Are the permissions on the SAS token **Read** and **List** only for the LRS service?
 - Was the SAS token for LRS copied starting after the question mark "?" with content starting similar to this "sv=2020-02-10..."? 
-- Is the SAS **token validity** time applicable for the time window of starting and completing the migration? Please note that there could be mismatches due to the different **time zones** used for SQL Managed Instance and the SAS token. Try re-generating the SAS token with extending the token validity of the time window before and after the current date.
+- Is the SAS **token validity** time applicable for the time window of starting and completing the migration? Note that there could be mismatches due to the different **time zones** used for SQL Managed Instance and the SAS token. Try regenerating the SAS token with extending the token validity of the time window before and after the current date.
 - Are database name, resource group name, and managed instance name spelled correctly?
-- In case of autocomplete, was a valid filename for the last backup file specified?
+- If LRS was started in autocomplete mode, was a valid filename for the last backup file specified?
 
 ## Next steps
 - Learn more about [Migrate SQL Server to SQL Managed instance](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
