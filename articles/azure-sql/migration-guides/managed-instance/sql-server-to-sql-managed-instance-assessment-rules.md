@@ -97,7 +97,7 @@ More information: [CLR strict security](/sql/database-engine/configure-windows/c
 ## Compute clause<a id="ComputeClause"></a>
 
 **Title: COMPUTE clause is discontinued and has been removed.**   
-**Category**: Issue   
+**Category**: Warning   
 
 **Description**   
 Category:    
@@ -141,7 +141,7 @@ More information: [Cryptographic provider differences in Azure SQL Managed Insta
 ## Database compatibility<a id="DbCompatLevelLowerThan100"></a>
 
 **Title: Database compatibility level below 100 is not supported** 
-**Category**: Issue   
+**Category**: Warning   
 
 **Description**   
 Database Compatibility Level is a valuable tool to assist in database modernization, by allowing the SQL Server Database Engine to be upgraded, while keeping connecting applications functional status by maintaining the same pre-upgrade Database Compatibility Level. Azure SQL Managed Instance doesn't support compatibility levels below 100. When the database with compatibility level below 100 is restored on Azure SQL Managed Instance, the compatibility level is upgraded to 100. 
@@ -180,7 +180,7 @@ More information: [Discontinued Database Engine Functionality in SQL Server](/pr
 ## FASTFIRSTROW hint<a id="FastFirstRowHint"></a>
 
 **Title: FASTFIRSTROW query hint is discontinued and has been removed.**   
-**Category**: Issue   
+**Category**: Warning   
 
 **Description**   
 FASTFIRSTROW query hint is discontinued and has been removed in Azure SQL Managed Instance.
@@ -337,7 +337,7 @@ Rewrite statements to include the ANSI standard AS keyword when aliasing a table
 ## Non-ANSI style left outer join<a id="NonANSILeftOuterJoinSyntax"></a>
 
 **Title: Non-ANSI style left outer join is discontinued and has been removed.**   
-**Category**: Issue   
+**Category**: Warning   
 
 **Description**   
 Non-ANSI style left outer join is discontinued and has been removed in Azure SQL Managed Instance. 
@@ -351,7 +351,7 @@ More information: [Discontinued Database Engine Functionality in SQL Server](/pr
 ## Non-ANSI style right outer join<a id="NonANSIRightOuterJoinSyntax"></a>
 
 **Title: Non-ANSI style right outer join is discontinued and has been removed.**   
-**Category**: Issue   
+**Category**: Warning   
 
 **Description**   
 Non-ANSI style right outer join is discontinued and has been removed in Azure SQL Managed Instance. 
@@ -442,7 +442,7 @@ More information: [SQL Server Agent differences in Azure SQL Managed Instance ](
 ## RAISERROR<a id="RAISERROR"></a>
 
 **Title: Legacy style RAISERROR calls should be replaced with modern equivalents.**   
-**Category**: Issue   
+**Category**: Warning   
 
 **Description**   
 RAISERROR calls like the below example are termed as legacy-style because they do not include the commas and the parenthesis. RAISERROR 50001 'this is a test'. This method of calling RAISERROR is discontinued and removed in Azure SQL Managed Instance.

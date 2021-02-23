@@ -34,7 +34,7 @@ You will need to convert BULK INSERT statements that use local files or file sha
 ## Compute clause<a id="ComputeClause"></a>
 
 **Title: COMPUTE clause is discontinued and has been removed.**   
-**Category**: Issue   
+**Category**: Warning   
 
 **Description**   
 The COMPUTE clause generates totals that appear as additional summary columns at the end of the result set. However, this clause is no longer supported in Azure SQL Database. 
@@ -122,7 +122,7 @@ More information: [Check Azure SQL Database elastic database query (Preview)](..
 ## Database compatibility<a id="DbCompatLevelLowerThan100"></a>
 
 **Title: Azure SQL Database doesn't support compatibility levels below 100.**   
-**Category**: Issue   
+**Category**: Warning   
 
 **Description**   
 Database compatibility level is a valuable tool to assist in database modernization, by allowing the SQL Server Database Engine to be upgraded, while keeping connecting applications functional status by maintaining the same pre-upgrade database compatibility level. Azure SQL Database doesn't support compatibility levels below 100. 
@@ -175,7 +175,7 @@ More information: [Discontinued Database Engine functionality in SQL Server](/pr
 ## FASTFIRSTROW hint<a id="FastFirstRowHint"></a>
 
 **Title: FASTFIRSTROW query hint is discontinued and has been removed.**   
-**Category**: Issue   
+**Category**: Warning   
 
 **Description**   
 FASTFIRSTROW query hint is discontinued and has been removed in Azure SQL Database.  
@@ -265,7 +265,7 @@ More information: [Resolving Transact-SQL differences during migration to SQL Da
 ## Non-ANSI left outer join<a id="NonANSILeftOuterJoinSyntax"></a>
 
 **Title: Non-ANSI style left outer join is discontinued and has been removed.**   
-**Category**: Issue   
+**Category**: Warning   
 
 **Description**   
 Non-ANSI style left outer join is discontinued and has been removed in Azure SQL Database. 
@@ -280,7 +280,7 @@ More information: [Discontinued Database Engine functionality in SQL Server](/pr
 ## Non-ANSI right outer join<a id="NonANSIRightOuterJoinSyntax"></a>
 
 **Title: Non-ANSI style right outer join is discontinued and has been removed.**   
-**Category**: Issue   
+**Category**: Warning   
 
 **Description**   
 Non-ANSI style right outer join is discontinued and has been removed in Azure SQL Database. 
@@ -306,7 +306,7 @@ Rewrite statements to include the ANSI standard AS keyword when aliasing a table
 ## RAISERROR<a id="RAISERROR"></a>
 
 **Title: Legacy style RAISERROR calls should be replaced with modern equivalents.**   
-**Category**: Issue   
+**Category**: Warning   
 
 **Description**   
 RAISERROR calls like the below example are termed as legacy-style because they do not include the commas and the parenthesis. `RAISERROR 50001 'this is a test'`. This method of calling RAISERROR is discontinued and removed in Azure SQL Database. 
