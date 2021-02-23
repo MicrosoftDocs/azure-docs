@@ -31,7 +31,7 @@ You can improve recall by spell-correcting individual search query terms before 
   The queryLanguage is required for speller, and currently "en-us" is the only valid value.
 
 > [!Note]
-> The speller parameter is available on all tiers, at no extra charge, on all regions that provide semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> The speller parameter is available on all tiers, in the same regions that provide semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 ## Spell correction with simple search
 
@@ -56,7 +56,7 @@ Spelling correction occurs on individual query terms that undergo analysis, whic
 + Incompatible query forms that bypass text analysis include: wildcard, regex, fuzzy
 + Compatible query forms include: fielded search, proximity, term boosting
 
-This example uses fielded search over the Category field, with full Lucene syntax, and a misspelled query string. By including speller, the typo in "Suiite" is corrected and the query succeeds.
+This example uses fielded search over the Category field, with full Lucene syntax, and a misspelled query term. By including speller, the typo in "Suiite" is corrected and the query succeeds.
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview

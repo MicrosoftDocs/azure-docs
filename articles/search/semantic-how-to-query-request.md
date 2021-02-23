@@ -35,9 +35,9 @@ During the initial preview launch, there is no charge for semantic search. For u
 
 ## What's a semantic query?
 
-In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* adds parameters that invoke the semantic query subsystems that can intuit context and meaning of matching results, and promote the more meaningful matches to the top.
+In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* adds parameters that invoke the semantic query subsystems that can intuit context and meaning of matching results and promote the more meaningful matches to the top.
 
-The following request is representative of a semantic query.
+The following request is representative of a basic semantic query (without answer).
 
 ```http
 POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=2020-06-30-Preview      
@@ -51,17 +51,17 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
 
 As with all queries in Cognitive Search, the request targets the documents collection of a single index. Furthermore, a semantic query undergoes the same sequence of parsing, analysis, and scanning as a non-semantic query. The difference lies in how relevance is computed. As defined in this preview release, a semantic query is one whose *results* are re-processed using advanced algorithms, providing a way to surface the matches deemed most relevant by the semantic ranker, rather than the scores assigned by the default similarity ranking algorithm. 
 
-In this preview, only the top 50 matches from the initial results can be semantically ranked, and all results will include captions automatically. Optionally, you can specify an **`answer`** parameter on the request to invoke a language representation model. This model formulates up to 3 potential answers to the query, and bubbles them up to the top of the results.
+Only the top 50 matches from the initial results can be semantically ranked, and all include captions in the response. Optionally, you can specify an **`answer`** parameter on the request to extract a potential answer. This model formulates up to five potential answers to the query, which you can choose to render at the top of search page.
 
 ## Query using REST APIs
 
 The full specification of the REST API can be found at [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents).
 
-Semantic queries are intended for natural language queries, questions like "what is the best plant for pollinators" or "how to fry an egg". If you want the response to include answers, you can add an  optional **`answer`** parameter on the request.
+Semantic queries are intended for open-ended questions like "what is the best plant for pollinators" or "how to fry an egg". If you want the response to include answers, you can add an  optional **`answer`** parameter on the request.
 
 ### Formulate the request
 
-The following semantic query request uses the hotels-sample-index:
+The following example uses the hotels-sample-index to create a semantic query request with semantic answers and captions:
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview      
@@ -89,9 +89,9 @@ In a semantic query, the order of fields in "searchFields" reflects the priority
 
 + If there are no fields specified, then all searchable fields will be considered for semantic ranking of documents. However, this is not recommended since it may not yield the most optimal results from your search index.
 
-Answers and captions can apply highlight formatting to passages in the document that answer the query or summarize the response. Answers are optional, but all semantic responses will include a caption. If you include highlightPreTag and highlightPostTag, both answers and captions will incorporate formatting into the results.
+Captions can include highlights to format passages in the document that answer the query or summarize the response. If you want to specify the type of formatting (yellow background or bold text), you can set highlightPreTag and  highlightPostTag.
 
-Other parameters (such as speller, select, and count) improve the quality of the request and readability of the response. None of them are required.
+Other optional parameters (such as speller, select, and count) improve the quality of the request and readability of the response.
 
 ### Review the response
 
@@ -123,9 +123,9 @@ The following table summarizes the query parameters used in a semantic query. Fo
 | Parameter | Description |
 |----------|-------------|
 | "queryType": "semantic" | Required for semantic queries. Invokes the semantic ranking algorithms and models. |
-| "queryLanguage": "english" | Required for semantic queries. Currently, only `"en-us"` is implemented. |
+| "queryLanguage": "en-us" | Required for semantic queries. Currently, only `"en-us"` is implemented. |
 | "searchFields": "<fields>" | Optional but recommended. Specifies the fields over which semantic ranking occurs. In contrast with simple and full query types, when used in a semantic query, this parameter is required. </br></br>The order in which fields are listed determines precedence, with "title" having priority over "url" and so forth, in how results are ranked. If you have a title or a short field that describes your document, we recommend that to be your first field. Follow that by the url (if any), then the body of the document, and then any other relevant fields. |
-| "answers": "extractive|count-3" | Optional. Returns up to three possible answers to the query, derived from content in the document. |
+| "answers": "extractive|count3" | Optional field to specify that semantic answers be included in the result. Answers can be configured to return a maximum of five. This example shows a count of three answers. |
 
 The queryLanguage parameter required for a semantic query is independent of any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. Specified in a query request, the queryLanguage determines which dictionaries are used as an input to the [semantic ranking algorithm](semantic-how-to-query-response.md). In contrast, language analyzers are used when indexing and retrieving strings in the search index.
 
