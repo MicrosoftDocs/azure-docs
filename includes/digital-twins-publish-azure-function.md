@@ -20,9 +20,7 @@ For a specific target, choose **Azure Function App (Windows)** and select *Next*
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Screenshot of Visual Studio in the Publish Azure function dialog. Azure Function App (Windows) is selected on the Specific target page.":::
 
-On the *Functions instance* page, choose your subscription. This should populate a box with the *resource groups* in your subscription.
-
-Select your instance's resource group and select *+* to create a new Azure Function.
+On the *Functions instance* page, choose your subscription. Then select the *+* icon to create a new Azure Function.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Screenshot of Visual Studio in the Publish Azure function dialog. The + button to create a new function is highlighted on the Functions instance page.":::
 
