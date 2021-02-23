@@ -10,7 +10,7 @@ ms.date: 11/17/2020
 ---
 
 # Resource Manager template samples for agents in Azure Monitor
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to deploy and configure the [Log Analytics agent](../platform/log-analytics-agent.md) and [diagnostic extension](../platform/diagnostics-extension-overview.md) for virtual machines in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to deploy and configure the [Log Analytics agent](./log-analytics-agent.md) and [diagnostic extension](./diagnostics-extension-overview.md) for virtual machines in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -417,7 +417,7 @@ The following sample installs the Log Analytics agent on a Linux Azure virtual m
 The samples in this section install the diagnostic extension on Windows and Linux virtual machines in Azure and configure it for data collection.
 
 ### Windows
-The following sample enables and configures the diagnostic extension on a Windows Azure virtual machine. For details on the configuration, see [Windows diagnostics extension schema](../platform/diagnostics-extension-schema-windows.md).
+The following sample enables and configures the diagnostic extension on a Windows Azure virtual machine. For details on the configuration, see [Windows diagnostics extension schema](./diagnostics-extension-schema-windows.md).
 
 #### Template file
 
@@ -803,6 +803,6 @@ The following sample enables and configures the diagnostic extension on a Linux 
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](../samples/resource-manager-samples.md).
-* [Learn more about Log Analytics agent](../platform/log-analytics-agent.md).
-* [Learn more about diagnostic extension](../platform/diagnostics-extension-overview.md).
+* [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
+* [Learn more about Log Analytics agent](./log-analytics-agent.md).
+* [Learn more about diagnostic extension](./diagnostics-extension-overview.md).
