@@ -170,9 +170,9 @@ During the installation of the synchronization service, Azure AD Connect checks 
 
 Under this registry key, Azure AD Connect will check to see if the following values are present and uncorrupted: 
 
-- [MachineAccessRestriction](https://docs.microsoft.com/windows/win32/com/machineaccessrestriction)
-- [MachineLaunchRestriction](https://docs.microsoft.com/windows/win32/com/machinelaunchrestriction)
-- [DefaultLaunchPermission](https://docs.microsoft.com/windows/win32/com/defaultlaunchpermission)
+- [MachineAccessRestriction](/windows/win32/com/machineaccessrestriction)
+- [MachineLaunchRestriction](/windows/win32/com/machinelaunchrestriction)
+- [DefaultLaunchPermission](/windows/win32/com/defaultlaunchpermission)
 
 ## Prerequisites for federation installation and configuration
 ### Windows Remote Management

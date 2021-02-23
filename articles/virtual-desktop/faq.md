@@ -130,3 +130,7 @@ Azure Lighthouse doesn't fully support managing Windows Virtual Desktop environm
 You also can't use CSP sandbox subscriptions with the Windows Virtual Desktop service. To learn more, see [Integration sandbox account](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
 
 Finally, if you enabled the resource provider from the CSP owner account, the CSP customer accounts won't be able to modify the resource provider.
+
+## How often should I turn my VMs on to prevent registration issues?
+
+After you register a VM to a host pool within the Windows Virtual Desktop service, the agent regularly refreshes the VM's token whenever the VM is active. The certificate for the registration token is valid for 90 days. Because of this 90-day limit, we recommend you start your VMs every 90 days. Turning your VM on within this time limit will prevent its registration token from expiring or becoming invalid. If you've started your VM after 90 days and are experiencing registration issues, follow the instructions in the [Windows Virtual Desktop agent troubleshooting guide](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) to remove the VM from the host pool, reinstall the agent, and reregister it to the pool.
