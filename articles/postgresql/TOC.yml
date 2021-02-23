@@ -560,7 +560,9 @@
     items:
     - name: Create server group
       items:
-      - name: Azure portal
+      - name: Starter plan (preview)
+        href: quickstart-create-hyperscale-starter.md
+      - name: Standard plan
         href: quickstart-create-hyperscale-portal.md
         displayName: portal, create hyperscale
   - name: Tutorials
