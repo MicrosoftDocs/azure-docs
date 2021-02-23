@@ -142,7 +142,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
   Write-Host "Database name: $databaseName"
   ```
   
-## Step 2: Configure an attestation provider
+## Step 2: Configure an attestation provider 
 
 In this step, You'll create and configure an attestation provider in Microsoft Azure Attestation. This is needed to attest the secure enclave your database uses.
 
