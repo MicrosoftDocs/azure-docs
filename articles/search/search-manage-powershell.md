@@ -313,7 +313,7 @@ New-AzPrivateDnsZoneGroup `
     -PrivateDnsZoneConfig $config
 ```
 
-For more details on creating private endpoints in PowerShell, see this [Private Link Quickstart](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell)
+For more details on creating private endpoints in PowerShell, see this [Private Link Quickstart](../private-link/create-private-endpoint-powershell.md)
 
 ### Manage private endpoint connections
 
