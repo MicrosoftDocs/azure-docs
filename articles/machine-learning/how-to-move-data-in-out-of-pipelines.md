@@ -59,10 +59,12 @@ There are many ways to create and register `Dataset` objects. Tabular datasets a
 datastore = Datastore.get(workspace, 'training_data')
 iris_dataset = Dataset.Tabular.from_delimited_files(DataPath(datastore, 'iris.csv'))
 
-cats_dogs_dataset = Dataset.File.from_files(
-    paths='https://download.microsoft.com/download/3/E/1/3E1C3F21-ECDB-4869-8368-6DEBA77B919F/kagglecatsanddogs_3367a.zip',
-    archive_options=ArchiveOptions(archive_type=ArchiveType.ZIP, entry_glob='**/*.jpg')
-)
+datastore_path = [
+    DataPath(datastore, 'animals/dog/1.jpg'),
+    DataPath(datastore, 'animals/dog/2.jpg'),
+    DataPath(datastore, 'animals/cat/*.jpg')
+]
+cats_dogs_dataset = Dataset.File.from_files(path=datastore_path)
 ```
 
 For more options on creating datasets with different options and from different sources, registering them and reviewing them in the Azure Machine Learning UI, understanding how data size interacts with compute capacity, and versioning them, see [Create Azure Machine Learning datasets](how-to-create-register-datasets.md). 
