@@ -82,7 +82,7 @@ You can set up an Azure logic app to query all of the failed pipelines every 5 m
 
 For more information, go to [Send Notifications from Data Factory, Part 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
 
-### Degree of prallelism  increase does not result in higher throughput
+### Degree of parallelism  increase does not result in higher throughput
 
 **Cause** 
 
@@ -98,8 +98,8 @@ Known Facts about *ForEach*
  
 **Resolution**
 
- * You should not use SetVariable inside a foreach that runs in parallel.
- * Taking in consideration the way the queues are constructed, customer can improve the foreach peformance by setting multiple foreaches where each foreach will have items with similar processing time. This will ensure that long runs are processed in parallel rather sequentially.
+ * You should not use *SetVariable* actvity inside *For Each* that runs in parallel.
+ * Taking in consideration the way the queues are constructed, customer can improve the foreach performance by setting multiple foreaches where each foreach will have items with similar processing time. This will ensure that long runs are processed in parallel rather sequentially.
 
 ## Next steps
 
