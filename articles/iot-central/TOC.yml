@@ -117,8 +117,6 @@
           href: government/tutorial-water-consumption-monitoring.md 
         - name: Create a water quality monitoring app
           href: government/tutorial-water-quality-monitoring.md
-        - name: Connect your Azure IoT Central application with Dynamics 365 Field Services
-          href: government/how-to-configure-connected-field-services.md
       - name: Healthcare
         items:
         - name: Create a continuous patient monitoring app
@@ -236,6 +234,8 @@
           href: core/howto-create-custom-analytics.md
         - name: Visualize your data in Power BI
           href: core/howto-connect-powerbi.md
+        - name: Connect your application with Dynamics 365 Field Services
+          href: government/how-to-configure-connected-field-services.md
     - name: Manage your devices
       items:
         - name: Add and remove devices
