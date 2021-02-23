@@ -14,7 +14,7 @@ ms.date: 02/23/2021
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-This sample template creates an App Service app as well as a Front Door profile, and uses the App Service's public IP address with [access restrictions](../../app-service/app-service-ip-restrictions.md) to enforce that incoming connections must come through Front Door.
+This sample template creates an App Service app and a Front Door profile, and uses the App Service's public IP address with [access restrictions](../../app-service/app-service-ip-restrictions.md) to enforce that incoming connections must come through Front Door.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -23,7 +23,7 @@ This sample template creates an App Service app as well as a Front Door profile,
 This sample deploys:
 
 - An App Service plan and application without private endpoints enabled.
-- A Front Door profile, endpoint, origin group, and origin to direct traffic to the App Service application. This can be configured to use the standard or premium Front Door SKU types.
+- A Front Door profile, endpoint, origin group, and origin to direct traffic to the App Service application. You can use either the standard or premium Front Door SKU for this sample.
 - [App Service access restrictions](../../app-service/app-service-ip-restrictions.md) to block access to the application unless they have come through Front Door. The traffic is checked to ensure it has come from the `AzureFrontDoor.Backend` service tag, and also that the `X-Azure-FDID` header is configured with your specific Front Door instance's ID.
 
 The following diagram illustrates the components of this sample.
@@ -276,4 +276,4 @@ You can also attempt to access the App Service hostname directly. You should see
 
 For more information on Azure Resource Manager templates, see [Azure Resource Manager templates documentation](../../azure-resource-manager/templates/).
 
-Additional Front Door samples can be found in the [Azure Front Door resource manager template samples](resource-manager-template-samples.md)
+More Front Door samples can be found in the [Azure Front Door resource manager template samples](resource-manager-template-samples.md)
