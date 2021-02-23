@@ -14,15 +14,15 @@ To publish the project to a function app in Azure, right-select the project in *
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Screenshot of Visual Studio showing the right-select solution menu. Publish is highlighted in the menu.":::
 
-In the *Publish* page that follows, leave the default target selection of **Azure** and hit *Next*. 
+In the *Publish* page that follows, leave the default target selection of **Azure** and select *Next*. 
 
-For a specific target, choose **Azure Function App (Windows)** and hit *Next*.
+For a specific target, choose **Azure Function App (Windows)** and select *Next*.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Screenshot of Visual Studio in the Publish Azure function dialog. Azure Function App (Windows) is selected on the Specific target page.":::
 
 On the *Functions instance* page, choose your subscription. This should populate a box with the *resource groups* in your subscription.
 
-Select your instance's resource group and hit *+* to create a new Azure Function.
+Select your instance's resource group and select *+* to create a new Azure Function.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Screenshot of Visual Studio in the Publish Azure function dialog. The + button to create a new function is highlighted on the Functions instance page.":::
 
@@ -32,13 +32,13 @@ In the *Function App (Windows) - Create new* window, fill in the fields as follo
 * Make sure the **Resource group** to the resource group you want to use
 * Leave the **Plan type** as *Consumption*
 * Select the **Location** that matches the location of your resource group
-* Create a new **Azure Storage** resource using the *New...* link. Set the location to match your resource group, use the other default values, and hit "Ok".
+* Create a new **Azure Storage** resource using the *New...* link. Set the location to match your resource group, use the other default values, and select "Ok".
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Screenshot of Visual Studio in the Publish Azure function dialog. The details of a new function app are being filled in, including Name, Subscription, Resource group, Plan Type, Location, and Azure Storage.":::
 
 Then, select **Create**.
 
-This should bring you back to the *Functions instance* page, where your new function app is now visible underneath your resource group. Hit *Finish*.
+This should bring you back to the *Functions instance* page, where your new function app is now visible underneath your resource group. Select *Finish*.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Publish Azure function in Visual Studio: Functions instance (after function app)":::
 
