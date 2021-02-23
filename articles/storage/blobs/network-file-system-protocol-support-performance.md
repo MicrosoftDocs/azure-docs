@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
@@ -45,15 +45,17 @@ Each bar in the following chart shows the difference in achieved bandwidth betwe
 
 It takes longer time to complete an overwrite operation than a new write operation. That's because an NFS overwrite operation, especially a partial in-place file edit, is a combination of several underlying blob operations: a read, a modify, and a write operation. Therefore, an application that requires frequent in place edits is not suited for NFS enabled blob storage accounts. 
 
-## The impact of metadata operations
- 
-NFS file system metadata operations are mapped to hierarchical namespace operations and blob operations. If your application or workload performs numerous metadata operations, we don't recommend that you use this feature because those types of applications aren't expected to perform well. 
-
 ## Other best practice recommendations 
 
 - Use VMs with sufficient network bandwidth.
 
 - Use multiple mount points when your workloads allow  it.
+
+- Use as many threads as possible.
+
+- Use large block sizes.
+
+- Make storage requests from a client that is located in the same region as the storage account. This can improve network latency.
 
 ## Next steps
 
