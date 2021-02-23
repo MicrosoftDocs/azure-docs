@@ -13,9 +13,9 @@ ms.reviewer: mikben
 
 # Use managed identities (Python)
 
-Get started with Azure Communication Services by using managed identities in Python. The Communication Services Identity, SMS client libraries support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+Get started with Azure Communication Services by using managed identities in Python. The Communication Services Identity and SMS client libraries support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This quickstart shows you how to authorize access to the Identity SMS client libraries from an Azure environment that supports managed identities. It also describes how to test your code in a development environment.
+This quickstart shows you how to authorize access to the Identity and SMS client libraries from an Azure environment that supports managed identities. It also describes how to test your code in a development environment.
 
 ## Prerequisites
 
