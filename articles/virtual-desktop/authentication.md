@@ -23,7 +23,7 @@ These are the currently supported sign-in methods:
 - Windows Desktop client
     - Username and password
     - Smartcard
-    - Windows Hello for Business
+    - Windows Hello for Business (Certificate trust only)
 - Windows Store client
     - Username and password
 - Web client
