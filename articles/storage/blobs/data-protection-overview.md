@@ -19,6 +19,20 @@ You can configure data protection for your blob and Azure Data Lake Storage Gen2
 
 It's important to think about how to best protect your data before an incident occurs that could compromise your data. This guide can help you decide in advance which data protection features your scenario requires, and how to implement them. It also provides guidance on how to proceed should you need to restore data that has been deleted or overwritten.
 
+## Summary of recommendations
+
+- Configure an Azure Resource Manager lock for your storage accounts to prevent accidental or malicious deletes or configuration changes.
+- Configure container soft delete for your storage accounts with a minimum retention period of 7 days.
+- Store containers in the same storage account only if the container soft delete retention period is appropriate for all containers in that account.
+- Configure both blob versioning and blob soft delete for your storage accounts for optimal protection of both blobs and versions.
+- Set the blob soft delete retention period to a minimum of 7 days.
+- Store blobs in the same storage account only if the blob soft delete retention period is appropriate for all blobs in that account.
+- Avoid workload patterns with large numbers of writes when blob soft delete is enabled. ???what about versioning???
+- Use lifecycle management to limit the costs of storing blob versions and snapshots by deleting them after a certain number of days.
+- Point-in-time restore is a best-effort restore operation, so restore data manually if you need absolute fidelity.
+-   
+
+
 ## Configure data protection options
 
 The following table summarizes the data protections available in Azure Storage:
@@ -28,10 +42,10 @@ The following table summarizes the data protections available in Azure Storage:
 | Prevent a storage account from being deleted or modified. | Configure an Azure Resource Manager lock on the storage account. | Yes | None | Protects against accidental or malicious deletes or configuration changes. |
 | Prevent a container and its blobs from being deleted or modified. | Set a time-based retention policy or a legal hold for a container. | Yes, in preview | None | Protects against accidental or malicious deletes or updates. |
 | Permit a container to be deleted, but maintain a copy of the deleted container and its contents for a specified interval. | Configure container soft delete for the storage account. | Yes, in preview | Data in soft-deleted containers is billed at same rate as active data. | Protects against accidental deletes. |
-| Permit a blob to be deleted or updated, but automatically save its state in a previous version. | Configure blob versioning for the storage account. | No | Data is billed based on unique blocks or pages. Changing a blob's tier may have a billing impact. | Protects against accidental deletes and updates. |
-| Permit a blob or blob version to be deleted, but maintain a copy of the deleted blob or version for a specified interval. | Configure blob soft delete for the storage account. | No | Data in soft-deleted blobs is billed at same rate as active data. | Protects against accidental deletes and updates. |
-| Permit blobs to be deleted or updated, but track all updates and deletes so that data can be restored to a previous point in time. | Configure point-in-time restore for the storage account. | No | The cost of a restore operation depends on the amount of data being restored. | Protects against accidental deletes and updates with best-effort restore. |
-| Manually save the state of a blob at a given point in time. | Take a snapshot of a blob. | Yes, in preview | Data is billed based on unique blocks or pages. Changing a blob's tier may have a billing impact. | Preserves the state of a blob at a particular time. ???Anything else we want to say here??? |
+| Permit a blob to be deleted or updated, but automatically save its state in a previous version. | Configure blob versioning for the storage account. | No | A blob version is billed based on unique blocks or pages. Costs therefore increase as data in the base blob diverges from the version.<br />Changing a blob or blob version's tier may have a billing impact. | Protects against accidental deletes and updates. |
+| Permit a blob to be deleted or updated, or a blob version to be deleted, but maintain a copy of the blob or version for a specified interval. | Configure blob soft delete for the storage account. | No | Data in soft-deleted blobs is billed at same rate as active data. | Protects against accidental deletes and updates. |
+| Permit blobs to be deleted or updated, but track all updates and deletes so that data can be restored to a previous point in time. | Configure point-in-time restore for the storage account. | No | You are billed when you perform a restore operation. The cost of a restore operation depends on the amount of data being restored. | Protects against accidental deletes and updates with best-effort restore. |
+| Manually save the state of a blob at a given point in time. | Take a manual snapshot of a blob. | Yes, in preview | Data in a snapshot is billed based on unique blocks or pages. Costs therefore increase as data in the base blob diverges from the snapshot.<br />Changing a blob or snapshot's tier may have a billing impact. | Preserves the state of a blob at a particular time. ???Anything else we want to say here??? |
 
 ### Configure an Azure Resource Manager lock on the storage account
 
@@ -57,7 +71,7 @@ For more information about immutability policies, see [Store business-critical b
 
 Container soft delete (preview) protects your blob data from accidental deletion by maintaining a deleted container, its blobs, and its metadata in the system for a specified period of time. The retention interval may be up to one year and is configured when you enable container soft delete for the storage account. After the retention period has expired, the container and its blobs are permanently deleted.
 
-If needed, you can restore the deleted container during the retention interval with the Restore Container operation. Restoring a soft-deleted container restores all of the blobs within it to their state at the point when container was deleted.
+If needed, you can restore the deleted container during the retention interval with the Restore Container operation. Restoring a soft-deleted container restores all of the blobs within it to their state at the point when the container was deleted.
 
 When a container is deleted, the retention period that is currently specified for the storage account is in effect for that container. The retention period countdown starts at the time that the container is deleted. If you change the retention period, that change applies only to subsequently deleted containers. It does not apply to any containers that have already been deleted.
 
@@ -85,38 +99,42 @@ For more information about blob versioning, see [Blob versioning](versioning-ove
 
 ### Configure blob soft delete for the storage account
 
-Blob soft delete protects an individual blob, its versions, and its metadata from deletion. Microsoft recommends configuring blob soft delete for a new storage account only when blob versioning is also enabled for the storage account, and only if you need to protect blob versions from deletion. If you do not need to protect versions, then enable blob versioning without blob soft delete.
+Blob soft delete protects an individual blob, its versions, and its metadata from accidental deletion by maintaining the deleted data in the system for a specified period of time. The retention interval may be up to one year and is configured when you enable blob soft delete for the storage account. After the retention period has expired, the blob is permanently deleted.
 
-When blob soft delete is enabled for a storage account, a deleted blob or blob version may be recovered during a retention interval that you specify, up to one year. After the retention period has expired, the blob or version is permanently deleted. For more information, see [Soft delete for blobs](soft-delete-blob-overview.md).
+If needed, you can restore a deleted blob or version during the retention interval with the Undelete Blob operation.
 
-When a blob or version is deleted, the retention period that is currently specified will be in effect for that blob or version. The retention period countdown starts at the time that the blob or version is deleted. If you change the retention period, that change applies only to subsequently deleted blobs or blob versions. It does not apply to any blobs or versions that have already been deleted.
+When a blob or version is deleted, the retention period that is currently specified for the storage account is in effect for that blob or version. The retention period countdown starts at the time that the object is deleted. If you change the retention period, that change applies only to subsequently deleted objects. It does not apply to any objects that have already been deleted.
 
-If you have blobs that require different retention periods, then Microsoft recommends storing them in different storage accounts. Store blobs in the same storage account only if they can all be served by the same soft delete retention period.
+When blob soft delete is enabled for the storage account, it protects all blobs and versions in that account with the same retention period. If you have blobs that require different retention periods, then Microsoft recommends storing them in different storage accounts. Store blobs in the same storage account only if they can all be served by the same soft delete retention period.
 
-xref to table below
-
-When blob soft delete is enabled for the storage account, it protects all blobs and blob versions in that account. Blob soft delete is not available for storage accounts for which a hierarchical namespace is enabled. For more information, see [Soft delete for blobs](soft-delete-blob-overview.md).
+For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
 
 ### Configure point-in-time restore for the storage account
 
-Point-in-time restore is a convenient option for restoring block blob data to an earlier point in time. When point-in-time restore is enabled for a storage account, you can restore sets of block blobs to their earlier state within a specified retention period. Point-in-time restore is useful in scenarios where a user or application accidentally deletes or updates data, or where an application error corrupts data. Point-in-time restore also enables testing scenarios that require reverting a data set to a known state before running further tests. For more information about point-in-time restore, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
+Point-in-time restore is a convenient option for automatically restoring block blob data to an earlier point in time. When point-in-time restore is enabled for a storage account, you can restore sets of block blobs to an earlier state within a specified period of time. The retention interval is configured when you enable point-in-time restore for the storage account.
 
-Point-in-time restore is a best-effort restore for the specified period. Azure Storage cannot guarantee that data will be restored with perfect fidelity. If you need to restore data with greater control and accuracy, or if you need to restore blobs that are not block blobs, then Microsoft recommends restoring from a soft-deleted container or blob, or from a previous version of a blob.
+Point-in-time restore is a best-effort restore, so it is recommended for scenarios where a small amount of data loss is an acceptable risk. Azure Storage cannot guarantee that data will be restored with perfect fidelity. If you need to restore data with greater control and accuracy, or if you need to restore blobs that are not block blobs, then Microsoft recommends restoring from a soft-deleted container or blob, or from a previous version of a blob.
 
 Point-in-time restore is not currently available for Azure Data Lake Storage Gen2.
 
-For more information, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
+For more information about point-in-time restore, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
 
-## Restore 
+### Take a manual snapshot of a blob
+
+
+## Protect against malicious actions
+
+
+
+## Restore data that was accidentally updated or deleted
 
 | Options for restoring data | Use this feature to... | Recommendation |
 |-|-|-|
-| Container soft delete | Restore a container and its blobs within a specified interval after the container is deleted. | Recommended for all storage accounts, with a minimum retention period of 7 days. |
-| Blob soft delete | Restore a blob or version within a specified interval after it is deleted. | Recommended for all storage accounts, with a minimum retention period of 7 days and with blob versioning also enabled.  |
-| Blob versioning | Restore a blob from a previous version after the blob is deleted or overwritten. | Recommended for all storage accounts. |
-| Point-in-time restore | Restore a set of blobs from a previous point in time. | Recommended as a convenient, best-effort restore option. If your scenario requires absolute fidelity, use a manual restore method instead. |
-| Blob snapshots | Restore a blob from a snapshot taken manually at a given point in time. | When possible, use blob versioning instead for superior protection. |
-
+| Container soft delete | Manually restore a container and its blobs within a specified interval after the container is deleted. | Recommended for all storage accounts, with a minimum retention period of 7 days. |
+| Blob soft delete | Manually restore a blob or version within a specified interval after it is deleted. | Recommended for all storage accounts, with a minimum retention period of 7 days and with blob versioning also enabled.  |
+| Blob versioning | Manually restore a blob from a previous version after the blob is deleted or overwritten. | Recommended for all storage accounts. Use lifecycle management to limit capacity costs. |
+| Point-in-time restore | Restore a set of blobs to their state at a previous point in time. | Recommended as a convenient, best-effort restore option. If your scenario requires absolute fidelity, use a manual restore method instead. |
+| Blob snapshots | Manually restore a blob from a snapshot taken manually at a given point in time. | When possible, use blob versioning instead for superior protection. Use lifecycle management to limit capacity costs. |
 
 ## Disaster recovery
 
