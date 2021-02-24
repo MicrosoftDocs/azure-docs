@@ -33,6 +33,4 @@ Trusted Platform Module (TPM) endpoint service is enabled with diagnostic settin
 
 ```
 
-For more detailed steps, see [Set up Azure Attestation with Azure PowerShell](/azure/attestation/quickstart-powershell#:~:text=%20Quickstart%3A%20Set%20up%20Azure%20Attestation%20with%20Azure,Register%20Microsoft.Attestation%20resource%20provider.%20Register%20the...%20More%20).
-
 Activity logs are in the **Containers** section of the storage account. For more information, see [Collect resource logs from an Azure Resource and analyze with Azure Monitor](/azure/azure-monitor/learn/tutorial-resource-logs).

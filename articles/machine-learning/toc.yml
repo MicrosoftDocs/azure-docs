@@ -337,6 +337,9 @@
             - name: Connect to Azure storage (Python)
               displayName: blob, get, fileshare, access, mount, download, data lake, datastore
               href: how-to-access-data.md
+            - name: Identity based data access to storage 
+              displayName: blob, access, data lake, datastore, managed identity
+              href: how-to-identity-based-data-access.md
             - name: Get data from a datastore (Python)
               displayName: data, data set, register, access data
               href: how-to-create-register-datasets.md

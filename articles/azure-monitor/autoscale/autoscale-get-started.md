@@ -122,7 +122,7 @@ This section describes how to move Azure autoscale to another region under the s
 ### Move
 Use [REST API](/rest/api/monitor/autoscalesettings/createorupdate) to create an autoscale setting in the new environment. The autoscale setting created in the destination region will be a copy of the autoscale setting in the source region.
 
-[Diagnostic settings](../platform/diagnostic-settings.md) that were created in association with the autoscale setting in the source region cannot be moved. You will need to recreate diagnostic settings in the destination region, after the creation of autosale settings is completed. 
+[Diagnostic settings](../essentials/diagnostic-settings.md) that were created in association with the autoscale setting in the source region cannot be moved. You will need to recreate diagnostic settings in the destination region, after the creation of autosale settings is completed. 
 
 ### Learn more about moving resources across Azure regions
 To learn more about moving resources between regions and disaster recovery in Azure, refer to [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
