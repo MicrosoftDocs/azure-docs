@@ -24,4 +24,3 @@ For more information about the cmdlets used in these samples, see [Applications]
 |---|---|
 |**Application Management scripts**||
 | [Export all app registrations, secrets, and certificates](scripts/powershell-export-all-app-registrations-secrets-and-certs.md) | Exports all app registrations, secrets and certificates for the specified apps in your directory. |
-
