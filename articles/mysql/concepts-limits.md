@@ -23,7 +23,7 @@ Password plugins such as "validate_password" and "caching_sha2_password" are not
 
 ## Storage engines
 
-MySQL supports many storage engines. On Azure Database for MySQL Flexible Server, the following storage engines are supported and unsupported:
+MySQL supports many storage engines. On Azure Database for MySQL, the following storage engines are supported and unsupported:
 
 ### Supported
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
