@@ -125,7 +125,7 @@ map.layers.add(new PolygonLayer(source,
 
 For this sample, the following image was loaded into the drawable folder of the app.
 
-| ![Purple arrow icon image](media/how-to-add-shapes-to-android-map/fill_checker_red.png)|
+| ![Purple arrow icon image](media/how-to-add-shapes-to-android-map/fill-checker-red.png)|
 |:-----------------------------------------------------------------------:|
 | fill_checker_red.png                                                    |
 

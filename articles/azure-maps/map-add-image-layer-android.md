@@ -76,18 +76,18 @@ This sample demonstrates how to add KML ground overlay information as an image l
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <GroundOverlay>
-	<name>Map of Chartres cathedral</name>
-	<Icon>
-		<href>https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Chartres.svg/1600px-Chartres.svg.png</href>
-		<viewBoundScale>0.75</viewBoundScale>
-	</Icon>
-	<LatLonBox>
-		<north>48.44820923628113</north>
-		<south>48.44737203258976</south>
-		<east>1.488833825534365</east>
-		<west>1.486788581643038</west>
-		<rotation>46.44067597839695</rotation>
-	</LatLonBox>
+    <name>Map of Chartres cathedral</name>
+    <Icon>
+        <href>https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Chartres.svg/1600px-Chartres.svg.png</href>
+        <viewBoundScale>0.75</viewBoundScale>
+    </Icon>
+    <LatLonBox>
+        <north>48.44820923628113</north>
+        <south>48.44737203258976</south>
+        <east>1.488833825534365</east>
+        <west>1.486788581643038</west>
+        <rotation>46.44067597839695</rotation>
+    </LatLonBox>
 </GroundOverlay>
 </kml>
 ```
@@ -116,7 +116,7 @@ map.layers.add(layer, "labels");
 
 The following screenshot shows a map with a KML ground overlay overlaid using an image layer.
 
-![Map with a KML ground overlay overlaid using an image layer](media/map-add-image-layer-android/android-kml-ground-overlay.jpg)
+![Map with a KML ground overlay overlaid using an image layer](media/map-add-image-layer-android/android-ground-overlay.jpg)
 
 > [!TIP]
 > Use the `getPixels` and `getPositions` methods of the image layer class to convert between geographic coordinates of the positioned image layer and the local image pixel coordinates.

@@ -26,15 +26,15 @@ Enable clustering in the `DataSource` class by setting the `cluster` option to t
 ```javascript
 //Create a data source and enable clustering.
 var datasource = new atlas.source.DataSource(null, {
-	//Tell the data source to cluster point data.
-	cluster: true,
-
-	//The radius in pixels to cluster points together.
-	clusterRadius: 45,
-
-	//The maximum zoom level in which clustering occurs.
-	//If you zoom in more than this, all points are rendered as symbols.
-	clusterMaxZoom: 15
+    //Tell the data source to cluster point data.
+    cluster: true,
+    
+    //The radius in pixels to cluster points together.
+    clusterRadius: 45,
+    
+    //The maximum zoom level in which clustering occurs.
+    //If you zoom in more than this, all points are rendered as symbols.
+    clusterMaxZoom: 15
 });
 ```
 
