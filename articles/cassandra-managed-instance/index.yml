@@ -51,7 +51,7 @@ landingContent:
           - text: Configure a hybrid cluster
             url: configure-hybrid-cluster.md               
       - linkListType: how-to-guide
-        links: #
+        links: 
           - text: Manage resources with Azure CLI
             url: manage-resources-cli.md           
           - text: Visualize metrics in Prometheus with Grafana
