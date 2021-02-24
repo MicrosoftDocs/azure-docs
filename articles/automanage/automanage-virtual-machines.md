@@ -177,7 +177,7 @@ First and foremost, we will not off-board the virtual machine from any of the se
 
 ## Next steps
 
-In this article, you learned that Automanage for virtual machines provides a means for which you can eliminate the need for you to know of, onboard to, and configure best practices Azure services. In addition, if a machine you onboarded to Automanage for virtual machines drifts from the environment set up, we will automatically bring it back into compliance.
+In this article, you learned that Automanage for virtual machines provides a means for which you can eliminate the need for you to know of, onboard to, and configure best practices Azure services. In addition, if a machine you onboarded to Automanage for virtual machines drifts from the environment setup, we will automatically bring it back into compliance.
 
 Try enabling Automanage for virtual machines in the Azure portal.
 
