@@ -273,6 +273,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "media-services-v3-dotnet",
+      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet",
+      "branch": "main"
+    },
+    {
       "path_to_root": "samples-javascript",
       "url": "https://github.com/Microsoft/tsiclient",
       "branch": "tutorial"
