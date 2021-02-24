@@ -2,8 +2,9 @@
 title: What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service
 description: Learn how to run Oracle WebLogic Server on the Azure Kubernetes Service.
 author: rezar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 02/23/2021
 ms.author: rezar
