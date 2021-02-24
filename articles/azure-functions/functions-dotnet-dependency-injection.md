@@ -224,6 +224,8 @@ And a `local.settings.json` file that might structure the custom setting as foll
 From inside the `Startup.Configure` method, you can extract values from the `IConfiguration` instance into your custom type using the following code:
 
 ```csharp
+IConfiguration configuration = builder.GetContext().Configuration;
+
 builder.Services.AddOptions<MyOptions>()
     .Configure<IConfiguration>((settings, configuration) =>
     {
