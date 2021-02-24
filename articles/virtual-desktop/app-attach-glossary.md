@@ -20,7 +20,7 @@ An MSIX container is where MSIX apps are run. To learn more, see [MSIX container
 
 ## MSIX application 
 
-An application stored in an MSIX file.
+An application stored in an .MSIX file.
 
 ## MSIX package 
 
@@ -30,13 +30,17 @@ An MSIX package is an MSIX file or application.
 
 An MSIX share is a network share that holds expanded MSIX packages. MSIX shares support SMB 3 or later. Applications get staged from this MSIX share without having to move application files to the system drive.
 
+## MSIX image
+
+An MSIX image is a VHD, VHDx, or CIM file that contains one or more MSIX packaged applications. Each application is delivered in the MSIX image using the MSIXMGR tool.
+
 ## Repackage
 
 Repackaging takes a non-MSIX application and converts it into MSIX using the MSIX Packaging Tool (MPT). For more information, see [MSIX Packaging Tool overview](/windows/msix/packaging-tool/tool-overview).
 
-## Expand
+## Expand an MSIX package
 
-Expanding MSIX package is a multi-step process. It takes the MSIX file and put its content into a VHD(x) or CIM file. 
+Expanding an MSIX package is a multi-step process. Expansion takes the MSIX file and puts its content into a VHD(x) or CIM file. 
 
 To expand an MSIX package:
 
@@ -58,11 +62,11 @@ Uploading an MSIX package involves uploading the VHD(x) or [CIM](#cim) that cont
 
 In Windows Virtual Desktop, uploads happen once per MSIX share. Once you upload a package, all host pools in the same subscription can reference it.
 
-## Publish an MSIX package
+## Add an MSIX package
 
-In Windows Virtual Desktop, publishing an MSIX package links it to a remote app or desktop.
+In Windows Virtual Desktop, adding an MSIX package links it to a host pool.
 
-## Assign an MSIX package 
+## Publish an MSIX package 
 
 In Windows Virtual Desktop, a published MSIX package must be assigned to an Active Directory Domain Service (AD DS) or Azure Active Directory (Azure AD) user or user group.
 
@@ -101,6 +105,18 @@ Destaging notifies the OS that an MSIX package or application that currently isn
 
 .CIM is a new file extension associated with Composite Image Files System (CimFS). Mounting and unmounting CIM files is faster that VHD files. CIM also consumes less CPU and memory than VHD.
 
+A CIM file is a file with a .CIM extension that contains metadata and at least six additional files that contain actual data. The files within the CIM file don't have extensions. The following table is a list of example files you'd find inside a CIM:
+
+| File name | Extension | Size |
+|-----------|-----------|------|
+| VSC | CIM | 1 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | NA | 27 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | NA | 20 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | NA | 42 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | NA | 428 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | NA | 217 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | NA | 264,132 KB |
+
 The following table is a performance comparison between VHD and CimFS. These numbers were the result of a test run with five hundred 300 MB files in each format run on a DSv4 machine.
 
 |  Specs                          | VHD                    | CimFS   |
@@ -113,4 +129,3 @@ The following table is a performance comparison between VHD and CimFS. These num
 ## Next steps
 
 If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md) and [FAQ](app-attach-faq.md). Otherwise, get started with [Set up app attach](app-attach.md).
-

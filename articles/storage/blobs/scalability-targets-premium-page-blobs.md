@@ -33,7 +33,7 @@ Premium page blob storage accounts have the following scalability targets:
 
 <sup>2</sup> All data (responses) that are received from a storage account
 
-A premium page blob account is be a general-purpose account configured for premium performance. General-purpose v2 storage accounts are recommended.
+A premium page blob account is a general-purpose account configured for premium performance. General-purpose v2 storage accounts are recommended.
 
 If you are using premium page blob storage accounts for unmanaged disks and your application exceeds the scalability targets of a single storage account, then Microsoft recommends migrating to managed disks. For more information about managed disks, see [Azure Disk Storage overview for VMs](../../virtual-machines/managed-disks-overview.md).
 

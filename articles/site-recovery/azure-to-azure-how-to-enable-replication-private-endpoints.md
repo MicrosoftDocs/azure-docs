@@ -188,12 +188,15 @@ following requirements apply:
   region.
 
 > [!NOTE]
+> If private endpoints are not enabled on storage account, protection would still be successful. However, replication traffic would transit to Azure Site Recovery public endpoints. To ensure replication traffic flows via private links, storage account must be enabled with private endpoints.
+
+> [!NOTE]
 > Private endpoint for storage can only be created on a **General Purpose v2** storage accounts. For
 > pricing information, see
 > [Standard page blob prices](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 Follow the
-[guidance for creation of private storage](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint)
+[guidance for creation of private storage](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint)
 to create a storage account with private endpoint. Ensure to select **Yes** to integration with
 private DNS zone. Select an already created DNS zone or create a new one.
 

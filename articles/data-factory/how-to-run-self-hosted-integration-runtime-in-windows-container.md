@@ -2,13 +2,9 @@
 title: How to run Self-Hosted Integration Runtime in Windows container
 description: Learn about how to run Self-Hosted Integration Runtime in Windows container.
 
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
@@ -22,7 +18,7 @@ This article will explain how to run Self-Hosted Integration Runtime in Windows 
 Azure Data Factory are delivering the official windows container support of Self-Hosted Integration Runtime. You can download the docker build source code and combine the building and running process in your own continuous delivery pipeline. 
 
 ## Prerequisites 
-- [Windows container requirements](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/system-requirements)
+- [Windows container requirements](/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker Version 2.3 and later 
 - Self-Hosted Integration Runtime Version 4.11.7512.1 and later 
 ## Get started 
@@ -57,7 +53,5 @@ Currently we don't support below features when running Self-Hosted Integration R
 - Auto update 
 
 ### Next steps
-- Review [integration runtime concepts in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
-- Learn how to [create a self-hosted integration runtime in the Azure portal](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
-
-
+- Review [integration runtime concepts in Azure Data Factory](./concepts-integration-runtime.md).
+- Learn how to [create a self-hosted integration runtime in the Azure portal](./create-self-hosted-integration-runtime.md).

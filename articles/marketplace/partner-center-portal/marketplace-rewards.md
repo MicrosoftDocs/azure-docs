@@ -16,7 +16,7 @@ Marketplace Rewards supports you at your specific stage of growth, starting with
 
 The program creates a positive feedback loop: the benefits at each stage of growth help you progress to the next stage, helping you to grow your business to Microsoft customers, with Microsoft's field, and through Microsoft's channel by leveraging the commercial marketplace as your platform.
 
-Your benefits are differentiated based on whether your offer is [List, Trial, or Transact](../determine-your-listing-type.md#choose-a-listing-option).
+Your benefits are differentiated based on whether your offer is [Contact Me, Free Trial, or Transact](../determine-your-listing-type.md).
 
 You will be contacted by a member of the Rewards team when your offer goes live, based on your eligibility.
 

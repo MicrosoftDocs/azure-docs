@@ -2,8 +2,8 @@
 title: Quickstart - Create an Azure Stream Analytics job in Visual Studio Code
 description: This quickstart shows you how to get started by creating a Stream Analytics job, configuring inputs and outputs, and defining a query with Visual Studio Code.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: su-jie
+ms.author: sujie
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
@@ -278,4 +278,4 @@ To learn about Azure Stream Analytics Tools for Visual Studio Code, continue to 
 
 * [Use Visual Studio Code to view Azure Stream Analytics jobs](visual-studio-code-explore-jobs.md)
 
-* [Set up CI/CD pipelines by using the npm package](setup-cicd-vs-code.md)
+* [Set up CI/CD pipelines by using the npm package](./cicd-overview.md)

@@ -12,6 +12,7 @@ ms.date: 09/24/2018
 ---
 
 # Upsert data into Azure Cosmos DB Cassandra API from Spark
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 This article describes how to upsert data into Azure Cosmos DB Cassandra API from Spark.
 

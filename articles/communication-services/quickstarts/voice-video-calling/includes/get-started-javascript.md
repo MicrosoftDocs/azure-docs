@@ -9,6 +9,7 @@ ms.service: azure-communication-services
 ---
 
 In this quickstart, you'll learn how start a call using the Azure Communication Services Calling client library for JavaScript.
+This document is referencing types in version 1.0.0-beta.5 of calling library.
 
 ## Prerequisites
 
@@ -17,44 +18,10 @@ In this quickstart, you'll learn how start a call using the Azure Communication 
 - An active Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../access-tokens.md).
 
-## Setting up
 
-### Create a new Node.js application
+[!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
-Open your terminal or command window create a new directory for your app, and navigate to it.
-
-```console
-mkdir calling-quickstart && cd calling-quickstart
-```
-
-Run `npm init -y` to create a **package.json** file with default settings.
-
-```console
-npm init -y
-```
-
-### Install the package
-
-Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
-
-```console
-npm install @azure/communication-common --save
-npm install @azure/communication-calling --save
-```
-
-The `--save` option lists the library as a dependency in your **package.json** file.
-
-### Set up the app framework
-
-This quickstart uses webpack to bundle the application assets. Run the following command to install the webpack, webpack-cli and webpack-dev-server npm packages and list them as development dependencies in your **package.json**:
-
-```console
-npm install webpack webpack-cli webpack-dev-server --save-dev
-```
-
-Create an **index.html** file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place a call to an Azure Communications Bot.
-
-Here is the code:
+Here's the code:
 
 ```html
 <!DOCTYPE html>
@@ -89,14 +56,13 @@ Create a file in the root directory of your project called **client.js** to cont
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
+let callAgent;
 const calleeInput = document.getElementById("callee-id-input");
 const callButton = document.getElementById("call-button");
 const hangUpButton = document.getElementById("hang-up-button");
-
-// quickstart code goes here
 ```
 
 ## Object model
@@ -107,20 +73,21 @@ The following classes and interfaces handle some of the major features of the Az
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
 | CallClient                       | The CallClient is the main entry point to the Calling client library.                                                                       |
 | CallAgent                        | The CallAgent is used to start and manage calls.                                                                                            |
-| AzureCommunicationUserCredential | The AzureCommunicationUserCredential class implements the CommunicationUserCredential interface which is used to instantiate the CallAgent. |
+| AzureCommunicationTokenCredential | The AzureCommunicationTokenCredential class implements the CommunicationTokenCredential interface which is used to instantiate the CallAgent. |
 
 
 ## Authenticate the client
 
-You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationUserCredential` which will enable us to make and receive calls. Add the following code to **client.js**:
+You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` which will enable us to make and receive calls. Add the following code to **client.js**:
 
 ```javascript
-const callClient = new CallClient();
-const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
-let callAgent;
-
-callAgent = await callClient.createCallAgent(tokenCredential);
-callButton.disabled = false;
+async function init() {
+    const callClient = new CallClient();
+    const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
+    callAgent = await callClient.createCallAgent(tokenCredential);
+    callButton.disabled = false;
+}
+init();
 ```
 
 ## Start a call
@@ -131,7 +98,7 @@ Add an event handler to initiate a call when the `callButton` is clicked:
 callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
-    call = callAgent.call(
+    call = callAgent.startCall(
         [{ communicationUserId: userToCall }],
         {}
     );

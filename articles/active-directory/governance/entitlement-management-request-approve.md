@@ -55,11 +55,11 @@ If you don't have the email, you can find the access requests pending your appro
 
 1. Click on **Request details**.
 
-     ![My Access portal - Access request- Click request details](./media/entitlement-management-request-approve/requestor-information-request-details.png)
+    ![My Access portal - Access request- Click request details](./media/entitlement-management-request-approve/requestor-information-request-details.png)
 
 1. The information provided by the requestor will be at the bottom of the panel.
 
-     ![My Access portal - Access request](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+    ![Screenshot shows the details for the request](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
 
 1. Based on the information the requestor provided, you can then approve or deny the request. See the steps in Approve or deny request for guidance.
 
@@ -79,7 +79,7 @@ After you open an access request pending approval, you can see details that will
 
 1. If necessary, enter a reason.
 
-    ![My Access portal - Access request](./media/entitlement-management-request-approve/my-access-approve-request.png)
+    ![Screenshot shows the page where you accept or deny request.](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. Click **Submit** to submit your decision.
 

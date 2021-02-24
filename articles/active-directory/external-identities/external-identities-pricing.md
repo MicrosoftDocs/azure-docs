@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Billing model for Azure AD External Identities
 
-Azure Active Directory (Azure AD) External Identities pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This billing model applies to both Azure AD guest user collaboration (B2B) and [Azure AD B2C tenants](https://docs.microsoft.com/azure/active-directory-b2c/billing). MAU billing helps you reduce costs by offering a free tier and flexible, predictable pricing. In this article, learn about MAU billing and linking your Azure AD tenants to a subscription.
+Azure Active Directory (Azure AD) External Identities pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This billing model applies to both Azure AD guest user collaboration (B2B) and [Azure AD B2C tenants](../../active-directory-b2c/billing.md). MAU billing helps you reduce costs by offering a free tier and flexible, predictable pricing. In this article, learn about MAU billing and linking your Azure AD tenants to a subscription.
 
 > [!IMPORTANT]
 > This article does not contain pricing details. For the latest information about usage billing and pricing, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -42,7 +42,7 @@ The pricing tier that applies to your guest users is based on the highest pricin
 
 An Azure AD tenant must be linked to an Azure subscription for proper billing and access to features. If the directory doesn't already have a subscription you can link to, you'll have the opportunity to add one during this process.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an Azure account that's been assigned at least the [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) role within the subscription or a resource group within the subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with an Azure account that's been assigned at least the [Contributor](../../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription.
 
 2. Select the directory you want to link: In the Azure portal toolbar, select the **Directory + Subscription** icon, and then select the directory.
 

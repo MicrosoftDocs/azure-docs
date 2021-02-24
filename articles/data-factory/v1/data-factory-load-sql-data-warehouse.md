@@ -1,26 +1,16 @@
 ---
 title: Load terabytes of data into Azure Synapse Analytics
 description: Demonstrates how 1 TB of data can be loaded into Azure Synapse Analytics under 15 minutes with Azure Data Factory
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Load 1 TB into Azure Synapse Analytics under 15 minutes with Data Factory
 > [!NOTE]
-> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Copy data to or from Azure Synapse Analytics (formerly SQL Data Warehouse) by using Data Factory](../connector-azure-sql-data-warehouse.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Copy data to or from Azure Synapse Analytics by using Data Factory](../connector-azure-sql-data-warehouse.md).
 
 
 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational.  Built on massively parallel processing (MPP) architecture, Azure Synapse Analytics is optimized for enterprise data warehouse workloads.  It offers cloud elasticity with the flexibility to scale storage and compute independently.
@@ -55,7 +45,7 @@ This article provides step-by-step instructions for moving data into Azure Synap
     Now copy the generated files to Azure Blob.  Refer to [Move data to and from an on-premises file system by using Azure Data Factory](data-factory-onprem-file-system-connector.md) for how to do that using ADF Copy.    
 * Azure Synapse Analytics: this experiment loads data into Azure Synapse Analytics created with 6,000 DWUs
 
-    Refer to [Create an Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) for detailed instructions on how to create an Azure Synapse Analytics database.  To get the best possible load performance into Azure Synapse Analytics using Polybase, we choose maximum number of Data Warehouse Units (DWUs) allowed in the Performance setting, which is 6,000 DWUs.
+    Refer to [Create an Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) for detailed instructions on how to create an Azure Synapse Analytics database.  To get the best possible load performance into Azure Synapse Analytics using Polybase, we choose maximum number of Data Warehouse Units (DWUs) allowed in the Performance setting, which is 6,000 DWUs.
 
   > [!NOTE]
   > When loading from Azure Blob, the data loading performance is directly proportional to the number of DWUs you configure for Azure Synapse Analytics:
@@ -66,7 +56,7 @@ This article provides step-by-step instructions for moving data into Azure Synap
   >
   >
 
-    To create a Synapse SQL pool with 6,000 DWUs, move the Performance slider all the way to the right:
+    To create a dedicated SQL pool with 6,000 DWUs, move the Performance slider all the way to the right:
 
     ![Performance slider](media/data-factory-load-sql-data-warehouse/performance-slider.png)
 
@@ -80,7 +70,7 @@ This article provides step-by-step instructions for moving data into Azure Synap
 
     This experiment loads data into Azure Synapse Analytics using `xlargerc` resource class.
 
-    To achieve best possible throughput, copy needs to be performed using an Azure Synapse Analytics user belonging to `xlargerc` resource class.  Learn how to do that by following [Change a user resource class example](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
+    To achieve best possible throughput, copy needs to be performed using an Azure Synapse Analytics user belonging to `xlargerc` resource class.  Learn how to do that by following [Change a user resource class example](../../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md).  
 * Create destination table schema in Azure Synapse Analytics database, by running the following DDL statement:
 
     ```SQL  

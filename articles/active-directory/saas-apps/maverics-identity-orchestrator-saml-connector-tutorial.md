@@ -154,36 +154,36 @@ You can set up an Azure key vault by using either the Azure portal or the Azure 
 
 **Use the Azure portal**
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. [Create a new key vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault).
-1. [Add the secrets to the key vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
-1. [Register an application with Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
-1. [Authorize an application to use a secret](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
+1. [Create a new key vault](../../key-vault/general/quick-create-portal.md).
+1. [Add the secrets to the key vault](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
+1. [Register an application with Azure AD](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. [Authorize an application to use a secret](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 
 **Use the Azure CLI**
 
-1. Open the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and then enter the following command:
+1. Open the [Azure CLI](/cli/azure/install-azure-cli), and then enter the following command:
 
-    ```shell
+    ```azurecli
     az login
     ```
 
 1. Create a new key vault by running the following command:
-    ```shell
+    ```azurecli
     az keyvault create --name "[VAULT_NAME]" --resource-group "[RESOURCE_GROUP]" --location "[REGION]"
     ```
 
 1. Add the secrets to the key vault by running the following command:
-    ```shell
+    ```azurecli
     az keyvault secret set --vault-name "[VAULT_NAME]" --name "[SECRET_NAME]" --value "[SECRET_VALUE]"
     ```
 
 1. Register an application with Azure AD by running the following command:
-    ```shell
+    ```azurecli
     az ad sp create-for-rbac -n "MavericsKeyVault" --skip-assignment > azure-credentials.json
     ```
 
 1. Authorize an application to use a secret by running the following command:
-    ```shell
+    ```azurecli
     az keyvault set-policy --name "[VAULT_NAME]" --spn [APPID] --secret-permissions list get
     #APPID can be found in the azure-credentials.json
     generated in the previous step
@@ -239,7 +239,7 @@ Maverics Identity Orchestrator Azure AD Connector supports OpenID Connect and SA
 
 1. Generate a JSON Web Token (JWT) signing key, which is used to protect the Maverics Identity Orchestrator session information, by using the [OpenSSL tool](https://www.openssl.org/source/):
 
-    ```shell 
+    ```console 
     openssl rand 64 | base64
     ```
 1. Copy the response to the `jwtSigningKey` config property:

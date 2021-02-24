@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues creating, assigning, and removing blueprints such as policy violations and blueprint parameter functions.
-ms.date: 06/29/2020
+ms.date: 01/27/2021
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors using Azure Blueprints
@@ -68,8 +68,8 @@ dynamic function.
 
 To pass a function through as a parameter, escape the entire string with `[` such that the blueprint
 parameter looks like `[[resourceGroup().tags.myTag]`. The escape character causes Blueprints to
-treat the value as a string when processing the blueprint. Blueprints then places the function on
-the artifact allowing it to be dynamic as expected. For more information, see
+treat the value as a string when processing the blueprint. The Blueprints service then places the
+function on the artifact allowing it to be dynamic as expected. For more information, see
 [Syntax and expressions in Azure Resource Manager templates](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## Delete errors
@@ -88,7 +88,7 @@ status code to Azure Blueprints.
 
 #### Resolution
 
-Blueprint assignments in a non-terminal state are automatically marked **Failed** after a _6 hour_
+Blueprint assignments in a non-terminal state are automatically marked **Failed** after a _six-hour_
 timeout. Once the timeout has adjusted the state of the blueprint assignment, the delete can be
 retried.
 

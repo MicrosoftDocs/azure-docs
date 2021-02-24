@@ -7,7 +7,7 @@ ms.date: 06/26/2020
 
 # Report Azure DevTest Labs usage across multiple labs and subscriptions
 
-Most large organizations want to track resource usage to be more effective with those resources by visualizing trends and outliers in the usage. Based on resource usage the lab owners or managers can customize the labs to [improve resource usage and costs](../cost-management-billing/manage/getting-started.md). In Azure DevTest Labs, you can download resource usage per lab allowing a deeper historical look into the usage patterns. These usage patterns can help pinpoint changes to improve efficiency. Most enterprises want both individual lab usage and overall usage across [multiple labs and subscriptions](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+Most large organizations want to track resource usage to be more effective with those resources by visualizing trends and outliers in the usage. Based on resource usage the lab owners or managers can customize the labs to [improve resource usage and costs](../cost-management-billing/cost-management-billing-overview.md). In Azure DevTest Labs, you can download resource usage per lab allowing a deeper historical look into the usage patterns. These usage patterns can help pinpoint changes to improve efficiency. Most enterprises want both individual lab usage and overall usage across [multiple labs and subscriptions](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 This article discusses how to handle resource usage information across multiple labs and subscriptions.
 
@@ -77,5 +77,5 @@ Once the system is set up and data is moving to the long-term storage, the next 
     Are users selecting high performance (more expensive) VM sizes?
 -	Which Marketplace images are being used?
 
-    Are custom images the most common VM base, should a common Image store be built like [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md) or [Image factory](image-factory-create.md).
+    Are custom images the most common VM base, should a common Image store be built like [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) or [Image factory](image-factory-create.md).
 -	Which custom images are being used, or not used?

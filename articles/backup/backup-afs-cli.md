@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ---
 
-# Back up Azure file shares with CLI
+# Back up Azure file shares with Azure CLI
 
 The Azure command-line interface (CLI) provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article details how to back up Azure file shares with Azure CLI. You can also perform these steps with [Azure PowerShell](./backup-azure-afs-automation.md) or in the [Azure portal](backup-afs.md).
 
@@ -15,9 +15,9 @@ By the end of this tutorial, you'll learn how to perform the operations below wi
 * Enable backup for Azure file shares
 * Trigger an on-demand backup for file shares
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, `run az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+ - This tutorial requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a Recovery Services vault
 

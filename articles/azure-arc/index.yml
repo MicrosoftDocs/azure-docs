@@ -24,6 +24,10 @@ highlightedContent:
       itemType: overview
       url:  overview.md
     # Card
+    - title: Jumpstart
+      itemType: sample
+      url: https://azurearcjumpstart.io/overview/
+      # Card
     - title: Azure Arc enabled servers
       itemType: overview
       url: ./servers/overview.md
@@ -104,7 +108,7 @@ conceptualContent:
         - url: ./servers/learn/tutorial-enable-vm-insights.md
           itemType: tutorial
           text: Monitor a hybrid machine with Azure Monitor for VMs
-        - url: ./servers/policy-samples.md
+        - url: ./servers/policy-reference.md
           itemType: learn
           text: Admission control policies using Azure Policy
         - url: ./servers/manage-vm-extensions.md
@@ -119,7 +123,7 @@ conceptualContent:
         - url: ./kubernetes/use-azure-policy.md
           itemType: how-to-guide
           text: Enforce GitOps using Azure Policy
-        - url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
+        - url: ../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=%2fazure%2fazure-arc%2ftoc.json
           itemType: tutorial
           text: Monitor using Azure Monitor for containers
         - url: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json

@@ -6,12 +6,18 @@ author: jimzim
 ms.author: jzim
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: container-service 
+ms.service: azure-redhat-openshift 
 ms.custom: devx-track-azurecli
 #Customer intent: As a developer, I need to understand the prerequisites for working with Azure Red Hat OpenShift
 ---
 
 # Set up your Azure Red Hat OpenShift dev environment
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 will be retired 30 June 2022. Support for creation of new Azure Red Hat OpenShift 3.11 clusters continues through 30 November 2020. Following retirement, remaining Azure Red Hat OpenShift 3.11 clusters will be shut down to prevent security vulnerabilities.
+> 
+> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md).
+> If you have specific questions, [please contact us](mailto:arofeedback@microsoft.com).
 
 To build and run Microsoft Azure Red Hat OpenShift applications, you'll need to:
 

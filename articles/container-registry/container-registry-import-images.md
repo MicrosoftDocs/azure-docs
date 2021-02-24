@@ -2,7 +2,7 @@
 title: Import container images
 description: Import container images to an Azure container registry by using Azure APIs, without needing to run Docker commands.
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 01/15/2021
 ---
 
 # Import container images to a container registry
@@ -31,6 +31,11 @@ To import container images, this article requires that you run the Azure CLI in 
 > If you need to distribute identical container images across multiple Azure regions, Azure Container Registry also supports [geo-replication](container-registry-geo-replication.md). By geo-replicating a registry (Premium service tier required), you can serve multiple regions with identical image and tag names from a single registry.
 >
 
+> [!IMPORTANT]
+> Changes to image import between two Azure container registries have been introduced as of January 2021:
+> * Import to or from a network-restricted Azure container registry requires the restricted registry to [**allow access by trusted services**](allow-access-trusted-services.md) to bypass the network. By default, the setting is enabled, allowing import. If the setting isn't enabled in a newly created registry with a private endpoint or with registry firewall rules, import will fail. 
+> * In an existing network-restricted Azure container registry that is used as an import source or target, enabling this network security feature is optional but recommended.
+
 ## Prerequisites
 
 If you don't already have an Azure container registry, create a registry. For steps, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
@@ -58,13 +63,15 @@ az acr repository show-manifests \
   --repository hello-world
 ```
 
-The following example imports a public image from the `tensorflow` repository in Docker Hub:
+If you have a [Docker Hub account](https://www.docker.com/pricing), we recommend that you use the credentials when importing an image from Docker Hub. Pass the Docker Hub user name and the password or a [personal access token](https://docs.docker.com/docker-hub/access-tokens/) as parameters to `az acr import`. The following example imports a public image from the `tensorflow` repository in Docker Hub, using Docker Hub credentials:
 
 ```azurecli
 az acr import \
   --name myregistry \
   --source docker.io/tensorflow/tensorflow:latest-gpu \
   --image tensorflow:latest-gpu
+  --username <Docker Hub user name>
+  --password <Docker Hub token>
 ```
 
 ### Import from Microsoft Container Registry
@@ -87,6 +94,8 @@ You can import an image from an Azure container registry in the same AD tenant u
 * The registry can be in the same or a different Azure subscription in the same Active Directory tenant.
 
 * [Public access](container-registry-access-selected-networks.md#disable-public-network-access) to the source registry may be disabled. If public access is disabled, specify the source registry by resource ID instead of by registry login server name.
+
+* If the source registry and/or the target registry has a private endpoint or registry firewall rules are applied, ensure that the restricted registry [allows trusted services](allow-access-trusted-services.md) to access the network.
 
 ### Import from a registry in the same subscription
 
@@ -139,7 +148,7 @@ az acr import \
   --source sourceregistry.azurecr.io/sourcerrepo:tag \
   --image targetimage:tag \
   --username <SP_App_ID> \
-  –-password <SP_Passwd>
+  --password <SP_Passwd>
 ```
 
 ## Import from an Azure container registry in a different AD tenant
@@ -152,7 +161,7 @@ az acr import \
   --source sourceregistry.azurecr.io/sourcerrepo:tag \
   --image targetimage:tag \
   --username <SP_App_ID> \
-  –-password <SP_Passwd>
+  --password <SP_Passwd>
 ```
 
 ## Import from a non-Azure private container registry

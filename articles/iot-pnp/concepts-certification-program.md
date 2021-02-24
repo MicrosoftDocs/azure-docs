@@ -97,7 +97,7 @@ For each device you want to certify, use the forms in the certification portal t
 
 This phase interacts with your device and runs a series of tests after device uses DPS to connect to IoT Hub. On completion, you can view a set of log files with your device test results.
 
-The certification portal has instructions about how to connect to the IoT Hub instance used for testing. You can establish the DPS connection through any of the [supported attestation methods](https://aka.ms/acdAttestation).
+The certification portal has instructions about how to connect to the IoT Hub instance used for testing. You can establish the DPS connection through any of the [supported attestation methods](../iot-dps/concepts-service.md#attestation-mechanism).
 
 The Azure Certified Device team may contact the device builder for further manual validation of the device.
 

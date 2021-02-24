@@ -66,7 +66,7 @@ The model ID is stored in a device twin property as the following screenshot sho
 A DTDL model without components is a useful simplification for a device or IoT Edge module with a single set of telemetry, properties, and commands. A model that doesn't use components makes it easy to migrate an existing device or module to be an IoT Plug and Play device or module - you create a DTDL model that describes your actual device or module without the need to define any components.
 
 > [!TIP]
-> A module can be a device [module](../iot-hub/iot-hub-devguide-module-twins.md or an [IoT Edge module](../iot-edge/about-iot-edge.md).
+> A module can be a device [module](../iot-hub/iot-hub-devguide-module-twins.md) or an [IoT Edge module](../iot-edge/about-iot-edge.md).
 
 ## Multiple components
 

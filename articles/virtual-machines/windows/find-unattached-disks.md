@@ -15,7 +15,7 @@ When you delete a virtual machine (VM) in Azure, by default, any disks that are 
 
 ## Managed disks: Find and delete unattached disks
 
-The following script looks for unattached [managed disks](managed-disks-overview.md) by examining the value of the **ManagedBy** property. When a managed disk is attached to a VM, the **ManagedBy** property contains the resource ID of the VM. When a managed disk is unattached, the **ManagedBy** property is null. The script examines all the managed disks in an Azure subscription. When the script locates a managed disk with the **ManagedBy** property set to null, the script determines that the disk is unattached.
+The following script looks for unattached [managed disks](../managed-disks-overview.md) by examining the value of the **ManagedBy** property. When a managed disk is attached to a VM, the **ManagedBy** property contains the resource ID of the VM. When a managed disk is unattached, the **ManagedBy** property is null. The script examines all the managed disks in an Azure subscription. When the script locates a managed disk with the **ManagedBy** property set to null, the script determines that the disk is unattached.
 
 >[!IMPORTANT]
 >First, run the script by setting the **deleteUnattachedDisks** variable to 0. This action lets you find and view all the unattached managed disks.

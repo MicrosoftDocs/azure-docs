@@ -4,12 +4,13 @@ description: Learn how to set up Azure Private Link to access an Azure Cosmos ac
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 12/16/2020
 ms.author: thweiss 
 ms.custom: devx-track-azurecli
 ---
 
 # Configure Azure Private Link for an Azure Cosmos account
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 By using Azure Private Link, you can connect to an Azure Cosmos account via a private endpoint. The private endpoint is a set of private IP addresses in a subnet within your virtual network. You can then limit access to an Azure Cosmos account over private IP addresses. When Private Link is combined with restricted NSG policies, it helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](../private-link/private-link-overview.md) article.
 
@@ -611,6 +612,9 @@ You should use a private DNS zone within the subnet where you've created the pri
 
 When you're creating the private endpoint, you can integrate it with a private DNS zone in Azure. If you choose to instead use a custom DNS zone, you have to configure it to add DNS records for all private IP addresses reserved for the private endpoint.
 
+> [!IMPORTANT]
+> It is the DNS resolution of your requests that determines whether these requests go over your private endpoints, or take the standard public route. Make sure that your local DNS correctly references the private IP addressed mapped by your private endpoint.
+
 ## Private Link combined with firewall rules
 
 The following situations and outcomes are possible when you use Private Link in combination with firewall rules:
@@ -679,7 +683,7 @@ If you don't clean up the DNS records, unexpected data plane issues might happen
 
 To learn more about Azure Cosmos DB security features, see the following articles:
 
-* To configure a firewall for Azure Cosmos DB, see [Firewall support](firewall-support.md).
+* To configure a firewall for Azure Cosmos DB, see [Firewall support](how-to-configure-firewall.md).
 
 * To learn how to configure a virtual network service endpoint for your Azure Cosmos account, see [Configure access from virtual networks](how-to-configure-vnet-service-endpoint.md).
 

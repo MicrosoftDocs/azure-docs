@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 ---
 # Troubleshoot slow app performance issues in Azure App Service
-This article helps you troubleshoot slow app performance issues in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
+This article helps you troubleshoot slow app performance issues in [Azure App Service](./overview.md).
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
@@ -57,7 +57,7 @@ Some of the metrics that you might want to monitor for your app are
 For more information, see:
 
 * [Monitor apps in Azure App Service](web-sites-monitor.md)
-* [Receive alert notifications](../azure-monitor/platform/alerts-overview.md)
+* [Receive alert notifications](../azure-monitor/alerts/alerts-overview.md)
 
 #### Monitor web endpoint status
 If you are running your app in the **Standard** pricing tier, App Service lets you monitor two endpoints from three geographic locations.
@@ -78,7 +78,7 @@ Each App Service app provides an extensible management end point that allows you
 - Source code editors like [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Management tools for connected resources such as a MySQL database connected to an app.
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Monitor performance in web applications](../azure-monitor/app/web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Monitor performance in web applications](../azure-monitor/app/app-insights-overview.md).
 
 <a name="collect"></a>
 
@@ -129,7 +129,7 @@ Some of the things that Kudu provides are:
 * environment settings for your application
 * log stream
 * diagnostic dump
-* debug console in which you can run Powershell cmdlets and basic DOS commands.
+* debug console in which you can run PowerShell cmdlets and basic DOS commands.
 
 Another useful feature of Kudu is that, in case your application is throwing first-chance exceptions, you can use Kudu and the SysInternals tool Procdump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated issues with your app.
 
@@ -158,5 +158,5 @@ Restarting is often the simplest way to recover from one-time issues. On the [Az
 
  ![restart app to solve performance issues](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-You can also manage your app using Azure Powershell. For more information, see
+You can also manage your app using Azure PowerShell. For more information, see
 [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).

@@ -3,7 +3,7 @@ title: Azure IoT Central frequently asked questions | Microsoft Docs
 description: Azure IoT Central frequently asked questions (FAQ) and answers
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/23/2020
+ms.date: 12/20/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -56,7 +56,7 @@ Azure IoT Central uses Azure IoT Hub as a cloud gateway that enables device conn
 - Device management.
 - Secure device connectivity.
 
-To learn more about IoT Hub, see [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
+To learn more about IoT Hub, see [Azure IoT Hub](../../iot-hub/index.yml).
 
 **Where can I learn more about the Device Provisioning Service (DPS)?**
 

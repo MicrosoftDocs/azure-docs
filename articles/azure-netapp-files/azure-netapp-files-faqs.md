@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/21/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -55,7 +55,7 @@ No, Azure NetApp Files does not currently support dual stack (IPv4 and IPv6) VNe
 
 Data traffic between NFSv4.1 clients and Azure NetApp Files volumes can be encrypted using Kerberos with AES-256 encryption. See [Configure NFSv4.1 Kerberos encryption for Azure NetApp Files](configure-kerberos-encryption.md) for details.   
 
-Data traffic between NFSv3 or SMBv3 clients to Azure NetApp Files volumes is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
+Data traffic between NFSv3 or SMB3 clients to Azure NetApp Files volumes is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
 
 ### Can the storage be encrypted at rest?
 
@@ -75,9 +75,9 @@ Yes, you can configure up to five rules in a single NFS export policy.
 
 No, currently you cannot apply Network Security Groups to the delegated subnet of Azure NetApp Files or the network interfaces created by the service.
 
-### Can I use Azure IAM with Azure NetApp Files?
+### Can I use Azure RBAC with Azure NetApp Files?
 
-Yes, Azure NetApp Files supports RBAC features with Azure IAM.
+Yes, Azure NetApp Files supports Azure RBAC features.
 
 ## Performance FAQs
 
@@ -105,7 +105,7 @@ Azure NetApp Files provides volume performance metrics. You can also use Azure M
 
 ### What’s the performance impact of Kerberos on NFSv4.1?
 
-See [Performance impact of Kerberos on NFSv4.1](configure-kerberos-encryption.md#kerberos_performance) for information about security options for NFSv4.1, the performance vectors tested, and the expected performance impact. 
+See [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md) for information about security options for NFSv4.1, the performance vectors tested, and the expected performance impact. 
 
 ## NFS FAQs
 
@@ -132,6 +132,16 @@ You can specify whether the root account can access the volume or not by using t
 Yes, you can. However, the file path must be used in either a different subscription or a different region.   
 
 For example, you create a volume called `vol1`. And then you create another volume also called `vol1` in a different capacity pool but in the same subscription and region. In this case, using the same volume name `vol1` will cause an error. To use the same file path, the name must be in a different region or subscription.
+
+### When I try to access NFS volumes through a Windows client, why does the client take a long time to search folders and subfolders?
+
+Make sure that `CaseSensitiveLookup` is enabled on the Windows client to speed up the look-up of folders and subfolders:
+
+1. Use the following PowerShell command to enable CaseSensitiveLookup:   
+	`Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
+2. Mount the volume on the Windows server.   
+	Example:   
+	`Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
 ## SMB FAQs
 
@@ -163,21 +173,15 @@ Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Dir
 
 The volume size reported by the SMB client is the maximum size the Azure NetApp Files volume can grow to. The size of the Azure NetApp Files volume as shown on the SMB client is not reflective of the quota or size of the volume. You can get the Azure NetApp Files volume size or quota through the Azure portal or the API.
 
+### I’m having issues connecting to my SMB share. What should I do?
+
+As a best practice, set the maximum tolerance for computer clock synchronization to five minutes. For more information, see [Maximum tolerance for computer clock synchronization](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
+
 <!--
 ### Does Azure NetApp Files support LDAP signing? 
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
-
-## Dual-protocol FAQs
-
-### I tried to use the ‘root’ and local users to access a dual-protocol volume with the NTFS security style on a UNIX system. Why did I encounter a “Permission denied” error?   
-
-See [Troubleshoot dual-protocol volumes](troubleshoot-dual-protocol-volumes.md) for resolutions.
-
-### When I try to create a dual-protocol volume, why does the creation process fail with the error “Failed to validate LDAP configuration, try again after correcting LDAP configuration”?  
-
-See [Troubleshoot dual-protocol volumes](troubleshoot-dual-protocol-volumes.md) for resolutions.
 
 ## Capacity management FAQs
 
@@ -249,6 +253,16 @@ No. Azure Data Box does not support Azure NetApp Files currently.
 ### Is migration with Azure Import/Export service supported?
 
 No. Azure Import/Export service does not support Azure NetApp Files currently.
+
+## Product FAQs
+
+### Can I use Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
+
+You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. You can map Azure NetApp Files SMB shares on AVS Windows VMs. For more details, see [Azure NetApp Files with Azure VMware Solution]( ../azure-vmware/netapp-files-with-azure-vmware-solution.md).  
+
+### What regions are supported for using Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
+
+Using Azure NetApp Files NFS or SMB volumes with AVS is supported in the following regions - East US, West US , West Europe, and Australia East.
 
 ## Next steps  
 

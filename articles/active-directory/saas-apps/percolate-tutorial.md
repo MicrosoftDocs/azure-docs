@@ -22,7 +22,7 @@ This integration provides these benefits:
 * You can enable your users to be automatically signed in to Percolate (single sign-on) with their Azure AD accounts.
 * You can manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you start.
 
@@ -97,7 +97,7 @@ To configure Azure AD single sign-on with Percolate, take these steps:
 
 5. If you want to configure the application in SP-initiated mode, select **Set additional URLs** and, in the **Sign on URL** box, enter **https://percolate.com/app/login**:
 
-   ![Percolate Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+   ![Screenshot that shows "Set additional U R Ls" selected with the "Sign on U R L" text box highlighted.](common/metadata-upload-additional-signon.png)
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Copy** icon to copy the **App Federation Metadata Url**. Save this URL.
 
 	![Copy the App Federation Metadata URL](common/copy-metadataurl.png)
@@ -178,7 +178,7 @@ In this section, you'll enable Britta Simon to use Azure AD single sign-on by gr
 
 3. In the left pane, select **Users and groups**:
 
-    ![Select Users and groups](common/users-groups-blade.png)
+    ![Screenshot that shows "Users and groups" selected from the left pane.](common/users-groups-blade.png)
 
 4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 
@@ -216,12 +216,12 @@ To create a user account, take these steps:
 
 Now you need to test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you select the Percolate tile in the Access Panel, you should be automatically signed in to the Percolate instance for which you set up SSO. For more information, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Percolate tile in the Access Panel, you should be automatically signed in to the Percolate instance for which you set up SSO. For more information, see [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

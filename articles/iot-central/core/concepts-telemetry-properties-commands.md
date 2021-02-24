@@ -3,10 +3,11 @@ title: Telemetry, property, and command payloads in Azure IoT Central | Microsof
 description: Azure IoT Central device templates let you specify the telemetry, properties, and commands of a device must implement. Understand the format of the data a device can exchange with IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/12/2020
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
+ms.custom: device-developer
 ---
 
 # Telemetry, property, and command payloads
@@ -23,14 +24,14 @@ This article describes, for device developers, the JSON payloads that devices se
 
 The article doesn't describe every possible type of telemetry, property, and command payload, but the examples illustrate all the key types.
 
-Each example shows a snippet from the device capability model (DCM) that defines the type and example JSON payloads to illustrate how the device should interact with the IoT Central application.
+Each example shows a snippet from the device model that defines the type and example JSON payloads to illustrate how the device should interact with the IoT Central application.
 
 > [!NOTE]
-> IoT Central accepts any valid JSON but it can only be used for visualizations if it matches a definition in the DCM. You can export data that doesn't match a definition, see [Export IoT data to destinations in Azure](howto-export-data.md).
+> IoT Central accepts any valid JSON but it can only be used for visualizations if it matches a definition in the device model. You can export data that doesn't match a definition, see [Export IoT data to destinations in Azure](howto-export-data.md).
 
-The JSON file that defines the DCM uses the [Digital Twin Definition Language (DTDL) V1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/dtdlv1.md). This specification includes the definition of the `@id` property format.
+The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
-For sample device code that shows some of these payloads in use, see the [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md) and [Create and connect a client application to your Azure IoT Central application (Python)](tutorial-connect-device-python.md) tutorials.
+For sample device code that shows some of these payloads in use, see the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
 
 ## View raw data
 
@@ -50,11 +51,10 @@ IoT Central lets you view the raw data that a device sends to an application. Th
 
 This section shows examples of primitive telemetry types that a device streams to an IoT Central application.
 
-The following snippet from a DCM shows the definition of a `boolean` telemetry type:
+The following snippet from a device model shows the definition of a `boolean` telemetry type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "BooleanTelemetry"
@@ -70,11 +70,10 @@ A device client should send the telemetry as JSON that looks like the following 
 { "BooleanTelemetry": true }
 ```
 
-The following snippet from a DCM shows the definition of a `string` telemetry type:
+The following snippet from a device model shows the definition of a `string` telemetry type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "StringTelemetry"
@@ -90,11 +89,10 @@ A device client should send the telemetry as JSON that looks like the following 
 { "StringTelemetry": "A string value - could be a URL" }
 ```
 
-The following snippet from a DCM shows the definition of an `integer` telemetry type:
+The following snippet from a device model shows the definition of an `integer` telemetry type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "IntegerTelemetry"
@@ -111,11 +109,10 @@ A device client should send the telemetry as JSON that looks like the following 
 { "IntegerTelemetry": 23 }
 ```
 
-The following snippet from a DCM shows the definition of a `double` telemetry type:
+The following snippet from a device model shows the definition of a `double` telemetry type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DoubleTelemetry"
@@ -131,11 +128,10 @@ A device client should send the telemetry as JSON that looks like the following 
 { "DoubleTelemetry": 56.78 }
 ```
 
-The following snippet from a DCM shows the definition of a `dateTime` telemetry type:
+The following snippet from a device model shows the definition of a `dateTime` telemetry type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DateTimeTelemetry"
@@ -145,17 +141,16 @@ The following snippet from a DCM shows the definition of a `dateTime` telemetry 
 }
 ```
 
-A device client should send the telemetry as JSON that looks like the following example - `DateTime` types must be ISO 8061 compliant:
+A device client should send the telemetry as JSON that looks like the following example - `DateTime` types must be in ISO 8061 format:
 
 ```json
 { "DateTimeTelemetry": "2020-08-30T19:16:13.853Z" }
 ```
 
-The following snippet from a DCM shows the definition of a `duration` telemetry type:
+The following snippet from a device model shows the definition of a `duration` telemetry type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DurationTelemetry"
@@ -165,7 +160,7 @@ The following snippet from a DCM shows the definition of a `duration` telemetry 
 }
 ```
 
-A device client should send the telemetry as JSON that looks like the following example - durations must be ISO 8601 Duration compliant:
+A device client should send the telemetry as JSON that looks like the following example - durations must be in ISO 8601 format:
 
 ```json
 { "DurationTelemetry": "PT10H24M6.169083011336625S" }
@@ -175,11 +170,10 @@ A device client should send the telemetry as JSON that looks like the following 
 
 This section shows examples of complex telemetry types that a device streams to an IoT Central application.
 
-The following snippet from a DCM shows the definition of a `geopoint` telemetry type:
+The following snippet from a device model shows the definition of a `geopoint` telemetry type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "GeopointTelemetry"
@@ -188,6 +182,9 @@ The following snippet from a DCM shows the definition of a `geopoint` telemetry 
   "schema": "geopoint"
 }
 ```
+
+> [!NOTE]
+> The **geopoint** schema type is not part of the [Digital Twins Definition Language specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
 
 A device client should send the telemetry as JSON that looks like the following example. IoT Central displays the value as a pin on a map:
 
@@ -201,18 +198,16 @@ A device client should send the telemetry as JSON that looks like the following 
 }
 ```
 
-The following snippet from a DCM shows the definition of an `Enum` telemetry type:
+The following snippet from a device model shows the definition of an `Enum` telemetry type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "EnumTelemetry"
   },
   "name": "EnumTelemetry",
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -220,8 +215,6 @@ The following snippet from a DCM shows the definition of an `Enum` telemetry typ
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -229,8 +222,6 @@ The following snippet from a DCM shows the definition of an `Enum` telemetry typ
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -238,8 +229,6 @@ The following snippet from a DCM shows the definition of an `Enum` telemetry typ
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -257,26 +246,22 @@ A device client should send the telemetry as JSON that looks like the following 
 { "EnumTelemetry": 1 }
 ```
 
-The following snippet from a DCM shows the definition of an `Object` telemetry type. This object has three fields with types `dateTime`, `integer`, and `Enum`:
+The following snippet from a device model shows the definition of an `Object` telemetry type. This object has three fields with types `dateTime`, `integer`, and `Enum`:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "ObjectTelemetry"
   },
   "name": "ObjectTelemetry",
   "schema": {
-    "@id": "<element id>",
     "@type": "Object",
     "displayName": {
       "en": "Object"
     },
     "fields": [
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property1"
         },
@@ -284,8 +269,6 @@ The following snippet from a DCM shows the definition of an `Object` telemetry t
         "schema": "dateTime"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property2"
         },
@@ -293,14 +276,11 @@ The following snippet from a DCM shows the definition of an `Object` telemetry t
         "schema": "integer"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Property3"
         },
         "name": "Property3",
         "schema": {
-          "@id": "<element id>",
           "@type": "Enum",
           "displayName": {
             "en": "Enum"
@@ -308,8 +288,6 @@ The following snippet from a DCM shows the definition of an `Object` telemetry t
           "valueSchema": "integer",
           "enumValues": [
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item1"
               },
@@ -317,8 +295,6 @@ The following snippet from a DCM shows the definition of an `Object` telemetry t
               "name": "Item1"
             },
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item2"
               },
@@ -326,8 +302,6 @@ The following snippet from a DCM shows the definition of an `Object` telemetry t
               "name": "Item2"
             },
             {
-              "@id": "<element id>",
-              "@type": "EnumValue",
               "displayName": {
                 "en": "Item3"
               },
@@ -354,11 +328,10 @@ A device client should send the telemetry as JSON that looks like the following 
 }
 ```
 
-The following snippet from a DCM shows the definition of a `vector` telemetry type:
+The following snippet from a device model shows the definition of a `vector` telemetry type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "VectorTelemetry"
@@ -384,14 +357,13 @@ A device client should send the telemetry as JSON that looks like the following 
 
 This section shows examples of telemetry events and states that a device sends to an IoT Central application.
 
-The following snippet from a DCM shows the definition of a `integer` event type:
+The following snippet from a device model shows the definition of a `integer` event type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": [
     "Telemetry",
-    "SemanticType/Event"
+    "Event"
   ],
   "displayName": {
     "en": "IntegerEvent"
@@ -407,27 +379,23 @@ A device client should send the event data as JSON that looks like the following
 { "IntegerEvent": 74 }
 ```
 
-The following snippet from a DCM shows the definition of a `integer` state type:
+The following snippet from a device model shows the definition of a `integer` state type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": [
     "Telemetry",
-    "SemanticType/State"
+    "State"
   ],
   "displayName": {
     "en": "IntegerState"
   },
   "name": "IntegerState",
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level1"
         },
@@ -435,8 +403,6 @@ The following snippet from a DCM shows the definition of a `integer` state type:
         "name": "Level1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level2"
         },
@@ -444,8 +410,6 @@ The following snippet from a DCM shows the definition of a `integer` state type:
         "name": "Level2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Level3"
         },
@@ -472,17 +436,17 @@ A device client should send the state as JSON that looks like the following exam
 
 This section shows examples of primitive property types that a device sends to an IoT Central application.
 
-The following snippet from a DCM shows the definition of a `boolean` property type:
+The following snippet from a device model shows the definition of a `boolean` property type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "BooleanProperty"
   },
   "name": "BooleanProperty",
-  "schema": "boolean"
+  "schema": "boolean",
+  "writable": false
 }
 ```
 
@@ -492,17 +456,17 @@ A device client should send a JSON payload that looks like the following example
 { "BooleanProperty": false }
 ```
 
-The following snippet from a DCM shows the definition of a `boolean` property type:
+The following snippet from a device model shows the definition of a `boolean` property type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "LongProperty"
   },
   "name": "LongProperty",
-  "schema": "long"
+  "schema": "long",
+  "writable": false
 }
 ```
 
@@ -512,17 +476,17 @@ A device client should send a JSON payload that looks like the following example
 { "LongProperty": 439 }
 ```
 
-The following snippet from a DCM shows the definition of a `date` property type:
+The following snippet from a device model shows the definition of a `date` property type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "DateProperty"
   },
   "name": "DateProperty",
-  "schema": "date"
+  "schema": "date",
+  "writable": false
 }
 ```
 
@@ -532,17 +496,17 @@ A device client should send a JSON payload that looks like the following example
 { "DateProperty": "2020-05-17" }
 ```
 
-The following snippet from a DCM shows the definition of a `duration` property type:
+The following snippet from a device model shows the definition of a `duration` property type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "DurationProperty"
   },
   "name": "DurationProperty",
-  "schema": "duration"
+  "schema": "duration",
+  "writable": false
 }
 ```
 
@@ -552,17 +516,17 @@ A device client should send a JSON payload that looks like the following example
 { "DurationProperty": "PT10H24M6.169083011336625S" }
 ```
 
-The following snippet from a DCM shows the definition of a `float` property type:
+The following snippet from a device model shows the definition of a `float` property type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "FloatProperty"
   },
   "name": "FloatProperty",
-  "schema": "float"
+  "schema": "float",
+  "writable": false
 }
 ```
 
@@ -572,17 +536,17 @@ A device client should send a JSON payload that looks like the following example
 { "FloatProperty": 1.9 }
 ```
 
-The following snippet from a DCM shows the definition of a `string` property type:
+The following snippet from a device model shows the definition of a `string` property type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "StringProperty"
   },
   "name": "StringProperty",
-  "schema": "string"
+  "schema": "string",
+  "writable": false
 }
 ```
 
@@ -596,19 +560,22 @@ A device client should send a JSON payload that looks like the following example
 
 This section shows examples of complex property types that a device sends to an IoT Central application.
 
-The following snippet from a DCM shows the definition of a `geopoint` property type:
+The following snippet from a device model shows the definition of a `geopoint` property type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "GeopointProperty"
   },
   "name": "GeopointProperty",
-  "schema": "geopoint"
+  "schema": "geopoint",
+  "writable": false
 }
 ```
+
+> [!NOTE]
+> The **geopoint** schema type is not part of the [Digital Twins Definition Language specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
 
 A device client should send a JSON payload that looks like the following example as a reported property in the device twin:
 
@@ -622,18 +589,17 @@ A device client should send a JSON payload that looks like the following example
 }
 ```
 
-The following snippet from a DCM shows the definition of an `Enum` property type:
+The following snippet from a device model shows the definition of an `Enum` property type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "EnumProperty"
   },
   "name": "EnumProperty",
+  "writable": false,
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -641,8 +607,6 @@ The following snippet from a DCM shows the definition of an `Enum` property type
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -650,8 +614,6 @@ The following snippet from a DCM shows the definition of an `Enum` property type
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -659,8 +621,6 @@ The following snippet from a DCM shows the definition of an `Enum` property type
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -678,26 +638,23 @@ A device client should send a JSON payload that looks like the following example
 { "EnumProperty": 1 }
 ```
 
-The following snippet from a DCM shows the definition of an `Object` property type. This object has two fields with types `string` and `integer`:
+The following snippet from a device model shows the definition of an `Object` property type. This object has two fields with types `string` and `integer`:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "ObjectProperty"
   },
   "name": "ObjectProperty",
+  "writable": false,
   "schema": {
-    "@id": "<element id>",
     "@type": "Object",
     "displayName": {
       "en": "Object"
     },
     "fields": [
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Field1"
         },
@@ -705,8 +662,6 @@ The following snippet from a DCM shows the definition of an `Object` property ty
         "schema": "integer"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Field2"
         },
@@ -729,17 +684,17 @@ A device client should send a JSON payload that looks like the following example
 }
 ```
 
-The following snippet from a DCM shows the definition of an `vector` property type:
+The following snippet from a device model shows the definition of an `vector` property type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "VectorProperty"
   },
   "name": "VectorProperty",
-  "schema": "vector"
+  "schema": "vector",
+  "writable": false
 }
 ```
 
@@ -767,18 +722,17 @@ IoT Central expects a response from the device to writeable property updates. Th
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | The property change operation was successfully completed. |
 | `'ac': 202`  or `'ac': 201` | Pending | The property change operation is pending or in progress |
-| `'ac': 4xx` | Error | The requested property change was not valid or had an error |
+| `'ac': 4xx` | Error | The requested property change wasn't valid or had an error |
 | `'ac': 5xx` | Error | The device experienced an unexpected error when processing the requested change. |
 
 `av` is the version number sent to the device.
 
 `ad` is an option string description.
 
-The following snippet from a DCM shows the definition of a writeable `string` property type:
+The following snippet from a device model shows the definition of a writeable `string` property type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "StringPropertyWritable"
@@ -810,11 +764,10 @@ The device should send the following JSON payload to IoT Central after it proces
 }
 ```
 
-The following snippet from a DCM shows the definition of a writeable `Enum` property type:
+The following snippet from a device model shows the definition of a writeable `Enum` property type:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "EnumPropertyWritable"
@@ -822,7 +775,6 @@ The following snippet from a DCM shows the definition of a writeable `Enum` prop
   "name": "EnumPropertyWritable",
   "writable": true,
   "schema": {
-    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -830,8 +782,6 @@ The following snippet from a DCM shows the definition of a writeable `Enum` prop
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
         },
@@ -839,8 +789,6 @@ The following snippet from a DCM shows the definition of a writeable `Enum` prop
         "name": "Item1"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
         },
@@ -848,8 +796,6 @@ The following snippet from a DCM shows the definition of a writeable `Enum` prop
         "name": "Item2"
       },
       {
-        "@id": "<element id>",
-        "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
         },
@@ -884,36 +830,27 @@ The device should send the following JSON payload to IoT Central after it proces
 
 ## Commands
 
-### Synchronous command types
-
-The following snippet from a DCM shows the definition of a synchronous command that has no parameters and that doesn't expect the device to return anything:
+The following snippet from a device model shows the definition of a command that has no parameters and that doesn't expect the device to return anything:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "displayName": {
-    "en": "SynchronousCommandBasic"
+    "en": "CommandBasic"
   },
-  "name": "SynchronousCommandBasic"
+  "name": "CommandBasic"
 }
 ```
 
 The device receives an empty payload in the request and should return an empty payload in the response with a `200` HTTP response code to indicate success.
 
-The following snippet from a DCM shows the definition of a synchronous command that has an integer parameter and that expects the device to return an integer value:
+The following snippet from a device model shows the definition of a command that has an integer parameter and that expects the device to return an integer value:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
@@ -921,8 +858,7 @@ The following snippet from a DCM shows the definition of a synchronous command t
     "schema": "integer"
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
@@ -930,39 +866,32 @@ The following snippet from a DCM shows the definition of a synchronous command t
     "schema": "integer"
   },
   "displayName": {
-    "en": "SynchronousCommandSimple"
+    "en": "CommandSimple"
   },
-  "name": "SynchronousCommandSimple"
+  "name": "CommandSimple"
 }
 ```
 
 The device receives an integer value as the request payload. The device should return an integer value as the response payload with a `200` HTTP response code to indicate success.
 
-The following snippet from a DCM shows the definition of a synchronous command that has an object parameter and that expects the device to return an object. In this example, both objects have integer and string fields:
+The following snippet from a device model shows the definition of a command that has an object parameter and that expects the device to return an object. In this example, both objects have integer and string fields:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "synchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
     "name": "RequestParam",
     "schema": {
-      "@id": "<element id>",
       "@type": "Object",
       "displayName": {
         "en": "Object"
       },
       "fields": [
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field1"
           },
@@ -970,8 +899,6 @@ The following snippet from a DCM shows the definition of a synchronous command t
           "schema": "integer"
         },
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field2"
           },
@@ -982,22 +909,18 @@ The following snippet from a DCM shows the definition of a synchronous command t
     }
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
     "name": "ResponseParam",
     "schema": {
-      "@id": "<element id>",
       "@type": "Object",
       "displayName": {
         "en": "Object"
       },
       "fields": [
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field1"
           },
@@ -1005,8 +928,6 @@ The following snippet from a DCM shows the definition of a synchronous command t
           "schema": "integer"
         },
         {
-          "@id": "<element id>",
-          "@type": "SchemaField",
           "displayName": {
             "en": "Field2"
           },
@@ -1017,9 +938,9 @@ The following snippet from a DCM shows the definition of a synchronous command t
     }
   },
   "displayName": {
-    "en": "SynchronousCommandComplex"
+    "en": "CommandComplex"
   },
-  "name": "SynchronousCommandComplex"
+  "name": "CommandComplex"
 }
 ```
 
@@ -1035,19 +956,15 @@ The following snippet shows an example response payload sent from the device. Us
 { "Field1": 87, "Field2": "Another string value" }
 ```
 
-### Asynchronous command types
+### Long running commands
 
-The following snippet from a DCM shows the definition of an asynchronous command. The command has an integer parameter and expects the device to return an integer value:
+The following snippet from a device model shows the definition of a command. The command has an integer parameter and expects the device to return an integer value:
 
 ```json
 {
-  "@id": "<element id>",
   "@type": "Command",
-  "commandType": "asynchronous",
-  "durable": false,
   "request": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "RequestParam"
     },
@@ -1055,8 +972,7 @@ The following snippet from a DCM shows the definition of an asynchronous command
     "schema": "integer"
   },
   "response": {
-    "@id": "<element id>",
-    "@type": "SchemaField",
+    "@type": "CommandPayload",
     "displayName": {
       "en": "ResponseParam"
     },
@@ -1064,24 +980,109 @@ The following snippet from a DCM shows the definition of an asynchronous command
     "schema": "integer"
   },
   "displayName": {
-    "en": "AsynchronousCommandSimple"
+    "en": "LongRunningCommandSimple"
   },
-  "name": "AsynchronousCommandSimple"
+  "name": "LongRunningCommandSimple"
 }
 ```
 
-The device receives an integer value as the request payload. The device should return an empty response payload with a `202` HTTP response code to indicate the device has accepted the request for asynchronous processing.
+The device receives an integer value as the request payload. If the device needs time to process this command, it should return an empty response payload with a `202` HTTP response code to indicate the device has accepted the request for processing.
 
 When the device has finished processing the request, it should send a property to IoT Central that looks like the following example. The property name must be the same as the command name:
 
 ```json
 {
-  "AsynchronousCommandSimple": {
+  "LongRunningCommandSimple": {
     "value": 87
   }
 }
 ```
 
+### Offline commands
+
+In the IoT Central web UI, you can select the **Queue if offline** option for a command. Offline commands are one-way notifications to the device from your solution that are delivered as soon as a device connects. Offline commands can have request parameters but don't return a response.
+
+The **Queue if offline** setting isn't included if you export a model or interface from the device template. You can't tell by looking at an exported model or interface JSON that a command is an offline command.
+
+Offline commands use [IoT Hub cloud-to-device messages](../../iot-hub/iot-hub-devguide-messages-c2d.md) to send the command and payload to the device.
+
+The following snippet from a device model shows the definition of a command. The command has an object parameter with a datetime field and an enumeration:
+
+```json
+{
+  "@type": "Command",
+  "displayName": {
+    "en": "Generate Diagnostics"
+  },
+  "name": "GenerateDiagnostics",
+  "request": {
+    "@type": "CommandPayload",
+    "displayName": {
+      "en": "Payload"
+    },
+    "name": "Payload",
+    "schema": {
+      "@type": "Object",
+      "displayName": {
+        "en": "Object"
+      },
+      "fields": [
+        {
+          "displayName": {
+            "en": "StartTime"
+          },
+          "name": "StartTime",
+          "schema": "dateTime"
+        },
+        {
+          "displayName": {
+            "en": "Bank"
+          },
+          "name": "Bank",
+          "schema": {
+            "@type": "Enum",
+            "displayName": {
+              "en": "Enum"
+            },
+            "enumValues": [
+              {
+                "displayName": {
+                  "en": "Bank 1"
+                },
+                "enumValue": 1,
+                "name": "Bank1"
+              },
+              {
+                "displayName": {
+                  "en": "Bank2"
+                },
+                "enumValue": 2,
+                "name": "Bank2"
+              },
+              {
+                "displayName": {
+                  "en": "Bank3"
+                },
+                "enumValue": 3,
+                "name": "Bank3"
+              }
+            ],
+            "valueSchema": "integer"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+If you enable the **Queue if offline** option in the device template UI for the command in the previous snippet, then the message the device receives includes the following properties:
+
+| Property name | Example value |
+| ---------- | ----- |
+| `custom_properties` | `{'method-name': 'GenerateDiagnostics'}` |
+| `data` | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
+
 ## Next steps
 
-As a device developer, now that you"ve learned about device templates, a suggested next steps is to read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
+As a device developer, now that you've learned about device templates, a suggested next steps is to read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.

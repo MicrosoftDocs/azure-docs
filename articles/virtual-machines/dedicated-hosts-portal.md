@@ -3,9 +3,10 @@ title: Deploy Azure dedicated hosts using the Azure portal
 description: Deploy VMs and scale sets to dedicated hosts using the Azure portal.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 09/04/2020
+ms.date: 12/07/2020
 ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
@@ -15,13 +16,6 @@ ms.author: cynthn
 
 This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
 
-
-> [!IMPORTANT]
-> This article also covers Automatic placement of VMs and scale set instances. Automatic placement is currently in public preview.
-> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
-> To acces the preview feature in the Azure portal, you must use this URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh).
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Limitations
 
@@ -40,7 +34,7 @@ You can also decide to use both availability zones and fault domains.
 In this example, we will create a host group using 1 availability zone and 2 fault domains. 
 
 
-1. Open the Azure [portal](https://portal.azure.com). If you would like to try the preview for **Automatic placement**, use this URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh).
+1. Open the Azure [portal](https://portal.azure.com). 
 1. Select **Create a resource** in the upper left corner.
 1. Search for **Host group** and then select **Host Groups** from the results.
 1. In the **Host Groups** page, select **Create**.
@@ -50,7 +44,7 @@ In this example, we will create a host group using 1 availability zone and 2 fau
 1. For **Location**, select **East US**.
 1. For **Availability Zone**, select **1**.
 1. For **Fault domain count**, select **2**.
-1. If you used the **Automatic placement** URL, select this option to automatically assign VMs and scale set instances to an available host in this group.
+1. Select **Automatic placement** to automatically assign VMs and scale set instances to an available host in this group.
 1. Select **Review + create** and then wait for validation.
 1. Once you see the **Validation passed** message, select **Create** to create the host group.
 
@@ -84,25 +78,14 @@ If you set a fault domain count for your host group, you will be asked to specif
 1. In **Availability options** select **Availability zone**, select *1* from the drop-down.
 1. For the size, select **Change size**. In the list of available sizes, choose one from the Esv3 series, like **Standard E2s v3**. You may need to clear the filter in order to see all of the available sizes.
 1. Complete the rest of the fields on the **Basics** tab as needed.
-1. At the top of the page, select the **Advanced** tab and in the **Host** section, select *myHostGroup* for **Host group** and *myHost* for the **Host**. 
+1. If you want to specify which host to use for your VM, then at the top of the page, select the **Advanced** tab and in the **Host** section, select *myHostGroup* for **Host group** and *myHost* for the **Host**. Otherwise, your VM will automatically be placed on a host with capacity.
 	![Select host group and host](./media/dedicated-hosts-portal/advanced.png)
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 1. When you see the message that validation has passed, select **Create**.
 
 It will take a few minutes for your VM to be deployed.
 
-## Create a scale set (preview)
-
-> [!IMPORTANT]
-> Virtual Machine Scale Sets on Dedicated Hosts is currently in public preview.
->
-> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
->
-> To acces the preview feature in the Azure portal, you must use this URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh).
->
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
->
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## Create a scale set 
 
 When you deploy a scale set, you specify the host group.
 

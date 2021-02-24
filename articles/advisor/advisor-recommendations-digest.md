@@ -19,7 +19,7 @@ This article shows you how to set-up a **recommendation digests** for your Advis
 The **recommendation digest** creation experience helps you configure the summary. You can select below parameters for configurations:
 1. Category: We have recommendation categories like cost, high availability, performance and operational excellence. The capability is not available for security recommendations yet.
 2. Frequency of digest: Frequency for the summary notifications can be weekly, bi-weekly and monthly.
-3. Action group: You can either select an existing action group or create a new action group. To learn more about action groups, see [create and manage action groups](../azure-monitor/platform/action-groups.md).
+3. Action group: You can either select an existing action group or create a new action group. To learn more about action groups, see [create and manage action groups](../azure-monitor/alerts/action-groups.md).
 4. Language for the digest
 5. Recommendation digest name: You can use a user-friendly string to better track and monitor the digests.
 
@@ -42,7 +42,7 @@ Here are the steps to create **recommendation digest:**
 
    ![Provide recommendation digest input conditions](./media/digest-2.png)
 
-* **Step 5:** In the **action group** section, select the **action group** for the digest. You can learn more here - [Create and manage action groups](../azure-monitor/platform/action-groups.md)
+* **Step 5:** In the **action group** section, select the **action group** for the digest. You can learn more here - [Create and manage action groups](../azure-monitor/alerts/action-groups.md)
 
    ![Provide recommendation digest input action group](./media/digest-3.png)
 

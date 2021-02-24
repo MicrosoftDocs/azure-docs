@@ -31,7 +31,7 @@ The service response includes the following information:
 
 ## Profanity
 
-If the API detects any profane terms in any of the [supported languages](Text-Moderation-API-Languages.md), those terms are included in the response. The response also contains their location (`Index`) in the original text. The `ListId` in the following sample JSON refers to terms found in [custom term lists](try-terms-list-api.md) if available.
+If the API detects any profane terms in any of the [supported languages](./language-support.md), those terms are included in the response. The response also contains their location (`Index`) in the original text. The `ListId` in the following sample JSON refers to terms found in [custom term lists](try-terms-list-api.md) if available.
 
 ```json
 "Terms": [

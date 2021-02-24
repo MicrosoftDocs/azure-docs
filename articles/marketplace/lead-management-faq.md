@@ -29,7 +29,7 @@ Search for `"MSFT_TEST"` in your lead destination. Below is a sample test lead f
 
 ```
 {
-    "UserDetails": {
+    "userDetails": {
       "FirstName": "MSFT_TEST_636573304831318844",
       "LastName": "MSFT_TEST_636573304831318844",
       "Email": "MSFT_TEST_636573304831318844@test.com",

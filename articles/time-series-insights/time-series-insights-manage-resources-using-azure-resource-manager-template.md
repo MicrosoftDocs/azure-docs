@@ -18,7 +18,7 @@ ms.custom: seodec18
 > [!CAUTION]
 > This is a Gen1 article.
 
-This article describes how to create and deploy Azure Time Series Insights resources using [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell, and the Azure Time Series Insights resource provider.
+This article describes how to create and deploy Azure Time Series Insights resources using [Azure Resource Manager templates](../azure-resource-manager/index.yml), PowerShell, and the Azure Time Series Insights resource provider.
 
 Azure Time Series Insights supports the following resources:
 
@@ -27,7 +27,7 @@ Azure Time Series Insights supports the following resources:
    | Environment | An Azure Time Series Insights environment is a logical grouping of events that are read from event brokers, stored, and made available for query. For more information, read [Plan your Azure Time Series Insights environment](time-series-insights-environment-planning.md) |
    | Event Source | An event source is a connection to an event broker from which Azure Time Series Insights reads and ingests events into the environment. Currently supported event sources are IoT Hub and Event Hub. |
    | Reference Data Set | Reference data sets provide metadata about the events in the environment. Metadata in the reference data sets will be joined with events during ingress. Reference data sets are defined as resources by their event key properties. The actual metadata that makes up the reference data set is uploaded or modified through data plane APIs. |
-   | Access Policy | Access policies grant permissions to issue data queries, manipulate reference data in the environment, and share saved queries and perspectives associated with the environment. For more information, read [Grant data access to an Azure Time Series Insights environment using Azure portal](time-series-insights-data-access.md) |
+   | Access Policy | Access policies grant permissions to issue data queries, manipulate reference data in the environment, and share saved queries and perspectives associated with the environment. For more information, read [Grant data access to an Azure Time Series Insights environment using Azure portal](./concepts-access-policies.md) |
 
 A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. The following documents describe template files in greater detail:
 
@@ -43,7 +43,7 @@ The [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/
 
 The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates an Azure Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
 
-1. Install Azure PowerShell by following the instructions in [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+1. Install Azure PowerShell by following the instructions in [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps).
 
 1. Clone or copy the [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) template from GitHub.
 
@@ -122,7 +122,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 ## Deploy the quickstart template locally using PowerShell
 
 > [!IMPORTANT]
-> The command-line operations displayed below describe the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/).
+> The command-line operations displayed below describe the [Az PowerShell module](/powershell/azure/).
 
 1. In PowerShell, log in to your Azure account.
 
@@ -250,4 +250,4 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
 ## Next steps
 
-- For information on programmatically managing Azure Time Series Insights resources using REST APIs, read [Azure Time Series Insights Management](https://docs.microsoft.com/rest/api/time-series-insights-management/).
+- For information on programmatically managing Azure Time Series Insights resources using REST APIs, read [Azure Time Series Insights Management](/rest/api/time-series-insights-management/).

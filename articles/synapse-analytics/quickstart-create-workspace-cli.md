@@ -5,7 +5,7 @@ services: synapse-analytics
 author: alehall
 ms.service: synapse-analytics 
 ms.topic: quickstart
-ms.subservice: 
+ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick 
@@ -17,38 +17,17 @@ The Azure CLI is Azure's command-line experience for managing Azure resources. Y
 
 In this quickstart, you learn to create a Synapse workspace by using the Azure CLI.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
 - Download and install [jq](https://stedolan.github.io/jq/download/), a lightweight and flexible command-line JSON processor
-- [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md)
 
     > [!IMPORTANT]
-    > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2 account. In addition, for any storage account that you link as the primary storage account, you must have enabled **hierarchical namespace**  at the creation of the storage account, as described on the [Create a Storage Accout](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account) page. 
+    > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2 account. In addition, for any storage account that you link as the primary storage account, you must have enabled **hierarchical namespace**  at the creation of the storage account, as described on the [Create a Storage Accout](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) page. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## Install the Azure CLI locally
-
-If you choose to install and use the Azure CLI locally, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-If you are running the Azure CLI locally, you must log in and authenticate. This step is not necessary if you are using Azure Cloud Shell. To log in to Azure CLI, run `az login` and authenticate in the browser window:
-
-```azurecli
-az login
-```
-
-For more information about authentication` with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
-
-## Install Azure Synapse extension for Azure CLI
-
-```azurecli
-az extension add --name synapse
-```
-
-> [!WARNING]
-> The Azure Synapse extension for Azure CLI is in preview.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create an Azure Synapse workspace using the Azure CLI
 
@@ -66,31 +45,12 @@ az extension add --name synapse
     |SqlPassword| Choose a secure password.|
     |||
 
-2. Create a resource group as a container for your Azure Synapse workspace:
+1. Create a resource group as a container for your Azure Synapse workspace:
     ```azurecli
     az group create --name $SynapseResourceGroup --location $Region
     ```
-3. Retrieve the ADLS Gen 2 Storage Account key:
-    ```azurecli
-    StorageAccountKey=$(az storage account keys list \
-      --account-name $StorageAccountName \
-      | jq -r '.[0] | .value')
-    ```
-4. Retrieve the ADLS Gen 2 Storage Endpoint URL:
-    ```azurecli
-    StorageEndpointUrl=$(az storage account show \
-      --name $StorageAccountName \
-      --resource-group $StorageAccountResourceGroup \
-      | jq -r '.primaryEndpoints | .dfs')
-    ```
 
-5. (Optional) You can always check what your ADLS Gen2 Storage Account key and endpoint are:
-    ```azurecli
-    echo "Storage Account Key: $StorageAccountKey"
-    echo "Storage Endpoint URL: $StorageEndpointUrl"
-    ```
-
-6. Create an Azure Synapse Workspace:
+1. Create an Azure Synapse Workspace:
     ```azurecli
     az synapse workspace create \
       --name $SynapseWorkspaceName \
@@ -102,14 +62,14 @@ az extension add --name synapse
       --location $Region
     ```
 
-7. Get Web and Dev URL for Azure Synapse Workspace:
+1. Get Web and Dev URL for Azure Synapse Workspace:
     ```azurecli
     WorkspaceWeb=$(az synapse workspace show --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup | jq -r '.connectivityEndpoints | .web')
 
     WorkspaceDev=$(az synapse workspace show --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup | jq -r '.connectivityEndpoints | .dev')
     ```
 
-8. Create a Firewall Rule to allow your access to Azure Synapse Workspace from your machine:
+1. Create a Firewall Rule to allow your access to Azure Synapse Workspace from your machine:
 
     ```azurecli
     ClientIP=$(curl -sb -H "Accept: application/json" "$WorkspaceDev" | jq -r '.message')
@@ -119,7 +79,7 @@ az extension add --name synapse
     az synapse workspace firewall-rule create --end-ip-address $ClientIP --start-ip-address $ClientIP --name "Allow Client IP" --resource-group $SynapseResourceGroup --workspace-name $SynapseWorkspaceName
     ```
 
-9. Open the Azure Synapse Workspace Web URL address stored in environment variable `WorkspaceWeb` to access your workspace:
+1. Open the Azure Synapse Workspace Web URL address stored in environment variable `WorkspaceWeb` to access your workspace:
 
     ```azurecli
     echo "Open your Azure Synapse Workspace Web URL in the browser: $WorkspaceWeb"

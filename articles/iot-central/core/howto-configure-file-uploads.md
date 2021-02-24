@@ -4,11 +4,10 @@ description: How to configure file uploads from your devices to the cloud. After
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/06/2020
+ms.date: 12/23/2020
 ms.topic: how-to
 ms.service: iot-central
 ---
-
 # Upload files from your devices to the cloud
 
 *This topic applies to administrators and device developers.*
@@ -49,7 +48,7 @@ If you want to disable device file uploads to your IoT Central application:
 
 ## Upload a file from a device
 
-IoT Central uses IoT Hub's file upload capability to enable devices to upload files. For sample code that shows you how to upload files from a device, see the [IoT Central file upload device sample](https://docs.microsoft.com/samples/iot-for-all/iotc-file-upload-device/iotc-file-upload-device/).
+IoT Central uses IoT Hub's file upload capability to enable devices to upload files. For sample code that shows you how to upload files from a device, see the [IoT Central file upload device sample](/samples/iot-for-all/iotc-file-upload-device/iotc-file-upload-device/).
 
 ## Next steps
 

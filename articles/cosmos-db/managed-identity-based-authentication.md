@@ -3,6 +3,7 @@ title: How to use a system-assigned managed identity to access Azure Cosmos DB d
 description: Learn how to configure an Azure Active Directory (Azure AD) system-assigned managed identity (managed service identity) to access keys from Azure Cosmos DB. 
 author: j-patrick
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
@@ -12,6 +13,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Use system-assigned managed identities to access Azure Cosmos DB data
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In this article, you'll set up a *robust, key rotation agnostic* solution to access Azure Cosmos DB keys by using [managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). The example in this article uses Azure Functions, but you can use any service that supports managed identities. 
 
@@ -124,7 +126,7 @@ namespace Monitor
 }
 ```
 
-You'll use the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) library to get the system-assigned managed identity token. To learn other ways to get the token and find out more information about the `Microsoft.Azure.Service.AppAuthentication` library, see the [Service-to-service authentication](../key-vault/general/service-to-service-authentication.md) article.
+You'll use the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) library to get the system-assigned managed identity token. To learn other ways to get the token and find out more information about the `Microsoft.Azure.Service.AppAuthentication` library, see the [Service-to-service authentication](/dotnet/api/overview/azure/service-to-service-authentication) article.
 
 
 ```csharp
@@ -208,7 +210,7 @@ namespace Monitor
 }
 ```
 
-You are now ready to [deploy your function app](../azure-functions/functions-create-first-function-vs-code.md).
+You are now ready to [deploy your function app](../azure-functions/create-first-function-vs-code-csharp.md).
 
 ## Next steps
 

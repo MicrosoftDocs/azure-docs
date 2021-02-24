@@ -72,7 +72,7 @@ For example, you can create an NSG on the backend subnet where the load-balanced
 
 ![Network security group](media/integrate-lb/nsg-01.png)
 
-For more information about NSGs, see [Security groups](../virtual-network/security-overview.md).
+For more information about NSGs, see [Security groups](../virtual-network/network-security-groups-overview.md).
 
 ## Next steps
 

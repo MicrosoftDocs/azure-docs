@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: hrasheed-msft #Required; your GitHub user alias, with correct capitalization.
   ms.author: hrasheed #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/11/2020 #Required; mm/dd/yyyy format.
+  ms.date: 10/20/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -48,28 +48,33 @@ landingContent:
             url: subscribe-to-data-share.md
       - linkListType: how-to-guide
         links:
-          - text: Add datasets
-            url: how-to-add-datasets.md
-          - text: Configure dataset mappings
-            url: how-to-configure-mapping.md
-
+          - text: Share from Azure Storage
+            url: how-to-share-from-storage.md
+          - text: Share from Azure SQL Database or Azure Synapse Analytics
+            url: how-to-share-from-sql.md
+          - text: Share from Azure Data Explorer
+            url: /azure/data-explorer/data-share
 
   # Card (optional)
   - title: Monitor and manage
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Monitor your share 
-            url: how-to-monitor.md
-          - text: Troubleshoot common issues
-            url: data-share-troubleshoot.md
+          - text: Add datasets
+            url: how-to-add-datasets.md
           - text: Add recipients
-            url: how-to-add-recipients.md         
+            url: how-to-add-recipients.md             
+          - text: Configure dataset mappings
+            url: how-to-configure-mapping.md
           - text: Delete an invitation
             url: how-to-delete-invitation.md
           - text: Revoke a share subscription
             url: how-to-revoke-share-subscription.md
+          - text: Monitor your share 
+            url: how-to-monitor.md          
           - text: Security overview of Azure Data Share
             url: security.md
           - text: Disaster recovery
             url: disaster-recovery.md           
+          - text: Troubleshoot common issues
+            url: data-share-troubleshoot.md

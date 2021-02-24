@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rogoya
 
@@ -86,6 +86,8 @@ To check or modify the smart lockout values for your organization, complete the 
 When the smart lockout threshold is triggered, you will get the following message while the account is locked:
 
 *Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin.*
+
+When you test smart lockout, your sign-in requests might be handled by different datacenters due to the geo-distributed and load-balanced nature of the Azure AD authentication service. In that scenario, because each Azure AD datacenter tracks lockout independently, it might take more than your defined lockout threshold number of attempts to cause a lockout. A user has (*threshold_limit * datacenter_count*) number of bad attempts if the user hits each datacenter before a lockout occurs.
 
 ## Next steps
 

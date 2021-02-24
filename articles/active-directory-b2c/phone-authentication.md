@@ -31,16 +31,16 @@ With phone sign-up and sign-in, the user can sign up for the app using a phone n
 > [!NOTE]
 > We strongly suggest you include consent information in your sign-up and sign-in experience similar to the sample text below. This sample text is for informational purposes only. Please refer to the Short Code Monitoring Handbook on the [CTIA website](https://www.ctia.org/programs) and consult with your own legal or compliance experts for guidance on your final text and feature configuration to meet your own compliance needs:
 >
-> *By providing your phone number, you consent to recieving a one-time passcode sent by text message to help you sign in to *&lt;insert: your application name&gt;*. Standard message and data rates may apply.*
+> *By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign in to *&lt;insert: your application name&gt;*. Standard message and data rates may apply.*
 >
 > *&lt;insert: a link to your Privacy Statement&gt;*<br/>*&lt;insert: a link to your Terms of Service&gt;*
 
-To add your own consent information, customize the following sample and include it in the LocalizedResources for the ContentDefinition used by the self-asserted page with the display control (the Phone-Email-Base.xml file in the phone sign-up & sign-in starter pack):
+To add your own consent information, customize the following sample. Include it in the `LocalizedResources` for the ContentDefinition used by the self-asserted page with the display control (the *Phone_Email_Base.xml* file in the [phone sign-up and sign-in starter pack][starter-pack-phone]):
 
 ```xml
 <LocalizedResources Id="phoneSignUp.en">        
     <LocalizedStrings>
-    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard message and data rates may apply.</LocalizedString>          
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>                
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>          
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>             
@@ -60,7 +60,7 @@ A one-time verification code is sent to the user's phone number. The user enters
 
 ![User verifies code during phone sign-up](media/phone-authentication/phone-signup-verify-code.png)
 
- The user enters any other information requested on the sign-up page, for example, **Display Name**, **Given Name**, and **Surname** (Country and phone number remain populated). If the user wants to use a different phone number, they can choose **Change number** to restart sign-up. When finished, the user selects **Continue**.
+The user enters any other information requested on the sign-up page. For example, **Display Name**, **Given Name**, and **Surname** (Country and phone number remain populated). If the user wants to use a different phone number, they can choose **Change number** to restart sign-up. When finished, the user selects **Continue**.
 
 ![User provides additional info](media/phone-authentication/phone-signup-additional-info.png)
 
@@ -78,7 +78,7 @@ If the user has an existing account with phone number as their identifier, the u
 
 ## Deleting a user account
 
-In certain cases you might you need to delete a user and associated data from your Azure AD B2C directory. For details about how to delete a user account through the Azure portal, refer to [these instructions](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
+In certain cases you might you need to delete a user and associated data from your Azure AD B2C directory. For details about how to delete a user account through the Azure portal, refer to [these instructions](/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -95,8 +95,6 @@ You need the following resources in place before setting up OTP.
 ## Get the phone sign-up & sign-in starter pack
 
 Start by updating the phone sign-up and sign-in custom policy files to work with your Azure AD B2C tenant.
-
-The following steps assume that you've completed the [prerequisites](#prerequisites) and have already cloned the [custom policy starter pack][starter-pack] repository to your local machine.
 
 1. Find the [phone sign-up and sign-in custom policy files][starter-pack-phone] in your local clone of the starter pack repo, or download them directly. The XML policy files are located in the following directory:
 
@@ -132,9 +130,9 @@ As you upload each file, Azure adds the prefix `B2C_1A_`.
 
 ## Get user account by phone number
 
-A user that signs up with a phone number but does not provide a recovery email address is recorded in your Azure AD B2C directory with their phone number as their sign-in name. If the user then wishes to change their phone number, your help desk or support team must first find their account, and then update their phone number.
+A user that signs up with a phone number, without a recovery email address is recorded in your Azure AD B2C directory with their phone number as their sign-in name. To change the phone number, your help desk or support team must first find their account, and then update their phone number.
 
-You can find a user by their phone number (sign-in name) by using [Microsoft Graph](manage-user-accounts-graph-api.md):
+You can find a user by their phone number (sign-in name) by using [Microsoft Graph](microsoft-graph-operations.md):
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
@@ -151,7 +149,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 You can find the phone sign-up and sign-in custom policy starter pack (and other starter packs) on GitHub:
   [Azure-Samples/active-directory-b2c-custom-policy-starterpack/scenarios/phone-number-passwordless][starter-pack-phone]
   The starter pack policy files use multi-factor authentication technical profiles and phone number claims transformations:
-* [Define an Azure Multi-Factor Authentication technical profile](multi-factor-auth-technical-profile.md)
+* [Define an Azure AD Multi-Factor Authentication technical profile](multi-factor-auth-technical-profile.md)
 * [Define phone number claims transformations](phone-number-claims-transformations.md)
 
 <!-- LINKS - External -->

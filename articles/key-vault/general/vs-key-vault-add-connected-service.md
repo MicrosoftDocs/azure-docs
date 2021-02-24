@@ -198,6 +198,6 @@ Affects the project file .NET references and `packages.config` (NuGet references
 
 ## Next steps
 
-If you followed this tutorial, your Key Vault permissions are set up to run with your own Azure subscription, but that might not be desirable for a production scenario. You can create a managed identity to manage Key Vault access for your app. See [How to Authenticate to Key Vault](/azure/key-vault/general/authentication) and [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal).
+If you followed this tutorial, your Key Vault permissions are set up to run with your own Azure subscription, but that might not be desirable for a production scenario. You can create a managed identity to manage Key Vault access for your app. See [How to Authenticate to Key Vault](./authentication.md) and [Assign a Key Vault access policy](./assign-access-policy-portal.md).
 
 Learn more about Key Vault development by reading the [Key Vault Developer's Guide](developers-guide.md).

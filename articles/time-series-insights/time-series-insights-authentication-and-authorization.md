@@ -68,7 +68,7 @@ Per **step 3**, separating your application's and your user credentials allows y
 1. Save the policy by selecting **OK**.
 
    > [!TIP]
-   > For advanced data access options, read [granting data access](./time-series-insights-data-access.md).
+   > For advanced data access options, read [granting data access](./concepts-access-policies.md).
 
 ### Client app initialization
 
@@ -85,18 +85,18 @@ Per **step 3**, separating your application's and your user credentials allows y
    1. The token can then be passed in the `Authorization` header when the application calls the Azure Time Series Insights API.
 
 > [!IMPORTANT]
-> If you are using [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) read about [migrating to MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration).
+> If you are using [Azure Active Directory Authentication Library (ADAL)](../active-directory/azuread-dev/active-directory-authentication-libraries.md) read about [migrating to MSAL](../active-directory/develop/msal-net-migration.md).
 
 ## Common headers and parameters
 
-This section describes common HTTP request headers and parameters used to make queries against the Azure Time Series Insights Gen1 and Gen2 APIs. API-specific requirements are covered in greater detail in the [Azure Time Series Insights REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/).
+This section describes common HTTP request headers and parameters used to make queries against the Azure Time Series Insights Gen1 and Gen2 APIs. API-specific requirements are covered in greater detail in the [Azure Time Series Insights REST API reference documentation](/rest/api/time-series-insights/).
 
 > [!TIP]
-> Read the [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure/) to learn more about how to consume REST APIs, make HTTP requests, and handle HTTP responses.
+> Read the [Azure REST API Reference](/rest/api/azure/) to learn more about how to consume REST APIs, make HTTP requests, and handle HTTP responses.
 
 ### Authentication
 
-To perform authenticated queries against the [Azure Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth 2.0 bearer token must be passed in the [Authorization header](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) using a REST client of your choice (Postman, JavaScript, C#).
+To perform authenticated queries against the [Azure Time Series Insights REST APIs](/rest/api/time-series-insights/), a valid OAuth 2.0 bearer token must be passed in the [Authorization header](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) using a REST client of your choice (Postman, JavaScript, C#).
 
 > [!TIP]
 > Read the hosted Azure Time Series Insights [client SDK sample visualization](https://tsiclientsample.azurewebsites.net/) to learn how to authenticate with the Azure Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) along with charts and graphs.
@@ -135,7 +135,7 @@ Optional but recommended response headers are described below.
 ### HTTP parameters
 
 > [!TIP]
-> Find more information about required and optional query information in the [reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/).
+> Find more information about required and optional query information in the [reference documentation](/rest/api/time-series-insights/).
 
 Required URL query string parameters depend on API version.
 
@@ -152,7 +152,7 @@ Optional URL query string parameters include setting a timeout for HTTP request 
 
 | Optional query parameter | Description | Version |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Server-side timeout for HTTP request execution. Applicable only to the [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) and [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) APIs. Timeout value should be in ISO 8601 duration format, for example `"PT20S"` and should be in the range `1-30 s`. Default value is `30 s`. | Gen1 |
+| `timeout=<timeout>` | Server-side timeout for HTTP request execution. Applicable only to the [Get Environment Events](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) and [Get Environment Aggregates](/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) APIs. Timeout value should be in ISO 8601 duration format, for example `"PT20S"` and should be in the range `1-30 s`. Default value is `30 s`. | Gen1 |
 | `storeType=<storeType>` | For Gen2 environments with warm store enabled, the query can be executed either on the `WarmStore` or `ColdStore`. This parameter in the query defines which store the query should be executed on. If not defined, the query will be executed on the cold store. To query the warm store, **storeType** needs to be set to `WarmStore`. If not defined, the query will be executed against the cold store. | Gen2 |
 
 ## Next steps
@@ -161,6 +161,6 @@ Optional URL query string parameters include setting a timeout for HTTP request 
 
 * For sample code that calls the Gen2 Azure Time Series Insights API code samples, read [Query Gen2 data using C#](./time-series-insights-update-query-data-csharp.md).
 
-* For API reference information, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api) documentation.
+* For API reference information, read the [Query API reference](/rest/api/time-series-insights/gen1-query-api) documentation.
 
 * Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).

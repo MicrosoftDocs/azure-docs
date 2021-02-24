@@ -4,13 +4,13 @@ description: Learn how to set up alerts for Azure Cosmos DB using Azure Monitor.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
 ---
 
 # Create alerts for Azure Cosmos DB using Azure Monitor
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Alerts are used to set up recurring tests to monitor the availability and responsiveness of your Azure Cosmos DB resources. Alerts can send you a notification in the form of an  email, or execute an Azure Function when one of your metrics reaches the threshold or if a specific event is logged in the activity log.
 

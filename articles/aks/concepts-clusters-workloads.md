@@ -3,7 +3,7 @@ title: Concepts - Kubernetes basics for Azure Kubernetes Services (AKS)
 description: Learn the basic cluster and workload components of Kubernetes and how they relate to features in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 12/07/2020
 
 ---
 
@@ -27,8 +27,8 @@ Azure Kubernetes Service (AKS) provides a managed Kubernetes service that reduce
 
 A Kubernetes cluster is divided into two components:
 
-- *Control plane* nodes provide the core Kubernetes services and orchestration of application workloads.
-- *Nodes* run your application workloads.
+- The *Control plane* provides the core Kubernetes services and orchestration of application workloads.
+- *Nodes* which run your application workloads.
 
 ![Kubernetes control plane and node components](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
@@ -74,7 +74,6 @@ Node resources are utilized by AKS to make the node function as part of your clu
 To find a node's allocatable resources, run:
 ```kubectl
 kubectl describe node [NODE_NAME]
-
 ```
 
 To maintain node performance and functionality, resources are reserved on each node by AKS. As a node grows larger in resources, the resource reservation grows due to a higher amount of user deployed pods needing management.
@@ -82,22 +81,24 @@ To maintain node performance and functionality, resources are reserved on each n
 >[!NOTE]
 > Using AKS add-ons such as Container Insights (OMS) will consume additional node resources.
 
-- **CPU** - reserved CPU is dependent on node type and cluster configuration, which may cause less allocatable CPU due to running additional features
+Two types of resources are reserved:
 
-| CPU cores on host | 1    | 2    | 4    | 8    | 16 | 32|64|
-|---|---|---|---|---|---|---|---|
-|Kube-reserved (millicores)|60|100|140|180|260|420|740|
+- **CPU** - Reserved CPU is dependent on node type and cluster configuration, which may cause less allocatable CPU due to running additional features
 
-- **Memory** - memory utilized by AKS includes the sum of two values.
+   | CPU cores on host | 1    | 2    | 4    | 8    | 16 | 32|64|
+   |---|---|---|---|---|---|---|---|
+   |Kube-reserved (millicores)|60|100|140|180|260|420|740|
 
-1. The kubelet daemon is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, this daemon has the following eviction rule: *memory.available<750Mi*, which means a node must always have at least 750 Mi allocatable at all times.  When a host is below that threshold of available memory, the kubelet will terminate one of the running pods to free memory on the host machine and protect it. This action is triggered once available memory decreases beyond the 750Mi threshold.
+- **Memory** - Memory utilized by AKS includes the sum of two values.
 
-2. The second value is a regressive rate of memory reservations for the kubelet daemon to properly function (kube-reserved).
-    - 25% of the first 4 GB of memory
-    - 20% of the next 4 GB of memory (up to 8 GB)
-    - 10% of the next 8 GB of memory (up to 16 GB)
-    - 6% of the next 112 GB of memory (up to 128 GB)
-    - 2% of any memory above 128 GB
+   1. The kubelet daemon is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, this daemon has the following eviction rule: *memory.available<750Mi*, which means a node must always have at least 750 Mi allocatable at all times.  When a host is below that threshold of available memory, the kubelet will terminate one of the running pods to free memory on the host machine and protect it. This action is triggered once available memory decreases beyond the 750Mi threshold.
+
+   2. The second value is a regressive rate of memory reservations for the kubelet daemon to properly function (kube-reserved).
+      - 25% of the first 4 GB of memory
+      - 20% of the next 4 GB of memory (up to 8 GB)
+      - 10% of the next 8 GB of memory (up to 16 GB)
+      - 6% of the next 112 GB of memory (up to 128 GB)
+      - 2% of any memory above 128 GB
 
 The above rules for memory and CPU allocation are used to keep agent nodes healthy, including some hosting system pods that are critical to cluster health. These allocation rules also cause the node to report less allocatable memory and CPU than it normally would if it were not part of a Kubernetes cluster. The above resource reservations can't be changed.
 
@@ -134,7 +135,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: nginx:1.15.12
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.12-alpine
   nodeSelector:
     "beta.kubernetes.io/os": linux
 ```
@@ -180,7 +181,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.15.2
+        image: mcr.microsoft.com/oss/nginx/nginx:1.15.2-alpine
         ports:
         - containerPort: 80
         resources:

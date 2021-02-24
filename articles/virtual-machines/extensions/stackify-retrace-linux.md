@@ -6,9 +6,9 @@ documentationcenter: ''
 author:  darinhoward
 manager: gwallace 
 editor: ''
-
 ms.assetid: 
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services 

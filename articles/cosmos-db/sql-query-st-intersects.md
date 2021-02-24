@@ -3,13 +3,16 @@ title: ST_INTERSECTS in Azure Cosmos DB query language
 description: Learn about SQL system function ST_INTERSECTS in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 02/17/2021
 ms.author: girobins
 ms.custom: query-reference
 ---
 # ST_INTERSECTS (Azure Cosmos DB)
- Returns a Boolean expression indicating whether the GeoJSON object (Point, Polygon, or LineString) specified in the first argument intersects the GeoJSON (Point, Polygon, or LineString) in the second argument.  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
+ Returns a Boolean expression indicating whether the GeoJSON object (Point, Polygon, MultiPolygon, or LineString) specified in the first argument intersects the GeoJSON (Point, Polygon, MultiPolygon, or LineString) in the second argument.  
   
 ## Syntax
   
@@ -47,7 +50,7 @@ WHERE ST_INTERSECTS(a.location, {
 
 ## Remarks
 
-This system function will benefit from a [geospatial index](index-policy.md#spatial-indexes).
+This system function will benefit from a [geospatial index](index-policy.md#spatial-indexes) except in queries with aggregates.
 
 ## Next steps
 

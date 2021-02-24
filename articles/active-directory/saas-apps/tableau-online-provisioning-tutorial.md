@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ---
@@ -56,7 +56,7 @@ To add Tableau Online from the Marketplace, follow these steps.
 
 Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users or groups that were assigned to an application in Azure AD are synchronized.
 
-Before you configure and enable automatic user provisioning, decide which users or groups in Azure AD need access to Tableau Online. To assign these users or groups to Tableau Online, follow the instructions in [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+Before you configure and enable automatic user provisioning, decide which users or groups in Azure AD need access to Tableau Online. To assign these users or groups to Tableau Online, follow the instructions in [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md).
 
 ### Important tips for assigning users to Tableau Online
 
@@ -93,7 +93,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
    * In the **Domain** box, fill in the subdomain based on Step 6.
 
-   * In the **Admin Username** box, fill in the username of the admin account on your Clarizen Tenant. An example is admin@contoso.com.
+   * In the **Admin Username** box, fill in the username of the admin account on your Tableau Online Tenant. An example is admin@contoso.com.
 
    * In the **Admin Password** box, fill in the password of the admin account that corresponds to the admin username.
 

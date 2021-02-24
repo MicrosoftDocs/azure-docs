@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
 ---
 
 # Tutorial: Triage, investigate, and respond to security alerts
-Security Center continuously analyzes your hybrid cloud workloads using advanced analytics and threat intelligence to alert you to malicious activity. You can also integrate alerts from other security products and services into Security Center, and create custom alerts based on your own indicators or intelligence sources. Once an alert is generated, swift action is needed to investigate and remediate. 
+Security Center continuously analyzes your hybrid cloud workloads using advanced analytics and threat intelligence to alert you about potentially malicious activities in your cloud resources. You can also integrate alerts from other security products and services into Security Center. Once an alert is raised, swift action is needed to investigate and remediate the potential security issue. 
 
 In this tutorial, you will learn how to:
 
@@ -37,14 +37,14 @@ Security Center provides a unified view of all security alerts. Security alerts 
 
 Triage your alerts from the **Security alerts** page:
 
-:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Security alerts list page" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
 
 Use this page to review the active security alerts in your environment to decide which alert to investigate first.
 
 When triaging security alerts, prioritize alerts based on the alert severity by addressing alerts with higher severity first. Learn more about alerts severity in [How are alerts classified?](security-center-alerts-overview.md#how-are-alerts-classified).
 
 > [!TIP]
-> You can connect Azure Security Center to most popular SIEM solutions including Azure Sentinel and consume the alerts from your tool of choice. Learn more in [Exporting alerts to a SIEM](continuous-export.md).
+> You can connect Azure Security Center to most popular SIEM solutions including Azure Sentinel and consume the alerts from your tool of choice. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 
 
 ## Investigate a security alert
@@ -88,8 +88,8 @@ After investigating an alert and understanding its scope, you can respond to sec
 
     This removes the alert from the main alerts list. You can use the filter from the alerts list page to view all alerts with **Dismissed** status.
 
-1.	Optionally, provide feedback on an alert to Microsoft:
-    1. Marking the alert as **Useful** or **Not useful** and providing
+1.	We encourage you to provide feedback about the alert to Microsoft:
+    1. Marking the alert as **Useful** or **Not useful**.
     1. Select a reason and add a comment.
 
         :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Provide feedback to Microsoft on the usefulness of an alert":::

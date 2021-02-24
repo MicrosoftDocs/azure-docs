@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an AKS cluster by using PowerShell'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 09/11/2020 
+ms.date: 01/13/2021 
 ms.custom: devx-track-azurepowershell
 
 
@@ -86,7 +86,7 @@ containers is also enabled by default. This takes several minutes to complete.
 > [Why are two resource groups created with AKS?](./faq.md#why-are-two-resource-groups-created-with-aks)
 
 ```azurepowershell-interactive
-New-AzAks -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
 ```
 
 After a few minutes, the command completes and returns information about the cluster.
@@ -272,7 +272,7 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 ![Voting app deployed in Azure Kubernetes Service](./media/kubernetes-walkthrough-powershell/voting-app-deployed-in-azure-kubernetes-service.png)
 
 When the AKS cluster was created,
-[Azure Monitor for containers](../azure-monitor/insights/container-insights-overview.md) was enabled
+[Azure Monitor for containers](../azure-monitor/containers/container-insights-overview.md) was enabled
 to capture health metrics for both the cluster nodes and pods. These health metrics are available in
 the Azure portal.
 

@@ -1,12 +1,12 @@
-﻿---
-title: Communicate to device app in Node.js with Azure IoT Hub device streams
+---
+title: Quickstart - Communicate to device app in Node.js with Azure IoT Hub device streams
 description: In this quickstart, you will run a Node.js service-side application that communicates with an IoT device via a device stream.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, devx-track-js
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
 ---
@@ -25,13 +25,17 @@ In this quickstart, you run a service-side application and set up communication 
 
 * [Node.js 10+](https://nodejs.org).
 
+    You can verify the current version of Node.js on your development machine using the following command:
+
+    ```cmd/sh
+    node --version
+    ```
+
 * [A sample Node.js project](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
-You can verify the current version of Node.js on your development machine using the following command:
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-```cmd/sh
-node --version
-```
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -42,18 +46,6 @@ Microsoft Azure IoT Hub currently supports device streams as a [preview feature]
 > * Central US EUAP
 > * North Europe
 > * Southeast Asia
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### Add Azure IoT Extension
-
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) commands to Azure CLI.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Create an IoT hub
 
@@ -82,7 +74,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
+    az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
     ```
 
     Note the returned service connection string for later use in this quickstart. It looks like the following example:
@@ -157,4 +149,4 @@ In this quickstart, you set up an IoT hub, registered a device, established a de
 Use the links below to learn more about device streams:
 
 > [!div class="nextstepaction"]
-> [Device streams overview](./iot-hub-device-streams-overview.md) 
+> [Device streams overview](./iot-hub-device-streams-overview.md)

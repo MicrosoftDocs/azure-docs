@@ -79,20 +79,22 @@ To download and run the sample, follow these steps:
 
 1. Download the [Elastic DB Tools for Azure SQL - Getting Started sample](https://github.com/Azure/elastic-db-tools). Unzip the sample to a location that you choose.
 
-2. To create a project, open the *ElasticScaleStarterKit.sln* solution from the *C#* directory.
+2. To create a project, open the *ElasticDatabaseTools.sln* solution from the *elastic-db-tools-master* directory. 
 
-3. In the solution for the sample project, open the *app.config* file. Then follow the instructions in the file to add your server name and your sign-in information (username and password).
+3. Set the *ElasticScaleStarterKit* project as the Startup Project.
 
-4. Build and run the application. When you are prompted, enable Visual Studio to restore the NuGet packages of the solution. This action downloads the latest version of the elastic database client library from NuGet.
+4. In the *ElasticScaleStarterKit* project, open the *App.config* file. Then follow the instructions in the file to add your server name and your sign-in information (username and password).
 
-5. To learn more about the client library capabilities, experiment with the various options. Note the steps that the application takes in the console output, and feel free to explore the code behind the scenes.
+5. Build and run the application. When you are prompted, enable Visual Studio to restore the NuGet packages of the solution. This action downloads the latest version of the elastic database client library from NuGet.
+
+6. To learn more about the client library capabilities, experiment with the various options. Note the steps that the application takes in the console output, and feel free to explore the code behind the scenes.
 
    ![Progress][4]
 
 Congratulations! You have successfully built and run your first sharded application by using Elastic Database Tools on SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created.
 
 > [!IMPORTANT]
-> We recommend that you always use the latest version of Management Studio so that you stay synchronized with updates to Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> We recommend that you always use the latest version of Management Studio so that you stay synchronized with updates to Azure and SQL Database. [Update SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## Key pieces of the code sample
 
@@ -128,7 +130,7 @@ For more information about Elastic Database Tools, see the following articles:
   * [Shard Elasticity on Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
 * Channel 9: [Elastic Scale overview video](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Discussion forum: [Microsoft Q&A question page for Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html)
+* Discussion forum: [Microsoft Q&A question page for Azure SQL Database](/answers/topics/azure-sql-database.html)
 * To measure performance: [Performance counters for shard map manager](elastic-database-client-library.md)
 
 <!--Anchors-->

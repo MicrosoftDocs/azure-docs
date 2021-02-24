@@ -6,7 +6,7 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Connect with Managed Identity to Azure Database for MySQL
@@ -26,20 +26,20 @@ You learn how to:
 ## Prerequisites
 
 - If you're not familiar with the managed identities for Azure resources feature, see this [overview](../../articles/active-directory/managed-identities-azure-resources/overview.md). If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
-- To do the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Use Role-Based Access Control to manage access to your Azure subscription resources](../../articles/role-based-access-control/role-assignments-portal.md).
+- To do the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../articles/role-based-access-control/role-assignments-portal.md).
 - You need an Azure VM (for example running Ubuntu Linux) that you'd like to use for access your database using Managed Identity
 - You need an Azure Database for MySQL database server that has [Azure AD authentication](howto-configure-sign-in-azure-ad-authentication.md) configured
 - To follow the C# example, first complete the guide how to [Connect using C#](connect-csharp.md)
 
 ## Creating a user-assigned managed identity for your VM
 
-Create an identity in your subscription using the [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) command. You can use the same resource group that your virtual machine runs in, or a different one.
+Create an identity in your subscription using the [az identity create](/cli/azure/identity#az-identity-create) command. You can use the same resource group that your virtual machine runs in, or a different one.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myManagedIdentity
 ```
 
-To configure the identity in the following steps, use the [az identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show) command to store the identity's resource ID and client ID in variables.
+To configure the identity in the following steps, use the [az identity show](/cli/azure/identity#az-identity-show) command to store the identity's resource ID and client ID in variables.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -49,7 +49,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myManagedI
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
-We can now assign the user-assigned identity to the VM with the [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) command:
+We can now assign the user-assigned identity to the VM with the [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) command:
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID

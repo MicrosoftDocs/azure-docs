@@ -123,7 +123,7 @@ This action gets the content from a file on an SFTP server. So for example, you 
 
 ## Connector reference
 
-For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](/azure/data-factory/connector-sftp).
+For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](../data-factory/connector-sftp.md).
 
 ## Next steps
 

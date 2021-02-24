@@ -29,7 +29,7 @@ You can capture the performance of a [shard map manager](elastic-scale-shard-map
 
 ## Create performance category and counters
 
-To create the counters, call the CreatePerformanceCategoryAndCounters method of the [ShardMapManagementFactory class](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory). Only an administrator can execute the method:
+To create the counters, call the CreatePerformanceCategoryAndCounters method of the [ShardMapManagementFactory class](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory). Only an administrator can execute the method:
 
 `ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()`
 
@@ -37,7 +37,7 @@ You can also use [this](https://gallery.technet.microsoft.com/scriptcenter/Elast
 The method creates the following performance counters:  
 
 * **Cached mappings**: Number of mappings cached for the shard map.
-* **DDR operations/sec**: Rate of data dependent routing operations for the shard map. This counter is  updated when a call to [OpenConnectionForKey()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) results in a successful connection to the destination shard.
+* **DDR operations/sec**: Rate of data dependent routing operations for the shard map. This counter is  updated when a call to [OpenConnectionForKey()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) results in a successful connection to the destination shard.
 * **Mapping lookup cache hits/sec**: Rate of successful cache lookup operations for mappings in the shard map.
 * **Mapping lookup cache misses/sec**: Rate of failed cache lookup operations for mappings in the shard map.
 * **Mappings added or updated in cache/sec**: Rate at which mappings are being added or updated in cache for the shard map.
@@ -49,8 +49,8 @@ Performance counters are created for each cached shard map per process.
 
 The following events trigger the creation of the performance counters:  
 
-* Initialization of the [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) with [eager loading](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy), if the ShardMapManager contains any shard maps. These include the [GetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager) and the [TryGetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) methods.
-* Successful lookup of a shard map (using [GetShardMap()](https://msdn.microsoft.com/library/azure/dn824215.aspx), [GetListShardMap()](https://msdn.microsoft.com/library/azure/dn824212.aspx) or [GetRangeShardMap()](https://msdn.microsoft.com/library/azure/dn824173.aspx)).
+* Initialization of the [ShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) with [eager loading](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy), if the ShardMapManager contains any shard maps. These include the [GetSqlShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager) and the [TryGetSqlShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) methods.
+* Successful lookup of a shard map (using [GetShardMap()](/previous-versions/azure/dn824215(v=azure.100)), [GetListShardMap()](/previous-versions/azure/dn824212(v=azure.100)) or [GetRangeShardMap()](/previous-versions/azure/dn824173(v=azure.100))).
 * Successful creation of shard map using CreateShardMap().
 
 The performance counters will be updated by all cache operations performed on the shard map and mappings. Successful removal of the shard map using DeleteShardMap() results in deletion of the performance counters instance.  

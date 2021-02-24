@@ -3,8 +3,7 @@ title: Tutorial for using Azure App Configuration Key Vault references in an ASP
 description: In this tutorial, you learn how to use Azure App Configuration's Key Vault references from an ASP.NET Core app
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 
 ms.assetid: 
@@ -13,7 +12,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/08/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to update my ASP.NET Core application to reference values stored in Key Vault through App Configuration.
@@ -48,7 +47,7 @@ Before you start this tutorial, install the [.NET Core SDK](https://dotnet.micro
 
 1. Select the **Create a resource** option in the upper-left corner of the Azure portal:
 
-    ![Output after key vault creation is complete](./media/quickstarts/search-services.png)
+    ![Screenshot shows the Create a resource option in the Azure portal.](./media/quickstarts/search-services.png)
 1. In the search box, enter **Key Vault**.
 1. From the results list, select **Key vaults** on the left.
 1. In **Key vaults**, select **Add**.
@@ -62,7 +61,7 @@ Before you start this tutorial, install the [.NET Core SDK](https://dotnet.micro
 
 At this point, your Azure account is the only one authorized to access this new vault.
 
-![Output after key vault creation is complete](./media/quickstarts/vault-properties.png)
+![Screenshot shows your key vault.](./media/quickstarts/vault-properties.png)
 
 ## Add a secret to Key Vault
 
@@ -91,7 +90,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Connect to Key Vault
 
-1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
+1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command:
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth

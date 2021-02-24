@@ -16,6 +16,11 @@ ms.custom: seodec2018, devx-track-python
 
 # Quickstart: Use Python to call the Bing Web Search API  
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 Use this quickstart to make your first call to the Bing Web Search API. This Python application sends a search request to the API, and shows the JSON response. Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
 This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). To run it, select the launch binder badge:
@@ -53,7 +58,7 @@ This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). T
 
 This code uses the `requests` library to call the Bing Web Search API and return the results as a JSON object. The API key is passed in the `headers` dictionary, and the search term and query parameters are passed in the `params` dictionary. 
 
-For a complete list of options and parameters, see [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
+For a complete list of options and parameters, see [Bing Web Search API v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
 
 ```python
 import requests

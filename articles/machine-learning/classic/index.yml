@@ -8,11 +8,11 @@ metadata:
   description: Machine Learning Studio (classic) is a drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions.
   services: machine-learning
   ms.service: machine-learning
-  ms.subservice: studio
+  ms.subservice: studio-classic
   ms.topic: landing-page
   ms.collection: collection
-  author: j-martens
-  ms.author: jmartens
+  ms.author: peterlu
+  author: peterclu
   ms.date: 03/05/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -41,9 +41,9 @@ landingContent:
           - text: PowerShell modules
             url: powershell-module.md
           - text: Algorithm & modules
-            url: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index
+            url: /azure/machine-learning/studio-module-reference/index
           - text: REST management APIs
-            url: https://docs.microsoft.com/rest/api/machinelearning/
+            url: /rest/api/machinelearning/
           - text: Web service error codes
             url: web-service-error-codes.md
 
@@ -53,8 +53,8 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure Machine Learning
-            url: /azure/machine-learning/
+            url: ../index.yml
           - text: Data Science Virtual Machine
-            url: /azure/machine-learning/data-science-virtual-machine
+            url: ../data-science-virtual-machine/index.yml
           - text: Compare our ML products
-            url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
+            url: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=%2fazure%2fmachine-learning%2fstudio%2fcontext%2fml-context

@@ -1,11 +1,11 @@
 ---
 title: Automate migration machine migration in Azure Migrate
 description: Describes how to use scripts to migrate a large number of machines in Azure Migrate
-author: snehaamicrosoft
-ms.service: azure-migrate
-ms.topic: article
+author: anvar-ms 
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 04/01/2019
-ms.author: snehaa
 ---
 
 

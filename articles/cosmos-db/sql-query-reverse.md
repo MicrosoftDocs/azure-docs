@@ -3,12 +3,15 @@ title: REVERSE in Azure Cosmos DB query language
 description: Learn about SQL system function REVERSE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # REVERSE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the reverse order of a string value.  
   
 ## Syntax

@@ -3,7 +3,6 @@ title: Secure an Azure Service Fabric cluster
 description: Learn about security scenarios for an Azure Service Fabric cluster, and the various technologies you can use to implement them.
 ms.topic: conceptual
 ms.date: 08/14/2018
-ms.custom: sfrev
 ---
 # Service Fabric cluster security scenarios
 
@@ -13,7 +12,7 @@ This article is an overview of security scenarios for Azure clusters and standal
 
 * Node-to-node security
 * Client-to-node security
-* Role-Based Access Control (RBAC)
+* Service Fabric role-based access control
 
 ## Node-to-node security
 
@@ -54,7 +53,7 @@ Clusters running on Azure and standalone clusters running on Windows both can us
 
 Set up client-to-node certificate security when you create the cluster, either in the Azure portal, by using a Resource Manager template, or by using a standalone JSON template. To create the certificate, specify an admin client certificate or a user client certificate. As a best practice, the admin client and user client certificates you specify should be different from the primary and secondary certificates you specify for [node-to-node security](#node-to-node-security). Cluster certificates have the same rights as client admin certificates. However, they should be used only by cluster and not by administrative users as a security best practice.
 
-Clients that connect to the cluster by using the admin certificate have full access to management capabilities. Clients that connect to the cluster by using the read-only user client certificate have only read access to management capabilities. These certificates are used for the RBAC that is described later in this article.
+Clients that connect to the cluster by using the admin certificate have full access to management capabilities. Clients that connect to the cluster by using the read-only user client certificate have only read access to management capabilities. These certificates are used for the Service Fabric RBAC that is described later in this article.
 
 To learn how to set up certificate security in a cluster for Azure, see [Set up a cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md).
 
@@ -79,13 +78,13 @@ For Service Fabric clusters deployed in a public network hosted on Azure, the re
 
 For standalone Windows Server clusters, if you have Windows Server 2012 R2 and Windows Active Directory, we recommend that you use Windows security with group Managed Service Accounts. Otherwise, use Windows security with Windows accounts.
 
-## Role-Based Access Control (RBAC)
+## Service Fabric role-based access control
 
 You can use access control to limit access to certain cluster operations for different groups of users. This helps make the cluster more secure. Two access control types are supported for clients that connect to a cluster: Administrator role and User role.
 
 Users who are assigned the Administrator role have full access to management capabilities, including read and write capabilities. Users who are assigned the User role, by default, have only read access to management capabilities (for example, query capabilities). They also can resolve applications and services.
 
-Set the Administrator and User client roles when you create the cluster. Assign roles by providing separate identities (for example, by using certificates or Azure AD) for each role type. For more information about default access control settings and how to change default settings, see [Role-Based Access Control for Service Fabric clients](service-fabric-cluster-security-roles.md).
+Set the Administrator and User client roles when you create the cluster. Assign roles by providing separate identities (for example, by using certificates or Azure AD) for each role type. For more information about default access control settings and how to change default settings, see [Service Fabric role-based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
 
 ## X.509 certificates and Service Fabric
 
@@ -128,7 +127,7 @@ The concept of creating secure clusters is the same, whether they are Linux or W
 
 ### Client authentication certificates (optional)
 
-Any number of additional certificates can be specified for admin or user client operations. The client can use this certificate when mutual authentication is required. Client certificates typically are not issued by a third-party CA. Instead, the Personal store of the current user location typically contains client certificates placed there by a root authority. The certificate should have an **Intended Purposes** value of **Client Authentication**.  
+Any number of additional certificates can be specified for admin or user client operations. The client can use these certificates when mutual authentication is required. Client certificates typically are not issued by a third-party CA. Instead, the Personal store of the current user location typically contains client certificates placed there by a root authority. The certificate should have an **Intended Purposes** value of **Client Authentication**.  
 
 By default the cluster certificate has admin client privileges. These additional client certificates should not be installed into the cluster, but are specified as being allowed in the cluster configuration.  However, the client certificates need to be installed on the client machines to connect to the cluster and perform any operations.
 

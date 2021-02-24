@@ -3,7 +3,6 @@ title: Create & query Azure Data Lake Analytics - PowerShell
 description: Use Azure PowerShell to create an Azure Data Lake Analytics account and submit a U-SQL job.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017 
 ms.custom: devx-track-azurepowershell
@@ -20,12 +19,12 @@ Learn how to use Azure PowerShell to create Azure Data Lake Analytics accounts a
 
 Before you begin this tutorial, you must have the following information:
 
-* **An Azure Data Lake Analytics account**. See [Get started with Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
+* **An Azure Data Lake Analytics account**. See [Get started with Data Lake Analytics](./data-lake-analytics-get-started-portal.md).
 * **A workstation with Azure PowerShell**. See [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## Log in to Azure
 
-This tutorial assumes you are already familiar with using Azure PowerShell. In particular, you need to know how to log in to Azure. See the [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) if you need help.
+This tutorial assumes you are already familiar with using Azure PowerShell. In particular, you need to know how to log in to Azure. See the [Get started with Azure PowerShell](/powershell/azure/get-started-azureps) if you need help.
 
 To log in with a subscription name:
 

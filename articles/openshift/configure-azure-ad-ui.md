@@ -1,13 +1,13 @@
 ---
 title: Azure Red Hat OpenShift running OpenShift 4  - Configure Azure Active Directory authentication using the Azure portal and the OpenShift web console
 description: Learn how to configure Azure Active Directory authentication for an Azure Red Hat OpenShift cluster running OpenShift 4 using the Azure portal and the OpenShift web console
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 # Customer intent: As an operator, I need to configure Azure Active Directory authentication for an Azure Red Hat OpenShift cluster running OpenShift 4
 ---
 
@@ -58,7 +58,7 @@ We'll configure OpenShift to use the `email` claim and fall back to `upn` to set
 
 Navigate to **Token configuration (preview)** and click on **Add optional claim**. Select **ID** then check the **email** and **upn** claims.
 
-![Create a secret](media/aro4-ad-tokens.png)
+![Screenshot that shows the email and upn claims that were added.](media/aro4-ad-tokens.png)
 
 ## Assign users and groups to the cluster (optional)
 

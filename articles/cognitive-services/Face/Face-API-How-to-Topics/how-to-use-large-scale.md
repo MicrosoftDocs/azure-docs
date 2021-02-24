@@ -230,7 +230,7 @@ An example workflow:
 
 If a relatively long latency is acceptable, it isn't necessary to trigger the Train operation right after you add new data. Instead, the Train operation can be split from the main logic and triggered regularly. This strategy is suitable for dynamic scenarios with acceptable latency. It can be applied to static scenarios to further reduce the Train frequency.
 
-Suppose there's a `TrainLargePersonGroup` function similar to `TrainLargeFaceList`. A typical implementation of the standalone training on a LargePersonGroup by invoking the [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) class in `System.Timers` is:
+Suppose there's a `TrainLargePersonGroup` function similar to `TrainLargeFaceList`. A typical implementation of the standalone training on a LargePersonGroup by invoking the [`Timer`](/dotnet/api/system.timers.timer) class in `System.Timers` is:
 
 ```csharp
 private static void Main()

@@ -29,7 +29,7 @@ To configure active geo-replication by using the Azure portal, you need the foll
 * A database in Azure SQL Database: The primary database that you want to replicate to a different geographical region.
 
 > [!Note]
-> When using Azure portal, you can only create a secondary database within the same subscription as the primary. If a secondary database is required to be in a different subscription, use [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) or [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> When using Azure portal, you can only create a secondary database within the same subscription as the primary. If a secondary database is required to be in a different subscription, use [Create Database REST API](/rest/api/sql/databases/createorupdate) or [ALTER DATABASE Transact-SQL API](/sql/t-sql/statements/alter-database-transact-sql).
 
 ## Add a secondary database
 

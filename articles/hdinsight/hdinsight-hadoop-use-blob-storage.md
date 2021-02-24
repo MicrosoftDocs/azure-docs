@@ -1,9 +1,6 @@
 ---
 title: Query data from HDFS-compatible Azure storage - Azure HDInsight
 description: Learn how to query data from Azure storage and Azure Data Lake Storage to store results of your analysis.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
@@ -146,7 +143,7 @@ To obtain the path using Ambari REST API, see [Get the default storage](./hdinsi
 
 ## Blob containers
 
-To use blobs, you first create an [Azure Storage account](../storage/common/storage-create-storage-account.md). As part of this step, you specify an Azure region where the storage account is created. The cluster and the storage account must be hosted in the same region. The Hive metastore SQL Server database and Apache Oozie metastore SQL Server database must be located in the same region.
+To use blobs, you first create an [Azure Storage account](../storage/common/storage-account-create.md). As part of this step, you specify an Azure region where the storage account is created. The cluster and the storage account must be hosted in the same region. The Hive metastore SQL Server database and Apache Oozie metastore SQL Server database must be located in the same region.
 
 Wherever it lives, each blob you create belongs to a container in your Azure Storage account. This container may be an existing blob created outside of HDInsight. Or it may be a container that is created for an HDInsight cluster.
 

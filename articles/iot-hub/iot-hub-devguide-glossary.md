@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.custom: [amqp, mqtt]
+ms.custom: [amqp, mqtt, devx-track-azurecli]
 ---
 
 # Glossary of IoT Hub terms
@@ -21,19 +21,19 @@ This article lists some of the common terms used in the IoT Hub articles.
 
 ## Automatic Device Management
 
-Automatic Device Management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With Automatic Device Management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  Consists of [automatic device configurations](iot-hub-auto-device-config.md) and [IoT Edge automatic deployments](../iot-edge/how-to-deploy-at-scale.md).
+Automatic Device Management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With Automatic Device Management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  Consists of [automatic device configurations](./iot-hub-automatic-device-management.md) and [IoT Edge automatic deployments](../iot-edge/how-to-deploy-at-scale.md).
 
 ## Automatic device configuration
 
-Your solution back end can use [automatic device configurations](iot-hub-auto-device-config.md) to assign desired properties to a set of [device twins](#device-twin) and report status using system metrics and custom metrics. 
+Your solution back end can use [automatic device configurations](./iot-hub-automatic-device-management.md) to assign desired properties to a set of [device twins](#device-twin) and report status using system metrics and custom metrics. 
 
 ## Azure classic CLI
 
-The [Azure classic CLI](../cli-install-nodejs.md) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This version of the CLI should be used for classic deployments only.
+The [Azure classic CLI](/cli/azure/install-classic-cli) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This version of the CLI should be used for classic deployments only.
 
 ## Azure CLI
 
-The [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure.
+The [Azure CLI](/cli/azure/install-az-cli2) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure.
 
 ## Azure IoT device SDKs
 
@@ -65,7 +65,7 @@ The [Microsoft Azure portal](https://portal.azure.com) is a central place where 
 
 ## Azure Service Bus
 
-[Service Bus](../service-bus/index.md) provides cloud-enabled communication with enterprise messaging and relayed communication that helps you connect on-premises solutions with the cloud. Some IoT Hub tutorials make use Service Bus [queues](../service-bus-messaging/service-bus-messaging-overview.md).
+[Service Bus](../service-bus-messaging/index.yml) provides cloud-enabled communication with enterprise messaging and relayed communication that helps you connect on-premises solutions with the cloud. Some IoT Hub tutorials make use Service Bus [queues](../service-bus-messaging/service-bus-messaging-overview.md).
 
 ## Azure Storage
 
@@ -89,7 +89,7 @@ Refers to messages sent from an IoT hub to a connected device. Often, these mess
 
 ## Configuration
 
-In the context of [automatic device configuration](iot-hub-auto-device-config.md), a configuration within IoT Hub defines the desired configuration for a set of devices twins and provides a set of metrics to report status and progress.
+In the context of [automatic device configuration](./iot-hub-automatic-device-management.md), a configuration within IoT Hub defines the desired configuration for a set of devices twins and provides a set of metrics to report status and progress.
 
 ## Connection string
 
@@ -157,7 +157,7 @@ Device management encompasses the full lifecycle associated with managing the de
 
 ## Device REST API
 
-You can use the [Device REST API](https://docs.microsoft.com/rest/api/iothub/device) from a device to send device-to-cloud messages to an IoT hub, and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [device SDKs](#azure-iot-device-sdks) as shown in the IoT Hub tutorials.
+You can use the [Device REST API](/rest/api/iothub/device) from a device to send device-to-cloud messages to an IoT hub, and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [device SDKs](#azure-iot-device-sdks) as shown in the IoT Hub tutorials.
 
 ## Device provisioning
 
@@ -177,7 +177,7 @@ An IoT hub exposes multiple [endpoints](iot-hub-devguide-endpoints.md) that enab
 
 ## Event Hubs service
 
-[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is a highly scalable data ingress service that can ingest millions of events per second. The service enables you to process and analyze the massive amounts of data produced by your connected devices and applications. For a comparison with the IoT Hub service, see [Comparison of Azure IoT Hub and Azure Event Hubs](iot-hub-compare-event-hubs.md).
+[Event Hubs](../event-hubs/event-hubs-about.md) is a highly scalable data ingress service that can ingest millions of events per second. The service enables you to process and analyze the massive amounts of data produced by your connected devices and applications. For a comparison with the IoT Hub service, see [Comparison of Azure IoT Hub and Azure Event Hubs](iot-hub-compare-event-hubs.md).
 
 ## Event Hub-compatible endpoint
 
@@ -211,7 +211,7 @@ IoT Hub is a fully managed Azure service that enables reliable and secure bidire
 
 ## IoT Hub metrics
 
-[IoT Hub metrics](iot-hub-metrics.md) give you data about the state of the IoT hubs in your [Azure subscription](#subscription). IoT Hub metrics enable you to assess the overall health of the service and the devices connected to it. IoT Hub metrics can help you see what is going on with your IoT hub and investigate root-cause issues without needing to contact Azure support.
+[IoT Hub metrics](monitor-iot-hub-reference.md#metrics) give you data about the state of the IoT hubs in your [Azure subscription](#subscription). IoT Hub metrics enable you to assess the overall health of the service and the devices connected to it. IoT Hub metrics can help you see what is going on with your IoT hub and investigate root-cause issues without needing to contact Azure support. To learn more, see [Monitor IoT Hub](monitor-iot-hub.md).
 
 ## IoT Hub query language
 
@@ -219,7 +219,7 @@ The [IoT Hub query language](iot-hub-devguide-query-language.md) is a SQL-like l
 
 ## IoT Hub Resource REST API
 
-You can use the [IoT Hub Resource REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) to manage the IoT hubs in your [Azure subscription](#subscription) performing operations such as creating, updating, and deleting hubs.
+You can use the [IoT Hub Resource REST API](/rest/api/iothub/iothubresource) to manage the IoT hubs in your [Azure subscription](#subscription) performing operations such as creating, updating, and deleting hubs.
 
 ## IoT solution accelerators
 
@@ -297,7 +297,7 @@ SASL PLAIN is a protocol that the AMQP protocol uses to transfer security tokens
 
 ## Service REST API
 
-You can use the [Service REST API](https://docs.microsoft.com/rest/api/iothub/service/configuration) from the solution back end to manage your devices. The API enables you to retrieve and update [device twin](#device-twin) properties, invoke [direct methods](#direct-method), and schedule [jobs](#job). Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
+You can use the [Service REST API](/rest/api/iothub/service/configuration) from the solution back end to manage your devices. The API enables you to retrieve and update [device twin](#device-twin) properties, invoke [direct methods](#direct-method), and schedule [jobs](#job). Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
 
 ## Shared access signature
 

@@ -22,7 +22,7 @@ Use the Power BI Solution for Azure IoT Central V3 to create a powerful Power BI
 - Filter down to data sent by specific devices
 - View the most recent telemetry data in a table
 
-This solution sets up a pipeline that reads data from your [Continuous Data Export](howto-export-data-blob-storage.md) Azure Blob storage account. The pipeline uses Azure Functions, Azure Data Factory, and Azure SQL Database to process and transform the data. you can visualize and analyze the data in a Power BI report that you download as a PBIX file. All of the resources are created in your Azure subscription, so you can customize each component to suit your needs.
+This solution sets up a pipeline that reads data from your [Continuous Data Export](./howto-export-data.md) Azure Blob storage account. The pipeline uses Azure Functions, Azure Data Factory, and Azure SQL Database to process and transform the data. you can visualize and analyze the data in a Power BI report that you download as a PBIX file. All of the resources are created in your Azure subscription, so you can customize each component to suit your needs.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ Setting up the solution requires the following resources:
 - Power BI Pro (if you want to share the dashboard with others).
 
 > [!NOTE]
-> If you're using a version 2 IoT Central application, see [Visualize and analyze your Azure IoT Central data in a Power BI dashboard](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-connect-powerbi) on the previous versions documentation site.
+> If you're using a version 2 IoT Central application, see [Visualize and analyze your Azure IoT Central data in a Power BI dashboard](/previous-versions/azure/iot-central/core/howto-connect-powerbi) on the previous versions documentation site.
 
 ## Install
 

@@ -24,7 +24,7 @@ The kube-advisor tool can report on resource request and limits missing in PodSp
 
 ## Running kube-advisor
 
-To run the tool on a cluster that is configured for [role-based access control (RBAC)](./azure-ad-integration-cli.md), using the following commands. The first command creates a Kubernetes service account. The second command runs the tool in a pod using that service account and configures the pod for deletion after it exits. 
+To run the tool on a cluster that is configured for [Kubernetes role-based access control (Kubernetes RBAC)](./azure-ad-integration-cli.md), using the following commands. The first command creates a Kubernetes service account. The second command runs the tool in a pod using that service account and configures the pod for deletion after it exits. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
@@ -32,7 +32,7 @@ kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }" --namespace default
 ```
 
-If you aren't using RBAC, you can run the command as follows:
+If you aren't using Kubernetes RBAC, you can run the command as follows:
 
 ```bash
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never
@@ -54,13 +54,13 @@ By default, no requests or limits are set on pod specifications. This can lead t
 
 ## Cleaning up
 
-If your cluster has RBAC enabled, you can clean up the `ClusterRoleBinding` after you've run the tool using the following command:
+If your cluster has Kubernetes RBAC enabled, you can clean up the `ClusterRoleBinding` after you've run the tool using the following command:
 
 ```bash
 kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 ```
 
-If you are running the tool against a cluster that is not RBAC-enabled, no cleanup is required.
+If you are running the tool against a cluster that is not Kubernetes RBAC-enabled, no cleanup is required.
 
 ## Next steps
 

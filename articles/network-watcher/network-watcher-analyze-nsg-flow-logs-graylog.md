@@ -53,7 +53,7 @@ Graylog can be installed in many ways, depending on your platform and preference
 [documentation](https://docs.graylog.org/en/2.2/pages/installation.html). The Graylog server application runs on Linux distributions and has the following
 prerequisites:
 
--  Java SE 8 or later – [Azul Azure JDK documentation](https://aka.ms/azure-jdks)
+-  Java SE 8 or later – [Azul Azure JDK documentation](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 -  Elastic Search 2.x (2.1.0 or later) - [Elasticsearch installation documentation](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 -  MongoDB 2.4 or later – [MongoDB installation documentation](https://docs.mongodb.com/manual/administration/install-on-linux/)
 

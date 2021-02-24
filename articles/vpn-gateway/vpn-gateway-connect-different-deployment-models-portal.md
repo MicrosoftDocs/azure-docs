@@ -6,8 +6,9 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/24/2019
+ms.date: 02/10/2021
 ms.author: cherylmc
+
 ---
 # Connect virtual networks from different deployment models using the portal
 
@@ -83,7 +84,7 @@ In this section, you create the classic VNet, the local network (local site), an
 
 ### 1. <a name="classicvnet"></a>Create a classic VNet
 
-If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using [this article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and the [Example](#values) settings values from above.
+If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using [this article](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) and the [Example](#values) settings values from above.
 
 If you already have a VNet with a VPN gateway, verify that the gateway is Dynamic. If it's Static, you must first delete the VPN gateway before you proceed to [Configure the local site](#local).
 
@@ -159,7 +160,7 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 * GatewaySubnet = 192.168.0.0/26 <br>
 * First IP configuration = rmgwpip <br>
 
-[!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Add gateway](../../includes/vpn-gateway-add-gw-rm-portal-empty.md)]
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -174,7 +175,7 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 The local network gateway specifies the address range and the Public IP address associated with your classic VNet and its virtual network gateway. If you are doing these steps as an exercise, refer to the Example values.
 
-[!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
+[!INCLUDE [Add local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-ip-empty.md)]
 
 ## <a name="modifylng"></a>Section 3 - Modify the classic VNet local site settings
 

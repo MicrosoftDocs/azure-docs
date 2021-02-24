@@ -1,19 +1,19 @@
 ---
-title: Build and deploy a Node.js Express app to Azure Cloud Services
-titleSuffix: Azure Cloud Services
+title: Build and deploy a Node.js Express app to Azure Cloud Services (classic)
 description: Use this tutorial to create a new application using the Express module, which provides an MVC framework for creating Node.js web applications.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
-ms.service: cloud-services
-ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/17/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# Build and deploy a Node.js web application using Express on an Azure Cloud Services
+# Build and deploy a Node.js web application using Express on an Azure Cloud Services (classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 Node.js includes a minimal set of functionality in the core runtime.
 Developers often use 3rd party modules to provide additional
@@ -136,13 +136,8 @@ Once the deployment operation completes, your browser will open and display the 
 ![A web browser displaying the Express page. The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## Next steps
-For more information, see the [Node.js Developer Center](https://docs.microsoft.com/azure/developer/javascript/).
+For more information, see the [Node.js Developer Center](/azure/developer/javascript/).
 
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
-
-
-
-
-

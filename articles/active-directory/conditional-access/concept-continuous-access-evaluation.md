@@ -23,7 +23,9 @@ Customers have expressed concerns about the lag between when conditions change f
 
 Timely response to policy violations or security issues really requires a “conversation” between the token issuer, like Azure AD, and the relying party, like Exchange Online. This two-way conversation gives us two important capabilities. The relying party can notice when things have changed, like a client coming from a new location, and tell the token issuer. It also gives the token issuer a way to tell the relying party to stop respecting tokens for a given user due to account compromise, disablement, or other concerns. The mechanism for this conversation is continuous access evaluation (CAE). The goal is for response to be near real time, but in some cases latency of up to 15 minutes may be observed due to event propagation time.
 
-The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online. 
+The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online.
+
+To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md).
 
 ### Key benefits
 
@@ -43,7 +45,7 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 - Password for a user is changed or reset
 - Multi-factor authentication is enabled for the user
 - Administrator explicitly revokes all refresh tokens for a user
-- Elevated user risk detected by Azure AD Identity Protection
+- High user risk detected by Azure AD Identity Protection
 
 This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within mins after one of these critical events. 
 
@@ -100,7 +102,7 @@ If you are not using CAE-capable clients, your default access token lifetime wil
 
 1. A CAE-capable client presents credentials or a refresh token to Azure AD asking for an access token for some resource.
 1. An access token is returned along with other artifacts to the client.
-1. An Administrator explicitly [revokes all refresh tokens for the user](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). A revocation event will be sent to the resource provider from Azure AD.
+1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). A revocation event will be sent to the resource provider from Azure AD.
 1. An access token is presented to the resource provider. The resource provider evaluates the validity of the token and checks whether there is any revocation event for the user. The resource provider uses this information to decide to grant access to the resource or not.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client.
 1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD will then reevaluate all the conditions and prompt the user to reauthenticate in this case.
@@ -137,7 +139,7 @@ From this page, you can optionally limit the users and groups that will be subje
 For CAE, we only have insights into named IP-based named locations. We have no insights into other location settings like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country-based locations. When user comes from an MFA trusted IP or trusted locations that include MFA Trusted IPs or country location, CAE will not be enforced after user move to a different location. In those cases, we will issue a 1-hour CAE token without instant IP enforcement check.
 
 > [!IMPORTANT]
-> When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md#preview-features) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure Multi-Factor Authentication's service settings page.
+> When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md#preview-features) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multi-Factor Authentication's service settings page.
 
 ### IP address configuration
 
@@ -156,7 +158,7 @@ If this scenario exists in your environment to avoid infinite loops, Azure AD wi
 | Semi-Annual Enterprise Channel | If set to enabled or 1, CAE is not be supported. | If set to enabled or 1, CAE is not be supported. |
 | Current Channel <br> or <br> Monthly Enterprise Channel | CAE is supported regardless of the setting | CAE is supported regardless of the setting |
 
-For an explanation of the office update channels, see [Overview of update channels for Microsoft 365 Apps](https://docs.microsoft.com/deployoffice/overview-update-channels). It is recommended that organizations do not disable Web Account Manager (WAM).
+For an explanation of the office update channels, see [Overview of update channels for Microsoft 365 Apps](/deployoffice/overview-update-channels). It is recommended that organizations do not disable Web Account Manager (WAM).
 
 ### Policy change timing
 

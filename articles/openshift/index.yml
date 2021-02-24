@@ -6,8 +6,7 @@ summary: Azure Red Hat OpenShift provides single-tenant, high-availability Kuber
 metadata:
   title: Azure Red Hat OpenShift documentation
   description: Microsoft Azure Red Hat OpenShift allows you to deploy a production ready Red Hat OpenShift cluster in Azure. Learn how with these tutorials and how-to guides.
-  ms.service: container-service
-  services: container-service
+  ms.service: azure-redhat-openshift
   ms.topic: landing-page
   author: jimzim
   ms.author: jzim
@@ -45,6 +44,10 @@ landingContent:
             url: ./howto-create-private-cluster-3x.md
           - text: Configure DNS Forwarding for an Azure Red Hat OpenShift 4 cluster
             url: dns-forwarding.md
+          - text: Configure built-in container registry for Azure Red Hat OpenShift 4
+            url: built-in-container-registry.md
+          - text: Deploy an Open Liberty/WebSphere Liberty application on an Azure Red Hat OpenShift 4 cluster
+            url: howto-deploy-java-liberty-app.md
 
   # Card
   - title: Reference

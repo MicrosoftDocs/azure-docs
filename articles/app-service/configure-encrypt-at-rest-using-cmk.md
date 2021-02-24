@@ -17,7 +17,7 @@ Encrypting your web app's application data at rest requires an Azure Storage Acc
 
 ### Create an Azure Storage account
 
-First, [create an Azure Storage account](../storage/common/storage-account-create.md) and [encrypt it with customer-managed keys](../storage/common/encryption-customer-managed-keys.md). Once the storage account is created, use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files.
+First, [create an Azure Storage account](../storage/common/storage-account-create.md) and [encrypt it with customer-managed keys](../storage/common/customer-managed-keys-overview.md). Once the storage account is created, use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files.
 
 Next, use the Storage Explorer to [generate an SAS](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#generate-a-sas-in-storage-explorer). 
 
