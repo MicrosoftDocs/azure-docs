@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/19/2020
+ms.date: 02/24/2021
 ms.author: alkohli 
 ---
 # Deployment checklist for your Azure Stack Edge Pro R device  
@@ -27,7 +27,7 @@ Use the following checklist to ensure you have this information after you have p
 | Device sign-in                      | Device administrator password, between 8 and 16 characters and contains three of the following: uppercase, lowercase, numeric, and special characters.                                            | Default password is *Password1* which expires at first sign in.                                                     |
 | Network settings                  | Device comes with 2 x 1 GbE, 4 x 25 GbE network ports. <li>Port 1 is used to configure management settings only. One or more data ports can be connected and configured. </li><li> At least one data network interface from among Port 2 - Port 6 needs to be connected to the Internet (with connectivity to Azure).</li><li> DHCP and static IPv4 configuration supported. | Static IPv4 configuration requires IP, DNS server, and default gateway.   |
 | Compute network settings     | <li>Require 2 free, static, contiguous IPs for Kubernetes nodes, and 1 static IP for IoT Edge service.</li><li>Require one additional IP for each extra service or module that you'll deploy.</li>| Only static IPv4 configuration is supported.|
-| (Optional) Web proxy settings     | <li>Web proxy server IP/FQDN, port </li><li>Web proxy username, password</li> | Web proxy not supported with compute setup. |
+| (Optional) Web proxy settings     | <li>Web proxy server IP/FQDN, port </li><li>Web proxy username, password</li> |  |
 | Firewall and port settings        | If using firewall, make sure the [listed URLs patterns and ports](azure-stack-edge-system-requirements.md#networking-port-requirements) are allowed for device IPs. |  |
 | (Recommended) Time settings       | Configure time zone, primary NTP server, secondary NTP server. | Configure primary and secondary NTP server on local network.<br>If local server is not available, public NTP servers can be   configured.                                                    |
 | (Optional) Update server settings | <li>Require update server IP address on local network, path to WSUS server. </li> | By default, public windows update server is used.|
