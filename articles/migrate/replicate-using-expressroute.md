@@ -55,7 +55,6 @@ The Azure user creating the private endpoint should have the following permissio
 |Create a network interface and join it to a network security group. | Microsoft.Network/networkInterfaces/read <br/> Microsoft.Network/networkInterfaces/subnets/write <br/> Microsoft.Network/networkInterfaces/subnets/read<br/> Microsoft.Network/networkSecurityGroups/join/action (optional)
 Create and manage private DNS zones.| Private DNS Zone Contributor role <br/> _Or_ <br/> Microsoft.Network/privateDnsZones/A/* <br/>  Microsoft.Network/privateDnsZones/write Microsoft.Network/privateDnsZones/read <br/> Microsoft.Network/privateEndpoints/privateDnsZoneGroups/write <br/> Microsoft.Network/privateEndpoints/privateDnsZoneGroups/read <br/> Microsoft.Network/privateDnsZones/virtualNetworkLinks/write <br/>  Microsoft.Network/privateDnsZones/virtualNetworkLinks/read <br/> Microsoft.Network/virtualNetworks/join/action 
 
-
 ### 2. Identify the cache storage account 
  
 Azure Migrate automatically creates a cache storage account when you configure replication (using the Azure portal experience) for a virtual machine for the first time in an Azure Migrate project. The storage account is created in the same subscription and resource group that you created the Azure Migrate project in.
@@ -68,7 +67,7 @@ To create and locate the storage account:
 
 ![Resource group view](./media/replicate-using-expressroute/storage-account-name.png)
 
-> [!Tip]
+**Tip:** <br/>
 If you have more than one storage account with the prefix **"lsa"** in your resource group, you can verify the storage account by navigating to the replication settings and target configuration menu for any of the replicating VMs in the project. <br/>
 ![Replication settings overview](./media/replicate-using-expressroute/storage-account.png)
 
@@ -182,10 +181,6 @@ Additionally, you must advertise routes in the Route Filter for the following BG
 - BGP community for Azure Active Directory (12076:5060)
 
 Learn more about [Route Filters](https://docs.microsoft.com/azure/expressroute/how-to-routefilter-portal) and the list of [BGP communities for ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp). 
-
-## Connect to your migrated VMs
-
-After your virtual machines or servers are migrated to an Azure virtual network, you can access them using your ExpressRoute private peering circuit or other standard methods.
 
 ## Next steps
 
