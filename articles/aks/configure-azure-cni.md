@@ -93,7 +93,7 @@ When you create an AKS cluster, the following parameters are configurable for Az
 
 **Subnet**: The subnet within the virtual network where you want to deploy the cluster. If you want to create a new subnet in the virtual network for your cluster, select *Create new* and follow the steps in the *Create subnet* section. For hybrid connectivity, the address range shouldn't overlap with any other virtual networks in your environment.
 
-**Azure Network Plugin**: When azure network plugin is used, the internal LoadBalancer service with "externalTrafficPolicy=Local" can't be accessed from VMs with an IP in clusterCIDR that does not belong to AKS cluster.
+**Azure Network Plugin**: When Azure network plugin is used, the internal LoadBalancer service with "externalTrafficPolicy=Local" can't be accessed from VMs with an IP in clusterCIDR that does not belong to AKS cluster.
 
 **Kubernetes service address range**: This parameter is the set of virtual IPs that Kubernetes assigns to internal [services][services] in your cluster. You can use any private address range that satisfies the following requirements:
 
@@ -351,13 +351,11 @@ Learn more about networking in AKS in the following articles:
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
-[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az_aks_show
+[az-extension-add]: https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_add
+[az-extension-update]: https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_update
+[az-feature-register]: https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true#az_feature_register
+[az-feature-list]: https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true#az_feature_list
+[az-provider-register]: https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest&preserve-view=true#az_provider_register
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
