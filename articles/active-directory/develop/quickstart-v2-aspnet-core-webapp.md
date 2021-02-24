@@ -88,6 +88,8 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > [!div renderon="docs"]
 > #### Step 3: Configure your ASP.NET Core project
 > 1. Extract the .zip archive into a local folder near the root of your drive. For example, extract into *C:\Azure-Samples*.
+> 
+>    We recommend extracting the archive into a directory near the root of your drive to avoid errors caused by path length limitations on Windows.
 > 1. Open the solution in Visual Studio 2019.
 > 1. Open the *appsettings.json* file and modify the following code:
 >
@@ -116,9 +118,14 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >
 > :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Screenshot of a web browser that shows the running web app and the signed-in user.":::
 
-## More information about sign-in
+## More information
 
 This section gives an overview of the code required to sign in users. This overview can be useful to understand how the code works, what the main arguments are, and how to add sign-in to an existing ASP.NET Core application.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> ### How the sample works
+>
+> ![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
 
 ### Startup class
 
