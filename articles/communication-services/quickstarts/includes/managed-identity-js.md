@@ -69,7 +69,7 @@ import { CommunicationIdentityClient } from "@azure/communication-identity";
 import { SmsClient } from "@azure/communication-sms";
 ```
 
-The examples below are using the [DefaultAzureCredential](/js/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
+The examples below are using the [DefaultAzureCredential](/javascript/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
 
 ### Create an identity and issue a token
 
@@ -109,7 +109,7 @@ export async function sendSms(resourceEndpoint: string, fromNumber: any, toNumbe
 You may also want to:
 
 - [Learn more about Azure role-based access control](../../../articles/role-based-access-control/index.yml)
-- [Learn more about Azure identity library for JS](/js/api/overview/azure/identity-readme)
+- [Learn more about Azure identity library for JS](/javascript/api/overview/azure/identity-readme)
 - [Creating user access tokens](../quickstarts/access-tokens.md)
 - [Send an SMS message](../quickstarts/telephony-sms/send.md)
 - [Learn more about SMS](../concepts/telephony-sms/concepts.md)
