@@ -144,6 +144,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.
+* Sky CP Ltd
 * Sky Deutschland Fernsehen GmbH & Co. KG
 * SMARDTV GLOBAL SAS
 * SoftAtHome
