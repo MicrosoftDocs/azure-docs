@@ -121,7 +121,7 @@ The query examples read *json* files containing documents with following structu
 
 ### Query JSON files using JSON_VALUE
 
-The query below shows you how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to retrieve scalar values (title, publisher) from a JSON documents:
+The query below shows you how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) to retrieve scalar values (title, publisher) from a JSON documents:
 
 ```sql
 select
@@ -141,7 +141,7 @@ order by JSON_VALUE(doc, '$.geo_id') desc
 
 ### Query JSON files using OPENJSON
 
-The following query uses [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). It will retrieve COVID statistics reported in Serbia:
+The following query uses [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest&preserve-view=true). It will retrieve COVID statistics reported in Serbia:
 
 ```sql
 select
