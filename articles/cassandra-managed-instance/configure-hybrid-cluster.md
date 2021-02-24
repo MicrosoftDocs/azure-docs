@@ -75,14 +75,14 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    resourceGroupName='MyResourceGroup'
    clusterName='cassandra-hybrid-cluster'
     
-   az cassandra-mi cluster get \
+   az cassandra-mi cluster show \
        --cluster-name $clusterName \
        --resource-group $resourceGroupName \
    ```
 
 1. The previous command returns information about the managed instance environment. You'll need the public certificates and gossip certificates so that you can install them on the nodes in your existing datacenter. The following screenshot shows the output of the previous command and the format of certificates:
 
-   :::image type="content" source="./media/configure-hybrid-cluster/get-cluster.png" alt-text="Get the certificate details from the cluster." lightbox="./media/configure-hybrid-cluster/get-cluster.png" border="true":::
+   :::image type="content" source="./media/configure-hybrid-cluster/show-cluster.png" alt-text="Get the certificate details from the cluster." lightbox="./media/configure-hybrid-cluster/show-cluster.png" border="true":::
 
 1. Next, create a new datacenter in the hybrid cluster. Make sure to replace the variable values with your cluster details:
 
@@ -102,14 +102,14 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
        --node-count 9 
    ```
 
-1. Now that the new datacenter is created, run the get datacenter command to view its details:
+1. Now that the new datacenter is created, run the show datacenter command to view its details:
 
    ```azurecli-interactive
    resourceGroupName='MyResourceGroup'
    clusterName='cassandra-hybrid-cluster'
    dataCenterName='dc1'
     
-   az cassandra-mi datacenter get \
+   az cassandra-mi datacenter show \
        --resource-group $resourceGroupName \
        --cluster-name $clusterName \
        --data-center-name $dataCenterName 
@@ -117,7 +117,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
 1. The previous command outputs the new datacenter's seed nodes. Add the new datacenter's seed nodes to your existing datacenter's configuration within the *cassandra.yaml* file. And install the managed instance public certificates and gossip certificates that you collected earlier:
 
-   :::image type="content" source="./media/configure-hybrid-cluster/get-datacenter.png" alt-text="Get datacenter details." lightbox="./media/configure-hybrid-cluster/get-datacenter.png" border="true":::
+   :::image type="content" source="./media/configure-hybrid-cluster/show-datacenter.png" alt-text="Get datacenter details." lightbox="./media/configure-hybrid-cluster/show-datacenter.png" border="true":::
 
 1. Finally, use the following SQL query to update the replication strategy to include both datacenters across the cluster:
 

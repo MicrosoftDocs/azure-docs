@@ -83,7 +83,7 @@ Get cluster details:
 resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 
-az cassandra-mi cluster get \
+az cassandra-mi cluster show \
     --cluster-name $clusterName \
     --resource-group $resourceGroupName \
 ```
@@ -96,8 +96,7 @@ List clusters by resource group:
 subscriptionId='MySubscriptionId'
 resourceGroupName='MyResourceGroup'
 
-az cassandra-mi list-clusters \
-    --subscription-id $subscriptionId \
+az cassandra-mi cluster list-by-resourcegroup \
     --resource-group $resourceGroupName \
 ```
 
@@ -108,7 +107,7 @@ List clusters by subscription ID:
 ```azurecli-interactive
 subscriptionId='MySubscriptionId'
 
-az cassandra-mi list-clusters \
+az cassandra-mi cluster list-by-subscription \
     --subscription-id $subscriptionId \
 ```
 
@@ -166,7 +165,7 @@ resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 dataCenterName='dc1'
 
-az cassandra-mi datacenter get \
+az cassandra-mi datacenter show \
     --resource-group $resourceGroupName \
     --cluster-name $clusterName \
     --data-center-name $dataCenterName 
@@ -198,7 +197,7 @@ Get datacenters in a cluster:
 resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 
-az cassandra-mi list-datacenters \
+az cassandra-mi datacenter list \
     --resource-group $resourceGroupName \
     --cluster-name $clusterName
 ```
