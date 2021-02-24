@@ -37,4 +37,4 @@ ms.date: 10/02/2020
 
     [![Specify the kind of API permission your app requires](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png)](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png#lightbox)
 
-* [Add Credenitals](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#add-credentials) if the application will be calling your environment's APIs as itself. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
+* [Add Credentials](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#add-credentials) if the application will be calling your environment's APIs as itself. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
