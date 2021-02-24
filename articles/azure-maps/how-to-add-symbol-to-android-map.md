@@ -128,6 +128,52 @@ The following screenshot shows the above code rending a point feature using a cu
 > [!TIP]
 > When you want to render only text with a symbol layer, you can hide the icon by setting the `iconImage` property of the icon options to `"none"`.
 
+## Modify symbol colors
+
+The Azure Maps Android SDK comes with a set of predefined color variations of the default marker icon. For example, `marker-red` can be passed into the `iconImage` option of a symbol layer to render a red version of the marker icon in that layer. 
+
+```java
+SymbolLayer layer = new SymbolLayer(source,
+    iconImage("marker-red")
+);
+```
+
+The table below lists all of the built-in icon image names available. All of these markers pull its colors from color resources that you can override. In addition to overriding the main fill color of this marker. However, note that overriding the color of one of these markers would be apply to all layers that use that icon image.
+
+| Icon image name | Color resource name |
+|-----------------|---------------------|
+| `marker-default` | `mapcontrol_marker_default` |
+| `marker-black` | `mapcontrol_marker_black` |
+| `marker-blue` | `mapcontrol_marker_blue` |
+| `marker-darkblue` | `mapcontrol_marker_darkblue` |
+| `marker-red` | `mapcontrol_marker_red` |
+| `marker-yellow` | `mapcontrol_marker_yellow` |
+
+You can also override the border color of all markers using the `mapcontrol_marker_border` color resource name. The colors of these markers can be overridden  by adding a color with the same name in the `colors.xml` file of your app. For example, the following `colors.xml` file would make the default marker color bright green.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mapcontrol_marker_default">#00FF00</color>
+</resources>
+```
+
+The following is a modified version of the default marker vector XML that you can modify to create additional custom versions of the default marker. The modified version can be added to the `drawable` folder of your app and added to the maps image sprite using `map.images.add`, then used with a symbol layer.
+
+```xml
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24.5dp"
+    android:height="36.5dp"
+    android:viewportWidth="24.5"
+    android:viewportHeight="36.5">
+    <path
+        android:pathData="M12.25,0.25a12.2543,12.2543 0,0 0,-12 12.4937c0,6.4436 6.4879,12.1093 11.059,22.5641 0.5493,1.2563 1.3327,1.2563 1.882,0C17.7621,24.8529 24.25,19.1857 24.25,12.7437A12.2543,12.2543 0,0 0,12.25 0.25Z"
+        android:strokeWidth="0.5"
+        android:fillColor="@color/mapcontrol_marker_default"
+        android:strokeColor="@color/mapcontrol_marker_border"/>
+</vector>
+```
+
 ## Next steps
 
 See the following articles for more code samples to add to your maps:
