@@ -20,11 +20,11 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 
 In this quickstart, you download and run a code sample that demonstrates how an ASP.NET Core web app can sign in users from any Azure Active Directory (Azure AD) organization.  
 
-The following diagram shows how the sample app works:
-
-![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
-
 > [!div renderon="docs"]
+> The following diagram shows how the sample app works:
+>
+> ![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
+>
 > ## Prerequisites
 >
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
