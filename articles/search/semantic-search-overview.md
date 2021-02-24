@@ -45,5 +45,5 @@ Between preview launch on March 2 through April 1, spell correction and semantic
 
 A new query type enables the relevance ranking and response structures of semantic search. [Create a semantic query](semantic-how-to-query-request.md) to get started. Or, review either of the following articles for related information.
 
-+ [Add spell check to query inputs](speller-how-to-add.md)
-+ [Semantic algorithms and structuring a semantic response](semantic-how-to-query-response.md)
++ [Add spell check to query terms](speller-how-to-add.md)
++ [Semantic ranking and responses](semantic-how-to-query-response.md)

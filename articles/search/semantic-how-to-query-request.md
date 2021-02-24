@@ -31,7 +31,7 @@ During the initial preview launch, there is no charge for semantic search. For u
 
   The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query.
 
-+ A [Search Documents](/rest/api/searchservice/preview-api/search-documents) request with the semantic option. A semantic query uses "api-version=2020-06-30-Preview", "queryType=semantic", "queryLanguage=en-us", and "searchFields=<ordered-field-list>".
++ A [Search Documents](/rest/api/searchservice/preview-api/search-documents) request with the semantic option. A semantic query uses "api-version=2020-06-30-Preview", "queryType=semantic", "queryLanguage=en-us", and "searchFields=`<ordered-field-list>`".
 
 ## What's a semantic query?
 
@@ -129,7 +129,7 @@ The following table summarizes the query parameters used in a semantic query. Fo
 | "queryType": "semantic" | Required for semantic queries. Invokes the semantic ranking algorithms and models. |
 | "queryLanguage": "en-us" | Required for semantic queries. Currently, only `"en-us"` is implemented. |
 | "searchFields": "<fields>" | Optional but recommended. Specifies the fields over which semantic ranking occurs. In contrast with simple and full query types, when used in a semantic query, this parameter is required. </br></br>The order in which fields are listed determines precedence, with "title" having priority over "url" and so forth, in how results are ranked. If you have a title or a short field that describes your document, we recommend that to be your first field. Follow that by the url (if any), then the body of the document, and then any other relevant fields. |
-| "answers": "extractive|count3" | Optional field to specify that semantic answers be included in the result. Answers can be configured to return a maximum of five. This example shows a count of three answers. |
+| "answers": `"extractive|count3"` | Optional field to specify that semantic answers be included in the result. Answers can be configured to return a maximum of five. This example shows a count of three answers. |
 
 The queryLanguage parameter required for a semantic query must be consistent with [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. If queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"). Any language-agnostic analyzers, such as keyword or simple, have no conflict with queryLanguage values.
 
@@ -236,4 +236,4 @@ Recall that semantic ranking and responses are built over an initial result set.
 + [Similarity and scoring in Cognitive Search](index-similarity-and-scoring.md)
 + [Add scoring profiles](index-add-scoring-profiles.md)
 + [Semantic search overview](semantic-search-overview.md)
-+ [Add spell check to query inputs](speller-how-to-add.md)
++ [Add spell check to query terms](speller-how-to-add.md)
