@@ -32,6 +32,9 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 - If you are not an Azure customer, you can also open a support request with Microsoft via [our commercial support](https://support.serviceshub.microsoft.com/supportforbusiness).
 
 ## Post a question to Microsoft Q&A
+<div class='icon is-large'>
+    <img alt='Microsoft Q&A' src='./media/common/question_mark_icon.png'>
+</div>             
 
 Get answers to your identity app development questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs), and members of our expert community.
 
@@ -75,6 +78,10 @@ If you don't find an answer and ask a new question, add one or more of the follo
 :::row-end:::
 
 ## Create a GitHub issue
+
+<div class='icon is-large'>
+    <img alt='GitHub' src='./media/common/github.svg'>
+</div>
 
 If you need help with one of the Microsoft Authentication Libraries (MSAL), open an issue in its repository on GitHub.
 
