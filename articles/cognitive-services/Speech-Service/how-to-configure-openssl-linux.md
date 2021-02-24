@@ -95,7 +95,7 @@ speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "
 ::: zone-end
 When set to "true" an attempt will be made to retrieve the CRL and if the retrieval is successful the certificate will be checked for revocation, if the retrieval fails, the connection will be allowed to continue.
 
-To completly disable certificat revocation checks, set the property OPENSSL_DISABLE_CRL_CHECK to "true".
+To completely disable certificate revocation checks, set the property OPENSSL_DISABLE_CRL_CHECK to "true".
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
