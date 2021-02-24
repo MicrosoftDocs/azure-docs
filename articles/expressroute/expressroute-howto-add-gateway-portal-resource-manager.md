@@ -83,10 +83,10 @@ Then, select **OK** to save the values and create the gateway subnet.
     | Public IP address | Select **Create new**.|
     | Public IP address name | Provide a name for the public IP address. |
 
-> [!IMPORTANT]
-> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **SKU**.
-> 
-> 
+    > [!IMPORTANT]
+    > If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **SKU**.
+    > 
+    > 
 
 1. Select **Review + Create**, and then **Create** to begin creating the gateway. The settings are validated and the gateway deploys. Creating virtual network gateway can take up to 45 minutes to complete.
 
