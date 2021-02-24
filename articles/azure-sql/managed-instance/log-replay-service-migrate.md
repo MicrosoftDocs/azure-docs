@@ -154,7 +154,7 @@ In case your corporate and networking policy allows it, the alternative way is t
 
 As the first step, this operation requires SAS authentication token to be generated for the Azure Blob Storage, and the token needs to be imported to the SQL Server. The second step is to make backups with "TO URL" option in T-SQL. Please ensure that all backups are made with CHEKSUM option enabled.
 
-For reference, sample code to make backups to Azrue Blob Storage is provided below. Note that this example does not include instructions on how to import the SAS token. Detailed instructions, including how to generate and import the SAS token are provided in the following tutorial: [Use Azure Blob storage service with SQL Server](https://docs.microsoft.com/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage). 
+For reference, sample code to make backups to Azrue Blob Storage is provided below. Note that this example does not include instructions on how to import the SAS token. Detailed instructions, including how to generate and import the SAS token to SQL Server are provided in the following tutorial: [Use Azure Blob storage service with SQL Server](https://docs.microsoft.com/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage). 
 
 ```SQL
 -- Example on how to make full database backup to URL
