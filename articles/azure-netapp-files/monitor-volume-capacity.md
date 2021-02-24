@@ -30,9 +30,7 @@ You can use Windows clients to check the used and available capacity of a volume
 
 * Go to File Explorer, right-click the mapped drive, and select **Properties** to display capacity.  
 
-    ![Screenshot that selects Explorer drive properties.](../media/azure-netapp-files/monitor-explorer-drive-properties.png)
-
-    ![Screenshot that shows volume properties detail.](../media/azure-netapp-files/monitor-volume-properties-detail.png)
+    ![Screenshot that selects Explorer drive properties and volume properties.](../media/azure-netapp-files/monitor-explorer-drive-properties.png) 
 
 * Use the `dir` command at the command prompt: 
 
