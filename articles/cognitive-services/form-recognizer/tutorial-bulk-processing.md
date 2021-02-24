@@ -62,7 +62,7 @@ The Azure Databricks notebook then uses the trained models to extract form data.
 
 Your backlog of forms might be in your on-premises environment or on an (s)FTP server. This tutorial uses forms in an Azure Data Lake Storage Gen2 account. You can transfer your files there by using Azure Data Factory, Azure Storage Explorer, or AzCopy. The training and scoring datasets can be in different containers, but the training datasets for all form types must be in the same container. (They can be in different folders.)
 
-To create a new data lake, follow the instructions in [Create a storage account to use with Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/create-data-lake-storage-account).
+To create a new data lake, follow the instructions in [Create a storage account to use with Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md).
 
 ## Create a parameterization table
 
@@ -86,33 +86,35 @@ These fields will be used in the table:
 
 ### Create the table
 
-1. [Create an Azure SQL database](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), and then run this SQL script in the [query editor](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal) to create the required table:
 
-   ```sql
-   CREATE TABLE dbo.ParamFormRecogniser(
-       form_description varchar(50) NULL,
-     training_container_name varchar(50) NOT NULL,
-       training_blob_root_folder varchar(50) NULL,
-       scoring_container_name varchar(50) NOT NULL,
-       scoring_input_blob_folder varchar(50) NOT NULL,
-       scoring_output_blob_folder varchar(50) NOT NULL,
-       model_id varchar(50) NULL,
-       file_type varchar(50) NULL
-   ) ON PRIMARY
-   GO
-   ```
+1. [Create an Azure SQL database](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), and then run this SQL script in the [query editor](../../azure-sql/database/connect-query-portal.md) to create the required table:
 
-1. Run this script to create the procedure that automatically updates **model_id** after it's trained:
 
-   ```SQL
-   CREATE PROCEDURE [dbo].[update_model_id] ( @form_batch_group_id  varchar(50),@model_id varchar(50))
-   AS
-   BEGIN 
-       UPDATE [dbo].[ParamFormRecogniser]   
-           SET [model_id] = @model_id  
-       WHERE form_batch_group_id =@form_batch_group_id
-   END
-   ```
+```sql
+CREATE TABLE dbo.ParamFormRecogniser(
+    form_description varchar(50) NULL,
+  training_container_name varchar(50) NOT NULL,
+    training_blob_root_folder varchar(50) NULL,
+    scoring_container_name varchar(50) NOT NULL,
+    scoring_input_blob_folder varchar(50) NOT NULL,
+    scoring_output_blob_folder varchar(50) NOT NULL,
+    model_id varchar(50) NULL,
+    file_type varchar(50) NULL
+) ON PRIMARY
+GO
+```
+
+Run this script to create the procedure that automatically updates **model_id** after it's trained.
+
+```SQL
+CREATE PROCEDURE [dbo].[update_model_id] ( @form_batch_group_id  varchar(50),@model_id varchar(50))
+AS
+BEGIN 
+    UPDATE [dbo].[ParamFormRecogniser]   
+        SET [model_id] = @model_id  
+    WHERE form_batch_group_id =@form_batch_group_id
+END
+```
 
 ## Use Azure Key Vault to store sensitive credentials
 
@@ -139,7 +141,8 @@ You'll use Azure Databricks to store and run the Python code that interacts with
 
 ### Create a secret scope backed by Azure Key Vault
 
-To reference the secrets in the Azure key vault you created above, you'll need to create a secret scope in Databricks. Follow the steps here: [Create an Azure Key Vault-backed secret scope](https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
+
+To reference the secrets in the Azure key vault you created above, you'll need to create a secret scope in Databricks. Follow the steps here: [Create an Azure Key Vault-backed secret scope](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
 
 ### Create a Databricks cluster
 
@@ -458,7 +461,7 @@ We can now create a scoring notebook. We'll do something similar to what we did 
 
 ## Automate training and scoring by using Azure Data Factory
 
-The only remaining step is to set up the Azure Data Factory service to automate the training and scoring processes. First, follow the steps under [Create a data factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory). After you create the Azure Data Factory resource, you'll need to create three pipelines: one for training and two for scoring. (We'll explain later.)
+The only remaining step is to set up the Azure Data Factory service to automate the training and scoring processes. First, follow the steps under [Create a data factory](../../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory). After you create the Azure Data Factory resource, you'll need to create three pipelines: one for training and two for scoring. (We'll explain later.)
 
 ### Training pipeline
 

@@ -20,6 +20,10 @@ highlightedContent:
       itemType: overview
       url: ../iot-fundamentals/iot-introduction.md
     # Card
+    - title: Get started with device development on Azure IoT
+      itemType: get-started
+      url: ../iot-develop/index.yml
+    # Card
     - title: Install VS Code tools for Azure IoT
       itemType: download
       url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
@@ -31,10 +35,6 @@ highlightedContent:
     - title: Browse Azure IoT code samples
       itemType: overview
       url: /samples/browse/?term=iot
-    # Card
-    - title: Secure your Azure IoT deployment
-      itemType: concept
-      url: ../iot-fundamentals/security-recommendations.md
     # Card
     - title: Azure IoT reference architecture
       itemType: architecture
