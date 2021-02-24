@@ -20,7 +20,8 @@ Normally, you don't need to worry about the deployment token, but the following 
 
 ## Prerequisites
 
-- An existing GitHub repository configured with Azure Static Web Apps. See [Building your first static app](getting-started.md) if you don't have one.
+- An existing GitHub repository configured with Azure Static Web Apps.
+- See [Building your first static app](getting-started.md) if you don't have one.
 
 ## Reset a deployment token
 
