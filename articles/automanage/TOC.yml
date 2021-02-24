@@ -13,7 +13,7 @@
   - name: Automanage for Windows Server
     href: automanage-windows-server.md
     items:
-      - name: Hotpatching
+      - name: Hotpatch for new virtual machines
         href: automanage-hotpatch.md
 - name: How to
   expanded: true
