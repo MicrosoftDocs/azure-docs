@@ -6,7 +6,8 @@ ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Image Builder
