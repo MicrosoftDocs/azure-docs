@@ -19,9 +19,9 @@ ms.custom: aaddev, devx-track-python
 
 Learn how to configure the code for your daemon application that calls web APIs.
 
-## MSAL libraries that support daemon apps
+## Microsoft libraries supporting daemon apps
 
-The following Microsoft Authentication Libraries (MSALs) support daemon apps:
+The following Microsoft libraries support daemon apps:
 
 [!INCLUDE [active-directory-develop-libraries-daemon](../../../includes/active-directory-develop-libraries-daemon.md)]
 

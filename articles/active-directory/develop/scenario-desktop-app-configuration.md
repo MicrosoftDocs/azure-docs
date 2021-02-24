@@ -20,9 +20,9 @@ ms.custom: aaddev, devx-track-python
 
 Now that you've created your application, you'll learn how to configure the code with the application's coordinates.
 
-## Microsoft Authentication Libraries
+## Microsoft libraries supporting desktop apps
 
-The following Microsoft Authentication Libraries (MSALs) support desktop applications.
+The following Microsoft libraries support desktop apps:
 
 [!INCLUDE [active-directory-develop-libraries-desktop](../../../includes/active-directory-develop-libraries-desktop.md)]
 

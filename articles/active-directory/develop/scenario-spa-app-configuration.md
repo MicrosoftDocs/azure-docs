@@ -20,9 +20,9 @@ ms.custom: aaddev
 
 Learn how to configure the code for your single-page application (SPA).
 
-## MSAL libraries for SPAs and supported authentication flows
+## Microsoft libraries supports single page apps 
 
-The Microsoft identity platform provides the following Microsoft Authentication Libraries for JavaScript (MSAL.js) to support implicit flow and authorization code flow with PKCE by using industry-recommended security practices:
+he following Microsoft libraries support single page apps:
 
 [!INCLUDE [active-directory-develop-libraries-spa](../../../includes/active-directory-develop-libraries-spa.md)]
 

@@ -20,9 +20,9 @@ ms.custom: aaddev
 
 After you create your application, you'll learn how to configure the code by using the app registration parameters. Mobile applications present some complexities related to fitting into their creation framework.
 
-## Find MSAL support for mobile apps
+## Microsoft libraries supporting mobile apps
 
-The following Microsoft Authentication Libraries (MSAL) support mobile apps.
+The following Microsoft libraries support mobile apps:
 
 [!INCLUDE [active-directory-develop-libraries-mobile](../../../includes/active-directory-develop-libraries-mobile.md)]
 

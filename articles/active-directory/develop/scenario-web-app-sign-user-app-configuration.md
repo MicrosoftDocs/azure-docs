@@ -20,10 +20,10 @@ ms.custom: aaddev, devx-track-python
 
 Learn how to configure the code for your web app that signs in users.
 
-## Libraries for protecting web apps
+## Microsoft libraries supporting web apps
 
 <!-- This section can be in an include for web app and web APIs -->
-The libraries that are used to protect a web app (and a web API) are:
+The following Microsoft libraries are used to protect a web app (and a web API):
 
 [!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
 

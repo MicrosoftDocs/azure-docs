@@ -25,9 +25,9 @@ As shown in the [Web app that signs in users](scenario-web-app-sign-user-overvie
 
 The [Web app that signs in users](scenario-web-app-sign-user-overview.md) scenarios covered only the first step. Here you learn how to modify your web app so that it not only signs users in but also now calls web APIs.
 
-## Libraries that support web-app scenarios
+## Microsoft libraries supporting web apps
 
-The following libraries in the Microsoft Authentication Library (MSAL) support the authorization code flow for web apps:
+he following Microsoft libraries support web apps:
 
 [!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
 
