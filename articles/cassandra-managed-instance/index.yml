@@ -36,6 +36,8 @@ landingContent:
             url: create-cluster-portal.md
           - text: Deploy a Spark cluster with Azure Databricks
             url: deploy-cluster-databricks.md 
+          - text: Configure a hybrid cluster
+            url: configure-hybrid-cluster.md 
       - linkListType: concept
         links:   
           - text: Frequently asked questions
@@ -50,8 +52,6 @@ landingContent:
             url: deploy-cluster-databricks.md 
       - linkListType: how-to-guide
         links: #
-          - text: Configure a hybrid cluster
-            url: configure-hybrid-cluster.md         
           - text: Manage resources with Azure CLI
             url: manage-resources-cli.md 
           - text: Visualize metrics in Prometheus with Grafana
