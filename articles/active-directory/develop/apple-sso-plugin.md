@@ -154,11 +154,11 @@ Enabling `browser_sso_interaction_enabled` flag enables app that do not use a Mi
 - **Type**: `Integer`
 - **Value**: 1 or 0
 
-For macOS apps we recommend enabling this flag to get more consistent experience across all apps. Most iOS and iPadOS use the Microsoft Authenticator application for sign-in and do not need this setting. If you have applicaitions that do not use the Microsoft Authenticator this flag may be useful. It is disabled by default.
+For macOS we recommend enabling this flag to get a more consistent experience across all apps. Most iOS and iPadOS use the Microsoft Authenticator application for sign-in and do not need this setting. However, if you have applicaitions that do not use the Microsoft Authenticator on iOS or iPadOS this flag may be useful. It is disabled by default.
 
 #### Disable asking for MFA on inital bootstrapping
 
-By default the Microsoft Enterprise SSO plug-in always prompts the user for Multi-factor authentication (MFA) when doing initial bootstrapping and getting a shared credential, even if it's not required for the current application the user has launched. This is so that the shared credential can be used easily across all additional applications without prompting the user if MFA is required. This reduces the times the user needs to be prompted on the device and is generally a good decision.
+By default the Microsoft Enterprise SSO plug-in always prompts the user for Multi-factor authentication (MFA) when doing the initial bootstrapping and getting a shared credential, even if it's not required for the current application the user has launched. This is so the shared credential can be easily used across all additional applications without prompting the user if MFA becomes required later. This reduces the times the user needs to be prompted on the device and is generally a good decision.
 
 Enabling `browser_sso_disable_mfa` turns this off and will only prompt the user when MFA is required by an application or resource. 
 
@@ -166,7 +166,7 @@ Enabling `browser_sso_disable_mfa` turns this off and will only prompt the user 
 - **Type**: `Integer`
 - **Value**: 1 or 0
 
-We recommend keeping this flag disabled as it reduces the times the user needs to be prompted on the device. If your organization rarely use MFA you may want to enable the flag, but we'd rather you use start to use MFA as it's much safer. For this reason, it is disabled by default.
+We recommend keeping this flag disabled as it reduces the times the user needs to be prompted on the device. If your organization rarely uses MFA you may want to enable the flag, but we'd rather you use start using MFA more frequently as it's much safer. For this reason, it is disabled by default.
 
 #### Disable OAuth2 application prompts
 
