@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
-ms.date: 08/31/2020
+ms.date: 02/24/2021
 ---
 
 # Global parameters in Azure Data Factory
@@ -41,7 +41,7 @@ There are two ways to integrate global parameters in your continuous integration
 * Include global parameters in the ARM template
 * Deploy global parameters via a PowerShell script
 
-For most use cases, it is recommended to include global parameters in the ARM template. This will integrate natively with the solution outlined in [the CI/CD doc](continuous-integration-deployment.md). Global parameters will be added as an ARM template parameter by default as they often change from environment to environment. You can enable the inclusion of global parameters in the ARM template from the management hub.
+For most use cases, it is recommended to include global parameters in the ARM template. This will integrate natively with the solution outlined in [the CI/CD doc](continuous-integration-deployment.md). Global parameters will be added as an ARM template parameter by default as they often change from environment to environment. You can enable the inclusion of global parameters in the ARM template from the **Manage** hub.
 
 ![Include in ARM template](media/author-global-parameters/include-arm-template.png)
 
