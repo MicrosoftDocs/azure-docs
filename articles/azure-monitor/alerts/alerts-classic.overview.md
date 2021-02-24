@@ -18,7 +18,7 @@ Alerts allow you to configure conditions over data and become notified when the 
 
 In the past Azure Monitor, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Overtime, Azure improved and combined both the user interface and different methods of alerting. The consolidation is still in process.
 
-You can view classic alerts only in the classic alerts user screen in the Azure Portal. You get this screen from the **View classic alerts** button on the alerts screen. 
+You can view classic alerts only in the classic alerts user screen in the Azure portal. You get this screen from the **View classic alerts** button on the alerts screen. 
 
  ![Alert choices in Azure portal](media/alerts-classic.overview/monitor-alert-screen2.png)
 
