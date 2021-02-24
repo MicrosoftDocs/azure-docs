@@ -100,7 +100,7 @@ In the application's **main** method, add calls for the methods used in this qui
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_maincalls)]
 
 > [!div class="nextstepaction"]
-> [I set up the client](?success=set-up-client#object-model) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+> [I set up the client](?success=set-up-client#object-model) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=set-up-client)
 
 ## Object model
 
@@ -127,7 +127,7 @@ In a new method, instantiate a [ComputerVisionClient](/java/api/com.microsoft.az
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
-> [I authenticated the client](?success=authenticate-client#analyze-an-image) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
+> [I authenticated the client](?success=authenticate-client#analyze-an-image) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=authenticate-client)
 
 ## Analyze an image
 
@@ -210,7 +210,7 @@ The following code prints information about the type of image&mdash;whether it i
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
 > [!div class="nextstepaction"]
-> [I analyzed an image](?success=analyze-image#read-printed-and-handwritten-text) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+> [I analyzed an image](?success=analyze-image#read-printed-and-handwritten-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=analyze-image)
 
 ## Read printed and handwritten text
 
@@ -256,7 +256,7 @@ Finally, add the other helper method used above, which extracts the operation ID
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_opid_extract)]
 
 > [!div class="nextstepaction"]
-> [I read text](?success=read-printed-handwritten-text#run-the-application) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+> [I read text](?success=read-printed-handwritten-text#run-the-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=read-printed-handwritten-text)
 
 ## Run the application
 
@@ -273,7 +273,7 @@ gradle run
 ```
 
 > [!div class="nextstepaction"]
-> [I ran the application](?success=run-the-application#clean-up-resources) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+> [I ran the application](?success=run-the-application#clean-up-resources) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=run-the-application)
 
 ## Clean up resources
 
@@ -283,7 +283,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 > [!div class="nextstepaction"]
-> [I cleaned up resources](?success=clean-up-resources#next-steps) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+> [I cleaned up resources](?success=clean-up-resources#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=clean-up-resources)
 
 ## Next steps
 
