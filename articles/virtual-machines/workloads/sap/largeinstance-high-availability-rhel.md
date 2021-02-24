@@ -660,9 +660,9 @@ In this section, you initialize the cluster. This section uses the same two host
 
 19. For the rest of the SAP HANA clustering you can disable STONITH by setting:
 
-   * pcs property set stonith-enabled=false
+   * pcs property set `stonith-enabled=false`
    * This parameter must be set to true for productive usage. If this parameter is not set to true, the cluster will be not supported.
-   * pcs property set stonith-enabled=true 
+   * pcs property set `stonith-enabled=true`
 
 ## HANA integration into the cluster
 
@@ -678,7 +678,7 @@ There are two options for integrating HANA. The first option is a cost optimized
  ### Steps to follow to configure HSR
 
 1.  These are the actions to execute on node1 (primary).
-    1. Make sure, that the database logmode is set to normal.
+    1. Make sure that the database log mode is set to normal.
 
 	   ```  
    
@@ -693,10 +693,7 @@ There are two options for integrating HANA. The first option is a cost optimized
    
 	   "normal"
        ```
-    2. SAP HANA system replication will only work after initial backup has
-	been performed. The following command will create an initial backup in
-	the /tmp/ directory. Please select a propper Backup filesystem for the
-	data base. 
+    2. SAP HANA system replication will only work after initial backup has been performed. The following command creates an initial backup in the `/tmp/` directory. Select a proper backup filesystem for the database. 
        ```
 	   * hdbsql -i 00 -u system -p SAPhana10 "BACKUP DATA USING FILE
 	   ('/tmp/backup')"
@@ -742,7 +739,7 @@ There are two options for integrating HANA. The first option is a cost optimized
 	   done.
        ```
 
-	5. check the status of the primary system
+	5. Check the status of the primary system.
        ```
 	   hdbnsutil -sr_state
     
@@ -799,8 +796,7 @@ There are two options for integrating HANA. The first option is a cost optimized
        ```
 	
 
-	 2. (SAP HANA2.0 only) Copy the SAP HANA system PKI SSFS_HR2.KEY and
-	SSFS_HR2.DAT files from primary node to secondary node.
+	 2. For SAP HANA2.0 only, copy the SAP HANA system `PKI SSFS_HR2.KEY` and `SSFS_HR2.DAT` files from primary node to secondary node.
 	   ```
 	   scp
 	   root@node1:/usr/sap/HR2/SYS/global/security/rsecssfs/key/SSFS_HR2.KEY
@@ -836,12 +832,12 @@ There are two options for integrating HANA. The first option is a cost optimized
    
 	   ```
 
-	 4. Start the DB.
+	 4. Start the database.
        ```
 	   sapcontrol -nr 00 -function StartSystem 
        ```
 	
-     5. Check the DB state.
+     5. Check the database state.
        ```
 	   hdbnsutil -sr_state
    
@@ -954,35 +950,34 @@ There are two options for integrating HANA. The first option is a cost optimized
 
 #### Log Replication Mode Description
 
-* [Please follow this documentation to get more details](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/c039a1a5b8824ecfa754b55e0caffc01.html)
+For more information about log replication mode, see the [official SAP documentation](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/c039a1a5b8824ecfa754b55e0caffc01.html).
   
 
 #### Network Setup for HANA System Replication
 
 
-To be sure that the replication traffic is using the right VLAN for the replication it is important to configure it properly in the global.ini. If you skip this step HANA will use the Access VLAN for the replication what you might not like.
+To ensure that the replication traffic is using the right VLAN for the replication, it must be configured properly in the `global.ini`. If you skip this step, HANA will use the Access VLAN for the replication, which might be undesired.
 
-Examples
 
 The following examples show the host name resolution configuration for system replication to a secondary site. Three distinct networks can be identified:
 
-• Public network with addresses in the range of 10.0.1.*
+* Public network with addresses in the range of 10.0.1.*
 
-• Network for internal SAP HANA communication between hosts at each site: 192.168.1.*
+* Network for internal SAP HANA communication between hosts at each site: 192.168.1.*
 
-• Dedicated network for system replication: 10.5.1.*
+* Dedicated network for system replication: 10.5.1.*
 
-In the first example, the [system_replication_communication]listeninterface parameter has been set to .global and only the hosts of the neighboring replicating site are specified.
+In the first example, the `[system_replication_communication]listeninterface` parameter has been set to `.global` and only the hosts of the neighboring replicating site are specified.
 
-In the following example, the [system_replication_communication]listeninterface parameter has been set to .internal and all hosts (of both sites) are specified.
-
-  
-
-Source SAP AG SAP HANA HRS Networking
+In the following example, the `[system_replication_communication]listeninterface` parameter has been set to `.internal` and all hosts of both sites are specified.
 
   
 
-For system replication it is not necessary to edit the /etc/hosts file, internal ('virtual') host names must be mapped to IP addresses in the global.ini file to create a dedicated network for system replication; the syntax for this is as follows:
+### Source SAP AG SAP HANA HRS Networking
+
+  
+
+For system replication, it is not necessary to edit the `/etc/hosts` file, internal ('virtual') host names must be mapped to IP addresses in the `global.ini` file to create a dedicated network for system replication. The syntax for this is as follows:
 
 global.ini
 
@@ -992,9 +987,9 @@ global.ini
 
 
 ## Configure SAP HANA in a Pacemaker cluster
-* NOTE : Throughout the setup, we have used sollabdsm35 as node1 [primary host] and sollabdsm36 as node2 [secondary host]. We show both the commands that need to be run as well as the output of those commands.
+In this section, you learn how to configure SAP HANA in a Pacemaker cluster. This section uses the same two hosts, `sollabdsm35` and `sollabdsm36`, referenced at the beginning of this article.
 
-This guide will assume that following things are working properly:  
+Ensure you have met the following prerequisites:  
 
 * Pacemaker cluster is configured according to documentation and has proper and working fencing
 
@@ -1004,7 +999,7 @@ This guide will assume that following things are working properly:
 
 * SAP HANA contains monitoring account that can be used by the cluster from both cluster nodes
 
-Both nodes are subscribed to 'High-availability' and 'RHEL for SAP HANA' (RHEL 6,RHEL 7) channels
+* Both nodes are subscribed to 'High-availability' and 'RHEL for SAP HANA' (RHEL 6,RHEL 7) channels
 
   
 
@@ -1281,13 +1276,10 @@ https://access.redhat.com/solutions/645843 --> quorum Policy
 #### (SAP Hana takeover by cluster)
 
 
-To test out the move of the SAPHana resource from one node to another, use the command below. Note that the option --primary shouldNOT 	be used when running the below command due to the way how the SAPHana resource works internally.
+To test out the move of the SAPHana resource from one node to another, use the command below. Note that the option `--primary` should not	be used when running the following command because of how the SAPHana resource works internally.
 pcs resource move SAPHana_HR2_00-primary
 
-IMPORTANT: After each pcs resource move command invocation the cluster
-creates location constraints to achieve the move of the resource.
-These constraints must be removed in order to allow automatic failover
-in the future.
+After each pcs resource move command invocation, the cluster creates location constraints to achieve the move of the resource. These constraints must be removed to allow automatic failover in the future.
 To remove them you can use the command following command.
 ```
 pcs resource clear SAPHana_HR2_00-primary
@@ -1356,11 +1348,9 @@ Node Attributes:
 	```
   
 
-#### NOTE
-```
-With option AUTOMATED_REGISTER=false you cannot switch back and forth.
+With option the `AUTOMATED_REGISTER=false`, you cannot switch back and forth.
 
-If these option is set to false it is required to re-register the node with:
+If this option is set to false, you must re-register the node:
 
   
 
@@ -1368,9 +1358,9 @@ hdbnsutil -sr_register --remoteHost=node2 --remoteInstance=00 --replicationMode=
 
   
 
-Now Node2 was the primary and node2 acts as secondary host.
+Now node2, which was the primary, acts as the secondary host.
 
-Maybe consider to set this option to true to automate the registration of the demoted host.
+Consider setting this option to true to automate the registration of the demoted host.
 
   
 
