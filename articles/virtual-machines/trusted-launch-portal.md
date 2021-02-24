@@ -22,15 +22,20 @@ Create virtual machine with Trusted Launch Enabled
 3. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
 4. Under **Project details**, make sure the correct subscription is selected.
 5. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
-5. Under **Instance details**, type a name for the virtual machine name and choose a region that supports trusted launch
-6. Choose a Gen 2 image. Ensure to see the following message once the image is selected: **This image supports trusted launch preview. Configure in the Advanced tab**.
- 
-    If the Gen2 version of the image is not available in the Image dropdown list, you can select the Gen 1 image, and then select the VM generation as Gen 2 on the **Advanced** tab. Trusted Launch is available only for Gen2 images.
-7.	Select a VM size that supports Gen 2, like Standard_D2s_v3. Please see the list of supported sizes in the Public Preview limitation section.
+5. Under **Instance details**, type a name for the virtual machine name and choose a region that supports trusted launch.
+1. Under **Image**, select an [image that supports Trusted Launch](trusted-launch.md#public-preview-limitations). You might only see the Gen 1 version of the image, that is okay, go on to the next step.
+1. Switch over to the **Advanced** tab by selecting it at the top of the page.
+1. Scroll down to the **VM generation** section, and then select **Gen 2**.
+1. While still on the **Advanced** tab, scroll down to **Trusted launch**, and then select the **Trusted launch** checkbox. This will make two more options appear - Secure boot and vTPM. Select the appropriate options for your deployment.
+:::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot showing the options for Trusted Launch.":::
+1. Go back to the **Basics** tab, under **Image**, and make sure see the following message: **This image supports trusted launch preview. Configure in the Advanced tab**. The image should now be listed as the gen 2 version.
+:::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot showing the message confirming that this is a gen2 image that supports Trusted Launch.":::
+7.	Select a VM size that supports Gen 2, like Standard_D2s_v3. Please see the list of supported [generation 2 sizes](generation-2.md#generation-2-vm-sizes).
 8.	Fill in the **Administrator account** information and then **Inbound port rules**.
-9.	Select the Advanced tab, select **Trusted launch** and then select enable **Secure Boot**. vTPM will be enabled by default, once Trusted launch is selected.
-10.	Select **Review + Create**
+10.	At the bottom of the page, select **Review + Create**
 11.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. When you are ready, select **Create**.
+
+:::image type="content" source="media/trusted-launch/validation.png" alt-text="Sceenshot of the validation page, showing the Trusted Launch options are included.":::
 
 
 It will take a few minutes for your VM to be deployed. 

@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 02/24/2021
 ms.reviewer: 
 ms.custom: template-concept
 ---
@@ -30,7 +30,7 @@ In addition, Trusted Launch brings the benefits of [VBS](/windows-hardware/desig
 
 HVCI is a powerful system mitigation that protects Windows kernel-mode processes against injection and execution of malicious or unverified code. It checks kernel mode drivers and binaries before they run, which prevents unsigned files from loading into memory. This ensures such executable code can’t be modified once it is allowed to load. Read more about HVCI [here](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
 
-Lastly, with Trusted Launch and VBS you can enable Windows Defender Credential Guard. This feature isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets as well as credential theft attacks, such as Pass-the-Hash (PtH) attacks. Read more about it [here](/windows/security/identity-protection/credential-guard/credential-guard).
+With Trusted Launch and VBS you can enable Windows Defender Credential Guard. This feature isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets as well as credential theft attacks, such as Pass-the-Hash (PtH) attacks. Read more about it [here](/windows/security/identity-protection/credential-guard/credential-guard).
 
 ## Benefits 
 
@@ -51,11 +51,13 @@ OS support:
 - Ubuntu 18.04 LTS
 - Windows Server 2019
 - Windows Server 2016
-- Windows Server 2012 R2
 - Windows 10 Pro
+- Windows 10 Enterprise
 
 Regions: 
-- TBD
+- South Central US
+- North Europe
+
 
 
 Pricing:
@@ -82,6 +84,8 @@ If your VMs are properly set up with Trusted Launch, Azure Defender can detect a
 > [!NOTE]
 >  This alert is available for VMs with vTPM enabled and the Attestation extension installed. Keeping Secure Boot enabled is needed for attestation to pass. Attestation will fail if Secure Boot is disabled. If you must disable Secure Boot, you may choose to suppress this alert to avoid false positives.
 
+
+
 ## FAQ
 
 Frequently asked questions about Trusted Launch.
@@ -89,7 +93,7 @@ Frequently asked questions about Trusted Launch.
 ### Why should I use Trusted Launch? What does Trusted Launch guard against?
 
 Trusted Launch guards against boot kits, rootkits, and kernel-level malware. These sophisticated types of malware run in kernel mode and remain hidden from users. For example:
-- Firmware rootkits: these kits overwrite the firmware of the virtual machine’s BIOS so the rootkit can start before the OS. 
+- Firmware rootkits: these kits overwrite the firmware of the virtual machine’s BIOS, so the rootkit can start before the OS. 
 - Boot kits: these kits replace the OS’s bootloader so that the virtual machine loads the boot kit before the OS.
 - Kernel rootkits: these kits replace a portion of the OS kernel so the rootkit can start automatically when the OS loads.
 - Driver rootkits: these kits pretend to be one of the trusted drivers that OS uses to communicate with the virtual machine’s components.
@@ -100,7 +104,7 @@ In secure boot chain, each step in the boot process checks a cryptographic signa
 
 ###	What happens when an integrity fault is detected?
 
-After a one-time setup of Azure Security Center (per subscription), trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert will be triggered. Alerts are only available in the [Standard Tier](/azure/security-center/security-center-pricing) of Azure Security Center.
+Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert will be triggered. Alerts are only available in the [Standard Tier](/azure/security-center/security-center-pricing) of Azure Security Center.
 Azure Security Center periodically performs attestation. If the attestation fails, a medium severity alert will be triggered. Trusted launch attestation can fail for the following reasons: 
 - The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (i.e. when Secure Boot is enabled). This can indicate that untrusted modules have been loaded and hence the OS may be compromised.
 - The attestation quote could not be verified to originate from the vTPM of the attested VM. This can indicate that malware is present and may be intercepting traffic to the TPM. 
@@ -113,7 +117,7 @@ In addition, for trusted launch with secure boot enabled, it’s possible for bo
 Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in conjunction with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or virtual machine scale sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.  
 
 ### How can I convert existing VMs to Trusted Launch?
-For Generation 2 VM, migration path to convert to trusted launch is targeted at GA.
+For Generation 2 VM, migration path to convert to trusted launch is targeted at general availability (GA).
 
 ## Next steps
 
