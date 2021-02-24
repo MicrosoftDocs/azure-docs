@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 02/19/2021
+ms.date: 02/24/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
@@ -17,7 +17,7 @@ ms.subservice: common
 
 The data protection options available for your blob and Azure Data Lake Storage Gen2 data enable you to prepare for scenarios where data could be compromised in the future. It's important to think about how to best protect your data before an incident occurs that could compromise your data. This guide can help you decide in advance which data protection features your scenario requires, and how to implement them. If you should need to recover data that has been deleted or overwritten, this overview also provides guidance on how to proceed, based on your scenario.
 
-In the Azure Storage documentation, *data protection* refers to strategies for protecting the storage account and data within it from being deleted or modified or for restoring data that has been erroneously deleted or modified. Azure Storage also offers options for *disaster recovery*, including multiple levels of redundancy to protect your data from service outages due to hardware problems or natural disasters, and customer-managed failover in the event that the data center in the primary region becomes unavailable. For more information about how your data is protected from service outages, see [Disaster recovery](#disaster-recovery).
+In the Azure Storage documentation, *data protection* refers to strategies for protecting the storage account and data within it from being erroneously deleted or modified, or for restoring data that has been deleted or modified. Azure Storage also offers options for *disaster recovery*, including multiple levels of redundancy to protect your data from service outages due to hardware problems or natural disasters, and customer-managed failover in the event that the data center in the primary region becomes unavailable. For more information about how your data is protected from service outages, see [Disaster recovery](#disaster-recovery).
 
 ## Plan ahead for data protection
 
@@ -28,33 +28,43 @@ The following table summarizes the data protection options available in Azure St
 | Scenario | Action | Available for accounts with HNS enabled | Protection benefit | Recommendation |
 |--|--|--|--|--|
 | Prevent a storage account from being deleted or modified. | [Configure an Azure Resource Manager lock on the storage account](#configure-an-azure-resource-manager-lock-on-the-storage-account) | Yes | Protects the storage account against accidental or malicious deletes or configuration changes. Does not protect blob data in the account from being deleted or overwritten. | Recommended for all storage accounts. |
-| Prevent a container and its blobs from being deleted or modified. | [Set a time-based retention policy or a legal hold for a container](#set-a-time-based-retention-policy-or-a-legal-hold-for-a-container) | Yes, in preview | Protects against accidental or malicious deletes or updates. | Recommended when your scenario requires locking blob data to prevent all updates and deletes. |
-| Permit a container to be deleted, but maintain a copy of the deleted container and its contents for a specified interval. | [Configure container soft delete for the storage account](#configure-container-soft-delete-for-the-storage-account) | Yes, in preview | Protects against accidental deletes. | Recommended for all storage accounts, with a minimum retention period of 7 days. |
-| Permit a blob to be deleted or updated, but automatically save its state in a previous version. | [Configure blob versioning for the storage account](#configure-blob-versioning-for-the-storage-account) | No | Protects against accidental deletes and updates. | Recommended for all storage accounts. |
-| Permit a blob to be deleted or updated, or a blob version to be deleted, but maintain a copy of the blob or version for a specified interval. | [Configure blob soft delete for the storage account](#configure-blob-soft-delete-for-the-storage-account) | No | Protects against accidental deletes and updates. | Recommended for all storage accounts, with a minimum retention period of 7 days. |
-| Permit blobs to be deleted or updated, but track all updates and deletes so that data can be restored to a previous point in time. | [Configure point-in-time restore for the storage account](#configure-point-in-time-restore-for-the-storage-account) | No | Protects against accidental deletes and updates with best-effort restore. | Recommended when your scenario can tolerate some data loss in exchange for convenience of recovery. |
-| Permit a blob to be updated, but manually save the state of a blob at a given point in time. | [Take a manual snapshot of a blob](#take-a-manual-snapshot-of-a-blob) | Yes, in preview |Preserves the state of a blob at a particular time. | Recommended when blob versioning is not appropriate for your scenario, due to cost or other considerations. |
-| Permit a blob to be updated or deleted, but regularly copy the data to a second storage account with a tool like AzCopy. | [Get started with AzCopy](../common/storage-use-azcopy-v10.md)??? | Yes | Protects against accidental or malicious deletes or updates. | Recommended for peace-of-mind protection against malicious actions or unpredictable scenarios. |
+| Prevent a container and its blobs from being deleted or modified for an interval that you control. | [Set a time-based retention policy or a legal hold for a container](#set-a-time-based-retention-policy-or-a-legal-hold-for-a-container) | Yes, in preview | Protects blob data from accidental or malicious deletes or updates. | Recommended when your scenario requires preventing all updates and deletes to the blobs in a container for a period of time. |
+| Permit a container to be deleted, but maintain a copy of the deleted container and its contents for a specified interval. | [Configure container soft delete for the storage account](#configure-container-soft-delete-for-the-storage-account) | Yes, in preview | Protects a container from accidental deletes. | Recommended for all storage accounts, with a minimum retention period of 7 days. |
+| Permit a blob to be deleted or updated, but automatically save its state in a previous version. | [Configure blob versioning for the storage account](#configure-blob-versioning-for-the-storage-account) | No | Protects blob data from accidental deletes and updates. | Recommended for all storage accounts. |
+| Permit a blob to be deleted or updated, or a blob version to be deleted, but maintain a copy of the blob or version for a specified interval. | [Configure blob soft delete for the storage account](#configure-blob-soft-delete-for-the-storage-account) | No | Protects blob data from accidental deletes and updates. | Recommended for all storage accounts, with a minimum retention period of 7 days. |
+| Permit blobs to be deleted or updated, but track all updates and deletes so that data can be restored to a previous point in time. | [Configure point-in-time restore for the storage account](#configure-point-in-time-restore-for-the-storage-account) | No | Protects blob data from accidental deletes and updates with best-effort restore. | Recommended when your scenario can tolerate some data loss in exchange for convenience of recovery. |
+| Permit a blob to be updated, but manually save the state of a blob at a given point in time. | [Take a manual snapshot of a blob](#take-a-manual-snapshot-of-a-blob) | Yes, in preview | Preserves the state of a blob at a particular time. | Recommended when blob versioning is not appropriate for your scenario, due to cost or other considerations. |
+| Permit a blob to be updated or deleted, but regularly copy the data to a second storage account with a tool like AzCopy. | [Get started with AzCopy](../common/storage-use-azcopy-v10.md)??? | Yes | Protects blob data from accidental or malicious deletes or updates. | Recommended for peace-of-mind protection against malicious actions or unpredictable scenarios. |
 
 ### Configure an Azure Resource Manager lock on the storage account
 
-To prevent users from deleting a storage account or modifying its configuration, you can apply an Azure Resource Manager lock. There are two types of Azure Resource Manager resource locks available:
+To prevent users from deleting a storage account or modifying its configuration, you can apply an Azure Resource Manager lock. There are two types of Azure Resource Manager resource locks:
 
 - A **CannotDelete** lock prevents users from deleting a storage account, but permits reading and modifying its configuration.
 - A **ReadOnly** lock prevents users from deleting a storage account or modifying its configuration, but permits reading the configuration.
 
 For more information about Azure Resource Manager locks, see [Lock resources to prevent changes](../../azure-resource-manager/management/lock-resources.md).
 
+#### Recommendation summary
+
+- Lock all of your storage accounts with an Azure Resource Manager lock to prevent accidental or malicious deletion of the storage account.
+- Locking a storage account does not protect the data within that account from being updated or deleted. Use the other data protection features described in this guide to protect your data.
+- When a **ReadOnly** lock is applied to a storage account, the [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is blocked for that storage account. Clients must therefore use Azure AD credentials to access blob data in the storage account, unless they are already in possession of the storage account access keys. For more information, see [Choose how to authorize access to blob data in the Azure portal](authorize-data-operations-portal.md).
+
 ### Set a time-based retention policy or a legal hold for a container
 
-To prevent updates or deletes to blob data, you can configure an immutability policy for a container. Immutability policies store business-critical data in a Write Once, Read Many (WORM) state. When an immutability policy is in effect for a container, blobs in that container can be read by users with appropriate permissions, but cannot be modified or deleted. Azure Storage provides two types of immutability policies:
+To prevent updates or deletes to blob data, you can configure an immutability policy for a container. Immutability policies store business-critical data in a Write Once, Read Many (WORM) state. When an immutability policy is in effect for a container, blobs in that container can be created or read by users with appropriate permissions, but cannot be modified or deleted. Azure Storage provides two types of immutability policies:
 
-- A time-based retention policy prevents write or delete operations for a specified period of time.
-- A legal hold prevents write or delete operations until the legal hold is explicitly cleared.
+- *A time-based retention policy* prevents write or delete operations for a specified period of time.
+- A *legal hold* prevents write or delete operations until the legal hold is explicitly cleared.
 
-When a container is protected with an immutability policy, the storage account cannot be deleted. In this way, a time-based retention policy or legal hold behaves similarly to a **CannotDelete** lock on the account, for as long as the immutability policy is in effect.
+When a container is protected with a locked time-based retention policy, the storage account cannot be deleted. In this way, a time-based retention policy or legal hold behaves similarly to an Azure Resource Manager **CannotDelete** lock on the account, for as long as the immutability policy is in effect.
 
-For more information about immutability policies, see [Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md).
+Immutability policies are available for both Blob storage and Azure Data Lake Storage Gen2 (preview). For more information about immutability policies, see [Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md).
+
+#### Recommendation summary
+
+- A legal hold or a locked time-based retention policy protects the storage account from deletion, in addition to the container and its blobs. To protect the storage account when a time-based retention policy is in effect, make sure that the time-based retention policy is locked. For more information, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
 ### Configure container soft delete for the storage account
 
@@ -66,25 +76,32 @@ When a container is deleted, the retention period that is currently specified fo
 
 When container soft delete is enabled for the storage account, it protects all containers in that account with the same retention period. If you have containers that require different retention periods, then Microsoft recommends storing them in different storage accounts. Store containers in the same storage account only if they can all be served by the same soft delete retention period.
 
-Container soft delete can restore only whole containers. You cannot restore a deleted blob within a container by using container soft delete unless the entire container has been deleted. To protect the blobs in your containers from accidental deletion, enable blob versioning, blob soft delete, or both, as described in the following table:
+Container soft delete can restore only whole containers. You cannot restore a deleted blob within a container by using container soft delete unless the entire container has been deleted. To protect the blobs in your containers from accidental deletion, enable blob versioning and blob soft delete.
 
-xref to table below
+Container soft delete is available for both Blob storage and Azure Data Lake Storage Gen2 in preview. For more information about container soft delete, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
 
-Container soft delete is available for both Blob storage and Azure Data Lake Storage Gen2. For more information about container soft delete, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
+#### Recommendation summary
+
+- Enable container soft delete for all storage accounts, with a minimum retention interval of 7 days.
+- Enable blob versioning and blob soft delete together with container soft delete to protect individual blobs in a container.
+- Store containers that require different retention periods in separate storage accounts.
 
 ### Configure blob versioning for the storage account
 
 Blob versioning automatically saves a copy of the previous state of a blob each time the blob is updated or when the blob is deleted. The data in a previous version is read-only. To restore a previous version, you can promote it to be the current version, which makes it writable again.
 
-When blob versioning is enabled for the storage account, every write and delete operation to a blob in that account creates a new version. Versions are maintained until they are explicitly deleted. Each time a version is created, you are charged for storing any unique blocks or pages in that version. If you need to optimize costs, then follow these guidelines:
+When blob versioning is enabled for the storage account, every write and delete operation to a blob in that account creates a new version. Versions are maintained until they are explicitly deleted. To limit costs related to storing versions, use lifecycle management to delete older versions. For more information, see [Optimize costs by automating Azure Blob Storage access tiers](storage-lifecycle-management-concepts.md).
 
-- Be sure that you understand the billing implications of enabling blob versioning. For more information, see [Pricing and billing](versioning-overview.md#pricing-and-billing).
-- Design your application so that it deletes previous versions as appropriate. Avoid storing more than 1000 versions of any blob.
+Be sure that you understand the billing implications of enabling blob versioning. For more information, see [Pricing and billing](versioning-overview.md#pricing-and-billing).
+
+Blob versioning is not currently available for Azure Data Lake Storage Gen2. However, you can take manual snapshots of blob data in a storage account for which a hierarchical namespace is enabled (preview). For more information about blob versioning, see [Blob versioning](versioning-overview.md).
+
+#### Recommendation summary
+
+- Enable blob versioning for all storage accounts, together with container soft delete and blob soft delete. Enabling blob soft delete together with versioning provides an additional level of protection for deleted versions, and should not increase costs in most scenarios.
+- Use lifecycle management to delete older versions as needed to control costs. Avoid storing more than 1000 versions of any blob.
 - Store blob data that requires versioning in one storage account, and other data in a different storage account.
-
-Blob versioning is not currently available for Azure Data Lake Storage Gen2. However, you can take manual snapshots of blob data in a storage account for which a hierarchical namespace is enabled (preview).
-
-For more information about blob versioning, see [Blob versioning](versioning-overview.md).
+- For storage accounts with an HNS enabled, use blob snapshots to capture blob data at a given point in time.
 
 ### Configure blob soft delete for the storage account
 
@@ -100,6 +117,12 @@ Blob soft delete is not currently available for Azure Data Lake Storage Gen2.
 
 For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
 
+#### Recommendation summary
+
+- Enable blob soft delete for all storage accounts, with a minimum retention interval of 7 days.
+- Enable blob versioning and container soft delete together with blob soft delete for optimal protection of blob data. Enabling blob soft delete together with versioning provides an additional level of protection for deleted versions, and should not increase costs in most scenarios.
+- Store blobs that require different retention periods in separate storage accounts.
+
 ### Configure point-in-time restore for the storage account
 
 Point-in-time restore is a convenient option for automatically restoring block blob data to an earlier point in time. When point-in-time restore is enabled for a storage account, you can restore sets of block blobs to an earlier state within a specified period of time. The retention interval is configured when you enable point-in-time restore for the storage account.
@@ -110,14 +133,22 @@ Point-in-time restore is not currently available for Azure Data Lake Storage Gen
 
 For more information about point-in-time restore, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
 
+#### Recommendation summary
+
+- Use point-in-time restore for a best-effort recovery of block blob data that has been accidentally overwritten or deleted.
+- If you need greater control over the recovery process or maximum possible fidelity and integrity of restored data, then use a manual restore process. In addition to implementing the data protection features described in this guide, consider copying data to a second storage account on a regular basis with a tool like AzCopy.
+
 ### Take a manual snapshot of a blob
 
 A snapshot is a read-only copy of a blob that's taken manually at a particular point in time. Blob snapshots are available for both Blob storage and Azure Data Lake Storage Gen2. For more information about blob snapshots, see [Blob snapshots](snapshots-overview.md).
 
 Microsoft recommends enabling blob versioning when possible, because blob versions are created automatically when a blob is updated or deleted. Taking a snapshot, on the other hand, must be handled by your application logic.
 
-> [!IMPORTANT]
-> Using blob versioning and snapshots together is not recommended. Taking snapshots does not offer any additional protections to your block blob data if blob versioning is enabled, and may increase costs and application complexity.
+#### Recommendation summary
+
+- Use snapshots to capture blob data at a given point in time if blob versioning is not appropriate for your scenario or if your  storage account has an HNS enabled.
+- Avoid taking snapshots of data that is protected by blob versioning. Taking snapshots does not offer any additional protections to your block blob data if blob versioning is enabled, and may increase costs and application complexity.
+- Use lifecycle management to delete older snapshots as needed to control costs.
 
 ## Recover deleted or overwritten data
 
@@ -149,7 +180,9 @@ Point-in-time restore is a convenient way to restore data to a previous point in
 
 ### Recover from an accidental action
 
-If data is accidentally overwritten or deleted, then point-in-time restore may be a good option for restoring it to a previous state, with the caveat that absolute fidelity is not guaranteed. If your scenario requires high fidelity, then use a manual restore method to recover the data. To restore soft-deleted containers, call the Restore Container operation. To recover a deleted or overwritten blob, promote a previous blob version to be the current version, or use the Undelete Blob operation. You can also call Undelete Blob to restore a deleted blob version.  
+If data is accidentally overwritten or deleted, then point-in-time restore may be a good option for restoring it to a previous state, with the caveat that absolute fidelity is not guaranteed. Additionally, performing a point-in-time restore operation may be more expensive than using a manual method to recover data.
+
+If your scenario requires high fidelity or you are looking for a lower-cost solution, then use a manual restore method to recover the data. To restore soft-deleted containers, call the Restore Container operation. To recover a deleted or overwritten blob, promote a previous blob version to be the current version, or use the Undelete Blob operation. You can also call Undelete Blob to restore a deleted blob version.  
 
 ## Billing impact
 
@@ -160,9 +193,9 @@ The following table summarizes the billing impact of the various data protection
 | Azure Resource Manager lock for a storage account | None |
 | Time-based retention policy or legal hold for a container | None |
 | Container soft delete | No charge to enable. Data in soft-deleted containers is billed at same rate as active data. |
-| Blob versioning | No charge to enable. A blob version is billed based on unique blocks or pages. Costs therefore increase as the base blob diverges from the version. Changing a blob or blob version's tier may have a billing impact. For more information, see [Pricing and billing](versioning-overview.md#pricing-and-billing). |
+| Blob versioning | No charge to enable. A blob version is billed based on unique blocks or pages. Costs therefore increase as the base blob diverges from a particular version. Changing a blob or blob version's tier may have a billing impact. For more information, see [Pricing and billing](versioning-overview.md#pricing-and-billing). |
 | Blob soft delete | No charge to enable. Data in soft-deleted blobs is billed at same rate as active data. |
-| Point-in-time restore | No charge to enable. You are billed when you perform a restore operation. The cost of a restore operation depends on the amount of data being restored. For more information, see [Pricing and billing](point-in-time-restore-overview.md#pricing-and-billing). |
+| Point-in-time restore | No charge to enable. You are billed when you perform a restore operation. The cost of a restore operation depends on the amount of data being restored. Using a manual restore method may be more cost-effective. For more information, see [Pricing and billing](point-in-time-restore-overview.md#pricing-and-billing). |
 | Blob snapshots | Data in a snapshot is billed based on unique blocks or pages. Costs therefore increase as the base blob diverges from the snapshot. Changing a blob or snapshot's tier may have a billing impact. For more information, see [Pricing and billing](snapshots-overview.md#pricing-and-billing). |
 | Copy data to a second storage account | Maintaining data in a second storage account will incur capacity and transaction costs. |
 
