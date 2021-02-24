@@ -35,15 +35,20 @@ There are two types of baselines: **Planned baselines** and **unplanned baseline
 * **Unplanned baselines** are released when an important update (such as a zero-day fix) is released, and that particular update can't be released as a Hotpatch.  When unplanned baseline are released, a hotpatch release will be replaced with an unplanned baseline in that month.  Unplanned baselines also include all the updates in a comparable _Latest Cumulative Update_ for that month, and also require a reboot.
     * The sample schedule above illustrates two unplanned baselines that would replace the hotpatch releases for those months (the actual number of unplanned baselines in a year isn't known in advance).
 
+## Regional availability
+Hotpatching is available in all public Azure regions in preview. Azure Government regions are not supported in the preview.
 
 ## How to get started
+
+> [!NOTE]
+> During the preview phase you can only get started in the Azure portal using [this link](https://aka.ms/AzureAutomanageHotPatch).
 
 To start using Hotpatching on a new VM, follow these steps:
 * Enable preview access
     * One-time preview access enablement is required per subscription.
     * Preview access can be enabled through API, PowerShell, or CLI as described in the following section.
 * Create a VM from the Azure portal
-    * During the preview, you'll use a special link to start creating a new VM.
+    * During the preview, you'll need to get started using [this link](https://aka.ms/AzureAutomanageHotPatch).
 * Supply VM details
     * Ensure that _Windows Server 2019 Datacenter: Azure Edition_ is selected in the Image dropdown)
     * On the Management tab step, scroll down to the ‘Guest OS updates’ section. You'll see Hotpatching set to On and Patch installation defaulted to Azure-orchestrated patching.
@@ -134,7 +139,7 @@ During the preview, [Automatic VM Guest Patching](https://docs.microsoft.com/azu
 
 When [Automatic VM Guest Patching](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) is enabled on a VM, the available Critical and Security patches are downloaded and applied automatically on the VM. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
 
-With Hotpatch enabled on _Windows Server 2019 Datacenter: Azure Edition_ VMs, most monthly updates are delivered as hotpatches that don't require reboots. In certain months, a planned or unplanned baseline update will require VM reboots. Extra Critical or Security patches may be available periodically, which may also require VM reboots.
+With Hotpatch enabled on _Windows Server 2019 Datacenter: Azure Edition_ VMs, most monthly security updates are delivered as hotpatches that don't require reboots. Latest Cumulative Updates sent on planned or unplanned baseline months will require VM reboots. Additional non-Windows Critical or Security patches may also be available periodically which may require VM reboots.
 
 The VM is assessed automatically every few days and multiple times within any 30-day period to determine the applicable patches for that VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
 
@@ -180,17 +185,13 @@ There are some important considerations to running a Windows Server Azure editio
 
 * Hotpatch currently covers Windows security updates.
 
-### When are Hotpatch updates installed?
-
-* You'll be able to configure Hotpatch updates to install immediately or configure them to be installed on a schedule. We recommend using Azure Update Management to configure a separate, faster cadence for the installation of Hotpatch updates, alongside other types of updates.
-
 ### When will I receive the first Hotpatch update?
 
 * Hotpatch updates are typically released on the second Tuesday of each month. For more information, see below.
 
 ### What will the Hotpatch schedule look like?
 
-* Hotpatching works by establishing a baseline with a Windows Update Latest Cumulative Update, then builds upon that baseline with Hotpatch updates released monthly.  During the preview, baselines will be released starting out every three months, increasing up to six months as the program continues. See the image below for an example of an annual three-month schedule (including example unplanned baselines due to zero-day fixes).
+* Hotpatching works by establishing a baseline with a Windows Update Latest Cumulative Update, then builds upon that baseline with Hotpatch updates released monthly.  During the preview, baselines will be released starting out every three months. See the image below for an example of an annual three-month schedule (including example unplanned baselines due to zero-day fixes).
 
     :::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Hotpatch Sample Schedule.":::
 
