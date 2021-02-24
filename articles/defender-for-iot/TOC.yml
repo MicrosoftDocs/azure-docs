@@ -1,11 +1,13 @@
 - name: Azure Defender for IoT documentation
   href: index.yml
 - name: Overview
+  displayName: IoT, OT, getting started
   href: overview.md
   items:
   - name: What's new?
     href: release-notes.md
   - name: Agentless solution architecture
+    displayName: deployment, where to deploy
     href: architecture.md
   - name: Agent-based solution architecture 
     href: architecture-agent-based.md
@@ -15,8 +17,10 @@
   - name: Agentless Solution for Organizations
     items:
     - name: System prerequisites
+      displayName: firewall, proxy, open ports
       href: quickstart-system-prerequisites.md
     - name: Get started with Azure Defender for IoT
+      displayName: getting started, registration, onboarding
       href: getting-started.md
   - name: Agent-based solution for device builders
     items: 
@@ -110,7 +114,7 @@
           displayName: virtual, Dell, HPE, SMB, certified, hardware, deployment
           href: how-to-identify-required-appliances.md
         - name: Install software
-          displayName: virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install
+          displayName: virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install, deploy
           href: how-to-install-software.md
         - name: Set up your network
           displayName: passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning
@@ -121,12 +125,12 @@
         displayName: onboard, cloud, register, activate
         href: how-to-manage-sensors-on-the-cloud.md
       - name: Activate and set up your sensor
-        displayName: onboard, register, activation, certificate, cloud connected, sign in, login, setup, learning mode, initial
+        displayName: onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
         href: how-to-activate-and-set-up-your-sensor.md
     - name: Prepare your on-premises management console
       items:
       - name: Activate and set up your on-premises management console
-        displayName: activate, certificate, sign in, login, setup, initial, committed
+        displayName: activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
       - name: Set up high availability
         displayName: primary, secondary, failover, failback fail, recovery 
@@ -147,12 +151,13 @@
       href: how-to-manage-sensors-from-the-on-premises-management-console.md
     - name: Manage individual sensors
       href: how-to-manage-individual-sensors.md
-      displayName: activation, certificate, SSL, TLS, connect, timezone time zone, backup, restore, software update, failure
+      displayName: upgrade, activation, certificate, SSL, TLS, connect, timezone time zone, backup, sync, restore, software update, failure
     - name: Manage sensors on the cloud
       href: how-to-manage-sensors-on-the-cloud.md
     - name: Manage the on-premises management console
       displayName: activation, certificate, software update, backup, restore, proxy, password recovery
       href: how-to-manage-the-on-premises-management-console.md
+      displayName: upgrade, activation, certificate, SSL, TLS, connect, sync, backup, restore, software update, failure
     - name: Work with threat intelligence packages
       href: how-to-work-with-threat-intelligence-packages.md
     - name: Work with device inventory information
@@ -162,10 +167,10 @@
         displayName: classification
       - name: Investigate sensor detections in a device inventory
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-        displayName: classification, Windows registry
+        displayName: classification, Windows registry, asset, device, firmware, import
     - name: Work with the sensor device map
       href: how-to-work-with-the-sensor-device-map.md
-      displayName: connections, Purdue, zoom 
+      displayName: connections, Purdue, zoom, delete device 
     - name: Work with alerts detected by a sensor
       items:
       - name: Work with alert on your sensor
@@ -183,7 +188,7 @@
         displayName: custom, alerts, comments, groups
       - name: Forward alert information
         href: how-to-forward-alert-information-to-partners.md
-        displayName: integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email
+        displayName: integration, 3rd party, partners, vendor, Syslog server, NetWitness, CEF, LEEF, email, SOC, SIEM, SOAR, incident response
     - name: Gain insight into global, regional, and local threats
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
       displayName: site, business unit, region, map
@@ -193,10 +198,12 @@
       items:
       - name: Create risk assessment reports
         href: how-to-create-risk-assessment-reports.md
-        displayName: vulnerability, security score, score
+        displayName: vulnerability, security score, score, CVE
       - name: Create attack vector reports
         href: how-to-create-attack-vector-reports.md
+        displayName: Attack surface, prediction,simulation 
       - name: Create data mining reports
+        displayName: CVE, activity 
         href: how-to-create-data-mining-queries.md
       - name: Create trends and statistics reports
         href: how-to-create-trends-and-statistics-reports.md
@@ -204,7 +211,7 @@
     - name: Enrich device information
       items: 
       - name: Work with device notifications
-        displayName: notifications, operating systems, enrich, device information, classification
+        displayName: notifications, operating systems, enrich, device information, classification, delete devices
         href: how-to-work-with-device-notifications.md
       - name: Enhance port and VLAN name resolution
         displayName: port, VLAN
