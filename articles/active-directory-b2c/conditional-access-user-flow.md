@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 12/14/2020
+ms.date: 02/23/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
@@ -125,6 +125,8 @@ To test Conditional Access in your user flow, [create a Conditional Access polic
 ## Add Conditional Access to your policy
 
 You can find an example of a conditional access policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
+
+You can also learn more about how to [define a Conditional Access technical profile in a custom policy](conditional-access-technical-profile.md).
 
 ::: zone-end
 
