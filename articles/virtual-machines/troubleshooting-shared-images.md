@@ -289,6 +289,10 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: The shared image gallery does not currently support using a disk encryption set in a different subscription.  
 **Workaround**: Create the image version and disk encryption set in the same subscription.
 
+*Replication failed in this region due to 'The GalleryImageVersion source resource size 2048 exceeds the max size 1024 supported.'*  
+**Cause**: A data disk in the source is greater than 1TB.  
+**Workaround**: Resize the data disk to under 1 TB.
+
 ## Creating or updating a VM or scale sets from an image version ##
 
 *The client has permission to perform action 'Microsoft.Compute/galleries/images/versions/read' on scope <resourceID\>, however the current tenant <tenantId1\> is not authorized to access linked subscription <subscriptionId2\>.*  
