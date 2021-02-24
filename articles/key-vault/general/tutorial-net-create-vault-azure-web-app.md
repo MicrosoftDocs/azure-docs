@@ -20,12 +20,12 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 [Azure Key Vault](./overview.md) provides a way to store credentials and other secrets with increased security. But your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md) help to solve this problem by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having to display credentials in your code.
 
-In this tutorial, you'll create and deploy Azure web application to [Azure App Service](https://docs.microsoft.com/azure/app-service/overview). You'll  use a managed identity to authenticate your Azure web app with an Azure key vault using [Azure Key Vault secret client library for .NET](/dotnet/api/overview/azure/key-vault) and the [Azure CLI](/cli/azure/get-started-with-azure-cli). The same basic principles apply when you use the development language of your choice, Azure PowerShell, and/or the Azure portal.
+In this tutorial, you'll create and deploy Azure web application to [Azure App Service](../../app-service/overview.md). You'll  use a managed identity to authenticate your Azure web app with an Azure key vault using [Azure Key Vault secret client library for .NET](/dotnet/api/overview/azure/key-vault) and the [Azure CLI](/cli/azure/get-started-with-azure-cli). The same basic principles apply when you use the development language of your choice, Azure PowerShell, and/or the Azure portal.
 
 For more information about Azure App service web applications and deployment presented in this tutorial, see:
-- [App Service overview](https://docs.microsoft.com/azure/app-service/overview)
-- [Create an ASP.NET Core web app in Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
-- [Local Git deployment to Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-local-git)
+- [App Service overview](../../app-service/overview.md)
+- [Create an ASP.NET Core web app in Azure App Service](../../app-service/quickstart-dotnetcore.md)
+- [Local Git deployment to Azure App Service](../../app-service/deploy-local-git.md)
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ In a web browser, go to the app at `http://localhost:5000`.
 
 You'll see the "Hello World!" message from the sample app displayed on the page.
 
-For more information about creating web applications for Azure, see [Create an ASP.NET Core web app in Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
+For more information about creating web applications for Azure, see [Create an ASP.NET Core web app in Azure App Service](../../app-service/quickstart-dotnetcore.md)
 
 ## Deploy the app to Azure
 
@@ -227,7 +227,7 @@ http://<your-webapp-name>.azurewebsites.net
 
 You'll see the "Hello World!" message you saw earlier when you visited `http://localhost:5000`.
 
-For more information about deploying web application using Git, see [Local Git deployment to Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-local-git)
+For more information about deploying web application using Git, see [Local Git deployment to Azure App Service](../../app-service/deploy-local-git.md)
  
 ## Configure the web app to connect to Key Vault
 
@@ -263,7 +263,7 @@ You can also assign access policies by using the [Azure portal](./assign-access-
 
 ### Modify the app to access your key vault
 
-In this tutorial, you'll use [Azure Key Vault secret client library](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.secrets-readme) for demonstration purposes. You can also use [Azure Key Vault certificate client library](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.certificates-readme), or [Azure Key Vault key client library](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.keys-readme).
+In this tutorial, you'll use [Azure Key Vault secret client library](/dotnet/api/overview/azure/security.keyvault.secrets-readme) for demonstration purposes. You can also use [Azure Key Vault certificate client library](/dotnet/api/overview/azure/security.keyvault.certificates-readme), or [Azure Key Vault key client library](/dotnet/api/overview/azure/security.keyvault.keys-readme).
 
 #### Install the packages
 

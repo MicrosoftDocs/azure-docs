@@ -23,7 +23,6 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 
 The following are prerequisites for enabling Azure Automanage:
 - Windows Server VMs only
-- VMs must be running
 - VMs must be in a supported region
 - User must have correct permissions
 - Non-scale set VMs only

@@ -1,9 +1,6 @@
 ---
 title: Azure HDInsight SDK for Go
 description: Reference material for using Azure HDInsight SDK for Go and Apache Hadoop clusters
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18, devx-track-azurecli
@@ -360,7 +357,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### Enable OMS monitoring
 
 > [!NOTE]  
-> To enable OMS Monitoring, you must have an existing Log Analytics workspace. If you have not already created one, you can learn how to do that here: [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md).
+> To enable OMS Monitoring, you must have an existing Log Analytics workspace. If you have not already created one, you can learn how to do that here: [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
 To enable OMS Monitoring on your cluster:
 

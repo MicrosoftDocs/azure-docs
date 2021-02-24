@@ -1,8 +1,8 @@
 ---
-title: Template specs overview
+title: Create & deploy template specs
 description: Describes how to create template specs and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 11/25/2020
+ms.date: 01/14/2021
 ms.author: tomfitz
 author: tfitzmac
 ---

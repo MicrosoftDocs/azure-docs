@@ -36,11 +36,13 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
-
 In this section, you create a load balancer that load balances virtual machines. 
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer. 
+
+The following diagram shows the resources created in this quickstart:
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
 
 A private IP address in the virtual network is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer. 
 
@@ -61,7 +63,7 @@ In this section, you'll create a virtual network and subnet.
     | Resource Group   | Select **CreateIntLBQS-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **West Europe** |
+    | Region           | Select **(Europe) West Europe** |
 
 3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -99,16 +101,17 @@ In this section, you'll create a virtual network and subnet.
 
 ## Create load balancer
 
-1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
-
-2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
+1. Select **Create a resource**. 
+2. In the search box, enter **Load balancer**. Select **Load balancer** in the search results.
+3. In the **Load balancer** page, select **Create**.
+4. On the **Create load balancer** page enter, or select the following information: 
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
     | Resource group         | Select **CreateIntLBQS-rg** created in the previous step.|
     | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **West Europe**.                                        |
+    | Region         | Select **(Europe) West Europe**.                                        |
     | Type          | Select **Internal**.                                        |
     | SKU           | Select **Standard** |
     | Virtual network | Select **myVNet** created in the previous step. |
@@ -194,12 +197,8 @@ In this section, you'll create a load balancer rule:
     | Health probe | Select **myHealthProbe**. |
     | Idle timeout (minutes) | Move the slider to **15** minutes. |
     | TCP reset | Select **Enabled**. |
-    | Outbound source network address translation (SNAT) | Select **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
-
+    
 4. Leave the rest of the defaults and then select **OK**.
-
->[!NOTE]
->The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity, see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](../virtual-network/nat-overview.md)**
 
 ## Create backend servers
 
@@ -225,7 +224,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Resource Group | Select **CreateIntLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
-    | Region | Select **West Europe** |
+    | Region | Select **(Europe) West Europe** |
     | Availability Options | Select **Availability zones** |
     | Availability zone | Select **1** |
     | Image | Select **Windows Server 2019 Datacenter** |
@@ -273,11 +272,13 @@ These VMs are added to the backend pool of the load balancer that was created ea
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::
-
 In this section, you create a load balancer that load balances virtual machines. 
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer. 
+
+The following diagram shows the resources created in this quickstart:
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::
 
 A private IP address in the virtual network is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer. 
 
@@ -298,7 +299,7 @@ In this section, you'll create a virtual network and subnet.
     | Resource Group   | Select **CreateIntLBQS-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **West Europe** |
+    | Region           | Select **(Europe) West Europe** |
 
 3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -345,7 +346,7 @@ In this section, you'll create a virtual network and subnet.
     | Subscription               | Select your subscription.    |    
     | Resource group         | Select **CreateIntLBQS-rg** created in the previous step.|
     | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **West Europe**.                                        |
+    | Region         | Select **(Europe) West Europe**.                                        |
     | Type          | Select **Internal**.                                        |
     | SKU           | Select **Basic** |
     | Virtual network | Select **myVNet** created in the previous step. |

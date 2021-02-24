@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 2/18/2021
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -111,7 +111,7 @@ Some claims are used to help Azure AD secure tokens in case of reuse. These are 
 | `hasgroups` | Boolean | If present, always `true`, denoting the user is in at least one group. Used in place of the `groups` claim for JWTs in implicit grant flows if the full groups claim would extend the URI fragment beyond the URL length limits (currently 6 or more groups). Indicates that the client should use the Microsoft Graph API to determine the user's groups (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`). |
 | `groups:src1` | JSON object | For token requests that are not length limited (see `hasgroups` above) but still too large for the token, a link to the full groups list for the user will be included. For JWTs as a distributed claim, for SAML as a new claim in place of the `groups` claim. <br><br>**Example JWT Value**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
 | `sub` | String | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource, and can be used as a key in database tables. Because the subject is always present in the tokens that Azure AD issues, we recommend using this value in a general-purpose authorization system. The subject is, however, a pairwise identifier - it is unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements. See also the `oid` claim (which does remain the same across apps within a tenant). |
-| `oid` | String, a GUID | The immutable identifier for an object in the Microsoft identity platform, in this case, a user account. It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim. Thus, `oid` can be used when making queries to Microsoft online services, such as the Microsoft Graph. The Microsoft Graph will return this ID as the `id` property for a given [user account](/graph/api/resources/user). Because the `oid` allows multiple apps to correlate users, the `profile` scope is required in order to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials. |
+| `oid` | String, a GUID | The immutable identifier for the "principal" of the request - the user or service principal whose identity has been verified.  In ID tokens and app+user tokens, this is the object ID of the user.  In app-only tokens, this is the object id of the calling service principal. It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the principal across applications - two different applications signing in the same user will receive the same value in the `oid` claim. Thus, `oid` can be used when making queries to Microsoft online services, such as the Microsoft Graph. The Microsoft Graph will return this ID as the `id` property for a given [user account](/graph/api/resources/user). Because the `oid` allows multiple apps to correlate principals, the `profile` scope is required in order to receive this claim for users. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials. |
 | `tid` | String, a GUID | Represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required in order to receive this claim. |
 | `unique_name` | String | Only present in v1.0 tokens. Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and should be used only for display purposes. |
 | `uti` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources shouldn't use this claim. |
@@ -237,7 +237,7 @@ Your application's business logic will dictate this step, some common authorizat
 * Validate the authentication status of the calling client using `appidacr` - it shouldn't be 0 if public clients aren't allowed to call your API.
 * Check against a list of past `nonce` claims to verify the token isn't being replayed.
 * Check that the `tid` matches a tenant that is allowed to call your API.
-* Use the `acr` claim to verify the user has performed MFA. This should be enforced using [Conditional Access](../conditional-access/overview.md).
+* Use the `amr` claim to verify the user has performed MFA. This should be enforced using [Conditional Access](../conditional-access/overview.md).
 * If you've requested the `roles` or `groups` claims in the access token, verify that the user is in the group allowed to do this action.
   * For tokens retrieved using the implicit flow, you'll likely need to query the [Microsoft Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token.
 
@@ -288,10 +288,7 @@ A *non-password-based* login is one where the user didn't type in a password to 
 - Voice
 - PIN
 
-> [!NOTE]
-> Primary Refresh Tokens (PRT) on Windows 10 are segregated based on the credential. For example, Windows Hello and password have their respective PRTs, isolated from one another. When a user signs-in with a Hello credential (PIN or biometrics) and then changes the password, the password based PRT obtained previously will be revoked. Signing back in with a password invalidates the old PRT and requests a new one.
->
-> Refresh tokens aren't invalidated or revoked when used to fetch a new access token and refresh token.  However, your app should discard the old one as soon as it's used and replace it with the new one, as the new token has a new expiration time in it.
+Check out [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md) for more details on primary refresh tokens.
 
 ## Next steps
 

@@ -61,7 +61,7 @@ For more information, see [Virtual network service endpoints](virtual-network-se
 
 ## Service tags
 
-A service tag represents a group of IP address prefixes from a given Azure service. Using service tags, you can define network access controls on [network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) or [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). By specifying the service tag name (for example, AzureEventGrid) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service.
+A service tag represents a group of IP address prefixes from a given Azure service. Using service tags, you can define network access controls on [network security groups](./network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). By specifying the service tag name (for example, AzureEventGrid) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service.
 
 ![Allow or deny traffic using Service Tags](./media/network-isolation/service-tags.png)
 
@@ -71,6 +71,6 @@ For more information about Service Tags and Azure services that support them, se
 
 ## Next steps
 
-- Learn how to [integrate you app with an Azure network](../app-service/web-sites-integrate-with-vnet.md).
+- Learn how to [integrate your app with an Azure network](../app-service/web-sites-integrate-with-vnet.md).
 - Learn how to [restrict access to resources using Service Tags](tutorial-restrict-network-access-to-resources.md).
-- Learn how to [connect privately to an Azure Cosmos account using Azure Private Link](../private-link/create-private-endpoint-cosmosdb-portal.md).
+- Learn how to [connect privately to an Azure Cosmos account using Azure Private Link](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).

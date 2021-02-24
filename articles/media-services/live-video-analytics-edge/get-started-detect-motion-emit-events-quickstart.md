@@ -21,8 +21,12 @@ You can view the following video with detailed steps on how to get started with 
 ## Prerequisites
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
+
+  > [!NOTE]
+  > You will need an Azure subscription with permissions for creating service principals (**owner role** provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.  
+
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol (AMQP) over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
+* Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol (AMQP) over port 5671 for outbound traffic. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
 
 > [!TIP]
 > You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
@@ -38,7 +42,9 @@ This tutorial requires the following Azure resources:
 
 For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 
-1. Go to [Azure Portal](https://portal.azure.com) and select the cloud shell icon.
+1. Go to [Azure portal](https://portal.azure.com) and select the Cloud Shell icon.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/cloud-shell.png" alt-text="Cloud Shell":::
 1. If you're using Cloud Shell for the first time, you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud Shell session information. This storage account is separate from the account that the script will create to use with your Azure Media Services account.
 1. In the drop-down menu on the left side of the Cloud Shell window, select **Bash** as your environment.
 
@@ -50,7 +56,21 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-Upon successful completion of the script, you should see all of the required resources in your subscription. In the script output, a table of resources lists the IoT hub name. Look for the resource type **`Microsoft.Devices/IotHubs`**, and note down the name. You'll need this name in the next step.  
+    Upon successful completion of the script, you should see all of the required resources in your subscription. A total of 12 resources will be setup by the script:
+    1. **Streaming Endpoint** - This will help in the playing the recorded AMS asset.
+    1. **Virtual machine** - This is a virtual machine that will act as your edge device.
+    1. **Disk** - This is a storage disk that is attached to the virtual machine to store media and artifacts.
+    1. **Network security group** - This is used to filter network traffic to and from Azure resources in an Azure virtual network.
+    1. **Network interface** - This enables an Azure Virtual Machine to communicate with internet, Azure, and other resources.
+    1. **Bastion connection** - This lets you connect to your virtual machine using your browser and the Azure portal.
+    1. **Public IP address** - This enables Azure resources to communicate to Internet and public-facing Azure services
+    1. **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about [Virtual networks](../../virtual-network/virtual-networks-overview.md).
+    1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
+    1. **Media service account** - This helps with managing and streaming media content in Azure.
+    1. **Storage account** - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see [Azure Storage accounts with Azure Media Services accounts](../latest/storage-account-concept.md).
+    1. **Container registry** - This helps in storing and managing your private Docker container images and related artifacts.
+
+In the script output, a table of resources lists the IoT hub name. Look for the resource type **`Microsoft.Devices/IotHubs`**, and note down the name. You'll need this name in the next step.  
 
 > [!NOTE]
 > The script also generates a few configuration files in the ***~/clouddrive/lva-sample/*** directory. You'll need these files later in the quickstart.
@@ -80,7 +100,7 @@ Now the modules are deployed, but no media graphs are active.
 Follow these instructions to connect to your IoT hub by using the Azure IoT Tools extension.
 
 1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
-1. Right click and select **Extension Settings**.
+1. Right-click and select **Extension Settings**.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
@@ -92,6 +112,12 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 1. In the lower-left corner of the **Explorer** tab, select **Azure IoT Hub**.
 1. Select the **More Options** icon to see the context menu. Then select **Set IoT Hub Connection String**.
 1. When an input box appears, enter your IoT Hub connection string. In Cloud Shell, you can get the connection string from *~/clouddrive/lva-sample/appsettings.json*.
+
+> [!NOTE]
+> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 
 If the connection succeeds, the list of edge devices appears. You should see at least one device named **lva-sample-device**. You can now manage your IoT Edge devices and interact with Azure IoT Hub through the context menu. To view the modules deployed on the edge device, under **lva-sample-device**, expand the **Modules** node.
 
@@ -136,7 +162,7 @@ To enumerate all of the [graph topologies](media-graph-concept.md#media-graph-to
 
 ### Invoke GraphTopologySet
 
-By using the steps for invoking `GraphTopologyList`, you can invoke `GraphTopologySet` to set a [graph topology](media-graph-concept.md#media-graph-topologies-and-instances). Use the following JSON as the payload.
+Like we did before, you can now invoke `GraphTopologySet` to set a [graph topology](media-graph-concept.md#media-graph-topologies-and-instances). Use the following JSON as the payload.
 
 ```
 {
@@ -532,6 +558,12 @@ To observe the results, follow these steps.
 3. Right-click **lva-sample-device** and then select **Start Monitoring Built-in Event Monitoring**.
 
     ![Start monitoring Iot Hub events](./media/quickstarts/start-monitoring-iothub-events.png)
+
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     
 The **OUTPUT** window displays the following message:
 
@@ -564,13 +596,6 @@ The **OUTPUT** window displays the following message:
         }
         }
     ]
-    },
-    "applicationProperties": {
-    "topic": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.media/mediaservices/{amsAccountName}",
-    "subject": "/graphInstances/Sample-Graph-1/processors/motionDetection",
-    "eventType": "Microsoft.Media.Graph.Analytics.Inference",
-    "eventTime": "2020-05-19T07:45:34.404Z",
-    "dataVersion": "1.0"
     }
 }
 ```

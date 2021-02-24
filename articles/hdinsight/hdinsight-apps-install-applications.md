@@ -1,13 +1,10 @@
 ---
 title: Install third-party applications on Azure HDInsight 
 description: Learn how to install third-party Apache Hadoop applications on Azure HDInsight.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
-ms.author: hrasheed
 
 ---
 # Install third-party Apache Hadoop applications on Azure HDInsight
@@ -20,7 +17,7 @@ The following list shows the published applications:
 
 |Application |Cluster type(s) | Description |
 |---|---|---|
-|[AtScale Intelligence Platform](https://azuremarketplace.microsoft.com/marketplace/apps/atscaleinc.atscale) |Hadoop |AtScale turns your HDInsight cluster into a scale-out OLAP server, allowing you to query billions of rows of data interactively using the BI tools you already know, own, and love – from Microsoft Excel, Power BI, Tableau Software to QlikView. |
+|[AtScale Intelligence Platform](https://aws.amazon.com/marketplace/pp/AtScale-AtScale-Intelligence-Platform/B07BWWHH18) |Hadoop |AtScale turns your HDInsight cluster into a scale-out OLAP server, allowing you to query billions of rows of data interactively using the BI tools you already know, own, and love – from Microsoft Excel, Power BI, Tableau Software to QlikView. |
 |[CDAP for HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP is the first unified integration platform for big data that accelerates time to value for Hadoop and enables IT to provide self-service data. Open source and extensible, CDAP removes barriers to innovation. Requirements: 4 Region nodes, min D3 v2. |
 |[Datameer](https://azuremarketplace.microsoft.com/marketplace/apps/datameer.datameer) |Hadoop |Datameer's self-service scalable platform for preparing, exploring, and governing your data for analytics accelerates turning complex multisource data into valuable business-ready information, delivering faster, smarter insights at an enterprise-scale. |
 |[Dataiku DSS on HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS in an enterprise data science platform that lets data scientists and data analysts collaborate to design and run new data products and services more efficiently, turning raw data into impactful predictions. |
@@ -32,7 +29,7 @@ The following list shows the published applications:
 |[Starburst Presto for Azure HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/starburstdatainc1579800938563.starburst-presto?tab=Overview) |Hadoop |Presto is a fast and scalable distributed SQL query engine. Architected for the separation of storage and compute, Presto is perfect for querying data in Azure Data Lake Storage, Azure Blob Storage, SQL and NoSQL databases, and other data sources. |
 |[StreamSets Data Collector for HDInsight Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop,HBase,Spark,Kafka |StreamSets Data Collector is a lightweight, powerful engine that streams data in real time. Use Data Collector to route and process data in your data streams. It comes with a 30 day trial license. |
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.trifacta-db?tab=Overview) |Hadoop, Spark,HBase |Trifacta Wrangler Enterprise for HDInsight supports enterprise-wide data wrangling for any scale of data. The cost of running Trifacta on Azure is a combination of Trifacta subscription costs plus the Azure infrastructure costs for the virtual machines. |
-|[Unifi Data Platform](https://unifisoftware.com/platform/) |Hadoop,HBase,Storm,Spark |The Unifi Data Platform is a seamlessly integrated suite of self-service data tools designed to empower the business user to tackle data challenges that drive incremental revenue, reduce costs or operational complexity. |
+|[Unifi Data Platform](https://www.crunchbase.com/organization/unifi-software) |Hadoop,HBase,Storm,Spark |The Unifi Data Platform is a seamlessly integrated suite of self-service data tools designed to empower the business user to tackle data challenges that drive incremental revenue, reduce costs or operational complexity. |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |Unravel Data app for HDInsight Spark cluster. |
 |[Waterline AI-Driven Data Catalog](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |Waterline catalogs, organizes, and governs data using AI to auto-tag data with business terms. Waterline's business literate catalog is a critical, success component for self-service analytics, compliance and governance, and IT management initiatives. |
 

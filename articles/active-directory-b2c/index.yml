@@ -61,7 +61,7 @@ landingContent:
           - text: Enable self-service sign-in
             url: user-flow-overview.md
           - text: 'Add social and work identities: OIDC/OAuth2/SAML'
-            url: tutorial-add-identity-providers.md
+            url: add-identity-provider.md
           - text: Enable single sign-on (SSO)
             url: session-behavior.md
           - text: Customize your UI/UX
@@ -123,7 +123,7 @@ landingContent:
           - text: Role-based access control for admins
             url: ../active-directory/roles/permissions-reference.md
           - text: User management
-            url: manage-user-accounts-graph-api.md
+            url: microsoft-graph-operations.md
           - text: Troubleshooting
             url: troubleshoot-custom-policies.md?tabs-app-reg-ga
           - text: Best practices

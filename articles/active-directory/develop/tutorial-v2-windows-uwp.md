@@ -55,8 +55,8 @@ This section provides step-by-step instructions to integrate a Windows Desktop .
 
 This guide creates an application that displays a button that queries the Microsoft Graph API and a button to sign out. It also displays text boxes that contain the results of the calls.
 
-> [!NOTE]
-> Do you want to download this sample's Visual Studio project instead of creating it? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip), and skip to the [application registration](#register-your-application "application registration step") step to configure the code sample before it runs.
+> [!Tip]
+> To see a completed version of the project you build in this tutorial, you can [download it from GitHub](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip).
 
 ### Create your application
 
@@ -288,8 +288,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     }
 ```
 
-> [!NOTE]
-> MSAL.NET uses asynchronous methods to acquire tokens or manipulate accounts. You need to support UI actions in the UI thread. This is the reason for the `Dispatcher.RunAsync` call and the precautions to call `ConfigureAwait(false)`.
+MSAL.NET uses asynchronous methods to acquire tokens or manipulate accounts. As such, support UI actions in the UI thread. This is the reason for the `Dispatcher.RunAsync` call and the precautions to call `ConfigureAwait(false)`.
 
 #### More information about signing out<a name="more-information-on-sign-out"></a>
 
@@ -340,9 +339,9 @@ private async Task DisplayMessageAsync(string message)
 
 ## Register your application
 
-Now you need to register your application:
+Now, register your application:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -353,8 +352,8 @@ Now you need to register your application:
 
 Configure authentication for your application:
 
-1. Back in the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>, under **Manage**, select **Authentication** > **Add a platform**, and then select **Mobile and desktop applications**.
-1. In the **Redirect URIs** section, check **https://login.microsoftonline.com/common/oauth2/nativeclient**.
+1. Back in the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, under **Manage**, select **Authentication** > **Add a platform**, and then select **Mobile and desktop applications**.
+1. In the **Redirect URIs** section, enter `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 1. Select **Configure**.
 
 Configure API permissions for your application:
@@ -474,8 +473,7 @@ The Microsoft Graph API requires the `user.read` scope to read a user's profile.
 
 To access the user's calendars in the context of an application, add the `Calendars.Read` delegated permission to the application registration information. Then add the `Calendars.Read` scope to the `acquireTokenSilent` call.
 
-> [!NOTE]
-> Users might be prompted for additional consents as you increase the number of scopes.
+Users might be prompted for additional consents as you increase the number of scopes.
 
 ## Known issues
 

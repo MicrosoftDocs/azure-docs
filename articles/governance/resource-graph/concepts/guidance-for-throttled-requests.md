@@ -1,7 +1,7 @@
 ---
 title: Guidance for throttled requests
 description: Learn to group, stagger, paginate, and query in parallel to avoid requests being throttled by Azure Resource Graph.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
@@ -142,7 +142,7 @@ sending 60 queries at the same time, stagger the queries into four 5-second wind
   |---------------------|-----|------|-------|-------|
   | Time Interval (sec) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-Here is an example of respecting throttling headers when querying Azure Resource Graph:
+Here's an example of respecting throttling headers when querying Azure Resource Graph:
 
 ```csharp
 while (/* Need to query more? */)
@@ -168,7 +168,7 @@ while (/* Need to query more? */)
 
 Even though grouping is recommended over parallelization, there are times where queries can't be
 easily grouped. In these cases, you may want to query Azure Resource Graph by sending multiple
-queries in a parallel fashion. Here is an example of how to _backoff_ based on throttling headers
+queries in a parallel fashion. Here's an example of how to _backoff_ based on throttling headers
 in such scenarios:
 
 ```csharp

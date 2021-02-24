@@ -1,9 +1,6 @@
 ---
 title: Managed identities in Azure HDInsight
 description: Provides an overview of the implementation of managed identities in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive

@@ -33,24 +33,26 @@ Given a B2C application that has two policies:
 
 The configuration file for the app would declare two `authorities`. One for each policy. The `type` property of each authority is `B2C`.
 
->Note: The `account_mode` must be set to **MULTIPLE** for B2C applications. Refer to the documentation for more information about [multiple account public client apps](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account#multiple-account-public-client-application).
+>Note: The `account_mode` must be set to **MULTIPLE** for B2C applications. Refer to the documentation for more information about [multiple account public client apps](./single-multi-account.md#multiple-account-public-client-application).
 
 ### `app/src/main/res/raw/msal_config.json`
+
 ```json
 {
-	"client_id": "<your_client_id_here>",
-	"redirect_uri": "<your_redirect_uri_here>",
-	"account_mode" : "MULTIPLE",
-	"authorities": [{
-			"type": "B2C",
-			"authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
-			"default": true
-		},
-		{
-			"type": "B2C",
-			"authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_EditProfile/"
-		}
-	]
+  "client_id": "<your_client_id_here>",
+  "redirect_uri": "<your_redirect_uri_here>",
+  "account_mode" : "MULTIPLE",
+  "authorities": [
+    {
+      "type": "B2C",
+      "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
+      "default": true
+    },
+    {
+      "type": "B2C",
+      "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_EditProfile/"
+    }
+  ]
 }
 ```
 
@@ -115,7 +117,7 @@ pca.acquireToken(parameters);
 To acquire a token silently with MSAL, build an `AcquireTokenSilentParameters` instance and supply it to the `acquireTokenSilentAsync` method. Unlike the `acquireToken` method, the `authority` must be specified to acquire a token silently.
 
 ```java
-IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
+IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
 AcquireTokenSilentParameters parameters = new AcquireTokenSilentParameters.Builder()
     .withScopes(Arrays.asList("https://contoso.onmicrosoft.com/contosob2c/read")) // Provide your registered scope here
     .forAccount(account)

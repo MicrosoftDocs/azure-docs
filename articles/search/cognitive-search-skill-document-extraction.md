@@ -32,7 +32,7 @@ Parameters are case-sensitive.
 | Inputs | Allowed Values | Description |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Set to `default` for document extraction from files that are not pure text or json. Set to `text` to improve performance on plain text files. Set to `json` to extract structured content from json files. If `parsingMode` is not defined explicitly, it will be set to `default`. |
-| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Set to `contentAndMetadata` to extract all metadata and textual content from each file. Set to `allMetadata` to extract only the [content-type specific metadata](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (for example, metadata unique to just .png files). If `dataToExtract` is not defined explicitly, it will be set to `contentAndMetadata`. |
+| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Set to `contentAndMetadata` to extract all metadata and textual content from each file. Set to `allMetadata` to extract only the [metadata properties for the content type](search-blob-metadata-properties.md) (for example, metadata unique to just .png files). If `dataToExtract` is not defined explicitly, it will be set to `contentAndMetadata`. |
 | `configuration` | See below. | A dictionary of optional parameters that adjust how the document extraction is performed. See the below table for descriptions of supported configuration properties. |
 
 | Configuration Parameter	| Allowed Values | Description |

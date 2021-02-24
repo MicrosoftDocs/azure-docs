@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 02/01/2021
 ---
 
 # Overview: Azure Logic Apps Preview
@@ -145,6 +145,8 @@ Azure Logic Apps Preview includes many current and additional capabilities, for 
 
 * Enable diagnostics logging and tracing capabilities for your logic app by using [Application Insights](../azure-monitor/app/app-insights-overview.md) when supported by your Azure subscription and logic app settings.
 
+* Regenerate access keys for managed connections used by individual workflows in a **Logic App (Preview)** resource. For this task, [follow the same steps for the **Logic Apps** resource but at the individual workflow level](logic-apps-securing-a-logic-app.md#regenerate-access-keys), not the logic app resource level.
+
 > [!NOTE]
 > For information about current known issues, review the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
@@ -171,7 +173,9 @@ For more information about the pricing models that apply to this new resource ty
 
 ## Changed, limited, unavailable, or unsupported capabilities
 
-In Azure Logic Apps Preview, these capabilities have change, or they are currently limited, unavailable, or unsupported:
+In Azure Logic Apps Preview, these capabilities have changed, or they are currently limited, unavailable, or unsupported:
+
+* **OS support**: Currently, the designer in Visual Studio Code doesn't work on Linux OS, but you can still deploy logic apps that use the Logic Apps Preview runtime to Linux-based virtual machines. For now, you can build your logic apps in Visual Studio Code on Windows or macOS and then deploy to a Linux-based virtual machine.
 
 * **Triggers and actions**: Some built-in triggers are unavailable, such as Sliding Window and Batch. To start your workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). Built-in triggers and actions run natively in the Azure Logic Apps Preview runtime, while managed connectors are deployed in Azure. In the designer, built-in triggers and actions appear under the **Built-in** tab, while managed connector triggers and actions appear under the **Azure** tab.
 

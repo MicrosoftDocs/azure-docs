@@ -15,7 +15,7 @@ ms.author: sebansal
 ---
 # Export certificates from Azure Key Vault
 
-Learn how to export certificates from Azure Key Vault. You can export certificates by using the Azure CLI, Azure PowerShell, or the Azure portal. You can also use the Azure portal to export Azure App Service certificates.
+Learn how to export certificates from Azure Key Vault. You can export certificates by using the Azure CLI, Azure PowerShell, or the Azure portal. 
 
 ## About Azure Key Vault certificates
 
@@ -111,7 +111,7 @@ To download the certificate, select **Download in CER format** or **Download in 
 
 **Export Azure App Service certificates**
 
-Azure App Service certificates are a convenient way to purchase SSL certificates. You can assign them to Azure Apps from within the portal. You can also export these certificates from the portal as PFX files to be used elsewhere. After you import them, the App Service certificates are located under **secrets**.
+Azure App Service certificates are a convenient way to purchase SSL certificates. You can assign them to Azure Apps from within the portal. After you import them, the App Service certificates are located under **secrets**.
 
 For more information, see the steps to [export Azure App Service certificates](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 

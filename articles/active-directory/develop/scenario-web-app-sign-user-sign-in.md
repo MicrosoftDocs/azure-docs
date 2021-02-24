@@ -1,5 +1,6 @@
 ---
-title: Write a web app that signs in/out users - Microsoft identity platform | Azure
+title: Write a web app that signs in/out users | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web app that signs in/out users
 services: active-directory
 author: jmprieur
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-#Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform.
 ---
 
 # Web app that signs in users: Sign-in and sign-out
@@ -210,7 +211,7 @@ After the user has signed in to your app, you'll want to enable them to sign out
 Signing out from a web app involves more than removing the information about the signed-in account from the web app's state.
 The web app must also redirect the user to the Microsoft identity platform `logout` endpoint to sign out.
 
-When your web app redirects the user to the `logout` endpoint, this endpoint clears the user's session from the browser. If your app didn't go to the `logout` endpoint, the user will reauthenticate to your app without entering their credentials again. The reason is that they'll have a valid single sign-in session with the Microsoft identity platform endpoint.
+When your web app redirects the user to the `logout` endpoint, this endpoint clears the user's session from the browser. If your app didn't go to the `logout` endpoint, the user will reauthenticate to your app without entering their credentials again. The reason is that they'll have a valid single sign-in session with the Microsoft identity platform.
 
 To learn more, see the [Send a sign-out request](v2-protocols-oidc.md#send-a-sign-out-request) section in the [Microsoft identity platform and the OpenID Connect protocol](v2-protocols-oidc.md) documentation.
 
@@ -218,21 +219,19 @@ To learn more, see the [Send a sign-out request](v2-protocols-oidc.md#send-a-sig
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-During the application registration, you register a post-logout URI. In our tutorial, you registered `https://localhost:44321/signout-oidc` in the **Logout URL** field of the **Advanced Settings** section on the **Authentication** page. For details, see [
-Register the webApp app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
+During the application registration, you register a front-channel logout URL. In our tutorial, you registered `https://localhost:44321/signout-oidc` in the **Front-channel logout URL** field on the **Authentication** page. For details, see [Register the webApp app](scenario-web-app-sign-user-app-registration.md#register-an-app-by-using-the-azure-portal).
 
 # [ASP.NET](#tab/aspnet)
 
-During the application registration, you register a post-logout URI. In our tutorial, you registered `https://localhost:44308/Account/EndSession` in the **Logout URL** field of the **Advanced Settings** section on the **Authentication** page. For details, see
-[Register the webApp app](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet).
+During the application registration, you don't need to register an extra front-channel logout URL. The app will be called back on its main URL. 
 
 # [Java](#tab/java)
 
-During the application registration, you register a post-logout URI. In our tutorial, you registered `http://localhost:8080/msal4jsample/sign_out` in the **Logout URL** field of the **Advanced Settings** section on the **Authentication** page.
+No front-channel logout URL is required in the application registration.
 
 # [Python](#tab/python)
 
-During the application registration, you don't need to register an extra logout URL. The app will be called back on its main URL.
+During the application registration, you don't need to register an extra front-channel logout URL. The app will be called back on its main URL.
 
 ---
 
@@ -334,7 +333,7 @@ In previous versions of the ASP.NET core templates, the `Account` controller was
 - Calls `Signout()`, which lets the OpenID Connect middleware contact the Microsoft identity platform `logout` endpoint. The endpoint then:
 
   - Clears the session cookie from the browser.
-  - Calls back the logout URL. By default, the logout URL displays the signed-out view page [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). This page is also provided as part of MIcrosoft.Identity.Web.
+  - Calls back the post-logout redirect URI. By default, the post-logout redirect URI displays the signed-out view page [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). This page is also provided as part of Microsoft.Identity.Web.
 
 # [ASP.NET](#tab/aspnet)
 

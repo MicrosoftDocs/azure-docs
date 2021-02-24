@@ -10,7 +10,7 @@ author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, responsible-ml
 ---
 
 # Use the interpretability package to explain ML models & predictions in Python (preview)
