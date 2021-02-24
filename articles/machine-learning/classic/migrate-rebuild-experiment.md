@@ -29,73 +29,9 @@ Rebuilding a pipeline is an iterative process, so check results and repeat the p
 - An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
 - A Studio (classic) experiment to migrate.
 
-## Migrate the dataset
-
-There are multiple ways ingest data in Azure Machine Learning. This article shows you the simplest way to migrate a dataset from Studio (classic), which is to download the Studio (classic) dataset and using the data file to create a new dataset in Azure Machine Learning.
-
-To import data directly from cloud sources instead, see the [Migration reference](migrate-reference.md#import-data-from-cloud-sources).
-
-### Download the dataset
-
-You can download the following  Studio (classic) dataset types directly.
-
-* Plain text (.txt)
-* Comma-separated values (CSV) with a header (.csv) or without (.nh.csv)
-* Tab-separated values (TSV) with a header (.tsv) or without (.nh.tsv)
-* Excel file
-* Zip file (.zip)
-
-To download datasets directly:
-1. Go to your Studio (classic) workspace ([https://studio.azureml.net](https://studio.azureml.net)).
-1. In the left navigation bar, select the **Datasets** tab.
-1. Select the dataset(s) you want to download.
-1. In the bottom action bar, select **Download**.
-
-![Screenshot showing how to download a dataset in Studio (classic)](./media/migrate-rebuild-experiment/download-dataset.png)
-
-For the following data types, you must use the **Convert to CSV** module to download datasets.
-
-* SVMLight data (.svmlight) 
-* Attribute Relation File Format (ARFF) data (.arff) 
-* R object or workspace file (.RData)
-* Dataset type (.data). Dataset type is  Studio(classic) internal data type for module output.
-
-To convert your dataset to a CSV, and download the results:
-
-1. Go to your Studio (classic) workspace ([https://studio.azureml.net](https://studio.azureml.net)).
-1. Create a new experiment.
-1. Drag and drop the dataset you want to download onto the canvas.
-1. Add a **Convert to CSV** module.
-1. Connect the **Convert to CSV** input port to the output port of your dataset.
-1. Run the experiment.
-1. Right-click the **Convert to CSV** module.
-1. Select **Results dataset** > **Download**
-
-![Screenshot showing how to setup a convert to CSV pipeline](./media/migrate-rebuild-experiment/csv-download-dataset.png)
-
-### Create a dataset in Azure Machine Learning
-
-After you download the data file, you can register the dataset in Azure Machine Learning:
-
-1. Go to Azure Machine Learning studio ([ml.azure.com](https://ml.azure.com)).
-1. In the left navigation pane, select the **Datasets** tab.
-1. Select **Create dataset** > **From local files**.
-    ![Screenshot showing the datasets tab and the button for creating a local file](./media/migrate-rebuild-experiment/register-dataset.png)
-1. Enter a name and description.
-1. For **Dataset type**, select **Tabular**.
-
-    > [!NOTE]
-    > You can also upload ZIP files as datasets. To upload a ZIP file, select **File** for **Dataset type**.
-
-1. **For Datastore and file selection**, select the datastore you want to upload your dataset file to.
-
-    By default, Azure Machine Learning stores the dataset to the default workspace blobstore. For more information on datastores, see [Connect to storage services](../how-to-access-data.md).
-
-1. Set the data parsing settings and schema for your dataset. Then, confirm your settings.
-
 ## Rebuild the pipeline
 
-After you upload you your dataset to Azure Machine Learning, you're ready to recreate your experiment. **Azure Machine Learning designer** provides a similar drag-and-drop experience to Studio (classic).
+After you [upload you your dataset to Azure Machine Learning](migrate-register-dataset.md), you're ready to recreate your experiment. **Azure Machine Learning designer** provides a similar drag-and-drop experience to Studio (classic).
 
 In Azure Machine Learning, the visual graph is called a **pipeline draft**. Once you submit a run from a pipeline draft, it turns into a **pipeline run**. Each pipeline run is recorded and logged in Azure Machine Learning.
 
@@ -152,7 +88,9 @@ In this article, you learned how to rebuild a Studio (classic) experiment in Azu
 
 See the other articles in the Studio (classic) migration series:
 
-- [Migration overview](migrate-overview.md)
-- [Rebuild a Studio (classic) web service in Azure Machine Learning](migrate-rebuild-web-service.md)
-- [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md)
-- [Migration reference](migrate-reference.md)
+1. [Migration overview](migrate-overview.md).
+1. [Migrate dataset](migrate-register-datasets.md).
+1. **Rebuild a Studio (classic) training pipeline**.
+1. [Rebuild a Studio (classic) web service](migrate-rebuild-web-service.md).
+1. [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).
+1. [Migration reference](migrate-reference.md).
