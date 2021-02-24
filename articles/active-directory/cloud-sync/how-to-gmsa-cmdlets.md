@@ -31,7 +31,7 @@ The following prerequisites are required to use these cmdlets.
 2. Import Provisioning Agent PS module into a PowerShell session. 
 
  ```PowerShell
- Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Microsoft.CloudSync.Powershell.dll"  
+ Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Microsoft.CloudSync.Powershell.dll"  
  ```
 3. Remove existing permissions.  To remove all existing permissions on the service account, except SELF use: `Set-AADCloudSyncRestrictedPermission`.  
 

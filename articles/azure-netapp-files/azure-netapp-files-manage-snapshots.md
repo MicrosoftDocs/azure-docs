@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 02/20/2021
 ms.author: b-juche
 ---
 # Manage snapshots by using Azure NetApp Files
@@ -253,6 +253,9 @@ type the name of the volume, and click **Revert**.
 ## Delete snapshots  
 
 You can delete snapshots that you no longer need to keep. 
+
+> [!IMPORTANT]
+> The snapshot deletion operation cannot be undone. A deleted snapshot cannot be recovered. 
 
 1. Go to the **Snapshots** menu of a volume. Right-click the snapshot you want to delete. Select **Delete**.
 
