@@ -142,13 +142,20 @@ GO
 
 Files backed up to the local storage will need to be uploaded to the Azure Blob Storage.
 
+### Create Azure Blob storage
+
+Azure Blob Storage is used as an intermediary storage for backup files between SQL Server and SQL Managed Instance. To create a new storage account and a blob container inside the storage account, follow these steps:
+
+1. [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal)
+2. [Crete a blob container](../../storage/blobs/storage-quickstart-blobs-portal.md) inside the storage account
+
 ### Copy backups from SQL Server to Azure Blob Storage
 
 Some of the following approaches can be utilized to upload backups to the blob storage in migrating databases to managed instance using LRS:
 - Using [Azcopy](../../storage/common/storage-use-azcopy-v10.md), or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) to upload backups to a blob container.
 - Using Storage Explorer in Azure portal.
 
-### Make backups from SQL Server directly to Azure Blob Storage
+### Make backups from SQL Server directly to Azure Blob Storage (alternative option)
 
 In case your corporate and networking policy allows it, the alternative way is to make backups from SQL Server directly to Azure Blob Storage using SQL Server native [BACKUP TO URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url) option. If you can pursue this option, making backups on the local storage and uploading them to Azure Blob Storage is not needed.
 
@@ -175,14 +182,9 @@ TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>
 WITH COMPRESSION, CHECKSUM
 ```
 
-### Create Azure Blob and SAS authentication token
+### Generate Azure Blob Storage SAS authentication for LRS
 
-Azure Blob Storage is used as an intermediary storage for backup files between SQL Server and SQL Managed Instance. Follow these steps to create Azure Blob Storage container:
-
-1. [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal)
-2. [Crete a blob container](../../storage/blobs/storage-quickstart-blobs-portal.md) inside the storage account
-
-Once a blob container has been created, generate SAS authentication token with Read and List permissions only following these steps:
+Azure Blob Storage is used as an intermediary storage for backup files between SQL Server and SQL Managed Instance. SAS authentication token with List and Read only permissions needs to be generated for use by LRS service. This will enable LRS service to access the Azure Blob Storage and use the backup files to restore them on SQL Managed Instance. Follow these steps to generate SAS authentication for LRS use:
 
 1. Access storage account using Azure portal
 2. Navigate to Storage Explorer
@@ -196,7 +198,7 @@ Once a blob container has been created, generate SAS authentication token with R
 10. Copy the token after the question mark "?" and onwards. The SAS token is typically starting with "sv=2020-10" in the URI for use in your code.
 
 > [!IMPORTANT]
-> - Permissions for the SAS token for Azure Blob Storage need to be Read and List only. In case of any other permissions granted for the SAS authentication token, starting LRS service will fail. These security requirements are by design.
+> - Permissions for the SAS token for Azure Blob Storage need to be Read and List only. If any other permissions are granted for the SAS authentication token, starting LRS service will fail. These security requirements are by design.
 > - The token must have the appropriate time validity. Ensure time zones between the token and managed instance are taken into consideration.
 > - Ensure the token is copied starting from "sv=2020-10..." until the end of the string.
 
