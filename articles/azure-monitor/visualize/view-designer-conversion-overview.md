@@ -15,7 +15,7 @@ ms.date: 08/04/2020
 
 
 ## Workbooks overview
-[Workbooks](../insights/vminsights-workbooks.md) combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Team members with the same access to Azure resources are also able to edit workbooks.
+[Workbooks](../vm/vminsights-workbooks.md) combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Team members with the same access to Azure resources are also able to edit workbooks.
 
 Workbooks are helpful for scenarios such as:
 
