@@ -59,11 +59,6 @@ Depending on the permissions required in your organization, using resource-conte
 
 The following list describes scenarios where other solutions for data access may fit your requirements better:
 
-
-I think we discussed this in the past: the first is within the scope (and linked from) the second. 
-
-with that in mind, we can keep both, but should start with the second. Also, unrelated to the current document, the first link should reference the second one in its text.
-
 |Scenario  |Solution  |
 |---------|---------|
 |**A subsidiary has a SOC team that requires a full Azure Sentinel experience**.     |  In this case, use a multi-workspace architecture to separate your data permissions. <br><br>For more information, see: <br>- [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)<br>    - [Work with incidents in many workspaces at once](multiple-workspace-view.md)          |
