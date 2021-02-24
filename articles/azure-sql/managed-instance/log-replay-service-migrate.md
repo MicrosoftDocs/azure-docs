@@ -150,11 +150,11 @@ Some of the following approaches can be utilized to upload backups to the blob s
 
 ### Make backups from SQL Server directly to Azure Blob Storage
 
-In case your corporate and networking policy allows it, the alternative way is to make backups from SQL Server directly to Azure Blob Storage using SQL Server native [BACKUP TO URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url) option. If you can pursue this option, making backups on the local storage and uplaoding them to Azure Blob Storage is not needed.
+In case your corporate and networking policy allows it, the alternative way is to make backups from SQL Server directly to Azure Blob Storage using SQL Server native [BACKUP TO URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url) option. If you can pursue this option, making backups on the local storage and uploading them to Azure Blob Storage is not needed.
 
-As the first step, this operation requires SAS authentication token to be generated for the Azure Blob Storage, and the token needs to be imported to the SQL Server. The second step is to make backups with "TO URL" option in T-SQL. Please ensure that all backups are made with CHEKSUM option enabled.
+As the first step, this operation requires SAS authentication token to be generated for the Azure Blob Storage, and the token needs to be imported to the SQL Server. The second step is to make backups with "TO URL" option in T-SQL. Ensure that all backups are made with CHEKSUM option enabled.
 
-For reference, sample code to make backups to Azrue Blob Storage is provided below. Note that this example does not include instructions on how to import the SAS token. Detailed instructions, including how to generate and import the SAS token to SQL Server are provided in the following tutorial: [Use Azure Blob storage service with SQL Server](https://docs.microsoft.com/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage). 
+For reference, sample code to make backups to Azure Blob Storage is provided below. This example does not include instructions on how to import the SAS token. Detailed instructions, including how to generate and import the SAS token to SQL Server are provided in the following tutorial: [Use Azure Blob storage service with SQL Server](https://docs.microsoft.com/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage). 
 
 ```SQL
 -- Example on how to make full database backup to URL
@@ -190,15 +190,15 @@ Once a blob container has been created, generate SAS authentication token with R
 4. Right click on the blob container
 5. Select Get Shared Access Signature
 6. Select the token expiry timeframe. Ensure the token is valid for duration of your migration.
-	- Note that time zone of the token and your SQL Managed Instance might mismatch. Ensure that SAS token has the appropriate time validity taking time zones into consideration. If possible, set the time zone to an earlier and later time of your planned migration window.
+	- Time zone of the token and your SQL Managed Instance might mismatch. Ensure that SAS token has the appropriate time validity taking time zones into consideration. If possible, set the time zone to an earlier and later time of your planned migration window.
 8. Ensure Read and List only permissions are selected
 9. Click create
 10. Copy the token after the question mark "?" and onwards. The SAS token is typically starting with "sv=2020-10" in the URI for use in your code.
 
 > [!IMPORTANT]
 > - Permissions for the SAS token for Azure Blob Storage need to be Read and List only. In case of any other permissions granted for the SAS authentication token, starting LRS service will fail. These security requirements are by design.
-> - The token must have the appropriate time validity. Please ensure time zones between the token and managed instance are taken into consideration.
-> - Please ensure token is copied starting from "sv=2020-10..." until the end of the string.
+> - The token must have the appropriate time validity. Ensure time zones between the token and managed instance are taken into consideration.
+> - Ensure the token is copied starting from "sv=2020-10..." until the end of the string.
 
 ### Log in to Azure and select subscription
 
@@ -321,11 +321,11 @@ az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last
 
 ## Troubleshooting
 
-Once you start the LRS, use the monitoring cmdlets (get-azsqlinstancedatabaselogreplay or az_sql_midb_log_replay_show) to see the status of the operation. If after some time LRS fails to start with an error, please check for some of the most common issues:
+Once you start the LRS, use the monitoring cmdlets (get-azsqlinstancedatabaselogreplay or az_sql_midb_log_replay_show) to see the status of the operation. If after some time LRS fails to start with an error, check for some of the most common issues:
 - Was the database backup on the SQL Server made using the **CHECKSUM** option?
 - Are the permissions on the SAS token **Read** and **List** only for the LRS service?
 - Was the SAS token for LRS copied starting after the question mark "?" with content starting similar to this "sv=2020-02-10..."? 
-- Is the SAS **token validity** time applicable for the time window of starting and completing the migration? Note that there could be mismatches due to the different **time zones** used for SQL Managed Instance and the SAS token. Try regenerating the SAS token with extending the token validity of the time window before and after the current date.
+- Is the SAS **token validity** time applicable for the time window of starting and completing the migration? There could be mismatches due to the different **time zones** used for SQL Managed Instance and the SAS token. Try regenerating the SAS token with extending the token validity of the time window before and after the current date.
 - Are database name, resource group name, and managed instance name spelled correctly?
 - If LRS was started in autocomplete mode, was a valid filename for the last backup file specified?
 
