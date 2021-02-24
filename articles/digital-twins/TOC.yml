@@ -4,8 +4,6 @@
   items:
   - name: About Azure Digital Twins
     href: overview.md
-  - name: Differences from previous release
-    href: overview-differences.md
 - name: Quickstarts
   expanded: true
   items:
@@ -21,8 +19,18 @@
     href: tutorial-end-to-end.md
 - name: Concepts
   items:
-  - name: Custom models
+  - name: DTDL models
     href: concepts-models.md
+  - name: Ontologies
+    items:
+    - name: What is an ontology?
+      href: concepts-ontologies.md
+    - name: Adopting industry-standard ontologies
+      href: concepts-ontologies-adopt.md
+    - name: Converting ontologies
+      href: concepts-ontologies-convert.md
+    - name: Extending ontologies
+      href: concepts-ontologies-extend.md      
   - name: Digital twins and the twin graph
     href: concepts-twins-graph.md
   - name: Query language
@@ -53,6 +61,12 @@
         href: how-to-set-up-instance-powershell.md
       - name: Scripted version
         href: how-to-set-up-instance-scripted.md
+    - name: Enable private access with Private Link
+      items:
+      - name: Portal version
+        href: how-to-enable-private-link-portal.md
+      - name: CLI version
+        href: how-to-enable-private-link-cli.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration
@@ -61,10 +75,8 @@
       href: how-to-move-regions.md
   - name: Design models
     items:
-    - name: Manage custom models
+    - name: Manage DTDL models
       href: how-to-manage-model.md
-    - name: Integrate industry-standard models
-      href: how-to-integrate-models.md
     - name: Parse and validate models
       href: how-to-parse-models.md
     - name: Add tags
@@ -103,10 +115,16 @@
     items:
     - name: Manage endpoints and routes
       items:
-      - name: APIs and CLI version
-        href: how-to-manage-routes-apis-cli.md
       - name: Portal version
         href: how-to-manage-routes-portal.md
+      - name: APIs and CLI version
+        href: how-to-manage-routes-apis-cli.md
+    - name: Enable a managed identity for routing events
+      items:
+      - name: Portal version
+        href: how-to-enable-managed-identities-portal.md
+      - name: CLI version
+        href: how-to-enable-managed-identities-cli.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
     - name: Integrate with Azure Time Series Insights
@@ -138,7 +156,7 @@
         - name: .NET (C#) SDK
           href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
         - name: Java SDK
-          href: /azure/developer/java/sdk/
+          href: /java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable
       - name: Data plane
         items:
         - name: .NET (C#) SDK
@@ -153,6 +171,20 @@
     href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
 - name: Resources
   items:
+  - name: Digital Twins service limits
+    href: reference-service-limits.md
+  - name: Pricing and availability
+    items:
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/digital-twins
+    - name: SLA
+      href: https://azure.microsoft.com/support/legal/sla/digital-twins
+    - name: Regions and availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins
+  - name: Customer data requests
+    href: resources-customer-data-requests.md
+  - name: Differences from original release
+    href: resources-compare-original-release.md
   - name: APIs and SDKs
     items:
     - name: Control plane
@@ -223,8 +255,14 @@
         href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
       - name: Azure Digital Twins explorer (sample)
         href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
-      - name: DTDL validator (sample)
+      - name: DTDL Validator (sample)
         href: /samples/azure-samples/dtdl-validator/dtdl-validator/
+      - name: Model Uploader (sample)
+        href: https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader
+      - name: Model Visualizer (sample)
+        href: https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer 
+      - name: OWL2DTDL Converter   
+        href: https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL   
       - name: DPS and IoT Hub integration sample
         href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
       - name: SignalR integration sample
@@ -243,22 +281,12 @@
       href: /samples/azure-samples/dtdl-validator/dtdl-validator/
     - name: DTMI spec
       href: https://github.com/Azure/digital-twin-model-identifier
-  - name: Customer data requests
-    href: resources-customer-data-requests.md
-  - name: Digital Twins service limits
-    href: reference-service-limits.md
-  - name: Pricing and availability
-    items:
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/digital-twins
-    - name: SLA
-      href: https://azure.microsoft.com/support/legal/sla/digital-twins
-    - name: Regions and availability
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins
-  - name: Customer stories
-    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
+  - name: 'Learn: Develop with Azure Digital Twins'
+    href: /learn/paths/develop-azure-digital-twins/
   - name: Channel 9 videos
     href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22
+  - name: Customer stories
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Azure tools
     items:
     - name: Azure Cloud Shell
@@ -267,7 +295,5 @@
       href: /powershell/azure/
     - name: Azure portal
       href: https://portal.azure.com
-  - name: Azure RBAC documentation
-    href: ../role-based-access-control/overview.md
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md

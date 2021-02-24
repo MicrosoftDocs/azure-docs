@@ -305,17 +305,20 @@ If you receive an HTTP 404 (Not Found) error when you browse to the URL of your 
 - The custom domain configured is missing an A record or a CNAME record.
 - The browser client has cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
 
-<a name="virtualdir" aria-hidden="true"></a>
-
 ## Migrate an active domain
 
 To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure App Service](manage-custom-dns-migrate-domain.md).
+
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## Redirect to a custom directory
 
 By default, App Service directs web requests to the root directory of your app code. But certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. To continue the `contoso.com` DNS example, such an app is accessible at `http://contoso.com/public`, but you want to direct `http://contoso.com` to the `public` directory instead. This step doesn't involve DNS resolution but is about customizing the virtual directory.
 
-To do customize a virtual directory, select **Application settings** in the left pane of your web app page.
+To do customize a virtual directory for Windows apps, select **Application settings** in the left pane of your web app page. 
+
+> [!NOTE]
+> Linux apps don't have this page. To change the site root for Linux apps, see the language-specific configuration guides ([PHP](configure-language-php.md?pivots=platform-linux#change-site-root), for example).
 
 At the bottom of the page, the root virtual directory `/` points to `site\wwwroot` by default, which is the root directory of your app code. Change it to point to the `site\wwwroot\public` instead, for example, and save your changes.
 

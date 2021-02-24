@@ -67,6 +67,9 @@ The schema reference also includes value and format standardization. The source 
 
 ## Parsers
 
+- [What is parsing](#what-is-parsing)
+- [Using query time parsers](#using-query-time-parsers)
+
 ### What is parsing
 
 With a base set of defined normalized tables available, you will need to transform (parse/map) your data into those tables. That is, you will extract specific data from its raw form into well-known columns in the normalized schema. Parsing in Azure Sentinel happens at **query time** - parsers are built as Log Analytics user functions (using Kusto Query Language - KQL) that transform data in existing tables (such as CommonSecurityLog, custom logs tables, syslog) into the normalized tables schema.
@@ -74,6 +77,10 @@ With a base set of defined normalized tables available, you will need to transfo
 The other kind of parsing, not yet supported in Azure Sentinel, is at **ingestion time** - allowing to collect data directly into the normalized table(s) as it is ingested from its data sources. Ingestion time parsing provides improved performance as the data model is queried directly without the need to use functions.
 
 ### Using query time parsers
+
+- [Installing a parser](#installing-a-parser)
+- [Using the parsers](#using-the-parsers)
+- [Customizing parsers](#customizing-parsers)
 
 #### Installing a parser
 
@@ -102,11 +109,11 @@ Upon saving a query function, it may be necessary to close the query explorer an
 
 #### Using the parsers
 
-Once enabled, you can use the meta-parser to query a unified view on all currently enabled parsers. To do so, go to the Sentinel logs page and query the meta-parser:
+Once enabled, you can use the meta-parser to query a unified view on all currently enabled parsers. To do so, go to the Azure Sentinel logs page and query the meta-parser:
 
 :::image type="content" source="./media/normalization/query-parser.png" alt-text="Query the parser":::
  
-You can also access the meta-parser or the individual parsers using query explorer in the Sentinel logs page, by clicking on ‘Query explorer’:
+You can also access the meta-parser or the individual parsers using query explorer in the logs page, by clicking on ‘Query explorer’:
 
 :::image type="content" source="./media/normalization/query-explorer.png" alt-text="Query explorer":::
 
@@ -116,6 +123,12 @@ On the pane on the right, Expand “Saved queries” section and find the ‘Nor
 
 You can click on each individual parser and see the underlying function it uses, and run it (or access it directly by its alias, as described above). Note that some parsers can retain the original fields side-by-side to the normalized fields for convenience. This can be easily edited in the parser's query.
 
+> [!TIP]
+> You can use your saved functions instead of Azure Sentinel tables in any query, including hunting and detection queries. For more information, see:
+>
+> - [Data normalization in Azure Sentinel](normalization.md#parsers)
+> - [Parse text in Azure Monitor logs](../azure-monitor/logs/parse-text.md)
+>
 #### Customizing parsers
 
 You can repeat the above steps (finding the parser in query explorer), click on the relevant parser and see its function implementation.
@@ -129,7 +142,9 @@ Once the function is altered, click “Save” again and use the same name, alia
 
 #### Additional information
 
-Learn more about [saved queries](../azure-monitor/log-query/example-queries.md) (the query time parsers implementation) in Log Analytics.
+JSON, XML, and CSV are especially convenient for parsing at query time. Azure Sentinel has built-in parsing functions for JSON, XML, and CSV, as well as a JSON parsing tool.  For more information, see [Using JSON fields in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (blog). 
+
+Learn more about [saved queries](../azure-monitor/logs/example-queries.md) (the query time parsers implementation) in Log Analytics.
 
 
 ## Next steps

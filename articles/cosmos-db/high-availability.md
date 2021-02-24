@@ -4,7 +4,7 @@ description: This article describes how Azure Cosmos DB provides high availabili
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/18/2021
+ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -76,7 +76,7 @@ For the rare cases of regional outage, Azure Cosmos DB makes sure your database 
 
 * During a read region outage, Azure Cosmos accounts using any consistency level or strong consistency with three or more read regions will remain highly available for reads and writes.
 
-* Azure Cosmos accounts using strong consistency with two or fewer read regions (which includes the read & write region) will lose read write availability during a read region outage.
+* Azure Cosmos accounts using strong consistency with three regions (one write, two read) will maintain write availability during a read region outage. For accounts with two regions and automatic failover enabled, the account will stop accepting writes until the region is marked as failed and automatic failover occurs.
 
 * The impacted region is automatically disconnected and will be marked offline. The [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md) will redirect read calls to the next available region in the preferred region list.
 
@@ -106,7 +106,7 @@ The following table summarizes the high availability capability of various accou
 |Read availability SLA  | 99.99% | 99.995% | 99.995% | 99.999% |
 |Zone failures – data loss | Data loss | No data loss | No data loss | No data loss |
 |Zone failures – availability | Availability loss | No availability loss | No availability loss | No availability loss |
-|Regional outage – data loss | Data loss |  Data loss | Dependent on consistency level. See [Consistency, availability, and performance tradeoffs](consistency-levels-tradeoffs.md) for more information. | Dependent on consistency level. See [Consistency, availability, and performance tradeoffs](consistency-levels-tradeoffs.md) for more information.
+|Regional outage – data loss | Data loss |  Data loss | Dependent on consistency level. See [Consistency, availability, and performance tradeoffs](./consistency-levels.md) for more information. | Dependent on consistency level. See [Consistency, availability, and performance tradeoffs](./consistency-levels.md) for more information.
 |Regional outage – availability | Availability loss | Availability loss | No availability loss for read region failure, temporary for write region failure | No availability loss |
 |Price (***1***) | N/A | Provisioned RU/s x 1.25 rate | Provisioned RU/s x 1.25 rate (***2***) | Multi-region write rate |
 

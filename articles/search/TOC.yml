@@ -91,7 +91,7 @@
   - name: Python samples
     href: samples-python.md
   - name: REST samples
-    href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
+    href: samples-rest.md
 - name: Concepts
   items:
   - name: Full-text search
@@ -126,20 +126,58 @@
       href: security-baseline.md
 - name: How-to guides
   items:
-  - name: Create indexes and constructs
+  - name: Planning
+    items:
+    - name: Choose a tier
+      href: search-sku-tier.md
+    - name: Estimate and manage capacity
+      href: search-capacity-planning.md
+    - name: Estimate costs
+      href: search-sku-manage-costs.md
+    - name: Service limits
+      href: search-limits-quotas-capacity.md
+    - name: Scale for performance
+      href: search-performance-optimization.md
+    - name: Multitenant architecture
+      href: search-modeling-multitenant-saas-applications.md
+  - name: Development
+    items:
+    - name: API versions
+      href: search-api-versions.md
+    - name: Preview features
+      href: search-api-preview.md
+    - name: Develop in .NET
+      items:
+      - name: Use Azure.Search.Documents
+        href: search-howto-dotnet-sdk.md
+      - name: Use Microsoft.Azure.Search
+        href: search-howto-dotnet-sdk-v10.md
+      - name: Legacy quickstart (Microsoft.Azure.Search)
+        href: search-get-started-dotnet-v10.md
+    - name: Upgrade the SDK
+      items:
+      - name: .NET SDK 11.0
+        href: search-dotnet-sdk-migration-version-11.md
+      - name: .NET SDK 10.0
+        href: search-dotnet-sdk-migration-version-10.md
+      - name: .NET SDK 9.0
+        href: search-dotnet-sdk-migration-version-9.md
+      - name: .NET SDK 5.0
+        href: search-dotnet-sdk-migration-version-5.md
+      - name: .NET SDK 3.0
+        href: search-dotnet-sdk-migration.md
+      - name: .NET SDK 1.1
+        href: search-dotnet-sdk-migration-version-1.md
+      - name: .NET Management SDK
+        href: search-dotnet-mgmt-sdk-migration.md
+    - name: Upgrade the REST API
+      href: search-api-migration.md
+  - name: Indexes
     items:
     - name: Create an index
       href: search-what-is-an-index.md
     - name: Create a multi-language index
       href: search-language-support.md
-    - name: Analyzers
-      items:
-      - name: Adding analyzers
-        href: search-analyzers.md
-      - name: Add a language analyzer
-        href: index-add-language-analyzers.md
-      - name: Add a custom analyzer
-        href: index-add-custom-analyzers.md
     - name: Synonyms
       items:
       - name: Add synonyms
@@ -150,7 +188,15 @@
       href: search-howto-complex-data-types.md
     - name: Model relational data
       href: index-sql-relational-data.md
-  - name: Import any data
+  - name: Analyzers
+    items:
+    - name: Adding analyzers
+      href: search-analyzers.md
+    - name: Add a language analyzer
+      href: index-add-language-analyzers.md
+    - name: Add a custom analyzer
+      href: index-add-custom-analyzers.md
+  - name: Data
     items:
     - name: Data import overview
       href: search-what-is-data-import.md
@@ -162,16 +208,16 @@
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-  - name: Import Azure data (indexers)
+  - name: Indexers
     items:
-    - name: Work with indexers
-      items:
-      - name: Monitor indexers
-        href: search-howto-monitor-indexers.md
-      - name: Schedule indexers
-        href: search-howto-schedule-indexers.md
-      - name: Map fields
-        href: search-indexer-field-mappings.md
+    - name: Create an indexer
+      href: search-howto-create-indexers.md
+    - name: Run or reset indexers
+      href: search-howto-run-reset-indexers.md
+    - name: Schedule an indexer
+      href: search-howto-schedule-indexers.md
+    - name: Define field mappings
+      href: search-indexer-field-mappings.md
     - name: Connect with managed identities
       items:
       - name: Managed identities overview
@@ -186,7 +232,7 @@
       items:      
       - name: Search over blobs
         href: search-blob-storage-integration.md
-      - name: Understand blobs with AI
+      - name: AI enrichment over blobs
         href: search-blob-ai-integration.md
       - name: Configure a blob indexer
         href: search-howto-indexing-azure-blob-storage.md
@@ -202,6 +248,8 @@
         href: search-howto-index-json-blobs.md
       - name: Index encrypted blobs
         href: search-howto-index-encrypted-blobs.md
+      - name: Metadata properties for blob content
+        href: search-blob-metadata-properties.md
     - name: Azure Tables
       href: search-howto-indexing-azure-tables.md
     - name: Azure Cosmos DB
@@ -214,7 +262,7 @@
       href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
     - name: Azure SQL Server VMs
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-  - name: Use skills (AI)
+  - name: Skillsets
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md
@@ -254,12 +302,12 @@
         href: knowledge-store-connect-power-bi.md  
       - name: Projection examples
         href: knowledge-store-projections-examples.md  
-  - name: Query
+  - name: Queries
     items:
-    - name: Query types and composition
-      href: search-query-overview.md
     - name: Create a basic query
       href: search-query-create.md
+    - name: Query types and composition
+      href: search-query-overview.md
     - name: Use simple syntax (examples)
       href: search-query-simple-examples.md
     - name: Use full Lucene (examples)
@@ -282,7 +330,7 @@
         href: query-lucene-syntax.md
       - name: moreLikeThis (preview)
         href: search-more-like-this.md
-  - name: Filter
+  - name: Filters
     items:
     - name: Filter overview
       href: search-filters.md
@@ -304,52 +352,6 @@
       href: index-add-scoring-profiles.md
     - name: Similarity algorithm
       href: index-ranking-similarity.md
-  - name: Plan
-    items:
-    - name: Choose a tier
-      href: search-sku-tier.md
-    - name: Estimate and manage capacity
-      href: search-capacity-planning.md
-    - name: Estimate costs
-      href: search-sku-manage-costs.md
-    - name: Service limits
-      href: search-limits-quotas-capacity.md
-    - name: Scale for performance
-      href: search-performance-optimization.md
-    - name: Multitenant architecture
-      href: search-modeling-multitenant-saas-applications.md
-  - name: Develop
-    items:
-    - name: API versions
-      href: search-api-versions.md
-    - name: Preview feature list
-      href: search-api-preview.md
-    - name: Develop in .NET
-      items:
-      - name: Use Azure.Search.Documents
-        href: search-howto-dotnet-sdk.md
-      - name: Use Microsoft.Azure.Search
-        href: search-howto-dotnet-sdk-v10.md
-      - name: Legacy quickstart (Microsoft.Azure.Search)
-        href: search-get-started-dotnet-v10.md
-    - name: Upgrade the SDK
-      items:
-      - name: .NET SDK 11.0
-        href: search-dotnet-sdk-migration-version-11.md
-      - name: .NET SDK 10.0
-        href: search-dotnet-sdk-migration-version-10.md
-      - name: .NET SDK 9.0
-        href: search-dotnet-sdk-migration-version-9.md
-      - name: .NET SDK 5.0
-        href: search-dotnet-sdk-migration-version-5.md
-      - name: .NET SDK 3.0
-        href: search-dotnet-sdk-migration.md
-      - name: .NET SDK 1.1
-        href: search-dotnet-sdk-migration-version-1.md
-      - name: .NET Management SDK
-        href: search-dotnet-mgmt-sdk-migration.md
-    - name: Upgrade the REST API
-      href: search-api-migration.md
   - name: Security
     items:
     - name: Data encryption
@@ -400,6 +402,8 @@
       href: search-monitor-logs-powerbi.md
     - name: Monitor query activity
       href: search-monitor-queries.md
+    - name: Monitor indexers
+      href: search-howto-monitor-indexers.md
     - name: Search traffic analytics
       href: search-traffic-analytics.md
   - name: Troubleshoot
@@ -528,6 +532,8 @@
   items:
   - name: Azure Community Support
     href: https://azure.microsoft.com/support/community/?product=search
+  - name: Partner spotlight
+    href: resource-partners-knowledge-mining.md
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
   - name: Feedback Forum (UserVoice)
@@ -552,8 +558,6 @@
       href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
     - name: Developer course (Pluralsight)
       href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
-  - name: Partner solutions
-    href: resource-partners-knowledge-mining.md
   - name: FAQ
     href: search-faq-frequently-asked-questions.md
   - name: Pricing

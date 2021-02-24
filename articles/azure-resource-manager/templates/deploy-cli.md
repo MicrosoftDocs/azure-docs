@@ -101,7 +101,7 @@ The preceding example requires a publicly accessible URI for the template, which
 
 To deploy remote linked templates with relative path that are stored in a storage account, use `query-string` to specify the SAS token:
 
-```azurepowershell
+```azurecli-interactive
 az deployment group create \
   --name linkedTemplateWithRelativePath \
   --resource-group myResourceGroup \

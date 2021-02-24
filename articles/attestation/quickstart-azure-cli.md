@@ -13,6 +13,10 @@ ms.author: mbaldwin
 
 Get started with [Azure Attestation by using Azure CLI](/cli/azure/ext/attestation/attestation?view=azure-cli-latest).
 
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Get started
 
 1. Install this extension using the below CLI command

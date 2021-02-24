@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a blueprint with Azure CLI"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the Azure CLI.
-ms.date: 01/26/2021
+ms.date: 01/27/2021
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with Azure CLI
@@ -185,6 +185,10 @@ assignment on the resource group.
         --parameters artifacts\policyTags.json
      ```
 
+     > [!NOTE]
+     > When using `az blueprint` on a Mac, replace `\` with `/` for parameter values that include
+     > the path. In this case, the value for **parameters** becomes `artifacts/policyTags.json`.
+
 1. Add another policy assignment for Storage tag (reusing _storageAccountType_ parameter) at
    subscription. This additional policy assignment artifact demonstrates that a parameter defined on
    the blueprint is usable by more than one artifact. In the example, the **storageAccountType** is
@@ -216,6 +220,10 @@ assignment on the resource group.
         --description 'Apply storage tag and the parameter also used by the template to resource groups' \
         --parameters artifacts\policyStorageTags.json
      ```
+
+     > [!NOTE]
+     > When using `az blueprint` on a Mac, replace `\` with `/` for parameter values that include
+     > the path. In this case, the value for **parameters** becomes `artifacts/policyStorageTags.json`.
 
 1. Add template under resource group. The **template** parameter for an ARM template includes the
    normal JSON components of the template. The template also reuses the **storageAccountType**,
@@ -304,6 +312,11 @@ assignment on the resource group.
         --parameters artifacts\templateStorageParams.json \
         --resource-group-art 'storageRG'
      ```
+
+     > [!NOTE]
+     > When using `az blueprint` on a Mac, replace `\` with `/` for parameter values that include
+     > the path. In this case, the value for **template** becomes `artifacts/templateStorage.json`
+     > and **parameters** becomes `artifacts/templateStorageParams.json`.
 
 1. Add role assignment under resource group. Similar to the previous role assignment entry, the
    example below uses the definition identifier for the **Owner** role and provides it a different
