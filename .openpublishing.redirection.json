@@ -11,7 +11,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-arc/kubernetes/use-gitops-connect-cluster.md",
+      "source_path": "articles/azure-arc/kubernetes/use-gitops-connected-cluster.md",
       "redirect_url": "/azure/azure-arc/kubernetes/tutorial-use-gitops-connect-cluster",
       "redirect_document_id": false
     },
