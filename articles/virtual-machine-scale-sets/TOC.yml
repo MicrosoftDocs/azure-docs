@@ -212,7 +212,7 @@
       href: security-baseline.md
     maintainContext: true
   - name: Monitoring
-    href: ../azure-monitor/insights/monitor-vm-azure.md
+    href: ../azure-monitor/vm/monitor-vm-azure.md
     maintainContext: true
   - name: Deployment considerations
     items:
@@ -306,7 +306,7 @@
       - name: Use the Azure portal
         href: virtual-machine-scale-sets-autoscale-portal.md
       - name: Advanced autoscale
-        href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+        href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
         maintainContext: true
       - name: Troubleshoot autoscale
         href: virtual-machine-scale-sets-troubleshoot.md
