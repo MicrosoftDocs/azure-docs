@@ -42,19 +42,19 @@ From a browser, go to the [Azure portal](https://portal.azure.com), and then sig
 
 1. [Create an ExpressRoute circuit](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager) or navigate to the existing circuit you want to change.
 
-    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/navigate_to_circuit.png" alt-text="Navigate to the circuit":::
+    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/navigate-to-circuit.png" alt-text="Navigate to the circuit":::
 
 2. Select the **Azure private** peering configuration.
 
-    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/navigate_to_peering.png" alt-text="Navigate to the peering":::
+    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/navigate-to-peering.png" alt-text="Navigate to the peering":::
 
 3. Add an IPv6 Private Peering to your existing IPv4 Private Peering configuration by selecting "Both" for **Subnets**, or only enable IPv6 Private Peering on your new circuit by selecting "IPv6". Provide a pair of /126 IPv6 subnets that you own for your primary link and secondary links. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. **Save** your peering configuration once you've specified all parameters.
 
-    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/add_ipv6_peering.png" alt-text="Add IPv6 Private Peering":::
+    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/add-ipv6-peering.png" alt-text="Add IPv6 Private Peering":::
 
 4. After the configuration has been accepted successfully, you should see something similar to the following example.
 
-    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/view_ipv6_peering.png" alt-text="View the IPv6 private peering":::
+    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/view-ipv6-peering.png" alt-text="View the IPv6 private peering":::
 
 ## Update your connection to an existing virtual network
 
@@ -62,19 +62,19 @@ Follow the steps below if you have an existing environment of Azure resources in
 
 1. Navigate to the virtual network that your ExpressRoute circuit is connected to.
 
-    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/navigate_to_vnet.png" alt-text="Navigate to the vnet":::
+    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/navigate-to-vnet.png" alt-text="Navigate to the vnet":::
 
 2. Navigate to the **Address space** tab and add an IPv6 address space to your virtual network. **Save** your address space.
 
-    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/add_ipv6_space.png" alt-text="Add IPv6 address space":::
+    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/add-ipv6-space.png" alt-text="Add IPv6 address space":::
 
 3. Navigate to the **Subnets** tab and select the **GatewaySubnet**. Check **Add IPv6 address space** and provide an IPv6 address space for your subnet. The gateway IPv6 subnet should be /64 or larger. **Save** your configuration once you've specified all parameters.
 
-    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/add_ipv6_gwspace.png" alt-text="Add IPv6 address space to the subnet":::
+    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/add-ipv6-gateway-space.png" alt-text="Add IPv6 address space to the subnet":::
 
 4. If you have an existing zone-redundant gateway, navigate to your ExpressRoute gateway and refresh the resource to enable IPv6 connectivity. Otherwise, [create the virtual network gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) using a zone-redundant SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ). If you plan to use FastPath, use ErGw3AZ.
 
-    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/refresh_gw.png" alt-text="Refresh the gateway":::
+    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/refresh-gateway.png" alt-text="Refresh the gateway":::
 
 ## Create a connection to a new virtual network
 
