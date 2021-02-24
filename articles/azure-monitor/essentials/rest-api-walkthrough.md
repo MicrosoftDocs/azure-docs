@@ -13,7 +13,7 @@ ms.custom: has-adal-ref
 
 This article shows you how to perform authentication so your code can use the [Microsoft Azure Monitor REST API Reference](/rest/api/monitor/).
 
-The Azure Monitor API makes it possible to programmatically retrieve the available default metric definitions, granularity, and metric values. The data can be saved in a separate data store such as Azure SQL Database, Azure Cosmos DB, or Azure Data Lake. From there additional analysis can be performed as needed.
+The Azure Monitor API makes it possible to programmatically retrieve the available default metric definitions, and metric values. The data can be saved in a separate data store such as Azure SQL Database, Azure Cosmos DB, or Azure Data Lake. From there additional analysis can be performed as needed.
 
 Besides working with various metric data points, the Monitor API also makes it possible to list alert rules, view activity logs, and much more. For a full list of available operations, see the [Microsoft Azure Monitor REST API Reference](/rest/api/monitor/).
 
@@ -401,7 +401,7 @@ Invoke-RestMethod -Uri $request `
 ```
 
 > [!NOTE]
-> To retrieve metric definitions using the Azure Monitor REST API, use "2016-03-01" as the API version.
+> To retrieve metric definitions without dimensions using the Azure Monitor REST API, use "2016-03-01" as the API version.
 >
 >
 
