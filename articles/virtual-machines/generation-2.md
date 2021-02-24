@@ -223,4 +223,6 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
 
 ## Next steps
 
+Learn more about [Trusted Launch (preview)](trusted-launch-portal.md) with gen 2 VMs.
+
 Learn about [generation 2 virtual machines in Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Deploy a VM with Trusted Launch enabled using the portal (preview)
 
-Azure offers [Trusted Launch](trusted-launch.md) as a seamless way to bolster the security of [generation 2](generation-2.md) VMs. Designed to protect against advanced and persistent attack techniques, Trusted Launch is comprised of several infrastructure technologies, including vTPM and secure boot.
+Azure offers [Trusted Launch](trusted-launch.md) as a way to increase the security of [generation 2](generation-2.md) VMs. Trusted Launch protects against advanced and persistent attack techniques. Trusted Launch is comprised of several infrastructure technologies, including vTPM and secure boot.
 
 ## Deploy a VM
 Create virtual machine with Trusted Launch Enabled
