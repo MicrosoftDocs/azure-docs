@@ -72,7 +72,7 @@ Use the following steps if you want to configure resource-context RBAC, but your
 
 For example, data in your Azure Sentinel workspace that are not Azure resources include Syslog, CEF, or AAD data, or data collected by a custom collector.
 
-**To manually configure resource-context RBAC**:
+**To explicitly configure resource-context RBAC**:
 
 1. Make sure that you've [enabled resource-context RBAC](/azure/azure-monitor/platform/manage-access) in Azure Monitor. 
 
