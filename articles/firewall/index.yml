@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 08/30/2019
+  ms.date: 02/24/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -36,7 +36,23 @@ landingContent:
           - text: What's new
             url: https://azure.microsoft.com/updates/?category=networking&query=Firewall
 
-       
+  # Card
+  - title: Learn about Azure Firewall Premium Preview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Firewall Premium Preview features 
+            url: premium-features.md
+      - linkListType: concept
+        links:
+          - text: Azure Firewall Premium Preview certificates
+            url: premium-certificates.md
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy and configure Azure Firewall Premium Preview
+            url: premium-deploy.md
+
+
   # Card
   - title: Deploy an Azure Firewall
     linkLists:
