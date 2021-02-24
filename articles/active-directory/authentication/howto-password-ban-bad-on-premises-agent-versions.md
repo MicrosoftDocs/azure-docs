@@ -25,8 +25,8 @@ It has been almost two years since the GA versions of the on-premises Azure AD P
 
 * The DC agent and Proxy agent software both now require .NET 4.7.2 to be installed.
   * If .NET 4.7.2 is not already installed, download and run the installer found at [The .NET Framework 4.7.2 offline installer for Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
-* The AzureADPasswordProtection Powershell module is now also installed by the DC agent software.
-* Two new health-related Powershell cmdlets have been added: Test-AzureADPasswordProtectionDCAgent and Test-AzureADPasswordProtectionProxy.
+* The AzureADPasswordProtection PowerShell module is now also installed by the DC agent software.
+* Two new health-related PowerShell cmdlets have been added: Test-AzureADPasswordProtectionDCAgent and Test-AzureADPasswordProtectionProxy.
 * The AzureADPasswordProtection DC Agent password filter dll will now load and run on machines where lsass.exe is configured to run in PPL mode.
 * Bug fix to password algorithm that allowed banned passwords fewer than five characters in length to be incorrectly accepted.
   * This bug is only applicable if your on-premises AD minimum password length policy was configured to allow fewer than five character passwords in the first place.
@@ -74,7 +74,7 @@ Changes:
 * The Register-AzureADPasswordProtectionProxy and Register-AzureADPasswordProtectionForest cmdlets now support device-code-based Azure authentication modes.
 * The Get-AzureADPasswordProtectionDCAgent cmdlet will ignore mangled and/or invalid service connection points. This change fixes the bug where domain controllers would sometimes show up multiple times in the output.
 * The Get-AzureADPasswordProtectionSummaryReport cmdlet will ignore mangled and/or invalid service connection points. This change fixes the bug where domain controllers would sometimes show up multiple times in the output.
-* The Proxy powershell module is now registered from %ProgramFiles%\WindowsPowerShell\Modules. The machine's PSModulePath environment variable is no longer modified.
+* The Proxy PowerShell module is now registered from %ProgramFiles%\WindowsPowerShell\Modules. The machine's PSModulePath environment variable is no longer modified.
 * A new Get-AzureADPasswordProtectionProxy cmdlet has been added to aid in discovering registered proxies in a forest or domain.
 * The DC agent uses a new folder in the sysvol share for replicating password policies and other files.
 
