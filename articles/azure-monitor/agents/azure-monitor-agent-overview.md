@@ -15,9 +15,9 @@ The Azure Monitor agent (AMA) collects monitoring data from the guest operating 
 ## Relationship to other agents
 The Azure Monitor Agent replaces the following agents that are currently used by Azure Monitor to collect guest data from virtual machines:
 
-- [Log Analytics agent](../platform/log-analytics-agent.md) - Sends data to Log Analytics workspace and supports Azure Monitor for VMs and monitoring solutions.
-- [Diagnostic extension](../platform/diagnostics-extension-overview.md) - Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
-- [Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md) - Sends data to Azure Monitor Metrics (Linux only).
+- [Log Analytics agent](./log-analytics-agent.md) - Sends data to Log Analytics workspace and supports Azure Monitor for VMs and monitoring solutions.
+- [Diagnostic extension](./diagnostics-extension-overview.md) - Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
+- [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md) - Sends data to Azure Monitor Metrics (Linux only).
 
 In addition to consolidating this functionality into a single agent, the Azure Monitor Agent provides the following benefits over the existing agents:
 

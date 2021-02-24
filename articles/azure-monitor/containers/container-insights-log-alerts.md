@@ -18,7 +18,7 @@ Azure Monitor for containers monitors the performance of container workloads tha
 
 To alert for high CPU or memory utilization, or low free disk space on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. While metric alerts have lower latency than log alerts, log alerts provide advanced querying and greater sophistication. Log alert queries compare a datetime to the present by using the *now* operator and going back one hour. (Azure Monitor for containers stores all dates in Coordinated Universal Time (UTC) format.)
 
-If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../alerts/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
+If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../alerts/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
 
 ## Resource utilization log search queries
 
