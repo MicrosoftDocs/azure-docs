@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 02/23/2021
 ---
 
 # Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -1106,7 +1106,7 @@ If you're not familiar with Docker, review these topics:
    For example, this sample Docker file deploys a logic app with a stateful workflow. The file specifies the connection string and access key for the Azure Storage account that was used for publishing the logic app to the Azure portal.
 
    ```text
-   FROM mcr.microsoft.com/dotnet/core/sdk3.1 AS installer-env
+   FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS installer-env
 
    COPY . /src/dotnet-function-app
    RUN cd /src/dotnet-function-app && \
