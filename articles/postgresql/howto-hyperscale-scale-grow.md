@@ -23,6 +23,15 @@ queries.
 To add nodes, go to the **Compute + storage** tab in your Hyperscale (Citus) server
 group.  Dragging the slider for **Worker node count** changes the value.
 
+> [!NOTE]
+> The Hyperscale (Citus) [starter plan](concepts-hyperscale-starter-plan.md) is
+> a deployment option that runs without worker nodes. If you're using a server
+> group on the starter plan, you'll need to graduate to the standard plan in
+> order to add worker nodes.
+>
+> To graduate, select the **Standard** radio button for **Plan** at the top of
+> the **Compute + storage** page.
+
 :::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Resource sliders":::
 
 Click the **Save** button to make the changed value take effect.

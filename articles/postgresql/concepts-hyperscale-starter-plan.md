@@ -30,6 +30,6 @@ warehousing workloads.
 
 ## Next steps
 
-* Learn to [provision the starter pack](howto-hyperscale-foo.md)
-* When you're ready, see [how to graduate](bar.md) from the starter plan to the standard plan
+* Learn to [provision the starter plan](quickstart-create-hyperscale-starter-plan.md)
+* When you're ready, see [how to graduate](howto-hyperscale-scale-grow.md#add-worker-nodes) from the starter plan to the standard plan
 * The [columnar storage](concepts-hyperscale-columnar.md) option is available in both the starter and standard plan
