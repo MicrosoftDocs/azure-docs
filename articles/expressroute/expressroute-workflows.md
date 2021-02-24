@@ -164,7 +164,7 @@ You can choose to re-enable it if needed, or run PowerShell cmdlets to delete th
 
 ## Routing session configuration state
 
-The BGP provisioning state reports if the BGP session has been enabled on the Microsoft edge. The state must be enabled to use private or Microsoft peering.
+The BGP provisioning state reports if the BGP session has been enabled on the Microsoft Edge. The state must be enabled to use private or Microsoft peering.
 
 It is important to check the BGP session state especially for Microsoft peering. In addition to the BGP provisioning state, there is another state called *advertised public prefixes state*. The advertised public prefixes state must be in the *configured* state, both for the BGP session to be up and for your routing to work end-to-end. 
 
