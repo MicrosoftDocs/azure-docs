@@ -78,7 +78,7 @@ The steps for this task use a VNet based on the values in the following configur
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
    ```
-If you are using a dual stack virtual network and plan to use IPv6-based private peering over ExpressRoute, create a dual stack gateway subnet instead.
+    If you are using a dual stack virtual network and plan to use IPv6-based private peering over ExpressRoute, create a dual stack gateway subnet instead.
 
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix "10.0.0.0/26","ace:daa:daaa:deaa::/64"
