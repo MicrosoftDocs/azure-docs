@@ -90,7 +90,7 @@ When you later try to open the designer for a workflow in your logic app, you ge
 
 ### Tools
 
-* [Visual Studio Code 1.30.1 (January 2019) or higher](https://code.visualstudio.com/), which is free. Also, download and install these additional tools for Visual Studio Code, if you don't have them already:
+* [Visual Studio Code 1.30.1 (January 2019) or higher](https://code.visualstudio.com/), which is free. Also, download and install these tools for Visual Studio Code, if you don't have them already:
 
   * [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account), which provides a single common Azure sign-in and subscription filtering experience for all other Azure extensions in Visual Studio Code.
 
@@ -461,7 +461,7 @@ The workflow in this example uses this trigger and these actions:
 
 <a name="webhook-setup"></a>
 
-## Enable locally-running webhooks
+## Enable locally running webhooks
 
 When you use a webhook-based trigger or action, such as **HTTP Webhook**, with a logic app running in Azure, the Logic Apps runtime subscribes to the service endpoint by generating and registering a callback URL with that endpoint. The trigger or action then waits for the service endpoint to call the URL. However, when you're working in Visual Studio Code, the generated callback URL starts with `http://localhost:7071/...`. This URL is for your localhost server, which is private so the service endpoint can't call this URL.
 
@@ -526,9 +526,9 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
    }
    ```
 
-The first time that you start a local debugging session or run the workflow without debugging, the Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the subscription registration already exists in local storage.
+The first time when you start a local debugging session or run the workflow without debugging, the Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the subscription registration already exists in local storage.
 
-When you stop the debugging session for a workflow run that uses locally-run webhook-based triggers or actions, the existing subscription registrations aren't deleted. To unregister, you have to manually remove or delete the subscription registrations.
+When you stop the debugging session for a workflow run that uses locally run webhook-based triggers or actions, the existing subscription registrations aren't deleted. To unregister, you have to manually remove or delete the subscription registrations.
 
 > [!NOTE]
 > After your workflow starts running, the terminal window might show errors like this example:
@@ -664,15 +664,15 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
    | Action status | Icon | Description |
    |---------------|------|-------------|
-   | Aborted | ![Icon for "Aborted" action status][aborted-icon] | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | Cancelled | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a request to cancel. |
-   | Failed | ![Icon for "Failed" action status][failed-icon] | The action failed. |
-   | Running | ![Icon for "Running" action status][running-icon] | The action is currently running. |
-   | Skipped | ![Icon for "Skipped" action status][skipped-icon] | The action was skipped because the immediately preceding action failed. An action has a `runAfter` condition that requires that the preceding action finishes successfully before the current action can run. |
-   | Succeeded | ![Icon for "Succeeded" action status][succeeded-icon] | The action succeeded. |
-   | Succeeded with retries | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
-   | Timed out | ![Icon for "Timed out" action status][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
-   | Waiting | ![Icon for "Waiting" action status][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
+   | **Aborted** | ![Icon for "Aborted" action status][aborted-icon] | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | **Cancelled** | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a request to cancel. |
+   | **Failed** | ![Icon for "Failed" action status][failed-icon] | The action failed. |
+   | **Running** | ![Icon for "Running" action status][running-icon] | The action is currently running. |
+   | **Skipped** | ![Icon for "Skipped" action status][skipped-icon] | The action was skipped because the immediately preceding action failed. An action has a `runAfter` condition that requires that the preceding action finishes successfully before the current action can run. |
+   | **Succeeded** | ![Icon for "Succeeded" action status][succeeded-icon] | The action succeeded. |
+   | **Succeeded with retries** | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
+   | **Timed out** | ![Icon for "Timed out" action status][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
+   | **Waiting** | ![Icon for "Waiting" action status][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/aborted.png
@@ -756,7 +756,7 @@ From Visual Studio Code, you can directly publish your project to Azure, which d
 * [Scale up an in Azure App Service](../app-service/manage-scale-up.md)
 * [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
 
-You can publish your logic app as a new resource, which automatically creates any additional necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed **Logic App (Preview)** resource, which overwrites that logic app.
+You can publish your logic app as a new resource, which automatically creates any necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed **Logic App (Preview)** resource, which overwrites that logic app.
 
 ### Publish to a new Logic App (Preview) resource
 
@@ -852,7 +852,7 @@ You can publish your logic app as a new resource, which automatically creates an
          * Workflow activity, such as trigger, action, and run.
          * Storage request activity, such as success or failure.
          * HTTP request activity, such as inbound, outbound, success, and failure.
-         * Ad hoc development traces, such as debug messages.
+         * Any development traces, such as debug messages.
 
          Each event type is assigned to a severity level. For example, the `Trace` level captures the most detailed messages, while the `Information` level captures general activity in your workflow, such as when your logic app, workflow, trigger, and actions start and stop. This table describes the severity levels and their trace types:
 
@@ -933,7 +933,7 @@ You can have multiple workflows in your logic app project. To add a blank workfl
 
 1. In the Azure pane, next to **Azure: Logic Apps (Preview)**, select **Create Workflow** (icon for Azure Logic Apps).
 
-1. Select the workflow type that you want to add, **Stateful** or **Stateless**.
+1. Select the workflow type that you want to add: **Stateful** or **Stateless**
 
 1. Provide a name for your workflow.
 
@@ -947,7 +947,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
 1. On the left toolbar, select the Azure icon. In the **Azure: Logic Apps (Preview)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
 
-1. Find and select the logic app that you want to manage. Open the logic app's shortcut menu, and select the task that you want to perform.
+1. Open the logic app that you want to manage. From the logic app's shortcut menu, select the task that you want to perform.
 
    For example, you can select tasks such as stopping, starting, restarting, or deleting your deployed logic app.
 
