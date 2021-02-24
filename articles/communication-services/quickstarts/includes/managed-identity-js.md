@@ -37,10 +37,10 @@ Managed identities should be enabled on the Azure resources that you're authoriz
 #### Assign Azure roles with the Azure portal
 
 1. Navigate to the Azure portal.
-1. Navigate to the Azure Communication Service resource.
-1. Navigate to Access Control (IAM) menu -> + Add -> Add role assignment.
-1. Select the role "Contributor" (this is the only supported role).
-1. Select "User assigned managed identity" (or a "System assigned managed identity") then select the desired identity. Save your selection.
+2. Navigate to the Azure Communication Service resource.
+3. Navigate to Access Control (IAM) menu -> + Add -> Add role assignment.
+4. Select the role "Contributor" (this is the only supported role).
+5. Select "User assigned managed identity" (or a "System assigned managed identity") then select the desired identity. Save your selection.
 
 ![Managed identity role](media/managed-identity-assign-role.png)
 
