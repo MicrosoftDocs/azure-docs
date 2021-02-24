@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to 
-ms.date: 02/18/2021
+ms.date: 02/23/2021
 ms.custom: template-how-to 
 ---
 
@@ -107,19 +107,26 @@ $vmss = get-azvmss -resourcegroupname $rg -vmscalesetname $name
 $vmss.VirtualMachineProfile.SecurityProfile.UefiSettings
 ```
 
-## Add custom Linux kernel module signing keys 
+## Sign things for Secure Boot on Linux
 
-Use the serial console to add custom kernel module signing keys. 
+In some cases, you might need to sign things for UEFI Secure Boot.  For example, you might need to go through [How to sign things for Secure Boot](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) for Ubuntu. In these cases, you need to enter the MOK utility enroll keys for your VM. To do this, you need to use the Azure Serial Console to access the MOK utility.
 
 1.	Enable Azure Serial Console for Linux. For more information, see [Serial Console for Linux](serial-console-linux.md).
-2.	Log on to the VM using Azure Serial Console.
-3.	Type: `sudo mokutil --disable-validation`
-:::image type="content" source="media/trusted-launch/mok-mangement.png" alt-text="Mokutil being used in the serial console.":::
+2. Log in to the [Azure portal](https://portal.azure.com).
+1. Search for **Virtual machines** and select your VM from the list.
+1. In the left menu, under **Support + troubleshooting**, select **Serial console**. A page will open to the right, with the serial console.
+2.	Log on to the VM using Azure Serial Console. For **login**, enter the username you used when you created the VM. For example, *azureuser*. When prompted, enter the password associated with the username.
+3.	Once you are logged in, use `mokutil` to import the public key `.der` file.
+
+```console
+sudo mokutil –import <path to public key.der> 
+```
 4.	Reboot the machine from Azure Serial Console by typing `sudo reboot`. A 10 second countdown will begin.
 6.	Press up or down key to interrupt the countdown and wait in UEFI console mode. If the timer is not interrupted booting process continues and all the MOK changes are lost.
-7.	Select the appropriate action from the menu.
+7.	Select the appropriate action from the MOK utility menu.
 :::image type="content" source="media/trusted-launch/serial-console-reboot.png" alt-text="Screenshot of the possible actions you can select from the menu.":::
+
 
 # Next steps
 
-Learn more about [Trusted Launch](trusted-launch.md).
+Learn more about [Trusted Launch](trusted-launch.md) and [Generation 2](generation-2.md) VMs.
