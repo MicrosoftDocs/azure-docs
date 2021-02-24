@@ -191,3 +191,17 @@ Use the following code to install CRAN packages in Azure Machine Learning design
   } 
   library(zoo) 
 ```
+
+## Next steps
+
+In this article, you learned how to migrate a Studio (classic) dataset to Azure Machine Learning. The next step is to [rebuild a Studio (classic) experiment in the designer](migrate-rebuild-web-service.md).
+
+
+See the other articles in the Studio (classic) migration series:
+
+1. [Migration overview](migrate-overview.md).
+1. **Migrate datasets**.
+1. [Rebuild a Studio (classic) training pipeline](migrate-rebuild-experiment.md).
+1. [Rebuild a Studio (classic) web service](migrate-rebuild-web-service.md).
+1. [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).
+1. [Migration reference](migrate-reference.md).

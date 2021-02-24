@@ -65,9 +65,9 @@ You can call your Azure Machine Learning pipeline as a step in an Azure Data Fac
 
 In this article, you learned how to integrate client applications with pipeline endpoints.
 
-See the other articles in the Studio (classic) migration series:
-
-- [Migration overview](migrate-overview.md)
-- [Rebuild a Studio (classic) web service in Azure Machine Learning](migrate-rebuild-web-service.md)
-- [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md)
-- [Migration reference](migrate-reference.md)
+1. [Migration overview](migrate-overview.md).
+1. [Migrate dataset](migrate-register-datasets.md).
+1. [Rebuild a Studio (classic) training pipeline](migrate-rebuild-experiment.md).
+1. [Rebuild a Studio (classic) web service](migrate-rebuild-web-service.md).
+1. **Integrate an Azure Machine Learning web service with client apps**.
+1. [Migration reference](migrate-reference.md).

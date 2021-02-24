@@ -29,29 +29,27 @@ To migrate from Studio (classic) to Azure Machine Learning, we recommend the fol
 > * Step 4: Integrate client apps
 
 
-## Step 1: Assess readiness
+## Step 1: Prepare for migration
 1. Learn about [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/); it's benefits, costs, and architecture.
+
 1. [Compare the capabilities](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) of Azure Machine Learning and Studio (classic).
     
      Azure Machine Learning supports code-first development in addition to the drag-and-drop designer. For more information on the code-first development cycle, see [MLOps: Model management, deployment, and monitoring](../concept-model-management-and-deployment.md).
 
-## Step 2: Prepare to migrate
+1. [Create the Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace) that want to migrate to.
 
 1. Identify which data sets, models, and web services you want to migrate:
     
     Go your Studio (classic) workspace and take the opportunity to clean up resources that you no longer use, and identify which resources to migrate.
 
 1. Determine the impact that a migration will have on your business.
-    
-    For example, can you afford any downtime while the migration takes place?
 
 1. Create a migration plan.
 
 ## Step 3: Rebuild experiments and web services
 
-1. [Create the Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace) that want to migrate to.
-1. Use the designer to [rebuild experiments](migrate-rebuild-experiment.md) and deploy [web services](migrate-rebuild-web-service.md) with drag-and-drop modules.
-
+1. Use the designer to [rebuild experiments](migrate-rebuild-experiment.md).
+1. Use the designer to deploy [web services](migrate-rebuild-web-service.md) with drag-and-drop modules.
 
 > [!NOTE]
 > Azure Machine Learning also supports code-first workflows for [training](../how-to-set-up-training-targets.md) and [deployment](../how-to-deploy-and-where.md).
