@@ -19,8 +19,9 @@ This quickstart shows you how to authorize access to the Administration and SMS 
 
 ## Prerequisites
 
- - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
+ - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
  - An active Communication Services resource and connection string. [Create a Communication Services resource](./create-communication-resource.md?pivots=platform-azp&tabs=windows).
+ -  A managed identity. [Create a managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
 ## Setting Up
 
@@ -54,10 +55,9 @@ To assign roles and permissions using PowerShell, see [Add or remove Azure role 
 ### Install the client library packages
 
 ```console
-dotnet add package Azure.Communication.Identity
-dotnet add package Azure.Communication.Configuration
-dotnet add package Azure.Communication.Sms
 dotnet add package Azure.Identity
+dotnet add package Azure.Communication.Identity
+dotnet add package Azure.Communication.Sms
 ```
 
 ### Use the client library packages
@@ -65,9 +65,11 @@ dotnet add package Azure.Identity
 Add the following `using` directives to your code to use the Azure Identity and Azure Storage client libraries.
 
 ```csharp
+using Azure;
+using Azure.Core;
 using Azure.Identity;
+using Azure.Communication;
 using Azure.Communication.Identity;
-using Azure.Communication.Configuration;
 using Azure.Communication.Sms;
 ```
 
@@ -78,12 +80,13 @@ The examples below are using the [DefaultAzureCredential](/dotnet/api/azure.iden
 The following code example shows how to create a service client object with Azure Active Directory tokens, then use the client to issue a token for a new user:
 
 ```csharp
-     public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(Uri resourceEdnpoint) 
+     public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(Uri resourceEndpoint) 
      {
           TokenCredential credential = new DefaultAzureCredential();
      
           var client = new CommunicationIdentityClient(resourceEndpoint, credential);
           var identityResponse = await client.CreateUserAsync();
+          var identity = identityResponse.Value;
      
           var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
 
@@ -96,7 +99,6 @@ The following code example shows how to create a service client object with Azur
 The following code example shows how to create a service client object with Azure Active Directory tokens, then use the client to send an SMS message:
 
 ```csharp
-
      public async Task SendSmsAsync(Uri resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
      {
           TokenCredential credential = new DefaultAzureCredential();
