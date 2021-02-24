@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 02/24/2021
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
@@ -59,7 +59,7 @@ Once you have configured AUs, you can apply this scope to your users who access 
 
 You can protect the My Staff portal using Azure AD Conditional Access policy. Use it for tasks like requiring multi-factor authentication before accessing My Staff.
 
-We strongly recommend that you protect My Staff using [Azure AD Conditional Access policies](../conditional-access/index.yml). To apply a Conditional Access policy to My Staff, you must manually create the My Staff service principal using PowerShell.
+We strongly recommend that you protect My Staff using [Azure AD Conditional Access policies](../conditional-access/index.yml). To apply a Conditional Access policy to My Staff, you must first create the My Staff service principal using PowerShell.
 
 ### Apply a Conditional Access policy to My Staff
 
@@ -79,6 +79,12 @@ We strongly recommend that you protect My Staff using [Azure AD Conditional Acce
 When a user goes to My Staff, they are shown the names of the [administrative units](administrative-units.md) over which they have administrative permissions. In the [My Staff user documentation](../user-help/my-staff-team-manager.md), we use the term "location" to refer to administrative units. If an administrator's permissions do not have an AU scope, the permissions apply across the organization. After My Staff has been enabled, the users who are enabled and have been assigned an administrative role can access it through [https://mystaff.microsoft.com](https://mystaff.microsoft.com). They can select an AU to view the users in that AU, and select a user to open their profile.
 
 ## Reset a user's password
+
+Before you can rest passwords for on-premises users, you must fulfill the following prerequisite conditions, as described in the [Enable self-service password reset](../authentication/tutorial-enable-sspr-writeback) tutorial.
+
+* Configure permissions for password writeback
+* Enable password writeback in Azure AD Connect
+* Enable password writeback in Azure AD self-service password reset (SSPR)
 
 The following roles have permission to reset a user's password:
 
