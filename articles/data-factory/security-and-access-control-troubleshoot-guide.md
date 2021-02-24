@@ -162,7 +162,7 @@ Both Azure Resource Manager and ADF are using the same private zone creating a p
 5.	Go back to Private DNS zones, and check if there is a new private DNS zone **privatelink.adf.azure.com**.
 ![Screenshot of new DNS record.](media/security-access-control-troubleshoot-guide/check-dns-record.png)
 
-### Pipeline run failure error
+### Connection error in public endpoint
 
 #### Symptoms
 
