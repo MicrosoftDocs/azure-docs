@@ -1,6 +1,6 @@
 ---
-title: Connect Microsoft 365 Defender raw data to Azure Sentinel| Microsoft Docs
-description: Learn how to ingest raw event data from Microsoft 365 Defender into Azure Sentinel.
+title: Connect Microsoft 365 Defender data to Azure Sentinel| Microsoft Docs
+description: Learn how to ingest incidents, alerts, and raw event data from Microsoft 365 Defender into Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -29,15 +29,11 @@ ms.author: yelevin
 
 ## Background
 
-The new [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) connector lets you stream **advanced hunting** logs - a type of raw event data - from Microsoft 365 Defender into Azure Sentinel. 
+Azure Sentinel's [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) connector with incident integration allows you to stream all M365D incidents and alerts into Azure Sentinel, and keeps the incidents synchronized between both portals. M365D incidents include all their alerts, entities, and other relevant information, and they are enriched and group together alerts from M365D's component services **Microsoft Defender for Endpoint**, **Microsoft Defender for Identity**, **Microsoft Defender for Office 365**, and **Microsoft Cloud App Security**.
 
-With the integration of [Microsoft Defender for Endpoint (MDATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) into the Microsoft 365 Defender security umbrella, you can now collect your Microsoft Defender for Endpoint [advanced hunting](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) events using the Microsoft 365 Defender connector, and stream them straight into new purpose-built tables in your Azure Sentinel workspace. These tables are built on the same schema that is used in the Microsoft 365 Defender portal, giving you complete access to the full set of advanced hunting logs, and allowing you to do the following:
+The connector also lets you stream **advanced hunting** events from Microsoft Defender for Endpoint into Azure Sentinel, allowing you to copy MDE advanced hunting queries into Azure Sentinel, enrich Sentinel alerts with MDE raw event data to provide additional insights, and store the logs with increased retention in Log Analytics.
 
-- Easily copy your existing Microsoft Defender ATP advanced hunting queries into Azure Sentinel.
-
-- Use the raw event logs to provide additional insights for your alerts, hunting, and investigation, and correlate events with data from additional data sources in Azure Sentinel.
-
-- Store the logs with increased retention, beyond Microsoft Defender for Endpoint or Microsoft 365 Defender’s default retention of 30 days. You can do so by configuring the retention of your workspace or by configuring per-table retention in Log Analytics.
+For more information about incident integration and advanced hunting event collection, see [Better together: Microsoft 365 Defender integration with Azure Sentinel](integrate-m365-defender-sentinel).
 
 > [!IMPORTANT]
 >
@@ -45,15 +41,17 @@ With the integration of [Microsoft Defender for Endpoint (MDATP)](/windows/secur
 
 ## Prerequisites
 
-- You must have a valid license for Microsoft Defender for Endpoint, as described in [Set up Microsoft Defender for Endpoint deployment](/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- You must have a valid license for Microsoft 365 Defender, as described in [Microsoft 365 Defender prerequisites](/microsoft-365/security/mtp/prerequisites). 
 
-- Your user must be assigned the Global Administrator role on the tenant (in Azure Active Directory).
+- You must be a **global administrator** or a **security administrator** in Azure Active Directory.
 
 ## Connect to Microsoft 365 Defender
 
-If Microsoft Defender for Endpoint is deployed and ingesting your data, the event logs can easily be streamed into Azure Sentinel.
-
 1. In Azure Sentinel, select **Data connectors**, select **Microsoft 365 Defender (Preview)** from the gallery and select **Open connector page**.
+
+1. Under **Configuration** in the **Connect incidents & alerts** section, click the **Connect incidents & alerts** button.
+
+1. To avoid duplication of incidents, it is recommended to mark the check box labeled **Turn off all Microsoft incident creation rules for these products.**
 
 1. The following types of events can be collected from their corresponding advanced hunting tables. Mark the check boxes of the event types you wish to collect:
 
