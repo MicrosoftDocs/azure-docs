@@ -90,6 +90,8 @@
     href: create-custom-azure-resource-manager-role-how-to.md
   - name: Deploy to an IoT Edge device
     href: deploy-iot-edge-device.md
+  - name: Deploy to an IoT Edge for Linux on Windows
+    href: deploy-iot-edge-linux-on-windows.md
   - name: Monitoring and logging
     href: monitoring-logging.md
   - name: Playback a recording 
