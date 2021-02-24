@@ -76,7 +76,7 @@ The consumer user can sign in to applications secured by Azure AD B2C, but canno
 
 You can specify the data that is collected when a consumer user account is created. For more information, see [Add user attributes and customize user input](configure-user-input.md).
 
-For more information about managing consumer accounts, see [Manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md).
+For more information about managing consumer accounts, see [Manage Azure AD B2C user accounts with Microsoft Graph](./microsoft-graph-operations.md).
 
 ### Migrate consumer user accounts
 

@@ -47,19 +47,19 @@ Kubelet secure port (:10250) should be opened in the cluster's virtual network f
    You can create a workspace when you enable monitoring for your new AKS cluster, or you can let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. 
    
    If you choose to create the workspace yourself, you can create it through: 
-   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
-   - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
-   - [The Azure portal](../learn/quick-create-workspace.md) 
+   - [Azure Resource Manager](../logs/resource-manager-workspace.md)
+   - [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+   - [The Azure portal](../logs/quick-create-workspace.md) 
    
    For a list of the supported mapping pairs to use for the default workspace, see [Region mapping for Azure Monitor for containers](container-insights-region-mapping.md).
 
-- You are a member of the *Log Analytics contributor* group for enabling container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../platform/manage-access.md).
+- You are a member of the *Log Analytics contributor* group for enabling container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../logs/manage-access.md).
 
 - You are a member of the [*Owner* group](../../role-based-access-control/built-in-roles.md#owner) on the AKS cluster resource.
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-- To view the monitoring data, you need to have [*Log Analytics reader*](../platform/manage-access.md#manage-access-using-azure-permissions) role in the Log Analytics workspace, configured with Azure Monitor for containers.
+- To view the monitoring data, you need to have [*Log Analytics reader*](../logs/manage-access.md#manage-access-using-azure-permissions) role in the Log Analytics workspace, configured with Azure Monitor for containers.
 
 - Prometheus metrics aren't collected by default. Before you [configure the agent](container-insights-prometheus-integration.md) to collect the metrics, it's important to review the [Prometheus documentation](https://prometheus.io/) to understand what data can be scraped and what methods are supported.
 
