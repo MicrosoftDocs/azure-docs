@@ -16,10 +16,10 @@ zone_pivot_groups: acs-plat-azp-net
  
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication services resources can be provisioned through the Azure portal or with the .NET management client library. The management client library allows you to create, configure, update and delete your resource and interfaces with [Azure Resource Manager](../../azure-resource-manager/management/overview.md), Azure's deployment and management service. All functionality available in the client libraries is available in the Azure portal. 
+Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication services resources can be provisioned through the [Azure portal](https://portal.azure.com) or with the .NET management client library. The management client library and the Azure portal allow you to create, configure, update and delete your resources and interface with [Azure Resource Manager](../../azure-resource-manager/management/overview.md), Azure's deployment and management service. All functionality available in the client libraries is available in the Azure portal. 
 
 > [!WARNING]
-> Note that Communication Services availability is restricted to the US geography during public preview. Also note that communication resources cannot be transferred to a different subscription during public preview.
+> Note that while Communication Services is available in multiple geographies, in order to get a phone number the resource must have a data location set to 'US'. Also note that communication resources cannot be transferred to a different subscription during public preview.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]
