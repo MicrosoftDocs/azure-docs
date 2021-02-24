@@ -299,18 +299,28 @@ To [configure your hyperparameter tuning](/python/api/azureml-train-core/azureml
 * Your early termination policy
 * The primary metric
 * Resource allocation settings
-* ScriptRunConfig `src`
+* ScriptRunConfig `script_run_config`
 
 The ScriptRunConfig is the training script that will run with the sampled hyperparameters. It defines the resources per job (single or multi-node), and the compute target to use.
 
 > [!NOTE]
->The compute target specified in `src` must have enough resources to satisfy your concurrency level. For more information on ScriptRunConfig, see [Configure training runs](how-to-set-up-training-targets.md).
+>The compute target used in `script_run_config` must have enough resources to satisfy your concurrency level. For more information on ScriptRunConfig, see [Configure training runs](how-to-set-up-training-targets.md).
 
 Configure your hyperparameter tuning experiment:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
-hd_config = HyperDriveConfig(run_config=src,
+from azureml.train.hyperdrive import RandomParameterSampling, BanditPolicy, uniform, PrimaryMetricGoal
+
+param_sampling = RandomParameterSampling( {
+        'learning_rate': uniform(0.0005, 0.005),
+        'momentum': uniform(0.9, 0.99)
+    }
+)
+
+early_termination_policy = BanditPolicy(slack_factor=0.15, evaluation_interval=1, delay_evaluation=10)
+
+hd_config = HyperDriveConfig(run_config=script_run_config,
                              hyperparameter_sampling=param_sampling,
                              policy=early_termination_policy,
                              primary_metric_name="accuracy",
@@ -318,6 +328,37 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_total_runs=100,
                              max_concurrent_runs=4)
 ```
+
+The `HyperDriveConfig` sets the parameters passed to the `ScriptRunConfig script_run_config`. The `script_run_config`, in turn, passes parameters to the training script. The above code snippet is taken from the sample notebook [Train, hyperparameter tune, and deploy with PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). In this sample, the `learning_rate` and `momentum` parameters will be tuned. Early stopping of runs will be determined by a `BanditPolicy`, which stops a run whose primary metric falls outside the `slack_factor` (see [BanditPolicy class reference](python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py)). 
+
+The following code from the sample shows how the being-tuned values are received, parsed, and passed to the training script's `fine_tune_model` function:
+
+```python
+# from pytorch_train.py
+def main():
+    print("Torch version:", torch.__version__)
+
+    # get command-line arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--num_epochs', type=int, default=25,
+                        help='number of epochs to train')
+    parser.add_argument('--output_dir', type=str, help='output directory')
+    parser.add_argument('--learning_rate', type=float,
+                        default=0.001, help='learning rate')
+    parser.add_argument('--momentum', type=float, default=0.9, help='momentum')
+    args = parser.parse_args()
+
+    data_dir = download_data()
+    print("data directory is: " + data_dir)
+    model = fine_tune_model(args.num_epochs, data_dir,
+                            args.learning_rate, args.momentum)
+    os.makedirs(args.output_dir, exist_ok=True)
+    torch.save(model, os.path.join(args.output_dir, 'model.pt'))
+```
+
+> [!Important]
+> Every hyperparameter run restarts the training from scratch, including rebuilding the model and _all the data loaders_. You can minimize 
+> this cost by using an Azure Machine Learning pipeline or manual process to do as much data preparation as possible prior to your training runs. 
 
 ## Submit hyperparameter tuning experiment
 
@@ -332,7 +373,6 @@ hyperdrive_run = experiment.submit(hd_config)
 ## Warm start hyperparameter tuning (optional)
 
 Finding the best hyperparameter values for your model can be an iterative process. You can reuse knowledge from the five previous runs to accelerate hyperparameter tuning.
-
 
 Warm starting is handled differently depending on the sampling method:
 - **Bayesian sampling**: Trials from the previous run are used as prior knowledge to pick new samples, and to improve the primary metric.
@@ -365,7 +405,7 @@ You can configure your hyperparameter tuning experiment to warm start from a pre
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
 
-hd_config = HyperDriveConfig(run_config=src,
+hd_config = HyperDriveConfig(run_config=script_run_config,
                              hyperparameter_sampling=param_sampling,
                              policy=early_termination_policy,
                              resume_from=warmstart_parents_to_resume_from,
