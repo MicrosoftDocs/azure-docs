@@ -63,7 +63,7 @@ npm install @azure/identity
 
 Add the following `import` directives to your code to use the Azure Identity and Azure Storage client libraries.
 
-```JavaScript
+```typescript
 import { DefaultAzureCredential } from "@azure/identity";
 import { CommunicationIdentityClient } from "@azure/communication-identity";
 import { SmsClient } from "@azure/communication-sms";
@@ -97,7 +97,10 @@ export async function sendSms(resourceEndpoint: string, fromNumber: any, toNumbe
           message: message 
      };
 
-     const response = await smsClient.send(sendRequest);
+     const response = await smsClient.send(
+          sendRequest, 
+          {} //Optional SendOptions
+          );
 }
 ```
 
@@ -108,8 +111,9 @@ export async function sendSms(resourceEndpoint: string, fromNumber: any, toNumbe
 
 You may also want to:
 
-- [Learn more about Azure role-based access control](../../../articles/role-based-access-control/index.yml)
+- [Learn more about Azure role-based access control](../../../../articles/role-based-access-control/index.yml)
 - [Learn more about Azure identity library for JS](/javascript/api/overview/azure/identity-readme)
-- [Creating user access tokens](../quickstarts/access-tokens.md)
-- [Send an SMS message](../quickstarts/telephony-sms/send.md)
-- [Learn more about SMS](../concepts/telephony-sms/concepts.md)
+- [Creating user access tokens](../../quickstarts/access-tokens.md)
+- [Send an SMS message](../../quickstarts/telephony-sms/send.md)
+- [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
+
