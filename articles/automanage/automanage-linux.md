@@ -1,6 +1,6 @@
 ---
-title: Azure Automanage for Windows Server
-description: Learn about the Azure Automanage for virtual machines best practices for services that are automatically onboarded and configured for Windows Server machines.
+title: Azure Automanage for Linux
+description: Learn about the Azure Automanage for virtual machines best practices for services that are automatically onboarded and configured for Linux machines.
 author: deanwe
 ms.service: virtual-machines
 ms.subservice: automanage
@@ -13,7 +13,7 @@ ms.author: deanwe
 
 # Azure Automanage for virtual machines best practices - Linux
 
-These Azure services are automatically onboarded for you when you use Automanage for virtual machines (VMs) on a Windows Server VM. They are essential to our best practices white paper, which you can find in our [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
+These Azure services are automatically onboarded for you when you use Automanage for virtual machines (VMs) on a Linux VM. They are essential to our best practices white paper, which you can find in our [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
 
 For all of these services, we will auto-onboard, auto-configure, monitor for drift, and remediate if drift is detected. To learn more about this process, see [Azure Automanage for virtual machines](automanage-virtual-machines.md).
 
