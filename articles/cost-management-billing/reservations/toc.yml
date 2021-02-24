@@ -120,6 +120,8 @@
       href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: Troubleshoot
     items:
+    - name: Troubleshoot transfers between tenants
+      href: troubleshoot-reservation-transfers-between-tenants.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: No eligible subscriptions
       href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Troubleshoot reservation utilization
