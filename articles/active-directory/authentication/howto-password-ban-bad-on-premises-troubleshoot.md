@@ -257,7 +257,7 @@ If it is decided to uninstall the Azure AD password protection software and clea
 
    This path is different if the sysvol share has been configured in a non-default location.
 
-# Health testing with Powershell cmdlets
+# Health testing with PowerShell cmdlets
 
 The AzureADPasswordProtection PowerShell module includes two health-related cmdlets that perform basic verification that the software is installed and working. It is a good idea to run these cmdlets after setting up a new deployment, periodically thereafter, and when a problem is being investigated.
 
