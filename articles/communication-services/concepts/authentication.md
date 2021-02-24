@@ -25,6 +25,27 @@ Each authorization option is briefly described below:
 - **Managed Identity** authentication for SMS and Identity operations. Managed Identity, see [Managed Identity](../quickstarts/managed-identity.md), is suitable for service applications running in a trusted service environment. To authenticate with a managed identity, a service application creates a credential with the id and a secret of the managed identity then initialize corresponding SMS or Identity client libraries, see [Create and manage access tokens](../quickstarts/access-tokens.md).
 - **User Access Token** authentication for Chat and Calling. User access tokens let your client applications authenticate against Azure Communication Chat and Calling Services. These tokens are generated in a "trusted user access service" that you create. They're then provided to client devices that use the token to initialize the Chat and Calling client libraries. For more information, see [Add Chat to your App](../quickstarts/chat/get-started.md) for example.
 
+## Authenticate with a managed identity
+
+
+```csharp
+String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+TokenCredential credential = new DefaultAzureCredential();
+var client = new CommunicationIdentityClient(endpoint, credential);
+```
+
+#### [Java](#tab/java)
+
+```java
+String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
+CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
+    .endpoint(endpoint)
+    .credential(new DefaultAzureCredentialBuilder().build())
+    .httpClient(httpClient)
+    .buildClient();
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
