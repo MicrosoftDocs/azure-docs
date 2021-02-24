@@ -20,7 +20,7 @@ This article describes common commands to automate the management of your Azure 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- This article requires version 2.12.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+* This article requires the Azure CLI version 2.12.1 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
 
 > [!IMPORTANT]
 > Manage Azure Managed Instance for Apache Cassandra resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.
@@ -48,9 +48,9 @@ delegatedManagementSubnetId = '/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588
 cassandraVersion='3.11'
 initialCassandraAdminPassword='myPassword'
 
-# You can override cluster name of the original name is not legal for an Azure resource:
+# You can override the cluster name if the original name is not legal for an Azure resource.
 # overrideClusterName='ClusterNameIllegalForAzureResource'
-# the default cassandra version will be v3.11
+# the default Cassandra version is v3.11
 
 az cassandra-mi cluster create \
     --cluster-name $clusterName \
@@ -87,7 +87,6 @@ az cassandra-mi cluster get \
     --cluster-name $clusterName \
     --resource-group $resourceGroupName \
 ```
-
 
 ### <a id="list-clusters-resource-group"></a>List the clusters by resource group
 
@@ -126,7 +125,6 @@ The following sections demonstrate how to manage Azure Managed Instance for Apac
 ### <a id="create-datacenter"></a>Create a datacenter
 
 Create a datacenter:
-
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'

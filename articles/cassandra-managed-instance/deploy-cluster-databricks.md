@@ -16,7 +16,7 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This quickstart demonstrates how to use the Azure portal to create a fully managed Apache Spark cluster inside the Azure Virtual Network of your Azure Managed Instance for Apache Cassandra cluster. You will create the Spark cluster in Azure Databricks. Later you can create or attach notebooks to the cluster, read data from different data sources, and analyse insights.
+This quickstart demonstrates how to use the Azure portal to create a fully managed Apache Spark cluster inside the Azure Virtual Network of your Azure Managed Instance for Apache Cassandra cluster. You will create the Spark cluster in Azure Databricks. Later you can create or attach notebooks to the cluster, read data from different data sources, and analyze insights.
 
 You can also learn more with detailed instructions on [Deploying Azure Databricks in your Azure Virtual Network (Virtual Network Injection)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 

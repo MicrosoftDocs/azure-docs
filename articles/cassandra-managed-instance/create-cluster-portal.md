@@ -6,6 +6,8 @@ ms.author: thvankra
 ms.service: cassandra-managed-instance
 ms.topic: quickstart
 ms.date: 03/02/2021
+ms.custom: references_regions
+
 ---
 # Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster from the Azure portal (Preview)
  
@@ -40,17 +42,15 @@ An Azure subscription or free Azure Cosmos DB trial account
    * **Resource Group**- Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group](../azure-resource-manager/management/overview.md) overview article.
    * **Cluster name** - Enter a name for your cluster.
    * **Location** - Location where your cluster will be deployed to.
-   * **SKU** - The type of SKU.
+   * **SKU** - The type of SKU for your cluster.
    * **No. of nodes**-  Number of nodes in a cluster. These nodes act as replicas for your data.
    * **Initial Cassandra admin password** - Password that is used to create the cluster.
-   * **Confirm Cassandra admin password** - Reenter the password.
+   * **Confirm Cassandra admin password** - Reenter your password.
 
-    > [!NOTE] 
-    > The following regions are available in public preview: East US, West US, East US 2, West US 2, Central US, South Central US, North Europe, West Europe, South East Asia, Australia East 
+    > [!NOTE]
+    > During the public preview, you can create the managed instance cluster in the *East US, West US, East US 2, West US 2, Central US, South Central US, North Europe, West Europe, South East Asia, and Australia East* regions.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Fill out the create cluster form." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
-
-
 
 1. Next select the **Networking** tab.
 
