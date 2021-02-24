@@ -99,7 +99,8 @@ The following requirements apply to the Azure AD Password Protection DC agent:
 
 * All machines where the Azure AD Password Protection DC agent software will be installed must run Windows Server 2012 or later, including Windows Server Core editions.
     * The Active Directory domain or forest doesn't need to be at Windows Server 2012 domain functional level (DFL) or forest functional level (FFL). As mentioned in [Design Principles](concept-password-ban-bad-on-premises.md#design-principles), there's no minimum DFL or FFL required for either the DC agent or proxy software to run.
-* All machines that run the Azure AD Password Protection DC agent must have .NET 4.5 installed.
+* All machines where the Azure AD Password Protection proxy service will be installed must have .NET 4.7.2 installed.
+    * .NET 4.7.2 should already be installed on a fully updated Windows Server. If necessary, download and run the installer found at [The .NET Framework 4.7.2 offline installer for Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 * Any Active Directory domain that runs the Azure AD Password Protection DC agent service must use Distributed File System Replication (DFSR) for sysvol replication.
    * If your domain isn't already using DFSR, you must migrate before installing Azure AD Password Protection. For more information, see [SYSVOL Replication Migration Guide: FRS to DFS Replication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
@@ -119,8 +120,8 @@ The following requirements apply to the Azure AD Password Protection proxy servi
     > [!NOTE]
     > The Azure AD Password Protection proxy service deployment is a mandatory requirement for deploying Azure AD Password Protection even though the domain controller may have outbound direct internet connectivity.
 
-* All machines where the Azure AD Password Protection proxy service will be installed must have .NET 4.7 installed.
-    * .NET 4.7 should already be installed on a fully updated Windows Server. If necessary, download and run the installer found at [The .NET Framework 4.7 offline installer for Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+* All machines where the Azure AD Password Protection proxy service will be installed must have .NET 4.7.2 installed.
+    * .NET 4.7.2 should already be installed on a fully updated Windows Server. If necessary, download and run the installer found at [The .NET Framework 4.7.2 offline installer for Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 * All machines that host the Azure AD Password Protection proxy service must be configured to grant domain controllers the ability to log on to the proxy service. This ability is controlled via the "Access this computer from the network" privilege assignment.
 * All machines that host the Azure AD Password Protection proxy service must be configured to allow outbound TLS 1.2 HTTP traffic.
 * A *Global Administrator* or *Security Administrator* account to register the Azure AD Password Protection proxy service and forest with Azure AD.

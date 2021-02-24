@@ -17,6 +17,25 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD Password Protection agent version history
 
+## 1.2.172.0
+
+Release date: 2/22/2021
+
+It has been almost two years since the GA versions of the on-premises Azure AD Password Protection agents were released. A new update is now available - see change descriptions below. Thank you to everyone who has given us feedback on the product. 
+
+* The DC agent and Proxy agent software both now require .NET 4.7.2 to be installed.
+  * .NET 4.7.2 should already be installed on a fully updated Windows Server. If necessary, download and run the installer found at [The .NET Framework 4.7.2 offline installer for Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
+* The AzureADPasswordProtection Powershell module is now also installed by the the DC agent software.
+* Two new health-related Powershell cmdlets have been added: Test-AzureADPasswordProtectionDCAgent and Test-AzureADPasswordProtectionProxy.
+* The AzureADPasswordProtection DC Agent password filter dll will now load and run on machines where lsass.exe is configured to run in PPL mode.
+* Bug fix to password algorithm where banned passwords less than five characters in length might be incorrectly accepted.
+  * Note that this bug is only applicable if your on-premises AD minimimum password length policy was configured to allow <5 character passwords in the first place.
+* Other minor bug fixes.
+
+The new installers will automatically upgrade older versions of the software. If you are have installed both the DC agent and the Proxy software on a single machine (only recommended for test environments), you must upgrade both at the same time.
+
+It is supported to run older and newer versions of the DC agent and proxy software within a domain or forest, although we recommend upgrading all agents to the latest version as a best practice. Any ordering of agent upgrades is supported - new DC agents can communicate through older Proxy agents, and older DC agents can communicate through newer Proxy agents.
+
 ## 1.2.125.0
 
 Release date: 3/22/2019
