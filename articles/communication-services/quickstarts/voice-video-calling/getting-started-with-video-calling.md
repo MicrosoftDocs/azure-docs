@@ -70,11 +70,11 @@ Here's the code:
                 hang up
             </button>
             &nbsp;
-            <button id="startVideo" type="button" disabled="true">
+            <button id="start-Video" type="button" disabled="true">
                 start video
             </button>
             &nbsp;
-            <button id="stopVideo" type="button" disabled="true">
+            <button id="stop-Video" type="button" disabled="true">
                 stop video
             </button>     
             </div>
@@ -104,8 +104,8 @@ Create a file in the root directory of your project called client.js to contain 
         const calleeInput = document.getElementById("callee-id-input");
         const callButton = document.getElementById("call-button");
         const hangUpButton = document.getElementById("hang-up-button");
-        const stopVideoButton = document.getElementById("stopVideo");
-        const startVideoButton = document.getElementById("startVideo");
+        const stopVideoButton = document.getElementById("stop-Video");
+        const startVideoButton = document.getElementById("start-Video");
 
         let placeCallOptions;
         let deviceManager;
