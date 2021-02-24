@@ -34,7 +34,7 @@ Learn more about [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 
 **To deploy Azure Arc:**
 
-- For one machine, follow the instructions in [Quickstart: Connect hybrid machine with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+- For one machine, follow the instructions in [Quickstart: Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - To connect multiple machines at scale to Arc enabled servers, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md)
 
 > [!TIP]

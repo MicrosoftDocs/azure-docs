@@ -202,7 +202,7 @@
       href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Enable Azure Monitor for VMs (preview)
       displayName: monitor, insights, log analytics, builtin
-      href: ../../azure-monitor/insights/vminsights-enable-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
   - name: Azure Storage integration
     items:
     - name: Audit TLS with Azure Policy
@@ -323,16 +323,6 @@
     items:
     - name: Governance YouTube Channel
       href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-    - name: Guest Configuration videos
-      items:
-      - name: Getting Started
-        href: https://www.youtube.com/watch?v=mjJw9_EIyHo
-      - name: Understanding Initiatives
-        href: https://www.youtube.com/watch?v=4JZH3kuG8bI
-      - name: Assign Policy
-        href: https://www.youtube.com/watch?v=fbZBaxcjA-Y
-      - name: Remediation Task
-        href: https://www.youtube.com/watch?v=URE4DUYMgmg
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator
