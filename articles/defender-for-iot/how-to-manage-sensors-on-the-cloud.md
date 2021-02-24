@@ -120,11 +120,11 @@ To reactivate a sensor:
 
 ## Offboard a subscription
 
-Before offboarding a subscription, you must delete all associated sensors. For more information on how to delete a sensor, see [Delete a sensor](#delete-a-sensor).
+Subscriptions are managed on a monthly basis. When you offboard a subscription, you will be billed for that subscription until the end of the month. 
 
-Subscriptions are managed on a monthly basis. When you offboard a subscription, you will be billed for that subscription until the end of the month.
+Uninstall all sensors that are associated with the subscription prior to offboarding the subscription. For more information on how to delete a sensor, see [Delete a sensor](#delete-a-sensor). 
 
-To offboard a sensor:
+To offboard a subscription:
 
 1. Navigate to the **Pricing** page.
 1. Select the subscription, and then select the **delete** icon :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false":::.
@@ -133,6 +133,8 @@ To offboard a sensor:
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Select the checkbox and select offboard to offboard your sensor.":::
 
 1. Select the **Offboard** button. 
+
+The on-premises environment is not affected, but you should uninstall the sensor from the on-premises environment, or reassign the sensor to another subscription, so as to prevent any related data from flowing to the on-premises management console. 
 
 ## See also
 
