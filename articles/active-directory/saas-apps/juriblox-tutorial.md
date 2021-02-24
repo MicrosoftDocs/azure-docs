@@ -113,6 +113,8 @@ In this section, you create a user called Britta Simon in JuriBlox. Work with [
 
 ## Test SSO 
 
+In this section, you test your Azure AD single sign-on configuration with following options. 
+
 * Click on **Test this application** in Azure portal. This will redirect to JuriBlox Sign-on URL where you can initiate the login flow. 
 
 * Go to JuriBlox Sign-on URL directly and initiate the login flow from there.
