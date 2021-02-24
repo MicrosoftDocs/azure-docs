@@ -56,13 +56,13 @@ Perform the following steps to prepare the drives.
 
         `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`
 
-5. Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
+5. Open a PowerShell or command-line window with administrative privileges. To change directory to the unzipped folder, run the following command:
 
     `cd C:\WaImportExportV1`
 6. To get the BitLocker key of the drive, run the following command:
 
     `manage-bde -protectors -get <DriveLetter>:`
-7. To prepare the disk, run the following command. **Depending on the data size, this may take several hours to days.**
+7. To prepare the disk, run the following command. **Depending on the data size, disk preparation may take several hours to days.**
 
     ```powershell
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
@@ -80,8 +80,8 @@ Perform the following steps to prepare the drives.
     |/bk:     |The BitLocker key for the drive. Its numerical password from output of `manage-bde -protectors -get D:`      |
     |/srcdir:     |The drive letter of the disk to be shipped followed by `:\`. For example, `D:\`.         |
     |/dstdir:     |The name of the destination container in Azure Storage.         |
-    |/blobtype:     |This option specifies the type of blobs you want to import the data to. For block blobs, this is `BlockBlob` and for page blobs, it is `PageBlob`.         |
-    |/skipwrite:     |The option that specifies that there is no new data required to be copied and existing data on the disk is to be prepared.          |
+    |/blobtype:     |This option specifies the type of blobs you want to import the data to. For block blobs, the blob type is `BlockBlob` and for page blobs, it is `PageBlob`.         |
+    |/skipwrite:     | Specifies that there is no new data required to be copied and existing data on the disk is to be prepared.          |
     |/enablecontentmd5:     |The option when enabled, ensures that MD5 is computed and set as `Content-md5` property on each blob. Use this option only if you want to use the `Content-md5` field after the data is uploaded to Azure. <br> This option does not affect the data integrity check (that occurs by default). The setting does increase the time taken to upload data to cloud.          |
 8. Repeat the previous step for each disk that needs to be shipped. A journal file with the provided name is created for every run of the command line.
 
@@ -127,7 +127,7 @@ Perform the following steps to create an import job in the Azure portal.
 
    * Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
    * Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](https://www.dhl.com/) carrier account.
-   * Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
+   * Provide a complete and valid contact name, phone, email, street address, city, zip, state/province, and country/region.
 
        > [!TIP]
        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
@@ -321,7 +321,7 @@ Install-Module -Name Az.ImportExport
 
 ## Step 3 (Optional): Configure customer managed key
 
-Skip this step and go to the next step if you want to use the Microsoft managed key to protect your BitLocker keys for the drives. To configure your own key to protect the BitLocker key, follow the instructions in [Configure customer-managed keys with Azure Key Vault for Azure Import/Export in the Azure portal](storage-import-export-encryption-key-portal.md)
+Skip this step and go to the next step if you want to use the Microsoft managed key to protect your BitLocker keys for the drives. To configure your own key to protect the BitLocker key, follow the instructions in [Configure customer-managed keys with Azure Key Vault for Azure Import/Export in the Azure portal](storage-import-export-encryption-key-portal.md).
 
 ## Step 4: Ship the drives
 
