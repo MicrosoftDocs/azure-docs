@@ -22,7 +22,8 @@ The Hyperscale (Citus) [starter plan](concepts-hyperscale-starter-plan.md) can
 be a convenient deployment option for initial development and testing. It uses
 a single database node and presents the same SQL API as the standard plan. You
 can test applications with the starter plan and later [graduate to the standard
-plan](foo.md) with confidence that the interface remains the same.
+plan](howto-hyperscale-scale-grow.md#add-worker-nodes) with confidence that the
+interface remains the same.
 
 ## Standard plan
 
