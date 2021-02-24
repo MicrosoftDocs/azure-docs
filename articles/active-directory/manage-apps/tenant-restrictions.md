@@ -191,7 +191,7 @@ Depending on the capabilities of your proxy infrastructure, you may be able to s
 
 For specific details, refer to your proxy server documentation.
 
-## Blocking consumer applications
+## Blocking consumer applications (public preview)
 
 Applications from Microsoft that support both consumer accounts and organizational accounts, like [OneDrive](https://onedrive.live.com/) or [Microsoft Learn](https://docs.microsoft.com/learn/), can sometimes be hosted on a the same URL.  This means that users that must access that URL for work purposes also have access to it for personal use, which may not be permitted under your operating guidelines.
 
@@ -199,11 +199,11 @@ Some organizations attempt to fix this by blocking `login.live.com` in order to 
 
 1. Blocking `login.live.com` blocks the use of personal accounts in B2B guest scenarios, which can intrude on visitors and collaboration.
 1. [Autopilot requires the use of `login.live.com`](https://docs.microsoft.com/mem/autopilot/networking-requirements) in order to deploy. Intune and Autopilot scenarios can fail when `login.live.com` is blocked.
-1. Organizational telemetry and Windows updates that rely on the MSA service for device IDs [will cease to work](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+1. Organizational telemetry and Windows updates that rely on the login.live.com service for device IDs [will cease to work](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
 
 ### Configuration for consumer apps
 
-While the `Restrict-Access-To-Tenants` header functions as an allow-list, the MSA block works as a deny signal, telling the Microsoft account platform to not allow users to sign in to consumer applications. To send this signal, a `sec-Restrict-Tenant-Access-Policy` header is injected to traffic visiting `login.live.com` using the same corporate proxy or firewall as [above](#proxy-configuration-and-requirements). The value of the header must be `restrict-msa`. When the header is present and a consumer app is attempting to sign in a user directly, that sign in will be blocked.
+While the `Restrict-Access-To-Tenants` header functions as an allow-list, the Microsoft account (MSA) block works as a deny signal, telling the Microsoft account platform to not allow users to sign in to consumer applications. To send this signal, the `sec-Restrict-Tenant-Access-Policy` header is injected to traffic visiting `login.live.com` using the same corporate proxy or firewall as [above](#proxy-configuration-and-requirements). The value of the header must be `restrict-msa`. When the header is present and a consumer app is attempting to sign in a user directly, that sign in will be blocked.
 
 At this time, authentication to consumer applications does not appear in the [admin logs](#admin-experience), as login.live.com is hosted separately from Azure AD.
 
