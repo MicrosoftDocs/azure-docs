@@ -726,6 +726,7 @@
         "articles/virtual-machine-scale-sets/*.md": "virtual-machine-scale-sets"
       },
       "ms.subservice": {
+        "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
         "articles/azure-arc/servers/**/*.md": "azure-arc-servers",
         "articles/azure-monitor/app/**/*.md": "application-insights",
         "articles/azure-monitor/agents/**/*.md": "agents",
