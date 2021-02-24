@@ -81,7 +81,7 @@ If you're not going to continue to use this managed instance cluster, delete it 
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Managed Instance for Apache Cassandra cluster using Azure portal. You can now start working with the cluster.
+In this quickstart, you learned how to create an Azure Managed Instance for Apache Cassandra cluster using Azure portal. You can now start working with the cluster:
 
 > [!div class="nextstepaction"]
-> [[Deploy a Managed Apache Spark Cluster with Azure Databricks](deploy-cluster-databricks.md)
+> [Deploy a Managed Apache Spark Cluster with Azure Databricks](deploy-cluster-databricks.md)
