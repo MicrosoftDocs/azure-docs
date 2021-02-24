@@ -246,7 +246,7 @@ Currently, Drill into Logs are available for select resource providers. The reso
 
 Below is a sample experiences for the Application Insights resource provider.
 
-![Spike in failures in app insights metrics blade](./media/metrics-charts/drill-into-log-AI.png)
+![Spike in failures in app insights metrics blade](./media/metrics-charts/drill-into-log-ai.png)
 
 To diagnose the spike in failed requests, click on “Drill into Logs”.
 
@@ -254,7 +254,7 @@ To diagnose the spike in failed requests, click on “Drill into Logs”.
 
 By clicking on the failure option, you will be led to a custom failure blade that provides you with the failed operation operations, top exceptions types, and dependencies. 
 
-![Screenshot of app insights failure blade](./media/metrics-charts/AI-failure-blade.png)
+![Screenshot of app insights failure blade](./media/metrics-charts/ai-failure-blade.png)
 
 ### Common problems with Drill into Logs
 
