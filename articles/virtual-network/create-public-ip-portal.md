@@ -77,7 +77,7 @@ In this section, create a basic public IP address named **myBasicPublicIP**.
     | Resource group          | Select **Create new**, enter **myResourceGroup**. </br> Select **OK**. |
     | Location                | Select **East US 2**      |
 
-:::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Create standard IP address in Azure portal" border="false":::
+:::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Create standard IP address in Azure portal" border="false":::
 
 If it's acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected.
 
