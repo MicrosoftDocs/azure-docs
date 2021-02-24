@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/04/2021
 ---
 
 # What's new in Azure Sentinel
@@ -27,6 +27,7 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## January 2021
 
+- [Analytics rule wizard: Improved query editing experience (public preview)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [Az.SecurityInsights PowerShell module (Public preview)](#azsecurityinsights-powershell-module-public-preview)
 - [SQL database connector](#sql-database-connector)
 - [Improved incident comments](#improved-incident-comments)
@@ -35,13 +36,23 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 - [Improved rule tuning with the analytics rule preview graphs](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
+### Analytics rule wizard: Improved query editing experience (public preview)
+
+The Azure Sentinel Scheduled analytics rule wizard now provides the following enhancements for writing and editing queries:
+
+-	An expandable editing window, providing you with more screen space to view your query.
+-	Key word highlighting in your query code.
+-	Expanded auto-complete support.
+-	Real-time query validations. Errors in your query now show as a red block in the scroll bar, and as a red dot in the **Set rule logic** tab name. Additionally, a query with errors cannot be saved.
+
+For more information, see [Tutorial: Detect threats out-of-the-box](tutorial-detect-threats-built-in.md).
 ### Az.SecurityInsights PowerShell module (Public preview)
 
 Azure Sentinel now supports the new [Az.SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell module.
 
 The **Az.SecurityInsights** module supports common Azure Sentinel use cases, like interacting with incidents to change statues, severity, owner, and so on, adding comments and labels to incidents, and creating bookmarks.
 
-Although we recommend using [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/) templates for your CI/CD pipeline, the **Az.SecurityInsights** module is useful for post-deployment tasks, and is specifically targeted for SOC automation.  For example, your SOC automation might include steps to configure data connectors, create analytics rules, or add automation actions to analytics rules.
+Although we recommend using [Azure Resource Manager (ARM)](../azure-resource-manager/templates/index.yml) templates for your CI/CD pipeline, the **Az.SecurityInsights** module is useful for post-deployment tasks, and is targeted for SOC automation.  For example, your SOC automation might include steps to configure data connectors, create analytics rules, or add automation actions to analytics rules.
 
 For more information, including a full list and description of the available cmdlets, parameter descriptions, and examples, see the [Az.SecurityInsights PowerShell documentation](/powershell/module/az.securityinsights/).
 
@@ -69,11 +80,11 @@ Azure Sentinel now supports dedicated Log Analytics clusters as a deployment opt
 
 Dedicated clusters enable you to use features like customer-managed keys, lockbox, double encryption, and faster cross-workspace queries when you have multiple workspaces on the same cluster.
 
-For more information, see [Azure Monitor logs dedicated clusters](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters).
+For more information, see [Azure Monitor logs dedicated clusters](../azure-monitor/logs/logs-dedicated-clusters.md).
 
 ### Logic apps managed identities
 
-Azure Sentinel now supports managed identities for the Azure Sentinel Logic Apps connector, enabling you to grant permissions to a directly to a specific playbook to operate on Azure Sentinel instead of creating extra identities.
+Azure Sentinel now supports managed identities for the Azure Sentinel Logic Apps connector, enabling you to grant permissions directly to a specific playbook to operate on Azure Sentinel instead of creating extra identities.
 
 - **Without a managed identity**, the Logic Apps connector requires a separate identity with an Azure Sentinel RBAC role in order to run on Azure Sentinel. The separate identity can be an Azure AD user or a Service Principal, such as an Azure AD registered application.
 
@@ -81,7 +92,7 @@ Azure Sentinel now supports managed identities for the Azure Sentinel Logic Apps
 
 For more information, see:
 
-- [Authenticating with Managed Identity in Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
+- [Authenticating with Managed Identity in Azure Logic Apps](../logic-apps/create-managed-service-identity.md)
 - [Azure Sentinel Logic Apps connector documentation](/connectors/azuresentinel) 
 
 ### Improved rule tuning with the analytics rule preview graphs (Public preview)
@@ -118,7 +129,7 @@ This update for Azure Sentinel includes new hunting queries that provide coverag
 
 The added hunting queries are designed to help you find suspicious activity in your environment. While they may return legitimate activity and potentially malicious activity, they can be useful in guiding your hunting. 
 
-If, after running these queries, you are confident with the results, you may want to convert them to analytics rules or add hunting results to existing or new incidents.
+If after running these queries, you are confident with the results, you may want to convert them to analytics rules or add hunting results to existing or new incidents.
 
 All of the added queries are available via the Azure Sentinel Hunting page. For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
 
@@ -135,18 +146,18 @@ Azure Sentinel uses the Log Analytics agent to sent events to your workspace, in
 > The Log Analytics agent is sometimes referred to as the OMS Agent or the Microsoft Monitoring Agent (MMA). 
 > 
 
-For more information, see the [Log Analytics documentation](/azure/azure-monitor/platform/log-analytics-agent) and the [Log Analytics agent release notes](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
+For more information, see the [Log Analytics documentation](../azure-monitor/agents/log-analytics-agent.md) and the [Log Analytics agent release notes](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
 ## November 2020
 
 - [Monitor your Logic Apps Playbooks in Azure Sentinel](#monitor-your-logic-apps-playbooks-in-azure-sentinel)
 - [Microsoft 365 Defender connector (Public preview)](#microsoft-365-defender-connector-public-preview)
 ### Monitor your Logic Apps Playbooks in Azure Sentinel
 
-Azure Sentinel now integrates with [Azure Log Apps](/azure/logic-apps/), a cloud service that helps you schedule, automate, and orchestrate tasks, business processes, and workflows.
+Azure Sentinel now integrates with [Azure Log Apps](../logic-apps/index.yml), a cloud service that helps you schedule, automate, and orchestrate tasks, business processes, and workflows.
 
 Use an Azure Logic App in Azure Sentinel as a playbook, which can be automatically invoked when an incident is created, or when triaging and working with incidents. 
 
-To provide insights into the health, performance, and usage of your playbooks, including any that you add with Azure Logic Apps, we've added an [Azure Workbook](/azure/azure-monitor/platform/workbooks-overview) named **Playbooks health monitoring**. 
+To provide insights into the health, performance, and usage of your playbooks, including any that you add with Azure Logic Apps, we've added an [Azure Workbook](../azure-monitor/visualize/workbooks-overview.md) named **Playbooks health monitoring**. 
 
 Use the **Playbooks health monitoring** workbook to monitor the health of your playbooks, or look for anomalies in the amount of succeeded or failed runs. 
 
@@ -156,9 +167,9 @@ The **Playbooks health monitoring** workbook is now available in the Azure Senti
 
 For more information, see:
 
-- [Logic Apps documentation](/azure/logic-apps/monitor-logic-apps-log-analytics#set-up-azure-monitor-logs)
+- [Logic Apps documentation](../logic-apps/monitor-logic-apps-log-analytics.md#set-up-azure-monitor-logs)
 
-- [Azure Monitor documentation](/azure/azure-monitor/platform/activity-log#send-to-log-analytics-workspace)
+- [Azure Monitor documentation](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace)
 
 ### Microsoft 365 Defender connector (Public preview)
  

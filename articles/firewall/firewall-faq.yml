@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 01/08/2021
+  ms.date: 02/16/2021
   ms.author: victorh
     
 title: Azure Firewall FAQ
@@ -128,11 +128,32 @@ sections:
         answer: |
           No. NAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
           
-      - question: How do wildcards work in an application rule target FQDN?
+      - question: How do wildcards work in target URLs (preview) and target FQDNs?
         answer: |
-          Wildcards currently can only be used on the left side of the FQDN. For example, ***.contoso.com** and ***contoso.com**.
-          
-          If you configure ***.contoso.com**, it allows *anyvalue*.contoso.com, but not contoso.com (the domain apex). If you want to allow the domain apex, you must explicitly configure it as a target FQDN.
+         - **URL** (preview) - Asterisks work when placed on the right-most or left-most side. If it is on the left, it can't be part of the FQDN.
+         - **FQDN** - Asterisks work when placed on the left-most side.
+
+         Examples:
+
+
+           |Type  |Rule  |Supported?  |Positive examples  |
+           |---------|---------|---------|---------|
+           |TargetURL  |`www.contoso.com` |Yes|`www.contoso.com`<br>`www.contoso.com/`|
+           |TargetURL  |`*.contoso.com` |Yes|`www.contoso.com`<br>`any.contoso.com/`|
+           |TargetURL  |`*contoso.com`|Yes         |`example.anycontoso.com`<br>`contoso.com`|
+           |TargetURL  |`www.contoso.com/test`|Yes|`www.contoso.com/test`<br>`www.contoso.com/test/`<br>`www.contoso.com/test?with_query=1`|
+           |TargetURL  |`www.contoso.com/test/*`|Yes|`www.contoso.com/test/anything`<br>Note - `www.contoso.com/test` will **not** match (last slash)|
+           |TargetURL  |`www.contoso.*/test/*`|No|         |
+           |TargetURL  |`www.contoso.com/test?example=1`|No|         |
+           |TargetURL  |`www.contoso.*`|No|         |
+           |TargetURL  |`www.*contoso.com`|No|         |
+           |TargetURL   |`www.contoso.com:8080`|No|         |
+           |TargetURL   |`*.contoso.*`|No|         |
+           |TargetFQDN    |`www.contoso.com`|Yes|`www.contoso.com`|
+           |TargetFQDN    |`*.contoso.com`|Yes|`www.contoso.com`<br>`any.contoso.com`|
+           |TargetFQDN    |`*contoso.com`|Yes|`example.anycontoso.com`<br>`contoso.com`|
+           |TargetFQDN    |`www.contoso.*`|No|         |
+           |TargetFQDN    |`*.contoso.*`|No|         |
           
       - question: |
           What does *Provisioning state: Failed* mean?

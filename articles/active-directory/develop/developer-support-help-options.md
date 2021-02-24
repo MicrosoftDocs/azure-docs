@@ -25,11 +25,11 @@ If you're just starting to integrate with Azure Active Directory (Azure AD), Mic
     <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
 </div>
 
-Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
+If you have a development-related question, you may be able to find the answer in the documentation, [GitHub samples](https://github.com/azure-samples), or answers to [Microsoft Q&A](/answers/products/) questions.
 
 - If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-- If you are not an Azure customer, you can also open a support request with Microsoft via [our commercial support](https://support.serviceshub.microsoft.com/supportforbusiness).
+For faster results, scope your search to [Microsoft Q&A](/answers/products/)the documentation, and the code samples by using the following query in your favorite search engine:
 
 ## Post a question to Microsoft Q&A
 <div class='icon is-large'>
@@ -53,29 +53,24 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 | All other authentication and authorization areas                            | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
 
 
+[Microsoft Q&A](/answers/products/) is the preferred channel for development-related questions. Here, members of the developer community and Microsoft team members are directly involved in helping you to solve your problems.
 
-## Post a question on Stack Overflow
+If you can't find an answer to your question through search, submit a new question to [Microsoft Q&A](/answers/products/) . Use one of the following tags when asking questions to help the community identify and answer your question more quickly:
 
-<div class='icon is-large'>
-    <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
-</div>
+|Component/area  | Tags |
+|---------|---------|
+| ADAL library | [[adal]](/answers/topics/azure-ad-adal-deprecation.html) |
+| MSAL library     | [[msal]](/answers/topics/azure-ad-msal.html) |
+| OWIN middleware  | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
+| [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](/answers/topics/azure-ad-b2b.html) |
+| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](/answers/topics/azure-ad-b2c.html) |
+| [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[azure-ad-graph]](/answers/topics/azure-ad-graph.html) |
+| Any other area related to authentication or authorization topics | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
 
-Another option for community support is [Stack Overflow](https://stackoverflow.com).
+The following posts from [Microsoft Q&A](/answers/products/) contain tips on how to ask questions and how to add source code. Follow these guidelines to increase the chances for community members to assess and respond to your question quickly:
 
-If you don't find an answer and ask a new question, add one or more of the following tags to your question:
-
-:::row:::
-    :::column:::
-        - [MSAL](https://stackoverflow.com/questions/tagged/msal)
-        - [OAuth](https://stackoverflow.com/questions/tagged/oauth)
-        - [Azure-Active-Directory-MSAL](https://stackoverflow.com/questions/tagged/azure-active-directory+msal)
-    :::column-end:::
-    :::column:::
-        - [SAML](https://stackoverflow.com/questions/tagged/saml)
-        - [Microsoft-Graph-API](https://stackoverflow.com/questions/tagged/microsoft-graph-api)
-        - [Identity](https://stackoverflow.com/questions/tagged/identity)
-    :::column-end:::
-:::row-end:::
+* [How do I ask a good question](/answers/articles/24951/how-to-write-a-quality-question.html)
+* [How to create a minimal, complete, and verifiable example](/answers/articles/24907/how-to-write-a-quality-answer.html)
 
 ## Create a GitHub issue
 

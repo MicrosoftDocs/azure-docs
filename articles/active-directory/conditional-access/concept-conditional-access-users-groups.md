@@ -39,6 +39,9 @@ The following options are available to include when creating a Conditional Acces
    - Users and groups
       - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups. Policy will be applied to nested users and groups.
 
+> [!IMPORTANT]
+> When selecting which users and groups are included in a Conditional Access Policy, there is a limit to the number of individual users that can be added directly to a Conditional Access policy. If there are a large amount of individual users that are needed to be added to directly to a Conditional Access policy, we recommend placing the users in a group, and assigning the group to the Conditional Access policy instead.
+
 > [!WARNING]
 > If users or groups are a member of over 2048 groups their access may be blocked. This limit applies to both direct and nested group membership.
 
