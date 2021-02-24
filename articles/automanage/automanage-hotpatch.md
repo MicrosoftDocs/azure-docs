@@ -12,7 +12,6 @@ ms.author: jushiman
 
 # Hotpatch for Windows Server Azure Edition (Preview)
 
-
 Hotpatching is a new way to install updates on a Windows Server Azure Edition VM that doesn’t require a reboot after installation. This article covers information about Hotpatch for Windows Server Azure Edition VMs, which has the following benefits:
 * Lower workload impact with less reboots
 * Faster deployment of updates as the packages are smaller, install faster, and have easier patch orchestration with Azure Update Manager
