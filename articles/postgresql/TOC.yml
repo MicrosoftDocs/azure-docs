@@ -561,7 +561,7 @@
     - name: Create server group
       items:
       - name: Starter plan (preview)
-        href: quickstart-create-hyperscale-starter.md
+        href: quickstart-create-hyperscale-starter-plan.md
       - name: Standard plan
         href: quickstart-create-hyperscale-portal.md
         displayName: portal, create hyperscale
