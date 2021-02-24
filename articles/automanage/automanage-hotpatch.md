@@ -214,7 +214,7 @@ There are some important considerations to running a Windows Server Azure editio
 
 * The license for Windows Server Azure Edition is free during the preview. However, the cost of any underlying infrastructure set up for your VM (storage, compute, networking, etc.) will still be charged to your subscription.
 
-### How can I get troubleshooting support for Hotpatching?**
+### How can I get troubleshooting support for Hotpatching?
 
 * You can file a [technical support case ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the Service option, search for and select **Virtual Machine running Windows** under Compute. Select **Azure Features** for the problem type and **Automatic VM Guest Patching** for the problem subtype.
 

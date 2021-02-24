@@ -21,7 +21,7 @@ For all of these services, we will auto-onboard, auto-configure, monitor for dri
 
 Automanage supports the following Windows Server versions:
 
-- Windows Server 2012
+- Windows Server 2012/R2
 - Windows Server 2016
 - Windows Server 2019
 - Windows Server Azure Edition

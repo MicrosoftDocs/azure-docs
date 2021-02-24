@@ -28,6 +28,9 @@ Automanage supports the following Linux distributions and versions:
 
 ## Participating services
 
+>[!NOTE]
+> Microsoft Antimalware is not supported on Linux VMs at this time.
+
 |Service    |Description    |Environments Supported<sup>1</sup>    |Preferences supported<sup>1</sup>    |
 |-----------|---------------|----------------------|-------------------------|
 |VM Insights Monitoring    |Azure Monitor for VMs monitors the performance and health of your virtual machines, including their running processes and dependencies on other resources. Learn [more](../azure-monitor/vm/vminsights-overview.md).    |Production    |No    |
