@@ -27,15 +27,19 @@ Create virtual machine with Trusted Launch Enabled
 1. Switch over to the **Advanced** tab by selecting it at the top of the page.
 1. Scroll down to the **VM generation** section, and then select **Gen 2**.
 1. While still on the **Advanced** tab, scroll down to **Trusted launch**, and then select the **Trusted launch** checkbox. This will make two more options appear - Secure boot and vTPM. Select the appropriate options for your deployment.
-:::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot showing the options for Trusted Launch.":::
+
+    :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot showing the options for Trusted Launch.":::
+
 1. Go back to the **Basics** tab, under **Image**, and make sure see the following message: **This image supports trusted launch preview. Configure in the Advanced tab**. The image should now be listed as the gen 2 version.
-:::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot showing the message confirming that this is a gen2 image that supports Trusted Launch.":::
+
+    :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot showing the message confirming that this is a gen2 image that supports Trusted Launch.":::
+
 7.	Select a VM size that supports Gen 2, like Standard_D2s_v3. Please see the list of supported [generation 2 sizes](generation-2.md#generation-2-vm-sizes).
 8.	Fill in the **Administrator account** information and then **Inbound port rules**.
 10.	At the bottom of the page, select **Review + Create**
 11.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. When you are ready, select **Create**.
 
-:::image type="content" source="media/trusted-launch/validation.png" alt-text="Sceenshot of the validation page, showing the Trusted Launch options are included.":::
+    :::image type="content" source="media/trusted-launch/validation.png" alt-text="Sceenshot of the validation page, showing the Trusted Launch options are included.":::
 
 
 It will take a few minutes for your VM to be deployed. 
