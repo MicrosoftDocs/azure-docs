@@ -46,7 +46,7 @@
         - name: Advanced development tutorial (cloud)
           href: advanced-development-cloud.md         
         - name: Advanced development tutorial (local)
-          href: advanced-development-local.md     
+          href: advanced-development-local.md         
 
 - name: Concepts
   items:
