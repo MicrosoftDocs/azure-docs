@@ -323,6 +323,8 @@ The forward-slash (`/`) in front of the signature in the `android:path` value is
                     android:path="/hgbUYHVBYUTvuvT&Y6tr554365466="/>
 ```
 
+For more information on configuring your application for system browser and Android 11 support, please take a look at [Update the Android manifest for System Browser Support](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-xamarin-android-considerations#update-the Android-manifest-for-system-browser-support).
+
 As an alternative, you can configure MSAL to fall back to the embedded browser, which doesn't rely on a redirect URI:
 
 ```csharp
@@ -341,22 +343,20 @@ Here are a few tips on avoiding issues when you implement brokered authenticatio
 
     Example: If you first install Microsoft Authenticator and then install Intune Company Portal, brokered authentication will *only* happen on the Microsoft Authenticator.
 - **Logs** - If you encounter an issue with brokered authentication, viewing the broker's logs might help you diagnose the cause.
-  - View Microsoft Authenticator logs:
+  - Acquiring Microsoft Authenticator logs:
 
     1. Select the menu button in the top-right corner of the app.
-    1. Select **Help** > **Send Logs** > **View Logs**.
-    1. Select **Copy All** to copy the broker logs to the device's clipboard.
+    1. Select **Send Feedback** > **Having Trouble?**.
+    1. Select one of the options under **What are you trying to do?** to add a description
+    1. You can then hi the arrow on the top right of the screen to send the logs. 
+    1. Once you send the logs you will be presented with a popup that will contain an **Incident ID**. Please provide this incident ID when requesting assistance.
 
-    The best way to debug with these logs is to email them to yourself and view them on your development machine. You might find it easier to parse the logs on your computer instead of on the device itself. You can also use a test editor on Android to save the logs as a text file, and then use a USB cable to copy the file to a computer.
-
-  - View Intune Company Portal logs:
+  - Acquiring Intune Company Portal logs:
 
     1. Select the menu button on the top-left corner of the app
-    1. Select **Settings** > **Diagnostic Data**
-    1. Select **Copy Logs** to copy the broker logs to the device's SD card.
-    1. Connect the device to a computer by using a USB cable to view the logs on your development machine.
-
-    Once you have the logs, you can search through them for your authentication attempts via correlation ID. The correlation ID is attached to every authentication request. To find errors returned by the Microsoft identity platform authentication endpoint, search for `AADSTS`.
+    1. Select **Help** > **Email Support**
+    1. Select **Upload Logs Only** to send the logs.
+    1. Once you send the logs you will be presented with a popup that will contain an **Incident ID**. Please provide this incident ID when requesting assistance.
 
 ## Next steps
 
