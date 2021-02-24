@@ -70,10 +70,18 @@ An Azure subscription or free Azure Cosmos DB trial account
 
    :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/resources.png" border="true":::
 
+## Clean up resources
+
+If you're not going to continue to use this managed instance cluster, delete it with the following steps:
+
+1. From the left-hand menu of Azure portal, select **Resource groups**.
+1. From the list, select the resource group you created for this quickstart.
+1. On the resource group **Overview** pane, select **Delete resource group**.
+3. In the next window, enter the name of the resource group to delete, and then select **Delete**.
+
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Managed Instance for Apache Cassandra cluster using Azure portal. You can now start working with the cluster.
+In this quickstart, you learned how to create an Azure Managed Instance for Apache Cassandra cluster using Azure portal. You can now start working with the cluster:
 
-* [Overview of Azure Managed Instance for Apache Cassandra](introduction.md)
-* [Deploy a Managed Apache Spark Cluster with Azure Databricks](deploy-cluster-databricks.md)
-* [Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI](manage-resources-cli.md)
+> [!div class="nextstepaction"]
+> [Deploy a Managed Apache Spark Cluster with Azure Databricks](deploy-cluster-databricks.md)

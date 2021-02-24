@@ -4,7 +4,7 @@ description: This quickstart shows how to create an Azure Managed Instance for A
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cassandra-managed-instance
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 03/02/2021
 ---
 # Quickstart: Configure a hybrid cluster with Azure Managed Instance for Apache Cassandra (Preview)
@@ -17,8 +17,6 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This quickstart demonstrates how to use the Azure CLI commands to configure a hybrid cluster. If you have existing datacenters in an on-premise or self-hosted environment, you can use Azure Managed Instance for Apache Cassandra to add other datacenters to that cluster and maintain them.
-
-## Prerequisites
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -33,18 +31,30 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 1. Open the **Subnets** tab and create a new subnet. To learn more about the fields in the **Add subnet** form, see the [Virtual Network](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) article:
 
    :::image type="content" source="./media/configure-hybrid-cluster/subnet.png" alt-text="Add a new subnet to your Virtual Network." lightbox="./media/configure-hybrid-cluster/subnet.png" border="true":::
+    <!-- ![image](./media/configure-hybrid-cluster/subnet.png) -->
 
-1. From the **Subnets** tab, change the URL in the browser's address bar. In the URL, after *subnets/*, type the name of your new dedicated subnet, followed by */overview*. For example, if you subnet name is *cassandra-managed-instance* then the updated URL would look like: `.../subnets/cassandra-managed-instance/overview`. The new URL shows the details of the newly created subnet:
+1. In Access control (IAM) of your VNET, ensure you add role assignment for "Azure Cosmos DB" to the role of "Network Administrator":
+
+   :::image type="content" source="./media/configure-hybrid-cluster/network-admin.png" alt-text="Add Cosmos DB to role of network admin" lightbox="./media/configure-hybrid-cluster/network-admin.png" border="true":::
+
+1. Click save, then click on role assignments and ensure that the highlighted roles appear twice per below when searching for “Azure Cosmos DB”:
+
+   :::image type="content" source="./media/configure-hybrid-cluster/check-role.png" alt-text="Add Cosmos DB to role of network admin" lightbox="./media/configure-hybrid-cluster/check-role.png" border="true":::
+
+
+
+1. Go back to the **Subnets** tab, and change the URL in the browser's address bar. In the URL, after *subnets/*, type the name of your new dedicated subnet, followed by */overview*. For example, if you subnet name is *cassandra-managed-instance* then the updated URL would look like: `.../subnets/cassandra-managed-instance/overview`. The new URL shows the details of the newly created subnet:
 
    :::image type="content" source="./media/configure-hybrid-cluster/subnet-overview.png" alt-text="Update the browser URL to include the subnet name to get the subnet overview." lightbox="./media/configure-hybrid-cluster/subnet-overview.png" border="true":::
 
 1. Navigate to subnet overview pane, and copy the **Resource ID** of your subnet. you will use it in the next steps:
 
    :::image type="content" source="./media/configure-hybrid-cluster/resource-id.png" alt-text="Copy the resource ID of your subnet." lightbox="./media/configure-hybrid-cluster/resource-id.png" border="true":::
+    <!-- ![image](./media/configure-hybrid-cluster/resource-id.png) -->
 
-1. Next, configure resources for our hybrid cluster using Azure CLI. Since you already have a cluster, the cluster name here will only be a bookmarking or logical resource to identify the name of existing cluster. Make sure to use the name of your existing cluster when defining `clusterName` and `clusterNameOverride` variables in the following script.
+1. Next, configure resources for our hybrid cluster using Azure CLI. Since you already have a cluster, the cluster name here will only be a logical resource to identify the name of your existing cluster. Make sure to use the name of your existing cluster when defining `clusterName` and `clusterNameOverride` variables in the following script.
 
-   You also need the seed nodes, public client certificates, and gossip certificates of your existing cluster. You'll also need to use the resource ID you copied above to define the `delegatedManagementSubnetId` variable.
+   You also need the seed nodes, public client certificates (if you have configured a public/private key on your cassandra endpoint), and gossip certificates of your existing cluster. You'll also need to use the resource ID you copied above to define the `delegatedManagementSubnetId` variable.
 
    ```azurecli-interactive
    resourceGroupName='MyResourceGroup'
@@ -53,21 +63,22 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    location='West US'
    delegatedManagementSubnetId = '/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/management'
    cassandraVersion='3.11'
-   initialCassandraAdminPassword='myPassword'
     
    # You can override the cluster name if the original name is not legal for an Azure resource:
    # overrideClusterName='ClusterNameIllegalForAzureResource'
    # the default cassandra version will be v3.11
     
-   az cassandra-mi cluster create \
+   az cassandra-managed-instance cluster create \
       --cluster-name $clusterName \
       --resource-group $resourceGroupName \
       --delegated-management-subnet-id $delegatedManagementSubnetId \
-      --initial-cassandra-admin-password $initialCassandraAdminPassword \
       --external-seed-nodes 10.52.221.2,10.52.221.3,10.52.221.4
-      --client-certificates 'BEGIN CERTIFICATE-----\n...Base64 encoded certificate 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...Base64 encoded certificate 2...\n-----END CERTIFICATE-----' \
-      --external-gossip-certificates 'BEGIN CERTIFICATE-----\n...Base64 encoded certificate 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...Base64 encoded certificate 2...\n-----END CERTIFICATE-----' \
+      --client-certificates 'BEGIN CERTIFICATE-----\n...PEM format..\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...PEM format...\n-----END CERTIFICATE-----' \
+      --external-gossip-certificates 'BEGIN CERTIFICATE-----\n...PEM format 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...PEM format 2...\n-----END CERTIFICATE-----' \
    ```
+
+    > [!NOTE]
+    > You should know where your existing public and/or gossip certificates are kept. If you are uncertain, you should be able to run `keytool -list -keystore <keystore-path> -rfc -storepass <password>` to print the certs. 
 
 1. After the cluster resource is created, run the following command to get the cluster setup details:
 
@@ -75,14 +86,15 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    resourceGroupName='MyResourceGroup'
    clusterName='cassandra-hybrid-cluster'
     
-   az cassandra-mi cluster show \
+   az cassandra-managed-instance cluster show \
        --cluster-name $clusterName \
        --resource-group $resourceGroupName \
    ```
 
-1. The previous command returns information about the managed instance environment. You'll need the public certificates and gossip certificates so that you can install them on the nodes in your existing datacenter. The following screenshot shows the output of the previous command and the format of certificates:
+1. The previous command returns information about the managed instance environment. You'll need the gossip certificates so that you can install them on the nodes in your existing datacenter. The following screenshot shows the output of the previous command and the format of certificates:
 
    :::image type="content" source="./media/configure-hybrid-cluster/show-cluster.png" alt-text="Get the certificate details from the cluster." lightbox="./media/configure-hybrid-cluster/show-cluster.png" border="true":::
+    <!-- ![image](./media/configure-hybrid-cluster/show-cluster.png) -->
 
 1. Next, create a new datacenter in the hybrid cluster. Make sure to replace the variable values with your cluster details:
 
@@ -93,7 +105,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    dataCenterLocation='West US'
    delegatedSubnetId= '/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
     
-   az cassandra-mi datacenter create \
+   az cassandra-managed-instance datacenter create \
        --resource-group $resourceGroupName \
        --cluster-name $clusterName \
        --data-center-name $dataCenterName \
@@ -109,22 +121,31 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    clusterName='cassandra-hybrid-cluster'
    dataCenterName='dc1'
     
-   az cassandra-mi datacenter show \
+   az cassandra-managed-instance datacenter show \
        --resource-group $resourceGroupName \
        --cluster-name $clusterName \
        --data-center-name $dataCenterName 
    ```
 
-1. The previous command outputs the new datacenter's seed nodes. Add the new datacenter's seed nodes to your existing datacenter's configuration within the *cassandra.yaml* file. And install the managed instance public certificates and gossip certificates that you collected earlier:
+1. The previous command outputs the new datacenter's seed nodes. Add the new datacenter's seed nodes to your existing datacenter's configuration within the *cassandra.yaml* file. And install the managed instance gossip certificates that you collected earlier:
 
    :::image type="content" source="./media/configure-hybrid-cluster/show-datacenter.png" alt-text="Get datacenter details." lightbox="./media/configure-hybrid-cluster/show-datacenter.png" border="true":::
+    <!-- ![image](./media/configure-hybrid-cluster/show-datacenter.png) -->
 
-1. Finally, use the following SQL query to update the replication strategy to include both datacenters across the cluster:
+    > [!NOTE]
+    > If you want to add more datacenters, you can repeat the above steps, but you only need the seed nodes. 
+
+1. Finally, use the following SQL query to update the replication strategy in each keyspace to include all datacenters across the cluster:
 
    ```SQL
    ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3};
    ```
+   You also need to update the password tables:
 
+   ```SQL
+    ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3}
+   ```
+    
 ## Next steps
 
 In this how-to guide, you learned how to create a hybrid cluster using Azure CLI and Azure Managed Instance for Apache Cassandra. You can now start working with the cluster.

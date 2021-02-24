@@ -32,6 +32,7 @@ The following sections demonstrate how to manage Azure Managed Instance for Apac
 * [Create a managed instance cluster](#create-cluster)
 * [Delete a managed instance cluster](#delete-cluster)
 * [Get the cluster details](#get-cluster-details)
+* [Get the cluster node status](#get-cluster-status)
 * [Update an existing managed instance cluster](#update-cluster)
 * [List clusters by resource group](#list-clusters-resource-group)
 * [List clusters by subscription ID](#list-clusters-subscription)
@@ -52,7 +53,7 @@ initialCassandraAdminPassword='myPassword'
 # overrideClusterName='ClusterNameIllegalForAzureResource'
 # the default Cassandra version is v3.11
 
-az cassandra-mi cluster create \
+az cassandra-managed-instance cluster create \
     --cluster-name $clusterName \
     --resource-group $resourceGroupName \
     --delegated-management-subnet-id $delegatedManagementSubnetId \
@@ -70,7 +71,7 @@ Delete a cluster:
 resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 
-az cassandra-mi cluster delete \
+az cassandra-managed-instance cluster delete \
     --cluster-name $clusterName \
     --resource-group $resourceGroupName \
 ```
@@ -83,9 +84,20 @@ Get cluster details:
 resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 
-az cassandra-mi cluster show \
+az cassandra-managed-instance cluster show \
     --cluster-name $clusterName \
     --resource-group $resourceGroupName \
+```
+
+### <a id="get-cluster-status"></a>Get the cluster node status
+
+Get cluster details:
+
+```azurecli-interactive
+clusterName='cassandra-hybrid-cluster'
+
+az cassandra-managed-instance cluster node-status \
+    --cluster-name $clusterName \
 ```
 
 ### <a id="list-clusters-resource-group"></a>List the clusters by resource group
@@ -96,7 +108,7 @@ List clusters by resource group:
 subscriptionId='MySubscriptionId'
 resourceGroupName='MyResourceGroup'
 
-az cassandra-mi cluster list-by-resourcegroup \
+az cassandra-managed-instance cluster list\
     --resource-group $resourceGroupName \
 ```
 
@@ -107,7 +119,7 @@ List clusters by subscription ID:
 ```azurecli-interactive
 subscriptionId='MySubscriptionId'
 
-az cassandra-mi cluster list-by-subscription \
+az cassandra-managed-instance cluster list\
     --subscription-id $subscriptionId \
 ```
 
@@ -132,7 +144,7 @@ dataCenterName='dc1'
 dataCenterLocation='West US'
 delegatedSubnetId= '/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
 
-az cassandra-mi datacenter create \
+az cassandra-managed-instance datacenter create \
     --resource-group $resourceGroupName \
     --cluster-name $clusterName \
     --data-center-name $dataCenterName \
@@ -150,7 +162,7 @@ resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 dataCenterName='dc1'
 
-az cassandra-mi datacenter delete \
+az cassandra-managed-instance datacenter delete \
     --resource-group $resourceGroupName \
     --cluster-name $clusterName \
     --data-center-name $dataCenterName 
@@ -165,7 +177,7 @@ resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 dataCenterName='dc1'
 
-az cassandra-mi datacenter show \
+az cassandra-managed-instance datacenter show \
     --resource-group $resourceGroupName \
     --cluster-name $clusterName \
     --data-center-name $dataCenterName 
@@ -182,7 +194,7 @@ dataCenterName='dc1'
 dataCenterLocation='West US'
 delegatedSubnetId= '/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
 
-az cassandra-mi datacenter update \
+az cassandra-managed-instance datacenter update \
     --resource-group $resourceGroupName \
     --cluster-name $clusterName \
     --data-center-name $dataCenterName \
@@ -197,7 +209,7 @@ Get datacenters in a cluster:
 resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 
-az cassandra-mi datacenter list \
+az cassandra-managed-instance datacenter list \
     --resource-group $resourceGroupName \
     --cluster-name $clusterName
 ```

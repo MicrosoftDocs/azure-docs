@@ -14,13 +14,13 @@
   items:
     - name: Create a Cassandra cluster
       href: create-cluster-portal.md
+    - name: Configure a hybrid cluster
+      href: configure-hybrid-cluster.md       
     - name: Deploy Spark Cluster with Databricks
       href: deploy-cluster-databricks.md 
 - name: How-to guides
   items:
     - name: Manage with Azure CLI
-      href: manage-resources-cli.md
-    - name: Configure a hybrid cluster
-      href: configure-hybrid-cluster.md            
+      href: manage-resources-cli.md           
     - name: Visualize metrics in Prometheus with Grafana
       href: visualize-prometheus-grafana.md
