@@ -20,10 +20,10 @@ ms.collection: M365-identity-device-management
 
 # Integrate with SharePoint (SAML)
 
-This step-by-step guide explains how to secure the access to the [Azure Active Directory integrated on-premises Sharepoint (SAML)](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial) using Azure AD Application Proxy, where users in your organization (Azure AD, B2B) connect to Sharepoint through the Internet.
+This step-by-step guide explains how to secure the access to the [Azure Active Directory integrated on-premises Sharepoint (SAML)](../saas-apps/sharepoint-on-premises-tutorial.md) using Azure AD Application Proxy, where users in your organization (Azure AD, B2B) connect to Sharepoint through the Internet.
 
 > [!NOTE] 
-> If you're new to Azure AD Application Proxy and want to learn more, see [Remote access to on-premises applications through Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
+> If you're new to Azure AD Application Proxy and want to learn more, see [Remote access to on-premises applications through Azure AD Application Proxy](./application-proxy.md).
 
 There are three primary advantages of this setup:
 
@@ -36,18 +36,18 @@ This process requires two Enterprise Applications. One is a SharePoint on-premis
 ## Prerequisites
 
 To complete this configuration, you need the following resources:
- - A SharePoint 2013 farm or newer. The Sharepoint farm must be [integrated with Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial).
+ - A SharePoint 2013 farm or newer. The Sharepoint farm must be [integrated with Azure AD](../saas-apps/sharepoint-on-premises-tutorial.md).
  - An Azure AD tenant with a plan that includes Application Proxy. Learn more about [Azure AD plans and pricing](https://azure.microsoft.com/pricing/details/active-directory/).
- - A [custom, verified domain](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain) in the Azure AD tenant. The verified domain must match the SharePoint URL suffix.
- - An SSL certificate is required. See the details in [custom domain publishing](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
- - On-premises Active Directory users must be synchronized with Azure AD Connect, and must be configure to [sign in to Azure](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin). 
- - For cloud-only and B2B guest users, you need to [grant access to a guest account to SharePoint on-premises in the Azure portal](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal).
+ - A [custom, verified domain](../fundamentals/add-custom-domain.md) in the Azure AD tenant. The verified domain must match the SharePoint URL suffix.
+ - An SSL certificate is required. See the details in [custom domain publishing](./application-proxy-configure-custom-domain.md).
+ - On-premises Active Directory users must be synchronized with Azure AD Connect, and must be configure to [sign in to Azure](../hybrid/plan-connect-user-signin.md). 
+ - For cloud-only and B2B guest users, you need to [grant access to a guest account to SharePoint on-premises in the Azure portal](../saas-apps/sharepoint-on-premises-tutorial.md#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal).
  - An Application Proxy connector installed and running on a machine within the corporate domain.
 
 
 ## Step 1: Integrate SharePoint on-premises with Azure AD 
 
-1. Configure the SharePoint on-premises app. For more information, see [Tutorial: Azure Active Directory single sign-on integration with SharePoint on-premises](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial).
+1. Configure the SharePoint on-premises app. For more information, see [Tutorial: Azure Active Directory single sign-on integration with SharePoint on-premises](../saas-apps/sharepoint-on-premises-tutorial.md).
 2. Validate the configuration before moving to the next step. To validate, try to access the SharePoint on-premises from the internal network and confirm it's accessible internally. 
 
 
@@ -61,7 +61,7 @@ In this step, you create an application in your Azure AD tenant that uses Applic
    ![Screenshot that shows the Sign on URL value.](./media/application-proxy-integrate-with-sharepoint-server/sso-url-saml.png)
 
 
- 1. Create a new Azure AD Application Proxy application with custom domain. For step-by-step instructions, see [Custom domains in Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
+ 1. Create a new Azure AD Application Proxy application with custom domain. For step-by-step instructions, see [Custom domains in Azure AD Application Proxy](./application-proxy-configure-custom-domain.md).
 
     - Internal URL: https://portal.contoso.com/
     - External URL: https://portal.contoso.com/
@@ -71,7 +71,7 @@ In this step, you create an application in your Azure AD tenant that uses Applic
 
         ![Screenshot that shows the options you use to create the app.](./media/application-proxy-integrate-with-sharepoint-server/create-application-azure-active-directory.png)
 
-2. Assign the [same groups](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#create-an-azure-ad-security-group-in-the-azure-portal) you assigned to the on-premises SharePoint Gallery Application.
+2. Assign the [same groups](../saas-apps/sharepoint-on-premises-tutorial.md#create-an-azure-ad-security-group-in-the-azure-portal) you assigned to the on-premises SharePoint Gallery Application.
 
 3. Finally, go to the **Properties** section and set **Visible to users?** to **No**. This option ensures that only the icon of the first application appears on the My Apps Portal (https://myapplications.microsoft.com).
 
@@ -80,4 +80,3 @@ In this step, you create an application in your Azure AD tenant that uses Applic
 ## Step 3: Test your application
 
 Using a browser from a computer on an external network, navigate to the URL (https://portal.contoso.com/) that you configured during the publish step. Make sure you can sign in with the test account that you set up.
-

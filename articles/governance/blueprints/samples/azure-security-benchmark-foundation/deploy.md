@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Security Benchmark Foundation blueprint sample
 description: Deploy steps for the Azure Security Benchmark Foundation blueprint sample including blueprint artifact parameter details.
-ms.date: 02/17/2020
+ms.date: 02/18/2020
 ms.topic: sample
 ---
 # Deploy the Azure Security Benchmark Foundation blueprint sample
@@ -166,7 +166,7 @@ The following table provides a list of the blueprint parameters:
 |Azure Virtual Network spoke template|Resource Manager template|Subnet address prefixes (optional)|Array of IP address prefixes for optional subnets for the spoke virtual network; for example, "10.0.7.0/24","10.0.8.0/24"|
 |Azure Virtual Network spoke template|Resource Manager template|Deploy spoke|Enter 'true' or 'false' to specify whether the assignment deploys the spoke components of the architecture|
 |Azure Network Watcher template|Resource Manager template|Network Watcher location|Location for the Network Watcher resource|
-|Azure Network Watcher template|Resource Manager template|Network Watcher resource group location|If Network Watcher is already enabled, this parameter value **must** match the name of the existing Network Watcher resource group.|
+|Azure Network Watcher template|Resource Manager template|Network Watcher resource group location|If Network Watcher is already enabled, this parameter value **must** match the location of the existing Network Watcher resource group.|
 
 ## Troubleshooting
 

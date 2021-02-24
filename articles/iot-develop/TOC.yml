@@ -22,7 +22,7 @@
 - name: Tutorials
   items:
     - name: Securely connect IoT devices to the cloud
-      href: https://docs.microsoft.com/learn/paths/securely-connect-iot-devices/
+      href: /learn/paths/securely-connect-iot-devices/
 - name: Concepts
   items:
   - name: Connection options for device developers
