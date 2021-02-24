@@ -50,7 +50,7 @@ When you deploy an Azure Managed Instance for Apache Cassandra cluster, the serv
 
    :::image type="content" source="./media/visualize-prometheus-grafana/prometheus-instance-address.png" alt-text="Get Prometheus instance's IP address." border="true":::
 
-1. Connect to your newly created Ubuntu server by using [Azure CLI](../virtual-machines/linux/ssh-from-windows#ssh-clients) or your preferred client tool to connect via SSH.
+1. Connect to your newly created Ubuntu server by using [Azure CLI](../virtual-machines/linux/ssh-from-windows.md#ssh-clients) or your preferred client tool to connect via SSH.
 
 1. After connecting to the VM, you have to install and configure Grafana to connect to the virtual machine scale set where the metrics are hosted. Open a command prompt and enter the `nano` command to open a Nano text editor. Paste the following script into the text editor, make sure to replace the `<prometheus IP address>` with the IP address you recorded in the previous step:
 
