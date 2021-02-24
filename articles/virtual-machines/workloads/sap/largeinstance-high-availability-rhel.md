@@ -1005,7 +1005,7 @@ Ensure you have met the following prerequisites:
 
 * In general, please execute all pcs commands only from on node because the CIB will be automatically updated from the pcs shell.
 
-https://access.redhat.com/solutions/645843 --> quorum Policy
+* [More info on quorum policy](https://access.redhat.com/solutions/645843)
 
 ### Steps to configure 
 1. Configure pcs.
@@ -1277,7 +1277,7 @@ https://access.redhat.com/solutions/645843 --> quorum Policy
 
 
 To test out the move of the SAPHana resource from one node to another, use the command below. Note that the option `--primary` should not	be used when running the following command because of how the SAPHana resource works internally.
-pcs resource move SAPHana_HR2_00-primary
+```pcs resource move SAPHana_HR2_00-primary```
 
 After each pcs resource move command invocation, the cluster creates location constraints to achieve the move of the resource. These constraints must be removed to allow automatic failover in the future.
 To remove them you can use the command following command.
@@ -1353,9 +1353,9 @@ With option the `AUTOMATED_REGISTER=false`, you cannot switch back and forth.
 If this option is set to false, you must re-register the node:
 
   
-
+```
 hdbnsutil -sr_register --remoteHost=node2 --remoteInstance=00 --replicationMode=syncmem --name=DC1
-
+```
   
 
 Now node2, which was the primary, acts as the secondary host.
@@ -1363,7 +1363,7 @@ Now node2, which was the primary, acts as the secondary host.
 Consider setting this option to true to automate the registration of the demoted host.
 
   
-
+```
 pcs resource update SAPHana_HR2_00-primary AUTOMATED_REGISTER=true
 
 pcs cluster node clear node1
