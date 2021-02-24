@@ -42,7 +42,7 @@ The following diagram depicts the components you'll configure in your Azure AD a
 
 ![Resource group projection](./media/azure-monitor/resource-group-projection.png)
 
-During this deployment, you'll configure both your Azure AD B2C tenant and Azure AD tenant where the Log Analytics workspace will be hosted. The account used to run the deployment must be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) role in both of these tenants. It's also important to make sure you're signed in to the correct directory as you complete each step as described.
+During this deployment, you'll configure both your Azure AD B2C tenant and Azure AD tenant where the Log Analytics workspace will be hosted. The Azure AD B2C  account should be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) role on the Azure AD B2C tenant. The Azure AD account used to run the deployment must be assigned the [Owner](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#owner) role in the Azure AD subscription.It's also important to make sure you're signed in to the correct directory as you complete each step as described.
 
 ## 1. Create or choose resource group
 
