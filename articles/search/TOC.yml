@@ -398,6 +398,8 @@
       href: search-manage.md
     - name: PowerShell
       href: search-manage-powershell.md
+    - name: Azure CLI
+      href: search-manage-azure-cli.md
     - name: Move service across regions
       href: search-howto-move-across-regions.md
     - name: Role-based admin access

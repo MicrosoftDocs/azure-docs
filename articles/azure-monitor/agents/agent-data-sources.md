@@ -10,10 +10,10 @@ ms.date: 10/21/2020
 ---
 
 # Log Analytics agent data sources in Azure Monitor
-The data that Azure Monitor collects from virtual machines with the [Log Analytics](../platform/log-analytics-agent.md) agent is defined by the data sources that you configure on the [Log Analytics workspace](../platform/data-platform-logs.md).   Each data source creates records of a particular type with each type having its own set of properties.
+The data that Azure Monitor collects from virtual machines with the [Log Analytics](./log-analytics-agent.md) agent is defined by the data sources that you configure on the [Log Analytics workspace](../logs/data-platform-logs.md).   Each data source creates records of a particular type with each type having its own set of properties.
 
 > [!IMPORTANT]
-> This article covers data sources for the [Log Analytics agent](../platform/log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](agents-overview.md) for a list of the available agents and the data they can collect.
+> This article covers data sources for the [Log Analytics agent](./log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](agents-overview.md) for a list of the available agents and the data they can collect.
 
 ![Log data collection](media/agent-data-sources/overview.png)
 
@@ -47,7 +47,7 @@ Any configuration is delivered to all agents connected to that workspace.  You c
 ## Data collection
 Data source configurations are delivered to agents that are directly connected to Azure Monitor within a few minutes.  The specified data is collected from the agent and delivered directly to Azure Monitor at intervals specific to each data source.  See the documentation for each data source for these specifics.
 
-For System Center Operations Manager agents in a connected management group, data source configurations are translated into management packs and delivered to the management group every 5 minutes by default.  The agent downloads the management pack like any other and collects the specified data. Depending on the data source, the data will be either sent to a management server which forwards the data to the Azure Monitor, or the agent will send the data to Azure Monitor without going through the management server. See [Data collection details for monitoring solutions in Azure](../monitor-reference.md) for details.  You can read about details of connecting Operations Manager and Azure Monitor and modifying the frequency that configuration is delivered at [Configure Integration with System Center Operations Manager](../platform/om-agents.md).
+For System Center Operations Manager agents in a connected management group, data source configurations are translated into management packs and delivered to the management group every 5 minutes by default.  The agent downloads the management pack like any other and collects the specified data. Depending on the data source, the data will be either sent to a management server which forwards the data to the Azure Monitor, or the agent will send the data to Azure Monitor without going through the management server. See [Data collection details for monitoring solutions in Azure](../monitor-reference.md) for details.  You can read about details of connecting Operations Manager and Azure Monitor and modifying the frequency that configuration is delivered at [Configure Integration with System Center Operations Manager](./om-agents.md).
 
 If the agent is unable to connect to Azure Monitor or Operations Manager, it will continue to collect data that it will deliver when it establishes a connection.  Data can be lost if the amount of data reaches the maximum cache size for the client, or if the agent is not able to establish a connection within 24 hours.
 
@@ -56,5 +56,5 @@ All log data collected by Azure Monitor is stored in the workspace as records.  
 
 ## Next steps
 * Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the workspace.
-* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and monitoring solutions.  
-* Configure [alerts](../platform/alerts-overview.md) to proactively notify you of critical data collected from data sources and monitoring solutions.
+* Learn about [log queries](../logs/log-query-overview.md) to analyze the data collected from data sources and monitoring solutions.  
+* Configure [alerts](../alerts/alerts-overview.md) to proactively notify you of critical data collected from data sources and monitoring solutions.

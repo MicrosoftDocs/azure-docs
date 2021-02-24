@@ -57,7 +57,14 @@ In this example, the 10.74.72.0/22 network was input during deployment derives t
 
 Log into the jump box you created in the earlier step. Once you've logged in, open a web browser and navigate to and log into both vCenter and NSX-T Manager.  
 
-You can identify the vCenter, and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then in the **Overview** view, select **Identity > Default**. 
+You can identify the vCenter, and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **Identity**.
+
+>[!TIP]
+>Select **Generate a new password** to generate new vCenter and NSX-T passwords.
+
+:::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Display private cloud vCenter and NSX Manager URLs and credentials." border="true":::
+
+
 
 ## Create a network segment on Azure VMware Solution
 
