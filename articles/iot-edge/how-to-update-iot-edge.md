@@ -104,7 +104,7 @@ Check to see which versions of IoT Edge are available.
    apt list -a aziot-edge
    ```
 
-If you want to update to the most recent version of the security daemon, use the following command which also updates **libiothsm-std** to the latest version:
+If you want to update to the most recent version of IoT Edge, use the following command which also updates the identity service to the latest version:
 
    ```bash
    sudo apt-get install aziot-edge
@@ -244,16 +244,10 @@ When you're ready, follow these steps to update IoT Edge on your devices:
    sudo apt-get install aziot-edge
    ```
 
-7. Import your old config.yaml file into its new format.
+7. Import your old config.yaml file into its new format, and apply the configuration info.
 
    ```bash
    sudo iotedge config import
-   ```
-
-8. Apply the new config changes.
-
-   ```bash
-   sudio iotedge config apply
    ```
 
 Now that the IoT Edge service running on your devices has been updated, follow the steps in this article to also [Update the runtime containers](#update-the-runtime-containers).

@@ -133,11 +133,11 @@ If the version that you want to install isn't listed, follow the [Offline or spe
 <!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-## Install the IoT Edge security daemon and identity service
+## Install IoT Edge and the identity service
 
-The IoT Edge security daemon provides and maintains security standards on the IoT Edge device. The daemon starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
+This section provides the steps to install IoT Edge on your device. The IoT Edge service provides and maintains security standards on the IoT Edge device. The service starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
 
-The IoT identity service was introduced in version 1.2. This service handles the identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub.
+The IoT identity service was introduced along with version 1.2 of IoT Edge. This service handles the identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub.
 
 >[!NOTE]
 >The steps in this section show you how to install IoT Edge version 1.2, which is currently in public preview. If you are looking for the steps to install the latest generally available version of IoT Edge, view the [1.1 (LTS)](?view=iotedge-2018-06) version of this article.
@@ -156,7 +156,7 @@ Check to see which versions of IoT Edge are available.
    apt list -a aziot-edge
    ```
 
-If you want to install the most recent version of the security daemon, use the following command that also installs the latest version of the identity service package:
+If you want to install the most recent version of IoT Edge, use the following command that also installs the latest version of the identity service package:
 
    ```bash
    sudo apt-get install aziot-edge
@@ -164,10 +164,10 @@ If you want to install the most recent version of the security daemon, use the f
 
 <!-- commenting out for public preview. reintroduce at GA
 
-Or, if you want to install a specific version of the security daemon and identity service, specify the versions from the apt list output. Also specify the same version for the **libiothsm-std** package, which otherwise would install its latest version. For example, the following command installs the most recent version of the 1.0.10 release:
+Or, if you want to install a specific version of IoT Edge and the identity service, specify the versions from the apt list output. Specify the same versions for both services.. For example, the following command installs the most recent version of the 1.2 release:
 
    ```bash
-   sudo apt-get install iotedge=1.0.10* libiothsm-std=1.0.10*
+   sudo apt-get install aziot-edge=1.2* aziot-identity-service=1.2*
    ```
 
 -->
@@ -190,10 +190,9 @@ At this point, the IoT Edge runtime is installed on your Linux device, and you n
 
 This section walks through the steps to provision a device with symmetric key authentication. You should have registered your device in IoT Hub, and retrieved the connection string from the device information. If not, follow the steps in [Register an IoT Edge device in IoT Hub](how-to-register-device.md).
 
-On the IoT Edge device, open the configuration file.
-
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
+On the IoT Edge device, open the configuration file.
 
    ```bash
    sudo nano /etc/iotedge/config.yaml
@@ -227,6 +226,13 @@ After entering the provisioning information in the configuration file, restart t
 
 <!-- 1.2 -->
 ::: moniker range = ">=iotedge-2020-11"
+Create the configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
+On the IoT Edge device, open the configuration file.
 
    ```bash
    sudo nano /etc/aziot/config.toml
@@ -264,10 +270,9 @@ At this point, the IoT Edge runtime is installed on your Linux device, and you n
 
 This section walks through the steps to provision a device with X.509 certificate authentication. You should have registered your device in IoT Hub, providing thumbprints that match the certificate and private key located on your IoT Edge device. If not, follow the steps in [Register an IoT Edge device in IoT Hub](how-to-register-device.md).
 
-On the IoT Edge device, open the configuration file.
-
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06
+On the IoT Edge device, open the configuration file.
 
    ```bash
    sudo nano /etc/iotedge/config.yaml
@@ -309,6 +314,13 @@ After entering the provisioning information in the configuration file, restart t
 
 <!-- 1.2 -->
 ::: moniker range=">=iotedge=2020-11"
+Create the configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
+On the IoT Edge device, open the configuration file.
 
    ```bash
    sudo nano /etc/aziot/config.toml
@@ -356,7 +368,7 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 >[!TIP]
 >You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use `sudo` in front of the commands.
 
-Check to see that the IoT Edge security daemon is running as a system service.
+Check to see that the IoT Edge system service is running.
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
@@ -379,7 +391,7 @@ Check to see that the IoT Edge security daemon is running as a system service.
 If you need to troubleshoot the service, retrieve the service logs.
 
 <!-- 1.1 -->
-::: moniker range="iotedge-2018-06"   
+::: moniker range="iotedge-2018-06"
 
    ```bash
    journalctl -u iotedge
@@ -457,7 +469,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
 
 2. Expand the **Assets** section for that version.
 
-3. Every release should have new files for the IoT Edge security daemon and the identity service. If you're going to install IoT Edge on an offline device, download these files ahead of time. Otherwise, use the following commands to update those components.
+3. Every release should have new files for IoT Edge and the identity service. If you're going to install IoT Edge on an offline device, download these files ahead of time. Otherwise, use the following commands to update those components.
 
    1. Find the **aziot-identity-service** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
 
@@ -469,7 +481,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
 
    3. Find the **aziot-edge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
 
-   4. Use the copied link in the following command to install that version of the IoT Edge security daemon.
+   4. Use the copied link in the following command to install that version of IoT Edge.
 
       ```bash
       curl -L <iotedge link> -o aziot-edge.deb && sudo dpkg -i ./aziot-edge.deb
