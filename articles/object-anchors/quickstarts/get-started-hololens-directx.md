@@ -21,7 +21,6 @@ You'll learn how to:
 > [!div class="checklist"]
 > * Create and side-load a HoloLens application
 > * Detect an object and visualize its model
-> * Capture runtime diagnostics
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
