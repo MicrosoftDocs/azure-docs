@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 012/19/2021
+ms.date: 2/24/2021
 ---
 
 # Co-sell requirements

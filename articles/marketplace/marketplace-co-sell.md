@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 2/19/2021
+ms.date: 2/24/2021
 ---
 
 # Co-sell with Microsoft sales teams and partners overview
@@ -45,11 +45,11 @@ For details about the requirements to achieve these co-sell statuses, see [Co-se
 
 Co-sell ready status exposes your solutions to Microsoft sales teams. Co-selling with Microsoft sales teams and Microsoft partners helps you reach a vast community of Microsoft-managed customers to collaborate on sales opportunities that accelerate your business growth.
 
-To learn how to achieve co-sell ready and/or Azure IP co-sell status, see [Co-sell ready and co-sell incentivized requirements](co-sell-requirements.md).
+To learn how to achieve co-sell ready and Azure IP co-sell status, see [Co-sell ready and co-sell incentivized requirements](co-sell-requirements.md).
 
 ## Benefits of co-sell incentivized status
 
-_Co-sell incentivized_ status, includes _Azure IP Co-sell incentivized_ and _Biz Apps ISV Connect Premium incentive_. These statuses incentivize partners to sell your offer. To achieve this status, you must also achieve Co-sell ready status. Co-sell incentivized status earns all the benefits of Co-sell ready solutions. This status can earn more incentives for Microsoft sales teams, and be eligible for more commercial marketplace benefits.
+_Co-sell incentivized_ status, includes _Azure IP Co-sell incentivized_ and _Biz Apps ISV Connect Premium incentive_. These statuses incentivize partners to sell your offer. To achieve this status, you must also achieve Co-sell ready status. Co-sell incentivized status earns all the benefits of Co-sell ready solutions and can earn additional incentives for Microsoft sales teams, and be eligible for more commercial marketplace benefits.
 
 Azure IP Co-sell incentivized status can be applied to these offer types:
 
@@ -59,26 +59,22 @@ Azure IP Co-sell incentivized status can be applied to these offer types:
 - IoT Edge module
 - Software as a service (SaaS)
 
-Business Application Co-sell incentivized status can be applied to these offer types:
+Biz Apps ISV Connect Premium incentive status can be applied to these offer types:
 
 - Dynamics 365 business central
 - Dynamics 365 for Customer Engagement & PowerApps
 - Dynamics 365 for operations
 
-Offers that achieve Azure IP Co-sell incentivized or Biz Apps ISV Connect Premium incentive status gain these commercial marketplace benefits:
+Offers that achieve _Azure IP Co-sell incentivized_ or _Biz Apps ISV Connect Premium incentive_ status gain these commercial marketplace benefits:
 
 - The marketplace service fee is reduced from 20% to 10%. This discount applies to your infrastructure as a service (IaaS) solution or software as a service (SaaS) solution sold through the commercial marketplace. For more information, see [Commercial marketplace service fees](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
 - Cloud Solution Provider (CSP) partners receive a 10% incentive to sell your IaaS solution or SaaS offer. To learn more about the CSP program, see [Cloud Solution Provider program](cloud-solution-providers.md).
 - Sales of your offer through the commercial marketplace will contribute towards customers’ Azure consumption commitments. Eligible customers will see the offer marked as **Azure benefit eligible** in Azure portal. For more information, see [Azure consumption commitment benefit](azure-consumption-commitment-benefit.md).
-- Offers that achieve Azure IP Co-sell incentivized or Biz Apps ISV Connect Premium incentive status will receive a **Preferred solutions** badge on the offer listing page in the online stores. The badge promotes an offer's quality, performance, and ability to address customer needs in a certain industry vertical or solution area. To learn more, see [Preferred solutions in Microsoft AppSource and Azure Marketplace](preferred-solutions.md).
+- Offers that achieve _Azure IP Co-sell incentivized_ or _Biz Apps ISV Connect Premium incentive_ status will receive a **Preferred solutions** badge on the offer listing page in the online stores. The badge promotes an offer's quality, performance, and ability to address customer needs in a certain industry vertical or solution area. To learn more, see [Preferred solutions in Microsoft AppSource and Azure Marketplace](preferred-solutions.md).
 
 To learn how to achieve co-sell ready and co-sell incentivized status, see [Co-sell ready and co-sell incentivized requirements](co-sell-requirements.md).
 
 ## Next steps
-
-- Learn more about [selling with Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
-- Learn more about the [Co-sell option in the commercial marketplace](commercial-marketplace-co-sell.md).
-- Read the [Co-sell Playbook](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).
 
 - For information about requirements, see [Co-sell ready and co-sell incentivized requirements](co-sell-requirements.md)
 - To configure an offer for co-sell, see [Configure Co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md)

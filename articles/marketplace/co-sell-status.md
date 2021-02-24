@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 02/19/2021
+ms.date: 02/24/2021
 ---
 
 # Verify co-sell status of a commercial marketplace offer
@@ -31,7 +31,7 @@ The following table shows all possible co-sell statuses. To learn about the requ
 | Biz Apps ISV Connect Premium incentive  | This status applies to Dynamics 365 and Power Apps offers and indicates that all [requirements for this status](#requirements-for-biz-apps-isv-connect-premium-incentive-status) have been met. |
 |||
 
-## See also
+## Next steps
 
-- For information about co-sell requirements, see [Co-sell ready and co-sell incentivized requirements](co-sell-requirements.md).
+- For information about co-sell requirements, see [Co-sell ready requirements](co-sell-requirements.md).
 - For help configuring an offer for co-sell, see [Configure Co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md).

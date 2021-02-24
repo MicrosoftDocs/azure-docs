@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 2/19/2021
+ms.date: 2/24/2021
 ---
 
 # Configure Co-sell for a commercial marketplace offer
@@ -66,14 +66,14 @@ Solution types help define the scenarios that your offer is designed to address.
 | **Solution type**    | **Description**  |
 | :------------------- | :-------------------|
 | Device (hardware) | An offer that involves building or selling hardware from a device manufacturer. |
-| IP (application) | Apps or other copyrightable material licensed for the customer's use. For example: a CRM program that can be licensed and installed on-premises. |
-| Managed Service | Hands-on expertise for a cloud-based project, usually on an ongoing basis. For example: Providing a platform and tools for running an online database, with ongoing management provided by the managed service provider. |
-| Service | Hands-on expertise for a specific one-time project, often delivered via consultants. For example: setting up a customer database for a customer (with the customer assuming responsibility for operating the database after delivery). |
+| IP (application) | Apps or other copyrightable material licensed for the customer's use. For example, a CRM program that can be licensed and installed on-premises. |
+| Managed Service | Hands-on expertise for a cloud-based project, usually on an ongoing basis. For example, providing a platform and tools for running an online database, with ongoing management provided by the managed service provider. |
+| Service | Hands-on expertise for a specific one-time project, often delivered via consultants. For example, setting up a customer database for a customer (with the customer assuming responsibility for operating the database after delivery). |
 |||
 
 ### Select solution areas
 
-Solution areas help to further define your solution. This helps Microsoft sellers find and understand your solution’s value proposition. You must select at least one and up to a maximum of three solution areas for your offer. For each solution area, you can further choose up to two solution sub-areas.
+Solution areas help to further define your solution. This helps Microsoft sales teams find and understand your solution’s value proposition. You must select at least one and up to a maximum of three solution areas for your offer. For each solution area, you can further choose up to two solution sub-areas.
 
 1. Select the **+ Add solution area (3 Max)** link.
 1. Select a solution area from the drop-down list that appears.
@@ -87,15 +87,15 @@ You must provide collateral documents that provide details about your offer. Mic
 The supported file types are .pdf, .ppt, .pptx, .doc, .docx, .xls, .xlsx, .jpg, .png, and .mp4. Templates for some documents are provided in Table 2 below.
 
 > [!NOTE]
-> The **Solution/offer one-pager** and **Solution/offer pitch deck** are required to attain Co-sell Ready status. They are also a prerequisite for some offers to be Azure IP Co-sell incentivized. The Reference architecture diagram is also required for Azure IP co-sell incentivized status. The other documents described in this table are optional but recommended.
+> The **Solution/offer one-pager** and **Solution/offer pitch deck** are required to attain Co-sell Ready status. They are also prerequisites for some offers to be Azure IP Co-sell incentivized. The Reference architecture diagram is also required for Azure IP co-sell incentivized status. The other documents described in this table are optional but recommended.
 
 ***Table 2: Documents that support co-sell***
 
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
-| *Solution/offer one-pager (Required)* | Drive awareness among potential customers with a professionally designed one-pager that showcases the value proposition of your solution.<br><br>You can use one of the relevant templates to provide a customer-ready description of your offering: <br> <ul> <li> [Microsoft Azure one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftAzure) </li> <li> [Microsoft Dynamics 365 one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftDynamics365) </li> <li> [Microsoft 365 one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftOffice365) </li> <li> [Windows 10 one-pager template](https://aka.ms/Customer-One-Pager_Windows) </li> </ul> <br> Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. |
+| *Solution/offer one-pager (Required)* | Drive awareness among potential customers with a professionally designed one-pager that showcases the value proposition of your solution.<br><br>You can use one of the relevant templates to provide a customer-ready description of your offering:<br><ul><li> [Microsoft Azure one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftAzure)</li><li>[Microsoft Dynamics 365 one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftDynamics365)</li> <li>[Microsoft 365 one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftOffice365) </li><li>[Windows 10 one-pager template](https://aka.ms/Customer-One-Pager_Windows)</li></ul> <br> Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. |
 | *Solution/offer pitch deck (Required)* | You can use the [Customer presentation template](https://aka.ms/GTMServices_CustomerPresentation) to create your pitch deck. This deck should reference the [Reference architecture diagram](reference-architecture-diagram.md). The purpose of this slide deck is to pitch your offer and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share this presentation with customers to articulate the value that your company and Microsoft bring when deploying a joint solution. The presentation should cover what your offer does, how it can help customers, what industries the offer is relevant for, and how it compares with competing solutions. |
-| *Customer case study* (Optional)| Use the [Case study template](https://aka.ms/GTM_Case_Study_Template) to create your Customer case study. This information shows a potential customer how you and Microsoft have successfully deployed your offer in prior cases. |
+| *Customer case study* (Optional)| Use the [Case study template](https://aka.ms/GTM_Case_Study_Template) to create your customer case study. This information shows a potential customer how you and Microsoft have successfully deployed your offer in prior cases. |
 | *Verifiable customer wins* (Optional) | Provide specific examples of customer successes after your offer has been deployed. |
 | *Channel pitch deck* (Optional) | A slide deck with information that helps channel resellers learn more about your offer and get their sales teams ready to sell it. This deck typically includes an elevator pitch, information about target customers, questions to ask customers, talking points, and links to videos, documentation, and support information. |
 | *Reference architecture diagram* (Required for Azure IP co-sell incentivized status) | A diagram that represents your offer and its relationship with Microsoft cloud services. It may also demonstrate how your offer meets the technical requirements for Azure IP Co-sell incentivized status. [Learn more about the reference architecture diagram.](reference-architecture-diagram.md) |
@@ -119,18 +119,18 @@ Your contact information lets Microsoft sales teams and channel resellers reques
 > [!NOTE]
 > It is critical that you keep your contact information up to date.
 
-1. To download the template to provide your content information, under **Contacts**, select **Download contacts template (.csv)** as seen in this screenshot. If you previously uploaded contacts, you can export your existing list of contacts for an offer, and then make changes in that .CSV file.
+1. To download the template to provide your contact information, under **Contacts**, select **Download contacts template (.csv)** as seen in this screenshot. If you previously uploaded contacts, you can export your existing list of contacts for an offer, and then make changes in that .CSV file.
 
     [![Illustrates the Contacts section of the Co-sell with Microsoft tab.](./media/co-sell/co-sell-contacts-section.png)](./media/co-sell/co-sell-contacts-section.png#lightbox)
 
 1. Open the .CSV file in an application such as Microsoft Excel, and then fill in each row with information about the contact.
 
-    * Name (Required): The contact's name.
-    * Email (Required): The contact's email address.
-    * Job title (Required): Job title.
-    * Role (Required): Use any of the following roles.
+    - Name (Required): The contact's name.
+    - Email (Required): The contact's email address.
+    - Job title (Required): Job title.
+    - Role (Required): Use any of the following roles.
 
-    ***Table 3: Descriptions of roles***
+    ***Table 3: Description of roles***
 
     | **Role**    | **Description**  |
     | :------------------- | :-------------------|
@@ -140,11 +140,11 @@ Your contact information lets Microsoft sales teams and channel resellers reques
     | Partner customer success manager | Typically supports customers post-deployment to help them get the most out of your offer and increase its usage within the customer's organization. |
     |||
 
-    - Countries/Regions (Required): When filling out the template, use the two letter [Co-sell country and region codes](commercial-marketplace-co-sell-countries.md). If the contact covers all countries or regions, use the three-letter code "OOO". If a contact covers more than one country or region, enter each of the two letter codes separated by a comma (for example, enter "US, CA, FR" without quotation marks into the template).
+    - Countries/Regions (Required): When filling out the template, use the two letter [Co-sell country and region codes](commercial-marketplace-co-sell-countries.md). If the contact covers all countries and regions, use the three-letter code "OOO". If a contact covers more than one country or region, enter each of the two letter codes separated by a comma. For example, enter "US, CA, FR" without quotation marks into the template.
 
-        The countries and regions should reflect each contact's territory. Microsoft sales teams and channel resellers will utilize this information when requesting information or collaborating on sales within the specific country or region.
+        The countries and regions should reflect each contact's territory. Microsoft sales teams and channel resellers will use this information when requesting information or collaborating on sales within the specific country or region.
 
-    * States/Provinces (Optional): When filling out the template, use the XX-XX format as listed in the [states, provinces, and territories tables](commercial-marketplace-co-sell-states.md).
+    - States/Provinces (Optional): When filling out the template, use the XX-XX format as listed in the [states, provinces, and territories tables](commercial-marketplace-co-sell-states.md).
 
 1. Save and close the .CSV file.
 
@@ -157,10 +157,10 @@ Your contact information lets Microsoft sales teams and channel resellers reques
 ## Save and republish the offer
 
 1. Select **Save draft** to save your changes before you continue.
-1. After you've completed all the required sections of the offer, you can submit it for review and publication. Select **Review and publish**. 
+1. After you've completed all the required sections of the offer, you can submit it for review and publication. Select **Review and publish**.
 1. Do one of the following:
 
-    - If you completed or updated the **Co-sell with Microsoft** tab for an offer that has been previously published live and haven’t updated any other tabs, we recommend that you only select the **Co-sell** check box.
+    - If you completed or updated the **Co-sell with Microsoft** tab for an offer that has been previously published live and you haven’t updated any other tabs, we recommend that you only select the **Co-sell** check box.
 
     - If this is a new or draft offer that has never been published, we recommend that you select all boxes. You can optionally select **Compare** to compare the current version against the unpublished changes.
 
