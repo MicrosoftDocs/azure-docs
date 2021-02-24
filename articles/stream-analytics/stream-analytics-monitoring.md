@@ -24,6 +24,7 @@ The window will appear as shown:
 | ---------------------- | ---------------------------------------- |
 | Backlogged Input Events       | Number of input events that are backlogged. A non-zero value for this metric implies that your job isn't able to keep up with the number of incoming events. If this value is slowly increasing or consistently non-zero, you should scale out your job. You can learn more by visiting [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md). |
 | Data Conversion Errors | Number of output events that could not be converted to the expected output schema. Error policy can be changed to 'Drop' to drop events that encounter this scenario. |
+| CPU % Utilization (preview)       | The percentage of CPU utilized by your job. If this metric is consistently higher than 80%, it could mean that your job is bottlenecked on CPU usage and will likely cause input events to get backlogged. You can increase number of SUs allocated to your job to mitigate such problems. |
 | Early Input Events       | Events whose application timestamp is earlier than their arrival time by more than 5 minutes. |
 | Failed Function Requests | Number of failed Azure Machine Learning function calls (if present). |
 | Function Events        | Number of events sent to the Azure Machine Learning function (if present). |
@@ -36,7 +37,7 @@ The window will appear as shown:
 | Out-of-Order Events    | Number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the Out of Order Tolerance Window setting. |
 | Output Events          | Amount of data sent by the Stream Analytics job to the output target, in number of events. |
 | Runtime Errors         | Total number of errors related to query processing (excluding errors found while ingesting events or outputting results) |
-| SU % Utilization       | If resource utilization is consistently over 80%, the watermark delay is rising, and the number of backlogged events is rising, consider increasing streaming units. High utilization indicates that the job is using close to the maximum allocated resources. |
+| SU % Utilization       | The percentage of memory utilized by your job. If SU % utilization is consistently over 80%, the watermark delay is rising, and the number of backlogged events is rising, consider increasing streaming units. High utilization indicates that the job is using close to the maximum allocated resources. |
 | Watermark Delay       | The maximum watermark delay across all partitions of all outputs in the job. |
 
 You can use these metrics to [monitor the performance of your Stream Analytics job](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 
