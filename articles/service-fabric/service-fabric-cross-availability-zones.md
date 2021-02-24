@@ -340,7 +340,7 @@ To enable zones on a virtual machine scale set you must include the following th
 
 * The first value is the **zones** property, which specifies the Availability Zones present in the virtual machine scale set.
 * The second value is the "singlePlacementGroup" property, which must be set to true. **The scale set spanned across 3 AZ's can scale upto 300 VMs even with "singlePlacementGroup = true".**
-* The third value is "zoneBalance", which ensures strict zone balancing if set to true. We recommend setting this to true, to avoid unbalanced distribution of VMs across zones. Read about [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
+* The third value is "zoneBalance", which ensures strict zone balancing. This should be "true" to avoid unbalanced distribution of VMs across zones. A cluster with unbalanced VM distribution across zones is less likely to survive the zone down scenatio. Read about [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * The FaultDomain and UpgradeDomain overrides are not required to be configured.
 
 ```json
@@ -404,7 +404,7 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
 > * Public IP and Load Balancer Resources should be using the Standard SKU as described earlier in the article.
 > * "multipleAvailabilityZones" property on the nodeType can only be defined at the time of nodeType creation and can't be modified later. Hence, existing nodeTypes can't be configured with this property.
 > * When "sfZonalUpgradeMode" is omitted or set to "Hierarchical", the cluster and application deployments will be slower as there are more upgrade domains in the cluster. It is important to correctly adjust the upgrade policy timeouts to incorporate for the upgrade time duration for 15 upgrade domains.
-> * It is recommended to set the cluster reliability level to Platinum to ensure the cluster survives the one zone down scenario.
+> * Set the cluster **reliabilityLevel = Platinum** to ensure the cluster survives the one zone down scenario.
 
 >[!NOTE]
 > For best practice we recommend sfZonalUpgradeMode set to Hierarchical or be omitted. Deployment will follow the zonal distribution of VMs impacting a smaller amount of replicas and/or instances making them safer.
