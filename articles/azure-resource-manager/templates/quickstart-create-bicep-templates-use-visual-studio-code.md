@@ -78,7 +78,7 @@ param storageAccountName string {
 
 Azure storage account names have a minimum length of 3 characters and a maximum of 24. Use `minLength` and `maxLength` to provide appropriate values.
 
-Now, on the storage resource, update the name property to use the parameter. To do so, remove the current storage resource name including the single quotes. press `ctrl` + `space`. Select the **storageAccountName** parameter from the list.
+Now, on the storage resource, update the name property to use the parameter. To do so, remove the current storage resource name including the single quotes. press `ctrl` + `space`. Select the **storageAccountName** parameter from the list. Notice the parameters can be referenced directly by using their names in Bicep. The JSON templates require a parameter() function.
 
 ![Image showing auto-completion when using parameters in ARM template resources](./media/quickstart-create-bicep-templates-use-visual-studio-code/12.png)
 
