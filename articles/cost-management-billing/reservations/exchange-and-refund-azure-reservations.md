@@ -5,7 +5,7 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
 ---
 
@@ -31,6 +31,27 @@ You can exchange your reservation from [Azure portal](https://portal.azure.com/#
     [![Example image showing the VM product to purchase with an exchange, completing the return](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png#lightbox)
 
 To refund a reservation, go to **Reservation Details** and select **Refund**.
+
+## Exchange multiple reservations
+
+You can return different types of reservations in one action. For example, you can return multiple reservations for Azure Dedicated Host and Azure VMware Solution and exchange them for Azure Virtual Machines with one action.
+
+When you exchange reservations, the new purchase currency amount must be greater than the refund amount. If your new purchase amount is less than the refund amount, you'll the the following error.
+
+[show screenshot showing the error]
+
+If you see the error, reduce the quantity that you want to return or increase the amount to purchase.
+
+1. Sign in to the Azure portal and navigate to **Reservations**.
+1. In the list of reservations, select the box for each reservation that you want to exchange.
+1. At the top of the page, select **Exchange**.
+1. If needed, revise the quantity to return for each reservation.
+1. If you select the auto-fill return quantity, you can choose to **Refund all** to fill the list with the full quantity that you own for each reservation or **Optimize for utilization (7-day)** to fill the list with a quantity that optimizes for utilization based on the last seven days of usage. **Select Apply**.
+1. At the bottom of the page, select **Next: Purchase**.
+1. On the purchase tab, select the available products that you want to exchange for. You can select multiple products of different types.
+1. In the Select the product you want to purchase pane, select the products you want and then select **Add to cart** and then select **Close**.
+1. When done, select **Next: Review**.
+1. Review your reservations to return and new reservations to purchase and then select **Confirm exchange**.
 
 ## Exchange non-premium storage for premium storage
 
