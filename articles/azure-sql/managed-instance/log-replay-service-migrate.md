@@ -155,7 +155,7 @@ Some of the following approaches can be utilized to upload backups to the blob s
 - Using [Azcopy](../../storage/common/storage-use-azcopy-v10.md), or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) to upload backups to a blob container.
 - Using Storage Explorer in Azure portal.
 
-### Make backups from SQL Server directly to Azure Blob Storage (alternative option)
+### Make backups from SQL Server directly to Azure Blob Storage
 
 In case your corporate and networking policy allows it, the alternative way is to make backups from SQL Server directly to Azure Blob Storage using SQL Server native [BACKUP TO URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url) option. If you can pursue this option, making backups on the local storage and uploading them to Azure Blob Storage is not needed.
 
