@@ -28,9 +28,9 @@ This article provides an overview about volume quota for Azure NetApp Files. It 
 
 * Depending on the capacity pool type, the size (quota) of an Azure NetApp Files volume has an impact on its bandwidth performance and the provisioned capacity.  See the [auto QoS pool type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) for details. 
 
-* The capacity consumed by volume [snapshots](azure-netapp-files-manage-snapshots.md) counts towards the provisioned space in the volume. 
+* The capacity consumed by volume [snapshots](snapshots-introduction.md) counts towards the provisioned space in the volume. 
 
-* The destination volume of a [replication](cross-region-replication-introduction.md) does not count towards the volume quota.
+* Volume quota doesn't apply to a [replication destination volume](cross-region-replication-introduction.md).
 
 * See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md) about the calculation of capacity consumption and overage in capacity consumption.
 
