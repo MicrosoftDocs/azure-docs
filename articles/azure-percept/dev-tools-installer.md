@@ -54,8 +54,8 @@ The Dev Tools Pack Installer is a one-stop solution that installs and configures
            - Hyper-V and Containers Windows features must be enabled.
            - The following hardware prerequisites are required to successfully run Client Hyper-V on Windows 10:
 
-              - 64 bit processor with [Second Level Address Translation (SLAT)](https://en.wikipedia.org/wiki/Second_Level_Address_Translation)
-              - 4GB system RAM
+              - 64-bit processor with [Second Level Address Translation (SLAT)](https://en.wikipedia.org/wiki/Second_Level_Address_Translation)
+              - 4-GB system RAM
               - BIOS-level hardware virtualization support must be enabled in the BIOS settings. For more information, see Virtualization.
 
         > [!NOTE]
@@ -84,7 +84,7 @@ The Dev Tools Pack Installer is a one-stop solution that installs and configures
 
 1. Download the Dev Tools Pack Installer for [Windows](https://go.microsoft.com/fwlink/?linkid=2132187), [Linux](https://go.microsoft.com/fwlink/?linkid=2132186), and [Mac](https://go.microsoft.com/fwlink/?linkid=2132296).
 
-1. Depending on your Platform there will be some differences in launching the installer.
+1. Depending on your Platform, there will be some differences in launching the installer.
 
     1. For Windows:
     
@@ -124,7 +124,7 @@ The Dev Tools Pack Installer is a one-stop solution that installs and configures
             
                 1. ./Dev-Tools-Pack-Installer.AppImage
         
-        1. Add execution permissions to the .appimage file method 2 (UI):
+        1. Add execution permissions to the **.appimage** file method 2 (UI):
         
             1. Right click on the .appimage file and select properties
             

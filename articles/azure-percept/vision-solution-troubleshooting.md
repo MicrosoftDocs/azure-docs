@@ -27,7 +27,7 @@ See the following guidance for information on troubleshooting no-code vision sol
 
 1. Click on the **Iot Hub** icon.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/vision-iot-hub-2-zoom.png" alt-text="Azure portal homepage with Iot Hub icon highlighted." lightbox= "./media/vision-solution-troubleshooting/vision-iot-hub-2.png":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/vision-iot-hub-2-inline.png" alt-text="Azure portal homepage with Iot Hub icon highlighted." lightbox= "./media/vision-solution-troubleshooting/vision-iot-hub-2.png":::
 
 1. Select the IoT Hub that your target device is connected to.
 
@@ -39,7 +39,7 @@ See the following guidance for information on troubleshooting no-code vision sol
 
 1. Your device modules will be listed under the **Modules** tab.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/vision-device-modules-zoom.png" alt-text="Iot Edge page for selected device showing the modules tab contents." lightbox= "./media/vision-solution-troubleshooting/vision-device-modules.png":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/vision-device-modules-inline.png" alt-text="Iot Edge page for selected device showing the modules tab contents." lightbox= "./media/vision-solution-troubleshooting/vision-device-modules.png":::
 
 ## Delete a device
 
@@ -57,7 +57,7 @@ See the following guidance for information on troubleshooting no-code vision sol
 
 If there is a problem with **WebStreamModule**, ensure that **azureeyemodule**, which does the vision model inferencing, is running. To check the runtime status, go to the [Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home) and navigate to **All resources** -> **\<your IoT hub>** -> **IoT Edge** -> **\<your device ID>**. Click the **Modules** tab to see the runtime status of all installed modules.
 
-:::image type="content" source="./media/vision-solution-troubleshooting/over-the-air-iot-edge-device-page-zoom.png" alt-text="Device module runtime status screen." lightbox= "./media/vision-solution-troubleshooting/over-the-air-iot-edge-device-page.png":::
+:::image type="content" source="./media/vision-solution-troubleshooting/over-the-air-iot-edge-device-page-inline.png" alt-text="Device module runtime status screen." lightbox= "./media/vision-solution-troubleshooting/over-the-air-iot-edge-device-page.png":::
 
 If the runtime status of **azureeyemodule** is not listed as **running**, click **Set modules** -> **azureeyemodule**. On the **Module Settings** page, set **Desired Status** to **running** and click **Update**.
 

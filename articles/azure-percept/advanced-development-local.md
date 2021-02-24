@@ -56,7 +56,7 @@ performed within the notebook through your remote compute instance.
     Please allow a few minutes for workspace creation. After the workspace creation is complete, you will see green check marks next to
     your resources and **Your deployment is complete** at the top of the Machine Learning Services overview page.
 
-    :::image type="content" source="./media/advanced-development-local/workspace-creation-complete-zoom.png" alt-text="Workspace creation confirmation." lightbox= "./media/advanced-development-local/workspace-creation-complete.png":::
+    :::image type="content" source="./media/advanced-development-local/workspace-creation-complete-inline.png" alt-text="Workspace creation confirmation." lightbox= "./media/advanced-development-local/workspace-creation-complete.png":::
 
     Once your workspace creation is complete, return to the machine learning portal tab and click **Get started**.
 
@@ -131,7 +131,7 @@ performed within the notebook through your remote compute instance.
     1. Open the command palette in Visual Studio Code by selecting **View** > **Command Palette** from the menu bar.
     1. Enter **Azure: Sign In** into the command palette to start the login process.
 
-        :::image type="content" source="./media/advanced-development-local/transfer-learning-azure-sign-in-zoom.png" alt-text="Azure sign in screen." lightbox= "./media/advanced-development-local/transfer-learning-azure-sign-in.png":::
+        :::image type="content" source="./media/advanced-development-local/transfer-learning-azure-sign-in-inline.png" alt-text="Azure sign in screen." lightbox= "./media/advanced-development-local/transfer-learning-azure-sign-in.png":::
 
     1. Activate the Python extension and Azure account by clicking the Azure icon on the left-hand side of VS Code.
 
@@ -147,7 +147,7 @@ performed within the notebook through your remote compute instance.
     1. After selecting a compute instance, you’ll be prompted to reload your VS Code window. Once you reload, select
        the **Python 3.6 - AzureML** kernel. You can now run any of the cells in your notebook. Running a notebook cell will instantiate the connection between your notebook and your compute instance. The notebook toolbar will be updated to reflect the compute instance you’re working on.
 
-        :::image type="content" source="./media/advanced-development-local/kernel-zoom.png" alt-text="Kernel selection in VS Code." lightbox= "./media/advanced-development-local/kernel.png":::
+        :::image type="content" source="./media/advanced-development-local/kernel-inline.png" alt-text="Kernel selection in VS Code." lightbox= "./media/advanced-development-local/kernel.png":::
 
 ## Working with the notebook
 

@@ -62,7 +62,7 @@ You may then check model inferencing by viewing the live RTSP stream from the Az
     Please allow a few minutes for workspace creation. After the workspace creation is complete, you will see green check marks next to
     your resources and **Your deployment is complete** at the top of the Machine Learning Services overview page.
 
-    :::image type="content" source="./media/advanced-development-cloud/workspace-creation-complete-zoom.png" alt-text="Workspace creation confirmation." lightbox= "./media/advanced-development-cloud/workspace-creation-complete.png":::
+    :::image type="content" source="./media/advanced-development-cloud/workspace-creation-complete-inline.png" alt-text="Workspace creation confirmation." lightbox= "./media/advanced-development-cloud/workspace-creation-complete.png":::
 
     Once your workspace creation is complete, return to the machine learning portal tab and click **Get started**.
 
@@ -82,7 +82,7 @@ to **I trust contents from this file** and click **Upload**.
 
 1. On the top right menu bar, check your **Compute** status. If no computes are found, click the **+** icon to create a new compute.
 
-    :::image type="content" source="./media/advanced-development-cloud/no-computes-found-zoom.png" alt-text="Compute status with + icon highlighted." lightbox= "./media/advanced-development-cloud/no-computes-found.png":::
+    :::image type="content" source="./media/advanced-development-cloud/no-computes-found-inline.png" alt-text="Compute status with + icon highlighted." lightbox= "./media/advanced-development-cloud/no-computes-found.png":::
 
 1. In the **New compute instance** window, enter a **Compute name**, choose a **Virtual machine type**, and select a **Virtual machine size**. Click **Create**.
 
@@ -104,7 +104,7 @@ You are now ready to run the notebook to train your custom bowl detector and dep
 individually as some of the cells require input parameters before executing the script. Cells that require input parameters may be
 edited directly in the notebook. To run a cell, click the play icon on the left side of the cell:
 
-:::image type="content" source="./media/advanced-development-cloud/run-cell-zoom.png" alt-text="Notebook highlighting cell icon." lightbox= "./media/advanced-development-cloud/run-cell.png":::
+:::image type="content" source="./media/advanced-development-cloud/run-cell-inline.png" alt-text="Notebook highlighting cell icon." lightbox= "./media/advanced-development-cloud/run-cell.png":::
 
 ## Next steps
 
