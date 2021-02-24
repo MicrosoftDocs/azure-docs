@@ -48,4 +48,10 @@ Follow the steps below to set up an SSH connection to your Azure Percept DK thro
     1. login as: root
     1. Password: p@ssw0rd
 
-    :::image type="content" source="./media/how-to-ssh-into-percept-dk/putty-terminal.png" alt-text="Image.":::  
+    :::image type="content" source="./media/how-to-ssh-into-percept-dk/putty-terminal.png" alt-text="PuTTY terminal window.":::  
+
+## Next steps
+
+After successfully connecting to your Azure Percept DK through SSH, you may perform a variety of tasks, including troubleshooting, USB updates, and running the DiagTool or SoftAP Tool.
+
+

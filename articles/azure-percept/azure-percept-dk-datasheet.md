@@ -3,7 +3,7 @@ title: Azure Percept DK datasheet
 description: Check out the Azure Percept DK datasheet for detailed device specifications
 author: elqu20
 ms.author: v-elqu
-ms.service: rtos #temporary, will update to azure-percept once available
+ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
 ---
@@ -16,7 +16,7 @@ ms.date: 02/16/2021
 |Performance                     |0.7 TOPS (Azure Percept Vision)|
 |Target Industries               |Retail <br> Manufacturing <br> Hospitality <br> Smart Buildings <br> Auto |
 |Hero Scenarios                  |Out-of-box to first AI frames in under 10 minutes <br> Out-of-box to prototype in under 30 minutes <br> Capture and label initial training data <br> Basic AI model customization <br> Advanced AI model customization |
-|Included in Box                 |1x Azure Percept DK Carrier Board  <br> 1x [Azure Percept Vision](azure-percept-vision-datasheet.md) <br> 1x RGB Sensor (Camera) <br> 1x USB 3.0 Type C Cable <br> 1x DC Power Cable <br> 1x AC/DC Converter <br> 2x Wi-Fi Antennas  |
+|Included in Box                 |1x Azure Percept DK Carrier Board  <br> 1x [Azure Percept Vision](./azure-percept-vision-datasheet.md) <br> 1x RGB Sensor (Camera) <br> 1x USB 3.0 Type C Cable <br> 1x DC Power Cable <br> 1x AC/DC Converter <br> 2x Wi-Fi Antennas  |
 |OS                              |[CBL-Mariner](https://github.com/microsoft/CBL-Mariner)           |
 |Management Control Plane        |Azure Device Update (ADU) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)          |
 |Supported Software and Services |Azure Device Update <br> [Azure IoT](https://azure.microsoft.com/overview/iot/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) and [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1) <br> [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) <br> [Azure Mariner OS with Connectivity](https://github.com/microsoft/CBL-Mariner) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [TensorFlow](https://www.tensorflow.org/) <br> [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) <br> Azure PnP <br> [Azure Device Provisioning Service (DPS)](https://docs.microsoft.com/azure/iot-dps/) <br> [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) <br> [Power BI](https://powerbi.microsoft.com/)      |
@@ -33,7 +33,3 @@ ms.date: 02/16/2021
 |Relative Humidity               |8% to 90%    |
 |Power Supply                    |19VDC at 3.42A (65W) |
 |Vibration                       |2.0Grms from 1 to 300Hz.     |
-
-<!---
-Update ms.service.
---->
