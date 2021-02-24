@@ -198,4 +198,4 @@ In this tutorial, you configured and reviewed Change Tracking and Update Managem
 Advance to the next tutorial to learn about monitoring your VM.
 
 > [!div class="nextstepaction"]
-> [Monitor virtual machines](tutorial-monitor.md)
+> [Monitor virtual machines](/previous-versions/azure/virtual-machines/linux/tutorial-monitor)
