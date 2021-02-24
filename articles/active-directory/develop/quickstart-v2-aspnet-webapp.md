@@ -21,9 +21,9 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 In this quickstart, you download and run a code sample that demonstrates how an ASP.NET web app can sign in users from any Azure Active Directory (Azure AD) organization. 
 
 > [!div renderon="docs"]
->The following diagram shows how the sample app works:
+> The following diagram shows how the sample app works:
 >
->![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
+> ![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 >
 > ## Prerequisites
 >
@@ -84,9 +84,11 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > #### Step 3: Run your Visual Studio project
 
 1. Extract the .zip file to a local folder that's close to the root folder. For example, extract to *C:\Azure-Samples*.
-1. Open the solution in Visual Studio (*AppModelv2-WebApp-OpenIDConnect-DotNet.sln*).
-1. Depending on the version of Visual Studio, you might need to right-click the project **AppModelv2-WebApp-OpenIDConnect-DotNet** and then select **Restore NuGet packages**.
-1. Open the Package Manager Console by selecting **View** > **Other Windows** > **Package Manager Console**. Then run `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`.
+   
+   We recommend extracting the archive into a directory near the root of your drive to avoid errors caused by path length limitations on Windows.
+2. Open the solution in Visual Studio (*AppModelv2-WebApp-OpenIDConnect-DotNet.sln*).
+3. Depending on the version of Visual Studio, you might need to right-click the project **AppModelv2-WebApp-OpenIDConnect-DotNet** and then select **Restore NuGet packages**.
+4. Open the Package Manager Console by selecting **View** > **Other Windows** > **Package Manager Console**. Then run `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`.
 
 > [!div renderon="docs"]
 > 5. Edit *Web.config* and replace the parameters `ClientId` and `Tenant` with:
@@ -114,9 +116,10 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 
 This section gives an overview of the code required to sign in users. This overview can be useful to understand how the code works, what the main arguments are, and how to add sign-in to an existing ASP.NET application.
 
-### How the sample works
-
-![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
+> [!div class="sxs-lookup" renderon="portal"]
+> ### How the sample works
+>
+> ![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 
 ### OWIN middleware NuGet packages
 
