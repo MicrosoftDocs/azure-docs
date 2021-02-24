@@ -40,7 +40,7 @@ Normally, you don't need to worry about the deployment token, but the following 
 
 To keep automated deployment running, after resetting a token you need to set the new value in the corresponding GitHub repository.
 
-1. Navigate to your project's repository on GitHub, and click on the **Settings** tab
+1. Navigate to your project's repository on GitHub, and click on the **Settings** tab.
 1. Click on the **Secrets** menu item. You will find a secret generated during Static Web App provisioning named _AZURE_STATIC_WEB_APPS_API_TOKEN_... in the _Repository secrets_ section.
 
     :::image type="content" source="./media/deployment-token-management/github-repo-secrets.png" alt-text="Listing repository secrets":::
