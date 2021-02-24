@@ -166,9 +166,9 @@ Both Azure Resource Manager and ADF are using the same private zone creating a p
 
 #### Symptoms
 
-When copying data from Azure SQL Database to Azure Blob Storage account, pipeline runs randomly fail with following error.
+When copying data with Azure Blob Storage account public access, pipeline runs randomly fail with following error.
 
-The Azure Blob Storage sink was using Azure IR (public, not Managed VNet) and the Azure SQL Database source was using the Managed VNet IR. Or source/sink use Managed VNet IR only with storage public access.
+For example: The Azure Blob Storage sink was using Azure IR (public, not Managed VNet) and the Azure SQL Database source was using the Managed VNet IR. Or source/sink use Managed VNet IR only with storage public access.
 
 `
 <LogProperties><Text>Invoke callback url with req:
@@ -177,12 +177,12 @@ The Azure Blob Storage sink was using Azure IR (public, not Managed VNet) and th
 
 #### Cause
 
- You may use Managed VNet IR, but you could encounter such error because the public endpoint to Azure Blob Storage in Managed VNet is not reliable based on the testing result, and Azure Blob Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from ADF Managed Virtual Network according to [Managed virtual network & managed private endpoints](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+ADF may still use Managed VNet IR, but you could encounter such error because the public endpoint to Azure Blob Storage in Managed VNet is not reliable based on the testing result, and Azure Blob Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from ADF Managed Virtual Network according to [Managed virtual network & managed private endpoints](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
 
 #### Solution
 
 - Having private endpoint enabled on the source and also the sink side when using the Managed VNet IR.
-- If you still want to use the public endpoint, you can switch to public IR only instead of using the Managed VNet IR for the source and the sink. Even if you switch back to public IR, you may still use the Managed VNet IR if the Managed VNet IR is still there.
+- If you still want to use the public endpoint, you can switch to public IR only instead of using the Managed VNet IR for the source and the sink. Even if you switch back to public IR, ADF may still use the Managed VNet IR if the Managed VNet IR is still there.
 
 ## Next steps
 
