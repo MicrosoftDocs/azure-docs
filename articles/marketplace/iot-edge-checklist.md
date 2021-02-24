@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 02/19/2021
+ms.date: 02/24/2021
 ---
 
 # Pre-certification checklist for IoT Edge modules
@@ -20,43 +20,43 @@ Once the Edge module image is ready for submission, perform these steps to ensur
 
 ### Steps to perform in the Azure portal
 
-1. Open the [Azure portal](https://portal.azure.com/).
+1. Open the [Azure portal](https://partner.microsoft.com/).
 1. Create a Resource Group.
 1. Create an IoT Hub.
 1. Create an IoT Edge Device.
 1. Copy the connection string and save it in Notepad.
 1. Select the set **Modules on Edge Device Created**.
-1. Add the ACR details where the latest version of image resides. 
+1. Add the ACR details where the latest version of image resides.
 1. Select **Add IoT edge Module** and provide:
-    - The image URI in Module Setting 
+    - The image URI in Module Setting
     - The environmental variable (the same as what is added in Partner Center)
     - The container create options (the same as what is added in Partner Center)
     - The module twin setting (the same as what is added in Partner Center)
 1. Add routes (the same as what is added in Partner Center).
 1. Select **Review + Create**.
 
-Edge modules are deployed on the Edge device created on Azure. 
+Edge modules are deployed on the Edge device created on Azure.
 
 ### Steps to perform on the device
 
-#### Device details 
+#### Device details
 
 The certification team uses the following hardware to validate images on different architectures:
 
 - For X64 images, an Azure VM having configuration size as Standard D2s v3 running Ubuntu Server 18.04/ Ubuntu Server 16.04.
-- For ARM 32 images, a Raspberry Pi 3 Model B. 
+- For ARM 32 images, a Raspberry Pi 3 Model B.
 - For ARM 64 images, a NVIDIA Jetson Nano 4Gb.
 
 #### Steps
 
 - Ensure devices/VM created can be accessed through Putty.
-- Download [IoT Edge Runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge) onto the device. 
+- Download [IoT Edge Runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge) onto the device.
 - Update the connection string copied in step 5 to the config.yaml file.
 - Restart the Edge Module with `sudo systemctl restart iotedge`.
 - Check if the module is deployed on device with `sudo iotedge list`; it should be in running state.
-- Check the logs of the module deployed with `sudo iotedge logs “Module Name “ -f`.
+- Ensure the logs of the module deployed with `sudo iotedge logs “Module Name“ -f` do not have any errors. If there are known errors, describe this in the Partner Center **Notes to reviewer** before submitting the offer.
 
-## Metadata validation   
+## Metadata validation
 
 Verify the following:
 
@@ -72,6 +72,6 @@ Verify the following:
 
 ## Next steps
 
-- [Deploy modules from the marketplace](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal#deploy-from-azure-marketplace)
+- [Deploy modules from the commercial marketplace](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal#deploy-from-azure-marketplace)
 - [Publish the Edge Module in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation)
 - [Deploy IoT Edge Module](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)  
