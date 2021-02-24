@@ -189,7 +189,6 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
 > [!NOTE]
 > Some tables are new and not based off of old tables.
 
-Spark Application related tables have been replaced with 11 new Spark tables (Starting with HDInsightSpark*) that will give more in depth information about your Spark workloads
 
 ## General workload
 
@@ -202,6 +201,10 @@ Spark Application related tables have been replaced with 11 new Spark tables (St
 | HDInsightGatewayAuditLogs\_CL | <ul><li>**Description**: This table contains the Gateway nodes audit information. It is the same format as the table in Old Tables column. **It is still located in the Custom Logs section.**</li><li>**Old table**: log\_gateway\_Audit\_CL</li></ul>|
 
 ## Spark workload
+
+> [!NOTE]
+> Spark application related tables have been replaced with 11 new Spark tables (starting with HDInsightSpark*) that will give more in depth information about your Spark workloads.
+
 
 | New Table | Details |
 | --- | --- |
