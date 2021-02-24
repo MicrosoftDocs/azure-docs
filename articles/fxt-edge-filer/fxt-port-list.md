@@ -26,7 +26,7 @@ For more information, contact Microsoft Service and Support.
 
 ## NFS ports
 
-These ports are used for traffic from the FXT cluster to network attached storage:
+Inbound NFS ports:
 
 | Type    | Port number | Service  |
 |---------|-------------|----------|
@@ -36,7 +36,16 @@ These ports are used for traffic from the FXT cluster to network attached storag
 | TCP/UDP | 4046        | MOUNTD   |
 | TCP/UDP | 4047        | STATUS   |
 
-Outbound NFS traffic from FXT nodes uses ephemeral ports. Outbound FXT traffic above well-known ports should not be restricted at the transport level.
+Outbound NFS ports:
+
+| Type    | Port number | Service  |
+|---------|-------------|----------|
+| TCP/UDP | 111         | RPCBIND  |
+| TCP/UDP | 2049        | NFS      |
+
+Outbound NFS port traffic varies depending on the kind of storage used as a core filer. (Some systems do not use port 2049, though it is common enough to be listed here. All clusters need access on port 111.) Check the documentation for your storage systems or use the query technique described below in [Additional port requirements](#additional-port-requirements).
+
+Some outbound NFS traffic from FXT nodes uses ephemeral ports. Outbound FXT traffic above well-known ports should not be restricted at the transport level.
 
 ## SMB ports
 
