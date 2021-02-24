@@ -67,9 +67,9 @@ To create and locate the storage account:
 
 ![Resource group view](./media/replicate-using-expressroute/storage-account-name.png)
 
-**_Tip:_** <br/>
-If you have more than one storage account with the prefix **"lsa"** in your resource group, you can verify the storage account by navigating to the replication settings and target configuration menu for any of the replicating VMs in the project. <br/>
-![Replication settings overview](./media/replicate-using-expressroute/storage-account.png)
+>[!Tip]
+>If you have more than one storage account with the prefix **"lsa"** in your resource group, you can verify the storage account by navigating to the replication settings and target configuration menu for any of the replicating VMs in the project. <br/> 
+>![Replication settings overview](./media/replicate-using-expressroute/storage-account.png)
 
 ### 3. Upgrade  cache storage account to General Purpose v2 
 
