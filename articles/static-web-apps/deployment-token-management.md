@@ -46,7 +46,7 @@ To keep automated deployment running, after resetting a token you need to set th
     :::image type="content" source="./media/deployment-token-management/github-repo-secrets.png" alt-text="Listing repository secrets":::
 
     > [!NOTE]
-    > If you created the Azure Static Web Apps site against multiple branches of this repository, you will see multiple _AZURE_STATIC_WEB_APPS_API_TOKEN_... secrets in this list. Select the correct one, by matching the file name listed in the _Edit workflow_ field on the _Overview_ tab of the Static Web Apps site.
+    > If you created the Azure Static Web Apps site against multiple branches of this repository, you will see multiple _AZURE_STATIC_WEB_APPS_API_TOKEN_... secrets in this list. Select the correct one by matching the file name listed in the _Edit workflow_ field on the _Overview_ tab of the Static Web Apps site.
 
 1. Click on the **Update** button to open the editor.
 1. **Paste the value** of the deployment token to the _Value_ field.
