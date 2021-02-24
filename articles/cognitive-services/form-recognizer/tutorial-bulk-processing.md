@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * An Azure subscription. [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
-* After you have your Azure subscription, [create a Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. After the resource deploys, select **Go to resource**.
+* After you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After the resource deploys, select **Go to resource**.
     * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into your code later in this quickstart.
     * You can use the free pricing tier (F0) to try the service. You can then upgrade later to a paid tier for production.
 * A set of at least five forms of the same type. Ideally, this workflow is meant to support large sets of documents. See [Build a training dataset](./build-training-data-set.md) for tips and options for putting together your training dataset. For this tutorial, you can use the files in the Train folder of the [sample dataset](https://go.microsoft.com/fwlink/?linkid=2128080).
