@@ -1,3 +1,16 @@
+---
+title: Support and help options
+description: Learn about the various help and support options available for Azure Communication Services.
+author: rifox
+manager: chpalm
+services: azure-communication-services
+
+ms.author: rifox
+ms.date: 02/23/2021
+ms.topic: overview
+ms.service: azure-communication-services
+---
+
 # Help and Support options for Azure Communication Services
 
 If you have an issue or question involving Azure Communication Services, then you have many options.
