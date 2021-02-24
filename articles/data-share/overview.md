@@ -6,6 +6,7 @@ ms.author: jife
 ms.service: data-share
 ms.topic: overview
 ms.date: 02/23/2021
+ms.custom: references_regions
 ---
 # What is Azure Data Share?
 
