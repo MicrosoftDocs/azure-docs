@@ -21,7 +21,7 @@ For more information, see [Multitenant Hosting for Windows 10](https://www.micro
 
 ## Subscription Licenses that qualify for Multitenant Hosting Rights
 
-Using the [Microsoft admin center](https://docs.microsoft.com/microsoft-365/admin/admin-overview/about-the-admin-center?view=o365-worldwide&preserve-view=true), you can confirm if a user has been assigned a Windows 10 supported license.
+Using the [Microsoft admin center](/microsoft-365/admin/admin-overview/about-the-admin-center?preserve-view=true&view=o365-worldwide), you can confirm if a user has been assigned a Windows 10 supported license.
 
 > [!IMPORTANT]
 > Users must have one of the below subscription licenses in order to use Windows 10 images in Azure. If you do not have one of these subscription licenses, they can be purchased through your [Cloud Service Partner](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) or directly through [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
