@@ -44,7 +44,7 @@ After you've deployed your policies, data will be logged in the Log Analytics wo
 
 You can view [alerts](../../azure-monitor/alerts/alerts-overview.md) for the delegated subscriptions in customer tenants that your manage.
 
-From your managing tenant, you can [create, view, and manage activity log alerts](../../azure-monitor/platform/alerts-activity-log.md) in the Azure portal or through APIs and management tools.
+From your managing tenant, you can [create, view, and manage activity log alerts](../../azure-monitor/alerts/alerts-activity-log.md) in the Azure portal or through APIs and management tools.
 
 To refresh alerts automatically across multiple customers, use an [Azure Resource Graph](../../governance/resource-graph/overview.md) query to filter for alerts. You can pin the query to your dashboard and select all of the appropriate customers and subscriptions. For example, the query below will display severity 0 and 1 alerts, refreshing every 60 minutes.
 
