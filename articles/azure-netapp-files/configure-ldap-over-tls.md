@@ -1,6 +1,6 @@
 ---
-title: Configure LDAP over TLS for Azure NetApp Files | Microsoft Docs
-description: Describes how to configure LDAP over TLS for Azure NetApp Files, including root CA certificate management. 
+title: Configure ADDS LDAP over TLS for Azure NetApp Files | Microsoft Docs
+description: Describes how to configure ADDS LDAP over TLS for Azure NetApp Files, including root CA certificate management. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,10 +13,10 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 03/01/2021
 ms.author: b-juche
 ---
-# Configure LDAP over TLS for Azure NetApp Files
+# Configure ADDS LDAP over TLS for Azure NetApp Files
 
 You can use LDAP over TLS to secure communication between an Azure NetApp Files volume and the Active Directory LDAP server.  You can enable LDAP over TLS for NFS, SMB, and dual-protocol volumes of Azure NetApp Files.  
 

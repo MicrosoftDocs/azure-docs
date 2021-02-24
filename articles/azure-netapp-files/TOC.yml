@@ -99,7 +99,7 @@
     href: azure-netapp-files-create-volumes-smb.md
   - name: Create a dual-protocol volume 
     href: create-volumes-dual-protocol.md
-  - name: Configure LDAP over TLS
+  - name: Configure ADDS LDAP over TLS
     href: configure-ldap-over-tls.md
   - name: Mount or unmount a volume
     href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
