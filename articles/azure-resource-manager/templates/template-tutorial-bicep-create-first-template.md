@@ -158,6 +158,10 @@ az group create \
 
 ---
 
+[jgao - do we need this part?]
+
+Optionally, you can compile the Bicep with _bicep build azuredeploy.bicep, and the output is:
+
 ## Deploy template
 
 To deploy the Bicep template, use either Azure CLI or Azure PowerShell. Use the resource group you created. Give a name to the deployment so you can easily identify it in the deployment history. For convenience, also create a variable that stores the path to the Bicep template file. This variable makes it easier for you to run the deployment commands because you don't have to retype the path every time you deploy. Replace `{provide-the-path-to-the-template-file}` including the curly braces `{}` with the path to your Bicep template file with the .bicep file extension name.

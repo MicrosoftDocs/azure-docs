@@ -2,10 +2,9 @@
 title: Tutorial - add parameters to Bicep template
 description: Add parameters to your Azure Resource Manager template (ARM template) to make it reusable.
 author: mumian
-ms.date: 02/17/2021
+ms.date: 02/24/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Add parameters to your ARM Bicep template
@@ -33,6 +32,8 @@ To make your template reusable, let's add a parameter that you can use to pass i
 Copy the whole file and replace your template with its contents.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.bicep" range="1-16" highlight="1-4,7":::
+
+Notice the parameters can be referenced directly by using their names in Bicep, compared to requiring [parameters('storageName')] in ARM JSON template.
 
 ## Deploy template
 
