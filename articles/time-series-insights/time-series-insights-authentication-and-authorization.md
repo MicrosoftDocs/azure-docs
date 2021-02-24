@@ -101,9 +101,9 @@ Once your managed identity or app registration has been provisioned and assigned
 
 When accessing from Azure App Service or Functions follow the guidance in the [Obtain tokens for Azure resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity).
 
-Note that for .NET applications and functions, the simplest way to work with a managed identity is through the Microsoft.Azure.Services.AppAuthentication package. This package is popular due to its flexibility it offers, and it supports authentication to Azure services using a developer's Azure Active Directory/ Microsoft account during the development stage, or as a service iteslf in a later stage. When hosted in the cloud, it will default to using a system-assigned identity, but you can customize this behavior using a connection string environment variable which references the client ID of a user-assigned identity, or even an app registration and client secret. For more on development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference.](https://docs.microsoft.com/dotnet/api/overview/azure/service-to-service-authentication). 
+Note that for .NET applications and functions, the simplest way to work with a managed identity is through the Microsoft.Azure.Services.AppAuthentication package. This package is popular due to its flexibility it offers, and it supports authentication to Azure services using a developer's Azure Active Directory/ Microsoft account during the development stage, or as a service itself in a later stage. When hosted in the cloud, it will default to using a system-assigned identity, but you can customize this behavior using a connection string environment variable which references the client ID of a user-assigned identity, or even an app registration and client secret. For more on development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference.](https://docs.microsoft.com/dotnet/api/overview/azure/service-to-service-authentication). 
 
-Requst a token for Azure Time Series Insights using C# and the Microsoft.Azure.Services.AppAuthentication library:
+Request a token for Azure Time Series Insights using C# and the Microsoft.Azure.Services.AppAuthentication library:
 
     ```csharp
     using Microsoft.Azure.Services.AppAuthentication;
@@ -126,7 +126,7 @@ MSAL can be used in many application scenarios, including, but not limited to:
 * [Desktop/service daemon application calling web API on behalf of itself](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-overview.md)
 
 
-For sample C# code showing how to aquire a token as an app registration and query data from a Gen2 environment, view the sample app on [GitHub](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/Program.cs)
+For sample C# code showing how to acquire a token as an app registration and query data from a Gen2 environment, view the sample app on [GitHub](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/Program.cs)
 
 > [!IMPORTANT]
 > If you are using [Azure Active Directory Authentication Library (ADAL)](../active-directory/azuread-dev/active-directory-authentication-libraries.md) read about [migrating to MSAL](../active-directory/develop/msal-net-migration.md).
