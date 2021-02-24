@@ -28,7 +28,7 @@ No. All Azure Arc enabled Kubernetes features, including Azure Monitor and Azure
 
 Yes, connecting your AKS-HCI cluster or Kubernetes clusters on Azure Stack Edge or Azure Stack Hub to Azure Arc provides clusters with resource representation in Azure Resource Manager. This resource representation extends capabilities like Cluster Configuration, Azure Monitor, and Azure Policy (Gatekeeper) to connected Kubernetes clusters.
 
-If the Azure Arc enabled Kubernetes cluster is on Azure Stack Edge, AKS on Azure Stack HCI (>= March 2021 update), or AKS on Windows Server 2019 Datacenter (>= March 2021 update), then the Kubernetes configuration is included at no charge.
+If the Azure Arc enabled Kubernetes cluster is on Azure Stack Edge, AKS on Azure Stack HCI (>= April 2021 update), or AKS on Windows Server 2019 Datacenter (>= April 2021 update), then the Kubernetes configuration is included at no charge.
 
 ## How to address expired Azure Arc enabled Kubernetes resources?
 
