@@ -4,7 +4,7 @@ description: This quickstart shows how to create an Azure Managed Instance for A
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cassandra-managed-instance
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 03/02/2021
 ---
 # Quickstart: Configure a hybrid cluster with Azure Managed Instance for Apache Cassandra (Preview)
@@ -93,9 +93,6 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    dataCenterLocation='West US'
    delegatedSubnetId= '/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
     
-   # Available regions in public preview are: East Us, West Us, East US 2, West US 2, Central US, 
-   # South Central US, North Europe, West Europe, South East Asia, Australia East
-    
    az cassandra-mi datacenter create \
        --resource-group $resourceGroupName \
        --cluster-name $clusterName \
@@ -127,6 +124,10 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    ```SQL
    ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3};
    ```
+
+## Next steps
+
+In this how-to guide, you learned how to create a hybrid cluster using Azure CLI and Azure Managed Instance for Apache Cassandra. You can now start working with the cluster.
 
 * [Overview of Azure Managed Instance for Apache Cassandra](introduction.md)
 * [Deploy a Managed Apache Spark Cluster with Azure Databricks](deploy-cluster-databricks.md)

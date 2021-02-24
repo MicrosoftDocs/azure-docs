@@ -133,9 +133,6 @@ dataCenterName='dc1'
 dataCenterLocation='West US'
 delegatedSubnetId= '/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
 
-# available regions in public preview are: East US, West US, East US 2, West US 2, Central US, 
-# South Central US, North Europe, West Europe, South East Asia, Australia East
-
 az cassandra-mi datacenter create \
     --resource-group $resourceGroupName \
     --cluster-name $clusterName \
