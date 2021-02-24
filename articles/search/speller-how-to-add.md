@@ -31,7 +31,7 @@ You can improve recall by spell-correcting individual search query terms before 
   The queryLanguage is required for speller, and currently "en-us" is the only valid value.
 
 > [!Note]
-> The speller parameter is available on all tiers, at no extra charge, on all regions that provide semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> The speller parameter is available on all tiers, in the same regions that provide semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 ## Spell correction with simple search
 
@@ -56,7 +56,7 @@ Spelling correction occurs on individual query terms that undergo analysis, whic
 + Incompatible query forms that bypass text analysis include: wildcard, regex, fuzzy
 + Compatible query forms include: fielded search, proximity, term boosting
 
-This example uses fielded search over the Category field, with full Lucene syntax, and a misspelled query string. By including speller, the typo in "Suiite" is corrected and the query succeeds.
+This example uses fielded search over the Category field, with full Lucene syntax, and a misspelled query term. By including speller, the typo in "Suiite" is corrected and the query succeeds.
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview
@@ -89,9 +89,12 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Language considerations
 
-The queryLanguage parameter required for speller is independent of any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. Specified in a query request, the queryLanguage determines which dictionaries are used for spell check, and is also used as an input to the [semantic ranking algorithm](semantic-how-to-query-response.md) if you are using it. In contrast, language analyzers are used during indexing, and while retrieving matching documents in the search index.
+The queryLanguage parameter required for speller must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. Specified in a query request, the queryLanguage determines which dictionaries are used for spell check, and is also used as an input to the [semantic ranking algorithm](semantic-how-to-query-response.md) if you are using it. Language analyzers are used during indexing, and while retrieving matching documents in the search index. To be consistent, if queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"). 
 
-In a query request, the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts. 
+> [!NOTE]
+> Language-agnostic analyzers (such as keyword, simple, standard, stop, whitespace, or `standardasciifolding.lucene`) do not conflict with queryLanguage settings.
+
+In a query request, the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts.
 
 While content in a search index can be composed in multiple languages, the query input is most likely in one. The search engine doesn't check for compatibility of queryLanguage, language analyzer, and the language in which content is composed, so be sure to scope queries accordingly to avoid producing incorrect results.
 
