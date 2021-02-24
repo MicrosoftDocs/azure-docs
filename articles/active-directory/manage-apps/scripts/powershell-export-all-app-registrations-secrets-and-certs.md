@@ -1,6 +1,6 @@
 ---
-title: PowerShell sample - Export...
-description: PowerShell example that ...
+title: PowerShell sample - Export app registrations, secrets, and certificates in Azure Active Directory tenant.
+description: PowerShell example that exports all app registrations, secrets, and certificates for the specified apps in your Azure Active Directory tenant.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -13,9 +13,9 @@ ms.author: kenwith
 ms.reviewer: mifarca
 ---
 
-# Export a...
+# Export app registrations, secrets, and certificates.
 
-This PowerShell script example ....
+This PowerShell script example exports all app registrations, secrets, and certificates for the specified apps in your directory.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,13 +27,13 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 
 ## Sample script
 
-[!code-azurepowershell[main](~/powershell_scripts/application-management/export-all-app-registrations-secrets-and-certs.ps1 "Exports all app registrations, secrets and certificates for the specified apps in your directory.")]
+[!code-azurepowershell[main](~/powershell_scripts/application-management/export-all-app-registrations-secrets-and-certs.ps1 "Exports all app registrations, secrets, and certificates for the specified apps in your directory.")]
 
 ## Script explanation
 
 | Command | Notes |
 |---|---|
-| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Gets... |
+| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Exports all app registrations, secrets, and certificates for the specified apps in your directory. |
 
 ## Next steps
 
