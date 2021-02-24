@@ -71,7 +71,7 @@ To use either a [managed Azure Machine Learning __compute target__](concept-comp
 > * One load balancer
 > 
 > In the case of clusters these resources are deleted (and recreated) every time the cluster scales down to 0 nodes, however for an instance the resources are held onto till the instance is completely deleted (stopping does not remove the resources). 
-> These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted.
+> These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure policy which prohibits creation of network security groups.
 
 
 ### <a id="mlcports"></a> Required ports
@@ -80,7 +80,7 @@ If you plan on securing the virtual network by restricting network traffic to/fr
 
 The Batch service adds network security groups (NSGs) at the level of network interfaces (NICs) that are attached to VMs. These NSGs automatically configure inbound and outbound rules to allow the following traffic:
 
-- Inbound TCP traffic on ports 29876 and 29877 from a __Service Tag__ of __BatchNodeManagement__.
+- Inbound TCP traffic on ports 29876 and 29877 from a __Service Tag__ of __BatchNodeManagement__. Traffic over these ports is encrypted and is used by Azure Batch for scheduler/node communication.
 
     ![An inbound rule that uses the BatchNodeManagement service tag](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
 
@@ -90,7 +90,7 @@ The Batch service adds network security groups (NSGs) at the level of network in
 
 - Outbound traffic on any port to the internet.
 
-- For compute instance inbound TCP traffic on port 44224 from a __Service Tag__ of __AzureMachineLearning__.
+- For compute instance inbound TCP traffic on port 44224 from a __Service Tag__ of __AzureMachineLearning__. Traffic over this port is encrypted and is used by Azure Machine Learning for communication with applications running on Compute Instances.
 
 > [!IMPORTANT]
 > Exercise caution if you modify or add inbound or outbound rules in Batch-configured NSGs. If an NSG blocks communication to the compute nodes, the compute service sets the state of the compute nodes to unusable.
