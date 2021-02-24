@@ -15,8 +15,8 @@ When you create a new Azure Static Web Apps site, Azure generates a token used t
 
 Normally, you don't need to worry about the deployment token, but the following are some reasons you might need to retrieve or reset the token.
 
-* **Token compromise**: If you need to reset your token in light a your token being exposed.
-* **Deploying from a separate GitHub repository**: If you are attempting to manually deploy from a separate GitHub repository, then you need to set up your GitHub workflow, and set the deployment token in the new repository.
+* **Token compromise**: Reset your token if it is exposed to an outside party.
+* **Deploying from a separate GitHub repository**: If you are manually deploying from a separate GitHub repository, then you need to set the deployment token in the new repository.
 
 ## Prerequisites
 
