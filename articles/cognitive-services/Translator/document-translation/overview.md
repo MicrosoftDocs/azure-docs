@@ -17,7 +17,7 @@ Document Translation is a cloud-based feature of the [Azure Translator](../trans
 | Feature | Description |
 | ---------| -------------|
 | **Translate large files**| Translate whole documents asynchronously.|
-|**Translate numerous files**|Translate multiple files to and from more than 70 languages.|
+|**Translate numerous files**|Translate multiple files to and from 90 languages and dialects.|
 |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
 |**Apply custom translation**| Translate documents using general and [custom translation](../customization.md#custom-translator) models.|
 |**Apply custom glossaries**|Translate documents using custom glossaries.|
