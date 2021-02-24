@@ -113,7 +113,7 @@ It is required to get the service principal's application ID and secret:
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-the-sql-data-source.png" alt-text="Set up the SQL data source":::
 
-1. Select **Enter manually**
+1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop-down box and the appropriate server from the **Server name** drop-down box.
 
 1. Provide the **public endpoint fully qualified domain name** and **port number**. Then select **Finish** to register the data source.
 

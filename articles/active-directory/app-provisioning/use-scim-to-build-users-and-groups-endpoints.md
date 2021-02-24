@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Deploy your SCIM endpoint in Azure
 
-The steps here deploy the SCIM endpoint to a service by using [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) and [Azure App Service](https://docs.microsoft.com/azure/app-service/). The SCIM reference code can also be run locally, hosted by an on-premises server, or deployed to another external service.
+The steps here deploy the SCIM endpoint to a service by using [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) and [Azure App Service](../../app-service/index.yml). The SCIM reference code can also be run locally, hosted by an on-premises server, or deployed to another external service.
 
 1. Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from GitHub and select **Clone or download**.
 
