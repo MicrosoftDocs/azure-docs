@@ -157,7 +157,7 @@ Until recently, only way to publish ADF pipeline for deployments was using ADF P
 
 #### Resolution
 
-CI/CD process has been enhanced. The **Automated publish** feature takes, validates and exports all  Azure Resource Manager (ARM) template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This gives  your CI/CD pipelines a **true** continuous integration experience. Please follow [ADF CI/CD Publishing Improvements](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) for details. 
+CI/CD process has been enhanced. The **Automated publish** feature takes, validates and exports all  Azure Resource Manager (ARM) template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This gives  your CI/CD pipelines a **true** continuous integration experience. Please follow [ADF CI/CD Publishing Improvements](./continuous-integration-deployment-improvements.md) for details. 
 
 ###  Cannot publish because of 4mb ARM template limit  
 
@@ -171,7 +171,7 @@ Azure Resource Manager restricts template size to be 4mb. Limit the size of your
 
 #### Resolution
 
-For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. Please follow best practice at [Using Linked and Nested Templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell).
+For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. Please follow best practice at [Using Linked and Nested Templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
 
 ## Next steps
 
