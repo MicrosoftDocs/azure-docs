@@ -17,7 +17,7 @@ The following steps will guide you through setting up automated pause and resume
 
 1. Parameter setup in your pipeline
 1. Identify the list of dedicated SQL pools in your Synapse workspace
-1. Remove any irrelevant databases from this list 
+1. Remove any irrelevant dedicated SQL pools from this list 
 1. Loop over each dedicated SQL pool and:
     1. Check the state of the dedicated SQL pool
     1. Depending upon its state, initiate pause or resume
@@ -67,20 +67,16 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
     The following code is a simple Get request:
     
     ```HTTP
-    GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{server-name}/sqlPools?api-version=2019-06-01-preview
+    GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{workspace-name}/sqlPools?api-version=2019-06-01-preview
     ```
     
     Enter the GET request has been parameterized using the @concat string function:
     
     ```HTTP
-    @concat('https://management.azure.com/subscriptions/',pipeline().parameters.Subscription,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.ServerName,'/sqlPools?api-version=2019-06-01-preview')
+    @concat('https://management.azure.com/subscriptions/',pipeline().parameters.SubscriptionID,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.WorkspaceName,'/sqlPools?api-version=2019-06-01-preview')
     ```
 
-    ```HTTP
-    @concat('https://management.azure.com/subscriptions/',pipeline().parameters.Subscription,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.WorkspaceName,'/sqlPools?api-version=2019-06-01-preview')
-    ```
-
-    For all of the Web Activities / REST API Web calls, ensure that Synapse Pipeline is authenticated against dedicated SQL pool. [Managed Identity](../../data-factory/control-flow-web-activity.md#managed-identity) is required to run these REST API calls.  Select **MSI** for **Authentication** type. Enter `https://management.azure.com/` for **Resource**.  
+    For all of the Web Activities / REST API Web calls, ensure that Synapse Pipeline is authenticated against dedicated SQL pool. [Managed Identity](../../data-factory/control-flow-web-activity.md#managed-identity) is required to run these REST API calls.  Expand **Advanced** and select **MSI** for **Authentication** type. Enter `https://management.azure.com/` for **Resource**.  
     
     The output is a JSON string that contains a list of the database instances in the SQL server named above. The JSON string is passed to the next activity.
 
