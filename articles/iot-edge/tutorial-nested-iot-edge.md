@@ -260,7 +260,7 @@ If you completed the above steps correctly, you can check that your certificates
 
    You should see a certificate hash linked to your root CA Certificate and your root CA certificate linked to the copy in your `usr/local/share` directory.
 
-   [Results of search for azure certificates](./media/tutorial-nested-iot-edge/certificate-list-results.png)
+   [Results of search for Azure certificates](./media/tutorial-nested-iot-edge/certificate-list-results.png)
 
 Once you are satisfied your certificates are installed on each device, you are ready to proceed.
 
@@ -755,7 +755,7 @@ Notice that the image URI that we used for the simulated temperature sensor modu
 
 If you completed the above steps correctly, your **lower layer device** should report three modules: the temperature sensor module and the system modules, as **Specified in Deployment**. It may take a few minutes for the device to receive its new deployment, request the container image, and start the module. Refresh the page until you see the temperature sensor module listed as **Reported by Device**. Once the modules are reported by the device, you are ready to continue.
 
-## IoTEdge check
+## Troubleshooting
 
 Run the `iotedge check` command to verify the configuration and to troubleshoot errors.
 
