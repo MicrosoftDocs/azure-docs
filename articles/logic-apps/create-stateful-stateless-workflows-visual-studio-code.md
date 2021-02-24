@@ -665,7 +665,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
    | Action status | Icon | Description |
    |---------------|------|-------------|
    | Aborted | ![Icon for "Aborted" action status][aborted-icon] | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | Cancelled | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a cancellation request. |
+   | Cancelled | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a request to cancel. |
    | Failed | ![Icon for "Failed" action status][failed-icon] | The action failed. |
    | Running | ![Icon for "Running" action status][running-icon] | The action is currently running. |
    | Skipped | ![Icon for "Skipped" action status][skipped-icon] | The action was skipped because the immediately preceding action failed. An action has a `runAfter` condition that requires that the preceding action finishes successfully before the current action can run. |
@@ -1129,7 +1129,7 @@ If you're not familiar with Docker, review these topics:
    For example, this sample Docker file deploys a logic app with a stateful workflow. The file specifies the connection string and access key for the Azure Storage account that was used for publishing the logic app to the Azure portal.
 
    ```text
-   FROM mcr.microsoft.com/dotnet/core/sdk3.1 AS installer-env
+   FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS installer-env
 
    COPY . /src/dotnet-function-app
    RUN cd /src/dotnet-function-app && \
