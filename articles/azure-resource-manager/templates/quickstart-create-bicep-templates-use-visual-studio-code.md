@@ -84,14 +84,14 @@ Now, on the storage resource, update the name property to use the parameter. To 
 
 ## Deploy the template
 
-Open the integrated Visual Studio Code terminal using the `ctrl` + ```` ` ```` key combination and use either the Azure CLI or Azure PowerShell module to deploy the template.
+Open the integrated Visual Studio Code terminal using the `ctrl` + ```` ` ```` key combination, change the current directory to where the template is located, and then use either the Azure CLI or Azure PowerShell module to deploy the template.
 
 # [CLI](#tab/CLI)
 
 ```azurecli
 az group create --name arm-vscode --location eastus
 
-az deployment group create --resource-group arm-vscode --template-file azuredeploy.bicep --parameters azuredeploy.parameters.bicep
+az deployment group create --resource-group arm-vscode --template-file azuredeploy.bicep --parameters storageAccountName={your-unique-name}
 ```
 
 # [PowerShell](#tab/PowerShell)
@@ -99,7 +99,7 @@ az deployment group create --resource-group arm-vscode --template-file azuredepl
 ```azurepowershell
 New-AzResourceGroup -Name arm-vscode -Location eastus
 
-New-AzResourceGroupDeployment -ResourceGroupName arm-vscode -TemplateFile ./azuredeploy.bicep -storageAccountName mystore0223
+New-AzResourceGroupDeployment -ResourceGroupName arm-vscode -TemplateFile ./azuredeploy.bicep -storageAccountName "{your-unique-name}"
 ```
 
 ---
