@@ -54,7 +54,7 @@ To access the public Internet, you need one or more public IP addresses for the 
 
 ### Create a public IP prefix
 
-You can use one or more public IP address resources, public IP prefixes, or both with NAT gateway. We"ll add a public IP prefix resource to this scenario to demonstrate.   Use [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) to create a public IP prefix resource named **myPublicIPprefix** in **myResourceGroupNAT**.
+You can use one or more public IP address resources, public IP prefixes, or both with NAT gateway. We'll add a public IP prefix resource to this scenario to demonstrate. Use [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) to create a public IP prefix resource named **myPublicIPprefix** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip prefix create \
