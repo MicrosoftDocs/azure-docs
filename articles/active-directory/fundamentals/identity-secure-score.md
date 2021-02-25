@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/20/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -47,7 +47,7 @@ By following the improvement actions, you can:
 
 ## How do I get my secure score?
 
-The identity secure score is available in all editions of Azure AD. To access your score, go to the [Azure AD Overview dashboard](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/IdentitySecureScore).
+The identity secure score is available in all editions of Azure AD. Organizations can access their identity secure score from the **Azure portal** > **Azure Active Directory** > **Security** > **Identity Secure Score**.
 
 ## How does it work?
 
@@ -101,9 +101,9 @@ You're given points for configuring recommended security features or performing 
 
 To see your score history, head over to the [Microsoft 365 security center](https://security.microsoft.com/) and review your overall Microsoft secure score. You can review changes to your overall secure score be clicking on View History. Choose a specific date to see which controls were enabled for that day and what points you earned for each one.
 
-### How does the identity secure score relate to the Office 365 secure score?
+### How does the identity secure score relate to the Microsoft 365 secure score?
 
-The [Microsoft secure score](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) contains five distinct control and score categories:
+The [Microsoft secure score](/office365/securitycompliance/microsoft-secure-score) contains five distinct control and score categories:
 
 - Identity
 - Data
@@ -115,4 +115,4 @@ The identity secure score represents the identity part of the Microsoft secure s
 
 ## Next steps
 
-[Find out more about Microsoft secure score](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)
+[Find out more about Microsoft secure score](/office365/securitycompliance/microsoft-secure-score)

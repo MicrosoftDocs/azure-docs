@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with iLMS | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and iLMS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: d6e11639-6cea-48c9-b008-246cf686e726
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Integrate iLMS with Azure Active Directory
 
@@ -27,7 +20,7 @@ In this tutorial, you'll learn how to integrate iLMS with Azure Active Directory
 * Enable your users to be automatically signed-in to iLMS with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -131,29 +124,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 2. Click **SSO:SAML** under **Settings** tab to open SAML settings and perform the following steps:
 
-	![Configure Single Sign-On](./media/ilms-tutorial/1.png)
+	![Screenshot shows the I L M S settings tab where you can select S S O: SAML.](./media/ilms-tutorial/1.png)
 
 3. Expand the **Service Provider** section and copy the **Identifier** and **Endpoint (URL)** value.
 
-	![Configure Single Sign-On](./media/ilms-tutorial/2.png) 
+	![Screenshot shows SAML Settings where you can get the values.](./media/ilms-tutorial/2.png) 
 
 4. Under **Identity Provider** section, click **Import Metadata**.
 
 5. Select the **Federation Metadata** file downloaded from the Azure portal from the **SAML Signing Certificate** section.
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
+    ![Screenshot shows SAML Settings where you can select the metadata file.](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
 6. If you want to enable JIT provisioning to create iLMS accounts for un-recognize users, follow below steps:
 
 	a. Check **Create Un-recognized User Account**.
 
-	![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+	![Screenshot shows Create Un-recognized User Account option.](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
 	b. Map the attributes in Azure AD with the attributes in iLMS. In the attribute column, specify the attributes name or the default value.
 
 	c. Go to **Business Rules** tab and perform the following steps:
 
-	![Configure Single Sign-On](./media/ilms-tutorial/5.png)
+	![Screenshot shows Business Rules settings where you can enter the information in this step.](./media/ilms-tutorial/5.png)
 
 	d. Check **Create Un-recognized Regions, Divisions and Departments** to create Regions, Divisions, and Departments that do not already exist at the time of Single Sign-on.
 
@@ -165,7 +158,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 7. Click **Save** button to save the settings.
 
-	![Configure Single Sign-On](./media/ilms-tutorial/save.png)
+	![Screenshot shows the Save button.](./media/ilms-tutorial/save.png)
 
 ### Create an Azure AD test user
 
@@ -207,11 +200,11 @@ If you need to create an user manually, then follow below steps:
 
 2. Click **Register User** under **Users** tab to open **Register User** page.
 
-   ![Add Employee](./media/ilms-tutorial/3.png)
+   ![Screenshot shows the I L M S settings tab where you can select Register User.](./media/ilms-tutorial/3.png)
 
 3. On the **Register User** page, perform the following steps.
 
-	![Add Employee](./media/ilms-tutorial/create_testuser_add.png)
+	![Screenshot shows the Register User page where you enter the specified information.](./media/ilms-tutorial/create_testuser_add.png)
 
 	a. In the **First Name** textbox, type the first name like Britta.
 
@@ -232,12 +225,12 @@ If you need to create an user manually, then follow below steps:
 
 ### Test SSO
 
-When you select the iLMS tile in the Access Panel, you should be automatically signed in to the iLMS for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the iLMS tile in the Access Panel, you should be automatically signed in to the iLMS for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

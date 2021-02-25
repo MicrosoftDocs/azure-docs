@@ -1,6 +1,6 @@
 ---
-title: List deny assignments for Azure resources using the Azure portal | Microsoft Docs
-description: Learn how to list the users, groups, service principals, and managed identities that have been denied access to specific Azure resource actions at particular scopes using the Azure portal.
+title: List Azure deny assignments using the Azure portal - Azure RBAC
+description: Learn how to list the users, groups, service principals, and managed identities that have been denied access to specific Azure resource actions at particular scopes using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,7 +9,7 @@ manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/10/2019
@@ -17,18 +17,18 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# List deny assignments for Azure resources using the Azure portal
+# List Azure deny assignments using the Azure portal
 
-[Deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to list deny assignments using the Azure portal.
+[Azure deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to list deny assignments using the Azure portal.
 
 > [!NOTE]
-> You can't directly create your own deny assignments. For information about how deny assignments are created, see [Deny assignments](deny-assignments.md).
+> You can't directly create your own deny assignments. For information about how deny assignments are created, see [Azure deny assignments](deny-assignments.md).
 
 ## Prerequisites
 
 To get information about a deny assignment, you must have:
 
-- `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [built-in roles for Azure resources](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [Azure built-in roles](built-in-roles.md).
 
 ## List deny assignments
 
@@ -105,5 +105,5 @@ Follow these steps to list additional details about a deny assignment.
 
 ## Next steps
 
-* [Understand deny assignments for Azure resources](deny-assignments.md)
-* [List deny assignments for Azure resources using Azure PowerShell](deny-assignments-powershell.md)
+* [Understand Azure deny assignments](deny-assignments.md)
+* [List Azure deny assignments using Azure PowerShell](deny-assignments-powershell.md)

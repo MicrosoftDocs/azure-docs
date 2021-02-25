@@ -1,18 +1,9 @@
 ---
-title: StorSimple Support terms | Microsoft Docs
+title: StorSimple Support terms
 description: Describes support options for StorSimple 8000 series enterprise storage customers. 
-services: storsimple
-documentationcenter: NA
 author: GabiSocoteanu
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: alkohli
 
@@ -32,8 +23,8 @@ Microsoft offers flexible support options for StorSimple enterprise storage cust
 
 ## StorSimple support plans
 
-|                                                                                                                                                     | **STANDARD** <sup>1                                                 |  **PREMIUM** <sup>1                                                                         |
-|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Support feature | STANDARD <sup>1 | PREMIUM <sup>1 |
+| --------------- | --------------- | -------------- |
 | Billing and subscription management                                                                     | ✓                                                                               | ✓                                                                              |
 | Azure portal ticket submission                                                                          | ✓                                                                               | ✓                                                                              |
 | Online support portal access                                                                            | ✓                                                                               | ✓                                                                              |

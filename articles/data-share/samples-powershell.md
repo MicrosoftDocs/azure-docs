@@ -1,23 +1,19 @@
 ---
-title: Azure PowerShell Samples for Azure Data Share | Microsoft Docs
-description: Azure PowerShell Samples - Scripts to help you create and manage data shares. 
-services: data-share
+title: Azure PowerShell Samples for Azure Data Share
+description: Learn about Azure PowerShell Sample scripts to help you create and manage data shares in Azure Data Share. 
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 07/6/2019
 author: joannapea
 ms.author: joanpo
+ms.topic: conceptual
+ms.date: 07/06/2019
 ---
 
 # Azure PowerShell samples for Azure Data Share
 
 The following table includes links to sample Azure PowerShell scripts for Azure Data Share.
 
-| |  |
+|Powershell Samples|Description|
 |---|---|
-|**Powershell Samples**||
 |[Create a new data share account](scripts/powershell/create-new-share-account-powershell.md)| This PowerShell script creates a new data share account. |
 |[Create a new data share](scripts/powershell/create-new-share-powershell.md)| This PowerShell script creates a new data share. |
 |[Add datasets to a share](scripts/powershell/add-datasets-powershell.md)| This PowerShell script adds a blob dataset to an existing data share account. |

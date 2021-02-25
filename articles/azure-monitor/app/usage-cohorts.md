@@ -1,18 +1,12 @@
 ---
 title: Azure Application Insights usage cohorts | Microsoft Docs
 description: Analyze different sets or users, sessions, events, or operations that have something in common
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/10/2018
-ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
+author: NumberByColors
 ms.author: daviste
+ms.date: 04/10/2018
+
+ms.reviewer: mbullwin
 ---
 
 # Application Insights cohorts
@@ -133,7 +127,7 @@ Cohorts and filters are different. Suppose you have a cohort of users from the U
 
 ## Learn more
 
-* [Analytics query language](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Analytics query language](../logs/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Users, sessions, events](usage-segmentation.md)
 * [User flows](usage-flows.md)
 * [Usage overview](usage-overview.md)

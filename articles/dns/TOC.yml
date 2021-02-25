@@ -1,4 +1,4 @@
-- name: DNS Documentation
+- name: DNS documentation
   href: index.yml
 - name: Overview
   items:
@@ -9,12 +9,25 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Name resolution - portal
-    href: dns-getstarted-portal.md
-  - name: Name resolution - PowerShell
-    href: dns-getstarted-powershell.md
-  - name: Name resolution - CLI
-    href: dns-getstarted-cli.md
+  - name: Public DNS
+    items:
+    - name: Create a public zone - portal
+      href: dns-getstarted-portal.md
+    - name: Create a public zone - PowerShell
+      href: dns-getstarted-powershell.md
+    - name: Create a public zone - CLI
+      href: dns-getstarted-cli.md
+    - name: Create a public zone - ARM Template
+      displayName: Resource Manager
+      href: dns-get-started-template.md
+  - name: Private DNS
+    items:
+    - name: Create a private zone - portal
+      href: private-dns-getstarted-portal.md
+    - name: Create a private zone - CLI
+      href: private-dns-getstarted-cli.md
+    - name: Create a private zone - PowerShell
+      href: private-dns-getstarted-powershell.md
 - name: Tutorials
   items:
   - name: Public DNS
@@ -23,23 +36,20 @@
       href: dns-delegate-domain-azure-dns.md
     - name: Create custom DNS records for a web app
       href: dns-web-sites-custom-domain.md
+    - name: Creating a new Child DNS zone
+      href: tutorial-public-dns-zones-child.md
     - name: Alias records for Traffic Manager
       href: tutorial-alias-tm.md
     - name: Alias records for Public IP addresses
       href: tutorial-alias-pip.md
     - name: Alias records for zone records
       href: tutorial-alias-rr.md
-  - name: Private DNS
-    items:
-    - name: Create private DNS zone and record
-      href: private-dns-portal.md
-
-- name: Samples
-  items:
-  - name: Azure CLI
-    href: cli-samples.md
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Public DNS
     items:
     - name: Zones and records
@@ -58,18 +68,20 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
   - name: Private DNS
     items:
-    - name: FAQ - Private DNS
-      href: dns-faq-private.md
+    - name: Private DNS zone
+      href: private-dns-privatednszone.md
+    - name: Virtual network links
+      href: private-dns-virtual-network-links.md
+    - name: Autoregistration
+      href: private-dns-autoregistration.md
     - name: Private DNS scenarios
       href: private-dns-scenarios.md
-- name: How to
+    - name: DNS resolution in virtual networks
+      href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
+    - name: FAQ
+      href: dns-faq-private.md
+- name: How-to guides
   items:
-  - name: Private DNS
-    items:
-    - name: Create private zone - CLI
-      href: private-dns-getstarted-cli.md
-    - name: Create private zone - PowerShell
-      href: private-dns-getstarted-powershell.md
   - name: Public DNS
     items:
     - name: Alias records for load balanced web apps
@@ -110,6 +122,10 @@
       href: dns-sdk.md
     - name: Custom domains for Azure resources
       href: dns-custom-domain.md
+  - name: Private DNS
+    items:
+    - name: Protect private DNS zones and records
+      href: dns-protect-private-zones-recordsets.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
@@ -120,6 +136,8 @@
     items:
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=dns
+    - name: CLI Samples
+      href: cli-samples.md
     - name: Azure PowerShell
       href: /powershell/module/az.dns
     - name: Azure CLI
@@ -133,7 +151,7 @@
     - name: Ruby
       href: https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0
     - name: Python
-      href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html
+      href: https://azure.github.io/azure-sdk-for-python/dns.html
     - name: REST
       href: /rest/api/dns/
     - name: Resource Manager template
@@ -148,28 +166,14 @@
       href: /dotnet/api/overview/azure/privatedns/management
     - name: REST
       href: /rest/api/dns/privatedns/privatezones
-- name: Related
-  items:
-  - name: Application Gateway
-    href: /azure/application-gateway/
-  - name: Virtual Network
-    href: /azure/virtual-network/
-  - name: Virtual Machine
-    href: /azure/virtual-machines/
-  - name: Load Balancer
-    href: /azure/load-balancer/
-  - name: Traffic Manager
-    href: /azure/traffic-manager/
-  - name: Web apps
-    href: /azure/app-service/
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Feature requests
     href: https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-virtual-network.html
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Pricing

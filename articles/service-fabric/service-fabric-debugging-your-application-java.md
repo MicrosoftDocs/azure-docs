@@ -1,21 +1,10 @@
 ---
-title: Debug your Azure Service Fabric Application in Eclipse| Microsoft Docs
+title: Debug your application in Eclipse
 description: Improve the reliability and performance of your services by developing and debugging them in Eclipse on a local development cluster.
-services: service-fabric
-documentationcenter: .net
-author: suhuruli
-manager: chackdan
-editor: ''
 
-ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/02/2017
-ms.author: suhuruli
-
+ms.custom: devx-track-java
 ---
 # Debug your Java Service Fabric application using Eclipse
 > [!div class="op_single_selector"]
@@ -46,5 +35,5 @@ If the application is crashing, you may also want to enable coredumps. Execute `
 
 ### Next steps
 
-* [Collect logs using Linux Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md).
+* [Collect logs using Linux Azure Diagnostics](./service-fabric-diagnostics-event-aggregation-lad.md).
 * [Monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).

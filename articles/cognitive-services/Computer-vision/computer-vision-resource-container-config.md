@@ -1,21 +1,21 @@
 ---
-title: Configure containers - Computer Vision
+title: Configure Read OCR containers - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Configure various settings for Recognize Text containers in Computer Vision.
+description: This article shows you how to configure both required and optional settings for Read OCR containers in Computer Vision.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.author: dapine
+ms.date: 11/23/2020
+ms.author: aahi
 ms.custom: seodec18
 ---
 
-# Configure Recognize Text Docker containers
+# Configure Read OCR Docker containers
 
-The **Recognize Text** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
+You configure the Computer Vision Read OCR container's runtime environment by using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 
 ## Configuration settings
 
@@ -23,6 +23,17 @@ The **Recognize Text** container runtime environment is configured using the `do
 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](computer-vision-how-to-install-containers.md).
+
+The container also has the following container-specific configuration settings:
+
+|Required|Setting|Purpose|
+|--|--|--|
+|No|ReadEngineConfig:ResultExpirationPeriod| v2.0 containers only. Result expiration period in hours. The default is 48 hours. The setting specifies when the system should clear recognition results. For example, if `resultExpirationPeriod=1`, the system clears the recognition result 1 hour after the process. If `resultExpirationPeriod=0`, the system clears the recognition result after the result is retrieved.|
+|No|Cache:Redis| v2.0 containers only. Enables Redis storage for storing results. A cache is *required* if multiple read containers are placed behind a load balancer.|
+|No|Queue:RabbitMQ|v2.0 containers only. Enables RabbitMQ for dispatching tasks. The setting is useful when multiple read containers are placed behind a load balancer.|
+|No|Queue:Azure:QueueVisibilityTimeoutInMilliseconds | v3.x containers only. The time for a message to be invisible when another worker is processing it. |
+|No|Storage::DocumentStore::MongoDB|v2.0 containers only. Enables MongoDB for permanent result storage. |
+|No|Storage:ObjectStore:AzureBlob:ConnectionString| v3.x containers only. Azure blob storage connection string. |
 
 ## ApiKey configuration setting
 
@@ -58,9 +69,9 @@ Remember to add the `vision/v1.0` routing to the endpoint URI as shown in the fo
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## Http proxy credentials settings
+## HTTP proxy credentials settings
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared configuration HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## Logging settings
  
@@ -79,51 +90,81 @@ The exact syntax of the host mount location varies depending on the host operati
 |Not allowed| `Input` | String | Computer Vision containers do not use this.|
 |Optional| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## Example docker run commands 
+## Example docker run commands
 
 The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](computer-vision-how-to-install-containers.md#stop-the-container) it.
 
 * **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
 * **Argument order**: Do not change the order of the arguments unless you are very familiar with Docker containers.
 
-Remember to add the `vision/v1.0` routing to the endpoint URI as shown in the following table. 
-
 Replace {_argument_name_} with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-|{API_KEY} | The endpoint key of the Cognitive Services resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | The billing endpoint value including region.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
+| **{API_KEY}** | The endpoint key of the `Computer Vision` resource on the Azure `Computer Vision` Keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Computer Vision` Overview page.| See [gathering required parameters](computer-vision-how-to-install-containers.md#gathering-required-parameters) for explicit examples. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](computer-vision-how-to-install-containers.md#billing).
-> The ApiKey value is the **Key** from the Azure `Cognitive Services` Resource keys page. 
+> The ApiKey value is the **Key** from the Azure `Cognitive Services` Resource keys page.
 
-## Recognize text container Docker examples
+## Container Docker examples
 
-The following Docker examples are for the recognize text container. 
+The following Docker examples are for the Read container.
 
-### Basic example 
 
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} 
-  ```
+# [Version 3.2-preview](#tab/version-3-2)
+
+### Basic example
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
+```
 
 ### Logging example 
 
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} \
-  Logging:Console:LogLevel:Default=Information
-  ```
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+# [Version 2.0-preview](#tab/version-2)
+
+### Basic example
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
+```
+
+### Logging example 
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+---
 
 ## Next steps
 
-* Review [How to install and run containers](computer-vision-how-to-install-containers.md)
+* Review [How to install and run containers](computer-vision-how-to-install-containers.md).

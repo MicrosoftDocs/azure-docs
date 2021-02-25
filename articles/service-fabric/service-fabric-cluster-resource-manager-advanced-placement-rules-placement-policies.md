@@ -1,21 +1,12 @@
 ---
-title: Service Fabric Cluster Resource Manager - Placement Policies | Microsoft Docs
+title: Service Fabric Cluster Resource Manager - Placement Policies 
 description: Overview of additional placement policies and rules for Service Fabric Services
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
 
-ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-
+ms.custom: devx-track-csharp
 ---
 # Placement policies for service fabric services
 Placement policies are additional rules that can be used to govern service placement in some specific, less-common scenarios. Some examples of those scenarios are:
@@ -24,6 +15,7 @@ Placement policies are additional rules that can be used to govern service place
 - Your environment spans multiple areas of geopolitical or legal control, or some other case where you have policy boundaries you need to enforce
 - There are communication performance or latency considerations due to large distances or use of slower or less reliable network links
 - You need to keep certain workloads collocated as a best effort, either with other workloads or in proximity to customers
+- You need multiple stateless instances of a partition on a single node
 
 Most of these requirements align with the physical layout of the cluster, represented as the fault domains of the cluster. 
 
@@ -33,6 +25,7 @@ The advanced placement policies that help address these scenarios are:
 2. Required domains
 3. Preferred domains
 4. Disallowing replica packing
+5. Allow multiple stateless instances on node
 
 Most of the following controls could be configured via node properties and placement constraints, but some are more complicated. To make things simpler, the Service Fabric Cluster Resource Manager provides these additional placement policies. Placement policies are configured on a per-named service instance basis. They can also be updated dynamically.
 
@@ -52,7 +45,7 @@ invalidDomain.DomainName = "fd:/DCEast"; //regulations prohibit this workload he
 serviceDescription.PlacementPolicies.Add(invalidDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("InvalidDomain,fd:/DCEast”)
@@ -73,7 +66,7 @@ requiredDomain.DomainName = "fd:/DC01/RK03/BL2";
 serviceDescription.PlacementPolicies.Add(requiredDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomain,fd:/DC01/RK03/BL2")
@@ -93,7 +86,7 @@ primaryDomain.DomainName = "fd:/EastUS/";
 serviceDescription.PlacementPolicies.Add(primaryDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("PreferredPrimaryDomain,fd:/EastUS")
@@ -119,13 +112,49 @@ ServicePlacementRequireDomainDistributionPolicyDescription distributeDomain = ne
 serviceDescription.PlacementPolicies.Add(distributeDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomainDistribution")
 ```
 
 Now, would it be possible to use these configurations for services in a cluster that was not geographically spanned? You could, but there’s not a great reason too. The required, invalid, and preferred domain configurations should be avoided unless the scenarios require them. It doesn't make any sense to try to force a given workload to run in a single rack, or to prefer some segment of your local cluster over another. Different hardware configurations should be spread across fault domains and handled via normal placement constraints and node properties.
+
+## Placement of multiple stateless instances of a partition on single node
+The **AllowMultipleStatelessInstancesOnNode** placement policy allows placement of multiple stateless instances of a partition on a single node. By default, multiple instances of a single partition cannot be placed on a node. Even with a -1 service, it is not possible to scale the number of instances beyond the number of nodes in the cluster, for a given named service. This placement policy removes this restriction and allows InstanceCount to be specified higher than node count.
+
+If you've ever seen a health message such as "`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: ReplicaExclusion`", then you've hit this condition or something like it. 
+
+By specifying the `AllowMultipleStatelessInstancesOnNode` policy on the service, InstanceCount can be set beyond the number of nodes in the cluster.
+
+Code:
+
+```csharp
+ServicePlacementAllowMultipleStatelessInstancesOnNodePolicyDescription allowMultipleInstances = new ServicePlacementAllowMultipleStatelessInstancesOnNodePolicyDescription();
+serviceDescription.PlacementPolicies.Add(allowMultipleInstances);
+```
+
+PowerShell:
+
+```posh
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless –PartitionSchemeSingleton –PlacementPolicy @(“AllowMultipleStatelessInstancesOnNode”) -InstanceCount 10 -ServicePackageActivationMode ExclusiveProcess 
+```
+
+> [!NOTE]
+> The placement policy is currently in preview and behind the `EnableUnsupportedPreviewFeatures` cluster setting. Since this is a preview feature for now, setting the preview config prevents the cluster from getting upgraded to/from. In other words, you will need to create a new cluster to try out the feature.
+>
+
+> [!NOTE]
+> Currently the policy is only supported for Stateless services with ExclusiveProcess [service package activation mode](/dotnet/api/system.fabric.description.servicepackageactivationmode).
+>
+
+> [!WARNING]
+> The policy is not supported when used with static port endpoints. Using both in conjunction can lead to an unhealthy cluster as multiple instances on the same node try to bind to the same port, and cannot come up. 
+>
+
+> [!NOTE]
+> Using a high value of [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount) with this placement policy can lead to stuck Application Upgrades. For example, if you have a five-node cluster and set InstanceCount=10, you will have two instances on each node. If you set MinInstanceCount=9, an attempted app upgrade can get stuck; with MinInstanceCount=8, this can be avoided.
+>
 
 ## Next steps
 - For more information on configuring services, [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)

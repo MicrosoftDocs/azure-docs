@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Blockchain Workbench Preview Documentation
+title: Azure Blockchain Workbench Preview documentation
 summary: Learn how to create blockchain applications. Tutorials, API references, and other documentation show you how to deploy Azure Blockchain Workbench and create and manage blockchain applications on Azure.
 
 metadata:
-  title: Azure Blockchain Workbench Preview Documentation - Tutorials, API Reference
+  title: Azure Blockchain Workbench Preview documentation
   description: Learn how to create blockchain applications. Tutorials, API references, and other documentation show you how to deploy Azure Blockchain Workbench and create and manage blockchain applications on Azure.
   services: azure-blockchain
   ms.service: azure-blockchain
@@ -31,6 +31,12 @@ landingContent:
 
   - title: Get started
     linkLists:
+      - linkListType: learn
+        links:
+          - text: Follow the Microsoft Learn blockchain path
+            url: /learn/paths/ethereum-blockchain-development
+          - text: Watch the beginner's blockchain series
+            url: https://channel9.msdn.com/Series/Beginners-Series-to-Blockchain
       - linkListType: deploy
         links:
           - text: Deploy Azure Blockchain Workbench

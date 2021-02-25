@@ -1,6 +1,6 @@
 ---
 title: Quickstart for Microsoft Azure Data Box| Microsoft Docs
-description: Learn how to quickly deploy your Azure Data Box in Azure portal
+description: In this quickstart, learn how to deploy Azure Data Box using the Azure portal for an import order. Configure Azure Data Box and copy data to upload to Azure.
 services: databox
 author: alkohli
 
@@ -13,21 +13,11 @@ ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
 
-::: zone target="docs"
-
-# Quickstart: Deploy Azure Data Box using the Azure portal
-
-::: zone-end
-
-::: zone target="chromeless"
-
-# Get started with Azure Data Box 
-
-::: zone-end
+# Get started with Azure Data Box to import data into Azure
 
 ::: zone target="docs"
 
-This quickstart describes how to deploy the Azure Data Box using the Azure portal. The steps include how to cable, configure, and copy data to Data Box so that it uploads to Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
+This quickstart describes how to deploy the Azure Data Box using the Azure portal for an import order. The steps include how to cable, configure, and copy data to Data Box so that it uploads to Azure. The quickstart steps are performed in the Azure portal and on the local web UI of the device.
 
 For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md)
 
@@ -35,7 +25,7 @@ For detailed step-by-step deployment and tracking instructions, go to [Tutorial:
 
 ::: zone target="chromeless"
 
-This guide describes how to deploy the Azure Data Box using the Azure portal. The steps include review the prerequisites, cable and connect your device, and copy data to your device so that it uploads to Azure.
+This guide describes how to deploy the Azure Data Box for import using the Azure portal. The steps include review the prerequisites, cable and connect your device, and copy data to your device so that it uploads to Azure.
 
 ::: zone-end
 
@@ -47,7 +37,7 @@ Before you begin:
 
 - Make sure that the subscription you use for Data Box service is one of the following types:
     - Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+    - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](/azure/cloud-solution-provider/overview/azure-csp-overview).
     - Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - Ensure that you have owner or contributor access to the subscription to create a Data Box order.
@@ -138,7 +128,7 @@ This step takes about 5-7 minutes to complete.
 
 The time to complete this operation depends upon your data size and network speed.
  
-1. If using a Windows host, use an SMB compatible file copy tool such as Robocopy. For NFS host, use `cp` command or `rsync` to copy the data. Connect the tool to your device and begin copying data to the shares. For more information on how to use Robocopy to copy data, go to [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+1. If using a Windows host, use an SMB compatible file copy tool such as Robocopy. For NFS host, use `cp` command or `rsync` to copy the data. Connect the tool to your device and begin copying data to the shares. For more information on how to use Robocopy to copy data, go to [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
 2. Connect to the shares using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box.
 3. Make sure that the share and folder names, and the data follow guidelines described in the [Azure Storage and Data Box service limits](data-box-limits.md).
 
@@ -177,5 +167,3 @@ In this quickstart, you’ve deployed an Azure Data Box to help import your data
 > [Use the Azure portal to administer Data Box](data-box-portal-admin.md)
 
 ::: zone-end
-
-

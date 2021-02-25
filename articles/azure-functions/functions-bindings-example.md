@@ -1,13 +1,10 @@
 ---
 title: Azure Functions trigger and binding example
 description: Learn to configure Azure Function bindings 
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
 
-ms.service: azure-functions
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
 ---

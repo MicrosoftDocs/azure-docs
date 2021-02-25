@@ -1,19 +1,14 @@
 ---
 title: Targeting monitoring solutions in Azure Monitor | Microsoft Docs
 description: Targeting monitoring solutions allows you to limit monitoring solutions to a specific set of agents.  This article describes how to create a scope configuration and apply it to a solution.
-services: monitoring
-documentationcenter: ''
+ms.subservice: 
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/27/2017
 ms.author: bwren
+ms.date: 04/27/2017
+
 ---
+
 # Targeting monitoring solutions in Azure Monitor (Preview)
 When you add a monitoring solution to your subscription, it's automatically deployed by default to all Windows and Linux agents connected to your Log Analytics workspace.  You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents.  This article describes how to use **Solution Targeting** which is a feature that allows you to apply a scope to your solutions.
 
@@ -24,7 +19,7 @@ There are three steps to targeting a solution as described in the following sect
 
 
 ### 1. Create a computer group
-You specify the computers that you want to include in a scope by creating a [computer group](../platform/computer-groups.md) in Azure Monitor.  The computer group can be based on a log query or imported from other sources such as Active Directory or WSUS groups. As [described below](#solutions-and-agents-that-cant-be-targeted), only computers that are directly connected to Azure Monitor will be included in the scope.
+You specify the computers that you want to include in a scope by creating a [computer group](../logs/computer-groups.md) in Azure Monitor.  The computer group can be based on a log query or imported from other sources such as Active Directory or WSUS groups. As [described below](#solutions-and-agents-that-cant-be-targeted), only computers that are directly connected to Azure Monitor will be included in the scope.
 
 Once you have the computer group created in your workspace, then you'll include it in a scope configuration that can be applied to one or more solutions.
  
@@ -60,7 +55,7 @@ Apply a scope configuration using the following process.
 Following are the criteria for agents and solutions that can't be used with solution targeting.
 
 - Solution targeting only applies to solutions that deploy to agents.
-- Solution targeting only applies to solutions provided by Microsoft.  It does not apply to solutions [created by yourself or partners](solutions-creating.md).
+- Solution targeting only applies to solutions provided by Microsoft.  It does not apply to solutions [created by yourself or partners](./solutions.md).
 - You can only filter out agents that connect directly to Azure Monitor.  Solutions will automatically deploy to any agents that are part of a connected Operations Manager management group whether or not they're included in a scope configuration.
 
 ### Exceptions
@@ -70,4 +65,4 @@ Solution targeting cannot be used with the following solutions even though they 
 
 ## Next steps
 - Learn more about monitoring solutions including the solutions that are available to install in your environment at [Add Azure Log Analytics monitoring solutions to your workspace](solutions.md).
-- Learn more about creating computer groups at [Computer groups in Azure Monitor log queries](../platform/computer-groups.md).
+- Learn more about creating computer groups at [Computer groups in Azure Monitor log queries](../logs/computer-groups.md).

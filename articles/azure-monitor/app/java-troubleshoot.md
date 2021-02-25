@@ -1,25 +1,24 @@
 ---
 title: Troubleshoot Application Insights in a Java web project
 description: Troubleshooting guide - monitoring live Java apps with Application Insights.
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: mbullwin
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
 ---
-# Troubleshooting and Q and A for Application Insights for Java
+
+# Troubleshooting and Q and A for Application Insights for Java SDK
+
+> [!IMPORTANT]
+> The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
+
 Questions or problems with [Azure Application Insights in Java][java]? Here are some tips.
 
 ## Build errors
 **In Eclipse or Intellij Idea, when adding the Application Insights SDK via Maven or Gradle, I get build or checksum validation errors.**
 
-* If the dependency `<version>` element is using a pattern with wildcard characters (e.g. (Maven) `<version>[2.0,)</version>` or (Gradle) `version:'2.0.+'`), try specifying a specific version instead like `2.0.1`. See the [release notes](https://github.com/Microsoft/ApplicationInsights-Java/releases) for the latest version.
+* If the dependency `<version>` element is using a pattern with wildcard characters (e.g. (Maven) `<version>[2.0,)</version>` or (Gradle) `version:'2.+'`), try specifying a specific version instead like `2.6.2`.
 
 ## No data
 **I added Application Insights successfully and ran my app, but I've never seen data in the portal.**
@@ -27,22 +26,21 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Wait a minute and click Refresh. The charts refresh themselves periodically, but you can also refresh manually. The refresh interval depends on the time range of the chart.
 * Check that you have an instrumentation key defined in the ApplicationInsights.xml file (in the resources folder in your project) or configured as Environment variable.
 * Verify that there is no `<DisableTelemetry>true</DisableTelemetry>` node in the xml file.
-* In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com. See the [full list of firewall exceptions](../../azure-monitor/app/ip-addresses.md)
+* In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com. See the [full list of firewall exceptions](./ip-addresses.md)
 * In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
 * [Turn on logging](#debug-data-from-the-sdk) by adding an `<SDKLogger />` element under the root node in the ApplicationInsights.xml file (in the resources folder in your project), and check for entries prefaced with AI: INFO/WARN/ERROR for any suspicious logs. 
 * Make sure that the correct ApplicationInsights.xml file has been successfully loaded by the Java SDK, by looking at the console's output messages for a "Configuration file has been successfully found" statement.
 * If the config file is not found, check the output messages to see where the config file is being searched for, and make sure that the ApplicationInsights.xml is located in one of those search locations. As a rule of thumb, you can place the config file near the Application Insights SDK JARs. For example: in Tomcat, this would mean the WEB-INF/classes folder. During development you can place ApplicationInsights.xml in resources folder of your web project.
-* Please also look at [GitHub issues page](https://github.com/Microsoft/ApplicationInsights-Java/issues) for known issues with the SDK.
+* Please also look at [GitHub issues page](https://github.com/microsoft/ApplicationInsights-Java/issues) for known issues with the SDK.
 * Please ensure to use same version of Application Insights core, web, agent and logging appenders to avoid any version conflict issues.
 
 #### I used to see data, but it has stopped
-* Check the [status blog](https://blogs.msdn.com/b/applicationinsights-status/).
 * Have you hit your monthly quota of data points? Open Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 * Have you recently upgraded your SDK? Please ensure that only Unique SDK jars are present inside the project directory. There should not be two different versions of SDK present.
 * Are you looking at the correct AI resource? Please match the iKey of your application to the resource where you are expecting telemetry. They should be the same.
 
 #### I don't see all the data I'm expecting
-* Open the Usage and estimated cost page and check whether [sampling](../../azure-monitor/app/sampling.md) is in operation. (100% transmission means that sampling isn't in operation.) The Application Insights service can be set to accept only a fraction of the telemetry that arrives from your app. This helps you keep within your monthly quota of telemetry.
+* Open the Usage and estimated cost page and check whether [sampling](./sampling.md) is in operation. (100% transmission means that sampling isn't in operation.) The Application Insights service can be set to accept only a fraction of the telemetry that arrives from your app. This helps you keep within your monthly quota of telemetry.
 * Do you have SDK Sampling turned on? If yes, data would be sampled at the rate specified for all the applicable types.
 * Are you running an older version of Java SDK? Starting with version 2.0.1, we have introduced fault tolerance mechanism to handle intermittent network and backend failures as well as data persistence on local drives.
 * Are you getting throttled due to excessive telemetry? If you turn on INFO logging, you will see a log message "App is throttled". Our current limit is 32k telemetry items/second.
@@ -51,7 +49,6 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Have you configured Java agent by following [Configure Java Agent](java-agent.md) ?
 * Make sure both the java agent jar and the AI-Agent.xml file are placed in the same folder.
 * Make sure that the dependency you are trying to auto-collect is supported for auto collection. Currently we only support MySQL, MsSQL, Oracle DB and Azure Cache for Redis dependency collection.
-* Are you using JDK 1.7 or 1.8? Currently we do not support dependency collection in JDK 9.
 
 ## No usage data
 **I see data about requests and response times, but no page view, browser, or user data.**
@@ -61,7 +58,6 @@ You successfully set up your app to send telemetry from the server. Now your nex
 Alternatively, if your client is an app in a [phone or other device][platforms], you can send telemetry from there.
 
 Use the same instrumentation key to set up both your client and server telemetry. The data will appear in the same Application Insights resource, and you'll be able to correlate events from client and server.
-
 
 ## Disabling telemetry
 **How can I disable telemetry collection?**
@@ -169,7 +165,8 @@ Assuming you [set up your app for Application Insights][java], click Browse, sel
 
 Yes, provided your server can send telemetry to the Application Insights portal through the public internet.
 
-In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
+You may need to [open some outgoing ports in your server's firewall](./ip-addresses.md#outgoing-ports)
+to allow the SDK to send data to the portal.
 
 ## Data retention
 **How long is data retained in the portal? Is it secure?**
@@ -182,7 +179,6 @@ Application Insights uses `org.apache.http`. This is relocated within Applicatio
 >[!NOTE]
 >If you enable DEBUG level logging for all namespaces in the app, it will be honored by all executing modules including `org.apache.http` renamed as `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights will not be able to apply filtering for these calls because the log call is being made by the Apache library. DEBUG level logging produce a considerable amount of log data and is not recommended for live production instances.
 
-
 ## Next steps
 **I set up Application Insights for my Java server app. What else can I do?**
 
@@ -194,15 +190,15 @@ Application Insights uses `org.apache.http`. This is relocated within Applicatio
 
 ## Get help
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-* [File an issue on GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
+* [File an issue on GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[data]: ../../azure-monitor/app/data-retention-privacy.md
+[availability]: ./monitor-web-app-availability.md
+[data]: ./data-retention-privacy.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[platforms]: ../../azure-monitor/app/platforms.md
-[track]: ../../azure-monitor/app/api-custom-events-metrics.md
+[platforms]: ./platforms.md
+[track]: ./api-custom-events-metrics.md
 [usage]: javascript.md
 

@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ---
-# Use the Haivision KB live encoder to send a single bitrate live stream  
+# Use the Haivision KB live encoder to send a single bitrate live stream
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
-> * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 
 This topic shows how to configure the [Havision KB live encoder](https://www.haivision.com/products/kb-series/) encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).

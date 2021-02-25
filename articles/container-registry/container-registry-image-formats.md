@@ -1,14 +1,8 @@
 ---
-title: Azure Container Registry content formats
-description: Learn about supported content formats in Azure Container Registry.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
+title: Supported content formats
+description: Learn about content formats supported by Azure Container Registry, including Docker-compatible container images, Helm charts, OCI images, and OCI artifacts.
 ms.topic: article
 ms.date: 08/30/2019
-ms.author: danlep
 ---
 
 # Content formats supported in Azure Container Registry
@@ -21,11 +15,11 @@ The following Docker container image formats are supported:
 
 * [Docker Image Manifest V2, Schema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
-* [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) - includes Manifest Lists which allow registries to store multiplatform images under a single "image:tag" reference
+* [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) - includes Manifest Lists which allow registries to store [multi-architecture images](push-multi-architecture-images.md) under a single `image:tag` reference
 
 ## OCI images
 
-Azure Container Registry supports images that meet the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md). Packaging formats include [Singularity Image Format (SIF)](https://www.sylabs.io/2018/03/sif-containing-your-containers/).
+Azure Container Registry supports images that meet the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md), including the optional [image index](https://github.com/opencontainers/image-spec/blob/master/image-index.md) specification. Packaging formats include [Singularity Image Format (SIF)](https://github.com/sylabs/sif).
 
 ## OCI artifacts
 

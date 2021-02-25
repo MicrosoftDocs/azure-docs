@@ -1,13 +1,13 @@
 ---
 title: Load balancing on multiple IP configurations - Azure portal
-titlesuffix: Azure Load Balancer
-description: Load balancing across primary and secondary IP configurations.
+titleSuffix: Azure Load Balancer
+description: In this article, learn about load balancing across primary and secondary IP configurations using the Azure portal.
 services: load-balancer
 documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

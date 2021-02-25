@@ -1,8 +1,8 @@
 --- 
 title: Ensure application high availability when running in VMware on Azure 
 description: Describes CloudSimple high availability features to address common application failure scenarios for applications running in a CloudSimple Private Cloud
-author: sharaths-cs 
-ms.author: b-shsury 
+author: Ajayan1008 
+ms.author: v-hborys 
 ms.date: 08/20/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -25,7 +25,7 @@ The CloudSimple solution provides high availability for your applications runnin
 | Leaf Switch Port Failure | YES | Redundant NIC |  |  |
 | Leaf Switch Failure | YES | Redundant leaf switches |  |  |
 | Rack Failure | YES | Placement groups |  |  |
-| Network Connectivity to on-premise DC | YES  | Redundant networking services |  | Redundant ER circuits |
+| Network Connectivity to on-premises DC | YES  | Redundant networking services |  | Redundant ER circuits |
 | Network Connectivity to Azure | YES | |  | Redundant ER circuits |
 | Datacenter Failure | YES |  |  | Availability zones |
 | Regional Failure | YES  |  |  | Azure regions |

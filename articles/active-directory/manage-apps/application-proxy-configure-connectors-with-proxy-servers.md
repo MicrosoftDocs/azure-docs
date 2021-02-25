@@ -1,18 +1,17 @@
 ---
-title: Work with existing on-premises proxy servers and Azure AD | Microsoft Docs
-description: Covers how to work with existing on-premises proxy servers.
+title: Work with existing on-premises proxy servers and Azure Active Directory
+description: Covers how to work with existing on-premises proxy servers with Azure Active Directory.
 services: active-directory
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 05/21/2019
-ms.author: mimart
+ms.topic: how-to
+ms.date: 04/07/2020
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
+ms.custom: contperf-fy21q2
 ---
 
 # Work with existing on-premises proxy servers
@@ -23,6 +22,7 @@ We start by looking at these main deployment scenarios:
 
 * Configure connectors to bypass your on-premises outbound proxies.
 * Configure connectors to use an outbound proxy to access Azure AD Application Proxy.
+* Configure using a proxy between the connector and backend application.
 
 For more information about how connectors work, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).
 
@@ -100,24 +100,25 @@ There are four aspects to consider at the outbound proxy:
 * Proxy outbound rules
 * Proxy authentication
 * Proxy ports
-* SSL inspection
+* TLS inspection
 
 #### Proxy outbound rules
 
 Allow access to the following URLs:
 
-| URL | How it's used |
-| --- | --- |
-| \*.msappproxy.net<br>\*.servicebus.windows.net | Communication between the connector and the Application Proxy cloud service |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure uses these URLs to verify certificates |
-| login.windows.net<br>login.microsoftonline.com | The connector uses these URLs during the registration process. |
+| URL | Port |  How it's used |
+| --- | --- | --- |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Communication between the connector and the Application Proxy cloud service |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | The connector uses these URLs to verify certificates. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS | The connector uses these URLs during the registration process. |
+| ctldl.windowsupdate.com | 80/HTTP | The connector uses this URL during the registration process. |
 
-If your firewall or proxy allows you to configure DNS allow lists, you can allow connections to \*.msappproxy.net and \*.servicebus.windows.net. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). The IP ranges are updated each week.
+If your firewall or proxy allows you to configure DNS allow lists, you can allow connections to \*.msappproxy.net and \*.servicebus.windows.net.
 
 If you can't allow connectivity by FQDN and need to specify IP ranges instead, use these options:
 
 * Allow the connector outbound access to all destinations.
-* Allow the connector outbound access to all of the [Azure datacenter IP ranges](https://www.microsoft.com//download/details.aspx?id=41653). The challenge with using the list of Azure datacenter IP ranges is that it's updated weekly. You need to put a process in place to ensure that your access rules are updated accordingly. Only using a subset of the IP addresses may cause your configuration to break.
+* Allow the connector outbound access to all of the Azure datacenter IP ranges. The challenge with using the list of Azure datacenter IP ranges is that it's updated weekly. You need to put a process in place to ensure that your access rules are updated accordingly. Only using a subset of the IP addresses may cause your configuration to break. To download the latest Azure Data Center IP ranges, navigate to [https://download.microsoft.com](https://download.microsoft.com) and search for "Azure IP Ranges and Service Tags". Be sure to select the relevant cloud. For example, the public cloud IP ranges can be found with "Azure IP Ranges and Service Tags – Public Cloud". The US Government cloud can be found by searching for "Azure IP Ranges and Service Tags – US Government Cloud".
 
 #### Proxy authentication
 
@@ -125,14 +126,35 @@ Proxy authentication is not currently supported. Our current recommendation is t
 
 #### Proxy ports
 
-The connector makes outbound SSL-based connections by using the CONNECT method. This method essentially sets up a tunnel through the outbound proxy. Configure the proxy server to allow tunneling to ports 443 and 80.
+The connector makes outbound TLS-based connections by using the CONNECT method. This method essentially sets up a tunnel through the outbound proxy. Configure the proxy server to allow tunneling to ports 443 and 80.
 
 > [!NOTE]
 > When Service Bus runs over HTTPS, it uses port 443. However, by default, Service Bus attempts direct TCP connections and falls back to HTTPS only if direct connectivity fails.
 
-#### SSL inspection
+#### TLS inspection
 
-Do not use SSL inspection for the connector traffic, because it causes problems for the connector traffic. The connector uses a certificate to authenticate to the Application Proxy service, and that certificate can be lost during SSL inspection.
+Do not use TLS inspection for the connector traffic, because it causes problems for the connector traffic. The connector uses a certificate to authenticate to the Application Proxy service, and that certificate can be lost during TLS inspection.
+
+## Configure using a proxy between the connector and backend application
+Using a forward proxy for the communication towards the backend application might be a special requirement in some environments.
+To enable this, please follow the next steps:
+
+### Step 1: Add the required registry value to the server
+1. To enable using the default proxy add the following registry value (DWORD) 
+`UseDefaultProxyForBackendRequests = 1` to the Connector configuration registry key located in "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD App Proxy Connector".
+
+### Step 2: Configure the proxy server manually using netsh command
+1.	Enable the group policy Make proxy settings per-machine. This is found in: Computer Configuration\Policies\Administrative Templates\Windows Components\Internet Explorer. This needs to be set rather than having this policy set to per-user.
+2.	Run `gpupdate /force` on the server or reboot the server to ensure it uses the updated group policy settings.
+3.	Launch an elevated command prompt with admin rights and enter `control inetcpl.cpl`.
+4.	Configure the required proxy settings. 
+
+These settings make the connector use the same forward proxy for the communication to Azure and to the backend application. If the connector to Azure communication requires no forward proxy or a different forward proxy, you can set this up with modifying the file ApplicationProxyConnectorService.exe.config as described in the sections Bypass outbound proxies or Use the outbound proxy server.
+
+> [!NOTE]
+> There are various ways to configure the internet proxy in the operating system. Proxy settings configured via NETSH WINHTTP (run `NETSH WINHTTP SHOW PROXY` to verify) override the proxy settings you configured in Step 2. 
+
+The connector updater service will use the machine proxy as well. This behavior can be changed by modifying the file ApplicationProxyConnectorUpdaterService.exe.config.
 
 ## Troubleshoot connector proxy problems and service connectivity issues
 
@@ -140,7 +162,10 @@ Now you should see all traffic flowing through the proxy. If you have problems, 
 
 The best way to identify and troubleshoot connector connectivity issues is to take a network capture while starting the connector service. Here are some quick tips on capturing and filtering network traces.
 
-You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Message Analyzer. You can [download it from Microsoft](https://www.microsoft.com/download/details.aspx?id=44226).
+You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Message Analyzer.
+
+> [!NOTE]
+> [Microsoft Message Analyzer (MMA) was retired](/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) and its download packages removed from microsoft.com sites on November 25 2019.  There is currently no Microsoft replacement for Microsoft Message Analyzer in development at this time.  For similar functionality, please consider using a 3rd party network protocol analyzer tool such as Wireshark.
 
 The following examples are specific to Message Analyzer, but the principles can be applied to any analysis tool.
 
@@ -182,4 +207,4 @@ If you see other response codes, such as 407 or 502, that means that the proxy i
 ## Next steps
 
 * [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
-* If you have problems with connector connectivity issues, ask your question in the [Azure Active Directory forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) or create a ticket with our support team.
+* If you have problems with connector connectivity issues, ask your question in the [Microsoft Q&A question page for Azure Active Directory](/answers/topics/azure-active-directory.html) or create a ticket with our support team.

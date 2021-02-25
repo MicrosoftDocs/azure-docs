@@ -1,30 +1,27 @@
 ---
-title: Allowed certificate authorities for enabling custom HTTPS on Azure CDN | Microsoft Docs
-description: If you are using your own certificate to enable HTTPS on a custom domain, you must use an allowed certificate authority (CA) to create it.  
+title: Allowed CA for enabling custom HTTPS
+titleSuffix: Azure Content Delivery Network
+description: If you're using your own certificate to enable HTTPS on a custom domain, you must use an allowed certificate authority (CA) to create it.  
 services: cdn
-documentationcenter: ''
-author: mdgattuso
-manager: danielgi
-editor: ''
-
-ms.assetid: 
+author: asudbring
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/18/2018
-ms.author: magattus
+ms.topic: troubleshooting
+ms.date: 02/04/2021
+ms.author: allensu
 ms.custom: mvc
 
 ---
 
-# Allowed certificate authorities for enabling custom HTTPS on Azure CDN
+# Allowed certificate authorities for enabling custom HTTPS
 
-For an Azure Content Delivery Network (CDN) custom domain on an **Azure CDN Standard from Microsoft** endpoint, when you [enable the HTTPS feature by using your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates), you must use an allowed certificate authority (CA) to create your SSL certificate. Otherwise, if you use a non-allowed CA or a self-signed certificate, your request will be rejected.
+Specific certificate requirements are required when you [enable the HTTPS feature by using your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) for an Azure CDN (Content Delivery Network) custom domain. 
+
+* The **Azure CDN Standard from Microsoft** profile requires a certificate from one of the approved certificate authorities (CA) in the following list. If a certificate from an unapproved CA or if a self-signed certificate is used, the request is rejected. 
+
+* **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles accept any valid certificate from any valid CA. Verizon profiles don't support self-signed certificates.
 
 > [!NOTE]
-> The option of using your own certificate to enable custom HTTPS is available only with **Azure CDN Standard from Microsoft** profiles. 
+> The option of using your own certificate to enable the custom domain HTTPS feature is *not* available for **Azure CDN Standard from Akamai** profiles. 
 >
 
 [!INCLUDE [cdn-front-door-allowed-ca](../../includes/cdn-front-door-allowed-ca.md)]

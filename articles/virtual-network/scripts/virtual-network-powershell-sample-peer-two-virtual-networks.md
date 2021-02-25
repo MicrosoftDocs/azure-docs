@@ -1,21 +1,18 @@
-﻿---
-title: Azure PowerShell script sample - Peer two virtual networks | Microsoft Docs
-description: Azure PowerShell script sample - Peer two virtual networks
+---
+title: Peer two virtual networks - Azure PowerShell script sample
+description: Create and connect two virtual networks in the same region. Use the Azure script for two peer virtual networks to connect the networks through the Azure network.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags:
-
-ms.assetid:
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 03/20/2018
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Peer two virtual networks script sample
@@ -53,6 +50,6 @@ This script uses the following commands to create a resource group, virtual mach
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional virtual network PowerShell script samples can be found in [Virtual network PowerShell samples](../powershell-samples.md).

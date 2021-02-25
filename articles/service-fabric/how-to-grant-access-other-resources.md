@@ -1,17 +1,12 @@
 ---
-title: Azure Service Fabric - Grant a Service Fabric application access to other Azure resources| Microsoft Docs
+title: Grant an application access to other Azure resources
 description: This article explains how to grant your managed-identity-enabled Service Fabric application access to other Azure resources supporting Azure Active Directory-based authentication.
-services: service-fabric
-author: athinanthny
 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2019
-ms.author: atsenthi 
+ms.date: 12/09/2019
 ---
 
-# Granting a Service Fabric application's managed identity access to Azure resources (preview)
+# Granting a Service Fabric application's managed identity access to Azure resources
 
 Before the application can use its managed identity to access other resources, permissions must be granted to that identity on the protected Azure resource being accessed. Granting permissions is typically a management action on the 'control plane' of the Azure service owning the protected resource routed via Azure Resource Manager, which will enforce any applicable role-based access checking.
 
@@ -36,36 +31,75 @@ Similarly with accessing storage, you can leverage the managed identity of a Ser
 
 ![Key Vault access policy](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-The following example illustrates granting access to a vault via a template deployment; add the snippet below as another entry under the `resources` element of the template.
+The following example illustrates granting access to a vault via a template deployment; add the snippet(s) below as another entry under the `resources` element of the template. The sample demonstrates access granting for both user-assigned and system-assigned identity types, respectively - choose the applicable one.
 
 ```json
-	{
-		"type": "Microsoft.KeyVault/vaults/accessPolicies",
-		"name": "[concat(parameters('keyVaultName'), '/add')]",
-		"apiVersion": "2018-02-14",
-		"properties": {
-			"accessPolicies": [
-				{
-					"tenantId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').tenantId]",
-					"objectId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').principalId]",
-					"dependsOn": [
-						"[variables('userAssignedIdentityResourceId')]"
-					],
-					"permissions": {
-						"keys":         ["get", "list"],
-						"secrets":      ["get", "list"],
-						"certificates": ["get", "list"]
-					}
-				}
-			]
-		}
-	},
+    # under 'variables':
+  "variables": {
+        "userAssignedIdentityResourceId" : "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]",
+    }
+    # under 'resources':
+    {
+        "type": "Microsoft.KeyVault/vaults/accessPolicies",
+        "name": "[concat(parameters('keyVaultName'), '/add')]",
+        "apiVersion": "2018-02-14",
+        "properties": {
+            "accessPolicies": [
+                {
+                    "tenantId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').tenantId]",
+                    "objectId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').principalId]",
+                    "dependsOn": [
+                        "[variables('userAssignedIdentityResourceId')]"
+                    ],
+                    "permissions": {
+                        "keys":         ["get", "list"],
+                        "secrets":      ["get", "list"],
+                        "certificates": ["get", "list"]
+                    }
+                }
+            ]
+        }
+    },
+```
+And for system-assigned managed identities:
+```json
+    # under 'variables':
+  "variables": {
+        "sfAppSystemAssignedIdentityResourceId": "[concat(resourceId('Microsoft.ServiceFabric/clusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]"
+    }
+    # under 'resources':
+    {
+        "type": "Microsoft.KeyVault/vaults/accessPolicies",
+        "name": "[concat(parameters('keyVaultName'), '/add')]",
+        "apiVersion": "2018-02-14",
+        "properties": {
+            "accessPolicies": [
+            {
+                    "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
+                    "tenantId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]",
+                    "objectId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]",
+                    "dependsOn": [
+                        "[variables('sfAppSystemAssignedIdentityResourceId')]"
+                    ],
+                    "permissions": {
+                        "secrets": [
+                            "get",
+                            "list"
+                        ],
+                        "certificates": 
+                        [
+                            "get", 
+                            "list"
+                        ]
+                    }
+            },
+        ]
+        }
+    }
 ```
 
-For more details, please see [Vaults - Update Access Policy](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).
+For more details, please see [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## Next steps
-
 * [Deploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-
 * [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)

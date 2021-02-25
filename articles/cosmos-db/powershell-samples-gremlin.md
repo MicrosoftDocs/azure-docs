@@ -1,24 +1,37 @@
 ---
-title: Azure PowerShell samples for Azure Cosmos DB - Gremlin API
-description: Azure PowerShell samples for Azure Cosmos DB - Gremlin API
+title: Azure PowerShell samples for Azure Cosmos DB Gremlin API
+description:  Get the Azure PowerShell samples to perform common tasks in Azure Cosmos DB Gremlin API
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 01/20/2021
 ms.author: mjbrown
 ---
 
 # Azure PowerShell samples for Azure Cosmos DB Gremlin API
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
-The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB for Gremlin API.
+The following table includes links to commonly used Azure PowerShell scripts for Azure Cosmos DB. Use the links on the right to navigate to API specific samples. Common samples are the same across all APIs. Reference pages for all Azure Cosmos DB PowerShell cmdlets are available in the [Azure PowerShell Reference](/powershell/module/az.cosmosdb). The `Az.CosmosDB` module is now part of the `Az` module. [Download and install](/powershell/azure/install-az-ps?preserve-view=true&view=azps-5.4.0) the latest version of Az module to get the Azure Cosmos DB cmdlets. You can also get the latest version from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az/5.4.0). You can also fork these PowerShell samples for Cosmos DB from our GitHub repository, [Cosmos DB PowerShell Samples on GitHub](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb).
 
-| | |
+## Common Samples
+
+|Task | Description |
 |---|---|
-|[Create an account, database and graph](scripts/powershell/gremlin/ps-gremlin-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account, database and graph. |
-|[List or get databases or graphs](scripts/powershell/gremlin/ps-gremlin-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| List or get database or graph. |
-|[Get RU/s](scripts/powershell/gremlin/ps-gremlin-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get RU/s for a database or graph. |
-|[Update RU/s](scripts/powershell/gremlin/ps-gremlin-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Update RU/s for a database or graph. |
-|[Add a region](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get an Azure Cosmos account and add a region to the list of locations. |
-|[Change the failover priority](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Change the failover priority of an Azure Cosmos account with a manual failover trigger. |
-|[Account keys and connection string tasks](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get the connection strings for an Azure Cosmos account. Get the primary and secondary keys of an Azure Cosmos account. Regenerate an account key. |
+|[Update an account](scripts/powershell/common/account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Update a Cosmos DB account's default consistency level. |
+|[Update an account's regions](scripts/powershell/common/update-region.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Update a Cosmos DB account's regions. |
+|[Change failover priority or trigger failover](scripts/powershell/common/failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Change the regional failover priority of an Azure Cosmos account or trigger a manual failover. |
+|[Account keys or connection strings](scripts/powershell/common/keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get primary and secondary keys, connection strings or regenerate an account key of an Azure Cosmos DB account. |
+|[Create a Cosmos Account with IP Firewall](scripts/powershell/common/firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create an Azure Cosmos DB account with IP Firewall enabled. |
+|||
+
+## Gremlin API Samples
+
+|Task | Description |
+|---|---|
+|[Create an account, database and graph](scripts/powershell/gremlin/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account, database and graph. |
+|[Create an account, database and graph with autoscale](scripts/powershell/gremlin/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account, database and graph with autoscale. |
+|[List or get databases or graphs](scripts/powershell/gremlin/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| List or get database or graph. |
+|[Throughput operations](scripts/powershell/gremlin/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Throughput operations for a database or graph including get, update and migrate between autoscale and standard throughput. |
+|[Lock resources from deletion](scripts/powershell/gremlin/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Prevent resources from being deleted with resource locks. |
 |||

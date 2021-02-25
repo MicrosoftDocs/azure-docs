@@ -1,11 +1,11 @@
 ---
 title: Overview of Azure Firewall service tags
-description: This article is an overview of the Azure Firewall service tags.
+description: A service tag represents a group of IP address prefixes to help minimize complexity for security rule creation.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 6/27/2019
+ms.date: 11/19/2019
 ms.author: victorh
 ---
 
@@ -17,7 +17,7 @@ Azure Firewall service tags can be used in the network rules destination field. 
 
 ## Supported service tags
 
-See [Security groups](../virtual-network/security-overview.md#service-tags) for a list of service tags that are available for use in Azure firewall network rules.
+See [Virtual network service tags](../virtual-network/service-tags-overview.md#available-service-tags) for a list of service tags that are available for use in Azure firewall network rules.
 
 ## Next steps
 

@@ -1,10 +1,8 @@
 ---
 title: Output error policies in Azure Stream Analytics
 description: Learn about the output error handling policies available in Azure Stream Analytics.
-services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: jasonh
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
@@ -29,4 +27,4 @@ All transient errors (for example, network errors) are retried regardless of the
 
 
 ## Next steps
-[Troubleshooting guide for Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
+[Troubleshooting guide for Azure Stream Analytics](./stream-analytics-troubleshoot-query.md)

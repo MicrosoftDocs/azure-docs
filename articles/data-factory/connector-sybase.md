@@ -1,36 +1,35 @@
 ---
-title: Copy data from Sybase using Azure Data Factory | Microsoft Docs
+title: Copy data from Sybase using Azure Data Factory 
 description: Learn how to copy data from Sybase to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 06/10/2020
 ms.author: jingwang
-
 ---
 # Copy data from Sybase using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-sybase-connector.md)
 > * [Current version](connector-sybase.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Sybase database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
+This Sybase connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from Sybase database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Sybase connector supports:
 
-- SAP Sybase SQL Anywhere (ASA) **version 16 and above**; IQ and ASE are not supported.
+- SAP Sybase SQL Anywhere (ASA) **version 16 and above**.
 - Copying data using **Basic** or **Windows** authentication.
+
+Sybase IQ and ASE are not supported. You can use generic ODBC connector with Sybase driver instead.
 
 ## Prerequisites
 
@@ -166,6 +165,11 @@ If you were using `RelationalSource` typed source, it is still supported as-is, 
 When copying data from Sybase, the following mappings are used from Sybase data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 Sybase supports T-SQL types. For a mapping table from SQL types to Azure Data Factory interim data types, see [Azure SQL Database Connector - data type mapping](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database) section.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 
 
 ## Next steps

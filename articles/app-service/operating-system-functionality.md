@@ -1,27 +1,18 @@
 ---
-title: Operating system functionality in App Service - Azure
-description: Learn about the OS functionality available to web apps, mobile app backends, and API apps on Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: mollybos
+title: Operating system functionality
+description: Learn about the OS functionality in Azure App Service on Windows. Find out what types of file, network, and registry access your app gets. 
 
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
 # Operating system functionality on Azure App Service
-This article describes the common baseline operating system functionality that is available to all Windows apps running on [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). This functionality includes file, network, and registry access, and diagnostics logs and events. 
+This article describes the common baseline operating system functionality that is available to all Windows apps running on [Azure App Service](./overview.md). This functionality includes file, network, and registry access, and diagnostics logs and events. 
 
 > [!NOTE] 
-> [Linux apps](containers/app-service-linux-intro.md) in App Service run in their own containers. No access to the host operating system is allowed, you do have root access to the container. Likewise, for [apps running in Windows containers](app-service-web-get-started-windows-container.md), you have administrative access to the container but no access to the host operating system. 
+> [Linux apps](overview.md#app-service-on-linux) in App Service run in their own containers. No access to the host operating system is allowed, you do have root access to the container. Likewise, for [apps running in Windows containers](quickstart-custom-container.md?pivots=container-windows), you have administrative access to the container but no access to the host operating system. 
 >
 
 <a id="tiers"></a>
@@ -65,7 +56,7 @@ It is important to monitor your disk utilization as your application grows. If t
 
 <a id="NetworkDrives"></a>
 
-### Network drives (aka UNC shares)
+### Network drives (UNC shares)
 One of the unique aspects of App Service that makes app deployment and maintenance straightforward is that all user content is stored on a set of UNC shares. This model maps well to the common pattern of content storage used by on-premises web hosting environments that have multiple load-balanced servers. 
 
 Within App Service, there is a number of UNC shares created in each data center. A percentage of the user content for all customers in each data center is allocated to each UNC share. Furthermore, all of the file content for a single customer's subscription is always placed on the same UNC share. 
@@ -132,4 +123,3 @@ App Service doesn't provide remote desktop access to the VM instances.
 
 [Azure App Service sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - The most up-to-date information about the execution environment of App Service. This page is 
 maintained directly by the App Service development team.
-

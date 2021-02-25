@@ -1,20 +1,13 @@
 ﻿---
-title: 'Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: 'IPsec/IKE policy for S2S VPN & VNet-to-VNet connections'
+titleSuffix: Azure VPN Gateway
 description: Configure IPsec/IKE policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using Azure Resource Manager and PowerShell.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: yushwang
 
 ---
@@ -22,7 +15,7 @@ ms.author: yushwang
 
 This article walks you through the steps to configure IPsec/IKE policy for Site-to-Site VPN or VNet-to-VNet connections using the Resource Manager deployment model and PowerShell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="about"></a>About IPsec and IKE policy parameters for Azure VPN gateways
 IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensuring cross-premises and VNet-to-VNet connectivity satisfy your compliance or security requirements.
@@ -105,7 +98,7 @@ The following table lists the corresponding Diffie-Hellman Groups supported by t
 | 2                         | DHGroup2                 | PFS2         | 1024-bit MODP  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048-bit MODP  |
 | 19                        | ECP256                   | ECP256       | 256-bit ECP    |
-| 20                        | ECP384                   | ECP284       | 384-bit ECP    |
+| 20                        | ECP384                   | ECP384       | 384-bit ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048-bit MODP  |
 
 Refer to [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114) for more details.
@@ -121,7 +114,7 @@ See [Create a S2S VPN connection](vpn-gateway-create-site-to-site-rm-powershell.
 ### <a name="before"></a>Before you begin
 
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* Install the Azure Resource Manager PowerShell cmdlets. See [Overview of Azure PowerShell](/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
+* Install the Azure Resource Manager PowerShell cmdlets. See [Overview of Azure PowerShell](/powershell/azure/) for more information about installing the PowerShell cmdlets.
 
 ### <a name="createvnet1"></a>Step 1 - Create the virtual network, VPN gateway, and local network gateway
 
@@ -156,7 +149,7 @@ $LNGIP6        = "131.107.72.22"
 
 #### 2. Connect to your subscription and create a new resource group
 
-Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
@@ -350,7 +343,7 @@ DhGroup             : DHGroup24
 PfsGroup            : PFS24
 ```
 
-If there is no IPsec/IKE policy configured, the command (PS> $connection6.policy) gets an empty return. It does not mean IPsec/IKE is not configured on the connection, but that there is no custom IPsec/IKE policy. The actual connection uses the default policy negotiated between your on-premises VPN device and the Azure VPN gateway.
+If there is no IPsec/IKE policy configured, the command (PS> $connection6.IpsecPolicies) gets an empty return. It does not mean IPsec/IKE is not configured on the connection, but that there is no custom IPsec/IKE policy. The actual connection uses the default policy negotiated between your on-premises VPN device and the Azure VPN gateway.
 
 #### 2. Add or update an IPsec/IKE policy for a connection
 
@@ -413,4 +406,4 @@ You can use the same script to check if the policy has been removed from the con
 
 See [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md) for more details regarding policy-based traffic selectors.
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/windows/quick-create-portal.md) for steps.

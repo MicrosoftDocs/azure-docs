@@ -14,11 +14,11 @@ ms.custom: include file
 
 In this 2-part tutorial, you learn how to set up and use these custom routing queries with IoT Hub. You route messages from an IoT device to one of multiple endpoints, including blob storage and a Service Bus queue. Messages to the Service Bus queue are picked up by a Logic App and sent via e-mail. Messages that do not have custom message routing defined are sent to the default endpoint, then picked up by Azure Stream Analytics and viewed in a Power BI visualization.
 
-To complete parts 1 and 2 of this tutorial, you performed the following tasks:
+To complete Parts 1 and 2 of this tutorial, you perform the following tasks:
 
 **Part I: Create resources, set up message routing**
 > [!div class="checklist"]
-> * Create the resources -- an IoT hub, a storage account, a Service Bus queue, and a simulated device. This can be done using the portal, the Azure CLI, Azure PowerShell, or an Azure Resource Manager template.
+> * Create the resources -- an IoT hub, a storage account, a Service Bus queue, and a simulated device. This can be done using the Azure portal, an Azure Resource Manager template, the Azure CLI, or Azure PowerShell.
 > * Configure the endpoints and message routes in IoT Hub for the storage account and Service Bus queue.
 
 **Part II: Send messages to the hub, view routed results**
@@ -33,13 +33,14 @@ To complete parts 1 and 2 of this tutorial, you performed the following tasks:
 
 ## Prerequisites
 
-* For part 1 of this tutorial:
+* For Part 1 of this tutorial:
   - You must have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* For part 2 of this tutorial:
+* For Part 2 of this tutorial:
   - You must have completed Part 1 of this tutorial, and have the resources still available.
   - Install [Visual Studio](https://www.visualstudio.com/).
-  - A Power BI account to analyze the default endpoint's stream analytics. ([Try Power BI for free](https://app.powerbi.com/signupredirect?pbi_source=web).)
-  - An Office 365 account to send notification e-mails.
+  - Have access to a Power BI account to analyze the default endpoint's stream analytics. ([Try Power BI for free](https://app.powerbi.com/signupredirect?pbi_source=web).)
+  - Have a work or school account for sending notification e-mails.
+  - Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]

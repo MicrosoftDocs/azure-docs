@@ -1,18 +1,20 @@
 ---
-title: Storing and Using Azure Service Fabric Mesh Application Secrets | Microsoft Docs
-description: Storing and using Service Fabric Mesh Secrets.
-services: service-fabric-mesh
-keywords: secrets
-author: v-steg
-ms.author: jeconnoc
+title: Storing and Using Azure Service Fabric Mesh Application Secrets 
+description: Service Fabric Mesh supports Secrets as Azure resources. Here’s how to store and manage secrets with your Service Fabric Mesh applications.
+author: erikadoyle
+ms.author: edoyle
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: jeconnoc
 #Customer intent: As a developer, I need to securely deploy Secrets to my Service Fabric Mesh application.
 ---
 
 # Service Fabric Mesh application secrets
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Service Fabric Mesh supports Secrets as Azure resources. A Service Fabric Mesh secret can be any sensitive text information such as storage connection strings, passwords, or other values that should be stored and transmitted securely.
 
 ![Mesh Secrets Overview][sf-mesh-secrets-overview]

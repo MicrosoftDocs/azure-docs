@@ -1,7 +1,7 @@
 ---
 title: How to filter search results - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: Learn how to filter and display search results from the Bing Web Search API.
+description: You can filter the types of answers that Bing includes in the response (for example images, videos, and news) by using the 'responseFilter' query parameter.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -14,6 +14,11 @@ ms.author: scottwhi
 ---
 
 # Filtering the answers that the search response includes  
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 When you query the web, Bing returns all the relevant content it finds for the search. For example, if the search query is "sailing+dinghies", the response might contain the following answers:
 
@@ -46,7 +51,7 @@ To filter the answers returned by Bing, use the below query parameters when call
 
 ### ResponseFilter
 
-You can filter the types of answers that Bing includes in the response (for example images, videos, and news) by using the [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) query parameter, which is a comma-delimited list of answers. An answer will be included in the response if Bing finds relevant content for it. 
+You can filter the types of answers that Bing includes in the response (for example images, videos, and news) by using the [responseFilter](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) query parameter, which is a comma-delimited list of answers. An answer will be included in the response if Bing finds relevant content for it. 
 
 To exclude specific answers from the response such as images, prepend a `-` character to the answer type. For example:
 
@@ -91,9 +96,9 @@ The following shows the response to the previous query. Because Bing didn't find
 }
 ```
 
-Although Bing did not return video and news results in the previous response, it does not mean that video and news content does not exist. It simply means that the page didn't include them. However, if you [page](./paging-webpages.md) through more results, the subsequent pages would likely include them. Also, if you call the [Video Search API](../bing-video-search/search-the-web.md) and [News Search API](../bing-news-search/search-the-web.md) endpoints directly, the response would likely contain results.
+Although Bing did not return video and news results in the previous response, it does not mean that video and news content does not exist. It simply means that the page didn't include them. However, if you [page](./paging-search-results.md) through more results, the subsequent pages would likely include them. Also, if you call the [Video Search API](../bing-video-search/overview.md) and [News Search API](../bing-news-search/search-the-web.md) endpoints directly, the response would likely contain results.
 
-You are discouraged from using `responseFilter` to get results from a single API. If you want content from a single Bing API, call that API directly. For example, to receive only images, send a request to the Image Search API endpoint, `https://api.cognitive.microsoft.com/bing/v7.0/images/search` or one of the other [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) endpoints. Calling the single API is important not only for performance reasons but because the content-specific APIs offer richer results. For example, you can use filters that are not available to the Web Search API to filter the results.  
+You are discouraged from using `responseFilter` to get results from a single API. If you want content from a single Bing API, call that API directly. For example, to receive only images, send a request to the Image Search API endpoint, `https://api.cognitive.microsoft.com/bing/v7.0/images/search` or one of the other [Images](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) endpoints. Calling the single API is important not only for performance reasons but because the content-specific APIs offer richer results. For example, you can use filters that are not available to the Web Search API to filter the results.  
 
 ### Site
 
@@ -104,11 +109,11 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 ```
 
 > [!NOTE]
-> Depending on the query, if you use the `site:` query operator, there is the chance that the response may contain adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) setting. You should use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content.
+> Depending on the query, if you use the `site:` query operator, there is the chance that the response may contain adult content regardless of the [safeSearch](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) setting. You should use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content.
 
 ### Freshness
 
-To limit the web answer results to webpages that Bing discovered during a specific period, set the [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) query parameter to one of the following case-insensitive values:
+To limit the web answer results to webpages that Bing discovered during a specific period, set the [freshness](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) query parameter to one of the following case-insensitive values:
 
 * `Day` — Return webpages that Bing discovered within the last 24 hours
 * `Week` — Return webpages that Bing discovered within the last 7 days
@@ -142,7 +147,7 @@ Bing can return multiple answer types in the JSON response. For example, if you 
 }
 ```
 
-To limit the number of answers that Bing returns to the top two answers (webpages and images), set the [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) query parameter to 2.
+To limit the number of answers that Bing returns to the top two answers (webpages and images), set the [answerCount](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) query parameter to 2.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&mkt=en-us HTTP/1.1  
@@ -183,7 +188,7 @@ If you add the `responseFilter` query parameter to the previous query and set it
 
 ## Promoting answers that are not ranked
 
-If the top ranked answers that Bing returns for a query are webpages, images, videos, and relatedSearches, the response would include those answers. If you set [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) to two (2), Bing returns the top two ranked answers: webpages and images. If you want Bing to include images and videos in the response, specify the [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) query parameter and set it to images and videos.
+If the top ranked answers that Bing returns for a query are webpages, images, videos, and relatedSearches, the response would include those answers. If you set [answerCount](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) to two (2), Bing returns the top two ranked answers: webpages and images. If you want Bing to include images and videos in the response, specify the [promote](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) query parameter and set it to images and videos.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&promote=images%2Cvideos&mkt=en-us HTTP/1.1  

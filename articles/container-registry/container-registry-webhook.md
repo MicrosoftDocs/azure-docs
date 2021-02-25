@@ -1,14 +1,8 @@
 ---
-title: Azure Container Registry webhooks
-description: Learn how to use webhooks to trigger events when certain actions occur in your registry repositories.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
+title: Webhooks to respond to registry actions
+description: Learn how to use webhooks to trigger events when push or pull actions occur in your registry repositories.
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: danlep
 ---
 
 # Using Azure Container Registry webhooks
@@ -19,7 +13,7 @@ For details on webhook requests, see [Azure Container Registry webhook schema re
 
 ## Prerequisites
 
-* Azure container registry - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md). The [Azure Container Registry SKUs](container-registry-skus.md) have different webhooks quotas.
+* Azure container registry - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md). The [Azure Container Registry service tiers](container-registry-skus.md) have different webhooks quotas.
 * Docker CLI - To set up your local computer as a Docker host and access the Docker CLI commands, install [Docker Engine](https://docs.docker.com/engine/installation/).
 
 ## Create webhook - Azure portal
@@ -42,7 +36,7 @@ For details on webhook requests, see [Azure Container Registry webhook schema re
 
 Example webhook form:
 
-![ACR webhook creation UI in the Azure portal](./media/container-registry-webhook/webhook.png)
+![Screenshot that shows the ACR webhook creation U I in the Azure portal.](./media/container-registry-webhook/webhook.png)
 
 ## Create webhook - Azure CLI
 

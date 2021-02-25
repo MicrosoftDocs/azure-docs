@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a custom search web page - Bing Custom Search"
 titleSuffix: Azure Cognitive Services
-description: Learn how to configure a custom Bing search instance and integrate it into a web page.
+description: Learn how to configure a custom Bing search instance and integrate it into a web page with this tutorial.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,13 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 03/05/2019
 ms.author: aahi
 ---
 
 # Tutorial: Build a Custom Search web page
 
-Bing Custom Search enables you to create tailored search experiences for topics that you care about. For example, if you own a martial arts website that provides a search experience, you can specify the domains, subsites, and webpages that Bing searches. Your users see search results tailored to the content they care about instead of paging through general search results that may contain irrelevant content. 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Bing Custom Search enables you to create tailored search experiences for topics that you care about. For example, if you own a martial arts website that provides a search experience, you can specify the domains, sub-sites, and webpages that Bing searches. Your users see search results tailored to the content they care about instead of paging through general search results that may contain irrelevant content. 
 
 This tutorial demonstrates how to configure a custom search instance and integrate it into a new web page.
 
@@ -30,8 +35,8 @@ The tasks covered are:
 
 ## Prerequisites
 
-- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- If you don’t already have Visual Studio 2017 or later installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
+- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key, [Create a Bing Custom Search resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) in the Azure portal.
+- If you don't already have Visual Studio 2017 or later installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## Create a custom search instance
 
@@ -41,9 +46,9 @@ To create a Bing Custom Search instance:
   
 2. Navigate to the custom search [portal](https://customsearch.ai).  
   
-3. Sign in to the portal using a Microsoft account (MSA). If you don’t have an MSA, click **Create a Microsoft account**. If it’s your first time using the portal, it will ask for permissions to access your data. Click **Yes**.  
+3. Sign in to the portal using a Microsoft account (MSA). If you don't have an MSA, click **Create a Microsoft account**. If it's your first time using the portal, it will ask for permissions to access your data. Click **Yes**.  
   
-4. After signing in, click **New custom search**. In the **Create a new custom search instance** window, enter a name that’s meaningful and describes the type of content the search returns. You can change the name at any time.  
+4. After signing in, click **New custom search**. In the **Create a new custom search instance** window, enter a name that's meaningful and describes the type of content the search returns. You can change the name at any time.  
   
    ![Screenshot of the Create a new custom search instance box](../media/newCustomSrch.png)  
   
@@ -56,11 +61,11 @@ To create a Bing Custom Search instance:
 
 To include results from specific websites or URLs, add them to the **Active** tab.
 
-1.	On the **Configuration** page, click the **Active** tab and enter the URL of one or more websites you want to include in your search.
+1. On the **Configuration** page, click the **Active** tab and enter the URL of one or more websites you want to include in your search.
 
     ![Screenshot of the Definition Editor active tab](../media/customSrchEditor.png)
 
-2.	To confirm that your instance returns results, enter a query in the preview pane on the right. Bing returns only results for public websites that it has indexed.
+2. To confirm that your instance returns results, enter a query in the preview pane on the right. Bing returns only results for public websites that it has indexed.
 
 ## Add blocked entries
 
@@ -75,7 +80,7 @@ To exclude results from specific websites or URLs, add them to the **Blocked** t
 
 ## Add pinned entries
 
-To pin a specific webpage to the top of the search results, add the webpage and query term to the **Pinned** tab. The **Pinned** tab contains a list of webpage and query term pairs that specify the webpage that appears as the top result for a specific query. The webpage is pinned only if the user’s query string matches the pin's query string based on pin's match condition. Only indexed webpages will be displayed in searches. See [Define your custom view](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) for more information.
+To pin a specific webpage to the top of the search results, add the webpage and query term to the **Pinned** tab. The **Pinned** tab contains a list of webpage and query term pairs that specify the webpage that appears as the top result for a specific query. The webpage is pinned only if the user's query string matches the pin's query string based on pin's match condition. Only indexed webpages will be displayed in searches. For more information, see [Define your custom view](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. On the **Configuration** page, click the **Pinned** tab and enter the webpage and query term of the webpage that you want returned as the top result.  
   
@@ -112,9 +117,9 @@ Custom Search provides a hosted UI to render the JSON response of your custom se
 
    ![Screenshot of the Hosted UI advanced configurations step](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
-5. Select your subscription keys from the dropdown lists. Or, you can enter the subscription key manually. For information about getting keys, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+5. Select your subscription keys from the dropdown lists. Or, you can enter the subscription key manually.
   
-   ![Screenshot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Screenshot of the Hosted UI subscription key](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -126,7 +131,7 @@ There are two ways to consume the hosted UI.
 - Option 1: Integrate the provided JavaScript snippet into your application.
 - Option 2: Use the HTML Endpoint provided.
 
-The remainder of this tutorial illustrates **Option 1: Javascript snippet**.  
+The remainder of this tutorial illustrates **Option 1: JavaScript snippet**.  
 
 ## Set up your Visual Studio solution
 
@@ -140,7 +145,7 @@ The remainder of this tutorial illustrates **Option 1: Javascript snippet**.
   
 4. In the **New ASP.NET Core Web Application** window, select **Web Application** and click **OK**.  
   
-   ![Screenshot of new project window](./media/custom-search-new-webapp.png)  
+   ![Screenshot of new webapp window](./media/custom-search-new-webapp.png)  
 
 ## Edit index.cshtml
 
