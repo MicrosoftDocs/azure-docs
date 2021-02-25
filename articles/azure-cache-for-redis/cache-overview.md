@@ -86,7 +86,9 @@ The Enterprise tiers rely on Redis Enterprise, a commercial variant of Redis fro
 > [!IMPORTANT]
 > Azure Cache for Redis Enterprise cache require standard network Load Balancers that are charged
 > separately from cache instances themselves. Refer to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
-> for more details.
+> for more details. If an Enterprise cache is configured for multiple Availability Zones, data
+> transfer will be billed at the [standard network bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/)
+> starting from July 1, 2021.
 >
 > In addition, data persistence adds Managed Disks. The use of these resources will be free during
 > the public preview of Enterprise data persistence. This may change when the feature becomes
