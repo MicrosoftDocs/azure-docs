@@ -1,6 +1,6 @@
 ---
 title:  Analyze live video by using Intel OpenVINO™ DL Streamer – Edge AI Extension via gRPC 
-description: In this tutorial, you'll use an AI model server provided by Intel to analyze the live video feed from a (simulated) IP camera. 
+description: This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feed from a (simulated) IP camera. 
 ms.topic: tutorial
 ms.date: 02/04/2021
 titleSuffix: Azure
@@ -68,13 +68,13 @@ In order to build complex, high-performance live video analytics solutions, the 
 In the initial release of this inference server, you have access to the following [models](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options):
 
 - object_detection for person_vehicle_bike_detection
-![object-detection](./media/use-intel-openvino-tutorial/object-detection.png)
+![object detection for vehicle](./media/use-intel-openvino-tutorial/object-detection.png)
 
 - object_classification for vehicle_attributes_recognition
-![object-classification](./media/use-intel-openvino-tutorial/object-classification.png)
+![object classification for vehicle](./media/use-intel-openvino-tutorial/object-classification.png)
 
 - object_tracking for person_vehicle_bike_tracking
-![object-tracking](./media/use-intel-openvino-tutorial/object-tracking.png)
+![object tracking for person vehicle](./media/use-intel-openvino-tutorial/object-tracking.png)
 
 It uses Pre-loaded Object Detection, Object Classification and Object Tracking pipelines to get started quickly. In addition it comes with pre-loaded [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/description/person-vehicle-bike-detection-crossroad-0078.md) and [vehicle-attributes-recognition-barrier-0039 models](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/description/vehicle-attributes-recognition-barrier-0039.md).
 
