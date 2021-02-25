@@ -33,7 +33,7 @@ You can learn the fundamentals of Azure Disk Encryption for Linux in just a few 
 
 Linux VMs are available in a [range of sizes](../sizes.md). Azure Disk Encryption is supported on Generation 1 and Generation 2 VMs. Azure Disk Encryption is also available for VMs with premium storage.
 
-Azure Disk Encryption is not available on VM images without temp disks (Dv4, Dsv4, Ev4, and Esv4).  See [Azure VM sizes with no local temporary disk](../azure-vms-no-temp-disk.md).
+See [Azure VM sizes with no local temporary disk](../azure-vms-no-temp-disk.md).
 
 Azure Disk Encryption is also not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines that do not meet these minimum memory requirements:
 
@@ -47,8 +47,6 @@ Once the OS disk encryption process is complete on Linux virtual machines, the V
 
 For more exceptions, see [Azure Disk Encryption: Unsupported scenarios](disk-encryption-linux.md#unsupported-scenarios).
 
-
-
 ### Supported operating systems
 
 Azure Disk Encryption is supported on a subset of the [Azure-endorsed Linux distributions](endorsed-distros.md), which is itself a subset of all Linux server possible distributions.
@@ -58,9 +56,6 @@ Azure Disk Encryption is supported on a subset of the [Azure-endorsed Linux dist
 Linux server distributions that are not endorsed by Azure do not support Azure Disk Encryption; of those that are endorsed, only the following distributions and versions support Azure Disk Encryption:
 
 
-
-
-
 | Publisher | Offer | SKU | URN | Volume type supported for encryption |
 | --- | --- |--- | --- |
 | Canonical | Ubuntu | 18.04-LTS | Canonical:UbuntuServer:18.04-LTS:latest | OS and data disk |
@@ -68,12 +63,12 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | OS and data disk |
 | Canonical | Ubuntu 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | OS and data disk |
 | Canonical | Ubuntu 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS and data disk |
+| RedHat | RHEL 8-LVM | 8-LVM | RedHat:RHEL:8-LVM:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.2 | 8.2 | RedHat:RHEL:8.2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.1 | 8.1 | RedHat:RHEL:8.1:latest | OS and data disk (see note below) |
+| RedHat | RHEL 7-LVM | 7-LVM | RedHat:RHEL:7-LVM: 7.8.2020111201 | OS and data disk (see note below) |
 | RedHat | RHEL 7.8 | 7.8 | RedHat:RHEL:7.8:latest | OS and data disk (see note below) |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | OS and data disk (see note below) |
-| RedHat | RHEL 8-LVM | 8-LVM | RedHat:RHEL:8-LVM:latest |
-| RedHat | RHEL 8.2 | 8.2 | RedHat:RHEL:8.2:latest |
-| RedHat | RHEL 8.1 | 8.1 | RedHat:RHEL:8.1:latest |
-| RedHat | RHEL 7-LVM | 7-LVM | RedHat:RHEL:7-LVM: 7.8.2020111201 | OS and data disk (see note below) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | OS and data disk (see note below) |
 | RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | OS and data disk (see note below) |
 | RedHat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:latest | OS and data disk (see note below) |
@@ -81,12 +76,12 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | RedHat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 6.8 | 6.8 | RedHat:RHEL:6.8:latest | Data disk (see note below) |
 | RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | Data disk (see note below) |
-| OpenLogic | CentOS 8-LVM | 8-LVM | OpenLogic:CentOS-LVM:8-LVM:latest |
-| OpenLogic | CentOS 8.2 | 8_2 | OpenLogic:CentOS:8_2:latest |
-| OpenLogic | CentOS 8.1 | 8_1 | OpenLogic:CentOS:8_1:latest |
+| OpenLogic | CentOS 8-LVM | 8-LVM | OpenLogic:CentOS-LVM:8-LVM:latest | OS and data disk |
+| OpenLogic | CentOS 8.2 | 8_2 | OpenLogic:CentOS:8_2:latest | OS and data disk |
+| OpenLogic | CentOS 8.1 | 8_1 | OpenLogic:CentOS:8_1:latest | OS and data disk |
+| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic:CentOS-LVM:7-LVM:7.8.2020111100 | OS and data disk |
 | OpenLogic | CentOS 7.8 | 7.8 | OpenLogic:CentOS:7_8:latest | OS and data disk |
 | OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | OS and data disk |
-| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic:CentOS-LVM:7-LVM:7.8.2020111100 | OS and data disk |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | OS and data disk |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | OS and data disk |
 | OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | OS and data disk |
