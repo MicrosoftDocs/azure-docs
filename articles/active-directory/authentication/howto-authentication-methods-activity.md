@@ -54,9 +54,9 @@ Click any of the following options to pre-filter a list of user registration det
   
   This number doesn't reflect users registered for MFA outside of Azure AD. 
 - **Users capable of passwordless authentication** shows the breakdown of users who can sign in without a password. This includes users registered for FIDO2, Windows Hello for Business, and passwordless Phone sign-in with the Microsoft Authenticator app. 
-- **Users capable of self-service password reset** shows the breakdown of users who can reset their passwords. Users can reset their password if they are both:
-  - Registered for enough methods to satisfy their organization's policy for SSPR 
-  - Enabled to perform SSPR 
+- **Users capable of self-service password reset** shows the breakdown of users who can reset their passwords. Users can reset their password if they're both:
+  - Registered for enough methods to satisfy their organization's policy for self-service password reset 
+  - Enabled to reset their password 
 
   ![Screenshot of users who can register](media/how-to-authentication-methods-usage-insights/users-capable.png)
 
@@ -74,7 +74,7 @@ The **Usage** report shows which authentication methods are used to sign-in and 
 
 ![Screenshot of Usage page](media/how-to-authentication-methods-usage-insights/usage-page.png)
 
-**Sign-ins by authentication requirement** shows the number of successful user interactive sign-ins that were required to perform single-factor versus multi-factor authentication in Azure AD. This doesn't reflect sign-ins where MFA was enforced by a third-party MFA provider.
+**Sign-ins by authentication requirement** shows the number of successful user interactive sign-ins that were required for single-factor versus multi-factor authentication in Azure AD. This doesn't reflect sign-ins where MFA was enforced by a third-party MFA provider.
 
 ![Screenshot of sign ins by authentication requirement](media/how-to-authentication-methods-usage-insights/sign-ins-protected.png)
 
@@ -123,7 +123,7 @@ The registration details report shows the following information for each user:
 
 ## Limitations
 
-Temporary Access Pass (TAP) registrations are not reflected in the registration tab of the report because they are only valid for short period of time.
+Temporary Access Pass (TAP) registrations arent reflected in the registration tab of the report because they're only valid for short period of time.
 
 ## Next steps
 
