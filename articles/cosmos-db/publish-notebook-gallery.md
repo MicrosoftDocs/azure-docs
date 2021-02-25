@@ -24,7 +24,7 @@ Use the following steps to view and download notebooks from the gallery to your 
 
 1. Navigate to the **Data Explorer** > **Notebooks** > **Gallery** > **Public gallery** tab.
 
-1. Accept the [code of conduct](https://azure.microsoft.com/en-us/support/legal/cosmos-db-public-gallery-code-of-conduct/)  before you view or publish notebooks in the gallery. The code of conduct is logged per user, per the subscription level. When you switch to a different subscription, you must accept it again before accessing the gallery. To accept the code of conduct. select the checkbox and **Continue**:
+1. Accept the [code of conduct](https://azure.microsoft.com/support/legal/cosmos-db-public-gallery-code-of-conduct/)  before you view or publish notebooks in the gallery. The code of conduct is logged per user, per the subscription level. When you switch to a different subscription, you must accept it again before accessing the gallery. To accept the code of conduct, select the checkbox and **Continue**:
 
    :::image type="content" source="./media/publish-notebook-gallery/view-public-gallery.png" alt-text="Navigate to the notebooks public gallery and accept the code of conduct.":::
 
