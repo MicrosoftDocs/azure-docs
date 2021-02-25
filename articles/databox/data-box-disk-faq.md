@@ -44,7 +44,7 @@ A. For information on the price of Data Box Disks, go to [Pricing page](https://
 A.  To get Azure Data Box Disks, log into Azure portal and create a Data Box order for disks. Provide your contact information and notification details. Once you place an order, based on the availability, disks are shipped to you within 10 days.
 
 ### Q. What is the maximum amount of data I can transfer with Data Box Disks in one instance?
-A. For 5 disks, each with 8 TB capacity (7 TB of usable capacity), the maximum usable capacity is 35 TB. So you can transfer 35 TB of data in one instance. To transfer more data, you need to order more disks.
+A. For five disks, each with 8-TB capacity (7 TB of usable capacity), the maximum usable capacity is 35 TB. So you can transfer 35 TB of data in one instance. To transfer more data, you need to order more disks.
 
 ### Q. How can I check if Data Box Disks are available in my region? 
 A.  To see where the Data Box Disks are currently available, go to the [Region availability](data-box-disk-overview.md#region-availability).  
@@ -118,7 +118,7 @@ These lead times are *estimates*. The time for each stage of order processing is
 ## Configure and connect
  
 ### Q. Can I specify the number of Data Box Disks in the order?
-A.  No. You get 8 TB disks (a maximum of 5 disks) depending upon your data size and availability of the disks.  
+A.  No. You get 8-TB disks (a maximum of five disks) depending upon your data size and availability of the disks.  
 
 ### Q. How do I unlock the Data Box Disks? 
 A.  In the Azure portal, go to your Data Box Disk order, and navigate to **Device details**. Copy the passkey. Download and extract the Data Box Disk unlock tool from the Azure portal for your operating system. Run the tool on the computer that has the data you want to copy to the disks. Provide the passkey to unlock your disks. The same passkey unlocks all the disks. 
