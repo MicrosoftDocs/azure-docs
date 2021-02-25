@@ -65,16 +65,7 @@ connection_string = os.environ['COMMUNICATION_SERVICES_CONNECTION_STRING']
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-Alternatively, you can separate endpoint and access key.
-```python
-// This code demonstrates how to fetch your endpoint and access key
-// from an environment variable.
-const endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"];
-const accessKey = os.environ["COMMUNICATION_SERVICES_ACCESSKEY"];
-const identityClient = new CommunicationIdentityClient(endpoint, AzureKeyCredential(accessKey))
-```
-
-If you have managed identity set up, see [Use managed identities](../managed-identity.md), you may also authenticate with managed identity.
+Alternatively, if you have managed identity set up, see [Use managed identities](../managed-identity.md), you may also authenticate with managed identity.
 ```python
 const endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"];
 var client = new CommunicationIdentityClient(endpoint, DefaultAzureCredential());
