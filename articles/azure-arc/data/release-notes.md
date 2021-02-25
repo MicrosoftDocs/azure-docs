@@ -27,7 +27,7 @@ Azure Data CLI (`azdata`) version number: 20.3.0. Download at [https://aka.ms/az
 Additional updates include:
 
 - Azure Arc enabled SQL Managed Instance
-   - High availability
+   - High availability with Always On availability groups
 
 - Azure Arc enabled PostgreSQL Hyperscale
    Azure Data Studio: 
