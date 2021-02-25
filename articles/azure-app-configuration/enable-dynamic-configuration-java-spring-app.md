@@ -14,7 +14,7 @@ ms.author: mametcal
 ---
 # Tutorial: Use dynamic configuration in a Java Spring app
 
-App Configuration has two libraries for Spring. `spring-cloud-azure-appconfiguration-config` requires Spring Boot and takes a dependency on `spring-cloud-context`. `spring-cloud-azure-appconfiguration-config-web` requires Spring Web along with Spring Boot. `spring-cloud-azure-appconfiguration-config` requires manual triggering of refresh, while `spring-cloud-azure-appconfiguration-config-web` adds automatically checking for refresh, along with the ability to manually check for refresh. Automated refresh is the only difference between the two packages.
+App Configuration has two libraries for Spring. `spring-cloud-azure-appconfiguration-config` requires Spring Boot and takes a dependency on `spring-cloud-context`. `spring-cloud-azure-appconfiguration-config-web` requires Spring Web along with Spring Boot. Both libraries support manual triggering to check for refreshed configuration values. `spring-cloud-azure-appconfiguration-config-web` also adds support for automatic checking of configuration refresh.
 
 Refresh allows you to refresh your configuration values without having to restart your application, though it will cause all beans in the `@RefreshScope` to be recreated. The client library caches a hash id of the currently loaded configurations to avoid too many calls to the configuration store. The refresh operation doesn't update the value until the cached value has expired, even when the value has changed in the configuration store. The default expiration time for each request is 30 seconds. It can be overridden if necessary.
 
