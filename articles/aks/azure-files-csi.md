@@ -222,7 +222,7 @@ az provider register --namespace Microsoft.Storage
 
 ### Create a storage account for the NFS file share
 
-[Create a `Premium_LRS` Azure storage account](../storage/files/storage-how-to-create-premium-fileshare.md) with following configurations to support NFS shares:
+[Create a `Premium_LRS` Azure storage account](../storage/files/storage-how-to-create-file-share.md) with following configurations to support NFS shares:
 - account kind: FileStorage
 - secure transfer required(enable HTTPS traffic only): false
 - select the virtual network of your agent nodes in Firewalls and virtual networks - so you might prefer to create the Storage Account in the MC_ resource group.
