@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 02/25/2021
 ms.author: victorh
 ---
 
@@ -76,7 +76,20 @@ The categories are organized based on severity under **Liability**, **High-Bandw
 
 #### Category exceptions
 
-You can create exceptions to your web category rules. Create a separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the pre-defined **Social networking** web category. 
+You can create exceptions to your web category rules. Create a separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the pre-defined **Social networking** web category.
+
+#### Categorization change
+
+You can request a categorization change if you:
+
+ - think an FQDN or URL should be under a different category 
+ 
+or 
+
+- have a suggested category for an uncategorized FQDN or URL
+
+You are welcome to submit a request at [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request).
+ 
 
 ## Known issues
 
