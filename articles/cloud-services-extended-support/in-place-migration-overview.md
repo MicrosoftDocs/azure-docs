@@ -165,8 +165,8 @@ Customers need to update their tooling and automation to start using the new API
     - As part of migration, the names of few resources like the Cloud Service, public IP addresses, etc. change. These changes might need to be reflected in deployment files before update of Cloud Service. [Learn More about the names of resources changing](in-place-migration-technical-details.md#translation-of-resources-and-naming-convention-post-migration).  
 
 - Recreate rules and policies required to manage and scale cloud services 
-    - [Auto Scale rules])configure-scaling.md) are not migrated. After migration, recreate the auto scale rules.  
-    - [Alerts](enable-alerts.md) are not migrated. After migration, recreate the alerts. -
+    - [Auto Scale rules](configure-scaling.md) are not migrated. After migration, recreate the auto scale rules.  
+    - [Alerts](enable-alerts.md) are not migrated. After migration, recreate the alerts.
     - Key Vault is created without any access policies. Recreate the policies on Key Vault to access the certificates.  
 
 
