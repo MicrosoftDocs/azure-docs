@@ -9,7 +9,7 @@ ms.date: 03/02/2021
 
 Bicep is a language for declaratively deploying Azure resources. It simplifies the authoring experience by providing concise syntax, and better support for modularity and code reuse. Bicep is a domain-specific language (DSL), which means it's designed for a particular scenario or domain. Bicep isn't intended as a general programming language for writing applications.
 
-Bicep is a transparent abstraction over Azure Resource Manager templates (ARM templates). Each Bicep file compiles to a standard ARM template. Resource types, API versions, and properties that are valid in an ARM template are valid in a Bicep file. Except for a few [known limitations](#known-limitations) in the current release, you can do everything in a Bicep file that you can do in an ARM template.
+Bicep is a transparent abstraction over Azure Resource Manager templates (ARM templates). Each Bicep file compiles to a standard ARM template. Resource types, API versions, and properties that are valid in an ARM template are valid in a Bicep file.
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
@@ -34,13 +34,6 @@ With Bicep, you can break your project into multiple modules.
 The structure of the Bicep file is more flexible than the JSON template. You can declare parameters, variables, and outputs anywhere in the file. In JSON, you have to declare all parameters, variables, and outputs within the corresponding sections of the template.
 
 The VS Code extension for Bicep offers richer validation and intellisense. For example, the extension has intellisense for getting properties of a resource.
-
-## Known limitations
-
-The following limits currently exist:
-
-* No support for the copy property.
-* Single-line object and arrays, like `['a', 'b', 'c']`, aren't supported.
 
 ## FAQ
 
