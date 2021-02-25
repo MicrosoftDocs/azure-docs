@@ -47,12 +47,13 @@ Perform the following steps to create an export job in the Azure portal.
 
 4. In **Basics**:
 
-    - Select **Export from Azure**.
-    - Enter a descriptive name for the export job. Use the name you choose to track the progress of your jobs.
-        - The name may contain only lowercase letters, numbers, hyphens, and underscores.
-        - The name must start with a letter, and may not contain spaces.
-    - Select a subscription.
-    - Enter or select a resource group.
+   1. Select a subscription.
+   1. Select a resource group, or select **Create new** and create a new one.
+   1. Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
+       * The name may contain only lowercase letters, numbers, and hyphens.
+       * The name must start with a letter, and may not contain spaces.
+   1. Select **Export from Azure**.
+   1. When you finish basic settings, select **Next:Job details >**.
 
         ![Basics](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
 
