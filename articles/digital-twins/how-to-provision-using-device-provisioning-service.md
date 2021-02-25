@@ -37,7 +37,7 @@ If you do not have these set up already, you can create them by following the Az
 
 This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
 
-You'll need [**Node.js**](https://nodejs.org/) installed on your machine. The device simulator is based on **Node.js**, version 10.0.x or later.
+You'll need [**Node.js**](https://nodejs.org/download) installed on your machine. The device simulator is based on **Node.js**, version 10.0.x or later.
 
 ## Solution architecture
 
