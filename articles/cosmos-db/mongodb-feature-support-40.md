@@ -1,34 +1,28 @@
 ---
-title: Azure Cosmos DB's API for MongoDB (3.6 version) supported features and syntax
-description: Learn about Azure Cosmos DB's API for MongoDB (3.6 version) supported features and syntax.
+title: 4.0 server version supported features and syntax in Azure Cosmos DB's API for MongoDB 
+description: Learn about Azure Cosmos DB's API for MongoDB 4.0 server version supported features and syntax. Learn about the database commands, query language support, datatypes, aggregation pipeline commands, and operators supported.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 03/02/2021
-author: sivethe
-ms.author: sivethe
+author: gahl-levy
+ms.author: gahllevy
 ---
 
-# Azure Cosmos DB's API for MongoDB (3.6 version): supported features and syntax
+# Azure Cosmos DB's API for MongoDB (4.0 server version): supported features and syntax
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Cosmos DB provides: [global distribution](distribute-data-globally.md), [automatic sharding](partitioning-overview.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
-> [!NOTE]
-> This article is for Azure Cosmos DB's API for MongoDB 3.6. For MongoDB 4.0 version, see [MongoDB 4.0 supported features and syntax](mongodb-feature-support-40.md).
-
 ## Protocol Support
 
-The Azure Cosmos DB's API for MongoDB is compatible with MongoDB server version **3.6** by default for new accounts. The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. Note that when using Azure Cosmos DB's API for MongoDB accounts, the 3.6 version of account has the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of account has the endpoint in the format `*.documents.azure.com`.
+The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. When using Azure Cosmos DB's API for MongoDB accounts, the 3.6+ versions of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts has the endpoint in the format `*.documents.azure.com`.
 
 ## Query language support
 
-Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB query language constructs. The following sections show the detailed list of server operations, operators, stages, commands, and options currently supported by Azure Cosmos DB.
-
-> [!NOTE]
-> This article only lists the supported server commands and excludes client-side wrapper functions. Client-side wrapper functions such as `deleteMany()` and `updateMany()` internally utilize the `delete()` and `update()` server commands. Functions utilizing supported server commands are compatible with Azure Cosmos DB's API for MongoDB.
+Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands, and options.
 
 ## Database commands
 
@@ -50,6 +44,13 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | parallelCollectionScan | No |
 | resetError | No |
 | update | Yes |
+
+### Transaction commands
+
+| Command | Supported |
+|---------|---------|
+| abortTransaction | Yes |
+| commitTransaction | Yes |
 
 ### Authentication commands
 
@@ -83,7 +84,6 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | reIndex | Yes |
 | renameCollection | No |
 
-
 ### Diagnostics commands
 
 | Command | Supported |
@@ -105,9 +105,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | top | No |
 | whatsmyuri | Yes |
 
-<a name="aggregation-pipeline"></a>
-
-## Aggregation pipeline</a>
+## <a name="aggregation-pipeline"></a>Aggregation pipeline
 
 ### Aggregation commands
 
@@ -157,6 +155,20 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $and | Yes |
 | $not | Yes |
 | $or | Yes |
+
+### Conversion expressions
+
+| Command | Supported |
+|---------|---------|
+| $convert | Yes |
+| $toBool | Yes |
+| $toDate | Yes |
+| $toDecimal | Yes |
+| $toDouble | Yes |
+| $toInt | Yes |
+| $toLong | Yes |
+| $toObjectId | Yes |
+| $toString | Yes |
 
 ### Set expressions
 
@@ -211,6 +223,9 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $concat | Yes |
 | $indexOfBytes | Yes |
 | $indexOfCP | Yes |
+| $ltrim | Yes |
+| $rtrim | Yes |
+| $trim | Yes |
 | $split | Yes |
 | $strLenBytes | Yes |
 | $strLenCP | Yes |
@@ -329,6 +344,10 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 ## Data types
 
+Azure Cosmos DB's API for MongoDB supports documents encoded in MongoDB BSON format. The 4.0 API version enhances the internal usage of this format to improve performance and reduce costs. Documents written or updated through an endpoint running 4.0 benefit from this.
+ 
+In an [upgrade scenario](mongodb-version-upgrade.md), documents written prior to the upgrade to version 4.0 will not benefit from the enhanced performance until they are updated via a write operation through the 4.0 endpoint.
+
 | Command | Supported |
 |---------|---------|
 | Double | Yes |
@@ -407,11 +426,11 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 In the $regex queries, left-anchored expressions allow index search. However, using 'i' modifier (case-insensitivity) and 'm' modifier (multiline) causes the collection scan in all expressions.
 
-When there's a need to include '$' or '|', it is best to create two (or more) regex queries. For example, given the following original query: ```find({x:{$regex: /^abc$/})```, it has to be modified as follows:
+When there's a need to include '$' or '|', it is best to create two (or more) regex queries. For example, given the following original query: `find({x:{$regex: /^abc$/})`, it has to be modified as follows:
 
-```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```
+`find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})`
 
-The first part will use the index to restrict the search to those documents beginning with ^abc and the second part will match the exact entries. The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^abc |^def/})``` matches the documents in which field 'x' has values that begin with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+The first part will use the index to restrict the search to those documents beginning with ^abc and the second part will match the exact entries. The bar operator '|' acts as an "or" function - the query `find({x:{$regex: /^abc |^def/})` matches the documents in which field 'x' has values that begin with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: `find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })`.
 
 ### Array operators
 
@@ -465,7 +484,6 @@ The first part will use the index to restrict the search to those documents begi
 | $push | Yes |
 | $pushAll | Yes |
 
-
 #### Update modifiers
 
 | Command | Supported |
@@ -507,48 +525,44 @@ When using the `findOneAndUpdate` operation, sort operations on a single field a
 
 ## Unique indexes
 
-[Unique indexes](mongodb-indexing.md#unique-indexes) ensure that a specific field doesn't have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. You can create unique indexes in Cosmos DB by using the `createIndex` command with the `unique` constraint parameter:
+[Unique indexes](mongodb-indexing.md#unique-indexes) ensure that a specific field doesn't have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. You can create unique indexes in Azure Cosmos DB by using the `createIndex` command with the `unique` constraint parameter:
 
 ```javascript
 globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
 {
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 4
+    "_t" : "CreateIndexesResponse",
+    "ok" : 1,
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 1,
+    "numIndexesAfter" : 4
 }
 ```
 
 ## Compound indexes
 
-[Compound indexes](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) provide a way to create an index for groups of fields for up to 8 fields. This type of index differs from the native MongoDB compound indexes. In Azure Cosmos DB, compound indexes are used for sorting operations that are applied to multiple fields. To create a compound index you need to specify more than one property as the parameter:
+[Compound indexes](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) provide a way to create an index for groups of fields for up to eight fields. This type of index differs from the native MongoDB compound indexes. In Azure Cosmos DB, compound indexes are used for sorting operations that are applied to multiple fields. To create a compound index, you need to specify more than one property as the parameter:
 
 ```javascript
 globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
 {
-        "createdCollectionAutomatically" : false, 
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 2,
-        "ok" : 1
+    "createdCollectionAutomatically" : false, 
+    "numIndexesBefore" : 1,
+    "numIndexesAfter" : 2,
+    "ok" : 1
 }
 ```
 
 ## GridFS
 
-Azure Cosmos DB supports GridFS through any GridFS-compatible MongoDB driver.
+Azure Cosmos DB supports GridFS through any GridFS-compatible Mongo driver.
 
 ## Replication
 
-Cosmos DB supports automatic, native replication at the lowest layers. This logic is extended out to achieve low-latency, global replication as well. Cosmos DB does not support manual replication commands.
-
-
-
-
+Azure Cosmos DB supports automatic, native replication at the lowest layers. This logic is extended out to achieve low-latency, global replication as well. Cosmos DB does not support manual replication commands.
 
 ## Retryable Writes
 
-Azure Cosmos DB does not yet support retryable writes. Client drivers must add `retryWrites=false` to their connection string.
+Cosmos DB does not yet support retryable writes. Client drivers must add the 'retryWrites=false' URL parameter to their connection string. More URL parameters can be added by prefixing them with an '&'. 
 
 ## Sharding
 
@@ -560,19 +574,22 @@ Azure Cosmos DB does not yet support server-side sessions commands.
 
 ## Time-to-live (TTL)
 
-Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections from the [Azure portal](https://portal.azure.com).
+Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections by going to the [Azure portal](https://portal.azure.com).
+
+## Transactions
+
+Azure Cosmos DB supports transactions for unsharded collections. The timeout for transactions is a fixed 5 seconds.
 
 ## User and role management
 
-Azure Cosmos DB does not yet support users and roles. However, it supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords or keys that can be obtained through the connection string pane in the [Azure portal](https://portal.azure.com).
+Azure Cosmos DB does not yet support users and roles. However, Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
 
 ## Write Concern
 
-Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) which specifies the number of responses required during a write operation. Due to how Azure Cosmos DB handles replication, all writes are automatically majority quorum by default when using strong consistency. Any write concern specified by the client code is ignored. To learn more, see [Using consistency levels to maximize availability and performance](consistency-levels.md) article.
+Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/), which specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by the client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
 
 ## Next steps
 
-- For further information check [Mongo 3.6 version features](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)
 - Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
 - Learn how to [use Robo 3T](mongodb-robomongo.md) with Azure Cosmos DB's API for MongoDB.
 - Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.

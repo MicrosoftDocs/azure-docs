@@ -6,7 +6,7 @@ author: ArnoMicrosoft
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: synapse-link
-ms.date: 09/15/2020
+ms.date: 03/02/2021
 ms.author: acomet
 ms.reviewer: jrasnick
 ---
@@ -28,7 +28,7 @@ You can connect to an Azure Cosmos DB container without enabling Synapse Link. I
 
 | Category              | Description |[Apache Spark pool](../sql/on-demand-workspace-overview.md) | [Serverless SQL pool](../sql/on-demand-workspace-overview.md) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
-| **Run-time Support** |Supported Azure Synapse runtime to access Azure Cosmos DB| ✓ | Preview |
+| **Run-time Support** |Supported Azure Synapse runtime to access Azure Cosmos DB| ✓ | ✓ |
 | **Azure Cosmos DB API support** | Supported Azure Cosmos DB API kind | SQL / MongoDB | SQL / MongoDB |
 | **Object**  |Objects such as a table that can be created, pointing directly to Azure Cosmos DB container| Dataframe, View, Table | View |
 | **Read**    | Type of Azure Cosmos DB container that can be read | OLTP / HTAP | HTAP  |
