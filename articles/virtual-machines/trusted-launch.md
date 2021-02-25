@@ -1,19 +1,19 @@
 ---
 title: "Preview: Trusted Launch for Azure VMs"
 description: Learn about Trusted Launch for Azure virtual machines.
-author: cynthn
-ms.author: cynthn
+author: khyewei
+ms.author: khwei
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 02/25/2021
-ms.reviewer: 
+ms.reviewer: cynthn
 ms.custom: template-concept
 ---
 
 # Trusted Launch for Azure virtual machines (preview)
 
-Azure offers Trusted Launch as a seamless way to improce the security of [generation 2](generation-2.md) VMs. Trusted Launch protects against advanced and persistent attack techniques. Trusted Launch is composed of several, coordinated infrastructure technologies that can be enabled independently. Each technology provides an additional layer of defense against sophisticated threats.
+Azure offers Trusted Launch as a seamless way to improve the security of [generation 2](generation-2.md) VMs. Trusted Launch protects against advanced and persistent attack techniques. Trusted Launch is composed of several, coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats.
 
 > [!IMPORTANT]
 > Trusted Launch requires the creation of new virtual machines. You can't enable Trusted Launch on existing virtual machines that were initially created without it.
@@ -49,7 +49,7 @@ No additional cost to existing VM pricing.
 
 ## Secure boot
 
-At the root of Trusted Launch is Secure Boot for your VM. This mode, which is implemented in platform firmware, protects against the installation of malware-based rootkits and boot kits. Secure Boot works to ensure that only signed operating systems and drivers can boot. It establishes a "root of trust" for the software stack on your VM. With Secure Boot enabled, all OS boot components (boot loader, kernel, kernel drivers) must be signed by trusted publishers. Both Windows and select Linux distributions support Secure Boot. If Secure Boot fails to authenticate that the image was signed by a trusted publisher, the VM is prevented from booting. For more information, see [Secure Boot](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot).
+At the root of Trusted Launch is Secure Boot for your VM. This mode, which is implemented in platform firmware, protects against the installation of malware-based rootkits and boot kits. Secure Boot works to ensure that only signed operating systems and drivers can boot. It establishes a "root of trust" for the software stack on your VM. With Secure Boot enabled, all OS boot components (boot loader, kernel, kernel drivers) must be signed by trusted publishers. Both Windows and select Linux distributions support Secure Boot. If Secure Boot fails to authenticate that the image was signed by a trusted publisher, the VM will not be allowed to boot. For more information, see [Secure Boot](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot).
 
 ## vTPM
 
@@ -59,11 +59,11 @@ Trusted Launch uses the vTPM to perform remote attestation by the cloud. This is
 
 ## Virtualization-based security
 
-[Virtualization-based Security](/windows-hardware/design/device-experiences/oem-vbs) (VBS) uses the hypervisor to create a secure and isolated region of memory. Windows uses these regions to run various security solutions with increased protection against vulnerabilities and malicious exploits. In particular, Trusted Launch lets you enable HVCI (Hypervisor Code Integrity) and Windows Defender Credential Guard.
+[Virtualization-based Security](/windows-hardware/design/device-experiences/oem-vbs) (VBS) uses the hypervisor to create a secure and isolated region of memory. Windows uses these regions to run various security solutions with increased protection against vulnerabilities and malicious exploits. In particular, Trusted Launch lets you enable Hypervisor Code Integrity (HVCI) and Windows Defender Credential Guard.
 
 HVCI is a powerful system mitigation that protects Windows kernel-mode processes against injection and execution of malicious or unverified code. It checks kernel mode drivers and binaries before they run, preventing unsigned files from loading into memory. This ensures such executable code can't be modified once it is allowed to load. For more information about VBS and HVCI, see [Virtualization Based Security (VBS) and Hypervisor Enforced Code Integrity (HVCI)](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
 
-With Trusted Launch and VBS you can enable Windows Defender Credential Guard. This feature isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets as well as credential theft attacks, such as Pass-the-Hash (PtH) attacks. For more information, see [Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard).
+With Trusted Launch and VBS you can enable Windows Defender Credential Guard. This feature isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets and credential theft attacks, like Pass-the-Hash (PtH) attacks. For more information, see [Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard).
 
 
 ## Security Center integration
@@ -106,7 +106,7 @@ Trusted Launch guards against boot kits, rootkits, and kernel-level malware. The
 
 ### What are the differences between secure boot and measured boot?
 
-In secure boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS will check a signature on the loader, and the loader will check signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature won’t match, and the VM will not boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot). On the other hand, measured boot does not halt the boot process but rather measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers (PCRs) on vTPM. Measured boot records are used for boot integrity monitoring.
+In secure boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS will check a signature on the loader, and the loader will check signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature won’t match, and the VM will not boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot). Measured boot does not halt the boot process, it measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers (PCRs) on the vTPM. Measured boot records are used for boot integrity monitoring.
 
 ###	What happens when an integrity fault is detected?
 

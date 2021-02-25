@@ -1,8 +1,9 @@
 ---
 title: "Preview: Deploy a Trusted Launch VM"
 description: Deploy a VM that uses Trusted Launch. 
-author: cynthn
-ms.author: cynthn
+author: khyewei
+ms.author: khwei
+ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to 
