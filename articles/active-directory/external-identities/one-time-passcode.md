@@ -120,11 +120,10 @@ To enable the email one-time passcode feature in Azure Government cloud:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD global administrator.
 2. In the navigation pane, select **Azure Active Directory**.
-3. Select **Organizational relationships** > **All identity providers**.
+3. Select **Organizational relationships** > **Settings**.
 
    > [!NOTE]
    > - If you don't see **Organizational relationships**, search for "External Identities” in the search bar at the top.
-   > - Email one-time passcode settings have moved in the Azure portal from **Settings** to **All identity providers**.
 
 4. Select **Email one-time passcode**, and then select **No**.
 5. Select **Save**.
