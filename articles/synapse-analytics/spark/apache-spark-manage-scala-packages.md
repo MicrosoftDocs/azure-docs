@@ -16,9 +16,9 @@ ms.subservice: spark
 
 Libraries provide reusable code that you may want to include in your programs or projects. 
 
-You may need to update your serverless Apache Spark pool environment for a variety of reasons. For example, you may find that:
-- one of your core dependencies just released a new version.
-- you need an additional package for training your machine learning model or preparing your data.
+You may need to update your serverless Apache Spark pool environment for several reasons. For example, you may find that:
+- one of your core dependencies released a new version.
+- you need an extra package for training your machine learning model or preparing your data.
 - you have found a better package and no longer need the older package.
 
 To make third party or locally built code available to your applications, you can install a library onto one of your serverless Apache Spark pools or notebook session. In this article, we will cover how you can manage Scala and Java packages.
@@ -34,7 +34,7 @@ Workspace packages can be custom or private jar files. You can upload these pack
 To add workspace packages:
 1. Navigate to the **Manage** > **Workspace packages** tab.
 2. Upload your wheel files by using the file selector.
-3. Once the files have been uploaded to the Azure Synapse workspace, you can add these to a given Apache Spark pool.
+3. Once the files have been uploaded to the Azure Synapse workspace, you can add these wheel files to a given Apache Spark pool.
 
 ![Screenshot that highlights workspace packages.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "View workspace packages")
 
@@ -52,13 +52,13 @@ After the changes are saved, a Spark job will run the installation and cache the
 > - If the package you are installing is large or takes a long time to install, this affects the Spark instance start up time.
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
 
-#### Manage packages from Azure Synapse Studio or Azure Portal
-Spark pool libraries can be managed either from the Azure Synapse Studio or Azure Portal. 
+#### Manage packages from Azure Synapse Studio or Azure portal
+Spark pool libraries can be managed either from the Azure Synapse Studio or Azure portal. 
 
 To update or add  libraries to a Spark pool:
 1. Navigate to your Azure Synapse Analytics workspace from the Azure portal.
 
-    If you are updating from the **Azure Portal**:
+    If you are updating from the **Azure portal**:
 
     - Under the **Synapse resources** section, select the **Apache Spark pools** tab and select a Spark pool from the list.
      
@@ -73,7 +73,7 @@ To update or add  libraries to a Spark pool:
     ![Screenshot that highlights upload environment configuration option from studio.](./media/apache-spark-azure-portal-add-libraries/studio-update-libraries.png "Add Python libraries from Studio")
    
 2. To add Jar files, navigate to the **Workspace packages** section to add to your pool. 
-3. Once you save your changes, this will trigger a system job which will install and cache the specified libraries. This process helps reduce overall session start-up time. 
+3. Once you save your changes, a system job will be triggered to install and cache the specified libraries. This process helps reduce overall session startup time. 
 4. Once the job has successfully completed, all new sessions will pick up the updated pool libraries.
 
 > [!IMPORTANT]

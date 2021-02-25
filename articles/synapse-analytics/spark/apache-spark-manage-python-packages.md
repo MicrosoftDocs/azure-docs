@@ -15,9 +15,9 @@ ms.subservice: spark
 
 Libraries provide reusable code that you may want to include in your programs or projects. 
 
-You may need to update your serverless Apache Spark pool environment for a variety of reasons. For example, you may find that:
+You may need to update your serverless Apache Spark pool environment for various reasons. For example, you may find that:
 - one of your core dependencies just released a new version.
-- you need an additional package for training your machine learning model or preparing your data.
+- you need an extra package for training your machine learning model or preparing your data.
 - you have found a better package and no longer need the older package.
 
 To make third party or locally built code available to your applications, you can install a library onto one of your serverless Apache Spark pools or notebook session. In this article, we will cover how you can manage Python libraries across your serverless Apache Spark pool.
@@ -45,7 +45,7 @@ Python packages can be installed from repositories like PyPI and Conda-Forge by 
 #### Environment specification formats
 
 ##### PIP requirements.txt
-A *requirements.txt* file (output from the `pip freeze` command) can be used to upgrade the environment. When a pool is updated, the packages listed in this file are downloaded from PyPI. The full dependencies are then cached and saved for later re-use of the pool. 
+A *requirements.txt* file (output from the `pip freeze` command) can be used to upgrade the environment. When a pool is updated, the packages listed in this file are downloaded from PyPI. The full dependencies are then cached and saved for later reuse of the pool. 
 
 The following snippet shows the format for the requirements file. The PyPI package name is listed along with an exact version. This file follows the format described in the [pip freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/) reference documentation. 
 
@@ -56,7 +56,7 @@ adal==1.2.1
 alabaster==0.7.10
 ```
 ##### YML format (preview)
-In addition, you can also provide an *environment.yml* file to update the pool environment. The packages listed in this file are downloaded from the default Conda channels, Conda-Forge, and PyPI. You can specify additional channels or remove the default channels by using the configuration options available in the conda env.yml.
+In addition, you can also provide an *environment.yml* file to update the pool environment. The packages listed in this file are downloaded from the default Conda channels, Conda-Forge, and PyPI. You can specify other channels or remove the default channels by using the configuration options.
 
 This example specifies the channels and Conda/PyPI dependencies. 
 
@@ -78,13 +78,13 @@ Once you have identified the environment specification file or set of libraries 
 
 Once the changes are saved, a Spark job will run the installation and cache the resulting environment for later reuse. Once the job is complete, new Spark jobs or notebook sessions will use the updated pool libraries. 
 
-##### Manage packages from Azure Synapse Studio or Azure Portal
-Spark pool libraries can be managed either from the Azure Synapse Studio or Azure Portal. 
+##### Manage packages from Azure Synapse Studio or Azure portal
+Spark pool libraries can be managed either from the Azure Synapse Studio or Azure portal. 
 
 To update or add  libraries to a Spark pool:
 1. Navigate to your Azure Synapse Analytics workspace from the Azure portal.
 
-    If you are updating from the **Azure Portal**:
+    If you are updating from the **Azure portal**:
 
     - Under the **Synapse resources** section, select the **Apache Spark pools** tab and select a Spark pool from the list.
      
@@ -99,8 +99,8 @@ To update or add  libraries to a Spark pool:
     ![Screenshot that highlights upload environment configuration option from studio.](./media/apache-spark-azure-portal-add-libraries/studio-update-libraries.png "Add Python libraries from Studio")
    
 2. Upload the environment configuration file using the file selector in the  **Packages** section of the page.
-3. You can also select additional **Workspace libraries** to add to your pool. 
-4. Once you save your changes, this will trigger a system job which will install and cache the specified libraries. This process helps reduce overall session start-up time. 
+3. You can also select additional **workspace packages** to add to your pool. 
+4. Once you save your changes, a system job will be triggered to install and cache the specified libraries. This process helps reduce overall session startup time. 
 5. Once the job has successfully completed, all new sessions will pick up the updated pool libraries.
 
 > [!IMPORTANT]
@@ -131,7 +131,7 @@ Workspace packages can be custom or private wheel files. You can upload these pa
 To add workspace packages:
 1. Navigate to the **Manage** > **Workspace packages** tab.
 2. Upload your wheel files by using the file selector.
-3. Once the files have been uploaded to the Azure Synapse workspace, you can add these to a given Apache Spark pool.
+3. Once the files have been uploaded to the Azure Synapse workspace, you can add these packages to a given Apache Spark pool.
 
 ![Screenshot that highlights workspace packages.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "View workspace packages")
 

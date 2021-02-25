@@ -11,21 +11,21 @@ ms.date: 01/04/2021
 ---
 
 # Troubleshoot library installation errors 
-To make third party or locally built code available to your applications, you can install a library onto one of your serverless Apache Spark pools. The packages listed in the requirements.txt file are downloaded from PyPi at the time of pool startup. This requirements file is used every time a Spark instance is created from that Spark pool. Once a library is installed for a Spark pool, it is available for all sessions using the same pool. 
+To make third party or locally built code available to your applications, you can install a library onto one of your serverless Apache Spark pools. The packages listed in the requirements.txt file are downloaded from PyPi at the time of pool startup. This requirements file is used every time a Spark instance is created from that Spark pool. Once a library is installed for a Spark pool, it's available for all sessions using the same pool. 
 
-In some cases, you may find that the library that you are trying to install is not appearing in your Apache Spark pool. This case often occurs when there is an error in the provided requirements.txt or specified libraries. When there is an error in the library installation process, the Apache Spark pool will revert back to libraries specified in the Synapse base runtime.
+In some cases, you may find that a library isn't appearing in your Apache Spark pool. This case often occurs when there's an error in the provided requirements.txt or specified libraries. When an error occurs in the library installation process, the Apache Spark pool will revert back to libraries specified in the Synapse base runtime.
 
 The goal of this document is to provide common issues and to help you debug library installation errors.
 
 ## Force update your Apache Spark pool
 When you update the libraries in your Apache Spark pool, these changes will be picked up once the pool has restarted. If you have active jobs, these jobs will continue to run on the original version of the spark pool.
 
-You can force the changes to apply by selecting the option to **Force new settings**. This setting will end the all current sessions for the selected Spark pool. Once the sessions are ended, you will have to wait for the pool to restart. 
+You can force the changes to apply by selecting the option to **Force new settings**. This setting will end the all current sessions for the selected Spark pool. Once the sessions are ended, you'll have to wait for the pool to restart. 
 
 ![Add Python libraries](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Add Python libraries")
 
 ## Track installation progress
-A system reserved Spark job is initiated each time a pool is updated with a new set of libraries. This Spark job helps monitor the status of the library installation. If the installation fails due to library conflicts or other issues, the Spark pool will revert to its previous or default state. 
+A system reserved Spark job is started each time a pool is updated with a new set of libraries. This Spark job helps monitor the status of the library installation. If the installation fails because of library conflicts or other issues, the Spark pool will revert to its previous or default state. 
 
 In addition, users can also inspect the installation logs to identify dependency conflicts or see which libraries were installed during the pool update.
 
@@ -34,7 +34,7 @@ To view these logs:
 2. Select the system Spark application job that corresponds to your pool update. These system jobs run under the *SystemReservedJob-LibraryManagement* title.
    ![Screenshot that highlights system reserved library job.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png "View system library job")
 3. Switch to view the **driver** and **stdout** logs. 
-4. Within the results, you will see the logs related to the installation of your packages.
+4. Within the results, you'll see the logs related to the installation of your packages.
     ![Screenshot that highlights system reserved library job results.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png "View system library job progress")
 
 ## Validate your permissions
@@ -79,7 +79,7 @@ It is important to note the following restrictions:
 The Synapse serverless Apache Spark pools are based off the Linux distribution. When downloading and installing Wheel files directly from PyPI, be sure to select the version that is built on Linux and runs on the same Python version as the Spark pool.
 
 >[!IMPORTANT]
->Custom packages can be added or modified between sessions. However, you will need to wait for the pool and session to restart to see the updated package.
+>Custom packages can be added or modified between sessions. However, you'll need to wait for the pool and session to restart to see the updated package.
 
 ## Check for dependency conflicts
  In general, Python dependency resolution can be tricky to manage. To help debug dependency conflicts locally, you can create your own virtual environment based off the Synapse Runtime and validate your changes.
@@ -97,7 +97,7 @@ To recreate the environment and validate your updates:
  3. Use ``pip install -r <provide your req.txt file>`` to update the virtual environment with your specified packages. If the installation results in an error, then there may be a a conflict between what is pre-installed in the Synapse base runtime and what is specified in the provided requirements file. These dependency conflicts must be resolved in order to get the updated libraries on your serverless Apache Spark pool.
 
 >[!IMPORTANT]
->Issues may arrise when using pip and conda together. When combining pip and conda, it is best to follow these [recommended best practices](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#using-pip-in-an-environment).
+>Issues may arrise when using pip and conda together. When combining pip and conda, it's best to follow these [recommended best practices](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#using-pip-in-an-environment).
 
 ## Next steps
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
