@@ -27,8 +27,6 @@ Let's start by making sure you have the tools you need to create and deploy Bice
 
 ### Editor
 
-[jgao - update the vs code and extension installation link]
-
 To create Bicep templates, you need a good editor. We recommend Visual Studio Code with the Bicep extension. If you need to install these tools, see [Quickstart: Create ARM Bicep templates with Visual Studio Code](quickstart-create-bicep-templates-use-visual-studio-code.md).
 
 ### Command-line deployment
@@ -59,7 +57,7 @@ Okay, you're ready to start learning about templates.
 1. Copy and paste the following Bicep into the file:
 
     ```bicep
-    resource provide_unique_name 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+    resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
       name: '{provide-unique-name}'
       location: 'eastus'
       sku: {
