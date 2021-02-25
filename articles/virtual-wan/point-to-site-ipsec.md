@@ -1,21 +1,23 @@
 ---
-title: 'Point-to-site custom IPsec policies'
+title: 'Virtual WAN Point-to-site IPsec policies'
 titleSuffix: Azure Virtual WAN
 description: Learn about Azure Virtual WAN Point-to-site IPsec connectivity policies.
 services: virtual-wan
 author: wellee
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 02/24/2021
 ms.author: wellee
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to know the IPsec policies for point-to-site VPN
 ---
 
-# Custom policies for Point-to-site IPsec connectivity
+# Point-to-site IPsec policies
 
 This article shows the supported IPsec policy combinations for Point-to-site VPN connectivity in Azure Virtual WAN.
 
-## Default IPsec Parameters
+[!INCLUDE [Feature rollout](../../includes/virtual-wan-portal-feature-rollout.md)]
+
+## Default IPsec policies
 
 The following table shows the default IPsec parameters for Point-to-site VPN connections. These parameters are automatically chosen by the Virtual WAN Point-to-site VPN gateway when a Point-to-site profile is created.
 
@@ -28,7 +30,7 @@ The following table shows the default IPsec parameters for Point-to-site VPN con
 | Phase 2 IPsec Integrity | GCMAES25 |
 | PFS Group |PFS24|
 
-## Available IPsec Parameters
+## Custom IPsec policies
 
 When working with custom IPsec policies, keep in mind the following requirements:
 
@@ -47,5 +49,7 @@ The following table shows the available IPsec parameters for Point-to-site VPN c
 | PFS Group |PFS14, PFS24, ECP256, ECP384|
 
 ## Next steps
+
+See [How to create a point-to-site connection](virtual-wan-point-to-site-portal.md)
 
 For more information about Virtual WAN, see the [Virtual WAN FAQ](virtual-wan-faq.md).

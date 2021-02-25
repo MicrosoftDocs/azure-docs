@@ -10,6 +10,8 @@
  ms.custom: include file
 ---
 
+[!INCLUDE [Feature rollout](../../includes/virtual-wan-portal-feature-rollout.md)]
+
 1. Navigate to **All resources** and select the virtual WAN that you created, then select **User VPN configurations** from the menu on the left.
 1. On the **User VPN configurations** page, select **+Create user VPN config** at the top of the page to open the **Create new user VPN configuration** page.
 
@@ -23,7 +25,7 @@
 
    * **Requirements:** When you select the **IKEv2** tunnel type, you see a message directing you to select an authentication method. For IKEv2, you may specify only one authentication method. You can choose Azure Certificate, Azure Active Directory, or RADIUS-based authentication.
  
-   * **IPSec custom parameters:** To customize the parameters for IKE Phase 1 and IKE Phase 2, toggle the IPsec switch to **Custom** and select the parameter values. For more information about customizable parameters, see the [Custom IPsec](../articles/virtual-wan/point-to-site-custom-ipsec.md) article.
+   * **IPSec custom parameters:** To customize the parameters for IKE Phase 1 and IKE Phase 2, toggle the IPsec switch to **Custom** and select the parameter values. For more information about customizable parameters, see the [Custom IPsec](../articles/virtual-wan/point-to-site-ipsec.md) article.
 
      :::image type="content" source="media/virtual-wan-p2s-configuration/custom.png" alt-text="Screenshot of IPsec switch to custom.":::
 

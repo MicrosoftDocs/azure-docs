@@ -74,14 +74,14 @@
       href: azure-monitor-insights.md
   - name: Site-to-site
     items:
-    - name: About IPsec policies
+    - name: About S2S IPsec policies
       href: virtual-wan-ipsec.md
     - name: Multiple ISP links - Azure path selection
       href: path-selection-multiple-links.md
   - name: Point-to-site
     items:
-    - name: About custom IPsec policies
-      href: point-to-site-custom-ipsec.md
+    - name: About P2S IPsec policies
+      href: point-to-site-ipsec.md
   - name: Security
     items:
     - name: Security baseline
