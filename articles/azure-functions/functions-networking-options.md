@@ -86,7 +86,6 @@ When you create a function app, you must create or link to a general-purpose Azu
 
 1. Create a function with a storage account that does not have service endpoints enabled.
 1. Configure the function to connect to your virtual network.
-1. Create or configure a different storage account.  This will be the storage account we secure with service endpoints and connect our function.
 1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-file-share) in the secured storage account.
 1. Enable service endpoints or private endpoint for the storage account.  
     * If using private endpoint connections, the storage account will need a private endpoint for the `file` and `blob` subresources.  If using certain capabilities like Durable Functions, you will also need `queue` and `table` accessible through a private endpoint connection.
