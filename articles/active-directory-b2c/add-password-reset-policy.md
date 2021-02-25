@@ -156,7 +156,7 @@ Find the `SubJourneys` element. If the element doesn't exist, add it. Add the fo
 </SubJourney>
 ``` 
 
-## Add a user journey 
+### Add a user journey 
 
 At this point, the password reset sub journey has been set up, but it's not yet available in any of the sign-in pages. If you don't have your own custom user journey, create a duplicate of an existing template user journey, otherwise continue to the next step. 
 
@@ -182,7 +182,7 @@ Now that you have a user journey, add the new identity provider to the user jour
     <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
     ```
 
-[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+### Configure the relying party policy
 
 The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/SocialAndLocalAccounts/SignUpOrSignin.xml), specifies the user journey which Azure AD B2C will execute. Find the **DefaultUserJourney** element within [relying party](../articles/active-directory-b2c/relyingparty.md). Update the  **ReferenceId** to match the user journey ID, in which you added the identity provider. 
 
