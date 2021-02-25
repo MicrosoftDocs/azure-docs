@@ -108,7 +108,7 @@ To add multiple IP configurations:
 
 ## Multiple VMSS behind a single Load Balancer
 
-Create Inbound NAT Pool in Load Balancer, reference the inbound NAT pool in the network profile of a Virtual Machine Scale Set, and finally update the instances for the changes to take effect. Repeat the steps for all Virtual Machine Scale Sets.
+Create inbound NAT Pool in Load Balancer, reference the inbound NAT pool in the network profile of a Virtual Machine Scale Set, and finally update the instances for the changes to take effect. Repeat the steps for all Virtual Machine Scale Sets.
 
 Make sure to create separate inbound NAT pools with non-overlapping frontend port ranges.
   
