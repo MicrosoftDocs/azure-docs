@@ -39,12 +39,12 @@ landingContent:
             url: verifiable-credentials-overview.md
       - linkListType: tutorial
         links:
-          - text: tutorial1
-            url: verifiable-credentials-tutorial1.md
+          - text: Set up VCs in your tenant
+            url: tutorial-sample-app-your-idp.md
       - linkListType: concept
         links:
-          - text: concept1
-            url: verifiable-credentials-concept1.md
+          - text: Define key pair values
+            url: credential-structure.md
  
   # Card
   - title: Place holder name for how-to
@@ -52,4 +52,4 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Some more complex scenario
-            url: how-to1.md
+            url: how-to-idp-claims.md

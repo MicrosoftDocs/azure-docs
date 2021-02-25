@@ -146,7 +146,10 @@ When marked with a \*, I/O bandwidth is limited by the VM type you selected. Oth
 
 When you reach the storage limit, the server will start returning errors and prevent any further modifications. This may also cause problems with other operational activities, such as backups and WAL archival.
 
+To avoid this situation, when the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to **read-only mode**.
+
 We recommend to actively monitor the disk space that is in use, and increase the disk size ahead of any out of storage situation. You can set up an alert to notify you when your server storage is approaching out of disk so you can avoid any issues with running out of disk. For more information, see the documentation on [how to set up an alert](howto-alert-on-metrics.md).
+
 
 ### Storage auto-grow
 

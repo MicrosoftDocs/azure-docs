@@ -1,28 +1,26 @@
 ---
 title: Tutorial - Create Sample Ninja Credential in your Issuer
-description: Learn how you can set up your own verifiable credentials issuer in Azure
-services: active-directory
+description: Modify the sample app to work with your issuer
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: active-directory
-ms.workload: identity
+ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 02/12/2021
+ms.date: 02/19/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can learn how to issue cards using Azure verifiable credentials
 
 ---
 
-# Create Sample Ninja Credential in your Issuer 
+# Create Sample Ninja Credential in your Issuer
 
 Now that we have our Verifiable Credentials service set up in AAD. Let's use the Sample Code's Ninja Credential and use that with our Issuer. 
 
 ## Create the Rules and Display Files
 
-Open up Visual Studio Code and create the Rules JSON file with the following modifications. Save it as SampleNinjaRules.json so we can differentiate it in the future. 
+Open up Visual Studio Code and create the Rules JSON file with the following modifications. Save it as SampleNinjaRules.json so we can differentiate it in the future.
 
 ### Rules File
 
@@ -48,7 +46,7 @@ Open up Visual Studio Code and create the Rules JSON file with the following mod
 }
 ```
 
-Create another file for the Display file. You don't need to change anything here, please follow the how to article on how to create your own custom Verifiable Credential design. 
+Create another file for the Display file. You don't need to change anything here,  follow the how to article on how to create your own [custom Verifiable Credential design](credential-design.md).
 
 ```json=
 {
@@ -89,30 +87,30 @@ Navigate to the Credentials tab in the Verifiable Credentials preview.
 
 Under Credential Name, add the name Ninja Credential. This name is not shown to the user and is only for managing your Verifiable Credentials. 
 
-![](media/tutorial-sample-app-your-idp/zah7B0L.png)
+![Create a new credential screen](media/tutorial-create-samplecard-your-issuer/zah7B0L.png)
 
-Select rules file upload. If you haven't created a blob storage resource lets do that now. Otherwise choose your exisiting blob storage.
+Select rules file upload. If you haven't created a blob storage resource lets do that now. Otherwise choose your existing blob storage.
 
 - name:  
 - account kind: Storage V2
 Why did we choose this?
 - performance: Standard
-- replication: Locally-redundant  
+- replication: Locally redundant  
 - location: US East 
 - resource group: Choose the resource group for this project. 
 
-![](media/tutorial-sample-app-your-idp/SKKFu1P.png)
+![Create a new storage account](media/tutorial-create-samplecard-your-issuer/SKKFu1P.png)
 
 Once that is finished being created its time to create a Container.
 
 - name 
 - Public access level: Private (no anonymous access)
 
-![](media/tutorial-sample-app-your-idp/Zk8wgsR.png)
+![Create a container](media/tutorial-create-samplecard-your-issuer/Zk8wgsR.png)
 
 Now select your new container and upload the Rules file you created earlier. Once it hs been uploaded, click on the rules file and press Select at the bottom. 
 
-![](media/tutorial-sample-app-your-idp/3WOwn6Z.png)
+![upload rules file](media/tutorial-create-samplecard-your-issuer/3WOwn6Z.png)
 
 You should now be brought back to the New Credential Flow and its time to select the Display blob file. Follow the same pattern as before. 
 
@@ -126,7 +124,7 @@ Once that is complete press Create in the New Credential flow.
 
 Now that your Credential has been created, lets copy the Credential URL and run it in the browser to see if it works.  
 
-![](media/tutorial-sample-app-your-idp/DdV0c8A.png)
+![The issue credential URL](media/tutorial-create-samplecard-your-issuer/DdV0c8A.png)
 
 https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a33457/portableIdentities/contracts/SampleNinja
 
@@ -215,23 +213,22 @@ $ node ./app.js
 
 Open up your url from ngrok and test issuing the VC to yourself.
 
-:::info
-**ISSUE** If you haven't done DNS Binding we are experiencing and failure and this is not working. Need to make sure Nithya's fix is in both iOS and Android. 
-::::
+>[!IMPORTANT]
+> If you haven't done DNS Binding we are experiencing and failure and this is not working. Need to make sure Nithya's fix is in both iOS and Android.
 
-![](media/tutorial-sample-app-your-idp/nL4PleI.png)
+![NGROK forwarding endpoints](media/tutorial-create-samplecard-your-issuer/nL4PleI.png)
 
 ## Test Verifying the VC with Sample Code
 
-Open up Settings in the Verifiable Credentials blade in Azure Portal. Copy the Issuer identifier.
+Open up Settings in the Verifiable Credentials blade in Azure portal. Copy the Issuer identifier.
 
-![](media/tutorial-sample-app-your-idp/ovlIGdJ.png)
+![copy the tenant identifier](media/tutorial-create-samplecard-your-issuer/ovlIGdJ.png)
 
 Now open up your app.js file in your Verifier Sample code. 
 
-Copy your DID in the constant issuerDid.
+Set the constant issuerDid to your issuer identifier. (Tenant identifier right? so could we say that to match the interface?)
 
-![](media/tutorial-sample-app-your-idp/5ELuqH6.png)
+![update the constant issuerDid to match your tenant identifier](media/tutorial-create-samplecard-your-issuer/5ELuqH6.png)
 
 Now run your verifier app and present the VC.
 
@@ -241,4 +238,4 @@ Here are those instructions if you forgot [Run Verifier Sample](https://hackmd.i
 
 Now that you have the sample code issuing a VC by your issuer, lets jump into the next section where you use your own identity provider to gate who can get the VC.
 
-[Tutorial - Hook up your IDP to a new Verifiable Credential, use contract uri in Sample](https://hackmd.io/Tk20KjY2RjGw1pccOdhPJQ)
+[Tutorial - Hook up your IDP to a new Verifiable Credential, use contract uri in Sample](tutorial-sample-app-your-idp.md)

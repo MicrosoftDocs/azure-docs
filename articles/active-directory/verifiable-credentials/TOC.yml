@@ -8,6 +8,8 @@
 - name: Tutorials
   expanded: true
   items:
+  - name: Configure verifiable credentials in your tenant
+    items:
     - name: Set up Verifiable Credentials issuer in your own Azure AD
       href: tutorial-verifiable-credentials-issuer.md
     - name: Create a sample credential in your issuer
@@ -19,17 +21,19 @@
 - name: Concepts
   expanded: true
   items:
-  - name: concepts1 (placeholder)
+  - name: OpenID Connect Protocol Details
     href: issuer-openid.md
   - name: Section 2 Title
     items:
-    - name: Article 1
-      href: article2.md
+    - name: duplicate as an example
+      href: issuer-openid.md
 - name: How-to guides
   expanded: true
   items:
   - name: Customizing claims in ID tokens
     href: how-to-idp-claims.md
+  - name: How to customize your credentials
+    href: credential-design.md
 - name: Resources
   expanded: true
   items:

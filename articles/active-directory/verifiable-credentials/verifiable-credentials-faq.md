@@ -1,12 +1,10 @@
 ---
 title: Frequently asked questions - Azure Verifiable Credentials
 description: Find answers to common questions about Verifiable Credentials
-services: active-directory
 author: barclayn
 manager: davba
-ms.service: active-directory
+ms.service: identity
 ms.subservice: verifiable-credentials
-ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: barclayn
@@ -38,7 +36,7 @@ A DID is a decentralized identifier. They can be used to uniquely identify and a
 
 Microsoft Authenticator will support the ability for users to recover their verifiable credentials on a new device. There are multiple ways of offering a recovery mechanism to users, each with their own tradeoffs. We're currently evaluating options and designing approaches to recovery that offer convenience and security while respecting a user's privacy and autonomy.
 
-### Why does validation of a Verifiable Credential require a query to a credential status endpoint? Isn't this a major privacy concern?
+### Why does validation of a Verifiable Credential require a query to a credential status endpoint? Is this not a privacy concern?
 
 The `credentialStatus` property in a verifiable credential requires the verifier to query the credential's issuer during validation. This is a convenient and efficient way for the issuer to be able to revoke a credential that has been previously issued. This also means that the issuer can track which verifiers have accessed a user's credentials. In some use cases this is desirable, but in many, this would be considered a serious privacy concern. We are exploring alternative means of credential revocation that will allow an issuer to revoke a verifiable credential without being able to trace a credential's usage.
 

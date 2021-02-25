@@ -85,7 +85,7 @@ conceptualContent:
           text: Connect a device
       # footerLink
       footerLink:
-        url: ../iot-central/core/index.yml
+        url: ../iot-central/index.yml
         text: See more
     # Card
     - title: Run cloud intelligence on edge devices
