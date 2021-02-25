@@ -17,6 +17,12 @@ Azure offers Trusted Launch as a seamless way to improve the security of [genera
 
 > [!IMPORTANT]
 > Trusted Launch requires the creation of new virtual machines. You can't enable Trusted Launch on existing virtual machines that were initially created without it.
+>
+> Trusted Launch is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+>
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## Benefits 
 

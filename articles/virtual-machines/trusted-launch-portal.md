@@ -15,6 +15,11 @@ ms.custom: template-how-to
 
 [Trusted Launch](trusted-launch.md) is a way to improve the security of [generation 2](generation-2.md) VMs. Trusted Launch protects against advanced and persistent attack techniques by combining infrastructure technologies like vTPM and secure boot.
 
+> [!IMPORTANT]
+> Trusted Launch is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Deploy using the portal
 
 Create a virtual machine with Trusted Launch enabled.
@@ -114,7 +119,11 @@ In the right pane, check that the Secure Boot State is **ON**.
 
 ## Enable the Azure Security Center experience
 
-To enable Azure Security Center to display information about your Trusted Launch VMs, you need to enable several policies. The easiest way to enable the policies is by deploying this [Resource Manager template](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) to your subscription.
+To enable Azure Security Center to display information about your Trusted Launch VMs, you need to enable several policies. The easiest way to enable the policies is by deploying this [Resource Manager template](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) to your subscription. 
+
+Select the button below to deploy the policies to your subscription:
+
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-asc-trustedlaunch-policies%2Fazuredeploy.json)
 
 The template needs to be deployed only once per subscription. It automatically installs `GuestAttestation` and `AzureSecurity` extensions on all supported VMs.
 
