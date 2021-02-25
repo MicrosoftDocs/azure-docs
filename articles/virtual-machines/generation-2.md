@@ -100,7 +100,7 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
 | Shared image gallery              | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [Azure disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Server-side encryption](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## Creating a generation 2 VM
