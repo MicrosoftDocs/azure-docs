@@ -20,7 +20,7 @@ Prior to installing the Defender for IoT module you must create a module identit
 
 ## Install the package
 
-Install, and configure the Microsoft package repository by following [these instructions](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software). 
+Install, and configure the Microsoft package repository by following [these instructions](/windows-server/administration/linux-package-repository-for-microsoft-software). 
 
 For Debian 9, the instructions do not include the repository that needs to be added, use the following commands to add the repository: 
 

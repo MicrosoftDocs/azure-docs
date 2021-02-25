@@ -43,7 +43,7 @@ For many Azure resources, you'll see data collected by Azure Monitor right in th
 
 Log data collected by Azure Monitor can be analyzed with [queries](logs/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using [Log Analytics](./logs/log-query-overview.md) in the Azure portal. You can then either directly analyze the data using different tools or save queries for use with [visualizations](visualizations.md) or [alert rules](alerts/alerts-overview.md).
 
-Azure Monitor uses a version of the Kusto query language that is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](logs/get-started-queries.md).  Particular guidance is provided to users who are already familiar with [SQL](/azure/data-explorer/kusto/query/sqlcheatsheet.md) and [Splunk](/azure/data-explorer/kusto/query/splunk-cheat-sheet.md).
+Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) that is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](logs/get-started-queries.md).  Particular guidance is provided to users who are already familiar with [SQL](/azure/data-explorer/kusto/query/sqlcheatsheet) and [Splunk](/azure/data-explorer/kusto/query/splunk-cheat-sheet).
 
 ![Diagram shows Logs data flowing into Log Analytics for analysis.](media/overview/logs.png)
 
