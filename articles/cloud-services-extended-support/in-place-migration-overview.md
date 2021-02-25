@@ -97,10 +97,10 @@ These are top scenarios involving combinations of resources, features, and Cloud
 |---|---|---|
 | [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) | Virtual networks that contain Azure Active Directory Domain services. | Virtual network containing both Cloud Service deployment and Azure AD Domain services is supported. Customer first needs to separately migrate Azure AD Domain services and then migrate the VNet left only with the Cloud Service deployment |
 | Cloud Service | Cloud Service with a deployment in a single slot only. | Cloud Services containing either a prod or staging slot deployment can be migrated |
-| Cloud Service | Deployment not in a virtual network but in a hidden default virtual network | A Cloud Service can be in a publicly visible vnet, in a hidden vnet or not in any vnet.  Cloud Services in a hidden vnet & publicly visible vnet are supported for migration. Customer can use the Validate API to tell if a deployment is inside a default Vnet or not and thus determine if it can be migrated. |
+| Cloud Service | Deployment not in a virtual network but in a hidden default virtual network | A Cloud Service can be in a publicly visible vnet, in a hidden vnet or not in any vnet.  Cloud Services in a hidden vnet & publicly visible vnet are supported for migration. Customer can use the Validate API to tell if a deployment is inside a default virtual network or not and thus determine if it can be migrated. |
 |Cloud Service | XML extensions (BGInfo, Visual Studio Debugger, Web Deploy, and Remote Debugging). | All xml extensions are supported for migration 
-| Virtual Network | Virtual network containing multiple Cloud Services.	| Virtual network contain multiple cloud services is supported for migration. The Vnet and all the Cloud Services within it will be migrated together to Azure Resource Manager. |
-| Virtual Network | Migration of Vnets created via Portal (Requires using “Group Resource-group-name VNet-Name” in Cscfg)  | As part of migration, the Vnet name in cscfg will be changed to use Azure Resource Manager ID of the VNet. (subscription/subscription-id/resource-group/resource-group-name/resource/vnet-name) <br><br>To manage the deployment after migration, update the local copy of Cscfg to start using Azure Resource Manager ID instead of VNet name. <br><br>A CSCFG that uses the old naming scheme will not pass validation. 
+| Virtual Network | Virtual network containing multiple Cloud Services.	| Virtual network contain multiple cloud services is supported for migration. The virtual network and all the Cloud Services within it will be migrated together to Azure Resource Manager. |
+| Virtual Network | Migration of virtual networks created via Portal (Requires using “Group Resource-group-name VNet-Name” in Cscfg)  | As part of migration, the virtual network name in cscfg will be changed to use Azure Resource Manager ID of the VNet. (subscription/subscription-id/resource-group/resource-group-name/resource/vnet-name) <br><br>To manage the deployment after migration, update the local copy of Cscfg to start using Azure Resource Manager ID instead of VNet name. <br><br>A CSCFG that uses the old naming scheme will not pass validation. 
 | Virtual Network | Migration of deployment with roles in different subnet. | A cloud service with different roles in different subnets is supported for migration. |
 	
 
@@ -127,13 +127,13 @@ These are top scenarios involving combinations of resources, features & Cloud Se
 
 | Configuration / Scenario	| Next steps / work around | 
 |---|---|
-| Migration of some older deployments not in a Vnet | Some Cloud Service deployments not in a virtual network are not supported for migration. <br><br> 1. Use the validate API to check if the deployment is eligible to migrate. <br> 2. If eligible, the deployments will be moved to Azure Resource Manager under a virtual network with prefix of “DefaultRdfeVnet” | 
+| Migration of some older deployments not in a virtual network | Some Cloud Service deployments not in a virtual network are not supported for migration. <br><br> 1. Use the validate API to check if the deployment is eligible to migrate. <br> 2. If eligible, the deployments will be moved to Azure Resource Manager under a virtual network with prefix of “DefaultRdfeVnet” | 
 | Migration of deployments containing both production and staging slot deployment using dynamic IP addresses | Migration of a two slot Cloud Service requires deletion of the staging slot. Once the staging slot is deleted, migrate the production slot as an independent Cloud Service (extended support) in Azure Resource Manager. Then redeploy the staging environment as a new Cloud Service (extended support) and make it swappable with the first one. | 
 | Migration of deployments containing both production and staging slot deployment using Reserved IP addresses | Not supported. | 
 | Migration of production and staging deployment in different virtual network|Migration of a two slot cloud service requires deleting the staging slot. Once the staging slot is deleted, migrate the production slot as an independent cloud service (extended support) in Azure Resource Manager. A new Cloud Services (extended support) deployment can then be linked to the migrated deployment with swappable property enabled. Deployments files of the old staging slot deployment can be reused to create this new swappable deployment. | 
 | Migration of empty Cloud Service (Cloud Service with no deployment) | Not supported. | 
-| Migration of deployment containing the remote desktop plugin and the remote desktop extensions | Not supported <br><br> Remove the plugin and extension before migration. [Plugins are not recommended](https://docs.microsoft.com/azure/cloud-services-extended-support/deploy-prerequisite#required-service-definition-file-csdef-updates) for use on Cloud Services (extended support).| 
-| Virtual network with both PaaS and IaaS deployment |Not Supported <br><br> Move either the PaaS or IaaS deployments into a different virtual network. This will cause downtime. | 
+| Migration of deployment containing the remote desktop plugin and the remote desktop extensions | Option 1: Remove the remote desktop plugin before migration. This requires changes to deployment files. The migration will then go through. <br><br> Option 2: Remove remote desktop extension and migrate the deployment. Post-migration, remove the plugin and install the extension. This requires changes to deployment files. <br><br> Remove the plugin and extension before migration. [Plugins are not recommended](https://docs.microsoft.com/azure/cloud-services-extended-support/deploy-prerequisite#required-service-definition-file-csdef-updates) for use on Cloud Services (extended support).| 
+| Virtual networks with both PaaS and IaaS deployment |Not Supported <br><br> Move either the PaaS or IaaS deployments into a different virtual network. This will cause downtime. | 
 Cloud Service deployments using legacy role sizes (such as Small or ExtraLarge). | The migration will complete, but the role sizes will be updated to leverage modern role sizes. There is no change in cost or SKU properties and virtual machine will not be rebooted for this change. Update all deployment artifacts to reference these new modern role sizes. For more information see, [Available VM sizes](available-sizes.md)|
 | Migration of Cloud Service to different virtual network | Not supported <br><br> 1. Move the deployment to a different classic virtual network before migration. This will cause downtime. <br> 2. Migrate the new virtual network to Azure Resource Manager. <br><br> Or <br><br> 1. Migrate the virtual network to Azure Resource Manager <br>2. Move the Cloud Service to a new virtual network. This will cause downtime. | 
 | Cloud Service that belongs to a virtual network but don't have an explicit subnet assigned | Not supported. | 
@@ -148,12 +148,12 @@ Minor changes are made to customer’s Csdef & Cscfg to make the deployment file
 
 - Virtual Network uses full Azure Resource Manager resource ID instead of just the resource name in the NetworkConfiguration section of the .cscfg. Eg. /subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Network/virtualNetworks/vnet-name. For VNets belonging to the same resource group as the cloud service, you can choose to update the .cscfg back to using just the VNet name.  
 
-- Classic sizes like small, large, extra large are replaced by their new size names, Standard_A*. The size names need to be changed to their new names in Csdef, Cscfg. As part of migration, this change is automatically done.  
+- Classic sizes like small, large, extra large are replaced by their new size names, Standard_A*. The size names need to be changed to their new names in Csdef, Cscfg. As part of migration, this change is automatically done. For more information, see [Cloud Services (extended support) deployment prerequisites](deploy-prerequisite.md#required-service-definition-file-csdef-updates)
 
 - Customers can use the Get API to get the latest copy of their deployment files. 
     - Get the template using [Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell#export-resource-groups-to-templates), [CLI](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli#export-resource-groups-to-templates), and [Rest API](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate) 
-    - Get the .csdef file using Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true), or [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
-    - Get the .cscfg file using Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true), or [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
+    - Get the .csdef file using [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) or [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
+    - Get the .cscfg file using [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) or [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
     
  
 
@@ -162,16 +162,15 @@ Minor changes are made to customer’s Csdef & Cscfg to make the deployment file
 Customers need to update their tooling and automation to start using the new APIs / commands to manage their deployment. Customer can easily adopt new features and capabilities of Azure Resource Manager/Cloud Services (extended support) as part of this change. 
 
 - Changes to Resource & Resource Group names post migration
-    - As part of migration, the names of few resources like the Cloud Service, public IP, etc. change. These changes might need to be reflected in deployment files before update of Cloud Service. “Translation of Resource & its name after migration” section talks about these changes. [Learn More about the names of resources changing](in-place-migration-technical-details.md).  
+    - As part of migration, the names of few resources like the Cloud Service, public IP addresses, etc. change. These changes might need to be reflected in deployment files before update of Cloud Service. [Learn More about the names of resources changing](in-place-migration-technical-details.md#translation-of-resources-and-naming-convention-post-migration).  
 
 - Recreate rules & policies required to manage and scale cloud services 
-    - Auto Scale rules are not migrated. After migration, recreate the auto scale rules.  
-    - Alerts are not migrated. After migration, recreate the alerts. -
+    - [Auto Scale rules])configure-scaling.md) are not migrated. After migration, recreate the auto scale rules.  
+    - [Alerts](enable-alerts.md) are not migrated. After migration, recreate the alerts. -
     - Key Vault is created without any access policies. Recreate the policies on Key Vault to access the certificates.  
 
- 
 
 ## Next steps
 - [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
-- Migrate to Cloud Services (extended support) using the [Azure portal](in-place-migration-portal.md)]
+- Migrate to Cloud Services (extended support) using the [Azure portal](in-place-migration-portal.md)
 - Migrate to Cloud Services (extended support) using [PowerShell](in-place-migration-powershell.md)
