@@ -4,6 +4,10 @@ description: In this tutorial, you'll use an AI model server provided by Intel t
 ms.topic: tutorial
 ms.date: 02/04/2021
 titleSuffix: Azure
+ms.topic: tutorial
+ms.service: media-services
+ms.author: faneerde
+author: faneerde
 
 ---
 # Tutorial: Analyze live video by using Intel OpenVINO™ DL Streamer – Edge AI Extension 
@@ -42,9 +46,9 @@ In this quickstart, you'll use Live Video Analytics on IoT Edge along with the I
 ## Overview
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/use-intel-openvino-tutorial/grpc-vas-extension-with-vino.svg" alt-text="Overview":::
+> :::image type="content" source="./media/use-intel-openvino-tutorial/grpc-vas-extension-with-vino.svg" alt-text="Overview of LVA MediaGraph":::
 
-This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [gRPC extension processor](media-graph-concept.md#grpc-extension-processor) node. 
+This diagram shows how the signals flow in this quickstart. An [EDGE module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [gRPC extension processor](media-graph-concept.md#grpc-extension-processor) node. 
 
 The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](terminology.md#grpc) endpoint exposed by a gRPC Server. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the content into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports jpeg, png, or bmp formats. Learn more about the processor [here](media-graph-extension-concept.md#grpc-extension-processor).
 
