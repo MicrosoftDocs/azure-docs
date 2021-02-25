@@ -359,7 +359,9 @@ To do tasks on network security groups, security rules, and application security
 | Microsoft.Network/networkSecurityGroups/join/action           |   Associate a network security group to a subnet or network interface 
 
 
-**Note:** For `write` operations on NSG, the account will at least require Resource Group `read` role.
+>[!NOTE]
+> For `write` operations on NSG, the account will at least require Resource Group `read` role.
+
 
 ### Network security group rule
 
