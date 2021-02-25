@@ -106,7 +106,7 @@ To add multiple IP configurations:
 1. Follow [step 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) and [step 6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) in this tutorial if new load-balancing rules are needed.
 1. Create a new set of inbound NAT rules by using the newly created front-end IP configurations if needed. An example is found in the previous section.
 
-## Multiple VMSS behind a single Load Balancer
+## Multiple Virtual Machine Scale Sets behind a single Load Balancer
 
 Create inbound NAT Pool in Load Balancer, reference the inbound NAT pool in the network profile of a Virtual Machine Scale Set, and finally update the instances for the changes to take effect. Repeat the steps for all Virtual Machine Scale Sets.
 
