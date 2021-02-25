@@ -123,7 +123,7 @@ The registration details report shows the following information for each user:
 
 ## Limitations
 
-Temporary Access Pass (TAP) registrations arent reflected in the registration tab of the report because they're only valid for short period of time.
+Temporary Access Pass (TAP) registrations aren't reflected in the registration tab of the report because they're only valid for short period of time.
 
 ## Next steps
 
