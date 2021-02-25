@@ -49,7 +49,7 @@ There are two possible runtime version issues that you may encounter:
 
 ## Known issues
 
-* Referencing Newtonsoft.Json file version 12.0.3 or onwards in a USQL script will cause the following compilation failure:
+1. Referencing Newtonsoft.Json file version 12.0.3 or onwards in a USQL script will cause the following compilation failure:
 
     *"We are sorry; jobs running in your Data Lake Analytics account will likely run more slowly or fail to complete. An unexpected problem is preventing us from automatically restoring this functionality to your Azure Data Lake Analytics account. Azure Data Lake engineers have been contacted to investigate."*  
 
@@ -59,6 +59,10 @@ There are two possible runtime version issues that you may encounter:
     `...`
 
     **Solution**: Please use Newtonsoft.Json file v12.0.2 or lower.
+2. Customers may experience issues with deletion of temp folders. The temp folder is produced during job execution, but it may not be deleted automatically sometimes even though the job is successfully completed. It may cause downstream applications loading failures depends on downstream application design. This issue is random and does not reproduce consistently.  
+
+    **Solution**: A fix is identified in the runtime where the temp files will be stored in account level temp folder than the current output folder. The temp files will be written in this new temp folder and will be deleted at the end the job execution.
+    Since this fix is handling the customer data, it is extremely important to have this fix well validated within MSFT before it is released. It is expected to have this fix available as beta runtime in the middle of year 2021 and as default runtime in the 2nd half of year 2021. 
 
 
 ## See also
