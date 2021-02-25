@@ -3,7 +3,7 @@ title: HB-series
 description: Specifications for the HB-series VMs.
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
