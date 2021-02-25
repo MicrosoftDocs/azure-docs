@@ -18,9 +18,7 @@ This article steps through enabling Hyper-V on an Azure VM and configuring Inter
 
 ## Create a nesting capable Azure VM
 
-Create a new Windows Server 2016 Azure VM. For a complete list of virtual machine sizes that support nesting, check out the [Azure Compute Unit article](../acu.md).
-
-Remember to choose a VM size large enough to support the demands of a guest virtual machine. 
+Create a new Windows Server 2016 or Windows Server 2019 Azure VM for your host. Make sure you choose a size for your VM that supports nesting, and is large enough to meet the demands of the guest VMs. For a list of virtual machine sizes that support nesting, see the [Azure Compute Unit](../acu.md) article.
 
 You can view the regional availability of VM sizes on the [Products available by region](https://azure.microsoft.com/regions/services/) page.
 
