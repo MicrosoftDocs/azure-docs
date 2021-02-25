@@ -35,10 +35,6 @@ Before you can set up the provisioning, you'll need to set up the following:
     
 If you do not have these set up already, you can create them by following the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md).
 
-You will need the following values later in this article from when you set up your instance. If you need to gather these values again, use the links below for instructions.
-
-* Azure Event Hubs **_connection string_** ([find in portal](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
-
 This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
 
 You'll need [**Node.js**](https://nodejs.org/) installed on your machine. The device simulator is based on **Node.js**, version 10.0.x or later.
@@ -64,7 +60,7 @@ In this section, you'll be attaching Device Provisioning Service to Azure Digita
 Here is a description of the process flow:
 1. Device contacts the DPS endpoint, passing identifying information to prove its identity.
 2. DPS validates device identity by validating the registration ID and key against the enrollment list, and calls an [Azure function](../azure-functions/functions-overview.md) to do the allocation.
-3. The Azure function creates a new [twin](concepts-twins-graph.md) in Azure Digital Twins for the device.
+3. The Azure function creates a new [twin](concepts-twins-graph.md) in Azure Digital Twins for the device with the same name as the registration ID.
 4. DPS registers the device with an IoT hub, and populates the device's desired twin state.
 5. The IoT hub returns device ID information and the IoT hub connection information to the device. The device can now connect to the IoT hub.
 
@@ -99,7 +95,7 @@ Save the file and then re-publish your function app. For instructions on publish
 
 ### Configure your function
 
-Next, you'll need to set environment variables in your function app from earlier, containing the reference to the Azure Digital Twins instance you've created. If you used the the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), the setting will already be configured.
+Next, you'll need to set environment variables in your function app from earlier, containing the reference to the Azure Digital Twins instance you've created. If you used the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), the setting will already be configured.
 
 Add the setting with this Azure CLI command:
 
@@ -113,9 +109,13 @@ Ensure that the permissions and Managed Identity role assignment are configured 
 
 Next, you'll need to create an enrollment in Device Provisioning Service using a **custom allocation function**. Follow the instructions to do this in the [*Create the enrollment*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) section of the custom allocation policies article in the Device Provisioning Services documentation.
 
-While going through that flow, you will link the enrollment to the function you just created by selecting *Custom (Use Azure Function)* during the step to select how you want to assign devices to hubs. Next, you will also link to your IoT hub you created earlier by selecting its name from the dropdown link during the step to select the IoT hubs this group can be assigned to:.                   
+While going through that flow, you will link the enrollment to the function you just created by selecting *Custom (Use Azure Function)* during the step to *Select how you want to assign devices to hubs*. Then, you will also link your IoT hub you created earlier by selecting its name from the dropdown during the step to *Select the IoT hubs this group can be assigned to:*.
 
-:::image type="content" source="media/how-to-provision-using-dps/link-enrollment-group-to-iothub.png" alt-text="Select *Custom(Use Azure Function)* in the section select how you want to assign devices to hubs and assign your IoT hub to your enrollment group in the section select the IoT hubs this group can be assigned to: by selecting your IoT hub name from the dropdown":::
+Next, choose *Select a new function* button to link your function app to the enrollment group. Select your *Subscription* and *Function App* from the respective dropdowns. Also, in the *Function* dropdown, choose *ProcessDTRoutedData*.
+
+Save your details.                  
+
+:::image type="content" source="media/how-to-provision-using-dps/link-enrollment-group-to-iot-hub-and-function-app.png" alt-text="Select Custom(Use Azure Function) and your IoT hub name in the sections - Select how you want to assign devices to hubs and Select the IoT hubs this group can be assigned to. Also, select your subscription, function app from the dropdown and make sure to select processDTRoutedData":::
 
 After creating the enrollment, the enrollment primary SAS key will be used later to configure the device simulator for this article.
 
@@ -133,13 +133,13 @@ Next, in your device simulator directory, copy the .env.template file to a new f
 
 * PROVISIONING_IDSCOPE: To get this value, navigate to your device provisioning service in the Azure portal, then select *Overview* in the menu options and look for the field *ID Scope*.
 
-    :::image type="content" source="media/how-to-provision-using-dps/id-scope.png" alt-text="The Azure portal view of the device provisioning *Overview* page to copy the **ID Scope** value" lightbox="media/how-to-provision-using-dps/id-scope.png":::
+    :::image type="content" source="media/how-to-provision-using-dps/id-scope.png" alt-text="The Azure portal view of the device provisioning overview page to copy the ID Scope value" lightbox="media/how-to-provision-using-dps/id-scope.png":::
 
 * PROVISIONING_REGISTRATION_ID: You can choose a registration ID for your device.
 
-* PROVISIONING_SYMMETRIC_KEY: To get this primary key, navigate to your device provisioning service in the Azure portal, select *Manage enrollments*, then select the enrollment group that you created earlier and copy the *Primary Key*.
+* PROVISIONING_SYMMETRIC_KEY: This is the primary key for the enrollment you set up earlier. To get this value again, navigate to your device provisioning service in the Azure portal, select *Manage enrollments*, then select the enrollment group that you created earlier and copy the *Primary Key*.
 
-    :::image type="content" source="media/how-to-provision-using-dps/sas-primary-key.png" alt-text="The Azure portal view of the device provisioning *Overview* page to copy the **ID Scope** value" lightbox="media/how-to-provision-using-dps/sas-primary-key.png":::
+    :::image type="content" source="media/how-to-provision-using-dps/sas-primary-key.png" alt-text="The Azure portal view of the device provisioning overview page to copy the ID Scope value" lightbox="media/how-to-provision-using-dps/sas-primary-key.png":::
 
 Now, use the values above to update .env file settings.
 
