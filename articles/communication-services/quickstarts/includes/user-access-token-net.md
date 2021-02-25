@@ -85,6 +85,21 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 var client = new CommunicationIdentityClient(connectionString);
 ```
 
+Alternatively, you can separate endpoint and access key.
+```csharp
+// This code demonstrates how to fetch your endpoint and access key
+// from an environment variable.
+string endpoint = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ENDPOINT");
+string accessKey = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ACCESSKEY");
+var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCredential(accessKey));
+```
+
+If you have managed identity set up, see [Use managed identities](../managed-identity.md), you may also authenticate with managed identity.
+```csharp
+TokenCredential tokenCredential = new DefaultAzureCredential();
+var client = new CommunicationIdentityClient(endpoint, tokenCredential);
+```
+
 ## Create an identity
 
 Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`.Store received identity with mapping to your application's users. For example, by storing them in your application server's database. The identity is required later to issue access tokens.
