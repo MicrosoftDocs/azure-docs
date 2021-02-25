@@ -98,24 +98,6 @@ Connect to the VM using remote desktop and then run msinfo32.exe.
 
 In the right pane, check that the Secure Boot State is **ON**.
  
-### Windows: validate if vTPM is enabled
-
-Run the following in PowerShell to check if vTPM is enabled.
-
-For a VM:
-
-```powershell-interactive
-$vm = get-azvm -resourcegroupname $rg -name $name
-$vm.SecurityProfile.UefiSettings
-```
-
-For a scale set:
-
-```powershell-interactive
-$vmss = get-azvmss -resourcegroupname $rg -vmscalesetname $name
-$vmss.VirtualMachineProfile.SecurityProfile.UefiSettings
-```
-
 ## Sign things for Secure Boot on Linux
 
 In some cases, you might need to sign things for UEFI Secure Boot.  For example, you might need to go through [How to sign things for Secure Boot](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) for Ubuntu. In these cases, you need to enter the MOK utility enroll keys for your VM. To do this, you need to use the Azure Serial Console to access the MOK utility.
