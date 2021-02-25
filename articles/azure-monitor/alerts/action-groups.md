@@ -3,7 +3,7 @@ title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 02/25/2021
 ms.author: dukek
 ms.subservice: alerts
 ---
@@ -112,6 +112,8 @@ Refer to the [Azure subscription service limits](../../azure-resource-manager/ma
 You may have a limited number of Runbook actions in an Action Group. 
 
 ### Azure app Push Notifications
+Enable push notifications to the [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/) by providing the email address you use as your account Id when configuring the Azure mobile app.
+
 You may have a limited number of Azure app actions in an Action Group.
 
 ### Email
