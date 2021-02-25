@@ -14,6 +14,9 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
+> [!IMPORTANT]
+> To enable/disable [Teams tenant interoperability](../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
+
 Get started with Azure Communication Services by connecting your calling solution to Microsoft Teams using the JavaScript client library.
 
 [!INCLUDE [Join Teams meetings](./includes/teams-interop-javascript.md)]
