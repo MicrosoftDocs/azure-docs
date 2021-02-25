@@ -33,13 +33,18 @@ landingContent:
         links:
           - text: Connect a cluster to Azure Arc
             url: quickstart-connect-cluster.md
-      
+
+  - title: Deploy configurations using GitOps
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy configurations using GitOps
+            url: tutorial-use-gitops-connected-cluster.md
+
   - title: Configure, govern, and monitor clusters
     linkLists:
       - linkListType: how-to-guide
         links:  
-          - text: Deploy configurations using GitOps
-            url: use-gitops-connected-cluster.md
           - text: Deploy Helm charts using GitOps
             url: use-gitops-with-helm.md
           - text: Enforce GitOps using Azure Policy

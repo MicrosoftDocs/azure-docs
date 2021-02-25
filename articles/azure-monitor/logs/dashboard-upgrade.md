@@ -77,4 +77,4 @@ Dashboards are refreshed upon load. All queries related to dashboard-pinned Log 
 
 ## Next steps
 
-[Create and share dashboards in Log Analytics](../learn/tutorial-logs-dashboards.md)
+[Create and share dashboards in Log Analytics](../visualize/tutorial-logs-dashboards.md)
