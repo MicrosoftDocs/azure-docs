@@ -18,7 +18,7 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Android Studio](https://developer.android.com/studio), we will be using Android Studio to create an Android application for the quickstart to install dependencies.
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
-- Create **two** Communication Services Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. In this quickstart we will create a thread with an initial participant and then add a second participant to the thread.
+- Create **two** Communication Services Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and the userId string**. In this quickstart, we will create a thread with an initial participant and then add a second participant to the thread.
 
 ## Setting up
 
@@ -26,12 +26,12 @@ Before you get started, make sure to:
 
 1. Open Android Studio and select `Create a new project`. 
 2. On the next window, select `Empty Activity` as the project template.
-3. When choosing options enter `ChatQuickstart` as the project name.
+3. When choosing options, enter `ChatQuickstart` as the project name.
 4. Click next and choose the directory where you want the project to be created.
 
 ### Install the libraries
 
-We'll use Gradle to install the necessary Communication Services dependencies. From the command line navigate inside the root directory of the `ChatQuickstart` project. Open the app's build.gradle file and add the following dependencies to the `ChatQuickstart` target:
+We'll use Gradle to install the necessary Communication Services dependencies. From the command line, navigate inside the root directory of the `ChatQuickstart` project. Open the app's build.gradle file and add the following dependencies to the `ChatQuickstart` target:
 
 ```
 implementation 'com.azure.android:azure-communication-common:1.0.0-beta.5'
@@ -119,7 +119,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ChatClient | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
+| ChatClient | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get, and delete threads. |
 | ChatThreadClient | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts, subscribe chat events. |
 
 ## Start a chat thread
@@ -339,4 +339,4 @@ threadClient.removeChatParticipant(threadId, participantId, new Callback<Void>()
 
 ## Run the code
 
-In Android Studio hit the Run button to build and run the project. In the console you can view the output from the code and the logger output from the ChatClient.
+In Android Studio, hit the Run button to build and run the project. In the console, you can view the output from the code and the logger output from the ChatClient.
