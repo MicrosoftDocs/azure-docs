@@ -105,7 +105,7 @@ These are top scenarios involving combinations of resources, features, and Cloud
 	
 
 ## Resources and features not available for migration
-These are top scenarios involving combinations of resources, features and Cloud Services. This ist is not exhaustive. 
+These are top scenarios involving combinations of resources, features and Cloud Services. This list is not exhaustive. 
 
 | Resource | Next steps / work around | 
 |---|---|
