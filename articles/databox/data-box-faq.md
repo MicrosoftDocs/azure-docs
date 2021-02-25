@@ -9,6 +9,7 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 02/25/2021
 ms.author: alkohli
+ms.custom: references_regions
 ---
 # Azure Data Box: Frequently Asked Questions
 

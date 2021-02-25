@@ -9,6 +9,7 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: alkohli
+ms.custom: references_regions
 ---
 
 # Azure Data Box Disk: Frequently Asked Questions
