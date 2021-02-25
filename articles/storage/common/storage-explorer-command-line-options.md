@@ -14,14 +14,14 @@ ms.author: chuye
 Microsoft Azure Storage Explorer has a set of command-line options that can be added when starting the application. Most of the command-line options are for debugging or troubleshooting purposes.
 
 ## Command-line options
-| option  | description |
-| :------- | :----------- |
-| --debug/--prod  | Start the application in debug or production mode. In debug mode, the local attachment data will be stored in the application's local storage and it won't be encrypted. Hidden properties will be displayed in the Properties panel for selected resource nodes. Log verbosity level will be set to print debug messages revealing Storage Explorer's internal setup logic. The default value is `--prod`.
-| --lang  | Start the application with a given language. For example, `--lang={cs,de,en,es,fr,hu,it,ja,ko,nl,pl,pt-BR,pt-PT,ru,sv,tr,zh-Hans,zh-Hant}`. |
-| --disable-gpu | Start the application without GPU acceleration. |
-| --auto-open-dev-tools | Let the application open the developer tools window as soon as the browser window shows. This option is useful when you want to hit a break point at a line in the start-up code of the browser window. |
-| --verbosity | Set the verbosity level of Storage Explorer logging. Supported verbosity levels include `debug`, `verbose`, `info`, `warn`, `error`, and `silent`. For example, `--verbosity=verbose`. When running in production mode, the default verbosity level is `info`. When running in debug mode, the log verbosity level will always be `debug`. |
-| --log-dir | Set the directory to save log files. For example, `--log-dir=path_to_a_directory`. |
+Option  | Description
+:------- | :-----------
+`--debug`/`--prod`  | Start the application in debug or production mode. In debug mode, the local attachment data will be stored in the application's local storage and it won't be encrypted. Hidden properties will be displayed in the Properties panel for selected resource nodes. Log verbosity level will be set to print debug messages revealing Storage Explorer's internal setup logic. The default value is `--prod`.
+`--lang`  | Start the application with a given language. For example, `--lang="zh-Hans"`.
+`--disable-gpu` | Start the application without GPU acceleration.
+`--auto-open-dev-tools` | Let the application open the developer tools window as soon as the browser window shows. This option is useful when you want to hit a break point at a line in the start-up code of the browser window.
+`--verbosity` | Set the verbosity level of Storage Explorer logging. Supported verbosity levels include `debug`, `verbose`, `info`, `warn`, `error`, and `silent`. For example, `--verbosity=verbose`. When running in production mode, the default verbosity level is `info`. When running in debug mode, the log verbosity level will always be `debug`.
+`--log-dir` | Set the directory to save log files. For example, `--log-dir=path_to_a_directory`.
 
 An example of starting Storage Explorer with custom command-line options
 
