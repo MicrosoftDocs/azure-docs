@@ -20,6 +20,9 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 ## Self-asserted page (selfasserted)
 
+**2.1.2**
+- Fixed the localization encoding issue for languages such as Spanish and French.
+
 **2.1.1**
 
 - Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.
@@ -66,6 +69,10 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Initial release
 
 ## Unified sign-in sign-up page with password reset link (unifiedssp)
+
+**2.1.2**
+- Fixed the localization encoding issue for languages such as Spanish and French.
+- Allowing the "forgot password" link to use as claims exchange like social IDP.
 
 **2.1.1**
 - Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.

@@ -48,7 +48,7 @@ landingContent:
       - text: Azure Databricks
         url: prepay-databricks-reserved-capacity.md
       - text: App Service
-        url: prepay-app-service-isolated-stamp.md
+        url: prepay-app-service.md
       - text: Azure software plans
         url: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/toc.json
 
@@ -72,7 +72,7 @@ landingContent:
       - text: Azure Databricks
         url: reservation-discount-databricks.md
       - text: App Service
-        url: reservation-discount-app-service-isolated-stamp.md
+        url: reservation-discount-app-service.md
       - text: Azure software charges
         url: understand-suse-reservation-charges.md
 

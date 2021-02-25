@@ -13,7 +13,7 @@ tags: connectors
 
 # Connect to SAP systems from Azure Logic Apps
 
-This article explains how you can access your SAP resources from Logic Apps using the [SAP connector](https://docs.microsoft.com/connectors/sap/).
+This article explains how you can access your SAP resources from Logic Apps using the [SAP connector](/connectors/sap/).
 
 ## Prerequisites
 
@@ -508,7 +508,7 @@ If you can't send IDoc packets from SAP to your logic app's trigger, see the Tra
   * To have these segments released by SAP, contact the ABAP engineer for your SAP system.
 ### Asynchronous request-reply for triggers
 
-The SAP connector supports Azure's [asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply.md) for Logic Apps triggers. You can use this pattern to create successful requests that would have otherwise failed with the default synchronous request-reply pattern. 
+The SAP connector supports Azure's [asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply) for Logic Apps triggers. You can use this pattern to create successful requests that would have otherwise failed with the default synchronous request-reply pattern. 
 
 > [!TIP]
 > In logic apps with multiple response actions, all response actions must use the same request-reply pattern. For example, if your logic app uses a switch control with multiple possible response actions, you must configure all the response actions to use the same request-reply pattern, either synchronous or asynchronous. 
@@ -551,14 +551,14 @@ For on-premises data gateway releases from April 2020 and earlier, logs are disa
 
 If you use an [on-premises data gateway for Logic Apps](../logic-apps/logic-apps-gateway-install.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files. 
 
-You can [export all of your gateway's configuration and service logs](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
+You can [export all of your gateway's configuration and service logs](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
 
 > [!NOTE]
 > Extended logging might affect your logic apps' performance when always enabled. It's a best practice to turn off extended log files after you're finished with analyzing and troubleshooting an issue.
 
 #### Capture ETW events
 
-Optionally, advanced users can capture ETW events directly. You can then [consume your data in Azure Diagnostics in Event Hubs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs) or [collect your data to Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs). For more information, see the [best practices for collecting and storing data](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#collecting-and-storing-data). You can use [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) to work with the resulting ETL files, or you can write your own program. This walkthrough uses PerfView:
+Optionally, advanced users can capture ETW events directly. You can then [consume your data in Azure Diagnostics in Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) or [collect your data to Azure Monitor Logs](/azure/azure-monitor/agents/diagnostics-extension-logs). For more information, see the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). You can use [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) to work with the resulting ETL files, or you can write your own program. This walkthrough uses PerfView:
 
 1. In the PerfView menu, select **Collect** &gt; **Collect** to capture the events.
 
@@ -1344,7 +1344,7 @@ For detailed examples of how to use the Call BAPI action, see the [XML samples o
 
 ### Send IDoc action
 
-The [Send IDoc (`SendIDoc`)](https://docs.microsoft.com/connectors/sap/#send-idoc-(preview)) action sends the IDoc message to your SAP server.
+The [Send IDoc (`SendIDoc`)](/connectors/sap/) action sends the IDoc message to your SAP server.
 
 You must use the following parameters with your call: 
 

@@ -1,13 +1,11 @@
 ---
 title: Troubleshoot security and access control issues
 description: Learn how to troubleshoot security and access control issues in Azure Data Factory. 
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 02/04/2021
 ms.author: lle
-ms.reviewer: craigg
 ---
 
 # Troubleshoot Azure Data Factory security and access control issues
@@ -83,9 +81,10 @@ To verify whether the Data Factory fully qualified domain name (FQDN) is resolve
 #### Resolution
 
 To resolve the issue, do the following:
-- Refer to the [Azure Private Link for Azure Data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints) article. The instruction is for configuring the private DNS zone or server to resolve the Data Factory FQDN to a private IP address.
 
-- We recommend using a custom DNS as the long-term solution. However, if you don't want to configure the private DNS zone or server, try the following temporary solution:
+- As option, we would like to suggest you to manually add a "Virtual Network link" under the Data Factory "Private link DNS Zone". For details, refer to the [Azure Private Link for Azure Data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints) article. The instruction is for configuring the private DNS zone or custom DNS server to resolve the Data Factory FQDN to a private IP address. 
+
+- However, if you don't want to configure the private DNS zone or custom DNS server, try the following temporary solution:
 
   1. Change the host file in Windows, and map the private IP (the Azure Data Factory private endpoint) to the Azure Data Factory FQDN.
   
@@ -146,6 +145,23 @@ To resolve the issue, go to [Azure Private Link for Azure Data Factory](./data-f
 Try to enable public network access on the user interface, as shown in the following screenshot:
 
 ![Screenshot of the "Enabled" control for "Allow public network access" on the Networking pane.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+### ADF private DNS zone overrides Azure Resource Manager DNS resolution causing ‘Not found’ error
+
+#### Cause
+Both Azure Resource Manager and ADF are using the same private zone creating a potential conflict on customer’s private DNS with an scenario where the Azure Resource Manager records will not be found.
+
+#### Solution
+1. Find Private DNS zones **privatelink.azure.com** in Azure portal.
+![Screenshot of finding Private DNS zones.](media/security-access-control-troubleshoot-guide/private-dns-zones.png)
+2. Check if there is an A record **adf**.
+![Screenshot of A record.](media/security-access-control-troubleshoot-guide/a-record.png)
+3.	Go to **Virtual network links**, delete all records.
+![Screenshot of virtual network link.](media/security-access-control-troubleshoot-guide/virtual-network-link.png)
+4.	Navigate to your data factory in Azure portal and recreate the private endpoint for Azure Data Factory portal.
+![Screenshot of recreating private endpoint.](media/security-access-control-troubleshoot-guide/create-private-endpoint.png)
+5.	Go back to Private DNS zones, and check if there is a new private DNS zone **privatelink.adf.azure.com**.
+![Screenshot of new DNS record.](media/security-access-control-troubleshoot-guide/check-dns-record.png)
 
 ## Next steps
 
