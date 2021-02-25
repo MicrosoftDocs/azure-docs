@@ -180,7 +180,7 @@ Do the following:
 
    >[!NOTE]
    >The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
-   >When adding a new group, users in the group (up to 200 users for a new group) will be updated to use managed auth immidiatly. 
+   >When adding a new group, users in the group (up to 200 users for a new group) will be updated to use managed auth immediately. 
    >Editing a group (adding or removing users), it can take up to 24 hours for changes to take effect.
    >Seamless SSO will apply only if users are in the Seamless SSO group and also in either a PTA or PHS group.
 
