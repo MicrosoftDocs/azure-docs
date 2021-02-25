@@ -23,11 +23,13 @@ Each authorization option is briefly described below:
 
 - **Access Key** authentication for SMS and Identity operations. Access Key authentication is suitable for service applications running in a trusted service environment. Access key can be found in Azure Communication Services portal. To authenticate with an access key, a service application uses the access key as credential to initialize corresponding SMS or Identity client libraries.
 - **Managed Identity** authentication for SMS and Identity operations. Managed Identity is suitable for service applications running in a trusted service environment. To authenticate with a managed identity, a service application creates a credential with id and secret of a managed identity then initialize corresponding SMS or Identity client libraries.
-- **User Access Token** authentication for Chat and Calling. User access tokens let your client applications authenticate against Azure Communication Chat and Calling Services. These tokens are generated "trusted user access service" that you create. They're then provided to client devices that use the token to initialize the Chat and Calling client libraries. For more information, see [Authenticate with a User Access Token](#authenticate-with-a-user-access-token).
+- **User Access Token** authentication for Chat and Calling. User access tokens let your client applications authenticate against Azure Communication Chat and Calling Services. These tokens are generated in a "trusted user access service" that you create. They're then provided to client devices that use the token to initialize the Chat and Calling client libraries. For more information, see [Authenticate with a User Access Token](#authenticate-with-a-user-access-token).
 
 ## Authenticate with an access key
 
-Azure resource access key let your service applications authenticate against Azure Communication Identity service. 
+Azure resource access key let your service applications authenticate against Azure Communication services that accept access key credential. 
+
+The following snippets show you how to initialize the Identity client library with an access key:
 
 ### [C#](#tab/csharp)
 
@@ -176,7 +178,9 @@ The `refreshProactively` option lets you decide how you'll manage the token life
 
 ## Authenticate with a managed identity
 
-Azure managed identity let your service applications authenticate against Azure Communication Identity service.
+Azure managed identity let your service applications authenticate against Azure Communication services that accept managed identity credential.
+
+The following snippets show you how to initialize the Identity client library with a managed identity:
 
 ### [C#](#tab/csharp)
 ```csharp
