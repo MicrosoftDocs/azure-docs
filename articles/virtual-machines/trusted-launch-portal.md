@@ -33,11 +33,11 @@ Create a virtual machine with Trusted Launch enabled.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot showing the options for Trusted Launch.":::
 
-1. Go back to the **Basics** tab, under **Image**, and make sure you see the following message: **This image supports trusted launch preview. Configure in the Advanced tab**. The image should now be listed as the gen 2 version.
+1. Go back to the **Basics** tab, under **Image**, and make sure you see the following message: **This image supports trusted launch preview. Configure in the Advanced tab**. The gen 2 image should now be selected.
 
     :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot showing the message confirming that this is a gen2 image that supports Trusted Launch.":::
 
-1.	Select a VM size that supports Trusted Launch. Please see the list of supported [sizes](trusted-launch.md#public-preview-limitations).
+1.	Select a VM size that supports Trusted Launch. See the list of [supported sizes](trusted-launch.md#public-preview-limitations).
 1.	Fill in the **Administrator account** information and then **Inbound port rules**.
 1.	At the bottom of the page, select **Review + Create**
 1.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. When you are ready, select **Create**.
@@ -80,7 +80,7 @@ SSH to the VM and then run the following command:
 mokutil --sb-state
 ```
 
-If secure boot is enable, this will return:
+If secure boot is enable, the command will return:
  
 ```bash
 SecureBoot enabled 
@@ -94,13 +94,13 @@ SSH into your VM. Check if tpm0 device is present:
 ls /dev/tpm0
 ```
 
-If vTPM is enabled it will return:
+If vTPM is enabled, the command will return:
 
 ```output
 /dev/tpm0
 ```
 
-If vTPM is disabled, it will return:
+If vTPM is disabled, the command will return:
 
 ```output
 ls: cannot access '/dev/tpm0': No such file or directory
@@ -114,7 +114,7 @@ In the right pane, check that the Secure Boot State is **ON**.
 
 ## Enable the Azure Security Center experience
 
-To enable Azure Security Center to display information about your Trusted Launch VMs, you need to enable several policies. The easiest way to enable the policies is by deploying this [resource manager template](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) to your subscription.
+To enable Azure Security Center to display information about your Trusted Launch VMs, you need to enable several policies. The easiest way to enable the policies is by deploying this [Resource Manager template](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) to your subscription.
 
 The template needs to be deployed only once per subscription. It automatically installs `GuestAttestation` and `AzureSecurity` extensions on all supported VMs.
 
@@ -135,7 +135,7 @@ In some cases, you might need to sign things for UEFI Secure Boot.  For example,
     sudo mokutil –import <path to public key.der> 
     ```
 1. Reboot the machine from Azure Serial Console by typing `sudo reboot`. A 10 second countdown will begin.
-1. Press up or down key to interrupt the countdown and wait in UEFI console mode. If the timer is not interrupted, the bootprocess continues and all of the MOK changes are lost.
+1. Press up or down key to interrupt the countdown and wait in UEFI console mode. If the timer is not interrupted, the boot process continues and all of the MOK changes are lost.
 1. Select the appropriate action from the MOK utility menu.
 
     :::image type="content" source="media/trusted-launch/mok-mangement.png" alt-text="Screenshot showing the available options on the MOK management menu in the serial console.":::
