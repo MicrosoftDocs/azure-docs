@@ -16,7 +16,7 @@ ms.author: barclayn
 
 # Create Sample Ninja Credential in your Issuer
 
-Now that we have our Verifiable Credentials service set up in AAD. Let's use the Sample Code's Ninja Credential and use that with our Issuer. 
+Now that we have our Verifiable Credentials service set up in Azure Active Directory (AAD). Let's use the Sample Code's Ninja Credential and use that with our Issuer. 
 
 ## Create the Rules and Display Files
 
@@ -87,12 +87,12 @@ We need a storage account to hold the rule and display files we created in the p
 
 For this set of tutorials create a storage account using the following options:
 
-- name:  A unique name
-- account kind: Storage V2 (Why did we choose this? is this required
-- performance: Standard
-- replication: Locally redundant  (IS THERE A REASON FOR THIS? WHAT WOULD BE THE RECOMMENDATION FOR PRODUCTION? GEO REDUNDANT? )
-- location: US East 
-- resource group: Choose the same resource group we used in earlier tutorials (**vc-resource-group**)
+- **Name:**  A unique name
+- **Account kind:** Storage V2 (Why did we choose this? is this required
+- **Performance:** Standard
+- **Replication:** Locally redundant  (IS THERE A REASON FOR THIS? WHAT WOULD BE THE RECOMMENDATION FOR PRODUCTION? GEO REDUNDANT? )
+- **Location:** (US) EAST US
+- **Resource group:** Choose the same resource group we used in earlier tutorials (**vc-resource-group**)
 
 For detailed steps you can review the [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal) article.
 

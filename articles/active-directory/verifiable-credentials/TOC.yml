@@ -11,13 +11,13 @@
   - name: Configure verifiable credentials in your tenant
     items:
     - name: Set up Verifiable Credentials issuer in your own Azure AD
-      href: tutorial-verifiable-credentials-issuer.md
+      href: tutorial-01-verifiable-credentials-issuer.md
     - name: Create a sample credential in your issuer
-      href: tutorial-create-samplecard-your-issuer.md
+      href: tutorial-02-create-sample-card-your-issuer.md
     - name: Connect your verifiable credentials issuer to your own Azure AD
-      href: tutorial-sample-app-your-idp.md
-    - name: Connect your IDP to a new verifiable credential instance
-      href: tutorial-connect-your-idp-verifiable-credentials.md
+      href: tutorial-03-sample-app-your-idp.md
+    - name: Step 4
+      href: tutorial-04-update-sample-your-idp-vc.md
 - name: Concepts
   expanded: true
   items:
