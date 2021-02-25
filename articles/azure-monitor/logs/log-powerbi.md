@@ -14,7 +14,7 @@ This article focuses on ways to feed data from Log Analytics into Microsoft Powe
 
 ## Background 
 
-Azure Monitor Logs is a platform that provides an end-to-end solution for ingesting logs. [Azure Monitor Log Analytics](../platform/data-platform.md#) is the interface to query these logs. For more information on the entire Azure Monitor data platform including Log Analytics, see [Azure Monitor data platform](../platform/data-platform.md). 
+Azure Monitor Logs is a platform that provides an end-to-end solution for ingesting logs. [Azure Monitor Log Analytics](../platform/data-platform.md#) is the interface to query these logs. For more information on the entire Azure Monitor data platform including Log Analytics, see [Azure Monitor data platform](../data-platform.md). 
 
 Microsoft Power BI is Microsoft’s data visualization platform. For more information on how to get started, see [Power BI’s homepage](https://powerbi.microsoft.com/). 
 
@@ -77,4 +77,4 @@ Additional information can be found in [Integrate Log Analytics and Excel](log-e
 
 ## Next steps
 
-Get started with [Log Analytics queries](../log-query/log-query-overview.md).
+Get started with [Log Analytics queries](./log-query-overview.md).

@@ -268,7 +268,7 @@ callAgent.handlePush(notification: callNotification) { (error) in
     if (error != nil) {
         print("Handling of push notification failed")
     } else {
-        print("Handling of push notification was successfull")
+        print("Handling of push notification was successful")
     }
 }
 
