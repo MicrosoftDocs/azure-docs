@@ -353,6 +353,11 @@ The following table shows the operation progress that occurs when you disable HT
 
     To ensure a newer certificate is deployed to PoP infrastructure, upload your new certificate to Azure KeyVault. In your TLS settings on Azure CDN, choose the newest certificate version and select save. Azure CDN will then propagate your new updated cert. 
 
+8. *Do i need to re-enable HTTPS once the endpoint restart*
+
+    Yes. For the endpoint under Azure CDN Standard from Akamai, if the endpoint stop and start again, the HTTPS setting need to be re-enabled again if it is active before.
+
+
 ## Next steps
 
 In this tutorial, you learned how to:
