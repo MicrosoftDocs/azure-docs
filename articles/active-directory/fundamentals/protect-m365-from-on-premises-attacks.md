@@ -198,7 +198,7 @@ We recommend the following provisioning methods:
             access](../../role-based-access-control/conditional-access-azure-management.md). 
 
 * **Disconnected forests**: Use [Azure AD cloud
-    provisioning](../cloud-provisioning/what-is-cloud-provisioning.md). This method enables you to connect to disconnected forests, eliminating the need to establish cross-forest connectivity or trusts, which can
+    provisioning](../cloud-sync/what-is-cloud-sync.md). This method enables you to connect to disconnected forests, eliminating the need to establish cross-forest connectivity or trusts, which can
     broaden the effect of an on-premises breach. 
  
 ### Limitations and tradeoffs

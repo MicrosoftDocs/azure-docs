@@ -475,4 +475,4 @@ The following sample creates a rule that can target any resource.
 ## Next steps
 
 * [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
-* [Learn more about alert rules](../platform/alerts-overview.md).
+* [Learn more about alert rules](./alerts-overview.md).
