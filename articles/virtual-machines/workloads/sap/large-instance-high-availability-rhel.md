@@ -281,7 +281,7 @@ In this section, you learn how to configure Watchdog. This section uses the same
 	IPMI_POWERCYCLE=no
 	IPMI_IMB=no
     ```
-5. Copy the wathcdog config file to secondary.
+5. Copy the watchdog config file to secondary.
     ```
 	sollabdsm35:~ # scp /etc/sysconfig/ipmi
 	sollabdsm36:/etc/sysconfig/ipmi
