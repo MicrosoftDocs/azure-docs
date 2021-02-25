@@ -53,7 +53,7 @@ For other benefits and why you should migrate, see [Cloud Services (extended sup
 ## How is migration for Cloud Services (classic) different from Virtual Machines (classic)?
 Azure Service Manager supports two different compute products, [Azure Virtual Machines (classic)](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/tutorial-classic) and [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) or Web/ Worker roles. The two products differ based on the deployment type that lies within the Cloud Service. Azure Cloud Services (classic) uses Cloud Service containing deployments with Web/Worker roles. Azure Virtual Machines (classic) uses a cloud service containing deployments with IaaS VMs.
 
-Due to differences in deployment types, the list of supported scenarios differ for Cloud Services (classic) than from Virtual Machines (classic). 
+Due to differences in deployment types, the list of supported scenarios differs for Cloud Services (classic) than from Virtual Machines (classic). 
 
 ## Migration steps for this tool
  
@@ -88,26 +88,26 @@ For more information, see [Overview of Platform-supported migration of IaaS reso
 - 	Dynamic Public IP addresses
 - 	DNS Name 
 - 	Network Traffic Rules
-- 	Hypernet VNet
+- 	Hypernet virtual network
 
 ## Supported configurations / migration scenarios
 These are top scenarios involving combinations of resources, features, and Cloud Services. This list is not exhaustive.
 
 | Service |	Configuration | Comments | 
 |---|---|---|
-| [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) | Virtual networks that contain Azure Active Directory Domain services. | Virtual network containing both Cloud Service deployment and Azure AD Domain services is supported. Customer first needs to separately migrate Azure AD Domain services and then migrate the VNet left only with the Cloud Service deployment |
+| [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) | Virtual networks that contain Azure Active Directory Domain services. | Virtual network containing both Cloud Service deployment and Azure AD Domain services is supported. Customer first needs to separately migrate Azure AD Domain services and then migrate the virtual network left only with the Cloud Service deployment |
 | Cloud Service | Cloud Service with a deployment in a single slot only. | Cloud Services containing either a prod or staging slot deployment can be migrated |
-| Cloud Service | Deployment not in a publicly visible virtual network (default virtual network deployment) | A Cloud Service can be in a publicly visible virtual network, in a hidden virtual network or not in any virtual network.  Cloud Services in a hidden virtual network and publicly visible virtual network are supported for migration. Customer can use the Validate API to tell if a deployment is inside a default virtual network or not and thus determine if it can be migrated. |
+| Cloud Service | Deployment not in a publicly visible virtual network (default virtual network deployment) | A Cloud Service can be in a publicly visible virtual network, in a hidden virtual network or not in any virtual network.  Cloud Services in a hidden virtual network and publicly visible virtual networks are supported for migration. Customer can use the Validate API to tell if a deployment is inside a default virtual network or not and thus determine if it can be migrated. |
 |Cloud Service | XML extensions (BGInfo, Visual Studio Debugger, Web Deploy, and Remote Debugging). | All xml extensions are supported for migration 
 | Virtual Network | Virtual network containing multiple Cloud Services.	| Virtual network contain multiple cloud services is supported for migration. The virtual network and all the Cloud Services within it will be migrated together to Azure Resource Manager. |
-| Virtual Network | Migration of virtual networks created via Portal (Requires using “Group Resource-group-name VNet-Name” in Cscfg)  | As part of migration, the virtual network name in cscfg will be changed to use Azure Resource Manager ID of the VNet. (subscription/subscription-id/resource-group/resource-group-name/resource/vnet-name) <br><br>To manage the deployment after migration, update the local copy of Cscfg to start using Azure Resource Manager ID instead of VNet name. <br><br>A CSCFG that uses the old naming scheme will not pass validation. 
+| Virtual Network | Migration of virtual networks created via Portal (Requires using “Group Resource-group-name VNet-Name” in .cscfg file)  | As part of migration, the virtual network name in cscfg will be changed to use Azure Resource Manager ID of the virtual network. (subscription/subscription-id/resource-group/resource-group-name/resource/vnet-name) <br><br>To manage the deployment after migration, update the local copy of .cscfg file to start using Azure Resource Manager ID instead of virtual network name. <br><br>A .cscfg file that uses the old naming scheme will not pass validation. 
 | Virtual Network | Migration of deployment with roles in different subnet. | A cloud service with different roles in different subnets is supported for migration. |
 	
 
 ## Resources and features not available for migration
 These are top scenarios involving combinations of resources, features and Cloud Services. This list is not exhaustive. 
 
-| Resource | Next steps / work around | 
+| Resource | Next steps / work-around | 
 |---|---|
 | Auto Scale Rules | Migration goes through but rules are dropped. [Recreate the rules](https://docs.microsoft.com/azure/cloud-services-extended-support/configure-scaling) after migration on Cloud Services (extended support). | 
 | Alerts | Migration goes through but alerts are dropped. [Recreate the rules](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-alerts) after migration on Cloud Services (extended support). | 
@@ -125,7 +125,7 @@ These are top scenarios involving combinations of resources, features and Cloud 
 
 ## Unsupported configurations / migration scenarios
 
-| Configuration / Scenario	| Next steps / work around | 
+| Configuration / Scenario	| Next steps / work-around | 
 |---|---|
 | Migration of some older deployments not in a virtual network | Some Cloud Service deployments not in a virtual network are not supported for migration. <br><br> 1. Use the validate API to check if the deployment is eligible to migrate. <br> 2. If eligible, the deployments will be moved to Azure Resource Manager under a virtual network with prefix of “DefaultRdfeVnet” | 
 | Migration of deployments containing both production and staging slot deployment using dynamic IP addresses | Migration of a two slot Cloud Service requires deletion of the staging slot. Once the staging slot is deleted, migrate the production slot as an independent Cloud Service (extended support) in Azure Resource Manager. Then redeploy the staging environment as a new Cloud Service (extended support) and make it swappable with the first one. | 
@@ -134,7 +134,7 @@ These are top scenarios involving combinations of resources, features and Cloud 
 | Migration of empty Cloud Service (Cloud Service with no deployment) | Not supported. | 
 | Migration of deployment containing the remote desktop plugin and the remote desktop extensions | Option 1: Remove the remote desktop plugin before migration. This requires changes to deployment files. The migration will then go through. <br><br> Option 2: Remove remote desktop extension and migrate the deployment. Post-migration, remove the plugin and install the extension. This requires changes to deployment files. <br><br> Remove the plugin and extension before migration. [Plugins are not recommended](https://docs.microsoft.com/azure/cloud-services-extended-support/deploy-prerequisite#required-service-definition-file-csdef-updates) for use on Cloud Services (extended support).| 
 | Virtual networks with both PaaS and IaaS deployment |Not Supported <br><br> Move either the PaaS or IaaS deployments into a different virtual network. This will cause downtime. | 
-Cloud Service deployments using legacy role sizes (such as Small or ExtraLarge). | The migration will complete, but the role sizes will be updated to leverage modern role sizes. There is no change in cost or SKU properties and virtual machine will not be rebooted for this change. Update all deployment artifacts to reference these new modern role sizes. For more information see, [Available VM sizes](available-sizes.md)|
+Cloud Service deployments using legacy role sizes (such as Small or ExtraLarge). | The migration will complete, but the role sizes will be updated to use modern role sizes. There is no change in cost or SKU properties and virtual machine will not be rebooted for this change. Update all deployment artifacts to reference these new modern role sizes. For more information, see [Available VM sizes](available-sizes.md)|
 | Migration of Cloud Service to different virtual network | Not supported <br><br> 1. Move the deployment to a different classic virtual network before migration. This will cause downtime. <br> 2. Migrate the new virtual network to Azure Resource Manager. <br><br> Or <br><br> 1. Migrate the virtual network to Azure Resource Manager <br>2. Move the Cloud Service to a new virtual network. This will cause downtime. | 
 | Cloud Service in a virtual network but does not have an explicit subnet assigned | Not supported. Mitigation involves moving the role into a subnet, which requires a role restart (downtime) | 
 
@@ -144,11 +144,11 @@ After the migration is completed, the Cloud Services (classic) deployment gets c
 
 ### Changes to deployment files 
 
-Minor changes are made to customer’s Csdef and Cscfg to make the deployment files conform to the Azure Resource Manager and Cloud Services (extended support) requirements. Post migration retrieves your new deployment files or update the existing files. This will be needed for update/delete operations.  
+Minor changes are made to customer’s .csdef and .cscfg file to make the deployment files conform to the Azure Resource Manager and Cloud Services (extended support) requirements. Post migration retrieves your new deployment files or update the existing files. This will be needed for update/delete operations.  
 
-- Virtual Network uses full Azure Resource Manager resource ID instead of just the resource name in the NetworkConfiguration section of the .cscfg. Eg. /subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Network/virtualNetworks/vnet-name. For VNets belonging to the same resource group as the cloud service, you can choose to update the .cscfg back to using just the VNet name.  
+- Virtual Network uses full Azure Resource Manager resource ID instead of just the resource name in the NetworkConfiguration section of the .cscfg file. For example, `/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Network/virtualNetworks/vnet-name`. For virtual networks belonging to the same resource group as the cloud service, you can choose to update the .cscfg file back to using just the virtual network name.  
 
-- Classic sizes like small, large, extra large are replaced by their new size names, Standard_A*. The size names need to be changed to their new names in Csdef, Cscfg. As part of migration, this change is automatically done. For more information, see [Cloud Services (extended support) deployment prerequisites](deploy-prerequisite.md#required-service-definition-file-csdef-updates)
+- Classic sizes like small, large, extra large are replaced by their new size names, Standard_A*. The size names need to be changed to their new names in .csdef and .cscfg files. As part of migration, this change is automatically done. For more information, see [Cloud Services (extended support) deployment prerequisites](deploy-prerequisite.md#required-service-definition-file-csdef-updates)
 
 - Customers can use the Get API to get the latest copy of their deployment files. 
     - Get the template using [Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell#export-resource-groups-to-templates), [CLI](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli#export-resource-groups-to-templates), and [Rest API](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate) 
