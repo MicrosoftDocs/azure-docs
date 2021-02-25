@@ -88,10 +88,10 @@ Describe details of the error, bits 27-20 provide a high level, bits 19-0 provid
 
 User message displayed is based on error code's bits 27-20.
 
-- MEDIA_ERR_ABORTED (1) -"You aborted the video playback"
+- MEDIA_ERR_ABORTED (1) - "You aborted the video playback"
 - MEDIA_ERR_NETWORK (2) - "A network error caused the video download to fail part-way."
 - MEDIA_ERR_DECODE (3) - "The video playback was aborted due to a corruption problem or because the video used features your browser did not support."
-- MEDIA_ERR_SRC_NOT_SUPPORTED (4)-"The video could not be loaded, either because the server or network failed or because the format is not supported."
+- MEDIA_ERR_SRC_NOT_SUPPORTED (4) - "The video could not be loaded, either because the server or network failed or because the format is not supported."
 - MEDIA_ERR_ENCRYPTED (5) - "The video is encrypted and we do not have the keys to decrypt it."
 - SRC_PLAYER_MISMATCH (6) - "No compatible source was found for this video."
 - MEDIA_ERR_UNKNOWN (0xFF) - "An unknown error occurred."
