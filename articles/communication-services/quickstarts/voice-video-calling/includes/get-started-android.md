@@ -177,9 +177,9 @@ import android.widget.Toast;
 
 import com.azure.android.communication.common.CommunicationUserIdentifier;
 import com.azure.android.communication.common.CommunicationTokenCredential;
-import com.azure.communication.calling.CallAgent;
-import com.azure.communication.calling.CallClient;
-import com.azure.communication.calling.StartCallOptions;
+import com.azure.android.communication.calling.CallAgent;
+import com.azure.android.communication.calling.CallClient;
+import com.azure.android.communication.calling.StartCallOptions;
 
 
 import java.util.ArrayList;
