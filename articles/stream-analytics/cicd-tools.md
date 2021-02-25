@@ -163,6 +163,9 @@ If you want the test validation to ignore a certain output, set the **Required**
 }
 ```
 
+> [!NOTE]
+> Currently, the only allowed value for the `ScriptType` element is `InputMock`, which is also the default value. If you set it to any other value, it's ignored and the default value (`InputMock`) is used. 
+
 ### Run a unit test
 
 You can use the following command to run multiple test cases for your project. A summary of test results is generated in the output folder. The process exits with code **0** for all tests passed; **-1** for exception occurred; **-2** for tests failed.
