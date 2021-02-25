@@ -7,12 +7,12 @@ In the pom.xml file, add the following dependency elements to the group of depen
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-identity</artifactId>
-    <version>1.0.0-beta.5</version>
+    <version>1.0.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0-beta.5</version>
+    <version>1.0.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
@@ -32,12 +32,11 @@ import com.azure.communication.identity.*;
 import com.azure.communication.common.*;
 ```
 
-The examples below are using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
+The examples below are using the [DefaultAzureCredential](/java/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments. `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables are needed to create a  `DefaultAzureCredential` object. To registered application in the development environment and set up environment variables, see [Authorize access with managed identity](../managed-identity-from-cli.md).
 
 ### Create an identity and issue a token
 
-The following code example shows how to create a service client object with Azure Active Directory tokens. `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables are needed to create a  `DefaultAzureCredential` object. Check out this [page](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) for more information on how to get these variables.
-
+The following code example shows how to create a service client object with Azure Active Directory tokens.
 Then, use the client to issue a token for a new user:
 
 ```java
@@ -54,7 +53,6 @@ Then, use the client to issue a token for a new user:
                .httpClient(httpClient)
                .buildClient();
 
-          CommunicationIdentityClient communicationIdentityClient = createCommunicationIdentityClient();
           CommunicationUserIdentifier user = communicationIdentityClient.createUser();
           AccessToken userToken = communicationIdentityClient.getToken(user, new ArrayList<>(Arrays.asList(CommunicationTokenScope.CHAT)));
           return userToken;
