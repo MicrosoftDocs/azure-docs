@@ -27,7 +27,7 @@ Each authorization option is briefly described below:
 
 ## Authenticate with a managed identity
 
-Azure managed identity let your service applications authenticate against Azure Communication services that accept managed identity credential.
+Azure managed identity lets your service applications authenticate against Azure Communication services that accept managed identity credential.
 
 The following snippets show you how to initialize the Identity client library with a managed identity:
 
@@ -52,6 +52,8 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
 ### [JavaScript](#tab/javascript)
 
 ### [Python](#tab/python)
+
+---
 
 ## Next steps
 
