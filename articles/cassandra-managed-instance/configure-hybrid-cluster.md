@@ -3,7 +3,7 @@ title: Quickstart - Create Azure Managed Instance for Apache Cassandra cluster f
 description: This quickstart shows how to create an Azure Managed Instance for Apache Cassandra cluster using the Azure portal.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: cassandra-managed-instance
+ms.service: managed-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ---
@@ -43,7 +43,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
 
 
-1. Go back to the **Subnets** tab, and change the URL in the browser's address bar. In the URL, after *subnets/*, type the name of your new dedicated subnet, followed by */overview*. For example, if you subnet name is *cassandra-managed-instance* then the updated URL would look like: `.../subnets/cassandra-managed-instance/overview`. The new URL shows the details of the newly created subnet:
+1. Go back to the **Subnets** tab, and change the URL in the browser's address bar. In the URL, after *subnets/*, type the name of your new dedicated subnet, followed by */overview*. For example, if you subnet name is *managed-cassandra* then the updated URL would look like: `.../subnets/managed-cassandra/overview`. The new URL shows the details of the newly created subnet:
 
    :::image type="content" source="./media/configure-hybrid-cluster/subnet-overview.png" alt-text="Update the browser URL to include the subnet name to get the subnet overview." lightbox="./media/configure-hybrid-cluster/subnet-overview.png" border="true":::
 
@@ -60,21 +60,21 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    resourceGroupName='MyResourceGroup'
    clusterName='cassandra-hybrid-cluster-legal-name'
    clusterNameOverride='cassandra-hybrid-cluster-illegal-name'
-   location='West US'
-   delegatedManagementSubnetId = '/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/management'
-   cassandraVersion='3.11'
+   location='eastus2'
+   delegatedManagementSubnetId='/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/management'
     
    # You can override the cluster name if the original name is not legal for an Azure resource:
    # overrideClusterName='ClusterNameIllegalForAzureResource'
    # the default cassandra version will be v3.11
     
-   az cassandra-managed-instance cluster create \
+   az managed-cassandra cluster create \
       --cluster-name $clusterName \
       --resource-group $resourceGroupName \
+      --location $location \
       --delegated-management-subnet-id $delegatedManagementSubnetId \
       --external-seed-nodes 10.52.221.2,10.52.221.3,10.52.221.4
       --client-certificates 'BEGIN CERTIFICATE-----\n...PEM format..\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...PEM format...\n-----END CERTIFICATE-----' \
-      --external-gossip-certificates 'BEGIN CERTIFICATE-----\n...PEM format 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...PEM format 2...\n-----END CERTIFICATE-----' \
+      --external-gossip-certificates 'BEGIN CERTIFICATE-----\n...PEM format 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...PEM format 2...\n-----END CERTIFICATE-----'
    ```
 
     > [!NOTE]
@@ -86,7 +86,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    resourceGroupName='MyResourceGroup'
    clusterName='cassandra-hybrid-cluster'
     
-   az cassandra-managed-instance cluster show \
+   az managed-cassandra cluster show \
        --cluster-name $clusterName \
        --resource-group $resourceGroupName \
    ```
@@ -102,10 +102,10 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    resourceGroupName='MyResourceGroup'
    clusterName='cassandra-hybrid-cluster'
    dataCenterName='dc1'
-   dataCenterLocation='West US'
+   dataCenterLocation='eastus2'
    delegatedSubnetId= '/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
     
-   az cassandra-managed-instance datacenter create \
+   az managed-cassandra datacenter create \
        --resource-group $resourceGroupName \
        --cluster-name $clusterName \
        --data-center-name $dataCenterName \
@@ -121,7 +121,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    clusterName='cassandra-hybrid-cluster'
    dataCenterName='dc1'
     
-   az cassandra-managed-instance datacenter show \
+   az managed-cassandra datacenter show \
        --resource-group $resourceGroupName \
        --cluster-name $clusterName \
        --data-center-name $dataCenterName 
