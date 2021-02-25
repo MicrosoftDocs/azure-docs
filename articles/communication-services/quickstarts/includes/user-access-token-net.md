@@ -41,7 +41,7 @@ dotnet build
 While still in the application directory, install the Azure Communication Services Identity library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
+dotnet add package Azure.Communication.Identity --version 1.0.0
 ```
 
 ### Set up the app framework
