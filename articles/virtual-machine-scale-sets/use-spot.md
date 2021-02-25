@@ -42,24 +42,24 @@ The following [offer types](https://azure.microsoft.com/support/legal/offer-deta
 -	Enterprise Agreement
 -	Pay-as-you-go offer code 003P
 -	Sponsored
-- For Cloud Service Provider (CSP), see the [Partner Center](/partner-center/azure-plan-get-started) or contact your partner directly.
+- For Cloud Service Provider (CSP), see the [Partner Center](https://docs.microsoft.com/partner-center/azure-plan-get-started) or contact your partner directly.
 
 ## Eviction policy
 
-When creating Azure Spot Virtual Machine scale sets, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
+When creating a scale set using Azure Spot Virtual Machines, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
 
 The *Deallocate* policy moves your evicted instances to the stopped-deallocated state allowing you to redeploy evicted instances. However, there is no guarantee that the allocation will succeed. The deallocated VMs will count against your scale set instance quota and you will be charged for your underlying disks. 
 
-If you would like your instances in your Azure Spot Virtual Machine scale set to be deleted when they are evicted, you can set the eviction policy to *delete*. With the eviction policy set to delete, you can create new VMs by increasing the scale set instance count property. The evicted VMs are deleted together with their underlying disks, and therefore you will not be charged for the storage. You can also use the auto-scaling feature of scale sets to automatically try and compensate for evicted VMs, however, there is no guarantee that the allocation will succeed. It is recommended you only use the autoscale feature on Azure Spot Virtual machine scale sets when you set the eviction policy to delete to avoid the cost of your disks and hitting quota limits. 
+If you would like your instances to be deleted when they are evicted, you can set the eviction policy to *delete*. With the eviction policy set to delete, you can create new VMs by increasing the scale set instance count property. The evicted VMs are deleted together with their underlying disks, and therefore you will not be charged for the storage. You can also use the auto-scaling feature of scale sets to automatically try and compensate for evicted VMs, however, there is no guarantee that the allocation will succeed. It is recommended you only use the autoscale feature on Azure Spot Virtual machine scale sets when you set the eviction policy to delete to avoid the cost of your disks and hitting quota limits. 
 
 Users can opt in to receive in-VM notifications through [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 
 ## Try & restore (preview)
 
-This new platform-level feature will use AI to automatically try to restore evicted Spot instances inside a Virtual Machine Scale Sets (VMSS) to maintain the target instance count. 
+This new platform-level feature will use AI to automatically try to restore evicted Spot instances inside a scale set to maintain the target instance count. 
 
 Try & restore benefits:
-- Enabled by default when deploying Azure Spot Virtual Machines in a scale set.
+- Enabled by default when deploying an Azure Spot Virtual Machine in a scale set.
 - Attempts to restore Azure Spot Virtual Machines evicted due to capacity.
 - Restored Azure Spot Virtual Machines are expected to run for a longer duration with a lower probability of a capacity triggered eviction.
 - Improves the lifespan of an Azure Spot Virtual Machine, so workloads run for a longer duration.
@@ -151,7 +151,7 @@ To delete the instance after it has been evicted, change the `evictionPolicy` pa
 
 ## Simulate an eviction
 
-You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot Virtual Machine, to testing how well your application will repond to a sudden eviction. 
+You can [simulate an eviction](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot Virtual Machine, to testing how well your application will repond to a sudden eviction. 
 
 Replace the following with your information: 
 
