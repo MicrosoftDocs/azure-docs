@@ -17,7 +17,7 @@ Virtual machines and other compute resources require an agent to collect monitor
 > [!NOTE]
 > Azure Monitor currently has multiple agents because of recent consolidation of Azure Monitor and Log Analytics. While there may be overlap in their features, each has unique capabilities. Depending on your requirements, you may need one or more of the agents on your machines. 
 
-You may have a specific set of requirements that can't be completely met with a single agent for a particular machine. For example, you may want to use metric alerts which requires Azure diagnostics extension but also want to leverage the functionality of Azure Monitor for VMs which requires the Log Analytics agent and the Dependency agent. In cases such as this, you can use multiple agents, and this is a common scenario for customers who require functionality from each.
+You may have a specific set of requirements that can't be completely met with a single agent for a particular machine. For example, you may want to use metric alerts which requires Azure diagnostics extension but also want to leverage the functionality of VM insights which requires the Log Analytics agent and the Dependency agent. In cases such as this, you can use multiple agents, and this is a common scenario for customers who require functionality from each.
 
 ## Summary of agents
 
@@ -34,7 +34,7 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 | **Agent requirements**  | None | None | None | Requires Log Analytics agent |
 | **Data collected** | Event Logs<br>Performance | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<br>File based logs<br>IIS logs<br>Insights and solutions<br>Other services | Process dependencies<br>Network connection metrics |
 | **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
-| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | Metrics explorer | Azure Monitor for VMs<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | Azure Monitor for VMs<br>Service Map |
+| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | Metrics explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM insights<br>Service Map |
 
 ### Linux agents
 
@@ -44,7 +44,7 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 | **Agent requirements**  | None | None | None | None | Requires Log Analytics agent |
 | **Data collected** | Syslog<br>Performance | Syslog<br>Performance | Performance | Syslog<br>Performance| Process dependencies<br>Network connection metrics |
 | **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
-| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | | Metrics explorer | Azure Monitor for VMs<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | Azure Monitor for VMs<br>Service Map |
+| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | | Metrics explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM insights<br>Service Map |
 
 
 ## Azure Monitor agent (preview)
@@ -74,7 +74,7 @@ Use the Log Analytics agent if you need to:
 
 * Collect logs and performance data from Azure virtual machines or hybrid machines hosted outside of Azure.
 * Send data to a Log Analytics workspace to take advantage of features supported by [Azure Monitor Logs](../logs/data-platform-logs.md) such as [log queries](../logs/log-query-overview.md).
-* Use [Azure Monitor for VMs](../vm/vminsights-overview.md) which allows you to monitor your machines at scale and monitors their processes and dependencies on other resources and external processes..  
+* Use [VM insights](../vm/vminsights-overview.md) which allows you to monitor your machines at scale and monitors their processes and dependencies on other resources and external processes..  
 * Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md).
 * Use [Azure Automation Update Management](../../automation/update-management/overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) to deliver comprehensive management of your Azure and non-Azure machines.
 * Use different [solutions](../monitor-reference.md#insights-and-core-solutions) to monitor a particular service or application.
@@ -115,7 +115,7 @@ The Dependency agent collects discovered data about processes running on the mac
 
 Use the Dependency agent if you need to:
 
-* Use the Map feature [Azure Monitor for VMs](../vm/vminsights-overview.md) or the [Service Map](../vm/service-map.md) solution.
+* Use the Map feature [VM insights](../vm/vminsights-overview.md) or the [Service Map](../vm/service-map.md) solution.
 
 Consider the following when using the Dependency agent:
 

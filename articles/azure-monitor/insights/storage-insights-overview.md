@@ -81,7 +81,7 @@ When you select a value under any one of the columns in the workbook, you drill 
 
 ## View from a storage account
 
-To access Azure Monitor for VMs directly from a storage account:
+To access VM insights directly from a storage account:
 
 1. In the Azure portal, select Storage accounts.
 

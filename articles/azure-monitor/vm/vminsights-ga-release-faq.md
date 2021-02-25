@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor for VMs (GA) frequently asked questions | Microsoft Docs
-description: Azure Monitor for VMs is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions about the GA release.
+title: VM insights (GA) frequently asked questions | Microsoft Docs
+description: VM insights is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions about the GA release.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -9,14 +9,14 @@ ms.date: 01/31/2020
 
 ---
 
-# Azure Monitor for VMs Generally Available (GA) Frequently Asked Questions
+# VM insights Generally Available (GA) Frequently Asked Questions
 This General Availability FAQ covers changes that were made in Q4 2019 and Q1 2020 as we prepared for GA.
 
-## Updates for Azure Monitor for VMs
-We released a new version of Azure Monitor for VMs in January 2020 ahead of our GA announcement. Customers enabling Azure Monitor for VMs will now receive the GA version, but existing customers using the version of Azure Monitor for VMs from Q4 2019 and earlier will be prompted to upgrade. This FAQ offers guidance to perform an upgrade at scale if you have large deployments across multiple workspaces.
+## Updates for VM insights
+We released a new version of VM insights in January 2020 ahead of our GA announcement. Customers enabling VM insights will now receive the GA version, but existing customers using the version of VM insights from Q4 2019 and earlier will be prompted to upgrade. This FAQ offers guidance to perform an upgrade at scale if you have large deployments across multiple workspaces.
 
 
-With this upgrade, Azure Monitor for VMs performance data are stored in the same *InsightsMetrics* table as [Azure Monitor for containers](../insights/container-insights-overview.md), which makes it easier for you to query the two data sets. Also, you are able to store more diverse data sets that we could not store in the table previously used. 
+With this upgrade, VM insights performance data are stored in the same *InsightsMetrics* table as [Azure Monitor for containers](../insights/container-insights-overview.md), which makes it easier for you to query the two data sets. Also, you are able to store more diverse data sets that we could not store in the table previously used. 
 
 Our performance views are now using the data we store in the *InsightsMetrics* table.  If you have not yet upgraded to use the latest VMInsights solution on your workspace, your charts will no longer display information.  You can upgrade from our **Get Started** page as described below.
 
@@ -30,7 +30,7 @@ We have updated our Performance charts to use the data we store in the *Insights
 
 
 ## How do I upgrade?
-When a Log Analytics workspace is upgraded to the latest version of Azure Monitor to VMs, it will upgrade the dependency agent on each of the VMs attached to that workspace. Each VM requiring upgrade will be identified in the **Get Started** tab in Azure Monitor for VMs in the Azure portal. When you choose to upgrade a VM, it will upgrade the workspace for that VM along with any other VMs attached to that workspace. You can select a single VM or multiple VMs, resource groups, or subscriptions. 
+When a Log Analytics workspace is upgraded to the latest version of Azure Monitor to VMs, it will upgrade the dependency agent on each of the VMs attached to that workspace. Each VM requiring upgrade will be identified in the **Get Started** tab in VM insights in the Azure portal. When you choose to upgrade a VM, it will upgrade the workspace for that VM along with any other VMs attached to that workspace. You can select a single VM or multiple VMs, resource groups, or subscriptions. 
 
 Use the following command to upgrade a workspace using PowerShell:
 
@@ -40,7 +40,7 @@ Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-nam
 
 ## What should I do about the Performance counters in my workspace if I install the VMInsights solution?
 
-The previous method of enabling Azure Monitor for VMs used performance counters in your workspace. The current version stores this data in a table named `InsightsMetrics`. You may choose to disable these performance counters in your workspace if you no longer need to use them. 
+The previous method of enabling VM insights used performance counters in your workspace. The current version stores this data in a table named `InsightsMetrics`. You may choose to disable these performance counters in your workspace if you no longer need to use them. 
 
 >[!NOTE]
 >If you have Alert Rules that reference these counters in the `Perf` table, you need to update them to reference new data stored in the `InsightsMetrics` table. Refer to our documentation for example log queries that you can use that refer to this table.
@@ -62,11 +62,11 @@ The machine level performance data that we collect is the same, is of a similar 
 
 ## What if I only want to use Service Map?
 
-That is fine. You will see prompts in the Azure portal when viewing Azure Monitor for VMs about the upcoming update. Once released, you will receive a prompt requesting that you update to the new version. If you prefer to only use the [Maps](vminsights-maps.md) feature, you can choose not to upgrade and continue to use the Maps feature in Azure Monitor for VMs and the Service Map solution accessed from your workspace or dashboard tile.
+That is fine. You will see prompts in the Azure portal when viewing VM insights about the upcoming update. Once released, you will receive a prompt requesting that you update to the new version. If you prefer to only use the [Maps](vminsights-maps.md) feature, you can choose not to upgrade and continue to use the Maps feature in VM insights and the Service Map solution accessed from your workspace or dashboard tile.
 
-If you chose to manually enable the performance counters in your workspace, then you may be able to see data in some of our performance charts viewed from Azure Monitor. Once the new solution is released we will update our performance charts to query the data stored in the `InsightsMetrics` table. If you would like to see data from that table in these charts, you will need to upgrade to the new version of Azure Monitor for VMs.
+If you chose to manually enable the performance counters in your workspace, then you may be able to see data in some of our performance charts viewed from Azure Monitor. Once the new solution is released we will update our performance charts to query the data stored in the `InsightsMetrics` table. If you would like to see data from that table in these charts, you will need to upgrade to the new version of VM insights.
 
-The changes to move data from `ServiceMapComputer_CL` and `ServiceMapProcess_CL` will affect both Service Map and Azure Monitor for VMs, so you still need to plan for this update.
+The changes to move data from `ServiceMapComputer_CL` and `ServiceMapProcess_CL` will affect both Service Map and VM insights, so you still need to plan for this update.
 
 If you chose to not upgrade to the **VMInsights** solution, we will continue to provide legacy versions of our performance workbooks that refer to data in the `Perf` table.  
 
@@ -74,7 +74,7 @@ If you chose to not upgrade to the **VMInsights** solution, we will continue to 
 
 The data sets will not be duplicated if you use both solutions. Both offerings share the data sets that will be stored in `VMComputer` (formerly ServiceMapComputer_CL), `VMProcess` (formerly ServiceMapProcess_CL), `VMConnection`, and `VMBoundPort` tables to store the map data sets that we collect.  
 
-The `InsightsMetrics` table will store VM, process, and service data sets that we collect and will only be populated if you are using Azure Monitor for VMs and the VM Insights solution. The Service Map solution will not collect or or store data in the `InsightsMetrics` table.
+The `InsightsMetrics` table will store VM, process, and service data sets that we collect and will only be populated if you are using VM insights and the VM Insights solution. The Service Map solution will not collect or or store data in the `InsightsMetrics` table.
 
 ## Will I be double charged if I have the Service Map and VMInsights solutions in my workspace?
 
@@ -90,7 +90,7 @@ We have received a lot of great feedback from customers about our VM Health feat
 
 To minimize impact of these changes to new customers, we have moved this feature into a **limited public preview**. This update happened in October 2019.
 
-We plan to re-launch this Health feature in 2020, after Azure Monitor for VMs is in GA.
+We plan to re-launch this Health feature in 2020, after VM insights is in GA.
 
 ## How do existing customers access the Health feature?
 
@@ -108,4 +108,4 @@ If you are an existing customer that is using the Health feature and want to use
 
 ## Next steps
 
-To understand the requirements and methods that help you monitor your virtual machines, review [Deploy Azure Monitor for VMs](../insights/vminsights-enable-overview.md).
+To understand the requirements and methods that help you monitor your virtual machines, review [Deploy VM insights](../insights/vminsights-enable-overview.md).

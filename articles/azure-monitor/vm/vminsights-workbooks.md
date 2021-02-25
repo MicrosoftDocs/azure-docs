@@ -1,6 +1,6 @@
 ---
-title: Create interactive reports Azure Monitor for VMs with workbooks
-description: Simplify complex reporting with predefined and custom parameterized workbooks for Azure Monitor for VMs.
+title: Create interactive reports VM insights with workbooks
+description: Simplify complex reporting with predefined and custom parameterized workbooks for VM insights.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -9,7 +9,7 @@ ms.date: 03/12/2020
 
 ---
 
-# Create interactive reports Azure Monitor for VMs with workbooks
+# Create interactive reports VM insights with workbooks
 
 Workbooks combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
@@ -20,7 +20,7 @@ Workbooks are helpful for scenarios such as:
 * Sharing the results of a resizing experiment of your VM with other members of your team. You can explain the goals for the experiment with text, then show each usage metric and analytics queries used to evaluate the experiment, along with clear call-outs for whether each metric was above- or below-target.
 * Reporting the impact of an outage on the usage of your VM, combining data, text explanation, and a discussion of next steps to prevent outages in the future.
 
-The following table summarizes the workbooks that Azure Monitor for VMs includes to get you started.
+The following table summarizes the workbooks that VM insights includes to get you started.
 
 | Workbook | Description | Scope |
 |----------|-------------|-------|
@@ -133,7 +133,7 @@ VMConnection
 
 ## Adding metrics sections
 
-Metrics sections give you full access to incorporate Azure Monitor metrics data into your interactive reports. In Azure Monitor for VMs, the prebuilt workbooks will typically contain analytic query data rather than metric data.  You may choose to create workbooks with metric data, allowing you to take full advantage of the best of both features all in one place. You also have the ability to pull in metric data from resources in any of the subscriptions you have access to.
+Metrics sections give you full access to incorporate Azure Monitor metrics data into your interactive reports. In VM insights, the prebuilt workbooks will typically contain analytic query data rather than metric data.  You may choose to create workbooks with metric data, allowing you to take full advantage of the best of both features all in one place. You also have the ability to pull in metric data from resources in any of the subscriptions you have access to.
 
 Here is an example of virtual machine data being pulled into a workbook to provide a grid visualization of CPU performance:
 
@@ -240,4 +240,4 @@ To pin a link to a workbook to an Azure Dashboard:
 
 - To identify limitations and overall VM performance, see [View Azure VM Performance](vminsights-performance.md).
 
-- To learn about discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+- To learn about discovered application dependencies, see [View VM insights Map](vminsights-maps.md).

@@ -49,7 +49,7 @@ az deployment group create \
 - [Log Analytics Workspace](logs/resource-manager-workspace.md) - Create Log Analytics workspace and configure collection of different data sources from Log Analytics agent.
 - [Workbooks](visualize/resource-manager-workbooks.md) - Create workbooks.
 - [Azure Monitor for containers](containers/resource-manager-container-insights.md) - Onboard clusters to Azure Monitor for containers.
-- [Azure Monitor for VMs](vm/resource-manager-vminsights.md) - Onboard virtual machines to Azure Monitor for VMs.
+- [VM insights](vm/resource-manager-vminsights.md) - Onboard virtual machines to VM insights.
 
 
 
