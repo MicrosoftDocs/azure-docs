@@ -1,12 +1,12 @@
 ---
 title: Authentication Methods Activity - Azure Active Directory
-description: Overview of the authentication methods registered and used by your organization to sign-in and perform password reset. 
+description: Overview of the authentication methods that users register to sign in and reset passwords. 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 02/25/2021
 
 ms.author: justinha
 author: sopand
@@ -46,25 +46,31 @@ To access authentication method usage and insights:
 
 You can access the [**Registration tab**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) to show the number of users capable of multi-factor authentication, passowordless authentication, and self-service password reset. 
 
-Click **Users capable of Azure Multi-Factor Authentication**, **Users capable of passwordless authentication**, or **Users capable of self-service password reset**, or insights to pre-filter a list of user registration details.
+Click any of the following options to pre-filter a list of user registration details:
 
-- **Users Capable of Azure Multi-Factor Authentication** shows the breakdown of users capable of MFA in Azure AD. Users are considered capable if they are both registered for a strong authentication method and enabled by policy to use that method to perform MFA. This number does not reflect users registered for MFA outside of Azure AD. 
-- **Users capable of passwordless authentication** shows the breakdown of users capable of signing in without a password. This includes users registered for FIDO2, Windows Hello for Business, and Passwordless Phone sign-in with the Microsoft Authenticator app. 
-- **Users capable of self-service password reset** shows the breakdown of users capable of self-service password reset. Users are considered capable of SSPR if they are both registered for enough methods to satisfy an organization's SSPR policy and enabled to perform SSPR. 
+- **Users capable of Azure Multi-Factor Authentication** shows the breakdown of users who are both:
+  - Registered for a strong authentication method 
+  - Enabled by policy to use that method to perform MFA 
+  
+  This number does not reflect users registered for MFA outside of Azure AD. 
+- **Users capable of passwordless authentication** shows the breakdown of users who can sign in without a password. This includes users registered for FIDO2, Windows Hello for Business, and passwordless Phone sign-in with the Microsoft Authenticator app. 
+- **Users capable of self-service password reset** shows the breakdown of users who can reset their passwords. Users can reset their password if they are both:
+  - Registered for enough methods to satisfy their organization's policy for self-service password reset (SSPR) 
+  - Enabled to perform SSPR 
 
   ![Screenshot of users capable for registration](media/how-to-authentication-methods-usage-insights/users-capable.png)
 
-**Users registered by authentication method** shows how many users are registered for each authentication method. Click an authentication method to see which users are registered for that method. 
+**Users registered by authentication method** shows how many users are registered for each authentication method. Click an authentication method to see who is registered for that method.
 
 ![Screenshot of Users Registered](media/how-to-authentication-methods-usage-insights/users-registered.png)
 
-**Recent registration by authentication method** shows the number of successful and failed authentication method registrations by authentication method. Click an authentication method to see recent registration events for that method.
+**Recent registration by authentication method** shows how many registrations succeeded and failed, sorted by authentication method. Click an authentication method to see recent registration events for that method.
 
 ![Screenshot of Recently Registered](media/how-to-authentication-methods-usage-insights/recently-registered.png)
 
 ## Usage details
 
-The **Usage** report shows which authentication methods users are using to sign-in and reset their passwords.
+The **Usage** report shows which authentication methods are used to sign-in and reset passwords.
 
 ![Screenshot of Usage page](media/how-to-authentication-methods-usage-insights/usage-page.png)
 
