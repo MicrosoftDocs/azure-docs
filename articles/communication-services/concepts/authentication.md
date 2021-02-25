@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 
 Every client interaction with Azure Communication Services needs to be authenticated. In a typical architecture, c.f. [client and server architecture](./client-and-server-architecture.md), *access keys* or *managed identity* is used in "trusted user access service" to create users and issue tokens. And *user access token* issued by "trusted user access service" is used for client applications to access other communication services, e.g. chat or calling service.
 
-Azure Communication Services SMS service also accept *access keys* or *managed identity* for authentication. This typically happens in a service application running in a trusted service environment.
+Azure Communication Services SMS service also accepts *access keys* or *managed identity* for authentication. This typically happens in a service application running in a trusted service environment.
 
 Each authorization option is briefly described below:
 
@@ -37,7 +37,7 @@ var accessKey = "<access_key>";
 var client = new CommunicationIdentityClient(endpoint, new AzureKeyCredential(accessKey));
 ```
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
@@ -80,6 +80,23 @@ var userCredential = new CommunicationTokenCredential(token);
 var chatClient = new ChatClient(ENDPOINT_URL, userCredential);
 ```
 
+#### [Java](#tab/java)
+
+```java
+// user access tokens should be created by a trusted service using the Identity client library
+String token = "<valid-user-access-token>";
+
+// create a CommunicationTokenCredential instance
+CommunicationTokenCredential userCredential = new CommunicationTokenCredential(token);
+
+// Initialize the chat client
+final ChatClientBuilder builder = new ChatClientBuilder();
+builder.endpoint(ENDPOINT_URL)
+    .credential(userCredential)
+    .httpClient(HTTP_CLIENT);
+ChatClient chatClient = builder.buildClient();
+```
+
 #### [JavaScript](#tab/javascript)
 
 ```javascript
@@ -104,23 +121,6 @@ let userCredential = try CommunicationTokenCredential(token: token)
 
 // initialize the chat client library with the credential
 let chatClient = try CommunicationChatClient(credential: userCredential, endpoint: ENDPOINT_URL)
-```
-
-#### [Java](#tab/java)
-
-```java
-// user access tokens should be created by a trusted service using the Identity client library
-String token = "<valid-user-access-token>";
-
-// create a CommunicationTokenCredential instance
-CommunicationTokenCredential userCredential = new CommunicationTokenCredential(token);
-
-// Initialize the chat client
-final ChatClientBuilder builder = new ChatClientBuilder();
-builder.endpoint(ENDPOINT_URL)
-    .credential(userCredential)
-    .httpClient(HTTP_CLIENT);
-ChatClient chatClient = builder.buildClient();
 ```
 
 ---
@@ -176,15 +176,16 @@ The `refreshProactively` option lets you decide how you'll manage the token life
 
 ## Authenticate with a managed identity
 
+Azure managed identity let your service applications authenticate against Azure Communication Identity service.
 
+### [C#](#tab/csharp)
 ```csharp
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 TokenCredential credential = new DefaultAzureCredential();
 var client = new CommunicationIdentityClient(endpoint, credential);
 ```
 
-#### [Java](#tab/java)
-
+### [Java](#tab/java)
 ```java
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
@@ -194,6 +195,10 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
     .httpClient(httpClient)
     .buildClient();
 ```
+
+### [JavaScript](#tab/javascript)
+
+### [Python](#tab/python)
 
 ## Next steps
 
