@@ -6,6 +6,8 @@ ms.author: thvankra
 ms.service: cassandra-managed-instance
 ms.topic: quickstart
 ms.date: 03/02/2021
+ms.custom: references_regions
+
 ---
 # Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster from the Azure portal (Preview)
  
@@ -40,10 +42,13 @@ An Azure subscription or free Azure Cosmos DB trial account
    * **Resource Group**- Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group](../azure-resource-manager/management/overview.md) overview article.
    * **Cluster name** - Enter a name for your cluster.
    * **Location** - Location where your cluster will be deployed to.
-   * **SKU** - The type of SKU.
+   * **SKU** - The type of SKU for your cluster.
    * **No. of nodes**-  Number of nodes in a cluster. These nodes act as replicas for your data.
    * **Initial Cassandra admin password** - Password that is used to create the cluster.
-   * **Confirm Cassandra admin password** - Reenter the password.
+   * **Confirm Cassandra admin password** - Reenter your password.
+
+    > [!NOTE]
+    > During the public preview, you can create the managed instance cluster in the *East US, West US, East US 2, West US 2, Central US, South Central US, North Europe, West Europe, South East Asia, and Australia East* regions.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Fill out the create cluster form." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 
@@ -65,10 +70,18 @@ An Azure subscription or free Azure Cosmos DB trial account
 
    :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/resources.png" border="true":::
 
+## Clean up resources
+
+If you're not going to continue to use this managed instance cluster, delete it with the following steps:
+
+1. From the left-hand menu of Azure portal, select **Resource groups**.
+1. From the list, select the resource group you created for this quickstart.
+1. On the resource group **Overview** pane, select **Delete resource group**.
+3. In the next window, enter the name of the resource group to delete, and then select **Delete**.
+
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Managed Instance for Apache Cassandra cluster using Azure portal. You can now start working with the cluster.
+In this quickstart, you learned how to create an Azure Managed Instance for Apache Cassandra cluster using Azure portal. You can now start working with the cluster:
 
-* [Overview of Azure Managed Instance for Apache Cassandra](introduction.md)
-* [Deploy a Managed Apache Spark Cluster with Azure Databricks](deploy-cluster-databricks.md)
-* [Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI](manage-resources-cli.md)
+> [!div class="nextstepaction"]
+> [Deploy a Managed Apache Spark Cluster with Azure Databricks](deploy-cluster-databricks.md)
