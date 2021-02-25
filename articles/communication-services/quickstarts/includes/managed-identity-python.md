@@ -1,45 +1,3 @@
----
-title: Use managed identities in Communication Services (Python)
-titleSuffix: An Azure Communication Services quickstart
-description: Managed identities let you authorize Azure Communication Services access from applications running in Azure VMs, function apps, and other resources.
-services: azure-communication-services
-author: turalf
-ms.service: azure-communication-services
-ms.topic: how-to
-ms.date: 23/02/2021
-ms.author: turalf
-ms.reviewer: mikben
----
-
-# Use managed identities (Python)
-
-Get started with Azure Communication Services by using managed identities in Python. The Communication Services Identity and SMS client libraries support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
-
-This quickstart shows you how to authorize access to the Identity and SMS client libraries from an Azure environment that supports managed identities. It also describes how to test your code in a development environment.
-
-## Prerequisites
-
- - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
- - An active Communication Services resource and connection string. [Create a Communication Services resource](./create-communication-resource.md?pivots=platform-azp&tabs=windows).
-
-## Setting Up
-
-### Enable managed identities on a virtual machine or App service
-
-Managed identities should be enabled on the Azure resources that you're authorizing. To learn how to enable managed identities for Azure Resources, see one of these articles:
-
-- [Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
-- [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-- [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager template](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Azure Resource Manager client libraries](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
-- [App services](../../app-service/overview-managed-identity.md)
-
-
-#### Assign Azure roles with PowerShell
-
-To assign roles and permissions using PowerShell, see [Add or remove Azure role assignments using Azure PowerShell](../../../articles/role-based-access-control/role-assignments-powershell.md)
-
 ## Add managed identity to your Communication Services solution
 
 ### Install the client library packages
@@ -103,12 +61,12 @@ def send_sms(resource_endpoint, from_phone_number, to_phone_number, message_cont
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about authentication](../concepts/authentication.md)
+> [Learn about authentication](../../concepts/authentication.md)
 
 You may also want to:
 
-- [Learn more about Azure role-based access control](../../../articles/role-based-access-control/index.yml)
-- [Learn more about Azure identity library for Python](/python/api/overview/azure/identity-readme)
-- [Creating user access tokens](../quickstarts/access-tokens.md)
-- [Send an SMS message](../quickstarts/telephony-sms/send.md)
-- [Learn more about SMS](../concepts/telephony-sms/concepts.md)
+- [Learn more about Azure role-based access control](../../../../articles/role-based-access-control/index.yml)
+- [Learn more about Azure identity library for Python](/net/api/overview/azure/identity-readme)
+- [Creating user access tokens](../../quickstarts/access-tokens.md)
+- [Send an SMS message](../../quickstarts/telephony-sms/send.md)
+- [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
