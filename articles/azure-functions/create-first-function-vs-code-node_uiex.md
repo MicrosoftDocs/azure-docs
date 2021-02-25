@@ -2,7 +2,7 @@
 title: Create a JavaScript function using Visual Studio Code - Azure Functions
 description: Learn how to create a JavaScript function, then publish the local Node.js project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.  
 ms.topic: quickstart
-ms.date: 02/18/2021
+ms.date: 11/03/2020
 ms.custom: [devx-track-js]
 ROBOTS: NOINDEX,NOFOLLOW
 ---
@@ -88,7 +88,8 @@ The most common issues to resolve when creating a local Functions project are:
 
 1. View returned response.
 
-    ![Browser - localhost example output](../../includes/media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
+
+    ![Browser - localhost example output](./media/create-first-function-vs-code-other/functions-test-local-browser.png)
 
 1. View information in **Terminal** panel about the request.
 
@@ -129,7 +130,7 @@ Your first deployment of your code includes creating a Function resource in your
 
 1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app...** button.
 
-    ![Publish your project to Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    ![Publish your project to Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Provide the following information at the prompts:
 
@@ -181,22 +182,14 @@ When completed, the following Azure resources are created in your subscription, 
 <br/>
 
 ## 6. Run the function in Azure
-
 1. In the **Azure: Functions** side bar, expand the new function app. 
-1. Expand **Functions**, then right-click on **HttpExample**, and then choose **Copy function URL**.
+1. Expand **Functions**, then right-click on **HttpExample**, and then choose **Execute Function Now...**.
 
-    ![Copy the function URL for the new HTTP trigger](../../includes/media/functions-vs-code-run-remote/function-copy-endpoint-url.png)
+    ![Copy the function URL for the new HTTP trigger](../../includes/media/functions-vs-code-run-remote/execute-function-now.png)
 
-1. **Paste URL** into a web browser with **the query string**, `?name=Functions`, then execute the request. 
+1. **Press Enter** to send default request message to your function. 
 
-    ```http
-    http://<FUNCTION_APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions
-    ```
-
-1. View returned response.
-
-    ![Function response in the browser](../../includes/media/functions-vs-code-run-remote/functions-test-remote-browser.png)
-
+1. A notification is raised in Visual Studio Code when you function execution completes.
 
 <br/>
 <details>
@@ -215,8 +208,8 @@ Delete the function app and its resources to avoid incurring any further costs.
 
 1. In Visual Studio Code, select the Azure icon in the Activity bar, then select the Functions area in the side bar. 
 1. Select the function app, then right-click and select **Delete Function app...**.
-
-
+1. 
+1. 
 <hr/>
 <br/>
 
