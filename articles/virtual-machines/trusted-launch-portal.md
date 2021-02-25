@@ -110,6 +110,14 @@ ls: cannot access '/dev/tpm0': No such file or directory
 Connect to the VM using remote desktop and then run `msinfo32.exe`.
 
 In the right pane, check that the Secure Boot State is **ON**.
+
+## Enable the Azure Security Center experience
+
+To enable Azure Security Center to display information about your Trusted Launch VMs, you need to enable several policies. The easiest way to enable the policies is by deploying this [resource manager template](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) to your subscription.
+
+The template needs to be deployed only once per subscription. It automatically installs `GuestAttestation` and `AzureSecurity` extensions on all supported VMs.
+
+To get vTPM and secure boot recommendations for Trusted Launch VMs, see [Add a custom initiative to your subscription](https://docs.microsoft.com/en-us/azure/security-center/custom-security-policies#to-add-a-custom-initiative-to-your-subscription).
  
 ## Sign things for Secure Boot on Linux
 
