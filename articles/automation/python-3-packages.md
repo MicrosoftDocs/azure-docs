@@ -3,15 +3,15 @@ title: Manage Python 3 packages in Azure Automation
 description: This article tells how to manage Python 3 packages (preview) in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/22/2020
+ms.date: 02/19/2021
 ms.topic: conceptual
 ---
 
 # Manage Python 3 packages (preview) in Azure Automation
 
-Azure Automation allows you to run Python 3 runbooks (preview) on Azure and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. This article describes how to manage and use Python 3 packages (preview) in Azure Automation.
+Azure Automation allows you to run Python 3 runbooks (preview) on Azure and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. To import a single package, see [Import a package](#import-a-package). To import multiple packages, see [Import multiple packages](#import-multiple-packages). This article describes how to manage and use Python 3 packages (preview) in Azure Automation.
 
-## Import packages
+## Import a package
 
 In your Automation account, select **Python packages** under **Shared Resources**. select **+ Add a Python package**.
 
@@ -25,19 +25,35 @@ Once a package has been imported, it's listed on the Python packages page in you
 
 :::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="Screenshot shows the Python 3 packages page after a package has been imported.":::
 
-## Import packages with dependencies
+### Import a package with dependencies
 
-Azure Automation doesn't resolve dependencies for Python packages during the import process. However, there is a way to import a package with all its dependencies.
-
-### Manually download
-
-On a Windows 64-bit machine with [Python 3.8](https://www.python.org/downloads/release/python-380/) and [pip](https://pip.pypa.io/en/stable/) installed, run the following command to download a package and all its dependencies:
+You can import a Python 3 package and its dependencies by importing the following Python script into a Python 3 runbook.
 
 ```cmd
-C:\Python38\Scripts\pip3.8.exe download -d <output dir> <package name>
+https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py
 ```
 
-Once the packages are downloaded, you can import them into your Automation account.
+#### Importing the script into a runbook
+For information on importing the runbook, see [Import a runbook from the Azure portal](./manage-runbooks#import-a-runbook-from-the-azure-portal). Copy the file from GitHub to storage that the portal can access before you run the import.
+
+The **Import a runbook** dialog will usually default the runbook name to the name of the script. If you have access to the field in the dialog, you can change the name. **Runbook type** may default to ```Python 2```. If it does, make sure to change it to ```Python 3```.
+
+:::image type="content" source="media/python-3-packages/import-python-3-package.png" alt-text="Screenshot shows the Python 3 import dialog.":::
+
+#### Executing the runbook to import the package and dependencies
+
+Once the runbook has been created and published(?), execute it in order to import the package. See [Start a runbook in Azure Automation](./start-runbooks) for details on executing the runbook.
+
+The script that the runbook executes (```import_py3package_from_pypi.py```) requires the following parameters.
+
+| Parameter | Description |
+|---------------|-----------------|
+|subscription_id | Subscription id of the Automation account |
+| resource_group | Resource group name of the Automation account |
+| automation_account | Automation account name |
+| module_name | Name of module to import from pypi.org |
+
+For more information on using parameters with runbooks, see [Work with runbook parameters](./start-runbooks#work-with-runbook-parameters).
 
 ## Use a package in a runbook
 
