@@ -114,7 +114,7 @@ Select the features from the available options, then click **Confirm** to apply 
 Common questions and issues:
 
 - Purchasing phone is supported in the US only. To purchase phone numbers, ensure that:
-  1. The associated Azure subscription billing address is located in the United States. You cannot move a resource to another subscription at this time.
+  - The associated Azure subscription billing address is located in the United States. You cannot move a resource to another subscription at this time.
   2. Your Communication Services resource is provisioned in the United States data location. You cannot move a resource to another data location at this time.
 
 - When a phone number is released, the phone number will not be released or able to be repurchased until the end of the billing cycle.
