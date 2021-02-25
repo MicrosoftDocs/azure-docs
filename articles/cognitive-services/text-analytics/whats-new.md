@@ -17,6 +17,13 @@ ms.custom: references_regions
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## March 2021
+
+* API v3.1-preview.4, which includes includes changes in the opinion mining JSON response. `aspects` is now `target`. `opinions` is now `assessment`. There is no change in the underlying AI model.
+
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics API v3.1-Preview.4](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
+
 ## February 2021
 
 * The `2021-01-15` model version for the PII endpoint in [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.1-preview.x, which provides 
@@ -41,7 +48,7 @@ These model versions are currently unavailable in the East US region.
 
 ## December 2020
 
-* [Updated pricing](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) details for the Text Analytics API
+* [Updated pricing](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) details for the Text Analytics API.
 
 ## November 2020
 
@@ -55,9 +62,6 @@ These model versions are currently unavailable in the East US region.
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
     * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
-
-> [!div class="nextstepaction"]
-> [Learn more about Text Analytics API v3.1-Preview.3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 
 ## October 2020
 

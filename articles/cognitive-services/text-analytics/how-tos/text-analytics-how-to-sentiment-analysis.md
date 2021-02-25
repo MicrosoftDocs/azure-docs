@@ -44,9 +44,9 @@ Confidence scores range from 1 to 0. Scores closer to 1 indicate a higher confid
 
 ## Opinion Mining
 
-Opinion Mining is a feature of Sentiment Analysis, starting in the preview of version 3.1. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to attributes of products or services in text. We surface opinions as target (noun or verb) and assessment (adjective).
+Opinion Mining is a feature of Sentiment Analysis, starting in the preview of version 3.1. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to attributes of products or services in text. The API surfaces opinions as a target (noun or verb) and an assessment (adjective).
 
-For example, if a customer leaves feedback about a hotel such as "The room was great, but the staff was unfriendly.", Opinion Mining will locate target (aspects) in the text, and their associated assessment(opinions) and sentiments. Sentiment Analysis might only report a negative sentiment.
+For example, if a customer leaves feedback about a hotel such as "The room was great, but the staff was unfriendly.", Opinion Mining will locate targets (aspects) in the text, and their associated assessments (opinions) and sentiments. Sentiment Analysis might only report a negative sentiment.
 
 :::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="A diagram of the Opinion Mining example" lightbox="../media/how-tos/opinion-mining.png":::
 
