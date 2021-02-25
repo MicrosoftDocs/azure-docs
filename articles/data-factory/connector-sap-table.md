@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/01/2021
+ms.date: 02/25/2021
 ---
 
 # Copy data from an SAP table by using Azure Data Factory
@@ -61,7 +61,7 @@ To use this SAP table connector, you need to:
 - The SAP user who's being used in the Data Factory SAP table connector must have the following permissions:
 
   - Authorization for using Remote Function Call (RFC) destinations.
-  - Permissions to the Execute activity of the S_SDSAUTH authorization object.
+  - Permissions to the Execute activity of the S_SDSAUTH authorization object, or permissions to the Execute activity of the S_RFC: FUGR - RFC1, SYST, SYSU FUNC - RFCPING, RFC_FUNCTION_SEARCH ACTVT – 16 authorization object. 
 
 ## Get started
 
