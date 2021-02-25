@@ -75,7 +75,7 @@ There are two types of drill down options: **Drill down** and **Horizontal compa
 > 1. For drill down, you can explore the data from different dimension values, except the currenly selected dimensions. 
 > 2. For horizontal comparison, you can explore the data from different dimension values, except the all-up dimensions.
 
-:::image type="content" source="../media/diagnostics/drill-down-dimension.png"  lightbox="../media/diagnostics/drill-down-dimension.png" alt-text="Drill down dimension":::
+:::image type="content" source="../media/diagnostics/drill-down-dimension.png" lightbox="../media/diagnostics/drill-down-dimension.png" alt-text="Drill down dimension":::
 
 ### Value comparison for different dimension values
 
@@ -104,7 +104,7 @@ When viewing an incident, you can use the **Similar time-series-clustering** tab
 
 Available dimensions are listed on the top the the tab, and you can make a selection to specify the series.
 
-:::image type="content" source="../media/diagnostics/series-group.png" lightbox="../media/diagnostics/series-group.png"alt-text="Series group":::
+:::image type="content" source="../media/diagnostics/series-group.png" lightbox="../media/diagnostics/series-group.png" alt-text="Series group":::
 
 ## Compare time series
 
