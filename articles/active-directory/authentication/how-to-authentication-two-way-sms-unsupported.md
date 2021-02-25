@@ -23,7 +23,7 @@ Email notifications and Azure Portal Service Health notifications (portal toasts
 
 ## Required actions
 
-1. Enable the mobile app for your users, if you haven't done so already. For more information, see [Enable mobile app authentication with Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-mobileapp.md).
+1. Enable the mobile app for your users, if you haven't done so already. For more information, see [Enable mobile app authentication with MFA Server](howto-mfaserver-deploy-mobileapp.md).
 1. Notify your end users to visit your MFA Server [User portal](howto-mfaserver-deploy-userportal.md) to activate the mobile app. The [Microsoft Authenticator app](https://www.microsoft.com/account/authenticator) is the recommended verification option since it is more secure than two-way SMS. For more information, see please see [It's Time to Hang Up on Phone Transports for Authentication](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752).
 1. Change the user settings from two-way text message to mobile app as the default method.
 
@@ -44,7 +44,7 @@ You should change the user settings by following these steps:
    ![Screenshot of End Users](media/how-to-authentication-two-way-sms-unsupported/end-users.png)
 
 ### Do my users need to take any action? If yes, how?
-Yes. Your end users need to visit your specific MFA Server User portal to activate the mobile app, if they haven't done so already. After you've done Step 3, any users that didn't visit the User Portal to set up the mobile app will start failing sign in until they visit the User Portal to re-register.
+Yes. Your end users need to visit your specific MFA Server User portal to activate the mobile app, if they haven't done so already. After you've done Step 3, any users that didn't visit the User Portal to set up the mobile app will start failing sign in until they visit the User portal to re-register.
 
 ### What if my users can't install the mobile app? What other options do they have?
 The alternative to two-way SMS or the mobile app is a phone call. However, the Microsoft Authenticator app is the recommended verification method.
