@@ -26,10 +26,6 @@ In this article, we're going to show you how to use Azure Load Balancer with mul
 
 ![Load balancer scenario](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
-> [!NOTE]
-> This scenario is only valid for IPv4 configurations.  Load balancing of IPv6 traffic to secondary NICs is not supported.
->
-
 In our scenario, we're using the following configuration:
 
 - Two virtual machines (VMs) that are running Windows.
