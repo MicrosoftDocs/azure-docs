@@ -1,6 +1,6 @@
 ---
-title: Bicep language overview
-description: Describes the Bicep language for deploying infrastructure to Azure.
+title: Bicep language for Azure Resource Manager templates
+description: Describes the Bicep language for deploying infrastructure to Azure through Azure Resource Manager templates.
 ms.topic: conceptual
 ms.date: 03/02/2021
 ---

@@ -94,4 +94,4 @@ The [Bicep playground](https://aka.ms/bicepdemo) enables you to view equivalent 
 
 ## Next steps
 
-For information about the Bicep project, see [Project Bicep - an ARM DSL](https://github.com/Azure/bicep).
+For information about the Bicep project, see [Project Bicep](https://github.com/Azure/bicep).
