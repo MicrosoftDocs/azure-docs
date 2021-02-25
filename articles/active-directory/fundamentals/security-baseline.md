@@ -263,11 +263,49 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37707).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: The most critical built-in roles are Azure AD are Global
+Administrator and the Privileged Role Administrator, as users assigned to these
+two roles can delegate administrator roles:
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+ Global
+     Administrator: Users with this role have access to all administrative
+     features in Azure AD, as well as services that use Azure AD identities.
+
+ Privileged
+     Role Administrator: Users with this role can manage role assignments in
+     Azure AD, as well as within Azure AD Privileged Identity Management (PIM).
+     In addition, this role allows management of all aspects of PIM and
+     administrative units.
+
+Note: You may have other critical roles that need to be
+governed if you use custom roles with certain privileged permissions assigned.
+And you may also want to apply similar controls to the administrator account of
+critical business assets.
+
+Azure AD has
+highly privileged accounts: the users
+and service principals that are directly or indirectly assigned to, or eligible
+for, the Global Administrator or Privileged Role Administrator roles, and other
+highly privileged roles in Azure AD and Azure.
+
+Limit the number of highly privileged accounts and protect
+these accounts at an elevated level because users with this privilege can
+directly or indirectly read and modify every resource in your Azure
+environment.
+
+You can enable just-in-time (JIT) privileged access to Azure
+resources and Azure AD using Azure AD Privileged Identity Management (PIM). JIT
+grants temporary permissions to perform privileged tasks only when users need
+it. PIM can also generate security alerts when there is suspicious or unsafe
+activity in your Azure AD organization.
+- Administrator role permissions in Azure
+- [AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 
+
+- Use Azure Privileged Identity Management
+- [security alerts](../privileged-identity-management/pim-how-to-configure-security-alerts.md) 
+
+- Securing privileged access for hybrid and cloud
+- [deployments in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -278,11 +316,14 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37708).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Azure AD offers
+the following controls to restrict administrative access to business critical
+systems:
+- Privileged Identity Management approval of role
+- [activation requests](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-pim-approval-workflow?tabs=new) 
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- Multi-factor authentication and Conditional
+- [Access](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -293,11 +334,27 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37709).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Review user account access assignments regularly to ensure
+the accounts and their access are valid, especially focused on the highly
+privileged roles including Global Administrator and Privileged Role
+Administrator. You can use Azure AD access reviews to review group memberships,
+access to enterprise applications, and role assignments, both for Azure AD
+roles and Azure roles. Azure AD reporting can provide logs to help discover
+stale accounts. You can also use Azure AD Privileged Identity Management to
+create access review report workflow to facilitate the review process.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+In addition, Azure Privileged Identity Management can also
+be configured to alert when an excessive number of administrator accounts are
+created, and to identify administrator accounts that are stale or improperly
+configured.
+- Create an access review of Azure AD roles in
+- [Privileged Identity Management (PIM)](../privileged-identity-management/pim-how-to-start-security-review.md)
+
+- Create an access review of Azure resource roles
+- [in Privileged Identity Management (PIM)](../privileged-identity-management/pim-resource-roles-start-access-review.md) 
+
+- How to use Azure AD identity and access
+- [reviews](../governance/access-reviews-overview.md)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -308,11 +365,17 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37710).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: To prevent being accidentally locked out of your Azure AD
+organization, set up an emergency access account for access when normal
+administrative accounts cannot be used. Emergency access accounts are usually
+highly privileged, and they should not be assigned to specific individuals.
+Emergency access accounts are limited to emergency or "break glass"'
+scenarios where normal administrative accounts can't be used.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+You should ensure that the credentials (such as password,
+certificate, or smart card) for emergency access accounts are kept secure and
+known only to individuals who are authorized to use them only in an emergency.
+- [- Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -323,11 +386,10 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37711).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Use Azure AD entitlement management features to automate
+access request workflows, including access assignments, reviews, and
+expiration. Dual or multi-stage approval is also supported.
+- [- What is Azure AD entitlement management](../governance/entitlement-management-overview.md)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -338,11 +400,18 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37712).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Secured, isolated workstations are critically important for
+the security of sensitive roles like administrators, developers, and critical
+service operators. Use highly secured user workstations and/or Azure Bastion
+for administrative tasks. Use Azure Active Directory, Microsoft Defender
+Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure
+and managed user workstation for administrative tasks. The secured workstations
+can be centrally managed to enforce secured configuration including strong
+authentication, software and hardware baselines, restricted logical and network
+access.
+- [- Securing devices as part of privileged access](/security/compass/privileged-access-devices)
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [- Privileged access implementation](/security/compass/privileged-access-deployment)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -353,11 +422,12 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37713).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Customers can configure their Azure AD deployment for least
+privilege, by assigning users to the roles with the minimum permissions needed
+for users to complete their administrative tasks.
+- [- Administrator role permissions in Azure AD](../roles/permissions-reference.md)
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [- Assign administrative roles in Azure AD](../roles/manage-roles-portal.md)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -368,11 +438,9 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37769).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure AD doesn't support customer lockbox. Microsoft may
+work with customers through non-lockbox methods for approval to access customer
+data.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -566,11 +634,9 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37726).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Use the Azure AD Identity Protection built-in threat detection capability for your Azure AD resources. For more information see the article What is Azure Active Directory Identity Protection? ../identity-protection/overview-identity-protection.md.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Azure AD produces activity logs that are often used for threat detection and threat hunting. Azure AD sign-in logs provide a record of authentication and authorization activity for users, services, and apps. Azure AD audit logs track changes made to an Azure AD tenant, including changes that improve or diminish security posture. To export Identity Protection and Azure AD Audit Logs to Azure Sentinel follow the guidance in the following articles, Connect Azure AD Identity Protection data to Azure Sentinel ../../sentinel/connect-azure-ad-identity-protection.md and Connect Azure Active Directory data to Azure Sentinel  ../../sentinel/connect-azure-active-directory.md.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -581,11 +647,23 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37727).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Azure AD provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases: 
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities. 
+
+Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies. 
+
+Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
+
+Risky users - A risky user is an indicator for a user account that might have been compromised. 
+
+Identity Protection risk detections are enabled by default and require no onboarding process. The granularity or risk data is determined by license SKU. 
+
+- [Audit activity reports in the Azure Active Directory](../reports-monitoring/concept-audit-logs.md)  
+
+- [Enable Azure Identity Protection](../identity-protection/overview-identity-protection.md)  
+
+- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -596,11 +674,13 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37728).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Not applicable. Azure AD is a managed offering that is not intended to deploy into virtual networks. Because of this you are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures. 
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Not applicable. Azure AD is a managed offering that is not intended to deploy into virtual networks. Azure AD is not intended to deploy into virtual networks and cannot be used with Azure network security groups.  
+
+Not applicable. Azure AD is a managed offering that does not expose network traffic to or from its resources. 
+
+Not applicable. Azure AD is a managed offering that does not expose network traffic to or from its resources.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -974,11 +1054,9 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37749).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Not
+applicable; Azure AD doesn't support any data
+backup or have no needs for data backup.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -989,11 +1067,9 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37750).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Not
+applicable; Azure AD doesn't support any data
+backup encryption.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -1004,13 +1080,9 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37751).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
-
- 
-
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Not
+applicable; Azure AD doesn't support any data
+backup.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -1021,11 +1093,8 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37752).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Not
+applicable; Azure AD doesn't manage any keys.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
