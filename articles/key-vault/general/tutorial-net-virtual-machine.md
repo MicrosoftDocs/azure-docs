@@ -137,6 +137,7 @@ Open the *Program.cs* file and add these packages:
 
 ```csharp
 using System;
+using Azure.Core;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```
