@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Authentication Methods Activity 
 
-The new authentication methods activity dashboard enables admins to monitor authentication method registration and usage across their organization. This reporting capability provides your organization with the means to understand what methods are being registered and how they are being used.
+The new authentication methods activity dashboard enables admins to monitor authentication method registration and usage across their organization. This reporting capability provides your organization with the means to understand what methods are being registered and how they're being used.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -50,15 +50,15 @@ Click any of the following options to pre-filter a list of user registration det
 
 - **Users capable of Azure Multi-Factor Authentication** shows the breakdown of users who are both:
   - Registered for a strong authentication method 
-  - Enabled by policy to use that method to perform MFA 
+  - Enabled by policy to use that method for MFA 
   
-  This number does not reflect users registered for MFA outside of Azure AD. 
+  This number doesn't reflect users registered for MFA outside of Azure AD. 
 - **Users capable of passwordless authentication** shows the breakdown of users who can sign in without a password. This includes users registered for FIDO2, Windows Hello for Business, and passwordless Phone sign-in with the Microsoft Authenticator app. 
 - **Users capable of self-service password reset** shows the breakdown of users who can reset their passwords. Users can reset their password if they are both:
-  - Registered for enough methods to satisfy their organization's policy for self-service password reset (SSPR) 
+  - Registered for enough methods to satisfy their organization's policy for SSPR 
   - Enabled to perform SSPR 
 
-  ![Screenshot of users capable for registration](media/how-to-authentication-methods-usage-insights/users-capable.png)
+  ![Screenshot of users who can register](media/how-to-authentication-methods-usage-insights/users-capable.png)
 
 **Users registered by authentication method** shows how many users are registered for each authentication method. Click an authentication method to see who is registered for that method.
 
@@ -74,11 +74,11 @@ The **Usage** report shows which authentication methods are used to sign-in and 
 
 ![Screenshot of Usage page](media/how-to-authentication-methods-usage-insights/usage-page.png)
 
-**Sign-ins by authentication requirement** shows the number of successful user interactive sign-ins that were required to perform single-factor versus multi-factor authentication in Azure AD. This does not reflect sign-ins where MFA was enforced by a third-party MFA provider.
+**Sign-ins by authentication requirement** shows the number of successful user interactive sign-ins that were required to perform single-factor versus multi-factor authentication in Azure AD. This doesn't reflect sign-ins where MFA was enforced by a third-party MFA provider.
 
 ![Screenshot of sign ins by authentication requirement](media/how-to-authentication-methods-usage-insights/sign-ins-protected.png)
 
-**Sign-ins by authentication method** shows the number of user interactive sign-ins (success and failure) by authentication method used. It does not include sign-ins where the authentication requirement was satisfied by a claim in the token.
+**Sign-ins by authentication method** shows the number of user interactive sign-ins (success and failure) by authentication method used. It doesn't include sign-ins where the authentication requirement was satisfied by a claim in the token.
 
 ![Screenshot of sign ins by method](media/how-to-authentication-methods-usage-insights/sign-ins-by-method.png)
 
