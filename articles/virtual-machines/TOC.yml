@@ -26,7 +26,7 @@
     - name: Portal
       href: ./windows/quick-create-portal.md
     - name: PowerShell
-      href: ./windows/quick-create-powershell.mdazure disk 
+      href: ./windows/quick-create-powershell.md
     - name: ARM template
       displayName: Resource Manager, template, json
       href: ./windows/quick-create-template.md
