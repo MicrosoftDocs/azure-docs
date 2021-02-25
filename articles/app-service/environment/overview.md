@@ -81,6 +81,7 @@ The App Service Environment v3 is in public preview.  Some features are being ad
 - No upgrade capability from ASEv2 to ASEv3
 - No FTP support
 - No support for some App Service features going through the customer VNet. Backup/restore, Key Vault references in app settings, using a private container registry, and Diagnostic logging to storage won't function with service endpoints or private endpoints
+- No support for Windows containers
 	
 ### ASEv3 preview architecture
 In ASEv3 preview, the ASE will use private endpoints to support inbound traffic. The private endpoint will be replaced with load balancers by GA. While in preview, the ASE won't have built in support for an internet accessible endpoint. You could add an Application Gateway for such a purpose. The ASE needs resources in two subnets.  Inbound traffic will flow through a private endpoint. The private endpoint can be placed in any subnet so long as it has an available address that can be used by private endpoints.  The outbound subnet must be empty and delegated to Microsoft.Web/hostingEnvironments. While used by the ASE, the outbound subnet can't be used for anything else.
