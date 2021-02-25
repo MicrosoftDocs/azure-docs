@@ -1,38 +1,31 @@
 ---
-title: "Preview: Deploy a Trusted Launch VM using the portal"
-description: Deploy a VM that uses Trusted Launch by using the portal. 
+title: "Preview: Deploy a Trusted Launch VM"
+description: Deploy a VM that uses Trusted Launch. 
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to 
-ms.date: 02/23/2021
+ms.date: 02/25/2021
 ms.custom: template-how-to 
 ---
 
-# Deploy a VM with Trusted Launch enabled using the portal (preview)
+# Deploy a VM with Trusted Launch enabled (preview)
 
 Azure offers [Trusted Launch](trusted-launch.md) as a way to increase the security of [generation 2](generation-2.md) VMs. Trusted Launch protects against advanced and persistent attack techniques. Trusted Launch is comprised of several infrastructure technologies, including vTPM and secure boot.
 
-You can also deploy Trusted Launch VMs using a template.
-
-**Linux**:    
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
-
-**Windows**:    
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ## Deploy using the portal
 
-Create virtual machine with Trusted Launch Enabled.
+Create a virtual machine with Trusted Launch enabled.
 
 1. Sign in to the Azure [portal](https://portal.azure.com).
 1. Search for **Virtual Machines**.
-2. Under **Services**, select **Virtual machines**.
-3. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
-4. Under **Project details**, make sure the correct subscription is selected.
-5. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
-5. Under **Instance details**, type a name for the virtual machine name and choose a region that supports trusted launch.
+1. Under **Services**, select **Virtual machines**.
+1. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
+1. Under **Project details**, make sure the correct subscription is selected.
+1. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
+1. Under **Instance details**, type a name for the virtual machine name and choose a region that supports trusted launch.
 1. Under **Image**, select an [image that supports Trusted Launch](trusted-launch.md#public-preview-limitations). You might only see the Gen 1 version of the image, that is okay, go on to the next step.
 1. Switch over to the **Advanced** tab by selecting it at the top of the page.
 1. Scroll down to the **VM generation** section, and then select **Gen 2**.
@@ -40,27 +33,39 @@ Create virtual machine with Trusted Launch Enabled.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot showing the options for Trusted Launch.":::
 
-1. Go back to the **Basics** tab, under **Image**, and make sure see the following message: **This image supports trusted launch preview. Configure in the Advanced tab**. The image should now be listed as the gen 2 version.
+1. Go back to the **Basics** tab, under **Image**, and make sure you see the following message: **This image supports trusted launch preview. Configure in the Advanced tab**. The image should now be listed as the gen 2 version.
 
     :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot showing the message confirming that this is a gen2 image that supports Trusted Launch.":::
 
-7.	Select a VM size that supports Gen 2, like Standard_D2s_v3. Please see the list of supported [generation 2 sizes](generation-2.md#generation-2-vm-sizes).
-8.	Fill in the **Administrator account** information and then **Inbound port rules**.
-10.	At the bottom of the page, select **Review + Create**
-11.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. When you are ready, select **Create**.
+1.	Select a VM size that supports Trusted Launch. Please see the list of supported [sizes](trusted-launch.md#public-preview-limitations).
+1.	Fill in the **Administrator account** information and then **Inbound port rules**.
+1.	At the bottom of the page, select **Review + Create**
+1.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. When you are ready, select **Create**.
 
     :::image type="content" source="media/trusted-launch/validation.png" alt-text="Sceenshot of the validation page, showing the Trusted Launch options are included.":::
 
 
 It will take a few minutes for your VM to be deployed. 
 
+## Deploy using a template
+
+You can deploy Trusted Launch VMs using a quickstart template:
+
+**Linux**:    
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
+
+**Windows**:    
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
+
 ## View and update
 
-You can view the Trusted Launch configuration for an existing VM by visiting the **Overview** page for the VM.
+You can view the Trusted Launch configuration for an existing VM by visiting the **Overview** page for the VM in the portal.
 
-To update or modify the Trusted Launch configuration, select **Configuration** under **Settings**. You can enable or disable Secure Boot and vTPM under Trusted Launch. Select **Apply** when you are done. I
+To update or modify the Trusted Launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM under Trusted Launch. Select **Save** at the top of the page when you are done. 
 
-If the VM is running, you will receive a message  that the VM will be rebooted to apply the modified Trusted Launch configuration. Select **OK** then wait for the VM to reboot for changes to take effect.
+:::image type="content" source="media/trusted-launch/configuration.png" alt-text="Screenshot of how to change the Trusted Launch configuration.":::
+
+If the VM is running, you will receive a message  that the VM will be restarted to apply the modified Trusted Launch configuration. Select **Yes** then wait for the VM to restart for changes to take effect.
 
 
 ## Verify secure boot and vTPM
@@ -123,7 +128,7 @@ In some cases, you might need to sign things for UEFI Secure Boot.  For example,
     sudo mokutil –import <path to public key.der> 
     ```
 4.	Reboot the machine from Azure Serial Console by typing `sudo reboot`. A 10 second countdown will begin.
-6.	Press up or down key to interrupt the countdown and wait in UEFI console mode. If the timer is not interrupted booting process continues and all the MOK changes are lost.
+6.	Press up or down key to interrupt the countdown and wait in UEFI console mode. If the timer is not interrupted, the bootprocess continues and all of the MOK changes are lost.
 7.	Select the appropriate action from the MOK utility menu.
 :::image type="content" source="media/trusted-launch/mok-mangement.png" alt-text="Screenshot showing the available options on the MOK management menu in the serial console.":::
 
