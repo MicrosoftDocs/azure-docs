@@ -26,7 +26,7 @@ The platform supported migration provides following key benefits:
 - The migration is fully orchestrated by the platform, moving the entire deployment and associated resources to Azure Resource Manager.
 - No downtime migration.
 - Easy and fast migration compared to other migration paths by minimizing manual tasks. 
-- Retains Cloud Services IP Address and DNS lable as part of the migration. 
+- Retains Cloud Services IP Address and DNS label as part of the migration. 
 
 For other benefits and why you should migrate, see [Cloud Services (extended support)](overview.md) and [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
@@ -34,21 +34,21 @@ For other benefits and why you should migrate, see [Cloud Services (extended sup
 
 1. Register your subscription for Classic Infrastructure using PowerShell.
 
-```powershell
-Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate 
-```
+    ```powershell
+    Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate 
+    ```
  
 2. Register your subscription for Cloud Services (extended support) using PowerShell. 
 
-```powershell
-Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute 
-```
+    ```powershell
+    Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute 
+    ```
 
-3. Check the status of your registration. Registration can take a few minutues to complete. 
+3. Check the status of your registration. Registration can take a few minutes to complete. 
 
-```powershell
-Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute 
-```
+    ```powershell
+    Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute 
+    ```
 
 ## How is migration for Cloud Services (classic) different from Virtual Machines (classic)?
 Azure Service Manager supports two different compute products, [Azure Virtual Machines (classic)](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/tutorial-classic) and [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) or Web/ Worker roles. The two products differ based on the deployment type that lies within the Cloud Service. Azure Cloud Services (classic) uses Cloud Service containing deployments with Web/Worker roles. Azure Virtual Machines (classic) uses a cloud service containing deployments with IaaS VMs.
