@@ -11,7 +11,7 @@ ms.author: jbeauregardb
 ms.reviewer: mikben
 ---
 
-# Authorize access with managed identity to your communication resource using your development environment
+# Authorize access with managed identity to your communication resource in your development environment
 
 The Azure Identity client library provides Azure Active Directory (AAD) token authentication support for the Azure SDK. The latest versions of the Azure Communication Services client libraries for .NET, Java, Python, and JavaScript integrate with the Azure Identity library to provide a simple and secure means to acquire an OAuth 2.0 token for authorization of Azure Communication Services requests.
 
@@ -21,7 +21,6 @@ An advantage of the Azure Identity client library is that it enables you to use 
 
  - Azure CLI. [Installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli)
  - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
- - An active Communication Services resource and connection string. [Create a Communication Services resource](./create-communication-resource.md?pivots=platform-azp&tabs=windows).
 
 ## Setting Up
 
@@ -40,7 +39,7 @@ If your development environment does not support single sign-on or login via a w
 
 ### Creating an Azure Active Directory Registered Application
 
-To create a registered application from the Azure CLI,  we need to be logged in to the Azure account where want the operations to take place. To do this, you can use the `az login` command and enter your credentials in the browser. Once you are logged in to your Azure account from the CLI, we can call the `az ad sp create-for-rbac` command to create the registered application.
+To create a registered application from the Azure CLI, you need to be logged in to the Azure account where you want the operations to take place. To do this, you can use the `az login` command and enter your credentials in the browser. Once you are logged in to your Azure account from the CLI, we can call the `az ad sp create-for-rbac` command to create the registered application.
 
 The following examples uses the Azure CLI to create a new registered application
 
@@ -48,7 +47,7 @@ The following examples uses the Azure CLI to create a new registered application
 az ad sp create-for-rbac --name <application-name> 
 ```
 
-The az ad sp create-for-rbac command will return a list of service principal properties in JSON format. Copy these values so that you can use them to create the necessary environment variables in the next step.
+The `az ad sp create-for-rbac` command will return a list of service principal properties in JSON format. Copy these values so that you can use them to create the necessary environment variables in the next step.
 
 ```json
 {
@@ -83,8 +82,4 @@ The Azure Identity client library reads values from three environment variables 
 
 You may also want to:
 
-- [Learn more about Azure role-based access control](../../../articles/role-based-access-control/index.yml)
-- [Learn more about Azure identity library for .NET](/dotnet/api/overview/azure/identity-readme)
-- [Creating user access tokens](../quickstarts/access-tokens.md)
-- [Send an SMS message](../quickstarts/telephony-sms/send.md)
-- [Learn more about SMS](../concepts/telephony-sms/concepts.md)
+- [Learn more about Azure Identity library](/dotnet/api/overview/azure/identity-readme)
