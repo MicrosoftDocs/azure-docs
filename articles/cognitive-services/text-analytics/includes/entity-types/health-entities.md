@@ -103,7 +103,7 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/exam-relational-operator-attribute.png" alt-text="An example of a relational operator with an examination name entity.":::
 
-**TIME** – Temporal terms relating to the beginning and/or length (duration) of an examination. For example, when the test occurred.
+**TIME** – Temporal terms relating to the beginning and/or length (duration) of an examination. For example, the duration of the MRI scan.
 
 :::image type="content" source="../../media/ta-for-health/exam-time-attribute.png" alt-text="An example of a time attribute with an examination name entity.":::
 
@@ -119,11 +119,11 @@ Additionally, the service recognizes relations between the different concepts in
 
 ### Entities
 
-**GENE** – All mentions of genes. For example, MTRR, F2.
+**GENE** – All mentions of names and symbols of human genes as well as chromosomes and parts of chromosomes. For example, MTRR, F2.
 
 :::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="An example of a gene entity.":::
 
-**VARIANT** – All mentions of gene variations. For example, c.524C>T, (MTRR):r.1462_1557del96
+**VARIANT** – All mentions of gene variations and mutations. For example, c.524C>T, (MTRR):r.1462_1557del96
   
 ## Healthcare
 
@@ -142,6 +142,14 @@ Additionally, the service recognizes relations between the different concepts in
 :::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="This screenshot shows another example of a healthcare environment entity.":::
 
 :::image type="content" source="../../media/ta-for-health/healthcare-profession-entity-2.png" alt-text="Another example of a healthcare environment entity.":::
+
+### Attributes
+
+**TIME** – Temporal terms relating to the beginning and/or length (duration) of an administrative event. For example, the time of admission into a hospital.
+
+### Supported relations
+
++ **TIME_OF_ADMINISTRATIVE_EVENT**
 
 ## Medical condition
 
@@ -253,6 +261,8 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="Screenshot shows another example of a relational operator attribute with a medication entity.":::
 
+**TIME** - Temporal terms relating to the time when a medication was administered. For example, the time when the patient took 800mg of extra-strength acetaminophen.
+
 ### Supported relations
 
 + **DOSAGE_OF_MEDICATION**
@@ -291,7 +301,7 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/treatment-relational-operator.png" alt-text="An example of a treatment relational operator attribute.":::
 
-**TIME** - Temporal terms relating to the beginning and/or length (duration) of a treatment. For example, the date the treatment was given.
+**TIME** - Temporal terms relating to the beginning and/or length (duration) of a treatment. For example, the time the treatment was given.
 
 :::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Screenshot shows an example of a treatment time attribute.":::
 
