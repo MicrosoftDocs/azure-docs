@@ -134,7 +134,7 @@ Protect Azure resources against attacks from external networks, including distri
 |--|--|--|--|
 | NS-5 | 12.6, 12.7 | SI-4 |
 
-Use Azure Firewall threat intelligence-based filtering to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed. When payload inspection is required, you can deploy a third-party intrusion detection/intrusion prevent system (IDS/IPS) from Azure Marketplace with payload inspection capabilities. Alternately you can use host-based IDS/IPS or a host-based endpoint detection and response (EDR) solution in conjunction with or instead of network-based IDS/IPS.
+Use Azure Firewall threat intelligence-based filtering to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed. When payload inspection is required, you can deploy a third-party intrusion detection/intrusion prevention system (IDS/IPS) from Azure Marketplace with payload inspection capabilities. Alternately you can use host-based IDS/IPS or a host-based endpoint detection and response (EDR) solution in conjunction with or instead of network-based IDS/IPS.
 
 Note: If you have a regulatory or other requirement for IDS/IPS use, ensure that it is always tuned to provide high quality alerts to your SIEM solution. 
 

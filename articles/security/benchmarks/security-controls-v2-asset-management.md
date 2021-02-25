@@ -88,10 +88,6 @@ Use Azure Policy to audit and restrict which services users can provision in you
 
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-**Azure Policy built-in definitions**:
-
-[!INCLUDE [Resource Policy for AM-3](../../includes/policy/standards/asb/controls/am-3.md)]
-
 ## AM-4: Ensure security of asset lifecycle management
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
@@ -163,7 +159,3 @@ You can also use a third-party solution to discover and identify unapproved soft
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
-
-**Azure Policy built-in definitions**:
-
-[!INCLUDE [Resource Policy for AM-6](../../includes/policy/standards/asb/controls/am-6.md)]

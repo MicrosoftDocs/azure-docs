@@ -100,7 +100,7 @@ If required for compliance of data loss prevention (DLP), you can use a host-bas
 |--|--|--|--|
 | DP-4 | 14.4 | SC-8 |
 
-To complement access controls, data in transit should be protected against "out of band" attacks (as as traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
+To complement access controls, data in transit should be protected against "out of band" attacks (such as traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
 
 While this is optional for traffic on private networks, this is critical for traffic on external and public networks. For HTTP traffic, ensure that any clients connecting to your Azure resources can negotiate TLS v1.2 or greater. For remote management, use SSH (for Linux) or RDP/TLS (for Windows) instead of an unencrypted protocol. Obsoleted SSL, TLS, and SSH versions and protocols, and weak ciphers should be disabled.
 
