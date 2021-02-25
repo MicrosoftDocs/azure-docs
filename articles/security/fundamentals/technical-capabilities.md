@@ -181,7 +181,7 @@ For organizations that need to secure access from one workstation located on-pre
 
 Larger data sets can be moved over a dedicated high-speed WAN link such as [ExpressRoute](https://azure.microsoft.com/services/expressroute/). If you choose to use ExpressRoute, you can also encrypt the data at the application-level using [SSL/TLS](https://web.archive.org/web/20150221085231/http://support.microsoft.com:80/kb/257591) or other protocols for added protection.
 
-If you are interacting with Azure Storage through the Azure Portal, all transactions occur via HTTPS. [Storage REST API](/rest/api/storageservices/) over HTTPS can also be used to interact with [Azure Storage](https://azure.microsoft.com/services/storage/) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+If you are interacting with Azure Storage through the Azure portal, all transactions occur via HTTPS. [Storage REST API](/rest/api/storageservices/) over HTTPS can also be used to interact with [Azure Storage](https://azure.microsoft.com/services/storage/) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 
 Organizations that fail to protect data in transit are more susceptible for [man-in-the-middle attacks](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), [eavesdropping](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14)), and session hijacking. These attacks can be the first step in gaining access to confidential data.
 
@@ -303,7 +303,7 @@ In addition, the checklist:
 
 - Exposes key discussion topics for decision-makers at the beginning of the cloud adoption process.
 
-- Supports thorough business discussions about regulations and the organization’s own objectives for privacy, personally identifiable information (PII), and data security.
+- Supports thorough business discussions about regulations and the organization’s own objectives for privacy, personal information and data security.
 
 - Helps organizations identify any potential issues that could affect a cloud project.
 
