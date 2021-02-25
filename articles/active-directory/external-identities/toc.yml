@@ -86,7 +86,7 @@
         href: customize-invitation-api.md
     - name: Add identity providers
       items:
-      - name: Microsoft Account
+      - name: Microsoft Account (Preview)
         href: microsoft-account.md
       - name: Google federation
         href: google-federation.md
