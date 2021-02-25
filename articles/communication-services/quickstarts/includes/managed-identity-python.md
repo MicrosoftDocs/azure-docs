@@ -22,7 +22,7 @@ To register application in the development environment and set up environment va
 
 ### Create an identity and issue a token
 
-The following code example shows how to create a service client object with Azure Active Directory tokens, then use the client to issue a token for a new user:
+The following code example shows how to create a service client object with managed identity, then use the client to issue a token for a new user:
 
 ```python
 import azure.communication.identity 
@@ -37,9 +37,9 @@ def create_identity_and_get_token(resource_endpoint):
      return token_response
 ```
 
-### Send an SMS with Azure Active Directory tokens
+### Send an SMS with Azure managed identity
 
-The following code example shows how to create a service client object with Azure Active Directory tokens, then use the client to send an SMS message:
+The following code example shows how to create a service client object with Azure managed identity, then use the client to send an SMS message:
 
 ```python
 from azure.communication.sms import (
