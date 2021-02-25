@@ -81,20 +81,20 @@ ls /dev/tpm0
 
 If vTPM is enabled it will return:
 
-```bash
+```output
 /dev/tpm0
 ```
 
 If vTPM is disabled, it will return:
 
-```bash
+```output
 ls: cannot access '/dev/tpm0': No such file or directory
 ```
 
 
 ### Windows: validate that secure boot is running 
 
-Connect to the VM using remote desktop and then run msinfo32.exe.
+Connect to the VM using remote desktop and then run `msinfo32.exe`.
 
 In the right pane, check that the Secure Boot State is **ON**.
  
@@ -109,13 +109,13 @@ In some cases, you might need to sign things for UEFI Secure Boot.  For example,
 2.	Log on to the VM using Azure Serial Console. For **login**, enter the username you used when you created the VM. For example, *azureuser*. When prompted, enter the password associated with the username.
 3.	Once you are logged in, use `mokutil` to import the public key `.der` file.
 
-```console
-sudo mokutil –import <path to public key.der> 
-```
+    ```bash
+    sudo mokutil –import <path to public key.der> 
+    ```
 4.	Reboot the machine from Azure Serial Console by typing `sudo reboot`. A 10 second countdown will begin.
 6.	Press up or down key to interrupt the countdown and wait in UEFI console mode. If the timer is not interrupted booting process continues and all the MOK changes are lost.
 7.	Select the appropriate action from the MOK utility menu.
-:::image type="content" source="media/trusted-launch/serial-console-reboot.png" alt-text="Screenshot of the possible actions you can select from the menu.":::
+:::image type="content" source="media/trusted-launch/mok-mangement.png" alt-text="Screenshot showing the available options on the MOK management menu in the serial console.":::
 
 
 # Next steps
