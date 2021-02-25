@@ -6,7 +6,7 @@ author: johndowns
 ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
-ms.date: 02/23/2021 
+ms.date: 02/25/2021 
 ---
 
 # Azure Resource Manager templates for Azure Front Door
@@ -19,4 +19,5 @@ The following table includes links to Azure Resource Manager templates for Azure
 | Example | Description |
 |-|-|
 | [App Service](https://azure.microsoft.com/resources/templates/201-front-door-standard-premium-app-service-public/) | Creates an App Service app with a public endpoint, and a Front Door profile.  |
+| [App Service - Private Link](https://azure.microsoft.com/resources/templates/201-front-door-premium-app-service-private-link/) | Creates an App Service app with a private endpoint, and a Front Door profile.  |
 | | |
