@@ -16,11 +16,6 @@ In the pom.xml file, add the following dependency elements to the group of depen
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
-    <artifactId>azure-communication-phonenumbers</artifactId>
-    <version>1.0.0-beta.5</version>
-</dependency>
-<dependency>
-    <groupId>com.azure</groupId>
     <artifactId>azure-identity</artifactId>
     <version>1.2.3</version>
 </dependency>
@@ -35,7 +30,6 @@ import com.azure.identity.*;
 import com.azure.communication.sms.*;
 import com.azure.communication.identity.*;
 import com.azure.communication.common.*;
-import com.azure.communication.phonenumbers.*;
 ```
 
 The examples below are using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
@@ -96,28 +90,6 @@ The following code example shows how to create a service client object with Azur
     }
 ```
 
-### List all acquired phone numbers using Azure Active Directory tokens
-The following code example shows how to create a phone number service client object with Azure Active Directory tokens, then use the client to list all acquired phone numbers:
-
-```java
-     public PhoneNumbersClient listAllPhoneNumbers() {
-          // You can find your endpoint and access key from your resource in the Azure Portal
-          String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-
-          HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
-          TokenCredential credential = new DefaultAzureCredentialBuilder().build();
-
-          PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
-               .endpoint(endpoint)
-               .credential(credential)
-               .httpClient(httpClient)
-               .buildClient();
-
-          PagedIterable<AcquiredPhoneNumber> phoneNumbers = createPhoneNumberClient().listPhoneNumbers(Context.NONE);
-          return phoneNumbers;
-     }
-```
-
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -130,4 +102,3 @@ You may also want to:
 - [Creating user access tokens](../../quickstarts/access-tokens.md)
 - [Send an SMS message](../../quickstarts/telephony-sms/send.md)
 - [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
-- [Learn more about Managing Phone Numbers](../../quickstarts/telephony-sms/get-phone-number.md)

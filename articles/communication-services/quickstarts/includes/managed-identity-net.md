@@ -5,7 +5,6 @@
 ```console
 dotnet add package Azure.Communication.Identity
 dotnet add package Azure.Communication.Configuration
-dotnet add package Azure.Communication.PhoneNumbers
 dotnet add package Azure.Communication.Sms
 dotnet add package Azure.Identity
 ```
@@ -18,7 +17,6 @@ Add the following `using` directives to your code to use the Azure Identity and 
 using Azure.Identity;
 using Azure.Communication.Identity;
 using Azure.Communication.Configuration;
-using Azure.Communication.PhoneNumbers;
 using Azure.Communication.Sms;
 ```
 
@@ -67,18 +65,6 @@ The following code example shows how to create a SMS service client object with 
      }
 ```
 
-### List all acquired phone numbers using Azure Active Directory tokens
-The following code example shows how to create a phone number service client object with Azure Active Directory tokens, then use the client to list all acquired phone numbers:
-```csharp
-     public async Task ListAllPhoneNumbers()
-     {
-          TokenCredential tokenCredential = new DefaultAzureCredential();
-          var client = CreateClientWithTokenCredential(tokenCredential);
-          PhoneNumberAdministrationClient phoneNumberClient = new PhoneNumberAdministrationClient(TestEnvironment.Endpoint, token)
-          var numbers = await phoneNumberClient.GetAllPhoneNumbersAsync().ToEnumerableAsync();
-     }
-```
-
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -91,4 +77,3 @@ You may also want to:
 - [Creating user access tokens](../../quickstarts/access-tokens.md)
 - [Send an SMS message](../../quickstarts/telephony-sms/send.md)
 - [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
-- [Learn more about Managing Phone Numbers](../../quickstarts/telephony-sms/get-phone-number.md)
