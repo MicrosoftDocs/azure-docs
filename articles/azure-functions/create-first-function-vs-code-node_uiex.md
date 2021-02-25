@@ -208,8 +208,7 @@ Delete the function app and its resources to avoid incurring any further costs.
 
 1. In Visual Studio Code, select the Azure icon in the Activity bar, then select the Functions area in the side bar. 
 1. Select the function app, then right-click and select **Delete Function app...**.
-1. 
-1. 
+
 <hr/>
 <br/>
 
