@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 02/25/2021
 
 ms.author: justinha
-author: rihicock
+author: rhicock
 manager: daveba
 ms.reviewer: rateller
 
