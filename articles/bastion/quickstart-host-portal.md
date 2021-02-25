@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 10/15/2020
+ms.date: 02/18/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH using a private IP address through my browser.
 
@@ -44,21 +44,21 @@ You can use the following example values when creating this configuration, or yo
 |**Name** | **Value** |
 | --- | --- |
 | Virtual machine| TestVM |
-| Resource group | TestRG |
+| Resource group | TestRG1 |
 | Region | East US |
-| Virtual network | TestVNet1 |
-| Address space | 10.0.0.0/16 |
-| Subnets | FrontEnd: 10.0.0.0/24 |
+| Virtual network | VNet1 |
+| Address space | 10.1.0.0/16 |
+| Subnets | FrontEnd: 10.1.0.0/24 |
 
 **Azure Bastion values:**
 
 |**Name** | **Value** |
 | --- | --- |
-| Name | TestVNet1-bastion |
+| Name | VNet1-bastion |
 | + Subnet Name | AzureBastionSubnet |
-| AzureBastionSubnet addresses | A subnet within your VNet address space with a /27 subnet mask. For example, 10.0.1.0/27.  |
+| AzureBastionSubnet addresses | A subnet within your VNet address space with a /27 subnet mask. For example, 10.1.1.0/27.  |
 | Public IP address |  Create new |
-| Public IP address name | VNet1BastionPIP  |
+| Public IP address name | VNet1-ip  |
 | Public IP address SKU |  Standard  |
 | Assignment  | Static |
 
@@ -69,34 +69,34 @@ There are a few different ways to configure a bastion host. In the following ste
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to the VM that you want to connect to, then select **Connect**.
 
-   :::image type="content" source="./media/quickstart-host-portal/vm-settings.png" alt-text="virtual machine settings" lightbox="./media/quickstart-host-portal/vm-settings.png":::
+   :::image type="content" source="./media/quickstart-host-portal/vm-connect.png" alt-text="Screenshot of virtual machine settings." lightbox="./media/quickstart-host-portal/vm-connect.png":::
 1. From the dropdown, select **Bastion**.
+
+   :::image type="content" source="./media/quickstart-host-portal/bastion.png" alt-text="Screenshot of Bastion dropdown." lightbox="./media/quickstart-host-portal/bastion.png":::
 1. On the **TestVM | Connect page**, select **Use Bastion**.
 
-   :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="Select Bastion" border="false":::
+   :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="Screenshot of Use Bastion.":::
 
-1. On the **Bastion** page, fill out the following settings fields:
+1. On the **Connect using Azure Bastion** page, configure the values.
 
-   * **Name**: Name the bastion host.
-   * **Subnet**: This is the virtual network address space to which the Bastion resource will be deployed. The subnet must be created with the name **AzureBastionSubnet**. Use a subnet of at least /27 or larger (/27, /26, /25, and so on).
-   * Select **Manage subnet configuration**.
-1. On the **Subnets** page, select **+Subnet**.
+   * **Step 1:** The values are pre-populated because you are creating the bastion host directly from your VM.
 
-   :::image type="content" source="./media/quickstart-host-portal/subnet.png" alt-text="+ Subnet":::
-    
-1. On **Add subnet** page, for **Name**, type **AzureBastionSubnet**.
-   * For subnet address range, choose a subnet address that is within your virtual network address space.
-   * Don't adjust any other settings. Select **OK** to accept and save the subnet changes.
+   * **Step 2:** The address space is pre-populated with a suggested address space. The AzureBastionSubnet must have an address space of /27 or larger (/26, /25, etc.)..
 
-   :::image type="content" source="./media/quickstart-host-portal/add-subnet.png" alt-text="Add subnet":::
-1. Click the back button on your browser to navigate back to the **Bastion** page, and continue specifying values.
-   * **Public IP address**: Leave as **Create new**.
-   * **Public IP address name**: The name of the public IP address resource.
-   * **Assignment**: Defaults to Static. You can't use a Dynamic assignment for Azure Bastion.
+   :::image type="content" source="./media/quickstart-host-portal/create-subnet.png" alt-text="Screenshot of create the Bastion subnet.":::
+
+1. Click **Create Subnet** to create the AzureBastionSubnet.
+1. After the subnet creates, the page advances automatically to **Step 3**. For Step 3, use the following values:
+
+   * **Name:** Name the bastion host.
+   * **Public IP address:** Select **Create new**.
+   * **Public IP address name:** The name of the Public IP address resource.
+   * **Public IP address SKU:** Pre-configured as **Standard**
+   * **Assignment:** Pre-configured to **Static**. You can't use a Dynamic assignment for Azure Bastion.
    * **Resource group**: The same resource group as the VM.
 
-   :::image type="content" source="./media/quickstart-host-portal/validate.png" alt-text="Create the bastion host":::
-1. Select **Create** to create the bastion host. Azure validates your settings, then creates the host. The host and its resources take about 5 minutes to create and deploy.
+   :::image type="content" source="./media/quickstart-host-portal/create-bastion.png" alt-text="Screenshot of Step 3.":::
+1. After completing the values, select **Create Azure Bastion using defaults**. Azure validates your settings, then creates the host. The host and its resources take about 5 minutes to create and deploy.
 
 ## <a name="connect"></a>Connect
 
@@ -104,7 +104,7 @@ After Bastion has been deployed to the virtual network, the screen changes to th
 
 1. Type the username and password for your virtual machine. Then, select **Connect**.
 
-   :::image type="content" source="./media/quickstart-host-portal/connect-vm.png" alt-text="Screenshot shows the Connect using Azure Bastion dialog.":::
+   :::image type="content" source="./media/quickstart-host-portal/connect.png" alt-text="Screenshot shows the Connect using Azure Bastion dialog.":::
 1. The RDP connection to this virtual machine will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service.
 
    :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="RDP connect":::

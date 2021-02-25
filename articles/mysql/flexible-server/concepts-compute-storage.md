@@ -67,7 +67,7 @@ The detailed specifications of the available server types are as follows:
 To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Memory Optimized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
 
 >[!NOTE]
->For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+>For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
 ## Storage
 
