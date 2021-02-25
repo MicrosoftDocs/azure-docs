@@ -97,7 +97,10 @@ By extending MIP’s sensitivity labels with Azure Purview, organizations can no
 
 **To extend sensitivity labels to Purview:**
 
-In Microsoft 365, navigate to the **Information Protection** page. In the **Extend labeling to assets in Azure Purview**, select the **Turn on** button, and then select **Yes** in the confirmation dialog that appears.
+The following steps allow your sensitivity labels to be available for use in Azure Purview, where you can apply your sensitivity labels to assets such as SQL columns, files in Azure Blob Storage, and more.
+
+1. In Microsoft 365, navigate to the **Information Protection** page. 
+1. In the **Extend labeling to assets in Azure Purview**, select the **Turn on** button, and then select **Yes** in the confirmation dialog that appears.
 
 For example:
 
