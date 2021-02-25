@@ -4,7 +4,7 @@ description: Learn about the features and capabilities of InfiniBand enabled H-s
 author: vermagit
 ms.author: amverma
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: overview
 ms.date: 07/29/2020
 ms.reviewer: cynthn
