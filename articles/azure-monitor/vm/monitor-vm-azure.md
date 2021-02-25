@@ -155,7 +155,7 @@ There are three namespaces used by virtual machines for metrics:
 ## Analyzing log data
 Azure virtual machines will collect the following data to Azure Monitor Logs. 
 
-Azure Monitor for VMs enables the collection of a predetermined set of performance counters that are written to the *InsightsMetrics* table. This is the same table used by [Azure Monitor for Containers](../insights/container-insights-overview.md). 
+Azure Monitor for VMs enables the collection of a predetermined set of performance counters that are written to the *InsightsMetrics* table. This is the same table used by [Container insights](../insights/container-insights-overview.md). 
 
 | Data source | Requirements | Tables |
 |:---|:---|:---|

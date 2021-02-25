@@ -90,7 +90,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Troubleshooting Azure Monitor Application Insights for Java](app/java-standalone-troubleshoot.md) - New article.
 
 ### Containers
-- [Reports in Azure Monitor for containers](insights/container-insights-reports.md) - New article.
+- [Reports in Container insights](insights/container-insights-reports.md) - New article.
 
 ### Logs
 - [Azure Monitor Logs Dedicated Clusters](logs/logs-dedicated-clusters.md) - Added automated commands, methods to unlink and remove, and troubleshooting.
@@ -204,9 +204,9 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Get started with autoscale in Azure](autoscale/autoscale-get-started.md) - Added section on moving Autoscale to different region.
 
 ### Containers
-- [Configure PV monitoring with Azure Monitor for containers](containers/container-insights-persistent-volumes.md) - New article.
-- [How to manage the Azure Monitor for containers agent](containers/container-insights-manage-agent.md) -  Added support for Azure Arc enabled Kubernetes cluster.
-- [Metric alerts from Azure Monitor for containers](containers/container-insights-metric-alerts.md) -  Added support for Azure Arc enabled Kubernetes cluster.
+- [Configure PV monitoring with Container insights](containers/container-insights-persistent-volumes.md) - New article.
+- [How to manage the Container insights agent](containers/container-insights-manage-agent.md) -  Added support for Azure Arc enabled Kubernetes cluster.
+- [Metric alerts from Container insights](containers/container-insights-metric-alerts.md) -  Added support for Azure Arc enabled Kubernetes cluster.
 
 ### Insights and solutions
 - [IT Service Management Connector - Secure Export in Azure Monitor](alerts/it-service-management-connector-secure-webhook-connections.md) - Added section on ServiceNow.
@@ -228,7 +228,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 ### Virtual machines
 - [Change analysis in Azure Monitor for VMs](vm/vminsights-change-analysis.md) - New article.
 - [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md) - Added supported regions.
-- [How to update Azure Monitor for containers for metrics](containers/container-insights-update-metrics.md) -  Added support for Azure Arc enabled Kubernetes cluster.
+- [How to update Container insights for metrics](containers/container-insights-update-metrics.md) -  Added support for Azure Arc enabled Kubernetes cluster.
 
 
 
@@ -259,8 +259,8 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 
 ### Containers
-- [Configure Azure Arc enabled Kubernetes cluster with Azure Monitor for containers](containers/container-insights-enable-arc-enabled-clusters.md) - Added guidance for enabling monitoring using service principal.
-- [Deployment & HPA metrics with Azure Monitor for containers](containers/container-insights-deployment-hpa-metrics.md) - New article.
+- [Configure Azure Arc enabled Kubernetes cluster with Container insights](containers/container-insights-enable-arc-enabled-clusters.md) - Added guidance for enabling monitoring using service principal.
+- [Deployment & HPA metrics with Container insights](containers/container-insights-deployment-hpa-metrics.md) - New article.
 
 ### Insights and solutions
 - [Azure Monitor for Azure Cache for Redis](insights/redis-cache-insights-overview.md) - Removed preview designation.
@@ -338,7 +338,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 
 ### Containers
-- [Deployment & HPA metrics with Azure Monitor for containers](containers/container-insights-deployment-hpa-metrics.md) - New article.
+- [Deployment & HPA metrics with Container insights](containers/container-insights-deployment-hpa-metrics.md) - New article.
 
 ### Insights
 - [Monitoring solutions in Azure Monitor](insights/solutions.md) - Updated for new UI.
@@ -383,8 +383,8 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Troubleshoot problems with Azure Application Insights Profiler](app/profiler-troubleshooting.md) - Added note on bug running profiler for ASP.NET Core apps on Azure App Service. 
 
 ### Containers
-- [Log alerts from Azure Monitor for containers](containers/container-insights-log-alerts.md) - New article.
-- [Metric alerts from Azure Monitor for containers](containers/container-insights-metric-alerts.md) - New article.
+- [Log alerts from Container insights](containers/container-insights-log-alerts.md) - New article.
+- [Metric alerts from Container insights](containers/container-insights-metric-alerts.md) - New article.
 
 ### Logs
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Added error message and section CMK configuration for queries.
@@ -447,9 +447,9 @@ New and updated articles from restructure of Azure Monitor for VMs content
 
 ### Containers
 - [How to stop monitoring your hybrid Kubernetes cluster](containers/container-insights-optout-hybrid.md) - Added section for Arc enabled Kubernetes.
-- [Configure Azure Arc enabled Kubernetes cluster with Azure Monitor for containers](containers/container-insights-enable-arc-enabled-clusters.md) - New article.
-- [Configure Azure Red Hat OpenShift v4.x with Azure Monitor for containers](containers/container-insights-azure-redhat4-setup.md) - Updated prerequisites.
-- [Set up Azure Monitor for containers Live Data (preview)](containers/container-insights-livedata-setup.md) - Removed note about feature not being available in Azure US Government.
+- [Configure Azure Arc enabled Kubernetes cluster with Container insights](containers/container-insights-enable-arc-enabled-clusters.md) - New article.
+- [Configure Azure Red Hat OpenShift v4.x with Container insights](containers/container-insights-azure-redhat4-setup.md) - Updated prerequisites.
+- [Set up Container insights Live Data (preview)](containers/container-insights-livedata-setup.md) - Removed note about feature not being available in Azure US Government.
 
 ### Insights
 - [FAQs - Network Performance Monitor solution in Azure](insights/network-performance-monitor-faq.md) - Added FAQ for ExpressRoute Monitor.
@@ -517,7 +517,7 @@ New and updated articles from restructure and consolidation of platform log cont
 - [Resource Manager template samples for Azure Monitor](/resource-manager-samples.md)
 - [Resource Manager template samples for action groups](alerts/resource-manager-action-groups.md)
 - [Resource Manager template samples for agents](agents/resource-manager-agent.md)
-- [Resource Manager template samples for Azure Monitor for containers](containers/resource-manager-container-insights.md)
+- [Resource Manager template samples for Container insights](containers/resource-manager-container-insights.md)
 - [Resource Manager template samples for Azure Monitor for VMs](vm/resource-manager-vminsights.md)
 - [Resource Manager template samples for diagnostic settings](essentials/resource-manager-diagnostic-settings.md)
 - [Resource Manager template samples for Log Analytics workspaces](logs/resource-manager-workspace.md)
@@ -553,10 +553,10 @@ New and updated articles from restructure and consolidation of platform log cont
 
 
 ### Containers
-- [How to enable Azure Monitor for containers](containers/container-insights-onboard.md) - Updated firewall configuration table.
-- [How to update Azure Monitor for containers for metrics](containers/container-insights-update-metrics.md) - Update for using managed identities to collect metrics.
-- [Monitoring cost for Azure Monitor for containers](containers/container-insights-cost.md) - New article.
-- [Set up Azure Monitor for containers Live Data (preview)](containers/container-insights-livedata-setup.md) - Support for new cluster role binding.
+- [How to enable Container insights](containers/container-insights-onboard.md) - Updated firewall configuration table.
+- [How to update Container insights for metrics](containers/container-insights-update-metrics.md) - Update for using managed identities to collect metrics.
+- [Monitoring cost for Container insights](containers/container-insights-cost.md) - New article.
+- [Set up Container insights Live Data (preview)](containers/container-insights-livedata-setup.md) - Support for new cluster role binding.
 
 ### Insights
 - [Azure Monitor for Azure Cache for Redis (preview)](insights/redis-cache-insights-overview.md) - New article.
@@ -617,7 +617,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### Containers
 
-- [Configure Azure Red Hat OpenShift v4.x with Azure Monitor for containers](containers/container-insights-azure-redhat4-setup.md) - New article.
+- [Configure Azure Red Hat OpenShift v4.x with Container insights](containers/container-insights-azure-redhat4-setup.md) - New article.
 - [How to manually fix ServiceNow sync problems](alerts/itsmc-resync-servicenow.md) - New article.
 - [How to stop monitoring your Azure and Red Hat OpenShift v4 cluster](containers/container-insights-optout-openshift-v4.md) - New article.
 - [How to stop monitoring your Azure Red Hat OpenShift v3 cluster](containers/container-insights-optout-openshift-v3.md) - New article.
@@ -665,8 +665,8 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### Containers
 
-- [Azure Monitor FAQ](faq.md) - Update for Azure Monitor for containers.
-- [Configure GPU monitoring with Azure Monitor for containers](containers/container-insights-gpu-monitoring.md) - New article.
+- [Azure Monitor FAQ](faq.md) - Update for Container insights.
+- [Configure GPU monitoring with Container insights](containers/container-insights-gpu-monitoring.md) - New article.
 
 ### Insights
 
@@ -729,9 +729,9 @@ Multiple updates as part of rewrite of diagnostics extension content.
 
 ### Insights and solutions
 
-#### Azure Monitor for Containers
+#### Container insights
 
-- [Integrate Azure Active Directory with Azure Kubernetes Service](../aks/azure-ad-integration-cli.md) - Added note for creating a client application to support Kubernetes RBAC-enabled cluster to support Azure Monitor for containers.
+- [Integrate Azure Active Directory with Azure Kubernetes Service](../aks/azure-ad-integration-cli.md) - Added note for creating a client application to support Kubernetes RBAC-enabled cluster to support Container insights.
 
 #### Azure Monitor for VMs
 
@@ -790,16 +790,16 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 ### Insights and solutions
 
-#### Azure Monitor for Containers
+#### Container insights
 
-- [Configure Azure Monitor for containers agent data collection](containers/container-insights-agent-config.md) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
-- [Create performance alerts for Azure Monitor for containers](./containers/container-insights-log-alerts.md) - Revised information and updated steps for creating an alert on performance data stored in workspace using workspace-context alerts.
-- [Kubernetes monitoring with Azure Monitor for containers](containers/container-insights-analyze.md) - Updated both the overview article and the analyze article regarding support of Windows Kubernetes clusters.
-- [Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers](containers/container-insights-azure-redhat-setup.md) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
-- [Configure Hybrid Kubernetes clusters with Azure Monitor for containers](containers/container-insights-hybrid-setup.md) - Updated to reflect added support for secure port:10250 with the Kubelet's cAdvisor.
-- [How to manage the Azure Monitor for containers agent](containers/container-insights-manage-agent.md) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
-- [Configure Azure Monitor for containers Prometheus Integration](containers/container-insights-prometheus-integration.md) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
-- [How to update Azure Monitor for containers for metrics](containers/container-insights-update-metrics.md) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
+- [Configure Container insights agent data collection](containers/container-insights-agent-config.md) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
+- [Create performance alerts for Container insights](./containers/container-insights-log-alerts.md) - Revised information and updated steps for creating an alert on performance data stored in workspace using workspace-context alerts.
+- [Kubernetes monitoring with Container insights](containers/container-insights-analyze.md) - Updated both the overview article and the analyze article regarding support of Windows Kubernetes clusters.
+- [Configure Azure Red Hat OpenShift clusters with Container insights](containers/container-insights-azure-redhat-setup.md) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
+- [Configure Hybrid Kubernetes clusters with Container insights](containers/container-insights-hybrid-setup.md) - Updated to reflect added support for secure port:10250 with the Kubelet's cAdvisor.
+- [How to manage the Container insights agent](containers/container-insights-manage-agent.md) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
+- [Configure Container insights Prometheus Integration](containers/container-insights-prometheus-integration.md) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
+- [How to update Container insights for metrics](containers/container-insights-update-metrics.md) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
 
 #### Azure Monitor for VMs
 
@@ -854,10 +854,10 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 ### Insights and solutions
 
-- [Azure Monitor for containers Frequently Asked Questions](./faq.md) - Added question on Image and Name fields.
+- [Container insights Frequently Asked Questions](./faq.md) - Added question on Image and Name fields.
 - [Azure SQL Analytics solution in Azure Monitor](insights/azure-sql.md) - Updated Database waits Managed Instance support.
-- [Configure Azure Monitor for containers agent data collection](containers/container-insights-agent-config.md) - Added setting for enrich_container_logs.
-- [Configure Hybrid Kubernetes clusters with Azure Monitor for containers](containers/container-insights-hybrid-setup.md) - Added troubleshooting section.
+- [Configure Container insights agent data collection](containers/container-insights-agent-config.md) - Added setting for enrich_container_logs.
+- [Configure Hybrid Kubernetes clusters with Container insights](containers/container-insights-hybrid-setup.md) - Added troubleshooting section.
 - [Monitor Active Directory replication status with Azure Monitor](insights/ad-replication-status.md) - .NET Framework prerequisite updated.
 - [Network Performance Monitor solution in Azure](insights/network-performance-monitor.md) - Added supported regions.
 - [Optimize your Active Directory environment with Azure Monitor](insights/ad-assessment.md) - .NET Framework prerequisite updated.

@@ -603,7 +603,7 @@ The OpenTelemetry Collector is described in its [GitHub readme](https://github.c
 [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. Azure Monitor’s current [production-recommended Python SDK](app/opencensus-python.md) is based on OpenCensus, but eventually all Azure Monitor’s SDKs will be based on OpenTelemetry.
 
 
-## Azure Monitor for containers
+## Container insights
 
 ### What does *Other Processes* represent under the Node view?
 
@@ -672,11 +672,11 @@ If the first option is not convenient due to query changes involved, you can re-
 
 ### Can I view metrics collected in Grafana?
 
-Azure Monitor for containers supports viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We have provided a template that you can download from Grafana's [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) to get you started and  reference to help you learn how to query additional data from your monitored clusters to visualize in custom Grafana dashboards. 
+Container insights supports viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We have provided a template that you can download from Grafana's [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) to get you started and  reference to help you learn how to query additional data from your monitored clusters to visualize in custom Grafana dashboards. 
 
-### Can I monitor my AKS-engine cluster with Azure Monitor for containers?
+### Can I monitor my AKS-engine cluster with Container insights?
 
-Azure Monitor for containers supports monitoring container workloads deployed to AKS-engine (formerly known as ACS-engine) cluster(s) hosted on Azure. For further details and an overview of steps required to enable monitoring for this scenario, see [Using Azure Monitor for containers for AKS-engine](https://github.com/microsoft/OMS-docker/tree/aks-engine).
+Container insights supports monitoring container workloads deployed to AKS-engine (formerly known as ACS-engine) cluster(s) hosted on Azure. For further details and an overview of steps required to enable monitoring for this scenario, see [Using Container insights for AKS-engine](https://github.com/microsoft/OMS-docker/tree/aks-engine).
 
 ### Why don't I see data in my Log Analytics workspace?
 
@@ -692,11 +692,11 @@ If you receive the error **Missing Subscription registration for Microsoft.Opera
 
 ### Is there support for Kubernetes RBAC enabled AKS clusters?
 
-The Container Monitoring solution doesn't support Kubernetes RBAC, but it is supported with Azure Monitor for Containers. The solution details page may not show the right information in the blades that show data for these clusters.
+The Container Monitoring solution doesn't support Kubernetes RBAC, but it is supported with Container insights. The solution details page may not show the right information in the blades that show data for these clusters.
 
 ### How do I enable log collection for containers in the kube-system namespace through Helm?
 
-The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the omsagent. For more information, see the [Azure Monitor for containers](https://aka.ms/azuremonitor-containers-helm-chart) GitHub page. 
+The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the omsagent. For more information, see the [Container insights](https://aka.ms/azuremonitor-containers-helm-chart) GitHub page. 
 
 ### How do I update the omsagent to the latest released version?
 
@@ -704,7 +704,7 @@ To learn how to upgrade the agent, see [Agent management](containers/container-i
 
 ### How do I enable multi-line logging?
 
-Currently Azure Monitor for containers doesn't support multi-line logging, but there are workarounds available. You can configure all the services to write in JSON format and then Docker/Moby will write them as a single line.
+Currently Container insights doesn't support multi-line logging, but there are workarounds available. You can configure all the services to write in JSON format and then Docker/Moby will write them as a single line.
 
 For example, you can wrap your log as a JSON object as shown in the example below for a sample node.js application:
 
@@ -728,11 +728,11 @@ For a detailed look at the issue, review the following [GitHub link](https://git
 
 ### How do I resolve Azure AD errors when I enable live logs? 
 
-You may see the following error: **The reply url specified in the request does not match the reply urls configured for the application: '<application ID\>'**. The solution to solve it can be found in the article [How to view container data in real time with Azure Monitor for containers](containers/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
+You may see the following error: **The reply url specified in the request does not match the reply urls configured for the application: '<application ID\>'**. The solution to solve it can be found in the article [How to view container data in real time with Container insights](containers/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
 
 ### Why can't I upgrade cluster after onboarding?
 
-If after you enable Azure Monitor for containers for an AKS cluster, you delete the Log Analytics workspace the cluster was sending its data to, when attempting to upgrade the cluster it will fail. To work around this, you will have to disable monitoring and then re-enable it referencing a different valid workspace in your subscription. When you try to perform the cluster upgrade again, it should process and complete successfully.  
+If after you enable Container insights for an AKS cluster, you delete the Log Analytics workspace the cluster was sending its data to, when attempting to upgrade the cluster it will fail. To work around this, you will have to disable monitoring and then re-enable it referencing a different valid workspace in your subscription. When you try to perform the cluster upgrade again, it should process and complete successfully.  
 
 ### Which ports and domains do I need to open/allow for the agent?
 
