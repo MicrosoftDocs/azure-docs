@@ -25,7 +25,7 @@ To register application in the development environment and set up environment va
 
 ### Create an identity and issue a token with Managed Identity
 
-The following code example shows how to create a service client object with Azure Active Directory tokens, then use the client to issue a token for a new user:
+The following code example shows how to create a service client object with managed identity, then use the client to issue a token for a new user:
 
 ```JavaScript
 export async function createIdentityAndIssueToken(resourceEndpoint: string): Promise<CommunicationUserToken> {
@@ -37,7 +37,7 @@ export async function createIdentityAndIssueToken(resourceEndpoint: string): Pro
 
 ### Send an SMS with Managed Identity
 
-The following code example shows how to create a service client object with Azure Active Directory tokens, then use the client to send an SMS message:
+The following code example shows how to create a service client object with managed identity, then use the client to send an SMS message:
 
 ```JavaScript
 export async function sendSms(resourceEndpoint: string, fromNumber: any, toNumber: any, message: string) {
