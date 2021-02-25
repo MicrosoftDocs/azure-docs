@@ -70,7 +70,6 @@ Create a cross-region load balancer with [az network cross-region-lb create](/cl
 * Named **myLoadBalancer-CR**.
 * A frontend pool named **myFrontEnd-CR**.
 * A backend pool named **myBackEndPool-CR**.
-* Associated with the public IP address **myPublicIP-CR** that you created in the preceding step. 
 
 ```azurecli-interactive
   az network cross-region-lb create \
