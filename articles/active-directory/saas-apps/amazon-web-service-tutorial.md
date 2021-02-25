@@ -36,7 +36,7 @@ AWS Single-Account Access enables you to federate Azure AD to a single AWS accou
 |:--- |:---:|:---:|
 |Conditional access| Supports a single conditional access policy for all AWS accounts. | Supports a single conditional access policy for all accounts or custom policies per account|
 | CLI access | Supported | Supported|
-| Priviliged Identity Management | Not yet supported | Not yet supported |
+| Privileged  Identity Management | Not yet supported | Not yet supported |
 | Centralize account management | Centralize account management in AWS. | Centralize account management in Azure AD (will likely require an Azure AD enterprise application per account). |
 | SAML certificate| Single certificate| Separate certificates per app / account | 
 
