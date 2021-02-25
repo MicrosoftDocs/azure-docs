@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Image Builder template (preview)
+title: Create an Azure Image Builder template
 description: Learn how to create a template to use with Azure Image Builder.
 author: danielsollondon
 ms.author: danis
@@ -10,7 +10,7 @@ ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
 ---
-# Preview: Create an Azure Image Builder template 
+# Create an Azure Image Builder template 
 
 Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json file, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
 
@@ -48,7 +48,7 @@ This is the basic template format:
 
 ## Type and API version
 
-The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2020-02-14"` for preview.
+The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2020-02-14"` for now.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
@@ -57,7 +57,7 @@ The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/
 
 ## Location
 
-The location is the region where the custom image will be created. For the Image Builder preview, the following regions are supported:
+The location is the region where the custom image will be created. The following regions are supported:
 
 - East US
 - East US 2

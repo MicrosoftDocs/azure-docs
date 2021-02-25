@@ -10,16 +10,11 @@ ms.subervice: image-builder
 ms.colletion: windows
 ms.custom: devx-track-azurepowershell
 ---
-# Preview: Create a Windows VM with Azure Image Builder using PowerShell
+# Create a Windows VM with Azure Image Builder using PowerShell
 
 This article demonstrates how you can create a customized Windows image using the Azure VM Image
 Builder PowerShell module.
 
-> [!CAUTION]
-> Azure Image Builder is currently in public preview. This preview version is provided without a
-> service level agreement. It's not recommended for production workloads. Certain features might
-> not be supported or might have constrained capabilities. For more information, see
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -31,16 +26,6 @@ module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
 cmdlet. For more information about installing the Az PowerShell module, see
 [Install Azure PowerShell](/powershell/azure/install-az-ps).
-
-> [!IMPORTANT]
-> While the **Az.ImageBuilder** and **Az.ManagedServiceIdentity** PowerShell modules are in preview,
-> you must install them separately using the `Install-Module` cmdlet with the `AllowPrerelease`
-> parameter. Once these PowerShell modules become generally available, they become part of future Az
-> PowerShell module releases and available natively from within Azure Cloud Shell.
-
-```azurepowershell-interactive
-'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
-```
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -54,8 +39,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ### Register features
 
-If this is your first time using Azure image builder during the preview, register the new
-**VirtualMachineTemplatePreview** feature.
+If this is your first time using Azure image builder, register the **VirtualMachineTemplatePreview** feature.
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -ProviderNamespace Microsoft.VirtualMachineImages -FeatureName VirtualMachineTemplatePreview

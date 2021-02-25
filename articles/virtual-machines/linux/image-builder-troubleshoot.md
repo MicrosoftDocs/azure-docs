@@ -556,7 +556,7 @@ Write-Host / Echo “Sleep” – this will allow you to search in the log
 ```text
 2020-05-05T18:28:24.9280196Z ##[section]Starting: Azure VM Image Builder Task
 2020-05-05T18:28:24.9609966Z ==============================================================================
-2020-05-05T18:28:24.9610739Z Task         : Azure VM Image Builder Test(Preview)
+2020-05-05T18:28:24.9610739Z Task         : Azure VM Image Builder Test
 2020-05-05T18:28:24.9611277Z Description  : Build images using Azure Image Builder resource provider.
 2020-05-05T18:28:24.9611608Z Version      : 1.0.18
 2020-05-05T18:28:24.9612003Z Author       : Microsoft Corporation
