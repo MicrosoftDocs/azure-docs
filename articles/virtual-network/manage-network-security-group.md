@@ -360,7 +360,7 @@ To do tasks on network security groups, security rules, and application security
 
 
 >[!NOTE]
-> For `write` operations on NSG, the account will at least require Resource Group `read` role.
+> To perform `write` operations on a network security group, the subscription account must have at least `read` permissions for resource group along with `Microsoft.Network/networkSecurityGroups/write permission`.
 
 
 ### Network security group rule
