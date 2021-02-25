@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 02/25/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -123,7 +123,7 @@ Perform the following steps to create an import job in the Azure portal.
       
       The dropoff location is automatically populated based on the region of the storage account selected.<!--The region AND the storage account? Is this populated after the region is selected or after the storage account is selected?-->
    1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.
-   1. When you finish the job details, select **Next:Shipping >**
+   1. When you finish the job details, select **Next:Shipping >**.
 
    ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png).<!--Screen dump includes messaging related to an older version of the tool that was used to create the journal. How does the screen change when the latest tool version is used? Is the download instruction at top always displayed (unconditionally)?-->
 
