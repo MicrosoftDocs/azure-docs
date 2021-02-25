@@ -27,15 +27,16 @@ Each authorization option is briefly described below:
 
 ## Authenticate with a managed identity
 
+Azure managed identity let your service applications authenticate against Azure Communication Identity service.
 
+### [C#](#tab/csharp)
 ```csharp
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 TokenCredential credential = new DefaultAzureCredential();
 var client = new CommunicationIdentityClient(endpoint, credential);
 ```
 
-#### [Java](#tab/java)
-
+### [Java](#tab/java)
 ```java
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
@@ -45,6 +46,10 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
     .httpClient(httpClient)
     .buildClient();
 ```
+
+### [JavaScript](#tab/javascript)
+
+### [Python](#tab/python)
 
 ## Next steps
 
