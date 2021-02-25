@@ -1,21 +1,14 @@
 ---
 title: Implement Oracle Golden Gate on an Azure Linux VM | Microsoft Docs
 description: Quickly get an Oracle Golden Gate up and running in your Azure environment.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: 
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
+
 ---
 
 # Implement Oracle Golden Gate on an Azure Linux VM 
@@ -65,7 +58,7 @@ az group create --name myResourceGroup --location westus
 
 ### Create an availability set
 
-The following step is optional but recommended. For more information, see [Azure availability sets guide](../../windows/infrastructure-example.md).
+The following step is optional but recommended. For more information, see [Azure availability sets guide](/previous-versions/azure/virtual-machines/windows/infrastructure-example).
 
 ```azurecli
 az vm availability-set create \
@@ -446,19 +439,19 @@ To install Oracle Golden Gate, complete the following steps:
 
 4. Change the inventory directory, and then select **Next** to continue.
 
-   ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_03.png)
+   ![Screenshot of the  Select Installation page that shows the installation directory.](./media/oracle-golden-gate/golden_gate_install_03.png)
 
 5. On the **Summary** screen, select **Install** to continue.
 
-   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_04.png)
+   ![Screenshot that shows the Select Installation page and the Install button.](./media/oracle-golden-gate/golden_gate_install_04.png)
 
 6. You might be prompted to run a script as 'root'. If so, open a separate session, ssh to the VM, sudo to root, and then run the script. Select **OK** continue.
 
-   ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_05.png)
+   ![Screenshot that shows the script location and how to execute the configuration script.](./media/oracle-golden-gate/golden_gate_install_05.png)
 
 7. When the installation has finished, select **Close** to complete the process.
 
-   ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_06.png)
+   ![Screenshot of the  Select Installation page that shows the Close button.](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### Set up service on myVM1 (primary)
 
@@ -820,4 +813,4 @@ az group delete --name myResourceGroup
 
 [Create highly available virtual machines tutorial](../../linux/create-cli-complete.md)
 
-[Explore VM deployment CLI samples](../../linux/cli-samples.md)
+[Explore VM deployment CLI samples](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

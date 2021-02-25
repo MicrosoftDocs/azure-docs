@@ -1,12 +1,12 @@
 ---
-title: Classroom labs in Azure Lab Services — FAQ | Microsoft Docs
-description: This article provides answers to frequently asked questions (FAQ) about classroom labs in Azure Lab Services.
+title: Labs in Azure Lab Services — FAQ | Microsoft Docs
+description: This article provides answers to frequently asked questions (FAQ) about labs in Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
 ---
 
-# Classroom labs in Azure Lab Services — Frequently asked questions (FAQ)
-Get answers to some of the most common questions about classroom labs in Azure Lab Services. 
+# Labs in Azure Lab Services — Frequently asked questions (FAQ)
+Get answers to some of the most common questions about labs in Azure Lab Services. 
 
 ## Quotas
 
@@ -24,13 +24,14 @@ No. Not all the VMs. Only the VMs that are assigned to users on a schedule. The 
 ## Lab accounts
 
 ### Why am I not able to create a lab because of unavailability of the address range? 
-Classroom labs can create lab VMs within an IP address range you specify when creating your lab account in the Azure portal. When an address range is provided, each lab that's created after it's allotted 512 IP addresses for lab VMs. The address range for the lab account must be large enough to accommodate all the labs you intend to create under the lab account. 
+
+Labs can create lab VMs within an IP address range you specify when creating your lab account in the Azure portal. When an address range is provided, each lab that's created after it's allotted 512 IP addresses for lab VMs. The address range for the lab account must be large enough to accommodate all the labs you intend to create under the lab account. 
 
 For example, if you have a block of /19 - 10.0.0.0/19, this address range accommodates 8192 IP addresses and 16 labs(8192/512 = 16 labs). In this case, lab creation fails on 17th lab creation.
 
 ### What port ranges should I open on my organization's firewall setting to connect to Lab virtual machines via RDP/SSH?
 
-The ports are: 49152–65535. Classroom labs sit behind a load balancer. Each lab has a single public IP address and each virtual machine in the lab has a unique port. 
+The ports are: 49152–65535. Labs sit behind a load balancer. Each lab has a single public IP address and each virtual machine in the lab has a unique port. 
 
 You can also see the private IP address of each virtual machine on the **Virtual machine pool** tab of the home page for lab in the Azure portal. If you republish a lab, the public IP address of the lab will not change, but the private IP and port number of each virtual machine in the lab can change. You can learn more in the article: [Firewall settings for Azure Lab Services](how-to-configure-firewall-settings.md).
 

@@ -9,7 +9,7 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/02/2020
+ms.date: 01/11/2021
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Gen2 demo environment
@@ -33,12 +33,27 @@ The Azure Time Series Insights Gen2 Explorer demonstrates historical data and ro
 
 ## Work with historical data
 
-1. In **Contoso Plant 1**, look at wind turbine **W7**.  
+1. Select **Contoso WindFarm Hierarchy**.
+
+   [![Contoso WindFarm Hierarchy](media/quickstart-explore/quick-start-contoso-1.png)](media/quickstart-explore/quick-start-contoso-1.png#lightbox)
+
+1. In **Contoso Plant 1**, look at wind turbine **W7**.
+
+   [![W7 in Contoso Plant 1](media/quickstart-explore/quick-start-contoso-2.png)](media/quickstart-explore/quick-start-contoso-2.png#lightbox)
 
    1. Change the view range to **1/1/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)**.
+
+      [![Range view](media/quickstart-explore/range-setting-1.png)](media/quickstart-explore/range-setting-1.png#lightbox)
+
+      [![Range view setting](media/quickstart-explore/range-setting-2.png)](media/quickstart-explore/range-setting-2.png#lightbox)
+
+   1. Adjust the range view using the zoom in **(+)** and out **(-)** and moving the slide bar.
+
+      [![Adjust range view](media/quickstart-explore/view-range-setting.png)](media/quickstart-explore/view-range-setting.png#lightbox)
+
    1. To select a sensor, select **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Then, review the values that are shown.
 
-      [![W7 in Contoso Plant 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
+      [![Generator speed](media/quickstart-explore/quick-start-generator-speed-1.png)](media/quickstart-explore/quick-start-generator-speed-1.png#lightbox)
 
 1. Recently, Contoso found a fire in wind turbine **W7**. Opinions vary about what caused the fire. In Azure Time Series Insights Gen2, the fire alert sensor that was activated during the fire is displayed.
 
@@ -122,9 +137,9 @@ Now that you've completed the quickstart, clean up the resources that you create
 You're ready to create your own Azure Time Series Insights Gen2 environment. To start:
 
 > [!div class="nextstepaction"]
-> [Plan your Azure Time Series Insights Gen2 environment](time-series-insights-update-plan.md)
+> [Plan your Azure Time Series Insights Gen2 environment](./how-to-plan-your-environment.md)
 
 Learn to use the demo and its features:
 
 > [!div class="nextstepaction"]
-> [The Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md)
+> [The Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md)

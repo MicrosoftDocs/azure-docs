@@ -1,9 +1,9 @@
 ---
-title: Work with existing on-premises proxy servers and Azure AD | Microsoft Docs
-description: Covers how to work with existing on-premises proxy servers.
+title: Work with existing on-premises proxy servers and Azure Active Directory
+description: Covers how to work with existing on-premises proxy servers with Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
+ms.custom: contperf-fy21q2
 ---
 
 # Work with existing on-premises proxy servers
@@ -106,18 +106,19 @@ There are four aspects to consider at the outbound proxy:
 
 Allow access to the following URLs:
 
-| URL | How it's used |
-| --- | --- |
-| \*.msappproxy.net<br>\*.servicebus.windows.net | Communication between the connector and the Application Proxy cloud service |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | The connector uses these URLs to verify certificates |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>*.microsoftonline-p.com<br>*.msauth.net<br>*.msauthimages.net<br>*.msecnd.net<br>*.msftauth.net<br>*.msftauthimages.net<br>*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | The connector uses these URLs during the registration process. |
+| URL | Port |  How it's used |
+| --- | --- | --- |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Communication between the connector and the Application Proxy cloud service |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | The connector uses these URLs to verify certificates. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS | The connector uses these URLs during the registration process. |
+| ctldl.windowsupdate.com | 80/HTTP | The connector uses this URL during the registration process. |
 
-If your firewall or proxy allows you to configure DNS allow lists, you can allow connections to \*.msappproxy.net and \*.servicebus.windows.net. If not, you need to allow access to the [Azure Data Center IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). The IP ranges are updated each week.
+If your firewall or proxy allows you to configure DNS allow lists, you can allow connections to \*.msappproxy.net and \*.servicebus.windows.net.
 
 If you can't allow connectivity by FQDN and need to specify IP ranges instead, use these options:
 
 * Allow the connector outbound access to all destinations.
-* Allow the connector outbound access to all of the [Azure datacenter IP ranges](https://www.microsoft.com//download/details.aspx?id=41653). The challenge with using the list of Azure datacenter IP ranges is that it's updated weekly. You need to put a process in place to ensure that your access rules are updated accordingly. Only using a subset of the IP addresses may cause your configuration to break.
+* Allow the connector outbound access to all of the Azure datacenter IP ranges. The challenge with using the list of Azure datacenter IP ranges is that it's updated weekly. You need to put a process in place to ensure that your access rules are updated accordingly. Only using a subset of the IP addresses may cause your configuration to break. To download the latest Azure Data Center IP ranges, navigate to [https://download.microsoft.com](https://download.microsoft.com) and search for "Azure IP Ranges and Service Tags". Be sure to select the relevant cloud. For example, the public cloud IP ranges can be found with "Azure IP Ranges and Service Tags – Public Cloud". The US Government cloud can be found by searching for "Azure IP Ranges and Service Tags – US Government Cloud".
 
 #### Proxy authentication
 
@@ -163,6 +164,9 @@ The best way to identify and troubleshoot connector connectivity issues is to ta
 
 You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Message Analyzer.
 
+> [!NOTE]
+> [Microsoft Message Analyzer (MMA) was retired](/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) and its download packages removed from microsoft.com sites on November 25 2019.  There is currently no Microsoft replacement for Microsoft Message Analyzer in development at this time.  For similar functionality, please consider using a 3rd party network protocol analyzer tool such as Wireshark.
+
 The following examples are specific to Message Analyzer, but the principles can be applied to any analysis tool.
 
 ### Take a capture of connector traffic
@@ -203,4 +207,4 @@ If you see other response codes, such as 407 or 502, that means that the proxy i
 ## Next steps
 
 * [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
-* If you have problems with connector connectivity issues, ask your question in the [Microsoft Q&A question page for Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) or create a ticket with our support team.
+* If you have problems with connector connectivity issues, ask your question in the [Microsoft Q&A question page for Azure Active Directory](/answers/topics/azure-active-directory.html) or create a ticket with our support team.

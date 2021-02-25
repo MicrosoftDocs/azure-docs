@@ -2,7 +2,7 @@
 title: Automatically scale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 11/23/2020
 ms.custom: "H1Hack27Feb2017, fasttrack-edit, devx-track-csharp"
 
 ---
@@ -123,12 +123,16 @@ You can get the value of these service-defined variables to make adjustments tha
 | $PendingTasks |The sum of $ActiveTasks and $RunningTasks. |
 | $SucceededTasks |The number of tasks that finished successfully. |
 | $FailedTasks |The number of tasks that failed. |
+| $TaskSlotsPerNode |The number of task slots that can be used to run concurrent tasks on a single compute node in the pool. |
 | $CurrentDedicatedNodes |The current number of dedicated compute nodes. |
 | $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been preempted. |
 | $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
 
 > [!TIP]
 > These read-only service-defined variables are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#obtain-sample-data) later in this article.
+
+> [!NOTE]
+> Use `$RunningTasks` when scaling based on the number of tasks running at a point in time, and `$ActiveTasks` when scaling based on the number of tasks that are queued up to run.
 
 ## Types
 
@@ -376,7 +380,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 > [!NOTE]
-> If you choose to, you can include both comments and line breaks in formula strings.
+> If you choose to, you can include both comments and line breaks in formula strings. Also be aware that missing semicolons may result in evaluation errors.
 
 ## Automatic scaling interval
 
@@ -643,6 +647,24 @@ Result:
 Error:
 ```
 
+## Get autoscale run history using pool autoscale events
+You can also check automatic scaling history by querying [PoolAutoScaleEvent](batch-pool-autoscale-event.md). This event is emitted by Batch Service to record each occurrence of autoscale formula evaluation and execution, which can be helpful to troubleshoot potential issues.
+
+Sample event for PoolAutoScaleEvent:
+```json
+{
+    "id": "poolId",
+    "timestamp": "2020-09-21T23:41:36.750Z",
+    "formula": "...",
+    "results": "$TargetDedicatedNodes=10;$NodeDeallocationOption=requeue;$curTime=2016-10-14T18:36:43.282Z;$isWeekday=1;$isWorkingWeekdayHour=0;$workHours=0",
+    "error": {
+        "code": "",
+        "message": "",
+        "values": []
+    }
+}
+```
+
 ## Example autoscale formulas
 
 Let's look at a few formulas that show different ways to adjust the amount of compute resources in a pool.
@@ -686,7 +708,7 @@ $NodeDeallocationOption = taskcompletion;
 
 ### Example 3: Accounting for parallel tasks
 
-This C# example adjusts the pool size based on the number of tasks. This formula also takes into account the [MaxTasksPerComputeNode](/dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode) value that has been set for the pool. This approach is useful in situations where [parallel task execution](batch-parallel-node-tasks.md) has been enabled on your pool.
+This C# example adjusts the pool size based on the number of tasks. This formula also takes into account the [TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) value that has been set for the pool. This approach is useful in situations where [parallel task execution](batch-parallel-node-tasks.md) has been enabled on your pool.
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
@@ -694,7 +716,7 @@ This C# example adjusts the pool size based on the number of tasks. This formula
 $samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
 $tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
 // Set the number of nodes to add to one-fourth the number of active tasks
-// (theMaxTasksPerComputeNode property on this pool is set to 4, adjust
+// (the TaskSlotsPerNode property on this pool is set to 4, adjust
 // this number for your use case)
 $cores = $TargetDedicatedNodes * 4;
 $extraVMs = (($tasks - $cores) + 3) / 4;

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 
@@ -67,11 +67,15 @@ The key password-validation-related events are as follows:
 |Fail (due to customer password policy)| 10016, 30002| 10017, 30003|
 |Fail (due to Microsoft password policy)| 10016, 30004| 10017, 30005|
 |Fail (due to combined Microsoft and customer password policies)| 10016, 30026| 10017, 30027|
+|Fail (due to user name)| 10016, 30021| 10017, 30022|
 |Audit-only Pass (would have failed customer password policy)| 10024, 30008| 10025, 30007|
 |Audit-only Pass (would have failed Microsoft password policy)| 10024, 30010| 10025, 30009|
 |Audit-only Pass (would have failed combined Microsoft and customer password policies)| 10024, 30028| 10025, 30029|
+|Audit-only Pass (would have failed due to user name)| 10016, 30024| 10017, 30023|
 
 The cases in the table above that refer to "combined policies" are referring to situations where a user's password was found to contain at least one token from both the Microsoft banned password list and the customer banned password list.
+
+The cases in the table above that refer to "user name" are referring to situations where a user's password was found to contain either the user's account name and/or one of the user's friendly names. Either scenario will cause the user's password to be rejected when the policy is set to Enforce, or passed if the policy is in Audit mode.
 
 When a pair of events is logged together, both events are explicitly associated by having the same CorrelationId.
 

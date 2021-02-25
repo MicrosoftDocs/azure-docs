@@ -23,7 +23,7 @@ Microsoft Azure Cache for Redis instances can be monitored in the [Azure portal]
 The Azure Cache for Redis **Resource menu** also contains several tools for monitoring and troubleshooting your caches.
 
 * **Diagnose and solve problems** provides information about common issues and strategies for resolving them.
-* **Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](../resource-health/resource-health-overview.md).
+* **Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](../service-health/resource-health-overview.md).
 * **New support request** provides options to open a support request for your cache.
 
 These tools enable you to monitor the health of your Azure Cache for Redis instances and help you manage your caching applications. For more information, see the "Support & troubleshooting settings" section of [How to configure Azure Cache for Redis](cache-configure.md).

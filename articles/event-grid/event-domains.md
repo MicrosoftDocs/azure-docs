@@ -32,13 +32,13 @@ It also gives you a single endpoint, which you can publish all of your customer 
 
 ## Access management
 
-With a domain, you get fine grain authorization and authentication control over each topic via Azure's role-based access control (RBAC). You can use these roles to restrict each tenant in your application to only the topics you wish to grant them access to.
+With a domain, you get fine grain authorization and authentication control over each topic via Azure role-based access control (Azure RBAC). You can use these roles to restrict each tenant in your application to only the topics you wish to grant them access to.
 
-RBAC in event domains works the same way [managed access control](security-authorization.md) works in the rest of Event Grid and Azure. Use RBAC to create and enforce custom role definitions in event domains.
+Azure RBAC in event domains works the same way [managed access control](security-authorization.md) works in the rest of Event Grid and Azure. Use Azure RBAC to create and enforce custom role definitions in event domains.
 
 ### Built in roles
 
-Event Grid has two built-in role definitions to make RBAC easier for working with event domains. These roles are **EventGrid EventSubscription Contributor (Preview)** and **EventGrid EventSubscription Reader (Preview)**. You assign these roles to users who need to subscribe to topics in your event domain. You scope the role assignment to only the topic that users need to subscribe to.
+Event Grid has two built-in role definitions to make Azure RBAC easier for working with event domains. These roles are **EventGrid EventSubscription Contributor (Preview)** and **EventGrid EventSubscription Reader (Preview)**. You assign these roles to users who need to subscribe to topics in your event domain. You scope the role assignment to only the topic that users need to subscribe to.
 
 For information about these roles, see [Built-in roles for Event Grid](security-authorization.md#built-in-roles).
 

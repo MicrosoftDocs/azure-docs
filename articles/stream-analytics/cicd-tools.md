@@ -4,7 +4,7 @@ description: This article describes how to use Azure Stream Analytics CI/CD tool
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
@@ -20,7 +20,7 @@ You can [download the package](https://www.npmjs.com/package/azure-streamanalyti
 
 ## Build the project
 
-The **asa-streamanalytics-cicd** npm package provides the tools to generate Azure Resource Manager templates of Stream Analytics [Visual Studio Code projects](quick-create-vs-code.md) or [Visual Studio projects](stream-analytics-quick-create-vs.md). You can also use the npm package on Windows, macOS, and Linux without installing Visual Studio Code or Visual Studio.
+The **asa-streamanalytics-cicd** npm package provides the tools to generate Azure Resource Manager templates of Stream Analytics [Visual Studio Code projects](./quick-create-visual-studio-code.md) or [Visual Studio projects](stream-analytics-quick-create-vs.md). You can also use the npm package on Windows, macOS, and Linux without installing Visual Studio Code or Visual Studio.
 
 Once you have installed the package, use the following command to build your Stream Analytics projects.
 
@@ -154,7 +154,7 @@ If you want the test validation to ignore a certain output, set the **Required**
       "ExpectedOutputs": [
         {
           "OutputAlias": [Output alias string],
-          "FilePath": "Required",
+          "FilePath": [Required],
           "Required": true
         }
       ]

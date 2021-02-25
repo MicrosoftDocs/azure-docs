@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with REST API"
 description: In this quickstart, you use REST API to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 08/10/2020
+ms.date: 01/29/2021
 ms.topic: quickstart 
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources with REST API
@@ -22,8 +22,8 @@ assignment and to identify non-compliant resources in your Azure environment.
   account before you begin.
 
 - If you haven't already, install [ARMClient](https://github.com/projectkudu/ARMClient). It's a tool
-  that sends HTTP requests to Azure Resource Manager-based REST APIs. Alternatively, you can use the
-  "Try It" feature in REST documentation or tooling like PowerShell's
+  that sends HTTP requests to Azure Resource Manager-based REST APIs. You can also use the "Try It"
+  feature in REST documentation or tooling like PowerShell's
   [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) or
   [Postman](https://www.postman.com).
 
@@ -51,6 +51,11 @@ Run the following command to create a policy assignment:
          "displayName": "Audit VMs without managed disks Assignment",
          "description": "Shows all virtual machines not using managed disks",
          "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d",
+         "nonComplianceMessages": [
+             {
+                 "message": "Virtual machines should use a managed disk"
+             }
+         ]
        }
      }
      ```
@@ -74,6 +79,9 @@ Request Body:
 - **policyDefinitionId** – The policy definition ID, based on which you're using to create the
   assignment. In this case, it's the ID of policy definition _Audit VMs that do not use managed
   disks_.
+- **nonComplianceMessages** - Set the message seen when a resource is denied due to non-compliance
+  or evaluated to be non-compliant. For more information, see
+  [assignment non-compliance messages](./concepts/assignment-structure.md#non-compliance-messages).
 
 ## Identify non-compliant resources
 

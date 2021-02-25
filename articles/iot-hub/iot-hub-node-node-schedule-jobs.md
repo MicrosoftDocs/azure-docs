@@ -295,4 +295,4 @@ In this tutorial, you used a job to schedule a direct method to a device and the
 
 To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see [Tutorial: How to do a firmware update](tutorial-firmware-update.md).
 
-To continue getting started with IoT Hub, see [Getting started with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+To continue getting started with IoT Hub, see [Getting started with Azure IoT Edge](../iot-edge/quickstart-linux.md).

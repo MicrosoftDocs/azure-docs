@@ -15,12 +15,16 @@ ms.author: tagore
 ---
 
 # Troubleshooting applications that don’t support TLS 1.2
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 This article describes how to enable the older TLS protocols (TLS 1.0 and 1.1) as well as applying legacy cipher suites to support the additional protocols on the Windows Server 2019 cloud service web and worker roles. 
 
 We understand that while we are taking steps to deprecate TLS 1.0 and TLS 1.1, our customers may need to support the older protocols and cipher suites until they can plan for their deprecation.  While we don't recommend re-enabling these legacy values, we are providing guidance to help customers. We encourage customers to evaluate the risk of regression before implementing the changes outlined in this article. 
 
 > [!NOTE]
-> Guest OS Family 6 release enforces TLS 1.2 by explicitly disabling TLS 1.0 and 1.1 and defining a specific set of cipher suites.For more information on Guest OS families see [Guest OS release news](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
+> Guest OS Family 6 release enforces TLS 1.2 by explicitly disabling TLS 1.0 and 1.1 and defining a specific set of cipher suites.For more information on Guest OS families see [Guest OS release news](./cloud-services-guestos-update-matrix.md#family-6-releases)
 
 
 ## Dropping support for TLS 1.0, TLS 1.1 and older cipher suites 
@@ -307,13 +311,13 @@ Add the following snippet to your existing service definition file.
 Here is an example that shows both the worker role and web role. 
 
 ```
-<?xmlversion="1.0"encoding="utf-8"?> 
-<ServiceDefinitionname="CloudServiceName"xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition"schemaVersion="2015-04.2.6"> 
-	<WebRolename="WebRole1"vmsize="Standard_D1_v2"> 
+<?xmlversion="1.0" encoding="utf-8"?> 
+<ServiceDefinitionname="CloudServiceName" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6"> 
+	<WebRolename="WebRole1" vmsize="Standard_D1_v2"> 
 		<Sites> 
 			<Sitename="Web"> 
 				<Bindings> 
-					<Bindingname="Endpoint1"endpointName="Endpoint1"/> 
+					<Bindingname="Endpoint1" endpointName="Endpoint1"/> 
 				</Bindings> 
 			</Site> 
 		</Sites> 
@@ -322,10 +326,10 @@ Here is an example that shows both the worker role and web role.
 			</Task> 
 		</Startup> 
 		<Endpoints> 
-			<InputEndpointname="Endpoint1"protocol="http"port="80"/> 
+			<InputEndpointname="Endpoint1" protocol="http" port="80"/> 
 		</Endpoints> 
 	</WebRole> 
-<WorkerRolename="WorkerRole1"vmsize="Standard_D1_v2"> 
+<WorkerRolename="WorkerRole1" vmsize="Standard_D1_v2"> 
 	<Startup> 
 		<Task executionContext="elevated" taskType="simple" commandLine="RunTLSSettings.cmd"> 
 		</Task> 
@@ -357,4 +361,3 @@ Now that the above steps have been complete, publish the update to your existing
 
 You can use [SSLLabs](https://www.ssllabs.com/) to validate the TLS status of your endpoints 
 
- 

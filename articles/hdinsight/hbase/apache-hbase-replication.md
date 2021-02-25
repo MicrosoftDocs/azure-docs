@@ -1,9 +1,6 @@
 ---
 title: HBase cluster replication in virtual networks - Azure HDInsight
 description: Learn how to set up HBase replication from one HDInsight version to another for load balancing, high availability, zero-downtime migration and updates, and disaster recovery.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
@@ -119,7 +116,7 @@ To install Bind, use the following procedure:
 	> There are a variety of ways to obtain the `ssh` utility. On Linux, Unix, and macOS, it is provided as part of the operating system. If you are using Windows, consider one of the following options:
     >
     > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
-    > * [Bash on Ubuntu on Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
+    > * [Bash on Ubuntu on Windows 10](/windows/wsl/about)
     > * [Git (https://git-scm.com/)](https://git-scm.com/)
     > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
@@ -408,4 +405,3 @@ In this article, you learned how to set up Apache HBase replication within a vir
 * [Get started with Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight Apache HBase overview](./apache-hbase-overview.md)
 * [Create Apache HBase clusters in Azure Virtual Network](./apache-hbase-provision-vnet.md)
-

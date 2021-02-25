@@ -1,24 +1,24 @@
 ---
 title: Troubleshooting known issues with HPC and GPU VMs - Azure Virtual Machines | Microsoft Docs
 description: Learn about troubleshooting known issues with HPC and GPU VM sizes in Azure. 
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
 ms.service: virtual-machines
-ms.workload: infrastructure-services
+ms.subservice: hpc
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 1/19/2021
 ms.author: amverma
 ms.reviewer: cynthn
+
 ---
 
 # Known issues with H-series and N-series VMs
 
 This article provides the most common issues and solutions when using the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) HPC and GPU VMs.
+
+## Accelerated Networking on HB, HC, HBv2 and NDv2
+
+[Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is now available on the RDMA and InfiniBand capable and SR-IOV enabled VM sizes [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md) and [NDv2](../../ndv2-series.md). This capability now allows enhanced throughout (up to 30 Gbps) and latencies over the Azure Ethernet network. Though this is separate from the RDMA capabilities over the InfiniBand network, some platform changes for this capability may impact behavior of certain MPI implementations when runing jobs over InfiniBand. Specifically the InfiniBand interface on some VMs may have a slightly different name (mlx5_1 as opposed to earlier mlx5_0) and this may require tweaking of the MPI command lines especially when using the UCX interface (commonly with OpenMPI and HPC-X).
+More details on this are available on this [blog article](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) with instructions on how to address any observed issues.
 
 ## InfiniBand driver installation on N-series VMs
 
@@ -41,10 +41,10 @@ This 'duplicate MAC with cloud-init on Ubuntu" is a known issue. The workaround 
     ```console
     sudo bash -c "cat > /etc/netplan/50-cloud-init.yaml" <<'EOF'
     network:
-        ethernets:
+      ethernets:
         eth0:
-            dhcp4: true
-        version: 2
+          dhcp4: true
+      version: 2
     EOF
     ```
 

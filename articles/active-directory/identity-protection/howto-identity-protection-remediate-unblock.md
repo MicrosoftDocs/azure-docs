@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 01/25/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -34,7 +34,7 @@ Administrators have the following options to remediate:
 
 ### Self-remediation with risk policy
 
-If you allow users to self-remediate, with Azure Multi-Factor Authentication (MFA) and self-service password reset (SSPR) in your risk policies, they can unblock themselves when risk is detected. These detections are then considered closed. Users must have previously registered for Azure MFA and SSPR in order to use when risk is detected.
+If you allow users to self-remediate, with Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR) in your risk policies, they can unblock themselves when risk is detected. These detections are then considered closed. Users must have previously registered for Azure AD MFA and SSPR in order to use when risk is detected.
 
 Some detections may not raise risk to the level where a user self-remediation would be required but administrators should still evaluate these detections. Administrators may determine that additional measures are necessary like [blocking access from locations](../conditional-access/howto-conditional-access-policy-location.md) or lowering the acceptable risk in their policies.
 
@@ -46,7 +46,7 @@ Administrators are given two options when resetting a password for their users:
 
 - **Generate a temporary password** - By generating a temporary password, you can immediately bring an identity back into a safe state. This method requires contacting the affected users because they need to know what the temporary password is. Because the password is temporary, the user is prompted to change the password to something new during the next sign-in.
 
-- **Require the user to reset password** - Requiring the users to reset passwords enables self-recovery without contacting help desk or an administrator. This method only applies to users that are registered for Azure MFA and SSPR. For users that have not been registered, this option isn't available.
+- **Require the user to reset password** - Requiring the users to reset passwords enables self-recovery without contacting help desk or an administrator. This method only applies to users that are registered for Azure AD MFA and SSPR. For users that have not been registered, this option isn't available.
 
 ### Dismiss user risk
 
@@ -88,7 +88,9 @@ To unblock an account based on sign-in risk, administrators have the following o
 
 ## PowerShell preview
 
-Using the Microsoft Graph PowerShell SDK Preview module, organizations can manage risk using PowerShell. The preview modules and sample code can be found in the [Azure AD GitHub repo](https://github.com/AzureAD/IdentityProtectionTools).
+Using the Microsoft Graph PowerShell SDK Preview module, organizations can manage risk using PowerShell. The preview modules and sample code can be found in the [Azure AD GitHub repo](https://github.com/AzureAD/IdentityProtectionTools). 
+
+The `Invoke-AzureADIPDismissRiskyUser.ps1` script included in the repo allows organizations to dismiss all risky users in their directory.
 
 ## Next steps
 

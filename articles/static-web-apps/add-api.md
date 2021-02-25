@@ -27,7 +27,7 @@ You can add serverless APIs to Azure Static Web Apps via integration with Azure 
 
 The following steps demonstrate how to create a new repository and clone the files to your computer.
 
-1. Make sure you are logged in to GitHub and, navigate to https://github.com/staticwebdev/vanilla-basic/generate to create a new repository.
+1. Make sure you are logged in to GitHub and, navigate to [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate) to create a new repository.
 1. In the _Repository name_ box, enter **my-vanilla-api**.
 1. Click **Create repository from template**.
 
@@ -54,7 +54,7 @@ Next, you create an Azure Functions project as the application's API.
 1. Select the **api** folder as the directory for your project workspace
 1. Choose **Select**
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Screenshot shows the A P I folder and the Select button.":::
 
 1. Provide the following information at the prompts:
 
@@ -140,13 +140,13 @@ Visual Studio Code integrates with [Azure Functions Core Tools](../azure-functio
 
     The Core Tools shows output from the running application in the _Terminal_ panel. As a part of the output, you can see the URL endpoint of your HTTP-triggered function running locally.
 
-    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
+    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Screenshot shows the TERMINAL tab where you can see the U R L.":::
 
 1. With Core Tools running, navigate to the following URL to verify the API is running correctly: `http://localhost:7071/api/message`.
 
    The response in the browser should look similar to the following example:
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Alt textScreenshot shows a text response in a browser.":::
 
 1. Press **Shift + F5** to stop the debugging session.
 
@@ -194,7 +194,7 @@ When deployed to Azure, requests to the API are automatically routed to the Func
 
     You should now see the API message in the web page.
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Screenshot shows the A P I message in a browser.":::
 
    > [!NOTE]
    > You can use other HTTP servers or proxies to serve the `index.html` file. Accessing the `index.html` from `file:///` will not work.
@@ -229,10 +229,12 @@ Next, add the app-specific settings.
 1. Click the **Sign-in with GitHub** button and authenticate with GitHub
 1. Select your preferred _Organization_
 1. Select **my-vanilla-api** from the _Repository_ drop-down
-1. Select **master** from the _Branch_ drop-down
-1. Click the **Next: Build >** button to edit the build configuration
+1. Select **main** from the _Branch_ drop-down
+1. Select the framework of your choice for build configuration from the _Build Presets_ drop-down
 
-Next, add the following the build details.
+ > These fields will reflect the app type's default project structure. Change the values to suit your app.
+
+Next, add the following build details.
 
 1. Enter **/** for the _App location_.
 1. Enter **api** in the _Api location_ box.

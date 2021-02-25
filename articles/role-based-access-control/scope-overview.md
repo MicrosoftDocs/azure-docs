@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 10/08/2020
 ms.author: rolyon
 ---
 
@@ -21,9 +21,13 @@ In Azure, you can specify a scope at four levels: [management group](../governan
 
 ![Scope for a role assignment](./media/scope-overview/rbac-scope-no-label.png)
 
+Management groups are a level of scope above subscriptions, but management groups support more complex hierarchies. The following diagram shows an example of a hierarchy of management groups and subscriptions that you can define. For more information about management groups, see [What are Azure management groups?](../governance/management-groups/overview.md).
+
+![Management group and subscription hierarchy](./media/scope-overview/rbac-scope-management-groups.png)
+
 ## Scope format
 
-If you add role assignments using the command line, you'll need to specify the scope. For command-line tools, scope is a potentially long string that identifies the exact scope of the role assignment. In the Azure portal, this scope is typically listed as the *resource ID*.
+If you assign roles using the command line, you'll need to specify the scope. For command-line tools, scope is a potentially long string that identifies the exact scope of the role assignment. In the Azure portal, this scope is typically listed as the *resource ID*.
 
 The scope consists of a series of identifiers separated by the slash (/) character. You can think of this string as expressing the following hierarchy, where text without placeholders (`{}`) are fixed identifiers:
 
@@ -113,6 +117,6 @@ It's fairly simple to determine the scope for a management group, subscription, 
 
 ## Next steps
 
-- [Steps to add a role assignment](role-assignments-steps.md)
+- [Steps to assign an Azure role](role-assignments-steps.md)
 - [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Organize your resources with Azure management groups](../governance/management-groups/overview.md)
+- [What are Azure management groups?](../governance/management-groups/overview.md)

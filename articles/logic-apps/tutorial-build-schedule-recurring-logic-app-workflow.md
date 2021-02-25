@@ -41,6 +41,8 @@ When you're done, your logic app looks like this workflow at a high level:
 
 * To get the travel time for a route, you need an access key for the Bing Maps API. To get this key, follow the steps for [how to get a Bing Maps key](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
+* If your logic app needs to communicate through a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service or runtime in the Azure region where your logic app exists. If your logic app also uses [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in your logic app's Azure region.
+
 ## Create your logic app
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials. On the Azure home page, select **Create a resource**.
@@ -334,7 +336,7 @@ Next, test and run your logic app, which now looks similar to this example:
 
 ## Run your logic app
 
-To manually start your logic app, on the designer toolbar bar, select **Run**.
+To manually start your logic app, on the designer toolbar, select **Run**.
 
 * If the current travel time stays under your limit, your logic app does nothing else and waits or the next interval before checking again. 
 
@@ -361,7 +363,7 @@ Your logic app continues running until you disable or delete the app. When you n
 
 1. In the Azure portal's search box, enter the name for the resource group that you created. From the results, under **Resource Groups**, select the resource group.
 
-   This example created the resource group named `LA-TravelTime-RG`. 
+   This example created the resource group named `LA-TravelTime-RG`.
 
    ![Screenshot that shows the Azure search box with "la-travel-time-rg" entered and **LA-TravelTime-RG** selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/find-resource-group.png)
 
@@ -369,11 +371,11 @@ Your logic app continues running until you disable or delete the app. When you n
    > If the Azure home page shows the resource group under **Recent resources**,
    > you can select the group from the home page.
 
-1. On the resource group menu, check that **Overview** is selected. On the **Overview** pane's toolbar, select **Delete resource group**. 
+1. On the resource group menu, check that **Overview** is selected. On the **Overview** pane's toolbar, select **Delete resource group**.
 
    ![Screenshot that shows the resource group's "Overview" pane and on the pane's toolbar, "Delete resource group" is selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
 
-1. In the confirmation pane, enter the resource group name, and select **Delete**.
+1. In the confirmation pane that appears, enter the resource group name, and select **Delete**.
 
 ## Next steps
 

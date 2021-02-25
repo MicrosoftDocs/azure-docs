@@ -13,7 +13,7 @@ services: iot-pnp
 
 # Implement IoT Plug and Play on constrained devices
 
-If you're developing for *constrained devices*, you can use IoT Plug and Play with the [Azure SDK for Embedded C IoT client libraries](https://aka.ms/embeddedcsdk) or with [Azure RTOS](https://docs.microsoft.com/azure/rtos/overview-rtos). This article includes links and resources for these constrained scenarios.
+If you're developing for *constrained devices*, you can use IoT Plug and Play with the [Azure SDK for Embedded C IoT client libraries](https://aka.ms/embeddedcsdk) or with [Azure RTOS](/azure/rtos/overview-rtos). This article includes links and resources for these constrained scenarios.
 
 ## Use the SDK for Embedded C
 
@@ -36,7 +36,7 @@ The SDK for Embedded C repository contains [several samples](https://github.com/
 
 ## Using Azure RTOS
 
-Azure RTOS includes a lightweight layer that adds native connectivity to Azure IoT cloud services. This layer provides a simple mechanism to connect constrained devices to Azure IoT while using the advanced features of Azure RTOS. To learn more, see the [What is Microsoft Azure RTOS](https://docs.microsoft.com/azure/rtos/overview-rtos).
+Azure RTOS includes a lightweight layer that adds native connectivity to Azure IoT cloud services. This layer provides a simple mechanism to connect constrained devices to Azure IoT while using the advanced features of Azure RTOS. To learn more, see the [What is Microsoft Azure RTOS](/azure/rtos/overview-rtos).
 
 ### Toolchains
 

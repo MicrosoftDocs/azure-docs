@@ -4,7 +4,7 @@ description: Covers the basics about how to integrate an on-premises SharePoint 
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -162,7 +162,7 @@ You can now access the SharePoint site externally through Azure AD Application P
 
 ## Step 3: Configure Kerberos Constrained Delegation
 
-Users will initially authenticate in Azure AD and then to SharePoint by using Kerberos through the Azure AD Proxy connector. To allow the connector to obtain a Kerberos token on behalf of the Azure AD user, you must configure Kerberos Constrained Delegation (KCD) with protocol transition. To learn more about KCD, see [Kerberos Constrained Delegation overview](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)).
+Users will initially authenticate in Azure AD and then to SharePoint by using Kerberos through the Azure AD Proxy connector. To allow the connector to obtain a Kerberos token on behalf of the Azure AD user, you must configure Kerberos Constrained Delegation (KCD) with protocol transition. To learn more about KCD, see [Kerberos Constrained Delegation overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)).
 
 ### Set the SPN for the SharePoint service account
 
@@ -171,7 +171,7 @@ To register SPN `HTTP/sharepoint` for the SharePoint application pool account `C
 
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
-The `Setspn` command searches for the SPN before it adds it. If the SPN already exists, you see a **Duplicate SPN Value** error. In that case, consider removing the existing SPN if it's not set under the correct application pool account. You can verify that the SPN was added successfully by running the `Setspn` command with the -L option. To learn more about this command, see [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
+The `Setspn` command searches for the SPN before it adds it. If the SPN already exists, you see a **Duplicate SPN Value** error. In that case, consider removing the existing SPN if it's not set under the correct application pool account. You can verify that the SPN was added successfully by running the `Setspn` command with the -L option. To learn more about this command, see [Setspn](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
 
 ### Make sure the connector is trusted for delegation to the SPN that was added to the SharePoint application pool account
 

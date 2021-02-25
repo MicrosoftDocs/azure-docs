@@ -30,7 +30,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 To complete the tutorial, make sure you've installed the following items:
 
@@ -221,10 +221,10 @@ Geo-replication settings can also be changed in the Azure portal, by selecting y
             for(int i = 1; i < 1000; i++) {
                 //  loop will run for about 1 hour
                 System.out.print(i + ": insert on primary " +
-                   (insertData((highWaterMark + i))?"successful":"failed"));
+                   (insertData((highWaterMark + i)) ? "successful" : "failed"));
                 TimeUnit.SECONDS.sleep(1);
                 System.out.print(", read from secondary " +
-                   (selectData((highWaterMark + i))?"successful":"failed") + "\n");
+                   (selectData((highWaterMark + i)) ? "successful" : "failed") + "\n");
                 TimeUnit.SECONDS.sleep(3);
             }
          } catch(Exception e) {
@@ -327,7 +327,7 @@ To test a failover:
 1. Start a manual failover of the failover group:
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $myresourcegroupname `
+   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $resourceGroup `
     -ServerName $drServer -FailoverGroupName $failoverGroup
    ```
 

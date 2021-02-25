@@ -61,5 +61,4 @@ This is important when sending update operations to a resource with the intentio
 `
 
 ## Next Steps
-Learn more about Create or Update calls for [Virtual Machines](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) and [Virtual Machine Scale Sets](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)
-
+Learn more about Create or Update calls for [Virtual Machines](/rest/api/compute/virtualmachines/createorupdate) and [Virtual Machine Scale Sets](/rest/api/compute/virtualmachinescalesets/createorupdate)

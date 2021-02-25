@@ -10,7 +10,7 @@ ms.author: duau
 ms.custom: seodec18
 
 ---
-# Connect a virtual network to an ExpressRoute circuit
+# Tutorial: Connect a virtual network to an ExpressRoute circuit
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)

@@ -46,7 +46,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.classiccompute/domainnames
 |Executed Checks|
 |---|
-|<ul><li>Is production slot deployment healthy across all role instances?</li><li>Is the role healthy across all its VM instances?</li><li>What is the health status of each VM within a role of a cloud service?</li><li>Was the VM status change due to platform or customer initiated operation?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li><li>[Learn More](https://docs.microsoft.com/azure/cloud-services/resource-health-for-cloud-services) about Executed Checks</li></ul>|
+|<ul><li>Is production slot deployment healthy across all role instances?</li><li>Is the role healthy across all its VM instances?</li><li>What is the health status of each VM within a role of a cloud service?</li><li>Was the VM status change due to platform or customer initiated operation?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li><li>[Learn More](../cloud-services/resource-health-for-cloud-services.md) about Executed Checks</li></ul>|
 
 ## Microsoft.cognitiveservices/accounts
 |Executed Checks|
@@ -114,6 +114,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the IoT hub up and running?</li></ul>|
 
+## Microsoft.DigitalTwins/DigitalTwinsInstances
+|Executed Checks|
+|---|
+|<ul><li>Is the Azure Digital Twins instance up and running?</li></ul>|
+
 ## Microsoft.documentdb/databaseAccounts
 |Executed Checks|
 |---|
@@ -158,6 +163,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li>Is performance of the Application Gateway degraded?</li><li>Is the Application Gateway available?</li></ul>|
+
+## Microsoft.network/bastionhosts
+|Executed Checks|
+|---|
+|<ul><li>Is the Bastion Host up and running?</li></ul>|
 
 ## Microsoft.network/connections
 |Executed Checks|
@@ -252,4 +262,4 @@ Below is a complete list of all the checks executed through resource health by r
 ## Next Steps
 -  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
 -  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
-- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](./alerts-activity-log-service-notifications-portal.md). 
+- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](./alerts-activity-log-service-notifications-portal.md).

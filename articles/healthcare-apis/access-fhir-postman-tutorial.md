@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
-ms.date: 02/07/2019
+ms.date: 02/01/2021
 ---
 
 # Access Azure API for FHIR with Postman
@@ -18,7 +18,8 @@ A client application would access an FHIR API through a [REST API](https://www.h
 ## Prerequisites
 
 - A FHIR endpoint in Azure. You can set that up using the managed Azure API for FHIR or the Open Source FHIR server for Azure. Set up the managed Azure API for FHIR using [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
-- A  [client application](register-confidential-azure-ad-client-app.md) you will be using to access the FHIR service
+- A  [client application](register-confidential-azure-ad-client-app.md) you will be using to access the FHIR service.
+- You have granted permissions, for example, "FHIR Data Contributor", to the client application to access the FHIR service. More info at [Configure Azure RBAC for FHIR](./configure-azure-rbac.md)
 - Postman installed. You can get it from [https://www.getpostman.com](https://www.getpostman.com)
 
 ## FHIR server and authentication details
@@ -27,7 +28,7 @@ In order to use Postman, the following details are needed:
 
 - Your FHIR server URL, for example `https://MYACCOUNT.azurehealthcareapis.com`
 - The identity provider `Authority` for your FHIR server, for example, `https://login.microsoftonline.com/{TENANT-ID}`
-- The configured `audience`. This is is usually the URL of the FHIR server, e.g. `https://MYACCOUNT.azurehealthcareapis.com` or just `https://azurehealthcareapis.com`.
+- The configured `audience`. This is usually the URL of the FHIR server, e.g. `https://<FHIR-SERVER-NAME>.azurehealthcareapis.com` or just `https://azurehealthcareapis.com`.
 - The `client_id` (or application ID) of the [client application](register-confidential-azure-ad-client-app.md) you will be using to access the FHIR service.
 - The `client_secret` (or application secret) of the client application.
 
@@ -116,7 +117,7 @@ Now that you have a valid access token. You can insert a new patient. Switch to 
 
 Hit "Send" and you should see that the patient is successfully created:
 
-![Patient Created](media/tutorial-postman/postman-patient-created.png)
+![Screenshot that shows that the patient is successfully created.](media/tutorial-postman/postman-patient-created.png)
 
 If you repeat the patient search, you should now see the patient record:
 

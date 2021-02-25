@@ -28,14 +28,6 @@
     href: tutorial-sync-data-factory.md
   - name: Sync data with SQL Data Sync
     href: tutorial-sync-data-sync.md
-  - name: Build an end-to-end IoT solution with SQL Edge
-    items: 
-    - name: Set up Azure resources
-      href: tutorial-deploy-azure-resources.md
-    - name: Set up IoT Edge Modules
-      href: tutorial-set-up-iot-edge-modules.md
-    - name: Deploy model to SQL Edge 
-      href: tutorial-run-ml-model-on-sql-edge.md
 - name: Concepts
   items:
   - name: Deploy  
@@ -47,7 +39,7 @@
     - name: Deploy in Kubernetes
       href: deploy-kubernetes.md     
     - name: Deploy with Azure Data Studio
-      href: https://docs.microsoft.com/sql/azure-data-studio/deploy-azure-sql-edge?toc=/azure/azure-sql-edge/toc.json        
+      href: /sql/azure-data-studio/deploy-azure-sql-edge?toc=%2fazure%2fazure-sql-edge%2ftoc.json
   - name: Machine learning 
     items:
     - name: Machine learning and AI with ONNX
@@ -91,9 +83,9 @@
     - name: DATE_BUCKET (Transact-SQL)
       href: date-bucket-tsql.md
     - name: FIRST_VALUE (Transact-SQL)
-      href: https://docs.microsoft.com/sql/t-sql/functions/first-value-transact-sql?toc=/azure/azure-sql-edge/toc.json
+      href: /sql/t-sql/functions/first-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json
     - name: LAST_VALUE (Transact-SQL)
-      href: https://docs.microsoft.com/sql/t-sql/functions/last-value-transact-sql?toc=/azure/azure-sql-edge/toc.json
+      href: /sql/t-sql/functions/last-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json
     - name: Data retention and cleanup
       items:
       - name: Data retention overview
@@ -109,11 +101,11 @@
     - name: Security overview
       href: security-overview.md
     - name: Security features
-      href: https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started?toc=/azure/azure-sql-edge/toc.json
+      href: /sql/linux/sql-server-linux-security-get-started?toc=%2fazure%2fazure-sql-edge%2ftoc.json
     - name: Encrypting connections
-      href: https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections?toc=/azure/azure-sql-edge/toc.json
+      href: /sql/linux/sql-server-linux-encrypted-connections?toc=%2fazure%2fazure-sql-edge%2ftoc.json
     - name: Azure security center for IoT
-      href: https://docs.microsoft.com/azure/asc-for-iot/overview?toc=/azure/azure-sql-edge/toc.json&bc=/azure/azure-sql-edge/breadcrumb/toc.json
+      href: ../defender-for-iot/overview.md?bc=%2fazure%2fazure-sql-edge%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-sql-edge%2ftoc.json
 - name: How to
   items:
   - name: Configure SQL Edge
@@ -138,7 +130,25 @@
     href: create-stream-analytics-job.md
   - name: Troubleshoot deployment issues
     href: troubleshoot.md
+- name: Samples
+  items:
+  - name: Iron Ore Silica prediction
+    items: 
+    - name: Set up Azure resources
+      href: tutorial-deploy-azure-resources.md
+    - name: Set up IoT Edge Modules
+      href: tutorial-set-up-iot-edge-modules.md
+    - name: Deploy model to SQL Edge 
+      href: tutorial-run-ml-model-on-sql-edge.md 
+  - name: Renewable energy - wind turbine analytics
+    href: tutorial-renewable-energy-demo.md
 - name: Reference
   items:
   - name: Transact-SQL (T-SQL) Reference
-    href: https://docs.microsoft.com/sql/t-sql/language-reference
+    href: /sql/t-sql/language-reference
+- name: Resources
+  items:
+  - name: Partners
+    items:
+    - name: Security
+      href: resources-partners-security.md

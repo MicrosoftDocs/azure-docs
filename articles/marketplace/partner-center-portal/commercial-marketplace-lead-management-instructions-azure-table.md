@@ -4,8 +4,8 @@ description: Learn how to use Azure Table storage to configure leads for Microso
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 08/25/2020
 ---
 
@@ -21,7 +21,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     1. Select **+ Create a resource** in the left menu bar. The **New** pane appears to the right.
     1. Select **Storage** in the **New** pane. A **Featured** list appears to the right.
-    1. Select **Storage account** to begin account creation. Follow the instructions in [Create a storage account](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    1. Select **Storage account** to begin account creation. Follow the instructions in [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
         :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png" alt-text="Steps to create an Azure storage account.":::
 
@@ -50,11 +50,11 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     ![Azure tables](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    You can use [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) or any other tool to see the data in your storage table. You can also export the data in the Azure table.
+    You can use [Azure Storage Explorer](https://www.storageexplorer.com) or any other tool to see the data in your storage table. You can also export the data in the Azure table.
 
 ## (Optional) Use Power Automate to get lead notifications
 
-You can use [Power Automate](https://docs.microsoft.com/flow/) to automate notifications every time a lead is added to your Azure Storage table. If you don't have an account, you can [sign up for a free account](https://flow.microsoft.com/).
+You can use [Power Automate](/flow/) to automate notifications every time a lead is added to your Azure Storage table. If you don't have an account, you can [sign up for a free account](https://flow.microsoft.com/).
 
 ### Lead notification example
 
@@ -198,3 +198,7 @@ To make sure you have successfully connected to a lead destination, select the *
 >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.
 
 When leads are generated, Microsoft sends leads to the Azure table. If you configured a flow, an email will also be sent to the email address you configured.
+
+## Next steps
+
+- [Lead management FAQ and troubleshooting](../lead-management-faq.md)

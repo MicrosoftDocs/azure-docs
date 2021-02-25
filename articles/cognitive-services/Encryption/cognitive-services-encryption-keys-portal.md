@@ -17,22 +17,22 @@ The process to enable Customer-Managed Keys with Azure Key Vault for Cognitive S
 
 ## Vision
 
-* [Custom Vision encryption of data at rest](../Custom-Vision-Service/custom-vision-encryption-of-data-at-rest.md)
-* [Face Services encryption of data at rest](../Face/face-encryption-of-data-at-rest.md)
-* [Form Recognizer encryption of data at rest](../form-recognizer/form-recognizer-encryption-of-data-at-rest.md)
+* [Custom Vision encryption of data at rest](../custom-vision-service/encrypt-data-at-rest.md)
+* [Face Services encryption of data at rest](../face/encrypt-data-at-rest.md)
+* [Form Recognizer encryption of data at rest](../form-recognizer/encrypt-data-at-rest.md)
 
 ## Language
 
-* [Language Understanding service encryption of data at rest](../LUIS/luis-encryption-of-data-at-rest.md)
-* [QnA Maker encryption of data at rest](../QnAMaker/qna-maker-encryption-of-data-at-rest.md)
-* [Translator encryption of data at rest](../translator/translator-encryption-of-data-at-rest.md)
+* [Language Understanding service encryption of data at rest](../LUIS/encrypt-data-at-rest.md)
+* [QnA Maker encryption of data at rest](../QnAMaker/encrypt-data-at-rest.md)
+* [Translator encryption of data at rest](../translator/encrypt-data-at-rest.md)
 
 ## Decision
 
-* [Content Moderator encryption of data at rest](../Content-Moderator/content-moderator-encryption-of-data-at-rest.md)
-* [Personalizer encryption of data at rest](../personalizer/personalizer-encryption-of-data-at-rest.md)
+* [Content Moderator encryption of data at rest](../Content-Moderator/encrypt-data-at-rest.md)
+* [Personalizer encryption of data at rest](../personalizer/encrypt-data-at-rest.md)
 
 ## Next steps
 
-* [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+* [What is Azure Key Vault](../../key-vault/general/overview.md)?
 * [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)

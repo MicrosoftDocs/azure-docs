@@ -31,5 +31,5 @@ Have your students follow this procedure to download the software developer tool
 - [Get help with login errors](troubleshoot-login.md)
 - [Azure for Students](azure-students-program.md)
 - [Azure for Students Starter](azure-students-starter-program.md)
-- [Microsoft Learn: a free online learning platform](https://docs.microsoft.com/learn/)
+- [Microsoft Learn: a free online learning platform](/learn/)
 - [Frequently asked questions](program-faq.md#azure-for-students)

@@ -39,17 +39,17 @@ Arrays of objects are always flattened, producing multiple events. | If the obje
 
 Any new deployments need to match the new ingestion rules. For example, if your TS ID is `telemetry_tagId`, you need to update any Azure Resource Manager templates or automated deploy scripts to configure `telemetry.tagId` as the environment TS ID. You also need this change for event source timestamps in nested JSON.
 
-### If your payload contains nested JSON or special characters and you automate authoring [Time Series Model](.\time-series-insights-update-tsm.md) variable expressions
+### If your payload contains nested JSON or special characters and you automate authoring [Time Series Model](./concepts-model-overview.md) variable expressions
 
-Update your client code that executes [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) to match the new ingestion rules. For example, you should update a previous [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) of `"value": {"tsx": "$event.series_value.Double"}` to one of the following options:
+Update your client code that executes [TypesBatchPut](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) to match the new ingestion rules. For example, you should update a previous [Time Series Expression](/rest/api/time-series-insights/reference-time-series-expression-syntax) of `"value": {"tsx": "$event.series_value.Double"}` to one of the following options:
 
 * `"value": {"tsx": "$event.series.value.Double"}`
 * `"value": {"tsx": "$event['series']['value'].Double"}`
 
 ## Next steps
 
-* Learn about [Azure Time Series Insights Gen2 storage and ingress](./time-series-insights-update-storage-ingress.md).
+* Learn about [Azure Time Series Insights Gen2 storage and ingress](./concepts-ingestion-overview.md).
 
 * Learn how to query your data by using [Time Series Query APIs](./concepts-query-overview.md).
 
-* Read more about the [new Time Series Expression syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+* Read more about the [new Time Series Expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax).

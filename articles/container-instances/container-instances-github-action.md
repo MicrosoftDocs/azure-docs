@@ -3,12 +3,12 @@ title: Deploy container instance by GitHub action
 description: Configure a GitHub action that automates steps to build, push, and deploy a container image to Azure Container Instances
 ms.topic: article
 ms.date: 08/20/2020
-ms.custom: 
+ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
 # Configure a GitHub action to create a container instance
 
-[GitHub Actions](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
+[GitHub Actions](https://docs.github.com/en/actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
 
 Use the [Deploy to Azure Container Instances](https://github.com/azure/aci-deploy) GitHub action to automate deployment of a single container to Azure Container Instances. The action allows you to set properties for a container instance similar to those in the [az container create][az-container-create] command.
 
@@ -136,7 +136,7 @@ jobs:
         steps:
         # checkout the repo
         - name: 'Checkout GitHub Action'
-          uses: actions/checkout@master
+          uses: actions/checkout@main
           
         - name: 'Login via Azure CLI'
           uses: azure/login@v1
@@ -172,7 +172,7 @@ After you commit the workflow file, the workflow is triggered. To review workflo
 
 ![View workflow progress](./media/container-instances-github-action/github-action-progress.png)
 
-See [Managing a workflow run](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run) for information about viewing the status and results of each step in your workflow. If the workflow doesn't complete, see [Viewing logs to diagnose failures](https://docs.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-logs-to-diagnose-failures).
+See [Viewing workflow run history](https://docs.github.com/en/actions/managing-workflow-runs/viewing-workflow-run-history) for information about viewing the status and results of each step in your workflow. If the workflow doesn't complete, see [Viewing logs to diagnose failures](https://docs.github.com/en/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
 
 When the workflow completes successfully, get information about the container instance named *aci-sampleapp* by running the [az container show][az-container-show] command. Substitute the name of your resource group: 
 
@@ -232,7 +232,7 @@ az container app up \
 
 ### Command progress
 
-* When prompted, provide your GitHub credentials or provide a [GitHub personal access token](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) (PAT) that has *repo* and *user* scopes to authenticate with your GitHub account. If you provide GitHub credentials, the command creates a PAT for you. Follow additional prompts to configure the workflow.
+* When prompted, provide your GitHub credentials or provide a [GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) (PAT) that has *repo* and *user* scopes to authenticate with your GitHub account. If you provide GitHub credentials, the command creates a PAT for you. Follow additional prompts to configure the workflow.
 
 * The command creates repo secrets for the workflow:
 
@@ -253,7 +253,7 @@ Workflow succeeded
 Your app is deployed at:  http://acr-build-helloworld-node.eastus.azurecontainer.io:8080/
 ```
 
-To view the workflow status and results of each step in the GitHub UI, see [Managing a workflow run](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run).
+To view the workflow status and results of each step in the GitHub UI, see [Viewing workflow run history](https://docs.github.com/en/actions/managing-workflow-runs/viewing-workflow-run-history).
 
 ### Validate workflow
 

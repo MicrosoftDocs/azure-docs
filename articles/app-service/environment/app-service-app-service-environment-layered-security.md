@@ -62,7 +62,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 ```
 
-Rinse and repeat for the second and third upstream App Service Environments ("fe2ase"and "fe3ase").
+Rinse and repeat for the second and third upstream App Service Environments ("fe2ase" and "fe3ase").
 
 ```azurepowershell-interactive
 #Grant access to requests from the second upstream web front-end
@@ -111,7 +111,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 With the NSG applied to the subnet, only the three upstream App Service Environments, and the App Service Environment containing the API back-end, are allowed to call into the "apiase" environment.
 
 ## Additional Links and Information
-Information about [network security groups](../../virtual-network/security-overview.md).
+Information about [network security groups](../../virtual-network/network-security-groups-overview.md).
 
 Understanding [outbound IP addresses][NetworkArchitecture] and App Service Environments.
 

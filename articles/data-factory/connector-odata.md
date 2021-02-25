@@ -1,17 +1,11 @@
 ---
 title: Copy data from OData sources by using Azure Data Factory 
 description: Learn how to copy data from OData sources to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/14/2020
 ms.author: jingwang
-
 ---
 # Copy data from an OData source by using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -54,7 +48,8 @@ The following properties are supported for an OData linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **OData**. |Yes |
 | url | The root URL of the OData service. |Yes |
-| authenticationType | The type of authentication used to connect to the OData source. Allowed values are **Anonymous**, **Basic**, **Windows**, and **AadServicePrincipal**. User-based OAuth isn't supported. | Yes |
+| authenticationType | The type of authentication used to connect to the OData source. Allowed values are **Anonymous**, **Basic**, **Windows**, and **AadServicePrincipal**. User-based OAuth isn't supported. You can additionally configure authentication headers in `authHeader` property.| Yes |
+| authHeaders | Additional HTTP request headers for authentication.<br/> For example, to use API key authentication, you can select authentication type as “Anonymous” and specify API key in the header. | No |
 | userName | Specify **userName** if you use Basic or Windows authentication. | No |
 | password | Specify **password** for the user account you specified for **userName**. Mark this field as a **SecureString** type to store it securely in Data Factory. You also can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | servicePrincipalId | Specify the Azure Active Directory application's client ID. | No |
@@ -188,6 +183,31 @@ The following properties are supported for an OData linked service:
     "connectVia": {
         "referenceName": "<name of Integration Runtime>",
         "type": "IntegrationRuntimeReference"
+    }
+}
+```
+
+**Example 6: Using API key authentication**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of OData source>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "APIKey": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
     }
 }
 ```

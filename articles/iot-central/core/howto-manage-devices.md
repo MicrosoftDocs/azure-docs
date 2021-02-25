@@ -1,13 +1,14 @@
 ---
 title: Manage the devices in your Azure IoT Central application | Microsoft Docs
-description: As an operator, learn how to manage devices in your Azure IoT Central application.
-author: sarahhubbard
-ms.author: sahubbar
-ms.date: 12/06/2019
+description: As an operator, learn how to manage devices in your Azure IoT Central application. Learn how to manage individual devices and do bulk import and exports of the devices in your application.
+author: dominicbetts
+ms.author: dobett
+ms.date: 10/08/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
+ms.custom: contperf-fy21q2
 ---
 
 # Manage devices in your Azure IoT Central application
@@ -15,9 +16,12 @@ manager: peterpr
 This article describes how, as an operator, you manage devices in your Azure IoT Central application. As an operator, you can:
 
 - Use the **Devices** page to view, add, and delete devices connected to your Azure IoT Central application.
+- Import and export devices in bulk.
 - Maintain an up-to-date inventory of your devices.
-- Keep your device metadata up-to-date by changing the values stored in the device properties from your views.
+- Keep your device metadata up to date by changing the values stored in the device properties from your views.
 - Control the behavior of your devices by updating a setting on a specific device from your views.
+
+To learn how to manage custom groups of devices, see [Tutorial: Use device groups to analyze device telemetry](tutorial-use-device-groups.md).
 
 ## View your devices
 
@@ -31,7 +35,6 @@ To view an individual device:
 
     ![Device Details Page](./media/howto-manage-devices/devicelist.png)
 
-
 ## Add a device
 
 To add a device to your Azure IoT Central application:
@@ -44,7 +47,7 @@ To add a device to your Azure IoT Central application:
 
 1. Turn the **Simulated** toggle to **On** or **Off**. A real device is for a physical device that you connect to your Azure IoT Central application. A simulated device has sample data generated for you by Azure IoT Central.
 
-1. Click **Create**.
+1. Select **Create**.
 
 1. This device now appears in your device list for this template. Select the device to see the device details page that contains all views for the device.
 
@@ -52,7 +55,7 @@ To add a device to your Azure IoT Central application:
 
 To connect large number of devices to your application, you can bulk import devices from a CSV file. The CSV file should have the following columns and headers:
 
-* **IOTC_DeviceID** - the device ID should be all lowercase.
+* **IOTC_DeviceID** - the device ID can contain letters, numbers, and the `-` character.
 * **IOTC_DeviceName** - this column is optional.
 
 To bulk-register devices in your application:
@@ -77,10 +80,9 @@ To bulk-register devices in your application:
 
     ![Import Success](./media/howto-manage-devices/bulkimport3a.png)
 
-
 If the device import operation fails, you see an error message on the Device Operations panel. A log file capturing all the errors is generated that you can download.
 
-**Migrating devices to a template**
+## Migrate devices to a template
 
 If you register devices by starting the import under **All devices**, then the devices are created without any device template association. Devices must be associated with a template to explore the data and other details about the device. Follow these steps to associate devices with a template:
 
@@ -90,8 +92,7 @@ If you register devices by starting the import under **All devices**, then the d
 
     ![Unassociated Devices](./media/howto-manage-devices/unassociateddevices1a.png)
 
-
-1. Use the filter on the grid to determine if the value in the **Device Template** column is "Unassociated" for any of your devices.
+1. Use the filter on the grid to determine if the value in the **Device Template** column is **Unassociated** for any of your devices.
 
 1. Select the devices you want to associate with a template:
 
@@ -99,11 +100,9 @@ If you register devices by starting the import under **All devices**, then the d
 
     ![Associate Devices](./media/howto-manage-devices/unassociateddevices2a.png)
 
-
 1. Choose the template from the list of available templates and select **Migrate**.
 
 1. The selected devices are associated with the device template you chose.
-
 
 ## Export devices
 
@@ -119,7 +118,6 @@ To bulk export devices from your application:
 
     ![Export](./media/howto-manage-devices/export1a.png)
 
-
 1. The export process starts. You can track the status using the Device Operations panel.
 
 1. When the export completes, a success message is shown along with a link to download the generated file.
@@ -127,7 +125,6 @@ To bulk export devices from your application:
 1. Select the **Download File** link to download the file to a local folder on the disk.
 
     ![Export Success](./media/howto-manage-devices/export2a.png)
-
 
 1. The exported CSV file contains the following columns: device ID, device name, device keys, and X509 certificate thumbprints:
 
@@ -154,7 +151,7 @@ To delete either a real or simulated device from your Azure IoT Central applicat
 
 ## Change a property
 
-Cloud properties are the device metadata associated with the device, such as city and serial number. Writeable properties control the behavior of a device. In other words, they enable you to provide inputs to your device.  Device properties are set by the device and are read-only within IoT Central. You can view and update properties on the **Device Details** views for your device.
+Cloud properties are the device metadata associated with the device, such as city and serial number. Cloud properties only exist in the IoT Central application and aren't synchronized to your devices. Writeable properties control the behavior of a device and let you set the state of a device remotely, for example by setting the target temperature of a thermostat device.  Device properties are set by the device and are read-only within IoT Central. You can view and update properties on the **Device Details** views for your device.
 
 1. Choose **Devices** on the left pane.
 
@@ -166,12 +163,6 @@ Cloud properties are the device metadata associated with the device, such as cit
 
 1. Choose **Save**. If you saved writeable properties, the values are sent to your device. When the device confirms the change for the writeable property, the status returns back to **synced**. If you saved a cloud property, the value is updated.
 
-
 ## Next steps
 
-Now that you've learned how to manage devices in your Azure IoT Central application, here is the suggested next step:
-
-> [!div class="nextstepaction"]
-> [How to use device groups](tutorial-use-device-groups.md)
-
-<!-- Next how-tos in the sequence -->
+Now that you've learned how to manage devices in your Azure IoT Central application, the suggested next step is to learn how to[Configure rules](howto-configure-rules.md) for your devices.

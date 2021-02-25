@@ -1,22 +1,27 @@
 ---
-title: Manage Azure Maps Creator
-description: In this article, you'll learn how to manage Azure Maps Creator.
+title: Manage Microsoft Azure Maps Creator (Preview)
+description: In this article, you'll learn how to manage Microsoft Azure Maps Creator (Preview).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 02/16/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Manage Azure Maps Creator
+# Manage Azure Maps Creator (Preview) 
+
+> [!IMPORTANT]
+> Azure Maps Creator services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Maps Creator lets you create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. Currently, Creator is only available in the United States using the S1 pricing tier.
 
 This article takes you through the steps to create and delete a Creator resource in an Azure Maps account.
 
-## Create Creator Resource
+## Create Creator (Preview) Resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 
@@ -24,15 +29,15 @@ This article takes you through the steps to create and delete a Creator resource
 
     ![Azure Maps Portal home page](./media/how-to-manage-creator/select-maps-account.png)
 
-3. Once you're on the Azure Maps account page, navigate to the **Overview** option under **Creator**. Click  **Create**  to create an Azure Maps Creator resource.
+3. Once you're on the Azure Maps account page, navigate to the **Overview** option under **Creator**. Select  **Create**  to create an Azure Maps Creator resource.
 
     ![Create Azure Maps Creator page](./media/how-to-manage-creator/creator-blade-settings.png)
 
-4. Enter the name and location for your Creator resource. Currently, Creator is only supported in the United States. Click **Review + create**.
+4. Enter the name and location for your Creator resource. Currently, Creator is only supported in the United States. Select **Review + create**.
 
    ![Enter Creator account information page](./media/how-to-manage-creator/creator-creation-dialog.png)
 
-5. Review your settings and click **Create**.
+5. Review your settings and select **Create**.
 
     ![Confirm Creator account settings page](./media/how-to-manage-creator/creator-create-dialog.png)
 
@@ -40,41 +45,41 @@ This article takes you through the steps to create and delete a Creator resource
 
    ![Resource deployment status page](./media/how-to-manage-creator/creator-resource-created.png)
 
-7. Click **Go to resource**. Your Creator resource view page shows the status of your Creator resource and the chosen demographic region.
+7. Select **Go to resource**. Your Creator resource view page shows the status of your Creator resource and the chosen demographic region.
 
     ![Creator status page](./media/how-to-manage-creator/creator-resource-view.png)
 
    >[!NOTE]
-   >From the Creator resource page, you can navigate back to the Azure Maps account it belongs to by clicking Azure Maps Account.
+   >From the Creator resource page, you can navigate back to the Azure Maps account it belongs to by selecting Azure Maps Account.
 
-## Delete Creator Resource
+## Delete Creator (Preview) Resource
 
-To delete the Creator resource, navigate to your Azure Maps account. Select **Overview** under **Creator**. Click the **Delete** button.
+To delete the Creator resource, navigate to your Azure Maps account. Select **Overview** under **Creator**. Select the **Delete** button.
 
 >[!WARNING]
 >When you delete the Creator resource of your Azure Maps account, you will also delete the datasets, tilesets, and feature statesets created using Creator services.
 
 ![Creator page with delete button](./media/how-to-manage-creator/creator-delete.png)
 
-Click the **Delete** button and type your Creator name to confirm deletion. Once the resource is deleted, you'll see a confirmation page, like in the image below:
+Select the **Delete** button and type your Creator name to confirm deletion. Once the resource is deleted, you'll see a confirmation page, like in the image below:
 
-![Creator page with delete confirmation](./media/how-to-manage-creator/creator-confirmdelete.png)
+![Creator page with delete confirmation](./media/how-to-manage-creator/creator-confirm-delete.png)
 
 ## Authentication
 
-Creator inherits Azure Maps Access Control (IAM) settings. All API calls for data access must be sent with authentication and authorization rules.
+Creator (Preview) inherits Azure Maps Access Control (IAM) settings. All API calls for data access must be sent with authentication and authorization rules.
 
-Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more information, see [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more information, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 ## Access to Creator services
 
-Creator services are accessible only from within the location selected during creation. If calls are made to Creator services from outside the selected location, a user error message will be returned. To make calls from outside the selected location, the service URL must include the geographic prefix for the selected locations. For example, if Creator is created in the United States, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`.
+Creator services (Preview) and services that use data hosted in Creator (for example, Render service), are accessible at a geographical URL. The geographical URL is determined by the location selected during creation. For example, if Creator is created in the United States geographical location, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`.
 
 Also, all data imported into Creator should be uploaded into the same geographical location as the Creator resource. For example, if Creator is provisioned in the United Stated, all raw data should be uploaded via `us.atlas.microsoft.com/mapData/upload`.
 
 ## Next steps
 
-Introduction to Creator for indoor mapping:
+Introduction to Creator services (Preview) for indoor mapping:
 
 > [!div class="nextstepaction"]
 > [Data Upload](creator-indoor-maps.md#upload-a-drawing-package)
@@ -91,7 +96,7 @@ Introduction to Creator for indoor mapping:
 > [!div class="nextstepaction"]
 > [Feature State set](creator-indoor-maps.md#feature-statesets)
 
-Learn how to use the Creator to render indoor maps in your application:
+Learn how to use the Creator services (Preview) to render indoor maps in your application:
 
 > [!div class="nextstepaction"]
 > [Azure Maps Creator tutorial](tutorial-creator-indoor-maps.md)

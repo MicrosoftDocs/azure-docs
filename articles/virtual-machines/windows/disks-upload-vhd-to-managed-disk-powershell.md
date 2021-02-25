@@ -39,19 +39,19 @@ This kind of managed disk has two unique states:
 
 Before you can create an empty standard HDD for uploading, you'll need the file size of the VHD you want to upload, in bytes. The example code will get that for you but, to do it yourself you can use: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. This value is used when specifying the **-UploadSizeInBytes** parameter.
 
-Now, on your local shell, create an empty standard HDD for uploading by specifying the **Upload** setting in the **-CreateOption** parameter as well as the **-UploadSizeInBytes** parameter in the [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) cmdlet. Then call [New-AzDisk](/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) to create the disk.
+Now, on your local shell, create an empty standard HDD for uploading by specifying the **Upload** setting in the **-CreateOption** parameter as well as the **-UploadSizeInBytes** parameter in the [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) cmdlet. Then call [New-AzDisk](/powershell/module/az.compute/new-azdisk) to create the disk.
 
 Replace `<yourdiskname>`, `<yourresourcegroupname>`, and `<yourregion>` then run the following commands:
 
 > [!TIP]
-> If you are creating an OS disk, add -HyperVGeneration '<yourGeneration>' to `New-AzDiskConfig`.
+> If you are creating an OS disk, add `-HyperVGeneration '<yourGeneration>'` to `New-AzDiskConfig`.
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
 
 $diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -UploadSizeInBytes $vhdSizeBytes -Location '<yourregion>' -CreateOption 'Upload'
 
-New-AzDisk -ResourceGroupName '<yourresourcegroupname' -DiskName '<yourdiskname>' -Disk $diskconfig
+New-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -Disk $diskconfig
 ```
 
 If you would like to upload either a premium SSD or a standard SSD, replace **Standard_LRS** with either **Premium_LRS** or **StandardSSD_LRS**. Ultra disks are not yet supported.
@@ -72,7 +72,7 @@ Now that you have a SAS for your empty managed disk, you can use it to set your 
 
 Use AzCopy v10 to upload your local VHD file to a managed disk by specifying the SAS URI you generated.
 
-This upload has the same throughput as the equivalent [standard HDD](disks-types.md#standard-hdd). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
+This upload has the same throughput as the equivalent [standard HDD](../disks-types.md#standard-hdd). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
 
 ```
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob

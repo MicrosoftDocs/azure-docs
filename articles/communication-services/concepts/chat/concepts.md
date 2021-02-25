@@ -36,67 +36,79 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
  - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services using your resource connection string. This service is responsible for creating chat threads, managing thread memberships, and providing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/access-tokens.md) quickstart.
 
  - **Client app:**  The client application connects to your trusted service and receives the access tokens that are used to connect directly to Communication Services. After this connection is made, your client app can send and receive messages.
+
+We recommend generating access tokens using the trusted service tier. In this scenario the server side would be responsible for creating and managing users and issuing their tokens.
     
 ## Message types
 
 Communication Services Chat shares user-generated messages as well as system-generated messages called **Thread activities**. Thread activities are generated when a chat thread is updated. When you call `List Messages` or `Get Messages` on a chat thread, the result will contain the user-generated text messages as well as the system messages in chronological order. This helps you identify when a member was added or removed or when the chat thread topic was updated. Supported message types are:  
 
- - `Text`: Actual message composed and sent by user as part of chat conversation. 
- - `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread. For example:
+ - `Text`: A plain text message composed and sent by a user as part of a chat conversation.
+ - `RichText/HTML`: A formatted text message. Note that Communication Services users currently can't send RichText messages. This message type is supported by messages sent from Teams users to Communication Services users in Teams Interop scenarios.
 
-```xml
-
-<addmember>
-    <eventtime>1598478187549</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-    <detailedinitiatorinfo>
-        <friendlyName>User 1</friendlyName>
-    </detailedinitiatorinfo>
-    <rosterVersion>1598478184564</rosterVersion>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</target>
-    <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</id>
-        <friendlyName>User 1</friendlyName>
-    </detailedtargetinfo>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
-    <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
-        <friendlyName>User 2</friendlyName>
-    </detailedtargetinfo>
-</addmember>
-
-```  
-
-- `ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread. For example:
-
-```xml
-
-<deletemember>
-    <eventtime>1598478187642</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-    <detailedinitiatorinfo>
-        <friendlyName>User 1</friendlyName>
-    </detailedinitiatorinfo>
-    <rosterVersion>1598478184564</rosterVersion>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
-    <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
-        <friendlyName>User 2</friendlyName>
-    </detailedtargetinfo>
-</deletemember>
+ - `ThreadActivity/ParticipantAdded`: A system message that indicates one or more participants have been added to the chat thread. For example:
 
 ```
+{
+            "id": "1613589626560",
+            "type": "participantAdded",
+            "sequenceId": "7",
+            "version": "1613589626560",
+            "content":
+            {
+                "participants":
+                [
+                    {
+                        "id": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4df6-f40f-343a0d003226",
+                        "displayName": "Jane",
+                        "shareHistoryTime": "1970-01-01T00:00:00Z"
+                    }
+                ],
+                "initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"
+            },
+            "createdOn": "2021-02-17T19:20:26Z"
+        }
+```
 
-- `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated. For example:
+- `ThreadActivity/ParticipantRemoved`: System message that indicates a participant has been removed from the chat thread. For example:
 
-```xml
+```
+{
+            "id": "1613589627603",
+            "type": "participantRemoved",
+            "sequenceId": "8",
+            "version": "1613589627603",
+            "content":
+            {
+                "participants":
+                [
+                    {
+                        "id": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4df6-f40f-343a0d003226",
+                        "displayName": "Jane",
+                        "shareHistoryTime": "1970-01-01T00:00:00Z"
+                    }
+                ],
+                "initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"
+            },
+            "createdOn": "2021-02-17T19:20:27Z"
+        }
+```
 
-<topicupdate>
-    <eventtime>1598477591811</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-    <value>New topic</value>
-</topicupdate>
+- `ThreadActivity/TopicUpdate`: System message that indicates the thread topic has been updated. For example:
 
+```
+{
+            "id": "1613589623037",
+            "type": "topicUpdated",
+            "sequenceId": "2",
+            "version": "1613589623037",
+            "content":
+            {
+                "topic": "New topic",
+                "initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"
+            },
+            "createdOn": "2021-02-17T19:20:23Z"
+        }
 ```
 
 ## Real-time signaling 
@@ -115,7 +127,7 @@ Real-time signaling allows your users to chat in real-time. Your services can us
 
 ## Using Cognitive Services with Chat client library to enable intelligent features
 
-You can use [Azure Cognitive APIs](https://docs.microsoft.com/azure/cognitive-services/) with the Chat client library to add intelligent features to your applications. For example, you can:
+You can use [Azure Cognitive APIs](../../../cognitive-services/index.yml) with the Chat client library to add intelligent features to your applications. For example, you can:
 
 - Enable users to chat with each other in different languages. 
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming issue from a customer.
@@ -123,7 +135,7 @@ You can use [Azure Cognitive APIs](https://docs.microsoft.com/azure/cognitive-se
 
 One way to achieve this is by having your trusted service act as a member of a chat thread. Let's say you want to enable language translation. This service will be responsible for listening to the messages being exchanged by other members [1], calling cognitive APIs to translate the content to desired language[2,3] and sending the translated result as a message in the chat thread[4]. 
 
-This way, the message history will contain both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translator) to understand how to use Cognitive APIs to translate text to different languages. 
+This way, the message history will contain both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](../../../cognitive-services/translator/quickstart-translator.md) to understand how to use Cognitive APIs to translate text to different languages. 
 
 :::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram showing Cognitive Services interacting with Communication Services.":::
 

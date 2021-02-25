@@ -16,18 +16,18 @@ tag: azure-Synapse
 
 # Analyze data with Azure Machine Learning
 
-This tutorial uses [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) to build a predictive machine learning model. The model is based on the data stored in Azure Synapse. The scenario for the tutorial is to predict if a customer is likely to buy a bike or not so Adventure Works, the bike shop, can build a targeted marketing campaign.
+This tutorial uses [Azure Machine Learning designer](../../machine-learning/concept-designer.md) to build a predictive machine learning model. The model is based on the data stored in Azure Synapse. The scenario for the tutorial is to predict if a customer is likely to buy a bike or not so Adventure Works, the bike shop, can build a targeted marketing campaign.
 
 ## Prerequisites
 
 To step through this tutorial, you need:
 
-* a SQL pool pre-loaded with AdventureWorksDW sample data. To provision this SQL Pool, see [Create a SQL pool](create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but don't have sample data, you can [load sample data manually](load-data-from-azure-blob-storage-using-polybase.md).
-* an Azure Machine learning workspace. Follow [this tutorial](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) to create a new one.
+* a SQL pool pre-loaded with AdventureWorksDW sample data. To provision this SQL Pool, see [Create a SQL pool](create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but don't have sample data, you can [load sample data manually](./load-data-from-azure-blob-storage-using-copy.md).
+* an Azure Machine learning workspace. Follow [this tutorial](../../machine-learning/how-to-manage-workspace.md) to create a new one.
 
 ## Get the data
 
-The data used is in the dbo.vTargetMail view in AdventureWorksDW. To use Datastore in this tutorial, the data is first exported to Azure Data Lake Storage account as Azure Synapse doesn't currently support datasets. Azure Data Factory can be used to export data from the data warehouse to Azure Data Lake Storage using the [copy activity](https://docs.microsoft.com/azure/data-factory/copy-activity-overview). Use the following query for import:
+The data used is in the dbo.vTargetMail view in AdventureWorksDW. To use Datastore in this tutorial, the data is first exported to Azure Data Lake Storage account as Azure Synapse doesn't currently support datasets. Azure Data Factory can be used to export data from the data warehouse to Azure Data Lake Storage using the [copy activity](../../data-factory/copy-activity-overview.md). Use the following query for import:
 
 ```sql
 SELECT [CustomerKey]
@@ -49,9 +49,9 @@ SELECT [CustomerKey]
 FROM [dbo].[vTargetMail]
 ```
 
-Once the data is available in Azure Data Lake Storage, Datastores in Azure Machine Learning is used to [connect to Azure storage services](https://docs.microsoft.com/azure/machine-learning/how-to-access-data). Follow the steps below to create a Datastore and a corresponding Dataset:
+Once the data is available in Azure Data Lake Storage, Datastores in Azure Machine Learning is used to [connect to Azure storage services](../../machine-learning/how-to-access-data.md). Follow the steps below to create a Datastore and a corresponding Dataset:
 
-1. Launch Azure Machine learning studio either from Azure portal or sign in at [Azure Machine Learning studio](https://ml.azure.com/).
+1. Launch Azure Machine Learning studio either from Azure portal or sign in at [Azure Machine Learning studio](https://ml.azure.com/).
 
 1. Click on **Datastores** on the left pane in the **Manage** section and then click on **New Datastore**.
 
@@ -150,10 +150,10 @@ You'll see two more columns added to your test dataset.
 * Scored Probabilities: the likelihood that a customer is a bike buyer.
 * Scored Labels: the classification done by the model – bike buyer (1) or not (0). This probability threshold for labeling is set to 50% and can be adjusted.
 
-Compare the column BikeBuyer (actual) with the Scored Labels (prediction), to see how well the model has performed. Next, you can use this model to make predictions for new customers. You can [publish this model as a web service](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) or write results back to Azure Synapse.
+Compare the column BikeBuyer (actual) with the Scored Labels (prediction), to see how well the model has performed. Next, you can use this model to make predictions for new customers. You can [publish this model as a web service](../../machine-learning/tutorial-designer-automobile-price-deploy.md) or write results back to Azure Synapse.
 
 ## Next steps
 
-To learn more about Azure Machine Learning, refer to [Introduction to Machine Learning on Azure](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
+To learn more about Azure Machine Learning, refer to [Introduction to Machine Learning on Azure](../../machine-learning/overview-what-is-azure-ml.md).
 
-Learn about built-in scoring in the data warehouse, [here](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+Learn about built-in scoring in the data warehouse, [here](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).

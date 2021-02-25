@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 09/30/2020
+ms.date: 01/27/2021
 ms.topic: overview
 ---
 # What is Azure Blueprints?
@@ -31,8 +31,8 @@ your blueprint objects, regardless of which region Azure Blueprints deploys your
 The service is designed to help with _environment setup_. This setup often consists of a set of
 resource groups, policies, role assignments, and ARM template deployments. A blueprint is a package
 to bring each of these _artifact_ types together and allow you to compose and version that package,
-including through a CI/CD pipeline. Ultimately, each is assigned to a subscription in a single
-operation that can be audited and tracked.
+including through a continuous integration and continuous delivery (CI/CD) pipeline. Ultimately,
+each is assigned to a subscription in a single operation that can be audited and tracked.
 
 Nearly everything that you want to include for deployment in Azure Blueprints can be accomplished
 with an ARM template. However, an ARM template is a document that doesn't exist natively in Azure –

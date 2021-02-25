@@ -1,22 +1,19 @@
 ---
 title: Application and service availability issues FAQ
-titleSuffix: Azure Cloud Services
 description: This article lists the frequently asked questions about application and service availability for Microsoft Azure Cloud Services.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
-ms.author: genli
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Application and service availability issues for Azure Cloud Services: Frequently asked questions (FAQs)
+
+# Application and service availability issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 This article includes frequently asked questions about application and service availability issues for [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). You can also consult the [Cloud Services VM Size page](cloud-services-sizes-specs.md) for size information.
 
@@ -27,7 +24,7 @@ Roughly once a month, Microsoft releases a new Guest OS version for Windows Azur
 
 For complete details about recent Guest OS updates, see [Azure Guest OS releases and SDK compatibility matrix](cloud-services-guestos-update-matrix.md).
 
-For helpful information on restarts and pointers to technical details of Guest and Host OS updates, see the MSDN blog post [Role Instance Restarts Due to OS Upgrades](https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades).
+For helpful information on restarts and pointers to technical details of Guest and Host OS updates, see the MSDN blog post [Role Instance Restarts Due to OS Upgrades](/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades).
 
 ## Why does the first request to my cloud service after the service has been idle for some time take longer than usual?
 When the Web Server receives the first request, it first recompiles the code and then processes the request. That's why the first request takes longer than the others. By default, the app pool gets shut down in cases of user inactivity. The app pool will also recycle by default every 1,740 minutes (29 hours).

@@ -1,7 +1,7 @@
 ---
 title: PCI-DSS v3.2.1 blueprint sample controls
 description: Control mapping of the Payment Card Industry Data Security Standard v3.2.1 blueprint sample to Azure Policy and Azure RBAC.
-ms.date: 08/19/2020
+ms.date: 01/08/2021
 ms.topic: sample
 ---
 # Control mapping of the PCI-DSS v3.2.1 blueprint sample
@@ -10,21 +10,22 @@ The following article details how the Azure Blueprints PCI-DSS v3.2.1 blueprint 
 PCI-DSS v3.2.1 controls. For more information about the controls, see [PCI-DSS v3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
 
 The following mappings are to the **PCI-DSS v3.2.1:2018** controls. Use the navigation on the right
-to jump directly to a specific control mapping. Many of the mapped controls are implemented with an [Azure Policy](../../../policy/overview.md)
-initiative. To review the complete initiative, open **Policy** in the Azure portal and select the
-**Definitions** page. Then, find and select the **\[Preview\] Audit PCI v3.2.1:2018 controls and
-deploy specific VM Extensions to support audit requirements** built-in policy initiative.
+to jump directly to a specific control mapping. Many of the mapped controls are implemented with an
+[Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative, open
+**Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **PCI
+v3.2.1:2018** built-in policy initiative.
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
-> definitions. These policies may help you [assess compliance](../../../policy/how-to/get-compliance-data.md)
-> with the control; however, there often is not a 1:1 or complete match between a control and one or
-> more policies. As such, **Compliant** in Azure Policy refers only to the policies themselves; this
-> doesn't ensure you're fully compliant with all requirements of a control. In addition, the
-> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
-> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
-> status. The associations between controls and Azure Policy definitions for this compliance
-> blueprint sample may change over time. To view the change history, see the
+> definitions. These policies may help you
+> [assess compliance](../../../policy/how-to/get-compliance-data.md) with the control; however,
+> there often is not a one-to-one or complete match between a control and one or more policies. As
+> such, **Compliant** in Azure Policy refers only to the policies themselves; this doesn't ensure
+> you're fully compliant with all requirements of a control. In addition, the compliance standard
+> includes controls that aren't addressed by any Azure Policy definitions at this time. Therefore,
+> compliance in Azure Policy is only a partial view of your overall compliance status. The
+> associations between controls and Azure Policy definitions for this compliance blueprint sample
+> may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
 
 ## 1.3.2 and 1.3.4 Boundary Protection

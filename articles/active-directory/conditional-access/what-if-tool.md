@@ -46,7 +46,7 @@ You can find the **What If** tool on the **[Conditional Access - Policies](https
 
 To start the tool, in the toolbar on top of the list of policies, click **What If**.
 
-![What If](./media/what-if-tool/01.png)
+:::image type="content" source="./media/what-if-tool/01.png" alt-text="Screenshot of the Conditional Access - Policies page in the Azure portal. In the toolbar, the What if item is highlighted." border="false":::
 
 Before you can run an evaluation, you must configure the settings.
 
@@ -54,7 +54,7 @@ Before you can run an evaluation, you must configure the settings.
 
 This section provides you with information about the settings of simulation run.
 
-![What If](./media/what-if-tool/02.png)
+:::image type="content" source="./media/what-if-tool/02.png" alt-text="Screenshot of the Azure portal What If page, with fields for a user, cloud apps, an I P address, a device platform, a client app, and a sign-in risk." border="false":::
 
 ### User
 
@@ -88,7 +88,7 @@ This setting mimics the [sign-in risk condition](concept-conditional-access-cond
 
 You start an evaluation by clicking **What If**. The evaluation result provides you with a report that consists of: 
 
-![What If](./media/what-if-tool/03.png)
+:::image type="content" source="./media/what-if-tool/03.png" alt-text="Screenshot of an evaluation report. Text indicates that at least one classic policy is configured. Tabs are available for viewing policies." border="false":::
 
 - An indicator whether classic policies exist in your environment
 - Policies that apply to your user

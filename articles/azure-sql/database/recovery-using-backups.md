@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
-ms.date: 09/26/2019
+ms.date: 11/13/2020
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -47,18 +47,18 @@ For a single subscription, there are limitations on the number of concurrent res
 
 | **Deployment option** | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
-|**Single database (per subscription)**|10|60|
-|**Elastic pool (per pool)**|4|200|
+|**Single database (per subscription)**|30|100|
+|**Elastic pool (per pool)**|4|2000|
 
 
 There isn't a built-in method to restore the entire server. For an example of how to accomplish this task, see [Azure SQL Database: Full server recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
 
 > [!IMPORTANT]
-> To recover by using automated backups, you must be a member of the SQL Server Contributor role or SQL Managed Instance Contributor role (depending on the recovery destination) in the subscription, or you must be the subscription owner. For more information, see [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md). You can recover by using the Azure portal, PowerShell, or the REST API. You can't use Transact-SQL.
+> To recover by using automated backups, you must be a member of the SQL Server Contributor role or SQL Managed Instance Contributor role (depending on the recovery destination) in the subscription, or you must be the subscription owner. For more information, see [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md). You can recover by using the Azure portal, PowerShell, or the REST API. You can't use Transact-SQL.
 
 ## Point-in-time restore
 
-You can restore a standalone, pooled, or instance database to an earlier point in time by using the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#creates-a-database-from-pointintimerestore.). The request can specify any service tier or compute size for the restored database. Ensure that you have sufficient resources on the server to which you are restoring the database. 
+You can restore a standalone, pooled, or instance database to an earlier point in time by using the Azure portal, [PowerShell](/powershell/module/az.sql/restore-azsqldatabase), or the [REST API](/rest/api/sql/databases/createorupdate#creates-a-database-from-pointintimerestore.). The request can specify any service tier or compute size for the restored database. Ensure that you have sufficient resources on the server to which you are restoring the database. 
 
 When complete, the restore creates a new database on the same server as the original database. The restored database is charged at normal rates, based on its service tier and compute size. You don't incur charges until the database restore is complete.
 
@@ -89,11 +89,11 @@ To recover a managed instance database to a point in time by using the Azure por
   ![Screenshot of database restore options for SQL managed instance.](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
-> To programmatically restore a database from a backup, see [Programmatically performing recovery using automated backups](recovery-using-backups.md).
+> To programmatically restore a database from a backup, see [Programmatic recovery using automated backups](recovery-using-backups.md).
 
 ## Deleted database restore
 
-You can restore a deleted database to the deletion time, or an earlier point in time, on the same server or the same managed instance. You can accomplish this through the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), or the [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). You restore a deleted database by creating a new database from the backup.
+You can restore a deleted database to the deletion time, or an earlier point in time, on the same server or the same managed instance. You can accomplish this through the Azure portal, [PowerShell](/powershell/module/az.sql/restore-azsqldatabase), or the [REST (createMode=Restore)](/rest/api/sql/databases/createorupdate). You restore a deleted database by creating a new database from the backup.
 
 > [!IMPORTANT]
 > If you delete a server or managed instance, all its databases are also deleted and can't be recovered. You can't restore a deleted server or managed instance.
@@ -101,6 +101,9 @@ You can restore a deleted database to the deletion time, or an earlier point in 
 ### Deleted database restore by using the Azure portal
 
 You restore deleted databases from the Azure portal from the server or managed instance resource.
+
+> [!TIP]
+> It may take several minutes for recently deleted databases to appear on the **Deleted databases** page in Azure portal, or when displaying deleted databases [programmatically](#programmatic-recovery-using-automated-backups).
 
 #### SQL Database
 
@@ -199,7 +202,7 @@ You can also use Azure PowerShell or the REST API for recovery. The following ta
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by SQL Database and SQL Managed Instance, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Arguments for the commands in the Az module and in Azure Resource Manager modules are to a great extent identical.
+> The PowerShell Azure Resource Manager module is still supported by SQL Database and SQL Managed Instance, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Arguments for the commands in the Az module and in Azure Resource Manager modules are to a great extent identical.
 
 #### SQL Database
 
@@ -231,8 +234,8 @@ To restore a database by using the REST API:
 
 | API | Description |
 | --- | --- |
-| [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Restores a database. |
-| [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/operations) |Returns the status during a restore operation. |
+| [REST (createMode=Recovery)](/rest/api/sql/databases) |Restores a database. |
+| [Get Create or Update Database Status](/rest/api/sql/operations) |Returns the status during a restore operation. |
 
 ### Azure CLI
 

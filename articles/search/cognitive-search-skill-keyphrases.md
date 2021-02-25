@@ -32,7 +32,7 @@ The maximum size of a record should be 50,000 characters as measured by [`String
 
 Parameters are case-sensitive.
 
-| Inputs	            | Description |
+| Inputs | Description |
 |---------------------|-------------|
 | `defaultLanguageCode` | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md). |
 | `maxKeyPhraseCount`   | (Optional) The maximum number of key phrases to produce. |

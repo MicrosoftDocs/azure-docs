@@ -87,7 +87,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Transactions are actually being used in both of these examples. In the first example, each individual call is an implicit transaction. In the second example, an explicit transaction wraps all of the calls. Per the documentation for the [write-ahead transaction log](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), log records are flushed to the disk when the transaction commits. So by including more calls in a transaction, the write to the transaction log can delay until the transaction is committed. In effect, you are enabling batching for the writes to the server’s transaction log.
+Transactions are actually being used in both of these examples. In the first example, each individual call is an implicit transaction. In the second example, an explicit transaction wraps all of the calls. Per the documentation for the [write-ahead transaction log](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), log records are flushed to the disk when the transaction commits. So by including more calls in a transaction, the write to the transaction log can delay until the transaction is committed. In effect, you are enabling batching for the writes to the server’s transaction log.
 
 The following table shows some ad hoc testing results. The tests performed the same sequential inserts with and without transactions. For more perspective, the first set of tests ran remotely from a laptop to the database in Microsoft Azure. The second set of tests ran from a cloud service and database that both resided within the same Microsoft Azure datacenter (West US). The following table shows the duration in milliseconds of sequential inserts with and without transactions.
 
@@ -114,7 +114,7 @@ The following table shows some ad hoc testing results. The tests performed the s
 
 Based on the previous test results, wrapping a single operation in a transaction actually decreases performance. But as you increase the number of operations within a single transaction, the performance improvement becomes more marked. The performance difference is also more noticeable when all operations occur within the Microsoft Azure datacenter. The increased latency of using Azure SQL Database or Azure SQL Managed Instance from outside the Microsoft Azure datacenter overshadows the performance gain of using transactions.
 
-Although the use of transactions can increase performance, continue to [observe best practices for transactions and connections](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)). Keep the transaction as short as possible, and close the database connection after the work completes. The using statement in the previous example assures that the connection is closed when the subsequent code block completes.
+Although the use of transactions can increase performance, continue to [observe best practices for transactions and connections](/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)). Keep the transaction as short as possible, and close the database connection after the work completes. The using statement in the previous example assures that the connection is closed when the subsequent code block completes.
 
 The previous example demonstrates that you can add a local transaction to any ADO.NET code with two lines. Transactions offer a quick way to improve the performance of code that makes sequential insert, update, and delete operations. However, for the fastest performance, consider changing the code further to take advantage of client-side batching, such as table-valued parameters.
 
@@ -285,9 +285,9 @@ This approach can be slightly faster for batches that are less than 100 rows. Al
 
 The **DataAdapter** class allows you to modify a **DataSet** object and then submit the changes as INSERT, UPDATE, and DELETE operations. If you are using the **DataAdapter** in this manner, it is important to note that separate calls are made for each distinct operation. To improve performance, use the **UpdateBatchSize** property to the number of operations that should be batched at a time. For more information, see [Performing Batch Operations Using DataAdapters](/dotnet/framework/data/adonet/performing-batch-operations-using-dataadapters).
 
-### Entity framework
+### Entity Framework
 
-[Entity Framework 6](https://github.com/dotnet/ef6) now supports batching.
+[Entity Framework Core](/ef/efcore-and-ef6/#saving-data) supports batching.
 
 ### XML
 
@@ -374,7 +374,7 @@ Although there are some scenarios that are obvious candidate for batching, there
 
 For example, consider a web application that tracks the navigation history of each user. On each page request, the application could make a database call to record the user’s page view. But higher performance and scalability can be achieved by buffering the users’ navigation activities and then sending this data to the database in batches. You can trigger the database update by elapsed time and/or buffer size. For example, a rule could specify that the batch should be processed after 20 seconds or when the buffer reaches 1000 items.
 
-The following code example uses [Reactive Extensions - Rx](https://docs.microsoft.com/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) to process buffered events raised by a monitoring class. When the buffer fills or a timeout is reached, the batch of user data is sent to the database with a table-valued parameter.
+The following code example uses [Reactive Extensions - Rx](/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) to process buffered events raised by a monitoring class. When the buffer fills or a timeout is reached, the batch of user data is sent to the database with a table-valued parameter.
 
 The following NavHistoryData class models the user navigation details. It contains basic information such as the user identifier, the URL accessed, and the access time.
 

@@ -34,11 +34,11 @@ An Enterprise enrollment or Microsoft Customer Agreement billing administrator c
 
 [![Example showing reservation transactions](./media/view-purchase-refunds/power-bi-reservation-transactions.png)](./media/view-purchase-refunds/power-bi-reservation-transactions.png#lightbox)
 
-To learn more, see [Azure Cost Management Power BI App for Enterprise Agreements](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app).
+To learn more, see [Azure Cost Management Power BI App for Enterprise Agreements](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
 ## Use APIs to get reservation transactions
 
-Enterprise Agreement (EA) and Microsoft Customer Agreement users can get reservation transactions data using [Reservation Transactions - List API](https://docs.microsoft.com/rest/api/consumption/reservationtransactions/list).
+Enterprise Agreement (EA) and Microsoft Customer Agreement users can get reservation transactions data using [Reservation Transactions - List API](/rest/api/consumption/reservationtransactions/list).
 
 ## Need help? Contact us.
 

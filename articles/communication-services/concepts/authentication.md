@@ -2,11 +2,12 @@
 title: Authenticate to Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the various ways an app or service can authenticate to Communication Services.
-author: matthewrobertson
+author: GrantMeStrength
+
 manager: jken
 services: azure-communication-services
 
-ms.author: marobert
+ms.author: jken
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -28,7 +29,7 @@ The following table describes which authentication options are supported by the 
 
 Each authorization option is briefly described below:
 
-- **Access Key** authentication for SMS and Administration operations. Access Key authentication is suitable for applications running in a trusted service environment. To authenticate with an access key, a client generates a [hash-based method authentication code (HMAC)](https://en.wikipedia.org/wiki/HMAC) and includes it within the `Authorization` header of each HTTP request. For more information, see [Authenticate with an Access Key](#authenticate-with-an-access-key).
+- **Access Key** authentication for SMS and Administration operations. Access Key authentication is suitable for applications running in a trusted service environment. To authenticate with an access key, a client generates a [hash-based message authentication code (HMAC)](https://en.wikipedia.org/wiki/HMAC) and includes it within the `Authorization` header of each HTTP request. For more information, see [Authenticate with an Access Key](#authenticate-with-an-access-key).
 - **User Access Token** authentication for Chat and Calling. User access tokens let your client applications authenticate directly against Azure Communication Services. These tokens are generated on a server-side token provisioning service that you create. They're then provided to client devices that use the token to initialize the Chat and Calling client libraries. For more information, see [Authenticate with a User Access Token](#authenticate-with-a-user-access-token).
 
 ## Authenticate with an access key
@@ -53,9 +54,9 @@ If you're not using a client library to make HTTP requests to the Azure Communic
     URLPathAndQuery + "\n"
     DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
     ```
-1. Generate an HMAC-256 signature of the UTF-8 encoded string that you created in the previous step. Next, encode your results as Base64. Note that you also need to Base64-decode your storage account key. Use the following format (shown as pseudo code):
+1. Generate an HMAC-256 signature of the UTF-8 encoded string that you created in the previous step. Next, encode your results as Base64. Note that you also need to Base64-decode your access key. Use the following format (shown as pseudo code):
     ```
-    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_azure_storage_account_shared_key>)))
+    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_access_key>)))
     ```
 1. Specify the Authorization header as follows:
     ```
@@ -67,11 +68,11 @@ If you're not using a client library to make HTTP requests to the Azure Communic
 
 User access tokens let your client applications authenticate directly against Azure Communication Services. To achieve this you should set up a trusted service that authenticates your application users and issues user access tokens with the Administration client library. Visit the [client and server architecture](./client-and-server-architecture.md) conceptual documentation to learn more about our architectural considerations.
 
-The `CommunicationClientCredential` class contains the logic for providing user access token credentials to the client libraries and managing their lifecycle.
+The `CommunicationTokenCredential` class contains the logic for providing user access token credentials to the client libraries and managing their lifecycle.
 
 ### Initialize the client libraries
 
-To initialize Azure Communication Services client libraries that require user access token authentication, you first create an instance of the `CommunicationClientCredential` class, and then use it to initialize an API client.
+To initialize Azure Communication Services client libraries that require user access token authentication, you first create an instance of the `CommunicationTokenCredential` class, and then use it to initialize an API client.
 
 The following snippets show you how to initialize the chat client library with a user access token:
 
@@ -81,8 +82,8 @@ The following snippets show you how to initialize the chat client library with a
 // user access tokens should be created by a trusted service using the Administration client library
 var token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance
-var userCredential = new CommunicationUserCredential(token);
+// create a CommunicationTokenCredential instance
+var userCredential = new CommunicationTokenCredential(token);
 
 // initialize the chat client library with the credential
 var chatClient = new ChatClient(ENDPOINT_URL, userCredential);
@@ -94,8 +95,8 @@ var chatClient = new ChatClient(ENDPOINT_URL, userCredential);
 // user access tokens should be created by a trusted service using the Administration client library
 const token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance with the AzureCommunicationUserCredential class
-const userCredential = new AzureCommunicationUserCredential(token);
+// create a CommunicationTokenCredential instance with the AzureCommunicationTokenCredential class
+const userCredential = new AzureCommunicationTokenCredential(token);
 
 // initialize the chat client library with the credential
 let chatClient = new ChatClient(ENDPOINT_URL, userCredential);
@@ -107,8 +108,8 @@ let chatClient = new ChatClient(ENDPOINT_URL, userCredential);
 // user access tokens should be created by a trusted service using the Administration client library
 let token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance
-let userCredential = try CommunicationUserCredential(token: token)
+// create a CommunicationTokenCredential instance
+let userCredential = try CommunicationTokenCredential(token: token)
 
 // initialize the chat client library with the credential
 let chatClient = try CommunicationChatClient(credential: userCredential, endpoint: ENDPOINT_URL)
@@ -120,8 +121,8 @@ let chatClient = try CommunicationChatClient(credential: userCredential, endpoin
 // user access tokens should be created by a trusted service using the Administration client library
 String token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance
-CommunicationUserCredential userCredential = new CommunicationUserCredential(token);
+// create a CommunicationTokenCredential instance
+CommunicationTokenCredential userCredential = new CommunicationTokenCredential(token);
 
 // Initialize the chat client
 final ChatClientBuilder builder = new ChatClientBuilder();
@@ -135,12 +136,12 @@ ChatClient chatClient = builder.buildClient();
 
 ### Refreshing user access tokens
 
-User access tokens are short-lived credentials that need to be reissued to prevent your users from experiencing service disruptions. The `CommunicationUserCredential` constructor accepts a refresh callback function that enables you to update user access tokens before they expire. You should use this callback to fetch a new user access token from your trusted service.
+User access tokens are short-lived credentials that need to be reissued to prevent your users from experiencing service disruptions. The `CommunicationTokenCredential` constructor accepts a refresh callback function that enables you to update user access tokens before they expire. You should use this callback to fetch a new user access token from your trusted service.
 
 #### [C#](#tab/csharp)
 
 ```csharp
-var userCredential = new CommunicationUserCredential(
+var userCredential = new CommunicationTokenCredential(
     initialToken: token,
     refreshProactively: true,
     tokenRefresher: cancellationToken => fetchNewTokenForCurrentUser(cancellationToken)
@@ -150,7 +151,7 @@ var userCredential = new CommunicationUserCredential(
 #### [JavaScript](#tab/javascript)
 
 ```javascript
-const userCredential = new AzureCommunicationUserCredential({
+const userCredential = new AzureCommunicationTokenCredential({
   tokenRefresher: async () => fetchNewTokenForCurrentUser(),
   refreshProactively: true,
   initialToken: token
@@ -160,7 +161,7 @@ const userCredential = new AzureCommunicationUserCredential({
 #### [Swift](#tab/swift)
 
 ```swift
- let userCredential = try CommunicationUserCredential(initialToken: token, refreshProactively: true) { |completionHandler|
+ let userCredential = try CommunicationTokenCredential(initialToken: token, refreshProactively: true) { |completionHandler|
    let updatedToken = fetchTokenForCurrentUser()
    completionHandler(updatedToken, nil)
  }
@@ -176,7 +177,7 @@ TokenRefresher tokenRefresher = new TokenRefresher() {
     }
 }
 
-CommunicationUserCredential credential = new CommunicationUserCredential(tokenRefresher, token, true);
+CommunicationTokenCredential credential = new CommunicationTokenCredential(tokenRefresher, token, true);
 ```
 ---
 

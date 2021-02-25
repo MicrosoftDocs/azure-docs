@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 09/15/2020
+ms.date: 02/17/2021
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -53,6 +53,8 @@ manages the evaluation and outcome and reports the results back to Azure Policy.
 After the Resource Provider returns a success code on a Resource Manager mode request,
 **AuditIfNotExists** and **DeployIfNotExists** evaluate to determine if additional compliance
 logging or action is required.
+
+Additionally, `PATCH` requests that only modify `tags` related fields restricts policy evaluation to policies containing conditions that inspect `tags` related fields.
 
 ## Append
 
@@ -128,9 +130,9 @@ resource, but it doesn't stop the request.
 
 Audit is the last effect checked by Azure Policy during the creation or update of a resource. For a
 Resource Manager mode, Azure Policy then sends the resource to the Resource Provider. Audit works
-the same for a resource request and an evaluation cycle. Azure Policy adds a
-`Microsoft.Authorization/policies/audit/action` operation to the activity log and marks the resource
-as non-compliant.
+the same for a resource request and an evaluation cycle. For new and updated resources, Azure Policy
+adds a `Microsoft.Authorization/policies/audit/action` operation to the activity log and marks the
+resource as non-compliant.
 
 ### Audit properties
 
@@ -189,10 +191,10 @@ condition, but don't have the properties specified in the **details** of the **t
 
 AuditIfNotExists runs after a Resource Provider has handled a create or update resource request and
 has returned a success status code. The audit occurs if there are no related resources or if the
-resources defined by **ExistenceCondition** don't evaluate to true. Azure Policy adds a
-`Microsoft.Authorization/policies/audit/action` operation to the activity log the same way as the
-audit effect. When triggered, the resource that satisfied the **if** condition is the resource that
-is marked as non-compliant.
+resources defined by **ExistenceCondition** don't evaluate to true. For new and updated resources,
+Azure Policy adds a `Microsoft.Authorization/policies/audit/action` operation to the activity log
+and marks the resource as non-compliant. When triggered, the resource that satisfied the **if**
+condition is the resource that is marked as non-compliant.
 
 ### AuditIfNotExists properties
 
@@ -340,9 +342,10 @@ when the condition is met.
 ### DeployIfNotExists evaluation
 
 DeployIfNotExists runs about 15 minutes after a Resource Provider has handled a create or update
-resource request and has returned a success status code. A template deployment occurs if there are
-no related resources or if the resources defined by **ExistenceCondition** don't evaluate to true.
-The duration of the deployment depends on the complexity of resources included in the template.
+subscription or resource request and has returned a success status code. A template deployment
+occurs if there are no related resources or if the resources defined by **ExistenceCondition** don't
+evaluate to true. The duration of the deployment depends on the complexity of resources included in
+the template.
 
 During an evaluation cycle, policy definitions with a DeployIfNotExists effect that match resources
 are marked as non-compliant, but no action is taken on that resource. Existing non-compliant
@@ -601,10 +604,11 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 
 ## Modify
 
-Modify is used to add, update, or remove properties or tags on a resource during creation or update.
-A common example is updating tags on resources such as costCenter. Existing non-compliant resources
-can be remediated with a [remediation task](../how-to/remediate-resources.md). A single Modify rule
-can have any number of operations.
+Modify is used to add, update, or remove properties or tags on a subscription or resource during
+creation or update. A common example is updating tags on resources such as costCenter. Existing
+non-compliant resources can be remediated with a
+[remediation task](../how-to/remediate-resources.md). A single Modify rule can have any number of
+operations.
 
 The following operations are supported by Modify:
 

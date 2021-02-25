@@ -26,11 +26,11 @@ ms.author: aahi
 
 + [Sentiment analysis in Logic App using SQL Server data (TechNet blog)](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx)
 
-+ [Sentiment analysis with Dynamics 365 CRM Online (MSDN blog)](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) 
++ [Sentiment analysis with Dynamics 365 CRM Online (MSDN blog)](/archive/blogs/geoffreyinnis/sentiment-analysis-in-usd-with-cognitive-services-text-analytics) 
 
 + Power BI blog: Extraction of key phrases from Facebook messages: [Part 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) and [Part 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
-+ [Identify the sentiment of comments in a Yammer group with MS Flow (Microsoft tech community)](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
++ [Identify the sentiment of comments in a Yammer group with MS Flow (Microsoft tech community)](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
 
 
 

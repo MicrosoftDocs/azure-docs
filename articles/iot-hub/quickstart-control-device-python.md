@@ -1,5 +1,5 @@
 ---
-title: Control a device from Azure IoT Hub quickstart (Python) | Microsoft Docs
+title: Quickstart - Control a device from Azure IoT Hub quickstart (Python) | Microsoft Docs
 description: In this quickstart, you run two sample Python applications. One application is a back-end application that can remotely control devices connected to your hub. The other application simulates a device connected to your hub that can be controlled remotely.
 author: wesmc7777
 manager: philmea
@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
-ms.custom: [mvc, mqtt, devx-track-python]
+ms.custom: [mvc, mqtt, devx-track-python, devx-track-azurecli]
 ms.date: 09/14/2020
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
@@ -29,15 +29,7 @@ In this quickstart, you use a direct method to control a simulated device connec
 
 * Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### Add Azure IoT Extension
-
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -68,7 +60,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
     ```
 
     Make a note of the device connection string, which looks like:
@@ -82,7 +74,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string \
+    az iot hub connection-string show \
       --policy-name service \
       --name {YourIoTHubName} \
       --output table

@@ -14,13 +14,15 @@ ms.custom:
 ---
 
 # Use query labels in Synapse SQL
+
 Included in this article are essential tips for using query labels in Synapse SQL.
 
 > [!NOTE]
-> SQL on-demand (preview) doesn't support labelling queries.
+> Serverless SQL pool doesn't support labelling queries.
 
 ## What are query labels
-SQL pool supports a concept called query labels. Before going into any depth, let's look at an example:
+
+Dedicated SQL pool supports a concept called query labels. Before going into any depth, let's look at an example:
 
 ```sql
 SELECT *

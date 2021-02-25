@@ -11,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Automated recommendations for Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 All the cloud services including Azure Cosmos DB get frequent updates with new features, capabilities, and improvements. It’s important for your application to keep up with the latest performance and security updates. The Azure portal offers customized recommendations that enable you to maximize the performance of your application. The Azure Cosmos DB's advisory engine continuously analyzes the usage history of your Azure Cosmos DB resources and provides recommendations based on your workload patterns. These recommendations correspond to areas like partitioning, indexing, network, security etc. These customized recommendations help you to improve the performance of your application.
 

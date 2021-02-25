@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Connect using C++ - Azure Database for MySQL'
 description: This quickstart provides a C++ code sample you can use to connect and query data from Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: cpp
@@ -301,6 +301,16 @@ int main()
 	system("pause");
 	return 0;
 }
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

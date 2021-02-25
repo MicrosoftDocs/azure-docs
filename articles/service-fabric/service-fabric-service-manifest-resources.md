@@ -4,6 +4,7 @@ description: How to describe endpoint resources in a service manifest, including
 
 ms.topic: conceptual
 ms.date: 09/16/2020
+ms.custom: contperf-fy21q1
 ---
 # Specify resources in a service manifest
 ## Overview
@@ -153,7 +154,7 @@ Here is an example ApplicationManifest demonstrating the configuration required 
 
 For Linux clusters, the **MY** store defaults to the folder **/var/lib/sfcerts**.
 
-For an example of a full application that makes use of an HTTPS endpoint, see [add an HTTPS endpoint to an ASP.NET Core Web API front-end service using Kestrel](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
+For an example of a full application that makes use of an HTTPS endpoint, see [add an HTTPS endpoint to an ASP.NET Core Web API front-end service using Kestrel](./service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest).
 
 ## Port ACLing for HTTP Endpoints
 Service Fabric will automatically ACL HTTP(S) endpoints specified by default. It will **not** perform automatic ACLing if an endpoint does not have a [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) associated with it and Service Fabric is configured to run using an account with Administrator privileges.

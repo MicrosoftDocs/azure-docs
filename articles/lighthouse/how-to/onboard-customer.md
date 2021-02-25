@@ -1,23 +1,23 @@
 ---
 title: Onboard a customer to Azure Lighthouse
 description: Learn how to onboard a customer to Azure Lighthouse, allowing their resources to be accessed and managed through your own tenant using Azure delegated resource management.
-ms.date: 09/24/2020
+ms.date: 02/16/2021
 ms.topic: how-to
 ---
 
 # Onboard a customer to Azure Lighthouse
 
-This article explains how you, as a service provider, can onboard a customer to Azure Lighthouse. When you do so, the customer's delegated resources (subscriptions and/or resource groups) can be accessed and managed through your own Azure Active Directory (Azure AD) tenant by using [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
+This article explains how you, as a service provider, can onboard a customer to Azure Lighthouse. When you do so, delegated resources (subscriptions and/or resource groups) in the customer's Azure Active Directory (Azure AD) tenant can be managed through your own tenant by using [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same process to set up Azure Lighthouse and consolidate their management experience.
 
 You can repeat the onboarding process for multiple customers. When a user with the appropriate permissions signs in to your managing tenant, that user can be authorized across customer tenancy scopes to perform management operations, without having to sign in to every individual customer tenant.
 
-To track your impact across customer engagements and receive recognition, associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. You'll need to perform this association in your service provider tenant. We recommend creating a service principal account in your tenant that is associated with your MPN ID, then including that service principal every time you onboard a customer. For more info, see [Link your partner ID to enable partner earned credit on delegated resources.
+To track your impact across customer engagements and receive recognition, associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. You'll need to perform this association in your service provider tenant. We recommend creating a service principal account in your tenant that is associated with your MPN ID, then including that service principal every time you onboard a customer. For more info, see [Link your partner ID to enable partner earned credit on delegated resources](partner-earned-credit.md).
 
 > [!NOTE]
-> Customers can also be onboarded to Azure Lighthouse when they purchase a Managed Service offer (public or private) that you [publish to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here alongside offers published to Azure Marketplace.
+> Customers can alternately be onboarded to Azure Lighthouse when they purchase a Managed Service offer (public or private) that you [publish to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here along with offers published to Azure Marketplace.
 
 The onboarding process requires actions to be taken from within both the service provider's tenant and from the customer's tenant. All of these steps are described in this article.
 
@@ -57,14 +57,17 @@ az account show
 
 ## Define roles and permissions
 
-As a service provider, you may want to perform multiple tasks for a single customer, requiring different access for different scopes. You can define as many authorizations as you need in order to assign the appropriate [role-based access control (RBAC) built-in roles](../../role-based-access-control/built-in-roles.md) to users in your tenant.
+As a service provider, you may want to perform multiple tasks for a single customer, requiring different access for different scopes. You can define as many authorizations as you need in order to assign the appropriate [Azure built-in roles](../../role-based-access-control/built-in-roles.md). Each authorization includes a **principalId** which refers to an Azure AD user, group, or service principal in the managing tenant.
 
-To make management easier, we recommend using Azure AD user groups for each role. This gives you the flexibility to add or remove individual users to the group that has access, so that you don't have to repeat the onboarding process to make user changes. You can assign roles to a service principal, which can be useful for automation scenarios.
+> [!NOTE]
+> Unless explicitly specified, references to a "user" in the Azure Lighthouse documentation can apply to an Azure AD user, group, or service principal in an authorization.
 
-When defining your authorizations, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job. For guidelines and information about supported roles, see [Tenants, users, and roles in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
+To make management easier, we recommend using Azure AD user groups for each role whenever possible, rather than to individual users. This gives you the flexibility to add or remove individual users to the group that has access, so that you don't have to repeat the onboarding process to make user changes. You can also assign roles to a service principal, which can be useful for automation scenarios.
 
 > [!IMPORTANT]
 > In order to add permissions for an Azure AD group, the **Group type** must be set to **Security**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+
+When defining your authorizations, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job. For information about supported roles and best practices, see [Tenants, users, and roles in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
 
 To define authorizations, you'll need to know the ID values for each user, user group, or service principal in the service provider tenant to which you want to grant access. You'll also need the role definition ID for each built-in role you want to assign. If you don't have them already, you can retrieve them by running the commands below from within the service provider tenant.
 
@@ -190,14 +193,14 @@ The following example shows a modified **delegatedResourceManagement.parameters.
 }
 ```
 
-The last authorization in the example above adds a **principalId** with the User Access Administrator role (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). When assigning this role, you must include the **delegatedRoleDefinitionIds** property and one or more built-in roles. The user created in this authorization will be able to assign these built-in roles to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) in the customer tenant, which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md).  The user is also able to create support incidents.  No other permissions normally associated with the User Access Administrator role will apply to this user.
+The last authorization in the example above adds a **principalId** with the User Access Administrator role (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). When assigning this role, you must include the **delegatedRoleDefinitionIds** property and one or more supported Azure built-in roles. The user created in this authorization will be able to assign these roles to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) in the customer tenant, which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md).  The user is also able to create support incidents. No other permissions normally associated with the User Access Administrator role will apply to this **principalId**.
 
 ## Deploy the Azure Resource Manager templates
 
 Once you have updated your parameter file, a user in the customer's tenant must deploy the Azure Resource Manager template within their tenant. A separate deployment is needed for each subscription that you want to onboard (or for each subscription that contains resource groups that you want to onboard).
 
 > [!IMPORTANT]
-> This deployment must be done by a non-guest account in the customer's tenant who has the [Owner built-in role](../../role-based-access-control/built-in-roles.md#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
+> This deployment must be done by a non-guest account in the customer's tenant who has a role with the `Microsoft.Authorization/roleAssignments/write` permission, such as [Owner](../../role-based-access-control/built-in-roles.md#owner), for the subscription being onboarded (or which contains the resource groups that are being onboarded). To find users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
 >
 > If the subscription was created through the [Cloud Solution Provider (CSP) program](../concepts/cloud-solution-provider.md), any user who has the [Admin Agent](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) role in your service provider tenant can perform the deployment.
 
@@ -237,18 +240,18 @@ New-AzSubscriptionDeployment -Name <deploymentName> `
 # Log in first with az login if you're not using Cloud Shell
 
 # Deploy Azure Resource Manager template using template and parameter file locally
-az deployment create --name <deploymentName> \
-                     --location <AzureRegion> \
-                     --template-file <pathToTemplateFile> \
-                     --parameters <parameters/parameterFile> \
-                     --verbose
+az deployment sub create --name <deploymentName> \
+                         --location <AzureRegion> \
+                         --template-file <pathToTemplateFile> \
+                         --parameters <parameters/parameterFile> \
+                         --verbose
 
 # Deploy external Azure Resource Manager template, with local parameter file
-az deployment create --name <deploymentName> \
-                     --location <AzureRegion> \
-                     --template-uri <templateUri> \
-                     --parameters <parameterFile> \
-                     --verbose
+az deployment sub create --name <deploymentName> \
+                         --location <AzureRegion> \
+                         --template-uri <templateUri> \
+                         --parameters <parameterFile> \
+                         --verbose
 ```
 
 ## Confirm successful onboarding
@@ -273,7 +276,7 @@ In the customer's tenant:
 3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
 
 > [!NOTE]
-> It may take a few minutes after your deployment is complete before the updates are reflected in the Azure portal.
+> It may take up to 15 minutes after your deployment is complete before the updates are reflected in the Azure portal. You may be able to see the updates sooner if you update your Azure Resource Manager token by refreshing the browser, signing in and out, or requesting a new token.
 
 ### PowerShell
 
@@ -281,6 +284,11 @@ In the customer's tenant:
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
 Get-AzContext
+
+# Confirm successful onboarding for Azure Lighthouse
+
+Get-AzManagedServicesDefinition
+Get-AzManagedServicesAssignment
 ```
 
 ### Azure CLI
@@ -291,8 +299,23 @@ Get-AzContext
 az account list
 ```
 
+If you need to make changes after the customer has been onboarded, you can [update the delegation](update-delegation.md). You can also [remove access to the delegation](remove-delegation.md) completely.
+
+## Troubleshooting
+
+If you are unable to successfully onboard your customer, or if your users have trouble accessing the delegated resources, check the following tips and requirements and try again.
+
+- The `managedbyTenantId` value must not be the same as the tenant ID for the subscription being onboarded.
+- You can't have multiple assignments at the same scope with the same `mspOfferName`.
+- The **Microsoft.ManagedServices** resource provider must be registered for the delegated subscription. This should happen automatically during the deployment but if not, you can [register it manually](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+- Authorizations must not include any users with the [Owner](../../role-based-access-control/built-in-roles.md#owner) built-in role or any built-in roles with [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
+- Groups must be created with [**Group type**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) set to **Security** and not **Microsoft 365**.
+- There may be an additional delay before access is enabled for [nested groups](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
+- Users who need to view resources in the Azure portal must have the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access).
+- The [Azure built-in roles](../../role-based-access-control/built-in-roles.md) that you include in authorizations must not include any deprecated roles. If an Azure built-in role becomes deprecated, any users who were onboarded with that role will lose access, and you won't be able to onboard additional delegations. To fix this, update your template to use only supported built-in roles, then perform a new deployment.
+
 ## Next steps
 
 - Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
 - [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.
-- Learn how to [remove access to a delegation](remove-delegation.md) that was previously onboarded.
+- Learn how to [update](update-delegation.md) or [remove](remove-delegation.md) a delegation.

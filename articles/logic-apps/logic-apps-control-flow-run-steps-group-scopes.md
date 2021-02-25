@@ -51,7 +51,7 @@ This example uses Outlook.com. If you use a different provider,
 the general flow stays the same, but your UI appears different.
 
 * A Bing Maps key. To get this key, see 
-<a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Get a Bing Maps key</a>.
+<a href="/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key" target="_blank">Get a Bing Maps key</a>.
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

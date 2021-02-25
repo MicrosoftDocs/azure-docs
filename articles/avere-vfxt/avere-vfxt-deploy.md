@@ -59,7 +59,7 @@ Fill in the following information:
 
 * **Controller username** - Set the root username for the cluster controller VM.
 
-* **Authentication type** - Choose either password or SSH public key authentication for connecting to the controller. The SSH public key method is recommended; read [How to create and use SSH keys](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) if you need help.
+* **Authentication type** - Choose either password or SSH public key authentication for connecting to the controller. The SSH public key method is recommended; read [How to create and use SSH keys](../virtual-machines/linux/ssh-from-windows.md) if you need help.
 
 * **Password** or **SSH public key** - Depending on the authentication type you selected, you must provide an RSA public key or a password in the next fields. This credential is used with the username provided earlier.
 

@@ -25,7 +25,7 @@ This article will show you how to configure your Microsoft authentication librar
 `MSALPublicClientApplication` is configured with a default authority URL of `https://login.microsoftonline.com/common`, which is suitable for most Azure Active Directory (AAD) scenarios. Unless you're implementing advanced scenarios like national clouds, or working with B2C, you won't need to change it.
 
 > [!NOTE]
-> Modern authentication with Active Directory Federation Services as identity provider (ADFS) is not supported (see [ADFS for Developers](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) for details). ADFS is supported through federation.
+> Modern authentication with Active Directory Federation Services as identity provider (ADFS) is not supported (see [ADFS for Developers](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) for details). ADFS is supported through federation.
 
 ## Change the default authority
 

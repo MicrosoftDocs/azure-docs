@@ -114,5 +114,5 @@ Now that you've completed this tutorial, find out more about Notification Hubs a
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Azure Notification Hubs]: https://go.microsoft.com/fwlink/p/?LinkId=314257
 [Send notifications to specific users by using Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Templates]: https://go.microsoft.com/fwlink/p/?LinkId=317339
+[Templates]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [Notification Hub How to for Windows Store]: /previous-versions/azure/azure-services/jj927170(v=azure.100)

@@ -13,11 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2020
+ms.date: 01/25/2021
 ms.author: yelevin
 
 ---
 # Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Azure Sentinel
+
+> [!IMPORTANT]
+>
+> - The UEBA and Entity Pages features are now in **General Availability** in ***all*** Azure Sentinel geographies and regions.
 
 ## What is User and Entity Behavior Analytics (UEBA)?
 
@@ -27,7 +31,7 @@ Identifying threats inside your organization and their potential impact - whethe
 
 The UEBA capability in Azure Sentinel eliminates the drudgery from your analysts’ workloads and the uncertainty from their efforts, and delivers high-fidelity, actionable intelligence, so they can focus on investigation and remediation.
 
-As Azure Sentinel collects logs and alerts from all of its connected data sources, it analyzes them and builds baseline behavioral profiles of your organization’s entities (users, hosts, IP addresses, applications etc.) across time and peer group horizon. Using a variety of techniques and machine learning capabilities, Sentinel can then identify anomalous activity and help you determine if an asset has been compromised. Not only that, but it can also figure out the relative sensitivity of particular assets, identify peer groups of assets, and evaluate the potential impact of any given compromised asset (its “blast radius”). Armed with this information, you can effectively prioritize your investigation and incident handling. 
+As Azure Sentinel collects logs and alerts from all of its connected data sources, it analyzes them and builds baseline behavioral profiles of your organization’s entities (such as users, hosts, IP addresses, and applications) across time and peer group horizon. Using a variety of techniques and machine learning capabilities, Azure Sentinel can then identify anomalous activity and help you determine if an asset has been compromised. Not only that, but it can also figure out the relative sensitivity of particular assets, identify peer groups of assets, and evaluate the potential impact of any given compromised asset (its “blast radius”). Armed with this information, you can effectively prioritize your investigation and incident handling. 
 
 ### Architecture overview
 
@@ -60,9 +64,41 @@ Each activity is scored with “Investigation Priority Score” – which determ
 
 See how behavior analytics is used in [Microsoft Cloud App Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) for an example of how this works.
 
+## Entities in Azure Sentinel
 
+### Entity identifiers
 
-## Entity pages
+When alerts are sent to Azure Sentinel, they include data elements that Azure Sentinel identifies and classifies as entities, such as user accounts, hosts, IP addresses and others. On occasion, this identification can be a challenge, if the alert does not contain sufficient information about the entity.
+
+For example, user accounts can be identified in more than one way: using an Azure AD account’s numeric identifier (GUID), or its User Principal Name (UPN) value, or alternatively, using a combination of its username and its NT domain name. Different data sources can identify the same user in different ways. Therefore, whenever possible, Azure Sentinel merges those identifiers into a single entity, so that it can be properly identified.
+
+It can happen, though, that one of your resource providers creates an alert in which an entity is not sufficiently identified - for example, a user name without the domain name context. In such a case, the user entity cannot be merged with other instances of the same user account, which would be identified as a separate entity, and those two entities would remain separate instead of unified.
+
+In order to minimize the risk of this happening, you should verify that all of your alert providers properly identify the entities in the alerts they produce. Additionally, synchronizing user account entities with Azure Active Directory may create a unifying directory, which will be able to merge user account entities.
+
+The following types of entities are currently identified in Azure Sentinel:
+
+- User account (Account)
+- Host
+- IP address (IP)
+- Malware
+- File
+- Process
+- Cloud application (CloudApplication)
+- Domain name (DNS)
+- Azure resource
+- File (FileHash)
+- Registry key
+- Registry value
+- Security group
+- URL
+- IoT device
+- Mailbox
+- Mail cluster
+- Mail message
+- Submission mail
+
+### Entity pages
 
 When you encounter any entity (currently limited to users and hosts) in a search, an alert, or an investigation, you can select the entity and be taken to an **entity page**, a datasheet full of useful information about that entity. The types of information you will find on this page include basic facts about the entity, a timeline of notable events related to this entity and insights about the entity's behavior.
  
@@ -134,9 +170,11 @@ Entity pages are designed to be part of multiple usage scenarios, and can be acc
 | **InvestigationPriority** | anomaly score, between 0-10 (0=benign, 10=highly anomalous)         |
 |
 
+You can see the full set of contextual enrichments referenced in **UsersInsights**, **DevicesInsights**, and **ActivityInsights** in the [UEBA enrichments reference document](ueba-enrichments.md).
+
 ### Querying behavior analytics data
 
-Using [KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/), we can query the Behavioral Analytics Table.
+Using [KQL](/azure/data-explorer/kusto/query/), we can query the Behavioral Analytics Table.
 
 For example – if we want to find all the cases of a user that failed to sign in to an Azure resource, where it was the user's first attempt to connect from a given country, and connections from that country are uncommon even for the user's peers, we can use the following query:
 
@@ -161,7 +199,7 @@ You can use the [Jupyter notebook](https://github.com/Azure/Azure-Sentinel-Noteb
 
 Permission analytics helps determine the potential impact of the compromising of an organizational asset by an attacker. This impact is also known as the asset's "blast radius." Security analysts can use this information to prioritize investigations and incident handling.
 
-Azure Sentinel determines the direct and transitive access rights held by a given user to Azure resources, by evaluating the Azure subscriptions the user can access directly or via groups or service principals. This information, as well as the full list of the user's Azure AD security group membership, is then stored in the **UserAccessAnalytics** table. The screenshot below shows a sample row in the UserAccessAnalytics table, for the user Alex Johnson. **Source entity** is the user or service principal account, and **target entity** is the resource that the source entity has access to. The values of **access level** and **access type** depend on the access-control model of the target entity. You can see that Alex has Contributor access to the Azure subscription *Contoso Hotels Tenant*. The access control model of the subscription is RBAC.   
+Azure Sentinel determines the direct and transitive access rights held by a given user to Azure resources, by evaluating the Azure subscriptions the user can access directly or via groups or service principals. This information, as well as the full list of the user's Azure AD security group membership, is then stored in the **UserAccessAnalytics** table. The screenshot below shows a sample row in the UserAccessAnalytics table, for the user Alex Johnson. **Source entity** is the user or service principal account, and **target entity** is the resource that the source entity has access to. The values of **access level** and **access type** depend on the access-control model of the target entity. You can see that Alex has Contributor access to the Azure subscription *Contoso Hotels Tenant*. The access control model of the subscription is Azure RBAC.   
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Screen shot of user access analytics table":::
 

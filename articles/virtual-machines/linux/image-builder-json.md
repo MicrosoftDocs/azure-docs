@@ -3,10 +3,11 @@ title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/13/2020
+ms.date: 02/18/2021
 ms.topic: reference
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: cynthn
 ---
 # Preview: Create an Azure Image Builder template 
@@ -148,7 +149,7 @@ The API requires a 'SourceType' that defines the source for the image build, cur
 > When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
 
 ### PlatformImage source 
-Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](../windows/image-builder-overview.md#os-support) for the full list. 
+Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](../image-builder-overview.md#os-support) for the full list. 
 
 ```json
         "source": {
@@ -302,11 +303,28 @@ Customize properties:
 - **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
     * To generate the sha256Checksum, using a terminal on Mac/Linux run: `sha256sum <fileName>`
 
-
-For commands to run with super user privileges, they must be prefixed with `sudo`.
-
 > [!NOTE]
 > Inline commands are stored as part of the image template definition, you can see these when you dump out the image definition, and these are also visible to Microsoft Support in the event of a support case for troubleshooting purposes. If you have sensitive commands or values, it is strongly recommended these are moved into scripts, and use a user identity to authenticate to Azure Storage.
+
+#### Super user privileges
+For commands to run with super user privileges, they must be prefixed with `sudo`, you can add these into scripts or use it inline commands, for example:
+```json
+                "type": "Shell",
+                "name": "setupBuildPath",
+                "inline": [
+                    "sudo mkdir /buildArtifacts",
+                    "sudo cp /tmp/index.html /buildArtifacts/index.html"
+```
+Example of a script using sudo that you can reference using scriptUri:
+```bash
+#!/bin/bash -e
+
+echo "Telemetry: creating files"
+mkdir /myfiles
+
+echo "Telemetry: running sudo 'as-is' in a script"
+sudo touch /myfiles/somethingElevated.txt
+```
 
 ### Windows restart customizer 
 The Restart customizer allows you to restart a Windows VM and wait for it come back online, this allows you to install software that requires a reboot.  
@@ -391,6 +409,10 @@ OS support: Linux and Windows
 File customizer properties:
 
 - **sourceUri** - an accessible storage endpoint, this can be GitHub or Azure storage. You can only download one file, not an entire directory. If you need to download a directory, use a compressed file, then uncompress it using the Shell or PowerShell customizers. 
+
+> [!NOTE]
+> If the sourceUri is an Azure Storage Account, irrespective if the blob is marked public, you will to grant the Managed User Identity permissions to read access on the blob. Please see this [example](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity#create-a-resource-group) to set the storage permissions.
+
 - **destination** – this is the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set these up beforehand. You can use the script customizers to create the path. 
 
 This is supported by Windows directories and Linux paths, but there are some differences: 
@@ -402,8 +424,6 @@ If there is an error trying to download the file, or put it in a specified direc
 
 > [!NOTE]
 > The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads use a script or inline command, the use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
-
-Files in the File customizer can be downloaded from Azure Storage using [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
 ### Windows Update Customizer
 This customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner please see the project repository.

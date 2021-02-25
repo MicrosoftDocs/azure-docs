@@ -46,7 +46,7 @@ The following diagram shows the relationship between applications and service in
 
 The replicas of each partition are spread across the cluster's nodes, which allows your named service's state to [scale](service-fabric-concepts-scalability.md). As the data needs grow, partitions grow, and Service Fabric rebalances partitions across nodes to make efficient use of hardware resources. If you add new nodes to the cluster, Service Fabric will rebalance the partition replicas across the increased number of nodes. Overall application performance improves and contention for access to memory decreases. If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster. Service Fabric again rebalances the partition replicas across the decreased number of nodes to make better use of the hardware on each node.
 
-Within a partition, stateless named services have instances while stateful named services have replicas. Usually, stateless named services only ever have one partition since they have no internal state. The partition instances provide for [availability](service-fabric-availability-services.md). If one instance fails, other instances continue to operate normally and then Service Fabric creates a new instance. Stateful named services maintain their state within replicas and each partition has its own replica set. Read and write operations are performed at one replica (called the Primary). Changes to state from write operations are replicated to multiple other replicas (called Active Secondaries). Should a replica fail, Service Fabric builds a new replica from the existing replicas.
+Within a partition, stateless named services have instances while stateful named services have replicas. Usually, stateless named services only ever have one partition since they have no internal state, although [there are exceptions](./service-fabric-concepts-partitioning.md#partition-service-fabric-stateless-services). The partition instances provide for [availability](service-fabric-availability-services.md). If one instance fails, other instances continue to operate normally and then Service Fabric creates a new instance. Stateful named services maintain their state within replicas and each partition has its own replica set. Read and write operations are performed at one replica (called the Primary). Changes to state from write operations are replicated to multiple other replicas (called Active Secondaries). Should a replica fail, Service Fabric builds a new replica from the existing replicas.
 
 ## Stateless and stateful microservices for Service Fabric
 Service Fabric enables you to build applications that consist of microservices or containers. Stateless microservices (such as protocol gateways and web proxies) do not maintain a mutable state outside a request and its response from the service. Azure Cloud Services worker roles are an example of a stateless service. Stateful microservices (such as user accounts, databases, devices, shopping carts, and queues) maintain a mutable, authoritative state beyond the request and its response. Today's Internet-scale applications consist of a combination of stateless and stateful microservices. 
@@ -82,7 +82,7 @@ A [guest executable](service-fabric-guest-executables-introduction.md) is an exi
 ## Application lifecycle
 As with other platforms, an application on Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrade, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. [Service Fabric application lifecycle](service-fabric-application-lifecycle.md) provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle. 
 
-The entire app lifecycle can be managed using [PowerShell cmdlets](/powershell/module/ServiceFabric/), [CLI commands](service-fabric-sfctl.md), [C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](/java/api/overview/azure/servicefabric), and [REST APIs](/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Azure Pipelines](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster).
+The entire app lifecycle can be managed using [PowerShell cmdlets](/powershell/module/servicefabric/?view=azureservicefabricps), [CLI commands](service-fabric-sfctl.md), [C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](/java/api/overview/azure/servicefabric), and [REST APIs](/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Azure Pipelines](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster).
 
 ## Test applications and services
 To create truly cloud-scale services, it is critical to verify that your applications and services can withstand real-world failures. The Fault Analysis Service is designed for testing services that are built on Service Fabric. With the [Fault Analysis Service](service-fabric-testability-overview.md), you can induce meaningful faults and run complete test scenarios against your applications. These faults and scenarios exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled, safe, and consistent manner.
@@ -126,7 +126,7 @@ Clusters must be secured to prevent unauthorized users from connecting to your c
 The cluster security scenarios are:
 * Node-to-node security
 * Client-to-node security
-* Role-based access control (RBAC)
+* Service Fabric role-based access control
 
 For more information, read [Secure a cluster](service-fabric-cluster-security.md).
 
@@ -155,7 +155,7 @@ Out of the box, Service Fabric components report health on all entities in the c
 
 Service Fabric provides multiple ways to [view health reports](service-fabric-view-entities-aggregated-health.md) aggregated in the health store:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) or other visualization tools.
-* Health queries (through [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), the [C# FabricClient APIs](/dotnet/api/system.fabric.fabricclient.healthclient) and [Java FabricClient APIs](/java/api/system.fabric), or [REST APIs](/rest/api/servicefabric)).
+* Health queries (through [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps), [CLI](service-fabric-sfctl.md), the [C# FabricClient APIs](/dotnet/api/system.fabric.fabricclient.healthclient) and [Java FabricClient APIs](/java/api/system.fabric), or [REST APIs](/rest/api/servicefabric)).
 * General queries that return a list of entities that have health as one of the properties (through PowerShell, CLI, the APIs, or REST).
 
 ## Monitoring and diagnostics
@@ -184,7 +184,7 @@ Multiple products are available that cover these three areas, and you are free t
 * Learn to [monitor and diagnose services](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). 
 * Learn to [test your apps and services](service-fabric-testability-overview.md).
 * Learn to [manage and orchestrate cluster resources](service-fabric-cluster-resource-manager-introduction.md).
-* Look through the [Service Fabric samples](https://aka.ms/servicefabricsamples).
+* Look through the [Service Fabric samples](/samples/browse/?products=azure).
 * Learn about [Service Fabric support options](service-fabric-support.md).
 * Read the [team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) for articles and announcements.
 

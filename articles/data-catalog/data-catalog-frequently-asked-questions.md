@@ -8,6 +8,9 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ---
 # Azure Data Catalog frequently asked questions
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 This article provides answers to frequently asked questions related to the Azure Data Catalog service.
 
 ## What is Azure Data Catalog?
@@ -81,7 +84,7 @@ The specific properties differ from data source to data source but, in general, 
 >
 
 > [!NOTE]
-> For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the Data Catalog data source registration tool extracts that property value. For *on-premises* SQL Server relational databases that lack a first-class **Description** property, the Data Catalog data source registration tool extracts the value from the **ms_description** extended property for objects and columns. This property is not supported for SQL Azure. For more information, see [Using Extended Properties on Database Objects](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the Data Catalog data source registration tool extracts that property value. For *on-premises* SQL Server relational databases that lack a first-class **Description** property, the Data Catalog data source registration tool extracts the value from the **ms_description** extended property for objects and columns. This property is not supported for SQL Azure. For more information, see [Using Extended Properties on Database Objects](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)).
 >
 >
 
@@ -116,7 +119,7 @@ Data Catalog is a cloud service that can work with both cloud and on-premises da
 ## Can I extract more or richer metadata from the data sources I register?
 We’re actively working to expand the capabilities of Data Catalog. If you want to have additional metadata extracted from the data source during registration, suggest it (or vote for it, if it has already been suggested) in the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog). 
 
-If you would like to include column/schema metadata, previews, or data profiles, for data sources where this metadata is not extracted by the data source registration tool, you can use the Data Catalog API to add this metadata. For additional information, see [Azure Data Catalog REST API](https://docs.microsoft.com/rest/api/datacatalog/).
+If you would like to include column/schema metadata, previews, or data profiles, for data sources where this metadata is not extracted by the data source registration tool, you can use the Data Catalog API to add this metadata. For additional information, see [Azure Data Catalog REST API](/rest/api/datacatalog/).
 
 ## How do I restrict the visibility of registered data assets, so that only certain people can discover them?
 Select the data assets in the Data Catalog, and then click the **Take Ownership** button. Owners of data assets in Data Catalog can change the visibility settings to either allow all users to discover the owned assets or restrict visibility to specific users. For additional information, see [Manage data assets in Azure Data Catalog](data-catalog-how-to-manage.md).

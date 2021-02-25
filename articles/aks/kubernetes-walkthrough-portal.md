@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure portal.
 services: container-service
 ms.topic: quickstart
-ms.date: 09/11/2020
+ms.date: 01/13/2021
 
 ms.custom: mvc, seo-javascript-october2019
 
@@ -35,21 +35,21 @@ To create an AKS cluster, complete the following steps:
 
 3. On the **Basics** page, configure the following options:
     - **Project details**: Select an Azure **Subscription**, then select or create an Azure **Resource group**, such as *myResourceGroup*.
-    - **Cluster details**: Enter a **Kubernetes cluster name**, such as *myAKSCluster*. Select a **Region**, **Kubernetes version**, and **DNS name prefix** for the AKS cluster.
-    - **Primary node pool**: Select a VM **Node size** for the AKS nodes. The VM size *can't* be changed once an AKS cluster has been deployed. 
+    - **Cluster details**: Enter a **Kubernetes cluster name**, such as *myAKSCluster*. Select a **Region** and **Kubernetes version** for the AKS cluster.
+    - **Primary node pool**: Select a VM **Node size** for the AKS nodes. The VM size *can't* be changed once an AKS cluster has been deployed.
             - Select the number of nodes to deploy into the cluster. For this quickstart, set **Node count** to *1*. Node count *can* be adjusted after the cluster has been deployed.
     
     ![Create AKS cluster - provide basic information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    Select **Next: Scale** when complete.
+    Select **Next: Node pools** when complete.
 
-4. On the **Scale** page, keep the default options. At the bottom of the screen, click **Next: Authentication**.
+4. On the **Node pools** page, keep the default options. At the bottom of the screen, click **Next: Authentication**.
     > [!CAUTION]
     > Creating new AAD Service Principals may take multiple minutes to propagate and become available causing Service Principal not found errors and validation failures in Azure portal. If you hit this please visit [here](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) for mitigation.
 
 5. On the **Authentication** page, configure the following options:
     - Create a new service principal by leaving the **Service Principal** field with **(new) default service principal**. Or you can choose *Configure service principal* to use an existing one. If you use an existing one, you will need to provide the SPN client ID and secret.
-    - Enable the option for Kubernetes role-based access control (RBAC). This will provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
+    - Enable the option for Kubernetes role-based access control (Kubernetes RBAC). This will provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
 
     Alternatively, you can use a managed identity instead of a service principal. See [use managed identities](use-managed-identity.md) for more information.
 
@@ -66,6 +66,9 @@ To manage a Kubernetes cluster, you use [kubectl][kubectl], the Kubernetes comma
 Open Cloud Shell using the `>_` button on the top of the Azure portal.
 
 ![Open the Azure Cloud Shell in the portal](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
+
+> [!NOTE]
+> To perform these operations in a local shell installation, you'll first need to verify Azure CLI is installed, then connect to Azure via the `az login` command.
 
 To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them. The following example gets credentials for the cluster name *myAKSCluster* in the resource group named *myResourceGroup*:
 
@@ -276,9 +279,9 @@ To learn more about AKS, and walk through a complete code to deployment example,
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
-[aks-monitor]: ../azure-monitor/insights/container-insights-overview.md
+[aks-monitor]: ../azure-monitor/containers/container-insights-overview.md
 [aks-network]: ./concepts-network.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md

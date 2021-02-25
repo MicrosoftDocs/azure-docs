@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate F5 with Azure Active Directory (
 * Enable your users to be automatically signed-in to F5 with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -320,15 +320,15 @@ In this section, you create a user called B.Simon in F5. Work with [F5 Client s
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the F5 tile in the Access Panel, you should be automatically signed in to the F5 for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the F5 tile in the Access Panel, you should be automatically signed in to the F5 for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try F5 with Azure AD](https://aad.portal.azure.com/)
 
@@ -336,3 +336,8 @@ When you click the F5 tile in the Access Panel, you should be automatically sign
 
 - [Configure F5 single sign-on for Kerberos application](kerbf5-tutorial.md)
 
+- [F5 BIG-IP APM and Azure AD integration for secure hybrid access](../manage-apps/f5-aad-integration.md)
+
+- [Tutorial to deploy F5 BIG-IP Virtual Edition VM in Azure IaaS for secure hybrid access](../manage-apps/f5-bigip-deployment-guide.md)
+
+- [Tutorial for Azure Active Directory single sign-on integration with F5 BIG-IP for Password-less VPN](../manage-apps/f5-aad-password-less-vpn.md)

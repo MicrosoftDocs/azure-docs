@@ -210,6 +210,8 @@ The trigger doesn't indicate whether a document was updated or inserted, it just
 
 The Azure Cosmos DB input binding uses the SQL API to retrieve one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function.
 
+## Input - example
+
 # [C#](#tab/csharp)
 
 This section contains the following examples:
@@ -1141,6 +1143,8 @@ Updates are not made automatically upon function exit. Instead, use `context.bin
 ## Output
 
 The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database using the SQL API.
+
+## Output - example
 
 # [C#](#tab/csharp)
 

@@ -24,7 +24,7 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 - **Service baselines**: These apply the controls to individual Azure services to provide recommendations on that service’s security configuration.
 
 ## Implement the Azure Security Benchmark
-- **Plan** your Azure Security Benchmark implementation by reviewing the [documentation](overview.md) for the enterprise controls and service-specific baselines to plan your control framework and how it maps to guidance like CIS (Controls v7.1) and NIST (SP800-53) framework.
+- **Plan** your Azure Security Benchmark implementation by reviewing the [documentation](overview.md) for the enterprise controls and service-specific baselines to plan your control framework and how it maps to guidance like CIS (Controls v7.1) and NIST (SP 800-53) framework.
 - **Monitor** your compliance with Azure Security Benchmark status (and other control sets) using the Azure Security Center [regulatory compliance dashboard](../../security-center/security-center-compliance-dashboard.md).
 - **Establish guardrails** to automate secure configurations and enforce compliance with Azure Security Benchmark (and other requirements in your organization) with Azure Blueprints and Azure Policy.
  

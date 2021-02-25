@@ -1,6 +1,6 @@
 ---
 title: Import SQL BACPAC files with templates
-description: Learn how to use Azure SQL Database extensions to import SQL BACPAC files with Azure Resource Manager templates.
+description: Learn how to use Azure SQL Database extensions to import SQL BACPAC files with Azure Resource Manager templates (ARM templates).
 author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
@@ -9,7 +9,7 @@ ms.author: jgao
 
 # Tutorial: Import SQL BACPAC files with ARM templates
 
-Learn how to use Azure SQL Database extensions to import a BACPAC file with Azure Resource Manager (ARM) templates. Deployment artifacts are any files, in addition to the main template files, that are needed to complete a deployment. The BACPAC file is an artifact.
+Learn how to use Azure SQL Database extensions to import a [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) file with Azure Resource Manager templates (ARM templates). Deployment artifacts are any files, in addition to the main template files, that are needed to complete a deployment. The BACPAC file is an artifact.
 
 In this tutorial, you create a template to deploy a [logical SQL server](../../azure-sql/database/logical-servers.md) and a single database and import a BACPAC file. For information about how to deploy Azure virtual machine extensions by using ARM templates, see [Tutorial: Deploy virtual machine extensions with ARM templates](./template-tutorial-deploy-vm-extensions.md).
 
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with the Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code with the Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 * To increase security, use a generated password for the server administrator account. Here's a sample you can use to generate a password:
 
     ```console
@@ -50,7 +50,7 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
 * Upload the BACPAC file to the container.
 * Display the storage account key and the blob URL.
 
-1. Select **Try it** to open the cloud shell. Then paste the following PowerShell script into the shell window.
+1. Select **Try it** to open Azure Cloud Shell. Then paste the following PowerShell script into the shell window.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -115,7 +115,7 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
 
 ## Edit the template
 
-1. Add two more parameters at the end of the **parameters** section to set the storage account key and the BACPAC URL.
+1. Add two more parameters at the end of the `parameters` section to set the storage account key and the BACPAC URL.
 
     ```json
         "storageAccountKey": {
@@ -132,7 +132,7 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
         }
     ```
 
-    Add a comma after **adminPassword**. To format the JSON file from Visual Studio Code, select Shift+Alt+F.
+    Add a comma after the `adminPassword` property's closing curly brace (`}`). To format the JSON file from Visual Studio Code, select Shift+Alt+F.
 
     To get these two values, see [Prepare a BACPAC file](#prepare-a-bacpac-file).
 
@@ -191,11 +191,11 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
 
         To understand the resource definition, see the [SQL Database extension reference](/azure/templates/microsoft.sql/servers/databases/extensions). The following are some important elements:
 
-        * **dependsOn**: The extension resource must be created after the database has been created.
-        * **storageKeyType**: Specify the type of the storage key to use. The value can be either `StorageAccessKey` or `SharedAccessKey`. Use `StorageAccessKey` in this tutorial.
-        * **storageKey**: Specify the key for the storage account where the BACPAC file is stored. If the storage key type is `SharedAccessKey`, it must be preceded with a "?".
-        * **storageUri**: Specify the URL of the BACPAC file stored in a storage account.
-        * **administratorLoginPassword**: The password of the SQL administrator. Use a generated password. See [Prerequisites](#prerequisites).
+        * `dependsOn`: The extension resource must be created after the database has been created.
+        * `storageKeyType`: Specify the type of the storage key to use. The value can be either `StorageAccessKey` or `SharedAccessKey`. Use `StorageAccessKey` in this tutorial.
+        * `storageKey`: Specify the key for the storage account where the BACPAC file is stored. If the storage key type is `SharedAccessKey`, it must be preceded with a "?".
+        * `storageUri`: Specify the URL of the BACPAC file stored in a storage account.
+        * `administratorLoginPassword`: The password of the SQL administrator. Use a generated password. See [Prerequisites](#prerequisites).
 
 The completed template looks like:
 

@@ -62,7 +62,7 @@ When the review finishes, the **Results** page shows an overview of the response
 
 ## Disable and delete external identities with Azure AD Access Reviews (Preview)
 
-In addition to the option of removing unwanted external identities from resources such as groups or applications, Azure AD Access Reviews can block external identities from signing-in to your tenant and delete the external identities from your tenant after 30 days.
+In addition to the option of removing unwanted external identities from resources such as groups or applications, Azure AD Access Reviews can block external identities from signing-in to your tenant and delete the external identities from your tenant after 30 days. Once you select **Block user from signing-in for 30 days, then remove user from the tenant**, the review will stay in the “applying” state for 30 days. During this period, settings, results, reviewers or Audit logs under the current review won't be viewable or configurable. 
 
 ![upon completion settings](media/access-reviews-external-users/upon-completion-settings.png)
 

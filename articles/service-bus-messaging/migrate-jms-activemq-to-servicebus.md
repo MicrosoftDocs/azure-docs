@@ -58,7 +58,7 @@ As part of migrating and modifying your client applications to interact with Azu
 
 #### Authentication and authorization
 
-Role-based access control (RBAC), backed by Azure Active Directory, is the preferred authentication mechanism for Service Bus. Because RBAC, or claim-based authentication, isn't currently supported by Apache QPID JMS, however, you should use SAS keys for authentication.
+Azure role-based access control (Azure RBAC), backed by Azure Active Directory, is the preferred authentication mechanism for Service Bus. Because Azure RBAC, or claim-based authentication, isn't currently supported by Apache QPID JMS, however, you should use SAS keys for authentication.
 
 ## Pre-migration
 

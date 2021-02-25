@@ -18,6 +18,9 @@ ms.collection: M365-identity-device-management
 
 To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow.
 
+> [!IMPORTANT]
+>**Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
+
 ## Create an API connector
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
@@ -31,7 +34,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 6. Provide the **Endpoint URL** for the API call.
 7. Provide the authentication information for the API.
 
-   - Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, simply enter a dummy **Username** and **Password** that your API can ignore. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** (for example, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
+   - Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, simply enter a dummy **Username** and **Password** that your API can ignore. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** (for example, `https://contoso.azurewebsites.net/api/endpoint?code=0123456789`).
 
    ![Configure a new API connector](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 8. Select **Save**.
@@ -40,7 +43,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 > Previously, you had to configure which user attributes to send to the API ('Claims to send') and which user attributes to accept from the API ('Claims to receive'). Now, all user attributes are sent by default if they have a value and any user attribute can be returned by the API in a 'continuation' response.
 
 ## The request sent to your API
-An API connector materializes as an **HTTP POST** request, sending user attributes ('claims') as key-value pairs in a JSON body. Attributes are serialized similarly to [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) user properties. 
+An API connector materializes as an **HTTP POST** request, sending user attributes ('claims') as key-value pairs in a JSON body. Attributes are serialized similarly to [Microsoft Graph](/graph/api/resources/user#properties) user properties. 
 
 **Example request**
 ```http
@@ -81,7 +84,7 @@ Additionally, the **UI Locales ('ui_locales')** claim is sent by default in all 
 > If a claim to send does not have a value at the time the API endpoint is called, the claim will not be sent to the API. Your API should be designed to explicitly check for the value it expects.
 
 > [!TIP] 
-> [**identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity) and the **Email Address ('email')** claims can be used by your API to identify a user before they have an account in your tenant. The 'identities' claim is sent when a user authenticates with an identity provider such as Google or Facebook. 'email' is always sent.
+> [**identities ('identities')**](/graph/api/resources/objectidentity) and the **Email Address ('email')** claims can be used by your API to identify a user before they have an account in your tenant. The 'identities' claim is sent when a user authenticates with an identity provider such as Google or Facebook. 'email' is always sent.
 
 ## Enable the API connector in a user flow
 
@@ -220,7 +223,7 @@ A blocking response exits the user flow. It can be purposely issued by the API t
 See an example of a [blocking response](#example-of-a-blocking-response).
 
 ### Validation-error response
- When the API responds with a validation-error response , the user flow stays on the attribute collection page and a `userMessage` is displayed to the user. The user can then edit and resubmit the form. This type of response can be used for input validation.
+ When the API responds with a validation-error response, the user flow stays on the attribute collection page and a `userMessage` is displayed to the user. The user can then edit and resubmit the form. This type of response can be used for input validation.
 
 See an example of a [validation-error response](#example-of-a-validation-error-response).
 
@@ -312,7 +315,7 @@ Ensure that:
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
 * Your API explicitly checks for null values of received claims.
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." For Azure Functions, its recommended to use the [Premium plan](../../azure-functions/functions-scale.md#premium-plan). 
+    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." For Azure Functions, its recommended to use the [Premium plan](../../azure-functions/functions-premium-plan.md). 
 
 
 ### Use logging

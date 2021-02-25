@@ -3,14 +3,40 @@ title: Working with arrays and objects in Azure Cosmos DB
 description: Learn the SQL syntax to create arrays and objects in Azure Cosmos DB. This article also provides some examples to perform operations on array objects 
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/02/2021
 ms.author: tisande
 
 ---
 # Working with arrays and objects in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-A key feature of the Azure Cosmos DB SQL API is array and object creation.
+A key feature of the Azure Cosmos DB SQL API is array and object creation. This document uses examples that can be recreated using the [Family dataset](sql-query-getting-started.md#upload-sample-data).
+
+Here's an example item in this dataset:
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "parents": [
+     { "firstName": "Thomas" },
+     { "firstName": "Mary Kay"}
+  ],
+  "children": [
+     {
+         "firstName": "Henriette Thaulow",
+         "gender": "female",
+         "grade": 5,
+         "pets": [{ "givenName": "Fluffy" }]
+     }
+  ],
+  "address": { "state": "WA", "county": "King", "city": "Seattle" },
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
 
 ## Arrays
 
@@ -47,9 +73,27 @@ SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as Ch
 FROM f
 ```
 
+The results are:
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 ## <a id="Iteration"></a>Iteration
 
-The SQL API provides support for iterating over JSON arrays, with a new construct added via the [IN keyword](sql-query-keywords.md#in) in the FROM source. In the following example:
+The SQL API provides support for iterating over JSON arrays, with the [IN keyword](sql-query-keywords.md#in) in the FROM source. In the following example:
 
 ```sql
 SELECT *
@@ -136,7 +180,7 @@ The results are:
 You can also aggregate over the result of an array iteration. For example, the following query counts the number of children among all families:
 
 ```sql
-SELECT COUNT(child)
+SELECT COUNT(1) AS Count
 FROM child IN Families.children
 ```
 
@@ -145,10 +189,15 @@ The results are:
 ```json
 [
   {
-    "$1": 3
+    "Count": 3
   }
 ]
 ```
+
+> [!NOTE]
+> When using the IN keyword for iteration, you cannot filter or project any properties outside of the array. Instead, you should use [JOINs](sql-query-join.md).
+
+For additional examples, read our [blog post on working with arrays in Azure Cosmos DB](https://devblogs.microsoft.com/cosmosdb/understanding-how-to-query-arrays-in-azure-cosmos-db/).
 
 ## Next steps
 

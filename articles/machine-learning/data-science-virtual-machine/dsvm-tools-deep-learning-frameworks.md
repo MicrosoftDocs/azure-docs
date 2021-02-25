@@ -4,8 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Available deep learning frameworks and tools on Azure Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 
 author: lobrien
@@ -72,7 +71,7 @@ Deep learning frameworks on the DSVM are listed below.
 | How is it configured / installed on the DSVM?  | Keras is installed in Python 3.6 on Windows and in Python 3.5 in Linux |
 | How to run it      | Activate the correct environment at the terminal, and then run Python. |
 
-## [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
+## [Microsoft Cognitive Toolkit (CNTK)](/cognitive-toolkit/)
 
 | Category | Value |
 | ------------- | ------------- |

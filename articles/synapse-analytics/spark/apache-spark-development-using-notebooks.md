@@ -1,20 +1,20 @@
 ---
 title: Synapse Studio notebooks
-description: In this article, you learn how to create and develop Azure Synapse Studio (preview) notebooks to do data preparation and visualization.
+description: In this article, you learn how to create and develop Azure Synapse Studio notebooks to do data preparation and visualization.
 services: synapse analytics 
 author: ruixinxu 
 ms.service: synapse-analytics 
 ms.topic: conceptual 
 ms.subservice: spark
-ms.date: 05/01/2020
+ms.date: 10/19/2020
 ms.author: ruxu 
 ms.reviewer: 
 ms.custom: devx-track-python
 ---
 
-# Create, develop, and maintain Synapse Studio (preview) notebooks in Azure Synapse Analytics
+# Create, develop, and maintain Synapse Studio notebooks in Azure Synapse Analytics
 
-A Synapse Studio (preview) notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. Notebooks are also widely used in data preparation, data visualization, machine learning, and other Big Data scenarios.
+A Synapse Studio notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. Notebooks are also widely used in data preparation, data visualization, machine learning, and other Big Data scenarios.
 
 With an Azure Synapse Studio notebook, you can:
 
@@ -25,11 +25,29 @@ With an Azure Synapse Studio notebook, you can:
 
 This article describes how to use notebooks in Azure Synapse Studio.
 
+## Preview of the new notebook experience
+Synapse team brought the new notebooks component into Synapse Studio to provide consistent notebook experience for Microsoft customers and maximize discoverability, productivity, sharing, and collaboration. The new notebook experience is ready for preview. Check the **Preview Features** button in notebook toolbar to turn it on. The table below captures feature comparison between existing notebook (so called "classical notebook") with the new preview one.  
+
+|Feature|Classical Notebook|Preview Notebook|
+|--|--|--|
+|%run| Not supported | &#9745;|
+|%history| Not supported |&#9745;
+|%load| Not supported |&#9745;|
+|%%html| Not supported |&#9745;|
+|Drag and drop to move a cell| Not supported |&#9745;|
+|Persistent Display() output|&#9745;| Not available |
+|Cancel all| &#9745;| Not available|
+|Run all cells above|&#9745;| Not available |
+|Run all cells below|&#9745;| Not available |
+|Format text cell with toolbar buttons|&#9745;| Not available |
+|Undo cell operation| &#9745;| Not available |
+
+
 ## Create a notebook
 
 There are two ways to create a notebook. You can create a new notebook or import an existing notebook to an Azure Synapse workspace from the **Object Explorer**. Azure Synapse Studio notebooks can recognize standard Jupyter Notebook IPYNB files.
 
-![create import notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
+![create import notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook-2.png)
 
 ## Develop notebooks
 
@@ -38,6 +56,8 @@ Notebooks consist of cells, which are individual blocks of code or text that can
 ### Add a cell
 
 There are multiple ways to add a new cell to your notebook.
+
+# [Classical Notebook](#tab/classical)
 
 1. Expand the upper left **+ Cell** button, and select **Add code cell** or **Add text cell**.
 
@@ -48,6 +68,19 @@ There are multiple ways to add a new cell to your notebook.
     ![add-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
 3. Use [Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **A** to insert a cell above the current cell. Press **B** to insert a cell below the current cell.
+
+
+# [Preview Notebook](#tab/preview)
+
+1. Expand the upper left **+ Cell** button, and select **code cell** or **Markdown cell**.
+    ![add-azure-notebook-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-1.png)
+2. Select the plus sign at the beginning of a cell and select **Code cell** or **Markdown cell**.
+
+    ![add-azure-notebook-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-2.png)
+
+3. Use [aznb Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **A** to insert a cell above the current cell. Press **B** to insert a cell below the current cell.
+
+---
 
 ### Set a primary language
 
@@ -81,12 +114,12 @@ The following image is an example of how you can write a PySpark query using the
 
 You cannot reference data or variables directly across different languages in a Synapse Studio notebook. In Spark, a temporary table can be referenced across languages. Here is an example of how to read a `Scala` DataFrame in `PySpark` and `SparkSQL` using a Spark temp table as a workaround.
 
-1. In Cell 1, read a DataFrame from SQL pool connector using Scala and create a temporary table.
+1. In Cell 1, read a DataFrame from a SQL pool connector using Scala and create a temporary table.
 
    ```scala
    %%scala
-   val scalaDataFrame = spark.read.option("format", "DW connector predefined type")
-   scalaDataFrame.registerTempTable( "mydataframetable" )
+   val scalaDataFrame = spark.read.sqlanalytics("mySQLPoolDatabase.dbo.mySQLPoolTable")
+   scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
 
 2. In Cell 2, query the data using Spark SQL.
@@ -107,7 +140,7 @@ You cannot reference data or variables directly across different languages in a 
 
 Azure Synapse Studio notebooks are integrated with the Monaco editor to bring IDE-style IntelliSense to the cell editor. Syntax highlight, error marker, and automatic code completions help you to write code and identify issues quicker.
 
-The IntelliSense features are at different levels of maturity for different languages. Use the table below to see what's supported.
+The IntelliSense features are at different levels of maturity for different languages. Use the following table to see what's supported.
 
 |Languages| Syntax Highlight | Syntax Error Marker  | Syntax Code Completion | Variable Code Completion| System Function Code Completion| User Function Code Completion| Smart Indent | Code Folding|
 |--|--|--|--|--|--|--|--|--|
@@ -118,16 +151,34 @@ The IntelliSense features are at different levels of maturity for different lang
 
 ### Format text cell with toolbar buttons
 
+# [Classical Notebook](#tab/classical)
+
 You can use the format buttons in the text cells toolbar to do common markdown actions. It includes bolding text, italicizing text, inserting code snippets, inserting unordered list, inserting ordered list and inserting image from URL.
 
   ![Synapse text cell toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
+# [Preview Notebook](#tab/preview)
+
+Format button toolbar is not available for the preview notebook experience yet. 
+
+---
+
 ### Undo cell operations
+
+# [Classical Notebook](#tab/classical)
+
 Select the **undo** button or press **Ctrl+Z** to revoke the most recent cell operation. Now you can undo up to the latest 20 historical cell actions. 
 
    ![Synapse undo cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
+# [Preview Notebook](#tab/preview)
+
+Undo cell operation is not available for the preview notebook experience yet. 
+
+---
 
 ### Move a cell
+
+# [Classical Notebook](#tab/classical)
 
 Select the ellipses (...) to access the additional cell actions menu at the far right. Then select **Move cell up** or **Move cell down** to move the current cell. 
 
@@ -135,7 +186,16 @@ You can also use [shortcut keys under command mode](#shortcut-keys-under-command
 
    ![move-a-cell](./media/apache-spark-development-using-notebooks/synapse-move-cells.png)
 
+# [Preview Notebook](#tab/preview)
+
+Click on the left-hand side of a cell and drag it to the desired position. 
+    ![Synapse move cells](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-drag-drop-cell.gif)
+
+---
+
 ### Delete a cell
+
+# [Classical Notebook](#tab/classical)
 
 To delete a cell, select the ellipses (...) to access the additional cell actions menu at the far right then select **Delete cell**. 
 
@@ -143,16 +203,48 @@ You can also use [shortcut keys under command mode](#shortcut-keys-under-command
   
    ![delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
 
+# [Preview Notebook](#tab/preview)
+
+To delete a cell, select the delete button at the right hand of the cell. 
+
+You can also use [shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **Shift+D** to delete the current cell. 
+
+   ![azure-notebook-delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-delete-cell.png)
+
+---
+
 ### Collapse a cell input
+
+# [Classical Notebook](#tab/classical)
+
 Select the arrow button at the bottom of the current cell to collapse it. To expand it, select the arrow button while the cell is collapsed.
 
    ![collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
 
+# [Preview Notebook](#tab/preview)
+
+Select the **More commands** ellipses (...) on the cell toolbar and **input** to collapse current cell's input. To expand it, Select the **input hidden** while the cell is collapsed.
+
+   ![azure-notebook-collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-input.gif)
+
+---
+
 ### Collapse a cell output
+
+# [Classical Notebook](#tab/classical)
 
 Select the **collapse output** button at the upper left of the current cell output to collapse it. To expand it, select the **Show cell output** while the cell output is collapsed.
 
    ![collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
+
+# [Preview Notebook](#tab/preview)
+
+Select the **More commands** ellipses (...) on the cell toolbar and **output** to collapse current cell's output. To expand it, select the same button while the cell's output is hidden.
+
+   ![azure-notebook-collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-output.gif)
+
+
+---
 
 ## Run notebooks
 
@@ -165,19 +257,18 @@ There are several ways to run the code in a cell.
 1. Hover on the cell you want to run and select the **Run Cell** button or press **Ctrl+Enter**.
 
    ![run-cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
+  
+2. Use [Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **Shift+Enter** to run the current cell and select the cell below. Press **Alt+Enter** to run the current cell and insert a new cell below.
 
-
-2. To Access the additional cell actions menu at the far right, select the ellipses (**...**). Then, select **Run cell**.
-
-   ![run-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
-   
-3. Use [Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **Shift+Enter** to run the current cell and select the cell below. Press **Alt+Enter** to run the current cell and insert a new cell below.
-
+---
 
 ### Run all cells
 Select the **Run All** button to run all the cells in current notebook in sequence.
 
    ![run-all-cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
+
+
+# [Classical Notebook](#tab/classical)
 
 ### Run all cells above or below
 
@@ -190,6 +281,29 @@ To Access the additional cell actions menu at the far right, select the ellipses
 Select the **Cancel All** button to cancel the running cells or cells waiting in the queue. 
    ![cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
+# [Preview Notebook](#tab/preview)
+
+Cancel all running cells is not available for the preview notebook experience yet. 
+
+---
+
+
+
+### Reference notebook
+
+# [Classical Notebook](#tab/classical)
+
+Not supported.
+
+# [Preview Notebook](#tab/preview)
+
+You can use ```%run <notebook path>``` magic command to reference another notebook within current notebook's context. All the variables defined in the reference notebook are available in the current notebook. ```%run``` magic command supports nested calls but not support recursive calls. You will receive an exception if the statement depth is larger than five. ```%run``` command currently only supports to pass a notebook path as parameter. 
+
+Example: ``` %run /path/notebookA ```.
+
+---
+
+
 ### Cell status indicator
 
 A step-by-step cell execution status is displayed beneath the cell to help you see its current progress. Once the cell run is complete, an execution summary with the total duration and end time are shown and kept there for future reference.
@@ -198,7 +312,7 @@ A step-by-step cell execution status is displayed beneath the cell to help you s
 
 ### Spark progress indicator
 
-Azure Synapse Studio notebook is purely Spark based. Code cells are executed on the Spark pool remotely. A Spark job progress indicator is provided with a real-time progress bar appears to help you understand the job execution status.
+Azure Synapse Studio notebook is purely Spark based. Code cells are executed on the serverless Apache Spark pool remotely. A Spark job progress indicator is provided with a real-time progress bar appears to help you understand the job execution status.
 The number of tasks per each job or stage help you to identify the parallel level of your spark job. You can also drill deeper to the Spark UI of a specific job (or stage) via selecting the link on the job (or stage) name.
 
 
@@ -208,11 +322,25 @@ The number of tasks per each job or stage help you to identify the parallel leve
 
 You can specify the timeout duration, the number, and the size of executors to give to the current Spark session in **Configure session**. Restart the Spark session is for configuration changes to take effect. All cached notebook variables are cleared.
 
-[![session-management](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
+[![session-management](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png#lightbox)
 
-A Spark session recommender is now available on the Spark session config panel. You can select a Spark pool directly from the session configuration panel and see how many nodes are using and how many remaining executors are available. This information can help you to set the appropriate session size rather than modifying it back and forth.
+#### Spark session config magic command
+You can also specify spark session settings via a magic command **%%configure**. The spark session needs to restart to make the settings effect. We recommend you to run the **%%configure** at the beginning of your notebook. Here is a sample, refer to https://github.com/cloudera/livy#request-body for full list of valid parameters 
 
-![session-recommend](./media/apache-spark-development-using-notebooks/synapse-spark-session-recommender.png)
+```
+%%configure -f
+{
+    to config the session.
+    "driverMemory":"2g",
+    "driverCores":3,
+    "executorMemory":"2g",
+    "executorCores":2,
+    "jars":["myjar1.jar","myjar.jar"],
+    "conf":{
+        "spark.driver.maxResultSize":"10g"
+    }
+}
+```
 
 
 ## Bring data to a notebook
@@ -229,9 +357,6 @@ container_name = "Your container name"
 relative_path = "Your path"
 adls_path = 'abfss://%s@%s.dfs.core.windows.net/%s' % (container_name, account_name, relative_path)
 
-spark.conf.set("fs.azure.account.auth.type.%s.dfs.core.windows.net" %account_name, "SharedKey")
-spark.conf.set("fs.azure.account.key.%s.dfs.core.windows.net" %account_name ,"Your ADLSg2 Primary Key")
-
 df1 = spark.read.option('header', 'true') \
                 .option('delimiter', ',') \
                 .csv(adls_path + '/Testfile.csv')
@@ -243,21 +368,26 @@ df1 = spark.read.option('header', 'true') \
 ```python
 
 from pyspark.sql import SparkSession
-from pyspark.sql.types import *
 
-blob_account_name = "Your blob account name"
-blob_container_name = "Your blob container name"
-blob_relative_path = "Your blob relative path"
-blob_sas_token = "Your blob sas token"
+# Azure storage access info
+blob_account_name = 'Your account name' # replace with your blob name
+blob_container_name = 'Your container name' # replace with your container name
+blob_relative_path = 'Your path' # replace with your relative folder path
+linked_service_name = 'Your linked service name' # replace with your linked service name
 
-wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
+blob_sas_token = mssparkutils.credentials.getConnectionStringOrCreds(linked_service_name)
+
+# Allow SPARK to access from Blob remotely
+
+wasb_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
+
 spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name), blob_sas_token)
+print('Remote blob path: ' + wasb_path)
 
 df = spark.read.option("header", "true") \
             .option("delimiter","|") \
             .schema(schema) \
             .csv(wasbs_path)
-
 ```
 
 ### Read data from the primary storage account
@@ -265,68 +395,6 @@ df = spark.read.option("header", "true") \
 You can access data in the primary storage account directly. There's no need to provide the secret keys. In Data Explorer, right-click on a file and select **New notebook** to see a new notebook with data extractor autogenerated.
 
 ![data-to-cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
-
-## Visualize data in a notebook
-
-### Produce rendered table view
-
-A tabular results view is provided with the option to create a bar chart, line chart, pie chart, scatter chart, and area chart. You can visualize your data without having to write code. The charts can be customized in the **Chart Options**. 
-
-The output of **%%sql** magic commands appear in the rendered table view by default. You can call <code>display(df)</code> on Spark DataFrames, Pandas DataFrames, List or Resilient Distributed Datasets (RDD) function to produce the rendered table view.
-
-   [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
-
-### Visualize built-in charts from large-scale dataset 
-
-By default the <code>display(df)</code> function will only take the first 1000 rows of the data to render the charts. Check the **Aggregation over all results** and select **Apply** button, you will apply the chart generation from the whole dataset. A spark job will be triggered when the chart setting changes, it takes a while to complete the calculation and render the chart. 
-    [![builtin-charts-aggregation-all](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
-
-
-
-### Visualize data statistic information
-You can use <code>display(df, summary = True)</code> to check the statistics summary of a given spark DataFrame that include the column name, column type, unique values, and missing values for each column. You can also select on specific column to see its Minimal value, Maximal value, Mean value and Standard Deviation.
-    [ ![builtin-charts-summary](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png) ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
-
-### Render HTML or interactive libraries
-
-You can render HTML code , including Javascript, CSS, D3 or interactive libraries, like **bokeh**, using the **displayHTML()**.
-
-The following image is an example of plotting glyphs over a map using **bokeh**.
-
-   ![bokeh-example](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
-   
-
-Run the following sample code to draw the image above.
-
-```python
-from bokeh.plotting import figure, output_file
-from bokeh.tile_providers import get_provider, Vendors
-from bokeh.embed import file_html
-from bokeh.resources import CDN
-from bokeh.models import ColumnDataSource
-
-tile_provider = get_provider(Vendors.CARTODBPOSITRON)
-
-# range bounds supplied in web mercator coordinates
-p = figure(x_range=(-9000000,-8000000), y_range=(4000000,5000000),
-           x_axis_type="mercator", y_axis_type="mercator")
-p.add_tile(tile_provider)
-
-# plot datapoints on the map
-source = ColumnDataSource(
-    data=dict(x=[ -8800000, -8500000 , -8800000],
-              y=[4200000, 4500000, 4900000])
-)
-
-p.circle(x="x", y="y", size=15, fill_color="blue", fill_alpha=0.8, source=source)
-
-# create an html document that embeds the Bokeh plot
-html = file_html(p, CDN, "my plot1")
-
-# display this html
-displayHTML(html)
-
-```
 
 ## Save notebooks
 
@@ -347,14 +415,27 @@ In the notebook properties, you can configure whether to include the cell output
 ## Magic commands
 You can use familiar Jupyter magic commands in Azure Synapse Studio notebooks. Review the following list as the current available magic commands. Tell us [your use cases on GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) so that we can continue to build out more magic commands to meet your needs.
 
+# [Classical Notebook](#tab/classical)
+
 Available line magics:
-[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%time it](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
+[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
 Available cell magics:
-[%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
+[%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages),[%%configure](#spark-session-config-magic-command)
 
 
-## Orchestrate notebook
+
+# [Preview Notebook](#tab/preview)
+
+Available line magics:
+[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#reference-notebook), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+
+Available cell magics:
+[%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages), [%%html](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%%configure](#spark-session-config-magic-command)
+
+--- 
+
+## Integrate a notebook
 
 ### Add a notebook to a pipeline
 
@@ -364,11 +445,22 @@ Select the **Add to pipeline** button on the upper right corner to add a noteboo
 
 ### Designate a parameters cell
 
+# [Classical Notebook](#tab/classical)
+
 To parameterize your notebook, select the ellipses (...) to access the additional cell actions menu at the far right. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
 
 ![toggle-parameter](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
 
+# [Preview Notebook](#tab/preview)
+
+To parameterize your notebook, select the ellipses (...) to access the **more commands** at the cell toolbar. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
+
+![azure-notebook-toggle-parameter](./media/apache-spark-development-using-notebooks/azure-notebook-toggle-parameter-cell.png)
+
+---
+
 Azure Data Factory looks for the parameters cell and treats this cell as defaults for the parameters passed in at execution time. The execution engine will add a new cell beneath the parameters cell with input parameters in order to overwrite the default values. When a parameters cell isn't designated, the injected cell will be inserted at the top of the notebook.
+
 
 ### Assign parameters values from a pipeline
 
@@ -386,13 +478,15 @@ Similar to Jupyter Notebooks, Azure Synapse Studio notebooks have a modal user i
 
 1. A cell is in command mode when there is no text cursor prompting you to type. When a cell is in Command mode, you can edit the notebook as a whole but not type into individual cells. Enter command mode by pressing `ESC` or using the mouse to select outside of a cell's editor area.
 
-   ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
+   ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode-2.png)
 
 2. Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you can type into the cell. Enter edit mode by pressing `Enter` or using the mouse to select on a cell's editor area.
    
-   ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
+   ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode-2.png)
 
 ### Shortcut keys under command mode
+
+# [Classical Notebook](#tab/classical)
 
 Using the following keystroke shortcuts, you can more easily navigate and run code in Azure Synapse notebooks.
 
@@ -411,7 +505,26 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 |Delete selected cells| D, D |
 |Switch to edit mode| Enter |
 
+# [Preview Notebook](#tab/preview)
+
+| Action |Synapse Studio notebook Shortcuts  |
+|--|--|
+|Run the current cell and select below | Shift+Enter |
+|Run the current cell and insert below | Alt+Enter |
+|Run current cell| Ctrl+Enter |
+|Select cell above| Up |
+|Select cell below| Down |
+|Select previous cell| K |
+|Select next cell| J |
+|Insert cell above| A |
+|Insert cell below| B |
+|Delete selected cells| Shift+D |
+|Switch to edit mode| Enter |
+
+---
+
 ### Shortcut keys under edit mode
+
 
 Using the following keystroke shortcuts, you can more easily navigate and run code in Azure Synapse notebooks when in Edit mode.
 
@@ -429,14 +542,16 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 |Go one word left|Ctrl + Left|
 |Go one word right|Ctrl + Right|
 |Select all|Ctrl + A|
-|Indent| Ctrl + ]|
+|Indent| Ctrl +]|
 |Dedent|Ctrl + [|
 |Switch to command mode| Esc |
 
+---
+
 ## Next steps
 - [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Quickstart: Create an Apache Spark pool (preview) in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
+- [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Use .NET for Apache Spark with Azure Synapse Analytics](spark-dotnet.md)
-- [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [.NET for Apache Spark documentation](/dotnet/spark)
+- [Azure Synapse Analytics](../index.yml)

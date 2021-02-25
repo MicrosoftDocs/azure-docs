@@ -9,11 +9,15 @@
     href: entitlement-management-overview.md
   - name: What are access reviews?
     href: access-reviews-overview.md
+  - name: What is identity lifecycle management?
+    href: what-is-identity-lifecycle-management.md
 - name: Tutorials
   expanded: true
   items:
-    - name: Create your first access package
+    - name: Manage access to resources - Azure portal
       href: entitlement-management-access-package-first.md
+    - name: Manage access to resources - Microsoft Graph
+      href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
 - name: Concepts
   expanded: true
   items:
@@ -23,6 +27,16 @@
       href: entitlement-management-delegate.md
     - name: Request process and emails
       href: entitlement-management-process.md
+  - name: Identity lifecycle management
+    items:
+    - name: What is provisioning?
+      href: what-is-provisioning.md
+    - name: What is HR-driven provisioning?
+      href: what-is-hr-driven-provisioning.md
+    - name: What is app provisioning?
+      href: what-is-app-provisioning.md
+    - name: What is inter-directory provisioning?
+      href: what-is-inter-directory-provisioning.md
   - name: Access reviews
     items:
     - name: Manage guest access with reviews
@@ -131,6 +145,6 @@
   expanded: true
   items:
   - name: Access reviews - Graph API
-    href: /graph/api/resources/accessreviews-root?view=graph-rest-beta
+    href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta
   - name: Entitlement management - Graph API
     href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta

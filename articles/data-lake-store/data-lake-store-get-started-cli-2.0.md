@@ -22,7 +22,7 @@ ms.author: twooley
 
 Learn how to use the Azure CLI to create an Azure Data Lake Storage Gen1 account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Storage Gen1, see [Overview of Data Lake Storage Gen1](data-lake-store-overview.md).
 
-The Azure CLI is Azure's command-line experience for managing Azure resources. It can be used on macOS, Linux, and Windows. For more information, see [Overview of Azure CLI](https://docs.microsoft.com/cli/azure). You can also look at the [Azure Data Lake Storage Gen1 CLI reference](https://docs.microsoft.com/cli/azure/dls) for a complete list of commands and syntax.
+The Azure CLI is Azure's command-line experience for managing Azure resources. It can be used on macOS, Linux, and Windows. For more information, see [Overview of Azure CLI](/cli/azure). You can also look at the [Azure Data Lake Storage Gen1 CLI reference](/cli/azure/dls) for a complete list of commands and syntax.
 
 
 ## Prerequisites
@@ -30,11 +30,11 @@ Before you begin this article, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure CLI** - See [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for instructions.
+* **Azure CLI** - See [Install Azure CLI](/cli/azure/install-azure-cli) for instructions.
 
 ## Authentication
 
-This article uses a simpler authentication approach with Data Lake Storage Gen1 where you log in as an end-user user. The access level to the Data Lake Storage Gen1 account and file system is then governed by the access level of the logged in user. However, there are other approaches as well to authenticate with Data Lake Storage Gen1, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) or [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md).
+This article uses a simpler authentication approach with Data Lake Storage Gen1 where you log in as an end-user user. The access level to the Data Lake Storage Gen1 account and file system is then governed by the access level of the logged in user. However, there are other approaches as well to authenticate with Data Lake Storage Gen1, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) or [Service-to-service authentication](./data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 
 ## Log in to your Azure subscription

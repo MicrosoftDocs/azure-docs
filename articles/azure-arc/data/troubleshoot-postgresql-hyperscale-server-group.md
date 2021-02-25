@@ -46,13 +46,13 @@ For example, let's troubleshoot a PostgreSQL Hyperscale server group that might 
 
 ### Install tools
 
-Install Azure Data Studio, `kubectl` and `azdata` on the client machine you are using to run the notebook in Azure Data Studio. To do this, please follow the instructions at [Install client tools](install-client-tools.md)
+Install Azure Data Studio, `kubectl` and [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] on the client machine you are using to run the notebook in Azure Data Studio. To do this, please follow the instructions at [Install client tools](install-client-tools.md)
 
 ### Update the PATH environment variable
 
 Make sure that these tools can be invoked from anywhere on this client machine. For example, on a Windows client machine, update the PATH system environment variable and add the folder in which you installed kubectl.
 
-### Sign in with `azdata`
+### Sign in with [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 Sign in your Arc Data Controller from this client machine and before you launch Azure Data Studio. To do this, run a command like:
 

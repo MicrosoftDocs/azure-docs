@@ -112,7 +112,7 @@ Before deploying SSPR, you may opt to determine the number and the average cost 
 
 Microsoft recommends that organizations enable the combined registration experience for SSPR and multi-factor authentication. When you enable this combined registration experience, users need only select their registration information once to enable both features.
 
-The combined registration experience does not require organizations to enable both SSPR and Azure Multi-Factor Authentication. Combined registration provides organizations a better user experience. For more information, see [Combined security information registration](concept-registration-mfa-sspr-combined.md)
+The combined registration experience does not require organizations to enable both SSPR and Azure AD Multi-Factor Authentication. Combined registration provides organizations a better user experience. For more information, see [Combined security information registration](concept-registration-mfa-sspr-combined.md)
 
 ## Plan the deployment project
 
@@ -120,7 +120,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
 
 #### Required administrator roles
 
@@ -310,7 +310,7 @@ Azure AD can provide additional information on your SSPR performance through aud
 You can use pre-built reports on Azure portal to measure the SSPR performance. If you're appropriately licensed, you can also create custom queries. For more information, see [Reporting options for Azure AD password management](./howto-sspr-reporting.md)
 
 > [!NOTE]
->  You must be [a global administrator](../users-groups-roles/directory-assign-admin-roles.md), and you must opt-in for this data to be gathered for your organization. To opt in, you must visit the Reporting tab or the audit logs on the Azure Portal at least once. Until then, the data doesn't collect for your organization.
+>  You must be [a global administrator](../roles/permissions-reference.md), and you must opt-in for this data to be gathered for your organization. To opt in, you must visit the Reporting tab or the audit logs on the Azure Portal at least once. Until then, the data doesn't collect for your organization.
 
 Audit logs for registration and password reset are available for 30 days. If security auditing within your corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or ArcSight.
 
@@ -318,11 +318,11 @@ Audit logs for registration and password reset are available for 30 days. If sec
 
 ### Authentication methods- Usage and Insights
 
-[Usage and insights](./howto-authentication-methods-usage-insights.md) enable you to understand how authentication methods for features like Azure MFA and SSPR are working in your organization. This reporting capability provides your organization with the means to understand what methods register and how to use them.
+[Usage and insights](./howto-authentication-methods-usage-insights.md) enable you to understand how authentication methods for features like Azure AD MFA and SSPR are working in your organization. This reporting capability provides your organization with the means to understand what methods register and how to use them.
 
 ### Troubleshoot
 
-* Refer to [Troubleshoot self-service password reset](./active-directory-passwords-troubleshoot.md) 
+* Refer to [Troubleshoot self-service password reset](./troubleshoot-sspr.md) 
 
 * Follow [Password management frequently asked questions](./active-directory-passwords-faq.md) 
 

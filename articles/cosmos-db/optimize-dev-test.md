@@ -9,6 +9,7 @@ ms.date: 08/19/2020
 ---
 
 # Optimize development and testing cost in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article describes the different options to use Azure Cosmos DB for development and testing for free of cost, as well as techniques to optimize cost in development or test accounts.
 
@@ -23,7 +24,7 @@ Azure Cosmos DB free tier makes it easy to get started, develop and test your ap
 > [!NOTE]
 > Free tier is only available in provisioned throughput mode.
 
-Free tier lasts indefinitely for the lifetime of the account and comes with all the [benefits and features](introduction.md#key-benefits) of a regular Azure Cosmos DB account, including unlimited storage and throughput (RU/s), SLAs, high availability, turnkey global distribution in all Azure regions, and more. You can have up to one free tier account per Azure subscription and must opt-in when creating the account. To get started, [create a new account in Azure portal with free tier enabled](create-cosmosdb-resources-portal.md) or use an [ARM Template](manage-sql-with-resource-manager.md#free-tier). See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for more details.
+Free tier lasts indefinitely for the lifetime of the account and comes with all the [benefits and features](introduction.md#key-benefits) of a regular Azure Cosmos DB account, including unlimited storage and throughput (RU/s), SLAs, high availability, turnkey global distribution in all Azure regions, and more. You can have up to one free tier account per Azure subscription and must opt-in when creating the account. To get started, [create a new account in Azure portal with free tier enabled](create-cosmosdb-resources-portal.md) or use an [ARM Template](./manage-with-templates.md#free-tier). See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for more details.
 
 ## Try Azure Cosmos DB for free
 
@@ -31,7 +32,7 @@ Free tier lasts indefinitely for the lifetime of the account and comes with all 
 
 ## Azure free account
 
-Azure Cosmos DB is included in the [Azure free account](https://azure.microsoft.com/free), which offers Azure credits and resources for free for a certain time period. Specifically for Azure Cosmos DB, this free account offers 5-GB storage and 400 RUs of provisioned throughput for the entire year. This experience enables any developer to easily test the features of Azure Cosmos DB or integrate it with other Azure services at zero cost. With Azure free account, you get a $200 credit to spend in the first 30 days. You won’t be charged, even if you start using the services until you choose to upgrade. To get started, visit [Azure free account](https://azure.microsoft.com/free) page.
+Azure Cosmos DB is included in the [Azure free account](https://azure.microsoft.com/free), which offers Azure credits and resources for free for a certain time period. Specifically for Azure Cosmos DB, this free account offers 25-GB storage and 400 RUs of provisioned throughput for the entire year. This experience enables any developer to easily test the features of Azure Cosmos DB or integrate it with other Azure services at zero cost. With Azure free account, you get a $200 credit to spend in the first 30 days. You won’t be charged, even if you start using the services until you choose to upgrade. To get started, visit [Azure free account](https://azure.microsoft.com/free) page.
 
 ## Azure Cosmos DB serverless
 
@@ -52,5 +53,5 @@ You can get started with using the emulator or the free Azure Cosmos DB accounts
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of queries](optimize-cost-queries.md)
+* Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of multi-region Azure Cosmos accounts](optimize-cost-regions.md)

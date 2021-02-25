@@ -135,7 +135,7 @@ app appears under the **raw** box on the **Body** tab.
 
 ## Cancel a one-time job
 
-In Logic Apps, each one-time job executes as a single logic app run instance. To cancel a one-time job, you can use [Workflow Runs - Cancel](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) in the Logic Apps REST API. When you send a call to the trigger, provide the [workflow run ID](#workflow-run-id).
+In Logic Apps, each one-time job executes as a single logic app run instance. To cancel a one-time job, you can use [Workflow Runs - Cancel](/rest/api/logic/workflowruns/cancel) in the Logic Apps REST API. When you send a call to the trigger, provide the [workflow run ID](#workflow-run-id).
 
 ## Schedule recurring jobs
 
@@ -242,7 +242,7 @@ If your Azure subscription has a paid support plan, you can create a technical s
 
 **Community**
 
-* [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)
+* [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 
 ## Next steps

@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Create multiple model & endpoints - Azure'
 description: Use PowerShell to create multiple Machine Learning models and web service endpoints with the same algorithm but different training datasets.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -13,7 +13,7 @@ ms.date: 04/04/2017
 ---
 # Create multiple web service endpoints from one experiment with ML Studio (classic) and PowerShell
 
-**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Here's a common machine learning problem: You want to create many models that have the same training workflow and use the same algorithm. But you want them to have different training datasets as input. This article shows you how to do this at scale in Azure Machine Learning Studio (classic) using just a single experiment.
 
@@ -23,7 +23,7 @@ You could train your model once using a merged version of all the datasets acros
 
 That may be the best approach, but you don't want to create 1,000 training experiments in Azure Machine Learning Studio (classic) with each one representing a unique location. Besides being an overwhelming task, it also seems inefficient since each experiment would have all the same components except for the training dataset.
 
-Fortunately, you can accomplish this by using the [Azure Machine Learning Studio (classic) retraining API](/azure/machine-learning/studio/retrain-machine-learning-model) and automating the task with [Azure Machine Learning Studio (classic) PowerShell](powershell-module.md).
+Fortunately, you can accomplish this by using the [Azure Machine Learning Studio (classic) retraining API](./retrain-machine-learning-model.md) and automating the task with [Azure Machine Learning Studio (classic) PowerShell](powershell-module.md).
 
 > [!NOTE]
 > To make your sample run faster, reduce the number of locations from 1,000 to 10. But the same principles and procedures apply to 1,000 locations. However, if you do want to train from 1,000 datasets you might want to run the following PowerShell scripts in parallel. How to do that is beyond the scope of this article, but you can find examples of PowerShell multi-threading on the Internet.  

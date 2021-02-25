@@ -4,8 +4,6 @@ description: Learn how to effectively use the GetMetric() call to capture locall
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/28/2020
 ---
 
@@ -106,7 +104,7 @@ If we examine our Application Insights resource in the Logs (Analytics) experien
 > [!NOTE]
 > While the raw telemetry item did not contain an explicit sum property/field once ingested we create one for you. In this case both the `value` and `valueSum` property represent the same thing.
 
-You can also access your custom metric telemetry in the [_Metrics_](../platform/metrics-charts.md) section of the portal. As both a [log-based, and custom metric](pre-aggregated-metrics-log-metrics.md). (The screenshot below is an example of log-based.)
+You can also access your custom metric telemetry in the [_Metrics_](../essentials/metrics-charts.md) section of the portal. As both a [log-based, and custom metric](pre-aggregated-metrics-log-metrics.md). (The screenshot below is an example of log-based.)
 ![Metrics explorer view](./media/get-metric/metrics-explorer.png)
 
 ### Caching metric reference for high-throughput usage
@@ -300,6 +298,6 @@ SeverityLevel.Error);
 
 * [Learn more ](./worker-service.md)about monitoring worker service applications.
 * For further details on [log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
-* [Metric Explorer](../platform/metrics-getting-started.md)
+* [Metric Explorer](../essentials/metrics-getting-started.md)
 * How to enable Application Insights for [ASP.NET Core Applications](asp-net-core.md)
 * How to enable Application Insights for [ASP.NET Applications](asp-net.md)

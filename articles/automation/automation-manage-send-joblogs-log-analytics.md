@@ -67,7 +67,7 @@ Automation diagnostic settings supports forwarding the following platform logs a
 * DSCNodeStatus
 * Metrics - Total Jobs, Total Update Deployment Machine Runs, Total Update Deployment Runs
 
-To start sending your Automation logs to Azure Monitor logs, review [create diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) to understand the feature and methods available to configure diagnostic settings to send platform logs.
+To start sending your Automation logs to Azure Monitor logs, review [create diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) to understand the feature and methods available to configure diagnostic settings to send platform logs.
 
 ## Azure Monitor log records
 
@@ -136,7 +136,7 @@ To create an alert rule, start by creating a log search for the runbook job reco
 
    If you set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account. Automation account name can be found in the `Resource` field in the search of `JobLogs`.
 
-3. To open the **Create rule** screen, click **New Alert Rule** at the top of the page. For more information on the options to configure the alert, see [Log alerts in Azure](../azure-monitor/platform/alerts-unified-log.md).
+3. To open the **Create rule** screen, click **New Alert Rule** at the top of the page. For more information on the options to configure the alert, see [Log alerts in Azure](../azure-monitor/alerts/alerts-unified-log.md).
 
 ### Find all jobs that have completed with errors
 
@@ -173,7 +173,7 @@ AzureDiagnostics
 
 ### Filter job status output converted into a JSON object
 
-Recently we changed the behavior of how the Automation log data is written to the `AzureDiagnostics` table in the Log Analytics service, where it no longer breaks down the JSON properties into separate fields. If you configured your runbook to format objects in the output stream in JSON format as separate columns, it is necessary to reconfigure your queries to parse that field to a JSON object in order to access those properties. This is accomplished using [parsejson](../azure-monitor/log-query/json-data-structures.md#parsejson) to access a specific JSON element in a known path.
+Recently we changed the behavior of how the Automation log data is written to the `AzureDiagnostics` table in the Log Analytics service, where it no longer breaks down the JSON properties into separate fields. If you configured your runbook to format objects in the output stream in JSON format as separate columns, it is necessary to reconfigure your queries to parse that field to a JSON object in order to access those properties. This is accomplished using [parsejson](/azure/data-explorer/kusto/query/samples?pivots=#parsejson) to access a specific JSON element in a known path.
 
 For example, a runbook formats the *ResultDescription* property in the output stream in JSON format with multiple fields. To search for the status of your jobs that are in a failed state as specified in a field called **Status**, use this example query to search the *ResultDescription* with a status of **Failed**:
 
@@ -188,8 +188,8 @@ AzureDiagnostics
 
 ## Next steps
 
-* To learn how to construct search queries and review the Automation job logs with Azure Monitor logs, see [Log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
+* To learn how to construct search queries and review the Automation job logs with Azure Monitor logs, see [Log searches in Azure Monitor logs](../azure-monitor/logs/log-query-overview.md).
 * To understand creation and retrieval of output and error messages from runbooks, see [Monitor runbook output](automation-runbook-output-and-messages.md).
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
-* To learn more about Azure Monitor logs and data collection sources, see [Collecting Azure storage data in Azure Monitor logs overview](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
-* For help troubleshooting Log Analytics, see [Troubleshooting why Log Analytics is no longer collecting data](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).
+* To learn more about Azure Monitor logs and data collection sources, see [Collecting Azure storage data in Azure Monitor logs overview](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
+* For help troubleshooting Log Analytics, see [Troubleshooting why Log Analytics is no longer collecting data](../azure-monitor/logs/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

@@ -3,13 +3,13 @@ title: Request limits - Translator
 titleSuffix: Azure Cognitive Services
 description: This article lists request limits for the Translator. Charges are incurred based on character count, not request frequency with a limit of 5,000 characters per request. Character limits are subscription based, with F0 limited to 2 million characters per hour.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Request limits for Translator
@@ -47,17 +47,17 @@ If you reach or surpass these limits, or send too large of a portion of the quot
 | S3 / C3 | 120 million characters per hour |
 | S4 / C4 | 200 million characters per hour |
 
-Limits for [multi-service subscriptions](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) are the same as the S1 tier.
+Limits for [multi-service subscriptions](./reference/v3-0-reference.md#authentication) are the same as the S1 tier.
 
 These limits are restricted to Microsoft's standard translation models. Custom translation models that use Custom Translator are limited to 1,800 characters per second.
 
 ## Latency
 
-The Translator has a maximum latency of 15 seconds using standard models and 120 seconds when using custom models. Typically, responses *for text within 100 characters* are returned in 150 milliseconds to 300 milliseconds. The custom translator models have similar latency characteristics on sustained request rate and may have a higher latency when your request rate is intermittent. Response times will vary based on the size of the request and language pair. If you don't receive a translation or an [error response](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) within that timeframe, please check your code, your network connection and retry. 
+The Translator has a maximum latency of 15 seconds using standard models and 120 seconds when using custom models. Typically, responses *for text within 100 characters* are returned in 150 milliseconds to 300 milliseconds. The custom translator models have similar latency characteristics on sustained request rate and may have a higher latency when your request rate is intermittent. Response times will vary based on the size of the request and language pair. If you don't receive a translation or an [error response](./reference/v3-0-reference.md#errors) within that timeframe, please check your code, your network connection and retry. 
 
 ## Sentence length limits
 
-When using the [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence) function, sentence length is limited to 275 characters. There are exceptions for these languages:
+When using the [BreakSentence](./reference/v3-0-break-sentence.md) function, sentence length is limited to 275 characters. There are exceptions for these languages:
 
 | Language | Code | Character limit |
 |----------|------|-----------------|
@@ -76,4 +76,4 @@ When using the [BreakSentence](https://docs.microsoft.com/azure/cognitive-servic
 
 * [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [Regional availability](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
-* [v3 Translator reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+* [v3 Translator reference](./reference/v3-0-reference.md)

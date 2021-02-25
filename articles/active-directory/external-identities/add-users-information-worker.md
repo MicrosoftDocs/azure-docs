@@ -26,8 +26,8 @@ After a guest user has been added to the directory in Azure AD, an application o
  - Configure the app for self-service and assign the group to the app
 
 > [!NOTE]
-> This article describes how to set up self-service management for gallery and SAML-based apps that you’ve added to your Azure AD tenant. You can also [set up self-service Microsoft 365 groups](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) so your users can manage access to their own Microsoft 365 groups. For more ways users can share Office files and apps with guest users, see [Guest access in Microsoft 365 groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) and [Share SharePoint files or folders](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
-
+> * This article describes how to set up self-service management for gallery and SAML-based apps that you’ve added to your Azure AD tenant. You can also [set up self-service Microsoft 365 groups](../enterprise-users/groups-self-service-management.md) so your users can manage access to their own Microsoft 365 groups. For more ways users can share Office files and apps with guest users, see [Guest access in Microsoft 365 groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) and [Share SharePoint files or folders](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
+> * Users are only able to invite guests if they have the **Guest inviter** role.
 ## Invite a guest user to an app from the Access Panel
 
 After an app is configured for self-service, application owners can use their own Access Panel to invite a guest user to the app they want to share. The guest user doesn't necessarily need to be added to Azure AD in advance. 
@@ -73,7 +73,7 @@ After an app is configured for self-service, application owners can invite guest
 
 ## Prerequisites
 
-Self-service app management requires some initial setup by a Global Administrator and an Azure AD administrator. As part of this setup, you'll configure the app for self-service and assign a group to the app that the application owner can manage. You can also configure the group to allow anyone to request membership but require a group owner's approval. (Learn more about [self-service group management](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management).) 
+Self-service app management requires some initial setup by a Global Administrator and an Azure AD administrator. As part of this setup, you'll configure the app for self-service and assign a group to the app that the application owner can manage. You can also configure the group to allow anyone to request membership but require a group owner's approval. (Learn more about [self-service group management](../enterprise-users/groups-self-service-management.md).) 
 
 > [!NOTE]
 > You cannot add guest users to a dynamic group or to a group that is synced with on-premises Active Directory.
@@ -103,8 +103,8 @@ Self-service app management requires some initial setup by a Global Administrato
 2. In the navigation pane, select **Azure Active Directory**.
 3. Under **Manage**, select **Enterprise applications** > **All applications**.
 4. In the application list, find and open the app.
-5. Under **Manage**, select **Single sign-on**, and configure the application for single sign-on. (For details, see [how to manage single sign-on for enterprise apps](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).)
-6. Under **Manage**, select **Self-service**, and set up self-service app access. (For details, see [how to use self-service app access](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).) 
+5. Under **Manage**, select **Single sign-on**, and configure the application for single sign-on. (For details, see [how to manage single sign-on for enterprise apps](../manage-apps/add-application-portal-setup-sso.md).)
+6. Under **Manage**, select **Self-service**, and set up self-service app access. (For details, see [how to use self-service app access](../manage-apps/access-panel-manage-self-service-access.md).) 
 
     > [!NOTE]
     > For the setting **To which group should assigned users be added?** select the group you created in the previous section.
@@ -118,4 +118,4 @@ See the following articles on Azure AD B2B collaboration:
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [How do Azure Active Directory admins add B2B collaboration users?](add-users-administrator.md)
 - [B2B collaboration invitation redemption](redemption-experience.md)
-- [Azure AD B2B collaboration licensing](licensing-guidance.md)
+- [External Identities pricing](external-identities-pricing.md)

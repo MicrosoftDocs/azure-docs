@@ -4,6 +4,7 @@ description: Learn about Synapse SQL consumption models in Azure Synapse Analyti
 services: synapse analytics
 author: vvasic-msft
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
@@ -12,13 +13,13 @@ ms.reviewer: jrasnick
 
 # Synapse SQL resource consumption
 
-This article describes resource consumption models of Synapse SQL (preview).
+This article describes resource consumption models of Synapse SQL.
 
-## SQL on-demand
+## Serverless SQL pool
 
-SQL on-demand is a pay per query service that doesn't require you to pick the right size. The system automatically adjusts based on your requirements, freeing you up from managing your infrastructure and picking the right size for your solution.
+Serverless SQL pool is a pay per query service that doesn't require you to pick the right size. The system automatically adjusts based on your requirements, freeing you up from managing your infrastructure and picking the right size for your solution.
 
-## SQL pool - Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
+## Dedicated SQL pool - Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
 
 Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
 
@@ -32,7 +33,7 @@ Performance for data warehouse units is based on these data warehouse workload m
 
 - How fast a standard data warehousing query can scan a large number of rows and then perform a complex aggregation. This operation is I/O and CPU intensive.
 - How fast the data warehouse can ingest data from Azure Storage Blobs or Azure Data Lake. This operation is network and CPU intensive.
-- How fast the [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL command can copy a table. This operation involves reading data from storage, distributing it across the nodes of the appliance and writing to storage again. This operation is CPU, IO, and network intensive.
+- How fast the [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) T-SQL command can copy a table. This operation involves reading data from storage, distributing it across the nodes of the appliance and writing to storage again. This operation is CPU, IO, and network intensive.
 
 Increasing DWUs:
 
@@ -44,12 +45,12 @@ Increasing DWUs:
 
 The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000.
 
-The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 SQL pool are measured in data warehouse units (DWU), for example DW2000c.
+The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 dedicated SQL pool are measured in data warehouse units (DWU), for example DW2000c.
 
 > [!NOTE]
 > Azure Synapse Analytics Gen2 recently added additional scale capabilities to support compute tiers as low as 100 cDWU. Existing data warehouses currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information, see [Upgrade to Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-In T-SQL, the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your SQL pool.
+In T-SQL, the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your dedicated SQL pool.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -72,7 +73,7 @@ As you increase data warehouse units, you're linearly increasing computing resou
 
 #### Capacity limits
 
-Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
+Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../azure-sql/database/service-tiers-dtu.md) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
 ### Assess the number of data warehouse units you need
 
@@ -88,11 +89,11 @@ SQL pool is a scale-out system that can provision vast amounts of compute and qu
 
 > [!NOTE]
 >
-> Query performance only increases with more parallelization if the work can be split between compute nodes. If you find that scaling is not changing your performance, you may need to tune your table design and/or your queries. For query tuning guidance, see [Manage user queries](../overview-cheat-sheet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> Query performance only increases with more parallelization if the work can be split between compute nodes. If you find that scaling is not changing your performance, you may need to tune your table design and/or your queries. For query tuning guidance, see [Manage user queries](../overview-terminology.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
 ### Permissions
 
-Changing the data warehouse units requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Changing the data warehouse units requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 Azure built-in roles such as SQL DB Contributor and SQL Server Contributor can change DWU settings.
 
@@ -129,7 +130,7 @@ To change DWUs:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To change the DWUs, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW that is hosted on server MyServer.
+To change the DWUs, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW that is hosted on server MyServer.
 
 ```Powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
@@ -144,7 +145,7 @@ With T-SQL you can view the current DWUsettings, change the settings, and check 
 To change the DWUs:
 
 1. Connect to the master database associated with your server.
-2. Use the [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) TSQL statement. The following example sets the service level objective to DW1000c for the database MySQLDW.
+2. Use the [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true) TSQL statement. The following example sets the service level objective to DW1000c for the database MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -154,7 +155,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 
 #### REST APIs
 
-To change the DWUs, use the [Create or Update Database](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) REST API. The following example sets the service level objective to DW1000c for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
+To change the DWUs, use the [Create or Update Database](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true) REST API. The following example sets the service level objective to DW1000c for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -198,7 +199,7 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-This DMV returns information about various management operations on your SQL pool such as the operation and the state of the operation, which is either IN_PROGRESS or COMPLETED.
+This DMV returns information about various management operations on your dedicated SQL pool such as the operation and the state of the operation, which is either IN_PROGRESS or COMPLETED.
 
 ### The scaling workflow
 

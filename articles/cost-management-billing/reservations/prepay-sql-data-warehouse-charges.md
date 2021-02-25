@@ -22,7 +22,7 @@ When the reserved capacity expires, Azure Synapse Analytics instances continue t
 
 For pricing information, see the [Azure Synapse Analytics reserved capacity offering](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-You can buy Azure Synapse Analytics reserved capacity in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pay for the reservation [up front or with monthly payments](monthly-payments-reservations.md). To buy reserved capacity:
+You can buy Azure Synapse Analytics reserved capacity in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pay for the reservation [up front or with monthly payments](./prepare-buy-reservation.md). To buy reserved capacity:
 
 - You must have the owner role for at least one enterprise or Pay-As-You-Go subscription.
 - For Enterprise subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). If the setting is disabled, you must be an EA Admin.
@@ -41,7 +41,7 @@ For example, assume your total consumption of Azure Synapse Analytics is DW3000c
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** > **Reservations**.
 3. Select a subscription. Use the Subscription list to choose the subscription that's used to pay for the reserved capacity. The payment method of the subscription is charged the costs for the reserved capacity. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
-   - For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage.
+   - For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
    - For Pay-As-You-Go subscription, the charges are billed to the credit card or invoice payment method on the subscription.
 4. Select a scope. Use the Scope list to choose a subscription scope.
    - **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.

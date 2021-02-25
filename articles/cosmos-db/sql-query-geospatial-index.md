@@ -3,25 +3,25 @@ title: Index geospatial data with Azure Cosmos DB
 description: Index spatial data with Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/03/2020
+ms.date: 11/03/2020
 ms.author: tisande
 
 ---
 # Index geospatial data with Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 We designed Azure Cosmos DB's database engine to be truly schema agnostic and provide first class support for JSON. The write optimized database engine of Azure Cosmos DB natively understands spatial data represented in the GeoJSON standard.
 
 In a nutshell, the geometry is projected from geodetic coordinates onto a 2D plane then divided progressively into cells using a **quadtree**. These cells are mapped to 1D based on the location of the cell within a **Hilbert space filling curve**, which preserves locality of points. Additionally when location data is indexed, it goes through a process known as **tessellation**, that is, all the cells that intersect a location are identified and stored as keys in the Azure Cosmos DB index. At query time, arguments like points and Polygons are also tessellated to extract the relevant cell ID ranges, then used to retrieve data from the index.
 
-If you specify an indexing policy that includes spatial index for /* (all paths), then all data found within the container is indexed for efficient spatial queries.
+If you specify an indexing policy that includes a spatial index for `/*` (all paths), then all data found within the container is indexed for efficient spatial queries.
 
 > [!NOTE]
-> Azure Cosmos DB supports indexing of Points, LineStrings, Polygons, and MultiPolygons
->
->
+> Azure Cosmos DB supports indexing of Points, LineStrings, Polygons, and MultiPolygons. If you index any one of these types, we will automatically index all other types. In other words, if you index Polygons, we'll also index Points, LineStrings, and MultiPolygons. Indexing a new spatial type does not affect the write RU charge or index size unless you have valid GeoJSON data of that type.
 
-## Modifying geospatial data type
+## Modifying geospatial configuration
 
 In your container, the **Geospatial Configuration** specifies how the spatial data will be indexed. Specify one **Geospatial Configuration** per container: geography or geometry.
 

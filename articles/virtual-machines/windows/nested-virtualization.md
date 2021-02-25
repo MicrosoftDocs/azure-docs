@@ -20,7 +20,7 @@ This article steps through enabling Hyper-V on an Azure VM and configuring Inter
 
 Create a new Windows Server 2016 Azure VM. For a complete list of virtual machine sizes that support nesting, check out the [Azure Compute Unit article](../acu.md).
 
-Remember to choose a VM size large enough to support the demands of a guest virtual machine. In this example, we are using a D3_v3 size Azure VM. 
+Remember to choose a VM size large enough to support the demands of a guest virtual machine. In this example, we are using a D4_v3 size Azure VM. 
 
 You can view the regional availability of Dv3 or Ev3 series virtual machines [here](https://azure.microsoft.com/regions/services/).
 

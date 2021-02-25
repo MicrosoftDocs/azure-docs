@@ -1,17 +1,15 @@
 ---
-title: Building government solutions with Azure IoT Central
+title: What are the Azure IoT Central government solutions
 description: Learn to build smart city solutions using Azure IoT Central application templates.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ---
 
-# Building government solutions with Azure IoT Central
-
-
+# What are the IoT Central government solutions?
 
 Get started with building smart city solutions using Azure IoT Central application templates. Start now with **water quality monitoring**, **water consumption monitoring**, and **connected waste management**.
 
@@ -36,7 +34,6 @@ Get started with the [Water Quality Monitoring application tutorial](./tutorial-
 ## What is Water Consumption Monitoring application template? 
 
 Traditional water consumption tracking relies on water operators manually reading water consumption meters at the meter sites. More and more cities are replacing traditional meters with advanced smart meters enabling remote monitoring of consumption and remotely controlling valves to control water flow. Water consumption monitoring coupled with digital feedback message to the citizen can increase awareness and reduce water consumption. 
-
 
 Water Consumption Monitoring app is an IoT Central app template to help you kickstart your IoT solution development to enable water utilities and cities to remotely monitor and control water flow to reduce consumption. 
 
@@ -69,8 +66,6 @@ Get started with the [Connected Waste Management application tutorial](./tutoria
 
 ## Next steps
 
-* Try any of the Government application templates in IoT Central for free [create app](https://apps.azureiotcentral.com/build/government)
 * Learn about [Water Quality Monitoring concepts](./concepts-waterqualitymonitoring-architecture.md)
 * Learn about [Water Consumption Monitoring concepts](./concepts-waterconsumptionmonitoring-architecture.md)
 * Learn about [Connected Waste Management concepts](./concepts-connectedwastemanagement-architecture.md)  
-* Learn about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central) 

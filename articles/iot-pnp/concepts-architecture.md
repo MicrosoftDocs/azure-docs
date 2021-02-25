@@ -31,7 +31,7 @@ The [model repository](./concepts-model-repository.md) is a store for model and 
 
 The web UI lets you manage the models and interfaces.
 
-The model repository uses RBAC to enable you to limit access to interface definitions.
+The model repository has built-in role-based access controls that let you limit access to interface definitions.
 
 ## Devices
 
@@ -93,4 +93,4 @@ Now that you have an overview of the architecture of an IoT Plug and Play soluti
 
 - [The model repository](./concepts-model-repository.md)
 - [Digital twin model integration](./concepts-model-discovery.md)
-- [Developing for IoT Plug and Play](./concepts-developer-guide-device-csharp.md)
+- [Developing for IoT Plug and Play](./concepts-developer-guide-device.md)

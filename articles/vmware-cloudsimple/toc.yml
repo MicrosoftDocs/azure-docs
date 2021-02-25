@@ -1,5 +1,5 @@
 - name: VMware Solution by CloudSimple
-  href: /azure/vmware-cloudsimple
+  href: ./index.md
   items:
   - name: Overview
     items: 
@@ -52,6 +52,8 @@
       href: node-quota.md
     - name: Maintenance and updates
       href: cloudsimple-maintenance-updates.md
+    - name: Forbidden actions 
+      href: forbidden-actions.md
     - name: FAQ
       href: cloudsimple-faq.md
   - name: Tutorials

@@ -21,6 +21,9 @@
     href: signalr-quickstart-azure-functions-java.md
   - name: Azure Functions - Python
     href: signalr-quickstart-azure-functions-python.md
+  - name: Azure SignalR Service deployment - ARM template
+    href: signalr-quickstart-azure-signalr-service-arm-template.md
+    displayName: deploy azure resource manager template
   - name: REST API
     href: signalr-quickstart-rest-api.md
 
@@ -56,6 +59,22 @@
       href: ../azure-functions/functions-bindings-signalr-service.md
     - name: Upstream settings
       href: concept-upstream.md
+  - name: Availability
+    items:
+      - name: Gracefully shutdown your app server.
+        href: server-graceful-shutdown.md
+  - name: Security
+    items:
+      - name: Authorization
+        items:
+          - name: Authorize access with Azure Active Directory
+            href: authorize-access-azure-active-directory.md
+      - name: Authentication
+        items:
+        - name: Authenticate from an application
+          href: authenticate-application.md
+        - name: Authenticate with a managed identity
+          href: authenticate-managed-identity.md
   - name: High availability
     items:
     - name: Resiliency and disaster recovery
@@ -68,6 +87,12 @@
     href: signalr-concept-authenticate-oauth.md
   - name: Event handling
     href: signalr-concept-event-grid-integration.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
+    - name: Security controls by Azure Policy
+      href: ./security-controls-policy.md
 - name: How-to guides
   items:
   - name: Scale
@@ -100,6 +125,12 @@
       href: signalr-howto-diagnostic-logs.md
     - name: Audit compliance using Azure Policy
       href: signalr-howto-azure-policy.md
+  - name: Troubleshooting
+    items:
+    - name: Troubleshooting guides
+      href: signalr-howto-troubleshoot-guide.md
+    - name: Troubleshooting methods
+      href: signalr-howto-troubleshoot-method.md
 
 - name: References
   items:
@@ -108,7 +139,7 @@
   - name: REST API
     href: https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md
   - name: ASP.NET Core SignalR
-    href: https://docs.microsoft.com/aspnet/core/signalr
+    href: /aspnet/core/signalr
   - name: Azure SignalR Service Protocol
     href: https://github.com/Azure/azure-signalr/blob/dev/specs/ServiceProtocol.md
   - name: Azure Policy built-ins
@@ -118,7 +149,7 @@
 - name: Resources
   items:
   - name: Solutions
-    href: https://docs.microsoft.com/azure/architecture/
+    href: /azure/architecture/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=signalr
   - name: SignalR roadmap
@@ -130,7 +161,7 @@
   - name: FAQs
     href: signalr-resource-faq.md
   - name: SignalR Service subscription level limits
-    href: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/signalr-service/
   - name: Videos

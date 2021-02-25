@@ -18,7 +18,7 @@ ms.author: b-juche
 ---
 # Create an NFS volume for Azure NetApp Files
 
-Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv3, or dual protocol (NFSv3 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. This article shows you how to create an NFS volume. 
+Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. This article shows you how to create an NFS volume. 
 
 ## Before you begin 
 * You must have already set up a capacity pool.  
@@ -125,4 +125,4 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 * [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Learn about virtual network integration for Azure services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
