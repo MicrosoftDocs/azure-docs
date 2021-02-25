@@ -44,7 +44,7 @@ Use the following steps to publish a notebook:
 
 1. Go to the notebook that you want to publish. Select the **Save** button in the command bar and then select **Publish to gallery**:
 
-   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish-option2.png" alt-text="Choose a notebook to publish to the gallery.":::
+   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish-option-2.png" alt-text="Choose a notebook to publish to the gallery.":::
 
    You can also find the **Publish to gallery** option by selecting the **…** button next to the notebook name:
 
