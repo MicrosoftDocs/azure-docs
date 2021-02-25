@@ -128,7 +128,7 @@ Substitute the package name that you registered in the Azure portal for the `and
 
 ### Android 11 Support
 
-In order to utilize the system browser on Android 11 you must first declare the packages needed by the application in the AndroidManifest.xml to access them due to changes Android introduced with Android 11 around package-visibility for apps that are targeting SDK 30.
+Apps targeting android 10 (API 29) and below were able to query the OS for a list of which packages were available on the device at any given time. In the interest of privacy and security Android 11 is reducing the package visibility to a default list of OS packages and along with the packages that are specified in the app's AndoridManifest.xml file. In order to utilize the system browser and brokered authentication on Android 11 you must first declare these packages so that they will be visible to the app.
 
 Adding the following to the AndroidManifest.xml will enable the application to authenticate with both the system browser and broker:
 
