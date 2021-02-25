@@ -14,15 +14,38 @@ If you're familiar with using JSON to develop ARM templates, use the following t
 
 | Scenario | ARM template | Bicep |
 | -------- | ------------ | ----- |
-| Author an expression | `[func()]` | `func()` |
-| Concatenate strings | `concat('John', ' ', parameters('lastName'))` | `'John ${lastName}'` |
-| Return the logical AND | `and(parameter('isMonday'), parameter('isNovember'))` | `isMonday && isNovember` |
-| Resource ID of resource in the template | `resourceId('microsoft.network/virtualNetworks')` | `res.id` |
-| Property from resource in the template | `reference(parameters('resourceName')).properties.resourceProperty` | `res.properties.resourceProperty` |
-| Conditionally declare a property value | `if(parameters('isMonday'), 'valueIfTrue', 'valueIfFalse')` | `isMonday ? 'valueIfTrue' : 'valueIfFalse'` |
+| Author an expression | `"[func()]"` | `func()` |
+| Get parameter value | `[parameters('exampleParameter'))]` | `exampleParameter` |
+| Get variable value | `[variables('exampleVar'))]` | `exampleVar` |
+| Concatenate strings | `[concat(parameters('namePrefix'), '-vm')]` | `'${namePrefix}-vm'` |
+| Set resource property | `"sku": "2016-Datacenter",` | `sku: '2016-Datacenter'` |
+| Return the logical AND | `[and(parameter('isMonday'), parameter('isNovember'))]` | `isMonday && isNovember` |
+| Get resource ID of resource in the template | `[resourceId('Microsoft.Network/networkInterfaces', variables('nic1Name'))]` | `nic1.id` |
+| Get property from resource in the template | `[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]` | `diagsAccount.properties.primaryEndpoints.blob` |
+| Conditionally set a value | `[if(parameters('isMonday'), 'valueIfTrue', 'valueIfFalse')]` | `isMonday ? 'valueIfTrue' : 'valueIfFalse'` |
 | Separate a solution into multiple files | Use linked templates | Use modules |
 | Set the target scope of the deployment | `"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#"` | `targetScope = 'subscription'` |
 | Set dependency | `"dependsOn": ["[resourceId('Microsoft.Storage/storageAccounts', 'parameters('storageAccountName'))]"]` | Either rely on automatic detection of dependencies or manually set dependency with `dependsOn: [ stg ]` |
+
+To declare the type and version for a resource, use the following in Bicep:
+
+```bicep
+resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
+  ...
+}
+```
+
+Instead of the equivalent syntax in JSON:
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2020-06-01",
+    ...
+  }
+]
+```
 
 ## Recommendations
 

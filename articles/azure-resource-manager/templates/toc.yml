@@ -298,12 +298,14 @@
   items:
   - name: Template best practices
     href: template-best-practices.md
-  - name: Frequently asked questions
-    href: frequently-asked-questions.md
   - name: Bicep
     items:
+    - name: Overview
+      href: bicep-overview.md 
     - name: Going from JSON to Bicep
       href: compare-template-syntax.md
+  - name: Frequently asked questions
+    href: frequently-asked-questions.md
   - name: Templates for cloud consistency
     href: templates-cloud-consistency.md
   - name: Deployment modes
