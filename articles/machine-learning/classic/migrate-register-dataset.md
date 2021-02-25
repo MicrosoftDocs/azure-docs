@@ -18,8 +18,8 @@ In this article, you learn how to migrate a Studio (classic) dataset to Azure Ma
 You have three options to migrate a dataset to Azure Machine Learning:
 
 1.  [Download the dataset from Studio (classic)](#download-the-dataset-from-studio-classic).
-1.  [Register an Azure Machine Learning dataset from a cloud source](#rebuild-the-pipeline).
-1.  [Use the Import Data module](#submit-a-run-and-check-results).
+1.  [Register an Azure Machine Learning dataset from a cloud source](#import-data-from-cloud-sources).
+1.  [Use the Import Data module to get data from a cloud source](#import-data-from-cloud-sources).
 
 Read each section to determine which option is best for your dataset.
 
@@ -94,11 +94,11 @@ After you download the data file, you can register the dataset in Azure Machine 
 
 ## Import data from cloud sources
 
-If your data is already in a cloud storage service, and you want to keep your data in its native location. You can use either of the following options to ingest data from the cloud in the designer:
+If your data is already in a cloud storage service, and you want to keep your data in its native location. You can use either of the following options:
 
 |Ingestion method|Description|
 |---| --- |
-|Register an Azure Machine Learning dataset|Ingest data from local and online data sources (Blob, ADLS Gen1, ADLS Gen2, File share, SQL DB). <br><br>Creates a reference to the data source, which is lazily evaluated at runtime. <br><br> Use this option if you repeatedly access this dataset and to enable advanced data features like data versioning and monitoring.
+|Register an Azure Machine Learning dataset|Ingest data from local and online data sources (Blob, ADLS Gen1, ADLS Gen2, File share, SQL DB). <br><br>Creates a reference to the data source, which is lazily evaluated at runtime. Use this option if you repeatedly access this dataset and want to enable advanced data features like data versioning and monitoring.
 |Import Data module|Ingest data from online data sources (Blob, ADLS Gen1, ADLS Gen2, File share, SQL DB). <br><br> The dataset is only imported to the current designer pipeline run.
 
 
@@ -125,7 +125,7 @@ After you register a dataset in Azure Machine Learning, you can use it in design
 1. In the module palette to the left, expand the **Datasets** section
 1. Drag your registered dataset onto the canvas. 
 
-### Use the Import Data module in the designer
+### Use the Import Data module
 
 Use the following steps to import data directly to your designer pipeline:
 
@@ -135,11 +135,11 @@ After you create the datastore, you can use the **Import Data** module in the de
 
 1. Create a new designer pipeline draft.
 1. In the module palette to the left, find the **Import Data** module and drag it to the canvas.
-1. Select the **Import Data** module, and use the settings in the right panel to configure your data source
+1. Select the **Import Data** module, and use the settings in the right panel to configure your data source.
 
 ## Next steps
 
-In this article, you learned how to migrate a Studio (classic) dataset to Azure Machine Learning. The next step is to [rebuild a Studio (classic) experiment in the designer](migrate-rebuild-web-service.md).
+In this article, you learned how to migrate a Studio (classic) dataset to Azure Machine Learning. The next step is to [rebuild a Studio (classic) training pipeline](migrate-rebuild-experiment.md).
 
 
 See the other articles in the Studio (classic) migration series:
@@ -149,4 +149,4 @@ See the other articles in the Studio (classic) migration series:
 1. [Rebuild a Studio (classic) training pipeline](migrate-rebuild-experiment.md).
 1. [Rebuild a Studio (classic) web service](migrate-rebuild-web-service.md).
 1. [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).
-1. [Migration reference](migrate-reference.md).
+1. [Migration reference](migrate-execute-r-script.md).

@@ -154,4 +154,4 @@ See the other articles in the Studio (classic) migration series:
 1. [Rebuild a Studio (classic) training pipeline](migrate-rebuild-experiment.md).
 1. **Rebuild a Studio (classic) web service**.
 1. [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).
-1. [Migration reference](migrate-reference.md).
+1. [Migration reference](migrate-execute-r-script.md).

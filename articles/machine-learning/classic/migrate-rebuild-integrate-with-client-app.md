@@ -70,4 +70,4 @@ In this article, you learned how to integrate client applications with pipeline 
 1. [Rebuild a Studio (classic) training pipeline](migrate-rebuild-experiment.md).
 1. [Rebuild a Studio (classic) web service](migrate-rebuild-web-service.md).
 1. **Integrate an Azure Machine Learning web service with client apps**.
-1. [Migration reference](migrate-reference.md).
+1. [Migration reference](migrate-execute-r-script.md).
