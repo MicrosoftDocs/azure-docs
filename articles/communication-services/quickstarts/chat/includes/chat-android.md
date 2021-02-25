@@ -209,7 +209,7 @@ threadClient.sendChatMessage(threadId, message, new Callback<String>() {
 });
 ```
 
-Replace `<thread_id>` with the thread id that sending message to.
+Replace `<thread_id>` with the thread ID that sending message to.
 
 ## Add a user as a participant to the chat thread
 
@@ -334,7 +334,7 @@ threadClient.removeChatParticipant(threadId, participantId, new Callback<Void>()
 });
 ```
 
-1. Replace `<thread_id>` with the thread id that removing user from.
+1. Replace `<thread_id>` with the thread ID that removing user from.
 1. Replace `<participant_id>` with the Communication Services user ID of the participant being removed.
 
 ## Run the code
