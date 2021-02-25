@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date:  12/15/2020
+ms.date:  02/17/2021
 ms.author: memildin
 
 ---
@@ -31,11 +31,6 @@ Use sample alerts to:
 
 - evaluate the value and capabilities of Azure Defender
 - validate any configurations you've made for your security alerts (such as SIEM integrations,  workflow automation, and email notifications)
-
-> [!NOTE]
-> This procedure requires the new (preview) alerts experience available from the banner at the top of the **Security alerts** page.
->
-> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience":::
 
 To create sample alerts:
 
