@@ -31,13 +31,9 @@ You can create and configure an NSX-T segment from the Azure VMware Solution con
 >[!NOTE]
 >If you plan to use DHCP, you'll need to [configure a DHCP server or DHCP relay](#create-a-dhcp-server-or-dhcp-relay-in-the-azure-portal) before you can create and configure an NSX-T segment.
 
-1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Segments** > **Add**.
+1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Segments** > **Add**. Provide the details for the new logical segment and select **OK**.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-new-nsxt-segment.png" alt-text="Screenshot showing how to add a new segment.":::
-
-1. Provide the details for the new logical segment.
-
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/create-new-segment-details.png" alt-text="Screenshot showing the details of the new segment.":::
    
    - **Segment name** - Name of the logical switch that is visible in vCenter.
    - **Subnet gateway** - Gateway IP address for the logical switch's subnet with a subnet mask. VMs are attached to a logical switch, and all VMs connecting to this switch belong to the same subnet.  Also, all VMs attached to this logical segment must carry an IP address from the same segment.
@@ -45,8 +41,6 @@ You can create and configure an NSX-T segment from the Azure VMware Solution con
    - **Connected gateway** - *Selected by default and read only.*  Tier-1 gateway and type of segment information. 
       - **T1** - Name of the Tier-1 gateway in NSX-T Manager. An Azure VMware Solution private cloud comes with an NSX-T Tier-0 gateway in Active/Active mode and a default NSX-T Tier-1 gateway in Active/Standby mode.  Segments created through the Azure VMware Solution console only connect to the default Tier-1 gateway, and the workloads of these segments get East-West and North-South connectivity. You can only create more Tier-1 gateways through NSX-T Manager. Tier-1 gateways created from the NSX-T Manager console are not visible in the Azure VMware Solution console. 
       - **Type** - Overlay segment supported by Azure VMware Solution.
-
-1. Select **OK** to create the segment and attach it to the Tier-1 gateway. 
 
    The segment is now visible in the Azure VMware Solution console, NSX-T Manger, and vCenter.
 
@@ -152,24 +146,12 @@ You'll configure a default DNS zone and FQDN zone to send DNS queries to the ups
 
 ### Step 2. Configure DNS service
 
-1. Select the **DNS service** tab, select **Add**, and then provide:
+1. Select the **DNS service** tab, select **Add**. Provide the details and select **OK**.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-service.png" alt-text="Screenshot showing the information required for the DNS service.":::
 
-   1. A name for the DNS service.
-
-   1. Enter the IP address for the DNS service.
-
-   1. Select the default DNS zone that you created under the DNS zones tab.
-
-   1. Select the FQDN zones that you added under the DNS zones tab.
-
-   1. Select the **Log level**.
-
    >[!TIP]
    >**Tier-1 Gateway** is selected by default and reflects the gateway created when deploying Azure VMware Solution.
-
-1. Select **OK**. 
 
    The DNS service was added successfully.
 
