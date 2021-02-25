@@ -18,7 +18,6 @@ ms.author: barclayn
 
 In this article:
 
-
 1. create azure AD (NO need right?)
 1. [Create a resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md)
 1. [Create a vault](../../key-vault/general/quick-create-portal.md)
@@ -58,9 +57,9 @@ In the Verifiable Credentials preview, (IS THIS GOING TO CHANGE LATER?) you have
 3. From the results list, choose **Key Vault**.
 4. On the Key Vault section, choose **Create**.
 5. On the **Create key vault** section provide the following information:
-    - **Name**: A unique name is required. For this tutorial, we use **Contoso-VC-Vault**. 
+    - **Name**: A unique name is required. We use **Contoso-VC-Vault** so replace this value with your own unique name.
     - **Subscription**: Choose a subscription.
-    - Under **Resource Group**, choose **Create new** and enter a resource group name such as **vc-resource-group**.
+    - Under **Resource Group**, choose **Create new** and enter a resource group name such as **vc-resource-group**. We are using the same resource group name across multiple articles.
     - In the **Location** pull-down menu, choose a location.
     - Leave the other options to their defaults.
 6. After providing the information above, select **Access Policy**
@@ -82,7 +81,7 @@ In the Verifiable Credentials preview, (IS THIS GOING TO CHANGE LATER?) you have
 
 Take note of the two properties listed below:
 
-- **Vault Name**: In the example, this is **Contoso-VC**. You will use this name for other steps.
+- **Vault Name**: In the example, this is **Contoso-VC-vault**. You will use this name for other steps.
 - **Vault URI**: In the example, this is https://contoso-vc.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 >[!NOTE]
