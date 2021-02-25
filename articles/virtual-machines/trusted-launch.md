@@ -18,6 +18,35 @@ Azure offers Trusted Launch as a seamless way to improce the security of [genera
 > [!IMPORTANT]
 > Trusted Launch requires the creation of new virtual machines. You can't enable Trusted Launch on existing virtual machines that were initially created without it.
 
+## Benefits 
+
+- Securely deploy virtual machines with verified boot loaders, OS kernels, and drivers.
+- Securely protect keys, certificates, and secrets in the virtual machines.
+- Gain insights and confidence of the entire boot chain’s integrity.
+- Ensure workloads are trusted and verifiable.
+
+## Public preview limitations
+
+**Size support**:
+- All [Generation 2](generation-2.md) VM sizes 
+
+**OS support**:
+- Redhat Enterprise Linux 8.3
+- SUSE 15 SP2
+- Ubuntu 20.04 LTS
+- Ubuntu 18.04 LTS
+- Windows Server 2019
+- Windows Server 2016
+- Windows 10 Pro
+- Windows 10 Enterprise
+
+**Regions**: 
+- South Central US
+- North Europe
+
+**Pricing**:
+No additional cost to existing VM pricing.
+
 ## Secure boot
 
 At the root of Trusted Launch is Secure Boot for your VM. This mode, which is implemented in platform firmware, protects against the installation of malware-based rootkits and boot kits. Secure Boot works to ensure that only signed operating systems and drivers can boot. It establishes a "root of trust" for the software stack on your VM. With Secure Boot enabled, all OS boot components (boot loader, kernel, kernel drivers) must be signed by trusted publishers. Both Windows and select Linux distributions support Secure Boot. If Secure Boot fails to authenticate that the image was signed by a trusted publisher, the VM is prevented from booting. For more information, see [Secure Boot](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot).
@@ -30,42 +59,12 @@ Trusted Launch uses the vTPM to perform remote attestation by the cloud. This is
 
 ## Virtualization-based security
 
-In addition, Trusted Launch brings the benefits of [VBS](/windows-hardware/design/device-experiences/oem-vbs) (Virtualization-based Security) to Azure Windows VMs. VBS uses the hypervisor to create a secure and isolated region of memory. Windows uses these regions to run various security solutions with increased protection against vulnerabilities and malicious exploits. In particular, Trusted Launch lets you enable HVCI (Hypervisor Code Integrity) and Windows Defender Credential Guard.
+[Virtualization-based Security](/windows-hardware/design/device-experiences/oem-vbs) (VBS) uses the hypervisor to create a secure and isolated region of memory. Windows uses these regions to run various security solutions with increased protection against vulnerabilities and malicious exploits. In particular, Trusted Launch lets you enable HVCI (Hypervisor Code Integrity) and Windows Defender Credential Guard.
 
-HVCI is a powerful system mitigation that protects Windows kernel-mode processes against injection and execution of malicious or unverified code. It checks kernel mode drivers and binaries before they run, which prevents unsigned files from loading into memory. This ensures such executable code can’t be modified once it is allowed to load. For more information about HVCI, see [Virtualization Based Security (VBS) and Hypervisor Enforced Code Integrity (HVCI)](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
+HVCI is a powerful system mitigation that protects Windows kernel-mode processes against injection and execution of malicious or unverified code. It checks kernel mode drivers and binaries before they run, preventing unsigned files from loading into memory. This ensures such executable code can't be modified once it is allowed to load. For more information about VBS and HVCI, see [Virtualization Based Security (VBS) and Hypervisor Enforced Code Integrity (HVCI)](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
 
-With Trusted Launch and VBS you can enable Windows Defender Credential Guard. This feature isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets as well as credential theft attacks, such as Pass-the-Hash (PtH) attacks. Read more about it [here](/windows/security/identity-protection/credential-guard/credential-guard).
+With Trusted Launch and VBS you can enable Windows Defender Credential Guard. This feature isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets as well as credential theft attacks, such as Pass-the-Hash (PtH) attacks. For more information, see [Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard).
 
-## Benefits 
-
-- Securely deploy virtual machines with verified boot loaders, OS kernels, and drivers. 
-- Securely protect keys, certificates, and secrets in the virtual machines.
-- Gain insights and confidence of the entire boot chain’s integrity.
-- Ensure workloads are trusted and verifiable. 
-
-## Public preview limitations
-
-Size support:
-- All [Generation 2](generation-2.md) VM sizes 
-
-OS support:
-- Redhat Enterprise Linux 8.3
-- SUSE 15 SP2
-- Ubuntu 20.04 LTS
-- Ubuntu 18.04 LTS
-- Windows Server 2019
-- Windows Server 2016
-- Windows 10 Pro
-- Windows 10 Enterprise
-
-Regions: 
-- South Central US
-- North Europe
-
-
-
-Pricing:
-No additional cost to existing VM pricing.
 
 ## Security Center integration
 
@@ -86,7 +85,7 @@ If your VMs are properly set up with Trusted Launch, Azure Defender can detect a
     - The Attestation extension on the VM is not responding. This can indicate a denial-of-service attack by malware, or an OS admin.
 
 > [!NOTE]
->  This alert is available for VMs with vTPM enabled and the Attestation extension installed. Keeping Secure Boot enabled is needed for attestation to pass. Attestation will fail if Secure Boot is disabled. If you must disable Secure Boot, you may choose to suppress this alert to avoid false positives.
+>  This alert is available for VMs with vTPM enabled and the Attestation extension installed. Secure Boot must be enabled for attestation to pass. Attestation will fail if Secure Boot is disabled. If you must disable Secure Boot, you can suppress this alert to avoid false positives.
 
 
 
