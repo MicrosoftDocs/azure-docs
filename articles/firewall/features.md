@@ -129,7 +129,7 @@ or
 
 - have a suggested category for an uncategorized FQDN or URL
 
-You are welcome to submit a request at [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request).
+You're welcome to submit a request at [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request).
 
 ### Category exceptions
 
