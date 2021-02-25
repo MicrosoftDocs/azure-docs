@@ -6,6 +6,7 @@ ms.topic: conceptual
 ---
 # Understand Azure Policy's Guest Configuration
 
+
 Azure Policy can audit settings inside a machine, both for machines running in Azure and
 [Arc Connected Machines](../../../azure-arc/servers/overview.md). The validation is performed by the
 Guest Configuration extension and client. The extension, through the client, validates settings such
@@ -18,6 +19,8 @@ as:
 At this time, most Azure Policy Guest Configuration policy definitions only audit settings inside
 the machine. They don't apply configurations. The exception is one built-in policy
 [referenced below](#applying-configurations-using-guest-configuration).
+
+[A video walk-through of this document is available](https://youtu.be/Y6ryD3gTHOs).
 
 ## Enable Guest Configuration
 
@@ -87,13 +90,13 @@ compatible. The following table shows a list of supported operating systems on A
 
 |Publisher|Name|Versions|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 - 18.04|
-|Credativ|Debian|8 and later|
-|Microsoft|Windows Server|2012 and later|
+|Canonical|Ubuntu Server|14.04 - 20.04|
+|Credativ|Debian|8 - 10|
+|Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows Client|Windows 10|
-|OpenLogic|CentOS|7.3 and later|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
-|Suse|SLES|12 SP3-SP5|
+|OpenLogic|CentOS|7.3 -8|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 8|
+|Suse|SLES|12 SP3-SP5, 15|
 
 Custom virtual machine images are supported by Guest Configuration policy definitions as long as
 they're one of the operating systems in the table above.
@@ -303,6 +306,12 @@ Guest Configuration built-in policy samples are available in the following locat
 - [Built-in policy definitions - Guest Configuration](../samples/built-in-policies.md#guest-configuration)
 - [Built-in initiatives - Guest Configuration](../samples/built-in-initiatives.md#guest-configuration)
 - [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+
+### Video overview
+
+The following overview of Azure Policy Guest Configuration is from ITOps Talks 2021.
+
+[Governing baselines in hybrid server environments using Azure Policy Guest Configuration](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245)
 
 ## Next steps
 
