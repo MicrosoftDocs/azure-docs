@@ -49,7 +49,7 @@ df = spark.createDataFrame(data=data2,schema=schema)
 df.write.csv("abfss://<<ENTER NAME OF FILE SYSTEM>>@<<ENTER NAME OF PRIMARY STORAGE ACCOUNT>>.dfs.core.windows.net/validate_permissions.csv")
 
 ```
-If you receive an error, you are likely missing the required permissions. To learn how to obtain the required permissions, visit this document: [Assign Storage Blob Data Contributor or Storage Blob Data Owner permissions](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-an-azure-built-in-role).
+If you receive an error, you are likely missing the required permissions. To learn how to obtain the required permissions, visit this document: [Assign Storage Blob Data Contributor or Storage Blob Data Owner permissions](../../storage/common/storage-auth-aad-rbac-portal.md#assign-an-azure-built-in-role).
 
 In addition, if you are running a Pipeline, then the Workspace MSI must have Storage Blob Data Owner or Storage Blob Data Contributor permissions as well. To learn how to grant your workspace identity this permission, visit: [Grant permissions to workspace managed identity](../security/how-to-grant-workspace-managed-identity-permissions.md).
 
@@ -93,4 +93,3 @@ To recreate the environment and validate your updates:
 
 ## Next steps
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
-

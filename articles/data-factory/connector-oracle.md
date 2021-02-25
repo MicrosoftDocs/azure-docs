@@ -4,7 +4,7 @@ description: Learn how to copy data from supported source stores to an Oracle da
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 02/20/2021
 ms.author: jingwang
 ---
 
@@ -359,7 +359,8 @@ When you copy data from and to Oracle, the following mappings apply. To learn ab
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal, String (if precision > 28) |
+| NUMBER (p,s) |Decimal, String (if p > 28) |
+| NUMBER without precision and scale |Double |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
