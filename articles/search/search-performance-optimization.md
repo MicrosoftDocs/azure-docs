@@ -87,7 +87,7 @@ Since replicas are copies of your data, having multiple replicas allows Azure Co
 
 ### Availability Zones
 
-[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) divide a region's data centers into distinct physical location groups to provide high-availability, within the same region. For Cognitive Search, individual replicas are the units for zone assignment. A search service runs within one region; its replicas run in different zones.
+[Availability Zones](../availability-zones/az-overview.md) divide a region's data centers into distinct physical location groups to provide high-availability, within the same region. For Cognitive Search, individual replicas are the units for zone assignment. A search service runs within one region; its replicas run in different zones.
 
 You can utilize Availability Zones with Azure Cognitive Search by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region. If you have more replicas than Availability Zones, the replicas will be distributed across Availability Zones as evenly as possible.
 

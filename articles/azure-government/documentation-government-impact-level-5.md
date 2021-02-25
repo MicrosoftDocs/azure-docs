@@ -83,37 +83,37 @@ Computer Vision supports Impact Level 5 workloads in Azure Government with no ex
 
 The Azure Cognitive Services Content Moderator service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in the Content Moderator service by [using customer-managed keys in Azure Key Vault](../cognitive-services/content-moderator/content-moderator-encryption-of-data-at-rest.md).
+- Configure encryption at rest of content in the Content Moderator service by [using customer-managed keys in Azure Key Vault](../cognitive-services/content-moderator/encrypt-data-at-rest.md).
 
 ### [Cognitive Services: Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)
 
 Custom Vision supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services Custom Vision [using customer-managed keys in Azure Key Vault](../cognitive-services/custom-vision-service/custom-vision-encryption-of-data-at-rest.md#customer-managed-keys-with-azure-key-vault)
+- Configure encryption at rest of content in Cognitive Services Custom Vision [using customer-managed keys in Azure Key Vault](../cognitive-services/custom-vision-service/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault)
 
 ### [Cognitive Services: Face](https://azure.microsoft.com/services/cognitive-services/face/)
 
 The Cognitive Services Face service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](../cognitive-services/face/face-encryption-of-data-at-rest.md).
+- Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](../cognitive-services/face/encrypt-data-at-rest.md).
 
 ### [Cognitive Services: Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)
 
 The Cognitive Services Language Understanding service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in the Language Understanding service by [using customer-managed keys in Azure Key Vault](../cognitive-services/luis/luis-encryption-of-data-at-rest.md).
+- Configure encryption at rest of content in the Language Understanding service by [using customer-managed keys in Azure Key Vault](../cognitive-services/luis/encrypt-data-at-rest.md).
 
 ### [Cognitive Services: Personalizer](https://azure.microsoft.com/services/cognitive-services/personalizer/)
 
 Personalizer supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services Personalizer [using customer-managed keys in Azure Key Vault](../cognitive-services/personalizer/personalizer-encryption-of-data-at-rest.md)
+- Configure encryption at rest of content in Cognitive Services Personalizer [using customer-managed keys in Azure Key Vault](../cognitive-services/personalizer/encrypt-data-at-rest.md)
 
 ### [Cognitive Services: QnA Maker](https://azure.microsoft.com/services/cognitive-services/qna-maker/)
 
 Cognitive Services QnA Maker supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services QnA Maker [using customer-managed keys in Azure Key Vault](../cognitive-services/qnamaker/qna-maker-encryption-of-data-at-rest.md)
+- Configure encryption at rest of content in Cognitive Services QnA Maker [using customer-managed keys in Azure Key Vault](../cognitive-services/qnamaker/encrypt-data-at-rest.md)
 
 ### [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
 
@@ -123,7 +123,7 @@ The Cognitive Services Text Analytics service supports Impact Level 5 workloads 
 
 The Cognitive Services Translator service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in the Translator service by [using customer-managed keys in Azure Key Vault](../cognitive-services/translator/translator-encryption-of-data-at-rest.md).
+- Configure encryption at rest of content in the Translator service by [using customer-managed keys in Azure Key Vault](../cognitive-services/translator/encrypt-data-at-rest.md).
 
 ### [Cognitive Services: Speech Services](https://azure.microsoft.com/services/cognitive-services/speech-services/)
 
@@ -307,7 +307,7 @@ For Databases services availability in Azure Government, see [Products available
 
 Azure API for FHIR supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure API for FHIR [using customer-managed keys in Azure Key Vault](../healthcare-apis/bring-your-own-key.md)
+- Configure encryption at rest of content in Azure API for FHIR [using customer-managed keys in Azure Key Vault](../healthcare-apis/customer-managed-key.md)
 
 ### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
 

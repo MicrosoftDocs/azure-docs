@@ -166,7 +166,7 @@ For more information, see the [Azure security baselines overview](../security/be
 
 * [Azure Stream Analytics provides diagnostic logs and activity data for review](./stream-analytics-job-diagnostic-logs.md)
 
-* [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
+* [How to configure retention policy for Azure Storage account logs](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 * [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 

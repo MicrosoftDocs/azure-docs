@@ -135,11 +135,11 @@ If you are not receiving Notifications on your *primary email*, then you can try
 2. Click on All users (in left pane), you will see list of users (in right pane).
 3. Select the user for which you want to review the *primary email* information.
 
-  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Example on how to review user profile."border="true":::
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Example on how to review user profile." border="true":::
 
 4. In User profile under Contact Info if "Email" tab is blank then click on *edit* button on the top and add your *primary email* and hit *save* button on the top.
 
-  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Example on how to add primary email."border="true":::
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Example on how to add primary email." border="true":::
 
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 
@@ -149,7 +149,7 @@ Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functio
 You may have a limited number of Function actions in an Action Group.
 
 ### ITSM
-ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../platform/itsmc-overview.md).
+ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](./itsmc-overview.md).
 
 You may have a limited number of ITSM actions in an Action Group. 
 
@@ -331,7 +331,7 @@ Please see [Action Group IP Addresses](../app/ip-addresses.md) for source IP add
 ## Next steps
 * Learn more about [SMS alert behavior](./alerts-sms-behavior.md).  
 * Gain an [understanding of the activity log alert webhook schema](./activity-log-alerts-webhook.md).  
-* Learn more about [ITSM Connector](../platform/itsmc-overview.md).
+* Learn more about [ITSM Connector](./itsmc-overview.md).
 * Learn more about [rate limiting](./alerts-rate-limiting.md) on alerts.
-* Get an [overview of activity log alerts](../platform/alerts-overview.md), and learn how to receive alerts.  
+* Get an [overview of activity log alerts](./alerts-overview.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](../../service-health/alerts-activity-log-service-notifications-portal.md).
