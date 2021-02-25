@@ -38,7 +38,7 @@ If you choose to install and use the CLI locally, this quickstart requires Azure
 
 ## Sign in to Azure CLI
 
-Sign in to Azure PowerShell:
+Sign in to Azure CLI:
 
 ```azurecli-interactive
 az login
@@ -63,35 +63,9 @@ Create a resource group with [az group create](https://docs.microsoft.com/cli/az
     --location westus
 ```
 
-### Create a public IP address in the Standard SKU
-
-Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) to:
-
-* Create a standard zone redundant public IP address named **myPublicIP-CR**.
-* In **myResourceGroupLB-CR**.
-
-```azurecli-interactive
-  az network public-ip create \
-    --resource-group myResourceGroupLB-CR \
-    --name myPublicIP-CR \
-    --sku Standard
-    --tier Global
-```
-
-To create a zonal public IP address in zone 1, use the following command:
-
-```azurecli-interactive
-  az network public-ip create \
-    --resource-group myResourceGroupLB-CR \
-    --name myPublicIP-CR \
-    --sku Standard \
-    --zone 1
-    --tier Global
-```
-
 ### Create the load balancer resource
 
-Create a public load balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
+Create a cross-region load balancer with [az network cross-region-lb create](/cli/azure/network/cross-region-lb#az_network_cross_region_lb_create):
 
 * Named **myLoadBalancer-CR**.
 * A frontend pool named **myFrontEnd-CR**.
@@ -99,14 +73,11 @@ Create a public load balancer with [az network lb create](https://docs.microsoft
 * Associated with the public IP address **myPublicIP-CR** that you created in the preceding step. 
 
 ```azurecli-interactive
-  az network lb create \
-    --resource-group myResourceGroupLB-CR \
+  az network cross-region-lb create \
     --name myLoadBalancer-CR \
-    --sku Standard \
-    --public-ip-address myPublicIP-CR \
+    --resource-group myResourceGroupLB-CR \
     --frontend-ip-name myFrontEnd-CR \
-    --backend-pool-name myBackEndPool-CR \
-    --tier Global       
+    --backend-pool-name myBackEndPool-CR     
 ```
 ### Create the load balancer rule
 
@@ -116,7 +87,7 @@ A load balancer rule defines:
 * The backend IP pool to receive the traffic.
 * The required source and destination port. 
 
-Create a load balancer rule with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
+Create a load balancer rule with [az network cross-region-lb rule create](/cli/azure/network/cross-region-lb/rule#az_network_cross_region_lb_rule_create):
 
 * Named **myHTTPRule-CR**
 * Listening on **Port 80** in the frontend pool **myFrontEnd-CR**.
@@ -124,15 +95,15 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
 * Protocol **TCP**.
 
 ```azurecli-interactive
-  az network lb rule create \
-    --resource-group myResourceGroupLB-CR \
+  az network cross-region-lb rule create \
+    --backend-port 80 \
+    --frontend-port 80 \
     --lb-name myLoadBalancer-CR \
     --name myHTTPRule-CR \
     --protocol tcp \
-    --frontend-port 80 \
-    --backend-port 80 \
-    --frontend-ip-name myFrontEnd-CR \
-    --backend-pool-name myBackEndPool-CR
+    --resource-group myResourceGroupLB-CR \
+    --backend-pool-name myBackEndPool-CR \
+    --frontend-ip-name myFrontEnd-CR 
 ```
 
 ## Create backend pool
@@ -142,7 +113,43 @@ In this section, you'll add two regional standard load balancers to the backend 
 > [!IMPORTANT]
 > To complete these steps, ensure that two regional load balancers with backend pools have been deployed in your subscription.  For more information, see, **[Quickstart: Create a public load balancer to load balance VMs using Azure CLI](quickstart-load-balancer-standard-public-cli.md)**.
 
-**FINISH INSTRUCTIONS HERE WHEN CLI IS DONE**
+### Add the regional frontends to load balancer
+
+In this section, you'll place the resource IDs of two regional load balancers frontends into variables.  You'll then use the variables to add the frontends to the backend address pool of the cross-region load balancer.
+
+Retrieve the resource IDs with [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_show).
+
+Use [az network cross-region-lb address-pool address add](/cli/azure/network/cross-region-lb/address-pool/address#az_network_cross_region_lb_address_pool_address_add) to add the frontends you placed in variables in the backend pool of the cross-region load balancer:
+
+```azurecli-interactive
+  region1id=$(az network lb frontend-ip show \
+    --lb-name myLoadBalancer-R1 \
+    --name myFrontEnd-R1 \
+    --resource-group CreatePubLBQS-rg-r1 \
+    --query id \
+    --output tsv)
+
+  az network cross-region-lb address-pool address add \
+    --frontend-ip-address $region1id \
+    --lb-name myLoadBalancer-CR \
+    --name myFrontEnd-R1 \
+    --pool-name myBackEndPool-CR \
+    --resource-group myResourceGroupLB-CR
+
+  region2id=$(az network lb frontend-ip show \
+    --lb-name myLoadBalancer-R2 \
+    --name myFrontEnd-R2 \
+    --resource-group CreatePubLBQS-rg-r2 \
+    --query id \
+    --output tsv)
+  
+  az network cross-region-lb address-pool address add \
+    --frontend-ip-address $region2id \
+    --lb-name myLoadBalancer-CR \
+    --name myFrontEnd-R1 \
+    --pool-name myBackEndPool-CR \
+    --resource-group myResourceGroupLB-CR
+```
 
 ## Test the load balancer
 
@@ -153,8 +160,8 @@ In this section, you'll test the cross-region load balancer. You'll connect to t
 ```azurecli-interactive
   az network public-ip show \
     --resource-group myResourceGroupLB-CR \
-    --name myPublicIP-CR \
-    --query [ipAddress] \
+    --name PublicIPmyLoadBalancer-CR \
+    --query ipAddress \
     --output tsv
 ```
 2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
@@ -169,7 +176,7 @@ When no longer needed, use the [az group delete](https://docs.microsoft.com/cli/
 
 ```azurecli-interactive
   az group delete \
-    --name myResourceGroupLB
+    --name myResourceGroupLB-CR
 ```
 
 ## Next steps
