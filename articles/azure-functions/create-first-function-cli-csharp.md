@@ -7,7 +7,7 @@ ms.custom: [devx-track-csharp, devx-track-azurecli]
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
-adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
+adobe-target-content: ./create-first-function-cli-csharp-ieux
 ---
 
 # Quickstart: Create a C# function in Azure from the command line

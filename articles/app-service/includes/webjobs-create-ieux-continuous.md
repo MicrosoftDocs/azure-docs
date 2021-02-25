@@ -4,6 +4,7 @@ ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: include
 ms.date: 10/16/2018
 ms.title: include
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 
 ## <a name="CreateContinuous"></a> Create a continuous WebJob

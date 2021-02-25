@@ -8,7 +8,7 @@ ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f"
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
-adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
+adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
 ---
 # Quickstart: Create your first function in Azure using Visual Studio
 

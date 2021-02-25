@@ -7,7 +7,7 @@ ms.custom: devx-track-python
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
-adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
+adobe-target-content: ./create-first-function-vs-code-python-uiex
 ---
 
 # Quickstart: Create a function in Azure with Python using Visual Studio Code

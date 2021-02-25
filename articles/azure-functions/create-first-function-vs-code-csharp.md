@@ -7,7 +7,7 @@ ms.custom: devx-track-csharp
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
-adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
+adobe-target-content: ./create-first-function-vs-code-csharp-ieux
 ---
 
 # Quickstart: Create a C# function in Azure using Visual Studio Code
