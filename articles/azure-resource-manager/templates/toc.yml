@@ -491,6 +491,8 @@
     items:
     - name: All functions
       href: template-functions.md
+    - name: Any function (Bicep)
+      href: template-functions-any.md
     - name: Array functions
       href: template-functions-array.md
     - name: Comparison functions
