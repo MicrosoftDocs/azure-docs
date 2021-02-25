@@ -16,14 +16,14 @@ manager: rkarlin
 
 The cloud management layer is a crucial service connected to all your cloud resources. Because of this, it is also a potential target for attackers. Consequently, we recommend security operations teams monitor the resource management layer closely. 
 
-Azure Defender for Resource Manager automatically monitors the resource management operations in your organization, whether they're performed through the Azure portal, Azure REST APIs, Azure CLI, or other Azure programmatic clients. Azure Defender runs advanced security analytics to detect threats and alert you about suspicious activity.
+Azure Defender for Resource Manager automatically monitors the resource management operations in your organization, whether they're performed through the Azure portal, Azure REST APIs, Azure CLI, or other Azure programmatic clients. Azure Defender runs advanced security analytics to detect threats and alerts you about suspicious activity.
 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
 |Release state:|Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
-|Pricing:|**Azure Defender for Resource Manager** is billed as shown on [the pricing page](security-center-pricing.md)|
+|Pricing:|**Azure Defender for Resource Manager** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 

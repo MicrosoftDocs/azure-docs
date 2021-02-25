@@ -29,7 +29,7 @@ No. Workspaces created by Security Center, while configured for Azure Monitor lo
 
 - **Azure Defender on** – Security Center enables the "Security" solution on the default workspace.
 
-For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
+For pricing details in your currency of choice and according to your region, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > The log analytics pricing tier of workspaces created by Security Center does not affect Security Center billing.

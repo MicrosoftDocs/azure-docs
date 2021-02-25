@@ -273,8 +273,7 @@ If a user doesn't have permissions to see Security Center data, they'll now see 
 
 :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner informing a user they can request tenant-wide permissions.":::
 
-Learn more in [Request tenant-wide permissions when yours are insufficient](security-center-management-groups.md#request-tenant-wide-permissions-when-yours-are-insufficient)
-.
+Learn more in [Request tenant-wide permissions when yours are insufficient](tenant-wide-permissions-management.md#request-tenant-wide-permissions-when-yours-are-insufficient).
 
 
 ### 35 preview recommendations added to increase coverage of Azure Security Benchmark
@@ -390,7 +389,7 @@ Learn more about [Azure Defender for SQL](defender-for-sql-introduction.md).
 
 A user with the Azure Active Directory role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Azure Security Center. 
 
-To assign yourself tenant-level permissions, follow the instructions in [Grant tenant-wide permissions to yourself](security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself).
+To assign yourself tenant-level permissions, follow the instructions in [Grant tenant-wide permissions to yourself](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
 
 ### Two new Azure Defender plans: Azure Defender for DNS and Azure Defender for Resource Manager (in preview)

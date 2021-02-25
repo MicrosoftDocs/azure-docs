@@ -66,7 +66,7 @@ landingContent:
 
 
   # Card
-  - title: Improve your Secure Score
+  - title: Improve your secure score
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -76,8 +76,6 @@ landingContent:
             url: security-center-remediate-recommendations.md
           - text: Exempt a resource from a recommendation
             url: exempt-resource.md
-          - text: Use recommendations to enhance security
-            url: security-center-using-recommendations.md
           - text: Track with the secure score API
             url: secure-score-security-controls.md#get-your-secure-score-from-the-rest-api
 

@@ -39,99 +39,6 @@ Recommendations are grouped into **security controls**. Each control is a logica
 
 For more information, see [How your secure score is calculated](secure-score-security-controls.md#how-your-secure-score-is-calculated) below. 
 
-
-## Access your secure score
-
-You can find your overall secure score, as well as your score per subscription, through the Azure portal or programatically as described in the following sections:
-
-- [Get your secure score from the portal](#get-your-secure-score-from-the-portal)
-- [Get your secure score from the REST API](#get-your-secure-score-from-the-rest-api)
-- [Get your secure score from Azure Resource Graph (ARG)](#get-your-secure-score-from-azure-resource-graph-arg)
-
-### Get your secure score from the portal
-
-Security Center displays your score prominently in the portal: it's the first main tile the Security Center overview page. Selecting this tile, takes you to the dedicated secure score page, where you'll see the score broken down by subscription. Select a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score. 
-
-To recap, your secure score is shown in the following locations in Security Center's portal pages.
-
-- In a tile on Security Center's **Overview** (main dashboard):
-
-    :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="The secure score on Security Center's dashboard":::
-
-- In the dedicated **Secure score** page you can see the secure score for your subscription and your management groups:
-
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score for subscriptions on Security Center's secure score page":::
-
-    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="The secure score for management groups on Security Center's secure score page":::
-
-    > [!NOTE]
-    > Any management groups for which you don't have sufficient permissions, will show their score as “Restricted.” 
-
-- At the top of the **Recommendations** page:
-
-    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="The secure score on Security Center's recommendations page":::
-
-### Get your secure score from the REST API
-
-You can access your score via the secure score API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the [Secure Scores API](/rest/api/securitycenter/securescores) to get the score for a specific subscription. In addition, you can use the [Secure Score Controls API](/rest/api/securitycenter/securescorecontrols) to list the security controls and the current score of your subscriptions.
-
-![Retrieving a single secure score via the API](media/secure-score-security-controls/single-secure-score-via-api.png)
-
-For examples of tools built on top of the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
-
-### Get your secure score from Azure Resource Graph (ARG)
-
-Azure Resource Graph provides instant access to resource information across your cloud environments with robust filtering, grouping, and sorting capabilities. It's a quick and efficient way to query information across Azure subscriptions programmatically or from within the Azure portal. [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
-
-To access the secure score for multiple subscriptions with ARG:
-
-1. From the Azure portal, open **Azure Resource Graph Explorer**.
-
-    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
-
-1. Enter your Kusto query (using the examples below for guidance).
-
-    - This query returns the subscription ID, the current score in points and as a percentage, and the maximum score for the subscription. 
-
-        ```kusto
-        SecurityResources 
-        | where type == 'microsoft.security/securescores' 
-        | extend current = properties.score.current, max = todouble(properties.score.max)
-        | project subscriptionId, current, max, percentage = ((current / max)*100)
-        ```
-
-    - This query returns the status of all the security controls. For each control, you'll get the number of unhealthy resources, the current score, and the maximum score. 
-
-        ```kusto
-        SecurityResources 
-        | where type == 'microsoft.security/securescores/securescorecontrols'
-        | extend SecureControl = properties.displayName, unhealthy = properties.unhealthyResourceCount, currentscore = properties.score.current, maxscore = properties.score.max
-        | project SecureControl , unhealthy, currentscore, maxscore
-        ```
-
-1. Select **Run query**.
-
-
-
-
-## Tracking your secure score over time
-
-If you're a Power BI user with a Pro account, you can use the **Secure Score Over Time** Power BI dashboard to track your secure score over time and investigate any changes.
-
-> [!TIP]
-> You can find this dashboard, as well as other tools for working programatically with secure score, in the dedicated area of the Azure Security Center community on GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
-
-The dashboard contains the following two reports to help you analyze your security status:
-
-- **Resources Summary** - provides summarized data regarding your resources’ health.
-- **Secure Score Summary** - provides summarized data regarding your score progress. Use the “Secure score over time per subscription” chart to view changes in the score. If you notice a dramatic change in your score, check the “detected changes that may affect your secure score” table for possible changes that could have caused the change. This table presents deleted resources, newly deployed resources, or resources that their security status changed for one of the recommendations.
-
-:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="The optional Secure Score Over Time Power BI dashboard for tracking your secure score over time and investigating changes":::
-
-
-
-
-
 ## How your secure score is calculated 
 
 The contribution of each security control towards the overall secure score is shown clearly on the recommendations page.
@@ -225,3 +132,7 @@ This article described the secure score and the security controls it introduces.
 - [Learn about the different elements of a recommendation](security-center-recommendations.md)
 - [Learn how to remediate recommendations](security-center-remediate-recommendations.md)
 - [View the GitHub-based tools for working programmatically with secure score](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)
+
+
+> [!div class="nextstepaction"]
+> [Access and track your secure score](secure-score-access-and-track.md)

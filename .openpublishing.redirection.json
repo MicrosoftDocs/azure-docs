@@ -32505,6 +32505,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/security-center/security-center-monitoring.md",
+      "redirect_url": "/azure/security-center/security-center-remediate-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-using-recommendations.md",
+      "redirect_url": "/azure/security-center/security-center-remediate-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/configure-security-policy-azure-policy.md",
+      "redirect_url": "/azure/security-center/custom-security-policies?pivot=rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-alerts-cloud-smart.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-overview.md#cloud-smart-alert-correlation-in-azure-security-center-incidents",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security-center/azure-container-registry-integration.md",
       "redirect_url": "/azure/security-center/defender-for-container-registries-introduction",
       "redirect_document_id": false

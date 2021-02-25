@@ -1,25 +1,18 @@
 ---
-title: Pricing of Azure Security Center
-description: Azure Security Center is offered in two modes with and without Azure Defender.
-services: security-center
-documentationcenter: na
+title: Azure Security Center free vs Azure Defender enabled
+description: Learn about the benefits of enabling Azure Defender for cloud workload protection in Azure Security Center
 author: memildin
-manager: rkarlin
-ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
-ms.service: security-center
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/14/2021
 ms.author: memildin
+manager: rkarlin
+ms.service: security-center
+ms.topic: overview
+ms.date: 02/14/2021
 ---
 
-# Pricing of Azure Security Center
-Azure Security Center provides unified security management and advanced threat protection for workloads running in Azure, on-premises, and in other clouds. It delivers visibility and control over hybrid cloud workloads, active defenses that reduce your exposure to threats, and intelligent detection to help you keep pace with rapidly evolving cyber risks.
+# Azure Security Center free vs Azure Defender enabled
+Azure Defender is free for the first 30 days. At the end of 30 days, should you choose to continue using the service, we'll automatically start charging for usage.
 
-
-## Security Center free vs Azure Defender enabled
+## What are the benefits of enabling Azure Defender?
 
 Security Center is offered in two modes:
 
@@ -34,31 +27,6 @@ Security Center is offered in two modes:
     - **Access and application controls** (AAC) - Block malware and other unwanted applications by applying machine learning powered recommendations adapted to your specific workloads to create allow and deny lists. Reduce the network attack surface with just-in-time, controlled access to management ports on Azure VMs. AAC drastically reduces exposure to brute force and other network attacks.
     - **Container security features** - Benefit from vulnerability management and real-time threat protection on your containerized environments. When enabling the **Azure Defender for container registries**, it may take up to 12 hrs until all the features are enabled. Charges are based on the number of unique container images pushed to your connected registry. After an image has been scanned once, you won't be charged for it again unless it's modified and pushed once more.
     - **Breadth threat protection for resources connected to the Azure environment** - Azure Defender includes Azure-native breadth threat protection for the Azure services common to all of your resources: Azure Resource Manager, Azure DNS, Azure network layer, and Azure Key Vault. Azure Defender has unique visibility into the Azure management layer and the Azure DNS layer, and can therefore protect cloud resources that are connected to those layers.
-
-
-## Try Azure Defender free for 30 days
-Azure Defender is free for the first 30 days. At the end of 30 days, should you choose to continue using the service, we'll automatically start charging for usage.
-
-## Enable Azure Defender
-You can protect an entire Azure subscription with Azure Defender and the protections will be inherited by all resources within the subscription.
-
-To enable Azure Defender:
-
-1. From Security Center's main menu, select **Pricing & settings**.
-1. Select the subscription that you want to upgrade.
-1. Select **Azure Defender on** to upgrade.
-1. Select **Save**.
-
-Below is the pricing page for an example subscription. You'll notice that each plan in Azure Defender is priced separately and can be individually set to on or off.
-
-:::image type="content" source="./media/security-center-pricing/pricing-tier-page.png" alt-text="Security Center's pricing page in the portal":::
-
-> [!NOTE]
-> To enable all Security Center features including threat protection capabilities, you must enable Azure Defender on the subscription containing the applicable workloads. Enabling it at the workspace level doesn't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Azure Defender plans available at the workspace level are Azure Defender for servers and Azure Defender for SQL servers on machines.
->
-> You can enable **Azure Defender for Storage accounts** at either the subscription level or resource level.
-> You can enable **Azure Defender for SQL** at either the subscription level or resource level.
-> You can enable threat protection for **Azure Database for MariaDB/ MySQL/ PostgreSQL** at the resource level only.
 
 
 ## FAQ - Pricing and billing 

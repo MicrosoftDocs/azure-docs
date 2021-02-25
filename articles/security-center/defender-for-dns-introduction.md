@@ -24,7 +24,7 @@ Azure Defender for DNS provides an additional layer of protection for your cloud
 |Aspect|Details|
 |----|:----|
 |Release state:|Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
-|Pricing:|**Azure Defender for DNS** is billed as shown on [the pricing page](security-center-pricing.md)|
+|Pricing:|**Azure Defender for DNS** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 

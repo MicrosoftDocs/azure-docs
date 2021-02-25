@@ -473,8 +473,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-fusion"></a>Security incident alerts
 
-[Further details and notes](security-center-alerts-cloud-smart.md)
-
+[Further details and notes](security-center-alerts-overview.md#cloud-smart-alert-correlation-in-azure-security-center-incidents)
 
 | Alert                                   | Description                                                          | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
