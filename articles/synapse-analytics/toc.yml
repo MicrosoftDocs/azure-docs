@@ -582,17 +582,21 @@
       href: ./spark/apache-spark-machine-learning-concept.md
     - name: Notebooks
       href: ./spark/apache-spark-notebook-concept.md
+    - name: Package management
+      href: ./spark/apache-spark-azure-portal-add-libraries.md
     - name: Monitoring tools
       href: monitoring/how-to-monitor-spark-applications.md
   - name: How-to guides
     items:
     - name: Work with Delta Lake 
       href: ./spark/apache-spark-delta-lake-overview.md
-    - name: Manage libraries
+    - name: Manage packages
       items:
-      - name: Add and manage libraries
-        href: ./spark/apache-spark-azure-portal-add-libraries.md
-      - name: Troubleshoot library installation errors 
+      - name: Manage Python packaeges
+        href: ./spark/apache-spark-manage-python-packages.md
+      - name: Manage Scala packages
+        href: ./spark/apache-spark-manage-scala-packages.md
+      - name: Troubleshoot Python package installation errors 
         href: ./spark/apache-spark-troubleshoot-library-errors.md
     - name: Use notebooks and IDE tools
       items:

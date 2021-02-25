@@ -24,6 +24,19 @@ You can force the changes to apply by selecting the option to **Force new settin
 
 ![Add Python libraries](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Add Python libraries")
 
+## Track installation progress
+A system reserved Spark job is initiated each time a pool is updated with a new set of libraries. This Spark job helps monitor the status of the library installation. If the installation fails due to library conflicts or other issues, the Spark pool will revert to its previous or default state. 
+
+In addition, users can also inspect the installation logs to identify dependency conflicts or see which libraries were installed during the pool update.
+
+To view these logs:
+1. Navigate to the Spark applications list in the **Monitor** tab. 
+2. Select the system Spark application job that corresponds to your pool update. These system jobs run under the *SystemReservedJob-LibraryManagement* title.
+   ![Screenshot that highlights system reserved library job.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png "View system library job")
+3. Switch to view the **driver** and **stdout** logs. 
+4. Within the results, you will see the logs related to the installation of your packages.
+    ![Screenshot that highlights system reserved library job results.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png "View system library job progress")
+
 ## Validate your permissions
 To install and update libraries, you must have the **Storage Blob Data Contributor** or **Storage Blob Data Owner** permissions on the primary Azure Data Lake Storage Gen2 Storage account that is linked to the Azure Synapse Analytics workspace.
 
@@ -53,22 +66,14 @@ If you receive an error, you are likely missing the required permissions. To lea
 
 In addition, if you are running a Pipeline, then the Workspace MSI must have Storage Blob Data Owner or Storage Blob Data Contributor permissions as well. To learn how to grant your workspace identity this permission, visit: [Grant permissions to workspace managed identity](../security/how-to-grant-workspace-managed-identity-permissions.md).
 
-## Check the requirements file
-A ***requirements.txt*** file (output from the pip freeze command) can be used to upgrade the virtual environment. This file follows format described in the [pip freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/) reference documentation.
+## Check the environment configuration file
+An environment configuration file can be used to upgrade the Conda environment. This acceptable file formats for Python pool management are listed [here](./apache-spark-manage-python-packages.md).
 
 It is important to note the following restrictions:
-   -  The PyPI package name must be listed along with an exact version. 
    -  The contents of the requirements file must not include extra blank lines or characters. 
-   -  The [Synapse Runtime](apache-spark-version-support.md) includes a set of libraries that are pre-installed onto every serverless Apache Spark pool. Packages that come pre-installed onto the base runtime cannot be downgraded. Packages can only be added or upgraded.
+   -  The [Synapse Runtime](apache-spark-version-support.md) includes a set of libraries that are pre-installed onto every serverless Apache Spark pool. Packages that come pre-installed onto the base runtime cannot be removed or uninstalled.
    -  Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
-
-The following snippet shows the required format for the requirements file.
-
-```
-absl-py==0.7.0
-adal==1.2.1
-alabaster==0.7.10
-```
+   -  Python session-scoped libraries only accepts files with a YML extension.
 
 ## Validate wheel files
 The Synapse serverless Apache Spark pools are based off the Linux distribution. When downloading and installing Wheel files directly from PyPI, be sure to select the version that is built on Linux and runs on the same Python version as the Spark pool.
@@ -90,6 +95,9 @@ To recreate the environment and validate your updates:
     ```
    
  3. Use ``pip install -r <provide your req.txt file>`` to update the virtual environment with your specified packages. If the installation results in an error, then there may be a a conflict between what is pre-installed in the Synapse base runtime and what is specified in the provided requirements file. These dependency conflicts must be resolved in order to get the updated libraries on your serverless Apache Spark pool.
+
+>[!IMPORTANT]
+>Issues may arrise when using pip and conda together. When combining pip and conda, it is best to follow these [recommended best practices](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#using-pip-in-an-environment).
 
 ## Next steps
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
