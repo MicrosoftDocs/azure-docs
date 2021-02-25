@@ -72,6 +72,8 @@ import { SmsClient } from "@azure/communication-sms";
 
 The examples below are using the [DefaultAzureCredential](/javascript/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
 
+To registered application in the development environment and set up environment variables, see [Authorize access with managed identity](../managed-identity-from-cli.md)  
+
 ### Create an identity and issue a token
 
 The following code example shows how to create a service client object with Azure Active Directory tokens, then use the client to issue a token for a new user:
