@@ -28,11 +28,11 @@ For more information about the _provision_ and _retire_ stages, and to better un
 Before you can set up the provisioning, you'll need to set up the following:
 
 * an **Azure Digital Twins instance** that contains models and twins. This instance should also be set up with the ability to update digital twin information based on data
-    * an Azure Digital Twins instance **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
+    * the **_host name_** of the instance([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * an Azure [IoT Hub](../iot-hub/about-iot-hub.md)
 * an [Azure function](../azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data
-    * an Azure function app name that you created in the [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)
-    
+    * the **_name_** of this function
+
 If you do not have these set up already, you can create them by following the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md).
 
 This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
@@ -60,7 +60,7 @@ In this section, you'll be attaching Device Provisioning Service to Azure Digita
 Here is a description of the process flow:
 1. Device contacts the DPS endpoint, passing identifying information to prove its identity.
 2. DPS validates device identity by validating the registration ID and key against the enrollment list, and calls an [Azure function](../azure-functions/functions-overview.md) to do the allocation.
-3. The Azure function creates a new [twin](concepts-twins-graph.md) in Azure Digital Twins for the device with the same name as the registration ID.
+3. The Azure function creates a new [twin](concepts-twins-graph.md) in Azure Digital Twins for the device. The twin will have the same name as the device's **registration ID**.
 4. DPS registers the device with an IoT hub, and populates the device's desired twin state.
 5. The IoT hub returns device ID information and the IoT hub connection information to the device. The device can now connect to the IoT hub.
 
@@ -85,13 +85,13 @@ Next, you'll create an HTTP request-triggered function inside a function app. Yo
 
 This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device. For more information about using HTTP requests with Azure functions, see [*Azure Http request trigger for Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
-Inside your function app project, add a new function. Also, add a new NuGet package to the project: `Microsoft.Azure.Devices.Provisioning.Service`. You might need to add additional packages to your project as well if the packages used in the code aren't part of the project already.
+Inside your function app project, add a new function. Also, add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add additional packages to your project as well, if the packages used in the code aren't part of the project already.
 
 In the newly created function code file, paste in the following code.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIotHub_allocate.cs":::
 
-Save the file and then re-publish your function app. For instructions on publishing the function app, see the [*Publish the app*](tutorial-end-to-end.md#publish-the-app) section of the end-to-end tutorial.
+Save the file and then publish your function app. For instructions on publishing the function app, see the [*Publish the app*](tutorial-end-to-end.md#publish-the-app) section of the end-to-end tutorial.
 
 ### Configure your function
 
@@ -111,11 +111,11 @@ Next, you'll need to create an enrollment in Device Provisioning Service using a
 
 While going through that flow, you will link the enrollment to the function you just created by selecting *Custom (Use Azure Function)* during the step to *Select how you want to assign devices to hubs*. Then, you will also link your IoT hub you created earlier by selecting its name from the dropdown during the step to *Select the IoT hubs this group can be assigned to:*.
 
-Next, choose *Select a new function* button to link your function app to the enrollment group. Select your *Subscription* and *Function App* from the respective dropdowns. Also, in the *Function* dropdown, choose *ProcessDTRoutedData*.
+Next, choose *Select a new function* button to link your function app to the enrollment group. Select your *Subscription* and *Function App* from the respective dropdowns. Also, in the *Function* dropdown, choose *DpsAdtAllocationFunc*.
 
 Save your details.                  
 
-:::image type="content" source="media/how-to-provision-using-dps/link-enrollment-group-to-iot-hub-and-function-app.png" alt-text="Select Custom(Use Azure Function) and your IoT hub name in the sections - Select how you want to assign devices to hubs and Select the IoT hubs this group can be assigned to. Also, select your subscription, function app from the dropdown and make sure to select processDTRoutedData":::
+:::image type="content" source="media/how-to-provision-using-dps/link-enrollment-group-to-iot-hub-and-function-app.png" alt-text="Select Custom(Use Azure Function) and your IoT hub name in the sections Select how you want to assign devices to hubs and Select the IoT hubs this group can be assigned to. Also, select your subscription, function app from the dropdown and make sure to select DpsAdtAllocationFunc":::
 
 After creating the enrollment, the enrollment primary SAS key will be used later to configure the device simulator for this article.
 
