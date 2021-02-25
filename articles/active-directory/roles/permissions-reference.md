@@ -1,6 +1,6 @@
 ---
-title: Azure AD role descriptions and permissions - Azure Active Directory | Microsoft Docs
-description: An admin role can add users, assign administrative roles, reset user passwords, manage user licenses, or manage domains.
+title: Azure AD built-in roles - Azure Active Directory
+description: Describes the Azure Active Directory built-in roles and permissions.
 services: active-directory
 author: rolyon
 manager: daveba
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 02/01/2020
+ms.date: 02/17/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
 ---
 
-# Administrator role permissions in Azure Active Directory
+# Azure AD built-in roles
 
 Using Azure Active Directory (Azure AD), you can designate limited administrators to manage identity tasks in less-privileged roles. Administrators can be assigned for such purposes as adding or changing users, assigning administrative roles, resetting user passwords, managing user licenses, and managing domain names. The [default user permissions](../fundamentals/users-default-permissions.md) can be changed only in user settings in Azure AD.
 
