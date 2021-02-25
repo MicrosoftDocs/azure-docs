@@ -5,7 +5,7 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 02/23/2021
+ms.date: 03/02/2021
 ms.author: dech
 ---
 
@@ -42,7 +42,11 @@ Use the following steps to publish a notebook:
 
 1. Navigate to the **Data Explorer** > **Notebooks** > **My Notebooks** tab.
 
-1. Go to the notebook that you want to publish. Select the **…** button next to the notebook name and then select **Publish to gallery**. You can also find the **Publish to gallery** option under the **Save** button in the command bar.
+1. Go to the notebook that you want to publish. Select the **Save** button in the command bar and then select **Publish to gallery**:
+
+   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish-option2.png" alt-text="Choose a notebook to publish to the gallery.":::
+
+   You can also find the **Publish to gallery** option by selecting the **…** button next to the notebook name:
 
    :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Choose a notebook to publish to the gallery.":::
 
@@ -51,9 +55,17 @@ Use the following steps to publish a notebook:
    * **Name:** A friendly name to identify your notebook.
    * **Description:**  A short description of what your notebook does.
    * **Tags:** Tags are optional and are used to filter results when searched by a keyword.
-   * **Cover image:** An image that’s used on the cover page when the notebook is published. Choose an image file with aspect ratio 256x144. You can either upload a **Custom image** from your computer or provide a publicly accessible **URL** where the image is located.
+   * **Cover image:** An image that’s used on the cover page when the notebook is published. You can choose one of the following options:
+
+     * **Custom image** - You can upload an image from your computer. Choose an image file with aspect ratio 256x144.
+     * **URL** - Provide a publicly accessible URL where the image is located.
+     * **Take screenshot** - A screenshot of your open notebook is automatically taken and uploaded to the preview.
+     * **Use first display output** - Output of the first cell that has a display output. Cells that only display markdown/text don't count as a display output.
 
    :::image type="content" source="./media/publish-notebook-gallery/publish-notebook.png" alt-text="Fill out the publish to gallery form.":::
+
+   > [!NOTE]
+   > If you are using the **Publish to gallery** option from the **…** button next to the notebook name, you won't see all the **Cover image** options. That's because the notebook may not be open and Azure Cosmos DB will not have access to take a screenshot or access the first display output.
 
 1. Verify that the preview looks good and select **Publish**. When published, this notebook will appear in the Azure Cosmos DB notebooks public gallery. Make sure you have removed any sensitive data or output before publishing. The notebook content is scanned for any violation of Microsoft policies before publishing. This process usually takes a few seconds to complete. If any violations are found, a message is displayed in the notification tab. Your notebook will not be published if it finds any violation, you remove the violated text and publish it again.
 
