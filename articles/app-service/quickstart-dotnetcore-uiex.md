@@ -6,10 +6,6 @@ ms.topic: quickstart
 ms.date: 11/23/2020
 ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1"
 zone_pivot_groups: app-service-platform-windows-linux
-adobe-target: true
-adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
-adobe-target-experience: Experience B
-adobe-target-content: ./quickstart-dotnetcore-uiex
 ---
 
 # Quickstart: Create an ASP.NET Core web app in Azure
