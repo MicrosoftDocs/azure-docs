@@ -39,7 +39,8 @@ Follow these steps to create the app registration:
 1. If you have access to multiple tenants, in the top menu, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: to select the tenant in which you want to register an application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
-1. Enter a **Name** for your application. Users of your app might see this name. You can change it later.
+1. Enter a **display Name** for your application. Users of your application might see the display name when they use the app, for example during sign-in.
+You can change the display name at any time and multiple app registrations can share the same name. The app registration's automatically generated Application (client) ID, not its display name, uniquely identifies your app within the identity platform.
 1. Specify who can use the application, sometimes called its *sign-in audience*.
 
     | Supported account types | Description |
@@ -59,9 +60,6 @@ When registration finishes, the Azure portal displays the app registration's **O
 Your application's code, or more typically an authentication library used in your application, also uses the client ID. The ID is used as part of validating the security tokens it receives from the identity platform.
 
 :::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot of the Azure portal in a web browser, showing an app registration's Overview pane.":::
-
-> [!NOTE]
-> There can be multiple applications with the same name but different client ID in Azure Active Directory.
 
 ## Add a redirect URI
 
