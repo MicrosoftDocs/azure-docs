@@ -14,6 +14,8 @@ ms.custom: security-benchmark
 
 Privileged Access covers controls to protect privileged access to your Azure tenant and resources. This includes a range of controls to protect your administrative model, administrative accounts, and privileged access workstations against deliberate and inadvertent risk.
 
+To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Privileged Access](../../governance/policy/samples/azure-security-benchmark#privileged-access)
+
 ## PA-1: Protect and limit highly privileged users
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |

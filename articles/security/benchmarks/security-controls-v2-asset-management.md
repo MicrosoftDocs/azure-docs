@@ -14,6 +14,8 @@ ms.custom: security-benchmark
 
 Asset Management covers controls to ensure security visibility and governance over Azure resources. This includes recommendations on permissions for security personnel, security access to asset inventory, and managing approvals for services and resources (inventory, track, and correct).
 
+To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Network Security](../../governance/policy/samples/azure-security-benchmark#asset-management)
+
 ## AM-1: Ensure security team has visibility into risks for assets
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |

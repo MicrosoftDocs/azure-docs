@@ -14,6 +14,8 @@ ms.custom: security-benchmark
 
 Identity Management covers controls to establish a secure identity and access controls using Azure Active Directory. This includes the use of single sign-on, strong authentications, managed identities (and service principles) for applications, conditional access, and account anomalies monitoring.
 
+To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Identity Management](../../governance/policy/samples/azure-security-benchmark#identity-management)
+
 ## IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |

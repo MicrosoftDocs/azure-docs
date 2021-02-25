@@ -14,6 +14,8 @@ ms.custom: security-benchmark
 
 Network Security covers controls to secure and protect Azure networks. This includes securing virtual networks, establishing private connections, preventing and mitigating external attacks, and securing DNS.
 
+To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Network Security](../../governance/policy/samples/azure-security-benchmark#network-security)
+
 ## NS-1: Implement security for internal traffic
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |

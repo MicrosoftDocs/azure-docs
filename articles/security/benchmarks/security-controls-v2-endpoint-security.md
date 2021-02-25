@@ -14,6 +14,8 @@ ms.custom: security-benchmark
 
 Endpoint Security covers controls in endpoint detection and response. This includes use of endpoint detection and response (EDR) and anti-malware service for endpoints in Azure environments.
 
+To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Endpoint Security](../../governance/policy/samples/azure-security-benchmark#endpoint-security)
+
 ## ES-1: Use Endpoint Detection and Response (EDR)
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |

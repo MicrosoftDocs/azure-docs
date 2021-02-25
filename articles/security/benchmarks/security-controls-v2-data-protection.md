@@ -14,6 +14,8 @@ ms.custom: security-benchmark
 
 Data Protection covers control of data protection at rest, in transit, and via authorized access mechanisms. This includes discover, classify, protect, and monitor sensitive data assets using access control, encryption, and logging in Azure.
 
+To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Data Protection](../../governance/policy/samples/azure-security-benchmark#data-protection)
+
 ## DP-1: Discovery, classify and label sensitive data
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |

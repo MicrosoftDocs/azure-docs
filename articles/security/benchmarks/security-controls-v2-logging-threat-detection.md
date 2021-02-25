@@ -12,7 +12,9 @@ ms.custom: security-benchmark
 
 # Security Control V2: Logging and Threat Detection
 
-Logging and Threat Detection covers controls for detecting threats on Azure and enabling, collecting, and storing audit logs for Azure services. This includes enabling detection, investigation, and remediation processes with controls to generate high quality alerts with native threat detection in Azure services; it also includes collecting logs with Azure Monitor, centralizing security analysis with Azure Sentinel, time synchronization, and log retention. 
+Logging and Threat Detection covers controls for detecting threats on Azure and enabling, collecting, and storing audit logs for Azure services. This includes enabling detection, investigation, and remediation processes with controls to generate high quality alerts with native threat detection in Azure services; it also includes collecting logs with Azure Monitor, centralizing security analysis with Azure Sentinel, time synchronization, and log retention.
+
+To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Logging and Threat Detection](../../governance/policy/samples/azure-security-benchmark#logging-and-threat-detection)
 
 ## LT-1: Enable threat detection for Azure resources
 
