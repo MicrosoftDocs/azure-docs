@@ -12,8 +12,7 @@ ms.custom: template-how-to
 
 # Deploy a VM with Trusted Launch enabled (preview)
 
-Azure offers [Trusted Launch](trusted-launch.md) as a way to increase the security of [generation 2](generation-2.md) VMs. Trusted Launch protects against advanced and persistent attack techniques. Trusted Launch is comprised of several infrastructure technologies, including vTPM and secure boot.
-
+[Trusted Launch](trusted-launch.md) is a way to improve the security of [generation 2](generation-2.md) VMs. Trusted Launch protects against advanced and persistent attack techniques by combining infrastructure technologies like vTPM and secure boot.
 
 ## Deploy using the portal
 
@@ -61,7 +60,7 @@ You can deploy Trusted Launch VMs using a quickstart template:
 
 You can view the Trusted Launch configuration for an existing VM by visiting the **Overview** page for the VM in the portal.
 
-To update or modify the Trusted Launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM under Trusted Launch. Select **Save** at the top of the page when you are done. 
+To change the Trusted Launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the **Trusted Launch** section. Select **Save** at the top of the page when you are done. 
 
 :::image type="content" source="media/trusted-launch/configuration.png" alt-text="Screenshot of how to change the Trusted Launch configuration.":::
 
@@ -106,8 +105,7 @@ If vTPM is disabled, it will return:
 ls: cannot access '/dev/tpm0': No such file or directory
 ```
 
-
-### Windows: validate that secure boot is running 
+### Windows: validate that secure boot is running
 
 Connect to the VM using remote desktop and then run `msinfo32.exe`.
 
@@ -117,20 +115,21 @@ In the right pane, check that the Secure Boot State is **ON**.
 
 In some cases, you might need to sign things for UEFI Secure Boot.  For example, you might need to go through [How to sign things for Secure Boot](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) for Ubuntu. In these cases, you need to enter the MOK utility enroll keys for your VM. To do this, you need to use the Azure Serial Console to access the MOK utility.
 
-1.	Enable Azure Serial Console for Linux. For more information, see [Serial Console for Linux](serial-console-linux.md).
-2. Log in to the [Azure portal](https://portal.azure.com).
+1. Enable Azure Serial Console for Linux. For more information, see [Serial Console for Linux](serial-console-linux.md).
+1. Log in to the [Azure portal](https://portal.azure.com).
 1. Search for **Virtual machines** and select your VM from the list.
 1. In the left menu, under **Support + troubleshooting**, select **Serial console**. A page will open to the right, with the serial console.
-2.	Log on to the VM using Azure Serial Console. For **login**, enter the username you used when you created the VM. For example, *azureuser*. When prompted, enter the password associated with the username.
-3.	Once you are logged in, use `mokutil` to import the public key `.der` file.
+1. Log on to the VM using Azure Serial Console. For **login**, enter the username you used when you created the VM. For example, *azureuser*. When prompted, enter the password associated with the username.
+1. Once you are logged in, use `mokutil` to import the public key `.der` file.
 
     ```bash
     sudo mokutil –import <path to public key.der> 
     ```
-4.	Reboot the machine from Azure Serial Console by typing `sudo reboot`. A 10 second countdown will begin.
-6.	Press up or down key to interrupt the countdown and wait in UEFI console mode. If the timer is not interrupted, the bootprocess continues and all of the MOK changes are lost.
-7.	Select the appropriate action from the MOK utility menu.
-:::image type="content" source="media/trusted-launch/mok-mangement.png" alt-text="Screenshot showing the available options on the MOK management menu in the serial console.":::
+1. Reboot the machine from Azure Serial Console by typing `sudo reboot`. A 10 second countdown will begin.
+1. Press up or down key to interrupt the countdown and wait in UEFI console mode. If the timer is not interrupted, the bootprocess continues and all of the MOK changes are lost.
+1. Select the appropriate action from the MOK utility menu.
+
+    :::image type="content" source="media/trusted-launch/mok-mangement.png" alt-text="Screenshot showing the available options on the MOK management menu in the serial console.":::
 
 
 # Next steps
