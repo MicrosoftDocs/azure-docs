@@ -63565,6 +63565,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-machines/windows/automatic-vm-guest-patching.md",
+      "redirect_url": "/azure/virtual-machines/automatic-vm-guest-patching",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/troubleshooting/allocation-failure-classic.md",
       "redirect_url": "/troubleshoot/azure/virtual-machines/allocation-failure-classic",
       "redirect_document_id": false
