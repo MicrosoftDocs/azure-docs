@@ -12,27 +12,50 @@ ms.custom:
 # Reset an Azure Cloud Service (extended support) 
 These samples cover various ways to reset an existing Azure Cloud Service (extended support) deployment.
 
-## Reimage role instances of Cloud Service
+## Reimage role instances of cloud service
 ```powershell
 $roleInstances = @("ContosoFrontEnd_IN_0", "ContosoBackEnd_IN_1")
-Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance $roleInstances -Reimage
+Invoke-AzCloudServiceReimage -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance $roleInstances
 ```
-This command reimages 2 role instances **ContosoFrontEnd\_IN\_0** and **ContosoBackEnd\_IN\_1** of Cloud Service named ContosoCS that belongs to the resource group named ContosOrg.
+This command reimages 2 role instances ContosoFrontEnd_IN_0 and ContosoBackEnd_IN_1 of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
 ## Reimage all roles of Cloud Service
 ```powershell
-Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*" -Reimage
+Invoke-AzCloudServiceReimage -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*"
 ```
+This command reimages all role instances of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
 ## Reimage a single role instance of a Cloud Service
 ```powershell
-Reset-AzCloudServiceRoleInstance -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstanceName "ContosoFrontEnd_IN_0" -Reimage
+Invoke-AzCloudServiceRoleInstanceReimage -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstanceName "ContosoFrontEnd_IN_0"
 ```
+This command reimages role instance named ContosoFrontEnd_IN_0 of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
-## Restart a single role instance of a Cloud Service
+## Rebuild role instances of cloud service
 ```powershell
-Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*" -Restart
+$roleInstances = @("ContosoFrontEnd_IN_0", "ContosoBackEnd_IN_1")
+Invoke-AzCloudServiceRebuild -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance $roleInstances
 ```
+This command rebuilds 2 role instances ContosoFrontEnd_IN_0 and ContosoBackEnd_IN_1 of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
+
+## Rebuild all roles of cloud service
+```powershell
+Invoke-AzCloudServiceRebuild -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*"
+```
+This command rebuilds all role instances of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
+
+## Restart role instances of cloud service
+```powershell
+$roleInstances = @("ContosoFrontEnd_IN_0", "ContosoBackEnd_IN_1")
+Restart-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance $roleInstances
+```
+This command restarts 2 role instances ContosoFrontEnd_IN_0 and ContosoBackEnd_IN_1 of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
+
+## Restart all roles of cloud service
+```powershell
+Restart-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*"
+```
+This command restarts all role instances of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
 ## Next steps
 

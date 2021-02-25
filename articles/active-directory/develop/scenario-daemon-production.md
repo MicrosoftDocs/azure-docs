@@ -24,7 +24,7 @@ Now that you know how to acquire and use a token for a service-to-service call, 
 
 ## Deployment - multitenant daemon apps
 
-If you're an ISV creating a daemon application that can run in several tenants, you need to make sure that the tenant admin:
+If you're an ISV creating a daemon application that can run in several tenants, make sure that the tenant admin:
 
 - Provisions a service principal for the application.
 - Grants consent to the application.
@@ -65,6 +65,6 @@ Try the quickstart [Acquire a token and call Microsoft Graph API from a Python c
 
 # [Java](#tab/java)
 
-MSAL Java is currently in public preview. For more info, see [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Java console app using app's identity](./quickstart-v2-java-daemon.md).
 
 ---

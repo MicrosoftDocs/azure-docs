@@ -3,7 +3,7 @@ title: Servers - Azure Database for MariaDB
 description: This topic provides considerations and guidelines for working with Azure Database for MariaDB servers.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ---

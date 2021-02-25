@@ -83,6 +83,10 @@ As a device developer, you can use the **Raw data** view to examine the raw data
 
 On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
 
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## Next steps
 
 If you'd prefer to continue through the set of IoT Central tutorials and learn more about building an IoT Central solution, see:

@@ -1,18 +1,11 @@
 ---
 title: Load data from Office 365 by using Azure Data Factory 
 description: 'Use Azure Data Factory to copy data from Office 365'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-
 ---
 # Load data from Office 365 by using Azure Data Factory
 

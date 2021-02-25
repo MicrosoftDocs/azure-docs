@@ -11,6 +11,9 @@ ms.date: 12/01/2020
 
 Azure Active Directory pod-managed identities uses Kubernetes primitives to associate [managed identities for Azure resources][az-managed-identities] and identities in Azure Active Directory (AAD) with pods. Administrators create identities and bindings as Kubernetes primitives that allow pods to access Azure resources that rely on AAD as an identity provider.
 
+> [!NOTE]
+> If you have an existing installation of AADPODIDENTITY, you must remove the existing installation. Enabling this feature means that the MIC component isn't needed.
+
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Before you begin
@@ -72,6 +75,16 @@ export IDENTITY_NAME="application-identity"
 az identity create --resource-group ${IDENTITY_RESOURCE_GROUP} --name ${IDENTITY_NAME}
 export IDENTITY_CLIENT_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query clientId -otsv)"
 export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query id -otsv)"
+```
+
+## Assign permissions for the managed identity
+
+The *IDENTITY_CLIENT_ID* managed identity must have Reader permissions in the resource group that contains the virtual machine scale set of your AKS cluster.
+
+```azurecli-interactive
+NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NODES_RESOURCE_ID=$(az group show -n $NODE_GROUP -o tsv --query "id")
+az role assignment create --role "Reader" --assignee "$IDENTITY_CLIENT_ID" --scope $NODES_RESOURCE_ID
 ```
 
 ## Create a pod identity

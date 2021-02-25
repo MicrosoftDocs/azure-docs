@@ -107,6 +107,9 @@ sections:
       - question: Does Azure Backup support backing up NFS files mounted from storage?
         answer: Azure Backup doesn't support backing up NFS files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It only backs up disks which are locally attached to the VM.
 
+      - question: What are the VM configurations stored in the virtual machine backup?  
+        answer: All the VM configurations required to perform the restore operations are stored in the VM backup. That includes the encryption copies of the VM encrypted keys, which are accessible to you on restore. The encryption copies can only be decrypted using the key vault. Temporary disks and memory state aren't captured in the snapshot.
+
   - name: Restore
     questions:
       - question: How do I decide whether to restore disks only or a full VM?
@@ -149,9 +152,9 @@ sections:
           
           Operations like secret/key roll-over don't require this step and the same key vault can be used after restore.
           
-      - question: Can I access the VM once restored due to a VM having broken relationship with domain controller?
+      - question: Can I access the VM once restored due to a VM having a broken relationship with the domain controller?
         answer: |
-          Yes, you access the VM once restored due to a VM having broken relationship with domain controller. For more information, see this [article](./backup-azure-arm-restore-vms.md#post-restore-steps).
+          Yes, you can access the VM once restored due to a VM having a broken relationship with the domain controller. For more information, see this [article](./backup-azure-arm-restore-vms.md#post-restore-steps).
           
       - question: Can I cancel an in-progress restore job?
         answer: No, you cannot cancel the restore job that is in-progress.

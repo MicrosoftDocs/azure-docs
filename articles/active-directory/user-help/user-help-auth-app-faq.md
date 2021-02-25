@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -90,6 +90,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 ### Device registration
 
 **Q**: What is device registration?
+
 **A**: Your org might require you to register the device to track access to secured resources, such as files and apps. They also might turn on Conditional Access to reduce the risk of unwanted access to those resources. You can unregister your device in **Settings**, but you may lose access to emails in Outlook, files in OneDrive, and you'll lose the ability to use phone sign-in.
 
 ### Verification codes when connected
@@ -206,9 +207,9 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **A**: You first have to make sure you've chosen to share your analytics with us. If you're a TestFlight user, you're already signed up. Otherwise, you can go to **Settings > Privacy > Analytics** and select both the **Share iPhone & Watch analytics** and the **Share with App Developers** options.<br>After you sign up, you can try to reproduce your crash so your crash logs are automatically sent to us for investigation. However, if you can't reproduce your crash, you can manually copy your log files and send them to us.<ol><li>Open the Watch app on your phone, go to **Settings > General**, and then click **Copy Watch Analytics**.</li><li>Find the corresponding crash under **Settings > Privacy > Analytics > Analytics Data**, and then manually copy the entire text.</li><li>Open Authenticator on your phone and paste that copied text into the **Describe the issue you are facing** box under **Having trouble?** on the **Send feedback** page. </li></ol>
 
-## Autofill for Authenticator
+## Autofill with Authenticator
 
-**Q**: What is Autofill in Authenticator?
+**Q**: What is Autofill with Authenticator?
 
 **A**: The Authenticator app now securely stores and autofills passwords on apps and websites you visit on your phone. You can use Autofill to sync and autofill your passwords on your iOS and Android devices. After setting up the Authenticator app as an autofill provider on your phone, it offers to save your passwords when you enter them on a site or in an app sign-in page. The passwords are saved as part of [your personal Microsoft account](https://account.microsoft.com/account) and are also available when you sign in to Microsoft Edge with your personal Microsoft account.
 
@@ -234,7 +235,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
    - On iOS, under **Settings**, select **How to turn on Autofill** in the Autofill settings section to learn how to set Authenticator as the default autofill provider.
    - On Android, under **Settings**, select **Set as Autofill provider** in the Autofill settings section.
 
-**Q**: What if **Autofill** switch is not available for me in Settings?
+**Q**: What if **Autofill** is not available for me in Settings?
 
 **A**: If Autofill is not available for you in Authenticator, it might be because autofill has not yet been allowed for your organization or account type. You can use this feature on a device where your work or school account isn’t added. To learn more on how to allow Autofill for your organization, see [Autofill for IT admins](#autofill-for-it-admins).
 

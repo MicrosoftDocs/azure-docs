@@ -22,6 +22,8 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
 
 >[!NOTE]
 >IoT Edge for Linux on Windows is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+>While IoT Edge for Linux on Windows is the recommended experience for using Azure IoT Edge in a Windows environment, Windows containers are still available. If you prefer to use Windows containers, see the how-to guide on [installing and managing Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md).
 
 ## Prerequisites
 
@@ -292,7 +294,7 @@ This section covers provisioning your device automatically using DPS and X.509 c
 1. Copy the following command into a text editor. Replace the placeholder text with your information as detailed.
 
    ```azurepowershell-interactive
-   Provision-EflowVm -provisioningType x509 -​scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityCertLocWin <ABSOLUTE_CERT_DEST_PATH_ON_LINUX_MACHINE -identityPkLocVm <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_LINUX_MACHINE>
+   Provision-EflowVm -provisioningType x509 -​scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityCertLocVm <ABSOLUTE_CERT_DEST_PATH_ON_LINUX_MACHINE -identityPkLocVm <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_LINUX_MACHINE>
    ```
 
 1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.

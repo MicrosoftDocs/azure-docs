@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -23,6 +23,10 @@ If there is a possibility that your data may accidentally be modified or deleted
 ## About soft delete for blobs
 
 When soft delete for blobs is enabled on a storage account, you can recover objects after they have been deleted, within the specified data retention period. This protection extends to any blobs (block blobs, append blobs, or page blobs) that are erased as the result of an overwrite.
+
+The following diagram shows how a deleted blob can be restored when blob soft delete is enabled:
+
+:::image type="content" source="media/soft-delete-blob-overview/blob-soft-delete-diagram.png" alt-text="Diagram showing how a soft-deleted blob may be restored":::
 
 If data in an existing blob or snapshot is deleted while blob soft delete is enabled but blob versioning is not enabled, then a soft deleted snapshot is generated to save the state of the overwritten data. After the specified retention period has expired, the object is permanently deleted.
 
@@ -75,7 +79,7 @@ When **Delete Blob** is called on a base blob (any blob that is not itself a sna
 > [!NOTE]  
 > When a soft deleted blob is overwritten, a soft deleted snapshot of the blob's state prior to the write operation is automatically generated. The new blob inherits the tier of the overwritten blob.
 
-Soft delete does not save your data in cases of container or account deletion, nor when blob metadata and blob properties are overwritten. To protect a storage account from deletion, you can configure a lock using the Azure Resource Manager. For more information, see the Azure Resource Manager article [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
+Soft delete does not save your data in cases of container or account deletion, nor when blob metadata and blob properties are overwritten. To protect a storage account from deletion, you can configure a lock using the Azure Resource Manager. For more information, see the Azure Resource Manager article [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).  To protect containers from accidental deletion, configure container soft delete for the storage account. For more information, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
 
 The following table details expected behavior when soft delete is turned on:
 
