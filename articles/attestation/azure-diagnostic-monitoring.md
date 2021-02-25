@@ -11,9 +11,9 @@ ms.author: mbaldwin
 
 # Set up diagnostics with a Trusted Platform Module (TPM) endpoint of Azure Attestation
 
-This article helps you create and configure diagnostic settings to send platform metrics and platform logs to different destinations. [Platform logs](/azure/azure-monitor/platform/platform-logs-overview) in Azure, including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. [Platform metrics](/azure/azure-monitor/platform/data-platform-metrics) are collected by default and are stored in the Azure Monitor Metrics database.
+This article helps you create and configure diagnostic settings to send platform metrics and platform logs to different destinations. [Platform logs](/azure/azure-monitor/platform/platform-logs-overview) in Azure, including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform that they depend on. [Platform metrics](/azure/azure-monitor/platform/data-platform-metrics) are collected by default and are stored in the Azure Monitor Metrics database.
 
-Trusted Platform Module (TPM) endpoint service is enabled with diagnostic setting and can be used to monitor activity. Set up [Azure Monitoring](/azure/azure-monitor/overview) for the TPM service endpoint by using the following code.
+The Trusted Platform Module (TPM) endpoint service is enabled in the diagnostic settings and can be used to monitor activity. Set up [Azure Monitoring](/azure/azure-monitor/overview) for the TPM service endpoint by using the following code.
 
 ```powershell
 
@@ -33,4 +33,4 @@ Trusted Platform Module (TPM) endpoint service is enabled with diagnostic settin
 
 ```
 
-Activity logs are in the **Containers** section of the storage account. For more information, see [Collect resource logs from an Azure Resource and analyze with Azure Monitor](/azure/azure-monitor/learn/tutorial-resource-logs).
+Activity logs are in the **Containers** section of the storage account. For more information, see [Collect and analyze resource logs from an Azure resource](/azure/azure-monitor/learn/tutorial-resource-logs).
