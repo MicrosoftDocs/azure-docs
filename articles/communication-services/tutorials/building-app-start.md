@@ -341,7 +341,7 @@ Your file should look like this:
   "license": "ISC",
   "dependencies": {
     "@azure/communication-calling": "^1.0.0-beta.6",
-    "@azure/communication-common": "^1.0.0-beta.5"
+    "@azure/communication-common": "^1.0.0"
   },
   "devDependencies": {
     "webpack": "^4.42.0",
