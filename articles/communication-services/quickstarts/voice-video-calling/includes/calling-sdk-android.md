@@ -16,6 +16,9 @@ ms.author: mikben
 
 ### Install the package
 
+> [!NOTE]
+> This document uses version 1.0.0-beta.8 of the calling client library.
+
 <!-- TODO: update with instructions on how to download, install and add package to project -->
 Locate your project level build.gradle and make sure to add `mavenCentral()` to the list of repositories under `buildscript` and `allprojects`
 ```groovy
