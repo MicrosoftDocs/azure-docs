@@ -1,7 +1,7 @@
 ---
 title: Remediate non-compliant resources
 description: This guide walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
-ms.date: 10/05/2020
+ms.date: 02/17/2021
 ms.topic: how-to
 ---
 # Remediate non-compliant resources with Azure Policy
@@ -9,9 +9,9 @@ ms.topic: how-to
 Resources that are non-compliant to a **deployIfNotExists** or **modify** policy can be put into a
 compliant state through **Remediation**. Remediation is accomplished by instructing Azure Policy to
 run the **deployIfNotExists** effect or the **modify operations** of the assigned policy on your
-existing resources, whether that assignment is to a management group, a subscription, a resource
-group, or an individual resource. This article shows the steps needed to understand and accomplish
-remediation with Azure Policy.
+existing resources and subscriptions, whether that assignment is to a management group, a
+subscription, a resource group, or an individual resource. This article shows the steps needed to
+understand and accomplish remediation with Azure Policy.
 
 ## How remediation security works
 
@@ -24,7 +24,7 @@ automatically grants the managed identity the listed roles once assignment start
 the roles must manually be granted to the managed identity. The _location_ of the managed identity
 doesn't impact its operation with Azure Policy.
 
-:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Screenshot of of a deployIfNotExists policy that is missing a defined permission on the managed identity." border="false":::
+:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Screenshot of a deployIfNotExists policy that is missing a defined permission on the managed identity." border="false":::
 
 > [!IMPORTANT]
 > In the following scenarios, the assignment's managed identity must be
@@ -156,10 +156,11 @@ To add a role to the assignment's managed identity, follow these steps:
 ### Create a remediation task through portal
 
 During evaluation, the policy assignment with **deployIfNotExists** or **modify** effects determines
-if there are non-compliant resources. When non-compliant resources are found, the details are
-provided on the **Remediation** page. Along with the list of policies that have non-compliant
-resources is the option to trigger a **remediation task**. This option is what creates a deployment
-from the **deployIfNotExists** template or the **modify** operations.
+if there are non-compliant resources or subscriptions. When non-compliant resources or subscriptions
+are found, the details are provided on the **Remediation** page. Along with the list of policies
+that have non-compliant resources or subscriptions is the option to trigger a **remediation task**.
+This option is what creates a deployment from the **deployIfNotExists** template or the **modify**
+operations.
 
 To create a **remediation task**, follow these steps:
 
