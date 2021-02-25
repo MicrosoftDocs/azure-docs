@@ -27,6 +27,7 @@ To migrate to Azure Machine Learning we recommend the following approach:
 > * Step 2: Create a migration plan
 > * Step 3: Rebuild experiments and web services
 > * Step 4: Integrate client apps
+> * Step 5: Clean up Studio (classic) assets
 
 
 ## Step 1: Assess Azure Machine Learning
@@ -38,7 +39,7 @@ To migrate to Azure Machine Learning we recommend the following approach:
 
 1. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer module-mapping](#studio-classic-and-designer-module-mapping) table.
 
-1. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
+1. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md?tabs=azure-porta).
 
 ## Step 2: Create a migration plan
 
@@ -59,6 +60,10 @@ Azure Machine Learning also supports code-first workflows for [datasets](../how-
 ## Step 4: Integrate client apps
 
 1. Cut over client applications that use Studio (classic) web services to your new [Azure Machine Learning endpoints](migrate-rebuild-integrate-with-client-app.md).
+
+## Step 5: Cleanup Studio (classic) assets
+
+1. [Clean up your Studio (classic) assets](export-delete-personal-data-dsr.md) to avoid additional charges. You may want to retain Studio (classic) assets for fallback until you have validated Azure Machine Learning workloads.
 
 ## Studio (classic) and designer module-mapping
 
