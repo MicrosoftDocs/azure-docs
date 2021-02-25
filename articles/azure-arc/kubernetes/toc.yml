@@ -1,9 +1,11 @@
-- name: Azure Arc enabled Kubernetes Documentation
+- name: Azure Arc enabled Kubernetes
   href: index.yml
 - name: Overview
   items:
   - name: About Arc enabled Kubernetes
     href: overview.md
+  - name: Azure Arc Validation Program
+    href: validation-program.md
 - name: Tutorials
   items:
   - name: Deploy configurations using GitOps
@@ -26,6 +28,10 @@
     items:
     - name: Onboarding service principal
       href: create-onboarding-service-principal.md
+  - name: Manage
+    items:
+    - name: Agent upgrades
+      href: agent-upgrade.md
   - name: Scenarios
     items:
     - name: Deploy Helm charts using GitOps
