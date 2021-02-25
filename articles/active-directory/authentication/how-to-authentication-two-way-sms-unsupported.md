@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 02/25/2021
 
 ms.author: justinha
-author: justinha
+author: rhicock
 manager: daveba
 ms.reviewer: dawoo
 
@@ -59,15 +59,10 @@ No, just two-way SMS is being deprecated. For MFA Server, one-way SMS works for 
 There are limitations to when one-way SMS can be used that make the mobile app a better alternative because it doesn’t require the verification code prompt.
 If you still want to use one-way SMS in some scenarios, then you could leave these checked, but change the **Company Settings** section, **General** tab **User Defaults Text Message** to **One-Way** instead of **Two-Way**. Lastly, if you use Directory Synchronization that defaults to SMS, you’d need to change it to One-Way instead of Two-Way.
 
-## How can I check which users are still using two-way SMS?
+### How can I check which users are still using two-way SMS?
 To list these users, start **MFA Server**, select the **Users** section, click **Filter User List**, and filter for **Text Message Two-Way**.
 
-## How do we hide two-way SMS as an option in the MFA portal to prevent users from selecting it in the future?
+### How do we hide two-way SMS as an option in the MFA portal to prevent users from selecting it in the future?
 In MFA Server User portal, click **Settings**, you can clear **Text Message** so that it is not available. 
 The same is true in the **AD FS** section if you are using AD FS for user enrollment.
-
-## Support options
-
-If you have any questions or require a 3-month extension, please [contact us](mailto:mfa-2waysms@microsoft.com). 
-
 
