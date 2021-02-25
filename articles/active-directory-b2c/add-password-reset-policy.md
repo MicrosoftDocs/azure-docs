@@ -223,7 +223,18 @@ In the following example, for the `CustomSignUpOrSignIn` user journey, the **Ref
 
 ## Password reset policy (legacy)
 
-If the [self-service password reset](#self-service-password-reset-recommended) is not enabled, clicking this link doesn't automatically trigger a password reset user flow. Instead, the error code `AADB2C90118` is returned to your application. Your application needs to handle this error code by reinitialize the authentication library to authenticate at a Password Reset user flow. To see an example, take a look at a [simple ASP.NET sample](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) that demonstrates the linking of user flows.
+If the [self-service password reset](#self-service-password-reset-recommended) is not enabled, clicking this link doesn't automatically trigger a password reset user flow. Instead, the error code `AADB2C90118` is returned to your application. Your application needs to handle this error code by reinitialize the authentication library to authenticate at a Password Reset user flow. 
+
+In the following diagram:
+
+1. From the application, user clicks on sign-in. The app initiates authorization request, and takes the user to Azure AD B2C to complete the sign-in. The authorization request specifies the sign-up or sign-in policy name, such as **B2C_1_signup_signin**.
+1. The user forgot the password and clicks on the "Forgot your password?" link. Azure AD B2C returns AADB2C90118 error code, and takes the user back to the application.
+1. The application handles the error code and initiates authorization request, and takes the user to Azure AD B2C to complete the sign-in. The authorization request specifies the password reset policy name, such as **B2C_1_pswd_reset**.
+
+![Password reset flow](./media/add-password-reset-policy/password-reset-flow-legacy.png)
+
+
+To see an example, take a look at a [simple ASP.NET sample](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) that demonstrates the linking of user flows.
 
 ::: zone pivot="b2c-user-flow"
 
