@@ -89,10 +89,7 @@ It can take a while to replicate the image to all of the target regions.
 
 We recommend that you share access at the image gallery level. The following walks you through sharing the gallery that you just created.
 
-1. Open the [Azure portal](https://portal.azure.com).
-1. In the menu at the left, select **Resource groups**. 
-1. In the list of resource groups, select **myGalleryRG**. The blade for your resource group will open.
-1. In the menu on the left of the **myGalleryRG** page, select **Access control (IAM)**. 
+1. On the page for your new image gallery, in the menu on the left, select **Access control (IAM)**. 
 1. Under **Add a role assignment**, select **Add**. The **Add a role assignment** pane will open. 
 1. Under **Role**, select **Reader**.
 1. Under **assign access to**, leave the default of **Azure AD user, group, or service principal**.
