@@ -45,7 +45,7 @@ You may then check model inferencing by viewing the live RTSP stream from the Az
 
 1. Select your directory, Azure subscription, and Machine Learning workspace from the drop down menus and click **Get started**.
 
-    :::image type="content" source="./media/advanced-development-cloud/machine-learning-portal-get-started.png" alt-text="Azure ML "get started" screen.":::
+    :::image type="content" source="./media/advanced-development-cloud/machine-learning-portal-get-started.png" alt-text="Azure ML get started screen.":::
 
     If you don’t have an Azure Machine Learning workspace yet, click **Create a new workspace**. In the new browser tab, do the following:
 
