@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/24/2021
+ms.date: 02/25/2021
 ms.author: tisande
 ms.custom: devx-track-js
 ---
