@@ -50,7 +50,7 @@ Note the following:
 
     - These two properties are used to filter the child items when getting metadata from a folder. It does not apply when getting metadata from a file.
     - When such filter is used, the `childItems` in output includes only the files that are modified within the specified range but not folders.
-    - To apply such filter, GetMetadata activity will enumarate all the files in the specified folder and check the modified time. Avoid pointing to a folder with a large number of files even if the expected qualified file count is small. 
+    - To apply such filter, GetMetadata activity will enumerate all the files in the specified folder and check the modified time. Avoid pointing to a folder with a large number of files even if the expected qualified file count is small. 
 
 **Relational database**
 
