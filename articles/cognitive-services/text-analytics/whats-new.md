@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/23/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -17,13 +17,27 @@ ms.custom: references_regions
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## February 2021
+
+* The `2021-01-15` model version for the PII endpoint in [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.1-preview.x, which provides 
+  * Expanded support for 9 new languages
+  * Improved AI quality of named entity categories for supported languages.
+* The S0 through S4 pricing tiers are being retired on March 8th, 2021. If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you should update it to use the Standard (S) [pricing tier](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier).
+* The [language detection container](how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment) is now generally available.
+* v2.1 of the API is being retired. 
+
 ## January 2021
 
 * The `2021-01-15` model version for [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.x, which provides 
   * Expanded language support for [several general entity categories](named-entity-types.md). 
   * Improved AI quality of general entity categories for all supported v3 languages. 
 
-* The `2021-01-05` model-version for [language detection](how-tos/text-analytics-how-to-language-detection.md), which provides additional [language support](language-support.md?tabs=language-detection).
+* The `2021-01-05` model version for [language detection](how-tos/text-analytics-how-to-language-detection.md), which provides additional [language support](language-support.md?tabs=language-detection).
+
+These model versions are currently unavailable in the East US region. 
+
+> [!div class="nextstepaction"]
+> [Learn more about about the new NER model](https://azure.microsoft.com/updates/text-analytics-ner-improved-ai-quality)
 
 ## December 2020
 

@@ -1,8 +1,8 @@
 ---
 title: NCas T4 v3-series 
 description: Specifications for the NCas T4 v3-series VMs.
-services: virtual-machines
-ms.subservice: sizes
+ms.service: virtual-machines
+ms.subservice: hpc
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -23,6 +23,7 @@ The NCasT4_v3-series virtual machines are powered by [Nvidia Tesla T4](https://w
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 Nvidia NVLink Interconnect: Not Supported<br>
 <br>
 

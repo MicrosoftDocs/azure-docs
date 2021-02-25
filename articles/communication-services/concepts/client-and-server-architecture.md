@@ -55,7 +55,7 @@ Communicating over the phone system can dramatically increase the reach of your 
 
 :::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagram showing Communication Services PSTN architecture.":::
 
-For more information on PSTN and SMS solutions, see [Plan your PSTN and SMS solution](../concepts/telephony-sms/plan-solution.md)
+For more information on PSTN phone numbers, see [Phone number types](../concepts/telephony-sms/plan-solution.md)
 
 ## Humans communicating with bots and other services
 
@@ -78,7 +78,7 @@ You may want to exchange arbitrary data between users, for example to synchroniz
 For more information, see the following articles:
 
 - Learn about [authentication](../concepts/authentication.md)
-- Learn about [PSTN and SMS solutions](../concepts/telephony-sms/plan-solution.md)
+- Learn about [Phone number types](../concepts/telephony-sms/plan-solution.md)
 
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)

@@ -4,7 +4,7 @@ description: Plan for a deployment with Azure File Sync, a service that allows y
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
@@ -297,48 +297,16 @@ For more information about encryption in transit, see [requiring secure transfer
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## Azure file sync region availability
-Azure File Sync is available in the following regions:
 
-| Azure cloud | Geographic region | Azure region | Region code |
-|-------------|-------------------|--------------|-------------|
-| Public | Asia | East Asia | `eastasia` |
-| Public | Asia | Southeast Asia | `southeastasia` |
-| Public | Australia | Australia East | `australiaeast` |
-| Public | Australia | Australia Southeast | `australiasoutheast` |
-| Public | Brazil | Brazil South | `brazilsouth` |
-| Public | Canada | Canada Central | `canadacentral` |
-| Public | Canada | Canada East | `canadaeast` |
-| Public | Europe | North Europe | `northeurope` |
-| Public | Europe | West Europe | `westeurope` |
-| Public | France | France Central | `francecentral` |
-| Public | France | France South* | `francesouth` |
-| Public | India | Central India | `centralindia` |
-| Public | India | South India | `southindia` |
-| Public | Japan | Japan East | `japaneast` |
-| Public | Japan | Japan West | `japanwest` |
-| Public | Korea | Korea Central | `koreacentral` |
-| Public | Korea | Korea South | `koreasouth` |
-| Public | South Africa | South Africa North | `southafricanorth` |
-| Public | South Africa | South Africa West* | `southafricawest` |
-| Public | UAE | UAE Central* | `uaecentral` |
-| Public | UAE | UAE North | `uaenorth` |
-| Public | UK | UK South | `uksouth` |
-| Public | UK | UK West | `ukwest` |
-| Public | US | Central US | `centralus` |
-| Public | US | East US | `eastus` |
-| Public | US | East US 2 | `eastus2` |
-| Public | US | North Central US | `northcentralus` |
-| Public | US | South Central US | `southcentralus` |
-| Public | US | West Central US | `westcentralus` |
-| Public | US | West US | `westus` |
-| Public | US | West US 2 | `westus2` |
-| US Gov | US | US Gov Arizona | `usgovarizona` |
-| US Gov | US | US Gov Texas | `usgovtexas` |
-| US Gov | US | US Gov Virginia | `usgovvirginia` |
+For regional availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
-Azure File Sync supports syncing only with an Azure file share that's in the same region as the Storage Sync Service.
+The following regions require you to request access to Azure Storage before you can use Azure File Sync with them:
 
-For the regions marked with asterisks, you must contact Azure Support to request access to Azure Storage in those regions. The process is outlined in [this document](https://azure.microsoft.com/global-infrastructure/geographies/).
+- France South
+- South Africa West
+- UAE Central
+
+To request access for these regions, follow the process in [this document](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## Redundancy
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]

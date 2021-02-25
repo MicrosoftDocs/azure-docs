@@ -1,18 +1,11 @@
 ---
 title: Move data from an HTTP source - Azure 
 description: Learn how to move data from an on-premises or cloud HTTP source by using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
-
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from an HTTP source by using Azure Data Factory
@@ -92,7 +85,7 @@ To use basic authentication, set **authenticationType** to **ClientCertificate**
 | Property | Description | Required |
 | --- | --- | --- |
 | embeddedCertData | The Base64-encoded contents of binary data of the PFX file. | Specify either **embeddedCertData** or **certThumbprint** |
-| certThumbprint | The thumbprint of the certificate that was installed on your gateway machine’s cert store. Apply only when you copy data from an on-premises HTTP source. | Specify either **embeddedCertData** or **certThumbprint** |
+| certThumbprint | The thumbprint of the certificate that was installed on your gateway machine's cert store. Apply only when you copy data from an on-premises HTTP source. | Specify either **embeddedCertData** or **certThumbprint** |
 | password | The password that's associated with the certificate. | No |
 
 If you use **certThumbprint** for authentication and the certificate is installed in the personal store of the local computer, grant read permissions to the gateway service:
