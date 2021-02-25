@@ -82,7 +82,7 @@ Solution areas help to further define your solution. This helps Microsoft sales 
 
 ## Upload documents
 
-You must provide collateral documents that provide details about your offer. Microsoft sales teams use this information to evaluate whether your offer is a fit for customer needs in order to recommend and sell your offer. The more information you provide, the more information Microsoft sames teams will have to understand and promote your product.
+You must provide collateral documents that provide details about your offer. Microsoft sales teams use this information to evaluate whether your offer is a fit for customer needs in order to recommend and sell your offer. The more information you provide, the more information Microsoft sales teams will have to understand and promote your product.
 
 The supported file types are .pdf, .ppt, .pptx, .doc, .docx, .xls, .xlsx, .jpg, .png, and .mp4. Templates for some documents are provided in Table 2 below.
 
