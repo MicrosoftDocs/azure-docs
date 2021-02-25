@@ -5,6 +5,7 @@
 ```console
 dotnet add package Azure.Communication.Identity
 dotnet add package Azure.Communication.Configuration
+dotnet add package Azure.Communication.PhoneNumbers
 dotnet add package Azure.Communication.Sms
 dotnet add package Azure.Identity
 ```
@@ -17,6 +18,7 @@ Add the following `using` directives to your code to use the Azure Identity and 
 using Azure.Identity;
 using Azure.Communication.Identity;
 using Azure.Communication.Configuration;
+using Azure.Communication.PhoneNumbers;
 using Azure.Communication.Sms;
 ```
 
@@ -24,7 +26,9 @@ The examples below are using the [DefaultAzureCredential](/dotnet/api/azure.iden
 
 ### Create an identity and issue a token
 
-The following code example shows how to create a service client object with Azure Active Directory tokens. `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables are needed to create a  `DefaultAzureCredential` object. Then, use the client to issue a token for a new user:
+The following code example shows how to create a service client object with Azure Active Directory tokens. `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables are needed to create a  `DefaultAzureCredential` object. Check out this [page](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) for more information on how to get these variables.
+
+Then, use the client to issue a token for a new user:
 
 ```csharp
      public async Task<Response<CommunicationUserToken>> CreateIdentityAndGetTokenAsync(Uri resourceEdnpoint)
@@ -44,11 +48,10 @@ The following code example shows how to create a service client object with Azur
 
 ### Send an SMS with Azure Active Directory tokens
 
-The following code example shows how to create a service client object with Azure Active Directory tokens, then use the client to send an SMS message:
+The following code example shows how to create a SMS service client object with Azure Active Directory tokens, then use the client to send an SMS message:
 
 ```csharp
-
-     public async Task SendSmsAsync(Uri resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
+     public async Task SendSms(Uri resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
      {
           TokenCredential credential = new DefaultAzureCredential();
           // You can find your endpoint and access key from your resource in the Azure Portal
@@ -64,6 +67,18 @@ The following code example shows how to create a service client object with Azur
      }
 ```
 
+### List all acquired phone numbers using Azure Active Directory tokens
+The following code example shows how to create a phone number service client object with Azure Active Directory tokens, then use the client to list all acquired phone numbers:
+```csharp
+     public async Task ListAllPhoneNumbers()
+     {
+          TokenCredential tokenCredential = new DefaultAzureCredential();
+          var client = CreateClientWithTokenCredential(tokenCredential);
+          PhoneNumberAdministrationClient phoneNumberClient = new PhoneNumberAdministrationClient(TestEnvironment.Endpoint, token)
+          var numbers = await phoneNumberClient.GetAllPhoneNumbersAsync().ToEnumerableAsync();
+     }
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -76,3 +91,4 @@ You may also want to:
 - [Creating user access tokens](../../quickstarts/access-tokens.md)
 - [Send an SMS message](../../quickstarts/telephony-sms/send.md)
 - [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
+- [Learn more about Managing Phone Numbers](../../quickstarts/telephony-sms/get-phone-number.md)

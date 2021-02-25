@@ -12,9 +12,9 @@ ms.reviewer: mikben
 ---
 
 # Use managed identities
-Get started with Azure Communication Services by using managed identities in .NET. The Communication Services Identity and SMS client libraries support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+Get started with Azure Communication Services by using managed identities. The Communication Services Identity, Phone Numbers, and SMS client libraries support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This quickstart shows you how to authorize access to the Identity and SMS client libraries from an Azure environment that supports managed identities. It also describes how to test your code in a development environment.
+This quickstart shows you how to authorize access to the Identity, Phone Numbers, and SMS client libraries from an Azure environment that supports managed identities. It also describes how to test your code in a development environment.
 
 ## Prerequisites
 
@@ -50,4 +50,8 @@ To assign roles and permissions using PowerShell, see [Add or remove Azure role 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/managed-identity-net.md)]
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [Java](./includes/managed-identity-java.md)]
 ::: zone-end
