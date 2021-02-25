@@ -10,6 +10,7 @@ ms.date: 02/19/2021
 ---
 
 # Quickstart: Issue verifiable credentials using a sample app
+# source: https://hackmd.io/px5WVtuDTSuQIRKgvmLjAg
 
 Get started with Azure Active Directory Verifiable Credentials by using the Verifiable Credentials sample app to issue your first verifiable credential.
 

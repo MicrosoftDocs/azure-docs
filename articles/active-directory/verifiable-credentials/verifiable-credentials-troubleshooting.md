@@ -24,7 +24,7 @@ This happens if you aren't using the correct URI to access this preview page. Re
 
 ## The portal asks me to set up the Issuing Service again while I am 100% sure I already did this.
 
-This happens if you aren't using the correct URI to access this preview page. Refer to the information you were given as part of the private preview and use the correct URI.
+This happens if you aren't using the correct URI to access this preview page. 
 
 ## Error in Microsoft Authenticator when scanning a QR code during verification
 
@@ -40,7 +40,7 @@ To check if you have the correct permissions setup for Key Vault check the follo
 
 - Navigate to your vault.
 - Navigate to Access Policies.
-- Make sure the Verifiable Credentials Issuer Service Application is visible and has 6 key permissions:  Get, list, Create, Import, Verify, Sign. Has 3 Secret permissions: Get, List Set. 
+- Make sure the Verifiable Credentials Issuer Service Application is visible and has six key permissions:  Get, list, Create, Import, Verify, Sign. Has 3 Secret permissions: Get, List Set. 
 
 To check if you have the correct permissions set up for your storage account check the following settings:
 
