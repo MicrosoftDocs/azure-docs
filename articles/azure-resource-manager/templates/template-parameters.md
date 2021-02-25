@@ -73,13 +73,11 @@ You can mark string or object parameters as secure. The value of a secure parame
 # [Bicep](#tab/bicep)
 
 ```bicep
-param demoPassword string { 
-  secure: true
-}
+@secure()
+param demoPassword string
 
-param demoSecretObject object { 
-  secure: true
-}
+@secure()
+param demoSecretObject object
 ```
 
 ---
@@ -105,12 +103,11 @@ You can define allowed values for a parameter. You provide the allowed values in
 # [Bicep](#tab/bicep)
 
 ```bicep
-param demoEnum string {
-  allowed: [
-    'one'
-    'two'
-  ]
-}
+@allowed([
+  'one'
+  'two'
+])
+param demoEnum string
 ```
 
 ---
@@ -158,13 +155,11 @@ To specify a default value along with other properties for the parameter, use th
 # [Bicep](#tab/bicep)
 
 ```bicep
-param demoParam string {
-  default: 'Contoso'
-  allowed: [
-    'Contoso'
-    'Fabrikam'
-  ]
-}
+@allowed([
+  'Contoso'
+  'Fabrikam'
+])
+param demoParam string = 'Contoso'
 ```
 
 ---
@@ -242,15 +237,13 @@ The following example declares two parameters. One parameter is for a storage ac
 # [Bicep](#tab/bicep)
 
 ```bicep
-param storageAccountName string {
-  minLength: 3
-  maxLength: 24
-}
+@minLength(3)
+@maxLength(24)
+param storageAccountName string
 
-param appNames array {
-  minLength: 1
-  maxLength: 5
-}
+@minLength(1)
+@maxLength(5)
+param appNames array
 ```
 
 ---
@@ -274,10 +267,9 @@ You can set minimum and maximum values for integer parameters. You can set one o
 # [Bicep](#tab/bicep)
 
 ```bicep
-param month int {
-  minValue: 1
-  maxValue: 12
-}
+@minValue(1)
+@maxValue(12)
+param month int
 ```
 
 ---
@@ -303,12 +295,10 @@ You can add a description to a parameter to help users of your template understa
 # [Bicep](#tab/bicep)
 
 ```bicep
-param virtualMachineSize string {
-  default: 'Standard_DS1_v2'
-  metadata: {
+@metadata({
     description: 'Must be at least Standard_A3 to support 2 NICs.'
-  }
-}
+})
+param virtualMachineSize string = 'Standard_DS1_v2'
 ```
 
 ---
