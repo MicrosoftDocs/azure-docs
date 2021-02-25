@@ -6,7 +6,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 02/25/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ---
@@ -25,7 +25,7 @@ When you're working with Azure Virtual WAN virtual hub routing, you have a numbe
 The following table summarizes the connections supported in this scenario:
 
 | From          | To|Spokes|Service VNet|Branches|Internet|
-|---|---|:---:|:---:|:---:|:---:|:---:|
+|---|:---:|:---:|:---:|:---:|:---:|
 | **Spokes**| ->| directly |directly | through Service VNet |through Perimeter VNet |
 | **Service VNet**| ->| directly |n/a| directly | |
 | **Branches** | ->| through Service VNet |directly| directly |  |
