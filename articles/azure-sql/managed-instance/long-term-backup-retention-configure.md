@@ -7,18 +7,18 @@ ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
-author: anosov1960
-ms.author: sashan
+author: shkale-msft
+ms.author: shkale-msft
 ms.reviewer: mathoma, sstein
-ms.date: 04/29/2020
+ms.date: 02/25/2021
 ---
 # Manage Azure SQL Managed Instance long-term backup retention (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-In Azure SQL Managed Instance, you can configure a [long-term backup retention](../database/long-term-retention-overview.md#sql-managed-instance-support) policy (LTR) as a limited public preview feature. This allows you to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups with PowerShell.
+In Azure SQL Managed Instance, you can configure a [long-term backup retention](../database/long-term-retention-overview.md#sql-managed-instance-support) policy (LTR) as a public preview feature. This allows you to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups with PowerShell.
 
    > [!IMPORTANT]
-   > LTR for managed instances is currently in limited preview and available for EA and CSP subscriptions on a case by case basis. To request enrollment, please create an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For issue type select technical issue, for service choose SQL Database Managed Instance and for the problem type select **Backup, Restore, and Business Continuity/Long-term backup retention**. In your request, please state you would like to be enrolled in the limited public preview of LTR for managed instance.
+   > LTR for managed instances is currently available in public preview in Azure Public regions. 
 
 The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
 
