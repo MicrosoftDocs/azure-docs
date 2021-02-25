@@ -11,7 +11,7 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/22/2021
+ms.date: 02/25/2021
 ---
 
 # Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR) 
@@ -25,8 +25,6 @@ For business continuity and disaster recovery (BCDR), Azure SQL Database/Managed
 For BCDR, you can also configure a dual standby Azure SSIS IR pair that works in sync with Azure SQL Database/Managed Instance failover group. This allows you to have a pair of running Azure-SSIS IRs that at any given time, only one can access the primary SSISDB to fetch and execute packages, as well as write package execution logs (primary role), while the other can only do the same for packages deployed somewhere else, for example in Azure Files (secondary role). When SSISDB failover occurs, the primary and secondary Azure-SSIS IRs will also swap roles and if both are running, there'll be a near-zero downtime.
 
 This article describes how to configure Azure-SSIS IR with Azure SQL Database/Managed Instance failover group for BCDR.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Configure a dual standby Azure-SSIS IR pair with Azure SQL Database failover group
 
@@ -80,7 +78,7 @@ To configure a dual standby Azure-SSIS IR pair that works in sync with Azure SQL
 
    1. For each updated SSIS job script, run it on your secondary Azure SQL Managed Instance to copy the job with its job steps and associated schedules.
 
-   1. Create a new T-SQL job to enable/disable SSIS job schedules based on the primary/secondary SSISDB role, respectively, in both your primary and secondary Azure SQL Managed Instance and run it regularly. When SSISDB failover occurs, SSIS job schedules that were disabled will be enabled and vice versa.
+   1. Using the following script, create a new T-SQL job to enable/disable SSIS job schedules based on the primary/secondary SSISDB role, respectively, in both your primary and secondary Azure SQL Managed Instances and run it regularly. When SSISDB failover occurs, SSIS job schedules that were disabled will be enabled and vice versa.
 
       ```sql
       IF (SELECT Top 1 role_desc FROM SSISDB.sys.dm_geo_replication_link_status WHERE partner_database = 'SSISDB') = 'PRIMARY'
