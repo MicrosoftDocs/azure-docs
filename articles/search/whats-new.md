@@ -7,12 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/02/2021
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
 
-Learn what's new in the service. Bookmark this page to keep up to date with the service. Check out the [Preview feature list](search-api-preview.md) to view features in public preview.
+Learn what's new in the service. Bookmark this page to keep up to date with the service. Check out the [Preview feature list](search-api-preview.md) to view a comprehensive list of features that are not yet generally available.
+
+## March 2021
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------|---------------|---------------|
+| [Semantic search](semantic-search-overview.md) | A collection of query-side features that modify search results to produce more relevant outcomes. With small changes to query syntax, you can try out these features on existing search indexes.</br></br>[Semantic query](semantic-how-to-query-request.md) is a new query type that adds natural language understanding to query outcomes. Formulation of a semantic query invokes semantic ranking and responses.</br></br>[Semantic ranking and responses (answers, captions, and highlights)](semantic-how-to-query-response.md) refer to a transformer-based semantic ranking engine which understands the meaning behind the text. It re-ranks the initial query results generated during full text search to deliver even more relevant results based on semantic similarity. </br></br>**Semantic answers** use machine learning models from Bing to formulate an answer using relevant passages from the best matches. Answers are returned as distinct fields that you can choose to render in a search page. </br></br>**Semantic captions** are also formulated from content, providing snippets that help you quickly determine whether to skip the result or reformulate the query. Highlighted text can help you quickly skim results to find the most relevant content, or even get a summary of a topic, thus improving the overall user experience.</br></br> | Public preview ([by request](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview and [Search explorer](search-explorer.md) in Azure portal. </br></br>Region and tier restrictions apply. |
+| [Spell check query terms](speller-how-to-add.md) | Before query terms reach the search engine, you can have it checked for spelling errors. The `speller` option works with any query type (simple, full, or semantic). |  Public preview, REST only, api-version=2020-06-30-Preview|
+| [SharePoint Online indexer](search-howto-index-sharepoint-online.md) | This indexer connects you to a SharePoint Online site so that you can index content from a document library. | Public preview, REST only, api-version=2020-06-30-Preview |
 
 ## February 2021
 
