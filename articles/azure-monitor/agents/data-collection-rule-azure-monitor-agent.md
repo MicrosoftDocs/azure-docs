@@ -78,7 +78,7 @@ Follow the steps below to create a data collection rule and association
 
 ## Create association using Resource Manager template
 
-You cannot create a data collection rule using a Resource Manager template, but you can create an association between an Azure virtual machine or Azure Arc enabled server using a Resource Manager template. See [Resource Manager template samples for data collection rules in Azure Monitor](../samples/resource-manager-data-collection-rules.md) for sample templates.
+You cannot create a data collection rule using a Resource Manager template, but you can create an association between an Azure virtual machine or Azure Arc enabled server using a Resource Manager template. See [Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md) for sample templates.
 
 ## Next steps
 

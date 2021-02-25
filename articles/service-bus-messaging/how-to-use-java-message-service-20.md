@@ -29,7 +29,7 @@ To develop Java applications, you need to set up the appropriate development env
    * The JDK or JRE is added to the build path and the appropriate system variables.
    * A Java IDE is installed to utilize the JDK or JRE. For example, Eclipse or IntelliJ.
 
-To learn more about how to prepare your developer environment for Java on Azure, utilize [this guide](https://docs.microsoft.com/azure/developer/java/fundamentals/).
+To learn more about how to prepare your developer environment for Java on Azure, utilize [this guide](/azure/developer/java/fundamentals/).
 
 ## What JMS features are supported?
 

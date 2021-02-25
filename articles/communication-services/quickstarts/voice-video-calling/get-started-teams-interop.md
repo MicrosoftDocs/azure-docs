@@ -8,6 +8,7 @@ ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 
+zone_pivot_groups: acs-plat-web-ios-android
 ---
 
 # Quickstart: Join your calling app to a Teams meeting
@@ -19,7 +20,17 @@ ms.service: azure-communication-services
 
 Get started with Azure Communication Services by connecting your calling solution to Microsoft Teams using the JavaScript client library.
 
-[!INCLUDE [Join Teams meetings](./includes/teams-interop-javascript.md)]
+::: zone pivot="platform-web"
+[!INCLUDE [Calling with JavaScript](./includes/teams-interop-javascript.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Calling with Android](./includes/teams-interop-android.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [Calling with iOS](./includes/teams-interop-ios.md)]
+::: zone-end
 
 ## Clean up resources
 
