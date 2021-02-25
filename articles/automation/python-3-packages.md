@@ -27,7 +27,7 @@ Once a package has been imported, it's listed on the Python packages page in you
 
 ### Import a package with dependencies
 
-You can import a Python 3 package and its dependencies by importing the following Python script into a Python 3 runbook.
+You can import a Python 3 package and its dependencies by importing the following Python script into a Python 3 runbook, and then executing the runbook.
 
 ```cmd
 https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py
@@ -38,7 +38,7 @@ For information on importing the runbook, see [Import a runbook from the Azure p
 
 The **Import a runbook** dialog will usually default the runbook name to the name of the script. If you have access to the field in the dialog, you can change the name. **Runbook type** may default to ```Python 2```. If it does, make sure to change it to ```Python 3```.
 
-:::image type="content" source="media/python-3-packages/import-python-3-package.png" alt-text="Screenshot shows the Python 3 import dialog.":::
+:::image type="content" source="media/python-3-packages/import-python-3-package.png" alt-text="Screenshot shows the Python 3 runbook import dialog.":::
 
 #### Executing the runbook to import the package and dependencies
 
