@@ -206,9 +206,9 @@ After you've registered your custom domain, you can then add it to your CDN endp
 
 ```azurepowershell-interactive
     $parameters = @{
-        Hostname = 'myendpoint8675.azureedge.net'
+        Hostname = 'myendpoint8675-azureedge-net'
         EndPointName = 'myendpoint8675'
-        CustomDomainName = 'www.contoso.com'
+        CustomDomainName = 'www-contoso-com'
         ProfileName = 'myCDN'
         ResourceGroupName = 'myResourceGroupCDN'
     }
@@ -260,7 +260,7 @@ If you no longer want to associate your endpoint with a custom domain, remove th
 
 ```azurepowershell-interactive
     $parameters = @{
-        CustomDomainName = 'www.contoso.com'
+        CustomDomainName = 'www-contoso-com'
         EndPointName = 'myendpoint8675'
         ProfileName = 'myCDN'
         ResourceGroupName = 'myResourceGroupCDN'
