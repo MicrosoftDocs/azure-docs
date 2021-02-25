@@ -128,7 +128,7 @@ In HBase (an implementation of [Cloud BigTable](https://cloud.google.com/bigtabl
 
 HBase includes several methods of loading data into tables.  For more information, see [Bulk loading](https://hbase.apache.org/book.html#arch.bulk.load).
 
-A sample data file can be found in a public blob container, `wasb://hbasecontacts\@hditutorialdata.blob.core.windows.net/contacts.txt`.  The content of the data file is:
+A sample data file can be found in a public blob container, `wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt`.  The content of the data file is:
 
 `8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.`
 
