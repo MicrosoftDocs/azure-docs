@@ -16,11 +16,6 @@ ms.author: alkohli
 
 This article describes how to manage compute via IoT Edge service on your Azure Stack Edge Pro GPU device. You can manage the compute via the Azure portal or via the local web UI. Use the Azure portal to manage modules, triggers, and IoT Edge configuration, and the local web UI to manage compute network settings.
 
-In this article, you learn how to:
-
-> [!div class="checklist"]
-> * Manage triggers
-> * Manage IoT Edge configuration
 
 
 ## Manage triggers
@@ -125,6 +120,22 @@ Take the following steps in the Azure portal to sync the access keys for your de
     ![Select Yes when prompted](media/azure-stack-edge-j-series-manage-compute/refresh-configuration-2.png)
 
 3. Exit out of the dialog once the sync is complete.
+
+## Change external service IPs for containers
+
+Kubernetes external service IPs are used to reach out to services that are exposed outside the Kubernetes cluster. After your device is activated, you can set or modify the external service IPs for containerized workloads for your device by accessing the local UI.
+
+
+1. In the local UI of the device, go to **Compute**.
+1. Select the port whose network is configured for compute. In the blade that opens up, specify (new) or modify (if existing) the Kubernetes external service IPs. These IPs are used for any services that need to be exposed outside of the Kubernetes cluster. 
+    - You need a minimum of 1 service IP for the `edgehub` service that runs on your device and is used by IoT Edge modules. 
+    - You will need an IP for each additional IoT Edge module or container that you intend to deploy. 
+    - These are static, contiguous IPs.
+
+    ![Change Kubernetes service IPs](media/azure-stack-edge-j-series-manage-compute/change-service-ips-1.png)
+
+1. Select **Apply**. After the IPs are applied, your device does not need a restart or a reboot. The new IPs take effect immediately.
+
 
 ## Next steps
 
