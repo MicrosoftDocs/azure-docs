@@ -1592,6 +1592,8 @@
         href: securedeliver-tutorial.md
       - name: SecureW2 JoinNow Connector
         href: securejoinnow-tutorial.md
+      - name: SecurityStudio
+        href: securitystudio-tutorial.md  
       - name: Sedgwick CMS
         href: sedgwickcms-tutorial.md
       - name: Segment
