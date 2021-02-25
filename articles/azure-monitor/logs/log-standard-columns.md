@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/09/2020
+ms.date: 02/25/2021
 
 ---
 
@@ -16,6 +16,10 @@ Workspace-based applications in Application Insights store their data in a Log A
 
 > [!NOTE]
 > Some of the standard columns will not show in the schema view or intellisense in Log Analytics, and they won't show in query results unless you explicitly specify the column in the output.
+> 
+
+## TenantId
+The **TenantId** column holds the workspace ID for the Log Analytics workspace.
 
 ## TimeGenerated and timestamp
 The **TimeGenerated** (Log Analytics workspace) and **timestamp** (Application Insights application) columns contain the date and time that the record was created by the data source. See [Log data ingestion time in Azure Monitor](../logs/data-ingestion-time.md) for more details.
