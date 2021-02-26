@@ -18,16 +18,17 @@ Strata's Maverics Identity Orchestrator provides a simple way to integrate on-pr
 
 This hybrid access tutorial demonstrates how to migrate an on-premises web application that's currently protected by a legacy web access management product to use Azure AD for authentication and access control. Here are the basic steps:
 1. Setting up the Maverics Orchestrator
-2. Proxying an application
-3. Registering an enterprise application in Azure AD
-4. Authenticating via Azure and authorizing access to the application
-5. Adding headers for seamless application access
+1. Proxying an application
+1. Registering an enterprise application in Azure AD
+1. Authenticating via Azure and authorizing access to the application
+1. Adding headers for seamless application access
+1. Working with multiple applications
 
 ## Prerequisites
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A Maverics Identity Orchestrator SAML Connector SSO-enabled subscription. To obtain the Maverics software, contact [Strata sales](mailto:sales@strata.io).
-* An application that uses header based authentication. In our examples, we will be working against an application called Sonar hosted at https://app.sonarsystems.com.
+* At least one application that uses header based authentication. In our examples, we will be working against an application called Sonar hosted at https://app.sonarsystems.com, and an application called Connectulum hosted at https://app.connectulum.com.
 * A linux machine to host the Maverics Orchestrator
    * OS: RHEL 7.7 or higher, CentOS 7+
    * Disk: >=10GB
@@ -68,10 +69,11 @@ DNS will be helpful so that we don't have to remember the Orchestrator server's 
 Edit the browser machine's (i.e., your laptop's) hosts file, using a hypothetical Orchestrator IP of 12.34.56.78. On linux-based operating systems this file is located in at `/etc/hosts`, and on Windows it is located at `C:\windows\system32\drivers\etc`.
 
 ```
-12.34.56.78 tutorial.maverics.com
+12.34.56.78 sonar.maverics.com
+12.34.56.78 connectulum.maverics.com
 ```
 
-To confirm DNS is configured as expected, we can make a request to the Orchestrator's status endpoint. From your browser, request http://tutorial.maverics.com:7474/status.
+To confirm DNS is configured as expected, we can make a request to the Orchestrator's status endpoint. From your browser, request http://sonar.maverics.com:7474/status.
 
 ### Configuring TLS
 Communicating over secure channels to talk to our Orchestrator is critical in order to maintain security. We can add a certificate/key pair in our `tls` section to achieve this.
@@ -94,7 +96,7 @@ tls:
     keyFile: /etc/maverics/maverics.key
 ```
 
-To confirm TLS is configured as expected, restart the Maverics service, and make a request to the status endpoint. From your browser, request https://tutorial.maverics.com/status.
+To confirm TLS is configured as expected, restart the Maverics service, and make a request to the status endpoint. From your browser, request https://sonar.maverics.com/status.
 
 ## Step 2: Proxying an application
 Next we wil configure basic proxying in the Orchestrator using `appgateways`. This step will help us validate that the Orchestrator has the necessary connectivity to the protected application.
@@ -117,13 +119,13 @@ appgateways:
     upstream: https://app.sonarsystems.com
 ```
 
-To confirm proxying is working as expected, restart the Maverics service, and make a request to the application through the Maverics proxy. From your browser, request https://tutorial.maverics.com. You can optionally make a request to specific application resources, e.g. https://tutorial.maverics.com/RESOURCE, where `RESOURCE` is a valid application resource of the protected upstream app.
+To confirm proxying is working as expected, restart the Maverics service, and make a request to the application through the Maverics proxy. From your browser, request https://sonar.maverics.com. You can optionally make a request to specific application resources, e.g. https://sonar.maverics.com/RESOURCE, where `RESOURCE` is a valid application resource of the protected upstream app.
 
 ## Step 3: Registering an enterprise application in Azure AD
 
 We will now create a new enterprise application in Azure AD that will be used for authenticating end-users.
 
->Note: when leveraging Azure AD features such as Conditional Access it is important to create an enterprise application per on-premises application. This permits per-app conditional access, per-app risk evaluation, per-app assigned permissions, etc. Generally, an enterprise app in Azure AD maps to an Azure connector in Maverics. 
+>Note: when leveraging Azure AD features such as Conditional Access it is important to create an enterprise application per on-premises application. This permits per-app conditional access, per-app risk evaluation, per-app assigned permissions, etc. Generally, an enterprise application in Azure AD maps to an Azure connector in Maverics. 
 
 1. In your Azure AD tenant, go to **Enterprise applications**, click **New Application** and search for **Maverics Identity Orchestrator SAML Connector** in the Azure AD gallery, and then select it.
 
@@ -135,11 +137,11 @@ We will now create a new enterprise application in Azure AD that will be used fo
 
    ![Screenshot of the "Basic SAML Configuration" Edit button.](common/edit-urls.png)
 
-1. Enter an **Entity ID** of: `https://tutorial.maverics.com`. The Entity ID must be unique across the apps in the tenant, and can be an arbitrary value. We will use this value when defining the `samlEntityID` field for our Azure connector in the next section.
+1. Enter an **Entity ID** of: `https://sonar.maverics.com`. The Entity ID must be unique across the apps in the tenant, and can be an arbitrary value. We will use this value when defining the `samlEntityID` field for our Azure connector in the next section.
 
-1. Enter a **Reply URL** of: `https://tutorial.maverics.com/acs`. We will use this value when defining the `samlConsumerServiceURL` field for our Azure connector in the next section.
+1. Enter a **Reply URL** of: `https://sonar.maverics.com/acs`. We will use this value when defining the `samlConsumerServiceURL` field for our Azure connector in the next section.
 
-1. Enter a **Sign on URL** of: `https://tutorial.maverics.com/`. This field won't be used by Maverics, but it is required in Azure AD to enable users to get access to the application through the Azure AD My Apps portal.
+1. Enter a **Sign on URL** of: `https://sonar.maverics.com/`. This field won't be used by Maverics, but it is required in Azure AD to enable users to get access to the application through the Azure AD My Apps portal.
 
 1. Select **Save**.
 
@@ -163,7 +165,7 @@ tls:
     keyFile: /etc/maverics/maverics.key
 
 idps:
-  - name: azure
+  - name: azureSonarApp
 
 appgateways:
   - name: sonar
@@ -174,16 +176,16 @@ appgateways:
     policies:
       - resource: /
         allowIf:
-          - equal: ["{{azure.authenticated}}", "true"]
-    
+          - equal: ["{{azureSonarApp.authenticated}}", "true"]
+
 connectors:
-  - name: azure
+  - name: azureSonarApp
     type: azure
     authType: saml
     # Replace METADATA_URL with the App Federation Metadata URL
     samlMetadataURL: METADATA_URL
-    samlConsumerServiceURL: https://tutorial.maverics.com/acs
-    samlEntityID: https://tutorial.maverics.com
+    samlConsumerServiceURL: https://sonar.maverics.com/acs
+    samlEntityID: https://sonar.maverics.com
 ```
 
 To confirm authentication is working as expected, restart the Maverics service, and make a request to an application resource through the Maverics proxy. You should be redirected to Azure for authentication before accessing the resource.
@@ -204,7 +206,7 @@ tls:
     keyFile: /etc/maverics/maverics.key
 
 idps:
-  - name: azure
+  - name: azureSonarApp
 
 appgateways:
   - name: sonar
@@ -215,26 +217,100 @@ appgateways:
     policies:
       - resource: /
         allowIf:
-          - equal: ["{{azure.authenticated}}", "true"]
+          - equal: ["{{azureSonarApp.authenticated}}", "true"]
 
     headers:
-      email: azure.name
-      firstname: azure.givenname
-      lastname: azure.surname
-    
+      email: azureSonarApp.name
+      firstname: azureSonarApp.givenname
+      lastname: azureSonarApp.surname
+
 connectors:
-  - name: azure
+  - name: azureSonarApp
     type: azure
     authType: saml
     # Replace METADATA_URL with the App Federation Metadata URL
     samlMetadataURL: METADATA_URL
-    samlConsumerServiceURL: https://tutorial.maverics.com/acs
-    samlEntityID: https://tutorial.maverics.com
+    samlConsumerServiceURL: https://sonar.maverics.com/acs
+    samlEntityID: https://sonar.maverics.com
 ```
 
 To confirm authentication is working as expected, make a request to an application resource through the Maverics proxy. The protected application should now be receiving headers on the request. 
 
-Feel free to edit the header keys if your application expects different headers. All claims that come back from Azure AD as part of the SAML flow are available to use in headers. Fore example, we could include an additional header of `secondary_email: azure.mail`, where `azure` is the connector name and `email` is a claim returned from Azure AD. 
+Feel free to edit the header keys if your application expects different headers. All claims that come back from Azure AD as part of the SAML flow are available to use in headers. For example, we could include an additional header of `secondary_email: azureSonarApp.email`, where `azureSonarApp` is the connector name and `email` is a claim returned from Azure AD. 
+
+## Step 6: Working with multiple applications
+
+Let's now take a look at what is required to proxy to multiple applications that are on different hosts. To achieve this, we'll configure an additional App Gateway, an additional enterprise application in Azure AD, and an additional connector.
+
+Your config file should now contain the below:
+
+```yaml
+version: 0.1
+listenAddress: ":443"
+
+tls:
+  maverics:
+    certFile: /etc/maverics/maverics.crt
+    keyFile: /etc/maverics/maverics.key
+
+idps:
+  - name: azureSonarApp
+  - name: azureConnectulumApp
+
+appgateways:
+  - name: sonar
+    host: sonar.maverics.com
+    location: /
+    # Replace https://app.sonarsystems.com with the address of your protected application
+    upstream: https://app.sonarsystems.com
+
+    policies:
+      - resource: /
+        allowIf:
+          - equal: ["{{azureSonarApp.authenticated}}", "true"]
+
+    headers:
+      email: azureSonarApp.name
+      firstname: azureSonarApp.givenname
+      lastname: azureSonarApp.surname
+
+  - name: connectulum
+    host: connectulum.maverics.com
+    location: /
+    # Replace https://app.connectulum.com with the address of your protected application
+    upstream: https://app.connectulum.com
+
+    policies:
+      - resource: /
+        allowIf:
+          - equal: ["{{azureConnectulumApp.authenticated}}", "true"]
+
+    headers:
+      email: azureConnectulumApp.name
+      firstname: azureConnectulumApp.givenname
+      lastname: azureConnectulumApp.surname
+
+connectors:
+  - name: azureSonarApp
+    type: azure
+    authType: saml
+    # Replace METADATA_URL with the App Federation Metadata URL
+    samlMetadataURL: METADATA_URL
+    samlConsumerServiceURL: https://sonar.maverics.com/acs
+    samlEntityID: https://sonar.maverics.com
+
+  - name: azureConnectulumApp
+    type: azure
+    authType: saml
+    # Replace METADATA_URL with the App Federation Metadata URL
+    samlMetadataURL: METADATA_URL
+    samlConsumerServiceURL: https://connectulum.maverics.com/acs
+    samlEntityID: https://connectulum.maverics.com
+```
+
+You may have noticed that we've added a `host` field to our App Gateway definitions. The `host` field enables the Maverics Orchestrator to distinguish which upstream host to proxy traffic to.
+
+To confirm the newly added App Gateway is working as expected, make a request to https://connectulum.maverics.com.
 
 ## Advanced Scenarios
 
