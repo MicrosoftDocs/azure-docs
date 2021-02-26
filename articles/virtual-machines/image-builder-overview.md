@@ -6,7 +6,7 @@ ms.author: danis
 ms.date: 05/02/2019
 ms.topic: conceptual
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
 ms.reviewer: cynthn
 ---
 
