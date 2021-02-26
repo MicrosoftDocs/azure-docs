@@ -16,3 +16,4 @@ Following caveats apply to data as it moves into Azure.
 - After a file is created in the shares, renaming of the file isn't supported.
 - Deletion of a file from a share does not delete the entry in the storage account.
 - If using `rsync` to copy data, then `rsync -a` option is not supported.
+- The **"_Microsoft Data Box Edge_"** directory is reserved for error logs. Do not copy data to this folder.
