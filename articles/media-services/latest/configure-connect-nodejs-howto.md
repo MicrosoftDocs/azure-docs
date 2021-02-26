@@ -20,31 +20,59 @@ ms.custom: devx-track-js
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-This article shows you how to connect to the Azure Media Services v3 node.js SDK using the service principal sign-in method.
+This article shows you how to connect to the Azure Media Services v3 node.js SDK using the service principal sign-in method. You will work with files in the *media-services-v3-node-tutorials* samples repository. The *HelloWorld-ListAssets* sample contains the code for connecting then list Assets in the account.
 
 ## Prerequisites
 
+- An installation of Visual Studio Code.
 - Install [Node.js](https://nodejs.org/en/download/).
 - Install [Typescript](https://www.typescriptlang.org/download).
 - [Create a Media Services account](./create-account-howto.md). Be sure to remember the resource group name and the Media Services account name.
+- Create a service principal for your application. See [access APIs](./access-api-howto.md).<br/>**Pro tip!** Keep this window open or copy everything in the JSON tab to Notepad. 
+- Make sure to get the latest version of the [AzureMediaServices SDK for JavaScript](https://www.npmjs.com/package/@azure/arm-mediaservices).
 
 > [!IMPORTANT]
-> Review the Azure Media Services [naming conventions](media-services-apis-overview.md#naming-conventions) to understand the important naming restrictions on entities. 
+> Review the Azure Media Services [naming conventions](media-services-apis-overview.md#naming-conventions) to understand the important naming restrictions on entities.
 
-## Reference documentation for @Azure/arm-mediaservices
-- [Reference documentation for Azure Media Services modules for Node.js](https://docs.microsoft.com/javascript/api/overview/azure/media-services?view=azure-node-latest)
+## Clone the Node.JS samples repo
 
-## More developer documentation for Node.js on Azure
-- [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
-- [Media Services source code in the @azure/azure-sdk-for-js Git Hub repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
-- [Azure Package Documentation for Node.js developers](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+You will work with some files in Azure Samples. Clone the Node.JS samples repository.
 
-## Install the Packages
+```git
+git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
+```
 
-1. Create a package.json file using your favorite editor.
+## Install the packages
+
+### Install @azure/arm-mediaservices
+
+```bash
+npm install @azure/arm-mediaservices
+```
+
+### Install @azure/ms-rest-nodeauth
+
+Please install minimum version of "@azure/ms-rest-nodeauth": "^3.0.0".
+
+```bash
+npm install @azure/ms-rest-nodeauth@"^3.0.0"
+```
+
+For this example, you will use the following packages in the `package.json` file.
+
+|Package|Description|
+|---|---|
+|`@azure/arm-mediaservices`|Azure Media Services SDK. <br/>To make sure you are using the latest Azure Media Services package, check [npm install @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices).|
+|`@azure/ms-rest-nodeauth` | Required for AAD authentication using Service Principal or Managed Identity|
+|`@azure/storage-blob`|Storage SDK. Used when uploading files into assets.|
+|`@azure/ms-rest-js`| Used to sign in.|
+|`@azure/storage-blob` | Used to upload and download files into Assets in Azure Media Services for encoding.|
+|`@azure/abort-controller`| Used along with the storage client to time out long running download operations|
+
+### Create the package.json file
+
+1. Create a `package.json` file using your favorite editor.
 1. Open the file and paste the following code:
-
-   Make sure to get the latest version of the [AzureMediaServices SDK for JavaScript](https://www.npmjs.com/package/@azure/arm-mediaservices).
 
 ```json
 {
@@ -61,43 +89,18 @@ This article shows you how to connect to the Azure Media Services v3 node.js SDK
 }
 ```
 
-The following packages should be specified:
-
-|Package|Description|
-|---|---|
-|`@azure/arm-mediaservices`|Azure Media Services SDK. <br/>To make sure you are using the latest Azure Media Services package, check [npm install @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices).|
-|`@azure/ms-rest-nodeauth` | Required for AAD authentication using Service Principal or Managed Identity|
-|`@azure/storage-blob`|Storage SDK. Used when uploading files into assets.|
-|`@azure/ms-rest-js`| Used to sign in.|
-|`@azure/storage-blob` | Used to upload and download files into Assets in Azure Media Services for encoding.|
-|`@azure/abort-controller`| Used along with the storage client to time out long running download operations|
-
-
-You can run the following command to make sure you are using the latest package:
-
-### Install @azure/arm-mediaservices
-```
-npm install @azure/arm-mediaservices
-```
-
-### Install @azure/ms-rest-nodeauth
-
-Please install minimum version of "@azure/ms-rest-nodeauth": "^3.0.0".
-
-```
-npm install @azure/ms-rest-nodeauth@"^3.0.0"
-```
-
 ## Connect to Node.js client using TypeScript
 
-1. Create a TypeScript .ts file using your favorite editor.
-1. Open the file and paste the following code.
-1. Create an .env file and fill out the details from the Azure portal. See [access APIs](./access-api-howto.md).
 
-### Sample .env file
-```
-# copy the content of this file to a file named ".env". It should be stored at the root of the repo.
-# The values can be obtained from the API Access page for your Media Services account in the portal.
+
+### Sample *.env* file
+
+Copy the content of this file to a file named *.env*. It should be stored at the root of your working repository. These are the values you got from the API Access page for your Media Services account in the portal.
+
+Once you have created the *.env* file, you can start working with the samples.
+
+```nodejs
+# Values from the API Access page in the portal
 AZURE_CLIENT_ID=""
 AZURE_CLIENT_SECRET= ""
 AZURE_TENANT_ID= ""
@@ -121,9 +124,42 @@ AZURE_ARM_ENDPOINT="https://management.azure.com"
 DRM_SYMMETRIC_KEY="add random base 64 encoded string here"
 ```
 
-## Typescript - Hello World - List Assets
-This sample shows how to connect to the Media Services client with a Service Principal and list Assets in the account. 
-If you are using a fresh account, the list will come back empty. You can upload a few assets in the portal to see the results.
+## Run the sample application *HelloWorld-ListAssets*
+
+1. Change directory into the *AMSv3Samples* folder
+
+```bash
+cd AMSv3Samples
+```
+
+2. Install the packages used in the *packages.json* file.
+
+```
+npm install 
+```
+
+3. Change directory into the *HelloWorld-ListAssets* folder.
+
+```bash
+cd HelloWorld-ListAssets
+```
+
+4. Launch Visual Studio Code from the AMSv3Samples Folder. This is required to launch from the folder where the ".vscode" folder and tsconfig.json files are located
+
+```dotnetcli
+cd ..
+code .
+```
+
+Open the folder for *HelloWorld-ListAssets*, and open the *index.ts* file in the Visual Studio Code editor.
+
+While in the *index.ts* file, press F5 to launch the debugger. You should see a list of assets displayed if you have assets already in the account. If the account is empty, you will see an empty list.  
+
+To quickly see assets listed, use the portal to upload a few video files. Assets will automatically be created each one and running this script again will then return their names.
+
+### A closer look at the *HelloWorld-ListAssets* sample
+
+The *HelloWorld-ListAssets* sample shows you how to connect to the Media Services client with a Service Principal and list Assets in the account. See the comments in the code for a detailed explanation of what it does.
 
 ```ts
 import * as msRestNodeAuth from "@azure/ms-rest-nodeauth";
@@ -170,38 +206,6 @@ main().catch((err) => {
 });
 ```
 
-## Run the sample application HelloWorld-ListAssets
-
-Clone the repository for the Node.js Samples
-
-```git
-git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
-```
-
-Change directory into the AMSv3Samples folder
-```bash
-cd AMSv3Samples
-```
-
-Install the packages used in the packages.json
-```
-npm install 
-```
-
-Change directory into the HelloWorld-ListAssets folder
-```bash
-cd HelloWorld-ListAssets
-```
-
-Launch Visual Studio Code from the AMSv3Samples Folder. This is required to launch from the folder where the ".vscode" folder and tsconfig.json files are located
-```dotnetcli
-cd ..
-code .
-```
-
-Open the folder for HelloWorld-ListAssets, and open the index.ts file in the Visual Studio Code editor.
-While in the index.ts file, press F5 to launch the debugger. You should see a list of assets displayed if you have assets already in the account. If the account is empty, you will see an empty list.  Upload a few assets in the portal to see the results.
-
 ## More Samples
 
 The following samples are available in the [repository](https://github.com/Azure-Samples/media-services-v3-node-tutorials)
@@ -215,6 +219,10 @@ The following samples are available in the [repository](https://github.com/Azure
 
 ## See also
 
+- [Reference documentation for Azure Media Services modules for Node.js](https://docs.microsoft.com/javascript/api/overview/azure/media-services?view=azure-node-latest)
+- [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Media Services source code in the @azure/azure-sdk-for-js Git Hub repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
+- [Azure Package Documentation for Node.js developers](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
 - [Media Services concepts](concepts-overview.md)
 - [npm install @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
 - [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)

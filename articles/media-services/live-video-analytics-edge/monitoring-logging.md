@@ -300,7 +300,7 @@ Follow these steps to enable the collection of metrics from the Live Video Analy
      `AZURE_CLIENT_SECRET`: Specifies the app secret to use.  
      
      >[!TIP]
-     > You can give the service principal the **Monitoring Metrics Publisher** role. Follow the steps in **[Create service principal](https://docs.microsoft.com/azure/azure-arc/data/upload-metrics-and-logs-to-azure-monitor?pivots=client-operating-system-macos-and-linux#create-service-principal)** to create the service principal and assign the role .
+     > You can give the service principal the **Monitoring Metrics Publisher** role. Follow the steps in **[Create service principal](../../azure-arc/data/upload-metrics-and-logs-to-azure-monitor.md?pivots=client-operating-system-macos-and-linux#create-service-principal)** to create the service principal and assign the role .
 
 1. After the modules are deployed, metrics will appear in Azure Monitor under a single namespace. Metric names will match the ones emitted by Prometheus. 
 

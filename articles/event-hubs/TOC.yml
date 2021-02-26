@@ -214,7 +214,7 @@
         - name: Set up diagnostic logs
           href: event-hubs-diagnostic-logs.md
         - name: Stream Azure Diagnostics data using Event Hubs
-          href: ../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md
+          href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md
         - name: Automatically scale throughput units
           href: event-hubs-auto-inflate.md
         - name: Event Hubs management libraries
