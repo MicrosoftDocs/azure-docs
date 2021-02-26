@@ -49,11 +49,11 @@ The JSON syntax for filtering by subject is:
 To filter by values in the data fields and specify the comparison operator, use the advanced filtering option. In advanced filtering, you specify the:
 
 * operator type - The type of comparison.
-* key - The field in the event data that you're using for filtering. It can be a number, boolean, or string.
+* key - The field in the event data that you're using for filtering. It can be a number, boolean, string, or an array.
 * values - The value or values to compare to the key.
 
 ## Key
-Key is the field in the event data that you're using for filtering. It can be a number, boolean, or string. For events in the **Event Grid schema**, use the following values for the key: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion`, or event data (like `data.key1`).
+Key is the field in the event data that you're using for filtering. It can be a number, boolean, string, or an array. For events in the **Event Grid schema**, use the following values for the key: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion`, or event data (like `data.key1`).
 
 For events in **Cloud Events schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`).
 
@@ -79,15 +79,15 @@ To access fields in the data section, use the `.` (dot) notation. For example, `
 ## Values
 The values can be: number, string, boolean, or array
 
+
 ## Operators
 
 The available operators for **numbers** are:
 
 ## NumberIn
-The NumberIn operator evaluates to true if the key's value is one of the specified values. In the following example, it checks whether the value of the `counter` attribute in the `data` section is 5 or 1. 
+The NumberIn operator evaluates to true if the **key** value is one of the specified **filter** values. In the following example, it checks whether the value of the `counter` attribute in the `data` section is 5 or 1. 
 
 ```json
-
 "advancedFilters": [{
     "operatorType": "NumberIn",
     "key": "data.counter",
@@ -96,11 +96,19 @@ The NumberIn operator evaluates to true if the key's value is one of the specifi
         1
     ]
 }]
+```
 
+If the key is an array, all the values in the array are checked against the array of filter values. Here's the pseudo code with the key: `[v1, v2, v3]` and the filter: `[a, b, c]`. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF filter == key
+            MATCH
 ```
 
 ## NumberNotIn
-The NumberNotIn evaluates to true if the key's value isn't any of the specified values. In the following example, it checks whether the value of the `counter` attribute in the `data` section isn't 41 and 0. 
+The NumberNotIn evaluates to true if the **key** value is **not** any of the specified **filter** values. In the following example, it checks whether the value of the `counter` attribute in the `data` section isn't 41 and 0. 
 
 ```json
 "advancedFilters": [{
@@ -113,8 +121,17 @@ The NumberNotIn evaluates to true if the key's value isn't any of the specified 
 }]
 ```
 
+If the key is an array, all the values in the array are checked against the array of filter values. Here's the pseudo code with the key: `[v1, v2, v3]` and the filter: `[a, b, c]`. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF filter == key
+            FAIL_MATCH
+```
+
 ## NumberLessThan
-The NumberLessThan operator evaluates to true if the key's value is less than the specified value. In the following example, it checks whether the value of the `counter` attribute in the `data` section is less than 100. 
+The NumberLessThan operator evaluates to true if the **key** value is **less than** the specified **filter** value. In the following example, it checks whether the value of the `counter` attribute in the `data` section is less than 100. 
 
 ```json
 "advancedFilters": [{
@@ -124,8 +141,16 @@ The NumberLessThan operator evaluates to true if the key's value is less than th
 }]
 ```
 
+If the key is an array, all the values in the array are checked against the filter value. Here's the pseudo code with the key: `[v1, v2, v3]`. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH key IN (v1, v2, v3)
+    IF key < filter
+        MATCH
+```
+
 ## NumberGreaterThan
-The NumberGreaterThan operator evaluates to true if the key's value is greater than the specified value. In the following example, it checks whether the value of the `counter` attribute in the `data` section is greater than 20. 
+The NumberGreaterThan operator evaluates to true if the **key** value is **greater than** the specified **filter** value. In the following example, it checks whether the value of the `counter` attribute in the `data` section is greater than 20. 
 
 ```json
 "advancedFilters": [{
@@ -135,8 +160,16 @@ The NumberGreaterThan operator evaluates to true if the key's value is greater t
 }]
 ```
 
+If the key is an array, all the values in the array are checked against the filter value. Here's the pseudo code with the key: `[v1, v2, v3]`. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH key IN (v1, v2, v3)
+    IF key > filter
+        MATCH
+```
+
 ## NumberLessThanOrEquals
-The NumberLessThanOrEquals operator evaluates to true if the key's value is less than or equal to the specified value. In the following example, it checks whether the value of the `counter` attribute in the `data` section is less than or equal to 100. 
+The NumberLessThanOrEquals operator evaluates to true if the **key** value is **less than or equal** to the specified **filter** value. In the following example, it checks whether the value of the `counter` attribute in the `data` section is less than or equal to 100. 
 
 ```json
 "advancedFilters": [{
@@ -146,8 +179,16 @@ The NumberLessThanOrEquals operator evaluates to true if the key's value is less
 }]
 ```
 
+If the key is an array, all the values in the array are checked against the filter value. Here's the pseudo code with the key: `[v1, v2, v3]`. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH key IN (v1, v2, v3)
+    IF key <= filter
+        MATCH
+```
+
 ## NumberGreaterThanOrEquals
-The NumberGreaterThanOrEquals operator evaluates to true if the key's value is greater than or equal to the specified value. In the following example, it checks whether the value of the `counter` attribute in the `data` section is greater than or equal to 30. 
+The NumberGreaterThanOrEquals operator evaluates to true if the **key** value is **greater than or equal** to the specified **filter** value. In the following example, it checks whether the value of the `counter` attribute in the `data` section is greater than or equal to 30. 
 
 ```json
 "advancedFilters": [{
@@ -157,11 +198,81 @@ The NumberGreaterThanOrEquals operator evaluates to true if the key's value is g
 }]
 ```
 
+If the key is an array, all the values in the array are checked against the filter value. Here's the pseudo code with the key: `[v1, v2, v3]`. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH key IN (v1, v2, v3)
+    IF key >= filter
+        MATCH
+```
+
+## NumberInRange
+The NumberInRange operator evaluates to true if the **key** value is in one of the specified **filter ranges**. In the following example, it checks whether the value of the `key1` attribute in the `data` section is in one of the two ranges: 3.14159 - 999.95, 3000 - 4000. 
+
+```json
+{
+    "operatorType": "NumberInRange",
+    "key": "data.key1",
+    "values": [[3.14159, 999.95], [3000, 4000]]
+}
+```
+
+The `values` property is an array of ranges. In the previous example, it's an array of two ranges. Here's an example of an array with one range to check. 
+
+**Array with one range:** 
+```json
+{
+    "operatorType": "NumberInRange",
+    "key": "data.key1",
+    "values": [[3000, 4000]]
+}
+```
+
+If the key is an array, all the values in the array are checked against the array of filter values. Here's the pseudo code with the key: `[v1, v2, v3]` and the filter: an array of ranges. In this pseudo code, `a` and `b` are low and high values of each range in the array. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH (a,b) IN filter.Values
+    FOR_EACH key IN (v1, v2, v3)
+       IF key >= a AND key <= b
+           MATCH
+```
+
+
+## NumberNotInRange
+The NumberNotInRange operator evaluates to true if the **key** value is **not** in any of the specified **filter ranges**. In the following example, it checks whether the value of the `key1` attribute in the `data` section is in one of the two ranges: 3.14159 - 999.95, 3000 - 4000. If it's, the operator returns false. 
+
+```json
+{
+    "operatorType": "NumberNotInRange",
+    "key": "data.key1",
+    "values": [[3.14159, 999.95], [3000, 4000]]
+}
+```
+The `values` property is an array of ranges. In the previous example, it's an array of two ranges. Here's an example of an array with one range to check.
+
+**Array with one range:** 
+```json
+{
+    "operatorType": "NumberNotInRange",
+    "key": "data.key1",
+    "values": [[3000, 4000]]
+}
+```
+
+If the key is an array, all the values in the array are checked against the array of filter values. Here's the pseudo code with the key: `[v1, v2, v3]` and the filter: an array of ranges. In this pseudo code, `a` and `b` are low and high values of each range in the array. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH (a,b) IN filter.Values
+    FOR_EACH key IN (v1, v2, v3)
+        IF key >= a AND key <= b
+            FAIL_MATCH
+```
+
 
 The available operator for **booleans** is: 
 
 ## BoolEquals
-The BoolEquals operator evaluates to true if the key's value is the specified boolean value. In the following example, it checks whether the value of the `isEnabled` attribute in the `data` section is true. 
+The BoolEquals operator evaluates to true if the **key** value is the specified boolean value **filter**. In the following example, it checks whether the value of the `isEnabled` attribute in the `data` section is `true`. 
 
 ```json
 "advancedFilters": [{
@@ -171,52 +282,18 @@ The BoolEquals operator evaluates to true if the key's value is the specified bo
 }]
 ```
 
-## NumberInRange
-The NumberInRange operator evaluates to true if the key's value is in one of the specified ranges. In the following example, it checks whether the value of the `key1` attribute in the `data` section is in one of the two ranges: 3.14159 - 999.95, 3000 - 4000. 
+If the key is an array, all the values in the array are checked against the filter boolean value. Here's the pseudo code with the key: `[v1, v2, v3]`. Any key values with data types that don’t match the filter’s data type are ignored.
 
-```json
-{
-    "operatorType": "NumberInRange",
-    "key": "data.key1",
-    "values": [[3.14159, 999.95], [3000, 4000]]
-}
 ```
-The `values` property is an array of ranges. In the previous example, it's an array of two ranges. Here's an example of an array with one range to check.
-
-**Array with one range:** 
-```json
-{
-    "operatorType": "NumberInRange",
-    "key": "data.key1",
-    "values": [[3000, 4000]]
-}
-```
-
-## NumberNotInRange
-The NumberNotInRange operator evaluates to true if the key's value isn't in one of the specified ranges. In the following example, it checks whether the value of the `key1` attribute in the `data` section is in one of the two ranges: 3.14159 - 999.95, 3000 - 4000. If it's, the operator returns false. 
-
-```json
-{
-    "operatorType": "NumberNotInRange",
-    "key": "data.key1",
-    "values": [[3.14159, 999.95], [3000, 4000]]
-}
-```
-The `values` property is an array of ranges. In the previous example, it's an array of two ranges. Here's an example of an array with one range to check.
-
-**Array with one range:** 
-```json
-{
-    "operatorType": "NumberNotInRange",
-    "key": "data.key1",
-    "values": [[3000, 4000]]
-}
+FOR_EACH key IN (v1, v2, v3)
+    IF filter == key
+        MATCH
 ```
 
 The available operators for **strings** are:
 
 ## StringContains
-The **StringContains** evaluates to true if the key's value contains any of the specified values (as substrings). In the following example, it checks whether the value of the `key1` attribute in the `data` section contains one of the specified substrings: `microsoft` or `azure`. For example, `azure data factory` has `azure` in it. 
+The **StringContains** evaluates to true if the **key** value **contains** any of the specified **filter** values (as substrings). In the following example, it checks whether the value of the `key1` attribute in the `data` section contains one of the specified substrings: `microsoft` or `azure`. For example, `azure data factory` has `azure` in it. 
 
 ```json
 "advancedFilters": [{
@@ -229,8 +306,17 @@ The **StringContains** evaluates to true if the key's value contains any of the 
 }]
 ```
 
+If the key is an array, all the values in the array are checked against the array of filter values. Here's the pseudo code with the key: `[v1, v2, v3]` and the filter: `[a,b,c]`. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF key CONTAINS filter
+            MATCH
+```
+
 ## StringNotContains
-The **StringNotContains** operator evaluates to true if the key doesn't contain the specified values as substrings. If the key contains one of the specified values as a substring, the operator evaluates to false. In the following example, the operator returns true only if the value of the `key1` attribute in the `data` section doesn't have `contoso` and `fabrikam` as substrings. 
+The **StringNotContains** operator evaluates to true if the **key** does **not contain** the specified **filter** values as substrings. If the key contains one of the specified values as a substring, the operator evaluates to false. In the following example, the operator returns true only if the value of the `key1` attribute in the `data` section doesn't have `contoso` and `fabrikam` as substrings. 
 
 ```json
 "advancedFilters": [{
@@ -243,8 +329,17 @@ The **StringNotContains** operator evaluates to true if the key doesn't contain 
 }]
 ```
 
+If the key is an array, all the values in the array are checked against the array of filter values. Here's the pseudo code with the key: `[v1, v2, v3]` and the filter: `[a,b,c]`. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF key CONTAINS filter
+            FAIL_MATCH
+```
+
 ## StringBeginsWith
-The **StringBeginsWith** operator evaluates to true if the key's value begins with any of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section begins with `event` or `grid`. For example, `event hubs` begins with `event`. 
+The **StringBeginsWith** operator evaluates to true if the **key** value **begins with** any of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section begins with `event` or `grid`. For example, `event hubs` begins with `event`.  
 
 ```json
 "advancedFilters": [{
@@ -257,8 +352,17 @@ The **StringBeginsWith** operator evaluates to true if the key's value begins wi
 }]
 ```
 
+If the key is an array, all the values in the array are checked against the array of filter values. Here's the pseudo code with the key: `[v1, v2, v3]` and the filter: `[a,b,c]`. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF key BEGINS_WITH filter
+            MATCH
+```
+
 ## StringNotBeginsWith
-The **StringNotBeginsWith** operator evaluates to true if the key's value doesn't begin with any of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section doesn't begin with `event` or `message`.
+The **StringNotBeginsWith** operator evaluates to true if the **key** value does **not begin with** any of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section doesn't begin with `event` or `message`.
 
 ```json
 "advancedFilters": [{
@@ -271,8 +375,17 @@ The **StringNotBeginsWith** operator evaluates to true if the key's value doesn'
 }]
 ```
 
+If the key is an array, all the values in the array are checked against the array of filter values. Here's the pseudo code with the key: `[v1, v2, v3]` and the filter: `[a,b,c]`. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF key BEGINS_WITH filter
+            FAIL_MATCH
+```
+
 ## StringEndsWith
-The **StringEndsWith** operator evaluates to true if the key's value ends with one of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section ends with `jpg` or `jpeg` or `png`. For example, `eventgrid.png` ends with `png`.
+The **StringEndsWith** operator evaluates to true if the **key** value **ends with** one of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section ends with `jpg` or `jpeg` or `png`. For example, `eventgrid.png` ends with `png`.
 
 
 ```json
@@ -287,8 +400,17 @@ The **StringEndsWith** operator evaluates to true if the key's value ends with o
 }]
 ```
 
+If the key is an array, all the values in the array are checked against the array of filter values. Here's the pseudo code with the key: `[v1, v2, v3]` and the filter: `[a,b,c]`. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF key ENDS_WITH filter
+            MATCH
+```
+
 ## StringNotEndsWith
-The **StringNotEndsWith** operator evaluates to true if the key's value doesn't end with any of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section doesn't end with `jpg` or `jpeg` or `png`. 
+The **StringNotEndsWith** operator evaluates to true if the **key** value does **not end with** any of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section doesn't end with `jpg` or `jpeg` or `png`. 
 
 
 ```json
@@ -303,8 +425,17 @@ The **StringNotEndsWith** operator evaluates to true if the key's value doesn't 
 }]
 ```
 
+If the key is an array, all the values in the array are checked against the array of filter values. Here's the pseudo code with the key: `[v1, v2, v3]` and the filter: `[a,b,c]`. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF key ENDS_WITH filter
+            FAIL_MATCH
+```
+
 ## StringIn
-The **StringIn** operator checks whether the key's value **exactly** matches one of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section is `exact` or `string` or `matches`. 
+The **StringIn** operator checks whether the **key** value **exactly matches** one of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section is `exact` or `string` or `matches`. 
 
 ```json
 "advancedFilters": [{
@@ -318,8 +449,17 @@ The **StringIn** operator checks whether the key's value **exactly** matches one
 }]
 ```
 
+If the key is an array, all the values in the array are checked against the array of filter values. Here's the pseudo code with the key: `[v1, v2, v3]` and the filter: `[a,b,c]`. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF filter == key
+            MATCH
+```
+
 ## StringNotIn
-The **StringNotIn** operator checks whether the key's value isn't any of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section isn't `aws` and `bridge`. 
+The **StringNotIn** operator checks whether the **key** value **does not match** any of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section isn't `aws` and `bridge`. 
 
 ```json
 "advancedFilters": [{
@@ -332,6 +472,15 @@ The **StringNotIn** operator checks whether the key's value isn't any of the spe
 }]
 ```
 
+If the key is an array, all the values in the array are checked against the array of filter values. Here's the pseudo code with the key: `[v1, v2, v3]` and the filter: `[a,b,c]`. Any key values with data types that don’t match the filter’s data type are ignored.
+
+```
+FOR_EACH filter IN (a, b, c)
+    FOR_EACH key IN (v1, v2, v3)
+        IF filter == key
+            FAIL_MATCH
+```
+
 
 All string comparisons aren't case-sensitive.
 
@@ -341,8 +490,8 @@ All string comparisons aren't case-sensitive.
 >The filter is evaulated as **matched** for the following operators:NumberNotIn, StringNotIn.
 
 
-## IsNull
-The IsNull operator evaluates to true if the key's value is NULL or undefined. 
+## IsNullOrUndefined
+The IsNullOrUndefined operator evaluates to true if the key's value is NULL or undefined. 
 
 ```json
 {
@@ -350,6 +499,30 @@ The IsNull operator evaluates to true if the key's value is NULL or undefined.
     "key": "data.key1"
 }
 ```
+
+In the following example, key1 is missing, so the operator would evaluate to true. 
+
+```json
+{ 
+    "data": 
+    { 
+        "key2": 5 
+    } 
+}
+```
+
+In the following example, key1 is set to null, so the operator would evaluate to true.
+
+```json
+{
+    "data": 
+    { 
+        "key1": null
+    }
+}
+```
+
+if key1 has any other value in these examples, the operator would evaluate to false. 
 
 ## IsNotNull
 The IsNotNull operator evaluates to true if the key's value isn't NULL or undefined. 
