@@ -95,7 +95,7 @@ Alternatively, you can separate endpoint and access key.
 // from an environment variable.
 const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
 const accessKey = process.env["COMMUNICATION_SERVICES_ACCESSKEY"];
-let tokenCredential = new AzureKeyCredential(accessKey);
+const tokenCredential = new AzureKeyCredential(accessKey);
 // Instantiate the identity client
 const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential)
 ```
