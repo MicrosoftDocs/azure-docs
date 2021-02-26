@@ -20,7 +20,7 @@ For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transa
 In this article, you'll learn how to write a query with a serverless SQL pool that will query data from Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this tutorial](./tutorial-data-analyst.md).
 
 > [!IMPORTANT]
-> This tutorial uses a container with an [Azure Cosmos DB well-defined schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). The query experience that the serverless SQL pool provides for an [Azure Cosmos DB full fidelity schema](#full-fidelity-schema) is temporary behavior that will change based on the preview feedback. Don't rely on the result set schema of the `OPENROWSET` function without the `WITH` clause that reads data from a container with a full fidelity schema because the query experience might be aligned with and change based on the well-defined schema. You can post your feedback in the [Azure Synapse Analytics feedback forum](https://feedback.azure.com/forums/307516-azure-synapse-analytics). You can also contact the [Azure Synapse Link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
+> This tutorial uses a container with an [Azure Cosmos DB well-defined schema](../../cosmos-db/analytical-store-introduction.md#schema-representation).  Don't rely on the result set schema of the `OPENROWSET` function without the `WITH` clause that reads data from a container with a full fidelity schema because the query experience might be aligned with and change based on the well-defined schema. You can post your feedback in the [Azure Synapse Analytics feedback forum](https://feedback.azure.com/forums/307516-azure-synapse-analytics). You can also contact the [Azure Synapse Link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
 
 ## Overview
 
@@ -375,7 +375,7 @@ If you need to query Azure Cosmos DB accounts of the Mongo DB API kind, you can 
 
 ### Query items with full fidelity schema
 
-While querying full fidelity schema, you need to explicitly specify the SQL type and the expected Azure Cosmos DB property type in the `WITH` clause. Don't use `OPENROWSET` without a `WITH` clause in the reports because the format of the result set might be changed in the preview based on feedback.
+While querying full fidelity schema, you need to explicitly specify the SQL type and the expected Azure Cosmos DB property type in the `WITH` clause. Don't use `OPENROWSET` without a `WITH` clause in the reports because the format of the result set might be changed based on feedback.
 
 In the following example, we'll assume that `string` is the correct type for the `geo_id` property and `int32` is the correct type for the `cases` property:
 
@@ -413,7 +413,7 @@ In this example, the number of cases is stored either as `int32`, `int64`, or `f
 
 ## Known issues
 
-- The query experience that serverless SQL pool provides for [Azure Cosmos DB full fidelity schema](#full-fidelity-schema) is temporary behavior that will be changed based on preview feedback. Don't rely on the schema that the `OPENROWSET` function without the `WITH` clause provides during public preview because the query experience might be aligned with well-defined schema based on customer feedback. To provide feedback, contact the [Azure Synapse Link product team](mailto:cosmosdbsynapselink@microsoft.com).
+- Don't rely on the schema that the `OPENROWSET` function without the `WITH` clause provides because the query experience might be aligned with well-defined schema based on customer feedback. To provide feedback, contact the [Azure Synapse Link product team](mailto:cosmosdbsynapselink@microsoft.com).
 - A serverless SQL pool will return a compile-time warning if the `OPENROWSET` column collation doesn't have UTF-8 encoding. You can easily change the default collation for all `OPENROWSET` functions running in the current database by using the T-SQL statement `alter database current collate Latin1_General_100_CI_AS_SC_UTF8`.
 
 Possible errors and troubleshooting actions are listed in the following table.
