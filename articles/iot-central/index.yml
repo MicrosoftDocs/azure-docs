@@ -76,6 +76,8 @@ landingContent:
             url: core/howto-create-analytics.md
           - text: Export data to cloud destinations
             url: core/howto-export-data.md
+          - text: Manage your devices
+            url: core/how-to-move-device-to-iot.md
       - linkListType: reference
         links:
           - text: REST API
