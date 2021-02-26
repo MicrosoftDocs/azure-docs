@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Azure Disk Encryption for Windows VMs
 
-Azure Disk Encryption helps protect and safeguard your data to meet your organizational security and compliance commitments. It uses the [Bitlocker](https://en.wikipedia.org/wiki/BitLocker) feature of Windows to provide volume encryption for the OS and data disks of Azure virtual machines (VMs), and is integrated with [Azure Key Vault](../../key-vault/index.yml) to help you control and manage the disk encryption keys and secrets.
+Azure Disk Encryption helps protect and safeguard your data to meet your organizational security and compliance commitments. It uses the [BitLocker](https://en.wikipedia.org/wiki/BitLocker) feature of Windows to provide volume encryption for the OS and data disks of Azure virtual machines (VMs), and is integrated with [Azure Key Vault](../../key-vault/index.yml) to help you control and manage the disk encryption keys and secrets.
 
 Azure Disk Encryption is zone resilient, the same way as Virtual Machines. For details, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
 
@@ -26,7 +26,7 @@ If you use [Azure Security Center](../../security-center/index.yml), you're aler
 > - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details. 
 > - Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
 
-You can learn the fundamentals of Azure Disk Encryption for Windows in just a few minutes with the [Create and encrypt a Windows VM with Azure CLI quickstart](disk-encryption-cli-quickstart.md) or the [Create and encrypt a Windows VM with Azure Powershell quickstart](disk-encryption-powershell-quickstart.md).
+You can learn the fundamentals of Azure Disk Encryption for Windows in just a few minutes with the [Create and encrypt a Windows VM with Azure CLI quickstart](disk-encryption-cli-quickstart.md) or the [Create and encrypt a Windows VM with Azure PowerShell quickstart](disk-encryption-powershell-quickstart.md).
 
 ## Supported VMs and operating systems
 
@@ -83,8 +83,8 @@ The following table defines some of the common terms used in Azure disk encrypti
 ## Next steps
 
 - [Quickstart - Create and encrypt a Windows VM with Azure CLI ](disk-encryption-cli-quickstart.md)
-- [Quickstart - Create and encrypt a Windows VM with Azure Powershell](disk-encryption-powershell-quickstart.md)
+- [Quickstart - Create and encrypt a Windows VM with Azure PowerShell](disk-encryption-powershell-quickstart.md)
 - [Azure Disk Encryption scenarios on Windows VMs](disk-encryption-windows.md)
-- [Azure Disk Encryption prerequisites CLI script](https://github.com/ejarvi/ade-cli-getting-started)
+- [Azure Disk Encryption prerequisites CLI script](https://github.com/ejarvi/ade-cli-getting-started) 
 - [Azure Disk Encryption prerequisites PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
 - [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md)

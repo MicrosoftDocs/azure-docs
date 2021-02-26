@@ -153,7 +153,7 @@ To enable encryption on NVMe disks:
 
 Encryption will persist on the NVMe disks in the following scenarios:
 - VM reboot
-- VMSS reimage
+- Virtual machine scale set reimage
 - Swap OS
 
 NVMe disks will be uninitialized the following scenarios:
@@ -265,7 +265,7 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Windows Server containers, which create dynamic volumes for each container.
 - Ephemeral OS disks.
 - Encryption of shared/distributed file systems like (but not limited to) DFS, GFS, DRDB, and CephFS.
-- Moving an encrypted VMs to another subscription or region.
+- Moving an encrypted VM to another subscription or region.
 - Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
 - M-series VMs with Write Accelerator disks.
 - Applying ADE to a VM that has disks encrypted with [server-side encryption with customer-managed keys](../disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk on a VM encrypted with ADE is an unsupported scenario as well.
