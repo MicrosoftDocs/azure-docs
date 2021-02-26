@@ -86,19 +86,14 @@ Application Insights receives:
 
 + *Request* telemetry item, for every incoming request (*frontend request*, *frontend response*),
 + *Dependency* telemetry item, for every request forwarded to a backend service (*backend request*, *backend response*),
-+ *Exception* telemetry item, for every failed request.
++ *Exception* telemetry item, for every failed request:
+    + failed because of a closed client connection
+    + triggered an *on-error* section of the API policies
+    + has a response HTTP status code matching 4xx or 5xx.
++ *Trace* telemetry item, if you configure a [trace](api-management-advanced-policies.md#Trace) policy. The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging.
 
-A failed request is a request, which:
-
-+ failed because of a closed client connection, or
-+ triggered an *on-error* section of the API policies, or
-+ has a response HTTP status code matching 4xx or 5xx.
-
-### Trace telemetry
-
-If you configure a [trace](api-management-advanced-policies.md#Trace) policy, [trace telemetry](../azure-monitor/app/data-model-trace-telemetry.md) is also logged to Application Insights. The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging.
-
-[TBD] Logs that exceed a size of XXXX are not logged to Application Insights. 
+> [!NOTE]
+> See [Application Insights limits](../azure-monitor/service-limits.md#application-insights) for information about the maximum size and number of metrics and events per Application Insights instance.
 
 ## Performance implications and log sampling
 
@@ -107,7 +102,7 @@ If you configure a [trace](api-management-advanced-policies.md#Trace) policy, [t
 
 Based on internal load tests, enabling this feature caused a 40%-50% reduction in throughput when request rate exceeded 1,000 requests per second. Application Insights is designed to use statistical analysis for assessing application performances. It is not intended to be an audit system and is not suited for logging each individual request for high-volume APIs.
 
-You can manipulate the number of requests being logged by adjusting the **Sampling** setting (see the steps above). Value 100% means all requests are logged, while 0% reflects no logging at all. **Sampling** helps to reduce volume of telemetry, effectively preventing from significant performance degradation, while still carrying the benefits of logging.
+You can manipulate the number of requests being logged by adjusting the **Sampling** setting (see the preceding steps). A value of 100% means all requests are logged, while 0% reflects no logging. **Sampling** helps to reduce volume of telemetry, effectively preventing significant performance degradation, while still carrying the benefits of logging.
 
 Skipping logging of headers and body of requests and responses will also have positive impact on alleviating performance issues.
 
