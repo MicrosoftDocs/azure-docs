@@ -11,9 +11,8 @@ ms.date: 03/02/2021
 # Overview: Azure Logic Apps Preview
 
 > [!IMPORTANT]
-> This capability is in public preview, is provided without a service level agreement, and 
-> is not recommended for production workloads. Certain features might not be supported or 
-> might have constrained capabilities. For more information, see 
+> This capability is in public preview, is provided without a service level agreement, and is not recommended for production 
+> workloads. Certain features might not be supported or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 With Azure Logic Apps Preview, you can build automation and integration solutions across apps, data, cloud services, and systems by creating and running logic apps that include [*stateful* and *stateless* workflows](#stateful-stateless) by using the new **Logic App (Preview)** resource type. With this new logic app type, you can build multiple workflows that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers.
@@ -147,7 +146,7 @@ Azure Logic Apps Preview includes many current and additional capabilities, for 
 
 * Regenerate access keys for managed connections used by individual workflows in a **Logic App (Preview)** resource. For this task, [follow the same steps for the **Logic Apps** resource but at the individual workflow level](logic-apps-securing-a-logic-app.md#regenerate-access-keys), not the logic app resource level.
 
-* Add parallel branches in the new designer by following the same steps as in the original designer.
+* Add parallel branches in the new designer by following the same steps as the non-preview designer.
  
 For more information, see [Changed, limited, unavailable, and unsupported capabilities](#limited-unavailable-unsupported) and the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 

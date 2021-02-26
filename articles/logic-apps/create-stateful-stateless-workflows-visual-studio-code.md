@@ -62,19 +62,24 @@ This article shows how to create your logic app and a workflow in Visual Studio 
 
 #### Windows
 
-To run your logic app locally in Visual Studio Code, you need to set up and start the Azure Storage Emulator.
+To design and run your logic app locally in Visual Studio Code, follow these steps to set up the Azure Storage Emulator.
 
 1. Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179).
 
 1. To run the emulator, you need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
-1. Before you run your logic app, make sure that you remember to start the emulator.
+1. Before you open the designer or run your logic app, start the emulator.
 
    ![Screenshot that shows the Azure Storage Emulator running.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
 #### macOS or Linux
 
-Currently, the designer in Visual Studio Code doesn't work on Linux OS, but you can still run and deploy logic apps that use the Logic Apps Preview runtime to Linux-based virtual machines. For now, you can build your logic apps in Visual Studio Code on Windows or macOS and then deploy to a Linux-based virtual machine.
+To design and run your logic app locally in Visual Studio Code, follow these steps to create and set up an Azure Storage account.
+
+> [!NOTE]
+> Currently, the designer in Visual Studio Code doesn't work on Linux OS, but you can still run and deploy logic apps 
+> that use the Logic Apps Preview runtime to Linux-based virtual machines. For now, you can build your logic apps in 
+> Visual Studio Code on Windows or macOS and then deploy to a Linux-based virtual machine.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and [create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal), which is a [prerequisite for Azure Functions](../azure-functions/storage-considerations.md).
 
@@ -107,11 +112,14 @@ Currently, the designer in Visual Studio Code doesn't work on Linux OS, but you 
     Currently, you can have both the original Azure Logic Apps extension and the Public Preview extension installed in Visual Studio Code. Although the development experiences differ in some ways between the extensions, your Azure subscription can include both logic app types that you create with the extensions. Visual Studio Code shows all the deployed logic apps in your Azure subscription, but organizes them into different sections by extension names, **Logic Apps** and **Azure Logic Apps (Preview)**.
 
     > [!IMPORTANT]
-    > If you created logic apps with the earlier private preview extension, these logic apps won't work with the Public
-    > Preview extension. However, you can migrate these logic apps after you uninstall the private preview extension, 
-    > delete the associated files, and install the public preview extension. You then create a new project in Visual 
-    > Studio Code, and copy your previously created logic app's **workflow.definition** file into your new project. 
-    > For more information, see [Migrate from the private preview extension](#migrate-private-preview).
+    > If you created logic app projects with the earlier private preview extension, these projects won't work with the Public 
+    > Preview extension. However, you can migrate these projects after you uninstall the private preview extension, delete the 
+    > associated files, and install the public preview extension. You then create a new project in Visual Studio Code, and copy 
+    > your previously created logic app's **workflow.definition** file into your new project. For more information, see 
+    > [Migrate from the private preview extension](#migrate-private-preview).
+    > 
+    > If you created logic app projects with the earlier public preview extension, you can continue using those projects 
+    > without any migration steps.
 
     To install the **Azure Logic Apps (Preview)** extension, follow these steps:
 
@@ -126,10 +134,10 @@ Currently, the designer in Visual Studio Code doesn't work on Linux OS, but you 
        > [!TIP]
        > If the extension doesn't appear in the installed list, try restarting Visual Studio Code.
 
-* To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [NodeJS versions 10.x.x, 11.x.x, or 12.x.x](https://nodejs.org/en/download/releases/).
+* To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [Node.js versions 10.x.x, 11.x.x, or 12.x.x](https://nodejs.org/en/download/releases/).
 
   > [!TIP] For Windows, download the MSI version. If you use the ZIP version instead, you have to 
-  > manually make NodeJS available by using a PATH environment variable for your operating system.
+  > manually make Node.js available by using a PATH environment variable for your operating system.
 
 * To locally run webhook-based triggers and actions, such as the [built-in HTTP Webhook trigger](../connectors/connectors-native-webhook.md), in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
 
@@ -141,7 +149,7 @@ Currently, the designer in Visual Studio Code doesn't work on Linux OS, but you 
 
 ## Migrate from private preview extension
 
-Any logic apps that you created with the **Azure Logic Apps (Private Preview)** extension won't work with the PublicPreview extension. However, you can migrate these logic apps into a new Visual Studio Code project by following these steps:
+Any logic app projects that you created with the **Azure Logic Apps (Private Preview)** extension won't work with the Public Preview extension. However, you can migrate these projects to new projects by following these steps:
 
 1. Uninstall the private preview extension.
 
@@ -161,7 +169,7 @@ Any logic apps that you created with the **Azure Logic Apps (Private Preview)** 
 
 1. Create a new project in Visual Studio Code.
 
-1. Copy your previously created logic app's **workflow.definition** file into your new project.
+1. Copy your previously created logic app's **workflow.definition** file to your new project.
 
 <a name="set-up"></a>
 
@@ -224,7 +232,7 @@ To find these settings, follow these steps:
 
 ## Create a local project
 
-Before you can create your logic app, create a local project so that you can manage and deploy your logic app from Visual Studio Code. The underlying project is similar to an Azure Functions project, also known as a function app project. However, these project types are separate from each other, so logic apps and function apps can't exist in the same project.
+Before you can create your logic app, create a local project so that you can manage, run, and deploy your logic app from Visual Studio Code. The underlying project is similar to an Azure Functions project, also known as a function app project. However, these project types are separate from each other, so logic apps and function apps can't exist in the same project.
 
 1. On your computer, create an *empty* local folder to use for the project that you'll later create in Visual Studio Code.
 
@@ -248,7 +256,7 @@ Before you can create your logic app, create a local project so that you can man
 
    ![Screenshot that shows the "Create new Stateful Workflow (3/4)" box and "Fabrikam-Stateful-Workflow" as the workflow name.](./media/create-stateful-stateless-workflows-visual-studio-code/name-your-workflow.png)
 
-   Visual Studio Code finishes creating your project, and opens the **workflow.json** file for your workflow.
+   Visual Studio Code finishes creating your project, and opens the **workflow.json** file for your workflow in the code editor.
 
    > [!NOTE]
    > If you're prompted to select how to open your project, select **Open in current window** 
@@ -265,7 +273,7 @@ Before you can create your logic app, create a local project so that you can man
 
    1. In your project's root folder, open the **local.settings.json** file.
 
-   ![Screenshot that shows Explorer pane and 'local.settings.json' file in your project.](./media/create-stateful-stateless-workflows-visual-studio-code/local-settings-json-files.png)
+      ![Screenshot that shows Explorer pane and 'local.settings.json' file in your project.](./media/create-stateful-stateless-workflows-visual-studio-code/local-settings-json-files.png)
 
    1. Replace the `AzureWebJobsStorage` property value with the storage account's connection string that you saved earlier, for example:
 
@@ -319,6 +327,9 @@ Before you can create your logic app, create a local project so that you can man
 1. Expand the project folder for your workflow. Open the **workflow.json** file's shortcut menu, and select **Open in Designer**.
 
    ![Screenshot that shows Explorer pane and shortcut window for the workflow.json file with "Open in Designer" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/open-definition-file-in-designer.png)
+
+   > [!NOTE]
+   > If the designer won't open, check the troubleshooting section, [Designer fails to open](#designer-fails-to-open).
 
 1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**, which applies to all managed connectors that are available and deployed in Azure, not just connectors for Azure services.
 
@@ -575,6 +586,9 @@ To test your logic app, follow these steps to start a debugging session, and fin
 1. On the Visual Studio Code Activity Bar, open the **Run** menu, and select **Start Debugging** (F5).
 
    The **Terminal** window opens so that you can review the debugging session.
+
+   > [!NOTE]
+   > If you get the error, see the troubleshooting section, [Debugging session fails to start](#debugging-fails-to-start).
 
 1. Now, find the callback URL for the endpoint on the Request trigger.
 
@@ -1233,29 +1247,37 @@ To delete an item in your workflow from the designer, follow any of these steps:
 
 <a name="designer-fails-to-open"></a>
 
-### Opening designer fails with error: "Workflow design time could not be started"
+### Designer fails to open
 
-1. In Visual Studio Code, open the Output window. From the **View** menu, select **Output**.
+When you try to open the designer, you get this error, **"Workflow design time could not be started"**, which can happen due to storage or extension bundle issues. Review these possible causes and solutions:
 
-1. From the list in the Output window's title bar, select **Azure Logic Apps (Preview)** so that you can review output from the extension, for example:
+* On Windows, if the Azure Storage Emulator isn't running yet, start the Azure Storage Emulator and then reopen the designer.
 
-   ![Screenshot that shows the Output window with "Azure Logic Apps" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/check-outout-window-azure-logic-apps.png)
+* On macOS or Linux, in your project's **workflow-designtime** folder, open the **local.settings.json** file, and replace the `AzureWebJobsStorage` property value with the Azure storage account connection string that you added to the same **local.settings.json** file in your project's root folder.
 
-1. Review the output and check whether this error message appears:
+* If you tried to open the designer, and then discontinued or deleted your project, the extension bundle might not be downloading correctly. To check whether this cause is the problem, follow these steps:
 
-   ```text
-   A host error has occurred during startup operation '{operationID}'.
-   System.Private.CoreLib: The file 'C:\Users\{userName}\AppData\Local\Temp\Functions\
-   ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\1.1.7\bin\
-   DurableTask.AzureStorage.dll' already exists.
-   Value cannot be null. (Parameter 'provider')
-   Application is shutting down...
-   Initialization cancellation requested by runtime.
-   Stopping host...
-   Host shutdown completed.
-   ```
+  1. In Visual Studio Code, open the Output window. From the **View** menu, select **Output**.
 
-   This error can happen if you previously tried to open the designer, and then discontinued or deleted your project. To resolve this error, delete the **ExtensionBundles** folder at this location **...\Users\\{your-username}\AppData\Local\Temp\Functions\ExtensionBundles**, and retry opening the **workflow.json** file in the designer.
+  1. From the list in the Output window's title bar, select **Azure Logic Apps (Preview)** so that you can review output from the extension, for example:
+
+     ![Screenshot that shows the Output window with "Azure Logic Apps" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/check-outout-window-azure-logic-apps.png)
+
+  1. Review the output and check whether this error message appears:
+
+     ```text
+     A host error has occurred during startup operation '{operationID}'.
+     System.Private.CoreLib: The file 'C:\Users\{userName}\AppData\Local\Temp\Functions\
+     ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\1.1.7\bin\
+     DurableTask.AzureStorage.dll' already exists.
+     Value cannot be null. (Parameter 'provider')
+     Application is shutting down...
+     Initialization cancellation requested by runtime.
+     Stopping host...
+     Host shutdown completed.
+     ```
+
+   To resolve this error, delete the **ExtensionBundles** folder at this location **...\Users\{your-username}\AppData\Local\Temp\Functions\ExtensionBundles**, and retry opening the **workflow.json** file in the designer.
 
 <a name="missing-triggers-actions"></a>
 
@@ -1327,6 +1349,14 @@ To resolve this problem and adjust for the longer URI, edit the `UrlSegmentMaxCo
    ![Screenshot that shows the registry editor.](media/create-stateful-stateless-workflows-visual-studio-code/edit-registry-settings-uri-length.png)
 
 1. When you're ready, restart your computer so that the changes can take effect.
+
+<a><name="debugging-fails-to-start"></a>
+
+### Debugging session fails to start
+
+When you try to start a debugging session, you get the error, **"Error exists after running preLaunchTask 'generateDebugSymbols'"**. To resolve this problem, edit the **tasks.json** file in your project to skip symbol generation.
+
+1.  In your project, expand the **.vscode** folder, and open the **tasks.json** file.
 
 ## Next steps
 
