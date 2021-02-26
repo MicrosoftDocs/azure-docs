@@ -53,33 +53,51 @@ Perform the following steps to create an export job in the Azure portal.
        * The name may contain only lowercase letters, numbers, and hyphens.
        * The name must start with a letter, and may not contain spaces.
    1. Select **Export from Azure**.
-   1. When you finish basic settings, select **Next:Job details >**.
 
-        ![Basics](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
+    ![Basics options for an export order](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
+
+    Select **Next:Job details >** to proceed.
 
 5. In **Job details**:
 
-    - Select the storage account where the data to be exported resides. Use a storage account close to where you are located.
-    - The dropoff location is automatically populated based on the region of the storage account selected.
-    - Specify the blob data you wish to export from your storage account to your blank drive or drives.
-    - Choose to **Export all** blob data in the storage account.
+   1. Select the Azure region where your data currently is.
+   1. Select the storage account from where you want to export data. Use a storage account close to your location.
 
-         ![Export all](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
+      The drop-off location is automatically populated based on the region of the storage account selected.
 
-    - You can specify which containers and blobs to export.<!--Get screens from product team for the other two blob options.-->
-        - **To specify a blob to export**: Use the **Equal To** selector. Specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.
-        - **To specify all blobs starting with a prefix**: Use the **Starts With** selector. Specify the prefix, beginning with a forward slash '/'. The prefix may be the prefix of the container name, the complete container name, or the complete container name followed by the prefix of the blob name. You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).
+   1. Specify the blob data to export from your storage account to your blank drive or drives. You can export all blob data from your storage account, specify specific containers and blobs, or use an XML file to list the blobs to export.
 
-           ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
+      - Choose to **Export all** blob data in the storage account.
 
-    - You can export from  the blob list file.
+        ![Export all](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)<!--Any way to make this smaller and less interruptive? One box: Export all.-->
 
-        ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
+      - Choose **Selected containers and blobs**, and specify containers and blobs to export. You can use more than one of the selection methods. Selecting an **Add** option opens a panel on the right where you can add your selection strings.
+
+        |Option|Description|
+        |------|-----------|      
+        |**Add containers**|Export all blobs in a container.<br>Select **Add containers**, and enter each container name.|
+        |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br><br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).|
+        |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name.<!--Have these options changed? If they want to specify a container name, won't they just use Add containers? The prefix option would be used to select multiple container that begin with the same prefix or a set of similarly named blobs in a container? Practical examples would help.--><br>Example of container prefix<br>Example of blob set in a container|
+
+        ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
+
+    - Choose **Export from blob list file (XML format)**, and select an XML file that contains a list of paths and prefixes for the blobs to be exported from the storage account. You must construct the XML file and store it in the container for the storage account. The file cannot be empty.
+
+      > [!IMPORTANT]
+      > If you use an XML file to select the blobs to export, make sure that the XML contains valid paths and/or prefixes. If the file is invalid or no data matches the paths specified, the order terminates with partial data or no data exported.
+
+       To see how to add an XML file to a container, see [Export order using XML file](data-box-deploy-export-ordered.md#export-order-using-xml-file).
+
+      ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)<!--Please verify the format. I made something up.-->
 
    > [!NOTE]
-   > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
+   > If a blob to be exported is in use during data copy, the Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
 
-6. In **Return shipping info**:
+   Select **Next:Shipping >** to proceed.
+
+<!--Note to me. Paste in the entire section that Step 5 replaces for comparison.-->
+
+6. In **Shipping**:
 
     - Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your export job is complete.
@@ -88,15 +106,22 @@ Perform the following steps to create an export job in the Azure portal.
         > [!TIP]
         > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
-7. In **Summary**:
+    Select **Review + create** to proceed.
 
-    - Review the details of the job.
-    - Make a note of the job name and provided Azure datacenter shipping address for shipping disks to Azure.
+7. In **Review + create**:
 
-        > [!NOTE]
-        > Always send the disks to the datacenter noted in the Azure portal. If the disks are shipped to the wrong datacenter, the job will not be processed.
+   1. Review the details of the job.
+   1. Make a note of the job name and provided Azure datacenter shipping address for shipping disks to Azure.
 
-    - Click **OK** to complete export job creation.
+      > [!NOTE]
+      > Always send the disks to the datacenter noted in the Azure portal. If the disks are shipped to the wrong datacenter, the job will not be processed.
+
+   1. Review the **Terms** for your order for privacy and source data deletion. If you agree to the terms, select the check box beneath the terms. This starts validation of the order.
+
+
+   ![Review and create your export order](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)
+
+ 1. After validation passes, select **Create**.
 
 ### [Azure CLI](#tab/azure-cli)
 

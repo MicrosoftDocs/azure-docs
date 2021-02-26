@@ -34,7 +34,6 @@ Before you create an import job to transfer data into Azure Files, carefully rev
         - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 
-
 ## Step 1: Prepare the drives
 
 This step generates a journal file. The journal file stores basic information such as drive serial number, encryption key, and storage account details.
