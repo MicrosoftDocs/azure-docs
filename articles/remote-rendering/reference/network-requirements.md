@@ -22,8 +22,6 @@ The exact network requirements depend on your specific use case, such as the num
 * Strictly **avoid using Wi-Fi repeaters** or LAN-over-powerline forwarding.
 * **Avoid competing bandwidth-intense traffic** – such as video or game streaming – on the same Wi-Fi network.
 * If you have multiple devices on the same access point, the requirements scale up correspondingly. If you have multiple access points across an environment, load balance devices across the access points, so they are evenly distributed.
-![image](https://user-images.githubusercontent.com/44622238/109353056-b081ec00-7830-11eb-8005-c10dbf99e515.png)
-
 * Having **good Wi-Fi signal strength** is essential. If possible, stay close to your Wi-Fi access point and avoid obstacles between your client device and the access points.
 * Make sure that you always connect to the **nearest Azure data center** for your [region](regions.md). The closer the data center, the lower the network latency, which has a huge effect on hologram stability.
 
