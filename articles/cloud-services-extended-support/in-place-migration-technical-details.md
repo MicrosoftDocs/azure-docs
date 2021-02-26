@@ -35,8 +35,8 @@ This article discusses the technical details regarding the migration tool as per
 - The names of resources like virtual network and VM SKU are different. See [Translation of resources and naming convention post migration](#translation-of-resources-and-naming-convention-post-migration)
 - Customers can retrieve their new deployments through [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) and [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/get). 
 
-### Cloud Service (hosted service) and deployments
-- Cloud Services (extended support) does not support the concept of hosted service. Each deployment is independent. 
+### Cloud Service ) and deployments
+- Each Cloud Services (extended support) deployment is independent. 
 - If you have two slots in your Cloud Service (classic), you need to delete one slot (staging) and use the migration tool to move the other (production) slot to Azure Resource Manager. 
 - The public IP address on the Cloud Service deployment remains the same after migration to Azure Resource Manager and is exposed as a Basic SKU IP (dynamic or static) resource. 
 - The DNS name and domain (cloudapp.azure.net) for the migrated cloud service remains the same. 
@@ -57,8 +57,8 @@ This article discusses the technical details regarding the migration tool as per
 - For a Cloud Service using a public endpoint, a platform created load balancer associated with the Cloud Service is exposed inside the customer’s subscription in Azure Resource Manager. The load balancer is a read-only resource, and updates are restricted only through the Service Configuration (.cscfg) and Service Definition (.csdef) files. 
 
 ### Key Vault
-- As part of migration, we automatically create a new Key Vault and migrate all the certificates to it. The tool does not allow you to use an existing Key Vault. 
-- Cloud Services (extended support) require a Key Vault located in the same region and subscription. This Key Vault is auto created as part of the migration. 
+- As part of migration, Azure automatically creates a new Key Vault and migrates all the certificates to it. The tool does not allow you to use an existing Key Vault. 
+- Cloud Services (extended support) require a Key Vault located in the same region and subscription. This Key Vault is automatically created as part of the migration. 
 
 
 ## Translation of resources and naming convention post migration
