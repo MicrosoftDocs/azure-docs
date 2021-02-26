@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/19/2021
+ms.date: 02/26/2021
 ms.author: alkohli
 ---
 
@@ -25,6 +25,15 @@ In this article, you learn how to:
 > * Delete the resource in Azure portal
 
 ## Erase data from the device
+
+To wipe the data off the data disks of your device, you need to reset your device.
+
+Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container. 
+
+You can initiate the device return even before the device is reset.
+
+You can reset your device in the local web UI or in PowerShell. For PowerShell instructions, see [Reset your device](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
+
 
 [!INCLUDE] [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)
 
