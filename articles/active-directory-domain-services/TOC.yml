@@ -21,7 +21,7 @@
       href: tutorial-configure-ldaps.md
     - name: Configure password hash sync
       href: tutorial-configure-password-hash-sync.md
-    - name: Create a replica set (preview)
+    - name: Create a replica set 
       href: tutorial-create-replica-set.md
     - name: Create a customized managed domain
       href: tutorial-create-instance-advanced.md
@@ -43,7 +43,7 @@
       href: administration-concepts.md
     - name: Common deployment scenarios
       href: scenarios.md
-    - name: Replica sets (preview)
+    - name: Replica sets 
       href: concepts-replica-sets.md
     - name: Forests and trusts
       items:
