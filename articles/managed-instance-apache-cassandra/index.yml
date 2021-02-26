@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Managed Instance for Apache Cassandra documentation # < 60 chars
-summary: Go beyond lift and shift in Apache Cassandra. # < 160 chars
+summary: Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. It accelerates hybrid scenarios and reducing ongoing maintenance. # < 160 chars
 
 metadata:
   title: Azure Managed Instance for Apache Cassandra # Required; page title displayed in search results. Include the brand. < 60 chars.
