@@ -53,6 +53,15 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 **Pricing**:
 No additional cost to existing VM pricing.
 
+**The following features are not supported in this preview**:
+- Backup
+- Azure Site Recovery
+- Shared Image Gallery
+- Ephemeral OS disk
+- Shared disk
+- Managed image
+- Azure Dedicated Host 
+
 ## Secure boot
 
 At the root of trusted launch is Secure Boot for your VM. This mode, which is implemented in platform firmware, protects against the installation of malware-based rootkits and boot kits. Secure Boot works to ensure that only signed operating systems and drivers can boot. It establishes a "root of trust" for the software stack on your VM. With Secure Boot enabled, all OS boot components (boot loader, kernel, kernel drivers) must be signed by trusted publishers. Both Windows and select Linux distributions support Secure Boot. If Secure Boot fails to authenticate that the image was signed by a trusted publisher, the VM will not be allowed to boot. For more information, see [Secure Boot](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot).
@@ -74,7 +83,7 @@ With trusted launch and VBS you can enable Windows Defender Credential Guard. Th
 
 ## Security Center integration
 
-Trusted launch is integrated with Azure Security Center, to ensure your VMs are properly configured. Azure Security Center will continually assess compatible VMs, and issue relevant recommendations.
+Trusted launch is integrated with Azure Security Center to ensure your VMs are properly configured. Azure Security Center will continually assess compatible VMs and issue relevant recommendations.
 
 - **Recommendation to enable Secure Boot** - This Recommendation only applies for VMs that support trusted launch. Azure Security Center will identify VMs that can enable Secure Boot, but have it disabled. It will issue a low severity recommendation to enable it.
 - **Recommendation to enable vTPM** - If your VM has vTPM enabled, Azure Security Center can use it to perform Guest Attestation and identify advanced threat patterns. If Azure Security Center identifies VMs that support trusted launch and have vTPM disabled, it will issue a low severity recommendation to enable it. 
