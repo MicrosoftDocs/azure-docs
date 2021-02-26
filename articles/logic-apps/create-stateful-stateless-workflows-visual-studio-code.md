@@ -799,8 +799,15 @@ You can publish your logic app as a new resource, which automatically creates an
       >
       > * [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
       > * [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/)
-   
-      This example continues with the **App Service Plan**.
+      >
+      > For example, the Premium plan provides access to networking capabilities, such as connect and integrate 
+      > privately with Azure virtual networks, similar to Azure Functions when you create and deploy your logic apps. 
+      > For more information, review these topics:
+      > 
+      > * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
+      > * [Azure Logic Apps Running Anywhere - Networking possibilities with Azure Logic Apps Preview](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+
+      This example uses the **App Service Plan**.
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select "App Service Plan" or "Premium".](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 
@@ -1122,7 +1129,10 @@ To enable Application Insights on a deployed logic app or to review Application 
 
    If Application Insights is enabled, on the **Application Insights** pane, select **View Application Insights data**.
 
-After Application Insights opens, you can review various metrics for your logic app. For more information, see [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849).
+After Application Insights opens, you can review various metrics for your logic app. For more information, review these topics:
+
+* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
+* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
 
 <a name="deploy-docker"></a>
 

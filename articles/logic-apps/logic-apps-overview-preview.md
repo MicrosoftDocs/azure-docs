@@ -35,7 +35,7 @@ This overview covers the following areas:
 
 * [Limits in Azure Logic Apps Preview](#limits).
 
-For more information, see these other articles:
+For more information, review these other topics:
 
 * [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
 
@@ -144,7 +144,11 @@ Azure Logic Apps Preview includes many current and additional capabilities, for 
 
 * Enable diagnostics logging and tracing capabilities for your logic app by using [Application Insights](../azure-monitor/app/app-insights-overview.md) when supported by your Azure subscription and logic app settings.
 
-* Access networking capabilities, such as connect and integrate privately with Azure virtual networks, similar to Azure Functions when you create and deploy your logic apps using the [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md). For more information, see [Azure Functions networking options](../azure-functions/functions-networking-options.md).
+* Access networking capabilities, such as connect and integrate privately with Azure virtual networks, similar to Azure Functions when you create and deploy your logic apps using the [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md). For more information, review these topics:
+
+  * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
+
+  * [Azure Logic Apps Running Anywhere - Networking possibilities with Azure Logic Apps Preview](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
 
 * Regenerate access keys for managed connections used by individual workflows in a **Logic App (Preview)** resource. For this task, [follow the same steps for the **Logic Apps** resource but at the individual workflow level](logic-apps-securing-a-logic-app.md#regenerate-access-keys), not the logic app resource level.
 
