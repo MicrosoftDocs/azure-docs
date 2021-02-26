@@ -68,7 +68,7 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 |---|---|---|---|
 | Cloud Service | `cloudservicename` | Not associated| Not associated |
 | Deployment (portal created) <br><br> Deployment (non-portal created)  | `deploymentname` | Cloud Services (extended support) | `deploymentname` |  
-| Virtual Network | `vnetname` <br><br> `Group resourcegroupname` <br><br> `vnetname` |  Virtual Network (not portal created) <br><br> Virtual Network (portal created) <br><br> Virtual Networks (Default) | `vnetname` <br><br> `group-resourcegroupname-vnetname` <br><br> `DefaultRdfevirtualnetwork_vnetid`|
+| Virtual Network | `vnetname` <br><br> `Group resourcegroupname vnetname` <br><br> Not applicable |  Virtual Network (not portal created) <br><br> Virtual Network (portal created) <br><br> Virtual Networks (Default) | `vnetname` <br><br> `group-resourcegroupname-vnetname` <br><br> `DefaultRdfevirtualnetwork_vnetid`|
 | Not associated | Not associated | Key Vault | `cloudservicename` | 
 | Not associated | Not associated | Resource Group for Cloud Service Deployments | `cloudservicename-migrated` | 
 | Not associated | Not associated | Resource Group for Virtual Network | `vnetname-migrated` <br><br> `group-resourcegroupname-vnetname-migrated`|
