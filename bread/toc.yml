@@ -209,6 +209,12 @@
     tocHref: /azure/iot-fundamentals/
     topicHref: /azure/iot-fundamentals/
     items:
+      - name: Azure Percept
+        tocHref: /azure/azure-percept/
+        topicHref: /azure/azure-percept/
+      - name: Device Update for IoT Hub
+        tocHref: /azure/iot-hub-device-update/
+        topicHref: /azure/iot-hub-device-update/            
       - name: IoT Hub
         tocHref: /azure/iot-hub/
         topicHref: /azure/iot-hub/
