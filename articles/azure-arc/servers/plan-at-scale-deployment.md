@@ -1,6 +1,6 @@
 ---
 title: How to plan for an at-scale deployment of Azure Arc enabled servers
-description: Learn how to enable large number of machines to Azure Arc enabled servers and configure essential security, management, and monitoring capabilities in Azure.
+description: Learn how to enable a large number of machines to Azure Arc enabled servers to simplify configuration of essential security, management, and monitoring capabilities in Azure.
 ms.date: 02/23/2021
 ms.topic: conceptual
 ---
@@ -58,7 +58,7 @@ In this phase, system engineers or administrators enable the core features in th
 | Configure [Role based access control](../../role-based-access-control/overview.md) (RBAC) | Develop an access plan to control who has access to manage Arc enabled servers and ability to view their data from other Azure services and solutions. | One day |
 | Identify machines with Log Analytics agent already installed. | Run the following log query in [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md):<br> `Heartbeat | where TimeGenerated > ago(30d) | where ResourceType == "machines" and (ComputerEnvironment == "Non-Azure") | summarize by Computer, ResourceProvider, ResourceType, ComputerEnvironment` to support conversion of existing Log Analytics agent deployments to extension-managed agent. | One hour |
 
-<sup>1</sup> An important consideration as part of evaluating your Log Analytics workspace design, is integration with Azure Automation in support of its Update Management and Change Tracking and Inventory feature, as well as Azure Security Center and Azure Sentinel. If your organization already has an Automation account and enabled these management features linked with a Log Analytics workspace, evaluate whether you can centralize and streamline management operations, as well as minimize cost, by leveraging those existing resources versus creating a duplicate account, workspace, etc.
+<sup>1</sup> An important consideration as part of evaluating your Log Analytics workspace design, is integration with Azure Automation in support of its Update Management and Change Tracking and Inventory feature, as well as Azure Security Center and Azure Sentinel. If your organization already has an Automation account and enabled its management features linked with a Log Analytics workspace, evaluate whether you can centralize and streamline management operations, as well as minimize cost, by using those existing resources versus creating a duplicate account, workspace, etc.
 
 ## Phase 2: Deploy Arc enabled servers
 
