@@ -27,9 +27,9 @@ For more information about the _provision_ and _retire_ stages, and to better un
 
 Before you can set up the provisioning, you'll need to set up the following:
 
-* an **Azure Digital Twins instance**. Gather the **_host name_** of the instance [in the Azure portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
+* an **Azure Digital Twins instance**. Gather the **_host name_** of the instance [in the Azure portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 * an Azure [IoT Hub](../iot-hub/about-iot-hub.md)
-* an [Azure function](../azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Gather the function name to use it in this article.
+* an [Azure function](../azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Gather the function **_name_** to use it in this article.
 
 If you do not have these set up already, you can create them by following the article [how to ingest iot hub data](how-to-ingest-iot-hub-data.md).
 
@@ -93,14 +93,13 @@ Save the file and then publish your function app. For instructions on publishing
 
 ### Configure your function
 
-Next, you'll need to set environment variables in your function app from earlier, containing the reference to the Azure Digital Twins instance you've created. If you used the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), the setting will already be configured.
+Next, you'll need to set environment variables in your function app from earlier, containing the reference to the Azure Digital Twins instance you've created. 
 
 Add the setting with this Azure CLI command:
 
 ```azurecli-interactive
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
-
 Ensure that the permissions and Managed Identity role assignment are configured correctly for the function app, as described in the section [*Assign permissions to the function app*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) in the end-to-end tutorial.
 
 ### Create Device Provisioning enrollment
