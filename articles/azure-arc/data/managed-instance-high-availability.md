@@ -85,7 +85,7 @@ azdata arc sql mi create -n <name of instance> --replicas 3
 ```
 
 ### Check status
-Once the instance has been deployed, run the following commands to check the status if your instance:
+Once the instance has been deployed, run the following commands to check the status of your instance:
 
 ```console
 azdata arc sql mi list
