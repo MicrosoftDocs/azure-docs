@@ -93,6 +93,8 @@ In this scenario, the best course of action is to add `try/catch` blocks in your
 
 If the destination is another Cosmos container and you are performing Upsert operations to copy the items, **verify that the Partition Key Definition on both the monitored and destination container are the same**. Upsert operations could be saving multiple source items as one in the destination because of this configuration difference.
 
+If you are on a consumption plan and you see changes while the function is awake, but the function does not wake up when new changes are available, then verify that the setting referenced by `ConnectionStringSetting` is an Application Setting and not a Connection String setting.
+
 If you find that some changes were not received at all by your trigger, the most common scenario is that there is **another Azure Function running**. It could be another Azure Function deployed in Azure or an Azure Function running locally on a developer's machine that has **exactly the same configuration** (same monitored and lease containers), and this Azure Function is stealing a subset of the changes you would expect your Azure Function to process.
 
 Additionally, the scenario can be validated, if you know how many Azure Function App instances you have running. If you inspect your leases container and count the number of lease items within, the distinct values of the `Owner` property in them should be equal to the number of instances of your Function App. If there are more owners than the known Azure Function App instances, it means that these extra owners are the ones "stealing" the changes.
