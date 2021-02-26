@@ -212,7 +212,7 @@ Run these commands to update iptables
 
 * If you saw this error message "The X-CSRF-Signature header could not be validated", take the following action to resolve the issue:
 
-    * Make sure your computer's clock is set to the right time and time zone or try matching your computer's time zone with Azure by searching for the time zone for the location of your instance (i.e. East US, etc)
+    * Make sure your computer's clock is set to the right time and time zone. You can also try to match your computer's time zone with Azure by searching for the time zone for the location of your instance, such as East US, Pacific, and so on.
     * If you are on a proxy network, make sure that the request header “X-CSRF-Signature” is not being modified or dropped.
 
 ### Other considerations
