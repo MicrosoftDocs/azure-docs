@@ -3,7 +3,6 @@ title:  Analyze live video by using Intel OpenVINO™ DL Streamer – Edge AI Ex
 description: This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feed from a (simulated) IP camera. 
 ms.topic: tutorial
 ms.date: 02/04/2021
-titleSuffix: Azure
 ms.topic: tutorial
 ms.service: media-services
 ms.author: faneerde
@@ -39,7 +38,7 @@ When you set up the Azure resources, a short video of a parking lot is copied to
 
 Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the video](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) to start playback. You see the footage of vehicles in a parking lot, most of them parked, and one moving.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 
 In this quickstart, you'll use Live Video Analytics on IoT Edge along with the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to detect objects such as vehicles, to classify vehicles them or track vehicles, person or bikes. You'll publish the resulting inference events to IoT Edge Hub.
 
@@ -48,7 +47,7 @@ In this quickstart, you'll use Live Video Analytics on IoT Edge along with the I
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/use-intel-openvino-tutorial/grpc-vas-extension-with-vino.svg" alt-text="Overview of LVA MediaGraph":::
 
-This diagram shows how the signals flow in this quickstart. An [EDGE module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [gRPC extension processor](media-graph-concept.md#grpc-extension-processor) node. 
+This diagram shows how the signals flow in this quickstart. An [Edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [gRPC extension processor](media-graph-concept.md#grpc-extension-processor) node. 
 
 The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](terminology.md#grpc) endpoint exposed by a gRPC Server. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the content into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports jpeg, png, or bmp formats. Learn more about the processor [here](media-graph-extension-concept.md#grpc-extension-processor).
 
@@ -248,7 +247,7 @@ The gRPC extension processor node receives inference results from the Intel Open
 
 In these events, the type is set to `entity` to indicate it's an entity, such as a car or truck. The `eventTime` value is the UTC time when the object was detected. 
 
-In the following example you see it identified a vehicle, the type of the vehicle (van) and the color (white), all with a confidence level above 0.9, it also asigned an id to the entity when we use the object tracking model.
+In the following example you see it identified a vehicle, the type of the vehicle (van) and the color (white), all with a confidence level above 0.9, it also assigned an ID to the entity when we use the object tracking model.
 
 ```
 [IoTHubMonitor] [9:43:18 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -295,7 +294,7 @@ In the messages, notice the following details:
 * The `inferences` section indicates that the `type` is `entity`. This section includes additional data about the entity.
 
 ## Run the sample program to detect persons or vehicles or bikes
-To use a different model you will need to change the deployment template. To toggle between the supported models you can change the environment variables located in the lvaExtenstion module. The supported values and combinations can be found here: [models](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options)
+To use a different model you will need to change the deployment template. To toggle between the supported models you can change the environment variables located in the lvaExtenstion module. See this [document on GitHub](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options) for the supported values and combinations for models.
 
 ```
 "Env":[
