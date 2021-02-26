@@ -27,6 +27,8 @@ Azure Arc enabled SQL Managed Instance is currently in preview.
 
 Learn more about [Features and Capabilities of Azure Arc enabled SQL Managed Instance](managed-instance-features.md)
 
+[Azure Arc-enabled Managed Instance high availability](managed-instance-high-availability.md)
+
 [Start by creating a Data Controller](create-data-controller.md)
 
 Already created a Data Controller? [Create an Azure Arc enabled SQL Managed Instance](create-sql-managed-instance.md)

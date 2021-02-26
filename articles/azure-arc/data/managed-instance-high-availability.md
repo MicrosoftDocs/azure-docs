@@ -2,18 +2,19 @@
 title: Azure Arc-enabled Managed Instance high availability
 titleSuffix: Deploy Azure Arc-enabled Managed Instance with high availability 
 description: Learn how to deploy Azure Arc-enabled Managed Instance with high availability.
-author: Vin Yu
-ms.author: Azure Arc-enabled Managed Instance high availability
+author:vin-yu
+ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 03/02/2021
 ms.topic: conceptual
-ms.prod: 
-ms.technology: 
+services: azure-arc
+ms.service: azure-arc
+ms.subservice: azure-arc-data
 ---
 
 # Azure Arc-enabled Managed Instance high availability
 
-Azure Arc-enabled Managed Instance is deployed on Kubernetes as a containerized application and leverages kubernetes constructs such as stateful sets and persistent storage to provide built-in health monitoring, failure detection, and failover mechanisms to maintain service health. For increased reliability, you can also configure Azure Arc-enabled Managed Instance to deploy with additional replicas in a high availability configuration. Monitoring, failure detection, and automatic failover are managed by the Arc data services data controller. This service is provided without user intervention – all from availability group setup, configuring database mirroring endpoints, to adding databases to the availability group or failover and upgrade coordination. This document will explore both types of high availability.
+Azure Arc-enabled Managed Instance is deployed on Kubernetes as a containerized application and leverages kubernetes constructs such as stateful sets and persistent storage to provide built-in health monitoring, failure detection, and failover mechanisms to maintain service health. For increased reliability, you can also configure Azure Arc-enabled Managed Instance to deploy with additional replicas in a high availability configuration. Monitoring, failure detection, and automatic failover are managed by the Arc data services data controller. This service is provided without user intervention – all from availability group setup, configuring database mirroring endpoints, to adding databases to the availability group or failover and upgrade coordination. This document explores both types of high availability.
 
 ## Built-in high availability 
 
@@ -21,7 +22,7 @@ Built-in high availability is provided by Kubernetes when remote persistent stor
 
 ### Verify built-in high availability
 
-In this section we will verify the built-in high availability provided by Kubernetes. To test out this functionality, we will delete the pod of an existing managed instance and verify that Kubernetes will recover from this action. 
+This section, you verify the built-in high availability provided by Kubernetes. When you follow the steps to test out this functionality, you delete the pod of an existing managed instance and verify that Kubernetes recovers from this action. 
 
 ### Prerequisites
 - Kubernetes cluster must have [shared, remote storage](https://docs.microsoft.com/en-us/azure/azure-arc/data/storage-configuration#factors-to-consider-when-choosing-your-storage-configuration) 
@@ -29,41 +30,52 @@ In this section we will verify the built-in high availability provided by Kubern
 
 1. View the pods. 
 
-```
-kubectl get pods -n <namespace of data controller>
-```
+   ```console
+   kubectl get pods -n <namespace of data controller>
+   ```
 
 2. Delete the managed instance pod.
 
-```
-kubectl delete pod <name of managed instance>-0 -n <namespace of data controller>
-```
-For example
-```
-user@pc:/# kubectl delete pod sql1-0 -n arc.
-pod "sql1-0" deleted
-```
+   ```console
+   kubectl delete pod <name of managed instance>-0 -n <namespace of data controller>
+   ```
+
+   For example
+
+   ```output
+   user@pc:/# kubectl delete pod sql1-0 -n arc.
+   pod "sql1-0" deleted
+   ```
 
 3. View the pods to verify that the managed instance is recovering.
 
-```
-user@pc:/# kubectl get pods -n arc
-NAME                 READY   STATUS    RESTARTS   AGE
-sql1-0               2/3     Running   0          22s
-```
+   ```console
+   kubectl get pods -n <namespace of data controller>
+   ```
+
+   For example
+
+   ```output
+   user@pc:/# kubectl get pods -n arc
+   NAME                 READY   STATUS    RESTARTS   AGE
+   sql1-0               2/3     Running   0          22s
+   ```
+
 After all containers within the pod have recovered, you can connect to the managed instance.
 
 ## Deploy with Always On availability groups
 For increased reliability, you can configure Azure Arc-enabled Managed Instance to deploy with additional replicas in a high availability configuration. 
 
 Capabilities that availability groups enable:
+
 - When deployed with multiple replicas, a single availability group named `containedag` is created. By default, `containedag` has three replicas, including primary. All CRUD operations for the availability group are managed internally, including creating the availability group or joining replicas to the availability group created. Additional availability groups cannot be created in the Azure Arc-enabled Managed Instance.
 
-- All databases are automatically added to the availability group, including all user and system databases like `master` and `msdb`. This capability provides a single-system view across the availability group replicas. You will also see `containedag_master` and `containedag_msdb` databases if you connect directly to the instance. The `containedag` databases represent the `master` and `msdb` inside the availability group.
+- All databases are automatically added to the availability group, including all user and system databases like `master` and `msdb`. This capability provides a single-system view across the availability group replicas. Notice both `containedag_master` and `containedag_msdb` databases if you connect directly to the instance. The `containedag_*` databases represent the `master` and `msdb` inside the availability group.
 
 - An external endpoint is automatically provisioned for connecting to databases within the availability group. This endpoint `<managed_instance_name>-svc-external` plays the role of the availability group listener.
 
 ### Deploy
+
 To deploy a managed instance with availability groups run the following command.
 
 ```console
@@ -79,6 +91,7 @@ azdata arc sql mi show -n <name of instance>
 ```
 
 Example output:
+
 ```output
 user@pc:/# azdata arc sql mi list
 ExternalEndpoint    Name    Replicas    State
@@ -102,7 +115,7 @@ user@pc:/#  azdata arc sql mi show -n sql2
 Notice the additional number of `Replicas` and the `AGstatus` field indicating the health of the availability group. If all replicas are up and synchronized then this value is 'healthy'. 
 
 ### Restore a database 
-Additional steps are required to restore a database into an availability group. The following steps will show how you can restore a database into a managed instance and adding it to an availability group. 
+Additional steps are required to restore a database into an availability group. The following steps demonstrate how to restore a database into a managed instance and add it to an availability group. 
 
 1. Expose the primary instance external endpoint by creating a new Kubernetes service.
 
@@ -117,7 +130,7 @@ Additional steps are required to restore a database into an availability group. 
     kubectl -n <namespaceName> expose pod <podName> --port=1533  --name=<serviceName> --type=NodePort
     ```
 
-    For a LoadBalancer service, run the same command, except that the type of the service created will be `LoadBalancer`. For example: 
+    For a LoadBalancer service, run the same command, except that the type of the service created is `LoadBalancer`. For example: 
 
     ```bash
     kubectl -n <namespaceName> expose pod <podName> --port=1533  --name=<serviceName> --type=LoadBalancer
@@ -137,14 +150,19 @@ Additional steps are required to restore a database into an availability group. 
 2. Restore the database to the primary instance endpoint.
 
     Add the database backup file into the primary instance container.
+
     ```console
     kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -n <namespace name>
     ```
+
     Example
+
     ```console
     kubectl cp /home/WideWorldImporters-Full.bak sql2-1:var/opt/mssql/data/WideWorldImporters-Full.bak -c arc-sqlmi -n arc
     ```
+
     Restore the database backup file by running the command below.
+
     ```sql 
     RESTORE DATABASE test FROM DISK = '/var/opt/mssql/data/<file name>.bak'
     WITH MOVE '<database name>' to '/var/opt/mssql/data/<file name>.mdf'  
@@ -154,6 +172,7 @@ Additional steps are required to restore a database into an availability group. 
     ```
     
     Example
+
     ```sql
     RESTORE Database WideWorldImporters
     FROM DISK = '/var/opt/mssql/data/WideWorldImporters-Full.BAK'
@@ -183,6 +202,7 @@ Additional steps are required to restore a database into an availability group. 
     BACKUP DATABASE WideWorldImporters TO DISK='/var/opt/mssql/data/WideWorldImporters.bak'
     ALTER AVAILABILITY GROUP containedag ADD DATABASE WideWorldImporters
     ```
+
 > [!IMPORTANT]
 > As a best practice, you should cleanup by deleting the Kubernetes service created above by running this command:
 >
@@ -191,4 +211,9 @@ Additional steps are required to restore a database into an availability group. 
 >```
 
 ### Limitations
-Azure Arc-enabled Managed Instance availability groups has the same [limitations as Big Data Cluster availability groups. CLick here to learn more.](https://docs.microsoft.com/en-us/sql/big-data-cluster/deployment-high-availability?view=sql-server-ver15#known-limitations)
+
+Azure Arc-enabled Managed Instance availability groups has the same [limitations as Big Data Cluster availability groups. CLick here to learn more.](/sql/big-data-cluster/deployment-high-availability#known-limitations)
+
+## Next steps
+
+Learn more about [Features and Capabilities of Azure Arc enabled SQL Managed Instance](managed-instance-features.md)
