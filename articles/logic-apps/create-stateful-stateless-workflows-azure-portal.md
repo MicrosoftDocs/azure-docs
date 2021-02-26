@@ -5,15 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 03/02/2021
 ---
 
 # Create stateful and stateless workflows in the Azure portal with Azure Logic Apps Preview
 
 > [!IMPORTANT]
-> This capability is in public preview, is provided without a service level agreement, and 
-> is not recommended for production workloads. Certain features might not be supported or might 
-> have constrained capabilities. For more information, see 
+> This capability is in public preview, is provided without a service level agreement, and is not recommended for production workloads. 
+> Certain features might not be supported or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 With [Azure Logic Apps Preview](logic-apps-overview-preview.md), you can build automation and integration solutions across apps, data, cloud services, and systems by creating and running logic apps that include [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) in the Azure portal by starting with the new **Logic App (Preview)** resource type. With this new logic app type, you can build multiple workflows that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers. To learn more about the new logic app type, see [Overview for Azure Logic Apps Preview](logic-apps-overview-preview.md).
@@ -32,7 +31,7 @@ This article shows how to build your logic app and workflow in the Azure portal 
 
 * Trigger a workflow run.
 
-* View the workflow's run history.
+* View the workflow's run and trigger history.
 
 * Enable or open the Application Insights after deployment.
 
@@ -108,6 +107,11 @@ This article shows how to build your logic app and workflow in the Azure portal 
 
    ![Screenshot that shows the Azure portal and new logic app resource settings.](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
 
+   > [!TIP]
+   > If you get a validation error after you select **Create**, open and review the error details. 
+   > For example, if your selected region reaches a quota for resources that you're trying to create, 
+   > you might have to try a different region.
+
    After Azure finishes deployment, your logic app is automatically live and running but doesn't do anything yet because no workflows exist.
 
 1. On the deployment completion page, select **Go to resource** so that you can start building your workflow.
@@ -122,7 +126,7 @@ If you selected **Docker Container** while creating your logic app, make sure th
 
 1. In the Azure portal, go to your logic app resource.
 
-1. On the logic app menu, under **Settings**, select **Container settings**. Provide the details and location for your Docker container image.
+1. On the logic app menu, under **Settings**, select **Container settings**. Provide the details and location for your Docker container image. For more information, see the similar steps for setting up [deployment to a Docker container for a function app](../devops/pipelines/targets/function-app-container.md).
 
    ![Screenshot that shows the logic app menu with "Container settings" selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-deploy-container-settings.png)
 
@@ -295,9 +299,11 @@ In this example, the workflow runs when the Request trigger receives an inbound 
 
       ![Screenshot that shows Outlook email as described in the example](./media/create-stateful-stateless-workflows-azure-portal/workflow-app-result-email.png)
 
+<a name="view-run-history"></a>
+
 ## Review run history
 
-For a stateful workflow, after each workflow run, you can view the run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs.
+For a stateful workflow, after each workflow run, you can view the run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs. In the Azure portal, run history and trigger histories appear at the workflow level, not the logic app level. To review the trigger histories outside the run history context, see [Review trigger histories](#view-trigger-histories).
 
 1. In the Azure portal, on your workflow's menu, select **Monitor**.
 
@@ -312,7 +318,7 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    | Run status | Description |
    |------------|-------------|
    | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | **Cancelled** | The run was triggered and started but received a cancellation request. |
+   | **Cancelled** | The run was triggered and started but received a cancel request. |
    | **Failed** | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
    | **Running** | The run was triggered and is in progress, but this status can also appear for a run that is throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Tip**: If you set up [diagnostics logging](monitor-logic-apps-log-analytics.md), you can get information about any throttle events that happen. |
    | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
@@ -330,15 +336,15 @@ For a stateful workflow, after each workflow run, you can view the run history, 
 
    | Action status | Icon | Description |
    |---------------|------|-------------|
-   | Aborted | ![Icon for "Aborted" action status][aborted-icon] | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | Cancelled | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a cancellation request. |
-   | Failed | ![Icon for "Failed" action status][failed-icon] | The action failed. |
-   | Running | ![Icon for "Running" action status][running-icon] | The action is currently running. |
-   | Skipped | ![Icon for "Skipped" action status][skipped-icon] | The action was skipped because the immediately preceding action failed. An action has a `runAfter` condition that requires that the preceding action finishes successfully before the current action can run. |
-   | Succeeded | ![Icon for "Succeeded" action status][succeeded-icon] | The action succeeded. |
-   | Succeeded with retries | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
-   | Timed out | ![Icon for "Timed out" action status][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
-   | Waiting | ![Icon for "Waiting" action status][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
+   | **Aborted** | ![Icon for "Aborted" action status][aborted-icon] | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | **Cancelled** | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a cancel request. |
+   | **Failed** | ![Icon for "Failed" action status][failed-icon] | The action failed. |
+   | **Running** | ![Icon for "Running" action status][running-icon] | The action is currently running. |
+   | **Skipped** | ![Icon for "Skipped" action status][skipped-icon] | The action was skipped because the immediately preceding action failed. An action has a `runAfter` condition that requires that the preceding action finishes successfully before the current action can run. |
+   | **Succeeded** | ![Icon for "Succeeded" action status][succeeded-icon] | The action succeeded. |
+   | **Succeeded with retries** | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
+   | **Timed out** | ![Icon for "Timed out" action status][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
+   | **Waiting** | ![Icon for "Waiting" action status][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-azure-portal/aborted.png
@@ -356,6 +362,20 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    ![Screenshot that shows the inputs and outputs in the selected "Send an email" action.](./media/create-stateful-stateless-workflows-azure-portal/review-step-inputs-outputs.png)
 
 1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
+
+<a name="view-trigger-histories"></a>
+
+## Review trigger histories
+
+For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [run history context](#view-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level. To find this historical data, follow these steps:
+
+1. In the Azure portal, on your workflow's menu, under **Developer**, select **Trigger Histories**.
+
+   The **Trigger Histories** pane shows the trigger history for a specific run, b
+
+
+
+1. pen the workflow in your logic app. On the workflow menu, 
 
 <a name="enable-open-application-insights"></a>
 
