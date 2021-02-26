@@ -1,7 +1,7 @@
 ---
 title: Use simple Lucene query syntax
 titleSuffix: Azure Cognitive Search
-description: Learn by example by running queries based on the simple syntax for full text search, filter search, geo search, faceted search against an Azure Cognitive Search index.
+description: Query examples demonstrating the simple syntax for full text search, filter search, and geo search against an Azure Cognitive Search index.
 
 manager: nitinme
 author: HeidiSteen
@@ -26,10 +26,10 @@ The examples are articulated using the REST API and POST requests. You can paste
 
 Request headers must have the following values:
 
-   | Key | Value |
-   |-----|-------|
-   | Content-Type | application/json|
-   | api-key  | `<your-search-service-api-key>`, either query or admin key |
+| Key | Value |
+|-----|-------|
+| Content-Type | application/json|
+| api-key  | `<your-search-service-api-key>`, either query or admin key |
 
 URI parameters must include your search service endpoint with the index name, docs collections, search command, and API version, similar to the following example:
 
