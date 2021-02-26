@@ -52,6 +52,14 @@ To assign roles and permissions using PowerShell, see [Add or remove Azure role 
 [!INCLUDE [.NET](./includes/managed-identity-net.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-java"
 [!INCLUDE [Java](./includes/managed-identity-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript](./includes/managed-identity-js.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python](./includes/managed-identity-python.md)]
 ::: zone-end
