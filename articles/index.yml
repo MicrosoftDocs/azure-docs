@@ -42,7 +42,7 @@ productDirectory:
     # Card
     - title: Azure Percept
       summary: Edge intelligence from silicon to service
-      imageSrc: https://static.docs.com/ui/media/product/azure/azure-percept.svg
+      imageSrc: ./media/index/azure-percept.svg
       azureCategories:
         - iot
       url: azure-percept/index.yml
