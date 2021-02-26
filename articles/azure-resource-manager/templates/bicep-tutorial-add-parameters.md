@@ -11,6 +11,8 @@ ms.author: jgao
 
 In the [previous tutorial](bicep-tutorial-create-first-bicep.md), you learned how to deploy a storage account. In this tutorial, you learn how to improve the Bicep file by adding parameters. This tutorial takes about **14 minutes** to complete.
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## Prerequisites
 
 We recommend that you complete the [create first Bicep file](bicep-tutorial-create-first-bicep.md), but it's not required.

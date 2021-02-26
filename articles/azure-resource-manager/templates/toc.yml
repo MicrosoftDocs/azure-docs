@@ -242,26 +242,28 @@
       href: template-tutorial-add-tags.md
     - name: 10 - Use parameter file
       href: template-tutorial-use-parameter-file.md
-  - name: Beginner Bicep templates
+  - name: Beginner Bicep
     items:
     - name: 1 - Create first template
-      href: template-tutorial-bicep-create-first-template.md
+      href: bicep-tutorial-create-first-bicep.md
     - name: 2 - Add parameters
-      href: template-tutorial-bicep-add-parameters.md
+      href: bicep-tutorial-add-parameters.md
     - name: 3 - Add template functions
-      href: template-tutorial-bicep-add-functions.md
+      href: bicep-tutorial-add-functions.md
     - name: 4 - Add variables
-      href: template-tutorial-bicep-add-variables.md
+      href: bicep-tutorial-add-variables.md
     - name: 5 - Add outputs
-      href: template-tutorial-bicep-add-outputs.md
+      href: bicep-tutorial-add-outputs.md
     - name: 6 - Use exported template
-      href: template-tutorial-bicep-export-template.md
+      href: bicep-tutorial-export-template.md
     - name: 7 - Use Quickstart template
-      href: template-tutorial-bicep-quickstart-template.md
+      href: bicep-tutorial-quickstart-template.md
     - name: 8 - Add tags
-      href: template-tutorial-bicep-add-tags.md
+      href: bicep-tutorial-add-tags.md
     - name: 9 - Use parameter file
-      href: template-tutorial-bicep-use-parameter-file.md
+      href: bicep-tutorial-use-parameter-file.md
+    - name: 10 - Add modules
+      href: bicep-tutorial-add-modules.md
   - name: Deployment
     items:
     - name: 1 - Deploy a local template

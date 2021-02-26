@@ -12,6 +12,8 @@ ms.custom:
 
 In this tutorial, you learn how to add a variable to your Bicep file. Variables simplify your Bicep files by enabling you to write an expression once and reuse it throughout the Bicep file. This tutorial takes **7 minutes** to complete.
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## Prerequisites
 
 We recommend that you complete the [tutorial about functions](bicep-tutorial-add-functions.md), but it's not required.

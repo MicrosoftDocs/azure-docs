@@ -12,6 +12,8 @@ ms.custom:
 
 In this tutorial, you learn how to add tags to resources in your Bicep files. [Tags](../management/tag-resources.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## Prerequisites
 
 We recommend that you complete the [tutorial about Quickstart templates](bicep-tutorial-quickstart-template.md), but it's not required.

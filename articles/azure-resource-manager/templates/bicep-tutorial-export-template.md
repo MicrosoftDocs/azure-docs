@@ -11,6 +11,8 @@ ms.author: jgao
 
 In this tutorial series, you've created a Bicep file to deploy an Azure storage account. In the next two tutorials, you add an *App Service plan* and a *website*. Instead of creating templates from scratch, you learn how to export JSON templates from the Azure portal and how to use sample templates from the [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/). You customize those templates for your use. This tutorial focuses on exporting templates, and customizing the result for your Bicep file. It takes about **14 minutes** to complete.
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## Prerequisites
 
 We recommend that you complete the [tutorial about outputs](bicep-tutorial-add-outputs.md), but it's not required.

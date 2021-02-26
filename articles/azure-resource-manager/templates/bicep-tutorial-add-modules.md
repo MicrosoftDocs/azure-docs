@@ -1,6 +1,6 @@
 ---
 title: Tutorial - add modules to your Bicep file
-description: Use modules to encapsulate complex details of the raw resource declaration
+description: Use modules to encapsulate complex details of the raw resource declaration.
 author: mumian
 ms.date: 02/26/2021
 ms.topic: tutorial
@@ -9,7 +9,9 @@ ms.author: jgao
 
 # Tutorial: Add modules to your Bicep file
 
-In this tutorial, you learn how to use Bicep modules to encapsulate complex details of the raw resource declaration. The modules can be shared and reused.  It takes about **12 minutes** to complete.
+In the [previous tutorial](bicep-tutorial-use-parameter-file.md), you learned how to use a parameter file to deploy your Bicep file. In this tutorial, you learn how to use Bicep modules to encapsulate complex details of the raw resource declaration. The modules can be shared and reused within your solution.  It takes about **12 minutes** to complete.
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## Prerequisites
 
@@ -23,11 +25,11 @@ At the end of the previous tutorial, your Bicep file had the following contents:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.bicep":::
 
-This Bicep file works well. But for larger projects, you want to break your Bicep file into many related modules so you can share and reuse these modules. The current Bicep file deploys a storage account, an app service plan, and a website.  Let's separate the storage account into a module.
+This Bicep file works well. But for larger solutions, you want to break your Bicep file into many related modules so you can share and reuse these modules. The current Bicep file deploys a storage account, an app service plan, and a website.  Let's separate the storage account into a module.
 
 ## Create Bicep module
 
-Every Bicep file can be consumed as a module, so there is no specific syntax for defining a module. Create a storage.bicep file with the following contents:
+Every Bicep file can be consumed as a module, so there is no specific syntax for defining a module. Create a _storage.bicep_ file with the following contents:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-module/storage.bicep":::
 
@@ -35,7 +37,7 @@ This module contains the storage account resource and the related parameters and
 
 ## Consume Bicep module
 
-Replace the storage account resource in the existing azuredeploy.json with the following Bicep contents:
+Replace the storage account resource definition in the existing _azuredeploy.bicep_ with the following Bicep contents:
 
 ```bicep
 module stg './storage.bicep' = {
@@ -52,7 +54,7 @@ module stg './storage.bicep' = {
 - **symbolic name** (stg): This is an identifier for the module.
 - **module file**: The path to the module in this example is specified using a relative path (./storage.bicep). All paths in Bicep must be specified using the forward slash (/) directory separator to ensure consistent compilation cross-platform. The Windows backslash (\) character is unsupported.
 
-To retrieve storage endpoint, update the output to the following Bicep:
+To retrieve storage endpoint, update the output in _azuredeploy.bicep_ to the following Bicep:
 
 ```bicep
 output storageEndpoint object = stg.outputs.storageEndpoint
@@ -116,7 +118,7 @@ You can verify the deployment by exploring the resource groups from the Azure po
 
 ## Next steps
 
-Congratulations, you've finished this introduction to deploying templates to Azure. Let us know if you have any comments and suggestions in the feedback section. Thanks!
+Congratulations, you've finished this introduction to deploying Bicep files to Azure. Let us know if you have any comments and suggestions in the feedback section. Thanks!
 
 The next tutorial series goes into more detail about deploying templates.
 

@@ -21,6 +21,8 @@ If you want to learn about the benefits of using Bicep and why you should automa
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## Get tools
 
 Let's start by making sure you have the tools you need to create and deploy Bicep files. Install these tools on your local machine.
@@ -40,9 +42,6 @@ You also need either the latest Azure PowerShell or the latest Azure CLI to depl
 
 After installing either Azure PowerShell or Azure CLI, make sure you sign in for the first time. For help, see [Sign in - PowerShell](/powershell/azure/install-az-ps#sign-in) or [Sign in - Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in).
 
-> [!IMPORTANT]
-> If you're using Azure CLI, make sure you have version 2.19.1 or later. The commands shown in this tutorial will not work if you're using earlier versions. To check your installed version, use: `az --version`.
-
 Okay, you're ready to start learning about Bicep.
 
 ## Create your first Bicep file
@@ -52,7 +51,7 @@ Okay, you're ready to start learning about Bicep.
 1. From the **File** menu, select **Save as**.
 1. Name the file _azuredeploy_ and select the _bicep_ file extension. The complete name of the file is _azuredeploy.bicep_.
 1. Save the file to your workstation. Select a path that is easy to remember because you'll provide that path later when deploying the Bicep file.
-1. Copy and paste the following Bicep into the file:
+1. Copy and paste the following contents into the file:
 
     ```bicep
     resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
@@ -156,7 +155,7 @@ az group create \
 
 ## Deploy Bicep file
 
-To deploy the Bicep file, use either Azure CLI or Azure PowerShell. Use the resource group you created. Give a name to the deployment so you can easily identify it in the deployment history. For convenience, also create a variable that stores the path to the Bicep file. This variable makes it easier for you to run the deployment commands because you don't have to retype the path every time you deploy. Replace `{provide-the-path-to-the-bicep-file}` including the curly braces `{}` with the path to your Bicep file with the .bicep file extension name.
+Bicep is a transparent abstraction over Azure Resource Manager templates (ARM templates). Each Bicep file compiles to a standard ARM template before it is deployed. You can either compile your Bicep file into an ARM template before deploying it or directly deploy your Bicep file. To deploy the Bicep file, use either Azure CLI or Azure PowerShell. Use the resource group you created. Give a name to the deployment so you can easily identify it in the deployment history. For convenience, also create a variable that stores the path to the Bicep file. This variable makes it easier for you to run the deployment commands because you don't have to retype the path every time you deploy. Replace `{provide-the-path-to-the-bicep-file}` including the curly braces `{}` with the path to your Bicep file with the .bicep file extension name.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -224,7 +223,7 @@ If you're stopping now, you might want to delete the resource group.
 
 ## Next steps
 
-You created a simple Bicep file to deploy to Azure.  In the later tutorials, you learn how to add parameters, variables, and outputs to a Bicep file. These features are the building blocks for much more complex Bicep files.
+You created a simple Bicep file to deploy to Azure.  In the later tutorials, you learn how to add parameters, variables, outputs and modules to a Bicep file. These features are the building blocks for much more complex Bicep files.
 
 > [!div class="nextstepaction"]
 > [Add parameters](bicep-tutorial-add-parameters.md)

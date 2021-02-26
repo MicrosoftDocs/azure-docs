@@ -12,6 +12,8 @@ ms.custom:
 
 [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/) is a repository of community contributed JSON templates. You can use the sample templates in your Bicep development. In this tutorial, you find a website resource definition, decompile it to Bicep, and add it to your Bicep file. It takes about **12 minutes** to complete.
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## Prerequisites
 
 We recommend that you complete the [tutorial about exported templates](bicep-tutorial-export-template.md), but it's not required.

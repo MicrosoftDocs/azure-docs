@@ -11,6 +11,8 @@ ms.author: jgao
 
 In this tutorial, you learn how to use [parameter files](parameter-files.md) to store the values you pass in during deployment. In the previous tutorials, you used inline parameters with your deployment command. This approach worked for testing your Bicep file, but when automating deployments it can be easier to pass a set of values for your environment. Parameter files make it easier to package parameter values for a specific environment. You use the same JSON parameter file as you deploy a JSON template. In this tutorial, you'll create parameter files for development and production environments. It takes about **12 minutes** to complete.
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## Prerequisites
 
 We recommend that you complete the [tutorial about tags](bicep-tutorial-add-tags.md), but it's not required.
@@ -146,7 +148,7 @@ You can verify the deployment by exploring the resource groups from the Azure po
 
 ## Next steps
 
-In this tutorial, you use a paramete file to deploy your Bicep file. In the next tutorial, you'll learn how to modularize your Bicep files.
+In this tutorial, you use a parameter file to deploy your Bicep file. In the next tutorial, you'll learn how to modularize your Bicep files.
 
 > [!div class="nextstepaction"]
-> [Deploy a local template](./deployment-tutorial-local-template.md)
+> [Add modules](./bicep-tutorial-add-modules.md)
