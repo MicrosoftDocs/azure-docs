@@ -1,8 +1,8 @@
-﻿- name: IoT device and application development
+﻿- name: IoT device development
   href: index.yml
 - name: Overview
   items:
-  - name: What is IoT device and application development?
+  - name: What is IoT device development?
     href: about-iot-develop.md
   - name: Which SDK should I use?
     href: about-iot-sdks.md
