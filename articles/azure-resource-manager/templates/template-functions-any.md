@@ -2,6 +2,10 @@
 title: Template functions - any
 description: Describes the any function that is available in Bicep to convert types.
 ms.topic: conceptual
+author: tfitzmac
+ms.author: tomfitz
+ms.service: azure-resource-manager
+ms.subservice: templates
 ms.date: 03/02/2021
 ---
 # Any function for Bicep
