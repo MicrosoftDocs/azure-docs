@@ -51,7 +51,7 @@ View this v2.0 sample token in [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1Q
 |-----|--------|-------------|
 |`typ` | String - always "JWT" | Indicates that the token is a JWT token.|
 |`alg` | String | Indicates the algorithm that was used to sign the token. Example: "RS256" |
-|`kid` | String | Thumbprint for the public key used to sign this token. Emitted in both v1.0 and v2.0 `id_tokens`. |
+|`kid` | String | Thumbprint for the public key used to verify this token. Emitted in both v1.0 and v2.0 `id_tokens`. |
 |`x5t` | String | The same (in use and value) as `kid`. However, this is a legacy claim emitted only in v1.0 `id_tokens` for compatibility purposes. |
 
 ### Payload claims

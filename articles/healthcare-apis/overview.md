@@ -17,7 +17,7 @@ Azure API for FHIR enables rapid exchange of data through Fast Healthcare Intero
 - Managed FHIR service, provisioned in the cloud in minutes 
 - Enterprise-grade, FHIR®-based endpoint in Azure for data access, and storage in FHIR® format
 - High performance, low latency
-- Secure management of Protected Health Data (PHI) in a compliant cloud environment
+- Secure management of Protected Health Information (PHI) in a compliant cloud environment
 - SMART on FHIR for mobile and web implementations
 - Control your own data at scale with role-based access control (RBAC)
 - Audit log tracking for access, creation, modification, and reads within each data store
