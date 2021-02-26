@@ -36,11 +36,7 @@ To refund a reservation, go to **Reservation Details** and select **Refund**.
 
 You can return different types of reservations in one action. For example, you can return multiple reservations for Azure Dedicated Host and Azure VMware Solution and exchange them for Azure Virtual Machines with one action.
 
-When you exchange reservations, the new purchase currency amount must be greater than the refund amount. If your new purchase amount is less than the refund amount, you'll the the following error.
-
-[show screenshot showing the error]
-
-If you see the error, reduce the quantity that you want to return or increase the amount to purchase.
+When you exchange reservations, the new purchase currency amount must be greater than the refund amount. If your new purchase amount is less than the refund amount, you'll get an error. If you see the error, reduce the quantity that you want to return or increase the amount to purchase.
 
 1. Sign in to the Azure portal and navigate to **Reservations**.
 1. In the list of reservations, select the box for each reservation that you want to exchange.
@@ -55,7 +51,7 @@ If you see the error, reduce the quantity that you want to return or increase th
 
 ## Exchange non-premium storage for premium storage
 
-You can exchange a reservation purchased for a VM size that doesn't support premium storage to a corresponding VM size that does. For example, an _F1_ for an _F1s_. To make the exchange, go to Reservation Details and select **Exchange**. The exchange doesn't reset the term of the reserved instance or create a new transaction. 
+You can exchange a reservation purchased for a VM size that doesn't support premium storage to a corresponding VM size that does. For example, an _F1_ for an _F1s_. To make the exchange, go to Reservation Details and select **Exchange**. The exchange doesn't reset the term of the reserved instance or create a new transaction.
 
 ## How transactions are processed
 
