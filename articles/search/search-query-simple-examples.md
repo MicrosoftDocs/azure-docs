@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/12/2020
+ms.date: 03/03/2021
 ---
 
 # Use the "simple" search syntax in Azure Cognitive Search
@@ -18,309 +18,503 @@ In Azure Cognitive Search, the [simple query syntax](query-simple-syntax.md) inv
 > [!NOTE]
 > An alternative query syntax is [Full Lucene](query-lucene-syntax.md), supporting more complex query structures, such as fuzzy and wildcard search. For more information and examples, see [Use the full Lucene syntax](search-query-lucene-examples.md).
 
-## NYC Jobs examples
+## Hotels sample index
 
-The following examples leverage the [NYC Jobs search index](https://azjobsdemo.azurewebsites.net/) consisting of jobs available based on a dataset provided by the [City of New York OpenData Initiative](https://nycopendata.socrata.com/). This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Cognitive Search to try these queries.
+The following queries are based on hotels-sample-index, which you can create by following the instructions in this [quickstart](search-get-started-portal.md).
 
-What you do need is Postman or an equivalent tool for issuing HTTP request on GET or POST. If you're unfamiliar with these tools, see [Quickstart: Explore Azure Cognitive Search REST API](search-get-started-rest.md).
+The examples are articulated using the REST API and POST requests. You can paste and run these examples using [Postman](search-get-started-rest.md) or [Visual Studio Code with the Cognitive Search extension](search-get-started-vs-code.md).
 
-## Set up the request
-
-1. Request headers must have the following values:
+Request headers must have the following values:
 
    | Key | Value |
    |-----|-------|
-   | Content-Type | `application/json`|
-   | api-key  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (this is the actual query API key for the sandbox search service hosting the NYC Jobs index) |
+   | Content-Type | application/json|
+   | api-key  | `<your-search-service-api-key>`, either query or admin key |
 
-1. Set the verb to **`GET`**.
-
-1. Set the URL to **`https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&search=*&$count=true`**. 
-
-   + The documents collection on the index contains all searchable content. The query api-key provided in the request header only works for read operations targeting the documents collection.
-
-   + **`$count=true`** returns a count of the documents matching the search criteria. On an empty search string, the count will be all documents in the index (about 2558 in the case of NYC Jobs).
-
-   + **`search=*`** is an unspecified query, equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do, and it shows all retrievable fields in the index, with all values.
-
-1. As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents.
-
-   ```http
-   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*&queryType=full
-   ```
-
-### How to invoke simple query parsing
-
-For interactive queries, you don't have to specify anything: simple is the default. In code, if you previously invoked **`queryType=full`**, you can reset the default with **`queryType=simple`**.
+URI parameters must include your search service endpoint with the index name, docs collections, search command, and API version, similar to the following example:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-{
-    "queryType": "simple"
-}
+https://{{service-name}}.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 ```
 
-## Example 1: Full text search on specific fields
+Request body should be formed as valid JSON:
 
-This first example is not parser-specific, but we lead with it to introduce the first fundamental query concept: containment. This example limits both query execution and the response to just a few specific fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
-
-This query targets only *business_title* in **`searchFields`**, specifying through the **`select`** parameter the same field in the response.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+```json
 {
-    "count": true,
-    "queryType": "simple",
     "search": "*",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "queryType": "simple",
+    "select": "HotelId, HotelName, Category, Tags, Description",
+    "count": true
 }
 ```
 
-Response for this query should look similar to the following screenshot.
++ "search" set to `*` is an unspecified query, equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do, and it shows all retrievable fields in the index, with all values.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Postman sample response" border="false":::
++ "queryType" set to "simple" is the default and can be omitted, but it's included to further reinforce that the query examples in this article are expressed in the simple syntax.
 
-You might have noticed the search score in the response. Uniform scores of **1** occur when there is no rank, either because the search was not full text search, or because no criteria was provided. For an empty search, rows come back in arbitrary order. When you include actual criteria, you will see search scores evolve into meaningful values.
++ "select" set to a comma-delimited list of fields is used to shape the search results, including just those fields that are useful in the context of search results.
+
++ "count" set to true returns the number of documents matching the search criteria. On an empty search string, the count will be all documents in the index (50 in the case of hotels-sample-index).
+
+## Example 1: Full text search
+
+Full text search can be any number of standalone terms, quote-enclosed phrases, or include boolean operators. The "searchMode" parameter controls precision and recall. If you want more recall, use the default "any" value, which returns a result if any part of the query string is matched. If you favor precision, where all parts of the string must be matched, change searchMode to "all". 
+
+```http
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
+{
+    "search": "pool spa +airport",
+    "searchMode": any,
+    "queryType": "simple",
+    "select": "HotelId, HotelName, Category, Description",
+    "count": true
+}
+```
+
+A keyword search that's composed of important terms or phrases tend to work best. String fields undergo text analysis during indexing and querying, dropping non-essential words like "the", "and", "it".  To see how a query string is tokenized in the index, pass the string in an [Analyze Text](/rest/api/searchservice/test-analyzer) call to the index.
+
+Response for this query should look similar to the following example, trimmed for brevity.
+
+```json
+"@odata.count": 6,
+"value": [
+    {
+        "@search.score": 7.3617697,
+        "HotelId": "21",
+        "HotelName": "Nova Hotel & Spa",
+        "Description": "1 Mile from the airport.  Free WiFi, Outdoor Pool, Complimentary Airport Shuttle, 6 miles from the beach & 10 miles from downtown.",
+        "Category": "Resort and Spa",
+        "Tags": [
+            "pool",
+            "continental breakfast",
+            "free parking"
+        ]
+    },
+    {
+        "@search.score": 2.5560288,
+        "HotelId": "25",
+        "HotelName": "Scottish Inn",
+        "Description": "Newly Redesigned Rooms & airport shuttle.  Minutes from the airport, enjoy lakeside amenities, a resort-style pool & stylish new guestrooms with Internet TVs.",
+        "Category": "Luxury",
+        "Tags": [
+            "24-hour front desk service",
+            "continental breakfast",
+            "free wifi"
+        ]
+    },
+    {
+        "@search.score": 2.2988036,
+        "HotelId": "35",
+        "HotelName": "Suites At Bellevue Square",
+        "Description": "Luxury at the mall.  Located across the street from the Light Rail to downtown.  Free shuttle to the mall and airport.",
+        "Category": "Resort and Spa",
+        "Tags": [
+            "continental breakfast",
+            "air conditioning",
+            "24-hour front desk service"
+        ]
+    }
+```
+
+Notice the search score in the response. This is the relevance score of the match. By default, a search service will return the top 50 matches based on this score.
+
+Uniform scores of "1.0" occur when there is no rank, either because the search was not full text search, or because no criteria was provided. For an empty search (search=`*`), rows come back in arbitrary order. When you include actual criteria, you will see search scores evolve into meaningful values.
 
 ## Example 2: Look up by ID
 
-When you return search results in a query, a logical subsequent step is to provide a details page that includes more fields from the document. This example shows you how to return a single document using a [Lookup operation](/rest/api/searchservice/lookup-document) to pass in the document ID.
+When you return search results in a query, a logical subsequent step is to provide a details page that includes more fields from the document. This example shows you how to return a single document using [Lookup Document](/rest/api/searchservice/lookup-document) to pass in the document ID.
 
-All documents have a unique identifier. To try out the syntax for a lookup query, first return a list of document IDs so that you can find one to use. For NYC Jobs, the identifiers are stored in the `id` field.
+All documents have a unique identifier. If you are using the portal, select the index from **Indexes** and then look at the field definitions to find which field is the key. Using REST, the [Get Index](/rest/api/searchservice/get-index) call returns the definition.
 
 ```http
-GET /indexes/nycjobs/docs?api-version=2020-06-30&search=*&$select=id&$count=true
+GET /indexes/hotels-sample-index/docs/41?api-version=2020-06-30
 ```
 
-Next, retrieve a document from the collection based on `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", which appeared first in the previous response. The following query returns all retrievable fields for the entire document.
+Response for this query consists of the document whose key is 41. Any field that is marked as "retrievable" in the index definition can be returned in search results and rendered in your app.
 
-```http
-GET /indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2020-06-30
+```json
+{
+    "HotelId": "41",
+    "HotelName": "Ocean Air Motel",
+    "Description": "Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away.",
+    "Description_fr": "L'hôtel front de mer surplombant la plage dispose de chambres avec balcon privé et 2 piscines intérieures et extérieures. Divers commerces et animations artistiques sont sur la promenade, à quelques pas.",
+    "Category": "Budget",
+    "Tags": [
+        "pool",
+        "air conditioning",
+        "bar"
+    ],
+    "ParkingIncluded": true,
+    "LastRenovationDate": "1951-05-10T00:00:00Z",
+    "Rating": 3.5,
+    "Location": {
+        "type": "Point",
+        "coordinates": [
+            -157.846817,
+            21.295841
+        ],
+        "crs": {
+            "type": "name",
+            "properties": {
+                "name": "EPSG:4326"
+            }
+        }
+    },
+    "Address": {
+        "StreetAddress": "1450 Ala Moana Blvd 2238 Ala Moana Ctr",
+        "City": "Honolulu",
+        "StateProvince": "HI",
+        "PostalCode": "96814",
+        "Country": "USA"
+    },
 ```
 
-## Example 3: Filter queries
+## Example 3: Filter on a string
 
-[Filter syntax](./search-query-odata-filter.md) is an OData expression that you can use by itself or with **`search`**. A standalone filter, without a search parameter, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring (all scores are 1), and no ranking. Notice the search string is empty.
+[Filter syntax](./search-query-odata-filter.md) is an OData expression that you can use by itself or with "search". Used together, "filter" is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
+
+Filters can be defined on any field marked as "filterable" in the index definition. For hotels-sample-index, filterable fields include Category, Tags, ParkingIncluded, Rating, and most Address fields.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "art tours",
+    "queryType": "simple",
+    "filter": "Category eq 'Resort and Spa'",
+    "select": "HotelId,HotelName,Description,Category",
+    "count": true
+}
+```
+
+Response for the above query is scoped to only those hotels categorized as "Report and Spa", that include the terms "art" or "tours". In this case, there is just one match.
+
+```json
+{
+    "@search.score": 2.8576312,
+    "HotelId": "31",
+    "HotelName": "Santa Fe Stay",
+    "Description": "Nestled on six beautifully landscaped acres, located 2 blocks from the Plaza. Unwind at the spa and indulge in art tours on site.",
+    "Category": "Resort and Spa"
+}
+```
+
+## Example 4: Filter functions
+
+Filter expressions can include ["search.ismatch" and "search.ismatchscoring" functions](search-query-odata-full-text-search-functions.md), allowing you to build a search query within the filter. This filter expression uses a wildcard on *free* to select amenities including free wifi, free parking, and so forth.
+
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+  {
+    "search": "",
+    "filter": "search.ismatch('free*', 'Tags', 'full', 'any')",
+    "select": "HotelId, HotelName, Category, Description",
+    "count": true
+  }
+```
+
+Response for the above query matches on 19 hotels that offer free amenities. Notice that the search score is a uniform "1.0" throughout the results. This is because the search expression is null or empty, resulting in verbatim filter matches, but no full text search. Relevance scores are only returned on full text search.
+
+```json
+"@odata.count": 19,
+"value": [
     {
-      "count": true,
-      "search": "",
-      "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
-      "select": "job_id, business_title, agency, salary_range_from"
+        "@search.score": 1.0,
+        "HotelId": "31",
+        "HotelName": "Santa Fe Stay",
+        "Tags": [
+            "view",
+            "restaurant",
+            "free parking"
+        ]
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "27",
+        "HotelName": "Super Deluxe Inn & Suites",
+        "Tags": [
+            "bar",
+            "free wifi"
+        ]
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "39",
+        "HotelName": "Whitefish Lodge & Suites",
+        "Tags": [
+            "continental breakfast",
+            "free parking",
+            "free wifi"
+        ]
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "11",
+        "HotelName": "Regal Orb Resort & Spa",
+        "Tags": [
+            "free wifi",
+            "restaurant",
+            "24-hour front desk service"
+        ]
+    },
+```
+
+## Example 5: Range filters
+
+Range filtering is supported through filters expressions for any data type. The following examples illustrate numeric and string ranges. Data types are important in range filters and work best when numeric data is in numeric fields, and string data in string fields. Numeric data in string fields is not suitable for ranges because numeric strings are not comparable.
+
+The following query is a numeric range. In hotels-sample-index, the only filterable numeric field is rating.
+
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Rating ge 2 and Rating lt 4",
+    "select": "HotelId, HotelName, Rating",
+    "orderby": "Rating desc",
+    "count": true
+}
+```
+
+Response for this query should look similar to the following example, trimmed for brevity.
+
+```json
+"@odata.count": 27,
+"value": [
+    {
+        "@search.score": 1.0,
+        "HotelId": "22",
+        "HotelName": "Stone Lion Inn",
+        "Rating": 3.9
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "25",
+        "HotelName": "Scottish Inn",
+        "Rating": 3.8
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "2",
+        "HotelName": "Twin Dome Motel",
+        "Rating": 3.6
     }
 ```
 
-Used together, the filter is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
-
-  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Filter query response" border="false":::
-
-Another powerful way to combine filter and search is through **`search.ismatch*()`** in a filter expression, where you can use a search query within the filter. This filter expression uses a wildcard on *plan* to select business_title including the term plan, planner, planning, and so forth.
+The next query is a range filter over a string field (Address/StateProvince):
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "",
-      "filter": "search.ismatch('plan*', 'business_title', 'full', 'any')",
-      "select": "job_id, business_title, agency, salary_range_from"
-    }
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Address/StateProvince ge 'A*' and Address/StateProvince lt 'D*'",
+    "select": "HotelId, HotelName, Address/StateProvince",
+    "count": true
+}
 ```
 
-For more information about the function, see [search.ismatch in "Filter examples"](./search-query-odata-full-text-search-functions.md#examples).
+Response for this query should look similar to the example below, trimmed for brevity. In this example, it's not possible to sort by StateProvince because the field is not attributed as "sortable" in the index definition.
 
-## Example 4: Range filters
-
-Range filtering is supported through **`$filter`** expressions for any data type. The following examples search over numeric and string fields. 
-
-Data types are important in range filters and work best when numeric data is in numeric fields, and string data in string fields. Numeric data in string fields is not suitable for ranges because numeric strings are not comparable in Azure Cognitive Search.
-
-The following query is a numeric range:
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+```json
+"@odata.count": 9,
+"value": [
     {
-      "count": true,
-      "search": "",
-      "filter": "num_of_positions ge 5 and num_of_positions lt 10",
-      "select": "job_id, business_title, num_of_positions, agency",
-      "orderby": "agency"
-    }
-```
-Response for this query should look similar to the following screenshot.
-
-  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Range filter for numeric ranges" border="false":::
-
-In this query, the range is over a string field (business_title):
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+        "@search.score": 1.0,
+        "HotelId": "9",
+        "HotelName": "Smile Hotel",
+        "Address": {
+            "StateProvince": "CA "
+        }
+    },
     {
-      "count": true,
-      "search": "",
-      "filter": "business_title ge 'A*' and business_title lt 'C*'",
-      "select": "job_id, business_title, agency",
-      "orderby": "business_title"
-    }
+        "@search.score": 1.0,
+        "HotelId": "39",
+        "HotelName": "Whitefish Lodge & Suites",
+        "Address": {
+            "StateProvince": "CO"
+        }
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "7",
+        "HotelName": "Countryside Resort",
+        "Address": {
+            "StateProvince": "CA "
+        }
+    },
 ```
-
-Response for this query should look similar to the following screenshot.
-
-  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Range filter for text ranges" border="false":::
 
 > [!NOTE]
 > Faceting over ranges of values is a common search application requirement. For more information and examples, see [How to build a facet filter](search-filters-facets.md).
 
-## Example 5: Geo-search
+## Example 6: Geo-search
 
-The sample index includes a geo_location field with latitude and longitude coordinates. This example uses the [geo.distance function](search-query-odata-geo-spatial-functions.md#examples) that filters on documents within the circumference of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (4) to reduce or enlarge the surface area of the query.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "",
-      "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
-      "select": "business_title, work_location"
-    }
-```
-
-For more readable results, search results are trimmed to include job title and the work location. The starting coordinates were obtained from a random document in the index (in this case, for a work location on Staten island.
-
-  :::image type="content" source="media/search-query-simple-examples/geo-search.png" alt-text="Map of Staten island" border="false":::
-
-## Example 6: Search precision
-
-Term queries are single terms, perhaps many of them, that are evaluated independently. Phrase queries are enclosed in quotation marks and evaluated as a verbatim string. Precision of the match is controlled by operators and searchMode.
-
-Example 1: `search=fire`  matches on 140 results, where all matches contain the word fire somewhere in the document.
+The hotels-sample index includes a geo_location field with latitude and longitude coordinates. This example uses the [geo.distance function](search-query-odata-geo-spatial-functions.md#examples) that filters on documents within the circumference of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (4) to reduce or enlarge the surface area of the query.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "fire"
-    }
+POST /indexes/v/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "geo.distance(Location, geography'POINT(-122.335114 47.612839)') le 10",
+    "select": "HotelId, HotelName, Address/City, Address/StateProvince",
+    "count": true
+}
 ```
 
-Example 2: `search=fire department` returns 2002 results. Matches are returned for documents containing either fire or department.
+Response for this query returns all hotels within a 10 kilometer distance of the coordinates provided:
 
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "fire department"
-    }
+```json
+{
+    "@odata.count": 3,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelId": "45",
+            "HotelName": "Arcadia Resort & Restaurant",
+            "Address": {
+                "City": "Seattle",
+                "StateProvince": "WA"
+            }
+        },
+        {
+            "@search.score": 1.0,
+            "HotelId": "24",
+            "HotelName": "Gacc Capital",
+            "Address": {
+                "City": "Seattle",
+                "StateProvince": "WA"
+            }
+        },
+        {
+            "@search.score": 1.0,
+            "HotelId": "16",
+            "HotelName": "Double Sanctuary Resort",
+            "Address": {
+                "City": "Seattle",
+                "StateProvince": "WA"
+            }
+        }
+    ]
+}
 ```
-
-Example 3: `search="fire department"` returns 77 results. Enclosing the string in quotation marks creates a phrase search consisting of both terms, and matches are found on tokenized terms in the index consisting of the combined terms. This explains why a search like `search=+fire +department` is not equivalent. Both terms are required, but are scanned for independently. 
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-    "count": true,
-    "search": "\"fire department\""
-    }
-```
-
-> [!Note]
-> Because a phrase query is specified through quotation marks, this example adds an escape character (`\`) to preserve the syntax.
 
 ## Example 7: Booleans with searchMode
 
-Simple syntax supports boolean operators in the form of characters (`+, -, |`). The searchMode parameter informs tradeoffs between precision and recall, with **`searchMode=any`** favoring recall (matching on any criteria qualifies a document for the result set), and **`searchMode=all`** favoring precision (all criteria must be matched). 
+Simple syntax supports boolean operators in the form of characters (`+, -, |`). The "searchMode" parameter informs tradeoffs between precision and recall, with "searchMode=any" favoring recall (matching on any criteria qualifies a document for the result set), and "searchMode=all" favoring precision (all criteria must be matched). 
 
-The default is **`searchMode=any`**, which can be confusing if you are stacking a query with multiple operators and getting broader instead of narrower results. This is particularly true with NOT, where results include all documents "not containing" a specific term.
+The default is "searchMode=any", which can be confusing if you are stacking a query with multiple operators and getting broader instead of narrower results. This is particularly true with NOT, where results include all documents "not containing" a specific term or phrase.
 
-Using the default searchMode (any), 2800 documents are returned: those containing the phrase "fire department", plus all documents that do not have the phrase "Metrotech Center".
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"-\"Metrotech Center\"",
-      "searchMode": "any"
-    }
-```
-
-Response for this query should look similar to the following screenshot.
-
-  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="search mode any" border="false":::
-
-Changing to **`searchMode=all`** enforces a cumulative effect on criteria and returns a smaller result set - 21 documents - consisting of documents containing the entire phrase "fire department", minus those jobs at the Metrotech Center address.
+Using the default searchMode (any), 42 documents are returned: those containing the term "restaurant", plus all documents that do not have the phrase "air conditioning". This request happens to scope search to just the Tags fields, but such scoping is not a requirement. There is no space between the boolean operator (`-`) and the phrase "air conditioning".
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"-\"Metrotech Center\"",
-      "searchMode": "all"
-    }
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "restaurant -\"air conditioning\"",
+    "searchMode": "any",
+    "searchFields": "Tags",
+    "select": "HotelId, HotelName, Tags",
+    "count": true
+}
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="search mode all" border="false":::
+Changing to "searchMode=all" enforces a cumulative effect on criteria and returns a smaller result set (7 matches) consisting of documents containing the term "restaurant", minus those containing the phrase "air conditioning".
 
-## Example 8: Structuring results
+Response for this query would now look similar to the following example, trimmed for brevity.
 
-Several parameters control which fields are in the search results, the number of documents returned in each batch, and sort order. This example resurfaces a few of the previous examples, limiting results to specific fields using the **`$select`** statement and verbatim search criteria, returning 82 matches.
+```json
+"@odata.count": 7,
+"value": [
+    {
+        "@search.score": 2.5460577,
+        "HotelId": "11",
+        "HotelName": "Regal Orb Resort & Spa",
+        "Tags": [
+            "free wifi",
+            "restaurant",
+            "24-hour front desk service"
+        ]
+    },
+    {
+        "@search.score": 2.166792,
+        "HotelId": "10",
+        "HotelName": "Countryside Hotel",
+        "Tags": [
+            "24-hour front desk service",
+            "coffee in lobby",
+            "restaurant"
+        ]
+    },
+```
+
+## Example 8: Paging results
+
+Several parameters control which fields are in the search results, the number of documents returned in each batch, and sort order. This example introduces paging parameters. By default, a search service returns the top 50 matches.
+
+To page results, use "top" to define the size of the results. This example uses a filter and sort order on the Rating field (Rating is both filterable and sortable) because it's easier to see the effects of paging on sorted results. In a regular full search query, the top matches are ranked and paged by "@search.score".
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description"
-    }
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Rating gt 4",
+    "select": "HotelName, Rating",
+    "orderby": "Rating desc",
+    "top": "5",
+    "count": true
+}
 ```
 
-Appended onto the previous example, you can sort by title. This sort works because civil_service_title is *sortable* in the index.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
-      "orderby": "civil_service_title"
-    }
-```
-
-Paging results is implemented using the **`$top`** parameter, in this case returning the top 5 documents:
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
-      "orderby": "civil_service_title",
-      "top": "5"
-    }
-```
+The query finds 21 matching documents, but because you specified "top", the response returns just the top five matches, with ratings starting at 4.9, and ending at 4.7 with "Lady of the Lake B & B". 
 
 To get the next 5, skip the first batch:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Rating gt 4",
+    "select": "HotelName, Rating",
+    "orderby": "Rating desc",
+    "top": "5",
+    "skip": "5",
+    "count": true
+}
+```
+
+The response for the second batch skips the first five matches, returning the next five, starting with "Pull'r Inn Motel".
+
+```json
+"value": [
     {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
-      "orderby": "civil_service_title",
-      "top": "5",
-      "skip": "5"
+        "@search.score": 1.0,
+        "HotelName": "Pull'r Inn Motel",
+        "Rating": 4.7
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Sublime Cliff Hotel",
+        "Rating": 4.6
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Antiquity Hotel",
+        "Rating": 4.5
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Nordick's Motel",
+        "Rating": 4.5
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Winter Panorama Resort",
+        "Rating": 4.5
     }
+]
 ```
 
 ## Next steps
 
-Try specifying queries in code. The following links explain how to set up search queries using the Azure SDKs.
+Now that you have some practice with basic query syntax, try specifying queries in code. The following links explain how to set up search queries using the Azure SDKs.
 
 + [Query your index using the .NET SDK](search-get-started-dotnet.md)
 + [Query your index using the Python SDK](search-get-started-python.md)
