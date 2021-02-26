@@ -98,9 +98,9 @@ Azure API for FHIR service is provisioned.
 ### When the Azure storage account is in the same region
 
 The configuration process is the same as above except a specific IP
-address range in CIDR format is used instead, 100.64.0.0/10. 
+address range in CIDR format is used instead, 100.64.0.0/10. The reason why the IP address range, which includes 100.64.0.0 – 100.127.255.255, must be specified is because the actual IP address used by the service varies, but will be within the range, for each $export request.
 
-Note that because the actual IP address used by the service changes for each $export request, the IP address range, 100.64.0.0 – 100.127.255.255, must be specified.
+Note: It is possible that a private IP address within the range of 10.0.2.0/24 may be used instead. In that case the $export operation will not succeed. You can retry the $export request but there is no gaurantee that an IP address within the range of 100.64.0.0/10 is used next time. That's the known networking behavior by design. The alternative is to configure the storage account in a different region.
     
 ## Next steps
 
