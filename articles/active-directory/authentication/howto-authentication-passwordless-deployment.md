@@ -148,7 +148,7 @@ There are three types of passwordless sign-in deployments available with securit
 -    Azure Active Directory web apps on a supported browser
 -    Azure Active Directory Joined Windows 10 devices
 -    Hybrid Azure Active Directory Joined Windows 10 devices (preview)
-     -    Provides access to both cloud-based and on premises resources. For more information about access to on-premises resources, see [SSO to on-premises resources using FIDOP2 keys](./howto-authentication-passwordless-security-key-on-premises.md)
+     -    Provides access to both cloud-based and on premises resources. For more information about access to on-premises resources, see [SSO to on-premises resources using FIDO2 keys](./howto-authentication-passwordless-security-key-on-premises.md)
 
 You must enable **Compatible FIDO2 security keys**. Microsoft announced [key partnerships with FIDO2 key vendors](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
 
