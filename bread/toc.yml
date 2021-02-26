@@ -451,6 +451,9 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+  - name: Managed Instance for Apache Cassandra
+    tocHref: /azure/managed-instance-apache-cassandra/
+    topicHref: /azure/managed-instance-apache-cassandra/
   - name: Storage
     tocHref: /azure/storage/
     topicHref: /azure/storage/

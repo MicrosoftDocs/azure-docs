@@ -113,4 +113,4 @@ When you deploy an Azure Managed Instance for Apache Cassandra cluster, the serv
 In this article, you learned how to configure dashboards to visualize metrics in Prometheus using Grafana. Learn more about Azure Managed Instance for Apache Cassandra with the following articles:
 
 * [Overview of Azure Managed Instance for Apache Cassandra](introduction.md)
-* [Deploy a Managed Apache Spark Cluster with Azure Databricks (Preview)](databricks.md)
+* [Deploy a Managed Apache Spark Cluster with Azure Databricks (Preview)](deploy-cluster-databricks.md)

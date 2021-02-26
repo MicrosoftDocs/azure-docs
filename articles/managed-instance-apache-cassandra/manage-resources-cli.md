@@ -33,7 +33,6 @@ The following sections demonstrate how to manage Azure Managed Instance for Apac
 * [Delete a managed instance cluster](#delete-cluster)
 * [Get the cluster details](#get-cluster-details)
 * [Get the cluster node status](#get-cluster-status)
-* [Update an existing managed instance cluster](#update-cluster)
 * [List clusters by resource group](#list-clusters-resource-group)
 * [List clusters by subscription ID](#list-clusters-subscription)
 
