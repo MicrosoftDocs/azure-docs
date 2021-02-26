@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Link (preview) for Azure Cosmos DB supported features
+title: Azure Synapse Link for Azure Cosmos DB supported features
 description: Understand the current list of actions supported by Azure Synapse Link for Azure Cosmos DB
 services: synapse-analytics 
 author: ArnoMicrosoft
@@ -46,7 +46,6 @@ You can connect to an Azure Cosmos DB container without enabling Synapse Link. I
 | **Write DataFrame to container** |Write data into a container|✓| ✓ |
 | **Load streaming DataFrame from container** |Stream data using Azure Cosmos DB change feed|✓| ✓ |
 | **Write streaming DataFrame to container** |Stream data using Azure Cosmos DB change feed|✓| ✓ |
-
 
 ## Supported code-generated actions for serverless SQL pool
 
