@@ -569,9 +569,9 @@
     - name: Submit Spark job definitions
       href: ./spark/apache-spark-job-definitions.md
     - name: Connect and monitor Azure Synapse Spark Application level metrics
-      href: ./spark/tutorial-connect-and-monitor-azure-synapse-spark-application-level-metrics.md
+      href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
     - name: Monitor Apache Spark Application-level metrics with Prometheus and Grafana
-      href: ./spark/tutorial-monitor-spark-application-level-metrics-with-prometheus-and-grafana.md
+      href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
   - name: Concepts
     items:
     - name: Apache Spark 

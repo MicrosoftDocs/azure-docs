@@ -52,23 +52,23 @@ The result should look like:
 }
 ```
 
-Note down the appId, password and tenant id.
+Note down the appId, password, and tenant ID.
 
 #### 2.2 Add corresponding permissions to the service principal created in the above step.
 
 ![screenshot grant permission srbac](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-grant-permission-srbac-new.png)
 
-1. Login to your [Azure Synapse Analytics workspace](https://web.azuresynapse.net/) as Synapse Administrator
+1. Log in to your [Azure Synapse Analytics workspace](https://web.azuresynapse.net/) as Synapse Administrator
 
 2. In Synapse Studio, on the left-side pane, select **Manage > Access control**
 
 3. Click the Add button on the upper left to **add a role assignment**
 
-4. For Scope choose **Workspace**
+4. For Scope, choose **Workspace**
 
-5. For Role choose **Synapse Compute Operator**
+5. For Role, choose **Synapse Compute Operator**
 
-6. For Select user input your **<service_principal_name>** and click your service principal
+6. For Select user, input your **<service_principal_name>** and click your service principal
 
 7. Click **Apply** (Wait 3 minutes for permission to take effect.)
 
@@ -139,13 +139,13 @@ Wait for a few seconds and the connector should start working. And you can see t
 ## Use Azure Synapse Prometheus or REST metrics APIs to collect metrics data
 
 ### 1. Authentication
-You can use the client credentials flow to get an access token. To access the metrics API, you should get an Azure AD access token for the service principal, which have proper permission to access the APIs.
+You can use the client credentials flow to get an access token. To access the metrics API, you should get an Azure AD access token for the service principal, which has proper permission to access the APIs.
 
 | Parameter     | Required | Description                                                                                                   |
 | ------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
-| tenant_id     | True     | Your Azure service principal (application) tenant id                                                          |
+| tenant_id     | True     | Your Azure service principal (application) tenant ID                                                          |
 | grant_type    | True     | Specifies the requested grant type. In a Client Credentials Grant flow, the value must be client_credentials. |
-| client_id     | True     | The application (service principal) ID of the application you registered in Azure portal or Azure cli.        |
+| client_id     | True     | The application (service principal) ID of the application you registered in Azure portal or Azure CLI.        |
 | client_secret | True     | The secret generated for the application (service principal)                                                  |
 | resource      | True     | Synapse resource uri, should be https://dev.azuresynapse.net                                                  |
 
@@ -171,7 +171,7 @@ Response looks like:
 
 ### 2. List running applications in the Azure Synapse workspace
 
-To get list of spark applications for a Synapse workspace, please follow this document [Monitoring - Get Spark Job List](https://docs.microsoft.com/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
+To get list of spark applications for a Synapse workspace, you can follow this document [Monitoring - Get Spark Job List](https://docs.microsoft.com/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
 
 
 ### 3. Collect spark application metrics with the Prometheus or REST APIs
@@ -191,7 +191,7 @@ GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolNa
 | livyApiVersion     | True     | Valid api-version for the request. Currently, it is 2019-11-01-preview                    |
 | sparkPoolName      | True     | Name of the spark pool.                                                                   |
 | sessionId          | True     | Identifier for the session.                                                               |
-| sparkApplicationId | True     | Spark Application Id                                                                      |
+| sparkApplicationId | True     | Spark Application ID                                                                      |
 
 Sample Request: 
 
@@ -229,7 +229,7 @@ GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolNa
 | livyApiVersion     | True     | Valid api-version for the request. Currently, it is 2019-11-01-preview                    |
 | sparkPoolName      | True     | Name of the spark pool.                                                                   |
 | sessionId          | True     | Identifier for the session.                                                               |
-| sparkApplicationId | True     | Spark Application Id                                                                      |
+| sparkApplicationId | True     | Spark Application ID                                                                      |
 
 Sample Request
 
@@ -282,5 +282,4 @@ Status code: 200
 
 ### 4. Build your own diagnosis and monitoring tools
 
-The Prometheus API and the REST APIs provides rich metrics data about the spark application running information.
-You can collect the application related metrics data through the Prometheus API and the REST APIs. And build your own diagnosis and monitoring tools that are more suitable for your needs.
+The Prometheus API and the REST APIs provide rich metrics data about the spark application running information.You can collect the application-related metrics data through the Prometheus API and the REST APIs. And build your own diagnosis and monitoring tools that are more suitable for your needs.

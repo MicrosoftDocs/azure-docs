@@ -78,7 +78,7 @@ Note down the appId, password, and tenantID.
 
 5. For Role, choose **Synapse Compute Operator**
 
-6. For Select user input your **<service_principal_name>** and click your service principal
+6. For Select user, input your **<service_principal_name>** and click your service principal
 
 7. Click **Apply** (Wait 3 minutes for permission to take effect.)
 
