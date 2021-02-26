@@ -82,7 +82,7 @@ When the *imageAction* is set to a value other then "none", the new *normalized_
 ]
 ```
 
-## Image-related skills
+## Image related skills
 
 There are two built-in cognitive skills that take images as an input: [OCR](cognitive-search-skill-ocr.md) and [Image Analysis](cognitive-search-skill-image-analysis.md). 
 
@@ -209,9 +209,9 @@ As a helper, if you need to transform normalized coordinates to the original coo
 ```
 ## Passing images to custom skills
 
-For scenarios where you require a custom skill to work on images, you can pass images to custom skills and have the custom skill return text or images. The [python sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) demonstrates passing an image to a custom skill and returning an image from the skill.
+For scenarios where you require a custom skill to work on images, you can pass images to the custom skill, and have it return text or images. The [Python sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) image-processing demonstrates the workflow. The following skillset is from the sample.
 
-The following example skillset contains a single custom skill that accepts an image as an input and returns an image back to the skillset.
+The following skillset takes the normalized image (obtained during document cracking), and outputs slices of the image.
 
 #### Sample skillset
 ```json
@@ -227,7 +227,7 @@ The following example skillset contains a single custom skill that accepts an im
           "uri": "https://your.custom.skill.url",
           "httpMethod": "POST",
           "timeout": "PT30S",
-          "batchSize": 1000,
+          "batchSize": 100,
           "degreeOfParallelism": 1,
           "inputs": [
             {
@@ -249,7 +249,7 @@ The following example skillset contains a single custom skill that accepts an im
 
 #### Custom skill
 
-In the custom skill, base64 decode the data property of the image.
+The custom skill itself is external to the skillset. In this case, it is Python code that first loops thorough the batch of request records in the custom skill format, then converts the base64-encoded string to an image.
 
 ```python
 # deserialize the request, for each item in the batch
