@@ -29,6 +29,9 @@ An example of starting Storage Explorer with custom command-line options
 ./MicrosoftAzureStorageExplorer --lang=en --auto-open-dev-tools
 ```
 
+> [!NOTE]
+> These command line options may change in new Storage Explorer versions.
+
 ## When to use command-line options
 
 Some command-line options can be used to customize Storage Explorer. For those options that have corresponding user configurations, such as `--lang`. We recommend using the user configurations instead of using the command-line option. 
