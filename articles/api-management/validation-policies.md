@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 02/19/2021
+ms.date: 02/25/2021
 ms.author: apimpm
 ---
 
@@ -15,15 +15,19 @@ ms.author: apimpm
 
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
+Use validation policies to validate API requests and responses against an OpenAPI schema and protect from vulnerabilities such as injection of headers or payload. Validation policies provide flexibility to respond to an additional class of threats that are not covered by security products that rely on static, predefined rules.
+
 ## Validation policies
 
 - [Validate content](#validate-content) - Validates the size or JSON schema of a request or response body against the API schema. 
 - [Validate parameters](#validate-parameters) - Validates the request header, query, or path parameters against the API schema.
-- [Validate headers](#validate-headers) - Validates the response header against the API schema.
+- [Validate headers](#validate-headers) - Validates the response headers against the API schema.
 - [Validate status code](#validate-status-code) - Validates the HTTP status codes in responses against the API schema.
 
 > [!NOTE]
 > The maximum size of the API schema that can be used by a validation policy is 4 MB. If the schema exceeds this limit, validation policies will return errors on runtime. To increase it, please contact [support](https://azure.microsoft.com/support/options/). 
+
+Exposing APIs poses new threats, which are not covered by traditional security products designed to protect web applications. In particular, Web Application Firewall (WAF) relies on static, predefined rules, which don’t adapt to APIs. Although it protects APIs from attacks such as SQL injection, it leaves them vulnerable to injection of headers or payload. Reliance on the static rules also often results in false positives and WAF blocking valid requests. 
 
 ## Actions
 
@@ -40,6 +44,16 @@ Available actions:
 ## Logs
 
 Details about the validation errors during policy execution are logged to the property specified in the `errors-variable-name` attribute in the root element of the policy. When configured in a `prevent` action, a validation error blocks further request or response processing and is also propagated to the `context.LastError` property. 
+
+To investigate errors, use a [trace](api-management-advanced-policies.md#Trace) policy to log the errors from context variables to [Application Insights](api-management-howto-app-insights.md).
+
+## Performance implications
+
+Adding validation policies may affect API throughput. The following general principles apply:
+* The larger the API schema size, the lower the throughput will be. 
+* The larger the payload in a request or response, the lower the throughput will be. 
+* Generally, the size of the API schema size has a larger impact on performance than the size of the payload. 
+* Validation against an API schema that is several megabytes in size may cause request or response timeouts under some conditions. The effect is more pronounced in the lower tiers of the service such as **Consumption** and **Developer**. 
 
 ## Validate content
 
@@ -155,7 +169,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## Validate headers
 
-The `validate-headers` policy validates the response header against the API schema.
+The `validate-headers` policy validates the response headers against the API schema.
 
 ### Policy statement
 
@@ -197,7 +211,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## Validate status code
 
-The `validate-status-code` policy validates the HTTP status codes in responses against the API schema.
+The `validate-status-code` policy validates the HTTP status codes in responses against the API schema. This policy may be used to prevent leakage of backend errors, which can contain stack traces. 
 
 ### Policy statement
 
