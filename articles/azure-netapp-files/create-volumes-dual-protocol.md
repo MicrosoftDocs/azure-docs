@@ -161,5 +161,5 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 ## Next steps  
 
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
-* [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md)
+* [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md)
 * [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)
