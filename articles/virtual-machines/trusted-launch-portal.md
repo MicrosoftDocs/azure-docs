@@ -1,6 +1,6 @@
 ---
-title: "Preview: Deploy a Trusted Launch VM"
-description: Deploy a VM that uses Trusted Launch. 
+title: "Preview: Deploy a trusted launch VM"
+description: Deploy a VM that uses trusted launch. 
 author: khyewei
 ms.author: khwei
 ms.reviewer: cynthn
@@ -11,12 +11,12 @@ ms.date: 02/25/2021
 ms.custom: template-how-to 
 ---
 
-# Deploy a VM with Trusted Launch enabled (preview)
+# Deploy a VM with trusted launch enabled (preview)
 
-[Trusted Launch](trusted-launch.md) is a way to improve the security of [generation 2](generation-2.md) VMs. Trusted Launch protects against advanced and persistent attack techniques by combining infrastructure technologies like vTPM and secure boot.
+[Trusted launch](trusted-launch.md) is a way to improve the security of [generation 2](generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques by combining infrastructure technologies like vTPM and secure boot.
 
 > [!IMPORTANT]
-> Trusted Launch is currently in public preview.
+> Trusted launch is currently in public preview.
 > 
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 >
@@ -24,7 +24,7 @@ ms.custom: template-how-to
 
 ## Deploy using the portal
 
-Create a virtual machine with Trusted Launch enabled.
+Create a virtual machine with trusted launch enabled.
 
 1. Sign in to the Azure [portal](https://portal.azure.com).
 1. Search for **Virtual Machines**.
@@ -33,30 +33,30 @@ Create a virtual machine with Trusted Launch enabled.
 1. Under **Project details**, make sure the correct subscription is selected.
 1. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
 1. Under **Instance details**, type a name for the virtual machine name and choose a region that supports trusted launch.
-1. Under **Image**, select an [image that supports Trusted Launch](trusted-launch.md#public-preview-limitations). You might only see the Gen 1 version of the image, that is okay, go on to the next step.
+1. Under **Image**, select an [image that supports trusted launch](trusted-launch.md#public-preview-limitations). You might only see the Gen 1 version of the image, that is okay, go on to the next step.
 1. Switch over to the **Advanced** tab by selecting it at the top of the page.
 1. Scroll down to the **VM generation** section, and then select **Gen 2**.
 1. While still on the **Advanced** tab, scroll down to **Trusted launch**, and then select the **Trusted launch** checkbox. This will make two more options appear - Secure boot and vTPM. Select the appropriate options for your deployment.
 
-    :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot showing the options for Trusted Launch.":::
+    :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot showing the options for trusted launch.":::
 
 1. Go back to the **Basics** tab, under **Image**, and make sure you see the following message: **This image supports trusted launch preview. Configure in the Advanced tab**. The gen 2 image should now be selected.
 
-    :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot showing the message confirming that this is a gen2 image that supports Trusted Launch.":::
+    :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot showing the message confirming that this is a gen2 image that supports trusted launch.":::
 
-1.	Select a VM size that supports Trusted Launch. See the list of [supported sizes](trusted-launch.md#public-preview-limitations).
+1.	Select a VM size that supports trusted launch. See the list of [supported sizes](trusted-launch.md#public-preview-limitations).
 1.	Fill in the **Administrator account** information and then **Inbound port rules**.
 1.	At the bottom of the page, select **Review + Create**
 1.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. When you are ready, select **Create**.
 
-    :::image type="content" source="media/trusted-launch/validation.png" alt-text="Sceenshot of the validation page, showing the Trusted Launch options are included.":::
+    :::image type="content" source="media/trusted-launch/validation.png" alt-text="Sceenshot of the validation page, showing the trusted launch options are included.":::
 
 
 It will take a few minutes for your VM to be deployed. 
 
 ## Deploy using a template
 
-You can deploy Trusted Launch VMs using a quickstart template:
+You can deploy trusted launch VMs using a quickstart template:
 
 **Linux**:    
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
@@ -66,13 +66,13 @@ You can deploy Trusted Launch VMs using a quickstart template:
 
 ## View and update
 
-You can view the Trusted Launch configuration for an existing VM by visiting the **Overview** page for the VM in the portal.
+You can view the trusted launch configuration for an existing VM by visiting the **Overview** page for the VM in the portal.
 
-To change the Trusted Launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the **Trusted Launch** section. Select **Save** at the top of the page when you are done. 
+To change the trusted launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the **Trusted Launch** section. Select **Save** at the top of the page when you are done. 
 
-:::image type="content" source="media/trusted-launch/configuration.png" alt-text="Screenshot of how to change the Trusted Launch configuration.":::
+:::image type="content" source="media/trusted-launch/configuration.png" alt-text="Screenshot of how to change the trusted launch configuration.":::
 
-If the VM is running, you will receive a message  that the VM will be restarted to apply the modified Trusted Launch configuration. Select **Yes** then wait for the VM to restart for changes to take effect.
+If the VM is running, you will receive a message  that the VM will be restarted to apply the modified trusted launch configuration. Select **Yes** then wait for the VM to restart for changes to take effect.
 
 
 ## Verify secure boot and vTPM
@@ -121,15 +121,15 @@ In the right pane, check that the Secure Boot State is **ON**.
 
 ## Enable the Azure Security Center experience
 
-To enable Azure Security Center to display information about your Trusted Launch VMs, you need to enable several policies. The easiest way to enable the policies is by deploying this [Resource Manager template](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) to your subscription. 
+To enable Azure Security Center to display information about your trusted launch VMs, you need to enable several policies. The easiest way to enable the policies is by deploying this [Resource Manager template](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) to your subscription. 
 
 Select the button below to deploy the policies to your subscription:
 
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-asc-trustedlaunch-policies%2Fazuredeploy.json)
 
-The template needs to be deployed only once per subscription. It automatically installs `GuestAttestation` and `AzureSecurity` extensions on all supported VMs.
+The template needs to be deployed only once per subscription. It automatically installs `GuestAttestation` and `AzureSecurity` extensions on all supported VMs. If you get errors, try redeploying the template again.
 
-To get vTPM and secure boot recommendations for Trusted Launch VMs, see [Add a custom initiative to your subscription](https://docs.microsoft.com/en-us/azure/security-center/custom-security-policies#to-add-a-custom-initiative-to-your-subscription).
+To get vTPM and secure boot recommendations for trusted launch VMs, see [Add a custom initiative to your subscription](https://docs.microsoft.com/en-us/azure/security-center/custom-security-policies#to-add-a-custom-initiative-to-your-subscription).
  
 ## Sign things for Secure Boot on Linux
 
@@ -154,4 +154,4 @@ In some cases, you might need to sign things for UEFI Secure Boot.  For example,
 
 # Next steps
 
-Learn more about [Trusted Launch](trusted-launch.md) and [Generation 2](generation-2.md) VMs.
+Learn more about [trusted launch](trusted-launch.md) and [Generation 2](generation-2.md) VMs.

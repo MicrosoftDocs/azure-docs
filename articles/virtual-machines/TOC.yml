@@ -1157,7 +1157,7 @@
       href: ./windows/security-baseline.md
   - name: Recommendations
     href: security-recommendations.md
-  - name: Trusted Launch 
+  - name: Trusted launch 
     items:
     - name: Overview
       href: trusted-launch.md

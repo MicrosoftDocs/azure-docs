@@ -74,13 +74,13 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 
 | Generation 2 feature                | On-premises Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
-| Secure boot                         | :heavy_check_mark:  | With Trusted Launch (preview)   |
+| Secure boot                         | :heavy_check_mark:  | With Trusted launch (preview)   |
 | Shielded VM                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | With Trusted Launch (preview)  |
-| Virtualization-based security (VBS) | :heavy_check_mark:  | With Trusted Launch (preview)   |
+| vTPM                                | :heavy_check_mark:  | With Trusted launch (preview)  |
+| Virtualization-based security (VBS) | :heavy_check_mark:  | With Trusted launch (preview)   |
 | VHDX format                         | :heavy_check_mark:  | :x:   |
 
-For more information, see [Trusted Launch (preview)](trusted-launch.md).
+For more information, see [Trusted launch (preview)](trusted-launch.md).
 
 ## Features and capabilities
 
@@ -203,7 +203,7 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
     Yes. For more information, see [Create a VM with accelerated networking](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **Do generation 2 VMs support Secure Boot or vTPM in Azure?**
-    Both vTPM and Secure Boot are features of Trusted Launch (preview) for generation 2 VMs. For more information, see [Trusted Launch](trusted-launch.md).
+    Both vTPM and Secure Boot are features of trusted launch (preview) for generation 2 VMs. For more information, see [Trusted launch](trusted-launch.md).
     
 * **Is VHDX supported on generation 2?**  
     No, generation 2 VMs support only VHD.
@@ -223,6 +223,6 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
 
 ## Next steps
 
-Learn more about [Trusted Launch (preview)](trusted-launch-portal.md) with gen 2 VMs.
+Learn more about the [trusted launch (preview)](trusted-launch-portal.md) with gen 2 VMs.
 
 Learn about [generation 2 virtual machines in Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
