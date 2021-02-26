@@ -27,7 +27,7 @@ For more information about the _provision_ and _retire_ stages, and to better un
 
 Before you can set up the provisioning, you'll need to set up the following:
 
-* an **Azure Digital Twins instance** that contains models and twins. This instance should also be set up with the ability to update digital twin information based on data
+* an **Azure Digital Twins instance** that contains models and twins.
     * the **_host name_** of the instance([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * an Azure [IoT Hub](../iot-hub/about-iot-hub.md)
 * an [Azure function](../azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data
@@ -107,7 +107,7 @@ Ensure that the permissions and Managed Identity role assignment are configured 
 
 ### Create Device Provisioning enrollment
 
-Next, you'll need to create an enrollment in Device Provisioning Service using a **custom allocation function**. Follow the instructions to do this in the [*Create the enrollment*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) section of the custom allocation policies article in the Device Provisioning Services documentation.
+Next, you'll need to create an enrollment in Device Provisioning Service using a **custom allocation function**. Follow the instructions to do this in the [*Create the enrollment*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) section of the custom allocation policies article in the Device Provisioning Service documentation.
 
 While going through that flow, you will link the enrollment to the function you just created by selecting *Custom (Use Azure Function)* during the step to *Select how you want to assign devices to hubs*. Then, you will also link your IoT hub you created earlier by selecting its name from the dropdown during the step to *Select the IoT hubs this group can be assigned to:*.
 
