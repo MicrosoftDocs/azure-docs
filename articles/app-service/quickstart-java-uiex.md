@@ -11,28 +11,37 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-adobe-target: true
-adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
-adobe-target-experience: Experience B
-adobe-target-content: ./quickstart-java-uiex
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 
 # Quickstart: Create a Java app on Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. 
 
+There are also IDE versions of this article. Check out [Azure Toolkit for IntelliJ Quickstart](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app) or [Azure Toolkit for Eclipse Quickstart](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
 
-> [!NOTE]
-> The same can also be done using popular IDEs like IntelliJ and Eclipse. Check out our similar documents at [Azure Toolkit for IntelliJ Quickstart](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app) or [Azure Toolkit for Eclipse Quickstart](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
+## 1. Prepare your environment
 
+Before you begin, you must have the following:
 
-![Sample app running in Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
++ An <abbr title="The profile that maintains billing information for Azure usage.">Azure account</abbr> with an active <abbr title="The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.">subscription</abbr>. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
++ The [Azure CLI](/cli/azure/install-azure-cli).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
++ The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11.
 
-## Create a Java app
++ [Apache Maven](https://maven.apache.org), version 3.0 or above.
+
+The Maven plugin uses account credentials from the Azure CLI to deploy to App Services. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli) before continuing. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+
+```azurecli
+az login
+```
+
+<br>
+<hr/>
+
+## 2. Create a Java app
 
 # [Java SE](#tab/javase)
 
@@ -64,9 +73,10 @@ cd helloworld
 
 ---
 
-## Configure the Maven plugin
+<br>
+<hr/>
 
-The deployment process to Azure App Service will use your Azure credentials from the Azure CLI automatically. If the Azure CLI is not installed locally, then the Maven plugin will authenticate with Oauth or device login. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+## 3. Configure the Maven plugin
 
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
@@ -87,7 +97,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
     Your summary output will look similar to the snippet shown below.
 
-    ```
+    <pre class="is-monospace is-size-small has-padding-medium has-background-tertiary has-text-tertiary-invert">
     Please confirm webapp properties
     Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007390755
@@ -106,7 +116,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
     [INFO] Total time: 41.118 s
     [INFO] Finished at: 2020-09-01T17:43:45-07:00
     [INFO] ------------------------------------------------------------------------
-    ```
+    </pre>
 
 # [Tomcat](#tab/tomcat)
 
@@ -120,7 +130,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
     Your summary output will look similar to the snippet shown below.
 
-    ```
+    <pre class="is-monospace is-size-small has-padding-medium has-background-tertiary has-text-tertiary-invert">
     Please confirm webapp properties
     Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003152123
@@ -139,7 +149,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
     [INFO] Total time: 03:03 min
     [INFO] Finished at: 2020-09-01T16:35:30-07:00
     [INFO] ------------------------------------------------------------------------
-    ```
+    </pre>
 
 ---
 
@@ -155,7 +165,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 1. Use the default Java version, **Java 8**, by pressing enter.
 1. Finally, press enter on the last prompt to confirm your selections.
 
-    ```
+    <pre class="is-monospace is-size-small has-padding-medium has-background-tertiary has-text-tertiary-invert">
     Please confirm webapp properties
     Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007116351
@@ -173,7 +183,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
     [INFO] Total time: 20.925 s
     [INFO] Finished at: 2020-09-01T17:38:51-07:00
     [INFO] ------------------------------------------------------------------------
-    ```
+    </pre>
 
 ### [Tomcat](#tab/tomcat)
 
@@ -185,7 +195,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 1. Use the default web container, **Tomcat 8.5**, by pressing enter.
 1. Finally, press enter on the last prompt to confirm your selections.
 
-    ```
+    <pre class="is-monospace is-size-small has-padding-medium has-background-tertiary has-text-tertiary-invert">
     Please confirm webapp properties
     Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003744223
@@ -203,7 +213,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
     [INFO] Total time: 50.785 s
     [INFO] Finished at: 2020-09-01T16:43:09-07:00
     [INFO] ------------------------------------------------------------------------
-    ```
+    </pre>
 
 ---
 
@@ -215,50 +225,51 @@ Property | Required | Description | Version
 ---|---|---|---
 `<schemaVersion>` | false | Specify the version of the configuration schema. Supported values are: `v1`, `v2`. | 1.5.2
 `<subscriptionId>` | false | Specify the subscription id. | 0.1.0+
-`<resourceGroup>` | true | Azure Resource Group for your Web App. | 0.1.0+
+`<resourceGroup>` | true | Azure <abbr title="A logical container for related Azure resources that you can manage as a unit.">resource group</abbr> for your Web App. | 0.1.0+
 `<appName>` | true | The name of your Web App. | 0.1.0+
 `<region>` | true | Specifies the region where your Web App will be hosted; the default value is **westeurope**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section. | 0.1.0+
 `<pricingTier>` | false | The pricing tier for your Web App. The default value is **P1V2** for production workload, while **B2** is the recommended minimum for Java dev/test. [Learn more](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
 `<runtime>` | true | The runtime environment configuration, you could see the detail [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 `<deployment>` | true | The deployment configuration, you could see the details [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 
-Be careful about the values of `<appName>` and `<resourceGroup>`(`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo), they will be used later.
+Be careful about the values of `<appName>` and `<resourceGroup>`(`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the example output), they will be used later.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
+[Report a problem](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
 
-## Deploy the app
+<br>
+<hr/>
 
-The Maven plugin uses account credentials from the Azure CLI to deploy to App Services. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli) before continuing.
+## 4. Deploy the app
 
-```azurecli
-az login
-```
-
-Then you can deploy your Java app to Azure using the following command.
+Deploy your Java app to Azure using the following command.
 
 ```bash
 mvn package azure-webapp:deploy
 ```
 
-Once deployment has completed, your application will be ready at `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
+Once deployment has completed, your application will be ready at `http://<appName>.azurewebsites.net/`. Open the url with your local web browser. You should see the following display:
 
 ![Sample app running in Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
 **Congratulations!** You've deployed your first Java app to App Service.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
+[Report a problem](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
 
-## Clean up resources
+<br>
+<hr/>
 
-In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group from portal, or by running the following command in the Cloud Shell:
+## 5. Clean up resources
 
-```azurecli-interactive
+Delete the Java  app and its related resources to avoid incurring any further costs.
+
+```azurecli
 az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
 ```
 
 This command may take a minute to run.
+
+<br>
+<hr/>
 
 ## Next steps
 
