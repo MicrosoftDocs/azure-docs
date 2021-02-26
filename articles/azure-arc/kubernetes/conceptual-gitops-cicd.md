@@ -56,11 +56,10 @@ Suppose Alice wants to make an application change that alters the Docker image u
 6. Within minutes, Flux notices a change in the GitOps repo and pulls Alice's change. 
     * Due to the Docker image change, the application pod requires an update. 
     * Flux applies the change to the cluster.
-8. The CD pipeline waits for a final success or failure notification from the GitOps Connector and reflects the outcome in the pipeline.
-9. Alice tests the application endpoint to verify the deployment successfully completed.
+7. Alice tests the application endpoint to verify the deployment successfully completed.
    > [!NOTE]  
-   > For more environments targeted for deployment, the CD pipeline iterates by creating a PR for the next environment and repeats steps 4-8. The process many need extra approval for riskier deployments or environments, such as a security-related change or a production environment.
-11. Once all the environments have received successful deployments, the pipeline completes.
+   > For more environments targeted for deployment, the CD pipeline iterates by creating a PR for the next environment and repeats steps 4-7. The process many need extra approval for riskier deployments or environments, such as a security-related change or a production environment.
+8.  Once all the environments have received successful deployments, the pipeline completes.
 
 ## Next steps
 [Configurations and GitOps with Azure Arc enabled Kubernetes](./conceptual-configurations.md)
