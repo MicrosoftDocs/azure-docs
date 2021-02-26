@@ -59,7 +59,7 @@ The following table lists the gateway IP addresses of the Azure Database for Pos
 | India Central | 104.211.96.159	 | | |
 | India South | 104.211.224.146	 | | |
 | India West | 104.211.160.80	 | | |
-| Japan East | 40.79.192.23 | 13.78.61.196 | |
+| Japan East | 40.79.192.23, 40.79.184.8 | 13.78.61.196 | |
 | Japan West | 191.238.68.11, 40.74.96.6, 40.74.96.7	 | 104.214.148.156 | |
 | Korea Central | 52.231.17.13	 | 52.231.32.42 | |
 | Korea South | 52.231.145.3	 | 52.231.200.86 | |
