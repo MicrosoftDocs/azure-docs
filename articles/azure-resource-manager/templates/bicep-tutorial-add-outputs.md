@@ -1,26 +1,26 @@
 ---
-title: Tutorial - add outputs to Bicep template
-description: Add outputs to your Azure Resource Manager Bicep template (ARM Bicep template) to simplify the syntax.
+title: Tutorial - add outputs to Bicep file
+description: Add outputs to your Bicep file to simplify the syntax.
 author: mumian
-ms.date: 02/17/2021
+ms.date: 02/26/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
 ---
 
-# Tutorial: Add outputs to your ARM Bicep template
+# Tutorial: Add outputs to your Bicep file
 
-In this tutorial, you learn how to return a value from your Azure Resource Manager Bicep template (ARM Bicep template). You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to return a value from your deployment. You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
-We recommend that you complete the [tutorial about variables](template-tutorial-bicep-add-variables.md), but it's not required.
+We recommend that you complete the [tutorial about variables](bicep-tutorial-add-variables.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-bicep-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-bicep.md#get-tools).
 
-## Review template
+## Review Bicep file
 
-At the end of the previous tutorial, your template had the following Bicep:
+At the end of the previous tutorial, your Bicep file had the following contents:
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.bicep":::
 
@@ -28,9 +28,9 @@ It deploys a storage account, but it doesn't return any information about the st
 
 ## Add outputs
 
-You can use outputs to return values from the template. For example, it might be helpful to get the endpoints for your new storage account.
+You can use outputs to return values from the deployment. For example, it might be helpful to get the endpoints for your new storage account.
 
-The following example highlights the change to your template to add an output value. Copy the whole file and replace your template with its contents.
+The following example highlights the change to your Bicep file to add an output value. Copy the whole file and replace your Bicep file with its contents.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep" range="1-34" highlight="34":::
 
@@ -42,11 +42,11 @@ It uses the [reference](template-functions-resource.md#reference) function to ge
 
 Finally, it returns the `primaryEndpoints` property from the storage account.
 
-## Deploy template
+## Deploy Bicep file
 
-You're ready to deploy the template and look at the returned value.
+You're ready to deploy the Bicep file and look at the returned value.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-bicep-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-bicep.md#deploy-bicep-file).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -54,7 +54,7 @@ If you haven't created the resource group, see [Create resource group](template-
 New-AzResourceGroupDeployment `
   -Name addoutputs `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile `
+  -TemplateFile $bicepFile `
   -storagePrefix "store" `
   -storageSKU Standard_LRS
 ```
@@ -67,7 +67,7 @@ To run this deployment command, you must have the [latest version](/cli/azure/in
 az deployment group create \
   --name addoutputs \
   --resource-group myResourceGroup \
-  --template-file $templateFile \
+  --template-file $bicepFile \
   --parameters storagePrefix=store storageSKU=Standard_LRS
 ```
 
@@ -91,7 +91,7 @@ In the output for the deployment command, you'll see an object similar to the fo
 
 ## Review your work
 
-You've done a lot in the last six tutorials. Let's take a moment to review what you have done. You created a template with parameters that are easy to provide. The template is reusable in different environments because it allows for customization and dynamically creates needed values. It also returns information about the storage account that you could use in your script.
+You've done a lot in the last six tutorials. Let's take a moment to review what you have done. You created a Bicep file with parameters that are easy to provide. The Bicep file is reusable in different environments because it allows for customization and dynamically creates needed values. It also returns information about the storage account that you could use in your script.
 
 Now, let's look at the resource group and deployment history.
 
@@ -101,23 +101,23 @@ Now, let's look at the resource group and deployment history.
 1. Depending on the steps you did, you should have at least one and perhaps several storage accounts in the resource group.
 1. You should also have several successful deployments listed in the history. Select that link.
 
-   ![Select deployments](./media/template-tutorial-bicep-add-outputs/select-deployments.png)
+   ![Select deployments](./media/bicep-tutorial-add-outputs/select-deployments.png)
 
 1. You see all of your deployments in the history. Select the deployment called **addoutputs**.
 
-   ![Show deployment history](./media/template-tutorial-bicep-add-outputs/show-history.png)
+   ![Show deployment history](./media/bicep-tutorial-add-outputs/show-history.png)
 
 1. You can review the inputs.
 
-   ![Show inputs](./media/template-tutorial-bicep-add-outputs/show-inputs.png)
+   ![Show inputs](./media/bicep-tutorial-add-outputs/show-inputs.png)
 
 1. You can review the outputs.
 
-   ![Show outputs](./media/template-tutorial-bicep-add-outputs/show-outputs.png)
+   ![Show outputs](./media/bicep-tutorial-add-outputs/show-outputs.png)
 
 1. You can review the template.
 
-   ![Show template](./media/template-tutorial-bicep-add-outputs/show-template.png)
+   ![Show template](./media/bicep-tutorial-add-outputs/show-template.png)
 
 ## Clean up resources
 
@@ -132,7 +132,7 @@ If you're stopping now, you might want to clean up the resources you deployed by
 
 ## Next steps
 
-In this tutorial, you added a return value to the template. In the next tutorial, you'll learn how to export a template and use parts of that exported template in your template.
+In this tutorial, you added a return value to the Bicep file. In the next tutorial, you'll learn how to export a JSON template and use parts of that exported template in your Bicep file.
 
 > [!div class="nextstepaction"]
-> [Use exported template](template-tutorial-bicep-export-template.md)
+> [Use exported template](bicep-tutorial-export-template.md)

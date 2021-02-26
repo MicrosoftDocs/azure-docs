@@ -1,6 +1,6 @@
 ---
-title: Tutorial - add variable to Bicep template
-description: Add variables to your Azure Resource Manager Bicep template (ARM Bicep template) to simplify the syntax.
+title: Tutorial - add variable to Bicep file
+description: Add variables to your Bicep file to simplify the syntax.
 author: mumian
 ms.date: 02/17/2021
 ms.topic: tutorial
@@ -8,19 +8,19 @@ ms.author: jgao
 ms.custom:
 ---
 
-# Tutorial: Add variables to your ARM Bicep template
+# Tutorial: Add variables to your Bicep file
 
-In this tutorial, you learn how to add a variable to your Azure Resource Manager Bicep template (ARM Bicep template). Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to add a variable to your Bicep file. Variables simplify your Bicep files by enabling you to write an expression once and reuse it throughout the Bicep file. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
-We recommend that you complete the [tutorial about functions](template-tutorial-bicep-add-functions.md), but it's not required.
+We recommend that you complete the [tutorial about functions](bicep-tutorial-add-functions.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-bicep-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-bicep.md#get-tools).
 
-## Review template
+## Review Bicep file
 
-At the end of the previous tutorial, your template had the following Bicep:
+At the end of the previous tutorial, your Bicep file had the following contents:
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.bicep":::
 
@@ -28,7 +28,7 @@ The parameter for the storage account name is hard-to-use because you have to pr
 
 ## Use variable
 
-The following example highlights the changes to add a variable to your template that creates a unique storage account name. Copy the whole file and replace your template with its contents.
+The following example highlights the changes to add a variable to your Bicep file that creates a unique storage account name. Copy the whole file and replace your Bicep file with its contents.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.bicep" range="1-32" highlight="1-4,20,23":::
 
@@ -36,7 +36,7 @@ Notice that it includes a variable named `uniqueStorageName`. This variable uses
 
 You're familiar with the [resourceGroup](template-functions-resource.md#resourcegroup) function. In this case, you get the `id` property instead of the `location` property, as shown in the previous tutorial. The `id` property returns the full identifier of the resource group, including the subscription ID and resource group name.
 
-The [uniqueString](template-functions-string.md#uniquestring) function creates a 13 character hash value. The returned value is determined by the parameters you pass in. For this tutorial, you use the resource group ID as the input for the hash value. That means you could deploy this Bicep template to different resource groups and get a different unique string value. However, you get the same value if you deploy to the same resource group.
+The [uniqueString](template-functions-string.md#uniquestring) function creates a 13 character hash value. The returned value is determined by the parameters you pass in. For this tutorial, you use the resource group ID as the input for the hash value. That means you could deploy this Bicep file to different resource groups and get a different unique string value. However, you get the same value if you deploy to the same resource group.
 
 The [concat](template-functions-string.md#concat) function takes values and combines them. For this variable, it takes the string from the parameter and the string from the `uniqueString` function, and combines them into one string. Bicep also support string interpolation. For example, var storageName = '${storagePrefix}storage001'.
 
@@ -44,19 +44,21 @@ The `storagePrefix` parameter enables you to pass in a prefix that helps you ide
 
 Finally, notice that the storage name is now set to the variable instead of a parameter.
 
-## Deploy template
+## Deploy Bicep file
 
-Let's deploy the template. Deploying this template is easier than the previous templates because you provide just the prefix for the storage name.
+Let's deploy the Bicep file. Deploying this Bicep file is easier than the previous Bicep files because you provide just the prefix for the storage name.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-bicep-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-bicep-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-template.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
+
+To run this deployment cmdlet, you must have the [latest version](/powershell/azure/install-az-ps) of Azure PowerShell.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -Name addnamevariable `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile `
+  -TemplateFile $bicepFile `
   -storagePrefix "store" `
   -storageSKU Standard_LRS
 ```
@@ -69,7 +71,7 @@ To run this deployment command, you must have the [latest version](/cli/azure/in
 az deployment group create \
   --name addnamevariable \
   --resource-group myResourceGroup \
-  --template-file $templateFile \
+  --template-file $bicepFile \
   --parameters storagePrefix=store storageSKU=Standard_LRS
 ```
 
@@ -103,4 +105,4 @@ If you're stopping now, you might want to clean up the resources you deployed by
 In this tutorial, you added a variable that creates a unique name for a storage account. In the next tutorial, you return a value from the deployed storage account.
 
 > [!div class="nextstepaction"]
-> [Add outputs](template-tutorial-bicep-add-outputs.md)
+> [Add outputs](bicep-tutorial-add-outputs.md)
