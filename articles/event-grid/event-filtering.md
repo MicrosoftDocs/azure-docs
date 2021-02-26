@@ -52,7 +52,7 @@ To filter by values in the data fields and specify the comparison operator, use 
 * key - The field in the event data that you're using for filtering. It can be a number, boolean, or string.
 * values - The value or values to compare to the key.
 
-### Key
+## Key
 Key is the field in the event data that you're using for filtering. It can be a number, boolean, or string. For events in the **Event Grid schema**, use the following values for the key: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion`, or event data (like `data.key1`).
 
 For events in **Cloud Events schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`).
@@ -76,15 +76,15 @@ To access fields in the data section, use the `.` (dot) notation. For example, `
 ```
 
 
-### Values
+## Values
 The values can be: number, string, boolean, or array
 
-### Operators
+## Operators
 
 The available operators for **numbers** are:
 
-#### NumberIn
-The **NumberIn** operator checks whether the key's value is one of the specified values. In the following example, it checks whether the value of the counter attribute in the data section is 5 or 1. 
+## NumberIn
+The NumberIn operator evaluates to true if the key's value is one of the specified values. In the following example, it checks whether the value of the `counter` attribute in the `data` section is 5 or 1. 
 
 ```json
 
@@ -99,8 +99,8 @@ The **NumberIn** operator checks whether the key's value is one of the specified
 
 ```
 
-#### NumberNotIn
-The NumberNotIn operator checks whether the key's value is **not** any of the specified values. In the following example, it checks whether the value of the counter attribute in the data section is not 41 and 0. 
+## NumberNotIn
+The NumberNotIn evaluates to true if the key's value isn't any of the specified values. In the following example, it checks whether the value of the `counter` attribute in the `data` section isn't 41 and 0. 
 
 ```json
 "advancedFilters": [{
@@ -113,8 +113,8 @@ The NumberNotIn operator checks whether the key's value is **not** any of the sp
 }]
 ```
 
-#### NumberLessThan
-The NumberLessThan operator checks whether the key's value is less than the specified value. In the following example, it checks whether the value of the counter attribute in the data section is less than 100. 
+## NumberLessThan
+The NumberLessThan operator evaluates to true if the key's value is less than the specified value. In the following example, it checks whether the value of the `counter` attribute in the `data` section is less than 100. 
 
 ```json
 "advancedFilters": [{
@@ -124,8 +124,8 @@ The NumberLessThan operator checks whether the key's value is less than the spec
 }]
 ```
 
-#### NumberGreaterThan
-The NumberGreaterThan operator checks whether the key's value is greater than the specified value. In the following example, it checks whether the value of the counter attribute in the data section is greater than 20. 
+## NumberGreaterThan
+The NumberGreaterThan operator evaluates to true if the key's value is greater than the specified value. In the following example, it checks whether the value of the `counter` attribute in the `data` section is greater than 20. 
 
 ```json
 "advancedFilters": [{
@@ -135,8 +135,8 @@ The NumberGreaterThan operator checks whether the key's value is greater than th
 }]
 ```
 
-#### NumberLessThanOrEquals
-The NumberLessThanOrEquals operator checks whether the key's value is less than or equal to the specified value. In the following example, it checks whether the value of the counter attribute in the data section is less than or equal to 100. 
+## NumberLessThanOrEquals
+The NumberLessThanOrEquals operator evaluates to true if the key's value is less than or equal to the specified value. In the following example, it checks whether the value of the `counter` attribute in the `data` section is less than or equal to 100. 
 
 ```json
 "advancedFilters": [{
@@ -146,8 +146,8 @@ The NumberLessThanOrEquals operator checks whether the key's value is less than 
 }]
 ```
 
-#### NumberGreaterThanOrEquals
-The NumberGreaterThanOrEquals operator checks whether the key's value is greater than or equal to the specified value. In the following example, it checks whether the value of the counter attribute in the data section is greater than or equal to 30. 
+## NumberGreaterThanOrEquals
+The NumberGreaterThanOrEquals operator evaluates to true if the key's value is greater than or equal to the specified value. In the following example, it checks whether the value of the `counter` attribute in the `data` section is greater than or equal to 30. 
 
 ```json
 "advancedFilters": [{
@@ -160,8 +160,8 @@ The NumberGreaterThanOrEquals operator checks whether the key's value is greater
 
 The available operator for **booleans** is: 
 
-### BoolEquals
-The BoolEquals operator checks whether the key's value is the specified boolean value. In the following example, it checks whether the value of the isEnabled attribute in the data section is true. 
+## BoolEquals
+The BoolEquals operator evaluates to true if the key's value is the specified boolean value. In the following example, it checks whether the value of the `isEnabled` attribute in the `data` section is true. 
 
 ```json
 "advancedFilters": [{
@@ -171,11 +171,52 @@ The BoolEquals operator checks whether the key's value is the specified boolean 
 }]
 ```
 
+## NumberInRange
+The NumberInRange operator evaluates to true if the key's value is in one of the specified ranges. In the following example, it checks whether the value of the `key1` attribute in the `data` section is in one of the two ranges: 3.14159 - 999.95, 3000 - 4000. 
+
+```json
+{
+    "operatorType": "NumberInRange",
+    "key": "data.key1",
+    "values": [[3.14159, 999.95], [3000, 4000]]
+}
+```
+The `values` property is an array of ranges. In the previous example, it's an array of two ranges. Here's an example of an array with one range to check.
+
+**Array with one range:** 
+```json
+{
+    "operatorType": "NumberInRange",
+    "key": "data.key1",
+    "values": [[3000, 4000]]
+}
+```
+
+## NumberNotInRange
+The NumberNotInRange operator evaluates to true if the key's value isn't in one of the specified ranges. In the following example, it checks whether the value of the `key1` attribute in the `data` section is in one of the two ranges: 3.14159 - 999.95, 3000 - 4000. If it's, the operator returns false. 
+
+```json
+{
+    "operatorType": "NumberNotInRange",
+    "key": "data.key1",
+    "values": [[3.14159, 999.95], [3000, 4000]]
+}
+```
+The `values` property is an array of ranges. In the previous example, it's an array of two ranges. Here's an example of an array with one range to check.
+
+**Array with one range:** 
+```json
+{
+    "operatorType": "NumberNotInRange",
+    "key": "data.key1",
+    "values": [[3000, 4000]]
+}
+```
 
 The available operators for **strings** are:
 
-### StringContains
-The **StringContains** operator checks whether the key's value contains of the specified values. In the following example, it checks whether the value of the key1 attribute in the data section contains one of the specified substrings: `microsoft` or `azure`. For example, `azure data factory` has `azure` in it. 
+## StringContains
+The **StringContains** evaluates to true if the key's value contains any of the specified values (as substrings). In the following example, it checks whether the value of the `key1` attribute in the `data` section contains one of the specified substrings: `microsoft` or `azure`. For example, `azure data factory` has `azure` in it. 
 
 ```json
 "advancedFilters": [{
@@ -188,8 +229,22 @@ The **StringContains** operator checks whether the key's value contains of the s
 }]
 ```
 
-### StringBeginsWith
-The **StringBeginsWith** operator checks whether the key's value begins with the specified values. In the following example, it checks whether the value of the key1 attribute in the data section begins with `event` or `grid`. For example, `event hubs` begins with `event`. 
+## StringNotContains
+The **StringNotContains** operator evaluates to true if the key doesn't contain the specified values as substrings. If the key contains one of the specified values as a substring, the operator evaluates to false. In the following example, the operator returns true only if the value of the `key1` attribute in the `data` section doesn't have `contoso` and `fabrikam` as substrings. 
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringNotContains",
+    "key": "data.key1",
+    "values": [
+        "contoso", 
+        "fabrikam"
+    ]
+}]
+```
+
+## StringBeginsWith
+The **StringBeginsWith** operator evaluates to true if the key's value begins with any of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section begins with `event` or `grid`. For example, `event hubs` begins with `event`. 
 
 ```json
 "advancedFilters": [{
@@ -197,13 +252,27 @@ The **StringBeginsWith** operator checks whether the key's value begins with the
     "key": "data.key1",
     "values": [
         "event", 
-        "grid"
+        "message"
     ]
 }]
 ```
 
-### StringEndsWith
-The **StringEndsWith** operator checks whether the key's value ends with the specified values. In the following example, it checks whether the value of the key1 attribute in the data section ends with `jpg` or `jpeg` or `png`. For example, `eventgrid.png` ends with `png`.
+## StringNotBeginsWith
+The **StringNotBeginsWith** operator evaluates to true if the key's value doesn't begin with any of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section doesn't begin with `event` or `message`.
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringNotBeginsWith",
+    "key": "data.key1",
+    "values": [
+        "event", 
+        "message"
+    ]
+}]
+```
+
+## StringEndsWith
+The **StringEndsWith** operator evaluates to true if the key's value ends with one of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section ends with `jpg` or `jpeg` or `png`. For example, `eventgrid.png` ends with `png`.
 
 
 ```json
@@ -218,23 +287,39 @@ The **StringEndsWith** operator checks whether the key's value ends with the spe
 }]
 ```
 
-### StringIn
-The **StringIn** operator checks whether the key's value exactly matches one of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section is `exact` or `string` or `matches`. 
+## StringNotEndsWith
+The **StringNotEndsWith** operator evaluates to true if the key's value doesn't end with any of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section doesn't end with `jpg` or `jpeg` or `png`. 
+
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringNotEndsWith",
+    "key": "data.key1",
+    "values": [
+        "jpg", 
+        "jpeg", 
+        "png"
+    ]
+}]
+```
+
+## StringIn
+The **StringIn** operator checks whether the key's value **exactly** matches one of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section is `exact` or `string` or `matches`. 
 
 ```json
 "advancedFilters": [{
     "operatorType": "StringIn",
     "key": "data.key1",
     "values": [
-        "exact", 
-        "string", 
-        "matches"
+        "contoso", 
+        "fabrikam", 
+        "factory"
     ]
 }]
 ```
 
-### StringNotIn
-The **StringNotIn** operator checks whether the key's value is not any of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section is **not** `aws` and `bridge`. 
+## StringNotIn
+The **StringNotIn** operator checks whether the key's value isn't any of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section isn't `aws` and `bridge`. 
 
 ```json
 "advancedFilters": [{
@@ -247,14 +332,36 @@ The **StringNotIn** operator checks whether the key's value is not any of the sp
 }]
 ```
 
-All string comparisons are **not** case-sensitive.
+
+All string comparisons aren't case-sensitive.
 
 > [!NOTE]
-> If the event JSON doesn't contain the advanced filter key, filter is evaulated as **not matched** for the following operators: NumberGreaterThan, NumberGreaterThanOrEquals, NumberLessThan, NumberLessThanOrEquals, NumberIn, BoolEquals, StringContains, StringBeginsWith, StringEndsWith, StringIn.
+> If the event JSON doesn't contain the advanced filter key, filter is evaulated as **not matched** for the following operators: NumberGreaterThan, NumberGreaterThanOrEquals, NumberLessThan, NumberLessThanOrEquals, NumberIn, BoolEquals, StringContains, StringNotContains, StringBeginsWith, StringNotBeginsWith, StringEndsWith, StringNotEndsWith, StringIn.
 > 
 >The filter is evaulated as **matched** for the following operators:NumberNotIn, StringNotIn.
 
-### OR and AND
+
+## IsNull
+The IsNull operator evaluates to true if the key's value is NULL or undefined. 
+
+```json
+{
+    "operatorType": "IsNullOrUndefined",
+    "key": "data.key1"
+}
+```
+
+## IsNotNull
+The IsNotNull operator evaluates to true if the key's value isn't NULL or undefined. 
+
+```json
+{
+    "operatorType": "IsNotNull",
+    "key": "data.key1"
+}
+```
+
+## OR and AND
 If you specify a single filter with multiple values, an **OR** operation is performed, so the value of the key field must be one of these values. Here is an example:
 
 ```json
@@ -292,7 +399,7 @@ If you specify multiple different filters, an **AND** operation is done, so each
 ```
 
 
-### Limitations
+## Limitations
 
 Advanced filtering has the following limitations:
 
