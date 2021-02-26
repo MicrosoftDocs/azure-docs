@@ -102,7 +102,7 @@ To create your own key vault and set your secrets, follow the instructions in [S
 
 ## Create your own SecretProviderClass object
 
-To create your own custom SecretProviderClass object with provider-specific parameters for the Secrets Store CSI driver, [use this template](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass_service_principal.yaml). This object will provide identity access to your key vault.
+To create your own custom SecretProviderClass object with provider-specific parameters for the Secrets Store CSI driver, [use this template](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/service-principal/v1alpha1_secretproviderclass_service_principal.yaml). This object will provide identity access to your key vault.
 
 In the sample SecretProviderClass YAML file, fill in the missing parameters. The following parameters are required:
 
