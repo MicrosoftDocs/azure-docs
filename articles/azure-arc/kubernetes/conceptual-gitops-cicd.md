@@ -17,7 +17,7 @@ This article provides a conceptual overview of how to make GitOps a reality in t
 
 ## Architecture
 
-Consider an application that is deployed to one or more Kubernetes environments.
+Consider an application deployed to one or more Kubernetes environments.
 
 ![GitOps CI/CD architecture](./media/gitops-arch.png)
 ### Application repo
