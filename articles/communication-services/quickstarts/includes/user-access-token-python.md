@@ -28,7 +28,7 @@ ms.author: tchladek
    mkdir access-tokens-quickstart && cd access-tokens-quickstart
    ```
 
-1. Use a text editor to create a file called **issue-access-tokens.py** in the project root directory and add the structure for the program, including basic exception handling. You'll add all the source code for this quickstart to this file in the following sections.
+1. Use a text editor to create a file called **issue-access-token.py** in the project root directory and add the structure for the program, including basic exception handling. You'll add all the source code for this quickstart to this file in the following sections.
 
    ```python
    import os
