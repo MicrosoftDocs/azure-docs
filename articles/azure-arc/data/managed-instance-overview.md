@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: vin-yu
 ms.author: vinsonyu
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2020
 ms.topic: overview
 ---
 
@@ -20,8 +20,6 @@ Azure Arc enabled SQL Managed Instance is an Azure SQL data service that can cre
 ## Description
 
 Azure Arc enabled SQL Managed Instance has near 100% compatibility with the latest SQL Server database engine, and enables existing SQL Server customers to lift and shift their applications to Azure Arc data services with minimal application and database changes while maintaining data sovereignty. At the same time, SQL Managed Instance includes built-in management capabilities that drastically reduce management overhead. 
-
-Azure Arc enabled SQL Managed Instance is currently in preview.
 
 ## Next steps
 
