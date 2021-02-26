@@ -53,12 +53,13 @@ For other benefits and why you should migrate, see [Cloud Services (extended sup
 ## How is migration for Cloud Services (classic) different from Virtual Machines (classic)?
 Azure Service Manager supports two different compute products, [Azure Virtual Machines (classic)](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/tutorial-classic) and [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) or Web/ Worker roles. The two products differ based on the deployment type that lies within the Cloud Service. Azure Cloud Services (classic) uses Cloud Service containing deployments with Web/Worker roles. Azure Virtual Machines (classic) uses a cloud service containing deployments with IaaS VMs.
 
-Due to differences in deployment types, the list of supported scenarios differs for Cloud Services (classic) than from Virtual Machines (classic). 
+The list of supported scenarios differ between Cloud Services (classic) and Virtual Machines (classic) because of differences in the deployment types.
 
-## Migration steps for this tool
+## Migration steps
  
 Customers can migrate their Cloud Services (classic) deployments using the same four operations used to migrate Virtual Machines (classic). 
-1. **Validate Migration** - Performs a fast validation of migration.
+
+1. **Validate Migration** - Validates that the migration will not be prevented by common unsupported scenarios.
 2. **Prepare Migration** – Duplicates the resource metadata in Azure Resource Manager. All resources are locked for create/update/delete operations to ensure resource metadata is in sync across Azure Server Manager and Azure Resource Manager. All read operations will work using both Cloud Services (classic) and Cloud Services (extended support) APIs.
 3. **Abort Migration** - Removes resource metadata from Azure Resource Manager. Unlocks all resources for create/update/delete operations.
 4. **Commit Migration** - Removes resource metadata from Azure Service Manager. Unlocks the resource for create/update/delete operations. Abort is no longer allowed after commit has been attempted.
@@ -140,7 +141,7 @@ Cloud Service deployments using legacy role sizes (such as Small or ExtraLarge).
 
 
 ## Post Migration Changes
-After the migration is completed, the Cloud Services (classic) deployment gets converted to a Cloud Service (extended support) deployment. Therefore, you must start using all the APIs and experience for Cloud Services (extended support) to manage your deployment. Refer to [Cloud Services (extended support) documentation](deploy-prerequisite.md) for more details.  
+The Cloud Services (classic) deployment is converted to a Cloud Service (extended support) deployment. Refer to [Cloud Services (extended support) documentation](deploy-prerequisite.md) for more details.  
 
 ### Changes to deployment files 
 
@@ -148,9 +149,9 @@ Minor changes are made to customer’s .csdef and .cscfg file to make the deploy
 
 - Virtual Network uses full Azure Resource Manager resource ID instead of just the resource name in the NetworkConfiguration section of the .cscfg file. For example, `/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Network/virtualNetworks/vnet-name`. For virtual networks belonging to the same resource group as the cloud service, you can choose to update the .cscfg file back to using just the virtual network name.  
 
-- Classic sizes like small, large, extra large are replaced by their new size names, Standard_A*. The size names need to be changed to their new names in .csdef and .cscfg files. As part of migration, this change is automatically done. For more information, see [Cloud Services (extended support) deployment prerequisites](deploy-prerequisite.md#required-service-definition-file-csdef-updates)
+- Classic sizes like Small, Large, ExtraLarge are replaced by their new size names, Standard_A*. The size names need to be changed to their new names in .csdef file. As part of migration, this change is automatically done. For more information, see [Cloud Services (extended support) deployment prerequisites](deploy-prerequisite.md#required-service-definition-file-csdef-updates)
 
-- Customers can use the Get API to get the latest copy of their deployment files. 
+- Use the Get API to get the latest copy of the deployment files. 
     - Get the template using [Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell#export-resource-groups-to-templates), [CLI](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli#export-resource-groups-to-templates), and [Rest API](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate) 
     - Get the .csdef file using [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) or [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
     - Get the .cscfg file using [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) or [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
@@ -167,10 +168,9 @@ Customers need to update their tooling and automation to start using the new API
 - Recreate rules and policies required to manage and scale cloud services 
     - [Auto Scale rules](configure-scaling.md) are not migrated. After migration, recreate the auto scale rules.  
     - [Alerts](enable-alerts.md) are not migrated. After migration, recreate the alerts.
-    - Key Vault is created without any access policies. Recreate the policies on Key Vault to access the certificates.  
+    - The Key Vault is created without any access policies. Create policies on the Key Vault to control access to the certificates.  
 
-
-## Next steps
+The Key Vault is created without any access policies. Create policies on the Key Vault to control access to the certificates.## Next steps
 - [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
 - Migrate to Cloud Services (extended support) using the [Azure portal](in-place-migration-portal.md)
 - Migrate to Cloud Services (extended support) using [PowerShell](in-place-migration-powershell.md)
