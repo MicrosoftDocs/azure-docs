@@ -39,6 +39,7 @@ The following example shows a Conditional Access technical profile:
   <Metadata>
     <Item Key="OperationType">Evaluation</Item>
   </Metadata>
+</TechnicalProfile>
 ```
 
 ## Conditional Access evaluation
