@@ -3,7 +3,7 @@ title: Frequently asked questions about Azure Managed Instance for Apache Cassan
 description:  Frequently asked questions about Azure Managed Instance for Apache Cassandra. This article addresses questions on when to use managed instances, benefits, throughput limits, supported regions, and other configuration details. 
 author: TheovanKraay
 ms.author: thvankra
-ms.service: cassandra-managed-instance
+ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ---
@@ -42,7 +42,7 @@ These limits depend on the Virtual Machine SKUs you choose.
 
 ### What is the cost of Azure Managed Instance for Apache Cassandra?
 
-The managed instance charges are based on the underlying VM cost, with a small markup. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/cassandra-managed-instance/).
+The managed instance charges are based on the underlying VM cost, with a small markup. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-instance-apache-cassandra/).
 
 ### Can I use YAML file settings to configure behavior?
 

@@ -3,7 +3,7 @@ title: Differences between Azure Managed Instance for Apache Cassandra and Azure
 description: Learn about the differences between Azure Managed Instance for Apache Cassandra and Cassandra API in Azure Cosmos DB. You also learn the benefits of each of these services and when to choose them.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: cassandra-managed-instance
+ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ---

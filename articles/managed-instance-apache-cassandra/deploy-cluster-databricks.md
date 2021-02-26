@@ -3,7 +3,7 @@ title: Quickstart - Deploy a Managed Apache Spark Cluster with Azure Databricks
 description: This quickstart shows how to Deploy a Managed Apache Spark Cluster with Azure Databricks using the Azure portal.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: cassandra-managed-instance
+ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ---
