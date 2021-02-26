@@ -94,20 +94,20 @@ Make sure to save the file before moving on.
 
 After designing models, you need to upload them to your Azure Digital Twins instance. This configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
 
-In the project console window, run the following command to upload your updated *Room* model, as well as a *Floor* model that you'll also use in the next section to create different types of twins.
+1. In the project console window, run the following command to upload your updated *Room* model, as well as a *Floor* model that you'll also use in the next section to create different types of twins.
 
-```cmd/sh
-CreateModels Room Floor
-```
+    ```cmd/sh
+    CreateModels Room Floor
+    ```
+    
+    The output should indicate the models were created successfully.
+    
+    > [!TIP]
+    > If you designed your own model earlier, you can also upload it here, by adding its file name (you can leave out the extension) to the `Room Floor` list in the command above.
 
-The output should indicate the models were created successfully.
+1. Verify the models were created by running the command `GetModels true`. This will query the Azure Digital Twins instance for all models that have been uploaded, and print out their full information. Look for the edited *Room* model in the results:
 
-> [!TIP]
-> If you designed your own model earlier, you can also upload it here, by adding its file name (you can leave out the extension) to the `Room Floor` list in the command above.
-
-Verify the models were created by running the command `GetModels true`. This will query the Azure Digital Twins instance for all models that have been uploaded, and print out their full information. Look for the edited *Room* model in the results:
-
-:::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Results of GetModels, showing the updated Room model":::
+    :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Results of GetModels, showing the updated Room model":::
 
 ### Errors
 
@@ -141,44 +141,47 @@ Now that some models have been uploaded to your Azure Digital Twins instance, yo
 
 To create a digital twin, you use the `CreateDigitalTwin` command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You do not have to pass any relationship information at this stage.
 
-Run this code in the running project console to create several twins, based on the *Room* model you updated earlier and another model, *Floor*. Recall that *Room* has three properties, so you can provide arguments with the initial values for these.
+1. Run this code in the running project console to create several twins, based on the *Room* model you updated earlier and another model, *Floor*. Recall that *Room* has three properties, so you can provide arguments with the initial values for these.
 
-```cmd/sh
-CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
-CreateDigitalTwin dtmi:example:Room;2 room1 RoomName string Room1 Temperature double 80 HumidityLevel double 60
-CreateDigitalTwin dtmi:example:Floor;1 floor0
-CreateDigitalTwin dtmi:example:Floor;1 floor1
-```
+    ```cmd/sh
+    CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
+    CreateDigitalTwin dtmi:example:Room;2 room1 RoomName string Room1 Temperature double 80 HumidityLevel double 60
+    CreateDigitalTwin dtmi:example:Floor;1 floor0
+    CreateDigitalTwin dtmi:example:Floor;1 floor1
+    ```
 
-The output from these commands should indicate the twins were created successfully. 
+    The output from these commands should indicate the twins were created successfully. 
+    
+    :::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="Excerpt from the results of CreateDigitalTwin commands, showing floor0, floor1, room0, and room1":::
 
-:::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="Excerpt from the results of CreateDigitalTwin commands, showing floor0, floor1, room0, and room1":::
-
-You can also verify that the twins were created by running the `Query` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *room0*, *room1*, *floor0*, and *floor1* twins in the results.
+1. You can verify that the twins were created by running the `Query` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *room0*, *room1*, *floor0*, and *floor1* twins in the results.
 
 > [!TIP]
 > If you uploaded your own model earlier, try making your own `CreateDigitalTwin` command based on the commands above to add a twin of your own model type.
 
 ### Modify a digital twin
 
-You can also modify the properties of a twin you've created. Try running this command to change *room0*'s RoomName from *Room0* to *PresidentialSuite*:
-
-```cmd/sh
-UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
-```
-
-The output should indicate the twin was updated successfully.
-
-You can also verify by running this command to see *room0*'s information:
-
-```cmd/sh
-GetDigitalTwin room0
-```
-
-The output should reflect the updated name.
+You can also modify the properties of a twin you've created. 
 
 > [!NOTE]
-> The underlying REST API uses JSON Patch to define updates to a twin. The command-line app reflects this format, so that you can experiment with what the underlying APIs actually expect.
+> The underlying REST API uses [JSON Patch](http://jsonpatch.com/) format to define updates to a twin. The command-line app also uses this format, to give a truer experience with what the underlying APIs expect.
+
+1. Run this command to change *room0*'s RoomName from *Room0* to *PresidentialSuite*:
+    
+    ```cmd/sh
+    UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
+    ```
+    
+    The output should indicate the twin was updated successfully.
+
+1. You can verify by running this command to see *room0*'s information:
+
+    ```cmd/sh
+    GetDigitalTwin room0
+    ```
+    
+    The output should reflect the updated name.
+
 
 ## Create a graph by adding relationships
 
@@ -186,33 +189,33 @@ Next, you can create some **relationships** between these twins, to connect them
 
 To add a relationship, use the `CreateRelationship` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
 
-Run the following code to add a "contains" relationship from each of the *Floor* twins you created earlier to a corresponding *Room* twin. Note that there must be a *contains* relationship defined on the *Floor* model for this to be possible.
+1. Run the following code to add a "contains" relationship from each of the *Floor* twins you created earlier to a corresponding *Room* twin. Note that there must be a *contains* relationship defined on the *Floor* model for this to be possible.
 
-```cmd/sh
-CreateRelationship floor0 contains room0 relationship0
-CreateRelationship floor1 contains room1 relationship1
-```
-
-The output from these commands confirms that the relationships were created successfully:
-
-:::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Excerpt from the results of CreateRelationship commands, showing relationship0 and relationship1":::
-
-You can also verify the relationships with any of the following commands, which query the relationships in your Azure Digital Twins instance.
-* To see all relationships coming off of each floor (viewing the relationships from one side):
     ```cmd/sh
-    GetRelationships floor0
-    GetRelationships floor1
+    CreateRelationship floor0 contains room0 relationship0
+    CreateRelationship floor1 contains room1 relationship1
     ```
-* To see all relationships arriving at each room (viewing the relationship from the "other" side):
-    ```cmd/sh
-    GetIncomingRelationships room0
-    GetIncomingRelationships room1
-    ```
-* To look for these relationships individually, by name:
-    ```cmd/sh
-    GetRelationship floor0 relationship0
-    GetRelationship floor1 relationship1
-    ```
+    
+    The output from these commands confirms that the relationships were created successfully:
+    
+    :::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Excerpt from the results of CreateRelationship commands, showing relationship0 and relationship1":::
+
+1. You can verify the relationships with any of the following commands, which query the relationships in your Azure Digital Twins instance.
+    * To see all relationships coming off of each floor (viewing the relationships from one side):
+        ```cmd/sh
+        GetRelationships floor0
+        GetRelationships floor1
+        ```
+    * To see all relationships arriving at each room (viewing the relationship from the "other" side):
+        ```cmd/sh
+        GetIncomingRelationships room0
+        GetIncomingRelationships room1
+        ```
+    * To look for these relationships individually, by name:
+        ```cmd/sh
+        GetRelationship floor0 relationship0
+        GetRelationship floor1 relationship1
+        ```
 
 The twins and relationships you have set up in this tutorial form the following conceptual graph:
 
@@ -222,7 +225,7 @@ The twins and relationships you have set up in this tutorial form the following 
 
 A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. Run the following commands in the running project console to get an idea of what this is like.
 
-* **What are all the entities in my environment represented in Azure Digital Twins?** (query all)
+1. **What are all the entities in my environment represented in Azure Digital Twins?** (query all)
 
     ```cmd/sh
     Query
@@ -235,7 +238,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
     >[!NOTE]
     >In the sample project, the command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`. To query all the twins in your instance using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](how-to-use-cli.md), use the longer (complete) query.
 
-* **What are all the rooms in my environment?** (query by model)
+1. **What are all the rooms in my environment?** (query by model)
 
     ```cmd/sh
     Query SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')
@@ -245,7 +248,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
     
     :::image type="content" source="media/tutorial-command-line/app/output-query-model.png" alt-text="Results of model query, showing only room0 and room1":::
 
-* **What are all the rooms on *floor0*?** (query by relationship)
+1. **What are all the rooms on *floor0*?** (query by relationship)
 
     ```cmd/sh
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0'
@@ -255,7 +258,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
     :::image type="content" source="media/tutorial-command-line/app/output-query-relationship.png" alt-text="Results of relationship query, showing room0":::
 
-* **What are all the twins in my environment with a temperature above 75?** (query by property)
+1. **What are all the twins in my environment with a temperature above 75?** (query by property)
 
     ```cmd/sh
     Query SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
@@ -265,7 +268,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
     :::image type="content" source="media/tutorial-command-line/app/output-query-property.png" alt-text="Results of property query, showing only room1":::
 
-* **What are all the rooms on *floor0* with a temperature above 75?** (compound query)
+1. **What are all the rooms on *floor0* with a temperature above 75?** (compound query)
 
     ```cmd/sh
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75
