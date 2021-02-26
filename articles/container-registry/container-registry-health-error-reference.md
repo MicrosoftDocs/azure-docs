@@ -1,12 +1,14 @@
 ---
-title: Error reference for health checks
+title: Error reference for registry health checks
 description: Error codes and possible solutions to problems found by running the az acr check-health diagnostic command in Azure Container Registry
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 01/25/2021
 ---
 # Health check error reference
 
 Following are details about error codes returned by the [az acr check-health][az-acr-check-health] command. For each error, possible solutions are listed.
+
+For information about running `az acr check-healh`, see [Check the health of an Azure container registry](container-registry-check-health.md).
 
 ## DOCKER_COMMAND_ERROR
 
@@ -43,6 +45,12 @@ This error means that Helm client could not be found by the CLI, which precludes
 This error means that the CLI was unable to determine the Helm version installed. This can happen if the Azure CLI version (or if the Helm version) being used is obsolete.
 
 *Potential solutions*: Update to the latest Azure CLI version or to the recommended Helm version; run the command manually and investigate the error message.
+
+## CMK_ERROR
+
+This error means that the registry can't access the user-assigned or sysem-assigned managed identity used to configure registry encryption with a customer-managed key. The managed identity might have been deleted.  
+
+*Potential solution*: To resolve the issue and rotate the key using a different managed identity, see steps to troubleshoot [the user-assigned identity](container-registry-customer-managed-keys.md#troubleshoot).
 
 ## CONNECTIVITY_DNS_ERROR
 
@@ -84,7 +92,7 @@ This error means that the registry login server did not respond with an access t
 
 This error means that the client was unable to establish a secure connection to the container registry. This error generally occurs if you're running or using a proxy server.
 
-*Potential solutions*: More information on working behind a proxy can be [found here](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
+*Potential solutions*: More information on working behind a proxy can be [found here](/cli/azure/use-cli-effectively).
 
 ## LOGIN_SERVER_ERROR
 

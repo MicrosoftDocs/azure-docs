@@ -5,7 +5,7 @@ author: ccompy
 
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 06/08/2020
+ms.date: 02/05/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
 ---
@@ -38,7 +38,7 @@ There are a number of benefits to the Hybrid Connections capability, including:
 - It normally does not require firewall holes. The connections are all outbound over standard web ports.
 - Because the feature is network level, it is agnostic to the language used by your app and the technology used by the endpoint.
 - It can be used to provide access in multiple networks from a single app. 
-- It is supported in GA for Windows apps and is in preview for Linux apps.
+- It is supported in GA for Windows apps and Linux apps. It is not supported for Windows container apps.
 
 ### Things you cannot do with Hybrid Connections ###
 
@@ -164,26 +164,30 @@ There are periodic updates to the Hybrid Connection Manager to fix issues or pro
 
 There is Azure CLI support for Hybrid Connections. The commands provided operate at both the app and the App Service plan level.  The app level commands are:
 
-    az webapp hybrid-connection
+```azurecli
+az webapp hybrid-connection
 
-    Group
-        az webapp hybrid-connection : Methods that list, add and remove hybrid-connections from webapps.
-            This command group is in preview. It may be changed/removed in a future release.
-    Commands:
-        add    : Add a hybrid-connection to a webapp.
-        list   : List the hybrid-connections on a webapp.
-        remove : Remove a hybrid-connection from a webapp.
+Group
+    az webapp hybrid-connection : Methods that list, add and remove hybrid-connections from webapps.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    add    : Add a hybrid-connection to a webapp.
+    list   : List the hybrid-connections on a webapp.
+    remove : Remove a hybrid-connection from a webapp.
+```
 
 The App Service plan commands enable you to set which key a given hybrid-connection will use. There are two keys set on each Hybrid Connection, a primary and a secondary. You can choose to use the primary or secondary key with the below commands. This enables you to switch keys for when you want to periodically regenerate your keys. 
 
-    az appservice hybrid-connection --help
+```azurecli
+az appservice hybrid-connection --help
 
-    Group
-        az appservice hybrid-connection : A method that sets the key a hybrid-connection uses.
-            This command group is in preview. It may be changed/removed in a future release.
-    Commands:
-        set-key : Set the key that all apps in an appservice plan use to connect to the hybrid-
-                  connections in that appservice plan.
+Group
+    az appservice hybrid-connection : A method that sets the key a hybrid-connection uses.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    set-key : Set the key that all apps in an appservice plan use to connect to the hybrid-
+                connections in that appservice plan.
+```
 
 ## Secure your Hybrid Connections ##
 
@@ -193,13 +197,20 @@ Anyone with `Reader` access to the Relay will be able to _see_ the Hybrid Connec
 
 ## Troubleshooting ##
 
-The status of "Connected" means that at least one HCM is configured with that Hybrid Connection, and is able to reach Azure. If the status for your Hybrid Connection does not say **Connected**, your Hybrid Connection is not configured on any HCM that has access to Azure.
+The status of "Connected" means that at least one HCM is configured with that Hybrid Connection, and is able to reach Azure. If the status for your Hybrid Connection does not say **Connected**, your Hybrid Connection is not configured on any HCM that has access to Azure. When your HCM shows **Not Connected** there are a few things to check:
 
-The primary reason that clients cannot connect to their endpoint is because the endpoint was specified by using an IP address instead of a DNS name. If your app cannot reach the desired endpoint and you used an IP address, switch to using a DNS name that is valid on the host where the HCM is running. Also check that the DNS name resolves properly on the host where the HCM is running. Confirm that there is connectivity from the host where the HCM is running to the Hybrid Connection endpoint.  
+* Does your host have outbound access to Azure on port 443? You can test from your HCM host using the PowerShell command *Test-NetConnection Destination -P Port* 
+* Is your HCM potentially in a bad state? Try restarting the ‘Azure Hybrid Connection Manager Service" local service.
 
-In App Service, the **tcpping** command line tool can be invoked from the Advanced Tools (Kudu) console. This tool can tell you if you have access to a TCP endpoint, but it does not tell you if you have access to a Hybrid Connection endpoint. When you use the tool in the console against a Hybrid Connection endpoint, you are only confirming that it uses a host:port combination.  
+If your status says **Connected** but your app cannot reach your endpoint then:
 
-If you have a command line client for your endpoint, you can test connectivity from the app console. For example, you can test access to web server endpoints by using curl.
+* make sure you are using a DNS name in your Hybrid Connection. If you use an IP address then the required client DNS lookup may not happen. If the client running in your web app does not do a DNS lookup, then the Hybrid Connection will not work
+* check that the DNS name used in your Hybrid Connection can resolve from the HCM host. Check the resolution using *nslookup EndpointDNSname* where EndpointDNSname is an exact match to what is used in your Hybrid Connection definition.
+* test access from your HCM host to your endpoint using the PowerShell command *Test-NetConnection EndpointDNSname -P Port*  If you cannot reach the endpoint from your HCM host then check firewalls between the two hosts including any host-based firewalls on the destination host.
+
+In App Service, the **tcpping** command-line tool can be invoked from the Advanced Tools (Kudu) console. This tool can tell you if you have access to a TCP endpoint, but it does not tell you if you have access to a Hybrid Connection endpoint. When you use the tool in the console against a Hybrid Connection endpoint, you are only confirming that it uses a host:port combination.  
+
+If you have a command-line client for your endpoint, you can test connectivity from the app console. For example, you can test access to web server endpoints by using curl.
 
 
 <!--Image references-->
@@ -217,8 +228,8 @@ If you have a command line client for your endpoint, you can test connectivity f
 [12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
-[HCService]: https://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
+[HCService]: /azure/service-bus-relay/relay-hybrid-connections-protocol/
 [portal]: https://portal.azure.com/
-[oldhc]: https://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
+[oldhc]: /azure/biztalk-services/integration-hybrid-connection-overview/
 [sbpricing]: https://azure.microsoft.com/pricing/details/service-bus/
 [armclient]: https://github.com/projectkudu/ARMClient/

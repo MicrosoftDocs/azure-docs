@@ -1,22 +1,10 @@
 ---
 title: Azure Relay FAQs | Microsoft Docs
 description: This article provides answers to some of the frequently asked questions about the Azure Relay service.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: 886d2c7f-838f-4938-bd23-466662fb1c8e
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
+
 # Azure Relay FAQs
 
 This article answers some frequently asked questions (FAQs) about [Azure Relay](https://azure.microsoft.com/services/service-bus/). For general Azure pricing and support information, see the [Azure Support FAQs](https://azure.microsoft.com/support/faq/).
@@ -57,7 +45,6 @@ Here are three example billing scenarios for Hybrid Connections:
     *   You send 6 GB of data across connection B during the month.
     *   Your total charge is $10.50. That's $5 for connection A + $5 for connection B + $0.50 (for the sixth gigabyte on connection B).
 
-Note that the prices used in the examples are applicable only during the Hybrid Connections preview period. Prices are subject to change upon general availability of Hybrid Connections.
 
 ### How are hours calculated for Relay?
 
@@ -78,7 +65,7 @@ Relays that are opened by using the **netTCPRelay** WCF binding treat messages n
 ## Quotas
 | Quota name | Scope |  Notes | Value |
 | --- | --- | --- | --- |
-| Concurrent listeners on a relay |Entity |Subsequent requests for additional connections are rejected and an exception is received by the calling code. |25 |
+| Concurrent listeners on a relay |Entity (hybrid connection or WCF relay) |Subsequent requests for additional connections are rejected and an exception is received by the calling code. |25 |
 | Concurrent relay connections per all relay endpoints in a service namespace |Namespace |- |5,000 |
 | Relay endpoints per service namespace |Namespace |- |10,000 |
 | Message size for [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) and [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) relays |Namespace |Incoming messages that exceed these quotas are rejected and an exception is received by the calling code. |64 KB |
@@ -126,8 +113,8 @@ For a description of common exceptions and suggested actions you can take, see [
 ### What is a shared access signature, and which languages can I use to generate a signature?
 Shared Access Signatures (SAS) are an authentication mechanism based on SHA-256 secure hashes or URIs. For information about how to generate your own signatures in Node.js, PHP, Python, Java, C, and C#, see [Service Bus authentication with shared access signatures][Shared Access Signatures].
 
-### Is it possible to whitelist relay endpoints?
-Yes. The relay client makes connections to the Azure Relay service by using fully qualified domain names. Customers can add an entry for `*.servicebus.windows.net` on firewalls that support DNS whitelisting.
+### Is it possible to allow only some relay endpoints?
+Yes. The relay client makes connections to the Azure Relay service by using fully qualified domain names. Customers can add an entry for `*.servicebus.windows.net` on firewalls that support DNS approval listing.
 
 ## Next steps
 * [Create a namespace](relay-create-namespace-portal.md)

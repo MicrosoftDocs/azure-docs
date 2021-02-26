@@ -1,6 +1,8 @@
 ---
 title: Apprentice mode - Personalizer
-description:
+description: Learn how to use apprentice mode to gain confidence in a model without changing any code.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
 ---
@@ -25,7 +27,7 @@ Apprentice mode gives you trust in the Personalizer service and its machine lear
 
 The two main reasons to use Apprentice mode are:
 
-* Mitigating **Cold Starts**: Apprentice mode helps manage and assess the cost of a "new" model's learning time -  when it is not returning the best action and not achieved a satisfactory level of effectiveness of around 75-85%.
+* Mitigating **Cold Starts**: Apprentice mode helps manage and assess the cost of a "new" model's learning time -  when it is not returning the best action and not achieved a satisfactory level of effectiveness of around 60-80%.
 * **Validating Action and Context Features**: Features sent in actions and context may be inadequate or inaccurate - too little, too much, incorrect, or too specific to train Personalizer to attain the ideal effectiveness rate. Use [feature evaluations](concept-feature-evaluation.md) to find and fix issues with features.
 
 ## When should you use Apprentice mode?
@@ -56,14 +58,14 @@ Learning when in Apprentice mode differs from Online mode in the following ways.
 |--|--|--|
 |Impact on User Experience|You can use existing user behavior to train Personalizer by letting it observe (not affect) what your **default action** would have been and the reward it obtained. This means your users’ experience and the business results from them won’t be impacted.|Display top action returned from Rank call to affect user behavior.|
 |Learning speed|Personalizer will learn more slowly when in Apprentice mode than when learning in Online mode. Apprentice mode can only learn by observing the rewards obtained by your **default action**, which limits the speed of learning, as no exploration can be performed.|Learns faster because it can both exploit the current model and explore for new trends.|
-|Learning effectiveness "Ceiling"|Personalizer can approximate, very rarely match, and never exceed the performance of your base business logic (the reward total achieved by the **default action** of each Rank call).|Personalizer should exceed applications baseline, and over time where it stalls you should conduct on offline evaluation and feature evaluation to continue to get improvements to the model. |
+|Learning effectiveness "Ceiling"|Personalizer can approximate, very rarely match, and never exceed the performance of your base business logic (the reward total achieved by the **default action** of each Rank call). This approximation cieling is reduced by exploration. For example, with exploration at 20% it is very unlikely apprentice mode performance will exceed 80%, and 60% is a reasonable target at which to graduate to online mode.|Personalizer should exceed applications baseline, and over time where it stalls you should conduct on offline evaluation and feature evaluation to continue to get improvements to the model. |
 |Rank API value for rewardActionId|The users' experience doesn’t get impacted, as _rewardActionId_ is always the first action you send in the Rank request. In other words, the Rank API does nothing visible for your application during Apprentice mode. Reward APIs in your application should not change how it uses the Reward API between one mode and another.|Users' experience will be changed by the _rewardActionId_ that Personalizer chooses for your application. |
 |Evaluations|Personalizer keeps a comparison of the reward totals that your default business logic is getting, and the reward totals Personalizer would be getting if in Online mode at that point. A comparison is available in the Azure portal for that resource|Evaluate Personalizer’s effectiveness by running [Offline evaluations](concepts-offline-evaluation.md), which let you compare the total rewards Personalizer has achieved against the potential rewards of the application’s baseline.|
 
 A note about apprentice mode's effectiveness:
 
 * Personalizer's effectiveness in Apprentice mode will rarely achieve near 100% of the application's baseline; and never exceed it.
-* Best practices would be not to try to get to 100% attainment; but a range of 75 – 85% should be targeted depending on the use case.
+* Best practices would be not to try to get to 100% attainment; but a range of 60% – 80% should be targeted depending on the use case.
 
 ## Using Apprentice mode to train with historical data
 

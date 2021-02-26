@@ -22,7 +22,7 @@ After you create an [integration service environment (ISE)](../logic-apps/connec
 
 * The ISE that you created to run your logic apps. If you don't have an ISE, [create an ISE first](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
-* To create, add, or update resources that are deployed to an ISE, you need to be assigned the Owner or Contributor role on that ISE, or you have permissions inherited through the Azure subscription or Azure resource group associated with the ISE. For people who don't have owner, contributor, or inherited permissions, they can be assigned the Integration Service Environment Contributor role or Integration Service Environment Developer role. For more information about role-based access control (RBAC), see [What is role-based access control (RBAC) for Azure resources](../role-based-access-control/overview.md)?
+* To create, add, or update resources that are deployed to an ISE, you need to be assigned the Owner or Contributor role on that ISE, or you have permissions inherited through the Azure subscription or Azure resource group associated with the ISE. For people who don't have owner, contributor, or inherited permissions, they can be assigned the Integration Service Environment Contributor role or Integration Service Environment Developer role. For more information, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
 
 <a name="create-logic-apps-environment"></a>
 
@@ -36,7 +36,7 @@ To build logic apps that run in your integration service environment (ISE), foll
 
 1. Provide information about the logic app that you want to create, for example:
 
-   ![Select integration service environment](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
+   ![Screenshot that shows the "Logic App" "Create" window with example information entered.](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -91,7 +91,22 @@ To create an integration account that uses an ISE, follow these steps:
 
 ## Add ISE connectors
 
-Microsoft-managed connectors that become available after you create your ISE don't automatically appear in the connector picker on the Logic App Designer. Before you can use these ISE connectors, you have to manually add and deploy these connectors to your ISE so that they appear in the Logic App Designer.
+After you create your ISE, managed ISE connectors don't automatically appear in the connector picker on the Logic App Designer. Before you can use these ISE connectors, you have to manually add and deploy these connectors to your ISE so that they appear in the Logic App Designer.
+
+> [!IMPORTANT]
+> Managed ISE connectors currently don't support [tags](../azure-resource-manager/management/tag-support.md). 
+> If you set up a policy that enforces tagging, trying to add ISE connectors might fail with an error similar to this example:
+> 
+> ```json
+> {
+>    "error": { 
+>       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+>       "message": "The tags are not supported in the managed API 'azureblob'."
+>    }
+> }
+> ```
+> 
+> So, to add ISE connectors, you have to either disable or remove your policy. 
 
 1. On your ISE menu, under **Settings**, select **Managed connectors**. On the toolbar, select **Add**.
 
@@ -117,13 +132,13 @@ To use custom connectors in your ISE, create those custom connectors from direct
 
 1. From the **Location** list, under the **Integration service environments** section, select the same ISE that your logic apps use, and select **Create**, for example:
 
-   ![Select integration service environment](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
+   ![Screenshot that shows the "Create Logic Apps Custom Connector" window with example information selected.](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
 1. Select your new custom connector, and then select **Edit**, for example:
 
    ![Select and edit custom connector](./media/add-artifacts-integration-service-environment-ise/edit-custom-connectors.png)
 
-1. Continue by creating the connector in the usual way from an [OpenAPI definition](https://docs.microsoft.com/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) or [SOAP](https://docs.microsoft.com/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
+1. Continue by creating the connector in the usual way from an [OpenAPI definition](/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) or [SOAP](/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
 
 1. To manage custom connectors in your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md).
 

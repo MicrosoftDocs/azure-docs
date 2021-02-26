@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 11/19/2020
 ms.author: cynthn
 #pmcontact: shants
 ---
@@ -19,12 +19,13 @@ Maintenance control lets you decide when to apply updates to your isolated VMs a
 With maintenance control, you can:
 - Batch updates into one update package.
 - Wait up to 35 days to apply updates. 
-- Automate platform updates for your maintenance window using Azure Functions.
+- Automate platform updates by configuring a maintenance schedule or by using [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 - Maintenance configurations work across subscriptions and resource groups. 
 
 ## Limitations
 
-- VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](./linux/isolation.md).
+- VMs must be on a [dedicated host](./dedicated-hosts.md), or be created using an [isolated VM size](isolation.md).
+- If a maintenance schedule is declared,it must be for minimum 2 hours.
 - After 35 days, an update will automatically be applied.
 - User must have **Resource Contributor** access.
 
@@ -35,6 +36,8 @@ You can create and manage maintenance configurations using any of the following 
 - [Azure CLI](maintenance-control-cli.md)
 - [Azure PowerShell](maintenance-control-powershell.md)
 - [Azure portal](maintenance-control-portal.md)
+
+For an Azure Functions sample, see [Scheduling Maintenance Updates with Maintenance Control and Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 
 ## Next steps
 

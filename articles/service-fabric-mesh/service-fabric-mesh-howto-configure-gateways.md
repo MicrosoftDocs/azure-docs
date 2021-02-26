@@ -1,15 +1,20 @@
 ---
 title: Configure a Gateway to route requests 
 description: Learn how to configure the gateway that handles incoming traffic for your application(s) running on Service Fabric Mesh.
-author: dkkapur
+author: georgewallace
 
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter 
 ---
 
 # Configure a Gateway resource to route requests
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 A Gateway resource is used to route incoming traffic to the network that houses your application. Configure it to specify rules through which requests are directed to specific services or endpoints based on the structure of the request. See [Introduction to networking in Service Fabric Mesh](service-fabric-mesh-networks-and-gateways.md) for more information on networks and gateways in Mesh. 
 

@@ -1,38 +1,50 @@
 ---
 title: Deploy a Windows Hybrid Runbook Worker in Azure Automation
-description: This article tells how to deploy a Hybrid Runbook Worker that you can use to run runbooks on Windows-based computers in your local datacenter or cloud environment.
+description: This article tells how to deploy a Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/10/2019
+ms.date: 11/24/2020
 ms.topic: conceptual
 ---
 # Deploy a Windows Hybrid Runbook Worker
 
-You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. Azure Automation stores and manages runbooks and then delivers them to one or more designated computers. This article describes how to deploy a Hybrid Runbook Worker on a Windows machine.
+You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including servers registered with [Azure Arc enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
+
+Azure Automation stores and manages runbooks and then delivers them to one or more designated machines. This article describes how to deploy a user Hybrid Runbook Worker on a Windows machine, how to remove the worker, and how to remove a Hybrid Runbook Worker group.
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+## Prerequisites
 
-## Windows Hybrid Runbook Worker installation and configuration
+Before you start, make sure that you have the following.
 
-To install and configure a Windows Hybrid Runbook Worker, you can use one of the following methods.
+### A Log Analytics workspace
 
-* For Azure VMs, install the Log Analytics agent for Windows using the [virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace using an Azure Resource Manager template or PowerShell. Once the agent is installed, the VM can be added to a Hybrid Runbook Worker group in your Automation account. Refer to steps 3 and 4 in the [Manual deployment](#manual-deployment) section.
+The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), through [PowerShell](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json), or in the [Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
-* Use an Automation runbook to completely automate the process of configuring a Windows computer. This is the recommended method for machines in your datacenter or another cloud environment.
+If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/logs/design-logs-deployment.md) before you create the workspace.
 
-* Follow a step-by-step procedure to manually install and configure the Hybrid Runbook Worker role on your non-Azure VM.
+### Log Analytics agent
 
-> [!NOTE]
-> To manage the configuration of servers that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you must add the servers as DSC nodes.
+The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) for the supported Windows operating system. For servers or machines hosted outside of Azure, you can install the Log Analytics agent using [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 
-### Minimum requirements for Windows Hybrid Runbook Worker
+### Supported Windows operating system
 
-The minimum requirements for a Windows Hybrid Runbook Worker are:
+The Hybrid Runbook Worker feature supports the following operating systems:
 
-* Windows Server 2012 or later
-* Windows PowerShell 5.1 or later ([download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))
+* Windows Server 2019 (including Server Core)
+* Windows Server 2016, version 1709 and 1803 (excluding Server Core)
+* Windows Server 2012, 2012 R2
+* Windows Server 2008 SP2 (x64), 2008 R2
+* Windows 10 Enterprise (including multi-session) and Pro
+* Windows 8 Enterprise and Pro
+* Windows 7 SP1
+
+### Minimum requirements
+
+The minimum requirements for a Windows system and user Hybrid Runbook Worker are:
+
+* Windows PowerShell 5.1 ([download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)). PowerShell Core is not supported.
 * .NET Framework 4.6.2 or later
 * Two cores
 * 4 GB of RAM
@@ -40,153 +52,181 @@ The minimum requirements for a Windows Hybrid Runbook Worker are:
 
 ### Network configuration
 
-To get more networking requirements for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
+For networking requirements for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
 
-### Enabling servers for management with Azure Automation State Configuration
+### Adding a machine to a Hybrid Runbook Worker group
 
-For information about enabling servers for management with Azure Automation State Configuration, see [Enable machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
+You can add the worker machine to a Hybrid Runbook Worker group in one of your Automation accounts. For machines hosting the system Hybrid Runbook worker managed by Update Management, they can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
 
-Enabling Azure Automation [Update Management](automation-update-management.md) automatically configures any Windows computer that's connected to your Log Analytics workspace as a Hybrid Runbook Worker to support runbook updates. However, this worker is not registered with any Hybrid Runbook Worker groups already defined in your Automation account.
+>[!NOTE]
+>Azure Automation [Update Management](./update-management/overview.md) automatically installs the system Hybrid Runbook Worker on an Azure or non-Azure machine that's enabled for Update Management. However, this worker is not registered with any Hybrid Runbook Worker groups in your Automation account. To run your runbooks on those machines, you need to add them to a Hybrid Runbook Worker group. Follow step 6 under the section [Manual deployment](#manual-deployment) to add it to a group.
 
-### Addition of the computer to a Hybrid Runbook Worker group
+## Enable for management with Azure Automation State Configuration
 
-You can add the worker computer to a Hybrid Runbook Worker group in your Automation account. Note that you must support Automation runbooks as long as you're using the same account for both the Azure Automation feature and the Hybrid Runbook Worker group membership. This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.
+For information about enabling machines for management with Azure Automation State Configuration, see [Enable machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
+
+> [!NOTE]
+> To manage the configuration of machines that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you must add the machines as DSC nodes.
+
+## Installation options
+
+To install and configure a Windows user Hybrid Runbook Worker, you can use one of the following methods.
+
+* Use a provided PowerShell script to completely [automate](#automated-deployment) the process of configuring one or more Windows machines. This is the recommended method for machines in your datacenter or another cloud environment.
+* Manually import the Automation solution, install the Log Analytics agent for Windows, and configure the worker role on the machine.
 
 ## Automated deployment
 
-On the target machine, perform the following steps to automate the installation and configuration of the Windows Hybrid Worker role.
+The automated deployment method uses the PowerShell script **New-OnPremiseHybridWorker.ps1** to automate and configure the Windows Hybrid Runbook Worker role. It performs the following:
 
-### Step 1 - Download the PowerShell script
+* Installs the necessary modules
+* Signs in with your Azure account
+* Verifies the existence of specified resource group and Automation account
+* Creates references to Automation account attributes
+* Creates an Azure Monitor Log Analytics workspace if not specified
+* Enable the Azure Automation solution in the workspace
+* Download and install the Log Analytics agent for Windows
+* Register the machine as Hybrid Runbook Worker
 
-Download the **New-OnPremiseHybridWorker.ps1** script from the 
-[PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). The download should be directly from the computer running the Hybrid Runbook Worker role or from another computer in your environment. When you have downloaded the script, copy it to your worker. The **New-OnPremiseHybridWorker.ps1** script uses the parameters described below during execution.
+Perform the following steps to install the role on your Windows machine using the script.
 
-| Parameter | Status | Description |
-| --------- | ------ | ----------- |
-| `AAResourceGroupName` | Mandatory | The name of the resource group that's associated with your Automation account. |
-| `AutomationAccountName` | Mandatory | The name of your Automation account.
-| `Credential` | Optional | The credentials to use when logging in to the Azure environment. |
-| `HybridGroupName` | Mandatory | The name of a Hybrid Runbook Worker group that you specify as a target for the runbooks that support this scenario. |
-| `OMSResourceGroupName` | Optional | The name of the resource group for the Log Analytics workspace. If this resource group is not specified, the value of `AAResourceGroupName` is used. |
-| `SubscriptionID` | Mandatory | The identifier of the Azure subscription associated with your Automation account. |
-| `TenantID` | Optional | The identifier of the tenant organization associated with your Automation account. |
-| `WorkspaceName` | Optional | The Log Analytics workspace name. If you don't have a Log Analytics workspace, the script creates and configures one. |
+1. Download the **New-OnPremiseHybridWorker.ps1** script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). After you have downloaded the script, copy or run it on the target machine. The **New-OnPremiseHybridWorker.ps1** script uses the following parameters during execution.
 
-> [!NOTE]
-> When enabling features, Azure Automation only supports certain regions for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](how-to/region-mappings.md).
+    | Parameter | Status | Description |
+    | --------- | ------ | ----------- |
+    | `AAResourceGroupName` | Mandatory | The name of the resource group that's associated with your Automation account. |
+    | `AutomationAccountName` | Mandatory | The name of your Automation account.
+    | `Credential` | Optional | The credentials to use when logging in to the Azure environment. |
+    | `HybridGroupName` | Mandatory | The name of a Hybrid Runbook Worker group that you specify as a target for the runbooks that support this scenario. |
+    | `OMSResourceGroupName` | Optional | The name of the resource group for the Log Analytics workspace. If this resource group is not specified, the value of `AAResourceGroupName` is used. |
+    | `SubscriptionID` | Mandatory | The identifier of the Azure subscription associated with your Automation account. |
+    | `TenantID` | Optional | The identifier of the tenant organization associated with your Automation account. |
+    | `WorkspaceName` | Optional | The Log Analytics workspace name. If you don't have a Log Analytics workspace, the script creates and configures one. |
 
-### Step 2 - Open Windows PowerShell command line shell
+2. Open an elevated 64-bit PowerShell command prompt.
 
-Open **Windows PowerShell** from the **Start** screen in Administrator mode.
+3. From the PowerShell command prompt, browse to the folder that contains the script that you downloaded. Change the values for the parameters `AutomationAccountName`, `AAResourceGroupName`, `OMSResourceGroupName`, `HybridGroupName`, `SubscriptionID`, and `WorkspaceName`. Then run the script.
 
-### Step 3 - Run the PowerShell script
+    You're prompted to authenticate with Azure after you run the script. You must sign in with an account that's a member of the **Subscription Admins** role and co-administrator of the subscription.
 
-In the PowerShell command line shell, browse to the folder that contains the script that you have downloaded. Change the values for the parameters `AutomationAccountName`, `AAResourceGroupName`, `OMSResourceGroupName`, `HybridGroupName`, `SubscriptionID`, and `WorkspaceName`. Then run the script.
+    ```powershell-interactive
+    $NewOnPremiseHybridWorkerParameters = @{
+      AutomationAccountName = <nameOfAutomationAccount>
+      AAResourceGroupName   = <nameOfResourceGroup>
+      OMSResourceGroupName  = <nameOfResourceGroup>
+      HybridGroupName       = <nameOfHRWGroup>
+      SubscriptionID        = <subscriptionId>
+      WorkspaceName         = <nameOfLogAnalyticsWorkspace>
+    }
+    .\New-OnPremiseHybridWorker.ps1 @NewOnPremiseHybridWorkerParameters
+    ```
 
-You're prompted to authenticate with Azure after you run the script. You must sign in with an account that's a member of the Subscription Admins role and co-administrator of the subscription.
+4. You're prompted to agree to install NuGet, and to authenticate with your Azure credentials. If you don't have the latest NuGet version, you can download it from [Available NuGet Distribution Versions](https://www.nuget.org/downloads).
 
-```powershell-interactive
-.\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> -AAResourceGroupName <NameofResourceGroup>`
--OMSResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
--SubscriptionID <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
-```
-
-### Step 4 - Install NuGet
-
-You're prompted to agree to install NuGet, and to authenticate with your Azure credentials. If you don't have the latest NuGet version, you can obtain it from [Available NuGet Distribution Versions](https://www.nuget.org/downloads).
-
-### Step 5 - Verify the deployment
-
-After the script is finished, the Hybrid Worker Groups page shows the new group and the number of members. If it's an existing group, the number of members is incremented. You can select the group from the list on the Hybrid Worker Groups page and choose the **Hybrid Workers** tile. On the Hybrid Workers page, you can see each member of the group listed.
+5. Verify the deployment after the script is finished. From the **Hybrid Runbook Worker Groups** page in your Automation account, under the **User hybrid runbook workers group** tab, it shows the new group and the number of members. If it's an existing group, the number of members is incremented. You can select the group from the list on the page, from the left-hand menu choose **Hybrid Workers** . On the **Hybrid Workers** page, you can see each member of the group listed.
 
 ## Manual deployment
 
-On the target machine, perform the first two steps once for your Automation environment. Then perform the remaining steps for each worker computer.
+To install and configure a Windows Hybrid Runbook Worker, perform the following steps.
 
-### Step 1 - Create a Log Analytics workspace
+1. Enable the Azure Automation solution in your Log Analytics workspace by running the following command in an elevated PowerShell command prompt or in Cloud Shell in the [Azure portal](https://portal.azure.com).
 
-If you don't already have a Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
+    ```powershell
+    Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <resourceGroupName> -WorkspaceName <workspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
+    ```
 
-### Step 2 - Add an Azure Automation feature to the Log Analytics workspace
+2. Deploy the Log Analytics agent to the target machine.
 
-An Automation feature adds functionality for Azure Automation, including support for the Hybrid Runbook Worker. When you enable an Azure Automation feature in your Log Analytics workspace, the worker components are automatically pushed to the agent computer.
+    * For Azure VMs, install the Log Analytics agent for Windows using the [virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. You can use an Azure Resource Manager template, PowerShell, or Azure Policy to assign the [Deploy Log Analytics agent for *Linux* or *Windows* VMs](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. Once the agent is installed, the machine can be added to a Hybrid Runbook Worker group in your Automation account.
+    
+    * For non-Azure machines, you can install the Log Analytics agent using [Azure Arc enabled servers](../azure-arc/servers/overview.md). Arc enabled servers support deploying the Log Analytics agent using the following methods:
+    
+        - Using the VM extensions framework.
+        
+            This feature in Azure Arc enabled servers allows you to deploy the Log Analytics agent VM extension to a non-Azure Windows and/or Linux server. VM extensions can be managed using the following methods on your hybrid machines or servers managed by Arc enabled servers:
+        
+            - The [Azure portal](../azure-arc/servers/manage-vm-extensions-portal.md)
+            - The [Azure CLI](../azure-arc/servers/manage-vm-extensions-cli.md)
+            - [Azure PowerShell](../azure-arc/servers/manage-vm-extensions-powershell.md)
+            - Azure [Resource Manager templates](../azure-arc/servers/manage-vm-extensions-template.md)
+        
+        - Using Azure Policy.
+        
+            Using this approach, you use the Azure Policy [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy to audit if the Arc enabled server has the Log Analytics agent installed. If the agent is not installed, it automatically deploys it using a remediation task. Alternatively, if you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../governance/policy/samples/built-in-initiatives.md#monitoring) initiative to install and configure the Log Analytics agent.
 
-To add the Azure Automation feature, for example, Update Management, to your workspace, run the following PowerShell cmdlet:
+    We recommend installing the Log Analytics agent for Windows or Linux using Azure Policy.
 
-```powershell-interactive
-Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
-```
+3. Verify agent is reporting to workspace
 
-### Step 3 - Install the Log Analytics agent for Windows
+    The Log Analytics agent for Windows connects machines to an Azure Monitor Log Analytics workspace. When you install the agent on your machine and connect it to your workspace, it automatically downloads the components that are required for the Hybrid Runbook Worker.
 
-The Log Analytics agent for Windows connects computers to an Azure Monitor Log Analytics workspace. When you install the agent on your computer and connect it to your workspace, it automatically downloads the components that are required for the Hybrid Runbook Worker.
+    When the agent has successfully connected to your Log Analytics workspace after a few minutes, you can run the following query to verify that it is sending heartbeat data to the workspace.
 
-To install the agent on the computer, follow the instructions at [Connect Windows computers to Azure Monitor logs](../log-analytics/log-analytics-windows-agent.md). You can repeat this process for multiple computers to add multiple workers to your environment.
+    ```kusto
+    Heartbeat 
+    | where Category == "Direct Agent"
+    | where TimeGenerated > ago(30m)
+    ```
 
-When the agent has successfully connected to your Log Analytics workspace after a few minutes, you can run the following query to verify that it is sending heartbeat data to the workspace.
+    In the search results, you should see heartbeat records for the machine, indicating that it is connected and reporting to the service. By default, every agent forwards a heartbeat record to its assigned workspace. Use the following steps to complete the agent installation and setup.
 
-```kusto
-Heartbeat 
-| where Category == "Direct Agent" 
-| where TimeGenerated > ago(30m)
-```
+4. Confirm the version of the Hybrid Runbook Worker on the machine hosting the Log Analytics agent, browse to `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` and note the **version** subfolder. This folder will appear on the machine several minutes after the solution is enabled in the workspace.
 
-In the search results, you should see heartbeat records for the computer, indicating that it is connected and reporting to the service. By default, every agent forwards a heartbeat record to its assigned workspace. Use the following steps to complete the agent installation and setup.
+5. Install the runbook environment and connect to Azure Automation. When you configure an agent to report to a Log Analytics workspace and import the **Automation** solution, the solution pushes down the `HybridRegistration` PowerShell module. This module contains the `Add-HybridRunbookWorker` cmdlet. Use this cmdlet to install the runbook environment on the machine and register it with Azure Automation.
 
-1. Enable the feature to add the agent machine. See [Enable machines in the workspace](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-automation-account#onboard-machines-in-the-workspace).
-2. Verify that the agent has correctly downloaded the Azure Automation feature. 
-3. To confirm the version of the Hybrid Runbook Worker, browse to **C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation** and note the **version** subfolder.
+    Open a PowerShell session in Administrator mode and run the following commands to import the module.
 
-### Step 4 - Install the runbook environment and connect to Azure Automation
+    ```powershell-interactive
+    cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
+    Import-Module .\HybridRegistration.psd1
+    ```
 
-When you configure an agent to report to a Log Analytics workspace, the Azure Automation feature pushes down the `HybridRegistration` PowerShell module, which contains the `Add-HybridRunbookWorker` cmdlet. Use this cmdlet to install the runbook environment on the computer and register it with Azure Automation.
+6. Run the `Add-HybridRunbookWorker` cmdlet specifying the values for the parameters `Url`, `Key`, and `GroupName`.
 
-Open a PowerShell session in Administrator mode and run the following commands to import the module.
+    ```powershell-interactive
+    Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
+    ```
 
-```powershell-interactive
-cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
-Import-Module .\HybridRegistration.psd1
-```
+    You can get the information required for the parameters `Url` and `Key` from the **Keys** page in your Automation account. Select **Keys** under the **Account settings** section from the left-hand side of the page.
 
-Now run the `Add-HybridRunbookWorker` cmdlet using the following syntax.
+    ![Manage Keys page](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
-```powershell-interactive
-Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
-```
+    * For the `Url` parameter, copy the value for **URL**.
 
-You can get the information required for this cmdlet from the Manage Keys page in the Azure portal. Open this page by selecting **Keys** on the Settings page in your Automation account.
+    * For the `Key` parameter, copy the value for **PRIMARY ACCESS KEY**.
 
-![Manage Keys page](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
+    * For the `GroupName` parameter, use the name of the Hybrid Runbook Worker group. If this group already exists in the Automation account, the current machine is added to it. If this group doesn't exist, it's added.
 
-* For the `GroupName` parameter, use the name of the Hybrid Runbook Worker group. If this group already exists in the Automation account, the current computer is added to it. If this group doesn't exist, it's added.
-* For the `EndPoint` parameter, use the **URL** entry on the Manage Keys page.
-* For the `Token` parameter, use the **PRIMARY ACCESS KEY** entry on the Manage Keys page.
-* If required, set the `Verbose` parameter to receive details about the installation.
+    * If required, set the `Verbose` parameter to receive details about the installation.
 
-### Step 5 -  Install PowerShell modules
+7. Verify the deployment after the command is completed. From the **Hybrid Runbook Worker Groups** page in your Automation account, under the **User hybrid runbook workers group** tab, it shows the new or existing group and the number of members. If it's an existing group, the number of members is incremented. You can select the group from the list on the page, from the left-hand menu choose **Hybrid Workers**. On the **Hybrid Workers** page, you can see each member of the group listed.
 
-Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment. As these modules are not automatically deployed to on-premises computers, you must install them manually. The exception is the Azure module. This module is installed by default and provides access to cmdlets for all Azure services and activities for Azure Automation.
+## Install PowerShell modules
 
-Because the primary purpose of the Hybrid Runbook Worker is to manage local resources, you most likely need to install the modules that support these resources, particularly the `PowerShellGet` module. For information on installing Windows PowerShell modules, see [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
+Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment. As these modules are not automatically deployed to on-premises machines, you must install them manually. The exception is the Azure module. This module is installed by default and provides access to cmdlets for all Azure services and activities for Azure Automation.
 
-Modules that are installed must be in a location referenced by the `PSModulePath` environment variable so that the hybrid worker can automatically import them. For more information, see [Install Modules in PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+Because the primary purpose of the Hybrid Runbook Worker is to manage local resources, you most likely need to install the modules that support these resources, particularly the `PowerShellGet` module. For information on installing Windows PowerShell modules, see [Windows PowerShell](/powershell/scripting/developer/windows-powershell).
 
-## <a name="remove-windows-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker from an on-premises Windows computer
+Modules that are installed must be in a location referenced by the `PSModulePath` environment variable so that the hybrid worker can automatically import them. For more information, see [Install Modules in PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module).
+
+## <a name="remove-windows-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker
 
 1. In the Azure portal, go to your Automation account.
+
 2. Under **Account Settings**, select **Keys** and note the values for **URL** and **Primary Access Key**.
 
 3. Open a PowerShell session in Administrator mode and run the following command with your URL and primary access key values. Use the `Verbose` parameter for a detailed log of the removal process. To remove stale machines from your Hybrid Worker group, use the optional `machineName` parameter.
 
 ```powershell-interactive
-Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
+Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
 ```
 
 ## Remove a Hybrid Worker group
 
-To remove a Hybrid Runbook Worker group, you first need to remove the Hybrid Runbook Worker from every computer that is a member of the group. Then use the following steps to remove the group:
+To remove a Hybrid Runbook Worker group, you first need to remove the Hybrid Runbook Worker from every machine that is a member of the group. Then use the following steps to remove the group:
 
 1. Open the Automation account in the Azure portal.
+
 2. Select **Hybrid worker groups** under **Process Automation**. Select the group that you want to delete. The properties page for that group appears.
 
    ![Properties page](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
@@ -200,4 +240,5 @@ To remove a Hybrid Runbook Worker group, you first need to remove the Hybrid Run
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+
 * To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues](troubleshoot/hybrid-runbook-worker.md#general).

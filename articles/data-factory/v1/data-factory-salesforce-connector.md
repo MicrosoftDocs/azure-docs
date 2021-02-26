@@ -1,21 +1,11 @@
 ---
 title: Move data from Salesforce by using Data Factory 
 description: Learn about how to move data from Salesforce by using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from Salesforce by using Azure Data Factory
@@ -43,7 +33,7 @@ Salesforce has limits for both total API requests and concurrent API requests. N
 - If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures.
 - If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours.
 
-You might also receive the “REQUEST_LIMIT_EXCEEDED“ error in both scenarios. See the "API Request Limits" section in the [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
+You might also receive the "REQUEST_LIMIT_EXCEEDED" error in both scenarios. See the "API Request Limits" section in the [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from Salesforce by using different tools/APIs.
@@ -85,7 +75,7 @@ The **typeProperties** section is different for each type of dataset and provide
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Screenshot shows the Custom Object Definition Detail where you can see the A P I names of the custom objects.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 ## Copy activity properties
 For a full list of sections and properties that are available for defining activities, see the [Creating pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, and various policies are available for all types of activities.
@@ -101,7 +91,7 @@ In copy activity, when the source is of the type **RelationalSource** (which inc
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Screenshot shows the Custom Fields & Relationships where you can see the A P I names of the custom objects.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Query tips
 ### Retrieving data using where clause on DateTime column
@@ -196,7 +186,7 @@ Setting **external** to **true** informs the Data Factory service that the datas
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Screenshot shows the Custom Object Definition Detail where you can see Singular Label, Plural Label, Object Name, and A P I Name.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 **Azure blob output dataset**
 
@@ -277,7 +267,7 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Screenshot shows the Custom Fields & Relationships with the A P I names called out.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 
 ### Type mapping for Salesforce

@@ -16,7 +16,7 @@ When you’re running a web application, you want to be prepared for any issues 
 
 Although this experience is most helpful when you’re having issues with your app within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
-App Service diagnostics works for not only your app on Windows, but also apps on [Linux/containers](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro), and [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+App Service diagnostics works for not only your app on Windows, but also apps on [Linux/containers](./overview.md#app-service-on-linux), [App Service Environment](./environment/intro.md), and [Azure Functions](../azure-functions/functions-overview.md).
 
 ## Open App Service diagnostics
 
@@ -67,7 +67,7 @@ There are four different graphs in the health checkup.
 
 ### Investigate application code issues (only for Windows app)
 
-Because many app issues are related to issues in your application code, App Service diagnostics integrates with [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights has to be enabled separately.
+Because many app issues are related to issues in your application code, App Service diagnostics integrates with [Application Insights](../azure-monitor/app/app-insights-overview.md) to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights has to be enabled separately.
 
 ![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 

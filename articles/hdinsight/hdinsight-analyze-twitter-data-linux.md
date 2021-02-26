@@ -1,11 +1,8 @@
 ---
 title: Analyze Twitter data with Apache Hive - Azure HDInsight 
 description: Learn how to use Apache Hive and Apache Hadoop on HDInsight to transform raw TWitter data into a searchable Hive table.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ---
@@ -308,4 +305,4 @@ These commands store the data in a location that all nodes in the cluster can ac
 You've learned how to transform an unstructured JSON dataset into a structured [Apache Hive](https://hive.apache.org/) table. To learn more about Hive on HDInsight, see the following documents:
 
 * [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Analyze flight delay data using HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [Analyze flight delay data using HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

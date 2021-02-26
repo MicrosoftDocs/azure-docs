@@ -8,15 +8,16 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
-
+ms.custom: devx-track-js
 ---
 # Quickstart: Build a Table API app with Node.js and Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
-> * [Python](create-table-python.md)
+> * [Python](./table-storage-how-to-use-python.md)
 > 
 
 In this quickstart, you create an Azure Cosmos DB Table API account, and use Data Explorer and a Node.js app cloned from GitHub to create tables and entities. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
@@ -133,7 +134,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-    ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-nodejs/connection-string.png)
+    :::image type="content" source="./media/create-table-nodejs/connection-string.png" alt-text="View and copy the required connection string information from the in the Connection String pane":::
 
 2. Copy the PRIMARY CONNECTION STRING using the copy button on the right side.
 

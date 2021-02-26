@@ -19,7 +19,7 @@ DevOps Starter also:
 * Automatically creates Azure resources, such as Azure Kubernetes Service (AKS).
 * Creates and configures a release pipeline in Azure DevOps that sets up a build and release pipeline for CI/CD.
 * Creates an Azure Application Insights resource for monitoring.
-* Enables [Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) to monitor performance for the container workloads on the AKS cluster
+* Enables [Azure Monitor for containers](../azure-monitor/containers/container-insights-overview.md) to monitor performance for the container workloads on the AKS cluster
 
 In this tutorial, you will:
 
@@ -166,4 +166,4 @@ You can optionally modify these build and release pipelines to meet the needs of
 To learn more about using the Kubernetes dashboard, see:
 
 > [!div class="nextstepaction"]
-> [Use the Kubernetes dashboard](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)
+> [Use the Kubernetes dashboard](../aks/kubernetes-dashboard.md)

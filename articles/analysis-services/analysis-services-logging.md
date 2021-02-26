@@ -11,7 +11,7 @@ ms.reviewer: minewiskan
 ---
 # Setup diagnostic logging
 
-An important part of any Analysis Services solution is monitoring how your servers are performing. Azure Analysis services is integrated with Azure Monitor. With [Azure Monitor resource logs](../azure-monitor/platform/platform-logs-overview.md), you can monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](../azure-monitor/azure-monitor-log-hub.md).
+An important part of any Analysis Services solution is monitoring how your servers are performing. Azure Analysis services is integrated with Azure Monitor. With [Azure Monitor resource logs](../azure-monitor/essentials/platform-logs-overview.md), you can monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](../azure-monitor/overview.md).
 
 ![Resource logging to Storage, Event Hubs, or Azure Monitor logs](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -23,7 +23,7 @@ You can select **Engine**, **Service**, and **Metrics** categories.
 
 ### Engine
 
-Selecting **Engine** logs all [xEvents](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). You cannot select individual events. 
+Selecting **Engine** logs all [xEvents](/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). You cannot select individual events. 
 
 |XEvent categories |Event name  |
 |---------|---------|
@@ -75,9 +75,9 @@ The Metrics category logs the same [Server metrics](analysis-services-monitor.md
 
     * **Name**. Enter a name for the logs to create.
 
-    * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. See [Create a storage account](../storage/common/storage-create-storage-account.md). Follow the instructions to create a Resource Manager, general-purpose account, then select your storage account by returning to this page in the portal. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
+    * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. See [Create a storage account](../storage/common/storage-account-create.md). Follow the instructions to create a Resource Manager, general-purpose account, then select your storage account by returning to this page in the portal. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
     * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To learn more, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). Then return to this page in the portal to select the Event Hub namespace and policy name.
-    * **Send to Azure Monitor (Log Analytics workspace)**. To use this option, either use an existing workspace or [create a new workspace](../azure-monitor/learn/quick-create-workspace.md) resource in the portal. For more information on viewing your logs, see [View logs in Log Analytics workspace](#view-logs-in-log-analytics-workspace) in this article.
+    * **Send to Azure Monitor (Log Analytics workspace)**. To use this option, either use an existing workspace or [create a new workspace](../azure-monitor/logs/quick-create-workspace.md) resource in the portal. For more information on viewing your logs, see [View logs in Log Analytics workspace](#view-logs-in-log-analytics-workspace) in this article.
 
     * **Engine**. Select this option to log xEvents. If you're archiving to a storage account, you can select the retention period for the resource logs. Logs are autodeleted after the retention period expires.
     * **Service**. Select this option to log service level events. If you are archiving to a storage account, you can select the retention period for the resource logs. Logs are autodeleted after the retention period expires.
@@ -85,7 +85,7 @@ The Metrics category logs the same [Server metrics](analysis-services-monitor.md
 
 3. Click **Save**.
 
-    If you receive an error that says "Failed to update diagnostics for \<workspace name>. The subscription \<subscription id> is not registered to use microsoft.insights." follow the [Troubleshoot Azure Diagnostics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) instructions to register the account, then retry this procedure.
+    If you receive an error that says "Failed to update diagnostics for \<workspace name>. The subscription \<subscription id> is not registered to use microsoft.insights." follow the [Troubleshoot Azure Diagnostics](../azure-monitor/essentials/resource-logs.md) instructions to register the account, then retry this procedure.
 
     If you want to change how your resource logs are saved at any point in the future, you can return to this page to modify settings.
 
@@ -131,11 +131,11 @@ You can combine these parameters to enable multiple output options.
 
 ### REST API
 
-Learn how to [change diagnostics settings by using the Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/). 
+Learn how to [change diagnostics settings by using the Azure Monitor REST API](/rest/api/monitor/). 
 
 ### Resource Manager template
 
-Learn how to [enable diagnostics settings at resource creation by using a Resource Manager template](../azure-monitor/platform/diagnostic-settings-template.md). 
+Learn how to [enable diagnostics settings at resource creation by using a Resource Manager template](../azure-monitor/essentials/resource-manager-diagnostic-settings.md). 
 
 ## Manage your logs
 
@@ -203,7 +203,7 @@ window
 | order by TimeGenerated asc 
 ```
 
-There are hundreds of queries you can use. To learn more about queries, see [Get started with Azure Monitor log queries](../azure-monitor/log-query/get-started-queries.md).
+There are hundreds of queries you can use. To learn more about queries, see [Get started with Azure Monitor log queries](../azure-monitor/logs/get-started-queries.md).
 
 
 ## Turn on logging by using PowerShell
@@ -321,6 +321,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## Next steps
 
-Learn more about [Azure Monitor resource logging](../azure-monitor/platform/platform-logs-overview.md).
+Learn more about [Azure Monitor resource logging](../azure-monitor/essentials/platform-logs-overview.md).
 
-See [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) in PowerShell help.
+See [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) in PowerShell help.

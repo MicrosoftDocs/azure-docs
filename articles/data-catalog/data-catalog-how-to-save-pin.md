@@ -4,10 +4,13 @@ description: How-to article highlighting capabilities in Azure Data Catalog for 
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
 ---
 # Save searches and pin data assets in Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## Introduction
 Azure Data Catalog provides capabilities for data source discovery. You can quickly search and filter the catalog to locate data sources and understand their intended purpose, making it easier to find the right data for the job at hand.
 

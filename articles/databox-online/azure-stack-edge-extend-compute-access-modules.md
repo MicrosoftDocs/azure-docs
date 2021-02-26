@@ -1,6 +1,6 @@
 ---
-title: Manage compute network on Azure Stack Edge to access modules| Microsoft Docs 
-description: Describes how to extend the compute network on your Azure Stack Edge to access modules via an external IP.
+title: Manage compute network on Azure Stack Edge Pro to access modules| Microsoft Docs 
+description: Describes how to extend the compute network on your Azure Stack Edge Pro to access modules via an external IP.
 services: databox
 author: alkohli
 
@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
 ---
-# Enable compute network on your Azure Stack Edge
+# Enable compute network on your Azure Stack Edge Pro
 
-This article describes how the modules running on your Azure Stack Edge can access the compute network enabled on the device.
+This article describes how the modules running on your Azure Stack Edge Pro can access the compute network enabled on the device.
 
 To configure the network, you'll take the following steps:
 
-- Enable a network interface on your Azure Stack Edge device for compute
-- Add a module to access compute network on your Azure Stack Edge
+- Enable a network interface on your Azure Stack Edge Pro device for compute
+- Add a module to access compute network on your Azure Stack Edge Pro
 - Verify the module can access the enabled network interface
 
 In this tutorial, you'll use a webserver app module to demonstrate the scenario.
@@ -26,8 +26,8 @@ In this tutorial, you'll use a webserver app module to demonstrate the scenario.
 
 Before you begin, you'll need:
 
-- An Azure Stack Edge device with device setup completed.
-- You've completed **Configure compute** step as per the [Tutorial: Transform data with Azure Stack Edge](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) on your device. Your device should have an associated IoT Hub resource, an IoT device, and an IoT Edge device.
+- An Azure Stack Edge Pro device with device setup completed.
+- You've completed **Configure compute** step as per the [Tutorial: Transform data with Azure Stack Edge Pro](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) on your device. Your device should have an associated IoT Hub resource, an IoT device, and an IoT Edge device.
 
 ## Enable network interface for compute
 
@@ -50,10 +50,10 @@ Take the following steps on your local web UI to configure compute settings.
 
 ## Add webserver app module
 
-Take the following steps to add a webserver app module on your Azure Stack Edge device.
+Take the following steps to add a webserver app module on your Azure Stack Edge Pro device.
 
-1. Go to the IoT Hub resource associated with your Azure Stack Edge device and then select **IoT Edge device**.
-2. Select the IoT Edge device associated with your Azure Stack Edge device. On the **Device details**, select **Set modules**. On **Add modules**, select **+ Add** and then select **IoT Edge Module**.
+1. Go to the IoT Hub resource associated with your Azure Stack Edge Pro device and then select **IoT Edge device**.
+2. Select the IoT Edge device associated with your Azure Stack Edge Pro device. On the **Device details**, select **Set modules**. On **Add modules**, select **+ Add** and then select **IoT Edge Module**.
 3. In the **IoT Edge custom modules** blade:
 
     1. Specify a **Name** for your webserver app module that you want to deploy.

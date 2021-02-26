@@ -62,8 +62,6 @@ Link the Device Provisioning Service and IoT hub so that the Device Provisioning
 4. In the **Add link to IoT hub** page, use the radio buttons to specify whether the linked IoT hub is located in the current subscription, or in a different subscription. Then, choose the name of the IoT hub from the **IoT hub** box.
 5. Click **Save**.
 
-## Next steps
-
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
@@ -71,6 +69,8 @@ In this tutorial, you learned how to:
 > * Add an enrollment list entry to the second device
 > * Set the Device Provisioning Service allocation policy to **even distribution**
 > * Link the new IoT hub to the Device Provisioning Service
+
+## Next steps
 
 <!-- Advance to the next tutorial to learn how to 
  Replace this .md

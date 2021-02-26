@@ -1,19 +1,19 @@
 ---
-title: "Tutorial: Use REST APIs to copy to Blob storage"
+title: "Tutorial: Copy to Blob storage via REST APIs"
 titleSuffix: Azure Data Box
-description: Learn how to copy data to your Azure Data Box Blob storage via REST APIs
+description: In this tutorial, learn how to connect to Azure Data Box Blob storage by using REST APIs over http or https, then copy data from Azure Data Box.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/09/2019
+ms.date: 07/02/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 
-# Tutorial: Copy data to Azure Data Box Blob storage via REST APIs  
+# Tutorial: Use REST APIs to Copy data to Azure Data Box Blob storage  
 
 This tutorial describes procedures to connect to Azure Data Box Blob storage via REST APIs over *http* or *https*. Once connected, the steps required to copy the data to Data Box Blob storage and prepare the Data Box to ship, are also described.
 
@@ -108,15 +108,15 @@ Follow these steps to import the `.cer` file into the root store of a Windows or
 1. Right-click the `.cer` file and select **Install certificate**. This action starts the Certificate Import Wizard.
 2. For **Store location**, select **Local Machine**, and then click **Next**.
 
-    ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
+    ![Certificate Import Wizard, Windows Server](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
 3. Select **Place all certificates in the following store**, and then click **Browse**. Navigate to the root store of your remote host, and then click **Next**.
 
-    ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
+    ![Certificate Import Wizard, Certificate Store](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
 4. Click **Finish**. A message that tells you that the import was successful appears.
 
-    ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
+    ![Certificate Import Wizard, finish import](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
 #### Use a Linux system
 
@@ -170,7 +170,7 @@ The first step is to create a container, because blobs are always uploaded into 
 2. In the left pane, expand the storage account within which you wish to create the blob container.
 3. Right-click **Blob Containers**, and from the context menu, select **Create Blob Container**.
 
-   ![Create blob containers context menu](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
+   ![Blob Containers context menu, Create Blob Container](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
 4. A text box appears below the **Blob Containers** folder. Enter the name for your blob container. See the [Create the container and set permissions](../storage/blobs/storage-quickstart-blobs-dotnet.md) for information on rules and restrictions on naming blob containers.
 5. Press **Enter** when done to create the blob container, or **Esc** to cancel. Once the blob container is successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
@@ -183,15 +183,19 @@ Use AzCopy to upload all files in a folder to Blob storage on Windows or Linux. 
 
 #### Linux
 
-    azcopy \
-        --source /mnt/myfolder \
-        --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-        --dest-key <key> \
-        --recursive
+```azcopy
+azcopy \
+    --source /mnt/myfolder \
+    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+    --dest-key <key> \
+    --recursive
+```
 
 #### Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```
 
 Replace `<key>` with your account key. To get your account key, in the Azure portal, go to your storage account. Go to **Settings > Access keys**, select a key, and paste it into the AzCopy command.
 
@@ -206,16 +210,21 @@ Use AzCopy to upload files based on their last-modified time. To try this, modif
 If you only want to copy source resources that do not exist in the destination, specify both `--exclude-older` and `--exclude-newer` (Linux) or `/XO` and `/XN` (Windows) parameters in the AzCopy command. AzCopy uploads only the updated data, based on its time stamp.
 
 #### Linux
-    azcopy \
-    --source /mnt/myfolder \
-    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-    --dest-key <key> \
-    --recursive \
-    --exclude-older
+
+```azcopy
+azcopy \
+--source /mnt/myfolder \
+--destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+--dest-key <key> \
+--recursive \
+--exclude-older
+```
 
 #### Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```
 
 If there are any errors during the connect or copy operation, see [Troubleshoot issues with Data Box Blob storage](data-box-troubleshoot-rest.md).
 

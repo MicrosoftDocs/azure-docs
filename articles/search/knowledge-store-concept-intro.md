@@ -1,27 +1,22 @@
 ---
-title: Knowledge store concepts (preview)
+title: Knowledge store concepts
 titleSuffix: Azure Cognitive Search
-description: Send enriched documents to Azure Storage where you can view, reshape, and consume enriched documents in Azure Cognitive Search and in other applications. This feature is in public preview.
-
+description: Send enriched documents to Azure Storage where you can view, reshape, and consume enriched documents in Azure Cognitive Search and in other applications.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 06/30/2020
 ---
 
 # Knowledge store in Azure Cognitive Search
 
-> [!IMPORTANT] 
-> Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
+Knowledge store is a feature of Azure Cognitive Search that persists output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) for independent analysis or downstream processing. An *enriched document* is a pipeline's output, created from content that has been extracted, structured, and analyzed using AI processes. In a standard AI pipeline, enriched documents are transitory, used only during indexing and then discarded. Choosing to create a knowledge store will allow you to preserve the enriched documents. 
 
-Knowledge store is a feature of Azure Cognitive Search that persists output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) for independent analysis or downstream processing. An *enriched document* is a pipeline's output, created from content that has been extracted, structured, and analyzed using AI processes. In a standard AI pipeline, enriched documents are transitory, used only during indexing and then discarded. With knowledge store, enriched documents are preserved. 
+If you have used cognitive skills in the past, you already know that *skillsets* move a document through a sequence of enrichments. The outcome can be a search index, or projections in a knowledge store. The two outputs, search index and knowledge store, are products of the same pipeline; derived from the same inputs, but resulting in output that is structured, stored, and used in very different ways.
 
-If you have used cognitive skills in the past, you already know that *skillsets* move a document through a sequence of enrichments. The outcome can be a search index, or (new in this preview) projections in a knowledge store. The two outputs, search index and knowledge store, are products of the same pipeline; derived from the same inputs, but resulting in output that is structured, stored, and used in very different ways.
-
-Physically, a knowledge store is [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), either Azure Table storage, Azure Blob storage, or both. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
+Physically, a knowledge store is [Azure Storage](../storage/common/storage-account-overview.md), either Azure Table storage, Azure Blob storage, or both. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
 
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
@@ -39,7 +34,7 @@ Enumerated, the benefits of knowledge store include the following:
 
 + Consume enriched documents in [analytics and reporting tools](#tools-and-apps) other than search. Power BI with Power Query is a compelling choice, but any tool or app that can connect to Azure Storage can pull from a knowledge store that you create.
 
-+ Refine an AI-indexing pipeline while debugging steps and skillset definitions. A knowledge store shows you the product of a skillset definition in an AI-indexing pipeline. You can use those results to design a better skillset because you can see exactly what the enrichments look like. You can use [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) in Azure Storage to view the contents of a knowledge store.
++ Refine an AI-indexing pipeline while debugging steps and skillset definitions. A knowledge store shows you the product of a skillset definition in an AI-indexing pipeline. You can use those results to design a better skillset because you can see exactly what the enrichments look like. You can use [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) in Azure Storage to view the contents of a knowledge store.
 
 + Shape the data into new forms. The reshaping is codified in skillsets, but the point is that a skillset can now provide this capability. The [Shaper skill](cognitive-search-skill-shaper.md) in Azure Cognitive Search has been extended to accommodate this task. Reshaping allows you to define a projection that aligns with your intended use of the data while preserving relationships.
 
@@ -84,7 +79,7 @@ However, it is possible to create multiple sets of `table`-`object`-`file` proje
 
 ## Requirements 
 
-[Azure Storage](https://docs.microsoft.com/azure/storage/) is required. It provides physical storage. You can use Blob storage, Table storage or both. Blob storage is used for intact enriched documents, usually when the output is going to downstream processes. Table storage is for slices of enriched documents, commonly used for analysis and reporting.
+[Azure Storage](../storage/index.yml) is required. It provides physical storage. You can use Blob storage, Table storage or both. Blob storage is used for intact enriched documents, usually when the output is going to downstream processes. Table storage is for slices of enriched documents, commonly used for analysis and reporting.
 
 [Skillset](cognitive-search-working-with-skillsets.md) is required. It contains the `knowledgeStore` definition, and it determines the structure and composition of an enriched document. You cannot create a knowledge store using an empty skillset. You must have at least one skill in a skillset.
 
@@ -100,7 +95,7 @@ However, it is possible to create multiple sets of `table`-`object`-`file` proje
 
 ## How to create a knowledge store
 
-To create knowledge store, use the portal or the preview REST API (`api-version=2019-05-06-Preview`).
+To create knowledge store, use the portal or the REST API (`api-version=2020-06-30`).
 
 ### Use the Azure portal
 
@@ -114,13 +109,11 @@ The **Import data** wizard includes options for creating a knowledge store. For 
 
 1. Run the wizard. Extraction, enrichment, and storage occur in this last step.
 
-### Use Create Skillset and the preview REST API
+### Use Create Skillset (REST API)]
 
 A `knowledgeStore` is defined within a [skillset](cognitive-search-working-with-skillsets.md), which in turn is invoked by an [indexer](search-indexer-overview.md). During enrichment, Azure Cognitive Search creates a space in your Azure Storage account and projects the enriched documents as blobs or into tables, depending on your configuration.
 
-Currently, the preview REST API is the only mechanism by which you can create a knowledge store programmatically. An easy way to explore is [create your first knowledge store using Postman and the REST API](knowledge-store-create-rest.md).
-
-Reference content for this preview feature is located in the [API reference](#kstore-rest-api) section of this article. 
+The REST API is one mechanism by which you can create a knowledge store programmatically. An easy way to explore is [create your first knowledge store using Postman and the REST API](knowledge-store-create-rest.md).
 
 <a name="tools-and-apps"></a>
 
@@ -132,23 +125,23 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 + [Power BI](knowledge-store-connect-power-bi.md) for reporting and analysis. 
 
-+ [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) for further manipulation.
++ [Azure Data Factory](../data-factory/index.yml) for further manipulation.
 
 <a name="kstore-rest-api"></a>
 
 ## API reference
 
-REST API version `2019-05-06-Preview` provides knowledge store through additional definitions on skillsets. In addition to the reference, see  [Create a knowledge store using Postman](knowledge-store-create-rest.md) for details on how to call the APIs.
+REST API version `2020-06-30` provides knowledge store through additional definitions on skillsets. In addition to the reference, see  [Create a knowledge store using Postman](knowledge-store-create-rest.md) for details on how to call the APIs.
 
-+ [Create Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-skillset) 
-+ [Update Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 
++ [Create Skillset (api-version=2020-06-30)](/rest/api/searchservice/create-skillset)
++ [Update Skillset (api-version=2020-06-30)](/rest/api/searchservice/update-skillset)
 
 
 ## Next steps
 
 Knowledge store offers persistence of enriched documents, useful when designing a skillset, or the creation of new structures and content for consumption by any client applications capable of accessing an Azure Storage account.
 
-The simplest approach for creating enriched documents is [through the portal](knowledge-store-create-portal.md), but you can also use Postman and REST API, which is more useful if you want insight into how objects are created and referenced.
+The simplest approach for creating enriched documents is [through the portal](knowledge-store-create-portal.md), but you can also use Postman and the REST API, which is more useful if you want insight into how objects are created and referenced.
 
 > [!div class="nextstepaction"]
 > [Create a knowledge store using Postman and REST](knowledge-store-create-rest.md)

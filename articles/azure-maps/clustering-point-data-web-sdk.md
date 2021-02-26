@@ -1,6 +1,6 @@
 ---
 title: Clustering point data on a map | Microsoft Azure Maps
-description: In this article, you'll learn how to cluster point data and render it on a map using the Microsoft Azure Maps Web SDK.
+description: Learn how to cluster point data on maps. See how to use the Azure Maps Web SDK to cluster data, react to cluster mouse events, and display cluster aggregates.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: codepen
+ms.custom: codepen, devx-track-js
 ---
 
 # Clustering point data
 
 When visualizing many data points on the map, data points may overlap over each other. The overlap may cause the map may become unreadable and difficult to use. Clustering point data is the process of combining point data that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points. When you work with large number of data points, use the clustering processes to improve your user experience.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
 
 ## Enabling clustering on a data source
 
@@ -133,13 +133,13 @@ The following sample uses an aggregate expression. The code calculates a count b
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [DataSource class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)
+> [DataSource class](/javascript/api/azure-maps-control/atlas.source.datasource)
 
 > [!div class="nextstepaction"]
-> [DataSourceOptions object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-iot-typescript-latest)
+> [DataSourceOptions object](/javascript/api/azure-maps-control/atlas.datasourceoptions)
 
 > [!div class="nextstepaction"]
-> [atlas.math namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math?view=azure-iot-typescript-latest)
+> [atlas.math namespace](/javascript/api/azure-maps-control/atlas.math)
 
 See code examples to add functionality to your app:
 

@@ -7,22 +7,22 @@ ms.date: 6/10/2018
 
 # Azure Files volume driver for Service Fabric
 
-The Azure Files volume driver is a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](/azure/storage/files/storage-files-introduction) based volumes for Docker containers. It is packaged as a Service Fabric application that can be deployed to a Service Fabric cluster to provide volumes for other Service Fabric container applications within the cluster.
+The Azure Files volume driver is a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](../storage/files/storage-files-introduction.md) based volumes for Docker containers. It is packaged as a Service Fabric application that can be deployed to a Service Fabric cluster to provide volumes for other Service Fabric container applications within the cluster.
 
 > [!NOTE]
 > Version 6.5.661.9590 of the Azure Files volume plugin has been released for general availability.
 >
 
 ## Prerequisites
-* The Windows version of the Azure Files volume plugin works on [Windows Server version 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) or later operating systems only.
+* The Windows version of the Azure Files volume plugin works on [Windows Server version 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](/windows/whats-new/whats-new-windows-10-version-1709) or later operating systems only.
 
 * The Linux version of the Azure Files volume plugin works on all operating system versions supported by Service Fabric.
 
 * The Azure Files volume plugin only works on Service Fabric version 6.2 and newer.
 
-* Follow the instructions in the [Azure Files documentation](/azure/storage/files/storage-how-to-create-file-share) to create a file share for the Service Fabric container application to use as volume.
+* Follow the instructions in the [Azure Files documentation](../storage/files/storage-how-to-create-file-share.md) to create a file share for the Service Fabric container application to use as volume.
 
-* You will need [Powershell with the Service Fabric module](/azure/service-fabric/service-fabric-get-started) or [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) installed.
+* You will need [Powershell with the Service Fabric module](./service-fabric-get-started.md) or [SFCTL](./service-fabric-cli.md) installed.
 
 * If you are using Hyper-V containers, the following snippets need to be added in the ClusterManifest (local cluster) or fabricSettings section in your Azure Resource Manager template (Azure cluster) or ClusterConfig.json (standalone cluster).
 
@@ -67,7 +67,7 @@ Azure Resource Manager deployment command for Linux:
 .\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -linux
 ```
 
-Once you've successfully run the script, you can skip to the [configuring your application section.](/azure/service-fabric/service-fabric-containers-volume-logging-drivers#configure-your-applications-to-use-the-volume)
+Once you've successfully run the script, you can skip to the [configuring your application section.](#configure-your-applications-to-use-the-volume)
 
 
 ### Manual deployment for standalone clusters
@@ -120,7 +120,7 @@ The Service Fabric application that provides the volumes for your containers can
 > Windows Server 2016 Datacenter does not support mapping SMB mounts to containers ([That is only supported on Windows Server version 1709](/virtualization/windowscontainers/manage-containers/container-storage)). This constraint prevents network volume mapping and Azure Files volume drivers on versions older than 1709.
 
 #### Deploy the application on a local development cluster
-Follow steps 1-3 from the [above.](/azure/service-fabric/service-fabric-containers-volume-logging-drivers#manual-deployment-for-standalone-clusters)
+Follow steps 1-3 from the [above.](#manual-deployment-for-standalone-clusters)
 
  The default service instance count for the Azure Files volume plugin application is -1, which means that there is an instance of the service deployed to each node in the cluster. However, when deploying the Azure Files volume plugin application on a local development cluster, the service instance count should be specified as 1. This can be done via the **InstanceCount** application parameter. Therefore, the command for creating the Azure Files volume plugin application on a local development cluster is:
 
@@ -193,7 +193,7 @@ As shown in the **DriverOption** elements in the snippet above, the Azure Files 
     ```
 
 ## Using your own volume or logging driver
-Service Fabric also allows the usage of your own custom [volume](https://docs.docker.com/engine/extend/plugins_volume/) or [logging](https://docs.docker.com/engine/admin/logging/overview/) drivers. If the Docker volume/logging driver is not installed on the cluster, you can install it manually by using the RDP/SSH protocols. You can perform the install with these protocols through a [virtual machine scale set start-up script](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) or an [SetupEntryPoint script](/azure/service-fabric/service-fabric-application-model).
+Service Fabric also allows the usage of your own custom [volume](https://docs.docker.com/engine/extend/plugins_volume/) or [logging](https://docs.docker.com/engine/admin/logging/overview/) drivers. If the Docker volume/logging driver is not installed on the cluster, you can install it manually by using the RDP/SSH protocols. You can perform the install with these protocols through a [virtual machine scale set start-up script](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) or an [SetupEntryPoint script](./service-fabric-application-model.md).
 
 An example of the script to install the [Docker volume driver for Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) is as follows:
 
@@ -236,4 +236,4 @@ If a Docker log driver is specified, you have to deploy agents (or containers) t
 
 ## Next steps
 * To see container samples, including the volume driver, please visit the [Service Fabric container samples](https://github.com/Azure-Samples/service-fabric-containers)
-* To deploy containers to a Service Fabric cluster, refer the article [Deploy a container on Service Fabric](service-fabric-deploy-container.md)
+* To deploy containers to a Service Fabric cluster, refer the article [Deploy a container on Service Fabric](./service-fabric-get-started-containers.md)

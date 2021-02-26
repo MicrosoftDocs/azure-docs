@@ -8,7 +8,8 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
+ms.reviewer: akjosh 
+ms.custom: devx-track-azurecli
 ---
 
 # List, update, and delete image resources 
@@ -21,4 +22,4 @@ You can manage your shared image gallery resources using the Azure CLI.
 
 ## Next steps
 
-[Azure Image Builder (preview)](./linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 
+[Azure Image Builder (preview)](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md).

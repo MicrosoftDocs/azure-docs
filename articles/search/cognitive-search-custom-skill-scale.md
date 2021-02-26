@@ -1,7 +1,7 @@
 ---
 title: 'Scale and manage custom skill'
 titleSuffix: Azure Cognitive Search
-description: Learn the tools and techniques for efficiently scaling out a custom skill. Custom skills invoke custom AI models or logic that you can add to an AI-enriched indexing pipeline in Azure Cognitive Search.
+description: Learn the tools and techniques for efficiently scaling out a custom skill for maximum throughput. Custom skills invoke custom AI models or logic that you can add to an AI-enriched indexing pipeline in Azure Cognitive Search.
 
 manager: luisca
 author: vkurpad

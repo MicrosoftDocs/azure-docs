@@ -1,15 +1,12 @@
 ---
 title: Release notes for Azure HDInsight 
 description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive, and more.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 02/08/2021
 ---
-# Release notes
+# Azure HDInsight release notes
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
@@ -17,58 +14,52 @@ This article provides information about the **most recent** Azure HDInsight rele
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 
-## Release date: 06/11/2020
+If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+## Release date: 02/05/2021
+
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
 
 ## New features
+### Dav4-series support
+HDInsight added Dav4-series support in this release. Learn more about [Dav4-series here](/azure/virtual-machines/dav4-dasv4-series).
+
+### Kafka REST Proxy GA 
+Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTPS. Kafka Rest Proxy is general available starting from this release. Learn more about [Kafka REST Proxy here](/azure/hdinsight/kafka/rest-proxy).
+
 ### Moving to Azure virtual machine scale sets
-HDInsight uses Azure virtual machines to provision the cluster now. From this release, new-created HDInsight clusters start using Azure virtual machine scale set. The change is rolling out gradually. You should expect no breaking change. See more about [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
- 
-### Reboot VMs in HDInsight cluster
-In this release, we support rebooting VMs in HDInsight cluster to reboot unresponsive nodes. Currently you can only do it through API, PowerShell and CLI support is on the way. For more information about the API, see [this doc](https://github.com/Azure/azure-rest-api-specs/codeowners/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/virtualMachines.json).
- 
+HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+
 ## Deprecation
-### Deprecation of Spark 2.1 and 2.2 in HDInsight 3.6 Spark cluster
-Starting from July 1 2020, customers cannot create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6. Existing clusters will run as is without the support from Microsoft. Consider to move to Spark 2.3 on HDInsight 3.6 by June 30 2020 to avoid potential system/support interruption.
- 
-### Deprecation of Spark 2.3 in HDInsight 4.0 Spark cluster
-Starting from July 1 2020, customers cannot create new Spark clusters with Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider moving to Spark 2.4 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
- 
-### Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
-Starting from July 1 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
- 
+### Disabled VM sizes
+Starting form January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+
 ## Behavior changes
-### ESP Spark cluster head node size change 
-The minimum allowed head node size for ESP Spark cluster is changed to Standard_D13_V2. 
-VMs with low cores and memory as head node could cause ESP cluster issues because of relatively low CPU and memory capacity. Starting from release, use SKUs higher than Standard_D13_V2 and Standard_E16_V3 as head node for ESP Spark clusters.
- 
-### A minimum 4-core VM is required for Head Node 
-A minimum 4-core VM is required for Head Node to ensure the high availability and reliability of HDInsight clusters. Starting from April 6 2020, customers can only choose 4-core or above VM as Head Node for the new HDInsight clusters. Existing clusters will continue to run as expected. 
- 
-### Cluster worker node provisioning change
-When 80% of the worker nodes are ready, the cluster enters **operational** stage. At this stage, customers can do all the data plane operations like running scripts and jobs. But customers can't do any control plane operation like scaling up/down. Only deletion is supported.
- 
-After the **operational** stage, the cluster waits another 60 minutes for the remaining 20% worker nodes. At the end of this 60 minutes, the cluster moves to the **running** stage, even if all of worker nodes are still not available. Once a cluster enters the **running** stage, you can use it as normal. Both control plan operations like scaling up/down, and data plan operations like running scripts and jobs are accepted. If some of the requested worker nodes are not available, the cluster will be marked as partial success. You are charged for the nodes that were deployed successfully. 
- 
-### Create new service principal through HDInsight
-Previously, with cluster creation, customers can create a new service principal to access the connected ADLS Gen 1 account in Azure portal. Starting June 15 2020, customers cannot create new service principal in HDInsight creation workflow, only existing service principal is supported. See [Create Service Principal and Certificates using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
- 
+### Default cluster VM size changes to Ev3-series 
+Default cluster VM sizes will be changed from D-series to Ev3-series. This change applies to head nodes and worker nodes. To avoid this change impacting your tested workflows, specify the VM sizes that you want to use in the ARM template.
+
+### Network interface resource not visible for clusters running on Azure virtual machine scale sets
+HDInsight is gradually migrating to Azure virtual machine scale sets. Network interfaces for virtual machines are no longer visible to customers for clusters that use Azure virtual machine scale sets.
+
+
+### Breaking change for .NET for Apache Spark 1.0.0
+With the latest release, HDInsight introduces the first official version v1.0.0 of the [“.NET for Apache Spark”](https://github.com/dotnet/spark) library. It provides DataFrame API completeness for Spark 2.4.x and Spark 3.0.x along with a host of [other features](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md). There will be breaking changes for this major version, refer to [the .NET for Apache Spark migration guide](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) to understand steps needed to update your code and pipelines. To learn more, refer to this [.NET for Apache Spark v1.0 on Azure HDInsight guide](/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
+
+
 ## Upcoming changes
-No upcoming breaking changes that you need to pay attention to.
- 
+The following changes will happen in upcoming releases.
+
+### Default cluster version will be changed to 4.0
+Starting February 2021, the default version of HDInsight cluster will be changed from 3.6 to 4.0. For more information about available versions, see [available versions](./hdinsight-component-versioning.md). Learn more about what is new in [HDInsight 4.0](./hdinsight-version-release.md).
+
+### OS version upgrade
+HDInsight is upgrading OS version from Ubuntu 16.04 to 18.04. The upgrade will complete before April 2021.
+
+### HDInsight 3.6 end of support on June 30 2021
+HDInsight 3.6 will be end of support. Starting form June 30 2021, customers can't create new HDInsight 3.6 clusters. Existing clusters will run as is without the support from Microsoft. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+
 ## Bug fixes
 HDInsight continues to make cluster reliability and performance improvements. 
- 
-## Component version change
-### HBase 2.0 to 2.1.6
-HBase version is upgraded from version 2.0 to 2.1.6.
- 
-### Spark 2.4.0 to 2.4.4
-Spark version is upgraded from version 2.4.0 to 2.4.4.
- 
-### Kafka 2.1.0 to 2.1.1
-Kafka version is upgraded from version 2.1.0 to 2.1.1.
- 
-You can find the current component versions for HDInsight 4.0 ad HDInsight 3.6 in [this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
 
+## Component version change
+No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).

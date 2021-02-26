@@ -1,12 +1,12 @@
 ---
 title: Review cost estimations in the Azure Site Recovery Deployment Planner
 description: This articles describes how to review the cost estimations in the Azure Site Recovery Deployment Planner for VMware disaster recovery.
-author: mayurigupta13
+author: rajeswari-mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
-ms.author: mayg
+ms.author: ramamill
 
 ---
 # Review cost estimations in the VMware Deployment Planner 
@@ -152,16 +152,16 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## Supported currencies
 The Azure Site Recovery Deployment Planner can generate the cost report with any of the following currencies.
 
-|Currency|Name||Currency|Name||Currency|Name|
+|Currency|Name|Currency|Name|Currency|Name|
 |---|---|---|---|---|---|---|---|
-|ARS|Argentine Peso ($)||AUD|Australian Dollar ($)||BRL|Brazilian Real (R$)|
-|CAD|Canadian Dollar ($)||CHF|Swiss Franc. (chf)||DKK|Danish Krone (kr)|
-|EUR|Euro (€)||GBP|British Pound (£)||HKD|Hong Kong Dollar (HK$)|
-|IDR|Indonesia rupiah (Rp)||INR|Indian Rupee (₹)||JPY|Japanese Yen (¥)|
-|KRW|Korean Won (₩)||MXN|Mexican Peso (MX$)||MYR|Malaysian Ringgit (RM$)|
-|NOK|Norwegian Krone (kr)||NZD|New Zealand Dollar ($)||RUB|Russian Ruble (руб)|
-|SAR|Saudi Riyal (SR)||SEK|Swedish Krona (kr)||TWD|Taiwanese Dollar (NT$)|
-|TRY|Turkish Lira (TL)||USD| US Dollar ($)||ZAR|South African Rand (R)|
+|ARS|Argentine Peso ($)|AUD|Australian Dollar ($)|BRL|Brazilian Real (R$)|
+|CAD|Canadian Dollar ($)|CHF|Swiss Franc. (chf)|DKK|Danish Krone (kr)|
+|EUR|Euro (€)|GBP|British Pound (£)|HKD|Hong Kong Dollar (HK$)|
+|IDR|Indonesia rupiah (Rp)|INR|Indian Rupee (₹)|JPY|Japanese Yen (¥)|
+|KRW|Korean Won (₩)|MXN|Mexican Peso (MX$)|MYR|Malaysian Ringgit (RM$)|
+|NOK|Norwegian Krone (kr)|NZD|New Zealand Dollar ($)|RUB|Russian Ruble (руб)|
+|SAR|Saudi Riyal (SR)|SEK|Swedish Krona (kr)|TWD|Taiwanese Dollar (NT$)|
+|TRY|Turkish Lira (TL)|USD| US Dollar ($)|ZAR|South African Rand (R)|
 
 ## Next steps
-Learn more about protecting [VMware VMs to Azure using Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure).
+Learn more about protecting [VMware VMs to Azure using Azure Site Recovery](./vmware-azure-tutorial.md).

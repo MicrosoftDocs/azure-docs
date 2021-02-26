@@ -28,7 +28,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
 ## Provision a self-hosted gateway
 
-1. Select the **Gateways** from under **Settings**.
+1. Select the **Gateways** from under **Deployment and infrastructure**.
 2. Click **+ Add**.
 3. Enter the **Name** and **Region** of the gateway.
 > [!TIP]

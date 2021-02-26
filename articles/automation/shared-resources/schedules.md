@@ -2,13 +2,9 @@
 title: Manage schedules in Azure Automation
 description: This article tells how to create and work with a schedule in Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/04/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
 ---
 
 # Manage schedules in Azure Automation
@@ -23,17 +19,17 @@ To schedule a runbook in Azure Automation to start at a specified time, you link
 
 ## PowerShell cmdlets used to access schedules
 
-The cmdlets in the following table create and manage Automation schedules with PowerShell. They ship as part of the [Az modules](modules.md#az-modules). 
+The cmdlets in the following table create and manage Automation schedules with PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
 
 | Cmdlets | Description |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Retrieves a schedule. |
-| [Get-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Retrieves scheduled runbooks. |
-| [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Creates a new schedule. |
-| [Register-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associates a runbook with a schedule. |
-| [Remove-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Removes a schedule. |
-| [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Sets the properties for an existing schedule. |
-| [Unregister-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Dissociates a runbook from a schedule. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule) |Retrieves a schedule. |
+| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook) |Retrieves scheduled runbooks. |
+| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) |Creates a new schedule. |
+| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) |Associates a runbook with a schedule. |
+| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule) |Removes a schedule. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) |Sets the properties for an existing schedule. |
+| [Unregister-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook) |Dissociates a runbook from a schedule. |
 
 ## Create a schedule
 
@@ -44,23 +40,33 @@ You can create a new schedule for your runbooks in the Azure portal or with Powe
 
 ### Create a new schedule in the Azure portal
 
-1. In the Azure portal, from your Automation account, select **Schedules** under the section **Shared Resources** on the left.
-1. Select **Add a schedule** at the top of the page.
-1. On the **New schedule** pane, enter a name and optionally enter a description for the new schedule.
-1. Select whether the schedule runs one time or on a reoccurring schedule by selecting **Once** or **Recurring**. If you select **Once**, specify a start time and then select **Create**. If you select **Recurring**, specify a start time. For **Recur every**, select how often you want the runbook to repeat. Select by hour, day, week, or month.
-    1. If you select **Week**, the days of the week are presented for you to choose from. Select as many days as you want. The first run of your schedule will happen on the first day selected after the start time. For example, to choose a weekend schedule, select Saturday and Sunday.
-    
-       ![Setting weekend recurring schedule](../media/schedules/week-end-weekly-recurrence.png)
+1. From your Automation account, on the left-hand pane select **Schedules** under **Shared Resources**.
+2. On the **Schedules** page, select **Add a schedule**.
+3. On the **New schedule** page, enter a name and optionally enter a description for the new schedule.
 
-    2. If you select **Month**, you're given different options. For the **Monthly occurrences** option, select either **Month days** or **Week days**. If you select **Month days**, a calendar appears so that you can choose as many days as you want. If you choose a date such as the 31st that doesn't occur in the current month, the schedule won't run. If you want the schedule to run on the last day, select **Yes** under **Run on last day of month**. If you select **Week days**, the **Recur every** option appears. Choose **First**, **Second**, **Third**, **Fourth**, or **Last**. Finally, choose a day to repeat on.
+    >[!NOTE]
+    >Automation schedules do not currently support using special characters in the schedule name.
+    >
 
-       ![Monthly schedule on first, fifteenth, and last day of the month](../media/schedules/monthly-first-fifteenth-last.png)
+4. Select whether the schedule runs once or on a reoccurring schedule by selecting **Once** or **Recurring**. If you select **Once**, specify a start time and then select **Create**. If you select **Recurring**, specify a start time. For **Recur every**, select how often you want the runbook to repeat. Select by hour, day, week, or month.
 
-1. When you're finished, select **Create**.
+    * If you select **Week**, the days of the week are presented for you to choose from. Select as many days as you want. The first run of your schedule will happen on the first day selected after the start time. For example, to choose a weekend schedule, select Saturday and Sunday.
+
+    ![Setting weekend recurring schedule](../media/schedules/week-end-weekly-recurrence.png)
+
+    * If you select **Month**, you're given different options. For the **Monthly occurrences** option, select either **Month days** or **Week days**. If you select **Month days**, a calendar appears so that you can choose as many days as you want. If you choose a date such as the 31st that doesn't occur in the current month, the schedule won't run. If you want the schedule to run on the last day, select **Yes** under **Run on last day of month**. If you select **Week days**, the **Recur every** option appears. Choose **First**, **Second**, **Third**, **Fourth**, or **Last**. Finally, choose a day to repeat on.
+
+    ![Monthly schedule on first, fifteenth, and last day of the month](../media/schedules/monthly-first-fifteenth-last.png)
+
+5. When you're finished, select **Create**.
 
 ### Create a new schedule with PowerShell
 
-Use the [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) cmdlet to create schedules. You specify the start time for the schedule and the frequency it should run. The following examples show how to create many different schedule scenarios.
+Use the [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) cmdlet to create schedules. You specify the start time for the schedule and the frequency it should run. The following examples show how to create many different schedule scenarios.
+
+>[!NOTE]
+>Automation schedules do not currently support using special characters in the schedule name.
+>
 
 #### Create a one-time schedule
 
@@ -123,7 +129,7 @@ A runbook can be linked to multiple schedules, and a schedule can have multiple 
 
 ### Link a schedule to a runbook with PowerShell
 
-Use the [Register-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) cmdlet to link a schedule. You can specify values for the runbook’s parameters with the Parameters parameter. For more information on how to specify parameter values, see [Starting a Runbook in Azure Automation](../automation-starting-a-runbook.md).
+Use the [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) cmdlet to link a schedule. You can specify values for the runbook’s parameters with the Parameters parameter. For more information on how to specify parameter values, see [Starting a Runbook in Azure Automation](../start-runbooks.md).
 The following example shows how to link a schedule to a runbook by using an Azure Resource Manager cmdlet with parameters.
 
 ```azurepowershell-interactive
@@ -150,7 +156,7 @@ When you disable a schedule, any runbook linked to it no longer runs on that sch
 
 ### Disable a schedule from the Azure portal
 
-1. In your Automation account, select **Schedules** under **Shared Resources**.
+1. In your Automation account, on the left-hand pane select **Schedules** under **Shared Resources**.
 1. Select the name of a schedule to open the details pane.
 1. Change **Enabled** to **No**.
 
@@ -159,7 +165,7 @@ When you disable a schedule, any runbook linked to it no longer runs on that sch
 
 ### Disable a schedule with PowerShell
 
-Use the [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) cmdlet to change the properties of an existing schedule. To disable the schedule, specify False for the `IsEnabled` parameter.
+Use the [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) cmdlet to change the properties of an existing schedule. To disable the schedule, specify False for the `IsEnabled` parameter.
 
 The following example shows how to disable a schedule for a runbook by using an Azure Resource Manager cmdlet.
 
@@ -176,13 +182,13 @@ When you're ready to remove your schedules, you can either use the Azure portal 
 
 ### Remove a schedule using the Azure portal
 
-1. In your Automation account, select **Schedules** under **Shared Resources**.
-2. Click the name of a schedule to open the details pane.
+1. In your Automation account, on the left-hand pane select **Schedules** under **Shared Resources**.
+2. Select the name of a schedule to open the details pane.
 3. Click **Delete**.
 
 ### Remove a schedule with PowerShell
 
-You can use the `Remove-AzAutomationSchedule` cmdlet as shown below to delete an existing schedule. 
+You can use the `Remove-AzAutomationSchedule` cmdlet as shown below to delete an existing schedule.
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"

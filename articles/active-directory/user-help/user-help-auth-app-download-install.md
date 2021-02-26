@@ -18,7 +18,7 @@ ms.reviewer: olhaun
 # Download and install the Microsoft Authenticator app
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [administrative documentation for Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [administrative documentation for Azure Active Directory](../index.yml).
 >
 > If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help.  Also, you can get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.
 

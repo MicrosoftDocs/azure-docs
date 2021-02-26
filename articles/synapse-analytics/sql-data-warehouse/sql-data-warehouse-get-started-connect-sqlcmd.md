@@ -1,37 +1,37 @@
 ---
 title: Connect with sqlcmd 
-description: Use sqlcmd command-line utility to connect to and query a Synapse SQL pool.
+description: Use sqlcmd command-line utility to connect to and query a dedicated SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Connect to Synapse SQL pool with sqlcmd
+# Connect to a dedicated SQL pool in Azure Synapse Analytics with sqlcmd
 
 > [!div class="op_single_selector"]
 >
-> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Use the [sqlcmd][sqlcmd] command-line utility to connect to and query a SQL pool.  
+Use the [sqlcmd][sqlcmd] command-line utility to connect to and query a dedicated SQL pool.  
 
 ## 1. Connect
 
-To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL pool database. The connection string requires the following parameters:
+To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your dedicated SQL pool. The connection string requires the following parameters:
 
 * **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
-* **Database (-d):** Database name.
-* **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL pool instance.
+* **Database (-d):** dedicated SQL pool name.
+* **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a dedicated SQL pool instance.
 
 To use SQL Server Authentication, you need to add the username/password parameters:
 
@@ -80,4 +80,4 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ## Next steps
 
-For more about details about the options available in sqlcmd, see [sqlcmd documentation](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+For more about details about the options available in sqlcmd, see [sqlcmd documentation](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).

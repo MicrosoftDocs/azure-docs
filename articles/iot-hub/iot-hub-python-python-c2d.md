@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: robinsh
-ms.custom: mqtt, tracking-python
+ms.custom: mqtt, devx-track-python
 ---
 
 # Send cloud-to-device messages with IoT Hub (Python)

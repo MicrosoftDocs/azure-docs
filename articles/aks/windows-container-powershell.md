@@ -1,9 +1,10 @@
 ---
-title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster
+title: Create a Windows Server container on an AKS cluster by using PowerShell
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: article
-ms.date: 05/26/2020
+ms.date: 05/26/2020 
+ms.custom: devx-track-azurepowershell
 
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
@@ -29,7 +30,11 @@ If you choose to use PowerShell locally, this article requires that you install 
 module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information
 about installing the Az PowerShell module, see
-[Install Azure PowerShell][install-azure-powershell].
+[Install Azure PowerShell][install-azure-powershell]. You also must install the Az.Aks PowerShell module: 
+
+```azurepowershell-interactive
+Install-Module Az.Aks
+```
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -55,7 +60,7 @@ The following additional limitations apply to Windows Server node pools:
 
 ## Create a resource group
 
-An [Azure resource group](/azure/azure-resource-manager/resource-group-overview)
+An [Azure resource group](../azure-resource-manager/management/overview.md)
 is a logical group in which Azure resources are deployed and managed. When you create a resource
 group, you are asked to specify a location. This location is where resource group metadata is
 stored, it is also where your resources run in Azure if you don't specify another region during
@@ -74,7 +79,7 @@ New-AzResourceGroup -Name myResourceGroup -Location eastus
 
 The following example output shows the resource group created successfully:
 
-```Output
+```plaintext
 ResourceGroupName : myResourceGroup
 Location          : eastus
 ProvisioningState : Succeeded
@@ -85,7 +90,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 ## Create an AKS cluster
 
 Use the `ssh-keygen` command-line utility to generate an SSH key pair. For more details, see
-[Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
+[Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to
 use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more
@@ -100,7 +105,7 @@ network resources if they don't exist.
 
 ```azurepowershell-interactive
 $Password = Read-Host -Prompt 'Please enter your password' -AsSecureString
-New-AzAKS -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -KubernetesVersion 1.16.7 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName akswinuser -WindowsProfileAdminUserPassword $Password
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -KubernetesVersion 1.16.7 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName akswinuser -WindowsProfileAdminUserPassword $Password
 ```
 
 > [!Note]
@@ -118,7 +123,7 @@ By default, an AKS cluster is created with a node pool that can run Linux contai
 Linux node pool.
 
 ```azurepowershell-interactive
-New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -OsType Windows -Name npwin -KubernetesVersion 1.16.7
+New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin -KubernetesVersion 1.16.7
 ```
 
 The above command creates a new node pool named **npwin** and adds it to the **myAKSCluster**. When
@@ -155,7 +160,7 @@ kubectl get nodes
 The following example output shows all the nodes in the cluster. Make sure that the status of all
 nodes is **Ready**:
 
-```Output
+```plaintext
 NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
 aksnpwin987654                      Ready    agent   108s   v1.16.7
@@ -234,7 +239,7 @@ kubectl apply -f sample.yaml
 
 The following example output shows the Deployment and Service created successfully:
 
-```Output
+```plaintext
 deployment.apps/sample created
 service/sample created
 ```
@@ -253,7 +258,7 @@ kubectl get service sample --watch
 
 Initially the **EXTERNAL-IP** for the **sample** service is shown as **pending**.
 
-```Output
+```plaintext
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
@@ -262,7 +267,7 @@ When the **EXTERNAL-IP** address changes from **pending** to an actual public IP
 to stop the `kubectl` watch process. The following example output shows a valid public IP address
 assigned to the service:
 
-```Output
+```plaintext
 sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 

@@ -3,7 +3,7 @@ title: Connect to Azure Event Hubs
 description: Create automated tasks and workflows that monitor and manage events by using Azure Event Hubs and Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
@@ -12,16 +12,16 @@ tags: connectors
 # Monitor, receive, and send events with Azure Event Hubs and Azure Logic Apps
 
 This article shows how you can monitor and manage events sent to 
-[Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) 
+[Azure Event Hubs](../event-hubs/event-hubs-about.md) 
 from inside a logic app with the Azure Event Hubs connector. 
 That way, you can create logic apps that automate tasks and workflows 
 for checking, sending, and receiving events from your Event Hub. 
 For connector-specific technical information, see the 
-[Azure Event Hubs connector reference](https://docs.microsoft.com/connectors/eventhubs/)</a>.
+[Azure Event Hubs connector reference](/connectors/eventhubs/)</a>.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, 
+* An Azure account and subscription. If you don't have an Azure subscription, 
 [sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * An [Azure Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md)
@@ -74,21 +74,24 @@ or [Add an Event Hubs action](#add-action).
 
 ## Add Event Hubs trigger
 
-In Azure Logic Apps, every logic app must start with a 
-[trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), 
-which fires when a specific event happens or when a 
-specific condition is met. Each time the trigger fires, 
-the Logic Apps engine creates a logic app instance 
-and starts running your app's workflow.
+In Azure Logic Apps, every logic app must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a 
+specific condition is met. Each time the trigger fires, the Logic Apps engine creates a logic app instance and starts running your app's workflow.
 
-This example shows how you can start a logic app workflow
-when new events are sent to your Event Hub. 
+This example shows how you can start a logic app workflow when new events are sent to your Event Hub. 
+
+> [!NOTE]
+> All Event Hub triggers are *long-polling* triggers, which means that the trigger processes all the events 
+> and then waits 30 seconds per partition for more events to appear in your Event Hub. So, if the trigger is 
+> set up with four partitions, this delay might take up to two minutes before the trigger finishes polling 
+> all the partitions. If no events are received within this delay, the trigger run is skipped. Otherwise, 
+> the trigger continues reading events until your Event Hub is empty. The next trigger poll happens based 
+> on the recurrence interval that you specify in the trigger's properties.
 
 1. In the Azure portal or Visual Studio, 
 create a blank logic app, which opens Logic Apps Designer. 
 This example uses the Azure portal.
 
-1. In the search box, enter "event hubs" as your filter. 
+1. In the search box, enter "event hubs" as your filter. 
 From the triggers list, select this trigger:
 **When events are available in Event Hub - Event Hubs**
 
@@ -134,15 +137,6 @@ for the tasks you want to perform with the trigger results.
    **Send event** action sends only the events that 
    meet your condition. 
 
-> [!NOTE]
-> All Event Hub triggers are *long-polling* triggers, 
-> which means that when a trigger fires, the trigger processes all the events
-> and then waits for 30 seconds for more events to appear in your Event Hub.
-> If no events are received in 30 seconds, the trigger run is skipped. 
-> Otherwise, the trigger continues reading events until your Event Hub is empty.
-> The next trigger poll happens based on the recurrence 
-> interval that you specify in the trigger's properties.
-
 <a name="add-action"></a>
 
 ## Add Event Hubs action
@@ -163,7 +157,7 @@ This example uses the Azure portal.
    Choose the plus sign (**+**) that appears, 
    and then select **Add an action**.
 
-1. In the search box, enter "event hubs" as your filter.
+1. In the search box, enter "event hubs" as your filter.
 From the actions list, select this action: 
 **Send event - Event Hubs**
 
@@ -226,7 +220,7 @@ or [Add Event Hubs action](#add-action).
 
 ## Connector reference
 
-For technical details, such as triggers, actions, and limits, as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/eventhubs/).
+For technical details, such as triggers, actions, and limits, as described by the connector's Swagger file, see the [connector's reference page](/connectors/eventhubs/).
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 

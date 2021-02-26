@@ -1,6 +1,6 @@
 ---
-title: Azure Private Link Service ARM template
-description: Private link service ARM template
+title: Create a private link service in Azure Private Link
+description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private link service.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -10,55 +10,57 @@ ms.date: 05/29/2020
 ms.author: allensu
 ---
 
-# Quickstart: Create a private link service - Resource Manager template
+# Quickstart: Create a private link service by using an ARM template
 
-In this quickstart, you use a Resource Manager template to create a private link service.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private link service.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-You can also complete this quickstart using the [Azure portal](create-private-link-service-portal.md), [Azure PowerShell](create-private-link-service-powershell.md), or [Azure CLI](create-private-link-service-cli.md).
+You can also complete this quickstart by using the [Azure portal](create-private-link-service-portal.md), [Azure PowerShell](create-private-link-service-powershell.md), or the [Azure CLI](create-private-link-service-cli.md).
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+You need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create a private link service
+## Review the template
 
-this template creates a private link service.
-
-### Review the template
+This template creates a private link service.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
-:::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
+:::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : one for each Virtual Machine
-- [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadBalancers) : Load balancer that exposes the virtual machines that host the service
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : 2 Network Interfaces, one for each Virtual Machine
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : 2 Virtual machines, one that hosts the service and one to test the connection to the private endpoint
-- [**Microsoft.Compute/virtualMachines/extensions**](/azure/templates/Microsoft.Compute/virtualMachines/extensions) : Extension that installs web server
-- [**Microsoft.Network/privateLinkServices**](/azure/templates/microsoft.network/privateLinkServices) : private link service to expose privately the service
-- [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses) : 2 Public IP address, one for each Virtual Machine
-- [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints) : private endpoint to access privately the service
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): There's one virtual network for each virtual machine.
+- [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadBalancers): The load balancer that exposes the virtual machines that host the service.
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): There are two network interfaces, one for each virtual machine.
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines): There are two virtual machines, one that hosts the service and one that tests the connection to the private endpoint.
+- [**Microsoft.Compute/virtualMachines/extensions**](/azure/templates/Microsoft.Compute/virtualMachines/extensions): The extension that installs a web server.
+- [**Microsoft.Network/privateLinkServices**](/azure/templates/microsoft.network/privateLinkServices): The private link service to expose the service.
+- [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses): There are two public IP addresses, one for each virtual machine.
+- [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints): The private endpoint to access the service.
 
-### Deploy the template
+## Deploy the template
 
-Deploy Resource Manager template to Azure:
+Here's how to deploy the ARM template to Azure:
 
-1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates a Virtual Machine , standard load balancer, private link service, private endpoint, networking and a virtual machine to validate.
+1. To sign in to Azure and open the template, select **Deploy to Azure**. The template creates a virtual machine, standard load balancer, private link service, private endpoint, networking, and a virtual machine to validate.
 
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
 
-2. Select or create your resource group,
+2. Select or create your resource group.
 3. Type the virtual machine administrator username and password.
-4. Select **I agree to the terms and conditions stated above** and then select **Purchase**.
+4. Read the terms and conditions statement. If you agree, select **I agree to the terms and conditions stated above** > **Purchase**.
 
 ## Validate the deployment
 
 > [!NOTE]
-> the ARM template generates unique name for the Virtual Machine myConsumerVm<b>{uniqueid}</b> resource, please replace <b>{uniqueid}</b> with your generated value.
+> The ARM template generates a unique name for the virtual machine myConsumerVm<b>{uniqueid}</b> resource. Substitute your generated value for **{uniqueid}**.
 
 ### Connect to a VM from the internet
 
@@ -66,32 +68,32 @@ Connect to the VM _myConsumerVm{uniqueid}_ from the internet as follows:
 
 1.  In the portal's search bar, enter _myConsumerVm{uniqueid}_.
 
-2.  Select the **Connect** button. After selecting the **Connect** button, **Connect to virtual machine** opens.
+2.  Select **Connect**. **Connect to virtual machine** opens.
 
 3.  Select **Download RDP File**. Azure creates a Remote Desktop Protocol (_.rdp_) file and downloads it to your computer.
 
-4.  Open the downloaded.rdp\* file.
+4.  Open the downloaded .rdp file.
 
     a. If prompted, select **Connect**.
 
-    b. Enter the username and password you specified when creating the VM.
+    b. Enter the username and password you specified when you created the VM.
     
     > [!NOTE]
-    > You may need to select **More choices** > **Use a different account**, to specify the credentials you entered when you created the VM.
+    > You might need to select **More choices** > **Use a different account**, to specify the credentials you entered when you created the VM.
 
 5.  Select **OK**.
 
-6.  You may receive a certificate warning during the sign-in process. If you receive a certificate warning, select **Yes** or **Continue**.
+6.  You might receive a certificate warning during the sign-in process. If you receive a certificate warning, select **Yes** or **Continue**.
 
-7.  Once the VM desktop appears, minimize it to go back to your local desktop.
+7.  After the VM desktop appears, minimize it to go back to your local desktop.
 
 ### Access the http service privately from the VM
 
-In this section, you will connect to the http service from the VM using the Private Endpoint.
+Here's how to connect to the http service from the VM by using the private endpoint.
 
-1.  In the Remote Desktop of _myConsumerVm{uniqueid}_
-2.  Open a browser and enter the private endpoint address http://10.0.0.5/
-3.  You'll see the default IIS page
+1.  Go to the Remote Desktop of _myConsumerVm{uniqueid}_.
+2.  Open a browser, and enter the private endpoint address: `http://10.0.0.5/`.
+3.  The default IIS page appears.
 
 ## Clean up resources
 
@@ -105,4 +107,4 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-- Learn more about [Azure Private Link](private-link-overview.md)
+Learn more about [Azure Private Link](private-link-overview.md).

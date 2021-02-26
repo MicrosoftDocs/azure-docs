@@ -4,8 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn about the tools and integrated development environments available on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
 author: lobrien
 ms.author: laobri
@@ -19,7 +18,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 ## Visual Studio Community Edition
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | General purpose IDE      |
 | Supported DSVM versions      | Windows: Visual Studio 2017, Windows 2019 : Visual Studio 2019      |
@@ -33,7 +32,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 ## Visual Studio Code 
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | General purpose IDE      |
 | Supported DSVM versions      | Windows, Linux     |
@@ -43,7 +42,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 ## RStudio Desktop
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | Client IDE for R language   |
 | Supported DSVM versions      | Windows, Linux      |
@@ -53,7 +52,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 ## RStudio Server
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | Client IDE for R language   |
 | What is it?   | Web-based IDE for R    |
@@ -64,7 +63,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 ## Juno 
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | Client IDE for Julia language   |
 | Supported DSVM versions      | Windows, Linux      |
@@ -74,7 +73,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 ## Pycharm
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | Client IDE for Python language    |
 | Supported DSVM versions      | Windows 2019, Linux      |

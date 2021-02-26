@@ -1,5 +1,6 @@
 ---
-title: Configure desktop apps that call web APIs - Microsoft identity platform | Azure
+title: Configure desktop apps that call web APIs | Azure
+titleSuffix: Microsoft identity platform 
 description: Learn how to configure the code of a desktop app that calls web APIs
 services: active-directory
 author: jmprieur
@@ -11,8 +12,8 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev, tracking-python
-#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
+ms.custom: aaddev, devx-track-python
+#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Desktop app that calls web APIs: Code configuration
@@ -104,8 +105,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 To learn more about how to configure an MSAL.NET desktop application:
 
-- For a list of all modifiers available on `PublicClientApplicationBuilder`, see the reference documentation [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
-- For a description of all the options exposed in `PublicClientApplicationOptions`, see [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) in the reference documentation.
+- For a list of all modifiers available on `PublicClientApplicationBuilder`, see the reference documentation [PublicClientApplicationBuilder](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+- For a description of all the options exposed in `PublicClientApplicationOptions`, see [PublicClientApplicationOptions](/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) in the reference documentation.
 
 ### Complete example with configuration options
 
@@ -258,5 +259,5 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Acquire a token for a desktop app](scenario-desktop-acquire-token.md)
+Move on to the next article in this scenario, 
+[Acquire a token for the desktop app](scenario-desktop-acquire-token.md).

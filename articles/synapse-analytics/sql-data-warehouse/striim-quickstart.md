@@ -1,23 +1,23 @@
 ---
 title: Striim quick start 
-description: Get started quickly with Striim and Azure SQL Data Warehouse.
+description: Get started quickly with Striim and Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Striim Azure SQL DW Marketplace Offering Install Guide
+# Striim Azure Synapse Analytics Marketplace Offering Install Guide
 
-This quickstart assumes that you already have a pre-existing instance of SQL Data Warehouse.
+This quickstart assumes that you already have a pre-existing instance of Azure Synapse Analytics.
 
-Search for Striim in the Azure Marketplace, and select the Striim for Data Integration to SQL Data Warehouse (Staged) option 
+Search for Striim in the Azure Marketplace, and select the Striim for Data Integration to Azure Synapse Analytics (Staged) option 
 
 ![Install Striim][install]
 
@@ -27,7 +27,7 @@ Configure the Striim VM with specified properties, noting down the Striim cluste
 
 Once deployed, click on \<VM Name>-masternode in the Azure portal, click Connect, and copy the Login using VM local account 
 
-![Connect Striim to SQL Data Warehouse][connect]
+![Connect Striim to Azure Synapse Analytics][connect]
 
 Download the sqljdbc42.jar from <https://www.microsoft.com/en-us/download/details.aspx?id=54671> to your local machine. 
 

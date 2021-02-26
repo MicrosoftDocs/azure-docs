@@ -18,6 +18,9 @@ ms.author: juliako
 
 ---
 # Scale streaming endpoints with the Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## Overview
 
 > [!NOTE]

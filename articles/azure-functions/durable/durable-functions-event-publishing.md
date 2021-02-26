@@ -7,7 +7,7 @@ ms.date: 04/25/2020
 
 # Durable Functions publishing to Azure Event Grid (preview)
 
-This article shows how to set up Durable Functions to publish orchestration lifecycle events (such as created, completed, and failed) to a custom [Azure Event Grid Topic](https://docs.microsoft.com/azure/event-grid/overview).
+This article shows how to set up Durable Functions to publish orchestration lifecycle events (such as created, completed, and failed) to a custom [Azure Event Grid Topic](../../event-grid/overview.md).
 
 Following are some scenarios where this feature is useful:
 
@@ -21,7 +21,7 @@ Following are some scenarios where this feature is useful:
 
 * Install [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) in your Durable Functions project.
 * Install [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only) or use an existing Azure Storage account.
-* Install [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or use [Azure Cloud Shell](../../cloud-shell/overview.md)
+* Install [Azure CLI](/cli/azure/?view=azure-cli-latest) or use [Azure Cloud Shell](../../cloud-shell/overview.md)
 
 ## Create a custom Event Grid topic
 
@@ -163,7 +163,7 @@ Using the Azure portal, create another function app to listen for events publish
 
 ### Add an Event Grid subscription
 
-You can now add an Event Grid subscription for the Event Grid topic that you created. For more information, see [Concepts in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
+You can now add an Event Grid subscription for the Event Grid topic that you created. For more information, see [Concepts in Azure Event Grid](../../event-grid/concepts.md).
 
 1. In your new function, select **Integration** and then select **Event Grid Trigger (eventGridEvent)**. 
 

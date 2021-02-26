@@ -1,6 +1,6 @@
 ---
 title: Tutorial to set up Azure Data Box Heavy| Microsoft Docs
-description: Learn how to cable and connect your Azure Data Box Heavy
+description: In this tutorial, learn how to cable your Azure Data Box Heavy, connect Azure Data Box heavy, and turn on Azure Data Box Heavy.
 services: databox
 author: alkohli
 

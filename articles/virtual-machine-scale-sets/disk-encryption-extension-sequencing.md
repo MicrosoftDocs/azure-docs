@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption and Azure virtual machine scale sets extension sequencing 
-description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux IaaS VMs.
+description: In this article, learn how to enable Microsoft Azure Disk Encryption for Linux IaaS VMs.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to

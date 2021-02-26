@@ -2,19 +2,23 @@
 title: Azure Functions warmup trigger
 description: Understand how to use the warmup trigger in Azure Functions.
 documentationcenter: na
-author: alexkarcher-msft
+author: craigshoemaker
 manager: gwallace
 keywords: azure functions, functions, event processing, warmup, cold start, premium, dynamic compute, serverless architecture
 
 ms.service: azure-functions
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/08/2019
-ms.author: alkarche
+ms.author: cshoe
 ---
 
 # Azure Functions warm-up trigger
 
-This article explains how to work with the warmup trigger in Azure Functions. The warmup trigger is supported only for function apps running in a [Premium plan](functions-premium-plan.md). A warmup trigger  is invoked when an instance is added to scale a running function app. You can use a warmup trigger to pre-load custom dependencies during the [pre-warming process](./functions-premium-plan.md#pre-warmed-instances) so that your functions are ready to start processing requests immediately. 
+This article explains how to work with the warmup trigger in Azure Functions. A warmup trigger is invoked when an instance is added to scale a running function app. You can use a warmup trigger to pre-load custom dependencies during the [pre-warming process](./functions-premium-plan.md#pre-warmed-instances) so that your functions are ready to start processing requests immediately. 
+
+> [!NOTE]
+> The warmup trigger isn't supported for function apps running in a Consumption plan.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -92,10 +96,8 @@ Here's the *function.json* file:
 
 The [configuration](#trigger---configuration) section explains these properties.
 
-Here's C# script code that binds to `HttpRequest`:
-
 ```cs
-public static void Run(ILogger log)
+public static void Run(WarmupContext warmupContext, ILogger log)
 {
     log.LogInformation("Function App instance is warm 🌞🌞🌞");  
 }

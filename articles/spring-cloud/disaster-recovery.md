@@ -6,9 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
+
 # Azure Spring Cloud disaster recovery
+
+**This article applies to:** ✔️ Java ✔️ C#
 
 This article explains some strategies you can use to protect your Azure Spring Cloud applications from experiencing downtime.  Any region or data center may experience downtime caused by regional disasters, but careful planning can mitigate impact on your customers.
 
@@ -43,7 +46,7 @@ You will need two service instances of Azure Spring Cloud deployed in two differ
 2. Set up Custom Domain for Service
 Follow [Custom Domain Document](spring-cloud-tutorial-custom-domain.md) to set up custom domain for these two existing service instances. After successful set up, both service instances will bind to custom domain: bcdr-test.contoso.com
 
-3. Create a traffic manager and two endpoints: [Create a Traffic Manager profile using the Azure portal](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
+3. Create a traffic manager and two endpoints: [Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 Here is the traffic manager profile:
 * Traffic Manager DNS Name: `http://asc-bcdr.trafficmanager.net`
@@ -57,3 +60,7 @@ Here is the traffic manager profile:
 4. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
 
 5. Now, the environment is completely set up. Customers should be able to access the app via: bcdr-test.contoso.com
+
+## Next steps
+
+* [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)

@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: vanto, carlrab
-ms.date: 11/05/2019
+ms.reviewer: vanto, sstein
+ms.date: 08/25/2020
 ---
 
 # Transparent Data Encryption in SQL Managed Instance using your own key from Azure Key Vault
@@ -34,12 +34,12 @@ Using PowerShell locally or using Azure Cloud Shell requires Azure PowerShell 2.
 
 If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-## Sample scripts
+## Sample scripts 
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/transparent-data-encryption/setup-tde-byok-sqlmi.ps1 "Set up BYOK TDE for SQL Managed Instance")]
 
 ## Next steps
 
-For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional PowerShell script samples for SQL Managed Instance can be found in [Azure SQL Managed Instance PowerShell scripts](../../database/powershell-script-content-guide.md).

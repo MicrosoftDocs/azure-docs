@@ -1,6 +1,6 @@
 ---
 title: Create an accessible map application with Azure Maps | Microsoft Azure Maps
-description: In this article, you'll learn how to build an application with accessibility features using Microsoft Azure Maps.
+description: Learn about accessibility considerations in Azure Maps. See what features are available for making map applications accessible, and view accessibility tips.
 services: azure-maps 
 author: rbrundritt
 ms.author: richbrun
@@ -17,7 +17,7 @@ Upwards of 20% of internet users have a need for accessible web applications. As
 When it comes to rich interactive content like a map, some common accessibility considerations are:
 - Support the screen reader for users who have difficulty seeing the web application.
 - Have multiple methods for interacting with and navigating the web application such as mouse, touch, and keyboard.
-- Ensure color contrast is such that colors don’t blend together and become hard to distinguish from each other. 
+- Ensure color contrast is such that colors don't blend together and become hard to distinguish from each other. 
 
 The Azure Maps Web SDK comes prebuilt with many accessibility features such as:
 - Screen reader descriptions when the map moves and when the user focuses on a control or popup.
@@ -41,6 +41,7 @@ There are several different ways in which the map can be zoomed, panned, rotated
 - With the map focused, use the Minus sign, Hyphen (`-`), or Underscore (`_`) to zoom out one level.
 - Using the zoom control with a mouse, touch or keyboard tab/enter keys.
 - Press and hold the `Shift` button and press the left mouse button down on the map and drag to draw out an area to zoom the map into.
+- Using some multi-touch pads, dragging two fingers up to zoom out, or down to zoom in.
 
 **Pan the map**
 
@@ -71,7 +72,7 @@ Not all developers want all possible map styles to be available in their applica
 - When the map control is loaded, it checks to see if high contrast is enabled and the browser supports it.
 - The map control does not monitor the high contrast mode of the device. If the device mode changes, the map will not. Thus, the user will need to reload the map by refreshing the page.
 - When high contrast is detected the map style will automatically switch to high contrast, and all built-in controls will use a high contrast style. For example, ZoomControl, PitchControl, CompassControl, StyleControl, and other built-in controls, will use a high contrast style.
-- There are two type of high contrast, light and dark. If the type of high contrast can be detected by the map controls, then the behavior of the map will adjust accordingly. If light, then the grayscale_light map style will be loaded. If the type can’t be detected or is dark, then the high_contrast_dark style will be loaded.
+- There are two type of high contrast, light and dark. If the type of high contrast can be detected by the map controls, then the behavior of the map will adjust accordingly. If light, then the grayscale_light map style will be loaded. If the type can't be detected or is dark, then the high_contrast_dark style will be loaded.
 - If creating custom controls, it's useful to know if the built in controls are using a high contrast style. Developers can add a css class on the map container div to check. The css classes that would be added are `high-contrast-dark` and `high-contrast-light`. To check using JavaScript, use:
 
 ```javascript
@@ -105,7 +106,7 @@ The map has a number of keyboard shortcuts built in that make it easier to use t
 | Minus sign, Hyphen (`-`), or <sup>*</sup>Underscore (`_`) | Zoom out | 
 | `Shift` + mouse drag on map to draw area | Zoom into area |
 
-<sup>*</sup> These key shortcuts usually share the same key on a keyboard. These shortcuts were added to improve the user experience. It also doesn’t matter if the user uses the shift key or not for these shortcuts.
+<sup>*</sup> These key shortcuts usually share the same key on a keyboard. These shortcuts were added to improve the user experience. It also doesn't matter if the user uses the shift key or not for these shortcuts.
 
 ## Screen Reader support
 

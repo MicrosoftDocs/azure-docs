@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 
 #Customer intent: I want to control feature availability in my app by using the Spring Boot Feature Manager library.
 ---
@@ -183,5 +183,5 @@ public String getOldFeature() {
 
 In this tutorial, you learned how to implement feature flags in your Spring Boot application by using the `spring-cloud-azure-feature-management-web` libraries. For more information about feature management support in Spring Boot and App Configuration, see the following resources:
 
-* [Spring Boot feature flag sample code](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
+* [Spring Boot feature flag sample code](./quickstart-feature-flag-spring-boot.md)
 * [Manage feature flags](./manage-feature-flags.md)

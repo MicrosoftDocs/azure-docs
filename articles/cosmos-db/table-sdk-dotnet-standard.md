@@ -8,9 +8,11 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
+ms.custom: devx-track-dotnet
 
 ---
 # Azure Cosmos DB Table .NET Standard API: Download and release notes
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 > [!div class="op_single_selector"]
 > 
 > * [.NET](table-sdk-dotnet.md)
@@ -36,6 +38,14 @@ ms.date: 03/18/2019
 
 ## Release notes for 1.0.0 series
 1.0.0 series takes the dependency on [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+
+### <a name="1.0.8"></a>1.0.8
+* Add support to set TTL property if it's cosmosdb endpoint 
+* Honor retry policy upon timeout and task cancelled exception
+* Fix intermittent task cancelled exception seen in asp .net applications
+* Fix azure table storage retrieve from secondary endpoint only location mode
+* Update `Microsoft.Azure.DocumentDB.Core` dependency version to 2.11.2 which fixes intermittent null reference exception
+* Update `Odata.Core` dependency version to 7.6.4 which fixes compatibility conflict with azure shell
 
 ### <a name="1.0.7"></a>1.0.7
 * Performance improvement by setting Table SDK default trace level to SourceLevels.Off, which can be opted in via app.config

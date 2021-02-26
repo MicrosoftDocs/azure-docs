@@ -1,20 +1,23 @@
 ---
 title: "Quickstart: Create a blueprint with Azure CLI"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the Azure CLI.
-ms.date: 06/02/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with Azure CLI
 
 Learning how to create and assign blueprints enables the definition of common patterns to develop
-reusable and rapidly deployable configurations based on Resource Manager templates, policy,
-security, and more. In this tutorial, you learn to use Azure Blueprints to do some of the common
-tasks related to creating, publishing, and assigning a blueprint within your organization, such as:
+reusable and rapidly deployable configurations based on Azure Resource Manager templates (ARM
+templates), policy, security, and more. In this tutorial, you learn to use Azure Blueprints to do
+some of the common tasks related to creating, publishing, and assigning a blueprint within your
+organization, such as:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-before you begin.
+- If you don't have an Azure subscription, create a
+  [free account](https://azure.microsoft.com/free) before you begin.
+- If you've not used Azure Blueprints before, register the resource provider through Azure CLI with
+  `az provider register --namespace Microsoft.Blueprint`.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -24,10 +27,11 @@ To enable Azure CLI to manage blueprint definitions and assignments, the extensi
 This extension works wherever Azure CLI can be used, including
 [bash on Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (both
 standalone and inside the portal), the [Azure CLI Docker
-image](https://hub.docker.com/r/microsoft/azure-cli/), or locally installed.
+image](https://hub.docker.com/_/microsoft-azure-cli), or locally installed.
 
 1. Check that the latest Azure CLI is installed (at least **2.0.76**). If it isn't yet installed,
-   follow [these instructions](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+   follow
+   [these instructions](/cli/azure/install-azure-cli-windows).
 
 1. In your Azure CLI environment of choice, import it with the following command:
 
@@ -50,8 +54,8 @@ image](https://hub.docker.com/r/microsoft/azure-cli/), or locally installed.
 
 The first step in defining a standard pattern for compliance is to compose a blueprint from the
 available resources. We'll create a blueprint named 'MyBlueprint' to configure role and policy
-assignments for the subscription. Then we'll add a resource group, a Resource Manager template, and
-a role assignment on the resource group.
+assignments for the subscription. Then we'll add a resource group, an ARM template, and a role
+assignment on the resource group.
 
 > [!NOTE]
 > When using Azure CLI, the _blueprint_ object is created first. For each _artifact_ to be added
@@ -125,7 +129,7 @@ a role assignment on the resource group.
      > [!NOTE]
      > Use the filename _blueprint.json_ when importing your blueprint definitions.
      > This file name is used when calling
-     > [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext-blueprint-az-blueprint-import).
+     > [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import).
 
      The blueprint object is created in the default subscription by default. To specify the
      management group, use parameter **managementgroup**. To specify the subscription, use parameter
@@ -181,6 +185,10 @@ a role assignment on the resource group.
         --parameters artifacts\policyTags.json
      ```
 
+     > [!NOTE]
+     > When using `az blueprint` on a Mac, replace `\` with `/` for parameter values that include
+     > the path. In this case, the value for **parameters** becomes `artifacts/policyTags.json`.
+
 1. Add another policy assignment for Storage tag (reusing _storageAccountType_ parameter) at
    subscription. This additional policy assignment artifact demonstrates that a parameter defined on
    the blueprint is usable by more than one artifact. In the example, the **storageAccountType** is
@@ -213,14 +221,18 @@ a role assignment on the resource group.
         --parameters artifacts\policyStorageTags.json
      ```
 
-1. Add template under resource group. The **template** parameter for a Resource Manager template
-   includes the normal JSON components of the template. The template also reuses the
-   **storageAccountType**, **tagName**, and **tagValue** blueprint parameters by passing each to the
-   template. The blueprint parameters are available to the template by using parameter
-   **parameters** and inside the template JSON that key-value pair is used to inject the value. The
-   blueprint and template parameter names could be the same.
+     > [!NOTE]
+     > When using `az blueprint` on a Mac, replace `\` with `/` for parameter values that include
+     > the path. In this case, the value for **parameters** becomes `artifacts/policyStorageTags.json`.
 
-   - JSON Azure Resource Manager template file - artifacts\templateStorage.json
+1. Add template under resource group. The **template** parameter for an ARM template includes the
+   normal JSON components of the template. The template also reuses the **storageAccountType**,
+   **tagName**, and **tagValue** blueprint parameters by passing each to the template. The blueprint
+   parameters are available to the template by using parameter **parameters** and inside the
+   template JSON that key-value pair is used to inject the value. The blueprint and template
+   parameter names could be the same.
+
+   - JSON ARM template file - artifacts\templateStorage.json
 
      ```json
      {
@@ -274,7 +286,7 @@ a role assignment on the resource group.
      }
      ```
 
-   - JSON Azure Resource Manager template parameter file - artifacts\templateStorageParams.json
+   - JSON ARM template parameter file - artifacts\templateStorageParams.json
 
      ```json
      {
@@ -300,6 +312,11 @@ a role assignment on the resource group.
         --parameters artifacts\templateStorageParams.json \
         --resource-group-art 'storageRG'
      ```
+
+     > [!NOTE]
+     > When using `az blueprint` on a Mac, replace `\` with `/` for parameter values that include
+     > the path. In this case, the value for **template** becomes `artifacts/templateStorage.json`
+     > and **parameters** becomes `artifacts/templateStorageParams.json`.
 
 1. Add role assignment under resource group. Similar to the previous role assignment entry, the
    example below uses the definition identifier for the **Owner** role and provides it a different

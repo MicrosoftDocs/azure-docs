@@ -1,25 +1,25 @@
 ---
 title: Assign variables
-description: In this article, you'll find essential tips for assigning T-SQL variables in SQL pool.
+description: In this article, you'll find essential tips for assigning T-SQL variables for dedicated SQL pools in Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT 
+author: MSTehrani 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Assign variables in Synapse SQL pool
+# Assign variables for dedicated SQL pools in Azure Synapse Analytics
 
-In this article, you'll find essential tips for assigning T-SQL variables in SQL pool.
+In this article, you'll find essential tips for assigning T-SQL variables in dedicated SQL pool.
 
 ## Set variables with DECLARE
 
-Variables in SQL pool are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL pool.
+Variables in dedicated SQL pool are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL pool.
 
 ```sql
 DECLARE @v  int = 0
