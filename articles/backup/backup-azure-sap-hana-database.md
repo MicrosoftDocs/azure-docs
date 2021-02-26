@@ -167,7 +167,7 @@ Specify the policy settings as follows:
     ![Differential backup policy](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > Incremental backups are now supported in public preview. You can choose either a differential or an incremental as a daily backup but not both.
+    > You can choose either a differential or an incremental as a daily backup but not both.
 1. In **Incremental Backup policy**, select **Enable** to open the frequency and retention controls.
     * At most, you can trigger one incremental backup per day.
     * Incremental backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.
