@@ -25,9 +25,9 @@ The following table indicates which programming languages are currently supporte
 
 ## <a name="creating-1x-apps"></a>Run on a specific version
 
-By default, function apps created in the Azure portal and by the Azure CLI are set to version 3.x. You can modify this version as needed. You can only change the runtime version to 1.x after you create your function app but before you add any functions.  Moving between 2.x and 3.x is allowed even with apps that have functions. Before moving an app with existing functions from 2.x to 3.x, please be aware of any [breaking changes between 2.x and 3.x](#breaking-changes-between-2x-and-3x). 
+By default, function apps created in the Azure portal and by the Azure CLI are set to version 3.x. You can modify this version as needed. You can only change the runtime version to 1.x after you create your function app but before you add any functions.  Moving between 2.x and 3.x is allowed even with apps that have existing functions. Before moving an app with existing functions from 2.x to 3.x, please be aware of any [breaking changes between 2.x and 3.x](#breaking-changes-between-2x-and-3x). 
 
-You should also first test your existing code running in a separate function app running on version 3.x to make sure it runs correctly after the upgrade.
+Before making a change to the major version of the runtime, you should first test your existing code by deploying to another function app running on the latest major version. This testing helps to make sure it runs correctly after the upgrade. 
 
 Downgrades from v3.x to v2.x aren't supported. When possible, you should always run your apps on the latest supported version of the Functions runtime. 
 
@@ -45,6 +45,12 @@ The version of the Functions runtime used by published apps in Azure is dictated
 > Don't arbitrarily change this setting, because other app setting changes and changes to your function code may be required.
 
 To learn more, see [How to target Azure Functions runtime versions](set-runtime-version.md).  
+
+### Pinning to a specific minor version
+
+To resolve issues with your function app running on the latest major version, you have to pin your app to a specific minor version. This gives you time to get your app running correctly on the latest major version. The way that you pin to a minor version differs between Windows and Linux. To learn more, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+
+Older minor versions are periodically removed from Functions. For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues). 
 
 ### Pinning to version ~2.0
 
@@ -127,20 +133,6 @@ You can make the following updates to function apps to locally change the target
 
 In Visual Studio, you select the runtime version when you create a project. Azure Functions tools for Visual Studio supports the three major runtime versions. The correct version is used when debugging and publishing based on project settings. The version settings are defined in the `.csproj` file in the following properties:
 
-##### Version 1.x
-
-```xml
-<TargetFramework>net472</TargetFramework>
-<AzureFunctionsVersion>v1</AzureFunctionsVersion>
-```
-
-##### Version 2.x
-
-```xml
-<TargetFramework>netcoreapp2.1</TargetFramework>
-<AzureFunctionsVersion>v2</AzureFunctionsVersion>
-```
-
 ##### Version 3.x
 
 ```xml
@@ -150,6 +142,20 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 
 > [!NOTE]
 > Azure Functions 3.x and .NET requires the `Microsoft.NET.Sdk.Functions` extension be at least `3.0.0`.
+
+##### Version 2.x
+
+```xml
+<TargetFramework>netcoreapp2.1</TargetFramework>
+<AzureFunctionsVersion>v2</AzureFunctionsVersion>
+```
+
+##### Version 1.x
+
+```xml
+<TargetFramework>net472</TargetFramework>
+<AzureFunctionsVersion>v1</AzureFunctionsVersion>
+```
 
 ###### Updating 2.x apps to 3.x in Visual Studio
 

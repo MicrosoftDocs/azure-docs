@@ -35,6 +35,8 @@ The following table shows the highest level of .NET Core or .NET Framework that 
 
 <sup>*</sup> For details, see [Functions v2.x considerations](#functions-v2x-considerations).   
 
+For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues).
+
 ### Functions v2.x considerations
 
 Function apps that target the latest 2.x version (`~2`) are automatically upgraded to run on .NET Core 3.1. Because of breaking changes between .NET Core versions, not all apps developed and compiled against .NET Core 2.2 can be safely upgraded to .NET Core 3.1. You can opt out of this upgrade by pinning your function app to `~2.0`. Functions also detects incompatible APIs and may pin your app to `~2.0` to prevent incorrect execution on .NET Core 3.1. 
