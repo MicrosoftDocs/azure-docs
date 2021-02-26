@@ -1,18 +1,18 @@
 ---
-title: Create Bicep templates - Visual Studio Code
-description: Use Visual Studio Code and the Bicep extension to work on Azure Resource Manager templates (ARM templates) in Bicep.
+title: Create Bicep files - Visual Studio Code
+description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources
 author: mumian
-ms.date: 02/23/2021
+ms.date: 02/26/2021
 ms.topic: quickstart
 ms.author: jgao
 
-#Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
+#Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files, so I can use them to deploy Azure resources.
 
 ---
 
-# Quickstart: Create ARM Bicep templates with Visual Studio Code
+# Quickstart: Create Bicep files with Visual Studio Code
 
-The Bicep extension for Visual Studio Code provide language support and resource autocompletion. These tools help create and validate Azure Resource Manager Bicep templates (ARM Bicep templates). In this quickstart, you use the extension to create a Bicep template from scratch. While doing so you experience the extensions capabilities such as ARM template snippets, validation, and completions.
+The Bicep extension for Visual Studio Code provide language support and resource autocompletion. These tools help create and validate [Bicep](./bicep-overview.md) files. In this quickstart, you use the extension to create a Bicep file from scratch. While doing so you experience the extensions capabilities such as ARM template snippets, validation, and completions.
 
 To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installed. You also need either the [Azure CLI](/cli/azure/?view=azure-cli-latest&preserve-view=true) or the [Azure PowerShell module](/powershell/azure/new-azureps-module-az?view=azps-3.7.0&preserve-view=true) installed and authenticated.
 
@@ -54,11 +54,11 @@ One of the most powerful capabilities of the extension is its integration with A
 
 First, update the storage account kind to an invalid value such as `megaStorage`. Notice that this action produces a warning indicating that `megaStorage` is not a valid value.
 
-![Image showing an invalid storage configuration](./media/quickstart-create-bicep-templates-use-visual-studio-code/7.png)
+![Image showing an invalid storage configuration](./media/quickstart-create-bicep-use-visual-studio-code/7.png)
 
 To use the completion capabilities, remove `megaStorage`, place the cursor inside of the single quotes, and press `ctrl` + `space`. This action presents a completion list of valid values.
 
-![Image showing extension auto-completion](./media/quickstart-create-bicep-templates-use-visual-studio-code/8.png)
+![Image showing extension auto-completion](./media/quickstart-create-bicep-use-visual-studio-code/8.png)
 
 ## Add template parameters
 
@@ -80,7 +80,7 @@ Azure storage account names have a minimum length of 3 characters and a maximum 
 
 Now, on the storage resource, update the name property to use the parameter. To do so, remove the current storage resource name including the single quotes. press `ctrl` + `space`. Select the **storageAccountName** parameter from the list. Notice the parameters can be referenced directly by using their names in Bicep. The JSON templates require a parameter() function.
 
-![Image showing auto-completion when using parameters in ARM template resources](./media/quickstart-create-bicep-templates-use-visual-studio-code/12.png)
+![Image showing auto-completion when using parameters in ARM template resources](./media/quickstart-create-bicep-use-visual-studio-code/12.png)
 
 ## Deploy the template
 
