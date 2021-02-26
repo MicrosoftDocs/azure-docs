@@ -98,7 +98,7 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
     .buildClient();
 ```
 
-Alternatively, you may use managed identity to initialize and authenticate with Identity service.
+Alternatively, if you have managed identity set up, see [Use managed identities](../managed-identity.md), you may use managed identity to initialize and authenticate with Identity service.
 ```java
 // Your can find your endpoint from your resource in the Azure Portal
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
