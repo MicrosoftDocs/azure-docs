@@ -2,7 +2,7 @@
 title: Set up diagnostic logs - Azure Event Hub | Microsoft Docs
 description: Learn how to set up activity logs and diagnostic logs for event hubs in Azure.
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 02/25/2021
 ---
 
 # Set up diagnostic logs for an Azure event hub
