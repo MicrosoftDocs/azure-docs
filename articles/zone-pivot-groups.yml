@@ -1052,3 +1052,12 @@ groups:
     title: Ruby
   - id: rest
     title: Rest
+- id: azure-maps-android
+# Owner: richbrun
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-kotlin
+    title: Kotlin (Android)
