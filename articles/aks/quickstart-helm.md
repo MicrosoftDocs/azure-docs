@@ -12,7 +12,7 @@ ms.author: zarhoads
 
 [Helm][helm] is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers like *APT* and *Yum*, Helm manages Kubernetes charts, which are packages of pre-configured Kubernetes resources.
 
-In this quickstart, you will use Helm to package and run an application on AKS. For more details on installing an existing application using Helm, see [Install existing applications with Helm in AKS][helm-existing].
+In this quickstart, you'll use Helm to package and run an application on AKS. For more details on installing an existing application using Helm, see the [Install existing applications with Helm in AKS][helm-existing] how-to guide.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ In this quickstart, you will use Helm to package and run an application on AKS. 
 * [Helm v3 installed][helm-install].
 
 ## Create an Azure Container Registry
-You will need to store your container images in an Azure Container Registry (ACR) to run your application in your AKS cluster using Helm. Provide your own registry name unique within Azure and containing 5-50 alphanumeric characters. The *Basic* SKU is a cost-optimized entry point for development purposes that provides a balance of storage and throughput.
+You'll need to store your container images in an Azure Container Registry (ACR) to run your application in your AKS cluster using Helm. Provide your own registry name unique within Azure and containing 5-50 alphanumeric characters. The *Basic* SKU is a cost-optimized entry point for development purposes that provides a balance of storage and throughput.
 
 The below example uses [az acr create][az-acr-create] to create an ACR named *MyHelmACR* in *MyResourceGroup* with the *Basic* SKU.
 
@@ -30,7 +30,7 @@ az group create --name MyResourceGroup --location eastus
 az acr create --resource-group MyResourceGroup --name MyHelmACR --sku Basic
 ```
 
-Output will be similar to the following example. Take note of your *loginServer* value for your ACR since you will use it in a later step. In the below example, *myhelmacr.azurecr.io* is the *loginServer* for *MyHelmACR*.
+Output will be similar to the following example. Take note of your *loginServer* value for your ACR since you'll use it in a later step. In the below example, *myhelmacr.azurecr.io* is the *loginServer* for *MyHelmACR*.
 
 ```console
 {
@@ -92,7 +92,7 @@ cd dev-spaces/samples/nodejs/getting-started/webfrontend
 
 ## Create a Dockerfile
 
-Create a new *Dockerfile* file using the following:
+Create a new *Dockerfile* file using the following commands:
 
 ```dockerfile
 FROM node:latest
@@ -128,7 +128,7 @@ helm create webfrontend
 ```
 
 Update *webfrontend/values.yaml*:
-* Substitute the loginServer of your registry that you noted in an earlier step, such as *myhelmacr.azurecr.io*.
+* Replace the loginServer of your registry that you noted in an earlier step, such as *myhelmacr.azurecr.io*.
 * Change `image.repository` to `<loginServer>/webfrontend`
 * Change `service.type` to `LoadBalancer`
 
@@ -181,7 +181,7 @@ webfrontend         LoadBalancer  10.0.141.72   <pending>     80:32150/TCP   2m
 webfrontend         LoadBalancer  10.0.141.72   <EXTERNAL-IP> 80:32150/TCP   7m
 ```
 
-Navigate to the your application's load balancer in a browser using the `<EXTERNAL-IP>` to see the sample application.
+Navigate to your application's load balancer in a browser using the `<EXTERNAL-IP>` to see the sample application.
 
 ## Delete the cluster
 
