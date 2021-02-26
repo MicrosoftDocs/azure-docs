@@ -68,7 +68,7 @@ To design and run your logic app locally in Visual Studio Code, follow these ste
 
 1. To run the emulator, you need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
-1. Before you open the designer or run your logic app, start the emulator.
+1. Before you open the designer for your logic app, start the emulator.
 
    ![Screenshot that shows the Azure Storage Emulator running.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
@@ -269,7 +269,7 @@ Before you can create your logic app, create a local project so that you can man
 
    ![Screenshot that shows the Explorer pane with project folder, workflow folder, and "workflow.json" file.](./media/create-stateful-stateless-workflows-visual-studio-code/local-project-created.png)
 
-1. If you're using macOS or Linux, set up access to your storage account by following these steps:
+1. If you're using macOS or Linux, set up access to your storage account by following these steps, which are required for locally running your project:
 
    1. In your project's root folder, open the **local.settings.json** file.
 
@@ -328,9 +328,6 @@ Before you can create your logic app, create a local project so that you can man
 
    ![Screenshot that shows Explorer pane and shortcut window for the workflow.json file with "Open in Designer" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/open-definition-file-in-designer.png)
 
-   > [!NOTE]
-   > If the designer won't open, check the troubleshooting section, [Designer fails to open](#designer-fails-to-open).
-
 1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**, which applies to all managed connectors that are available and deployed in Azure, not just connectors for Azure services.
 
    ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
@@ -361,6 +358,8 @@ Before you can create your logic app, create a local project so that you can man
    > [!NOTE]
    > When Visual Studio Code starts the workflow design-time API, a message appears that 
    > startup might take a few seconds. You can ignore this message or select **OK**.
+   >
+   > If the designer won't open, review the troubleshooting section, [Designer fails to open](#designer-fails-to-open).
 
    After the designer appears, the **Choose an operation** prompt appears on the designer and is selected by default, which shows the **Add an action** pane.
 
@@ -1220,7 +1219,7 @@ The <*master-key*> value is defined in the Azure Storage account that you set fo
       "encrypted": false
    },
    <...>
-   }
+}
 ```
 
 <a name="delete-from-designer"></a>
@@ -1350,13 +1349,25 @@ To resolve this problem and adjust for the longer URI, edit the `UrlSegmentMaxCo
 
 1. When you're ready, restart your computer so that the changes can take effect.
 
-<a><name="debugging-fails-to-start"></a>
+<a name="debugging-fails-to-start"></a>
 
 ### Debugging session fails to start
 
 When you try to start a debugging session, you get the error, **"Error exists after running preLaunchTask 'generateDebugSymbols'"**. To resolve this problem, edit the **tasks.json** file in your project to skip symbol generation.
 
-1.  In your project, expand the **.vscode** folder, and open the **tasks.json** file.
+1. In your project, expand the **.vscode** folder, and open the **tasks.json** file.
+
+1. In the following task, remove or comment out the line, `"dependsOn: "generateDebugSymbols"`, for example:
+
+   ```json
+    {
+      "type": "func",
+      "command": "host start",
+      "problemMatcher": "$func-watch",
+      "isBackground": true,
+      //"dependsOn": "generateDebugSymbols"
+    }
+   ```
 
 ## Next steps
 
