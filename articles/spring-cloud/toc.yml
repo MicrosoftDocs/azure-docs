@@ -188,3 +188,6 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
+  - name: What's New
+    displayName: What's New
+    href: https://azure.microsoft.com/updates/?query=spring
