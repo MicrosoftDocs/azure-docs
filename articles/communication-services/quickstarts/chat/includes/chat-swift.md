@@ -51,9 +51,11 @@ pod 'AzureCommunicationChat', '~> 1.0.0-beta.8'
 Install the dependencies, this will also create an Xcode workspace:
 `pod install`
 
+**After running pod install, re-open the project in Xcode by selecting the newly created `.xcworkspace`.**
+
 ### Setup the placeholders
 
-Open the workspace file `ChatQuickstart.xcworkspace` in Xcode and then open `ViewController.swift`.
+Open the workspace `ChatQuickstart.xcworkspace` in Xcode and then open `ViewController.swift`.
 
 In this Quickstart, we will add our code to `viewController`, and view the output in the Xcode console. This quickstart does not address building a UI in iOS. 
 
