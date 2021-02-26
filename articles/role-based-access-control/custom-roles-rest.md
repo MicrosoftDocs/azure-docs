@@ -337,5 +337,5 @@ To delete a custom role, use the [Role Definitions - Delete](/rest/api/authoriza
 ## Next steps
 
 - [Azure custom roles](custom-roles.md)
-- [Add or remove Azure role assignments using the REST API](role-assignments-rest.md)
+- [Assign Azure roles using the REST API](role-assignments-rest.md)
 - [Azure REST API Reference](/rest/api/azure/)

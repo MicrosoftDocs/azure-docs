@@ -105,7 +105,7 @@ Azure NetApp Files provides volume performance metrics. You can also use Azure M
 
 ### What’s the performance impact of Kerberos on NFSv4.1?
 
-See [Performance impact of Kerberos on NFSv4.1](configure-kerberos-encryption.md#kerberos_performance) for information about security options for NFSv4.1, the performance vectors tested, and the expected performance impact. 
+See [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md) for information about security options for NFSv4.1, the performance vectors tested, and the expected performance impact. 
 
 ## NFS FAQs
 

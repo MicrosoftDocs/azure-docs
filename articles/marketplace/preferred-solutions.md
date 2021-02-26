@@ -4,8 +4,8 @@ description: Preferred solutions within the Marketplace and how they are selecte
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: cpercy737
-ms.author: camper
+author: feospina
+ms.author: feospina
 ms.date: 06/27/2018
 ---
 

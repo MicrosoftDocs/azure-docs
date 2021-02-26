@@ -77,7 +77,7 @@ Once you have created the endpoint resources, you can use them for an Azure Digi
 1. Finish creating your endpoint by selecting _Save_.
 
 >[!IMPORTANT]
-> In order to successfully use identity-based authentication for your endpoint, you'll need to create a managed identity for your instance by following the steps in [*How-to: Enable a managed identity for routing events (preview)*](how-to-enable-managed-identities.md).
+> In order to successfully use identity-based authentication for your endpoint, you'll need to create a managed identity for your instance by following the steps in [*How-to: Enable a managed identity for routing events (preview)*](./how-to-enable-managed-identities-portal.md).
 
 After creating your endpoint, you can verify that the endpoint was successfully created by checking the notification icon in the top Azure portal bar: 
 
@@ -99,9 +99,9 @@ Now the event grid, event hub, or Service Bus topic is available as an endpoint 
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
 
-In order to create an endpoint with dead-lettering enabled, you must use the [ARM APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) or [CLI commands](how-to-use-cli.md) to create your endpoint, rather than the Azure portal.
+In order to create an endpoint with dead-lettering enabled, you must use the [CLI commands](how-to-use-cli.md) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
 
-For instructions on how to do this with the APIs, see the [*APIs and CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) version of this article.
+For instructions on how to do this with these tools, see the [*APIs and CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) version of this article.
 
 ## Create an event route
 
