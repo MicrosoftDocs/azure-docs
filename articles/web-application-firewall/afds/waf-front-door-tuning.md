@@ -192,6 +192,9 @@ If you want to use Azure PowerShell to disable a managed rule, see the [`PSAzure
 
 ![WAF rules](../media/waf-front-door-tuning/waf-rules.png)
 
+> [!TIP]
+> It's a good idea to document any changes you make to your WAF policy. Include example requests to illustrate the false positive detection, and clearly explain why you added a custom rule, disabled a rule or ruleset, or added an exception. This documentation can be helpful if you redesign your application in future and need to verify that your changes are still valid. It can also help if you are ever audited or need to justify why you have reconfigured the WAF policy from its default settings.
+
 ## Finding request fields
 
 Using a browser proxy like [Fiddler](https://www.telerik.com/fiddler), you can inspect individual requests and determine what specific fields of a web page are called. This is helpful when we need to exclude certain fields from inspection using exclusion lists in WAF.
