@@ -103,8 +103,7 @@ const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential
 If you have managed identity set up, see [Use managed identities](../managed-identity.md), you may also authenticate with managed identity.
 ```javascript
 const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
-let tokenCredential: TokenCredential;
-TokenCredential tokenCredential = new DefaultAzureCredential();
+const tokenCredential = new DefaultAzureCredential();
 var client = new CommunicationIdentityClient(endpoint, tokenCredential);
 ```
 
