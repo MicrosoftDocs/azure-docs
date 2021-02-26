@@ -112,7 +112,7 @@ Refer to the [Azure subscription service limits](../../azure-resource-manager/ma
 You may have a limited number of Runbook actions in an Action Group. 
 
 ### Azure app Push Notifications
-Enable push notifications to the [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/) by providing the email address you use as your account Id when configuring the Azure mobile app.
+Enable push notifications to the [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/) by providing the email address you use as your account ID when configuring the Azure mobile app.
 
 You may have a limited number of Azure app actions in an Action Group.
 
@@ -160,7 +160,7 @@ You may have a limited number of Logic App actions in an Action Group.
 
 > [!NOTE]
 > Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
-> User should be the **owner** of webhook service principal in order to make sure security is not violated. As any azure customer can access all object Ids through portal, without checking the owner, anyone can add the secure webhook to their own action group for azure monitor alert notification which violate security.
+> User should be the **owner** of webhook service principal in order to make sure security is not violated. As any azure customer can access all object IDs through portal, without checking the owner, anyone can add the secure webhook to their own action group for azure monitor alert notification which violate security.
 
 The Action Groups Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
 
@@ -187,7 +187,7 @@ The Action Groups Webhook action enables you to take advantage of Azure Active D
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
     
 # This is your Azure AD Application's ObjectId. 
-$myAzureADApplicationObjectId = "<the Object Id of your Azure AD Application>"
+$myAzureADApplicationObjectId = "<the Object ID of your Azure AD Application>"
     
 # This is the Action Groups Azure AD AppId
 $actionGroupsAppId = "461e8683-5575-4561-ac7f-899cc907d62a"
