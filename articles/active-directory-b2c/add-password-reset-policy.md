@@ -21,31 +21,31 @@ zone_pivot_groups: b2c-policy-type
 
 ## Password rest flow
 
-The [Sign In and Sign Up journey](add-sign-up-and-sign-in-policy.md) allows users to reset their password using the **Forgot your password?** link. The password reset flow involves following steps:
+The [Sign up and Sign in journey](add-sign-up-and-sign-in-policy.md) allows users to reset their password using the **Forgot your password?** link. The password reset flow involves the following steps:
 
-1. From the sign-up and sign-in page, user clicks on the "Forgot your password?" link. Azure AD B2C initiates the password reset flow. 
-1. Users provide and verify their email with a Timed One Time Passcode.
-1. Enter a new password.
+1. From the sign-up and sign-in page, the user clicks on the "Forgot your password?" link. Azure AD B2C initiates the password reset flow. 
+1. The user provides and verifies their email address with a Timed One Time Passcode.
+1. The user can then enter a new password.
 
 ![Password reset flow](./media/add-password-reset-policy/password-reset-flow.png)
 
-The password reset flow is applicable to local accounts in Azure AD B2C that use an [email address](identity-provider-local.md#email-sign-in) or [username](identity-provider-local.md#username-sign-in) with a password for sign-in. The password reset flow doesn't apply to federated accounts.
+The password reset flow is applicable to local accounts in Azure AD B2C that use an [email address](identity-provider-local.md#email-sign-in) or [username](identity-provider-local.md#username-sign-in) with a password for sign-in.
 
-A common practice after migrating users to Azure AD B2C with random passwords is to have the users verify their email addresses and reset their passwords during first sign-in. Or force reset the password after administrator change the password. To enable this feature see [force password reset](force-password-reset.md).
+A common practice after migrating users to Azure AD B2C with random passwords is to have the users verify their email addresses and reset their passwords during their first sign-in. Or to force the user to reset their password after an administrator changes their password. To enable this feature see [force password reset](force-password-reset.md).
 
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
-## Self-Service password reset (recommended)
+## Self-service password reset (recommended)
 
-The self-Service password reset new feature enables password reset functionality for users by clicking on the ‘Forgot your password’ link. The new password reset experience is now part of the sign-up or sign-in policy. Azure AD B2C doesn't return the [AADB2C90118 error code](#password-reset-policy-legacy) to your application. With the new experience, your application doesn't need to handle the error code, nor having separate policies for sign-in and password reset.
+The new password reset experience is now part of the sign-up or sign-in policy. When the user clicks the 'Forgot your password' link, they are immediately sent to the "Forgot password" experience. Your application no longer needs to handle the [AADB2C90118 error code](#password-reset-policy-legacy), nor require to have a separate policy for password reset.
 
 ::: zone pivot="b2c-user-flow"
 
-The self-service password reset experience available to user flows type of **Sign in (Recommended)**, or **Sign up and sign in (Recommended)** only. If you don't have such a user flow, create a [sign In and Sign Up](add-sign-up-and-sign-in-policy.md) user flow. 
+The self-service password reset experience can be configured for the **Sign in (Recommended)**, or **Sign up and sign in (Recommended)** user flows. If you don't have such a user flow, create a [sign In and Sign Up](add-sign-up-and-sign-in-policy.md) user flow. 
 
-To enable the Self-Service password reset to the sign-up or sign-in user flow:
+To enable self-service password reset for the sign-up or sign-in user flow:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
@@ -63,14 +63,16 @@ To enable the Self-Service password reset to the sign-up or sign-in user flow:
 
 ::: zone pivot="b2c-custom-policy"
 
-The following sections describe how to add self-service password experience to a custom policy. The sample is based on the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](./custom-policy-get-started.md). 
+The following sections describe how to add self-service password experience to a custom policy. The sample is based on the policy files included in the [custom policy starter pack](./custom-policy-get-started.md). 
 
 > [!TIP]
-> You can find a complete sample of the password reset policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/embedded-password-reset).
+> You can find a complete sample of the "sign up or sign in with password reset" policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/embedded-password-reset).
 
-### Define a claim
+### Indicate the user clicked the Forgot Password link
 
-A claim provides a temporary storage of data during an Azure AD B2C policy execution. The [claims schema](claimsschema.md) is the place where you declare your claims. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+To indicate to the policy the user has selected the 'Forgot your password' link, define a claim to represent this as a boolean. This claim will be used to direct the User Journey to the **Forgot Password** technical profile, and also can be issued into the token such that the application is aware that the user signed in via the **Forgot Password** flow.
+
+The [claims schema](claimsschema.md) is the place where you declare your claims. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 
 1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
 1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
@@ -83,37 +85,7 @@ A claim provides a temporary storage of data during an Azure AD B2C policy execu
   <AdminHelpText>Whether the user has clicked Forgot Password</AdminHelpText>
 </ClaimType>
 ```
-
-### Select the page layout version
-
-Next you set a content definition with [page layout version](contentdefinitions.md#migrating-to-page-layout) `2.1.2`. This page version (or above) is required to enable the self-service password reset.
-
-1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
-1. Locate the [ContentDefinitions](contentdefinitions.md) element. If the element doesn't exist, add it.
-1. Add the following claim to the **ContentDefinition** element.  
-
-```xml
-<ContentDefinition Id="api.signuporsignin">
-  <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.2</DataUri>
-  <Metadata>
-    <Item Key="setting.forgotPasswordLinkOverride">ForgotPasswordExchange</Item>
-  </Metadata>
-</ContentDefinition>
-```
-
-The `setting.forgotPasswordLinkOverride` indicates the claims exchange to be execute. Alternatively, you can set the metadata in the following technical profile.
-
-```xml
-<TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
-  <Metadata>
-    <Item Key="setting.forgotPasswordLinkOverride">ForgotPasswordExchange</Item>
-  </Metadata>
-</TechnicalProfile>
-```
-
-### Add a technical profile
-
-The following claims transformation technical profile set the value of the `isForgotPassword` claim to true. This claim is used later in the user flow as an indication that users click on the **Forgot your password?** link. Find the `ClaimsProviders` element. If the element doesn't exist, add it. Add the following claims provider:  
+To initiase the `isForgotPassword` claim, a Claims Transformtion Technical profile is used. This will be referenced later, and when invoked, it will set the value of the `isForgotPassword` claim to true. Find the `ClaimsProviders` element. If the element doesn't exist, add it. Add the following claims provider:  
 
 ```xml
 <ClaimsProvider>
@@ -122,6 +94,9 @@ The following claims transformation technical profile set the value of the `isFo
     <TechnicalProfile Id="ForgotPassword">
       <DisplayName>Forgot your password?</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+      <Metadata>
+        <Item Key="setting.forgotPasswordLinkOverride">ForgotPasswordExchange</Item>
+      </Metadata>
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="isForgotPassword" DefaultValue="true" AlwaysUseDefaultValue="true"/>
       </OutputClaims>
@@ -129,36 +104,55 @@ The following claims transformation technical profile set the value of the `isFo
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
+### Upgrade the Page Layout version
+
+[Page layout version](contentdefinitions.md#migrating-to-page-layout) `2.1.2` is requried to enable the self-service password reset flow within the **sign up or sign in** journey.
+
+1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
+1. Locate the [ContentDefinitions](contentdefinitions.md) element. If the element doesn't exist, add it.
+1. Modify the **DataURI** element within the **ContentDefinition** element with Id **api.signuporsignin** as shown below.
+
+```xml
+<ContentDefinition Id="api.signuporsignin">
+  <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.2</DataUri>
+</ContentDefinition>
+```
 
 ### Add the password reset sub journey
 
-[Sub journeys](subjourneys.md) is represented as an orchestration sequence that must be followed through for a successful transaction, such as password reset. The sub journey is called from a user journey. The type of the sub journey is `Call`, the sub journey executes, and then control is returned to the  orchestration step that is currently executing within the user journey.
+Your journey will now include the capability for the user to Sign in, sign up, and perform password reset. To better organise the User Journey, a [sub journey](subjourneys.md) can be used to handle the password reset flow.
 
-Find the `SubJourneys` element. If the element doesn't exist, add it. Add the following sub journey:
+The sub journey will be called from the user journey, and will perform the specific steps to deliver the password reset experience to the user. Use the `Call` type subjourney such that once the sub journey completes, control is returned to the orchestration step that initialised the sub journey.
+
+Find the `SubJourneys` element. If the element doesn't exist, add it after the `User Journeys` element. Add the following sub journey:
 
 ```xml
-<SubJourney Id="PasswordReset" Type="Call">
-  <OrchestrationSteps>
-    <!-- Validate user's email address. -->
-    <OrchestrationStep Order="1" Type="ClaimsExchange">
-      <ClaimsExchanges>
-        <ClaimsExchange Id="PasswordResetUsingEmailAddressExchange" TechnicalProfileReferenceId="LocalAccountDiscoveryUsingEmailAddress" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
+<!--<SubJourneys>-->
+  <SubJourney Id="PasswordReset" Type="Call">
+    <OrchestrationSteps>
+      <!-- Validate user's email address. -->
+      <OrchestrationStep Order="1" Type="ClaimsExchange">
+        <ClaimsExchanges>
+          <ClaimsExchange Id="PasswordResetUsingEmailAddressExchange" TechnicalProfileReferenceId="LocalAccountDiscoveryUsingEmailAddress" />
+        </ClaimsExchanges>
+      </OrchestrationStep>
 
-    <!-- Collect and persist a new password. -->
-    <OrchestrationStep Order="2" Type="ClaimsExchange">
-      <ClaimsExchanges>
-        <ClaimsExchange Id="NewCredentials" TechnicalProfileReferenceId="LocalAccountWritePasswordUsingObjectId" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-  </OrchestrationSteps>
-</SubJourney>
+      <!-- Collect and persist a new password. -->
+      <OrchestrationStep Order="2" Type="ClaimsExchange">
+        <ClaimsExchanges>
+          <ClaimsExchange Id="NewCredentials" TechnicalProfileReferenceId="LocalAccountWritePasswordUsingObjectId" />
+        </ClaimsExchanges>
+      </OrchestrationStep>
+    </OrchestrationSteps>
+  </SubJourney>
+<!--</SubJourneys>-->
 ``` 
 
-### Add a user journey 
+### Prepare your User Journey
 
-At this point, the password reset sub journey has been set up, but it's not yet available in any of the sign-in pages. If you don't have your own custom user journey, create a duplicate of an existing template user journey, otherwise continue to the next step. 
+You must connect the Forgot Password link to the Forgot Password sub journey. This is achieved by referencing the Forgot Password sub journey Id within the **ClaimsProviderSelection** element of the **CombinedSignInAndSignUp** step.
+
+If you don't have your own custom user journey with a **CombinedSignInAndSignUp** step, create a duplicate of an existing **Sign Up or Sign In** user journey, otherwise continue to the next section. 
 
 1. Open the *TrustFrameworkBase.xml* file from the starter pack.
 1. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
@@ -166,9 +160,9 @@ At this point, the password reset sub journey has been set up, but it's not yet 
 1. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
 1. Rename the Id of the user journey. For example, `Id="CustomSignUpSignIn"`.
 
-### Add the password reset to a user journey
+### Connect the Forgot Password Link to the Forgot Password Sub journey 
 
-Now that you have a user journey, add the new identity provider to the user journey. 
+Now that you have a user journey, you can represent the **Forgot Password** sub journey as a **ClaimsProviderSelection**. This will connect the Forgot Password Link to the Forgot Password Sub journey.
 
 1. Find the orchestration step element that includes `Type="CombinedSignInAndSignUp"`, or `Type="ClaimsProviderSelection"` in the user journey. It's usually the first orchestration step. The **ClaimsProviderSelections** element contains a list of identity providers that a user can sign in with. Add the following line:
     
@@ -182,16 +176,22 @@ Now that you have a user journey, add the new identity provider to the user jour
     <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
     ```
 
-### Configure the relying party policy
+### Set the User Journey to be executed
 
-The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/SocialAndLocalAccounts/SignUpOrSignin.xml), specifies the user journey which Azure AD B2C will execute. Find the **DefaultUserJourney** element within [relying party](../articles/active-directory-b2c/relyingparty.md). Update the  **ReferenceId** to match the user journey ID, in which you added the identity provider. 
-
-In the following example, for the `CustomSignUpOrSignIn` user journey, the **ReferenceId** is set to `CustomSignUpOrSignIn`. You may also want to add the `isForgotPassword` to the output claims. Your application can check the return token's `isForgotPassword` claim whether the user resets the password.
+Now that you have modifed or created a new User Journey, you must specify in the **Relying Party** section which journey Azure AD B2C will execute for this custom policy. Find the **DefaultUserJourney** element within [relying party](../articles/active-directory-b2c/relyingparty.md). Update the  **DefaultUserJourney ReferenceId** to match the user journey Id, in which you added the **ClaimsProviderSelections**.
 
 ```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="CustomSignUpSignIn" />
   ...
+</RelyingParty>
+```
+### Indicate Forgot Password flow to your App
+
+Your application may require to know whether the user signed in via the forgot password flow. The **isForgotPassword** contains a boolean value which will provide this indication and can be issued into the token sent to your application. If required, add the `isForgotPassword` to the output claims within the **Relying Party** section. Your application can check the `isForgotPassword` claim to determine whether the user reset their password.
+
+```xml
+<RelyingParty>
   <OutputClaims>
     ...
     <OutputClaim ClaimTypeReferenceId="isForgotPassword" DefaultValue="false" />
@@ -223,13 +223,13 @@ In the following example, for the `CustomSignUpOrSignIn` user journey, the **Ref
 
 ## Password reset policy (legacy)
 
-If the [self-service password reset](#self-service-password-reset-recommended) is not enabled, clicking this link doesn't automatically trigger a password reset user flow. Instead, the error code `AADB2C90118` is returned to your application. Your application needs to handle this error code by reinitialize the authentication library to authenticate at a Password Reset user flow. 
+If the [self-service password reset](#self-service-password-reset-recommended) is not enabled, clicking this link doesn't automatically trigger a password reset user flow. Instead, the error code `AADB2C90118` is returned to your application. Your application needs to handle this error code by reinitializing the authentication library to authenticate at a Azure AD B2C Password Reset user flow. 
 
 In the following diagram:
 
-1. From the application, user clicks on sign-in. The app initiates authorization request, and takes the user to Azure AD B2C to complete the sign-in. The authorization request specifies the sign-up or sign-in policy name, such as **B2C_1_signup_signin**.
-1. The user forgot the password and clicks on the "Forgot your password?" link. Azure AD B2C returns AADB2C90118 error code, and takes the user back to the application.
-1. The application handles the error code and initiates authorization request, and takes the user to Azure AD B2C to complete the sign-in. The authorization request specifies the password reset policy name, such as **B2C_1_pswd_reset**.
+1. From the application, the user clicks on sign-in. The app initiates an authorization request, and takes the user to Azure AD B2C to complete the sign-in. The authorization request specifies the sign-up or sign-in policy name, such as **B2C_1_signup_signin**.
+1. The user clicks on the "Forgot your password?" link. Azure AD B2C returns the AADB2C90118 error code back to the application.
+1. The application handles the error code and initiates a new authorization request. The authorization request specifies the password reset policy name, such as **B2C_1_pwd_reset**.
 
 ![Password reset flow](./media/add-password-reset-policy/password-reset-flow-legacy.png)
 
