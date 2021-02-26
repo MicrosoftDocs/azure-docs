@@ -21,11 +21,11 @@ Consider an application deployed to one or more Kubernetes environments.
 
 ![GitOps CI/CD architecture](./media/gitops-arch.png)
 ### Application repo
-The application repo contains the application code that developers work on during their inner loop. The application’s deployment templates live in this repo in a generic form, like Helm or Kustomize. Environment-specific values are not stored. Changes to this repo invoke a PR or CI pipeline that initiates deployment process.
+The application repo contains the application code that developers work on during their inner loop. The application’s deployment templates live in this repo in a generic form, like Helm or Kustomize. Environment-specific values aren't stored. Changes to this repo invoke a PR or CI pipeline that starts the deployment process.
 ### Container Registry
 The container registry holds all the first- and third-party images used in the Kubernetes environments. Tag first-party application images with human readable tags and the Git commit used to build the image. Cache third-party images for security, speed, and resilience. Set a plan for timely testing and integration of security updates. For more information, see the [ACR Consume and maintain public content](https://docs.microsoft.com/azure/container-registry/tasks-consume-public-content) guide for an example.
 ### PR Pipeline
-PRs to the application repo are gated on a successful run of the PR pipeline. This pipeline runs the basic quality gates, such as linting and unit tests on the application code. In addition to testing the application, the pipeline lints Dockerfiles and Helm templates used for deployment to a Kubernetes environment. Docker images should be built and tested, but not pushed. Keep the pipeline duration relatively short to allow for rapid iteration.
+PRs to the application repo are gated on a successful run of the PR pipeline. This pipeline runs the basic quality gates, such as linting and unit tests on the application code. The pipeline tests the application and lints Dockerfiles and Helm templates used for deployment to a Kubernetes environment. Docker images should be built and tested, but not pushed. Keep the pipeline duration relatively short to allow for rapid iteration.
 ### CI Pipeline
 The application CI pipeline runs all the PR pipeline steps and expands the testing and deployment checks. The pipeline can be run for each commit, or at a regular cadence with a group of commits. At this stage, perform application testing that is too long for a PR pipeline. Push Docker images to the Container Registry after building in preparation for deployment. The substituted template can be linted with a set of testing values. Images used at service runtime should be linted, built, and tested at this point. In the CI build specifically, artifacts are published for the CD step to consume in preparation for deployment.
 ### Flux
@@ -33,11 +33,16 @@ Flux is a service that runs in each cluster and is responsible for maintaining t
 ### CD Pipeline
 The CD pipeline is automatically triggered by successful CI builds. It uses the previously published templates, substitutes environment values, and opens a PR to the GitOps repo to request a change to the desired state of one or more Kubernetes clusters. Cluster administrators review the state change PR and approve the merge to the GitOps repo. The pipeline then waits for the PR to complete, which allows Flux to pick up the state change.
 ### GitOps repo
-The GitOps repo represents the current desired state of all environments across clusters. Any change to this repo is picked up by the Flux service in each cluster and deployed. PRs are created with changes to the desired state, reviewed, and merged. These PRs contain changes to both deployment templates and the resulting rendered Kubernetes manifests. The low-level rendered manifests allow for careful inspection of changes imperceptible at the template-level, avoiding any surprises behind the template substitution.
+The GitOps repo represents the current desired state of all environments across clusters. Any change to this repo is picked up by the Flux service in each cluster and deployed. PRs are created with changes to the desired state, reviewed, and merged. These PRs contain changes to both deployment templates and the resulting rendered Kubernetes manifests. The low-level rendered manifests avoid any surprises behind the template substitution by allowing careful inspection of changes typically unseen at the template-level.
 ### Kubernetes clusters
 One or more Azure Arc enabled Kubernetes clusters serve the different environments needed by the application. For example, a single cluster can serve both a dev and QA environment through different namespaces. A second cluster can provide easier separation of environments and more fine-grained control.
 ## Example workflow
-As an application developer, Alice writes application code, determines how it is run in a Docker container, and defines the templates that run the container and dependent services in a Kubernetes cluster. While Alice knows the application needs the capability to run in multiple environments, she doesn't know the specific settings for each environment.
+As an application developer, Alice:
+* Writes application code.
+* Determines how to run the application in a Docker container.
+* Defines the templates that run the container and dependent services in a Kubernetes cluster. 
+
+While Alice knows the application needs the capability to run in multiple environments, she doesn't know the specific settings for each environment.
 
 Suppose Alice wants to make an application change that alters the Docker image used in the application deployment template.
 
@@ -54,7 +59,7 @@ Suppose Alice wants to make an application change that alters the Docker image u
 5. GitOps approves Alice’s PR.
     * The change is merged into the target branch corresponding to the environment.
 6. Within minutes, Flux notices a change in the GitOps repo and pulls Alice's change. 
-    * Due to the Docker image change, the application pod requires an update. 
+    * Because of the Docker image change, the application pod requires an update. 
     * Flux applies the change to the cluster.
 7. Alice tests the application endpoint to verify the deployment successfully completed.
    > [!NOTE]  
