@@ -50,7 +50,7 @@ The recommended options for implementing authentication are, in order:
 
 ### Mobile
 
-As of February 2020, FIDO2 is not currently supported for native iOS or Android apps, but it is in development.
+As of February 2021, FIDO2 is not currently supported for native iOS or Android apps, but it is in development.
 
 To prepare applications for its availability, and as a general best practice, iOS and Android applications should use MSAL with its default configuration of using the system web browser.
 
