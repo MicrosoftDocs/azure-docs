@@ -104,11 +104,11 @@ In this example, only the Instrumentation Key has been set.
 
 - Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
-- The regional service URIs are based on the [SDK defaults](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) and will connect to the public global Azure:
+- The regional service URIs are based on the [SDK defaults](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs) and will connect to the public global Azure:
    - Ingestion: `https://dc.services.visualstudio.com/`
    - Live metrics: `https://rt.services.visualstudio.com/`
-   - Profiler: `https://agent.azureserviceprofiler.net/`
-   - Debugger: `https://agent.azureserviceprofiler.net/`
+   - Profiler: `https://profiler.monitor.azure.com/`
+   - Debugger: `https://snapshot.monitor.azure.com/`
 
 
 
@@ -160,9 +160,11 @@ A connection string can be set by either in code, environment variable, or confi
 
 - Connection String: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
+### Code samples
+
 # [.NET/.NetCore](#tab/net)
 
-TelemetryConfiguration.ConnectionString: https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
+Set the property [TelemetryConfiguration.ConnectionString](https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274) or [ApplicationInsightsServiceOptions.ConnectionString](https://github.com/microsoft/ApplicationInsights-dotnet/blob/81288f26921df1e8e713d31e7e9c2187ac9e6590/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs#L66-L69)
 
 .NET Explicitly Set:
 ```csharp
@@ -268,6 +270,7 @@ from opencensus.trace.tracer import Tracer
 tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000'), sampler=ProbabilitySampler(1.0))
 ```
 
+---
 
 ## Next steps
 
