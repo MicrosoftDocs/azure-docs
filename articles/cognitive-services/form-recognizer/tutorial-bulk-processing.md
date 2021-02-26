@@ -62,7 +62,7 @@ The Azure Databricks notebook then uses the trained models to extract form data,
 
 Your backlog of forms might be in your on-premise environment or in a (s)FTP server. This tutorial uses forms in an Azure Data Lake Gen 2 storage account. You can transfer your files there using Azure Data Factory, Azure Storage Explorer, or AzCopy. The training and scoring datasets can be in different containers, but the training datasets for all form types must be in the same container (though they can be in different folders).
 
-To create a new Data Lake, follow the instructions in [Create a storage account to use with Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/create-data-lake-storage-account).
+To create a new Data Lake, follow the instructions in [Create a storage account to use with Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md).
 
 ## Create a parameterization table
 
@@ -86,7 +86,7 @@ The following fields will be used in the table:
 
 ### Create the table
 
-[Create an Azure SQL Database](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), and then run the following SQL script in the [query editor](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal) to create the needed table.
+[Create an Azure SQL Database](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), and then run the following SQL script in the [query editor](../../azure-sql/database/connect-query-portal.md) to create the needed table.
 
 ```sql
 CREATE TABLE dbo.ParamFormRecogniser(
@@ -139,7 +139,7 @@ You'll use Azure Databricks to store and run the Python code that interacts with
 
 ### Create a secret scope backed by Azure Key Vault
 
-To reference the secrets in the Azure Key Vault we created above, you'll need to create a secret scope in Databricks. Follow the steps under [Create an Azure Key Vault-backed secret scope](https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
+To reference the secrets in the Azure Key Vault we created above, you'll need to create a secret scope in Databricks. Follow the steps under [Create an Azure Key Vault-backed secret scope](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
 
 ### Create a Databricks cluster
 
@@ -458,7 +458,7 @@ Now we can create a scoring notebook. Similarly to the training notebook, we'll 
 
 ## Automate training and scoring with Azure Data Factory
 
-The only remaining step is to set up the Azure Data Factory (ADF) service to automate the training and scoring processes. First, follow the steps under [Create a data factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory). After you create the ADF resource, you'll need to create three pipelines: one for training and two for scoring (explained below).
+The only remaining step is to set up the Azure Data Factory (ADF) service to automate the training and scoring processes. First, follow the steps under [Create a data factory](../../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory). After you create the ADF resource, you'll need to create three pipelines: one for training and two for scoring (explained below).
 
 ### Training pipeline
 
