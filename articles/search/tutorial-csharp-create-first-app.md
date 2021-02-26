@@ -45,11 +45,11 @@ Just one call queries the index and returns results.
 
 ## Overview
 
-This tutorial uses the hotels-sample-index, which you can create quickly on your own search service by stepping through the [Import data quickstart](search-get-started-portal.md). The index contains fictitious hotel data that's provided as a built-in data source in every search service.
+This tutorial uses the hotels-sample-index, which you can create quickly on your own search service by stepping through the [Import data quickstart](search-get-started-portal.md). The index contains fictitious hotel data, available as a built-in data source in every search service.
 
-The first lesson creates a basic query structrre and search page, which you'll enhance in subsequent lessons to include paging, facets, and a type-ahead experience.
+The first lesson in this tutorial creates a basic query structure and search page, which you'll enhance in subsequent lessons to include paging, facets, and a type-ahead experience.
 
-A finished version of the code in this tutorial can be found in the following project:
+A finished version of the code can be found in the following project:
 
 * [1-basic-search-page (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/1-basic-search-page)
 
@@ -57,13 +57,13 @@ This tutorial has been updated to use the Azure.Search.Documents (version 11) pa
 
 ## Prerequisites
 
-* [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+* [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+
+* Create the hotels-sample-index using the instructions in [Quickstart: Create a search index](search-get-started-portal.md).
 
 * [Visual Studio](https://visualstudio.microsoft.com/)
 
 * [Azure Cognitive Search client library (version 11)](https://www.nuget.org/packages/Azure.Search.Documents/)
-
-* Hotels-sample-index, created using the instructions in [Quickstart: Create a search index](search-get-started-portal.md)
 
 ### Install and run the project from GitHub
 
@@ -103,11 +103,11 @@ To create this project from scratch, and thus reinforce the concepts of Azure Co
 
 For this sample, you are using publicly available hotel data. This data is an arbitrary collection of 50 fictional hotel names and descriptions, created solely for the purpose of providing demo data. To access this data, specify a name and API key.
 
-1. Open **appsettings.json** and replace the default lines with the search service name and an [admin or query API key](search-security-api-keys.md) of your search service. Since you don't need to create or update an index, you can use the query key for this tutorial.
+1. Open **appsettings.json** and replace the default lines with the search service URL (in the format `https://<service-name>.search.windows.net`) and an [admin or query API key](search-security-api-keys.md) of your search service. Since you don't need to create or update an index, you can use the query key for this tutorial.
 
     ```csharp
     {
-        "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
+        "SearchServiceName": "<YOUR-SEARCH-SERVICE-URI>",
         "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-API-KEY>"
     }
     ```
