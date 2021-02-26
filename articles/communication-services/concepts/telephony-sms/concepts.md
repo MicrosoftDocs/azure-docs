@@ -15,6 +15,7 @@ ms.service: azure-communication-services
 # SMS concepts
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services enables you to send and receive SMS text messages using the Communication Services SMS client libraries. These client libraries can be used to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Communication Services SMS allows you to reliably send messages while exposing deliverability and response rate insights surrounding your campaigns.
 
@@ -41,4 +42,4 @@ The following documents may be interesting to you:
 
 - Familiarize yourself with the [SMS client library](../telephony-sms/sdk-features.md)
 - Get an SMS capable [phone number](../../quickstarts/telephony-sms/get-phone-number.md)
-- [Plan your SMS solution](../telephony-sms/plan-solution.md)
+- [Phone number types in Azure Communication Services](../telephony-sms/plan-solution.md)

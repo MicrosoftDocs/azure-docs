@@ -3,6 +3,7 @@ title: Deploy Azure dedicated hosts using the Azure portal
 description: Deploy VMs and scale sets to dedicated hosts using the Azure portal.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 12/07/2020

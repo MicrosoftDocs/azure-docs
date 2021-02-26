@@ -5,8 +5,9 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
-ms.service: virtual-machines-linux
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: danis
 ---
 # Preview: Create a new VM image version from an existing image version using Azure Image Builder in Linux

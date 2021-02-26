@@ -71,7 +71,7 @@ To grant Azure AD access control to your endpoint:
 
 1. Select **Save** to add the role assignment.
 
-For more information on Azure AD access control, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+For more information on Azure AD access control, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
 
 For details on how to connect using Azure AD authentication, see [connect to your node using AAD authentication](configure-aad.md).
 

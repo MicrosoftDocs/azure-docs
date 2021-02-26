@@ -224,7 +224,7 @@ To trigger the process of retirement, you need to manually delete the device fro
 
 In the [first half of this article](#auto-provision-device-using-device-provisioning-service), you created a device in IoT Hub and a corresponding digital twin. 
 
-Now, go to the IoT Hub and delete that device (you can do this with an [Azure CLI command](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest&preserve-view=true#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) or in the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+Now, go to the IoT Hub and delete that device (you can do this with an [Azure CLI command](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest#ext_azure_iot_az_iot_hub_module_identity_delete) or in the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
 
 The device will be automatically removed from Azure Digital Twins. 
 

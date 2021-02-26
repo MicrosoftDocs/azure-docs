@@ -10,6 +10,9 @@ ms.custom: references_regions
 
 You can use the [Azure Backup service](./backup-overview.md) to back up Azure file shares. This article summarizes support settings when you back up Azure file shares with Azure Backup.
 
+> [!NOTE]
+> Azure Backup currently doesn't support NFS shares.
+
 ## Supported regions
 
 ### GA regions for Azure file shares backup
