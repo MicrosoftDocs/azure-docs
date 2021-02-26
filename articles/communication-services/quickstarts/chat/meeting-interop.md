@@ -18,7 +18,7 @@ Get started with Azure Communication Services by connecting your chat solution t
 
 ## Prerequisites 
 
-1. A [Teams deployment](https://docs.microsoft.com/deployoffice/teams-install). 
+1. A [Teams deployment](/deployoffice/teams-install). 
 2. A working [chat app](./get-started.md). 
 
 ## Enable Teams interoperability 

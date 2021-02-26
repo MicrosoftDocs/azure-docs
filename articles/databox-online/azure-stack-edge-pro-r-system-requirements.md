@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/05/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro R system requirements

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 12/08/2020
+ms.date: 01/27/2021
 ms.author: curtand
 ---
 
@@ -18,7 +18,6 @@ ms.author: curtand
 
 The Microsoft Authenticator app for Android is available for download in China. The Google Play Store isn't available in China, so the app must be downloaded from other Chinese app marketplaces. The Microsoft Authenticator app for Android is currently available in the following stores in China:
 
-- [Baidu](https://shouji.baidu.com/software/26638379.html)
 - [Lenovo](https://www.lenovomm.com/appdetail/com.azure.authenticator/20197724)
 - [Huawei](https://appgallery.cloud.huawei.com/uowap/index.html#/detailApp/C100262999?source=appshare&subsource=C100262999&shareTo=weixin&locale=zh_CN)
 - [Samsung Galaxy Store](http://apps.samsung.com/appquery/appDetail.as?appId=com.azure.authenticator)

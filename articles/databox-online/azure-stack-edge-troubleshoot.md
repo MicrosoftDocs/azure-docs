@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 01/21/2021
+ms.date: 02/05/2021
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Stack Edge Pro issues
@@ -84,4 +84,4 @@ Any errors experienced during the upload and refresh processes are included in t
 
 ## Next steps
 
-* Learn more about the [known issues in this release](data-box-gateway-release-notes.md).
+* Learn more about the [known issues in this release](../databox-gateway/data-box-gateway-release-notes.md).

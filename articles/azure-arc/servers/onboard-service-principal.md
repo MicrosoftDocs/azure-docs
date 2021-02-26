@@ -62,7 +62,7 @@ The values from the following properties are used with parameters passed to the 
 > Make sure to use the service principal **ApplicationId** property, not the **Id** property.
 >
 
-The **Azure Connected Machine Onboarding** role contains only the permissions required to onboard a machine. You can assign the service principal permission to allow its scope to include a resource group or a subscription. To add role assignment, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md) or [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+The **Azure Connected Machine Onboarding** role contains only the permissions required to onboard a machine. You can assign the service principal permission to allow its scope to include a resource group or a subscription. To add role assignment, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md) or [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## Install the agent and connect to Azure
 
@@ -136,6 +136,6 @@ After you install the agent and configure it to connect to Azure Arc enabled ser
 
 * Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
 
-- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-policy.md), and much more.
+- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
 
-- Learn more about the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, manage it using Automation runbooks or features like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).
+- Learn more about the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, manage it using Automation runbooks or features like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).

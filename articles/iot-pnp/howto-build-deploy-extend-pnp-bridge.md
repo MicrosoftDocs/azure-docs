@@ -209,7 +209,7 @@ To complete this section, you need a free or standard-tier Azure IoT hub. To lea
 
 The steps in this section assume you have the following development environment on a Windows 10 machine. These tools let you build and deploy an IoT Edge module to your IoT Edge device:
 
-- Windows Subsystem for Linux (WSL) 2 running Ubuntu 18.04 LTS. To learn more, see the [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
+- Windows Subsystem for Linux (WSL) 2 running Ubuntu 18.04 LTS. To learn more, see the [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10).
 - Docker Desktop for Windows configured to use WSL 2. To learn more, see [Docker Desktop WSL 2 backend](https://docs.docker.com/docker-for-windows/wsl/).
 - [Visual Studio Code installed in your Windows environment](https://code.visualstudio.com/docs/setup/windows) with the following three extensions installed:
 

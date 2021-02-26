@@ -4,6 +4,10 @@ description: Learn how to create a Python function from the command line, then p
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: [devx-track-python, devx-track-azurecli]
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-cli-python-uiex
 ---
 
 # Quickstart: Create a Python function in Azure from the command line
@@ -30,7 +34,7 @@ Before you begin, you must have the following:
 
     + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 or later.
 
-+ [Python 3.8 (64-bit)](https://www.python.org/downloads/release/python-382/), [Python 3.7 (64-bit)](https://www.python.org/downloads/release/python-375/), [Python 3.6 (64-bit)](https://www.python.org/downloads/release/python-368/), which are all supported by version 3.x of Azure Functions.
++ [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
 
 ### Prerequisite check
 

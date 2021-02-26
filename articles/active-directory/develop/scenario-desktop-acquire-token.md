@@ -442,13 +442,13 @@ For more information on consent, see the [Microsoft identity platform permission
 
 # [.NET](#tab/dotnet)
 
-In MSAL.NET, you need to use:
+In MSAL.NET, use:
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 ```
 
-You normally need only one parameter (`scopes`). Depending on the way your Windows administrator set up the policies, applications on your Windows machine might not be allowed to look up the signed-in user. In that case, use a second method, `.WithUsername()`, and pass in the username of the signed-in user as a UPN format, for example, `joe@contoso.com`. On .NET Core, only the overload taking the username is available because the .NET Core platform can't ask the username to the OS.
+You normally need only one parameter (`scopes`). Depending on the way your Windows administrator set up the policies, applications on your Windows machine might not be allowed to look up the signed-in user. In that case, use a second method, `.WithUsername()`, and pass in the username of the signed-in user as a UPN format, for example, `joe@contoso.com`.
 
 The following sample presents the most current case, with explanations of the kind of exceptions you can get and their mitigations.
 
@@ -919,7 +919,7 @@ This flow isn't supported on MSAL for macOS.
 
 ### Device code flow
 
-If you're writing a command-line tool that doesn't have web controls, and you can't or don't want to use the previous flows, you need to use the device code flow.
+If you're writing a command-line tool that doesn't have web controls, and you can't or don't want to use the previous flows, use the device code flow.
 
 Interactive authentication with Azure AD requires a web browser. For more information, see [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser). To authenticate users on devices or operating systems that don't provide a web browser, device code flow lets the user use another device such as a computer or a mobile phone to sign in interactively. By using the device code flow, the application obtains tokens through a two-step process that's designed for these devices or operating systems. Examples of such applications are applications that run on iOT or command-line tools (CLI). The idea is that:
 

@@ -52,7 +52,7 @@ Published events are removed from an Event Hub based on a configurable, timed-ba
 >
 > [Event Hubs Capture](event-hubs-capture-overview.md) integrates directly with Azure Blob Storage and Azure Data Lake Storage and, through that integration, also enables [flowing events directly into Azure Synapse](store-captured-data-data-warehouse.md).
 >
-> If you want to use the [Event Sourcing](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) pattern for your application, you should align your snapshot strategy with the retention limits of Event Hubs. Do not aim to rebuild materialized views from raw events starting at the beginning of time. You would surely come to regret such a strategy once your application is in production for a while and is well used, and your projection builder has to churn through years of change events while trying to catch up to the latest and ongoing changes. 
+> If you want to use the [Event Sourcing](/azure/architecture/patterns/event-sourcing) pattern for your application, you should align your snapshot strategy with the retention limits of Event Hubs. Do not aim to rebuild materialized views from raw events starting at the beginning of time. You would surely come to regret such a strategy once your application is in production for a while and is well used, and your projection builder has to churn through years of change events while trying to catch up to the latest and ongoing changes. 
 
 
 ### Publisher policy
