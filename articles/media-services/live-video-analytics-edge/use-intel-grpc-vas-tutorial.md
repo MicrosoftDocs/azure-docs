@@ -3,7 +3,6 @@ title:  Analyze live video by using Intel OpenVINO™ DL Streamer – Edge AI Ex
 description: In this tutorial, you'll use an AI model server provided by Intel to analyze the live video feed from a (simulated) IP camera. 
 ms.topic: tutorial
 ms.date: 02/04/2021
-titleSuffix: Azure
 
 ---
 # Tutorial: Analyze live video by using Intel OpenVINO™ DL Streamer – Edge AI Extension 
@@ -35,7 +34,7 @@ When you set up the Azure resources, a short video of a parking lot is copied to
 
 Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the video](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) to start playback. You see the footage of vehicles in a parking lot, most of them parked, and one moving.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 
 In this quickstart, you'll use Live Video Analytics on IoT Edge along with the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to detect objects such as vehicles, to classify vehicles them or track vehicles, person or bikes. You'll publish the resulting inference events to IoT Edge Hub.
 
@@ -124,11 +123,11 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     The *deployment.openvino.grpc.cpu.amd64.json* manifest file is created in the *src/edge/config* folder.
 
 > [!NOTE]
-We also included a *deployment.openvino.grpc.gpu.template.json* template that enables GPU support for the Intel OpenVINO DL Streamer - Edge AI Extension module. These templates point to Intel's Dockerhub image.
+We also included a *deployment.openvino.grpc.gpu.template.json* template that enables GPU support for the Intel OpenVINO DL Streamer - Edge AI Extension module. These templates point to Intel's Docker hub image.
 
-The above mentioned templates point to the intel Dockerhub image. If you rather want to host a copy on your own Azure Container Registry you can follow step 1 and 2 below:
-1. SSH into a device with docker cli tools installed (i.e. your edge device) and pull/tag/push the container with these steps:
-    * Pull Intel's image from Dockerhub:
+The above mentioned templates point to the intel Docker hub image. If you rather want to host a copy on your own Azure Container Registry you can follow step 1 and 2 below:
+1. SSH into a device with docker CLI tools installed (i.e. your edge device) and pull/tag/push the container with these steps:
+    * Pull Intel's image from Docker hub:
 
         `sudo docker pull intel/video-analytics-serving:0.4.1-dlstreamer-edge-ai-extension`
     
@@ -268,7 +267,7 @@ The gRPC extension processor node receives inference results from the Intel Open
 
 In these events, the type is set to `entity` to indicate it's an entity, such as a car or truck. The `eventTime` value is the UTC time when the object was detected. 
 
-In the following example you see it identified a vehicle, the type of the vehicle (van) and the color (white), all with a confidence level above 0.9, it also asigned an id to the entity when we use the object tracking model.
+In the following example you see it identified a vehicle, the type of the vehicle (van) and the color (white), all with a confidence level above 0.9, it also assigned an ID to the entity when we use the object tracking model.
 
 ```
 [IoTHubMonitor] [9:43:18 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -315,7 +314,7 @@ In the messages, notice the following details:
 * The `inferences` section indicates that the `type` is `entity`. This section includes additional data about the entity.
 
 ## Run the sample program to detect persons or vehicles or bikes
-To use a different model you will need to change the deployment template. To toggle between the supported models you can change the environment variables located in the lvaExtenstion module. The supported values and combinations can be found here: [models](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options)
+To use a different model you will need to change the deployment template. To toggle between the supported models you can change the environment variables located in the lvaExtenstion module. See this [document on GitHub](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options) for the supported values and combinations for models.
 
 ```
 "Env":[
