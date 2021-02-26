@@ -16,6 +16,8 @@ Past the **expires-at-utc** instant, messages become ineligible for retrieval. T
 
 While the message is under lock, the application might be in possession of a message that has expired. Whether the application is willing to go ahead with processing or chooses to abandon the message is up to the implementer.
 
+We recommend that you set the **time-to-live** value on a message to be in hours or days. If you set it to a low value in seconds or milliseconds, the message may expire before consumers have a chance to consumer it. 
+
 ## Entity-level expiration
 All messages sent into a queue or topic are subject to a default expiration that is set at the entity level. It can also be set in the portal during creation and adjusted later. The default expiration is used for all messages sent to the entity where time-to-live isn't explicitly set. The default expiration also functions as a ceiling for the time-to-live value. Messages that have a longer time-to-live expiration than the default value are silently adjusted to the default message time-to-live value before being enqueued.
 
