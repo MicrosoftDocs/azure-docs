@@ -1,30 +1,29 @@
 ---
-title: Tutorial - Export template from the Azure portal for Bicep template development
-description: Learn how to use an exported template to complete your Bicep template development.
+title: Tutorial - Export JSON template from the Azure portal for Bicep development
+description: Learn how to use an exported JSON template to complete your Bicep development.
 author: mumian
-ms.date: 02/17/2021
+ms.date: 02/26/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.custom:
 ---
 
-# Tutorial: Use exported template from the Azure portal
+# Tutorial: Use exported JSON template from the Azure portal
 
-In this tutorial series, you've created a Bicep template to deploy an Azure storage account. In the next two tutorials, you add an *App Service plan* and a *website*. Instead of creating templates from scratch, you learn how to export templates from the Azure portal and how to use sample templates from the [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/). You customize those templates for your use. This tutorial focuses on exporting templates, and customizing the result for your template. It takes about **14 minutes** to complete.
+In this tutorial series, you've created a Bicep file to deploy an Azure storage account. In the next two tutorials, you add an *App Service plan* and a *website*. Instead of creating templates from scratch, you learn how to export JSON templates from the Azure portal and how to use sample templates from the [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/). You customize those templates for your use. This tutorial focuses on exporting templates, and customizing the result for your Bicep file. It takes about **14 minutes** to complete.
 
 ## Prerequisites
 
-We recommend that you complete the [tutorial about outputs](template-tutorial-bicep-add-outputs.md), but it's not required.
+We recommend that you complete the [tutorial about outputs](bicep-tutorial-add-outputs.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-bicep-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-bicep.md#get-tools).
 
-## Review template
+## Review Bicep file
 
-At the end of the previous tutorial, your template had the following Bicep:
+At the end of the previous tutorial, your Bicep file had the following contents:
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep":::
 
-This template works well for deploying storage accounts, but you might want to add more resources to it. You can export a template from an existing resource to quickly get the JSON for that resource. And then convert the JSON to Bicep before you can add it to your Bicep template.
+This Bicep file works well for deploying storage accounts, but you might want to add more resources to it. You can export a JSON template from an existing resource to quickly get the JSON for that resource. And then convert the JSON to Bicep before you can add it to your Bicep file.
 
 ## Create App Service plan
 
@@ -41,27 +40,27 @@ This template works well for deploying storage accounts, but you might want to a
     - **Region**: select an Azure location. For example, **Central US**.
     - **Pricing tier**: to save costs, change the SKU to **Basic B1** (under Dev/Test).
 
-    ![Resource Manager template export template portal](./media/template-tutorial-bicep-export-template/resource-manager-template-export.png)
+    ![Resource Manager template export template portal](./media/bicep-tutorial-export-template/resource-manager-template-export.png)
 1. Select **Review and create**.
 1. Select **Create**. It takes a few moments to create the resource.
 
 ## Export template
 
-Currently, the Azure portal only supports exporting JSON templates. There are tools you can use to decompile JSON templates to Bicep templates.
+Currently, the Azure portal only supports exporting JSON templates. There are tools you can use to decompile JSON templates to Bicep files.
 
 1. Select **Go to resource**.
 
-    ![Go to resource](./media/template-tutorial-bicep-export-template/resource-manager-template-export-go-to-resource.png)
+    ![Go to resource](./media/bicep-tutorial-export-template/resource-manager-template-export-go-to-resource.png)
 
 1. Select **Export template**.
 
-    ![Resource Manager template export template](./media/template-tutorial-bicep-export-template/resource-manager-template-export-template.png)
+    ![Resource Manager template export template](./media/bicep-tutorial-export-template/resource-manager-template-export-template.png)
 
    The export template feature takes the current state of a resource and generates a template to deploy it. Exporting a template can be a helpful way of quickly getting the JSON you need to deploy a resource.
 
 1. The `Microsoft.Web/serverfarms` definition and the parameter definition are the parts that you need.
 
-    ![Resource Manager template export template exported template](./media/template-tutorial-bicep-export-template/resource-manager-template-exported-template.png)
+    ![Resource Manager template export template exported template](./media/bicep-tutorial-export-template/resource-manager-template-exported-template.png)
 
     > [!IMPORTANT]
     > Typically, the exported template is more verbose than you might want when creating a template. For example, the SKU object in the exported template has five properties. This template works, but you could just use the `name` property. You can start with the exported template, and then modify it as you like to fit your requirements.
@@ -69,29 +68,31 @@ Currently, the Azure portal only supports exporting JSON templates. There are to
 1. Select **Download**.  The downloaded zip file contains a **template.json** and a **parameters.json**. Unzip the files.
 1. Browse to **https://bicepdemo.z22.web.core.windows.net/**, select **Decompile**, and then open **template.json**. You get the template in Bicep.
 
-## Revise existing template
+## Revise existing Bicep file
 
-The decomplied exported template gives you most of the Bicep you need, but you need to customize it for your template. Pay particular attention to differences in parameters and variables between your template and the exported template. Obviously, the export process doesn't know the parameters and variables that you've already defined in your template.
+The decomplied exported template gives you most of the Bicep you need, but you need to customize it for your Bicep file. Pay particular attention to differences in parameters and variables between your Bicep file and the exported Bicep file. Obviously, the export process doesn't know the parameters and variables that you've already defined in your Bicep file.
 
-The following example highlights the additions to your template. It contains the exported code plus some changes. First, it changes the name of the parameter to match your naming convention. Second, it uses your location parameter for the location of the app service plan. Third, it removes some of the properties where the default value is fine.
+The following example highlights the additions to your Bicep file. It contains the exported code plus some changes. First, it changes the name of the parameter to match your naming convention. Second, it uses your location parameter for the location of the app service plan. Third, it removes some of the properties where the default value is fine.
 
-Copy the whole file and replace your template with its contents.
+Copy the whole file and replace your Bicep file with its contents.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.bicep" range="1-74" highlight="19,35-52":::
 
-## Deploy template
+## Deploy Bicep file
 
-Use either Azure CLI or Azure PowerShell to deploy a template.
+Use either Azure CLI or Azure PowerShell to deploy a Bicep file.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-bicep-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-bicep-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-bicep.md#deploy-bicep-file).
 
 # [PowerShell](#tab/azure-powershell)
+
+To run this deployment cmdlet, you must have the [latest version](/powershell/azure/install-az-ps) of Azure PowerShell.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -Name addappserviceplan `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile `
+  -TemplateFile $bicepFile `
   -storagePrefix "store" `
   -storageSKU Standard_LRS
 ```
@@ -104,7 +105,7 @@ To run this deployment command, you must have the [latest version](/cli/azure/in
 az deployment group create \
   --name addappserviceplan \
   --resource-group myResourceGroup \
-  --template-file $templateFile \
+  --template-file $bicepFile \
   --parameters storagePrefix=store storageSKU=Standard_LRS
 ```
 
@@ -135,7 +136,7 @@ If you're stopping now, you might want to clean up the resources you deployed by
 
 ## Next steps
 
-You learned how to export a JSON template from the Azure portal, how to convert the JSON template to a Bicep template, and how to use the exported template for your template development. You can also use the Azure Quickstart templates to simplify template development.
+You learned how to export a JSON template from the Azure portal, how to convert the JSON template to a Bicep file, and how to use the exported template for your Bicep development. You can also use the Azure Quickstart templates to simplify Bicep development.
 
 > [!div class="nextstepaction"]
-> [Use Azure Quickstart templates](template-tutorial-bicep-quickstart-template.md)
+> [Use Azure Quickstart templates](bicep-tutorial-quickstart-template.md)

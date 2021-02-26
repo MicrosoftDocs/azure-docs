@@ -5,18 +5,17 @@ author: mumian
 ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Use parameter files to deploy your Bicep file
 
-In this tutorial, you learn how to use [parameter files](parameter-files.md) to store the values you pass in during deployment. In the previous tutorials, you used inline parameters with your deployment command. This approach worked for testing your Bicep file, but when automating deployments it can be easier to pass a set of values for your environment. Parameter files make it easier to package parameter values for a specific environment. In this tutorial, you'll create parameter files for development and production environments. It takes about **12 minutes** to complete.
+In this tutorial, you learn how to use [parameter files](parameter-files.md) to store the values you pass in during deployment. In the previous tutorials, you used inline parameters with your deployment command. This approach worked for testing your Bicep file, but when automating deployments it can be easier to pass a set of values for your environment. Parameter files make it easier to package parameter values for a specific environment. You use the same JSON parameter file as you deploy a JSON template. In this tutorial, you'll create parameter files for development and production environments. It takes about **12 minutes** to complete.
 
 ## Prerequisites
 
-We recommend that you complete the [tutorial about tags](template-tutorial-bicep-add-tags.md), but it's not required.
+We recommend that you complete the [tutorial about tags](bicep-tutorial-add-tags.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](template-tutorial-bicep-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-bicep.md#get-tools).
 
 ## Review Bicep file
 
@@ -48,20 +47,22 @@ Again, create a new file with the following content. Save the file with the name
 
 This file is your parameter file for the production environment. Notice that it uses **Standard_GRS** for the storage account, names resources with a **contoso** prefix, and sets the `Environment` tag to **Production**. In a real production environment, you would also want to use an app service with a SKU other than free, but we'll continue to use that SKU for this tutorial.
 
-## Deploy template
+## Deploy Bicep file
 
-Use either Azure CLI or Azure PowerShell to deploy the template.
+Use either Azure CLI or Azure PowerShell to deploy the Bicep file.
 
-As a final test of your template, let's create two new resource groups. One for the dev environment and one for the production environment.
+In this tutorial, let's create two new resource groups. One for the dev environment and one for the production environment.
 
-For the template and parameter variables, replace `{path-to-the-template-file}`, `{path-to-azuredeploy.parameters.dev.json}`, `{path-to-azuredeploy.parameters.prod.json}`, and the curly braces `{}` with your template and parameter file paths.
+For the template and parameter variables, replace `{path-to-the-bicep-file}`, `{path-to-azuredeploy.parameters.dev.json}`, `{path-to-azuredeploy.parameters.prod.json}`, and the curly braces `{}` with your Bicep file and parameter file paths.
 
 First, we'll deploy to the dev environment.
 
 # [PowerShell](#tab/azure-powershell)
 
+To run this deployment cmdlet, you must have the [latest version](/powershell/azure/install-az-ps) of Azure PowerShell.
+
 ```azurepowershell
-$templateFile = "{path-to-the-template-file}"
+$bicepFile = "{path-to-the-bicep-file}"
 $parameterFile="{path-to-azuredeploy.parameters.dev.json}"
 New-AzResourceGroup `
   -Name myResourceGroupDev `
@@ -69,7 +70,7 @@ New-AzResourceGroup `
 New-AzResourceGroupDeployment `
   -Name devenvironment `
   -ResourceGroupName myResourceGroupDev `
-  -TemplateFile $templateFile `
+  -TemplateFile $bicepFile `
   -TemplateParameterFile $parameterFile
 ```
 
@@ -78,7 +79,7 @@ New-AzResourceGroupDeployment `
 To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
 
 ```azurecli
-templateFile="{path-to-the-template-file}"
+bicepFile="{path-to-the-bicep-file}"
 devParameterFile="{path-to-azuredeploy.parameters.dev.json}"
 az group create \
   --name myResourceGroupDev \
@@ -86,7 +87,7 @@ az group create \
 az deployment group create \
   --name devenvironment \
   --resource-group myResourceGroupDev \
-  --template-file $templateFile \
+  --template-file $bicepFile \
   --parameters $devParameterFile
 ```
 
@@ -139,15 +140,13 @@ You can verify the deployment by exploring the resource groups from the Azure po
 ## Clean up resources
 
 1. From the Azure portal, select **Resource group** from the left menu.
-2. Enter the resource group name in the **Filter by name** field. If you've completed this series, you have three resource groups to delete - **myResourceGroup**, **myResourceGroupDev**, and **myResourceGroupProd**.
+2. Enter the resource group name in the **Filter by name** field.
 3. Select the resource group name.
 4. Select **Delete resource group** from the top menu.
 
 ## Next steps
 
-Congratulations, you've finished this introduction to deploying templates to Azure. Let us know if you have any comments and suggestions in the feedback section. Thanks!
-
-The next tutorial series goes into more detail about deploying templates.
+In this tutorial, you use a paramete file to deploy your Bicep file. In the next tutorial, you'll learn how to modularize your Bicep files.
 
 > [!div class="nextstepaction"]
 > [Deploy a local template](./deployment-tutorial-local-template.md)

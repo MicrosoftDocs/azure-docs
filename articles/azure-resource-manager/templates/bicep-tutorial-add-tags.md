@@ -1,6 +1,6 @@
 ---
-title: Tutorial - add tags to resources in Bicep template
-description: Add tags to resources that you deploy in your Azure Resource Manager Bicep template (ARM Bicep template). Tags let you logically organize resources.
+title: Tutorial - add tags to resources in Bicep
+description: Add tags to resources that you deploy in your Bicep files. Tags let you logically organize resources.
 author: mumian
 ms.date: 02/25/2021
 ms.topic: tutorial
@@ -8,19 +8,19 @@ ms.author: jgao
 ms.custom:
 ---
 
-# Tutorial: Add tags in your ARM Bicep template
+# Tutorial: Add tags in your Bicep files
 
-In this tutorial, you learn how to add tags to resources in your Azure Resource Manager template (ARM Bicep template). [Tags](../management/tag-resources.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
+In this tutorial, you learn how to add tags to resources in your Bicep files. [Tags](../management/tag-resources.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
 
 ## Prerequisites
 
-We recommend that you complete the [tutorial about Quickstart templates](template-tutorial-bicep-quickstart-template.md), but it's not required.
+We recommend that you complete the [tutorial about Quickstart templates](bicep-tutorial-quickstart-template.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-bicep-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-bicep.md#get-tools).
 
-## Review template
+## Review Bicep file
 
-Your previous Bicep template deployed a storage account, App Service plan, and web app.
+Your previous Bicep file deployed a storage account, App Service plan, and web app.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.bicep":::
 
@@ -30,23 +30,25 @@ After deploying these resources, you might need to track costs and find resource
 
 You tag resources to add values that help you identify their use. For example, you can add tags that list the environment and the project. You could add tags that identify a cost center or the team that owns the resource. Add any values that make sense for your organization.
 
-The following example highlights the changes to the Bicep template. Copy the whole file and replace your template with its contents.
+The following example highlights the changes to the Bicep file. Copy the whole file and replace your Bicep file with its contents.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.bicep" range="1-86" highlight="32-35,43,56,76":::
 
-## Deploy template
+## Deploy Bicep file
 
-It's time to deploy the Bicep template and look at the results.
+It's time to deploy the Bicep file and look at the results.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-bicep-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-bicep-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-bicep.md#deploy-bicep-file).
 
 # [PowerShell](#tab/azure-powershell)
+
+To run this deployment cmdlet, you must have the [latest version](/powershell/azure/install-az-ps) of Azure PowerShell.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -Name addtags `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile `
+  -TemplateFile $bicepFile `
   -storagePrefix "store" `
   -storageSKU Standard_LRS `
   -webAppName demoapp
@@ -60,7 +62,7 @@ To run this deployment command, you must have the [latest version](/cli/azure/in
 az deployment group create \
   --name addtags \
   --resource-group myResourceGroup \
-  --template-file $templateFile \
+  --template-file $bicepFile \
   --parameters storagePrefix=store storageSKU=Standard_LRS webAppName=demoapp
 ```
 
@@ -78,7 +80,7 @@ You can verify the deployment by exploring the resource group from the Azure por
 1. Select the resource group you deployed to.
 1. Select one of the resources, such as the storage account resource. You see that it now has tags.
 
-   ![Show tags](./media/template-tutorial-bicep-add-tags/show-tags.png)
+   ![Show tags](./media/bicep-tutorial-add-tags/show-tags.png)
 
 ## Clean up resources
 
@@ -93,7 +95,7 @@ If you're stopping now, you might want to clean up the resources you deployed by
 
 ## Next steps
 
-In this tutorial, you added tags to the resources. In the next tutorial, you'll learn how to use parameter files to simplify passing in values to the template.
+In this tutorial, you added tags to the resources. In the next tutorial, you'll learn how to use parameter files to simplify passing in values to the deployment.
 
 > [!div class="nextstepaction"]
-> [Use parameter file](template-tutorial-bicep-use-parameter-file.md)
+> [Use parameter file](bicep-tutorial-use-parameter-file.md)

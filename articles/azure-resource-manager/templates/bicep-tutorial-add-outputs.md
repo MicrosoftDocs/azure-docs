@@ -36,7 +36,7 @@ The following example highlights the change to your Bicep file to add an output 
 
 There are some important items to note about the output value you added.
 
-The type of returned value is set to `object`, which means it returns a Bicep object.
+The type of returned value is set to `object`, which means it returns a template object.
 
 It uses the [reference](template-functions-resource.md#reference) function to get the runtime state of the storage account. To get the runtime state of a resource, you pass in the name or ID of a resource. In this case, you use the same variable you used to create the name of the storage account.
 
@@ -77,12 +77,12 @@ In the output for the deployment command, you'll see an object similar to the fo
 
 ```json
 {
-    "dfs": "https://storeluktbfkpjjrkm.dfs.core.windows.net/",
-    "web": "https://storeluktbfkpjjrkm.z19.web.core.windows.net/",
-    "blob": "https://storeluktbfkpjjrkm.blob.core.windows.net/",
-    "queue": "https://storeluktbfkpjjrkm.queue.core.windows.net/",
-    "table": "https://storeluktbfkpjjrkm.table.core.windows.net/",
-    "file": "https://storeluktbfkpjjrkm.file.core.windows.net/"
+  "dfs": "https://storeluktbfkpjjrkm.dfs.core.windows.net/",
+  "web": "https://storeluktbfkpjjrkm.z19.web.core.windows.net/",
+  "blob": "https://storeluktbfkpjjrkm.blob.core.windows.net/",
+  "queue": "https://storeluktbfkpjjrkm.queue.core.windows.net/",
+  "table": "https://storeluktbfkpjjrkm.table.core.windows.net/",
+  "file": "https://storeluktbfkpjjrkm.file.core.windows.net/"
 }
 ```
 
@@ -115,7 +115,7 @@ Now, let's look at the resource group and deployment history.
 
    ![Show outputs](./media/bicep-tutorial-add-outputs/show-outputs.png)
 
-1. You can review the template.
+1. You can review the JSON template.
 
    ![Show template](./media/bicep-tutorial-add-outputs/show-template.png)
 
