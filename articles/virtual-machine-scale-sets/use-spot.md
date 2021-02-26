@@ -57,7 +57,7 @@ Users can opt in to receive in-VM notifications through [Azure Scheduled Events]
 <a name="bkmk_try"></a>
 ## Try & restore (preview)
 
-This new platform-level feature will use AI to automatically try to restore evicted Spot instances inside a scale set to maintain the target instance count. 
+This new platform-level feature will use AI to automatically try to restore evicted Azure Spot Virtual Machine instances inside a scale set to maintain the target instance count. 
 
 > [!IMPORTANT]
 > Try & restore is currently in public preview.
