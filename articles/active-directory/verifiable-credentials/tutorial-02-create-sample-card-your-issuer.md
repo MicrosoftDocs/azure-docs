@@ -85,7 +85,7 @@ Create another file for the Display file and save it as 'display-example.json'. 
 
 We need a storage account to hold the rule and display files we created in the previous step.
 
-For this set of tutorials create a storage account using the following options:
+Create a storage account using the following options:
 
 - **Name:**  A unique name
 - **Account kind:** Storage V2 (Why did we choose this? is this required
@@ -98,21 +98,14 @@ For detailed steps you can review the [Create a storage account](../../storage/c
 
 ![Create a new storage account](media/tutorial-create-sample-card-your-issuer/create-storage-account.png)
 
-Once that you have a storage account we need to create a Container.
+Once that you have a storage account we need to create a container.
 
-- name 
-- Public access level: Private (no anonymous access)
+- **Name:** vc-container
+- **Public access level:** Private (no anonymous access)
 
-![Create a container](media/tutorial-create-samplecard-your-issuer/Zk8wgsR.png)
+![Create a container](media/tutorial-create-sample-card-your-issuer/new-container.png)
 
-Now select your new container and upload the Rules file you created earlier. Once it hs been uploaded, click on the rules file and press Select at the bottom. 
-
-![upload rules file](media/tutorial-create-samplecard-your-issuer/3WOwn6Z.png)
-
-
-
-
-
+Now select your new container and upload the Rules and display files you created earlier. Once that they are uploaded continue to the next section.
 
 ## Create the Ninja Credential VC
 
@@ -121,20 +114,23 @@ Now select your new container and upload the Rules file you created earlier. Onc
     ![Create a new credential screen](media/tutorial-create-sample-card-your-issuer/verifiable-credentials-page-preview.png)
 
 - Choose **Create a credential**
-- Under Credential Name, add the name Ninja Credential. This name is not shown to the user and is only for managing your Verifiable Credentials. 
+- Under Credential Name, add the name **Ninja Credential**. This name is not shown to the user and is only for managing your Verifiable Credentials. 
 
 ![Create a new credential screen](media/tutorial-create-samplecard-your-issuer/zah7B0L.png)
 
-Select rules file upload. 
+- Select **Select display file**
+- In **Storage accounts** select **contosovcstorage**
+- Select **vc-container** from the list of available containers
+- Choose **display-example.json**.
+- From the **Create a new credential** page Select **Select rules file**
+- In **Storage accounts** select **contosovcstorage**
+- Choose **vc-container**.
+- Select **SampleNinjaRules.json**
+- From the **Create a new credential** screen choose **Create**.
 
+>[!NOTE]
+> If you created a new blob storage you will see an error. Wait 10 minutes and try again.
 
-You should now be brought back to the New Credential Flow and its time to select the Display blob file. Follow the same pattern as before. 
-
-Once that is complete press Create in the New Credential flow. 
-
-:::info
-**ISSUE** if you created a new blob storage you will see an error. Wait 10 minutes and try again.
-::::
 
 ## Credential URL
 
