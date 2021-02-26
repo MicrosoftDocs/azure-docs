@@ -6,7 +6,7 @@ ms.author: khwei
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept
 ---
@@ -34,7 +34,23 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 ## Public preview limitations
 
 **Size support**:
-- All [Generation 2](generation-2.md) VM sizes 
+All [Generation 2](generation-2.md) VM sizes, except:
+
+- DCsv2-series
+- GS-series
+- HB-series
+- HC-series
+- Ls-series
+- Lsv2-series
+- M-series
+- Mv2-series
+- NCv2-series
+- NCv3-series
+- ND-series
+- NVv3-series
+- NVv4-series
+- NCasT4_v3-series
+
 
 **OS support**:
 - Redhat Enterprise Linux 8.3

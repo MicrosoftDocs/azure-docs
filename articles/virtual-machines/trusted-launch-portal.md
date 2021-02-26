@@ -7,7 +7,7 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to 
-ms.date: 02/25/2021
+ms.date: 02/26/2021
 ms.custom: template-how-to 
 ---
 
