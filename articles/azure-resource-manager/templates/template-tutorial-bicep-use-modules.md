@@ -1,5 +1,5 @@
 ---
-title: Tutorial - use parameter file to deploy Bicep file
+title: Tutorial - use modules for 
 description: Use parameter files that contain the values to use for deploying your Bicep file.
 author: mumian
 ms.date: 09/10/2020

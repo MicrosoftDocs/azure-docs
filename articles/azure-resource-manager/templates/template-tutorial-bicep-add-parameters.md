@@ -39,7 +39,7 @@ Notice the parameters can be referenced directly by using their names in Bicep, 
 
 Let's deploy the Bicep template. The following example deploys the template with Azure CLI or PowerShell. Notice that you provide the storage account name as one of the values in the deployment command. For the storage account name, provide the same name you used in the previous tutorial.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-bicep-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-bicep-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-bicep-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the Bicep file, as shown in the [first tutorial](template-tutorial-bicep-create-first-template.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
 

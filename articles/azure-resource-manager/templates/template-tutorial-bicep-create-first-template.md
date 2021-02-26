@@ -156,10 +156,6 @@ az group create \
 
 ---
 
-[jgao - do we need this part?]
-
-Optionally, you can compile the Bicep with _bicep build azuredeploy.bicep, and the output is:
-
 ## Deploy template
 
 To deploy the Bicep template, use either Azure CLI or Azure PowerShell. Use the resource group you created. Give a name to the deployment so you can easily identify it in the deployment history. For convenience, also create a variable that stores the path to the Bicep template file. This variable makes it easier for you to run the deployment commands because you don't have to retype the path every time you deploy. Replace `{provide-the-path-to-the-template-file}` including the curly braces `{}` with the path to your Bicep template file with the .bicep file extension name.
@@ -190,24 +186,10 @@ az deployment group create \
 
 The deployment command returns results. Look for `ProvisioningState` to see whether the deployment succeeded.
 
-[jgao - update the screenshots with the new template file extension name.]
-
-# [PowerShell](#tab/azure-powershell)
-
-![PowerShell deployment provisioning state](./media/template-tutorial-bicep-create-first-template/resource-manager-deployment-provisioningstate.png)
-
-# [Azure CLI](#tab/azure-cli)
-
-![Azure CLI deployment provisioning state](./media/template-tutorial-bicep-create-first-template/azure-cli-provisioning-state.png)
-
----
-
 > [!NOTE]
 > If the deployment failed, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
 
 ## Verify deployment
-
-[jgao - update the screenshots with the new deployment name and the deployed storage account.]
 
 You can verify the deployment by exploring the resource group from the Azure portal.
 
@@ -225,7 +207,7 @@ You can verify the deployment by exploring the resource group from the Azure por
 
    ![Select deployment](./media/template-tutorial-bicep-create-first-template/select-from-deployment-history.png)
 
-1. You see a summary of the deployment. In this case, there's not a lot to see because no resources were deployed. Later in this series you might find it helpful to review the summary in the deployment history. Notice on the left you can view inputs, outputs, and the template used during deployment.
+1. You see a summary of the deployment. There is one storage account deployed. Notice on the left you can view inputs, outputs, and the template used during deployment.
 
    ![View deployment summary](./media/template-tutorial-bicep-create-first-template/view-deployment-summary.png)
 

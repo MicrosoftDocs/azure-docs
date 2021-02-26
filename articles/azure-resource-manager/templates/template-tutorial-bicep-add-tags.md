@@ -1,8 +1,8 @@
 ---
 title: Tutorial - add tags to resources in Bicep template
-description: Add tags to resources that you deploy in your Azure Resource Manager template (ARM template). Tags let you logically organize resources.
+description: Add tags to resources that you deploy in your Azure Resource Manager Bicep template (ARM Bicep template). Tags let you logically organize resources.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 02/25/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:

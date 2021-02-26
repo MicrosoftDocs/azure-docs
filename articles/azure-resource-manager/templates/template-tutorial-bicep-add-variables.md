@@ -1,6 +1,6 @@
 ---
 title: Tutorial - add variable to Bicep template
-description: Add variables to your Azure Resource Manager template (ARM Bicep template) to simplify the syntax.
+description: Add variables to your Azure Resource Manager Bicep template (ARM Bicep template) to simplify the syntax.
 author: mumian
 ms.date: 02/17/2021
 ms.topic: tutorial
@@ -10,7 +10,7 @@ ms.custom:
 
 # Tutorial: Add variables to your ARM Bicep template
 
-In this tutorial, you learn how to add a variable to your Azure Resource Manager template (ARM template). Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to add a variable to your Azure Resource Manager Bicep template (ARM Bicep template). Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
@@ -32,15 +32,13 @@ The following example highlights the changes to add a variable to your template 
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.bicep" range="1-32" highlight="1-4,20,23":::
 
-Notice that it includes a variable named `uniqueStorageName`. This variable uses four functions to construct a string value.
+Notice that it includes a variable named `uniqueStorageName`. This variable uses three functions to construct a string value.
 
-You're already familiar with the [parameters](template-functions-deployment.md#parameters) function, so we won't examine it.
-
-You're also familiar with the [resourceGroup](template-functions-resource.md#resourcegroup) function. In this case, you get the `id` property instead of the `location` property, as shown in the previous tutorial. The `id` property returns the full identifier of the resource group, including the subscription ID and resource group name.
+You're familiar with the [resourceGroup](template-functions-resource.md#resourcegroup) function. In this case, you get the `id` property instead of the `location` property, as shown in the previous tutorial. The `id` property returns the full identifier of the resource group, including the subscription ID and resource group name.
 
 The [uniqueString](template-functions-string.md#uniquestring) function creates a 13 character hash value. The returned value is determined by the parameters you pass in. For this tutorial, you use the resource group ID as the input for the hash value. That means you could deploy this Bicep template to different resource groups and get a different unique string value. However, you get the same value if you deploy to the same resource group.
 
-The [concat](template-functions-string.md#concat) function takes values and combines them. For this variable, it takes the string from the parameter and the string from the `uniqueString` function, and combines them into one string.
+The [concat](template-functions-string.md#concat) function takes values and combines them. For this variable, it takes the string from the parameter and the string from the `uniqueString` function, and combines them into one string. Bicep also support string interpolation. For example, var storageName = '${storagePrefix}storage001'.
 
 The `storagePrefix` parameter enables you to pass in a prefix that helps you identify storage accounts. You can create your own naming convention that makes it easier to identify storage accounts after deployment from a long list of resources.
 

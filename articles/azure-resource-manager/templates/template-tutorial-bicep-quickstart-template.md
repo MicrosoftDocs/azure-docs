@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use quickstart templates
+title: Tutorial - Use quickstart templates for Bicep template development
 description: Learn how to use Azure Quickstart templates to complete your Bicep template development.
 author: mumian
 ms.date: 02/18/2021
@@ -28,26 +28,32 @@ This template works for deploying storage accounts and app service plans, but yo
 
 ## Find template
 
+Currently, the Azure Quickstart templates only provide JSON templates. There are tools you can use to decompile JSON templates to Bicep templates.
+
 1. Open [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
 1. In **Search**, enter _deploy linux web app_.
 1. Select the tile with the title **Deploy a basic Linux web app**. If you have trouble finding it, here's the [direct link](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
 1. Select **Browse on GitHub**.
-1. Select _azuredeploy.json_.
-1. Review the template. In particular, look for the `Microsoft.Web/sites` resource.
+1. Select _azuredeploy.json_. This is the template you can use.
+1. Select **Raw**, and then make a copy of the URL.
+1. Browse to **https://bicepdemo.z22.web.core.windows.net/**, Select **Decomplie**, and the provide the raw template URL.
+1. Review the Bicep template. In particular, look for the `Microsoft.Web/sites` resource.
 
     ![Resource Manager template quickstart web site](./media/template-tutorial-bicep-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
 
-1. Browse to **https://bicepdemo.z22.web.core.windows.net/**, and decompile azuredeploy.json to a Bicep template.
+    There are a couple of important Bicep features to note in this new resource if you have worked on JSON templates.
+
+    In ARM JSON templates, you must manually specify resource dependencies with the _dependsOn_ property. The website resource depends on the app service plan resource. With Bicep, if you reference any property of the resource by using the symbolic name, the dependsOn property is automatically added.
+
+    You can easily reference the resource Id from the symbolic name of the app service plan (appServicePlanName.id) which will be translated to the resourceId(...) function in the compiled template.
 
 ## Revise existing template
 
-Merge the decompiled quickstart template with the existing Bicep template:
+Merge the decompiled quickstart template with the existing Bicep template. Same as what you did in the previous tutorial, update the resource symbolic name, and the resource name to match your naming convention.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.bicep" range="1-79" highlight="20-31,34,67-77":::
 
-[jgao - work on the next paragraph]
-
-The web app name needs to be unique across Azure. To prevent having duplicate names, the `webAppPortalName` variable has been updated from `"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"` to `"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"`.
+The web app name needs to be unique across Azure. To prevent having duplicate names, the `webAppPortalName` variable has been updated from `var webAppPortalName_var = '${webAppName}-webapp'` to `var webAppPortalName = concat(webAppName, uniqueString(resourceGroup().id))`.
 
 ## Deploy template
 

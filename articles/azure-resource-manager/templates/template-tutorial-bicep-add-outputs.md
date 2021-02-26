@@ -1,6 +1,6 @@
 ---
 title: Tutorial - add outputs to Bicep template
-description: Add outputs to your Azure Resource Manager template (ARM Bicep template) to simplify the syntax.
+description: Add outputs to your Azure Resource Manager Bicep template (ARM Bicep template) to simplify the syntax.
 author: mumian
 ms.date: 02/17/2021
 ms.topic: tutorial
@@ -10,7 +10,7 @@ ms.custom:
 
 # Tutorial: Add outputs to your ARM Bicep template
 
-In this tutorial, you learn how to return a value from your Azure Resource Manager template (ARM Bicep template). You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to return a value from your Azure Resource Manager Bicep template (ARM Bicep template). You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ The type of returned value is set to `object`, which means it returns a Bicep ob
 
 It uses the [reference](template-functions-resource.md#reference) function to get the runtime state of the storage account. To get the runtime state of a resource, you pass in the name or ID of a resource. In this case, you use the same variable you used to create the name of the storage account.
 
-Finally, it returns the `primaryEndpoints` property from the storage account.  
+Finally, it returns the `primaryEndpoints` property from the storage account.
 
 ## Deploy template
 

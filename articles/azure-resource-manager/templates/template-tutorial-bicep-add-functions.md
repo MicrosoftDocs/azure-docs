@@ -1,5 +1,5 @@
 ---
-title: Tutorial - add template functions
+title: Tutorial - add template functions to Bicep templates
 description: Add template functions to your Azure Resource Manager Bicep template (ARM template) to construct values.
 author: mumian
 ms.date: 02/17/2021

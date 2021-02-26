@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Export template from the Azure portal
+title: Tutorial - Export template from the Azure portal for Bicep template development
 description: Learn how to use an exported template to complete your Bicep template development.
 author: mumian
 ms.date: 02/17/2021
@@ -47,7 +47,7 @@ This template works well for deploying storage accounts, but you might want to a
 
 ## Export template
 
-Currently, the Azure portal only supports exporting JSON templates. There are tools you can use to convert JSON templates to Bicep templates.
+Currently, the Azure portal only supports exporting JSON templates. There are tools you can use to decompile JSON templates to Bicep templates.
 
 1. Select **Go to resource**.
 
@@ -67,11 +67,11 @@ Currently, the Azure portal only supports exporting JSON templates. There are to
     > Typically, the exported template is more verbose than you might want when creating a template. For example, the SKU object in the exported template has five properties. This template works, but you could just use the `name` property. You can start with the exported template, and then modify it as you like to fit your requirements.
 
 1. Select **Download**.  The downloaded zip file contains a **template.json** and a **parameters.json**. Unzip the files.
-1. Browse to **https://bicepdemo.z22.web.core.windows.net/**, select **Decompile**, and then open **template.json**.
+1. Browse to **https://bicepdemo.z22.web.core.windows.net/**, select **Decompile**, and then open **template.json**. You get the template in Bicep.
 
 ## Revise existing template
 
-The exported template gives you most of the Bicep you need, but you need to customize it for your template. Pay particular attention to differences in parameters and variables between your template and the exported template. Obviously, the export process doesn't know the parameters and variables that you've already defined in your template.
+The decomplied exported template gives you most of the Bicep you need, but you need to customize it for your template. Pay particular attention to differences in parameters and variables between your template and the exported template. Obviously, the export process doesn't know the parameters and variables that you've already defined in your template.
 
 The following example highlights the additions to your template. It contains the exported code plus some changes. First, it changes the name of the parameter to match your naming convention. Second, it uses your location parameter for the location of the app service plan. Third, it removes some of the properties where the default value is fine.
 
