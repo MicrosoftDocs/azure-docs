@@ -1357,7 +1357,7 @@ When you try to start a debugging session, you get the error, **"Error exists af
 
 1. In your project, expand the **.vscode** folder, and open the **tasks.json** file.
 
-1. In the following task, remove or comment out the line, `"dependsOn: "generateDebugSymbols"`, for example:
+1. In the following task, delete or comment out the line, `"dependsOn: "generateDebugSymbols"`, for example:
 
    ```json
     {
