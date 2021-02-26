@@ -11,10 +11,23 @@ ms.author: jushiman
 
 # Msv2 and Mdsv2-series (Preview)
 
-The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280 (Cascade Lake) processor with an all core base frequency of 2.5 GHz and a max turbo frequency of 3.8 GHz. With these VMs, customers achieve increased flexibility with local disk and diskless options. Customers also have access to a set of new isolated VM sizes with more CPU and memory that go up to 192 vCPU with 4TiB of memory. 
 
 > [!IMPORTANT]
 > Join the preview by filling out the form at **https://aka.ms/Mv2MedMemoryPreview**.  
+
+The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280 (Cascade Lake) processor with an all core base frequency of 2.7 GHz and 4.0 GHz single core turbo frequency. With these VMs, customers achieve increased flexibility with local disk and diskless options. Customers also have access to a set of new isolated VM sizes with more CPU and memory that go up to 192 vCPU with 4TiB of memory. 
+
+
+Msv2 and Mdsv2-series VMs are generation 2 only and support a subset of generation 2 supported Images. See below for the complete list of supported images for the Msv2 and Mdsv2-series.  
+
+- Windows Server 2019 or later
+- SUSE Linux Enterprise Server 12 SP4 and later or SUSE Linux Enterprise Server 15 SP1 and later
+- Red Hat Enterprise Linux 7.6, 7.7, 8.1 or later 
+- Oracle Enterprise Linux 7.7 or later
+
+For additional information on Generation 2 virtual machines, see [Support for generation 2 VMs on Azure](./generation-2.md).
+
+
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
@@ -28,7 +41,7 @@ The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280
  
 ## Msv2 Medium Memory Diskless 
 
-| Size<sup>1</sup> | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks |  Max cached and temp storage throughput: IOPS / MBps | Max uncached disk throughput: IOPS/MBps | Max NICs | Expected network bandwidth (Mbps) | 
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks |  Max cached and temp storage throughput: IOPS / MBps | Max uncached disk throughput: IOPS/MBps | Max NICs | Expected network bandwidth (Mbps) | 
 |---|---|---|---|---|---|---|---|---|
 | Standard_M32dms_v2 | 32 | 875 | 0 | 32 |  40000/400 | 20000/500 | 8 | 8000 | 
 | Standard_M64ds_v2 | 64 | 1024 | 0 | 64 | 80000/800 | 40000/1000 | 8 | 16000 | 
@@ -40,7 +53,7 @@ The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280
 
 ## Mdsv2 Medium Memory with Disk  
 
-| Size<sup>1</sup> | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disk | Max cached and temp storage throughput: IOPS / MBps | Max uncached disk throughput: IOPS/MBps | Max NICs | Expected network bandwidth (Mbps) | 
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disk | Max cached and temp storage throughput: IOPS / MBps | Max uncached disk throughput: IOPS/MBps | Max NICs | Expected network bandwidth (Mbps) | 
 |---|---|---|---|---|---|---|---|---|
 | Standard_M32dms_v2 | 32 | 875 | 1024 | 32 | 40000/400 | 20000/500 | 8 | 8000 | 
 | Standard_M64ds_v2 | 64 | 1024 | 2048 | 64 | 80000/800 | 40000/1000 | 8 | 16000 | 
@@ -50,12 +63,6 @@ The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280
 | Standard_M192ids_v2 | 192 | 2048 | 4096 | 64 | 160000/1600 | 80000/2000 | 8 | 30000 | 
 | Standard_M192idms_v2 | 192 | 4096 | 4096 | 64 | 160000/1600 | 80000/2000 | 8 | 30000 | 
 
-<sup>1</sup> Msv2-series VMs are generation 2 only and support  a subset of generation 2 supported Images. Please see below for the complete list of supported images for Msv2-series. If you're using Linux, see [Support for generation 2 VMs on Azure](./generation-2.md) for instructions on how to find and select an image. If you're using Windows, see [Support for generation 2 VMs on Azure](./generation-2.md) for instructions on how to find and select an image. 
-
-- Windows Server 2019 or later
-- SUSE Linux Enterprise Server 12 SP4 and later or SUSE Linux Enterprise Server 15 SP1 and later
-- Red Hat Enterprise Linux 7.6, 7.7, 8.1 or later 
-- Oracle Enterprise Linux 7.7 or later
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
