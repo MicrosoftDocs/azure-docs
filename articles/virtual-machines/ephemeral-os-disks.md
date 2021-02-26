@@ -239,6 +239,8 @@ A: Ephemeral disks do not support:
 - Azure Backup
 - Azure Site Recovery  
 - OS Disk Swap 
+
+Please Note: Ephemeral disk will not be accessible through portal. You might receive "Resource not Found" or "404"error when accessing the Ephemeral disk.
  
 ## Next steps
 You can create a VM with an ephemeral OS disk using the [Azure CLI](/cli/azure/vm#az-vm-create).
