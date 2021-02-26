@@ -27,17 +27,17 @@ This tutorial guides you through the process of importing a GeoJSON file of loca
 
 ### Import GeoJSON data from web or assets folder
 
-Most GeoJSON files wrap all data within a `FeatureCollection`. With this in mind, if the GeoJSON files are loaded into the application as a string, they can be passed into the feature collection's static `fromJson` method which will deserialize the string into a GeoJSON `FeatureCollection` object that can be added the to map.
+Most GeoJSON files wrap all data within a `FeatureCollection`. With this in mind, if the GeoJSON files are loaded into the application as a string, they can be passed into the feature collection's static `fromJson` method, which will deserialize the string into a GeoJSON `FeatureCollection` object that can be added to the map.
 
 The following steps show you how to import a GeoJSON file into the application and deserialize it as a GeoJSON `FeatureCollection` object.
 
 1. Complete the [Quickstart: Create an Android app](quick-android-map.md) as the following steps build on top of this application.
-2. In the project panel of Android studio, right click on the **app** folder and go to `New > Folder > Assets Folder`.
+2. In the project panel of Android studio, right-click on the **app** folder and go to `New > Folder > Assets Folder`.
 3. Drag and drop the [Sample Points of Interest](https://raw.githubusercontent.com/Azure-Samples/AzureMapsCodeSamples/master/AzureMapsCodeSamples/Common/data/geojson/SamplePoiDataSet.json) GeoJSON file into the assets folder.
 
 ::: zone pivot="programming-language-java-android"
 
-4. Create a new file called **Utils.java** and add the following code to that file. This code provides a static method called `importData` that asynchronously imports a file from the the `assets` folder of the application or from the web using a URL as a string and returns it back to the UI thread using a simple callback method.
+4. Create a new file called **Utils.java** and add the following code to that file. This code provides a static method called `importData` that asynchronously imports a file from the `assets` folder of the application or from the web using a URL as a string and returns it back to the UI thread using a simple callback method.
 
     ```java
     //Modify the package name as needed to align with your application.
@@ -247,7 +247,7 @@ The following steps show you how to import a GeoJSON file into the application a
         });
     ```
 
-6. Now that there is code to load the GeoJSON data into the map using a data source, we need to specify how that data should be displayed on the map. There are several different rendering layers for point data; [Bubble layer](map-add-bubble-layer-android.md), [Symbol layer](how-to-add-symbol-to-android-map.md), and [Heat map layer](map-add-heat-map-layer-android.md) are the most commonly used layers. Add the following code to render the data in a bubble layer in the callback for the `mapControl.onReady` event after the code for importing the data.
+6. Using the code to load the GeoJSON data a data source, we now need to specify how that data should be displayed on the map. There are several different rendering layers for point data; [Bubble layer](map-add-bubble-layer-android.md), [Symbol layer](how-to-add-symbol-to-android-map.md), and [Heat map layer](map-add-heat-map-layer-android.md) are the most commonly used layers. Add the following code to render the data in a bubble layer in the callback for the `mapControl.onReady` event after the code for importing the data.
 
     ```java
     //Create a layer and add it to the map.
@@ -259,7 +259,7 @@ The following steps show you how to import a GeoJSON file into the application a
 
 ::: zone pivot="programming-language-kotlin"
 
-4. Create a new file called **Utils.kt** and add the following code to that file. This code provides a static method called `importData` that asynchronously imports a file from the the `assets` folder of the application or from the web using a URL as a string and returns it back to the UI thread using a simple callback method.
+4. Create a new file called **Utils.kt** and add the following code to that file. This code provides a static method called `importData` that asynchronously imports a file from the `assets` folder of the application or from the web using a URL as a string and returns it back to the UI thread using a simple callback method.
 
     ```kotlin
     //Modify the package name as needed to align with your application.
@@ -358,7 +358,7 @@ The following steps show you how to import a GeoJSON file into the application a
         }
     ```
 
-6. Now that there is code to load the GeoJSON data into the map using a data source, we need to specify how that data should be displayed on the map. There are several different rendering layers for point data; [Bubble layer](map-add-bubble-layer-android.md), [Symbol layer](how-to-add-symbol-to-android-map.md), and [Heat map layer](map-add-heat-map-layer-android.md) are the most commonly used layers. Add the following code to render the data in a bubble layer in the callback for the `mapControl.onReady` event after the code for importing the data.
+6. Using the code to load the GeoJSON data a data source, we now need to specify how that data should be displayed on the map. There are several different rendering layers for point data; [Bubble layer](map-add-bubble-layer-android.md), [Symbol layer](how-to-add-symbol-to-android-map.md), and [Heat map layer](map-add-heat-map-layer-android.md) are the most commonly used layers. Add the following code to render the data in a bubble layer in the callback for the `mapControl.onReady` event after the code for importing the data.
 
     ```kotlin
     //Create a layer and add it to the map.
