@@ -3955,6 +3955,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/security/fundamentals/security-controls.md",
+      "redirect_url": "/azure/security/benchmarks",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/web-sites-enable-diagnostic-log.md",
       "redirect_url": "/azure/app-service/troubleshoot-diagnostic-logs",
       "redirect_document_id": false
