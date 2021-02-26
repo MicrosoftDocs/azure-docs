@@ -40,7 +40,7 @@ To learn more about the Azure Resource Manager and Classic deployment models, se
 
 When you create an Automation account, the Run As account is created by default at the same time. If you chose not to create it along with the Automation account, it can be created individually at a later time. An Azure Classic Run As Account is optional, and is created separately if you need to manage classic resources.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWwtF3]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
 
 ### Run As account
 
