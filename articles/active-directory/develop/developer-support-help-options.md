@@ -52,31 +52,6 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 | [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html)                 |
 | All other authentication and authorization areas                            | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
 
-
-
-## Post a question on Stack Overflow
-
-<div class='icon is-large'>
-    <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
-</div>
-
-Another option for community support is [Stack Overflow](https://stackoverflow.com).
-
-If you don't find an answer and ask a new question, add one or more of the following tags to your question:
-
-:::row:::
-    :::column:::
-        - [MSAL](https://stackoverflow.com/questions/tagged/msal)
-        - [OAuth](https://stackoverflow.com/questions/tagged/oauth)
-        - [Azure-Active-Directory-MSAL](https://stackoverflow.com/questions/tagged/azure-active-directory+msal)
-    :::column-end:::
-    :::column:::
-        - [SAML](https://stackoverflow.com/questions/tagged/saml)
-        - [Microsoft-Graph-API](https://stackoverflow.com/questions/tagged/microsoft-graph-api)
-        - [Identity](https://stackoverflow.com/questions/tagged/identity)
-    :::column-end:::
-:::row-end:::
-
 ## Create a GitHub issue
 
 <div class='icon is-large'>
@@ -107,7 +82,6 @@ To request new features, post them on Azure Feedback. Share your ideas for makin
 | Azure Active Directory | https://feedback.azure.com/forums/169401-azure-active-directory |
 | Azure Active Directory - Developer experiences             | https://feedback.azure.com/forums/169401-azure-active-directory?category_id=164757 |
 | Azure Active Directory - Authentication             | https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167256 |
-
 
 ## Stay informed of updates and new releases
 
