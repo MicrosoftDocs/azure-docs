@@ -42,12 +42,10 @@ landingContent:
             url: faq.md 
 
   # Card 
-  - title: Deploy and manage the managed instance
+  - title: Configure and manage the cluster resources
     linkLists:  
       - linkListType: quickstart
         links:
-          - text: Deploy a Spark cluster with Azure Databricks
-            url: deploy-cluster-databricks.md 
           - text: Configure a hybrid cluster
             url: configure-hybrid-cluster.md               
       - linkListType: how-to-guide

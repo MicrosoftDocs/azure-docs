@@ -472,7 +472,7 @@ productDirectory:
       url: cosmos-db/index.yml
     # Card
     - title: Azure Managed Instance for Apache Cassandra
-      summary: Automate deployment and scaling operations for managed open-source Apache Cassandra datacenters
+      summary: Automate deployment and scaling for managed open-source Apache Cassandra datacenters
       imageSrc: ./media/index/managed-instance-apache-cassandra.svg
       azureCategories:
         - databases
