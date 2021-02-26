@@ -13,7 +13,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Import and export Azure AD Connect configuration settings (public preview)
+# Import and export Azure AD Connect configuration settings 
 
 Azure Active Directory (Azure AD) Connect deployments vary from a single forest Express mode installation to complex deployments that synchronize across multiple forests by using custom synchronization rules. Because of the large number of configuration options and mechanisms, it's essential to understand what settings are in effect and be able to quickly deploy a server with an identical configuration. This feature introduces the ability to catalog the configuration of a given synchronization server and import the settings into a new deployment. Different synchronization settings snapshots can be compared to easily visualize the differences between two servers, or the same server over time.
 
@@ -86,7 +86,7 @@ To migrate the settings:
 
 Comparing the originally imported settings file with the exported settings file of the newly deployed server is an essential step in understanding any differences between the intended versus the resulting deployment. Using your favorite side-by-side text comparison application yields an instant visualization that quickly highlights any desired or accidental changes.
 
-While many formerly manual configuration steps are now eliminated, you should still follow your organization's certification process to ensure no additional configuration is required. This configuration might occur if you use advanced settings, which aren't currently captured in the public preview release of settings management.
+While many formerly manual configuration steps are now eliminated, you should still follow your organization's certification process to ensure no additional configuration is required. This configuration might occur if you use advanced settings, which aren't currently captured in the this release of settings management.
 
 Here are known limitations:
 - **Synchronization rules**: The precedence for a custom rule must be in the reserved range of 0 to 99 to avoid conflicts with Microsoft's standard rules. Placing a custom rule outside the reserved range might result in your custom rule being shifted around as standard rules are added to the configuration. A similar issue will occur if your configuration contains modified standard rules. Modifying a standard rule is  discouraged, and rule placement is likely to be incorrect.

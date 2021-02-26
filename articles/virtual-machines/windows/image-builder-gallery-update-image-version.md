@@ -5,11 +5,13 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subervice: image-builder
+ms.colletion: windows
 ---
 # Preview: Create a new VM image version from an existing image version using Azure Image Builder in Windows
 
-This article shows you how to take an existing image version in a [Shared Image Gallery](shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
+This article shows you how to take an existing image version in a [Shared Image Gallery](../shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 

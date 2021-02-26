@@ -80,7 +80,7 @@ You can get a free test account with all the premium Azure AD features - 90 days
 
 ## Step 1 - Choose the right single sign-on standard for your app
 
-To list an application in the Azure AD app gallery, you need to implement at least one of the supported single sign-on options. To understand the single sign-on options, and how customers will configure them in Azure AD, see [SSO options](../manage-apps/sso-options.md).
+To list an application in the Azure AD app gallery, implement at least one of the supported single sign-on options. To understand the single sign-on options, and how customers will configure them in Azure AD, see [SSO options](../manage-apps/sso-options.md).
 
 The following table compares the main standards: Open Authentication 2.0 (OAuth 2.0) with OpenID Connect (OIDC), Security Assertion Markup Language (SAML), and Web Services Federation (WS-Fed).
 
@@ -143,7 +143,7 @@ To learn more about authentication, see [What is authentication?](../azuread-dev
 
 For OpenID Connect, the application must be multi-tenanted and the [Azure AD consent framework](consent-framework.md) must be properly implemented for the application. The user can send the sign-in request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token.
 
-To review specific examples, see [Microsoft identity platform code samples](sample-v2-code.md). 
+To review specific examples, see the [Microsoft identity platform code samples](sample-v2-code.md). 
 
 To review mobile specific examples, see: 
 * [Android](quickstart-v2-android.md)
@@ -170,7 +170,7 @@ Supporting [SCIM](https://aka.ms/scimoverview) provisioning is an optional, but 
 To learn more about the SCIM standards and benefits for your customers, see [provisioning with SCIM - getting started](https://aka.ms/scimoverview).
 
 ### Understand the Azure AD SCIM implementation
-To learn more about the Azure AD SCIM implementation, see [build a SCIM endpoint and configure user provisioning with Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
+To learn more about the Azure AD SCIM implementation, see [build a SCIM endpoint and configure user provisioning with Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ### Implement SCIM
 Azure AD provides [reference code](https://aka.ms/scimoverview) to help you build a SCIM endpoint. There are also many third party libraries / references that you can find on GitHub.  
@@ -181,7 +181,7 @@ You will need an Azure AD tenant in order to test your app. To set up your devel
 
 Alternatively, an Azure AD tenant comes with every Microsoft 365 subscription. To set up a free Microsoft 365 development environment, see [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
-Once you have a tenant, you need to test single-sign on and [provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Once you have a tenant, test single-sign on and [provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-aad-scim-client). 
 
 **For OIDC or Oath applications**, [Register your application](quickstart-register-app.md) as a multi-tenant application. ‎Select the Accounts in any organizational directory and personal Microsoft accounts option in Supported Account types.
 
@@ -269,7 +269,7 @@ If you want to add your application to list in the gallery by using password SSO
 
 ![Listing a password SSO application in the gallery](./media/howto-app-gallery-listing/passwordsso.png)
 
-If you are implementing a [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 endpoint for user provisioning, select the option as shown. When providing the schema in the onboarding request, please follow the directions [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) to download your schema. We will use the schema you configured when testing the non-gallery application to build the gallery application. 
+If you are implementing a [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 endpoint for user provisioning, select the option as shown. When providing the schema in the onboarding request, please follow the directions [here](../app-provisioning/export-import-provisioning-configuration.md) to download your schema. We will use the schema you configured when testing the non-gallery application to build the gallery application. 
 
    ![Request for user provisioning](./media/howto-app-gallery-listing/user-provisioning.png)
 

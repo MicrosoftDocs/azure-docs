@@ -215,6 +215,10 @@ This section shows you how to use the Azure Maps Route Directions API to get rou
 
 You can obtain the full source code for the sample [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). A live sample can be found [here](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
+## Clean up resources
+
+There are no resources that require cleanup.
+
 ## Next steps
 
 The next tutorial shows you how to create a route query with restrictions, like mode of travel or type of cargo. You can then display multiple routes on the same map.

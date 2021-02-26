@@ -20,7 +20,7 @@ In this quickstart, you create an Azure Purview account.
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Your own [Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* Your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 * Your account must have permission to create resources in the subscription
 
@@ -31,7 +31,7 @@ EventHub namespace.
     > You don't have to follow this step if you don't have Azure Policy or an existing Azure Policy is not blocking the creation of **Storage account** and **EventHub namespace**.
 
     1. Navigate to the Azure portal and search for **Policy**
-    1. Follow [Create a custom policy definition](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) or modify existing policy to add two exceptions with `not` operator and `resourceBypass` tag:
+    1. Follow [Create a custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md) or modify existing policy to add two exceptions with `not` operator and `resourceBypass` tag:
 
         ```json
         {
@@ -79,7 +79,7 @@ EventHub namespace.
 
         :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="Screenshot showing how to create policy definition.":::
 
-    1. [Create a policy assignment](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) using the custom policy created.
+    1. [Create a policy assignment](../governance/policy/assign-policy-portal.md) using the custom policy created.
 
         [ ![Screenshot showing how to create policy assignment](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
 
@@ -111,6 +111,9 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 1. Go to the **Purview accounts** page in the Azure portal, and then select **Add** to create a new Azure Purview account. Alternatively, you can go to marketplace search for **Purview Accounts** and select **Create**. Note that you can add only one Azure Purview account at a time.
 
    :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
+
+    > [!Note] 
+    > Azure Purview does not support moving its account across regions. You can find out more information about this in [Azure supported services page](../azure-resource-manager/management/region-move-support.md).
 
 1. On the **Basics** tab, do the following:
     1. Select a **Resource group**.
@@ -152,7 +155,7 @@ If upon clicking Add you see two choices showing both marked (disabled) then thi
 
 1. Select **Add role assignment**.
 
-1. For the Role type in **Purview Data Curator Role** or **Purview Data Source Administrator Role** depending on what the security principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) and [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) for details).
+1. For the Role type in **Purview Data Curator Role** or **Purview Data Source Administrator Role** depending on what the security principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) and [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md) for details).
 
 1. For **Assign access to** leave the default, **User, group, or service principal**.
 

@@ -25,9 +25,6 @@ When to use Event Grid for event driven actions:
 * Streaming events from Azure Machine Learning to various of endpoints
 * Trigger an ML pipeline when drift is detected
 
-> [!NOTE] 
-> Currently, runStatusChanged events only trigger when the run status is **failed**
-
 ## Prerequisites
 To use Event Grid, you need contributor or owner access to the Azure Machine Learning workspace you will create events for.
 

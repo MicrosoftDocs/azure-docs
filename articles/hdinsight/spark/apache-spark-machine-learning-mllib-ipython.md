@@ -1,9 +1,6 @@
 ---
 title: Machine learning example with Spark MLlib on HDInsight - Azure
 description: Learn how to use Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python

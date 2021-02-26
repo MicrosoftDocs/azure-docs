@@ -1,7 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Analyze video and audio files
-titleSuffix: Azure Media Services
 description: Learn how to analyze audio and video content using AudioAnalyzerPreset and VideoAnalyzerPreset in Azure Media Services.
 services: media-services
 documentationcenter: ''

@@ -15,7 +15,7 @@ ms.date: 01/15/2021
 
 Before [provisioning a search service](search-create-service-portal.md) and locking in a specific pricing tier, take a few minutes to understand how capacity works and how you might adjust replicas and partitions to accommodate workload fluctuation.
 
-Capacity is a function of the [service tier](search-sku-tier.md). Tiers are differentiated by maximum storage, per-partition storage, and the maximum limits on the number of objects you can create. The Basic tier is designed for apps having modest storage requirements (one partition only) but with the ability to run in a high availability configuration (3 replicas). Other tiers are designed for specific workloads or patterns, such as multitenancy. Internally, services created on those tiers benefit from hardware that helps those scenarios.
+Capacity is a function of the [service tier](search-sku-tier.md), establishing maximum storage per service, per partition, and the maximum limits on the number of objects you can create. The Basic tier is designed for apps having modest storage requirements (one partition only) but with the ability to run in a high availability configuration (3 replicas). Other tiers are designed for specific workloads or patterns, such as multitenancy. Internally, services created on those tiers benefit from hardware that helps those scenarios.
 
 The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power. Once a service is created, you can increase or decrease the number of replicas or partitions independently. Costs will go up with each additional physical resource, but once large workloads are finished, you can reduce scale to lower your bill. Depending on the tier and the size of the adjustment, adding or reducing capacity can take anywhere from 15 minutes to several hours.
 
@@ -203,6 +203,14 @@ General recommendations for high availability are:
 Service level agreements (SLA) for Azure Cognitive Search are targeted at query operations and at index updates that consist of adding, updating, or deleting documents.
 
 Basic tier tops out at one partition and three replicas. If you want the flexibility to immediately respond to fluctuations in demand for both indexing and query throughput, consider one of the Standard tiers.  If you find your storage requirements are growing much more rapidly than your query throughput, consider one of the Storage Optimized tiers.
+
+## About queries per second (QPS)
+
+Due to the large number of factors that go into query performance, Microsoft doesn't publish expected QPS numbers. QPS estimates must be developed independently by every customer using the service tier, configuration, index, and query constructs that are valid for your application. Index size and complexity, query size and complexity, and the amount of traffic are primary determinants of QPS. There is no way to offer meaningful estimates when such factors are unknown.
+
+Estimates are more predictable when calculated on services running on dedicated resources (Basic and Standard tiers). You can estimate QPS more closely because you have control over more of the parameters. For guidance on how to approach estimation, see [Azure Cognitive Search performance and optimization](search-performance-optimization.md).
+
+For the Storage Optimized tiers (L1 and L2), you should expect a lower query throughput and higher latency than the Standard tiers.
 
 ## Next steps
 

@@ -1,13 +1,11 @@
 ---
 title: Troubleshoot security and access control issues
 description: Learn how to troubleshoot security and access control issues in Azure Data Factory. 
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 02/04/2021
 ms.author: lle
-ms.reviewer: craigg
 ---
 
 # Troubleshoot Azure Data Factory security and access control issues
@@ -44,13 +42,13 @@ The problem is usually caused by one of the following factors:
 
 * If you're using a **self-hosted IR**, check your proxy, firewall, and network settings, because connecting to the same datastore could succeed if you're using an Azure IR. To troubleshoot this scenario, see:
 
-   * [Self-hosted IR ports and firewalls](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#ports-and-firewalls)
-   * [Azure Data Lake Storage connector](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store)
+   * [Self-hosted IR ports and firewalls](./create-self-hosted-integration-runtime.md#ports-and-firewalls)
+   * [Azure Data Lake Storage connector](./connector-azure-data-lake-store.md)
   
 * If you're using an **Azure IR**, try to disable the firewall setting of the datastore. This approach can resolve the issues in the following two situations:
   
-   * [Azure IR IP addresses](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) are not in the allow list.
-   * The *Allow trusted Microsoft services to access this storage account* feature is turned off for [Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#supported-capabilities) and [Azure Data Lake Storage Gen 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#supported-capabilities).
+   * [Azure IR IP addresses](./azure-integration-runtime-ip-addresses.md) are not in the allow list.
+   * The *Allow trusted Microsoft services to access this storage account* feature is turned off for [Azure Blob Storage](./connector-azure-blob-storage.md#supported-capabilities) and [Azure Data Lake Storage Gen 2](./connector-azure-data-lake-storage.md#supported-capabilities).
    * The *Allow access to Azure services* setting isn't enabled for Azure Data Lake Storage Gen1.
 
 If none of the preceding methods works, contact Microsoft for help.
@@ -83,9 +81,10 @@ To verify whether the Data Factory fully qualified domain name (FQDN) is resolve
 #### Resolution
 
 To resolve the issue, do the following:
-- Refer to the [Azure Private Link for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints) article. The instruction is for configuring the private DNS zone or server to resolve the Data Factory FQDN to a private IP address.
 
-- We recommend using a custom DNS as the long-term solution. However, if you don't want to configure the private DNS zone or server, try the following temporary solution:
+- As option, we would like to suggest you to manually add a "Virtual Network link" under the Data Factory "Private link DNS Zone". For details, refer to the [Azure Private Link for Azure Data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints) article. The instruction is for configuring the private DNS zone or custom DNS server to resolve the Data Factory FQDN to a private IP address. 
+
+- However, if you don't want to configure the private DNS zone or custom DNS server, try the following temporary solution:
 
   1. Change the host file in Windows, and map the private IP (the Azure Data Factory private endpoint) to the Azure Data Factory FQDN.
   
@@ -115,7 +114,7 @@ The issue could be caused by the VM in which you're trying to install the self-h
  
 To resolve the issue, do the following:
 
-1. Go to the [Factories - Update](https://docs.microsoft.com/rest/api/datafactory/Factories/Update) page.
+1. Go to the [Factories - Update](/rest/api/datafactory/Factories/Update) page.
 
 1. At the upper right, select the **Try it** button.
 1. Under **Parameters**, complete the required information. 
@@ -141,11 +140,28 @@ To resolve the issue, do the following:
 
 **Solution 2**
 
-To resolve the issue, go to [Azure Private Link for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link).
+To resolve the issue, go to [Azure Private Link for Azure Data Factory](./data-factory-private-link.md).
 
 Try to enable public network access on the user interface, as shown in the following screenshot:
 
 ![Screenshot of the "Enabled" control for "Allow public network access" on the Networking pane.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+### ADF private DNS zone overrides Azure Resource Manager DNS resolution causing ‘Not found’ error
+
+#### Cause
+Both Azure Resource Manager and ADF are using the same private zone creating a potential conflict on customer’s private DNS with an scenario where the Azure Resource Manager records will not be found.
+
+#### Solution
+1. Find Private DNS zones **privatelink.azure.com** in Azure portal.
+![Screenshot of finding Private DNS zones.](media/security-access-control-troubleshoot-guide/private-dns-zones.png)
+2. Check if there is an A record **adf**.
+![Screenshot of A record.](media/security-access-control-troubleshoot-guide/a-record.png)
+3.	Go to **Virtual network links**, delete all records.
+![Screenshot of virtual network link.](media/security-access-control-troubleshoot-guide/virtual-network-link.png)
+4.	Navigate to your data factory in Azure portal and recreate the private endpoint for Azure Data Factory portal.
+![Screenshot of recreating private endpoint.](media/security-access-control-troubleshoot-guide/create-private-endpoint.png)
+5.	Go back to Private DNS zones, and check if there is a new private DNS zone **privatelink.adf.azure.com**.
+![Screenshot of new DNS record.](media/security-access-control-troubleshoot-guide/check-dns-record.png)
 
 ## Next steps
 

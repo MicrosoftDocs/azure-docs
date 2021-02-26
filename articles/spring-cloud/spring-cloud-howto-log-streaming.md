@@ -26,7 +26,7 @@ Azure Spring Cloud enables log streaming in Azure CLI to get real-time applicati
 ## Use CLI to tail logs
 
 To avoid repeatedly specifying your resource group and service instance name, set your default resource group name and cluster name.
-```
+```azurecli
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 ```
@@ -34,11 +34,11 @@ In following examples, the resource group and service name will be omitted in th
 
 ### Tail log for app with single instance
 If an app named auth-service has only one instance, you can view the log of the app instance with the following command:
-```
+```azurecli
 az spring-cloud app logs -n auth-service
 ```
 This will return logs:
-```
+```output
 ...
 2020-01-15 01:54:40.481  INFO [auth-service,,,] 1 --- [main] o.apache.catalina.core.StandardService  : Starting service [Tomcat]
 2020-01-15 01:54:40.482  INFO [auth-service,,,] 1 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
@@ -53,12 +53,12 @@ If multiple instances exist for the app named `auth-service`, you can view the i
 
 First, you can get the app instance names with following command.
 
-```
+```azurecli
 az spring-cloud app show -n auth-service --query properties.activeDeployment.properties.instances -o table
 ```
 With results:
 
-```
+```output
 Name                                         Status    DiscoveryStatus
 -------------------------------------------  --------  -----------------
 auth-service-default-12-75cc4577fc-pw7hb  Running   UP
@@ -67,7 +67,7 @@ auth-service-default-12-75cc4577fc-n25mh  Running   UP
 ``` 
 Then, you can stream logs of an app instance with the option `-i/--instance` option:
 
-```
+```azurecli
 az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
 
@@ -76,11 +76,11 @@ You can also get details of app instances from the Azure portal.  After selectin
 ### Continuously stream new logs
 By default, `az spring-cloud ap log tail` prints only existing logs streamed to the app console and then exits. If you want to stream new logs, add -f (--follow):  
 
-```
+```azurecli
 az spring-cloud app logs -n auth-service -f
 ``` 
 To check all the logging options supported:
-``` 
+```azurecli
 az spring-cloud app logs -h 
 ```
 

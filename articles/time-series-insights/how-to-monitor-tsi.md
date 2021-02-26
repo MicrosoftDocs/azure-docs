@@ -22,9 +22,9 @@ The **Overview** page in the Azure portal for each Time Series Insights environm
 
 ## What is Azure Monitor
 
-Time Series Insights creates monitoring data using [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
+Time Series Insights creates monitoring data using [Azure Monitor](../azure-monitor/overview.md), which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
 
-Start with the article [Monitoring Azure resources with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource), which describes the following concepts:
+Start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md), which describes the following concepts:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -35,11 +35,11 @@ Start with the article [Monitoring Azure resources with Azure Monitor](https://d
 The following sections build on this article by describing the specific data gathered for Azure Time Series Insights. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
 
 > [!TIP]
-> To understand costs associated with Azure Monitor, see [Usage and estimated costs](../azure-monitor/platform/usage-estimated-costs.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/platform/data-ingestion-time.md).
+> To understand costs associated with Azure Monitor, see [Usage and estimated costs](../azure-monitor//usage-estimated-costs.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
 
 ## Monitoring data from Azure Time Series Insights
 
-Azure Time Series Insights collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+Azure Time Series Insights collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
 See [Azure Time Series Insights monitoring data reference](how-to-monitor-tsi-reference.md) for a detailed reference of the logs and metrics that you can collect.
 
@@ -48,7 +48,7 @@ See [Azure Time Series Insights monitoring data reference](how-to-monitor-tsi-re
 Platform metrics are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.
 
 Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect.
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect.
 
 You can collect logs from the following categories for Azure Time Series Insights:
 
@@ -58,7 +58,7 @@ You can collect logs from the following categories for Azure Time Series Insight
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure Time Series Insights, along with metrics from other Azure services, by opening Metrics from the Azure Monitor menu. See [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
+You can analyze metrics for Azure Time Series Insights, along with metrics from other Azure services, by opening Metrics from the Azure Monitor menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
 
 For a list of the platform metrics collected, see [Monitoring Azure Time Series Insights data reference](how-to-monitor-tsi-reference.md#metrics)
 
@@ -75,7 +75,7 @@ You can access resource logs either as a blob in a storage account, as event dat
 
 Data in Azure Monitor Logs is stored in tables which each table having its own set of unique properties.
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). For a list of the types of resource logs collected for Azure Time Series Insights, see [Azure Time Series Insights monitoring data reference](how-to-monitor-tsi-reference.md#resource-logs).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). For a list of the types of resource logs collected for Azure Time Series Insights, see [Azure Time Series Insights monitoring data reference](how-to-monitor-tsi-reference.md#resource-logs).
 
 Azure Time Series Insights stores data in the following tables.
 
@@ -83,7 +83,7 @@ Azure Time Series Insights stores data in the following tables.
 |:---|:---|
 | TSIIngress | The table that stores data from the Ingress category. The Ingress category tracks errors that occur in the ingress pipeline. This category includes errors that occur when receiving events (such as failures to connect to an Event Source) and processing events (such as errors when parsing an event payload).
 
-To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see [Collection and routing](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub#collection-and-routing).
+To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see [Collection and routing](../iot-hub/monitor-iot-hub.md#collection-and-routing).
 
 ## Sample Queries
 
@@ -110,11 +110,11 @@ Following are queries that you can use to help you monitor your Azure Time Serie
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview), [logs](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks.
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
 
 When creating an alert rule based on platform metrics, be aware that for Time Series Insights platform metrics that are collected in units of count, some aggregations may not be available or usable.
 
 ## Next Steps
 
 * See [Azure Time Series Insights monitoring data reference](how-to-monitor-tsi-reference.md) for a reference of the logs and metrics created by Azure Time Series Insights.
-* See [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+* See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

@@ -49,7 +49,7 @@ Image definitions create a logical grouping for images. They are used to manage 
 
 When making your image definition, make sure is has all of the correct information. Because managed images are always generalized, you should set `-OsState generalized`. 
 
-For more information about the values you can specify for an image definition, see [Image definitions](./windows/shared-image-galleries.md#image-definitions).
+For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 
 Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). In this example, the image definition is named *myImageDefinition*, and is for a generalized Windows OS. To create a definition for images using a Linux OS, use `-OsType Linux`. 
 

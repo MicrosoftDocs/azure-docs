@@ -4,7 +4,7 @@ description: How to resolve issues with Azure AD sign in when the app returns an
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt

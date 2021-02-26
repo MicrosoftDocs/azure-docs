@@ -134,7 +134,7 @@ When using a mobile app as a method for password reset, like the Microsoft Authe
 Users don't have the option to register their mobile app when registering for self-service password reset from [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup), or in the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 > [!IMPORTANT]
-> The Authenticator app can't be selected as the only authentication method when only method is required. Similarly, the Authenticator app and only one additional method cannot be selected when requiring two methods.
+> The Authenticator app can't be selected as the only authentication method when only one method is required. Similarly, the Authenticator app and only one additional method cannot be selected when requiring two methods.
 >
 > When configuring SSPR policies that include the Authenticator app as a method, at least one additional method should be selected when one method is required, and at least two additional methods should be selected when configuring two methods are required.
 >

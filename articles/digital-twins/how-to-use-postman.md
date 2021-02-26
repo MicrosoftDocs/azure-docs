@@ -47,7 +47,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     az login
     ```
 
-1. Next, use the [az account get-access-token](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service.
+1. Next, use the [az account get-access-token](/cli/azure/account?preserve-view=true&view=azure-cli-latest#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service.
 
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
@@ -135,7 +135,7 @@ To proceed with an example query, this article will use the Query API (and its [
 1. Check that the headers shown for the request in the *Headers* tab match those described in the reference documentation. For this request, several headers have been automatically filled. For the Query API, none of the header options are required, so this step is done.
 1. Check that the body shown for the request in the *Body* tab matches the needs described in the reference documentation. For the Query API, a JSON body is required to provide the query text. Here is an example body for this request that queries for all the digital twins in the instance:
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="In the details of the new request, the Body tab is shown. It contains a raw JSON body with a query of 'SELECT * FROM DIGITALTWINS'."lightbox="media/how-to-use-postman/postman-request-body.png":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="In the details of the new request, the Body tab is shown. It contains a raw JSON body with a query of 'SELECT * FROM DIGITALTWINS'." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
    For more information about crafting Azure Digital Twins queries, see [*How-to: Query the twin graph*](how-to-query-graph.md).
 
