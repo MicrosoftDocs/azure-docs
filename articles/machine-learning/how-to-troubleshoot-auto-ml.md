@@ -59,7 +59,7 @@ Resolutions depend on your `AutoML` SDK training version:
 
     `AutoML` package changes in version 1.0.76 require the previous version to be uninstalled before updating to the new version.
 
-    If you encounter this error after upgrading from an SDK version before v1.0.76 to v1.0.76 or later, resolve the error by running: `pip uninstall azureml-train automl` and then `pip install azureml-train-auotml`. The automl_setup.cmd script does this automatically.
+    If you encounter this error after upgrading from an SDK version before v1.0.76 to v1.0.76 or later, resolve the error by running: `pip uninstall azureml-train automl` and then `pip install azureml-train-automl`. The automl_setup.cmd script does this automatically.
 
 * **automl_setup fails**
 
@@ -161,10 +161,6 @@ If the listed version is not a supported version:
     ```
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
-
-## Experiment charts
-
-Binary classification charts (precision-recall, ROC, gain curve etc.) shown in automated ML experiment iterations are not rendering correctly in user interface since 4/12. Chart plots are currently showing inverse results, where better performing models are shown with lower results. A resolution is under investigation.
 
 ## Forecasting R2 score is always zero
 
