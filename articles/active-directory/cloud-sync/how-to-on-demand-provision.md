@@ -41,7 +41,7 @@ To use on-demand provisioning, follow these steps:
    ![Screenshot that shows successful provisioning.](media/how-to-on-demand-provision/on-demand-4.png)
 
 ## Get details about provisioning
-Now you can look at the user information and determine if the changes that you made in the configuration have been applied. The remainder of this article describes the individual sections that appear in the details of a successfully synchronized user.
+Now you can look at the user information and determine if the changes that you made in the configuration have been applied. The rest of this article describes the individual sections that appear in the details of a successfully synchronized user.
 
 ### Import user
 The **Import user** section provides information on the user who was imported from Active Directory. This is what the user looks like before provisioning into Azure AD. Select the **View details** link to display this information.
