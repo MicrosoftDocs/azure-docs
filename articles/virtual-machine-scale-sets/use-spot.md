@@ -54,6 +54,7 @@ If you would like your instances to be deleted when they are evicted, you can se
 
 Users can opt in to receive in-VM notifications through [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 
+<a name="bkmk_try"></a>
 ## Try & restore (preview)
 
 This new platform-level feature will use AI to automatically try to restore evicted Spot instances inside a scale set to maintain the target instance count. 
