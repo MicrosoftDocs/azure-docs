@@ -16,7 +16,7 @@ In this article, we'll give you a brief overview of what kinds of authentication
 
 ## Session host authentication
 
-Windows Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for session host authentication. However, to use Kerberos, the client needs to get Kerberos security tickets from a Key Distribution Center (KDC) service running on a domain controller. To get tickets, the client needs a direct line of sight to the domain controller. You can get a direct line of sight by using your corporate network. You can also use a VPN connection to your corporate network or setup a [KDC Proxy server](key-distribution-center-proxy.md).
+Windows Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for session host authentication. However, to use Kerberos, the client needs to get Kerberos security tickets from a Key Distribution Center (KDC) service running on a domain controller. To get tickets, the client needs a direct line of sight to the domain controller. You can get a direct line of sight by using your corporate network. You can also use a VPN connection to your corporate network or set up a [KDC Proxy server](key-distribution-center-proxy.md).
 
 These are the currently supported sign-in methods:
 
