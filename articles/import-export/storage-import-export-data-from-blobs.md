@@ -69,7 +69,7 @@ Perform the following steps to create an export job in the Azure portal.
 
       - Choose to **Export all** blob data in the storage account.
 
-        ![Export all](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)<!--Any way to make this smaller and less interruptive? One box: Export all.-->
+        ![Export all](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
 
       - Choose **Selected containers and blobs**, and specify containers and blobs to export. You can use more than one of the selection methods. Selecting an **Add** option opens a panel on the right where you can add your selection strings.
 
@@ -77,11 +77,11 @@ Perform the following steps to create an export job in the Azure portal.
         |------|-----------|      
         |**Add containers**|Export all blobs in a container.<br>Select **Add containers**, and enter each container name.|
         |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).|
-        |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name.<!--Have these options changed? If they want to specify a container name, won't they just use "Add containers"? The prefix option would be used to select multiple container that begin with the same prefix or a set of similarly named blobs in a container? Practical examples would help.--><br>Example of container prefix<br>Example of blob set in a container|
+        |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name.<!--If they want to specify a single container name, won't they just use "Add containers" (second option)?--> |
 
         ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
 
-    - Choose **Export from blob list file (XML format)**, and select an XML file that contains a list of paths and prefixes for the blobs to be exported from the storage account. You must construct the XML file and store it in the container for the storage account.<!--Is "the container for the storage account" the root container, or is the intended meaning "in a container for the storage account?--> The file cannot be empty.<!--Is any validation performed? at what point?-->
+    - Choose **Export from blob list file (XML format)**, and select an XML file that contains a list of paths and prefixes for the blobs to be exported from the storage account. You must construct the XML file and store it in a container for the storage account. The file cannot be empty.
 
       > [!IMPORTANT]
       > If you use an XML file to select the blobs to export, make sure that the XML contains valid paths and/or prefixes. If the file is invalid or no data matches the paths specified, the order terminates with partial data or no data exported.
