@@ -12,7 +12,7 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: sstein
-ms.date: 02/20/2021
+ms.date: 03/01/2021
 ---
 # Quickstart: Use the Azure portal's query editor (preview) to query an Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -164,7 +164,7 @@ If you get one of the following errors in the query editor:
  - *Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings*
  - *A connection to the server could not be established. This might indicate an issue with your local firewall configuration or your network proxy settings*
 
-This is because the query editor uses port 443 and 1443 to communicate. You will need to ensure you have enabled outbound HTTPS traffic on these ports. The instructions below will walk you through how to do this, depending on your Operating System. You might first need to work with your corporate IT to grant approval to open this connection on your local network.
+This is because the query editor uses port 443 and 1443 to communicate. You will need to ensure you have enabled outbound HTTPS traffic on these ports. The instructions below will walk you through how to do this, depending on your Operating System. You might need to work with your corporate IT to grant approval to open this connection on your local network.
 
 #### Steps for Windows
 
@@ -187,14 +187,15 @@ In the **New outbound rule wizard** follow these steps:
 1. Open **System Preferences** (Apple menu > System Preferences).
 2. Click **Security & Privacy**.
 3. Click **Firewall**.
+4. If Firewall is off, select **Click the lock to make changes** at the bottom and select **Turn on Firewall**
 4. Click **Firewall Options**.
 5. In the **Security & Privacy** window select this option: "Automatically allow signed software to receive incoming connections."
 
 #### Steps for Linux
 Run these commands to update iptables
   ```
-  iptables -A INPUT -p tcp -dport 443 -j ACCEPT
-  iptables -A INPUT -p tcp -dport 1443 -j ACCEPT
+  sudo iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT
+  sudo iptables -A OUTPUT -p tcp --dport 1443 -j ACCEPT
   ```
 
 ### Connection considerations
