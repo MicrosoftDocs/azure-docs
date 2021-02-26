@@ -49,9 +49,9 @@ az keyvault create -n $vaultName -g $myRG --enable-purge-protection true -o tabl
 az keyvault key create --vault-name $vaultName --name $vaultKeyName --protection software -o jsonc
 ```
 
-## Create an Azure DiskEncryptionSet instance
+## Create an Azure disk encryption set
 
-The Azure DiskEncryptionSet is used as the reference point for disks in ARO. It's connected to the Azure Key Vault we created in the previous step and will pull customer-managed keys from that location.
+The Azure disk encryption set is used as the reference point for disks in ARO. It's connected to the Azure Key Vault we created in the previous step and will pull customer-managed keys from that location.
 
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
@@ -60,31 +60,31 @@ keyVaultId="$(az keyvault show --name $vaultName --query [id] -o tsv)"
 # Retrieve the Key Vault key URL and store it in a variable
 keyVaultKeyUrl="$(az keyvault key show --vault-name $vaultName --name $vaultKeyName  --query [key.kid] -o tsv)"
 
-# Create an Azure Disk Encryption Set
+# Create an Azure disk encryption set
 az disk-encryption-set create -n $desName -g $myRG --source-vault $keyVaultId --key-url $keyVaultKeyUrl -o table
 ```
 
-## Grant the Azure Disk Encryption Set access to Key Vault
-Use the *Azure Disk Encryption Set* we created in the prior steps and grant the DiskEncryptionSet access to the Azure Key Vault:
+## Grant the disk encryption set access to Key Vault
+Use the disk encryption set we created in the prior steps and grant the disk encryption set access to Azure Key Vault:
 
 ```azurecli-interactive
-# First, find the Azure DiskEncryptionSet's AppId value.
+# First, find the disk encryption set's AppId value.
 desIdentity="$(az disk-encryption-set show -n $desName -g $myRG --query [identity.principalId] -o tsv)"
 
-# Next, update the Key Vault security policy settings to allow access to the DiskEncryptionSet.
+# Next, update the Key Vault security policy settings to allow access to the disk encryption set.
 az keyvault set-policy -n $vaultName -g $myRG --object-id $desIdentity --key-permissions wrapkey unwrapkey get -o table
 
-# Now, ensure the Azure DiskEncryptionSet can read the contents of the Azure Key Vault.
+# Now, ensure the disk encryption set can read the contents of the Azure Key Vault.
 az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId -o jsonc
 ```
 
 ### Obtain other IDs required for role assignments
-We need to allow the ARO cluster to use the Azure DiskEncryptionSet to encrypt the persistent volume claims (PVCs) in the ARO cluster. To do this, we'll create a new Managed Service Identity (MSI). We'll also set other permissions for the ARO MSI and for the Azure Disk Encryption Set.
+We need to allow the ARO cluster to use the disk encryption set to encrypt the persistent volume claims (PVCs) in the ARO cluster. To do this, we'll create a new Managed Service Identity (MSI). We'll also set other permissions for the ARO MSI and for the disk encryption set.
 ```
-# First, get the Application ID of the service principal used in the ARO cluster.
+# First, get the application ID of the service principal used in the ARO cluster.
 aroSPAppId="$(oc get secret azure-credentials -n kube-system -o jsonpath='{.data.azure_client_id}' | base64 --decode)"
 
-# Next, get the Object ID of the service principal used in the ARO cluster.
+# Next, get the object ID of the service principal used in the ARO cluster.
 aroSPObjId="$(az ad sp show --id $aroSPAppId -o tsv --query [objectId])"
 
 # Set the name of the ARO Managed Service Identity. 
@@ -93,25 +93,25 @@ msiName="$aroCluster-msi"
 # Create the Managed Service Identity (MSI) required for disk encryption.
 az identity create -g $myRG -n $msiName -o jsonc
 
-# Get the ARO Managed Service Identity AppId.
+# Get the ARO Managed Service Identity application ID.
 aroMSIAppId="$(az identity show -n $msiName -g $myRG -o tsv --query [clientId])"
 
-# Determine the Resource ID for the Azure DiskEncryptionSet and Azure Key Vault Resource Group.
+# Get the resource ID for the disk encryption set and the Key Vault resource group.
 myRGResourceId="$(az group show -n $myRG -o tsv --query [id])"
 ```
 
 ### Implement other role assignments required for BYOK/CMK encryption
 Apply the required role assignments using the variables obtained in the previous step:
 ```azurecli-interactive
-# Assign the MSI AppID 'Reader' permission over the Azure Disk Encryption Set & Key Vault Resource Group
+# Assign the MSI AppID 'Reader' permission over the disk encryption set & Key Vault resource group
 az role assignment create --assignee $aroMSIAppId --role Reader --scope $myRGResourceId -o jsonc
 
-# Assign the ARO Service Principal 'Contributor' permission over the Azure Disk Encryption Set & Key Vault Resource Group
+# Assign the ARO Service Principal 'Contributor' permission over the disk encryption set & Key Vault Resource Group
 az role assignment create --assignee $aroSPObjId --role Contributor --scope $myRGResourceId -o jsonc
 ```
 
 ## Create a k8s Storage Class for encrypted Premium & Ultra disks (optional)
-If you're using a Premium or an Ultra disk, generate a storage class for Premium_LRS and UltraSSD_LRS disks, which will also utilize the Azure Disk Encryption Set:
+If you're using a Premium or an Ultra disk, generate a storage class for Premium_LRS and UltraSSD_LRS disks, which will also utilize the disk encryption set:
 ```
 # Premium Disks
 cat > managed-premium-encrypted-byok.yaml<< EOF
@@ -157,11 +157,11 @@ Insert the variables that are unique to your ARO cluster into the two storage cl
 sed -i "s/subId/$subId/g" managed-premium-encrypted-byok.yaml
 sed -i "s/subId/$subId/g" managed-ultra-encrypted-byok.yaml
 
-# Replace the name of the Resource Group which contains Azure Disk Encryption set and Key Vault
+# Replace the name of the Resource Group which contains the disk encryption set and Key Vault
 sed -i "s/myRG/$myRG/g" managed-premium-encrypted-byok.yaml
 sed -i "s/myRG/$myRG/g" managed-ultra-encrypted-byok.yaml
 
-# Replace the name of the Azure Disk Encryption Set
+# Replace the name of the disk encryption set
 sed -i "s/desName/$desName/g" managed-premium-encrypted-byok.yaml
 sed -i "s/desName/$desName/g" managed-ultra-encrypted-byok.yaml
 ```
