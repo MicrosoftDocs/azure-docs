@@ -333,6 +333,8 @@
       href: template-user-defined-functions.md
     - name: Resources
       items:
+      - name: Resource declaration
+        href: resource-declaration.md
       - name: Child resource name and type
         href: child-resource-name-type.md
       - name: Conditional deployment
