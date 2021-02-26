@@ -59,7 +59,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 ### General
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Added error messages.
-- [Partners who integrate with Azure Monitor](/partners.md) - Added section on Event Hub integration.
+- [Partners who integrate with Azure Monitor](partners.md) - Added section on Event Hub integration.
 
 ### Agents
 - [Cross-resource query Azure Data Explorer by using Azure Monitor](logs/azure-monitor-data-explorer-proxy.md) - New article.

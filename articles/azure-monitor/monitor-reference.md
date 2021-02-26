@@ -236,7 +236,7 @@ Azure Monitor can collect data from resources outside of Azure using the methods
 
 ## Next steps
 
-- Read more about the [Azure Monitor data platform which stores the logs and metrics collected by insights and solutions](/data-platform.md).
+- Read more about the [Azure Monitor data platform which stores the logs and metrics collected by insights and solutions](data-platform.md).
 - Complete a [tutorial on monitoring an Azure resource](essentials/tutorial-resource-logs.md).
 - Complete a [tutorial on writing a log query to analyze data in Azure Monitor Logs](essentials/tutorial-resource-logs.md).
 - Complete a [tutorial on creating a metrics chart to analyze data in Azure Monitor Metrics](essentials/tutorial-metrics-explorer.md).
