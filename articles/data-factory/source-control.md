@@ -6,7 +6,7 @@ author: dcstwh
 ms.author: weetok
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
+ms.date: 02/26/2021
 ---
 
 # Source control in Azure Data Factory
