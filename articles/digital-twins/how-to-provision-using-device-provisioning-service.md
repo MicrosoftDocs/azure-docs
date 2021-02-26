@@ -27,13 +27,11 @@ For more information about the _provision_ and _retire_ stages, and to better un
 
 Before you can set up the provisioning, you'll need to set up the following:
 
-* an **Azure Digital Twins instance** that contains models and twins.
-    * the **_host name_** of the instance([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
+* an **Azure Digital Twins instance**. Gather the **_host name_** of the instance [in the Azure portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * an Azure [IoT Hub](../iot-hub/about-iot-hub.md)
-* an [Azure function](../azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data
-    * the **_name_** of this function
+* an [Azure function](../azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Gather the function name to use it in this article.
 
-If you do not have these set up already, you can create them by following the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md).
+If you do not have these set up already, you can create them by following the article [how to ingest iot hub data](how-to-ingest-iot-hub-data.md).
 
 This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
 
@@ -120,6 +118,18 @@ Save your details.
 After creating the enrollment, the enrollment primary SAS key will be used later to configure the device simulator for this article.
 
 ### Set up the device simulator
+
+#### Upload the model
+
+This article uses a [thermostat model](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-1.json) connected to an Azure Digital Twins instance to propagate data flow. You can upload your model using the CLI command:
+
+```cmd
+az dt model create -n {instance_or_hostname} --from-directory {directory_path}
+```
+
+For more information about models, refer [how to manage models](how-to-manage-models#upload-models).
+
+#### Configure and run the simulator
 
 This sample uses a device simulator that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). If you haven't already downloaded the sample, get it now by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
 
