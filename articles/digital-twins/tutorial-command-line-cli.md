@@ -62,9 +62,7 @@ Models are similar to classes in object-oriented programming languages; they pro
 > [!NOTE]
 > DTDL also allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
 
-In your Visual Studio window where the _**AdtE2ESample**_ project is open, use the *Solution Explorer* pane to navigate to the *AdtSampleApp\SampleClientApp\Models* folder. This folder contains sample models.
-
-Select *Room.json* to open it in the editing window, and change it in the following ways:
+Navigate on your machine to the *Room.json* file that you created in the [Prerequisites](#prerequisites) section. Open it in a code editor, and change it in the following ways:
 
 1. **Update the version number**, to indicate that you are providing a more-updated version of this model. Do this by changing the *1* at the end of the `@id` value to a *2*. Any number greater than the current version number will also work.
 1. **Edit a property**. Change the name of the `Humidity` property to *HumidityLevel* (or something different if you'd like. If you use something different than *HumidityLevel*, remember what you used and continue using that instead of *HumidityLevel* throughout the tutorial).
@@ -83,7 +81,7 @@ When you are finished, the updated model should match this:
 Make sure to save the file before moving on.
 
 > [!TIP]
-> If you want to try creating your own model, you can paste the *Room* model code into a new file that you save with a *.json* extension in the *AdtSampleApp\SampleClientApp\Models* folder. Then, play around with adding properties and relationships to represent whatever you'd like. You can also look at the other sample models in this folder for ideas.
+> If you want to try creating your own model, you can paste the *Room* model code into a new file that you save with a *.json* extension. Then, play around with adding properties and relationships to represent whatever you'd like. You can also look at more sample models in the [Azure Digital Twins end-to-end samples](https://github.com/Azure-Samples/digital-twins-samples/tree/master/AdtSampleApp/SampleClientApp/Models) repository for ideas.
 
 > [!TIP] 
 > There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [*How-to: Parse and validate models*](how-to-parse-models.md).
@@ -92,185 +90,205 @@ Make sure to save the file before moving on.
 
 After designing models, you need to upload them to your Azure Digital Twins instance. This configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
 
-In the project console window, run the following command to upload your updated *Room* model, as well as a *Floor* model that you'll also use in the next section to create different types of twins.
+To add models using Cloud Shell, you'll need to upload your model files to Cloud Shell's storage so the files will be available when you run the Cloud Shell command that uses them. To do this, select the "Upload/Download files" icon and choose "Upload".
 
-```cmd/sh
-CreateModels Room Floor
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload icon":::
+
+Navigate to the *Room.json* file on your machine and select "Open." Then, repeat this step for *Floor.json*.
+
+Next, use the [**az dt model create**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest#ext_azure_iot_az_dt_model_create) command as shown below to upload your updated *Room* model to your Azure Digital Twins instance. There is also a command to upload a *Floor* model that you'll also use in the next section to create different types of twins.
+
+```azurecli-interactive
+az dt model create -n <ADT_instance_name> --models Room.json
+az dt model create -n <ADT_instance_name> --models Floor.json
 ```
 
-The output should indicate the models were created successfully.
+The output from each command will show information about the successfully created model.
 
 > [!TIP]
-> If you designed your own model earlier, you can also upload it here, by adding its file name (you can leave out the extension) to the `Room Floor` list in the command above.
+> If you designed your own model earlier, you can also upload it here, by adding its file path to the `models` list in the command above.
 
-Verify the models were created by running the command `GetModels true`. This will query the Azure Digital Twins instance for all models that have been uploaded, and print out their full information. Look for the edited *Room* model in the results:
+Verify the models were created with the [**az dt model list**](https://docs.microsoft.com/en-us/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest#ext_azure_iot_az_dt_model_list) command as shown below. This will print a list of all models that have been uploaded to the Azure Digital Twins instance, and print out their full information. 
 
-:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Results of GetModels, showing the updated Room model":::
+```azurecli-interactive
+az dt model list -n <ADT_instance_name> --definition
+```
+
+Look for the edited *Room* model in the results:
+
+:::image type="content" source="media/tutorial-command-line/cli/output-get-models.png" alt-text="Results of the model list command, showing the updated Room model":::
 
 ### Errors
 
 The CLI also handles errors from the service. 
 
-Re-run the `CreateModels` command to try re-uploading one of the same models you just uploaded, for a second time:
+Re-run the `az dt model create` command to try re-uploading one of the same models you just uploaded, for a second time:
 
-```cmd/sh
-CreateModels Room
+```azurecli-interactive
+az dt model create -n <ADT_instance_name> --models Room.json
 ```
 
-As models cannot be overwritten, this will now return a service error.
-For the details on how to delete existing models, see [*How-to: Manage DTDL models*](how-to-manage-model.md).
-```cmd/sh
-Response 409: Service request failed.
-Status: 409 (Conflict)
-
-Content:
-{"error":{"code":"ModelAlreadyExists","message":"Could not add model dtmi:example:Room;2 as it already exists. Use Model_List API to view models that already exist. See the Swagger example.(http://aka.ms/ModelListSwSmpl)"}}
-
-Headers:
-Strict-Transport-Security: REDACTED
-Date: Wed, 20 May 2020 00:53:49 GMT
-Content-Length: 223
-Content-Type: application/json; charset=utf-8
-```
+As models cannot be overwritten, this will now return an error code of `ModelIdAlreadyExists`.
 
 ## Create digital twins
 
 Now that some models have been uploaded to your Azure Digital Twins instance, you can create [**digital twins**](concepts-twins-graph.md) based on the model definitions. Digital twins represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. 
 
-To create a digital twin, you use the `CreateDigitalTwin` command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You do not have to pass any relationship information at this stage.
+To create a digital twin, you use the [**az dt twin create**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext_azure_iot_az_dt_twin_create) command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You do not have to pass any relationship information at this stage.
 
-Run this code in the running project console to create several twins, based on the *Room* model you updated earlier and another model, *Floor*. Recall that *Room* has three properties, so you can provide arguments with the initial values for these.
+Run this code in the Cloud Shell to create several twins, based on the *Room* model you updated earlier and another model, *Floor*. Recall that *Room* has three properties, so you can provide arguments with the initial values for these.
 
-```cmd/sh
-CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
-CreateDigitalTwin dtmi:example:Room;2 room1 RoomName string Room1 Temperature double 80 HumidityLevel double 60
-CreateDigitalTwin dtmi:example:Floor;1 floor0
-CreateDigitalTwin dtmi:example:Floor;1 floor1
+```azurecli-interactive
+az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{"RoomName":"Room0", "Temperature":70, "HumidityLevel":30}'
+az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{"RoomName":"Room1", "Temperature":"80", "HumidityLevel":"60"}'
+az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Floor;1" --twin-id floor0
+az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Floor;1" --twin-id floor1
 ```
 
+>[!NOTE]
+> If you are using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters in order for the `--properties` JSON to be parsed correctly. With this edit, the commands to create the room twins look like this:
+>
+> ```azurecli-interactive
+> az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{\"RoomName\":\"Room0\", \"Temperature\":70, \"HumidityLevel\":30}'
+> az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{\"RoomName\":\"Room1\", \"Temperature\":80, \"HumidityLevel\":60}'
+> ```
+
+The output from each command will show information about the successfully created twin (including properties for the room twins that were initialized with them).
+
+You can also verify that the twins were created with the [**az dt twin query**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext_azure_iot_az_dt_twin_query) command as shown below. The query used below finds all the digital twins contained in your Azure Digital Twins instance.
+
+```azurecli-interactive
+az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS"
+```
+
+Look for the *room0*, *room1*, *floor0*, and *floor1* twins in the results. Here is an excerpt showing part of the result of this query.
+
+:::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Partial results of twin query, showing room0 and room1":::
+
 > [!TIP]
-> If you uploaded your own model earlier, try making your own `CreateDigitalTwin` command based on the commands above to add a twin of your own model type.
-
-The output from these commands should indicate the twins were created successfully. 
-
-:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Excerpt from the results of CreateDigitalTwin commands, showing floor0, floor1, room0, and room1":::
-
-You can also verify that the twins were created by running the `Query` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *floor0*, *floor1*, *room0*, and *room1* twins in the results.
+> If you uploaded your own model earlier, try making your own `az dt twin create` command based on the commands above to add a twin of your own model type.
 
 ### Modify a digital twin
 
-You can also modify the properties of a twin you've created. Try running this command to change *room0*'s RoomName from *Room0* to *PresidentialSuite*:
+You can also modify the properties of a twin you've created. Try running this [**az dt twin update**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext_azure_iot_az_dt_twin_update) command to change *room0*'s RoomName from *Room0* to *PresidentialSuite*:
 
-```cmd/sh
-UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
+```azurecli-interactive
+az dt twin update -n <ADT_instance_name> --twin-id room0 --json-patch '{"op":"add", "path":"/RoomName", "value": "PresidentialSuite"}'
 ```
 
-The output should indicate the twin was updated successfully.
+>[!NOTE]
+> If you are using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters in order for the `--properties` JSON to be parsed correctly. With this edit, the command to update twin looks like this:
+>
+> ```azurecli-interactive
+> az dt twin update -n <ADT_instance_name> --twin-id room0 --json-patch '{\"op\":\"add\", \"path\":\"/RoomName\", \"value\": \"PresidentialSuite\"}'
+> ```
 
-You can also verify by running this command to see *room0*'s information:
+The output from this command will show the twin's current information, and you should see the new value for the `RoomName` in the result.
 
-```cmd/sh
-GetDigitalTwin room0
+:::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Results of the update command, showing a RoomName of PresidentialSuite":::
+
+You can also verify by running the [**az dt twin show**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext_azure_iot_az_dt_twin_show) command to see *room0*'s information:
+
+```azurecli-interactive
+az dt twin show -n <ADT_instance_name> --twin-id room0
 ```
 
 The output should reflect the updated name.
-
-> [!NOTE]
-> The underlying REST API uses JSON Patch to define updates to a twin. The command-line app reflects this format, so that you can experiment with what the underlying APIs actually expect.
 
 ## Create a graph by adding relationships
 
 Next, you can create some **relationships** between these twins, to connect them into a [**twin graph**](concepts-twins-graph.md). Twin graphs are used to represent an entire environment. 
 
-To add a relationship, use the `CreateRelationship` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
+To add a relationship, use the [**az dt twin relationship create**](/cli/azure/ext/azure-iot/dt/twin/relationship?view=azure-cli-latest#ext_azure_iot_az_dt_twin_relationship_create) command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
 
 Run the following code to add a "contains" relationship from each of the *Floor* twins you created earlier to a corresponding *Room* twin. Note that there must be a *contains* relationship defined on the *Floor* model for this to be possible.
 
-```cmd/sh
-CreateRelationship floor0 contains room0 relationship0
-CreateRelationship floor1 contains room1 relationship1
+```azurecli-interactive
+az dt twin relationship create -n <ADT_instance_name> --relationship-id relationship0 --relationship contains --twin-id floor0 --target room0
+az dt twin relationship create -n <ADT_instance_name> --relationship-id relationship1 --relationship contains --twin-id floor1 --target room1
 ```
 
-The output from these commands confirms that the relationships were created successfully:
-
-:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="Excerpt from the results of CreateRelationship commands, showing relationship0 and relationship1":::
+The output from each command will show information about the successfully created relationship.
 
 You can also verify the relationships with any of the following commands, which query the relationships in your Azure Digital Twins instance.
-* To see all relationships coming off of each floor (viewing the relationships from one side),
-    ```cmd/sh
-    GetRelationships floor0
-    GetRelationships floor1
+* To see all relationships coming off of each floor (viewing the relationships from one side):
+    ```azurecli-interactive
+    az dt twin relationship list -n <ADT_instance_name> --twin-id floor0
+    az dt twin relationship list -n <ADT_instance_name> --twin-id floor1
     ```
-* To see all relationships arriving at each room (viewing the relationship from the "other" side),
-    ```cmd/sh
-    GetIncomingRelationships room0
+* To see all relationships arriving at each room (viewing the relationship from the "other" side):
+    ```azurecli-interactive
+    az dt twin relationship list -n <ADT_instance_name> --twin-id room0 --incoming
+    az dt twin relationship list -n <ADT_instance_name> --twin-id room1 --incoming
     ```
-* To query for these relationships individually, 
-    ```cmd/sh
-    GetRelationship floor0 relationship0
-    GetRelationship floor1 relationship1
+* To look for these relationships individually, by name:
+    ```azurecli-interactive
+    az dt twin relationship show -n <ADT_instance_name> --twin-id floor0 --relationship-id relationship0
+    az dt twin relationship show -n <ADT_instance_name> --twin-id floor1 --relationship-id relationship1
     ```
 
 The twins and relationships you have set up in this tutorial form the following conceptual graph:
 
-:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="A graph showing floor0 connected via relationship0 to room0, and floor1 connected via relationship1 to room1" border="false":::
+:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="A graph showing floor0 connected via relationship0 to room0, and floor1 connected via relationship1 to room1" border="false":::
 
 ## Query the twin graph to answer environment questions
 
-A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. Run the following commands in the running project console to get an idea of what this is like.
+A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. In the Azure CLI, this is done with the [**az dt twin query**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext_azure_iot_az_dt_twin_query) command.
+
+Run the following queries in the Cloud Shell to get an idea of what this is like.
 
 * **What are all the entities in my environment represented in Azure Digital Twins?** (query all)
 
-    ```cmd/sh
-    Query
+    ```azurecli-interactive
+    az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS"
     ```
 
     This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details. Here is an excerpt:
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Partial results of twin query, showing room0 and floor1":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Partial results of twin query, showing room0 and room1":::
 
     >[!NOTE]
-    >In the sample project, the command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`. To query all the twins in your instance using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](how-to-use-cli.md), use the longer (complete) query.
+    >You may recognize that this is the same command you used in the [*Create digital twins*](#create-digital-twins) section earlier to find all the Azure Digital Twins in the instance.
 
 * **What are all the rooms in my environment?** (query by model)
 
-    ```cmd/sh
-    Query SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')
+    ```azurecli-interactive
+    az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')"
     ```
 
     You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows *room0* and *room1*, but does **not** show *floor0* or *floor1* (since they are floors, not rooms).
     
-    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Results of model query, showing only room0 and room1":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-model.png" alt-text="Results of model query, showing only room0 and room1":::
 
 * **What are all the rooms on *floor0*?** (query by relationship)
 
-    ```cmd/sh
-    Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0'
+    ```azurecli-interactive
+    az dt twin query -n <ADT_instance_name> -q "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0'"
     ```
 
     You can query based on relationships in your graph, to get information about how twins are connected or to restrict your query to a certain area. Only *room0* is on *floor0*, so it's the only room in the result.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="Results of relationship query, showing room0":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Results of relationship query, showing room0":::
 
 * **What are all the twins in my environment with a temperature above 75?** (query by property)
 
-    ```cmd/sh
-    Query SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
+    ```azurecli-interactive
+    az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DigitalTwins T WHERE T.Temperature > 75"
     ```
 
     You can query the graph based on properties to answer a variety of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported. *room1* shows up in the results here, because it has a temperature of 80.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="Results of property query, showing only room1":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-property.png" alt-text="Results of property query, showing only room1":::
 
 * **What are all the rooms on *floor0* with a temperature above 75?** (compound query)
 
-    ```cmd/sh
-    Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75
+    ```azurecli-interactive
+    az dt twin query -n <ADT_instance_name> -q "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75"
     ```
 
     You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on *floor0*—which in this case, is none of them. The result set is empty.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Results of compound query, showing no results":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-compound.png" alt-text="Results of compound query, showing no results":::
 
 ## Clean up resources
 
@@ -278,7 +296,7 @@ After completing this tutorial, you can choose which resources you'd like to rem
 
 * **If you plan to continue to the next tutorial**, you can keep the resources you set up here and reuse the Azure Digital Twins instance without clearing anything in between.
 
-* **If you'd like to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships**, you can use the sample app's `DeleteAllTwins` and `DeleteAllModels` commands to clear the twins and models in your instance, respectively. This will give you a clean slate for the next tutorial.
+* **If you'd like to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships**, you can use the [**az dt twin relationship delete**](/cli/azure/ext/azure-iot/dt/twin/relationship?view=azure-cli-latest#ext_azure_iot_az_dt_twin_relationship_delete), [**az dt twin delete**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext_azure_iot_az_dt_twin_delete), and [**az dt model delete**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest#ext_azure_iot_az_dt_model_delete) commands to clear the relationships, twins, and models in your instance, respectively. This will give you a clean slate for the next tutorial.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
