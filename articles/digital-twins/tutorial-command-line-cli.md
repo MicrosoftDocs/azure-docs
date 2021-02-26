@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: 'Tutorial: Create a graph in Azure Digital Twins (client app)'
+title: 'Tutorial: Create a graph in Azure Digital Twins (CLI)'
 titleSuffix: Azure Digital Twins
-description: Tutorial to build an Azure Digital Twins scenario using a sample command-line application
+description: Tutorial to build an Azure Digital Twins scenario using the Azure CLI
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 5/8/2020
+ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -15,13 +15,13 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Tutorial: Create an Azure Digital Twins graph using a sample client app
+# Tutorial: Create an Azure Digital Twins graph using the Azure CLI
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this version of the tutorial is the a **sample command-line client application** for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [*Tutorial: Code a client app*](tutorial-code.md).
+In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this version of the tutorial is the [set of Azure Digital Twins commands for the **Azure CLI**](how-to-use-cli.md). 
 
-You can use this sample to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the code of the sample to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you would like.
+You can use the CLI commands to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the [reference documentation for *az dt* command set](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest) to see the full set of CLI commands.
 
 In this tutorial, you will...
 > [!div class="checklist"]
@@ -30,32 +30,30 @@ In this tutorial, you will...
 > * Add relationships to form a graph
 > * Query the graph to answer questions
 
-[!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
+## Prerequisites
 
-[!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
+To complete the steps in this tutorial, you'll need to first complete the following prerequisites.
 
-### Run the sample project
+### Download the sample models
 
-Now that the app and authentication are set up, run the project with this button in the toolbar:
+The tutorial uses two pre-written models that are included with the C# sample project for Azure Digital Twins. The model files are located here: 
+* [*Room.json*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json)
+* [*Floor.json*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json)
 
-:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="The Visual Studio start button (SampleClientApp project)":::
+To get the files on your machine, use the navigation links above and copy the file bodies into local files on your machine with the same names (*Room.json* and *Floor.json*).
 
-A console window will open, carry out authentication, and wait for a command. 
-* Authentication is handled through the browser: your default web browser will open with an authentication prompt. Use this prompt to sign in with your Azure credentials. You can then close the browser tab or window.
+### Prepare an Azure Digital Twins instance
 
-Here is a screenshot of what the project console looks like:
+[!INCLUDE [Azure Digital Twins: instance prereq](digital-twins-prereq-instance.md)]
 
-:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Welcome message from the command-line app":::
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-> [!TIP]
-> For a list of all the possible commands you can use with this project, enter `help` in the project console and press return.
-> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Output of the help command":::
-
-Keep the project console running for the rest of the steps in this tutorial.
+### Set up Cloud Shell session
+[!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
 ## Model a physical environment with DTDL
 
-Now that the sample app is configured for your Azure Digital Twins instance, you can begin setting up the graph scenario. 
+Now that the CLI is set up for working with your Azure Digital Twins instance, you can begin setting up the graph scenario. 
 
 The first step in creating an Azure Digital Twins solution is defining twin [**models**](concepts-models.md) for your environment. 
 
@@ -111,7 +109,7 @@ Verify the models were created by running the command `GetModels true`. This wil
 
 ### Errors
 
-The sample application also handles errors from the service. 
+The CLI also handles errors from the service. 
 
 Re-run the `CreateModels` command to try re-uploading one of the same models you just uploaded, for a second time:
 
@@ -278,17 +276,17 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
 After completing this tutorial, you can choose which resources you'd like to remove, depending on what you'd like to do next.
 
-* **If you plan to continue to the next tutorial**, you can keep the resources you set up here to continue using this Azure Digital Twins instance and configured sample app for the next tutorial
+* **If you plan to continue to the next tutorial**, you can keep the resources you set up here and reuse the Azure Digital Twins instance without clearing anything in between.
 
 * **If you'd like to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships**, you can use the sample app's `DeleteAllTwins` and `DeleteAllModels` commands to clear the twins and models in your instance, respectively. This will give you a clean slate for the next tutorial.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-You may also want to delete the project folder from your local machine.
+You may also want to delete the model files you created on your local machine.
 
 ## Next steps 
 
-In this tutorial, you got started with Azure Digital Twins by building a graph in your instance using a sample client application. You created models, digital twins, and relationships to form a graph. You also ran some queries on the graph, to get an idea of what kinds of questions Azure Digital Twins can answer about an environment.
+In this tutorial, you got started with Azure Digital Twins by building a graph in your instance using the Azure CLI. You created models, digital twins, and relationships to form a graph. You also ran some queries on the graph, to get an idea of what kinds of questions Azure Digital Twins can answer about an environment.
 
 Continue to the next tutorial to combine Azure Digital Twins with other Azure services to complete a data-driven, end-to-end scenario:
 > [!div class="nextstepaction"]

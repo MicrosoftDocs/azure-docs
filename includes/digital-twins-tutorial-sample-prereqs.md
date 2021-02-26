@@ -9,6 +9,10 @@ ms.author: baanders
 
 ## Prerequisites
 
+To complete the steps in this tutorial, you'll need to first complete the following prerequisites. 
+
+### Get required resources
+
 If you don't have an Azure subscription, **create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** before you begin.
 
 Also before you start, **install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), version 16.5 or later** on your development machine. If you have an older version installed already, you can open the *Visual Studio Installer* app on your machine and follow the prompts to update your installation.
@@ -22,5 +26,3 @@ This will download a *.ZIP* folder to your machine as **digital-twins-samples-ma
 ### Prepare an Azure Digital Twins instance
 
 [!INCLUDE [Azure Digital Twins: instance prereq](digital-twins-prereq-instance.md)]
-
-[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](digital-twins-local-credentials-outer.md)]
