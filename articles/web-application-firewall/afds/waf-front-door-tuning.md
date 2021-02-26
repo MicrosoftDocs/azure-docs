@@ -33,7 +33,15 @@ UserId=20&captchaId=7&captchaId=15&comment="1=1"&rating=3
 
 If you try the request, the WAF blocks traffic that contains your *1=1* string in any parameter or field. This is a string often associated with a SQL injection attack. You can look through the logs and see the timestamp of the request and the rules that blocked/matched.
  
-In the following example, we explore a `FrontdoorWebApplicationFirewallLog` log generated due to a rule match.
+In the following example, we explore a `FrontdoorWebApplicationFirewallLog` log generated due to a rule match. The following Log Analytics query can be used to find requests that have been blocked within the last 24 hours:
+
+```kusto
+AzureDiagnostics
+| where Category == 'FrontdoorWebApplicationFirewallLog'
+| where TimeGenerated > ago(1d)
+| where action_s == 'Block'
+
+```
  
 In the `requestUri` field, you can see the request was made to `/api/Feedbacks/` specifically. Going further, we find the rule ID `942110` in the `ruleName` field. Knowing the rule ID, you could go to the [OWASP ModSecurity Core Rule Set Official Repository](https://github.com/coreruleset/coreruleset) and search by that [rule ID](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) to review its code and understand exactly what this rule matches on. 
  
