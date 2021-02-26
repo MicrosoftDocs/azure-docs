@@ -15,7 +15,8 @@ keywords: encryption, byok, aro, openshift, red hat
 
 Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft platform-managed keys that includes OS and data disks. For more control over encryption keys, you can supply customer-managed keys to encrypt data in your Azure Red Hat OpenShift clusters.
 
-This article covers how to set up encryption for ARO persistent volumes with a customer-managed key. Note that customer-managed keys can't be used to encrypt master/worker node OS disks.
+> [!NOTE]
+> At this stage, support exists only for encrypting ARO persistent volumes with customer-managed keys. This feature is not presently available for master/worker node operating system disks.
 
 > [!IMPORTANT]
 > ARO preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. ARO previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use.
@@ -34,19 +35,15 @@ This article assumes that:
 ## Limitations
 
 * Availability for customer-managed key encryption is region-specific. To see the status for a specific Azure region, check [Azure regions][supported-regions].
-* Available only in regions where BYOK/CMK is supported.
 * If you're using Ultra Disks, enable Ultra Disks on your subscription before getting started.
 
 ## Create an Azure Key Vault instance
-Use an Azure Key Vault instance to store your keys. You can optionally use the Azure portal to [configure customer-managed keys with Azure Key Vault](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-configure-key-vault).
-
-Create a new resource group, then create a new Key Vault instance and enable soft delete and purge protection. Make sure to use the same region and resource group names for each command.
+An Azure Key Vault instance must be used to store your keys. Create a new Key Vault with purge protection and soft delete enabled. Then, create a new key within the vault to store your own custom key:
 
 ```azurecli-interactive
-# Create an Azure Key Vault in a supported Azure region
-az keyvault create -n $vaultName -g $myRG --enable-purge-protection true -o table
-
-# Create the key within the Azure Key Vault. You'll use this to encryption the data disks in your ARO cluster.
+# Create an Azure Key Vault resource in a supported Azure region
+az keyvault create -n $vaultName -g $buildRG --enable-purge-protection true -o table
+# Create the actual key within the Azure Key Vault
 az keyvault key create --vault-name $vaultName --name $vaultKeyName --protection software -o jsonc
 ```
 
@@ -103,16 +100,20 @@ myRGResourceId="$(az group show -n $myRG -o tsv --query [id])"
 
 ### Implement other role assignments required for BYOK/CMK encryption
 Apply the required role assignments using the variables obtained in the previous step:
+
 ```azurecli-interactive
-# Assign the MSI AppID 'Reader' permission over the disk encryption set & Key Vault resource group
+# Ensure the Azure Disk Encryption Set can read the contents of the Azure Key Vault.
+az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId -o jsonc
+
+# Assign the MSI AppID 'Reader' permission over the disk encryption set & Key Vault resource group.
 az role assignment create --assignee $aroMSIAppId --role Reader --scope $myRGResourceId -o jsonc
 
-# Assign the ARO Service Principal 'Contributor' permission over the disk encryption set & Key Vault Resource Group
+# Assign the ARO Service Principal 'Contributor' permission over the disk encryption set & Key Vault Resource Group.
 az role assignment create --assignee $aroSPObjId --role Contributor --scope $myRGResourceId -o jsonc
 ```
 
 ## Create a k8s Storage Class for encrypted Premium & Ultra disks (optional)
-If you're using a Premium or an Ultra disk, generate a storage class for Premium_LRS and UltraSSD_LRS disks, which will also utilize the disk encryption set:
+Generate storage classes to be used for BYOK/CMK for Premium_LRS and UltraSSD_LRS disks:
 ```
 # Premium Disks
 cat > managed-premium-encrypted-byok.yaml<< EOF
@@ -152,7 +153,7 @@ volumeBindingMode: WaitForFirstConsumer
 EOF
 ```
 ### Set up your Storage Class configuration
-Insert the variables that are unique to your ARO cluster into the two storage class configuration files just created:
+Substitute the variables that are unique to your ARO cluster into the two storage class configuration files:
 ```
 # Insert your current active subscription ID into the configuration
 sed -i "s/subId/$subId/g" managed-premium-encrypted-byok.yaml
@@ -215,16 +216,16 @@ spec:
 EOF
 ```
 ### Apply the test pod configuration file
-When we apply the test pod configuration file, the command returns and sets as a variable the UID created for the persistent volume claim. We'll use this to verify that the disk acting as the persistent volume within Azure is encrypted.
+Execute the commands below to apply the test Pod configuration and return the UID of the new persistent volume claim. The UID will be used to verify the disk is encrypted using BYOK/CMK.
 ```
-# Apply the test pod configuration file and set the PVC UID as a variable to query in Azure later
+# Apply the test pod configuration file and set the PVC UID as a variable to query in Azure later.
 pvcUid="$(oc apply -f test-pvc.yaml -o json | jq -r '.items[0].metadata.uid')"
 
-# Determine the full Azure Disk name
+# Determine the full Azure Disk name.
 pvName="$(oc get pv pvc-$pvcUid -o json |jq -r '.spec.azureDisk.diskName')"
 ```
 ### Verify PVC disk is configured with "EncryptionAtRestWithCustomerKey" 
-At this point, a Pod should be created which creates a persistent volume claim, which references the BYOK/CMK storage class. Running the following command will validate that the PVC has been deployed as expected:
+The Pod should create a persistent volume claim that references the BYOK/CMK storage class. Running the following command will validate that the PVC has been deployed as expected:
 ```azurecli-interactive
 # Describe the OpenShift cluster-wide persistent volume claims
 oc describe pvc
