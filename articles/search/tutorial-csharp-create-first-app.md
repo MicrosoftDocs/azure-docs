@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 01/26/2021
+ms.date: 02/26/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -45,7 +45,9 @@ Just one call queries the index and returns results.
 
 ## Overview
 
-This tutorial uses an existing, hosted sample index so that you can focus on building a search page that collects a query string for the request and returns results. The index contains fictitious hotel data. Once you have a basic page, you can enhance it in subsequent lessons to include paging, facets, and a type-ahead experience.
+This tutorial uses the hotels-sample-index, which you can create quickly on your own search service by stepping through the [Import data quickstart](search-get-started-portal.md). The index contains fictitious hotel data that's provided as a built-in data source in every search service.
+
+The first lesson creates a basic query structrre and search page, which you'll enhance in subsequent lessons to include paging, facets, and a type-ahead experience.
 
 A finished version of the code in this tutorial can be found in the following project:
 
@@ -55,11 +57,13 @@ This tutorial has been updated to use the Azure.Search.Documents (version 11) pa
 
 ## Prerequisites
 
-Because you are using a public sample search index hosted by Microsoft, you don't need a search service or an Azure account for this tutorial.
+* [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 
 * [Visual Studio](https://visualstudio.microsoft.com/)
 
 * [Azure Cognitive Search client library (version 11)](https://www.nuget.org/packages/Azure.Search.Documents/)
+
+* Hotels-sample-index, created using the instructions in [Quickstart: Create a search index](search-get-started-portal.md)
 
 ### Install and run the project from GitHub
 
@@ -99,12 +103,12 @@ To create this project from scratch, and thus reinforce the concepts of Azure Co
 
 For this sample, you are using publicly available hotel data. This data is an arbitrary collection of 50 fictional hotel names and descriptions, created solely for the purpose of providing demo data. To access this data, specify a name and API key.
 
-1. Open **appsettings.json** and replace the default lines with the following name and key. The API key shown here is not an example of a key, it is *exactly* the key you need to access the hotel data. Your file should now look like this.
+1. Open **appsettings.json** and replace the default lines with the search service name and an [admin or query API key](search-security-api-keys.md) of your search service. Since you don't need to create or update an index, you can use the query key for this tutorial.
 
     ```csharp
     {
-        "SearchServiceName": "azs-playground",
-        "SearchServiceQueryApiKey": "EA4510A6219E14888741FCFC19BFBB82"
+        "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
+        "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-API-KEY>"
     }
     ```
 
