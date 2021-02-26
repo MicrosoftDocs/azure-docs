@@ -36,7 +36,6 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 **Size support**:
 All [Generation 2](generation-2.md) VM sizes, except:
 
-- DCsv2-series
 - GS-series
 - HB-series
 - HC-series
