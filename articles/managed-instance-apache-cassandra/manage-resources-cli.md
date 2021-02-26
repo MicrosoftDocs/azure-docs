@@ -2,7 +2,7 @@
 title: Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI
 description: Learn about the common commands to automate the management of your Azure Managed Instance for Apache Cassandra using Azure CLI.
 author: TheovanKraay
-ms.service: cassandra-managed-instance
+ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: thvankra
