@@ -476,7 +476,7 @@ productDirectory:
       imageSrc: ./media/index/managed-instance-apache-cassandra.svg
       azureCategories:
         - databases
-      url: cassandra-managed-instance/index.yml
+      url: managed-instance-apache-cassandra/index.yml
     # Card
     - title: Logic Apps
       summary: Automate the access and use of data across clouds without writing code
