@@ -524,7 +524,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 
 #### [Windows](#tab/windows/)
 
-```powershell
+```json
 {
     "value":  [
                   {
@@ -546,7 +546,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 
 #### [Linux](#tab/linux/)
 
-```bash
+```json
 [
   {
     "name": "Department",
