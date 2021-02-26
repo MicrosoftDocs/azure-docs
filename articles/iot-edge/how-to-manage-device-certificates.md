@@ -108,21 +108,26 @@ For example, if you used the sample scripts to [Create demo certificates](how-to
 
 1. Open the IoT Edge security daemon config file: `/etc/aziot/config.toml`
 
-1. Set the **certificate** properties in config.toml to the file URI path to the certificate and key files on the IoT Edge device. Remove the `#` character before the certificate properties to uncomment the four lines. For example:
+1. Find the `trust_bundle_cert` parameter at the beginning of the file. Uncomment this line, and provide the file URI to the root CA certificate on your device.
 
    ```toml
-   [certificates]
-   device_ca_cert = "file:///<path>/<device CA cert>"
-   device_ca_pk = "file:///<path>/<device CA key>"
-   trusted_ca_certs = "file:///<path>/<root CA cert>"
+   trust_bundle_cert = "file:///<path>/<root CA cert>"
+   ```
+
+1. Find the `[edge_ca]` section in the config.toml file. Uncomment the lines in this section and provide the file URI paths for the certificate and key files on the IoT Edge device.
+
+   ```toml
+   [edge_ca]
+   cert = "file:///<path>/<device CA cert>"
+   pk = "file:///<path>/<device CA key>"
    ```
 
 1. Make sure that the user **iotedge** has read permissions for the directory holding the certificates.
 
 1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
 
-   * `/var/lib/iotedge/hsm/certs`
-   * `/var/lib/iotedge/hsm/cert_keys`
+   * `/var/lib/aziot/certd/certs`
+   * `/var/lib/aziot/keyd/keys`
 
 :::moniker-end
 <!-- end 1.2 -->
@@ -209,7 +214,7 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
    auto_generated_ca_lifetime_days = <value>
    ```
 
-1. Delete the contents of the `hsm` folder to remove any previously generated certificates: `/var/lib/iotedge/hsm/certs` `/var/lib/iotedge/hsm/cert_keys`
+1. Delete the contents of the `certd` and `keyd` folders to remove any previously generated certificates: `/var/lib/aziot/certd/certs` `/var/lib/aziot/keyd/keys`
 
 1. Restart IoT Edge.
 

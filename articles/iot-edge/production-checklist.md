@@ -199,7 +199,7 @@ Next, be sure to update the image references in the deployment.template.json fil
 
 ### Review outbound/inbound configuration
 
-Communication channels between Azure IoT Hub and IoT Edge are always configured to be outbound. For most IoT Edge scenarios, only three connections are necessary. The container engine needs to connect with the container registry (or registries) that holds the module images. The IoT Edge runtime needs to connect with IoT Hub to retrieve device configuration information, and to send messages and telemetry. And if you use automatic provisioning, the IoT Edge daemon needs to connect to the Device Provisioning Service. For more information, see [Firewall and port configuration rules](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
+Communication channels between Azure IoT Hub and IoT Edge are always configured to be outbound. For most IoT Edge scenarios, only three connections are necessary. The container engine needs to connect with the container registry (or registries) that holds the module images. The IoT Edge runtime needs to connect with IoT Hub to retrieve device configuration information, and to send messages and telemetry. And if you use automatic provisioning, IoT Edge needs to connect to the Device Provisioning Service. For more information, see [Firewall and port configuration rules](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
 ### Allow connections from IoT Edge devices
 
@@ -207,7 +207,7 @@ If your networking setup requires that you explicitly permit connections made fr
 
 * **IoT Edge agent** opens a persistent AMQP/MQTT connection to IoT Hub, possibly over WebSockets.
 * **IoT Edge hub** opens a single persistent AMQP connection or multiple MQTT connections to IoT Hub, possibly over WebSockets.
-* **IoT Edge daemon** makes intermittent HTTPS calls to IoT Hub.
+* **IoT Edge service** makes intermittent HTTPS calls to IoT Hub.
 
 In all three cases, the DNS name would match the pattern \*.azure-devices.net.
 
@@ -245,13 +245,22 @@ If your devices are going to be deployed on a network that uses a proxy server, 
 ### Set up logs and diagnostics
 
 On Linux, the IoT Edge daemon uses journals as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs.
+
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
-You can also use the `iotedge system` commands to retrieve logs.
+Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemon's logs can be individually queried with `journalctl`, the `iotedge system` commands provide a convenient way to query the combined logs.
 
-```bash
-sudo iotedge system logs
-```
+* Consolidated `iotedge` command:
+
+  ```bash
+  sudo iotedge system logs
+  ```
+
+* Equivalent `journalctl` command:
+
+  ```bash
+  journalctl -u aziot-edge -u aziot-identityd -u aziot-keyd -u aziot-certd -u aziot-tpmd
+  ```
 
 :::moniker-end
 

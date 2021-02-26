@@ -253,8 +253,6 @@ Have the following information ready:
    #  dynamic_reprovisioning: false
    ```
 
-   Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
-
 1. Update the values of `scope_id`, `identity_cert`, and `identity_pk` with your DPS and device information.
 
    When you add the X.509 certificate and key information to the config.yaml file, the paths should be provided as file URIs. For example:
@@ -262,7 +260,9 @@ Have the following information ready:
    `file:///<path>/identity_certificate_chain.pem`
    `file:///<path>/identity_key.pem`
 
-1. Provide a `registration_id` for the device if you want, or leave this line commented out to register the device with the CN name of the identity certificate.
+1. Optionally, provide a `registration_id` for the device. Otherwise, leave that line commented out to register the device with the CN name of the identity certificate.
+
+1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 1. Save and close the config.yaml file.
 
@@ -278,7 +278,7 @@ Have the following information ready:
 <!-- 1.2 -->
 :::moniker range="iotedge-2020-11"
 
-1. Create the configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
+1. Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
 
    ```bash
    sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
@@ -293,13 +293,11 @@ Have the following information ready:
 1. Find the provisioning configurations section of the file. Uncomment the lines for DPS X.509 certificate provisioning, and make sure any other provisioning lines are commented out.
 
    ```toml
-   # DPS X.509 provisioning configuration
    [provisioning]
+   always_reprovision_on_startup = true
    source = "dps"
    global_endpoint: "https://global.azure-devices-provisioning.net"
-   scope_id: "<SCOPE_ID>"
-   # always_reprovision_on_startup = true
-   # dynamic_reprovisioning = false
+   id_scope: "<SCOPE_ID>"
    
    [provisioning.attestation]
    method = "x509"
@@ -308,18 +306,18 @@ Have the following information ready:
    identity_pk = "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
    ```
 
-   Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
-
-1. Update the values of `scope_id`, `identity_cert`, and `identity_pk` with your DPS and device information.
+1. Update the values of `id_scope`, `identity_cert`, and `identity_pk` with your DPS and device information.
 
    When you add the X.509 certificate and key information to the config.yaml file, the paths should be provided as file URIs. For example:
 
    `file:///<path>/identity_certificate_chain.pem`
    `file:///<path>/identity_key.pem`
 
-1. Provide a `registration_id` for the device if you want, or leave this line commented out to register the device with the CN name of the identity certificate.
+1. Optionally, provide a `registration_id` for the device. Otherwise, leave that line commented out to register the device with the CN name of the identity certificate.
 
-1. Save and close the config.toml file.
+1. Optionally, set the `always_reprovision_on_startup` parameter to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+
+1. Save and close the file.
 
 1. Apply the configuration changes that you made to IoT Edge.
 

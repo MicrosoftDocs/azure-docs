@@ -178,6 +178,9 @@ Follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge
 
 Once the runtime is installed on your device, configure the device with the information it uses to connect to the Device Provisioning Service and IoT Hub.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 1. Know your DPS **ID Scope** and device **Registration ID** that were gathered in the previous sections.
 
 1. Open the configuration file on the IoT Edge device.
@@ -206,6 +209,47 @@ Once the runtime is installed on your device, configure the device with the info
    Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 1. Update the values of `scope_id` and `registration_id` with your DPS and device information.
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range="iotedge-2020-11"
+
+1. Know your DPS **ID Scope** and device **Registration ID** that were gathered in the previous sections.
+
+1. Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
+1. Open the configuration file on the IoT Edge device.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+1. Find the provisioning configurations section of the file. Uncomment the lines for TPM provisioning, and make sure any other provisioning lines are commented out.
+
+   ```toml
+   # DPS TPM provisioning configuration
+   [provisioning]
+   always_reprovision_on_startup = true
+   source = "dps"
+   global_endpoint = "https://global.azure-devices-provisioning.net"
+   id_scope = "<SCOPE_ID>"
+
+   [provisioning.attestation]
+   method = "tpm"
+   registration_id = "<REGISTRATION_ID>"
+   ```
+
+1. Update the values of `id_scope` and `registration_id` with your DPS and device information.
+
+1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+
+1. Save and close the config.toml file.
+
+:::moniker-end
 
 ## Give IoT Edge access to the TPM
 
@@ -260,8 +304,10 @@ You can give TPM access to the IoT Edge runtime by overriding the systemd settin
 
    If you don't see that the correct permissions have been applied, try rebooting your machine to refresh udev.
 
-## Restart the IoT Edge runtime
+## Restart IoT Edge and verify successful installation
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Restart the IoT Edge runtime so that it picks up all the configuration changes that you made on the device.
 
    ```bash
@@ -274,6 +320,12 @@ Check to see that the IoT Edge runtime is running.
    sudo systemctl status iotedge
    ```
 
+Examine daemon logs.
+
+```cmd/sh
+journalctl -u iotedge --no-pager --no-full
+```
+
 If you see provisioning errors, it may be that the configuration changes haven't taken effect yet. Try restarting the IoT Edge daemon again.
 
    ```bash
@@ -281,22 +333,40 @@ If you see provisioning errors, it may be that the configuration changes haven't
    ```
 
 Or, try restarting your virtual machine to see if the changes take effect on a fresh start.
+:::moniker-end
+<!-- end 1.1 -->
 
-## Verify successful installation
+<!-- 1.2 -->
+:::moniker range="iotedge-2020-11"
+Restart the IoT Edge runtime so that it picks up all the configuration changes that you made on the device.
 
-If the runtime started successfully, you can go into your IoT Hub and see that your new device was automatically provisioned. Now your device is ready to run IoT Edge modules.
+   ```bash
+   sudo iotedge system restart
+   ```
 
-Check the status of the IoT Edge Daemon.
+Check to see that the IoT Edge runtime is running.
 
-```cmd/sh
-systemctl status iotedge
-```
+   ```bash
+   sudo iotedge system status
+   ```
 
 Examine daemon logs.
 
 ```cmd/sh
-journalctl -u iotedge --no-pager --no-full
+sudo iotedge system logs
 ```
+
+If you see provisioning errors, it may be that the configuration changes haven't taken effect yet. Try restarting the IoT Edge daemon again.
+
+   ```bash
+   sudo systemctl daemon-reload
+   ```
+
+Or, try restarting your virtual machine to see if the changes take effect on a fresh start.
+:::moniker-end
+<!-- end 1.2 -->
+
+If the runtime started successfully, you can go into your IoT Hub and see that your new device was automatically provisioned. Now your device is ready to run IoT Edge modules.
 
 List running modules.
 

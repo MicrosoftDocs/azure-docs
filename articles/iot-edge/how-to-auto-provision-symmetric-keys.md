@@ -14,10 +14,10 @@ services: iot-edge
 
 Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) overview before continuing.
 
-This article shows you how to create a Device Provisioning Service individual enrollment using symmetric key attestation on an IoT Edge device with the following steps:
+This article shows you how to create a Device Provisioning Service individual or group enrollment using symmetric key attestation on an IoT Edge device with the following steps:
 
 * Create an instance of IoT Hub Device Provisioning Service (DPS).
-* Create an individual enrollment for the device.
+* Create an enrollment for the device.
 * Install the IoT Edge runtime and connect to the IoT Hub.
 
 Symmetric key attestation is a simple approach to authenticating a device with a Device Provisioning Service instance. This attestation method represents a "Hello world" experience for developers who are new to device provisioning, or do not have strict security requirements. Device attestation using a [TPM](../iot-dps/concepts-tpm-attestation.md) or [X.509 certificates](../iot-dps/concepts-x509-attestation.md) is more secure, and should be used for more stringent security requirements.
@@ -163,10 +163,12 @@ Have the following information ready:
 * The **Primary Key** you copied from the DPS enrollment
 
 > [!TIP]
-> For group enrollments, you need each device's [derived key](#derive-a-device-key) rather than the DPS enrollment key.
+> For group enrollments, you need each device's [derived key](#derive-a-device-key) rather than the DPS enrollment primary key.
 
 ### Linux device
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 1. Open the configuration file on the IoT Edge device.
 
    ```bash
@@ -191,15 +193,65 @@ Have the following information ready:
    #  dynamic_reprovisioning: false
    ```
 
-   Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
-
 1. Update the values of `scope_id`, `registration_id`, and `symmetric_key` with your DPS and device information.
+
+1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 1. Restart the IoT Edge runtime so that it picks up all the configuration changes that you made on the device.
 
    ```bash
    sudo systemctl restart iotedge
    ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
+1. Open the configuration file on the IoT Edge device.
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+1. Find the provisioning configurations section of the file. Uncomment the lines for DPS symmetric key provisioning, and make sure any other provisioning lines are commented out.
+
+   ```toml
+   [provisioning]
+   always_reprovision_on_startup = true
+   source = "dps"
+   global_endpoint: "https://global.azure-devices-provisioning.net"
+   id_scope: "<SCOPE_ID>"
+   
+   [provisioning.attestation]
+   method = "symmetric_key"
+   registration_id = "<REGISTRATION_ID>"
+
+   [provisioning.attestation.symmetric_key]
+   value = "<PRIMARY_KEY OR DERIVED_KEY>
+   ```
+
+1. Update the values of `id_scope`, `registration_id`, and `value` with your DPS and device information.
+
+1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+
+1. Save and close the config.toml file.
+
+1. Apply the configuration changes that you made to IoT Edge.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ### Windows device
 
@@ -222,6 +274,8 @@ If the runtime started successfully, you can go into your IoT Hub and start depl
 
 ### Linux device
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Check the status of the IoT Edge service.
 
 ```cmd/sh
@@ -239,6 +293,28 @@ List running modules.
 ```cmd/sh
 iotedge list
 ```
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range="iotedge-2020-11"
+Check the status of the IoT Edge service.
+
+```cmd/sh
+sudo iotedge system status
+```
+
+Examine service logs.
+
+```cmd/sh
+sudo iotedge system logs
+```
+
+List running modules.
+
+```cmd/sh
+sudo iotedge list
+```
+:::moniker-end
 
 ### Windows device
 

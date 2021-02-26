@@ -19,10 +19,9 @@ This article provides detailed instructions for configuring an IoT Edge device t
 ::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
->Currently:
+>In IoT Edge versions 1.1 and older, an IoT Edge device cannot be downstream of an IoT Edge gateway.
 >
-> * With IoT Edge version 1.1, edge-enabled devices can't connect to IoT Edge gateways. That capability is available starting with version 1.2.
-> * Downstream devices can't use file upload.
+>Downstream devices can't use file upload.
 
 ::: moniker-end
 
@@ -30,9 +29,7 @@ This article provides detailed instructions for configuring an IoT Edge device t
 ::: moniker range=">=iotedge-2020-11"
 
 >[!NOTE]
->Currently:
->
-> * Downstream devices can't use file upload.
+>Downstream devices can't use file upload.
 
 ::: moniker-end
 
@@ -45,12 +42,12 @@ There are three general steps to set up a successful transparent gateway connect
 For a device to act as a gateway, it needs to securely connect to its downstream devices. Azure IoT Edge allows you to use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we're allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the gateway device. This identity check prevents your devices from connecting to potentially malicious gateways.
 
 <!-- 1.1 -->
-:::moniker range="{range}"
+:::moniker range="iotedge-2018-06"
 A downstream device can be any application or platform that has an identity created with the [Azure IoT Hub](../iot-hub/index.yml) cloud service. These applications often use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself. However, an IoT Edge device cannot be downstream of an IoT Edge gateway.
 :::moniker-end
 
 <!-- 1.2 -->
-:::moniker range="{range}"
+:::moniker range="iotedge-2020-11"
 A downstream device can be any application or platform that has an identity created with the [Azure IoT Hub](../iot-hub/index.yml) cloud service. These applications often use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself.
 :::moniker-end
 
@@ -122,14 +119,16 @@ If you created the certificates on a different machine, copy them over to your I
 <!--1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-1. On your IoT Edge device, open the security daemon config file: `/etc/aziot/config.toml`
+1. On your IoT Edge device, open the config file: `/etc/aziot/config.toml`
 
-1. Find the **Certificate settings** section of the file. Uncomment the four lines starting with **certificates:** and provide the file URIs to your three files as values for the following properties:
-   * **device_ca_cert**: device CA certificate
-   * **device_ca_pk**: device CA private key
-   * **trusted_ca_certs**: root CA certificate
+   >[!TIP]
+   >If the config file doesn't already exist ony our device, then use `/etc/aziot/config.toml.edge.template` as a template to create one.
 
-   Make sure there is no preceding whitespace on the **certificates:** line, and that the other lines are indented by two spaces.
+1. Find the `trust_bundle_cert` parameter. Uncomment this line and provide the file URI to the root CA certificate file on your device.
+
+1. Find the `[edge_ca]` section of the file. Uncomment the three lines in this section and provide the file URIs to your certificate and key files as values for the following properties:
+   * **cert**: device CA certificate
+   * **pk**: device CA private key
 
 1. Save and close the file.
 

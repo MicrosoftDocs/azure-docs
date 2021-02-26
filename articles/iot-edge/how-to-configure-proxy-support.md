@@ -16,15 +16,15 @@ IoT Edge devices send HTTPS requests to communicate with IoT Hub. If your device
 
 This article walks through the following four steps to configure and then manage an IoT Edge device behind a proxy server:
 
-1. [**Install the IoT Edge runtime on your device**](#install-the-runtime-through-a-proxy)
+1. [**Install the IoT Edge runtime on your device**](#install-iot-edge-through-a-proxy)
 
    The IoT Edge installation scripts pull packages and files from the internet, so your device needs to communicate through the proxy server to make those requests. For Windows devices, the installation script also provides an offline installation option.
 
    This step is a one-time process to configure the IoT Edge device when you first set it up. The same connections are also required when you update the IoT Edge runtime.
 
-2. [**Configure the Docker daemon and the IoT Edge daemon on your device**](#configure-the-daemons)
+2. [**Configure IoT Edge and the container runtime on your device**](#configure-iot-edge-and-moby)
 
-   IoT Edge uses two daemons on the device, both of which need to make web requests through the proxy server. The IoT Edge daemon is responsible for communications with IoT Hub. The Moby daemon is responsible for container management, so communicates with container registries.
+   IoT Edge is responsible for communications with IoT Hub. The container runtime is responsible for container management, so communicates with container registries. Both of these components need to make web requests through the proxy server.
 
    This step is a one-time process to configure the IoT Edge device when you first set it up.
 
@@ -52,7 +52,7 @@ Proxy URLs take the following format: **protocol**://**proxy_host**:**proxy_port
 
 * The **proxy_port** is the network port at which the proxy responds to network traffic.
 
-## Install the runtime through a proxy
+## Install IoT Edge through a proxy
 
 Whether your IoT Edge device runs on Windows or Linux, you need to access the installation packages through the proxy server. Depending on your operating system, follow the steps to install the IoT Edge runtime through a proxy server.
 
@@ -88,7 +88,7 @@ Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyC
 
 For more information about proxy parameters, see [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest). For more information about Windows installation parameters, see [PowerShell scripts for IoT Edge on Windows](reference-windows-scripts.md).
 
-## Configure the daemons
+## Configure IoT Edge and Moby
 
 IoT Edge relies on two daemons running on the IoT Edge device. The Moby daemon makes web requests to pull container images from container registries. The IoT Edge daemon makes web requests to communicate with IoT Hub.
 
@@ -134,9 +134,19 @@ sudo systemctl daemon-reload
 
 Restart IoT Edge for the changes to take effect.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 ```bash
 sudo systemctl restart iotedge
 ```
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range="iotedge-2020-11"
+```bash
+sudo iotedge system restart
+```
+:::moniker-end
 
 Verify that your environment variable was created, and the new configuration was loaded.
 
@@ -163,6 +173,9 @@ Restart-Service iotedge
 The IoT Edge agent is the first module to start on any IoT Edge device. It's started for the first time based on the information in the IoT Edge config.yaml file. The IoT Edge agent then connects to IoT Hub to retrieve deployment manifests, which declare what other modules should be deployed on the device.
 
 This step takes place once on the IoT Edge device during initial device setup.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 1. Open the config.yaml file on your IoT Edge device. On Linux systems, this file is located at **/etc/iotedge/config.yaml**. On Windows systems, this file is located at **C:\ProgramData\iotedge\config.yaml**. The configuration file is protected, so you need administrative privileges to access it. On Linux systems, use the `sudo` command before opening the file in your preferred text editor. On Windows, open a text editor like Notepad as administrator and then open the file.
 
@@ -195,6 +208,40 @@ This step takes place once on the IoT Edge device during initial device setup.
       ```powershell
       Restart-Service iotedge
       ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range="iotedge-2020-11"
+
+1. Open the config file on your IoT Edge device: `/etc/aziot/config.toml`. The configuration file is protected, so you need administrative privileges to access it. On Linux systems, use the `sudo` command before opening the file in your preferred text editor.
+
+2. In the config file, find the `[agent]` section, which contains all the configuration information for the edgeAgent module to use on startup. The IoT Edge agent definition includes an `[agent.env]` subsection where you can add environment variables.
+
+3. Add the **https_proxy** parameter to the environment variables section, and set your proxy URL as its value.
+
+   ```toml
+   [agent.env]
+   https_proxy = "<proxy URL>"
+   ```
+
+4. The IoT Edge runtime uses AMQP by default to talk to IoT Hub. Some proxy servers block AMQP ports. If that's the case, then you also need to configure edgeAgent to use AMQP over WebSocket. Add a second environment variable, **UpstreamProtocol**.
+
+   ```toml
+   [agent.env]
+   https_proxy = "<proxy URL>"
+   UpstreamProtocol = "AmqpWs"
+   ```
+
+5. Save the changes and close the editor. Apply your latest changes.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## Configure deployment manifests  
 
