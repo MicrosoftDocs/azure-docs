@@ -16,6 +16,9 @@ ms.collection: M365-identity-device-management
 
 # Identity Providers for External Identities
 
+> [!NOTE]
+> Some of the features mentioned in this article are public preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 An *identity provider* creates, maintains, and manages identity information while providing authentication services to applications. When sharing your apps and resources with external users, Azure AD is the default identity provider for sharing. This means when you invite external users who already have an Azure AD or Microsoft account, they can automatically sign in without further configuration on your part.
 
 In addition to Azure AD accounts, External Identities offers a variety of identity providers.
