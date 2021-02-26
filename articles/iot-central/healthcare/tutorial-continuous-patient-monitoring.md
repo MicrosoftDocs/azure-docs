@@ -129,4 +129,4 @@ If you're not going to continue to use this application, delete the application 
 Advance to the next article to learn how to create a provider dashboard that connects to your IoT Central application.
 
 > [!div class="nextstepaction"]
-> [Build a provider dashboard](howto-health-data-triage.md)
+> [Build a provider dashboard](tutorial-health-data-triage.md)

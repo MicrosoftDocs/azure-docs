@@ -439,7 +439,7 @@
       items:
       - name: Create restore points
         href: ./backuprestore/sqlpool-create-restore-point.md
-      - name: Restore a Synapse SQL pool
+      - name: Restore a dedicated SQL pool
         href: ./backuprestore/restore-sql-pool.md
       - name: Pause and resume using Synapse Pipelines
         href: ./sql/how-to-pause-resume-piplines.md
