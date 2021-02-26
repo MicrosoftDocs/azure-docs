@@ -575,7 +575,7 @@ If you specify multiple different filters, an **AND** operation is done, so each
 ## CloudEvents 
 For events in the **CloudEvents schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`). 
 
-You can also use **envelop-level extensions** introduced in CloudEvents 1.0. In the following example, `comexampleextension1` and `comexampleothervalue` are envelop-level extension fields
+You can also use [extension context attributes in CloudEvents 1.0](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#extension-context-attributes). In the following example, `comexampleextension1` and `comexampleothervalue` are extension context attributes. 
 
 ```json
 {
@@ -596,7 +596,7 @@ You can also use **envelop-level extensions** introduced in CloudEvents 1.0. In 
 }
 ```
 
-Here's an example of using the an envelop-level extension field in a filter.
+Here's an example of using an extension context attribute in a filter.
 
 ```json
 "advancedFilters": [{
