@@ -286,9 +286,5 @@ def base64EncodeImage(image):
 + [OCR skill](cognitive-search-skill-ocr.md)
 + [Text merge skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-<<<<<<< HEAD
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)
 + [How to pass images to custom skills](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing)
-=======
-+ [How to map enriched fields](cognitive-search-output-field-mapping.md)
->>>>>>> a792dcedbd9a90153430f7e3c510ea9b3cdeb454
