@@ -22,7 +22,7 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ### New capabilities and features
 
-Azure Data CLI (`azdata`) version number: 20.3.0. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+Azure Data CLI (`azdata`) version number: 20.3.1. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 Additional updates include:
 
