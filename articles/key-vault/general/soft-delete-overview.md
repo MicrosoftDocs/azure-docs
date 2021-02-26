@@ -97,6 +97,6 @@ In general, when an object (a key vault or a key or a secret) is in deleted stat
 
 The following two guides offer the primary usage scenarios for using soft-delete.
 
-- [How to use Key Vault soft-delete with Portal](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal)
+- [How to use Key Vault soft-delete with Portal](./key-vault-recovery.md?tabs=azure-portal)
 - [How to use Key Vault soft-delete with PowerShell](./key-vault-recovery.md) 
 - [How to use Key Vault soft-delete with CLI](./key-vault-recovery.md)
