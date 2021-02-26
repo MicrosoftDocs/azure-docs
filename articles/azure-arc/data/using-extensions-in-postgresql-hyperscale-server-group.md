@@ -20,14 +20,14 @@ PostgreSQL is at its best when you use it with extensions. In fact, a key elemen
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## List of extensions
-In addition of the extensions in [`contrib`](https://www.postgresql.org/docs/12/contrib.html), the list of extensions present in the containers of your Azure Arc enabled PostgreSQL Hyperscale server group is:
+The standard [`contrib`](https://www.postgresql.org/docs/12/contrib.html) extensions and the following extensions are already deployed in the containers of your Azure Arc enabled PostgreSQL Hyperscale server group:
 - `citus`, v: 9.4
 - `pg_cron`, v: 1.2
 - `plpgsql`, v: 1.0
 - `postgis`, v: 3.0.2
 - `plv8`, v: 2.3.14
 
-This list evolves overtime and updates will be posted in this document. It is not yet possible for you to add extensions beyond those listed above.
+This list evolves overtime and updates will be posted in this document. For now, you can't enable or use extensions beyond the extensions listed above.
 
 This guide will take in a scenario to use two of these extensions:
 - [PostGIS](https://postgis.net/)
@@ -37,7 +37,7 @@ This guide will take in a scenario to use two of these extensions:
 ## Manage extensions
 
 ### Enable extensions
-This step is not needed for the extensions that are part of `contrib`.
+This step isn't needed for the extensions that are part of `contrib`.
 The general format of the command to enable extensions is:
 
 #### Enable an extension at the creation time of a server group:
@@ -100,34 +100,12 @@ Connect to your server group with the client tool of your choice and run the sta
 drop extension <extension name>;
 ```
 
-## Use the PostGIS and the Pg_cron extensions
+## Use the PostGIS and the Pg_cron extensions through an example
 
 ### The PostGIS extension
 
-We can either enable the PostGIS extension on an existing server group, or create a new one with the extension already enabled:
-
-**Enabling an extension at the creation time of a server group:**
-```console
-azdata arc postgres server create -n <name of your postgresql server group> --extensions <extension names>
-
-#Example:
-azdata arc postgres server create -n pg2 -w 2 --extensions postgis
-```
-
-**Enabling an extension on an instance that already exists:**
-```console
-azdata arc postgres server edit -n <name of your postgresql server group> --extensions <extension names>
-
-#Example:
-azdata arc postgres server edit --extensions postgis -n pg2
-```
-
-To verify what extensions are installed, use the below standard PostgreSQL command after connecting to the instance with your favorite PostgreSQL client tool like Azure Data Studio:
-```console
-select * from pg_extension;
-```
-
-For a PostGIS example, first, get [sample data](http://duspviz.mit.edu/tutorials/intro-postgis/) from the MIT’s Department of Urban Studies & Planning. You may need to run `apt-get install unzip` to install unzip when using the VM for testing.
+You do not need to add the PostGIS extension to the shared_preload_libraries.
+Get [sample data](http://duspviz.mit.edu/tutorials/intro-postgis/) from the MIT’s Department of Urban Studies & Planning. Run `apt-get install unzip` to install unzip as needed.
 
 ```console
 wget http://duspviz.mit.edu/_assets/data/intro-postgis-datasets.zip
@@ -160,7 +138,7 @@ CREATE TABLE coffee_shops (
 CREATE INDEX coffee_shops_gist ON coffee_shops USING gist (geom);
 ```
 
-Now, we can combine PostGIS with the scale out functionality, by making the coffee_shops table distributed:
+Now, we can combine PostGIS with the scale-out functionality, by making the coffee_shops table distributed:
 
 ```sql
 SELECT create_distributed_table('coffee_shops', 'id');
@@ -187,13 +165,13 @@ SELECT name, address FROM coffee_shops ORDER BY geom <-> ST_SetSRID(ST_MakePoint
 
 ### The pg_cron extension
 
-Let's enable `pg_cron` on our PostgreSQL server group, in addition to PostGIS:
+Now, let's enable `pg_cron` on our PostgreSQL server group by adding it to the shared_preload_libraries:
 
 ```console
-azdata postgres server update -n pg2 -ns arc --extensions postgis,pg_cron
+azdata postgres server update -n pg2 -ns arc --extensions pg_cron
 ```
 
-Note that this will restart the nodes and install the additional extensions, which may take 2 - 3 minutes.
+Your server group will restart complete the installation of the  extensions. It may take 2 to 3 minutes.
 
 We can now connect again, and create the `pg_cron` extension:
 
@@ -201,7 +179,7 @@ We can now connect again, and create the `pg_cron` extension:
 CREATE EXTENSION pg_cron;
 ```
 
-For test purposes, lets make a table `the_best_coffee_shop` that takes a random name from our earlier `coffee_shops` table, and sets the table contents:
+For test purposes, lets make a table `the_best_coffee_shop` that takes a random name from our earlier `coffee_shops` table, and inserts the table contents:
 
 ```sql
 CREATE TABLE the_best_coffee_shop(name text);
