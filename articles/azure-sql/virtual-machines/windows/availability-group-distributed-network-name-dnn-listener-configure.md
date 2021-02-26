@@ -34,6 +34,9 @@ A distributed network name (DNN) listener replaces the traditional virtual netwo
 
 Use the DNN listener to replace an existing VNN listener, or alternatively, use it in conjunction with an existing VNN listener so that your availability group has two distinct connection points - one using the VNN listener name (and port if non-default), and one using the DNN listener name and port. 
 
+## IP port considerations
+DNN Listeners are designed to listen on all IP addresses, but on a specific, unique port.  The DNS entry for the listener name should resolve to the addresses of all replicas in the AG.  This is done automatically with the Powershell script below.  Because DNN listeners accept connections on all IP addresses, it is critical that the port used for a listener be unique, and not in use by any other replica in the AG.  Since SQL Server either directly or via the Browser, always listens on port 1433, that port cannot be used for any DNN listener.
+
 ## Prerequisites
 
 Before you complete the steps in this article, you should already have:
