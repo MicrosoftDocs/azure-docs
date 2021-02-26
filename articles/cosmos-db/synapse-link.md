@@ -97,15 +97,15 @@ For more information on Azure Synapse Analytics runtime support for Azure Cosmos
 
 Synapse Link enables you to run near real-time analytics over your mission-critical data in Azure Cosmos DB. It is vital to make sure that critical business data is stored securely across both transactional and analytical stores. Azure Synapse Link for Azure Cosmos DB is designed to help meet these security requirements through the following features:
 
-* **Network isolation using private endpoints** - You can control access to the data in the transactional and analytical stores independently at the network level. Network isolation is done using separate managed private endpoints for each store, within managed virtual networks in Azure Synapse workspaces. To learn more, see how to [Configure private endpoints for analytical store](analytical-store-private-endpoints.md) article.
+* **Network isolation using private endpoints** - You can control network access to the data in the transactional and analytical stores independently. Network isolation is done using separate managed private endpoints for each store, within managed virtual networks in Azure Synapse workspaces. To learn more, see how to [Configure private endpoints for analytical store](analytical-store-private-endpoints.md) article.
 
 * **Data encryption with customer-managed keys** - You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. To learn more, see how to [Configure customer-managed keys](how-to-setup-cmk.md) article.
 
 * **Secure key management** - Accessing the data in analytical store from Synapse Spark and Synapse serverless SQL pools requires managing Azure Cosmos DB keys within Synapse Analytics workspaces. Instead of using the Azure Cosmos DB account keys inline in Spark jobs or SQL scripts, Azure Synapse Link provides more secure capabilities.
 
-When using Synapse serverless SQL pools, you can query the Azure Cosmos DB analytical store by pre-creating SQL credentials storing the account keys and referencing these in the `OPENROWSET` function. To learn more, see [Query with a serverless SQL pool in Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) article.
+  * When using Synapse serverless SQL pools, you can query the Azure Cosmos DB analytical store by pre-creating SQL credentials storing the account keys and referencing these in the `OPENROWSET` function. To learn more, see [Query with a serverless SQL pool in Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) article.
 
-When using Synapse Spark, you can store the account keys in linked service objects pointing to an Azure Cosmos DB database and reference this in the Spark configuration at runtime. To learn more, see [Copy data into a dedicated SQL pool using Apache Spark](../synapse-analytics/synapse-link/how-to-copy-to-sql-pool.md) article.
+  * When using Synapse Spark, you can store the account keys in linked service objects pointing to an Azure Cosmos DB database and reference this in the Spark configuration at runtime. To learn more, see [Copy data into a dedicated SQL pool using Apache Spark](../synapse-analytics/synapse-link/how-to-copy-to-sql-pool.md) article.
 
 ## When to use Azure Synapse Link for Azure Cosmos DB?
 
