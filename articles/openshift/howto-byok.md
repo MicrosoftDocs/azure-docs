@@ -1,10 +1,13 @@
 ---
 title: Encrypt persistent volume claims with a customer-managed key (CMK) on Azure Red Hat OpenShift (ARO)
 description: Bring your own key (BYOK) / Customer-managed key (CMK) deploy instructions for Azure Red Hat OpenShift
-services: azure red hat openshift
 ms.topic: article
 ms.date: 02/18/2021
-
+author: sakthi-vetrivel
+ms.author: suvetriv
+ms.service: azure-redhat-openshift
+ms.topic: article
+keywords: encryption, byok, aro, openshift, red hat
 ---
 
 # Encrypt persistent volume claims with a customer-managed key (CMK) on Azure Red Hat OpenShift (ARO)
@@ -30,25 +33,10 @@ This article assumes that:
 * Available only in regions where BYOK/CMK is supported.
 * Ultra disks must be enabled on your subscription prior to use.
 
-## Declare Cluster & Encryption Variables
-You should configure the variables below to whatever may be appropriate for your the ARO cluster in which you wish you enable BYOK/CMK:
-```azurecli-interactive
-aroCluster="mycluster"             # The name of the ARO cluster that you wish to enable BYOK/CMK on. This can be obtained from *az aro list -o table*
-buildRG="mycluster-rg"             # The name of the resource group used when you initially built the ARO cluster. This can be obtained from *az aro list -o table*
-desName="aro-des"                  # Your Azure Disk Encryption Set name. This must be unique in your subscription.
-vaultName="aro-keyvault-1"         # Your Azure Key Vault name. This must be unique in your subscription.
-vaultKeyName="myCustomAROKey"      # The name of the key to be used within your Azure Key Vault. This is the name of the key, not the actual value of the key that you will rotate.
-```
-
-## Obtain your subscription ID
-Your Azure subscription ID is used multiple times in the configuration of BYOK/CMK. Obtain it and store it as a variable:
-```azurecli-interactive
-# Obtain your Azure Subscription ID and store it in a variable
-subId="$(az account list -o tsv | grep True | awk '{print $3}')"
-```
-
 ## Create an Azure Key Vault instance
-An Azure Key Vault instance must be used to store your keys. Create a new *Key Vault* instance (with purge protection) and create a *new key* within the vault to store your own custom key:
+Use an Azure Key Vault instance to store your keys. You can optionally use the Azure portal to [configure customer-managed keys with Azure Key Vault](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-configure-key-vault).
+
+Create a new resource group, then create a new Key Vault instance and enable soft delete and purge protection. Make sure to use the same region and resource group names for each command.
 
 ```azurecli-interactive
 # Create an Azure Key Vault resource in a supported Azure region
@@ -58,8 +46,10 @@ az keyvault create -n $vaultName -g $buildRG --enable-purge-protection true -o t
 az keyvault key create --vault-name $vaultName --name $vaultKeyName --protection software -o jsonc
 ```
 
-## Create an Azure Disk Encryption Set instance
+## Create an Azure DiskEncryptionSet instance
+
 The Azure Disk Encryption Set will be used as a reference point for disks in ARO. It is connected to the Azure Key Vault which was created and will obtain customer-managed keys from that location.
+
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
 keyVaultId="$(az keyvault show --name $vaultName --query [id] -o tsv)"
@@ -117,7 +107,7 @@ az role assignment create --assignee $aroMSIAppId --role Reader --scope $buildRG
 az role assignment create --assignee $aroSPObjId --role Contributor --scope $buildRGResourceId -o jsonc
 ```
 
-## Create the k8s Storage Class to be used for encrypted Premium & Ultra disks
+## Create the k8s Storage Class to be used for encrypted Premium & Ultra disks (optional)
 Generate a storage class to be used for Premium_LRS and UltraSSD_LRS disks which will also utilize the Azure Disk Encryption Set:
 ```
 # Premium Disks
@@ -250,3 +240,21 @@ az disk show -n $pvName -g $buildRG -o json --query [encryption]
 [customer-managed-keys]: /azure/virtual-machines/windows/disk-encryption#customer-managed-keys
 [key-vault-generate]: /azure/key-vault/key-vault-manage-with-cli2
 [supported-regions]: /azure/virtual-machines/windows/disk-encryption#supported-regions
+
+
+## Set Declare Cluster & Encryption Variables
+You should configure the variables below to whatever may be appropriate for your the ARO cluster in which you wish you enable BYOK/CMK:
+```azurecli-interactive
+aroCluster="mycluster"             # The name of the ARO cluster that you wish to enable BYOK/CMK on. This can be obtained from *az aro list -o table*
+buildRG="mycluster-rg"             # The name of the resource group used when you initially built the ARO cluster. This can be obtained from *az aro list -o table*
+desName="aro-des"                  # Your Azure Disk Encryption Set name. This must be unique in your subscription.
+vaultName="aro-keyvault-1"         # Your Azure Key Vault name. This must be unique in your subscription.
+vaultKeyName="myCustomAROKey"      # The name of the key to be used within your Azure Key Vault. This is the name of the key, not the actual value of the key that you will rotate.
+```
+
+## Obtain your subscription ID
+Your Azure subscription ID is used multiple times in the configuration of BYOK/CMK. Obtain it and store it as a variable:
+```azurecli-interactive
+# Obtain your Azure Subscription ID and store it in a variable
+subId="$(az account list -o tsv | grep True | awk '{print $3}')"
+```
