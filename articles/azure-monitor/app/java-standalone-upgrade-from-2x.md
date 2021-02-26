@@ -239,4 +239,11 @@ techniques as above to replicate the previous behavior.
 Previously in the 2.x SDK, the operation name from the request telemetry was also set on the dependency telemetry.
 Application Insights Java 3.0 no longer populates operation name on dependency telemetry.
 If you want to see the operation name for the request that is the parent of the dependency telemetry,
-you can write a Logs (Kusto) query to join from the dependency table to the request table.
+you can write a Logs (Kusto) query to join from the dependency table to the request table, e.g.
+
+```
+dependencies
+| project timestamp, type, name, operation_Id
+| join (requests | project operation_Name, operation_Id) on $left.operation_Id == $right.operation_Id
+| project timestamp, type, name, operation_Name
+```
