@@ -98,6 +98,7 @@ The NumberIn operator evaluates to true if the **key** value is one of the speci
 }]
 ```
 
+
 If the key is an array, all the values in the array are checked against the array of filter values. Here's the pseudo code with the key: `[v1, v2, v3]` and the filter: `[a, b, c]`. Any key values with data types that don’t match the filter’s data type are ignored.
 
 ```
@@ -569,6 +570,43 @@ If you specify multiple different filters, an **AND** operation is done, so each
         ]
     }
 ]
+```
+
+## CloudEvents 
+For events in the **CloudEvents schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`). 
+
+You can also use **envelop-level extensions** introduced in CloudEvents 1.0. In the following example, `comexampleextension1` and `comexampleothervalue` are envelop-level extension fields
+
+```json
+{
+    "specversion" : "1.0",
+    "type" : "com.example.someevent",
+    "source" : "/mycontext",
+    "id" : "C234-1234-1234",
+    "time" : "2018-04-05T17:31:00Z",
+    "subject": null,
+    "comexampleextension1" : "value",
+    "comexampleothervalue" : 5,
+    "datacontenttype" : "application/json",
+    "data" : {
+        "appinfoA" : "abc",
+        "appinfoB" : 123,
+        "appinfoC" : true
+    }
+}
+```
+
+Here's an example of using the an envelop-level extension field in a filter.
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringBeginsWith",
+    "key": "comexampleothervalue",
+    "values": [
+        "5", 
+        "1"
+    ]
+}]
 ```
 
 
