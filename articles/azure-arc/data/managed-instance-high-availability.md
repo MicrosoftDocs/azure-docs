@@ -2,7 +2,7 @@
 title: Azure Arc-enabled Managed Instance high availability
 titleSuffix: Deploy Azure Arc-enabled Managed Instance with high availability 
 description: Learn how to deploy Azure Arc-enabled Managed Instance with high availability.
-author:vin-yu
+author: vin-yu
 ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 03/02/2021
@@ -14,7 +14,7 @@ ms.subservice: azure-arc-data
 
 # Azure Arc-enabled Managed Instance high availability
 
-Azure Arc-enabled Managed Instance is deployed on Kubernetes as a containerized application and leverages kubernetes constructs such as stateful sets and persistent storage to provide built-in health monitoring, failure detection, and failover mechanisms to maintain service health. For increased reliability, you can also configure Azure Arc-enabled Managed Instance to deploy with additional replicas in a high availability configuration. Monitoring, failure detection, and automatic failover are managed by the Arc data services data controller. This service is provided without user intervention – all from availability group setup, configuring database mirroring endpoints, to adding databases to the availability group or failover and upgrade coordination. This document explores both types of high availability.
+Azure Arc-enabled Managed Instance is deployed on Kubernetes as a containerized application and uses kubernetes constructs such as stateful sets and persistent storage to provide built-in health monitoring, failure detection, and failover mechanisms to maintain service health. For increased reliability, you can also configure Azure Arc-enabled Managed Instance to deploy with extra replicas in a high availability configuration. Monitoring, failure detection, and automatic failover are managed by the Arc data services data controller. This service is provided without user intervention – all from availability group setup, configuring database mirroring endpoints, to adding databases to the availability group or failover and upgrade coordination. This document explores both types of high availability.
 
 ## Built-in high availability 
 
@@ -25,8 +25,9 @@ Built-in high availability is provided by Kubernetes when remote persistent stor
 This section, you verify the built-in high availability provided by Kubernetes. When you follow the steps to test out this functionality, you delete the pod of an existing managed instance and verify that Kubernetes recovers from this action. 
 
 ### Prerequisites
+
 - Kubernetes cluster must have [shared, remote storage](https://docs.microsoft.com/en-us/azure/azure-arc/data/storage-configuration#factors-to-consider-when-choosing-your-storage-configuration) 
-- An Azure Arc-enabled Managed Instance deployed with 1 replica (default)
+- An Azure Arc-enabled Managed Instance deployed with one replica (default)
 
 1. View the pods. 
 
@@ -64,7 +65,8 @@ This section, you verify the built-in high availability provided by Kubernetes. 
 After all containers within the pod have recovered, you can connect to the managed instance.
 
 ## Deploy with Always On availability groups
-For increased reliability, you can configure Azure Arc-enabled Managed Instance to deploy with additional replicas in a high availability configuration. 
+
+For increased reliability, you can configure Azure Arc-enabled Managed Instance to deploy with extra replicas in a high availability configuration. 
 
 Capabilities that availability groups enable:
 
@@ -76,7 +78,7 @@ Capabilities that availability groups enable:
 
 ### Deploy
 
-To deploy a managed instance with availability groups run the following command.
+To deploy a managed instance with availability groups, run the following command.
 
 ```console
 azdata arc sql mi create -n <name of instance> --replicas 3
@@ -112,7 +114,7 @@ user@pc:/#  azdata arc sql mi show -n sql2
 }
 ```
 
-Notice the additional number of `Replicas` and the `AGstatus` field indicating the health of the availability group. If all replicas are up and synchronized then this value is 'healthy'. 
+Notice the additional number of `Replicas` and the `AGstatus` field indicating the health of the availability group. If all replicas are up and synchronized, then this value is `healthy`. 
 
 ### Restore a database 
 Additional steps are required to restore a database into an availability group. The following steps demonstrate how to restore a database into a managed instance and add it to an availability group. 
