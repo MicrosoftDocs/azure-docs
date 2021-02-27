@@ -24,7 +24,7 @@ The Lucene parser supports complex query formats, such as field-scoped queries, 
 
 ## Hotels sample index
 
-The following queries are based on hotels-sample-index, which you can create by following the instructions in this [quickstart](search-get-started-portal.md).
+The following queries are based on the hotels-sample-index, which you can create by following the instructions in this [quickstart](search-get-started-portal.md).
 
 Example queries are articulated using the REST API and POST requests. You can paste and run them in [Postman](search-get-started-rest.md) or in [Visual Studio Code with the Cognitive Search extension](search-get-started-vs-code.md).
 
@@ -62,9 +62,9 @@ Request body should be formed as valid JSON:
 
 ## Example 1: Fielded search
 
-Full Lucene syntax supports scoping individual search expressions to a specific field. This example searches for names with the term "hotel" in them, but not "motel". You can specify multiple fields using AND. 
+Fielded search scope individual, embedded search expressions to a specific field. This example searches for hotel names with the term "hotel" in them, but not "motel". You can specify multiple fields using AND. 
 
-When you use this query syntax, you can omit the "searchFields" parameter when the fields you want to query are in the search expression. If you include "searchFields" with fielded search, the `fieldName:searchExpression` always takes precedence over "searchFields".
+When you use this query syntax, you can omit the "searchFields" parameter when the fields you want to query are in the search expression itself. If you include "searchFields" with fielded search, the `fieldName:searchExpression` always takes precedence over "searchFields".
 
 ```http
 POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
@@ -76,7 +76,7 @@ POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 }
 ```
 
-Response for this query should look similar to the following example.
+Response for this query should look similar to the following example, filtered on "Resort and Spa", returning hotels that include "hotel" or "motel" in the name.
 
 ```json
 "@odata.count": 4,
@@ -116,7 +116,7 @@ The field specified in `fieldName:searchExpression` must be a searchable field. 
 
 ## Example 2: Fuzzy search
 
-Full Lucene syntax also supports fuzzy search, matching on terms that have a similar construction. To do a fuzzy search, append the tilde `~` symbol at the end of a single word with an optional parameter, a value between 0 and 2, that specifies the edit distance. For example, `blue~` or `blue~1` would return blue, blues, and glue.
+Fuzzy search matches on terms that are similar, including misspelled words. To do a fuzzy search, append the tilde `~` symbol at the end of a single word with an optional parameter, a value between 0 and 2, that specifies the edit distance. For example, `blue~` or `blue~1` would return blue, blues, and glue.
 
 ```http
 POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
@@ -174,7 +174,7 @@ Phrases aren't supported directly but you can specify a fuzzy match on each term
 
 ## Example 3: Proximity search
 
-Proximity search is used to find terms that are near each other in a document. Insert a tilde "~" symbol at the end of a phrase followed by the number of words that create the proximity boundary.
+Proximity search finds terms that are near each other in a document. Insert a tilde "~" symbol at the end of a phrase followed by the number of words that create the proximity boundary.
 
 This query searches for the terms "hotel" and  "airport" within 5 words of each other in a document. The quotation marks are escaped (`\"`) to preserve the phrase:
 
