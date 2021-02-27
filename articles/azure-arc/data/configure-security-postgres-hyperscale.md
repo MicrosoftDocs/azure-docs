@@ -18,6 +18,7 @@ This document describes various aspects related to security of your server group
 - User management
    - General perspectives
    - Change the password of the _postgres_ administrative user
+- Audit
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -211,6 +212,8 @@ If the AZDATA_PASSWORD **session**'s environment variable exists but has not val
 > echo $env:AZDATA_PASSWORD
 > ```
 
+## Audit
+For audit scenarios please configure your server group to use the pgaudit extensions of Postgres. For more details about pgaudit read its documentation [here](https://github.com/pgaudit/pgaudit/blob/master/README.md). To enable the pgaudit extension in your server group please read [this](https://docs.microsoft.com/azure/azure-arc/data/using-extensions-in-postgresql-hyperscale-server-group) article.
 
 
 ## Next steps

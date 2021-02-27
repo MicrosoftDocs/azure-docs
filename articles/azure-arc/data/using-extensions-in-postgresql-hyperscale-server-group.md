@@ -19,40 +19,55 @@ PostgreSQL is at its best when you use it with extensions. In fact, a key elemen
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## List of extensions
+## Supported extensions
 The standard [`contrib`](https://www.postgresql.org/docs/12/contrib.html) extensions and the following extensions are already deployed in the containers of your Azure Arc enabled PostgreSQL Hyperscale server group:
-- `citus`, v: 9.4
-- `pg_cron`, v: 1.2
-- `plpgsql`, v: 1.0
-- `postgis`, v: 3.0.2
-- `plv8`, v: 2.3.14
+- [citus](https://github.com/citusdata/citus), v: 9.4. The Citus extension by [Citus Data](https://www.citusdata.com/) is loaded by default as it brings the Hyperscale capability to the PostgreSQL engine. Dropping the Citus extension from your Azure Arc PostgreSQL Hyperscale server group is not supported.
+- [pg_cron](https://github.com/citusdata/pg_cron), v: 1.2
+- [pgaudit](https://www.pgaudit.org/), v: 1.4
+- plpgsql, v: 1.0
+- [postgis](https://postgis.net), v: 3.0.2
+- [plv8](https://plv8.github.io/), v: 2.3.14
 
-This list evolves overtime and updates will be posted in this document. For now, you can't enable or use extensions beyond the extensions listed above.
+Updates to this list will be posted as it evolves over time.
+
+> [!IMPORTANT]
+> While you may bring to your server group an extension other than those listed above, in this Preview, it will not be persisted to your system. It means that it will not be available after a restart of the system and you would need to bring it again.
 
 This guide will take in a scenario to use two of these extensions:
 - [PostGIS](https://postgis.net/)
-- [`pg_cron`](https://github.com/citusdata/pg_cron)
+- [pg_cron](https://github.com/citusdata/pg_cron)
 
+## Which extensions need to be added to the shared_preload_libraries and created?
 
-## Manage extensions
+|Extensions   |Requires to be added to shared_preload_libraries  |Requires to be created |
+|-------------|--------------------------------------------------|---------------------- |
+|pg_cron      |No       |Yes        |
+|pg_audit     |Yes       |Yes        |
+|plpgsql      |Yes       |Yes        |
+|postgis      |No       |Yes        |
+|plv8      |No       |Yes        |
 
-### Enable extensions
-This step isn't needed for the extensions that are part of `contrib`.
-The general format of the command to enable extensions is:
+## Add extensions to the shared_preload_libraries
+For details about that are shared_preload_libraries please read the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES):
+- This step isn't needed for the extensions that are part of `contrib`
+- this step isn't required for extensions that are not required to pre-load by shared_preload_libraries. For these extensions you may jump the next next paragraph [Create extensions](https://docs.microsoft.com/azure/azure-arc/data/using-extensions-in-postgresql-hyperscale-server-group#create-extensions).
 
-#### Enable an extension at the creation time of a server group:
+### Add an extension at the creation time of a server group
 ```console
 azdata arc postgres server create -n <name of your postgresql server group> --extensions <extension names>
 ```
-#### Enable an extension on an instance that already exists:
+### Add an extension to an instance that already exists
 ```console
 azdata arc postgres server edit -n <name of your postgresql server group> --extensions <extension names>
 ```
 
-#### Get the list of extensions enabled:
+
+
+
+## Show the list of extensions added to shared_preload_libraries
 Run either of the following command.
 
-##### With [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
+### With an azdata CLI command
 ```console
 azdata arc postgres server show -n <server group name>
 ```
@@ -69,7 +84,7 @@ Scroll in the output and notice the engine\extensions sections in the specificat
       ]
     },
 ```
-##### With kubectl
+### With kubectl
 ```console
 kubectl describe postgresql-12s/postgres02
 ```
@@ -82,28 +97,25 @@ Engine:
 ```
 
 
-### Create extensions:
+## Create extensions
 Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
 ```console
 CREATE EXTENSION <extension name>;
 ```
 
-### Get the list of extension created in your server group:
+## Show the list of extensions created
 Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
 ```console
 select * from pg_extension;
 ```
 
-### Drop an extension from your server group:
+## Drop an extension
 Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
 ```console
 drop extension <extension name>;
 ```
 
-## Use the PostGIS and the Pg_cron extensions through an example
-
-### The PostGIS extension
-
+## The PostGIS extension
 You do not need to add the PostGIS extension to the shared_preload_libraries.
 Get [sample data](http://duspviz.mit.edu/tutorials/intro-postgis/) from the MIT’s Department of Urban Studies & Planning. Run `apt-get install unzip` to install unzip as needed.
 
@@ -163,7 +175,7 @@ SELECT name, address FROM coffee_shops ORDER BY geom <-> ST_SetSRID(ST_MakePoint
 ```
 
 
-### The pg_cron extension
+## The pg_cron extension
 
 Now, let's enable `pg_cron` on our PostgreSQL server group by adding it to the shared_preload_libraries:
 
@@ -211,10 +223,8 @@ SELECT * FROM the_best_coffee_shop;
 
 See the [pg_cron README](https://github.com/citusdata/pg_cron) for full details on the syntax.
 
->[!NOTE]
->It is not supported to drop the `citus` extension. The `citus` extension is required to provide the Hyperscale experience.
 
-## Next steps:
+## Next steps
 - Read documentation on [plv8](https://plv8.github.io/)
 - Read documentation on [PostGIS](https://postgis.net/)
 - Read documentation on [`pg_cron`](https://github.com/citusdata/pg_cron)
