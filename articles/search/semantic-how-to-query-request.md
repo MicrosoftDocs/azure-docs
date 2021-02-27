@@ -13,11 +13,9 @@ ms.date: 03/02/2021
 # Create a semantic query in Cognitive Search
 
 > [!IMPORTANT]
-> Semantic query type is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Semantic query type is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During the initial preview launch, there is no charge for semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 In this article, learn how to formulate a search request that uses semantic ranking, and produces semantic captions and answers.
-
-During the initial preview launch, there is no charge for semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 ## Prerequisites
 
@@ -31,13 +29,13 @@ During the initial preview launch, there is no charge for semantic search. For m
 
   The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query.
 
-+ A [Search Documents](/rest/api/searchservice/preview-api/search-documents) request with the semantic option. A semantic query uses "api-version=2020-06-30-Preview", "queryType=semantic", "queryLanguage=en-us", and "searchFields=`<ordered-field-list>`".
++ A [Search Documents](/rest/api/searchservice/preview-api/search-documents) request with the semantic option and other parameters described in this article.
 
 ## What's a semantic query?
 
-In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* adds parameters that invoke the semantic query subsystems that can intuit context and meaning of matching results and promote the more meaningful matches to the top.
+In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* adds parameters that invoke the semantic reranking algorithm that can assess the context and meaning of matching results, and promote more relevant matches to the top.
 
-The following request is representative of a basic semantic query (without answer).
+The following request is representative of a basic semantic query (without answers).
 
 ```http
 POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=2020-06-30-Preview      
@@ -107,7 +105,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 1. Optionally, customize the highlight style applied to captions. Captions apply highlight formatting over key passages in the document that summarize the response. The default is `<em>`. If you want to specify the type of formatting (for example, yellow background), you can set the highlightPreTag and highlightPostTag.
 
-1. Specify any other parameters that you want in the request. Other optional parameters (such as [speller](speller-how-to-add.md), [select](search-query-odata-select.md), and count) improve the quality of the request and readability of the response.
+1. Specify any other parameters that you want in the request. Parameters such as [speller](speller-how-to-add.md), [select](search-query-odata-select.md), and count improve the quality of the request and readability of the response.
 
 ### Review the response
 
@@ -134,7 +132,7 @@ Response for the above query returns the following match as the top pick. Captio
 
 ### Parameters used in a semantic query
 
-The following table summarizes the query parameters used in a semantic query. For a comprehensive list of all parameters, see [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents)
+The following table summarizes the query parameters used in a semantic query so that you can see them holistically. For a list of all parameters, see [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents)
 
 | Parameter | Type | Description |
 |-----------|-------|-------------|
