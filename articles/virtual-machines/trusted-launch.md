@@ -36,20 +36,12 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 **Size support**:
 All [Generation 2](generation-2.md) VM sizes, except:
 
-- GS-series
-- HB-series
-- HC-series
-- Ls-series
-- Lsv2-series
-- M-series
-- Mv2-series
-- NCv2-series
-- NCv3-series
-- ND-series
-- NVv3-series
+- HBv3 
+- Lsv2-series 
+- M-series 
+- Mv2-series 
+- NDv4 series 
 - NVv4-series
-- NCasT4_v3-series
-
 
 **OS support**:
 - Redhat Enterprise Linux 8.3
