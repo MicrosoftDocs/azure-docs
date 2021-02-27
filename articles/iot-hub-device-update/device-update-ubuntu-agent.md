@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
 
-# Device Update for Azure IoT Hub tutorial using the Ubuntu Server 18.04 x64 Package agent
+# Getting Started with the Ubuntu Server 18.04 x64 Package agent
 
 Device Update for IoT Hub supports two forms of updates – image-based
 and package-based.
@@ -19,7 +19,9 @@ bandwidth and helps reduce the time to download and install the update. Package
 updates typically allow for less downtime of devices when applying an update and
 avoid the overhead of creating images.
 
-This tutorial walks you through the steps to complete an end-to-end package-based update through Device Update for IoT Hub. We will use a sample package agent for Ubuntu Server 18.04 x64 for this tutorial. Even if you plan on using a different OS platform configuration, this tutorial is still useful to learn about the tools and concepts in Device Update for IoT Hub. Complete this introduction to an end-to-end update process, then choose your preferred form of updating and OS platform to dive into the details. You can use Device Update for IoT Hub to update an Azure IoT or Azure IoT Edge device using this tutorial. 
+This tutorial walks you through the steps to complete an end-to-end package-based update through Device Update for IoT Hub on a device running Azure IoT Edge. For this tutorial we use the package agent for Ubuntu Server 18.04 x64 to update a sample package. Using similar steps as this tutorial you could update Azure IoT Edge itself or the container engine.
+
+Even if you plan on using a different OS platform configuration, this tutorial is still useful to learn about the tools and concepts in Device Update for IoT Hub. Complete this introduction to an end-to-end update process, then choose your preferred form of updating and OS platform to dive into the details.
 
 In this tutorial you will learn how to:
 > [!div class="checklist"]
@@ -35,109 +37,93 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 * Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
-* An Azure IoT or Azure IoT Edge device running Ubuntu Server 18.04 x64, connected to IoT Hub.
-   * If you are using an Azure IoT Edge device, make sure it is on v1.2.0 of the Edge runtime or higher 
-* If you are not using an Azure IoT Edge device, then [install the latest `aziot-identity-service` package (preview) on your IoT device](https://github.com/Azure/iot-identity-service/actions/runs/575919358) 
-* [Device Update account and instance linked to the same IoT Hub as above.](create-device-update-account.md)
+* A Device Update instance and account linked to your IoT Hub.
+  * Follow the guide to [create and link a device update account](create-device-update-account.md) if you have not done so previously.
 
-## Configure device update package repository
+The next section walks you through creating a virtual Linux IoT Edge device that has the Device Update package agent installed. If you want to use your own Linux device instead, follow the installation steps in [Install the Azure IoT Edge runtime](../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11), then return to this tutorial and install the package agent and its dependencies with the following command:
 
-1. Install the repository configuration that matches your device operating system. For this tutorial, this will be Ubuntu Server 18.04. 
-   
-   ```shell
-      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+   ```bash
+   sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt 
    ```
 
-2. Copy the generated list to the sources.list.d directory.
-
-   ```shell
-      sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-   ```
-   
-3. Install the Microsoft GPG public key.
-
-   ```shell
-      curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-      sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-   ```
-
-## Install Device Update .deb agent packages
-
-1. Update package lists on your device
-
-   ```shell
-      sudo apt-get update
-   ```
-
-2. Install the deviceupdate-agent package and its dependencies
-
-   ```shell
-      sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
-   ```
+> [!NOTE]
+> The Device Update package agent relies on an IoT identity service daemon installed with IoT Edge (1.2.0 and higher) to obtain an identity and connect to IoT Hub. Although beyond the scope of this tutorial, the IoT identity service daemon and Device Update package agent can be installed on Linux-based IoT devices.
 
 Device Update for Azure IoT Hub software packages are subject to the following license terms:
-   * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-   * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
-   
+  * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
+  * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+
 Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use that package.
 
-## Configure Device Update Agent using Azure IoT Identity service (Preview)
+## Setting up your environment
+Prepare your environment for the Azure CLI.
 
-Once you have the required packages installed, you need to provision the device with its cloud identity and authentication information.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-1. Open the configuration file
+Cloud resources:
 
-   ```shell
-      sudo nano /etc/aziot/config.toml
+- You'll need a resource group to manage the VM you use in this quickstart. We use the example resource group name **IoTEdgeDeviceUpdate**.
+
+   ```azurecli-interactive
+   az group create --name IoTEdgeDeviceUpdate --location westus2
    ```
 
-2. Find the provisioning configuration section of the file. Uncomment the "Manual provisioning with connection string" section. Update the value of the connection_string with the connection string for your IoT (Edge) device. Ensure that all other provisioning sections are commented out.
+## Create a VM configured with Device Update and IoT Edge
 
-
-   ```toml
-      # Manual provisioning configuration using a connection string
-      [provisioning]
-      source = "manual"
-      iothub_hostname = "<REQUIRED IOTHUB HOSTNAME>"
-      device_id = "<REQUIRED DEVICE ID PROVISIONED IN IOTHUB>"
-      dynamic_reprovisioning = false 
+1. Create a device identity in IoT Hub for your IoT Edge device
+   ```azurecli-interactive
+   az iot hub device-identity create --device-id myEdgeDevice --edge-enabled --hub-name {hub_name}
    ```
 
-3. Save and close the file using Ctrl+X, Y
+   If you get an error about iothubowner policy keys, make sure that your Cloud Shell is running the latest version of the azure-iot extension.
 
-4. Apply the configuration. 
+2. Create a new virtual machine and install both the IoT Edge runtime and Device Update package agent using an Azure Resource Manager template
 
-   If you are using an IoT Edge device, use the following command. 
-   
-   ```shell
-      sudo iotedge config apply
-   ```
-   
-   If you are using an IoT device, with the `aziot-identity-service` package installed, then use the following command. 
-      
-   ```shell
-      sudo aziotctl config apply
-   ```
+   * For bash or Cloud Shell users, copy the following command into a text editor, replace the placeholder text with your information, then copy into your bash or Cloud Shell window:
 
-5. Optionally, you can verify that the services are running by
+      ```azurecli-interactive
+      az deployment group create \
+      --resource-group IoTEdgeDeviceUpdate \
+      --template-uri "https://aka.ms/iotedge-vm-deploy" \
+      --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
+      --parameters adminUsername='azureUser' \
+      --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name
+      <REPLACE_WITH_HUB_NAME> -o tsv) \
+      --parameters authenticationType='password' \
+      --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
+      ```
 
-    ```shell
-       sudo systemctl list-units --type=service | grep 'adu-agent\.service\|deliveryoptimization-agent\.service'
-    ```
+   * For PowerShell users, copy the following command into your PowerShell window, then replace the placeholder text with your own information:
 
-    The output should read:
+      ```azurecli
+      az deployment group create `
+      --resource-group IoTEdgeDeviceUpdate `
+      --template-uri "https://aka.ms/iotedge-vm-deploy" `
+      --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
+      --parameters adminUsername='azureUser' `
+      --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
+      --parameters authenticationType='password' `
+      --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
+      ```
 
-    ```markdown
-       adu-agent.service                   loaded active running Device Update for IoT Hub Agent daemon.
+Be sure to update the following parameters:
 
-       deliveryoptimization-agent.service               loaded active running deliveryoptimization-agent.service: Performs content delivery optimization tasks   `
-    ```
+| Parameter | Description |
+| --------- | ----------- |
+| **dnsLabelPrefix** | A string that will be used to create the virtual machine's hostname. Replace the placeholder text with a name for your virtual machine. |
+| **deviceConnectionString** | The connection string from the device identity in IoT Hub, which is used to configure the IoT identity service daemon on the virtual machine. The CLI command within this parameter grabs the connection string for you. Replace the placeholder text with your IoT hub name. |
+| **authenticationType** | The authentication method for the admin account. This quickstart uses **password** authentication, but you can also set this parameter to **sshPublicKey**. |
+| **adminPasswordOrKey** | The password or value of the SSH key for the admin account. Replace the placeholder text with a secure password. Your password must be at least 12 characters long and have three of four of the following: lowercase characters, uppercase characters, digits, and special characters. |
+
+   > [!TIP]
+   > If you need to connect to the VM once the deployment is complete you'll find the SSH information in the JSON-formatted output in the CLI. Copy the value of the **public SSH** entry of the **outputs** section: 
+   > ![Retrieve public ssh value from output](../iot-edge/media/quickstart-linux/outputs-public-ssh.png)
 
 ## Add a tag to your device
 
 1. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
 
-2. From 'IoT Devices' or 'IoT Edge' on the left navigation pane find your IoT device and navigate to the Device Twin.
+2. From 'IoT Edge' on the left navigation pane find your IoT Edge device and navigate to the Device Twin.
 
 3. In the Device Twin, delete any existing Device Update tag value by setting them to null.
 
@@ -146,7 +132,7 @@ Once you have the required packages installed, you need to provision the device 
 ```JSON
     "tags": {
             "ADUGroup": "<CustomTagValue>"
-            }
+            },
 ```
 
 ## Import update
@@ -200,13 +186,18 @@ Once you have the required packages installed, you need to provision the device 
 
 ## Deploy update
 
-1. Once the group is created, you should see a new update available for your device group, with a link to the update under Pending Updates. You may need to Refresh once. 
+1. Once the group is created, you should see a new update available for your device group, with a link to the update in the _Available updates_ column. You may need to Refresh once.
 
-2. Click on the available update.
+2. Click on the link to the available update.
 
-3. Confirm the correct group is selected as the target group. Schedule your deployment, then select Deploy update.
+3. Confirm the correct group is selected as the target group and schedule your deployment
 
    :::image type="content" source="media/deploy-update/select-update.png" alt-text="Select update" lightbox="media/deploy-update/select-update.png":::
+
+   > [!TIP]
+   > By default the Start date/time is 24 hrs from your current time. Be sure to select a different date/time if you want the deployment to begin earlier.
+
+4. Select Deploy update.
 
 4. View the compliance chart. You should see the update is now in progress. 
 
@@ -244,4 +235,3 @@ When no longer needed, clean up your device update account, instance, IoT Hub an
 
 > [!div class="nextstepaction"]
 > [Image Update on Raspberry Pi 3 B+ tutorial](device-update-raspberry-pi.md)
-
