@@ -15,15 +15,15 @@ ms.date: 03/02/2021
 > [!IMPORTANT]
 > Semantic query type is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, learn how to attach the semantic query subsystems of Azure Cognitive Search to use semantic ranking, semantic captions, and semantic answers. Setting the queryType parameter to **semantic** enables these capabilities. 
+In this article, learn how to formulate a search request that uses semantic ranking, and produces semantic captions and answers.
 
-During the initial preview launch, there is no charge for semantic search. For up-to-date information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+During the initial preview launch, there is no charge for semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 ## Prerequisites
 
-+ Access to semantic search preview: [sign up](https://aka.ms/SemanticSearchPreviewSignup)
++ A search service at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe, West Europe. If you have an existing S1 or greater service in one of these regions, you can request access without having to create a new service.
 
-+ A search service at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe, West Europe
++ Access to semantic search preview: [sign up](https://aka.ms/SemanticSearchPreviewSignup)
 
 + An existing search index, containing English content
 
@@ -59,8 +59,6 @@ The full specification of the REST API can be found at [Search Documents (REST p
 
 Semantic queries are intended for open-ended questions like "what is the best plant for pollinators" or "how to fry an egg". If you want the response to include answers, you can add an  optional **`answer`** parameter on the request.
 
-### Formulate the request
-
 The following example uses the hotels-sample-index to create a semantic query request with semantic answers and captions:
 
 ```http
@@ -68,8 +66,8 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 {
     "search": "newer hotel near the water with a great restaurant",
     "queryType": "semantic",
-    "searchFields": "HotelName,Category,Description",
     "queryLanguage": "en-us",
+    "searchFields": "HotelName,Category,Description",
     "speller": "lexicon",
     "answers": "extractive|count-3",
     "highlightPreTag": "<strong>",
@@ -79,27 +77,41 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 }
 ```
 
-Omit "orderBy" clauses in a semantic query. The semantic score is used to order results, and if you include explicit sort logic, an HTTP 400 error is returned.
+### Formulate the request
 
-In a semantic query, the order of fields in "searchFields" reflects the priority or relative importance of the field in semantic rankings. Only top-level string fields (standalone or in a collection) will be used. Because searchFields has other behaviors in simple and full Lucene queries (there is no implied priority order), other non-string fields and subfields can be specified, but they won't be used in semantic ranking.
+1. Set "queryType" to "semantic" and "queryLanguage" to "en-us. Both parameters are required.
 
-When specifying searchFields, follow these guidelines:
+   The queryLanguage must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. If queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"). Any language-agnostic analyzers, such as keyword or simple, have no conflict with queryLanguage values.
 
-+ Concise fields, such as HotelName or a title, should precede verbose fields like Description.
+   In a query request, if you are also using [spelling correction](speller-how-to-add.md), the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts. 
 
-+ If your index has a URL field that is textual (human readable such as www.domain.com/name-of-the-document-and-other-details and not machine focused such as www.domain.com/?id=23463&param=eis), put it second in the list (put it first if there is no concise title field).
+   While content in a search index can be composed in multiple languages, the query input is most likely in one. The search engine doesn't check for compatibility of queryLanguage, language analyzer, and the language in which content is composed, so be sure to scope queries accordingly to avoid producing incorrect results.
 
-+ If there is only one field specified, then it will be considered as a descriptive field for semantic ranking of documents.  
+1. Optional but recommended, set "searchFields".
 
-+ If there are no fields specified, then all searchable fields will be considered for semantic ranking of documents. However, this is not recommended since it may not yield the most optimal results from your search index.
+   In a semantic query, the order of fields in "searchFields" reflects the priority or relative importance of the field in semantic rankings. Only top-level string fields (standalone or in a collection) will be used. Because searchFields has other behaviors in simple and full Lucene queries (where there is no implied priority order), any non-string fields and subfields won't result in an error, but they also won't be used in semantic ranking.
 
-Captions can include highlights to format passages in the document that answer the query or summarize the response. If you want to specify the type of formatting (yellow background or bold text), you can set highlightPreTag and  highlightPostTag.
+   When specifying searchFields, follow these guidelines:
 
-Other optional parameters (such as speller, select, and count) improve the quality of the request and readability of the response.
+   + Concise fields, such as HotelName or a title, should precede verbose fields like Description.
+
+   + If your index has a URL field that is textual (human readable such as www.domain.com/name-of-the-document-and-other-details and not machine focused such as www.domain.com/?id=23463&param=eis), put it second in the list (put it first if there is no concise title field).
+
+   + If there is only one field specified, then it will be considered as a descriptive field for semantic ranking of documents.  
+
+   + If there are no fields specified, then all searchable fields will be considered for semantic ranking of documents. However, this is not recommended since it may not yield the most optimal results from your search index.
+
+1. Remove "orderBy" clauses, if they exist in an existing request. The semantic score is used to order results, and if you include explicit sort logic, an HTTP 400 error is returned.
+
+1. Optionally, add "answers" set to "extractive" and specify the number of answers if you want more than 1.
+
+1. Optionally, customize the highlight style applied to captions. Captions apply highlight formatting over key passages in the document that summarize the response. The default is `<em>`. If you want to specify the type of formatting (for example, yellow background), you can set the highlightPreTag and highlightPostTag.
+
+1. Specify any other parameters that you want in the request. Other optional parameters (such as [speller](speller-how-to-add.md), [select](search-query-odata-select.md), and count) improve the quality of the request and readability of the response.
 
 ### Review the response
 
-Response for the above query returns the following match as the top pick. Captions are returned automatically, with plain text and highlighted versions. By default, highlighting is styled as `</em>`, but you can customize the style using the hit highlighting tagging properties. For more information about semantic responses, see [Semantic ranking and responses](semantic-how-to-query-response.md).
+Response for the above query returns the following match as the top pick. Captions are returned automatically, with plain text and highlighted versions. For more information about semantic responses, see [Semantic ranking and responses](semantic-how-to-query-response.md).
 
 ```json
 "@odata.count": 29,
@@ -124,18 +136,12 @@ Response for the above query returns the following match as the top pick. Captio
 
 The following table summarizes the query parameters used in a semantic query. For a comprehensive list of all parameters, see [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents)
 
-| Parameter | Description |
-|----------|-------------|
-| "queryType": "semantic" | Required for semantic queries. Invokes the semantic ranking algorithms and models. |
-| "queryLanguage": "en-us" | Required for semantic queries. Currently, only `"en-us"` is implemented. |
-| "searchFields": "<fields>" | Optional but recommended. Specifies the fields over which semantic ranking occurs. In contrast with simple and full query types, when used in a semantic query, this parameter is required. </br></br>The order in which fields are listed determines precedence, with "title" having priority over "url" and so forth, in how results are ranked. If you have a title or a short field that describes your document, we recommend that to be your first field. Follow that by the url (if any), then the body of the document, and then any other relevant fields. |
-| "answers": `"extractive|count3"` | Optional field to specify that semantic answers be included in the result. Answers can be configured to return a maximum of five. This example shows a count of three answers. |
-
-The queryLanguage parameter required for a semantic query must be consistent with [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. If queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"). Any language-agnostic analyzers, such as keyword or simple, have no conflict with queryLanguage values.
-
-In a query request, if you are also using [spelling correction](speller-how-to-add.md), the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts. 
-
-While content in a search index can be composed in multiple languages, the query input is most likely in one. The search engine doesn't check for compatibility of queryLanguage, language analyzer, and the language in which content is composed, so be sure to scope queries accordingly to avoid producing incorrect results.
+| Parameter | Type | Description |
+|-----------|-------|-------------|
+| queryType | String | Valid values include simple, full, and semantic. A value of "semantic" is required for semantic queries. |
+| queryLanguage | String | Required for semantic queries. Currently, only "en-us" is implemented. |
+| searchFields | String | A comma-delimited list of searchable fields. Optional but recommended. Specifies the fields over which semantic ranking occurs. </br></br>In contrast with simple and full query types, the order in which fields are listed determines precedence.|
+| answers |String | Optional field to specify whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of five. This example "extractive|count3"` shows a count of three answers. The default is 1.|
 
 ## Query with Search explorer
 
@@ -190,7 +196,7 @@ The first few results are as follows.
 
 ### With queryType (default)
 
-For comparison, run the same query as above, removing `&queryType=semantic&queryLanguage=english&searchFields=Description,Tags`. Notice that there is no `"@search.rerankerScore"` in these results, and that different hotels appear in the top three results.
+For comparison, run the same query as above, removing `&queryType=semantic&queryLanguage=english&searchFields=Description,Tags`. Notice that there is no `"@search.rerankerScore"` in these results, and that different hotels appear in the top three positions.
 
 ```json
 {

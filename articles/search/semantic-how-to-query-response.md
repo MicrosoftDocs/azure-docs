@@ -19,11 +19,15 @@ ms.custom: references_regions
 
 Semantic ranking improves the precision of search results by reranking the top matches using a semantic ranking model trained for queries expressed in natural language as opposed to keywords.
 
-This article describes the semantic ranking algorithm and how a semantic response is shaped. You can specify semantic answers or captions in the query request to retrieve the most relevant answers or captions from each matching document.
+This article describes the semantic ranking algorithm and how a semantic response is shaped. A response includes captions, both in plain text and with highlights, and answers (optional).
+
++ Semantic captions are text passages relevant to the query extracted from the search results. They can help to summarize a result when individual content fields are too large for the results page. Captions feature semantic highlights, allowing users to quickly skim query results to find the most relevant documents thus improving overall user experience.
+
++ Semantic answers use machine learning models from Bing to formulate answers to queries that look like questions. The answers are selected from a list of passages most relevant to the query, as extracted from the top documents in the query result set. Answers are returned as an independent, top-level object in the query response payload that you can choose to render on the search pages, along side search results.
 
 ## Prerequisites
 
-+ Queries formulated using the semantic query type. For more information, see [How to create a semantic query](semantic-how-to-query-request.md).
++ Queries formulated using the semantic query type. For more information, see [Create a semantic query](semantic-how-to-query-request.md).
 
 ## Understanding a semantic response
 
