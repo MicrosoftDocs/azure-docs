@@ -42,7 +42,7 @@ For more information on Generation 2 virtual machines, see [Support for generati
 ## Msv2 Medium Memory Diskless 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs | Expected network bandwidth (Mbps) | 
-|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|
 | Standard_M32dms_v2 | 32 | 875 | 0 | 32 |  20000/500 | 8 | 8000 | 
 | Standard_M64ds_v2 | 64 | 1024 | 0 | 64 | 40000/1000 | 8 | 16000 | 
 | Standard_M64dms_v2 | 64 | 1792 | 0 | 64 | 40000/1000 | 8 | 16000 | 
