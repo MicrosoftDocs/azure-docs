@@ -12,8 +12,10 @@
       href: compare-cosmosdb-managed-instance.md                
 - name: Quickstarts
   items:
-    - name: Create a Cassandra cluster
+    - name: Create a cluster - Portal
       href: create-cluster-portal.md
+    - name: Create a cluster - CLI
+      href: create-cluster-cli.md
     - name: Configure a hybrid cluster
       href: configure-hybrid-cluster.md       
     - name: Deploy Spark Cluster with Databricks
