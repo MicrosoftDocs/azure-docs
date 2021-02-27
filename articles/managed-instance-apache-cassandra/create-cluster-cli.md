@@ -45,7 +45,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    az network vnet create -n <VNet_Name> -l eastus2 -g <Resource_Group_Name> --subnet-name <Subnet Name>
    ```
 
-1. Apply some special permissions to the Virtual Network and the subnet which are required by the managed instance. To do so, you have to get the resource ID for your existing Virtual Network. Run the following command and copy the value of `Resource ID` parameter:
+1. Apply some special permissions to the Virtual Network and the subnet, which are required by the managed instance. To do so, you have to get the resource ID for your existing Virtual Network. Run the following command and copy the value of `Resource ID` parameter:
 
    ```azurecli-interactive
    # get the resource ID of the Virtual Network
@@ -78,7 +78,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
       --debug
    ```
 
-1. Finally, create a datacenter for the cluster, with 3 nodes:
+1. Finally, create a datacenter for the cluster, with three nodes:
 
    ```azurecli-interactive
    dataCenterName='dc1'
