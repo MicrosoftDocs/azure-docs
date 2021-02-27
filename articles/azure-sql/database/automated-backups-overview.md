@@ -223,17 +223,15 @@ You can change the default PITR backup retention period by using the Azure porta
 
 ### Change the PITR backup retention period by using the Azure portal
 
-To change the PITR backup retention period for active databases by using the Azure portal, go to the server or managed instance with the databases whose retention period you want to change. 
+To change the PITR backup retention period for active databases by using the Azure portal, go to the server or managed instance with the databases whose retention period you want to change. Select **Backups** in the left pane, then select the **Retention policies** tab. Select the database(s) for which you want to change the PITR backup retention. Then select **Configure retention** from the action bar.
+
+
 
 #### [SQL Database](#tab/single-database)
-
-Changes to PITR backup retention for SQL Database are done on the server page in the portal. To change PITR retention for databases on a server, go to the server overview blade. Select **Manage Backups** in the left pane, select the databases in scope of your change, and then select **Configure retention** at the top of the screen:
 
 ![Change PITR retention, server level](./media/automated-backups-overview/configure-backup-retention-sqldb.png)
 
 #### [SQL Managed Instance](#tab/managed-instance)
-
-Changes to PITR backup retention for SQL Managed Instance are done at an individual database level. To change PITR backup retention for an instance database from the Azure portal, go to the individual database overview blade. Then select **Configure backup retention** at the top of the screen:
 
 ![Change PITR retention, managed instance](./media/automated-backups-overview/configure-backup-retention-sqlmi.png)
 
