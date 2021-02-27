@@ -129,7 +129,7 @@ Select the button below to deploy the policies to your subscription:
 
 The template needs to be deployed only once per subscription. It automatically installs `GuestAttestation` and `AzureSecurity` extensions on all supported VMs. If you get errors, try redeploying the template again.
 
-To get vTPM and secure boot recommendations for trusted launch VMs, see [Add a custom initiative to your subscription](https://docs.microsoft.com/en-us/azure/security-center/custom-security-policies#to-add-a-custom-initiative-to-your-subscription).
+To get vTPM and secure boot recommendations for trusted launch VMs, see [Add a custom initiative to your subscription](https://docs.microsoft.com/azure/security-center/custom-security-policies#to-add-a-custom-initiative-to-your-subscription).
  
 ## Sign things for Secure Boot on Linux
 
@@ -152,6 +152,6 @@ In some cases, you might need to sign things for UEFI Secure Boot.  For example,
     :::image type="content" source="media/trusted-launch/mok-mangement.png" alt-text="Screenshot showing the available options on the MOK management menu in the serial console.":::
 
 
-# Next steps
+## Next steps
 
 Learn more about [trusted launch](trusted-launch.md) and [Generation 2](generation-2.md) VMs.
