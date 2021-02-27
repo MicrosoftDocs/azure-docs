@@ -12,8 +12,10 @@
     href: quickstarts/create-communication-resource.md
   - name: Create and manage access tokens
     href: quickstarts/access-tokens.md
-  - name: Use managed identities (.NET)
+  - name: Use managed identities
     href: quickstarts/managed-identity.md
+  - name: Set up managed identities from CLI
+    href: quickstarts/managed-identity-from-cli.md
   - name: Chat
     items:
       - name: Add chat to your app
