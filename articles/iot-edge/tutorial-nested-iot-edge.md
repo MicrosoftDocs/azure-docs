@@ -4,7 +4,7 @@ description: This tutorial shows you how to create a hierarchical structure of I
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 11/10/2020
+ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -226,7 +226,7 @@ To create demo certificates on a Linux device, you need to clone the generation 
    ./certGen.sh create_edge_device_ca_certificate "{lower_layer_certificate_name}"
    ```
 
-   This script command creates several certificate and key files, but we are using the following certificate and key pair on each IoT Edge device and referenced in the config.yaml file:
+   This script command creates several certificate and key files, but we are using the following certificate and key pair on each IoT Edge device and referenced in the config file:
 
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
@@ -272,12 +272,6 @@ To install IoT Edge, you need to install the appropriate repository configuratio
 
 1. Install the repository configuration that matches your device operating system.
 
-   * **Ubuntu Server 16.04**:
-
-     ```bash
-     curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
-     ```
-
    * **Ubuntu Server 18.04**:
 
      ```bash
@@ -315,116 +309,112 @@ To install IoT Edge, you need to install the appropriate repository configuratio
    sudo apt-get install moby-engine
    ```
 
-1. Install the hsmlib and IoT Edge daemon. To see the assets for other Linux distributions, [visit the GitHub release](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1). <!-- Update with proper image links on release -->
+1. Install IoT Edge and the IoT identity service.
 
    ```bash
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0_rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
-   sudo dpkg -i ./libiothsm-std.deb
-   sudo dpkg -i ./iotedge.deb
+   sudo apt-get install aziot-edge
    ```
 
-If you completed the above steps correctly, you saw the Azure IoT Edge banner message requesting that you update the Azure IoT Edge configuration file, `/etc/iotedge/config.yaml`, on each device in your hierarchy. If so, you are ready to proceed.
+If you completed the above steps correctly, you saw the Azure IoT Edge banner message requesting that you update the Azure IoT Edge configuration file, `/etc/aziot/config.toml`, on each device in your hierarchy. If so, you are ready to proceed.
 
 ### Configure the IoT Edge runtime
 
-In addition to the provisioning of your devices, the configuration steps establish trusted communication between the devices in your hierarchy using the certificates you created earlier. The steps also begin to establish the network structure of your hierarchy. The top layer device will maintain internet connectivity, allowing it to pull images for its runtime from the Cloud, while lower layer devices will route through the top layer device to access these images.
+In addition to the provisioning of your devices, the configuration steps establish trusted communication between the devices in your hierarchy using the certificates you created earlier. The steps also begin to establish the network structure of your hierarchy. The top layer device will maintain internet connectivity, allowing it to pull images for its runtime from the cloud, while lower layer devices will route through the top layer device to access these images.
 
 To configure the IoT Edge runtime, you need to modify several components of the configuration file. The configurations slightly differ between the **top layer device** and a **lower layer device**, so be mindful of which device's configuration file you are editing for each step. Configuring the IoT Edge runtime for your devices consists of four steps, all accomplished by editing the IoT Edge configuration file:
 
-1. Manually provision each device by adding that device's connection string to the configuration file.
+* Manually provision each device by adding that device's connection string to the configuration file.
 
-1. Finish setting up your device's certificates by pointing the configuration file to the device CA certificate, device CA private key, and root CA certificate.
+* Finish setting up your device's certificates by pointing the configuration file to the device CA certificate, device CA private key, and root CA certificate.
 
-1. Bootstrap the system using the IoT Edge agent.
+* Bootstrap the system using the IoT Edge agent.
 
-1. Update the **hostname** parameter for your **top layer** device, and update both the **hostname** parameter and **parent_hostname** parameter for your **lower layer** devices.
+* Update the **hostname** parameter for your **top layer** device, and update both the **hostname** parameter and **parent_hostname** parameter for your **lower layer** devices.
 
 Complete these steps and restart the IoT Edge service to configure your devices.
 
 >[!TIP]
 >When navigating the configuration file in Nano, you can use **Ctrl + W** to search for keywords in the file.
 
+1. On each device, create a configuration file based on the included template.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+
 1. On each device, open the IoT Edge configuration file.
 
    ```bash
-   sudo nano /etc/iotedge/config.yaml
+   sudo nano /etc/aziot/config.toml
    ```
 
-1. Find the provisioning configurations of the file. If it is not already, uncomment the **Manual provisioning configuration using a connection string** section.
+1. For your **top layer** device, find the **Hostname** section. Uncomment the line with the `hostname` parameter and update the value to be the fully qualified domain name (FQDN) or IP address of the IoT Edge device. Use whichever value you choose consistently across the devices in your hierarchy.
 
-1. For each device in your hierarchy, update the value of **device_connection_string** with the connection string from your IoT Edge device. Make sure any other provisioning sections are commented out. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
-
-   ```yml
-   # Manual provisioning configuration using a connection string
-   provisioning:
-     source: "manual"
-     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-     dynamic_reprovisioning: false
+   ```toml
+   hostname = "<device fqdn or IP>"
    ```
 
    >[!TIP]
    >To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
 
-1. Find the **certificates** section. If it is not already, uncomment this section. Then, update the three certificate fields to point to the certificates that you created in the previous section and moved to the IoT Edge device. Provide the file URI paths, which take the format `file:///<path>/<filename>`, such as `file:///certs/iot-edge-device-ca-top-layer-device.key.pem`.
+1. For any IoT Edge device in **lower layers**, find the **Parent hostname** section. Uncomment the line with the `parent_hostname` parameter and update the value to point to the FQDN or IP of the parent device. Use the exact value that you put in the parent device's **hostname** field. For the IoT Edge device in the **top layer**, leave this parameter commented out.
 
-   ```yml
-   certificates:
-     device_ca_cert: "<File URI path to the device full chain CA certificate unique to this device.>"
-     device_ca_pk: "<File URI path to the device CA private key unique to this device.>"
-     trusted_ca_certs: "<File URI path to the root CA certificate shared by all devices in the gateway hierarchy.>"
-   ```
-
-   >[!NOTE]
-   >Make sure to use the **full chain** CA certificate pathway and filename to populate the `device_ca_cert` field.
-
-1. For your **top layer** device, find the **hostname** parameter. This parameter is autopopulated with the device name. Update the value to be the fully qualified domain name (FQDN) or IP address of the IoT Edge device. Use whichever value you choose consistently across the devices in your hierarchy.
-
-   ```yml
-   hostname: <device fqdn or IP>
-   ```
-
-1. For each IoT Edge device in **lower layers**, find the **Nested Edge parent hostname** section. If it is not already, uncomment this section. Update the config file to point to the FQDN or IP of the parent device, matching the value you put in the parent device's **hostname** field. For the IoT Edge device in the **top layer**, leave this parameter commented out.
-
-   ```yml
-   parent_hostname: <parent device fqdn or IP>
+   ```toml
+   parent_hostname = "<parent device fqdn or IP>"
    ```
 
    > [!NOTE]
    > For hierarchies with more than one lower layer, update the *parent_hostname* field with the FQDN of the device in the layer immediately above.
 
-1. For your **top layer** device, find the **agent** yaml section and update the image value to the correct version of the IoT Edge agent. In this case, we will point the top layer's IoT Edge agent at the Azure Container Registry with the public preview version of IoT Edge agent image available.
+1. Find the **Trust bundle cert** section of the file. Uncomment the line with the `trust_bundle_cert` parameter and update the value with the file URI path to the root CA certificate shared by all devices in the gateway hierarchy.
 
-   ```yml
-   agent:
-     name: "edgeAgent"
-     type: "docker"
-     env: {}
-     config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
-       auth: {}
+   ```toml
+   trust_bundle_cert = "<root CA certificate>"
    ```
 
-1. For each IoT Edge devices in **lower layers**, update the image value's domain name to point to the parent device's FQDN or IP followed by the API proxy port, 8000. You will add the API proxy module in the next section.
+1. Find the **Provisioning** section of the file. Uncomment the lines for **Manual provisioning with connection string**. For each device in your hierarchy, update the value of **connection_string** with the connection string from your IoT Edge device.
+
+   ```toml
+   # Manual provisioning with connection string
+   [provisioning]
+   source = "manual"
+   connection_string: "<Device connection string>"
+   ```
+
+1. Find the **Default Edge Agent** section.
+
+   * For your **top layer** device, update the edgeAgent image value to the public preview version of the module in Azure Container Registry.
+   
+     ```toml
+     [agent.config]
+     image = "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4"
+     ```
+
+   * For each IoT Edge device in **lower layers**, update the edgeAgent image to point to the parent device followed by the port that the API proxy is listening on. You will deploy the API proxy module to the parent device in the next section.
+   
+     ```toml
+     [agent.config]
+     image = "<parent hostname value>:8000/azureiotedge-agent:1.2.0-rc4"
+     ```
+
+1. Find the **Edge CA certificate** section. Uncomment the first three lines of this section. Then, update the two parameters to point to the device CA certificate and device CA private key files that you created in the previous section and moved to the IoT Edge device. Provide the file URI paths, which take the format `file:///<path>/<filename>`, such as `file:///certs/iot-edge-device-ca-top-layer-device.key.pem`.
 
    ```yml
-   agent:
-     name: "edgeAgent"
-     type: "docker"
-     env: {}
-     config:
-       image: "<parent_device_fqdn_or_ip>:8000/azureiotedge-agent:1.2.0-rc2"
-       auth: {}
+   [edge_ca]
+   cert = "<File URI path to the device full chain CA certificate unique to this device.>"
+   pk = "<File URI path to the device CA private key unique to this device.>"
    ```
+
+   >[!NOTE]
+   >Make sure to use the **full chain** CA certificate pathway and filename to populate the `device_ca_cert` field.
 
 1. Save and close the file.
 
    `CTRL + X`, `Y`, `Enter`
 
-1. After entering the provisioning information in the configuration file, restart the daemon to apply the changes:
+1. After entering the provisioning information in the configuration file, apply the changes:
 
    ```bash
-   sudo systemctl restart iotedge
+   sudo iotedge config apply
    ```
 
 Before you continue, make sure that you have updated the configuration file of each device in the hierarchy. Depending on your hierarchy structure, you configured one **top layer device** and one or more **lower layer device(s)**.
@@ -470,7 +460,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
 
 1. Select **Runtime Settings**, next to the gear icon.
 
-1. Under **Edge Hub**, in the image field, enter `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2`.
+1. Under **Edge Hub**, in the image field, enter `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`.
 
    ![Edit the Edge Hub's image](./media/tutorial-nested-iot-edge/edge-hub-image.png)
 
@@ -483,7 +473,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
 
    ![Edit the Edge Hub's environment variables](./media/tutorial-nested-iot-edge/edge-hub-environment-variables.png)
 
-1. Under **Edge Agent**, in the image field, enter `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2`. Select **Save**.
+1. Under **Edge Agent**, in the image field, enter `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4`. Select **Save**.
 
 1. Add the Docker registry module to your top layer device. Select **+ Add** and choose **IoT Edge Module** from the dropdown. Provide the name `registry` for your Docker registry module and enter `registry:latest` for the image URI. Next, add environment variables and create options to point your local registry module at the Microsoft container registry to download container images from and to serve these images at registry:5000.
 
@@ -578,14 +568,14 @@ In the [Azure portal](https://ms.portal.azure.com/):
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2",
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2",
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
@@ -648,7 +638,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
 
 1. Select **Runtime Settings**, next to the gear icon.
 
-1. Under **Edge Hub**, in the image field, enter `$upstream:8000/azureiotedge-hub:1.2.0-rc2`.
+1. Under **Edge Hub**, in the image field, enter `$upstream:8000/azureiotedge-hub:1.2.0-rc4`.
 
 1. Add the following environment variables to your Edge Hub module:
 
@@ -657,7 +647,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. Under **Edge Agent**, in the image field, enter `$upstream:8000/azureiotedge-agent:1.2.0-rc2`. Select **Save**.
+1. Under **Edge Agent**, in the image field, enter `$upstream:8000/azureiotedge-agent:1.2.0-rc4`. Select **Save**.
 
 1. Add the temperature sensor module. Select **+ Add** and choose **Marketplace Module** from the dropdown. Search for `Simulated Temperature Sensor` and select the module.
 
@@ -704,14 +694,14 @@ In the [Azure portal](https://ms.portal.azure.com/):
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc2",
+                               "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc4",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc2",
+                               "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc4",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
@@ -766,7 +756,7 @@ When you run `iotedge check` from the lower layer, the program tries to pull the
 In this tutorial, we use port 8000, so we need to specify it:
 
 ```bash
-sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2.0-rc2
+sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2.0-rc4
 ```
 
 The `azureiotedge-diagnostics` value is pulled from the container registry that's linked with the registry module. This tutorial has it set by default to https://mcr.microsoft.com:
