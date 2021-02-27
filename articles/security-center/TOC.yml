@@ -23,6 +23,7 @@
     - name: Feature coverage for Azure PaaS resources
       href: features-paas.md
     - name: User roles and permissions for Security Center tasks
+      displayName: RBAC
       href: security-center-permissions.md
     - name: Security Center free vs Azure Defender enabled
       href: security-center-pricing.md
