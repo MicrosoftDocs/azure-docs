@@ -24,7 +24,7 @@ ms.custom: devx-track-js
 > 
 > 
 
-You can use the [Azure CDN SDK for Node.js](https://www.npmjs.com/package/azure-arm-cdn) to automate creation and management of CDN profiles and endpoints.  This tutorial walks through the creation of a simple Node.js console application that demonstrates several of the available operations.  This tutorial is not intended to describe all aspects of the Azure CDN SDK for Node.js in detail.
+You can use the [Azure CDN SDK for JavaScript](https://www.npmjs.com/package/@azure/arm-cdn) to automate creation and management of CDN profiles and endpoints.  This tutorial walks through the creation of a simple Node.js console application that demonstrates several of the available operations.  This tutorial is not intended to describe all aspects of the Azure CDN SDK for JavaScript in detail.
 
 To complete this tutorial, you should already have [Node.js](https://www.nodejs.org) **4.x.x** or higher installed and configured.  You can use any text editor you want to create your Node.js application.  To write this tutorial, I used [Visual Studio Code](https://code.visualstudio.com).  
 
@@ -48,11 +48,11 @@ You will then be presented a series of questions to initialize your project.  Fo
 
 ![NPM init output](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-Our project is now initialized with a *packages.json* file.  Our project is going to use some Azure libraries contained in NPM packages.  We'll use the Azure Client Runtime for Node.js (ms-rest-azure) and the Azure CDN Client Library for Node.js (azure-arm-cd).  Let's add those to the project as dependencies.
+Our project is now initialized with a *packages.json* file.  Our project is going to use some Azure libraries contained in NPM packages.  We'll use the Azure Client Runtime for Node.js (ms-rest-nodeauth) and the Azure CDN Client Library for JavaScript (@azure/arm-cdn).  Let's add those to the project as dependencies.
 
 ```console
-npm install --save ms-rest-azure
-npm install --save azure-arm-cdn
+npm install --save @azure/ms-rest-nodeauth
+npm install --save @azure/arm-cdn
 ```
 
 After the packages are done installing, the *package.json* file should look similar to this example (version numbers may differ):
@@ -69,8 +69,8 @@ After the packages are done installing, the *package.json* file should look simi
   "author": "Cam Soper",
   "license": "MIT",
   "dependencies": {
-    "azure-arm-cdn": "^0.2.1",
-    "ms-rest-azure": "^1.14.4"
+    "@azure/arm-cdn": "^5.2.0",
+    "@azure/ms-rest-nodeauth": "^3.0.0"
   }
 }
 ```
@@ -83,8 +83,8 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 1. Add the "requires" for our NPM packages at the top with the following:
    
     ``` javascript
-    var msRestAzure = require('ms-rest-azure');
-    var cdnManagementClient = require('azure-arm-cdn');
+    var msRestAzure = require('@azure/ms-rest-nodeauth');
+    var cdnManagementClient = require('@azure/arm-cdn');
     ```
 2. We need to define some constants our methods will use.  Add the following.  Be sure to replace the placeholders, including the **&lt;angle brackets&gt;**, with your own values as needed.
    
@@ -361,11 +361,11 @@ Finally, let's delete our profile.
 ![Delete profile](./media/cdn-app-dev-node/cdn-delete-profile.png)
 
 ## Next Steps
-To see the completed project from this walkthrough, [download the sample](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
+To see the completed project from this walkthrough, [download the sample](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-JavaScript-c712bc74).
 
-To see the reference for the Azure CDN SDK for Node.js, view the [reference](https://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
+To see the reference for the Azure CDN SDK for JavaScript, view the [reference](https://azure.github.io/azure-sdk-for-js/@azure/arm-cdn/latest/).
 
-To find additional documentation on the Azure SDK for Node.js, view the [full reference](https://azure.github.io/azure-sdk-for-node/).
+To find additional documentation on the Azure SDK for JavaScript, view the [full reference](https://azure.github.io/azure-sdk-for-js/).
 
 Manage your CDN resources with [PowerShell](cdn-manage-powershell.md).
 
