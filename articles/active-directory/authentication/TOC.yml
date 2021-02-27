@@ -158,6 +158,8 @@
     href: howto-authentication-temporary-access-pass.md
   - name: Use SMS-based authentication
     href: howto-authentication-sms-signin.md
+  - name: Two-way SMS unsupported
+    href: how-to-authentication-two-way-sms-unsupported.md
   - name: Use email address sign-in
     href: howto-authentication-use-email-signin.md
   - name: Azure AD smart lockout
