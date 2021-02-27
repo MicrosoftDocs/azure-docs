@@ -26,7 +26,7 @@ The Lucene parser supports complex query formats, such as field-scoped queries, 
 
 The following queries are based on hotels-sample-index, which you can create by following the instructions in this [quickstart](search-get-started-portal.md).
 
-The examples are articulated using the REST API and POST requests. You can paste and run these examples using [Postman](search-get-started-rest.md) or [Visual Studio Code with the Cognitive Search extension](search-get-started-vs-code.md).
+Example queries are articulated using the REST API and POST requests. You can paste and run them in [Postman](search-get-started-rest.md) or in [Visual Studio Code with the Cognitive Search extension](search-get-started-vs-code.md).
 
 Request headers must have the following values:
 
@@ -56,9 +56,9 @@ Request body should be formed as valid JSON:
 
 + "queryType" set to "full" invokes the full Lucene query parser and it's required for this syntax.
 
-+ "select" set to a comma-delimited list of fields is used to shape the search results, including just those fields that are useful in the context of search results.
++ "select" set to a comma-delimited list of fields is used for search result composition, including just those fields that are useful in the context of search results.
 
-+ "count" set to true returns the number of documents matching the search criteria. On an empty search string, the count will be all documents in the index (50 in the case of hotels-sample-index).
++ "count" returns the number of documents matching the search criteria. On an empty search string, the count will be all documents in the index (50 in the case of hotels-sample-index).
 
 ## Example 1: Fielded search
 
@@ -209,7 +209,7 @@ Response for this query should look similar to the following example:
 
 ## Example 4: Term boosting
 
-Term boosting refers to ranking a document higher if it contains the boosted term, relative to documents that do not contain the term. To boost a term, use the caret, `^`, symbol with a boost factor (a number) at the end of the term you are searching. The boost factor default is 1, and although it must be positive, it can be less than 1 (for example, 0.2).
+Term boosting refers to ranking a document higher if it contains the boosted term, relative to documents that do not contain the term. To boost a term, use the caret, `^`, symbol with a boost factor (a number) at the end of the term you are searching. The boost factor default is 1, and although it must be positive, it can be less than 1 (for example, 0.2). Term boosting differs from scoring profiles in that scoring profiles boost certain fields, rather than specific terms.
 
 In this "before" query, search for "beach access" and notice that there are seven documents that match on one or both terms.
 
@@ -254,8 +254,6 @@ In fact, there is only one document that matches on "access", and because it is 
 In the "after" query, repeat the search, this time boosting results with the term "beach" over the term "access". A human readable version of the query is `search=Description:beach^2 access`. Depending on your client, you might need to express `^2` as `%5E2`.
 
 After boosting the term "beach", the match on Old Carrabelle Hotel moves down to sixth place.
-
-Term boosting differs from scoring profiles in that scoring profiles boost certain fields, rather than specific terms. The following example helps illustrate the differences.
 
 <!-- Consider a scoring profile that boosts matches in a certain field, such as "genre" in a music app. Term boosting could be used to further boost certain search terms higher than others. For example, "rock^2 electronic" will boost documents that contain the search terms in the "genre" field higher than other searchable fields in the index. Furthermore, documents that contain the search term "rock" will be ranked higher than the other search term "electronic" as a result of the term boost value (2). -->
 

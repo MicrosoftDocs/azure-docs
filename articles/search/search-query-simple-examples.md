@@ -20,9 +20,9 @@ In Azure Cognitive Search, the [simple query syntax](query-simple-syntax.md) inv
 
 ## Hotels sample index
 
-The following queries are based on hotels-sample-index, which you can create by following the instructions in this [quickstart](search-get-started-portal.md).
+The following queries are based on the hotels-sample-index, which you can create by following the instructions in this [quickstart](search-get-started-portal.md).
 
-The examples are articulated using the REST API and POST requests. You can paste and run these examples using [Postman](search-get-started-rest.md) or [Visual Studio Code with the Cognitive Search extension](search-get-started-vs-code.md).
+Example queries are articulated using the REST API and POST requests. You can paste and run them in [Postman](search-get-started-rest.md) or in [Visual Studio Code with the Cognitive Search extension](search-get-started-vs-code.md).
 
 Request headers must have the following values:
 
@@ -52,13 +52,13 @@ Request body should be formed as valid JSON:
 
 + "queryType" set to "simple" is the default and can be omitted, but it's included to further reinforce that the query examples in this article are expressed in the simple syntax.
 
-+ "select" set to a comma-delimited list of fields is used to shape the search results, including just those fields that are useful in the context of search results.
++ "select" set to a comma-delimited list of fields is used for search result composition, including just those fields that are useful in the context of search results.
 
-+ "count" set to true returns the number of documents matching the search criteria. On an empty search string, the count will be all documents in the index (50 in the case of hotels-sample-index).
++ "count" returns the number of documents matching the search criteria. On an empty search string, the count will be all documents in the index (50 in the case of hotels-sample-index).
 
 ## Example 1: Full text search
 
-Full text search can be any number of standalone terms, quote-enclosed phrases, or include boolean operators. The "searchMode" parameter controls precision and recall. If you want more recall, use the default "any" value, which returns a result if any part of the query string is matched. If you favor precision, where all parts of the string must be matched, change searchMode to "all". 
+Full text search can be any number of standalone terms or quote-enclosed phrases, with or without boolean operators. 
 
 ```http
 POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
@@ -72,6 +72,8 @@ POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 ```
 
 A keyword search that's composed of important terms or phrases tend to work best. String fields undergo text analysis during indexing and querying, dropping non-essential words like "the", "and", "it".  To see how a query string is tokenized in the index, pass the string in an [Analyze Text](/rest/api/searchservice/test-analyzer) call to the index.
+
+The "searchMode" parameter controls precision and recall. If you want more recall, use the default "any" value, which returns a result if any part of the query string is matched. If you favor precision, where all parts of the string must be matched, change searchMode to "all". Try the above query both ways to see how searchMode changes the outcome.
 
 Response for this query should look similar to the following example, trimmed for brevity.
 
@@ -118,19 +120,19 @@ Response for this query should look similar to the following example, trimmed fo
 
 Notice the search score in the response. This is the relevance score of the match. By default, a search service will return the top 50 matches based on this score.
 
-Uniform scores of "1.0" occur when there is no rank, either because the search was not full text search, or because no criteria was provided. For an empty search (search=`*`), rows come back in arbitrary order. When you include actual criteria, you will see search scores evolve into meaningful values.
+Uniform scores of "1.0" occur when there is no rank, either because the search was not full text search, or because no criteria was provided. For example, in an empty search (search=`*`), rows come back in arbitrary order. When you include actual criteria, you will see search scores evolve into meaningful values.
 
 ## Example 2: Look up by ID
 
-When you return search results in a query, a logical subsequent step is to provide a details page that includes more fields from the document. This example shows you how to return a single document using [Lookup Document](/rest/api/searchservice/lookup-document) to pass in the document ID.
-
-All documents have a unique identifier. If you are using the portal, select the index from **Indexes** and then look at the field definitions to find which field is the key. Using REST, the [Get Index](/rest/api/searchservice/get-index) call returns the definition.
+When you return search results in a query, a logical next step is to provide a details page that includes more fields from the document. This example shows you how to return a single document using [Lookup Document](/rest/api/searchservice/lookup-document) by passing in the document ID.
 
 ```http
 GET /indexes/hotels-sample-index/docs/41?api-version=2020-06-30
 ```
 
-Response for this query consists of the document whose key is 41. Any field that is marked as "retrievable" in the index definition can be returned in search results and rendered in your app.
+All documents have a unique identifier. If you are using the portal, select the index from **Indexes** tab and then look at the field definitions to determine which field is the key. Using REST, the [Get Index](/rest/api/searchservice/get-index) call returns the index definition in the response body.
+
+Response for the above query consists of the document whose key is 41. Any field that is marked as "retrievable" in the index definition can be returned in search results and rendered in your app.
 
 ```json
 {
@@ -262,7 +264,7 @@ Response for the above query matches on 19 hotels that offer free amenities. Not
 
 Range filtering is supported through filters expressions for any data type. The following examples illustrate numeric and string ranges. Data types are important in range filters and work best when numeric data is in numeric fields, and string data in string fields. Numeric data in string fields is not suitable for ranges because numeric strings are not comparable.
 
-The following query is a numeric range. In hotels-sample-index, the only filterable numeric field is rating.
+The following query is a numeric range. In hotels-sample-index, the only filterable numeric field is Rating.
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -343,12 +345,9 @@ Response for this query should look similar to the example below, trimmed for br
     },
 ```
 
-> [!NOTE]
-> Faceting over ranges of values is a common search application requirement. For more information and examples, see [How to build a facet filter](search-filters-facets.md).
-
 ## Example 6: Geo-search
 
-The hotels-sample index includes a geo_location field with latitude and longitude coordinates. This example uses the [geo.distance function](search-query-odata-geo-spatial-functions.md#examples) that filters on documents within the circumference of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (4) to reduce or enlarge the surface area of the query.
+The hotels-sample index includes a geo_location field with latitude and longitude coordinates. This example uses the [geo.distance function](search-query-odata-geo-spatial-functions.md#examples) that filters on documents within the circumference of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (10) to reduce or enlarge the surface area of the query.
 
 ```http
 POST /indexes/v/docs/search?api-version=2020-06-30
@@ -399,11 +398,15 @@ Response for this query returns all hotels within a 10 kilometer distance of the
 
 ## Example 7: Booleans with searchMode
 
-Simple syntax supports boolean operators in the form of characters (`+, -, |`). The "searchMode" parameter informs tradeoffs between precision and recall, with "searchMode=any" favoring recall (matching on any criteria qualifies a document for the result set), and "searchMode=all" favoring precision (all criteria must be matched). 
+Simple syntax supports boolean operators in the form of characters (`+, -, |`) to support AND, OR, and NOT query logic. Boolean search behaves as you might expect, with a few noteworthy exceptions. 
 
-The default is "searchMode=any", which can be confusing if you are stacking a query with multiple operators and getting broader instead of narrower results. This is particularly true with NOT, where results include all documents "not containing" a specific term or phrase.
+In previous examples, the "searchMode" parameter was introduced as a mechanism for influencing precision and recall, with "searchMode=any" favoring recall (matching on any criteria qualifies a document for the result set), and "searchMode=all" favoring precision (all criteria must be matched). 
 
-Using the default searchMode (any), 42 documents are returned: those containing the term "restaurant", plus all documents that do not have the phrase "air conditioning". This request happens to scope search to just the Tags fields, but such scoping is not a requirement. There is no space between the boolean operator (`-`) and the phrase "air conditioning".
+In the context of a Boolean search, the default "searchMode=any" can be confusing if you are stacking a query with multiple operators and getting broader instead of narrower results. This is particularly true with NOT, where results include all documents "not containing" a specific term or phrase.
+
+The following example provides an illustration. Running the following query with searchMode (any), 42 documents are returned: those containing the term "restaurant", plus all documents that do not have the phrase "air conditioning". 
+
+Notice that there is no space between the boolean operator (`-`) and the phrase "air conditioning".
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -447,9 +450,11 @@ Response for this query would now look similar to the following example, trimmed
 
 ## Example 8: Paging results
 
-Several parameters control which fields are in the search results, the number of documents returned in each batch, and sort order. This example introduces paging parameters. By default, a search service returns the top 50 matches.
+In previous examples, you learned about parameters that affect search results composition, including "select" that determines which fields are in a result, sort orders, and how to include a count of all matches. This example is a continuation of search result composition in the form of paging parameters that allow you to batch the number of results that appear in any given page. 
 
-To page results, use "top" to define the size of the results. This example uses a filter and sort order on the Rating field (Rating is both filterable and sortable) because it's easier to see the effects of paging on sorted results. In a regular full search query, the top matches are ranked and paged by "@search.score".
+By default, a search service returns the top 50 matches. To control the number of matches in each page, use "top" to define the size of the batch, and then use "skip" to pick up subsequent batches.
+
+The following example uses a filter and sort order on the Rating field (Rating is both filterable and sortable) because it's easier to see the effects of paging on sorted results. In a regular full search query, the top matches are ranked and paged by "@search.score".
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -480,7 +485,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-The response for the second batch skips the first five matches, returning the next five, starting with "Pull'r Inn Motel".
+The response for the second batch skips the first five matches, returning the next five, starting with "Pull'r Inn Motel". To continue with additional batches, you would keep "top" at 5, and then increment "skip" by 5 on each new request (skip=5, skip=10, skip=15, and so forth).
 
 ```json
 "value": [
@@ -514,7 +519,7 @@ The response for the second batch skips the first five matches, returning the ne
 
 ## Next steps
 
-Now that you have some practice with basic query syntax, try specifying queries in code. The following links explain how to set up search queries using the Azure SDKs.
+Now that you have some practice with the basic query syntax, try specifying queries in code. The following links explain how to set up search queries using the Azure SDKs.
 
 + [Query your index using the .NET SDK](search-get-started-dotnet.md)
 + [Query your index using the Python SDK](search-get-started-python.md)
