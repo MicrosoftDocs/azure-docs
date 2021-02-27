@@ -47,7 +47,7 @@ It is worth mentioning that the collection endpoint pre-aggregates events before
 | Python                       | Not Supported       | Supported                                 | Partially supported via [OpenCensus.stats](opencensus-python.md#metrics) |  
 
 > [!NOTE]
->  The metrics implementation for Python using OpenCensus.stats is different from GetMetric. For details see [here](./opencensus-python.md#metrics).
+>  The metrics implementation for Python using OpenCensus.stats is different from GetMetric. For details see [the Python documentation on metrics](./opencensus-python.md#metrics).
 
 ### Codeless supported pre-aggregated metrics table
 
