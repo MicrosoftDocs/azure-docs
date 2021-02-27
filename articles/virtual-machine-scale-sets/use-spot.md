@@ -74,7 +74,7 @@ Try & restore is disabled in scale sets that use [Autoscale](virtual-machine-sca
 
 ### Register for try & restore
 
-Before you can use the tyr & restore feature, you must register your subscription for the preview. The registration may take several minutes to complete. You can use the Azure CLI or PowerShell to complete the feature registration.
+Before you can use the try & restore feature, you must register your subscription for the preview. The registration may take several minutes to complete. You can use the Azure CLI or PowerShell to complete the feature registration.
 
 
 **Use CLI**
