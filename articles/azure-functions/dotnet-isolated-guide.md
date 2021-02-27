@@ -163,14 +163,17 @@ Use various method of `ILogger` to write various log levels, such as `LogWarning
 
 ## Differences with .NET class library functions
 
-This section described  the functional and behavioral differences running .NET 5.0 out-of-process compared to .NET class library functions running in process:
+This section described the functional and behavioral differences running on .NET 5.0 out-of-process compared to .NET class library functions running in process:
 
 | Feature/behavior |  In-process (.NET Core 3.1) | Out-of-process (.NET 5.0) |
 | ---- | ---- | ---- |
 | .NET versions | LTS (.NET Core 3.1) | Current (.NET 5.0) |
+| Core packages | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
+| Binding extension packages | [`Microsoft.Azure.WebJobs.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | Under [`Microsoft.Azure.Functions.Worker.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | Logging | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0) passed to the function | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0) obtained from `FunctionContext` |
 | Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | Not supported |
 | Output bindings | Out parameters | Return values |
+| Output binding types |  `IAsyncCollector`, [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet), and other client-specific types | Simple types, JSON serializable types, and arrays. |
 | Multiple output bindings | Supported | [Supported](#multiple-output-bindings) |
 | HTTP trigger | [`HttpRequest`](/dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0)/[`ObjectResult`](/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0) | `HttpRequestData`/`HttpResponseData` |
 | Durable Functions | [Supported](durable/durable-functions-overview.md) | Not supported | 
