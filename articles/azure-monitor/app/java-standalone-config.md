@@ -219,6 +219,10 @@ These are the valid `level` values that you can specify in the `applicationinsig
 | TRACE (or FINEST) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
+> [!NOTE]
+> If an exception is passed to the logger, then the log message (and exception)
+> will show up in the Azure Portal under the `exceptions` table instead of the `traces` table.
+
 ## Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
 
 If your application uses [Micrometer](https://micrometer.io),
