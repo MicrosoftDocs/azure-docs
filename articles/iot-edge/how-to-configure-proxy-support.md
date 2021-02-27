@@ -28,7 +28,7 @@ This article walks through the following four steps to configure and then manage
 
    This step is a one-time process to configure the IoT Edge device when you first set it up.
 
-3. [**Configure the IoT Edge agent properties in the config.yaml file on your device**](#configure-the-iot-edge-agent)
+3. [**Configure the IoT Edge agent properties in the config file on your device**](#configure-the-iot-edge-agent)
 
    The IoT Edge daemon starts the edgeAgent module initially. Then, the edgeAgent module retrieves the deployment manifest from IoT Hub and starts all the other modules. For the IoT Edge agent to make the initial connection to IoT Hub, configure the edgeAgent module environment variables manually on the device itself. After the initial connection, you can configure the edgeAgent module remotely.
 
@@ -170,7 +170,7 @@ Restart-Service iotedge
 
 ## Configure the IoT Edge agent
 
-The IoT Edge agent is the first module to start on any IoT Edge device. It's started for the first time based on the information in the IoT Edge config.yaml file. The IoT Edge agent then connects to IoT Hub to retrieve deployment manifests, which declare what other modules should be deployed on the device.
+The IoT Edge agent is the first module to start on any IoT Edge device. It's started for the first time based on the information in the IoT Edge config file. The IoT Edge agent then connects to IoT Hub to retrieve deployment manifests, which declare what other modules should be deployed on the device.
 
 This step takes place once on the IoT Edge device during initial device setup.
 
@@ -247,7 +247,7 @@ This step takes place once on the IoT Edge device during initial device setup.
 
 Once your IoT Edge device is configured to work with your proxy server, you need to continue to declare the HTTPS_PROXY environment variable in future deployment manifests. You can edit deployment manifests either using the Azure portal wizard or by editing a deployment manifest JSON file.
 
-Always configure the two runtime modules, edgeAgent and edgeHub, to communicate through the proxy server so they can maintain a connection with IoT Hub. If you remove the proxy information from the edgeAgent module, the only way to reestablish connection is by editing the config.yaml file on the device, as described in the previous section.
+Always configure the two runtime modules, edgeAgent and edgeHub, to communicate through the proxy server so they can maintain a connection with IoT Hub. If you remove the proxy information from the edgeAgent module, the only way to reestablish connection is by editing the config file on the device, as described in the previous section.
 
 In addition to the edgeAgent and edgeHub modules, other modules may need the proxy configuration. Modules that need to access Azure resources besides IoT Hub, such as blob storage, must have the HTTPS_PROXY variable specified in the deployment manifest file.
 
@@ -261,7 +261,7 @@ To configure the IoT Edge agent and IoT Edge hub modules, select **Runtime Setti
 
 ![Configure advanced Edge Runtime settings](./media/how-to-configure-proxy-support/configure-runtime.png)
 
-Add the **https_proxy** environment variable to both the IoT Edge agent and IoT Edge hub module definitions. If you included the **UpstreamProtocol** environment variable in the config.yaml file on your IoT Edge device, add that to the IoT Edge agent module definition too.
+Add the **https_proxy** environment variable to both the IoT Edge agent and IoT Edge hub module definitions. If you included the **UpstreamProtocol** environment variable in the config file on your IoT Edge device, add that to the IoT Edge agent module definition too.
 
 ![Set https_proxy environment variable](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 

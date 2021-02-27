@@ -218,7 +218,7 @@ Have the following information ready:
 1. Open the configuration file on the IoT Edge device.
 
    ```bash
-   sudo nano /etc/iotedge/config.yaml
+   sudo nano /etc/aziot/config.toml
    ```
 
 1. Find the provisioning configurations section of the file. Uncomment the lines for DPS symmetric key provisioning, and make sure any other provisioning lines are commented out.
@@ -227,8 +227,8 @@ Have the following information ready:
    [provisioning]
    always_reprovision_on_startup = true
    source = "dps"
-   global_endpoint: "https://global.azure-devices-provisioning.net"
-   id_scope: "<SCOPE_ID>"
+   global_endpoint = "https://global.azure-devices-provisioning.net"
+   id_scope = "<SCOPE_ID>"
    
    [provisioning.attestation]
    method = "symmetric_key"

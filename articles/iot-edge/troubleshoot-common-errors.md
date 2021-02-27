@@ -372,7 +372,7 @@ The IoT Edge daemon is active with a valid configuration file, but it cannot sta
 
 **Root cause:**
 
-IoT Edge devices behind a gateway get their module images from the parent IoT Edge device specified in the `parent_hostname` field of the config.yaml file. The `Could not perform HTTP request` error means that the child device isn't able to reach its parent device via HTTP.
+IoT Edge devices behind a gateway get their module images from the parent IoT Edge device specified in the `parent_hostname` field of the config file. The `Could not perform HTTP request` error means that the child device isn't able to reach its parent device via HTTP.
 
 **Resolution:**
 

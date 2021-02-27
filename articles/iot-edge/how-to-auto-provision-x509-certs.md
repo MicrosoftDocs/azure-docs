@@ -296,8 +296,8 @@ Have the following information ready:
    [provisioning]
    always_reprovision_on_startup = true
    source = "dps"
-   global_endpoint: "https://global.azure-devices-provisioning.net"
-   id_scope: "<SCOPE_ID>"
+   global_endpoint = "https://global.azure-devices-provisioning.net"
+   id_scope = "<SCOPE_ID>"
    
    [provisioning.attestation]
    method = "x509"
@@ -308,7 +308,7 @@ Have the following information ready:
 
 1. Update the values of `id_scope`, `identity_cert`, and `identity_pk` with your DPS and device information.
 
-   When you add the X.509 certificate and key information to the config.yaml file, the paths should be provided as file URIs. For example:
+   When you add the X.509 certificate and key information to the config file, the paths should be provided as file URIs. For example:
 
    `file:///<path>/identity_certificate_chain.pem`
    `file:///<path>/identity_key.pem`
@@ -346,7 +346,7 @@ Have the following information ready:
    ```
 
    >[!TIP]
-   >The config.yaml file stores your certificate and key information as file URIs. However, the Initialize-IoTEdge command handles this formatting step for you, so you can provide the absolute path to the certificate and key files on your device.
+   >The config file stores your certificate and key information as file URIs. However, the Initialize-IoTEdge command handles this formatting step for you, so you can provide the absolute path to the certificate and key files on your device.
 
 ## Verify successful installation
 

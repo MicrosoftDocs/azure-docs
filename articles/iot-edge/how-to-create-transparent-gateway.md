@@ -45,11 +45,13 @@ For a device to act as a gateway, it needs to securely connect to its downstream
 :::moniker range="iotedge-2018-06"
 A downstream device can be any application or platform that has an identity created with the [Azure IoT Hub](../iot-hub/index.yml) cloud service. These applications often use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself. However, an IoT Edge device cannot be downstream of an IoT Edge gateway.
 :::moniker-end
+<!-- end 1.1 -->
 
 <!-- 1.2 -->
 :::moniker range="iotedge-2020-11"
 A downstream device can be any application or platform that has an identity created with the [Azure IoT Hub](../iot-hub/index.yml) cloud service. These applications often use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself.
 :::moniker-end
+<!-- end 1.2 -->
 
 You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security](../iot-hub/iot-hub-x509ca-overview.md) in IoT Hub, which involves an X.509 CA certificate associated to a specific IoT hub (the IoT hub root CA), a series of certificates signed with this CA, and a CA for the IoT Edge device.
 
@@ -70,7 +72,7 @@ All IoT Edge gateways need a device CA certificate installed on them. The IoT Ed
 
 ![Gateway certificate setup](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
-The root CA certificate and the device CA certificate (with its private key) need to be present on the IoT Edge gateway device and configured in the IoT Edge config.yaml file. Remember that in this case *root CA certificate* means the topmost certificate authority for this IoT Edge scenario. The gateway device CA certificate and the downstream device certificates need to roll up to the same root CA certificate.
+The root CA certificate and the device CA certificate (with its private key) need to be present on the IoT Edge gateway device and configured in the IoT Edge config file. Remember that in this case *root CA certificate* means the topmost certificate authority for this IoT Edge scenario. The gateway device CA certificate and the downstream device certificates need to roll up to the same root CA certificate.
 
 >[!TIP]
 >The process of installing the root CA certificate and device CA certificate on an IoT Edge device is also explained in more detail in [Manage certificates on an IoT Edge device](how-to-manage-device-certificates.md).
@@ -115,6 +117,7 @@ If you created the certificates on a different machine, copy them over to your I
    * Windows: `Restart-Service iotedge`
    * Linux: `sudo systemctl restart iotedge`
 :::moniker-end
+<!-- end 1.1 -->
 
 <!--1.2 -->
 :::moniker range=">=iotedge-2020-11"
@@ -122,7 +125,7 @@ If you created the certificates on a different machine, copy them over to your I
 1. On your IoT Edge device, open the config file: `/etc/aziot/config.toml`
 
    >[!TIP]
-   >If the config file doesn't already exist ony our device, then use `/etc/aziot/config.toml.edge.template` as a template to create one.
+   >If the config file doesn't exist on your device yet, then use `/etc/aziot/config.toml.edge.template` as a template to create one.
 
 1. Find the `trust_bundle_cert` parameter. Uncomment this line and provide the file URI to the root CA certificate file on your device.
 
@@ -139,6 +142,7 @@ If you created the certificates on a different machine, copy them over to your I
    ```
 
 :::moniker-end
+<!-- end 1.2 -->
 
 ## Deploy edgeHub and route messages
 
