@@ -65,13 +65,56 @@ This new platform-level feature will use AI to automatically try to restore evic
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Try & restore benefits:
-- Enabled by default when deploying an Azure Spot Virtual Machine in a scale set.
 - Attempts to restore Azure Spot Virtual Machines evicted due to capacity.
 - Restored Azure Spot Virtual Machines are expected to run for a longer duration with a lower probability of a capacity triggered eviction.
 - Improves the lifespan of an Azure Spot Virtual Machine, so workloads run for a longer duration.
 - Helps Virtual Machine Scale Sets to maintain the target count for Azure Spot Virtual Machines, similar to maintain target count feature that already exist for Pay-As-You-Go VMs.
 
 Try & restore is disabled in scale sets that use [Autoscale](virtual-machine-scale-sets-autoscale-overview.md). The number of VMs in the scale set is driven by the autoscale rules.
+
+### Register for try & restore
+
+Before you can use the tyr & restore feature, you must register your subscription for the preview. The registration may take several minutes to complete. You can use the Azure CLI or PowerShell to complete the feature registration.
+
+
+**Use CLI**
+
+Use [az feature register](/cli/azure/feature#az-feature-register) to enable the preview for your subscription. 
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+Feature registration can take up to 15 minutes. To check the registration status: 
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider. 
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute 
+```
+**Use PowerShell** 
+
+Use the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet to enable the preview for your subscription. 
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+Feature registration can take up to 15 minutes. To check the registration status: 
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider. 
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute 
+```
 
 ## Placement Groups
 
