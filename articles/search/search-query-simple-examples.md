@@ -71,11 +71,11 @@ POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 }
 ```
 
-A keyword search that's composed of important terms or phrases tend to work best. String fields undergo text analysis during indexing and querying, dropping non-essential words like "the", "and", "it".  To see how a query string is tokenized in the index, pass the string in an [Analyze Text](/rest/api/searchservice/test-analyzer) call to the index.
+A keyword search that's composed of important terms or phrases tend to work best. String fields undergo text analysis during indexing and querying, dropping non-essential words like "the", "and", "it". To see how a query string is tokenized in the index, pass the string in an [Analyze Text](/rest/api/searchservice/test-analyzer) call to the index.
 
 The "searchMode" parameter controls precision and recall. If you want more recall, use the default "any" value, which returns a result if any part of the query string is matched. If you favor precision, where all parts of the string must be matched, change searchMode to "all". Try the above query both ways to see how searchMode changes the outcome.
 
-Response for this query should look similar to the following example, trimmed for brevity.
+Response for the "pool spa +airport" query should look similar to the following example, trimmed for brevity.
 
 ```json
 "@odata.count": 6,
@@ -171,9 +171,9 @@ Response for the above query consists of the document whose key is 41. Any field
     },
 ```
 
-## Example 3: Filter on a string
+## Example 3: Filter on text
 
-[Filter syntax](./search-query-odata-filter.md) is an OData expression that you can use by itself or with "search". Used together, "filter" is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
+[Filter syntax](search-query-odata-filter.md) is an OData expression that you can use by itself or with "search". Used together, "filter" is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
 
 Filters can be defined on any field marked as "filterable" in the index definition. For hotels-sample-index, filterable fields include Category, Tags, ParkingIncluded, Rating, and most Address fields.
 
@@ -214,7 +214,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
   }
 ```
 
-Response for the above query matches on 19 hotels that offer free amenities. Notice that the search score is a uniform "1.0" throughout the results. This is because the search expression is null or empty, resulting in verbatim filter matches, but no full text search. Relevance scores are only returned on full text search.
+Response for the above query matches on 19 hotels that offer free amenities. Notice that the search score is a uniform "1.0" throughout the results. This is because the search expression is null or empty, resulting in verbatim filter matches, but no full text search. Relevance scores are only returned on full text search. If you are using filters without "search", make sure you have sufficient sortable fields so that you can control search rank.
 
 ```json
 "@odata.count": 19,
@@ -400,7 +400,7 @@ Response for this query returns all hotels within a 10 kilometer distance of the
 
 Simple syntax supports boolean operators in the form of characters (`+, -, |`) to support AND, OR, and NOT query logic. Boolean search behaves as you might expect, with a few noteworthy exceptions. 
 
-In previous examples, the "searchMode" parameter was introduced as a mechanism for influencing precision and recall, with "searchMode=any" favoring recall (matching on any criteria qualifies a document for the result set), and "searchMode=all" favoring precision (all criteria must be matched). 
+In previous examples, the "searchMode" parameter was introduced as a mechanism for influencing precision and recall, with "searchMode=any" favoring recall (a document that satisfies any of the criteria is considered a match), and "searchMode=all" favoring precision (all criteria must be matched in a document). 
 
 In the context of a Boolean search, the default "searchMode=any" can be confusing if you are stacking a query with multiple operators and getting broader instead of narrower results. This is particularly true with NOT, where results include all documents "not containing" a specific term or phrase.
 

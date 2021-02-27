@@ -224,7 +224,7 @@ POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 }
 ```
 
-In fact, there is only one document that matches on "access", and because it is unique, that match shows up in the second position even though the document does not also include the term "beach".
+In fact, there is only one document that matches on "access", and because it is the only match, it's placement is high (second position) even though the document is missing the term "beach".
 
 ```json
 "@odata.count": 7,
