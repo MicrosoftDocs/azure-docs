@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc
-description: Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc
+title: Create an Azure Arc enabled PostgreSQL Hyperscale server group
+description: Create an Azure Arc enabled PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -48,19 +48,6 @@ Username: arcadmin
 Password:
 Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
 ```
-
-## Preliminary and temporary step for OpenShift users only
-
-Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL Hyperscale server group. The security context constraint (SCC) **_arc-data-scc_** is the one you added when you deployed the Azure Arc data controller.
-
-```console
-oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
-```
-
-_**Server-group-name** is the name of the server group you will create during the next step._
-   
-For more details on SCCs in OpenShift, please refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
-You may now implement the next step.
 
 ## Create an Azure Arc enabled PostgreSQL Hyperscale server group
 
@@ -154,7 +141,7 @@ Name        State     Workers
 postgres01  Ready     2
 ```
 
-## Get the endpoints to connect to your Azure Database for PostgreSQL server groups
+## Get the endpoints to connect to your Azure Arc enabled PostgreSQL Hyperscale server groups
 
 To view the endpoints for a PostgreSQL server group, run the following command:
 
@@ -234,7 +221,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
 ## Next steps
 
-- Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from all the power of Azure Database for PostgreSQL Hyperscale. :
+- Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from better performances potentially:
     * [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
     * [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)
     * [Choose a distribution column](../../postgresql/concepts-hyperscale-choose-distribution-column.md)
@@ -245,7 +232,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
     > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for PostgreSQL - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled PostgreSQL Hyperscale.
 
-- [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)
+- [Scale out your Azure Arc enabled for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Expanding Persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
