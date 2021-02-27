@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
+ms.date: 02/26/2021
 
 ---
 
@@ -18,7 +18,7 @@ Windows Event logs are one of the most common [data sources](../agents/agent-dat
 ![Windows Events](media/data-sources-windows-events/overview.png)     
 
 ## Configuring Windows Event logs
-Configure Windows Event logs from the [Data menu in Advanced Settings](../agents/agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace.
+Configure Windows Event logs from the [Agents configuration menu](../agents/agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace.
 
 Azure Monitor only collects events from the Windows event logs that are specified in the settings.  You can add an event log by typing in the name of the log and clicking **+**.  For each log, only the events with the selected severities are collected.  Check the severities for the particular log that you want to collect.  You cannot provide any additional criteria to filter events.
 
