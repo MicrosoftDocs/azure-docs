@@ -27,7 +27,7 @@ Custom Domains | per Azure Spring Cloud service instance | 0 | 25
 Persistent volumes | per Azure Spring Cloud service instance | 1 GB/app x 10 apps | 50 GB/app x 10 apps
 
 > [!TIP]
-> Rates listed for Total app instances per service instance apply for apps/deployments in stopped state. Please delete apps/deployments not in use.
+> Limits listed for Total app instances per service instance apply for apps and deployments in any state, including stopped state. Please delete apps or deployments that are not in use.
 
 ## Next steps
 

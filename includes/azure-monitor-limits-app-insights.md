@@ -16,7 +16,7 @@ There are some limits on the number of metrics and events per application, that 
 | --- | --- | --- |
 | Total data per day | 100 GB | You can reduce data by setting a cap. If you need more data, you can increase the limit in the portal, up to 1,000 GB. For capacities greater than 1,000 GB, send email to AIDataCap@microsoft.com.
 | Throttling | 32,000 events/second | The limit is measured over a minute.
-| Data retention | [30-730 days](../articles/azure-monitor/app/pricing.md#change-the-data-retention-period) | This resource is for [Search](../articles/azure-monitor/app/diagnostic-search.md), [Analytics](../articles/azure-monitor/log-query/log-query-overview.md), and [Metrics Explorer](../articles/azure-monitor/platform/metrics-charts.md).
+| Data retention | [30-730 days](../articles/azure-monitor/app/pricing.md#change-the-data-retention-period) | This resource is for [Search](../articles/azure-monitor/app/diagnostic-search.md), [Analytics](../articles/azure-monitor/logs/log-query-overview.md), and [Metrics Explorer](../articles/azure-monitor/essentials/metrics-charts.md).
 | [Availability multi-step test](../articles/azure-monitor/app/availability-multistep.md) detailed results retention | 90 days | This resource provides detailed results of each step.
 | Maximum event size | 64,000 bytes |
 | Property and metric name length | 150 | See [type schemas](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond/).
