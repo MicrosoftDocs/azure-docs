@@ -217,7 +217,7 @@ Upon a sign-out request, Azure AD B2C:
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
 3. Attempts to sign out from federated identity providers:
-   - OpenId Connect - If the identity provider well-known configuration endpoint specifies an `end_session_endpoint` location.
+   - OpenId Connect - If the identity provider well-known configuration endpoint specifies an `end_session_endpoint` location. The sign-out request doesn't pass the `id_token_hint` parameter. If the federated identity provider requires this parameter, the sign-out request will fail.
    - OAuth2 - If the [identity provider metadata](oauth2-technical-profile.md#metadata) contains the `end_session_endpoint` location.
    - SAML - If the [identity provider metadata](saml-identity-provider-technical-profile.md#metadata) contains the `SingleLogoutService` location.
 4. Optionally, signs-out from other applications. For more information, see the [Single sign-out](#single-sign-out) section.
@@ -227,9 +227,6 @@ Upon a sign-out request, Azure AD B2C:
 ::: zone-end
 
 The sign-out clears the user's single sign-on state with Azure AD B2C, but it might not sign the user out of their social identity provider session. If the user selects the same identity provider during a subsequent sign-in, they might reauthenticate without entering their credentials. If a user wants to sign out of the application, it doesn't necessarily mean they want to sign out of their Facebook account. However, if local accounts are used, the user's session ends properly.
-
-> [!NOTE]
-> Currently Azure AD B2C does not support complete federated sign out to the third party OpenId Connect IDP. Azure AD B2C executes federated sign out request to the third party OpenId Connect end session endpoint if `SingleLogoutEnabled` is configured to `true` but relay of the third party Id Token in `id_token_hint` parameter is not currently supported. This might affect that third party OpenId Connect IDP won't sign out user session.
 
 ::: zone pivot="b2c-custom-policy"
 
