@@ -28,6 +28,8 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 ## February 2021
 
 - [Third-party data connectors](#third-party-data-connectors)
+- [UEBA insights in the entity page](#ueba-insights-in-the-entity-page)
+- [Improved incident search](#improved-incident-search)
 
 ### Third-party data connectors
 
@@ -46,7 +48,7 @@ Our collection of third-party integrations continues to grow, with thirty connec
 - [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
 - [ESET Enterprise Inspector](connect-data-sources.md)
 - [ESET Security Management Center](connect-data-sources.md)
-- [Google Workspace GSuite](connect-data-sources.md)
+- [Google Workspace (formerly G Suite)](connect-data-sources.md)
 - [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
 - [Juniper SRX](connect-juniper-srx.md)
 - [Netskope](connect-data-sources.md)
@@ -223,15 +225,14 @@ Azure Sentinel uses the Log Analytics agent to sent events to your workspace, in
 For more information, see the [Log Analytics documentation](../azure-monitor/agents/log-analytics-agent.md) and the [Log Analytics agent release notes](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
 ## November 2020
 
-- [Monitor your Logic Apps Playbooks in Azure Sentinel](#monitor-your-logic-apps-playbooks-in-azure-sentinel)
+- [Monitor your Playbooks' health in Azure Sentinel](#monitor-your-playbooks-health-in-azure-sentinel)
 - [Microsoft 365 Defender connector (Public preview)](#microsoft-365-defender-connector-public-preview)
-### Monitor your Logic Apps Playbooks in Azure Sentinel
 
-Azure Sentinel now integrates with [Azure Log Apps](../logic-apps/index.yml), a cloud service that helps you schedule, automate, and orchestrate tasks, business processes, and workflows.
+### Monitor your Playbooks' health in Azure Sentinel
 
-Use an Azure Logic App in Azure Sentinel as a playbook, which can be automatically invoked when an incident is created, or when triaging and working with incidents. 
+Azure Sentinel playbooks are based on workflows built in [Azure Log Apps](../logic-apps/index.yml), a cloud service that helps you schedule, automate, and orchestrate tasks, business processes, and workflows. Playbooks can be automatically invoked when an incident is created, or when triaging and working with incidents. 
 
-To provide insights into the health, performance, and usage of your playbooks, including any that you add with Azure Logic Apps, we've added an [Azure Workbook](../azure-monitor/visualize/workbooks-overview.md) named **Playbooks health monitoring**. 
+To provide insights into the health, performance, and usage of your playbooks, we've added a [workbook](../azure-monitor/visualize/workbooks-overview.md) named **Playbooks health monitoring**. 
 
 Use the **Playbooks health monitoring** workbook to monitor the health of your playbooks, or look for anomalies in the amount of succeeded or failed runs. 
 
