@@ -62,34 +62,44 @@ This article shows how to create your logic app and a workflow in Visual Studio 
 
 #### Windows
 
-To design and run your logic app locally in Visual Studio Code, follow these steps to set up the Azure Storage Emulator.
+To locally build and run your logic app project in Visual Studio Code when using Windows, follow these steps to set up the Azure Storage Emulator:
 
 1. Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179).
 
-1. To run the emulator, you need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
+1. If you don't have one already, you need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658), so that the emulator can run.
 
-1. Before you open the designer for your logic app, start the emulator.
+   For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
+
+1. Before you can run your project, make sure that you start the emulator.
 
    ![Screenshot that shows the Azure Storage Emulator running.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
-#### macOS or Linux
+#### macOS and Linux
 
-To design and run your logic app locally in Visual Studio Code, follow these steps to create and set up an Azure Storage account.
+To locally build and run your logic app project in Visual Studio Code when using macOS or Linux, follow these steps to create and set up an Azure Storage account.
 
 > [!NOTE]
-> Currently, the designer in Visual Studio Code doesn't work on Linux OS, but you can still run and deploy logic apps 
-> that use the Logic Apps Preview runtime to Linux-based virtual machines. For now, you can build your logic apps in 
-> Visual Studio Code on Windows or macOS and then deploy to a Linux-based virtual machine.
+> Currently, the designer in Visual Studio Code doesn't work on Linux OS, but you can still run build, run, and deploy 
+> logic apps that use the Logic Apps Preview runtime to Linux-based virtual machines. For now, you can build your logic 
+> apps in Visual Studio Code on Windows or macOS and then deploy to a Linux-based virtual machine.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and [create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal), which is a [prerequisite for Azure Functions](../azure-functions/storage-considerations.md).
 
-1. [Find and copy the storage account's connection string](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys), for example:
+1. On the storage account menu, under **Settings**, select **Access keys**.
+
+1. On the **Access keys** pane, find and copy the storage account's connection string, which looks similar to this example:
 
    `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey=<access-key>;EndpointSuffix=core.windows.net`
 
    ![Screenshot that shows the Azure portal with storage account access keys and connection string copied.](./media/create-stateful-stateless-workflows-visual-studio-code/find-storage-account-connection-string.png)
 
-1. Save the string somewhere safe. After you create the project for your logic app in Visual Studio Code, you have to add the string to the **local.settings.json** file in your project's root level folder.
+   For more information, review [Manage storage account keys](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys).
+
+1. Save the connection string somewhere safe. After you create your logic app project in Visual Studio Code, you have to add the string to the **local.settings.json** file in your project's root level folder.
+
+   > [!IMPORTANT]
+   > If you plan to deploy to a Docker container, you also need to add 
+   > this connection string to the Docker file that you use for deployment.
 
 ### Tools
 
@@ -121,7 +131,7 @@ To design and run your logic app locally in Visual Studio Code, follow these ste
     > If you created logic app projects with the earlier public preview extension, you can continue using those projects 
     > without any migration steps.
 
-    To install the **Azure Logic Apps (Preview)** extension, follow these steps:
+    **To install the **Azure Logic Apps (Preview)** extension, follow these steps:**
 
     1. In Visual Studio Code, on the left toolbar, select **Extensions**.
 
@@ -185,7 +195,7 @@ Any logic app projects that you created with the **Azure Logic Apps (Private Pre
 
    1. Confirm that **Auto Check Updates** and **Auto Update** are selected.
 
-By default, the following settings are enabled and set for the Logic Apps preview extension:
+Also, by default, the following settings are enabled and set for the Logic Apps preview extension:
 
 * **Azure Logic Apps V2: Project Runtime**, which is set to version **~3**
 
@@ -194,7 +204,7 @@ By default, the following settings are enabled and set for the Logic Apps previe
 
 * **Azure Logic Apps V2: Experimental View Manager**, which enables the latest designer in Visual Studio Code. If you experience problems on the designer, such as dragging and dropping items, turn off this setting.
 
-To find these settings, follow these steps:
+To find and confirm these settings, follow these steps:
 
 1. On the **File** menu, go to **Preferences** **>** **Settings**.
 
@@ -356,8 +366,8 @@ Before you can create your logic app, create a local project so that you can man
    After you perform this step, Visual Studio Code opens the workflow designer.
 
    > [!NOTE]
-   > When Visual Studio Code starts the workflow design-time API, a message appears that 
-   > startup might take a few seconds. You can ignore this message or select **OK**.
+   > When Visual Studio Code starts the workflow design-time API, you might get a message 
+   > that startup might take a few seconds. You can ignore this message or select **OK**.
    >
    > If the designer won't open, review the troubleshooting section, [Designer fails to open](#designer-fails-to-open).
 
@@ -587,7 +597,8 @@ To test your logic app, follow these steps to start a debugging session, and fin
    The **Terminal** window opens so that you can review the debugging session.
 
    > [!NOTE]
-   > If you get the error, see the troubleshooting section, [Debugging session fails to start](#debugging-fails-to-start).
+   > If you get the error, **"Error exists after running preLaunchTask 'generateDebugSymbols'"**, 
+   > see the troubleshooting section, [Debugging session fails to start](#debugging-fails-to-start).
 
 1. Now, find the callback URL for the endpoint on the Request trigger.
 
@@ -1152,58 +1163,70 @@ If you're not familiar with Docker, review these topics:
 
 * The Azure Storage account that your logic app uses for deployment
 
-* A Docker file for a .NET workflow that you use when building your Docker container
+* A Docker file for the workflow that you use when building your Docker container
 
-   For example, this sample Docker file deploys a logic app with a stateful workflow. The file specifies the connection string and access key for the Azure Storage account that was used for publishing the logic app to the Azure portal.
+  For example, this sample Docker file deploys a logic app. The specifies the connection string that contains the access key for the Azure Storage account that was used for publishing the logic app to the Azure portal. To find this string, see [Get storage account connection string](#find-storage-account-connection-string).
 
    ```text
-   FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS installer-env
+   FROM mcr.microsoft.com/azure-functions/node:3.0
 
-   COPY . /src/dotnet-function-app
-   RUN cd /src/dotnet-function-app && \
-       mkdir -p /home/site/wwwroot && \
-       dotnet publish *.csproj --output /home/site/wwwroot
-
-   FROM mcr.microsoft.com/azure-functions/dotnet:3.0
    ENV AzureWebJobsStorage <storage-account-connection-string>
    ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
        AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
        FUNCTIONS_V2_COMPATIBILITY_MODE=true
 
-   COPY --from=installer-env ["/home/site/wwwroot", "/home/site/wwwroot"]
+   COPY . /home/site/wwwroot
+
+   RUN cd /home/site/wwwroot
    ```
 
    For more information, see [Best practices for writing Docker files](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
-### Build and publish your app
+<a name="find-storage-account-connection-string"></a>
 
-1. To build your logic app's project locally, open a command-line prompt and run this command:
+### Get storage account connection string
 
-   `dotnet build -c release`
+Before you can build and run your Docker container image, you need to get the connection string that contains the access key to your storage account. Earlier, you created this storage account either as to use the extension on macOS or Linux, or when you deployed your logic app to the Azure portal.
 
-   For more information, see the [dotnet build](/dotnet/core/tools/dotnet-build/) reference page.
-
-1. Publish your project's build to a folder to use for deployment to the hosting environment by running this command:
-
-   `dotnet publish -c release`
-
-   For more information, see the [dotnet publish](/dotnet/core/tools/dotnet-publish/) reference page.
-
-### Access to your storage account
-
-Before you build and run your Docker container, you need to get the connection string that contains the access keys to your storage account.
+To find and copy this connection string, follow these steps:
 
 1. In the Azure portal, on the storage account menu, under **Settings**, select **Access keys**. 
 
+1. On the **Access keys** pane, find and copy the storage account's connection string, which looks similar to this example:
+
+   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey=<access-key>;EndpointSuffix=core.windows.net`
+
    ![Screenshot that shows the Azure portal with storage account access keys and connection string copied.](./media/create-stateful-stateless-workflows-visual-studio-code/find-storage-account-connection-string.png)
-
-1. Under **Connection string**, copy your storage account's connection string. The connection string looks similar to this sample:
-
-   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey={access-key};EndpointSuffix=core.windows.net`
 
    For more information, review [Manage storage account keys](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys).
 
-1. Save the connection string somewhere safe. In your logic app project, you have to add this string to the **local.settings.json** file in your project's root folder. You also need to add this string to your Docker file.
+1. Save the connection string somewhere safe so that you can add this string to the Docker file that you use for deployment. 
+
+<a name="find-storage-account-master-key"></a>
+
+### Find master key for storage account
+
+When your workflow contains a Request trigger, you need to [get the trigger's callback URL](#get-callback-url-request-trigger) after you build and run your Docker container image. For this task, you also need to specify the master key value for the storage account that you use for deployment.
+
+1. To find this master key, in your project, open the **azure-webjobs-secrets/{deployment-name}/host.json** file.
+
+1. Find the `AzureWebJobsStorage` property, and copy the key value from this section:
+
+   ```json
+   {
+      <...>
+      "masterKey": {
+         "name": "master",
+         "value": "<master-key>",
+         "encrypted": false
+      },
+      <...>
+   }
+   ```
+
+1. Save this key value somewhere safe for later use.
+
+<a name="build-run-docker-container-image"></a>
 
 ### Build and run your Docker container image
 
@@ -1213,33 +1236,21 @@ Before you build and run your Docker container, you need to get the connection s
 
    For more information, see [docker build](https://docs.docker.com/engine/reference/commandline/build/).
 
-1. Save the string somewhere safe so that you can later add the string to the **local.settings.json** file in your project's root folder.
-
 1. Run the container locally by using this command:
 
    `docker run -e WEBSITE_HOSTNAME=localhost -p 8080:80 local/workflowcontainer`
 
    For more information, see [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
+<a name="get-callback-url-request-trigger"></a>
+
 ### Get callback URL for Request trigger
 
-To get the callback URL for the Request trigger, send this request:
+For a workflow that uses the Request trigger, get the trigger's callback URL by sending this request:
 
 `POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2020-05-01-preview&code={master-key}`
 
-The <*master-key*> value is defined in the Azure Storage account that you set for `AzureWebJobsStorage` in the file, **azure-webjobs-secrets/{deployment-name}/host.json**, where you can find the value in this section:
-
-```json
-{
-   <...>
-   "masterKey": {
-      "name": "master",
-      "value": "<master-key>",
-      "encrypted": false
-   },
-   <...>
-}
-```
+The `{trigger-name}` value is the name for the Request trigger that appears in the workflow's JSON definition. The `{master-key}` value is defined in the Azure Storage account that you set for the `AzureWebJobsStorage` property within the file, **azure-webjobs-secrets/{deployment-name}/host.json**. For more information, see [Find storage account master key](#find-storage-account-master-key).
 
 <a name="delete-from-designer"></a>
 
