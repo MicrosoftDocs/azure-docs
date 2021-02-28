@@ -26,6 +26,8 @@ To complete this configuration, verify that you meet the following prerequisites
 
 * You have a functioning ExpressRoute circuit that is linked to the VNet where the VPN gateway is (or will be) created.
 
+  * Have an ER gateway in addition to the VPN gateway - using the same `GatewaySubnet` subnet.
+
 * You can reach resources over RFC1918 (private) IP in the VNet over the ExpressRoute circuit.
 
 ## <a name="routing"></a>Routing
@@ -39,6 +41,8 @@ Figure 1
 Establishing connectivity is straightforward:
 
 1. Establish ExpressRoute connectivity with an ExpressRoute circuit and private peering.
+
+1. Establish ExpressRoute connection to your VNet.
 
 1. Establish the VPN connectivity using the steps in this article.
 
