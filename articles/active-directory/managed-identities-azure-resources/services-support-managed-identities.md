@@ -236,7 +236,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 | User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 
-For more information, see [how identity works Azure Monitor](../../azure-monitor/logs/customer-managed-keys.md)
+For more information, see [how identity works in Azure Monitor](../../azure-monitor/logs/customer-managed-keys.md)
 
 ### Azure Logic Apps
 
