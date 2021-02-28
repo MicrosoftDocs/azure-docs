@@ -117,7 +117,7 @@ You can assess the security of managed identities in the following ways:
 
 If you are using a  service principal or an Azure AD user account, evaluate if you can instead use a managed to eliminate the need to protect, rotate, and manage credentials. 
 
-## Next Steps
+## Next steps
 
 **For information on creating managed identities, see:** 
 

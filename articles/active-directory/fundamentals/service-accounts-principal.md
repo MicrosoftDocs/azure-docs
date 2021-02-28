@@ -101,7 +101,7 @@ Mitigate potential challenges using the following information.
 Can't manage service principals' sign-in with Conditional Access.| Monitor the sign-ins using the Azure AD sign-in logs
 | The default Azure RBAC role is Contributor​. |Evaluate the needs and apply the role with the least possible permissions to meet that need.|
 
-## Move from a user account to a Service Principal​  
+## Move from a user account to a service principal​  
 ‎If you are using an Azure user account as a service principal, evaluate if you can move to a [Managed Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) or a service principal. If you cannot use a managed identity, provision a service principal that has just enough permissions and scope to run the required tasks. You can create a service principal by [registering an application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal), or with [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell).
 
 When using Microsoft Graph, check the documentation of the specific API, [like in this example](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-5.0.0), ‎and make sure the permission type for application is showing as supported.
