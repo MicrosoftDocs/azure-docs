@@ -93,7 +93,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    + Concise fields, such as HotelName or a title, should precede verbose fields like Description.
 
-   + If your index has a URL field that is textual (human readable such as www.domain.com/name-of-the-document-and-other-details and not machine focused such as www.domain.com/?id=23463&param=eis), put it second in the list (put it first if there is no concise title field).
+   + If your index has a URL field that is textual (human readable such as `www.domain.com/name-of-the-document-and-other-details` and not machine focused such as `www.domain.com/?id=23463&param=eis`), put it second in the list (put it first if there is no concise title field).
 
    + If there is only one field specified, then it will be considered as a descriptive field for semantic ranking of documents.  
 
