@@ -69,7 +69,7 @@ The following table presents mitigations to challenges you may encounter when us
 | Challenges​| Mitigations​ |
 | - | - |
 | Access reviews for service principals​ assigned to privileged roles.| This functionality is in preview, and not yet widely available. |
-| Reviews service principals’ access| Manual check of resource’s access control list using the Azure Portal. |
+| Reviews service principals’ access| Manual check of resource’s access control list using the Azure portal. |
 | Over permissioned service principals| When you create automation service accounts or or service principals, provide only the permissions that are required for the task. Evaluate existing service principals to see if you can reduce privileges. |
 |Identify modifications to service principals' credentials or authentication methods |Use the Sensitive Operations Report workbook, which can help mitigate this issue. [See the explanation in this blog post](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718).|
 
