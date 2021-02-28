@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/03/2021
+ms.date: 02/28/2021
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Auditing for Azure SQL Database and Azure Synapse Analytics
@@ -41,6 +41,8 @@ You can use SQL Database auditing to:
 - **Premium storage** is currently **not supported**.
 - **Hierarchical namespace** for **Azure Data Lake Storage Gen2 storage account** is currently **not supported**.
 - Enabling auditing on a paused **Azure Synapse** is not supported. To enable auditing, resume Azure Synapse.
+- Auditing for **Azure Synapse SQL pools** supports default audit action groups **only**.
+
 
 #### <a id="server-vs-database-level"></a>Define server-level vs. database-level auditing policy
 
