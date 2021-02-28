@@ -56,10 +56,10 @@ You can use the environment you create in this tutorial for testing or for getti
 5. Run the Azure AD Connect provisioning agent.
 6. On the splash screen, **Accept** the licensing terms and click **Install**.
 
-   ![Screenshot that shows the "Microsoft Azure A D Connect Provisioning Agent Package" splash screen.](media/how-to-install/install-1.png)
+   ![Screenshot that shows the "Microsoft Azure AD Connect Provisioning Agent Package" splash screen.](media/how-to-install/install-1.png)
 
 7. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  Note that if you have IE enhanced security enabled this will block the sign-in.  If this is the case, close the installation, disable IE enhanced security in Server Manager, and click the **AAD Connect Provisioning Agent Wizard** to restart the installation.
-8. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account should not have password change requirements. In case the password expires or changes, you will need to re-configure the agent with the new credentials. This operation will add your on-premises directory.  Click **Next**.
+8. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account should not have password change requirements. If the password expires or changes, you will need to re-configure the agent with the new credentials. This operation will add your on-premises directory.  Click **Next**.
 
    ![Screenshot of the "Connect Active Directory" screen.](media/how-to-install/install-3a.png)
 
@@ -112,21 +112,21 @@ To verify that the agent is running follow these steps:
 ![Screenshot of Azure AD Connect cloud sync screen showing Healthy status.](media/how-to-configure/manage-4.png)
 
 ## Verify users are created and synchronization is occurring
-You will now verify that the users that you had in our on-premises directory have been synchronized and now exist in our Azure AD tenant.  Be aware that this may take a few hours to complete.  To verify users are synchronized do the following.
+You will now verify that the users that you had in your on-premises directory have been synchronized and now exist in your Azure AD tenant.  Be aware that this may take a few hours to complete.  To verify users are synchronized do the following.
 
 
 1. Browse to the [Azure portal](https://portal.azure.com) and sign in with an account that has an Azure subscription.
 2. On the left, select **Azure Active Directory**
 3. Under **Manage**, select **Users**.
-4. Verify that you see the new users in our tenant</br>
+4. Verify that you see the new users in your tenant</br>
 
-## Test signing in with one of our users
+## Test signing in with one of your users
 
 1. Browse to [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. Sign in with a user account that was created in our new tenant.  You will need to sign in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign in on-premises.</br>
+2. Sign in with a user account that was created in your tenant.  You will need to sign in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign in on-premises.</br>
    ![Verify](media/tutorial-single-forest/verify-1.png)</br>
 
-You have now successfully setup a hybrid identity environment that you can use to test and familiarize yourself with what Azure has to offer.
+You have now successfully configured a hybrid identity environment using Azure AD Connect cloud sync.
 
 
 ## Next steps 
