@@ -60,7 +60,7 @@ There are two mechanisms for authentication using service principals—client ce
 * passwords 
 
 For more information on Azure Key Vault and how to use it for certificate and secret management, see 
-[About Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) and [Assign a Key Vault access policy using the Azure portal](https://docs.microsoft.com/en-us/azure/key-vault/general/assign-access-policy-portal). 
+[About Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) and [Assign a Key Vault access policy using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal). 
 
  ### Challenges and mitigations
 The following table presents mitigations to challenges you may encounter when using service principals.
@@ -88,9 +88,9 @@ Using PowerShell
 
 For more information see [Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0)
 
-## Assess service principle security
+## Assess service principal security
 
-To assess the security of your service principles, ensure you evaluate privileges and credential storage.
+To assess the security of your service principals, ensure you evaluate privileges and credential storage.
 
 Mitigate potential challenges using the following information.
 |Challenges | Mitigations|

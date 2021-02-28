@@ -17,11 +17,11 @@ ms.collection: M365-identity-device-management
 
 # Introduction to securing Azure service accounts
 
-There are three types of service accounts native to Azure Active Directory: Managed identities, service principles, and user-based service accounts. Service accounts are a special type of account that is intended to represent a non-human entity such as an application, API, or other service. These entities operate within the security context provided by the service account. 
+There are three types of service accounts native to Azure Active Directory: Managed identities, service principals, and user-based service accounts. Service accounts are a special type of account that is intended to represent a non-human entity such as an application, API, or other service. These entities operate within the security context provided by the service account. 
 
-## Types of Azure Active Directory Service Accounts
+## Types of Azure Active Directory service accounts
 
-For services hosted in Azure, we recommend using a managed identity if possible, and a service principle if not. Managed identities can’t be used for services hosted outside of Azure. In that case, we recommend a service principle. If you can use a managed identity or a service principle, do so. We recommend that you not use an Azure Active Directory user account as a service principle. See the following table for a summary.
+For services hosted in Azure, we recommend using a managed identity if possible, and a service principal if not. Managed identities can’t be used for services hosted outside of Azure. In that case, we recommend a service principal. If you can use a managed identity or a service principal, do so. We recommend that you not use an Azure Active Directory user account as a service principal. See the following table for a summary.
  
 
 | Service hosting| Managed identity| Service principal| Azure user account |
@@ -31,9 +31,9 @@ For services hosted in Azure, we recommend using a managed identity if possible,
 | Service is multi-tenant| No| Yes. Recommended.| No. |
 
 
-## Managed Identities
+## Managed identities
 
-Managed identities are secure Azure Active Directory (Azure AD) identities created to provide identities for Azure resources. There are [two types of managed identities](https://microsoft-my.sharepoint-df.com/personal/baselden_microsoft_com/managed-identities-azure-resources/overview): 
+Managed identities are secure Azure Active Directory (Azure AD) identities created to provide identities for Azure resources. There are [two types of managed identities](../managed-identities-azure-resources/overview#managed-identity-types): 
  
 * System-assigned managed identities can be assigned directly to an instance of a service. 
 
@@ -41,7 +41,7 @@ Managed identities are secure Azure Active Directory (Azure AD) identities creat
 
 For more information, see [Securing managed identities](service-accounts-managed-identities.md). For general information about managed identities, see [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-## Service Principles
+## Service principals
 
 If you can't use a managed identity to represent your application, use a service principal. Service principals can be used with both single tenant and multi-tenant applications. 
 
@@ -59,7 +59,7 @@ For more information on securing Azure service accounts, see:
 
 [Securing managed identities](service-accounts-managed-identities.md)
 
-[Securing service principles](service-accounts-principal.md)
+[Securing service principals](service-accounts-principal.md)
 
 [Governing Azure service accounts](service-accounts-governing-azure.md)
 

@@ -45,11 +45,11 @@ Azure has a control plane and a data plane. In the control plane, you create res
 
 Once the target system accepts the token for authentication, it can support different mechanisms for authorization for its control plane and data plane.
 
-All of Azure’s control plane operations are managed by [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview) and use [Azure Role Based Access Control](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview). In the data plane,, each target system has its own authorization mechanism. Azure Storage supports Azure RBAC on the data plane. For example, applications using Azure App Services can read data from Azure Storage, and applications using Azure Kubernetes Service can read secrets stored in Azure Key Vault.
+All of Azure’s control plane operations are managed by [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) and use [Azure Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview). In the data plane,, each target system has its own authorization mechanism. Azure Storage supports Azure RBAC on the data plane. For example, applications using Azure App Services can read data from Azure Storage, and applications using Azure Kubernetes Service can read secrets stored in Azure Key Vault.
 
-For more information about control and data planes, see [Control plane and data plane operations - Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane).
+For more information about control and data planes, see [Control plane and data plane operations - Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane).
 
-All Azure services will eventually support managed identities. For more information, see [Services that support managed identities for Azure resources](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
+All Azure services will eventually support managed identities. For more information, see [Services that support managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
 
 ##  
 
@@ -95,7 +95,7 @@ You can get a list of all managed identities in your tenant with the following G
 
 `https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity') `
 
-You can filter these requests. For more information, see the Graph documentation for [GET servicePrincipal](https://docs.microsoft.com/en-us/graph/api/serviceprincipal-get?view=graph-rest-1.0&tabs=http).
+You can filter these requests. For more information, see the Graph documentation for [GET servicePrincipal](https://docs.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0&tabs=http).
 
 ## Assess the security of managed identities 
 
@@ -121,11 +121,11 @@ If you are using a  service principal or an Azure AD user account, evaluate if y
 
 **For information on creating managed identities, see:** 
 
-[Create a user assigned managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal). 
+[Create a user assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal). 
 
-[Enable a system assigned managed identity during resource creation](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Enable a system assigned managed identity during resource creation](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
 
-[Enable system assigned managed identity on an existing resource](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Enable system assigned managed identity on an existing resource](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
 
 **For more information on service accounts see:**
 

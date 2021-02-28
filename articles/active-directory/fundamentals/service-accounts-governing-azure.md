@@ -58,10 +58,10 @@ We recommend the following practices for service account privileges.
    or use  
 ‎   `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
 
-* [Use OAuth 2.0 scopes](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent) to limit the functionality a service account can access on a resource.
+* [Use OAuth 2.0 scopes](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) to limit the functionality a service account can access on a resource.
 * Service principals and managed identities can use OAuth 2.0 scopes in either a delegated context that is impersonating a signed-on user, or as service account in the application context. In the application context no is signed-on.
 
-* Check the scopes service accounts request for resources to ensure they're appropriate. For example, if an account is requesting Files.ReadWrite.All, evaluate if it actually needs only File.Read.All. For more information on permissions, see to [Microsoft Graph permission reference](https://docs.microsoft.com/en-us/graph/permissions-reference).
+* Check the scopes service accounts request for resources to ensure they're appropriate. For example, if an account is requesting Files.ReadWrite.All, evaluate if it actually needs only File.Read.All. For more information on permissions, see to [Microsoft Graph permission reference](https://docs.microsoft.com/graph/permissions-reference).
 
 * Ensure you trust the developer of the application or API with the access requested to your resources.
 
@@ -73,9 +73,9 @@ We recommend the following practices for service account privileges.
 
 Once you have a clear understanding of the purpose, scope, and necessary permissions, create your service account. 
 
-[Create and use managed identities](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet)
+[Create and use managed identities](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
 
-[Create and use service principals](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal)
+[Create and use service principals](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
 
 Use a managed identity when possible. If you cannot use a managed identity, use a service principal. If you cannot use a service principal, then and only then use an Azure AD user account.
 
@@ -95,7 +95,7 @@ Proactively monitor your service accounts to ensure the service account’s usag
 
 * Using the Azure AD Sign-In Logs in the Azure AD Portal.
 
-* Exporting the Azure AD Sign-In Logs to [Azure Storage](https://docs.microsoft.com/azure/storage/), [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), or [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs).
+* Exporting the Azure AD Sign-In Logs to [Azure Storage](https://docs.microsoft.com/azure/storage/), [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), or [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/logs/data-platform-logs).
 
 
 ![Screen shot showing service principal sign-in screen.](./media/securing-service-accounts/service-accounts-govern-azure-1.png)
@@ -112,7 +112,7 @@ We recommend you export Azure AD sign-In logs and import them into your existing
 
 Regularly review the permissions granted and scopes accessed by service accounts to see if they can be reduced eliminated.
 
-* Use [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant?view=azureadps-2.0) to [build automation for checking and documenting](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) scopes to which consent is granted to a service account.
+* Use [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant?view=azureadps-2.0) to [build automation for checking and documenting](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) scopes to which consent is granted to a service account.
 
 * Use PowerShell to [review existing service principals' credentials](https://github.com/AzureAD/AzureADAssessment) and check their validity.
 

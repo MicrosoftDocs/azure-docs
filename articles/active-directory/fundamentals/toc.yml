@@ -56,7 +56,7 @@
       - name: Securing managed identities
         href: service-accounts-managed-identities.md
       - name: Securing service principals
-        href: service-accounts-principals.md
+        href: service-accounts-principal.md
       - name: Governing Azure service accounts
         href: service-accounts-governing-azure.md       
       - name: Introduction to on-premises service accounts
