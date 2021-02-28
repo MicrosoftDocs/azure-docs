@@ -22,8 +22,13 @@ ms.author: bagol
 
 This article describes how you can use Azure Sentinel to audit the activities in your Security Operations (SOC) environment, such as for both internal and external compliance requirements.
 
+Azure Sentinel provides access to:
+
+- The **LAQueryLogs** table, which provides details about the queries run in Log Analytics, including those run from Azure Sentinel.
+- The **AzureActivity** table, which provides details about all actions taken in Azure Sentinel, such as editing alert rules. These actions do not include specific query data.
+
 > [!TIP]
-> In addition to the manual queries described in this article, Azure Sentinel provides a built-in workbook to help you audit the activities in your SOC environment. 
+> In addition to the manual queries described in this article, Azure Sentinel provides a built-in workbook to help you audit the activities in your SOC environment.
 >
 > In the Azure Sentinel **Workbooks** area, search for the **Workspace audit** workbook.
 
@@ -39,6 +44,11 @@ LAQueryLogs data includes information such as:
 - What tool was used to run queries in Log Analytics, such as Azure Sentinel
 - The query texts themselves
 - Performance data on each query run
+
+> [!NOTE]
+> The **LAQueryLogs** table only includes data for queries run explicitly by users.
+>
+> It does not include information about queries run by working interactively with Azure Sentinel, or with scheduled analytics rules.
 
 **To query the LAQueryLogs table**:
 
