@@ -230,6 +230,8 @@
     href: create-incidents-from-alerts.md
   - name: Manage your SOC better with incident metrics
     href: manage-soc-with-incident-metrics.md
+  - name: View Azure Sentinel auditing data
+    href: view-audit-data.md
   - name: Hunting
     href: hunting.md
     items:
