@@ -83,12 +83,12 @@ You can disable the Microsoft Store app to make sure users don't download extra 
 
 To disable the Store app:
 
-1. Create a new Group Policy.
-2. Select **Computer Configuration** > **Administrative Templates** > **Windows Components**.
-3. Select **Store**.
-4. Select **Store Application**.
-5. Select **Disabled**, then select **OK**.
-6. Select **Apply**.
+1. Create and edit a new Group Policy Object.
+2. Select **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Store**.
+3. Open the **Turn off the Store Application** setting.
+4. Select the **Enabled** option.
+5. Click the **Apply** button.
+6. Click the **OK** button.
 
 ## Next steps
 
