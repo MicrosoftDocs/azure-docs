@@ -229,6 +229,14 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 For more information, see [Use managed identities in Azure Kubernetes Service](../../aks/use-managed-identity.md).
 
+### Azure Log Analytics cluster
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+| User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+
+For more information, see [how identity works Azure Monitor](../../azure-monitor/logs/customer-managed-keys.md)
 
 ### Azure Logic Apps
 
