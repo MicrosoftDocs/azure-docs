@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Browser support of FIDO2 passwordless authentication
 
-Azure Active Directory allows [FIDO2 security keys](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) to be used as a passwordless device. The availability of FIDO2 authentication for Microsoft accounts was [announced in 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910). As discussed in the announcement, certain optional features and extensions to the FIDO2 CTAP specification must be implemented to support secure authentication with Microsoft and Azure Active Directory accounts. The following diagram shows which browsers and operating system combinations support passwordless authentication using FIDO2 authentication keys with Azure Active Directory.
+Azure Active Directory allows [FIDO2 security keys](./concept-authentication-passwordless.md#fido2-security-keys) to be used as a passwordless device. The availability of FIDO2 authentication for Microsoft accounts was [announced in 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910). As discussed in the announcement, certain optional features, and extensions to the FIDO2 CTAP specification must be implemented to support secure authentication with Microsoft and Azure Active Directory accounts. The following diagram shows which browsers and operating system combinations support passwordless authentication using FIDO2 authentication keys with Azure Active Directory.
 
 ## Supported browsers
 
@@ -32,7 +32,7 @@ This table shows support for authenticating Azure Active Directory (Azure AD) an
 
 ## Unsupported browsers
 
-The following operating system and browser combinations are not supported, but future support and testing is being investigated. If you would like to see additional operating system and browser support, please leave feedback using the product feedback tool at the bottom of the page.
+The following operating system and browser combinations are not supported, but future support and testing is being investigated. If you would like to see other operating system and browser support, please leave feedback using the product feedback tool at the bottom of the page.
 
 | Operating system | Browser |
 | ---- | ---- |
@@ -41,18 +41,21 @@ The following operating system and browser combinations are not supported, but f
 | Android | Chrome |
 | ChromeOS | Chrome |
 
-## Operating system versions tested
+## Minimum browser version
 
-The information in the table above was tested for the following operating system versions.
+The following are the minimum browser version requirements. 
 
-| Operating system | Latest tested version |
-| --- | --- |
-| Windows | Windows 10 20H2 |
-| macOS | OS X 11 Big Sur |
-| Linux | Fedora 32 Workstation |
+| Browser | Minimum version |
+| ---- | ---- |
+| Chrome | 76 |
+| Edge | Windows 10 version 1903<sup>1</sup> |
+| Firefox | Chrome |
+| ChromeOS | 66 |
+
+<sup>1</sup>All versions of the new Chromium-based Microsoft Edge support Fido2. Support on Microsoft Edge legacy was added in 1903.
 
 ## Next steps
-[Enable passwordless security key sign-in (preview)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key)
+[Enable passwordless security key sign-in (preview)](./howto-authentication-passwordless-security-key.md)
 
 <!--Image references-->
 [y]: ./media/fido2-compatibility/yes.png

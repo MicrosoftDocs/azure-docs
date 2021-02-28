@@ -226,9 +226,9 @@
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
-    - name: Use Azure Defender for SQL
-      href: defender-for-sql-usage.md
-      displayName: hybrid, arc
+  - name: Use Azure Defender for SQL
+    href: defender-for-sql-usage.md
+    displayName: hybrid, arc
   - name: Use Azure Defender for container registries
     items:
     - name: Scan your registry images for vulnerabilities
@@ -296,7 +296,7 @@
       href: faq-vms.md
     - name: Existing users of Azure Log Analytics
       href: faq-azure-monitor-logs.md
-  - name: Built-in security policies
+  - name: Azure Policy built-ins
     displayName: samples, policy
     href: policy-reference.md
   - name: Azure roadmap blog

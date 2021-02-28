@@ -37,7 +37,7 @@ Most on-prem datacenters enforce strict network rules that prevent inbound commu
 
         | Agent | Description |
         | ----- | ----------- |
-        | `deployment.apps/clusteridentityoperator` | Azure Arc enabled Kubernetes currently supports only [system assigned identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). `clusteridentityoperator` initiates the first outbound communication. This first communication fetches the Managed Service Identity (MSI) certificate used by other agents for communication with Azure. |
+        | `deployment.apps/clusteridentityoperator` | Azure Arc enabled Kubernetes currently supports only [system assigned identities](../../active-directory/managed-identities-azure-resources/overview.md). `clusteridentityoperator` initiates the first outbound communication. This first communication fetches the Managed Service Identity (MSI) certificate used by other agents for communication with Azure. |
         | `deployment.apps/config-agent` | Watches the connected cluster for source control configuration resources applied on the cluster. Updates the compliance state. |
         | `deployment.apps/controller-manager` | An operator of operators that orchestrates interactions between Azure Arc components. |    
         | `deployment.apps/metrics-agent` | Collects metrics of other Arc agents to verify optimal performance. |
