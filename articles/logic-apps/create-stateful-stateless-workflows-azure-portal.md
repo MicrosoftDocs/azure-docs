@@ -126,7 +126,9 @@ After you create a logic app that deploys to a Docker container, make sure that 
 
 1. In the Azure portal, go to your logic app resource.
 
-1. On the logic app menu, under **Settings**, select **Container settings**. Provide the details and location for your Docker container image. For more information, see the similar steps for setting up [deployment to a Docker container for a function app](../devops/pipelines/targets/function-app-container.md).
+1. On the logic app menu, under **Settings**, select **Deployment Center**.
+
+1. Provide the details and location for your Docker container image. For more information, see the similar steps for setting up [deployment to a Docker container for a function app](../devops/pipelines/targets/function-app-container.md).
 
    ![Screenshot that shows the logic app menu with "Container settings" selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-deploy-container-settings.png)
 
