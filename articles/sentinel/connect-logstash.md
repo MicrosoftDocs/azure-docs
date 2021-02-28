@@ -72,7 +72,7 @@ Use the information in the Logstash [Structure of a config file](https://www.ela
 | `plugin_flush_interval` | number | Optional field. Set to define the maximum interval (in seconds) between message transmissions to Log Analytics. The default is 5. |
     | `amount_resizing` | boolean | True or false. Enable or disable the automatic scaling mechanism, which adjusts the message buffer size according to the volume of log data received. |
 | `max_items` | number | Optional field. Applies only if `amount_resizing` set to "false." Use to set a cap on the message buffer size (in records). The default is 2000.  |
-| `azure_resource_id` | string | Optional field. Defines the ID of the Azure resource where the data resides. <br>The resource ID value is especially useful if you are using [resource-based RBAC](resource-based-rbac.md) to provide access to specific data only. |
+| `azure_resource_id` | string | Optional field. Defines the ID of the Azure resource where the data resides. <br>The resource ID value is especially useful if you are using [resource-context RBAC](resource-context-rbac.md) to provide access to specific data only. |
 | | | |
 
 * You can find the workspace ID and primary key in the workspace resource, under **Agents management**.
