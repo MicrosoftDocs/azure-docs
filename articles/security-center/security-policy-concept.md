@@ -11,7 +11,7 @@ ms.date: 02/28/2021
 
 # What are security policies, initiatives, and recommendations?
 
-Security Center applies security initiatives to your subscriptions. These initiatives contain one or more security policies. Each of those policies results in a security recommendation for improving your security posture. This page explains each of these ideas in detail
+Security Center applies security initiatives to your subscriptions. These initiatives contain one or more security policies. Each of those policies results in a security recommendation for improving your security posture. This page explains each of these ideas in detail.
 
 
 ## What is a security policy?
@@ -45,7 +45,7 @@ Azure Security Center periodically analyzes the security state of your Azure res
 
 Azure Security Center makes its security recommendations based on your chosen initiatives. 
 
-Recommendations are actions for you to take in order to secure and harden your resources. Each recommendation provides you with the following information:
+Recommendations are actions for you to take to secure and harden your resources. Each recommendation provides you with the following information:
 
 - A short description of the issue
 - The remediation steps to carry out in order to implement the recommendation
@@ -57,7 +57,7 @@ In practice, it works like this:
 1. It includes a ***policy*** to require all Azure Storage accounts to restrict network access so reduce their attack surface. This policy is called "Storage accounts should restrict network access using virtual network rules" and can be disabled or enabled from Azure Policy
 1. If Azure Security Center finds an Azure Storage account on any of your protected subscriptions, it assesses those accounts to see whether they're protected with virtual network rules. If they aren't, it displays a ***recommendation*** to fix that situation and harden the security of those resources. 
 
-So an initiative (1) includes policies (2) that generate recommendations when appropriate (3). 
+So, an initiative (1) includes policies (2) that generate recommendations when appropriate (3). 
 
 ## Viewing the relationship between a recommendation and a policy
 

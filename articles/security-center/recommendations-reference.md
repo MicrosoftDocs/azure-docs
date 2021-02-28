@@ -65,5 +65,5 @@ impact on your secure score.
 
 To learn more about recommendations, see the following:
 
-- [Security recommendations in Azure Security Center](security-center-recommendations.md)
-- [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
+- [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
+- [Review your security recommendations](security-center-recommendations.md)
