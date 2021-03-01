@@ -11,9 +11,11 @@ ms.date: 2/26/2021
 
 # Register and scan Azure multiple sources
 
+This article outlines how to register an Azure Multiple Source  (Azure Subscriptions or Resource Groups) in Purview and set up a scan on it.
+
 ## Supported capabilities
 
-Azure multiple source supports scans to capture metadata and schema on most Azure resource types that Purview supports. It also classifies the data automatically based on system and custom classification rules.
+Azure multiple Source supports scans to capture metadata and schema on most Azure resource types that Purview supports. It also classifies the data automatically based on system and custom classification rules.
 
 ## Prerequisites
 
@@ -35,7 +37,8 @@ There are two ways to set up authentication for Azure multiple source:
 - Managed Identity
 - Service Principal
 
-**You must set up authentication on each resource within your subscription or resource group, that you intend to register and scan. Azure storage resource types (Azure blob storage and Azure Data Lake Storage Gen2) make it easy by allowing you to add the MSI or Service Principal at the subscription/Resource group level as storage blob data reader.The permissions then trickle down to each storage account within that subscription or resource group. For all other resource types, you must apply the MSI or service principal on each resource, or device a script to do so. Here's how to add permissions on each resource type within a subscription or resource group.**
+> [!NOTE]
+> You must set up authentication on each resource within your subscription or resource group, that you intend to register and scan. Azure storage resource types (Azure blob storage and Azure Data Lake Storage Gen2) make it easy by allowing you to add the MSI or Service Principal at the subscription/Resource group level as storage blob data reader.The permissions then trickle down to each storage account within that subscription or resource group. For all other resource types, you must apply the MSI or service principal on each resource, or device a script to do so. Here's how to add permissions on each resource type within a subscription or resource group.
     
 - [Azure Blob Storage](register-scan-azure-blob-storage-source.md#setting-up-authentication-for-a-scan)
 - [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
@@ -44,9 +47,9 @@ There are two ways to set up authentication for Azure multiple source:
 - [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
  
-## Register an Azure multiple source
+## Register an Azure multiple Source
 
-To register a new Azure multiple source in your data catalog, do the following:
+To register a new Azure multiple Source in your data catalog, do the following:
 
 1. Navigate to your Purview account
 1. Select **Sources** on the left navigation
@@ -81,7 +84,7 @@ To create and run a new scan, do the following:
     1. You can leave it as *All* (This includes future resource types that may not currently exist within that subscription or resource group)
     1. You can **specifically select resource types** you want to scan. If you choose this option future resource types that may be created within this subscription or resource group will not be included for scans, unless the scan is explicitly edited in the future
     
-    :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-source-scan.png" alt-text="Azure multiple source scan":::
+    :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-source-scan.png" alt-text="Azure multiple Source scan":::
 
 1. Select the credential to connect to the resources within your data source. 
     1. You can select a **credential at the parent level** as MSI or a particular service principal type credential, which you can choose to use for all the resource types under the subscription or resource group
@@ -105,7 +108,7 @@ To create and run a new scan, do the following:
 
 1. View source details by clicking on **view details** on the tile under the sources section. 
 
-      :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-source-detail.png" alt-text="Azure multiple source details"::: 
+      :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-source-detail.png" alt-text="Azure multiple Source details"::: 
 
 1. View scan run details by navigating to the **scan details** page.
     1. The *status bar* is a brief summary on the running status of the children resources. It will be displayed on the subscription or resource group level
