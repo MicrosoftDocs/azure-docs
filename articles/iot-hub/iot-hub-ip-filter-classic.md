@@ -83,7 +83,7 @@ Security is an important aspect of any IoT solution based on Azure IoT Hub. Some
 
 There are two specific use-cases when it is useful to block the IoT Hub endpoints for certain IP addresses:
 
-* Your IoT hub should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using your IoT hub with [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) to create private connections between an IoT hub and your on-premises infrastructure.
+* Your IoT hub should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using your IoT hub with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) to create private connections between an IoT hub and your on-premises infrastructure.
 
 * You need to reject traffic from IP addresses that have been identified as suspicious by the IoT hub administrator.
 
@@ -136,7 +136,7 @@ To delete an IP filter rule, select the trash can icon on that row and then sele
 
 ### Retrieve and update IP filters using Azure CLI
 
-Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](https://docs.microsoft.com/cli/azure/).
+Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](/cli/azure/).
 
 To retrieve current IP filters of your IoT Hub, run:
 
@@ -210,7 +210,7 @@ $iothubResource | Set-AzResource -Force
 
 ### Update IP filter rules using REST
 
-You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.ipFilterRules` in [createorupdate method](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
+You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.ipFilterRules` in [createorupdate method](/rest/api/iothub/iothubresource/createorupdate).
 
 ### IP filter rule evaluation
 

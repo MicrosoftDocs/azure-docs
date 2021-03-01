@@ -69,9 +69,9 @@ You can use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: Monitor any changes to network resource configurations related to the Site Recovery service using Azure Activity Logs. Create alerts in Azure Monitor to notify you when critical Site Recovery network resources are changed.
 
-- [View and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [View and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -89,7 +89,7 @@ Use Azure Activity Log data to determine the "what, who, and when" for any write
 
 Ingest Site Recovery logs in Azure Monitor to aggregate generated security data. Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term or archival storage. Also, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM) solution.
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [Monitor Site Recovery with Azure Monitor Logs](monitor-log-analytics.md)
 
@@ -107,7 +107,7 @@ Use Azure Activity Log data to determine the "what, who, and when" for any write
 
 Ingest Site Recovery logs with Azure Monitor to aggregate generated security data. Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term/archival storage. Enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM) solution.
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [Monitor Site Recovery with Azure Monitor Logs](monitor-log-analytics.md)
 
@@ -121,7 +121,7 @@ Ingest Site Recovery logs with Azure Monitor to aggregate generated security dat
 
 **Guidance**: Set log retention period for Log Analytics workspaces associated with your Azure Recovery Services vaults using Azure Monitor according to your organization's compliance regulations. 
 
-- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -135,9 +135,9 @@ Perform queries in Log Analytics to search terms, identify trends, analyze patte
 
 - [Monitor Site Recovery](site-recovery-monitor-and-troubleshoot.md)
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
-- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -153,7 +153,7 @@ Visualize and query log results, and configure alerts to take actions based on m
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -416,7 +416,7 @@ Only the customer has access to the encryption key while using a Recovery Servic
 ### 4.9: Log and alert on changes to critical Azure resources
 
 **Guidance**: Use Azure Monitor with Azure Activity Logs to create alerts when changes take place to critical resources,. These resources could include production instances of Recovery Services Vaults, resources of Site Recovery service and related resources.
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 

@@ -51,7 +51,7 @@ Create a file in the root directory of your project called **client.js** to cont
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
@@ -118,7 +118,7 @@ Use the `webpack-dev-server` to build and run your app. Run the following comman
 
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js
+npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
 Open your browser and navigate to `http://localhost:8080/`. You should see the following:
