@@ -52,6 +52,8 @@ This article shows how to build your logic app and workflow in the Azure portal 
   > [Azure Storage charges](https://azure.microsoft.com/pricing/details/storage/). For more information about 
   > how stateful logic apps store data in external storage, see [Stateful versus stateless](logic-apps-overview-preview.md#stateful-stateless).
 
+* To deploy to a Docker container, you need an existing Docker container image. For example, you can create this image through [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md), or [Azure Container Instance](../container-instances/container-instances-overview.md). 
+
 * To build the same example logic app in this article, you need an Office 365 Outlook email account that uses a Microsoft work or school account to sign in.
 
   If you choose to use a different [email connector that's supported by Azure Logic Apps](/connectors/), such as Outlook.com or [Gmail](../connectors/connectors-google-data-security-privacy-policy.md), you can still follow the example, and the general overall steps are the same, but your user interface and options might differ in some ways. For example, if you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
