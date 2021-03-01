@@ -20,8 +20,6 @@ ms.author: yelevin
 ---
 # Useful resources for working with Azure Sentinel
 
-
-
 This article lists resources that can help you get more information about working with Azure Sentinel.
 
 **Learn more about creating queries**. Azure Sentinel uses Azure Monitor Log Analytics's Kusto Query Language (KQL) to build queries. For more information, see:
@@ -41,6 +39,10 @@ In the TechCommunity space for Azure Sentinel:
 - [Post your own questions about Azure Sentinel](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel)
 
 You can also send suggestions for improvements via our [User Voice](https://feedback.azure.com/forums/920458-azure-sentinel) program.
+
+**Join the Azure Sentinel GitHub community**. The [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel) contains community based detections, queries, workbooks, playbooks, and other content to help secure your environment and hunt for threats. 
+
+This repository welcomes contributions, such as samples and resources that you would like to see added to Azure Sentinel.
 
 ## Next steps
 
