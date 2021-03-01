@@ -7,7 +7,7 @@ ms.date: 2/22/2021
 #Customer intent: As an enterprise developer, I want to create a function that can connect to a virtual network with private endpoints to secure my function app.
 ---
 
-# Tutorial: integrate Azure Functions with an Azure virtual network using private endpoints
+# Tutorial: Integrate Azure Functions with an Azure virtual network using private endpoints
 
 This tutorial shows you how to use Azure Functions to connect to resources in an Azure virtual network with private endpoints. You'll create a function with a storage account locked behind a virtual network that uses a service bus queue trigger.
 
@@ -15,11 +15,11 @@ This tutorial shows you how to use Azure Functions to connect to resources in an
 > * Create a function app in the Premium plan
 > * Create Azure resources (Service Bus, Storage Account, Virtual Network)
 > * Lock down your Storage account behind a private endpoint
-> * Lock down your Service Bus trigger behind a private endpoint
-> * Deploy a Service Bus trigger and HTTP trigger
+> * Lock down your Service Bus behind a private endpoint
+> * Deploy an Azure Function with a Service Bus trigger and HTTP trigger
 > * Lock down your function app behind a private endpoint
 > * Test to see that your function app is secure behind the virtual network
-> * Clean up Resources
+> * Clean up resources
 
 ## Create a function app in a Premium plan
 
@@ -47,7 +47,7 @@ First, you create a .NET function app in the [Premium plan] as this tutorial wil
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **[Storage account](../articles/storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](../articles/azure-functions/storage-considerations.md#storage-account-requirements). |
-    |**Operating system**| Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. Python is only supported on Linux. |
+    |**Operating system**| Windows | This tutorial uses Windows |
     | **[Plan](../articles/azure-functions/functions-scale.md)** | Premium | Hosting plan that defines how resources are allocated to your function app. Select **Premium**. By default, a new App Service plan is created. The default **Sku and size** is **EP1**, where EP stands for _elastic premium_. To learn more, see the [list of Premium SKUs](../articles/azure-functions/functions-premium-plan.md#available-instance-skus).<br/>When running JavaScript functions on a Premium plan, you should choose an instance that has fewer vCPUs. For more information, see [Choose single-core Premium plans](../articles/azure-functions/functions-reference-node.md#considerations-for-javascript-functions).  |
 
     ![Hosting page](./media/functions-premium-create/function-app-premium-create-hosting.png)
@@ -70,7 +70,7 @@ First, you create a .NET function app in the [Premium plan] as this tutorial wil
 
     ![Deployment notification](./media/functions-premium-create/function-app-create-notification2.png)
 
-You can pin the function app to the dashboard by selecting the pin icon in the upper right-hand corner. Pinning makes it easier to return to this function app.
+1. Congratulations! You have successfully created your premium function app!
 
 ## Create Azure resources
 
@@ -88,12 +88,12 @@ A separate storage account from the one created in the initial creation of your 
     | ------------ | ---------------- | ---------------- |
     | **Subscription** | Your subscription | The subscription under which your resources are created. | 
     | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choose the resource group you created with your function app. |
-    | **Name** | mysecurestorage| The name you'll give your storage account that will be locked down with private endpoints. |
+    | **Name** | mysecurestorage| The name of your storage account to which the private endpoint will be applied to. |
     | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Choose the region you created your function app in. |
 
 1. Select **Review + create**. After validation completes, select **Create**.
 
-### Create a service bus
+### Create a Service Bus
 
 1. From the Azure portal menu or the **Home** page, select **Create a resource**.
 
@@ -103,9 +103,9 @@ A separate storage account from the one created in the initial creation of your 
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | **Subscription** | Your subscription | The subscription under which your resources are created. | 
+    | **Subscription** | Your subscription | The subscription under which your resources are created. |
     | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choose the resource group you created with your function app. |
-    | **Name** | myServiceBus| The name you'll give your service bus that will be locked down with private endpoints. |
+    | **Name** | myServiceBus| The name of your service bus to which the private endpoint will be applied to. |
     | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Choose the region you created your function app in. |
     | **Pricing tier** | Premium | Choose this tier to use private endpoints with Service Bus. |
 
@@ -115,11 +115,11 @@ A separate storage account from the one created in the initial creation of your 
 
 Azure resources in this tutorial either integrate with or are placed within a virtual network. You'll use private endpoints to keep network traffic contained with the virtual network.
 
-The tutorial uses two subnets:
-- Subnet for Azure Function virtual network integration. This subnet is delegated to the Function App.
-- Subnet for private endpoints. Private IP addresses are given from this subnet.
+The tutorial creates two subnets:
+- **default**: Subnet for private endpoints. Private IP addresses are given from this subnet.
+- **functions**: Subnet for Azure Function virtual network integration. This subnet is delegated to the Function App.
 
-Now, create the virtual network that you'll later attach your function app to.
+Now, create the virtual network to which the Azure Function app will integrate.
 
 1. From the Azure portal menu or the Home page, select **Create a resource**.
 
@@ -131,7 +131,7 @@ Now, create the virtual network that you'll later attach your function app to.
     | ------------ | ---------------- | ---------------- |
     | **Subscription** | Your subscription | The subscription under which your resources are created. | 
     | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choose the resource group you created with your function app. |
-    | **Name** | myVirtualNet| The name of your virtual network that you'll connect your function app to. |
+    | **Name** | myVirtualNet| The name of your virtual network to which your function will connect. |
     | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Choose the region you created your function app in. |
 
 1. On the **IP Addresses** tab, select **Add subnet**. Use the settings as specified below when adding a subnet:
@@ -178,7 +178,7 @@ Azure Private Endpoints are used to connect to specific Azure resources using a 
 
 1. Select **Review + create**. After validation completes, select **Create**. Resources in the virtual network can now talk to storage files.
 
-1. Create another private endpoint for blobs. For the **Resources** tab, use the below settings. For all other settings, use the same settings from the file private endpoint creation steps you just followed. After completing this, resources in the virtual network can now talk to storage blobs.
+1. Create another private endpoint for blobs. For the **Resources** tab, use the below settings. For all other settings, use the same settings from the file private endpoint creation steps you just followed.
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -236,6 +236,8 @@ Now, create the private endpoint for your Azure Service Bus.
     :::image type="content" source="./media/functions-create-vnet/5.get-store-connectionstring.png" alt-text="Get storage connection string":::
 
 ## Create a queue
+
+This will be the queue for which your Azure Functions Service Bus Trigger will get events from.
 
 1. In your service bus, select **Queues** in the left menu.
 
@@ -295,11 +297,11 @@ To use your function app with virtual networks, you'll need to join it to a subn
 
 ## Deploy a service bus trigger and http trigger to your function app
 
-1. In GitHub, browse to the following sample repository, which contains a function app with an HTTP Trigger and Service Bus Queue Trigger.
+1. In GitHub, browse to the following sample repository, which contains a function app with two functions, an HTTP Trigger and a Service Bus Queue Trigger.
 
     <https://github.com/Azure-Samples/functions-vnet-tutorial>
 
-1. At the top of the page, select the **Fork** button to create a fork of this repository in your own GitHub account or organization. 
+1. At the top of the page, select the **Fork** button to create a fork of this repository in your own GitHub account or organization.
 
 1. In your function app, select **Deployment Center** from the left menu. Then, select **Settings**.
 
@@ -323,7 +325,7 @@ To use your function app with virtual networks, you'll need to join it to a subn
 
 ## Lock down your function app with a private endpoint
 
-Now, create the private endpoint for your function app.
+Now, create the private endpoint for your function app. This private endpoint will connect your function app privately and securely to your virtual network using a private IP address. For more information on private endpoints, go to the [private endpoints documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
 
 1. In your function app, select **Networking** in the left menu.
 
