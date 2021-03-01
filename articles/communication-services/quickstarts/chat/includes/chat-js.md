@@ -198,7 +198,7 @@ Use `sendMessage` method to send a chat message to the thread you just created, 
 
 `sendMessageOptions` describes the optional fields of chat message request:
 
-- Use `priority` to specify the chat message priority level, such as 'Normal' or 'High'; this property can be used to have UI indicator for the recipient user in your app to bring attention to the message or execute custom business logic.
+- Use `priority` to specify the chat message priority level, such as 'Normal' or 'High'. This property can be used to display a UI indicator for the recipient user in your app to bring attention to the message or execute custom business logic.
 - Use `senderDisplayName` to specify the display name of the sender;
 
 The response `sendChatMessageResult` contains an ID, which is the unique ID of that message.
