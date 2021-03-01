@@ -173,6 +173,20 @@ Azure Resource Manager restricts template size to be 4mb. Limit the size of your
 
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. Please follow best practice at [Using Linked and Nested Templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
 
+### Cannot connect to GIT Enterprise 
+
+##### Issue
+
+You can not connect to GIT Enterprise because of permission issues. You can see error like **422 - Unprocessable Entity.**
+
+#### Cause
+
+You have not configured Oauth for ADF. Your URL is misconfigured.
+
+##### Resolution
+
+You  grant  Oauth access to ADF at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s) because the ADF service will first try https://hostname/api/v3/search/repositories?q=user%3<customer credential>.... and fail. Then, it will try https://hostname/api/v3/orgs/<vaorg>/<repo> and succeed. 
+
 ## Next steps
 
 For more help with troubleshooting, try the following resources:
