@@ -51,7 +51,7 @@ LRS can be started in autocomplete, or continuous mode. When started in autocomp
 
 Once LRS is stopped, either automatically on autocomplete, or manually on cutover, the restore process cannot be resumed for a database that was brought online on SQL Managed Instance. To restore additional backup files once the migration was completed through autocomplete, or manually on cutover, the database needs to be deleted and the entire backup chain needs to be restored from scratch by restarting the LRS.
 
-  ![Log Replay Service orchestration steps explained for SQL Managed Instance](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
+	![Log Replay Service orchestration steps explained for SQL Managed Instance](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
 
 | Operation | Details |
 | :----------------------------- | :------------------------- |
