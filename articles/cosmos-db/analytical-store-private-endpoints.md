@@ -12,7 +12,7 @@ ms.author: anithaa
 # Configure private endpoints for Azure Cosmos DB analytical store
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-In this article, you will learn how to set up managed private endpoints for Azure Cosmos DB analytical store. Using managed private endpoints, you can restrict network access of Azure Cosmos DB analytical store, to Azure Synapse managed virtual network. Managed private endpoints establish a private link to your analytical store.
+In this article, you will learn how to set up managed private endpoints for Azure Cosmos DB analytical store. If you are using the transactional store, see [Private endpoints for the transactional store](how-to-configure-private-endpoints.md) article. Using managed private endpoints, you can restrict network access of Azure Cosmos DB analytical store, to Azure Synapse managed virtual network. Managed private endpoints establish a private link to your analytical store.
 
 ## Enable private endpoint for the analytical store
 
@@ -109,7 +109,7 @@ To configure network isolation for this account from a Synapse workspace:
    Update-AzCosmosDBAccount -Name MyCosmosDBDatabaseAccount -ResourceGroupName MyResourceGroup -NetworkAclBypass AzureServices -NetworkAclBypassResourceId "/subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Synapse/workspaces/wsName"
    ```
 
-  **Using Azure CLI**
+   **Using Azure CLI**
 
    ```azurecli-interactive
    az cosmosdb update --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --network-acl-bypass AzureServices --network-acl-bypass-resource-ids "/subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Synapse/workspaces/wsName"
