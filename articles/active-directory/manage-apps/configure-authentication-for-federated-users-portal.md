@@ -19,17 +19,17 @@ ms.collection: M365-identity-device-management
 
 # Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy
 
-This article provides an introduction to configuring Azure Active Directory authentication behavior for federated users. It covers configuration of auto-acceleration and authentication restrictions for users in federated domains.
+This article provides an introduction to configuring Azure Active Directory authentication behavior for federated users using Home Realm Discovery (HRD) policy.  It covers using auto-acceleration to skip the username entry screen and automatically forward users to federated login endpoints.  Microsoft does not recommend configuring auto-acceleration any longer, as it can prevent the use of stronger authentication methods such as FIDO and hinders collaboration.
 
 ## Home Realm Discovery
 
-Home Realm Discovery (HRD) is the process that allows Azure Active Directory (Azure AD) to determine where a user needs to authenticate at sign-in time.  When a user signs in to an Azure AD tenant to access a resource, or to the Azure AD common sign-in page, they type a user name (UPN). Azure AD uses that to discover where the user needs to sign in.
+Home Realm Discovery (HRD) is the process that allows Azure Active Directory (Azure AD) to determine which identity provider ("IdP") a user needs to authenticate with at sign-in time.  When a user signs in to an Azure AD tenant to access a resource, or to the Azure AD common sign-in page, they type a user name (UPN). Azure AD uses that to discover where the user needs to sign in.
 
-The user might need to be taken to one of the following locations to be authenticated:
+The user will be taken to one of the following identity providers to be authenticated:
 
 - The home tenant of the user (might be the same tenant as the resource that the user is attempting to access).
 
-- Microsoft account.  The user is a guest in the resource tenant.
+- Microsoft account.  The user is a guest in the resource tenant that uses a consumer account for authentication.
 
 - An on-premises identity provider such as Active Directory Federation Services (AD FS).
 
@@ -70,10 +70,10 @@ Domain hint syntax varies depending on the protocol that's used, and it's typica
 
 By default, Azure AD attempts to redirect sign-in to the IdP that's configured for a domain if **both** of the following are true:
 
-* A domain hint is included in the authentication request from the application **and**
-* The tenant is federated with that domain
+- A domain hint is included in the authentication request from the application **and**
+- The tenant is federated with that domain.
 
-If the domain hint doesn’t refer to a verified federated domain, it is ignored and normal Home Realm Discovery is invoked.
+If the domain hint doesn’t refer to a verified federated domain, it is ignored.
 
 For more information about auto-acceleration using the domain hints that are supported by Azure Active Directory, see the [Enterprise Mobility + Security blog](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
 
@@ -142,9 +142,9 @@ Additionally, two tenant-level HRD options exist, not shown above:
 
 ### Priority and evaluation of HRD policies
 
-HRD policies can be created and then assigned to specific organizations and service principals. This means that it is possible for multiple policies to apply to a specific application. The HRD policy that takes effect follows these rules:
+HRD policies can be created and then assigned to specific organizations and service principals. This means that it is possible for multiple policies to apply to a specific application, so Azure AD must decide which one takes precedence. A set of rules decides which HRD policy (of many applied) takes effect:
 
-- If a domain hint is present in the authentication request, then HRD policy for the tenant (the policy with ) is checked to see if [domain hints should be ignored](prevent-domain-hints-with-home-realm-discovery.md). If domain hints are allowed, the behavior that's specified by the domain hint is used.
+- If a domain hint is present in the authentication request, then HRD policy for the tenant (the policy set as the tenant default) is checked to see if [domain hints should be ignored](prevent-domain-hints-with-home-realm-discovery.md). If domain hints are allowed, the behavior that's specified by the domain hint is used.
 
 - Otherwise, if a policy is explicitly assigned to the service principal, it is enforced.
 
