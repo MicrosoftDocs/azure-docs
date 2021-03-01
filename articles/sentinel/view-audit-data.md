@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2021
+ms.date: 03/01/2021
 ms.author: bagol
 
 ---
@@ -24,8 +24,8 @@ This article describes how you can use Azure Sentinel to audit the activities in
 
 Azure Sentinel provides access to:
 
-- The **LAQueryLogs** table, which provides details about the queries run in Log Analytics, including those run from Azure Sentinel.
-- The **AzureActivity** table, which provides details about all actions taken in Azure Sentinel, such as editing alert rules. These actions do not include specific query data.
+- The **LAQueryLogs** table, which provides details about the queries run in Log Analytics, including queries run from Azure Sentinel.
+- The **AzureActivity** table, which provides details about all actions taken in Azure Sentinel, such as editing alert rules. The **AzureActivity** table does not log specific query data.
 
 > [!TIP]
 > In addition to the manual queries described in this article, Azure Sentinel provides a built-in workbook to help you audit the activities in your SOC environment.
@@ -46,15 +46,15 @@ LAQueryLogs data includes information such as:
 - Performance data on each query run
 
 > [!NOTE]
-> The **LAQueryLogs** table only includes data for queries run explicitly by users.
+> - The **LAQueryLogs** table only includes data for queries run explicitly by users. It does not include information about queries run by working interactively with Azure Sentinel, or with scheduled analytics rules.
+> - There may be a short delay between the time a query is run and the data is populated in the **LAQueryLogs** table. We recommend waiting about 5 minutes to query the **LAQueryLogs** table for audit data.
 >
-> It does not include information about queries run by working interactively with Azure Sentinel, or with scheduled analytics rules.
 
 **To query the LAQueryLogs table**:
 
-1. The **LAQueryLogs** table is not enabled by default in your Log Analytics workspace. To use **LAQueryLogs** data when auditing in Azure Sentinel, first enable the **LAQueryLogs** in your Log Analytics workspace's **Diagnostics settings** area.
+1. The **LAQueryLogs** table isn't enabled by default in your Log Analytics workspace. To use **LAQueryLogs** data when auditing in Azure Sentinel, first enable the **LAQueryLogs** in your Log Analytics workspace's **Diagnostics settings** area.
 
-    For more information, see, [Audit queries in Azure Monitor Logs](/azure/azure-monitor/logs/query-audit), which provides details about how to enable the audit queries and a full full list of the audit data provided by the **LAQueryLogs** table.
+    For more information about enabling the **LAQueryLogs** table and a full list of the audit data provided, see [Audit queries in Azure Monitor Logs](/azure/azure-monitor/logs/query-audit).
 
 1. Then, query the data using KQL, like you would any other table.
 
@@ -68,7 +68,7 @@ LAQueryLogs data includes information such as:
 
 The following sections show more sample queries to run on the **LAQueryLogs** table when auditing activities in your SOC environment using Azure Sentinel.
 
-### The number of queries run where the response was not "OK"
+### The number of queries run where the response wasn't "OK"
 
 The following **LAQueryLogs** table query shows the number of queries run, where anything other than an HTTP response of **200 OK** was received. For example, this number will include queries that had failed to run.
 
@@ -115,7 +115,7 @@ You can use the **AzureActivity** table when auditing activity in your SOC envir
 
 **To query the AzureActivity table**:
 
-1. Connect the [Azure Activity](connect-azure-activity.md) data source. After doing this, audit events are streamed into a new table in the **Logs** screen called AzureActivity.
+1. Connect the [Azure Activity](connect-azure-activity.md) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
 
 1. Then, query the data using KQL, like you would any other table.
 
@@ -158,37 +158,39 @@ AzureActivity
 
 ### Azure Sentinel data included in Azure Activity logs
  
-Azure Sentinel's audit logs are maintained in the [Azure Activity Logs](../azure-monitor/essentials/platform-logs-overview.md).
+Azure Sentinel's audit logs are maintained in the [Azure Activity Logs](../azure-monitor/essentials/platform-logs-overview.md), and include the following types of information:
 
-The following supported operations can be audited:
+|Operation  |Information types  |
+|---------|---------|
+|**Created**     |Alert rules <br> Case comments <br>Incident comments <br>Saved searches<br>Watchlists    <br>Workbooks     |
+|**Deleted**     |Alert rules <br>Bookmarks <br>Data connectors <br>Incidents <br>Saved searches <br>Settings <br>Threat intelligence reports <br>Watchlists      <br>Workbooks <br>Workflow  |
+|**Updated**     |  Alert rules<br>Bookmarks <br> Cases <br> Data connectors <br>Incidents <br>Incident comments <br>Threat intelligence reports <br> Workbooks <br>Workflow       |
+|     |         |
 
-- **Updates for** incidents, alert rules, incident comments, cases, data connectors, threat intelligence reports, bookmarks
-- **Create** case comments, incident comments, watchlists, alert rules
-- **Delete** bookmarks, alert rules, threat intelligence reports, data connectors, incidents, settings, watchlists
-- **Check** user authorizations and licenses
+You can also use the Azure Activity logs to check for user authorizations and licenses. 
 
-WHAT ABT THIS TABLE? UPDATE IT WITH THE LIST ABOVE?
+For example, the following table lists selected operations found in Azure Activity logs with the specific resource the log data is pulled from.
 
 |Operation name|	Resource type|
 |----|----|
 |Create or update workbook	|Microsoft.Insights/workbooks|
-|Delete Workbook	|Microsoft.Insights/workbooks|
-|Set Workflow	|Microsoft.Logic/workflows|
-|Delete Workflow	|Microsoft.Logic/workflows|
-|Create Saved Search	|Microsoft.OperationalInsights/workspaces/savedSearches|
-|Delete Saved Search	|Microsoft.OperationalInsights/workspaces/savedSearches|
-|Update Alert Rules	|Microsoft.SecurityInsights/alertRules|
-|Delete Alert Rules	|Microsoft.SecurityInsights/alertRules|
-|Update Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules/actions|
-|Delete Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules/actions|
-|Update Bookmarks	|Microsoft.SecurityInsights/bookmarks|
-|Delete Bookmarks	|Microsoft.SecurityInsights/bookmarks|
-|Update Cases	|Microsoft.SecurityInsights/Cases|
-|Update Case Investigation	|Microsoft.SecurityInsights/Cases/investigations|
-|Create Case Comments	|Microsoft.SecurityInsights/Cases/comments|
-|Update Data Connectors	|Microsoft.SecurityInsights/dataConnectors|
-|Delete Data Connectors	|Microsoft.SecurityInsights/dataConnectors|
-|Update Settings	|Microsoft.SecurityInsights/settings|
+|Delete workbook	|Microsoft.Insights/workbooks|
+|Set workflow	|Microsoft.Logic/workflows|
+|Delete workflow	|Microsoft.Logic/workflows|
+|Create saved search	|Microsoft.OperationalInsights/workspaces/savedSearches|
+|Delete saved search	|Microsoft.OperationalInsights/workspaces/savedSearches|
+|Update alert rules	|Microsoft.SecurityInsights/alertRules|
+|Delete alert rules	|Microsoft.SecurityInsights/alertRules|
+|Update alert rule response actions	|Microsoft.SecurityInsights/alertRules/actions|
+|Delete alert rule response actions	|Microsoft.SecurityInsights/alertRules/actions|
+|Update bookmarks	|Microsoft.SecurityInsights/bookmarks|
+|Delete bookmarks	|Microsoft.SecurityInsights/bookmarks|
+|Update cases	|Microsoft.SecurityInsights/Cases|
+|Update case investigation	|Microsoft.SecurityInsights/Cases/investigations|
+|Create case comments	|Microsoft.SecurityInsights/Cases/comments|
+|Update data connectors	|Microsoft.SecurityInsights/dataConnectors|
+|Delete data connectors	|Microsoft.SecurityInsights/dataConnectors|
+|Update settings	|Microsoft.SecurityInsights/settings|
 | | |
 
 ## Configuring alerts for Azure Sentinel activities
