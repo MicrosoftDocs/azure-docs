@@ -79,31 +79,19 @@ You declare your claims in the [claims schema](claimsschema.md). Open the extens
 1. Add the following claim to the **ClaimsSchema** element. 
 
 ```XML
-<ClaimType Id="isForgotPassword">
-  <DisplayName>isForgotPassword</DisplayName>
-  <DataType>boolean</DataType>
-  <AdminHelpText>Whether the user has selected Forgot your Password</AdminHelpText>
-</ClaimType>
+<!-- 
+<BuildingBlocks>
+  <ClaimsSchema> -->
+    <ClaimType Id="isForgotPassword">
+      <DisplayName>isForgotPassword</DisplayName>
+      <DataType>boolean</DataType>
+      <AdminHelpText>Whether the user has selected Forgot your Password</AdminHelpText>
+    </ClaimType>
+  <!--
+  </ClaimsSchema>
+</BuildingBlocks> -->
 ```
-To initiate the `isForgotPassword` claim, a claims transformation technical profile is used. This technical profile be referenced later. When invoked, it will set the value of the `isForgotPassword` claim to `true`. Find the `ClaimsProviders` element. If the element doesn't exist, add it. Then add the following claims provider:  
 
-```xml
-<ClaimsProvider>
-  <DisplayName>Local Account</DisplayName>
-  <TechnicalProfiles>
-    <TechnicalProfile Id="ForgotPassword">
-      <DisplayName>Forgot your password?</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
-      <Metadata>
-        <Item Key="setting.forgotPasswordLinkOverride">ForgotPasswordExchange</Item>
-      </Metadata>
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="isForgotPassword" DefaultValue="true" AlwaysUseDefaultValue="true"/>
-      </OutputClaims>
-    </TechnicalProfile>
-  </TechnicalProfiles>
-</ClaimsProvider>
-```
 ### Upgrade the page layout version
 
 [Page layout version](contentdefinitions.md#migrating-to-page-layout) `2.1.2` is required to enable the self-service password reset flow within the sign-up or sign-in journey.
@@ -113,10 +101,44 @@ To initiate the `isForgotPassword` claim, a claims transformation technical prof
 1. Modify the **DataURI** element within the **ContentDefinition** element with Id **api.signuporsignin** as shown below.
 
 ```xml
-<ContentDefinition Id="api.signuporsignin">
-  <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.2</DataUri>
-</ContentDefinition>
+<!-- 
+<BuildingBlocks>
+  <ContentDefinitions> -->
+    <ContentDefinition Id="api.signuporsignin">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.2</DataUri>
+    </ContentDefinition>
+  <!-- 
+  </ContentDefinitions>
+</BuildingBlocks> -->
 ```
+
+To initiate the `isForgotPassword` claim, a claims transformation technical profile is used. This technical profile be referenced later. When invoked, it will set the value of the `isForgotPassword` claim to `true`. Find the `ClaimsProviders` element. If the element doesn't exist, add it. Then add the following claims provider:  
+
+```xml
+<!-- 
+<ClaimsProviders> -->
+  <ClaimsProvider>
+    <DisplayName>Local Account</DisplayName>
+    <TechnicalProfiles>
+      <TechnicalProfile Id="ForgotPassword">
+        <DisplayName>Forgot your password?</DisplayName>
+        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="isForgotPassword" DefaultValue="true" AlwaysUseDefaultValue="true"/>
+        </OutputClaims>
+      </TechnicalProfile>
+      <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+        <Metadata>
+          <Item Key="setting.forgotPasswordLinkOverride">ForgotPasswordExchange</Item>
+        </Metadata>
+      </TechnicalProfile>
+    </TechnicalProfiles>
+  </ClaimsProvider>
+<!-- 
+</ClaimsProviders> -->
+```
+
+The `SelfAsserted-LocalAccountSignin-Email` technical profile `setting.forgotPasswordLinkOverride` definers the password reset claims exchange to be executed in your user journey. 
 
 ### Add the password reset sub journey
 
@@ -127,7 +149,8 @@ The sub journey will be called from the user journey and will perform the specif
 Find the `SubJourneys` element. If the element doesn't exist, add it after the `User Journeys` element. Then add the following sub journey:
 
 ```xml
-<!--<SubJourneys>-->
+<!--
+<SubJourneys>-->
   <SubJourney Id="PasswordReset" Type="Call">
     <OrchestrationSteps>
       <!-- Validate user's email address. -->
@@ -145,8 +168,9 @@ Find the `SubJourneys` element. If the element doesn't exist, add it after the `
       </OrchestrationStep>
     </OrchestrationSteps>
   </SubJourney>
-<!--</SubJourneys>-->
-``` 
+<!--
+</SubJourneys>-->
+```
 
 ### Prepare your user journey
 
@@ -186,6 +210,7 @@ Now that you've modified or created a user journey, in the **Relying Party** sec
   ...
 </RelyingParty>
 ```
+
 ### Indicate the Forgot Password flow to your App
 
 Your application might need to detect whether the user signed in via the Forgot Password user flow. The **isForgotPassword** claim contains a boolean value that indicates this, which can be issued in the token sent to your application. If required, add `isForgotPassword` to the output claims in the **Relying Party** section. Your application can check the `isForgotPassword` claim to determine if the user reset their password.

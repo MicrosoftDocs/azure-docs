@@ -121,10 +121,14 @@
       href: add-sign-up-and-sign-in-policy.md
     - name: Sign-in policy
       href: add-sign-in-policy.md
-    - name: Password reset policy
-      href: add-password-reset-policy.md
-    - name: Password change policy
-      href: add-password-change-policy.md
+    - name: Password reset policies
+      items:
+      - name: Self-service password reset
+        href: add-password-reset-policy.md
+      - name: Self-service password change
+        href: add-password-change-policy.md
+      - name: Force password reset
+        href: force-password-reset.md
     - name: Profile editing policy
       href: add-profile-editing-policy.md
     - name: Resource owner password credentials policy
