@@ -7,15 +7,16 @@ ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
 author: danimir
-ms.author: danil
 ms.reviewer: sstein
-ms.date: 02/24/2021
+ms.date: 03/01/2021
 ---
 
-# Migrate databases from SQL Server to SQL Managed Instance using Log Replay Service
+# Migrate databases from SQL Server to SQL Managed Instance using Log Replay Service (Preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article explains how to manually configure database migration from SQL Server 2008-2019 to SQL Managed Instance using Log Replay Service (LRS). This is a cloud service enabled for Managed Instance based on the SQL Server log shipping technology. LRS should be used in cases when Azure Data Migration Service (DMS) cannot be used, when more control is needed, or when there exists little tolerance for downtime.
+This article explains how to manually configure database migration from SQL Server 2008-2019 to SQL Managed Instance using Log Replay Service (LRS) currently in public preview. This is a cloud service enabled for Managed Instance based on the SQL Server log shipping technology. LRS should be used in cases when there exist complex custom migrations and hybrid architectures, when more control is needed, when there exists little tolerance for downtime, or when Azure Data Migration Service (DMS) cannot be used.
+
+Note that both DMS and LRS use the same underlying migration technology and the same APIs. With releasing LRS, we are further enabling complex custom migrations and hybrid architecture between on-prem. SQL Server and SQL Managed Instances.
 
 ## When to use Log Replay Service
 
@@ -28,6 +29,8 @@ You might want to consider using LRS cloud service in some of the following case
 - DMS executable does not have file access to database backups
 - No access to host OS is available, or no Administrator privileges
 - Unable to open networking ports from your environment to Azure
+- Backups are stored directly to Azure Blob Storage using TO URL option
+- There exists a need to use differential backups
 
 > [!NOTE]
 > Recommended automated way to migrate databases from SQL Server to SQL Managed Instance is using Azure DMS. This service is using the same LRS cloud service at the back end with log shipping in NORECOVERY mode. You should consider manually using LRS to orchestrate migrations in cases when Azure DMS does not fully support your scenarios.
@@ -56,7 +59,7 @@ Once LRS is stopped, either automatically on autocomplete, or manually on cutove
 | **2. Start the LRS service in the cloud**. | - Service can be started with a choice of cmdlets: <br /> PowerShell [start-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_start cmdlets](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start). <br /> - Start LRS separately for each different database pointing to a different backup folder on Azure Blob Storage. <br />- Once started, the service will take backups from the Azure Blob Storage container and start restoring them on SQL Managed Instance.<br /> - In case LRS was started in continuous mode, once all initially uploaded backups are restored, the service will watch for any new files uploaded to the folder and will continuously apply logs based on the LSN chain, until the service is stopped. |
 | **2.1. Monitor the operation progress**. | - Progress of the restore operation can be monitored with a choice of or cmdlets: <br /> PowerShell [get-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_show cmdlets](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show). |
 | **2.2. Stop\abort the operation if needed**. | - In case that migration process needs to be aborted, the operation can be stopped with a choice of cmdlets: <br /> PowerShell [stop-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_stop](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop) cmdlets. <br /><br />- This will result in deletion of the database being restored on SQL Managed Instance. <br />- Once stopped, LRS cannot be resumed for a database. Migration process needs to be restarted from scratch. |
-| **3. Cutover to the cloud when ready**. | - Once all backups have been restored to SQL Managed Instance, complete the cutover by initiating LRS complete operation with a choice of cmdlets: <br />PowerShell [complete-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_complete](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete) cmdlets. <br /><br />- This will cause LRS service to be stopped and database to come online for read and write use on SQL Managed Instance.<br /> - Repoint the application connection string from SQL Server to SQL Managed Instance. |
+| **3. Cutover to the cloud when ready**. | - Stop the application and the workload. Take the last log-tail backup and upload to Azure Blob Storage.<br /> - Complete the cutover by initiating LRS complete operation with a choice of cmdlets: <br />PowerShell [complete-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_complete](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete) cmdlets. <br /><br />- This will cause LRS service to be stopped and database to come online for read and write use on SQL Managed Instance.<br /> - Repoint the application connection string from SQL Server to SQL Managed Instance. |
 
 ## Requirements for getting started
 
@@ -95,9 +98,9 @@ The following are highly recommended as best practices:
 - Plan to complete the migration within 47 hours since LRS service has been started. This is a grace period preventing system-managed software patches once LRS has been started.
 
 > [!IMPORTANT]
-> - Database being restored using LRS cannot be used until the migration process has been completed. This is because underlying technology is restore in NORECOVERY mode.
-> - STANDBY restore mode allowing read-only access to databases during the migration is not supported by LRS due to the version differences between SQL Managed Instance and in-market SQL Servers.
-> - Once migration has been completed either through the autocomplete, or on manual cutover, the migration process is finalized as LRS does not support restore resume.
+> - Database being restored using LRS cannot be used until the migration process has been completed.
+> - Read-only access to databases during the migration is not supported by LRS.
+> - Once migration has been completed, the migration process is finalized as LRS does not support restore resume.
 
 ## Steps to execute
 
@@ -123,19 +126,19 @@ To manually make full, diff and log backup of your database on the local storage
 ```SQL
 -- Example on how to make full database backup to the local disk
 BACKUP DATABASE [SampleDB]
-TO DISK='C:\BACKUP\SampleDB_full.bak',
+TO DISK='C:\BACKUP\SampleDB_full.bak'
 WITH INIT, COMPRESSION, CHECKSUM
 GO
 
 -- Example on how to make differential database backup to the locak disk
 BACKUP DATABASE [SampleDB]
-TO DISK='C:\BACKUP\SampleDB_diff.bak',
+TO DISK='C:\BACKUP\SampleDB_diff.bak'
 WITH DIFFERENTIAL, COMPRESSION, CHECKSUM
 GO
 
 -- Example on how to make the transactional log backup to the local disk
 BACKUP LOG [SampleDB]
-TO DISK='C:\BACKUP\SampleDB_log.trn',
+TO DISK='C:\BACKUP\SampleDB_log.trn'
 WITH COMPRESSION, CHECKSUM
 GO
 ```
@@ -265,6 +268,22 @@ az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
 	--storage-sas "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
 
+### Scripting the LRS start in continuous mode
+
+PowerShell and CLI clients to start LRS in continuous mode are synchronous. This means that clients will wait for the API response to report on success or failure to start the job. During this wait the command will not return the control back to the command prompt. In case you are scripting the migration experience, and require the LRS start command to give control back immediately to continue with rest of the script, you can execute PowerShell as a background job with -AsJob switch. For example:
+
+```PowerShell
+$lrsjob = Start-AzSqlInstanceDatabaseLogReplay <required parameters> -AsJob
+```
+
+When you start a background job, a job object returns immediately, even if the job takes an extended time to finish. You can continue to work in the session without interruption while the job runs. For details on running PowerShell as a background job, see the [PoweShell Star-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job#description) documentation.
+
+Similarly, to start a CLI command on Linux as a background process, use the ampersand (&) sign at the end of the LRS start command.
+
+```CLI
+az sql midb log-replay start <required parameters> &
+```
+
 > [!IMPORTANT]
 > Once LRS has been started, any system managed software patches will be halted for the next 47 hours. Upon passing of this window, the next automated software patch will automatically stop the ongoing LRS. In such case, migration cannot be resumed and it needs to be restarted from scratch. 
 
@@ -321,9 +340,21 @@ To complete the migration process in LRS continuous mode, use the following CLI 
 az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last-backup-name "backup.bak"
 ```
 
+## Functional limitations
+
+Functional limitations of Log Replay Service (LRS) are:
+- Database being restored cannot be used for read-only access during the migration process.
+- System managed software patches will be blocked for 47 hours since starting LRS. Upon expiry of this time window, the next software update will stop LRS. In such case, LRS needs to be restarted from scratch.
+- LRS requires databases on the SQL Server to be backed up with CHECKSUM option enabled.
+- SAS token for use by LRS needs to be generated for the entire Azure Blob Storage container, and must have Read and List permissions only.
+- Backup files for different databases must be placed in separate folders on Azure Blob Storage.
+- LRS needs to be started separately for each database pointing to separate folders with backup files on Azure Blob Storage.
+- LRS can support up to 100 simultaneous restore processes per single SQL Managed Instance.
+
 ## Troubleshooting
 
 Once you start the LRS, use the monitoring cmdlets (get-azsqlinstancedatabaselogreplay or az_sql_midb_log_replay_show) to see the status of the operation. If after some time LRS fails to start with an error, check for some of the most common issues:
+- Does there already exists a database with the same name on SQL MI that you are trying to migrate from SQL Server? Resolve this conflict by renaming one of databases.
 - Was the database backup on the SQL Server made using the **CHECKSUM** option?
 - Are the permissions on the SAS token **Read** and **List** only for the LRS service?
 - Was the SAS token for LRS copied starting after the question mark "?" with content starting similar to this "sv=2020-02-10..."? 
