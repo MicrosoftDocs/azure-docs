@@ -89,10 +89,13 @@ When your Azure Time Series Insights environment receives a request, first the c
 
 ## Step 3: Requesting Tokens
 
-Once your managed identity or app registration has been provisioned and assigned a role, you're ready to begin using it to request OAuth 2.0 bearer tokens. The method you use to obtain a token will differ depending on where your code is hosted and your language of choice. The Azure AD resource URI for Azure Time Series Insights is `https://api.timeseries.azure.com/`.
+Once your managed identity or app registration has been provisioned and assigned a role, you're ready to begin using it to request OAuth 2.0 bearer tokens. The method you use to obtain a token will differ depending on where your code is hosted and your language of choice. When specifying the resource (also known as the "audience" of the token), you can identify Azure Time Series Insights by its URL or GUID:
+
+* `https://api.timeseries.azure.com/`
+* `120d688d-1518-4cf7-bd38-182f158850b6`
 
 > [!IMPORTANT]
-> The token must be issued exactly to the `https://api.timeseries.azure.com/` resource (also known as the "audience" of the token).
+> If you use the URL as the resource ID, the token must be issued exactly to `https://api.timeseries.azure.com/`. The trailing slash is required.
 
 > * If using [Postman](https://www.getpostman.com/) your **AuthURL** will therefore be: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com//.default`
 > * `https://api.timeseries.azure.com/` is valid but `https://api.timeseries.azure.com` is not.
@@ -101,15 +104,21 @@ Once your managed identity or app registration has been provisioned and assigned
 
 When accessing from Azure App Service or Functions follow the guidance in the [Obtain tokens for Azure resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity).
 
-Note that for .NET applications and functions, the simplest way to work with a managed identity is through the Microsoft.Azure.Services.AppAuthentication package. This package is popular due to its flexibility it offers, and it supports authentication to Azure services using a developer's Azure Active Directory/ Microsoft account during the development stage, or as a service itself in a later stage. When hosted in the cloud, it will default to using a system-assigned identity, but you can customize this behavior using a connection string environment variable which references the client ID of a user-assigned identity, or even an app registration and client secret. For more on development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference.](https://docs.microsoft.com/dotnet/api/overview/azure/service-to-service-authentication). 
+> [!TIP]
+> For .NET applications and functions, the simplest way to work with a managed identity is through the [Azure Identity client library](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme) for .NET. 
 
-Request a token for Azure Time Series Insights using C# and the Microsoft.Azure.Services.AppAuthentication library:
+For .NET applications and functions, the simplest way to work with a managed identity is through the Microsoft.Azure.Services.AppAuthentication package. This package is popular due to its simplicity and security benefits. Developers can write code once and let the client library determine how to authenticate based on the application environment - whether on a developer workstation using a developer's account or deployed in Azure using a managed service identity. For migration guidance from the predecessor AppAuthentication library read [AppAuthentication to Azure.Identity Migration Guidance](https://docs.microsoft.com/dotnet/api/overview/azure/app-auth-migration?view=azure-dotnet).
+
+Request a token for Azure Time Series Insights using C# and the Azure Identity client library for .NET:
 
     ```csharp
-    using Microsoft.Azure.Services.AppAuthentication;
+    using Azure.Identity;
     // ...
-    var azureServiceTokenProvider = new AzureServiceTokenProvider();
-    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://api.timeseries.azure.com/");
+    var credential = new DefaultAzureCredential();
+    var token = credential.GetToken(
+    new Azure.Core.TokenRequestContext(
+        new[] { "https://api.timeseries.azure.com/" }));
+   var accessToken = token.Token;
     ```
 
 ### App registration
@@ -124,7 +133,6 @@ MSAL can be used in many application scenarios, including, but not limited to:
 * [Desktop application calling a web API on behalf of the signed-in user](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-overview.md)
 * [Mobile application calling a web API on behalf of the user who's signed-in interactively](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-overview.md).
 * [Desktop/service daemon application calling web API on behalf of itself](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-overview.md)
-
 
 For sample C# code showing how to acquire a token as an app registration and query data from a Gen2 environment, view the sample app on [GitHub](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/Program.cs)
 
