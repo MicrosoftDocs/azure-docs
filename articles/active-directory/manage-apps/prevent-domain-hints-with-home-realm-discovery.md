@@ -1,5 +1,5 @@
 ---
-title: Prevent sign-in auto-acceleration using Home Realm Discovery policy
+title: Prevent sign-in auto-acceleration in Azure AD using Home Realm Discovery policy
 description: Learn how to prevent domain_hint auto-acceleration to federated IDPs.
 services: active-directory
 documentationcenter: 
@@ -34,7 +34,7 @@ The DomainHintPolicy section of the HRD policy is a JSON object, that allows an 
 |`IgnoreDomainHintForApps`| If a request from this application comes with a domain hint, ignore it. | Array of application IDs (GUIDs). Also supports `all_apps`|
 |`RespectDomainHintForApps` |If a request from this application comes with a domain hint, respect it even if `IgnoreDomainHintForDomains` includes that domain. Used to ensure some apps keep working if you discover they break without domain hints. | Array of application IDs (GUIDs). Also supports `all_apps`|
 
-### Policy Evaluation
+### Policy evaluation
 
 The DomainHintPolicy logic runs on each incoming request that contains a domain hint and accelerates based on two pieces of data in the request – the domain in the domain hint, and the client ID (the app). In short - "Respect" for a domain or app takes precedence over an instruction to "Ignore" a domain hint for a given domain or application.
 
@@ -117,3 +117,8 @@ POST or PATCH contents:
 Be sure to use slashes to escape the `Definition` JSON section when using Graph.  
 
 `isOrganizationDefault` must be true, but the displayName and definition can change.
+
+## Next steps
+
+* [Enable passwordless security key sign-in](../authentication/howto-authentication-passwordless-security-key.md)
+* [Enable passwordless sign-in with the Microsoft Authenticator app(../authentication/howto-authentication-passwordless-phone.md)
