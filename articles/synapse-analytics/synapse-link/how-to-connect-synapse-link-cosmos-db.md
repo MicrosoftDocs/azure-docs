@@ -62,5 +62,5 @@ By right-clicking into a container, you have a list of gestures that will trigge
 ## Next steps
 
 * [Learn what is supported between Azure Synapse and Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
-* [Configure private endpoints for Azure Cosmos DB analytical store](../cosmos-db/analytical-store-private-endpoints.md)
+* [Configure private endpoints for Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md)
 * [Learn how to query the analytical store with Spark](./how-to-query-analytical-store-spark.md)
