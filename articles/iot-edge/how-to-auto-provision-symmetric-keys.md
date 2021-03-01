@@ -221,11 +221,11 @@ Have the following information ready:
    sudo nano /etc/aziot/config.toml
    ```
 
-1. Find the provisioning configurations section of the file. Uncomment the lines for DPS symmetric key provisioning, and make sure any other provisioning lines are commented out.
+1. Find the **Provisioning** section of the file. Uncomment the lines for DPS provisioning with symmetric key, and make sure any other provisioning lines are commented out.
 
    ```toml
+   # DPS provisioning with symmetric key
    [provisioning]
-   always_reprovision_on_startup = true
    source = "dps"
    global_endpoint = "https://global.azure-devices-provisioning.net"
    id_scope = "<SCOPE_ID>"
@@ -234,13 +234,14 @@ Have the following information ready:
    method = "symmetric_key"
    registration_id = "<REGISTRATION_ID>"
 
-   [provisioning.attestation.symmetric_key]
-   value = "<PRIMARY_KEY OR DERIVED_KEY>
+   symmetric_key = "<PRIMARY_KEY OR DERIVED_KEY>"
    ```
 
-1. Update the values of `id_scope`, `registration_id`, and `value` with your DPS and device information.
+1. Update the values of `id_scope`, `registration_id`, and `symmetric_key` with your DPS and device information.
 
-1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+   The symmetric key parameter can accept a value of an inline key, a file URI, or a PKCS#11 URI. Uncomment just one symmetric key line, based on which format you're using.
+
+   If you use any PKCS#11 URIs, find the **PKCS#11** section in the config file and provide information about your PKCS#11 configuration.
 
 1. Save and close the config.toml file.
 

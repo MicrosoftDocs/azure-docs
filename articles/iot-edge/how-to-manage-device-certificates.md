@@ -201,7 +201,8 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- 
+<!-- 1.2 --
 :::moniker range=">=iotedge-2020-11"
 
 1. To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config file.
@@ -230,7 +231,8 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
 
    Check the output of the **production readiness: certificates** check, which lists the number of days until the automatically generated device CA certificates expire.
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end 1.2 --
+-->
 
 ## Next steps
 

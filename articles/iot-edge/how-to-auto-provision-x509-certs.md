@@ -290,11 +290,11 @@ Have the following information ready:
    sudo nano /etc/aziot/config.toml
    ```
 
-1. Find the provisioning configurations section of the file. Uncomment the lines for DPS X.509 certificate provisioning, and make sure any other provisioning lines are commented out.
+1. Find the **Provisioning** section of the file. Uncomment the lines for DPS provisioning with X.509 certificate, and make sure any other provisioning lines are commented out.
 
    ```toml
+   # DPS provisioning with X.509 certificate
    [provisioning]
-   always_reprovision_on_startup = true
    source = "dps"
    global_endpoint = "https://global.azure-devices-provisioning.net"
    id_scope = "<SCOPE_ID>"
@@ -302,20 +302,21 @@ Have the following information ready:
    [provisioning.attestation]
    method = "x509"
    # registration_id = "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
+
    identity_cert = "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
+
    identity_pk = "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
    ```
 
 1. Update the values of `id_scope`, `identity_cert`, and `identity_pk` with your DPS and device information.
 
-   When you add the X.509 certificate and key information to the config file, the paths should be provided as file URIs. For example:
+   The identity certificate value can be provided as a file URI, or can be dynamically issued using EST or a local certificate authority. Uncomment only one line, based on the format you choose to use.
 
-   `file:///<path>/identity_certificate_chain.pem`
-   `file:///<path>/identity_key.pem`
+   The identity private key value can be provided as a file URI or a PKCS#11 URI. Uncomment only one line, based on the format you choose to use.
 
-1. Optionally, provide a `registration_id` for the device. Otherwise, leave that line commented out to register the device with the CN name of the identity certificate.
+   If you use any PKCS#11 URIs, find the **PKCS#11** section in the config file and provide information about your PKCS#11 configuration.
 
-1. Optionally, set the `always_reprovision_on_startup` parameter to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+1. Optionally, provide a `registration_id` for the device. Otherwise, leave that line commented out to register the device with the common name of the identity certificate.
 
 1. Save and close the file.
 

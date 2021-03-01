@@ -212,7 +212,7 @@ Once the runtime is installed on your device, configure the device with the info
 :::moniker-end
 
 <!-- 1.2 -->
-:::moniker range="iotedge-2020-11"
+:::moniker range=">=iotedge-2020-11"
 
 1. Know your DPS **ID Scope** and device **Registration ID** that were gathered in the previous sections.
 
@@ -228,12 +228,11 @@ Once the runtime is installed on your device, configure the device with the info
    sudo nano /etc/aziot/config.toml
    ```
 
-1. Find the provisioning configurations section of the file. Uncomment the lines for TPM provisioning, and make sure any other provisioning lines are commented out.
+1. Find the **Provisioning** section of the file. Uncomment the lines for DPS provisioning with TPM, and make sure any other provisioning lines are commented out.
 
    ```toml
-   # DPS TPM provisioning configuration
+   # DPS provisioning with TPM
    [provisioning]
-   always_reprovision_on_startup = true
    source = "dps"
    global_endpoint = "https://global.azure-devices-provisioning.net"
    id_scope = "<SCOPE_ID>"
@@ -244,8 +243,6 @@ Once the runtime is installed on your device, configure the device with the info
    ```
 
 1. Update the values of `id_scope` and `registration_id` with your DPS and device information.
-
-1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 1. Save and close the config.toml file.
 

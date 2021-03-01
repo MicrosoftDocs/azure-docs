@@ -238,10 +238,10 @@ On the IoT Edge device, open the configuration file.
    sudo nano /etc/aziot/config.toml
    ```
 
-Find the provisioning configurations of the file and uncomment the **Manual provisioning configuration using a connection string** section, if it isn't already uncommented.
+Find the **Provisioning** section of the file and uncomment the manual provisioning with connection string lines.
 
    ```toml
-   # Manual provisioning configuration using a connection string
+   # Manual provisioning with connection string
    [provisioning]
    source = "manual"
    connection_string = "<ADD DEVICE CONNECTION STRING HERE>"
@@ -326,10 +326,10 @@ On the IoT Edge device, open the configuration file.
    sudo nano /etc/aziot/config.toml
    ```
 
-Find the provisioning configurations section of the file and uncomment the **Manual provisioning configuration using an X.509 identity certificate** section. Make sure that any other provisioning sections are commented out.
+Find the **Provisioning** section of the file and uncomment the lines for manual provisioning with X.509 identity certificate. Make sure that any other provisioning sections are commented out.
 
    ```toml
-   # Manual provisioning configuration using x.509 certificates
+   # Manual provisioning with x.509 certificates
    [provisioning]
    source = "manual"
    iothub_hostname = "<REQUIRED IOTHUB HOSTNAME>"
@@ -337,7 +337,9 @@ Find the provisioning configurations section of the file and uncomment the **Man
 
    [provisioning.authentication]
    method = "x509"
-   identity_cert = "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
+
+   identity_cert = "<REQUIRED URI OR POINTER TO DEVICE IDENTITY CERTIFICATE>"
+
    identity_pk = "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
    ```
 
@@ -345,8 +347,8 @@ Update the following fields:
 
 * **iothub_hostname**: Hostname of the IoT hub the device will connect to. For example, `{IoT hub name}.azure-devices.net`.
 * **device_id**: The ID that you provided when you registered the device.
-* **identity_cert**: URI to an identity certificate on the device. For example, `file:///path/identity_certificate.pem`.
-* **identity_pk**: URI to the private key file for the provided identity certificate. For example, `file:///path/identity_key.pem`.
+* **identity_cert**: URI to an identity certificate on the device, for example: `file:///path/identity_certificate.pem`. Or, dynamically issue the certificate using EST or a local certificate authority.
+* **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///path/identity_key.pem`. Or, provide a PKCS#11 URI and then provide your configuration information in the **PKCS#11** section later in the file.
 
 Save and close the file.
 

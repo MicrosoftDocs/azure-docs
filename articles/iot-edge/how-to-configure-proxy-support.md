@@ -213,7 +213,7 @@ This step takes place once on the IoT Edge device during initial device setup.
 <!-- end 1.1 -->
 
 <!-- 1.2 -->
-:::moniker range="iotedge-2020-11"
+:::moniker range=">=iotedge-2020-11"
 
 1. Open the config file on your IoT Edge device: `/etc/aziot/config.toml`. The configuration file is protected, so you need administrative privileges to access it. On Linux systems, use the `sudo` command before opening the file in your preferred text editor.
 
@@ -223,15 +223,18 @@ This step takes place once on the IoT Edge device during initial device setup.
 
    ```toml
    [agent.env]
-   https_proxy = "<proxy URL>"
+   # "RuntimeLogLevel" = "debug"
+   # "UpstreamProtocol" = "AmqpWs"
+   "https_proxy" = "<proxy URL>"
    ```
 
-4. The IoT Edge runtime uses AMQP by default to talk to IoT Hub. Some proxy servers block AMQP ports. If that's the case, then you also need to configure edgeAgent to use AMQP over WebSocket. Add a second environment variable, **UpstreamProtocol**.
+4. The IoT Edge runtime uses AMQP by default to talk to IoT Hub. Some proxy servers block AMQP ports. If that's the case, then you also need to configure edgeAgent to use AMQP over WebSocket. Uncomment the `UpstreamProtocol` parameter.
 
    ```toml
    [agent.env]
-   https_proxy = "<proxy URL>"
-   UpstreamProtocol = "AmqpWs"
+   # "RuntimeLogLevel" = "debug"
+   "UpstreamProtocol" = "AmqpWs"
+   "https_proxy" = "<proxy URL>"
    ```
 
 5. Save the changes and close the editor. Apply your latest changes.
