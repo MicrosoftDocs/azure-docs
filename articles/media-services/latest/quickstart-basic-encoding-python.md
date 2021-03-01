@@ -25,10 +25,10 @@ This quickstart shows you how to do basic encoding with Python and Azure Media S
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Create a resource group to use with this quickstart.
 - Create a Media Services v3 account.
 - Get your storage account key.
 - Create a service principal and key.
-- Start with the simple connection script first to set yourself up.  This script builds on that one. See [Connect to Media Services v3 API - Python](configure-connect-python-howto.md).
 
 ## Get the sample
 
