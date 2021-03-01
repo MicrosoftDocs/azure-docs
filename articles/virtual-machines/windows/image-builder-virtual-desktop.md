@@ -33,8 +33,8 @@ This article is intended to be a copy and paste exercise.
 
 ## Tips for building Windows images 
 
-1. VM Size - the default VM size is a `Standard_D1_v2`, which is not suitable for Windows. Use a `Standard_D2_v2` or greater.
-2. This example uses the [PowerShell customizer scripts](../linux/image-builder-json.md). You need to use these settings or the build will hang.
+- VM Size - the default VM size is a `Standard_D1_v2`, which is not suitable for Windows. Use a `Standard_D2_v2` or greater.
+- This example uses the [PowerShell customizer scripts](../linux/image-builder-json.md). You need to use these settings or the build will hang.
 
     ```json
       "runElevated": true,
@@ -51,22 +51,20 @@ This article is intended to be a copy and paste exercise.
           "runAsSystem": true,
           "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/0_installConfFsLogix.ps1"
     ```
-1. Comment your code. The AIB build log (customization.log) is extremely verbose, if you comment your scripts using 'write-host' these will be sent to the logs, and make troubleshooting easier.
+- Comment your code - The AIB build log (customization.log) is extremely verbose, if you comment your scripts using 'write-host' these will be sent to the logs, and make troubleshooting easier.
 
     ```PowerShell
      write-host 'AIB Customization: Starting OS Optimizations script'
     ```
 
-4. Emit Exit Codes. AIB expects all scripts to return a 0 exit code, any non-zero exit code will result in AIB failing the customization and stopping the build. If you have complex scripts, add instrumentation and emit exit codes, these will be shown in the customization.log.
+- Exit Codes - AIB expects all scripts to return a 0 exit code, any non-zero exit code will result in AIB failing the customization and stopping the build. If you have complex scripts, add instrumentation and emit exit codes, these will be shown in the customization.log.
 
     ```PowerShell
      Write-Host "Exit code: " $LASTEXITCODE
     ```
-1. Test. Please test and test your code before on a standalone VM, ensure there are no user prompts, you are using the right privilege etc.
+- Test: Please test and test your code before on a standalone VM, ensure there are no user prompts, you are using the right privilege etc.
 
-1. Networking: Set-NetAdapterAdvancedProperty 
-
-    This is being set in the optimization script, but fails the AIB build, as it disconnects the network, this is commented out. It is under investigation.
+- Networking - `Set-NetAdapterAdvancedProperty`. This is being set in the optimization script, but fails the AIB build, as it disconnects the network, this is commented out. It is under investigation.
 
 ## Prerequisites
 
