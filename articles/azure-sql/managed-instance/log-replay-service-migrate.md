@@ -304,7 +304,7 @@ PowerShell and CLI clients to start LRS in continuous mode are synchronous. This
 $lrsjob = Start-AzSqlInstanceDatabaseLogReplay <required parameters> -AsJob
 ```
 
-When you start a background job, a job object returns immediately, even if the job takes an extended time to finish. You can continue to work in the session without interruption while the job runs. For details on running PowerShell as a background job, see the [PoweShell Star-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job#description) documentation.
+When you start a background job, a job object returns immediately, even if the job takes an extended time to finish. You can continue to work in the session without interruption while the job runs. For details on running PowerShell as a background job, see the [PowerShell Start-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job#description) documentation.
 
 Similarly, to start a CLI command on Linux as a background process, use the ampersand (&) sign at the end of the LRS start command.
 
