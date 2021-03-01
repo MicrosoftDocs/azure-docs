@@ -371,11 +371,9 @@ For a stateful workflow, you can review the trigger history for each run, includ
 
 1. In the Azure portal, on your workflow's menu, under **Developer**, select **Trigger Histories**.
 
-   The **Trigger Histories** pane shows the trigger history for a specific run, b
+   The **Trigger Histories** pane shows the trigger histories for your workflow's runs.
 
-
-
-1. pen the workflow in your logic app. On the workflow menu, 
+1. To review a specific trigger history, select the ID for that run.
 
 <a name="enable-open-application-insights"></a>
 
