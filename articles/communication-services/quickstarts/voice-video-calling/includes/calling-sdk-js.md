@@ -54,7 +54,7 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## Place an outgoing call
 
-To create and start a call you need to use one of the APIs on CallAgent and provide a user that you've created through the Communication Services identity client library.
+To create and start a call you need to use one of the APIs on CallAgent and provide a user that you've created through the Communication Services Identity client library.
 
 Call creation and start is synchronous. The Call instance allows you to subscribe to call events.
 
