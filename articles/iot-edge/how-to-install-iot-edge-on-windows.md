@@ -313,7 +313,10 @@ This section covers provisioning your device automatically using DPS and X.509 c
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
 
+# [Windows Admin Center](#tab/windowsadmincenter)
+
 1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
+
 1. The device overview page displays some information about the device:
 
     1. The **IoT Edge Module List** section shows running modules on the device. When the IoT Edge service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
@@ -332,6 +335,39 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
        ```bash
        sudo iotedge check
        ```
+
+# [PowerShell](#tab/powershell)
+
+1. Login to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
+
+   ```azurepowershell-interactive
+   Ssh-EflowVm
+   ```
+
+   >[!NOTE]
+   >The default username for the IoT Edge for Linux on Windows virtual machine is `eflowVmUserName`.
+
+1. Once you are logged in, you can check the list of running IoT Edge modules using the following Linux command:
+
+   ```bash
+   iotedge list
+   ```
+
+1. If you need to troubleshoot the IoT Edge service, use the following Linux commands.
+
+    1. If you need to troubleshoot the service, retrieve the service logs.
+
+       ```bash
+       journalctl -u iotedge
+       ```
+
+    2. Use the `check` tool to verify configuration and connection status of the device.
+
+       ```bash
+       sudo iotedge check
+       ```
+
+---
 
 ## Next steps
 
