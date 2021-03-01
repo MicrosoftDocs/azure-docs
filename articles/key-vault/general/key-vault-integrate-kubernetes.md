@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 * Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
-This tutorial assumes you runnig Azure Kubernetes Service on Linux nodes.
+This tutorial assumes you're running Azure Kubernetes Service on Linux nodes.
 
 ## Use managed identities
 
