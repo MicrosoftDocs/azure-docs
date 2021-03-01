@@ -121,4 +121,4 @@ Be sure to use slashes to escape the `Definition` JSON section when using Graph.
 ## Next steps
 
 * [Enable passwordless security key sign-in](../authentication/howto-authentication-passwordless-security-key.md)
-* [Enable passwordless sign-in with the Microsoft Authenticator app(../authentication/howto-authentication-passwordless-phone.md)
+* [Enable passwordless sign-in with the Microsoft Authenticator app](../authentication/howto-authentication-passwordless-phone.md)
