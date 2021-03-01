@@ -419,6 +419,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 **Guidance**: Use Azure role-based access control (Azure RBAC) to control access to Azure Firewall and related resources.
 
 - [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
+- [Deploy Firewall RBAC role using sample templates](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Template%20-%20Role%20Based%20Access%20Control%20(RBAC)%20for%20Azure%20Firewall) 
 
 **Azure Security Center monitoring**: Currently not available
 
