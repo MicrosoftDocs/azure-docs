@@ -4,7 +4,6 @@
 
 ```console
 dotnet add package Azure.Communication.Identity
-dotnet add package Azure.Communication.Configuration
 dotnet add package Azure.Communication.Sms
 dotnet add package Azure.Identity
 ```
@@ -16,7 +15,6 @@ Add the following `using` directives to your code to use the Azure Identity and 
 ```csharp
 using Azure.Identity;
 using Azure.Communication.Identity;
-using Azure.Communication.Configuration;
 using Azure.Communication.Sms;
 ```
 
