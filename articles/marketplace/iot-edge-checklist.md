@@ -44,8 +44,8 @@ Edge modules are deployed on the Edge device created on Azure.
 The certification team uses the following hardware to validate images on different architectures:
 
 - For X64 images, an Azure VM having configuration size as Standard D2s v3 running Ubuntu Server 18.04/ Ubuntu Server 16.04.
-- For Azure Resource Manager (ARM) 32 images, a Raspberry Pi 3 Model B.
-- For ARM 64 images, a NVIDIA Jetson Nano 4Gb.
+- For Azure Resource Manager 32 images, a Raspberry Pi 3 Model B.
+- For Azure Resource Manager 64 images, a NVIDIA Jetson Nano 4Gb.
 
 #### Steps
 
