@@ -119,7 +119,7 @@ To create and run a new scan, do the following:
     -   Provide a user ID to connect to SAP server in the User name input field.
     -   Store the user password used to connect to SAP server in the secret key.
 
-    d.  **Client ID:** Enter here the SAP system client id. The client
+    d.  **Client ID:** Enter here the SAP system client ID. The client
         is identified with three-digit numeric number from 000 to 999.
 
     e.  **JCo library path**: Specify the path to the folder where the
