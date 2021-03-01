@@ -20,5 +20,9 @@ The following table includes links to Azure Resource Manager templates for Azure
 |-|-|
 | [App Service](https://azure.microsoft.com/resources/templates/201-front-door-standard-premium-app-service-public/) | Creates an App Service app with a public endpoint, and a Front Door profile.  |
 | [App Service - Private Link](https://azure.microsoft.com/resources/templates/201-front-door-premium-app-service-private-link/) | Creates an App Service app with a private endpoint, and a Front Door profile.  |
+| [Azure Functions](https://azure.microsoft.com/resources/templates/201-front-door-standard-premium-function-public/) | Creates an Azure Functions app with a public endpoint, and a Front Door profile.  |
+| [Azure Functions - Private Link](https://azure.microsoft.com/resources/templates/201-front-door-premium-function-private-link/) | Creates an Azure Functions app with a private endpoint, and a Front Door profile.  |
+| [API Management](https://azure.microsoft.com/resources/templates/201-front-door-standard0premium-api-management-external/) | Creates an API Management instance with external VNet integration, and a Front Door profile.  |
+| [Storage static website](https://azure.microsoft.com/resources/templates/201-front-door-standard-premium-storage-static-website/) | Creates an Azure Storage account and static website with a public endpoint, and a Front Door profile.  |
 | [Storage blobs - Private Link](https://azure.microsoft.com/resources/templates/201-front-door-premium-storage-blobs-private-link/) | Creates an Azure Storage account and blob container with a private endpoint, and a Front Door profile.  |
 | | |
