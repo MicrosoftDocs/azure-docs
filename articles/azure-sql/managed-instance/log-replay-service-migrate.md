@@ -202,7 +202,7 @@ Azure Blob Storage is used as an intermediary storage for backup files between S
 
 SAS authentication will be generated with the time validity that you have specified earlier. You will need the URI version of the token generated - as shown in the screenshot below.
 
-	![Log Replay Service generated SAS authentication URI example](./media/log-replay-service-migrate/lrs-generated-uri-token.png)
+![Log Replay Service generated SAS authentication URI example](./media/log-replay-service-migrate/lrs-generated-uri-token.png)
 
 ### Copy parameters from SAS token generated
 
