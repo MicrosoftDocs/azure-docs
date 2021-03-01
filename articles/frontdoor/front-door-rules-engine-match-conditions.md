@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 03/01/2020
 ms.author: duau
 # customer intent: As an IT admin, I want to learn about Front Door and what new features are available. 
 ---
@@ -138,7 +138,7 @@ Operator | Request URL | Case transform
 
 #### Key information
 
-- When you use this rule condition, be sure to include protocol information. For example: *https://www.\<yourdomain\>.com*.
+- When you use this rule condition, be sure to include protocol information. For example: `https://www.<yourdomain\>.com`.
 
 ## Request file extension
 
@@ -177,6 +177,10 @@ Identifies requests that include the specified path in the requesting URL.
 Operator | Value | Case Transform
 ---------|-------|---------------
 [Standard operator list](#standard-operator-list) | String, Int | Lowercase, Uppercase, Trim, Remove Whitespace, URL Encode, URL decode
+
+#### Key information
+
+- When you use this rule condition, note that the match starts after the first `/` of the path. For example: `https://www.<yourdomain>.com/folder/page` would start matching on `folder/page`.
 
 ## Standard operator list
 
