@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/26/2020
+ms.date: 03/01/2020
 ms.author: alkohli
 ---
 
@@ -30,7 +30,10 @@ In this article, you learn how to:
 
 To wipe the data off the data disks of your device, you need to reset your device. 
 
-Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container. 
+Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container.
+
+>[IMPORTANT] 
+> Resetting your device will erase all local data and workloads from your device, and this is a non-reversible operation. Do this only if you want to start afresh with the device.
 
 You can reset your device in the local web UI or in PowerShell. For PowerShell instructions, see [Reset your device](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
