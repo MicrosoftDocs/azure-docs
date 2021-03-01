@@ -16,11 +16,13 @@ This article is an introduction to using C# to develop .NET isolated functions, 
 
 ## Why .NET isolated
 
-The Azure Functions runtime is basically an ASP.NET application, which offers deep integration between the runtime and [.NET class library functions](functions-dotnet-class-library.md). As a result of this integration, significant investment is required when supporting new versions of .NET. Because of the importance of .NET to Microsoft and Azure, Functions needs to be able to support all current versions of .NET, both Long Term Support (LTS) versions (such as .NET Core 3.1) and current releases (such as .NET 5.0). You can learn more about .NET version support on the [.NET support policy page](https://dotnet.microsoft.com/platform/support/policy). For more information about .NET versions supported as in-process apps, see [Runtime version](functions-dotnet-class-library.md#runtime-version) in the .NET class library guide. 
+Previously Azure Functions has only supported a single mode for writing .NET functions, which run [alongside the host in the same process as a class library](functions-dotnet-class-library.md).  This provides deep integration between the host process and the function process, allowing things like SDKs from triggers and bindings to be shared directly with the .NET function.  However, this also introduces tighter coupling between the host process and the .NET function.  For example, .NET functions running in process are required to be running the same version of the .NET runtime.  To provide the option to run outside these constraints, you can choose to run in an isolated process.  This enables using current releases (such as .NET 5) that the runtime may not be utilizing.
+
+Because these functions run in a separate process, there are some [feature and functionality differences](#differences-with-net-class-libraries) between .NET isolated function apps and .NET class library function apps.
 
 Running .NET isolated functions out-of-process lets Functions support both current releases of .NET and LTS releases. This solution is an interim one to developing and running functions developed using the latest versions of .NET in the current .NET support model. In the short term, there are some [feature and functionality differences](#differences-with-net-class-libraries) between .NET isolated function apps and .NET class library function apps, run in-process with the runtime. 
 
-.NET isolated uses an ou-of-process .NET worker process when running your .NET functions. This is the same basic architecture used by the other non-.NET languages supported by Functions. 
+.NET isolated uses an out-of-process .NET language worker when running your .NET functions. This is the same basic architecture used by the other non-.NET languages supported by Functions. 
 
 ### Benefits of running out-of-process
 
@@ -65,7 +67,7 @@ Add the following packages to your project:
 
 ## Start-up and configuration 
 
-When using .NET isolated functions, you have access to the start-up of your function app, which is usually in program.cs. Because you are responsible for creating and starting your own host instance, you have direct access to the configuration pipeline and can much more easily inject dependencies and run middleware. 
+When using .NET isolated functions, you have access to the start-up of your function app, which is usually in Program.cs. Because you are responsible for creating and starting your own host instance, you have direct access to the configuration pipeline and can much more easily inject dependencies and run middleware. 
 
 The following code shows an example of a HostBuilder pipeline:
 
@@ -89,7 +91,7 @@ To learn more about configuration, see [Configuration in ASP.NET Core](/aspnet/c
 
 ### Dependency injection
 
-Dependency injection is simplified, compared .NET class libraries. Rather than having to create a startup class to register services, you just have to call `ConfigureServices` on the host builder and use the extension methods on [`IServiceCollection`](/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection?view=dotnet-plat-ext-5.0) to inject specific services. 
+Dependency injection is simplified, compared to .NET class libraries. Rather than having to create a startup class to register services, you just have to call `ConfigureServices` on the host builder and use the extension methods on [`IServiceCollection`](/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection?view=dotnet-plat-ext-5.0) to inject specific services. 
 
 The following example injects a singleton service dependency:  
  
@@ -187,4 +189,3 @@ This section described  the functional and behavioral differences running .NET 5
 
 + [Learn more about triggers and bindings](functions-triggers-bindings.md)
 + [Learn more about best practices for Azure Functions](functions-best-practices.md)
-
