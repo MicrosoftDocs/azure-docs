@@ -141,9 +141,6 @@ After your logic app runs, you can view the data about those runs in your Log An
 
    ![View logic app runs and status](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
 
-   > [!NOTE]
-   > The **Resubmit** capability on this page is currently unavailable.
-
    For actions where you [set up tracked properties](#extend-data), you can also view those properties by selecting **View** in the **Tracked Properties** column. To search the tracked properties, use the column filter.
 
    ![View tracked properties for a logic app](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
