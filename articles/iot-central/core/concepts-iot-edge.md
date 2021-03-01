@@ -39,7 +39,7 @@ An IoT Edge device can be:
 
 ## IoT Edge as a gateway
 
-An IoT Edge device can operate as a gateway that provides a connection between other devices on the network and your IoT Central application.
+An IoT Edge device can operate as a gateway that provides a connection between other downstream devices on the network and your IoT Central application.
 
 There are two gateway patterns:
 
@@ -50,6 +50,24 @@ There are two gateway patterns:
 The transparent and translation gateway patterns aren't mutually exclusive. A single IoT Edge device can function as both a transparent gateway and a translation gateway.
 
 To learn more about the IoT Edge gateway patterns, see [How an IoT Edge device can be used as a gateway](../../iot-edge/iot-edge-as-gateway.md).
+
+### Downstream device relationships with a gateway and modules
+
+Downstream devices can connect to an IoT Edge gateway device through the *IoT Edge hub*  module. In this scenario, the IoT Edge device is a transparent gateway:
+
+:::image type="content" source="media/concepts-iot-edge/gateway-transparent.png" alt-text="Diagram of transparent gateway":::
+
+Downstream devices can also connect to an IoT Edge gateway device through a custom module. In the following scenario, downstream devices connect through a *Modbus* custom module. In this scenario, the IoT Edge device is a translation gateway:
+
+:::image type="content" source="media/concepts-iot-edge/gateway-module.png" alt-text="Diagram of custom module connection":::
+
+The following diagram shows connections to an IoT Edge gateway device through both types of modules. In this scenario, the IoT Edge device is both a transparent and a translation gateway:
+
+:::image type="content" source="media/concepts-iot-edge/gateway-module-transparent.png" alt-text="Diagram of connecting using both connection modules":::
+
+Downstream devices can connect to an IoT Edge gateway device through multiple custom modules. The following diagram shows downstream devices connecting through a Modbus custom module, a BLE custom module, and the *IoT Edge hub*  module:
+
+:::image type="content" source="media/concepts-iot-edge/gateway-module2-transparent.png" alt-text="Diagram of connecting using multiple custom modules":::
 
 <!-- To do: add link to how to configure gateway article? -->
 
