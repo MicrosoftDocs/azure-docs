@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 03/01/2021
 ms.author: aahi
 ---
 
@@ -95,7 +95,7 @@ Starting in `v3.1-preview.4`, The JSON response includes a `redactedText` proper
 
 **Asynchronous operation**
 
-Starting in `v3.1-preview.4`, You can send NER requests asynchronously using the `/analyze` endpoint.
+Starting in `v3.1-preview.4`, You can send NER and entity linking requests asynchronously using the `/analyze` endpoint.
 
 * Asynchronous operation - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze`
 

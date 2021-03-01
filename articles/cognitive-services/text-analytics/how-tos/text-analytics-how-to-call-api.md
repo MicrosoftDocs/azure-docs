@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
 ---
@@ -61,6 +61,7 @@ See the table below to see which features can be used asynchronously. Note that 
 | Opinion mining | ✔ |  |
 | Key phrase extraction | ✔ | ✔* |
 | Named Entity Recognition (including PII and PHI) | ✔ | ✔* |
+| Entity linking | ✔ | ✔* |
 | Text Analytics for health (container) | ✔ |  |
 | Text Analytics for health (API) |  | ✔  |
 
