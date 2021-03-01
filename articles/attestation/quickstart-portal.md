@@ -141,6 +141,7 @@ Follow these steps to upload a policy in JWT or text format if the attestation p
 
 1. Select **Refresh** on the upper menu to view the configured policy.
 
+
 If the attestation provider was created with a policy signing requirement,  follow these steps to upload a policy in JWT format.
 
 1.	Go to the Azure portal menu or the home page and select **All resources**.
