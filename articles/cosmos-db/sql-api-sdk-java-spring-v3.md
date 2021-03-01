@@ -84,7 +84,7 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 ## Additional notes
 
 * Spring Data Azure Cosmos DB supports Java JDK 8 and Java JDK 11.
-* Spring Data 2.3 is currently supported, Spring Data 2.4 is not yet supported but will be soon.
+* Spring Data 2.3 is currently supported, Spring Data 2.4 is not supported currently.
 
 ## FAQ
 
