@@ -4,7 +4,7 @@ description: Learn how to install a sensor and the on-premises management consol
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 02/18/2021
+ms.date: 03/01/2021
 ms.topic: how-to
 ms.service: azure
 ---
