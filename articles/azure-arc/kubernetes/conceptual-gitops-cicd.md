@@ -54,9 +54,9 @@ Suppose Alice wants to make an application change that alters the Docker image u
     * The change is safe to deploy to the cluster, and the artifacts are saved to the CI pipeline run.
 4. Alice's change merges triggers the CD pipeline. 
     * The CD pipeline picks up the artifacts stored by Alice's CI pipeline run. 
-    * The CD pipeline substitutes the templates and compared them against the existing cluster state in the GitOps repo. 
+    * The CD pipeline substitutes the templates with environment specific values, and stages any changes against the existing cluster state in the GitOps repo.
     * The CD pipeline creates a PR to the GitOps repo with the desired changes to the cluster state.
-5. GitOps approves Alice’s PR.
+5. Alice's team reviews and approves her PR.
     * The change is merged into the target branch corresponding to the environment.
 6. Within minutes, Flux notices a change in the GitOps repo and pulls Alice's change. 
     * Because of the Docker image change, the application pod requires an update. 
