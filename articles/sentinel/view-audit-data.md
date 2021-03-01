@@ -45,8 +45,10 @@ LAQueryLogs data includes information such as:
 - The query texts themselves
 - Performance data on each query run
 
+
+
 > [!NOTE]
-> - The **LAQueryLogs** table only includes data for queries run explicitly by users. It does not include information about queries run by working interactively with Azure Sentinel, or with scheduled analytics rules.
+> - The **LAQueryLogs** table only includes queries that have been run in the Logs blade of Azure Sentinel. It does not include the queries run by scheduled analytics rules, using the **Investigation Graph** or in the Azure Sentinel **Hunting** page.
 > - There may be a short delay between the time a query is run and the data is populated in the **LAQueryLogs** table. We recommend waiting about 5 minutes to query the **LAQueryLogs** table for audit data.
 >
 
@@ -192,6 +194,8 @@ For example, the following table lists selected operations found in Azure Activi
 |Delete data connectors	|Microsoft.SecurityInsights/dataConnectors|
 |Update settings	|Microsoft.SecurityInsights/settings|
 | | |
+
+For more information, see [Azure Activity Log event schema](/azure/azure-monitor/essentials/activity-log-schema).
 
 ## Configuring alerts for Azure Sentinel activities
 
