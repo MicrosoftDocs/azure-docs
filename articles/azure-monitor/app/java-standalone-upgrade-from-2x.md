@@ -248,8 +248,8 @@ dependencies
 | where timestamp > start and timestamp < end
 | project timestamp, type, name, operation_Id
 | join (requests
-        | where timestamp > start and timestamp < end
-        | project operation_Name, operation_Id)
-  on $left.operation_Id == $right.operation_Id
+    | where timestamp > start and timestamp < end
+    | project operation_Name, operation_Id)
+    on $left.operation_Id == $right.operation_Id
 | summarize count() by operation_Name, type, name
 ```
