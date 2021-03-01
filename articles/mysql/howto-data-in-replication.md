@@ -98,20 +98,20 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    If the variable [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) is returned with the value "ON", binary logging is enabled on your server.
    
    If `log_bin` is returned with the value "OFF", 
-   - locate your MySQL configuration file (my.cnf) in the source server. For example: /etc/my.cnf
-   - Open the configuration file to edit it and locate **mysqld** section in the file.
-   - In the mysqld section, add following line
+   1. Locate your MySQL configuration file (my.cnf) in the source server. For example: /etc/my.cnf
+   2. Open the configuration file to edit it and locate **mysqld** section in the file.
+   3.  In the mysqld section, add following line
    
-     ```bash
-     log-bin=mysql-bin.log
-     ```
+       ```bash
+       log-bin=mysql-bin.log
+       ```
      
-   - Restart the MySQL source server for the changes to take effect.
-   - Once the server is restarted, verify that binary logging is enabled by running the same query as before:
+   4. Restart the MySQL source server for the changes to take effect.
+   5. Once the server is restarted, verify that binary logging is enabled by running the same query as before:
    
-   ```sql
-   SHOW VARIABLES LIKE 'log_bin';
-   ```
+      ```sql
+      SHOW VARIABLES LIKE 'log_bin';
+      ```
    
 4. Source server settings
 
