@@ -7,7 +7,7 @@ author: v-dalc@microsoft.com
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/18/2021
+ms.date: 03/01/2021
 ms.author: alkohli
 ---
 
@@ -52,20 +52,20 @@ To enable wireless connections, you configure the Wi-Fi port on your device, and
 
 ### Profile for home network
 
-On a typical home network, different devices - such as a laptop and a mobile phone connected to the network - may use identical profiles and the same passwords.
+On a WPA2-personal network (a home network or Wi-Fi open hotspot), different devices - such as a laptop and a mobile phone connected to the network - may use identical profiles and the same password.
 
-For example, a Windows 10 client can generate a runtime profile for you. When you log onto the Wi-Fi network, you're prompted for the Wi-Fi password and, once you provide that password, you're connected. No network information is needed except the password.
+For example, a Windows 10 client can generate a runtime profile for you. When you log onto the Wi-Fi network, you're prompted for the Wi-Fi password and, once you provide that password, you're connected. No certificate is needed.
 
-On this type of home network, you may be able to export a Wi-Fi profile from your laptop, and then import it to your device.<!--How much editing do we assume they need to do? Are they editing the profile or updating security on their wireless network?--> 
+On this type of network, you may be able to export a Wi-Fi profile from your laptop, and then import it to your Azure Stack Edge Mini R device.
 
 > [!IMPORTANT] 
 > Before you create a Wi-Fi profile for your Azure Stack Edge Mini R device, contact your network administrator to find out the organization's security requirements for wireless networking. You shouldn't test or use any Wi-Fi profile on your device until you know the wireless network meets requirements.
 
 ### Profiles for high-security enterprise networks
 
-If you're preparing a Wi-Fi profile to use in a high-security enterprise environment, you'll need to work with the network administrators to find out the settings that the wireless network connections require.
+To connect your Azure Stack Edge Mini R device on a WPA2-enterprise network, you'll need to work with your network administrator to get a Wi-Fi profile and certificate to use.
 
-On a high-security enterprise network, different devices may use different profiles to connect to the network. A radius server typically does server-side authentication. The network then generates a distinct profile with different authentication for each client computer that accesses the server.
+STOPPING HERE. On a high-security enterprise network, different devices may use different profiles to connect to the network. A radius server typically does server-side authentication. The network then generates a distinct profile with different authentication for each client computer that accesses the server.
 
 The profile will have a machine-specific component that looks similar to the code in the following example. In the `Security` section, the authentication mode (`authMode`) for the `OneX` Wi-Fi protocol is set to `machine`. The Extensible Authentication Protocol (EAP) configuration that follows (`eapConfig` component) is unique to that computer.<!--This needs verification. Not sure about the placement. It was buried in the "Check for machine-specific profiles" section, but it feels like a major interruption here.-->
 
