@@ -104,19 +104,18 @@ While configuration of tenant restrictions is done on the corporate proxy infras
 
 The admin for the tenant specified as the Restricted-Access-Context tenant can use this report to see sign-ins blocked because of the tenant restrictions policy, including the identity used and the target directory ID. Sign-ins are included if the tenant setting the restriction is either the user tenant or resource tenant for the sign-in.
 
-> [!NOTE]
-> The report may contain limited information, such as target directory ID, when a user who is in a tenant other than the Restricted-Access-Context tenant signs in. In this case, user identifiable information, such as name and user principal name, is masked to protect user data in other tenants ("00000000-0000-0000-0000-00000000@domain.com") 
+The report may contain limited information, such as target directory ID, when a user who is in a tenant other than the Restricted-Access-Context tenant signs in. In this case, user identifiable information, such as name and user principal name, is masked to protect user data in other tenants ("{PII Removed}@domain.com" or 00000000-0000-0000-0000-000000000000 in place of usernames and object IDs as appropriate). 
 
 Like other reports in the Azure portal, you can use filters to specify the scope of your report. You can filter on a specific time interval, user, application, client, or status. If you select the **Columns** button, you can choose to display data with any combination of the following fields:
 
-- **User**
+- **User** - this field can have personally identifiable information removed, where it will be set to `00000000-0000-0000-0000-000000000000`. 
 - **Application**
 - **Status**
 - **Date**
-- **Date (UTC)** (where UTC is Coordinated Universal Time)
+- **Date (UTC)** - where UTC is Coordinated Universal Time
 - **IP Address**
 - **Client**
-- **Username**
+- **Username** - this field can have personally identifiable information removed, where it will be set to `{PII Removed}@domain.com`
 - **Location**
 - **Target tenant ID**
 
