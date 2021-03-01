@@ -87,7 +87,7 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 
 ### Migration failed in an operation. 
 - If validate failed, it is because the deployment or virtual network contains an unsupported scenario/feature/resource. Use the list of unsupported scenarios to find the work-around in the documents.  
-- Prepare operation also does validation include some expensive validations (not covered in validate). Prepare failure could be due to an unsupported scenario. Find the scenario and the work-around in the public documents. Abort needs to be called to go back to the original state. 
+- Prepare operation first does validation including some expensive validations (not covered in validate). Prepare failure could be due to an unsupported scenario. Find the scenario and the work-around in the public documents. Abort needs to be called to go back to the original state and unlock the deployment for updates and delete operations.
 - If abort failed, retry the operation. If retries fail, then contact support.
 - If commit failed, retry the operation. If retry fail, then contact support. Even in commit failure, there should no data plane issue to your deployment. Your deployment should be handle customer traffic without any issue. 
 
