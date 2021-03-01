@@ -31,6 +31,7 @@ This article discusses the following:
 - The Recovery Services vault can be encrypted only with keys stored in an Azure Key Vault, located in the **same region**. Also, keys must be **RSA 2048 keys** only and should be in **enabled** state.
 
 - Moving CMK encrypted Recovery Services vault across Resource Groups and Subscriptions isn't currently supported.
+- When you move a Recovery Services vault already encrypted with customer-managed keys to a new tenant, you'll need to update the Recovery Services vault to recreate and reconfigure the vault’s managed identity and CMK (which should be in the new tenant). If this isn't done, the backup and restore operations will start failing. Also, any role-based access control (RBAC) permissions set up within the subscription will need to be reconfigured.
 
 - This feature can be configured through the Azure portal and PowerShell.
 
@@ -114,32 +115,6 @@ You now need to permit the Recovery Services vault to access the Azure Key Vault
 
 1. Select **Save** to save changes made to the access policy of the Azure Key Vault.
 
-**With PowerShell**:
-
-Use the [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) command to enable encryption using customer-managed keys, and to assign or update the encryption key to be used.
-
-Example:
-
-```azurepowershell
-$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
-$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
-Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
-
-
-$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
-$enc.encryptionProperties | fl
-```
-
-Output:
-
-```output
-EncryptionAtRestType          : CustomerManaged
-KeyUri                        : testkey
-SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
-LastUpdateStatus              : Succeeded
-InfrastructureEncryptionState : Disabled
-```
-
 ### Enable soft-delete and purge protection on the Azure Key Vault
 
 You need to **enable soft delete and purge protection** on your Azure Key Vault that stores your encryption key. You can do this from the Azure Key Vault UI as shown below. (Alternatively, these properties can be set while creating the Key Vault). Read more about these Key Vault properties [here](../key-vault/general/soft-delete-overview.md).
@@ -192,7 +167,7 @@ You can also enable soft delete and purge protection through PowerShell using th
 
 Once the above are ensured, continue with selecting the encryption key for your vault.
 
-To assign the key:
+#### To assign the key in the portal
 
 1. Go to your Recovery Services vault -> **Properties**
 
@@ -226,14 +201,40 @@ To assign the key:
 
     ![Activity log](./media/encryption-at-rest-with-cmk/activity-log.png)
 
+#### To assign the key with PowerShell
+
+Use the [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) command to enable encryption using customer-managed keys, and to assign or update the encryption key to be used.
+
+Example:
+
+```azurepowershell
+$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
+$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
+Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
+
+
+$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
+$enc.encryptionProperties | fl
+```
+
+Output:
+
+```output
+EncryptionAtRestType          : CustomerManaged
+KeyUri                        : testkey
+SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
+LastUpdateStatus              : Succeeded
+InfrastructureEncryptionState : Disabled
+```
+
 >[!NOTE]
 > This process remains the same when you wish to update or change the encryption key. If you wish to update and use a key from another Key Vault (different from the one that's being currently used), make sure that:
 >
-> - The Key Vault is located in the same region as the Recovery Services vault
+> - The key vault is located in the same region as the Recovery Services vault
 >
-> - The Key vault has soft-delete and purge protection enabled
+> - The key vault has soft-delete and purge protection enabled
 >
-> - The Recovery Services vault has the required permissions to access the Key Vault.
+> - The Recovery Services vault has the required permissions to access the key Vault.
 
 ## Backing up to a vault encrypted with customer-managed keys
 

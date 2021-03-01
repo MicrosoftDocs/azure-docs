@@ -95,8 +95,6 @@
       href: storage-sync-files-deployment-guide.md
     - name: Deploy DFS-N with Azure Files
       href: manage-namespaces.md
-    - name: Create a premium file share
-      href: storage-how-to-create-premium-fileshare.md
     - name: Create an NFS share
       href: storage-files-how-to-create-nfs-shares.md
     - name: SQL Server FCI with premium file shares

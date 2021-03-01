@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
 ---
 
@@ -37,7 +37,7 @@ Security Center provides a unified view of all security alerts. Security alerts 
 
 Triage your alerts from the **Security alerts** page:
 
-:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Security alerts list page" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
 
 Use this page to review the active security alerts in your environment to decide which alert to investigate first.
 

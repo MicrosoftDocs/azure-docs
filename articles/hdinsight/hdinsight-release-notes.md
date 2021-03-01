@@ -22,10 +22,10 @@ This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release
 
 ## New features
 ### Dav4-series support
-HDInsight added Dav4-series support in this release. Learn more about [Dav4-series here](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series).
+HDInsight added Dav4-series support in this release. Learn more about [Dav4-series here](/azure/virtual-machines/dav4-dasv4-series).
 
 ### Kafka REST Proxy GA 
-Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTPS. Kafka Rest Proxy is general available starting from this release. Learn more about [Kafka REST Proxy here](https://docs.microsoft.com/azure/hdinsight/kafka/rest-proxy).
+Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTPS. Kafka Rest Proxy is general available starting from this release. Learn more about [Kafka REST Proxy here](/azure/hdinsight/kafka/rest-proxy).
 
 ### Moving to Azure virtual machine scale sets
 HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
@@ -43,13 +43,14 @@ HDInsight is gradually migrating to Azure virtual machine scale sets. Network in
 
 
 ### Breaking change for .NET for Apache Spark 1.0.0
-HDInsight introduces the first major official release of .NET for Apache Spark in the next release. It provides DataFrame API completeness for Spark 2.4.x and Spark 3.0.x along with other features. There will be breaking changes for this major version, refer to [this migration guide](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) to understand steps needed to update your code and pipelines. Learn more [here](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
+With the latest release, HDInsight introduces the first official version v1.0.0 of the [“.NET for Apache Spark”](https://github.com/dotnet/spark) library. It provides DataFrame API completeness for Spark 2.4.x and Spark 3.0.x along with a host of [other features](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md). There will be breaking changes for this major version, refer to [the .NET for Apache Spark migration guide](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) to understand steps needed to update your code and pipelines. To learn more, refer to this [.NET for Apache Spark v1.0 on Azure HDInsight guide](/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
+
 
 ## Upcoming changes
 The following changes will happen in upcoming releases.
 
 ### Default cluster version will be changed to 4.0
-Starting February 2021, the default version of HDInsight cluster will be changed from 3.6 to 4.0. For more information about available versions, see [available versions](./hdinsight-component-versioning.md#available-versions). Learn more about what is new in [HDInsight 4.0](./hdinsight-version-release.md).
+Starting February 2021, the default version of HDInsight cluster will be changed from 3.6 to 4.0. For more information about available versions, see [available versions](./hdinsight-component-versioning.md). Learn more about what is new in [HDInsight 4.0](./hdinsight-version-release.md).
 
 ### OS version upgrade
 HDInsight is upgrading OS version from Ubuntu 16.04 to 18.04. The upgrade will complete before April 2021.
@@ -62,4 +63,3 @@ HDInsight continues to make cluster reliability and performance improvements.
 
 ## Component version change
 No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
-

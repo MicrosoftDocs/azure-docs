@@ -146,9 +146,9 @@ The differences between agentless visualization and agent-based visualization ar
 **Requirement** | **Agentless** | **Agent-based**
 --- | --- | ---
 Support | This option is currently in preview, and is only available for VMware VMs. [Review](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) supported operating systems. | In general availability (GA).
-Agent | No need to install agents on machines you want to cross-check. | Agents to be installed on each on-premises machine that you want to analyze: The [Microsoft Monitoring agent (MMA)](../azure-monitor/platform/agent-windows.md), and the [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent). 
+Agent | No need to install agents on machines you want to cross-check. | Agents to be installed on each on-premises machine that you want to analyze: The [Microsoft Monitoring agent (MMA)](../azure-monitor/agents/agent-windows.md), and the [Dependency agent](../azure-monitor/agents/agents-overview.md#dependency-agent). 
 Prerequisites | [Review](concepts-dependency-visualization.md#agentless-analysis) the prerequisites and deployment requirements. | [Review](concepts-dependency-visualization.md#agent-based-analysis) the prerequisites and deployment requirements.
-Log Analytics | Not required. | Azure Migrate uses the [Service Map](../azure-monitor/insights/service-map.md) solution in [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md) for dependency visualization. [Learn more](concepts-dependency-visualization.md#agent-based-analysis).
+Log Analytics | Not required. | Azure Migrate uses the [Service Map](../azure-monitor/vm/service-map.md) solution in [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) for dependency visualization. [Learn more](concepts-dependency-visualization.md#agent-based-analysis).
 How it works | Captures TCP connection data on machines enabled for dependency visualization. After discovery, it gathers data at intervals of five minutes. | Service Map agents installed on a machine gather data about TCP processes and inbound/outbound connections for each process.
 Data | Source machine server name, process, application name.<br/><br/> Destination machine server name, process, application name, and port. | Source machine server name, process, application name.<br/><br/> Destination machine server name, process, application name, and port.<br/><br/> Number of connections, latency, and data transfer information are gathered and available for Log Analytics queries. 
 Visualization | Dependency map of single server can be viewed over a duration of one hour to 30 days. | Dependency map of a single server.<br/><br/> Map can be viewed over an hour only.<br/><br/> Dependency map of a group of servers.<br/><br/> Add and remove servers in a group from the map view.
@@ -167,8 +167,8 @@ No. Learn more about [Azure Migrate pricing](https://azure.microsoft.com/pricing
 
 To use agent-based dependency visualization, download and install agents on each on-premises machine that you want to evaluate:
 
-- [Microsoft Monitoring Agent (MMA)](../azure-monitor/platform/agent-windows.md)
-- [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent)
+- [Microsoft Monitoring Agent (MMA)](../azure-monitor/agents/agent-windows.md)
+- [Dependency agent](../azure-monitor/agents/agents-overview.md#dependency-agent)
 - If you have machines that don't have internet connectivity, download and install the Log Analytics gateway on them.
 
 You need these agents only if you use agent-based dependency visualization.
@@ -185,14 +185,14 @@ No, the dependency visualization report in agent-based visualization can't be ex
 
 For agent-based dependency visualization:
 
-- Use a [script to install the Dependency agent](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent).
-- For MMA, [use the command line or automation](../azure-monitor/platform/log-analytics-agent.md#installation-options), or use a [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+- Use a [script to install the Dependency agent](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent).
+- For MMA, [use the command line or automation](../azure-monitor/agents/log-analytics-agent.md#installation-options), or use a [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 - In addition to scripts, you can use deployment tools like Microsoft Endpoint Configuration Manager and [Intigua](https://www.intigua.com/intigua-for-azure-migration) to deploy the agents.
 
 ## What operating systems does MMA support?
 
-- View the list of [Windows operating systems that MMA supports](../azure-monitor/platform/log-analytics-agent.md#installation-options).
-- View the list of [Linux operating systems that MMA supports](../azure-monitor/platform/log-analytics-agent.md#installation-options).
+- View the list of [Windows operating systems that MMA supports](../azure-monitor/agents/log-analytics-agent.md#installation-options).
+- View the list of [Linux operating systems that MMA supports](../azure-monitor/agents/log-analytics-agent.md#installation-options).
 
 ## Can I visualize dependencies for more than one hour?
 

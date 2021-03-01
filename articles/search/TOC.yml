@@ -212,6 +212,8 @@
     items:
     - name: Create an indexer
       href: search-howto-create-indexers.md
+    - name: Run or reset indexers
+      href: search-howto-run-reset-indexers.md
     - name: Schedule an indexer
       href: search-howto-schedule-indexers.md
     - name: Define field mappings
@@ -386,6 +388,8 @@
       href: search-manage.md
     - name: PowerShell
       href: search-manage-powershell.md
+    - name: Azure CLI
+      href: search-manage-azure-cli.md
     - name: Move service across regions
       href: search-howto-move-across-regions.md
     - name: Role-based admin access
