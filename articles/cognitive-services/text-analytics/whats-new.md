@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -19,7 +19,12 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## March 2021
 
-* API v3.1-preview.4, which includes includes changes in the opinion mining JSON response. `aspects` is now `target`. `opinions` is now `assessment`. There is no change in the underlying AI model.
+* API v3.1-preview.4, which includes includes:
+ * Changes in the opinion mining JSON response. `aspects` is now `target`. `opinions` is now `assessment`. 
+ * New entity types, relations and assertions in Text Analytics for health.
+ * Entity linking can now be called asynchronously. 
+ * New `piicategories` parameter for PII extraction. 
+    * This parameter lets you to specify the PII entities that will be returned by the API.
 
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3.1-Preview.4](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
