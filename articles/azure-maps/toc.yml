@@ -159,11 +159,11 @@
       - name: Create a data source
         href: create-data-source-web-sdk.md
       - name: Add a symbol layer
-        href: map-add-pin.md  
-      - name: Add a popup
-        href: map-add-popup.md      
+        href: map-add-pin.md     
       - name: Add a bubble layer
         href: map-add-bubble-layer.md
+      - name: Add a popup
+        href: map-add-popup.md   
       - name: Add HTML markers
         href: map-add-custom-html.md
       - name: Add a line layer
@@ -250,14 +250,14 @@
       href: how-to-add-symbol-to-android-map.md
     - name: Add a bubble layer
       href: map-add-bubble-layer-android.md
-    - name: Add shapes
+    - name: Display feature information
+      href: display-feature-information-android.md
+    - name: Add a line layer
+      href: android-map-add-line-layer.md
+    - name: Add a polygon layer
       href: how-to-add-shapes-to-android-map.md
     - name: Add heat map layer
       href: map-add-heat-map-layer-android.md
-    - name: Add a line layer
-      href: android-map-add-line-layer.md
-    - name: Display feature information
-      href: display-feature-information-android.md
     - name: Add a tile layer
       href: how-to-add-tile-layer-android-map.md
     - name: Show traffic data 

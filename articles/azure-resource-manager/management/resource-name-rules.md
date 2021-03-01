@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 01/27/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -87,7 +87,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | automationAccounts | resource group | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter, and end with alphanumeric. |
+> | automationAccounts | resource group & region <br>(See note below) | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter, and end with alphanumeric. |
 > | automationAccounts / certificates | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space.  |
 > | automationAccounts / connections | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
 > | automationAccounts / credentials | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
@@ -96,6 +96,9 @@ In the following tables, the term alphanumeric refers to:
 > | automationAccounts / variables | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
 > | automationAccounts / watchers | automation account | 1-63 |  Alphanumerics, underscores, and hyphens.<br><br>Start with letter. |
 > | automationAccounts / webhooks | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
+
+> [!NOTE]
+> Automation account names are unique per region and resource group. Names for deleted Automation accounts might not be immediately available.
 
 ## Microsoft.Batch
 
@@ -389,6 +392,9 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | actionGroups | resource group | 1-260 | Can't use:<br>`/&%\?` <br><br>Can't end with space or period.  |
 > | components | resource group | 1-260 | Can't use:<br>`%&\?/` <br><br>Can't end with space or period.  |
+> | scheduledQueryRules | resource group | 1-260 | Can't use:<br>`*<>%{}&:\\?/#` <br><br>Can't end with space or period.  |
+> | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/` <br><br>Can't end with space or period.  |
+> | activityLogAlerts | resource group | 1-260 | Can't use:<br>`<>*%{}&:\\?+/#` <br><br>Can't end with space or period.  |
 
 ## Microsoft.IoTCentral
 

@@ -1,0 +1,7 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure Data Factory
+    tocHref: /azure/machine-learning/
+    topicHref: /azure/data-factory/index

@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot self-hosted integration runtime in Azure Data Factory
 description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory. 
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
@@ -78,8 +77,8 @@ Example scenario: The maximum concurrent jobs value is currently set to 24, and 
 The limit on the number of concurrent jobs depends on the computer's logic core and memory. Try to adjust the value downward to a value such as 24, and then view the result.
 
 > [!TIP] 
-> -	To learn more about logic core count and to determine your machine's logic core count, see [Four ways to find the number of cores in your CPU on Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
-> -	To learn how to calculate the math.log, go to the [Logarithm calculator](https://www.rapidtables.com/calc/math/Log_Calculator.html).
+> -    To learn more about logic core count and to determine your machine's logic core count, see [Four ways to find the number of cores in your CPU on Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
+> -    To learn how to calculate the math.log, go to the [Logarithm calculator](https://www.rapidtables.com/calc/math/Log_Calculator.html).
 
 
 ### Self-hosted IR high availability (HA) SSL certificate issue
@@ -193,7 +192,7 @@ In the following error, you can clearly see that the *System.ValueTuple* assembl
  
 "\<LogProperties>\<ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
  
-For more information about GAC, see [Global Assembly Cache](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
+For more information about GAC, see [Global Assembly Cache](/dotnet/framework/app-domains/gac).
 
 
 ### Self-hosted integration runtime Authentication Key is missing
@@ -239,7 +238,7 @@ Install drivers for both the source and destination datastores on the destinatio
  
 If the traffic can't pass through the network between two datastores (for example, they're configured in two virtual networks), you might not finish copying in one activity even with the IR installed. If you can't finish copying in a single activity, you can create two copy activities with two IRs, each in a VENT: 
 * Copy one IR from datastore 1 to Azure Blob Storage
-* Copy another IR from Azure Blob Storage to ddatastore 2. 
+* Copy another IR from Azure Blob Storage to datastore 2. 
 
 This solution could simulate the requirement to use the IR to create a bridge that connects two disconnected datastores.
 
@@ -469,9 +468,9 @@ For Azure Data Factory v2 customers:
 
 
 For Azure Data Factory v1 customers:
-- Self-hosted integration runtime 5.X doesn’t support Azure Data Factory v1.
+- Self-hosted integration runtime 5.X doesn't support Azure Data Factory v1.
 - The self-hosted integration runtime will be automatically upgraded to the latest version of 4.x. And the latest version of 4.x won't expire. 
-- If you try to manually install self-hosted integration runtime 5.x and register the key, you'll be notified that self-hosted integration runtime 5.x doesn’t support Azure Data Factory v1.
+- If you try to manually install self-hosted integration runtime 5.x and register the key, you'll be notified that self-hosted integration runtime 5.x doesn't support Azure Data Factory v1.
 
 
 ## Self-hosted IR connectivity issues
@@ -708,7 +707,7 @@ This notification applies to the following scenarios:
 
 How to determine whether you're affected:
 
-- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allow list for IP addresses](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allow list for IP addresses](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
 - You *are* affected if you're explicitly enabling the allow list for outbound IPs on your corporate firewall.
 

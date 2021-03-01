@@ -28,11 +28,11 @@ If you are using the Learn & Develop SKU, you **cannot** request an increase on 
 
 #### Performance at Scale SKU
 
-| Resource | Limit |
-| --- | --- |
-| CPU-based concurrent jobs | up to 100 concurrent jobs |
-| FPGA-based concurrent jobs | up to 10 concurrent jobs |
-| Solver hours | 50,000 hours per month  |
+| Resource | Default Limit | Maximum Limit |
+| --- | --- | --- |
+| CPU-based concurrent jobs | up to 100 concurrent jobs | same as default limit |
+| FPGA-based concurrent jobs | up to 10 concurrent jobs | same as default limit |
+| Solver hours | 1,000 hours per month  | up to 50,000 hours per month |
 
 If you need to request a limit increase, please reach out to Azure Support. 
 

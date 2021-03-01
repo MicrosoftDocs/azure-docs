@@ -8,12 +8,90 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 09/10/2020
+ms.date: 02/18/2021
 ---
 
 # Azure Machine Learning release notes
 
 In this article, learn about Azure Machine Learning releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) reference page.
+
+__RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
+`https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## 2021-02-16
+
+### Azure Machine Learning SDK for Python v1.23.0
++ **New features**
+  + **azureml-core**
+    + [Experimental feature] Add support to link synapse workspace into AML as an linked service
+    + [Experimental feature] Add support to attach synapse spark pool into AML as a compute
+    + [Experimental feature] Add support for identity based data access. Users can register datastore or datasets without providing credentials. In such case, users' AAD token or managed identity of compute target will be used for authentication. Learn more [here](https://aka.ms/data-access).
+  + **azureml-pipeline-steps**
+    + [Experimental feature] Add support for [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep?preserve-view=true&view=azure-ml-py)
+  + **azureml-synapse**
+    + [Experimental feature] Add support of spark magic to run interactive session in synapse spark pool.
++ **Bug fixes and improvements**
+  + **azureml-automl-runtime**
+    + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
+    + AutoML will now generate two log files instead of one. Log statements will go to one or the other depending on which process the log statement was generated in.
+    + Remove unnecessary in-sample prediction during model training with cross-validations. This may decrease model training time in some cases, especially for time-series forecasting models.
+  + **azureml-contrib-fairness**
+    + Add a JSON schema for the dashboardDictionary uploads.
+  + **azureml-contrib-interpret**
+    + azureml-contrib-interpret README is updated to reflect that package will be removed in next update after being deprecated since October, use azureml-interpret package instead
+  + **azureml-core**
+    + Previously, it was possible to create a provisioning configuration with the minimum node count less than the maximum node count. This has now been fixed. If you now try to create a provisioning configuration with `min_nodes < max_nodes` the SDK will raise a `ComputeTargetException`.
+    +  Fixes bug in wait_for_completion in AmlCompute which caused the function to return control flow before the operation was actually complete
+    + Run.fail() is now deprecated, use Run.tag() to mark run as failed or use Run.cancel() to mark the run as canceled.
+    + Show error message 'Environment name expected str, {} found' when provided environment name is not a string.
+  + **azureml-train-automl-client**
+    + Fixed a bug that prevented AutoML experiments performed on Azure Databricks clusters from being canceled.
+
+
+## 2021-02-09
+
+### Azure Machine Learning SDK for Python v1.22.0
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Fixed bug where an extra pip dependency was added to the conda yml file for vision models.
+  + **azureml-automl-runtime**
+    + Fixed a bug where classical forecasting models (e.g. AutoArima) could receive training data wherein rows with imputed target values were not present. This violated the data contract of these models. * Fixed various bugs with lag-by-occurrence behavior in the time-series lagging operator. Previously, the lag-by-occurrence operation did not mark all imputed rows correctly and so would not always generate the correct occurrence lag values. Also fixed some compatibility issues between the lag operator and the rolling window operator with lag-by-occurrence behavior. This previously resulted in the rolling window operator dropping some rows from the training data that it should otherwise use.
+  + **azureml-core**
+    + Adding support for Token Authentication by audience.
+    + Add `process_count` to [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) to support multi-process multi-node PyTorch jobs.
+  + **azureml-pipeline-steps**
+    + [CommandStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.commandstep?preserve-view=true&view=azure-ml-py) now GA and no longer experimental.
+    + [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?preserve-view=true&view=azure-ml-py): add argument allowed_failed_count and allowed_failed_percent to check error threshold on mini batch level. Error threshold has 3 flavors now:
+       + error_threshold - the number of allowed failed mini batch items; 
+       + allowed_failed_count - the number of allowed failed mini batches; 
+       + allowed_failed_percent- the percent of allowed failed mini batches. 
+       
+       A job will stop if exceeds any of them. error_threshold is required to keep it backward compatibility. Set the value to -1 to ignore it.
+    + Fixed whitespace handling in AutoMLStep name.
+    + ScriptRunConfig is now supported by HyperDriveStep
+  + **azureml-train-core**
+    + HyperDrive runs invoked from a ScriptRun will now be considered a child run.
+    + Add `process_count` to [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) to support multi-process multi-node PyTorch jobs.
+  + **azureml-widgets**
+    + Add widget ParallelRunStepDetails to visualize status of a ParallelRunStep.
+    + Allows hyperdrive users to see an additional axis on the parallel coordinates chart that shows the metric value corresponding to each set of hyperparameters for each child run.
+
+
+ ## 2021-01-31
+### Azure Machine Learning Studio Notebooks Experience (January Update)
++ **New features**
+  + Native Markdown Editor in AzureML. Users can now render and edit markdown files natively in AzureML Studio.
+  + [Run Button for Scripts (.py, .R and .sh)](./how-to-run-jupyter-notebooks.md#run-a-notebook-or-python-script). Users can easily now run Python, R and Bash script in AzureML
+  + [Variable Explorer](./how-to-run-jupyter-notebooks.md#explore-variables-in-the-notebook). Explore the contents of variables and data frames in a pop-up panel. Users can easily check data type, size, and contents.
+  + [Table of Content](./how-to-run-jupyter-notebooks.md#navigate-with-a-toc). Navigate to sections of your notebook, indicated by Markdown headers.
+  + Export your Notebook as Latex/HTML/Py. Create easy-to-share notebook files by exporting to LaTex, HTML, or .py
+  + Intellicode. ML-powered results provides an enhanced [intelligent autocompletion experience](/visualstudio/intellicode/overview).
+
++ **Bug fixes and improvements**
+  + Improved page load times
+  + Improved performance 
+  + Improved speed and kernel reliability
+  
 
  ## 2021-01-25
 
@@ -125,7 +203,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + HyperDriveRun.get_children_sorted_by_primary_metric() should complete faster now
     + Improved error handling in HyperDrive SDK.
     +  Deprecated all estimator classes in favor of using ScriptRunConfig to configure experiment runs. Deprecated classes include:
-    	+ MMLBaseEstimator
+    	+ MMLBase
     	+ Estimator
     	+ PyTorch 
     	+ TensorFlow 
@@ -142,7 +220,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 ## 2020-11-30
 ### Azure Machine Learning Studio Notebooks Experience (November Update)
 + **New features**
-   + Native Terminal. Users will now have access to an integrated terminal as well as Git operation via the [integrated terminal.](./how-to-run-jupyter-notebooks.md#terminal)
+   + Native Terminal. Users will now have access to an integrated terminal as well as Git operation via the [integrated terminal.](./how-to-access-terminal.md)
   + Duplicate Folder 
   + Costing for Compute Drop Down 
   + Offline Compute Pylance 

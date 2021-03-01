@@ -82,13 +82,13 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### New features
 
-* **v2.0 reference available** - View the [v2.0 API Reference](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) and the updated SDKs for [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python](/python/api/overview/azure/?view=azure-python), [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview), and [JavaScript](/javascript/api/overview/azure/?view=azure-node-latest).
+* **v2.0 reference available** - View the [v2.0 API Reference](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) and the updated SDKs for [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme), [Python](/python/api/overview/azure/), [Java](/java/api/overview/azure/ai-formrecognizer-readme), and [JavaScript](/javascript/api/overview/azure/).
 * **Table enhancements and Extraction enhancements** - includes accuracy improvements and table extractions enhancements, specifically, the capability to learn tables headers and structures in _custom train without labels_. 
 
 * **Currency support** - Detection and extraction of global currency symbols.
 * **Azure Gov** - Form Recognizer is now also available in Azure Gov.
 * **Enhanced security features**: 
-   * **Bring your own key** - Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys, also known as bring your own key (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.  
+   * **Bring your own key** - Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys, also known as bring your own key (BYOK)](./encrypt-data-at-rest.md), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.  
    * **Private endpoints** – Enables you on a virtual network (VNet) to [securely access data over a Private Link. ](../../private-link/private-link-overview.md)
 
 
@@ -107,10 +107,10 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### New features
 * **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0 (preview) release. Use the links below to get started with your language of choice: 
-   * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
-   * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
-   * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
-   * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
+   * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
+   * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme)
+   * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
+   * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme)
 
   The new SDK supports all the features of the v2.0 REST API for Form Recognizer. For example, you can train a model with or without labels and extract text, key value pairs and tables from your forms, extract data from receipts with the pre-built receipts service and extract text and tables with the layout service from your documents. You can share your feedback on the SDKs through the [SDK Feedback form](https://aka.ms/FR_SDK_v1_feedback).
  
@@ -120,7 +120,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### Security improvements
 
-* Customer-Managed Keys are now available for FormRecognizer. For more information, see [Data encryption at rest for Form Recognizer](./form-recognizer-encryption-of-data-at-rest.md).
+* Customer-Managed Keys are now available for FormRecognizer. For more information, see [Data encryption at rest for Form Recognizer](./encrypt-data-at-rest.md).
 * Use Managed Identities for access to Azure resources with Azure Active Directory. For more information, see [Authorize access to managed identities](../authentication.md#authorize-access-to-managed-identities).
 
 ## March 2020 
@@ -145,7 +145,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
   The following image is an example of how tables are recognized and extracted:
 
   > [!div class="mx-imgBorder"]
-  > ![Table visualization using the sample labeling tool](./media/whats-new/formre-table-viz.png)
+  > ![Table visualization using the sample labeling tool](./media/whats-new/table-viz.png)
 
     The extracted tables are available in the JSON output under `"pageResults"`.
 
@@ -206,7 +206,7 @@ The JSON responses for all API calls have new formats. Some keys and values have
 
 ## Next steps
 
-Complete a [quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the language of your choice.
+Complete a [quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.
 
 ## See also
 

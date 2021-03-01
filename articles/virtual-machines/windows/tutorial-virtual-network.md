@@ -277,4 +277,4 @@ In this tutorial, you created and secured Azure networks as related to virtual m
 > * Secure network traffic
 > * Create a back-end VM
 
-To learn about protecting your VM disks, see [Backup and disaster recovery for disks](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+To learn about protecting your VM disks, see [Backup and disaster recovery for disks](../backup-and-disaster-recovery-for-azure-iaas-disks.md).

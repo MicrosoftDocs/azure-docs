@@ -133,8 +133,6 @@ To send or receive messages, enter the name of the namespace and the name of the
 
 > [!NOTE]
 > - The managed identity works only inside the Azure environment, on App services, Azure VMs, and scale sets. For .NET applications, the Microsoft.Azure.Services.AppAuthentication library, which is used by the Service Bus NuGet package, provides an abstraction over this protocol and supports a local development experience. This library also allows you to test your code locally on your development machine, using your user account from Visual Studio, Azure CLI 2.0 or Active Directory Integrated Authentication. For more on local development options with this library, see [Service-to-service authentication to Azure Key Vault using .NET](/dotnet/api/overview/azure/service-to-service-authentication).  
-> 
-> - Currently, managed identities do not work with App Service deployment slots.
 
 ## Next steps
 

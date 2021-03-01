@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create, change, or delete an Azure public IP address prefix
 titlesuffix: Azure Virtual Network
 description: Learn about public IP address prefixes and how to create, change, or delete them. See where to find additional information.
@@ -77,8 +77,8 @@ Alternatively you may use the CLI and PS commands below with the --public-ip-pre
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
-|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
+|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
 
 ## View or delete a prefix
 

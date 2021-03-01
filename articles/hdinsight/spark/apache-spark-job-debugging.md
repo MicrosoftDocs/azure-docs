@@ -1,9 +1,6 @@
 ---
 title: Debug Apache Spark jobs running on Azure HDInsight 
 description: Use YARN UI, Spark UI, and Spark History server to track and debug jobs running on a Spark cluster in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020

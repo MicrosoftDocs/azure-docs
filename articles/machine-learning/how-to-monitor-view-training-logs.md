@@ -73,6 +73,17 @@ When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_ou
 
 <a id="queryrunmetrics"></a>
 
+### Logging Run Metrics 
+
+Use the following methods in the logging APIs to influence the metrics visualizations. Note the [service limits](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) for these logged metrics. 
+
+|Logged Value|Example code| Format in portal|
+|----|----|----|
+|Log an array of numeric values| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|single-variable line chart|
+|Log a single numeric value with the same metric name repeatedly used (like from within a for loop)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Single-variable line chart|
+|Log a row with 2 numerical columns repeatedly|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Two-variable line chart|
+|Log table with 2 numerical columns|`run.log_table(name='Sine Wave', value=sines)`|Two-variable line chart|
+
 ## Query run metrics
 
 You can view the metrics of a trained model using ```run.get_metrics()```. For example, you could use this with the example above to determine the best model by looking for the model with the lowest mean square error (mse) value.
@@ -90,18 +101,6 @@ For the individual Experiment view, select the **All experiments** tab. On the e
 You can also edit the run list table to select multiple runs and display either the last, minimum, or maximum logged value for your runs. Customize your charts to compare the logged metrics values and aggregates across multiple runs. 
 
 ![Run details in the Azure Machine Learning studio](media/how-to-track-experiments/experimentation-tab.gif)
-
-### Format charts 
-
-Use the following methods in the logging APIs to influence the metrics visualizations.
-
-|Logged Value|Example code| Format in portal|
-|----|----|----|
-|Log an array of numeric values| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|single-variable line chart|
-|Log a single numeric value with the same metric name repeatedly used (like from within a for loop)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Single-variable line chart|
-|Log a row with 2 numerical columns repeatedly|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Two-variable line chart|
-|Log table with 2 numerical columns|`run.log_table(name='Sine Wave', value=sines)`|Two-variable line chart|
-
 
 ### View log files for a run 
 
