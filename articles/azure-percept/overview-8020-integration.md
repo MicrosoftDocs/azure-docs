@@ -4,7 +4,7 @@ description: Learn more about how Azure Percept DK integrates with the 80/20 rai
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
