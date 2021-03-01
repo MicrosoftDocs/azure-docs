@@ -429,6 +429,3 @@ To define:
 [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
 
 [Manage individual sensors](how-to-manage-individual-sensors.md)
-
-
-```/var/cyberx/properties/cybershark.properties```
