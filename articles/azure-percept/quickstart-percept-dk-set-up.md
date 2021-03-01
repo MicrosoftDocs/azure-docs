@@ -13,11 +13,11 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 Get started with Azure Percept DK and Azure Percept Studio by using the Azure Percept DK setup experience to connect your device to Azure and to deploy your first AI model. After verifying that your Azure account is compatible with Azure Percept Studio, you complete the setup experience to ensure your Azure Percept DK is configured to create Edge AI proof of concepts.
 
-If you experience any issues during this Quick Start, refer to the [troubleshooting](<link needed>) guide and [known issues](<link needed>) for possible solutions.
+If you experience any issues during this Quick Start, refer to the [troubleshooting](./troubleshoot-dev-kit.md) guide for possible solutions.
 
 ## Prerequisites
 
-- An Azure Percept DK. [Get one now](<link needed>)
+- An Azure Percept DK.
 - A Windows, Linux, or OS X based host computer with wi-fi capability and a web browser.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - The Azure account must have the “owner” or “contributor” role on the subscription. Learn more about Azure role definitions
@@ -32,13 +32,13 @@ To verify if your Azure account is an “owner” or “contributor” on the su
     > If you have multiple Azure accounts, your browser may cache credentials from another account. See the troubleshooting guide for more information on how to ensure you are signed in with the correct account.
 
 1. Expand the main menu from the upper left corner of your screen and click on “Subscriptions” or select “Subscriptions” from the menu of icons on the home page. 
-
-    :::image type="content" source="./media/quickstart-percept-dk-setup/prereq01-subscription.png" alt-text="supscription icon in Azure portal.":::
-
+    <!---
+    :::image type="content" source="./media/quickstart-percept-dk-setup/prereq-01-subscription.png" alt-text="supscription icon in Azure portal.":::
+    --->
 1. Select your subscription from the list. If you do not see your subscription in the list, make sure you are signed in with the correct Azure account. 
-
-    :::image type="content" source="./media/quickstart-percept-dk-setup/prereq02-sub-list.png" alt-text="supscription list in Azure portal.":::
-
+    <!---
+    :::image type="content" source="./media/quickstart-percept-dk-setup/prereq-02-sub-list.png" alt-text="supscription list in Azure portal.":::
+    --->
 If you wish to create a new subscription, follow [these steps](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription).
 
 1. From the Subscription menu select “Access control (IAM)”
@@ -49,9 +49,10 @@ If you wish to create a new subscription, follow [these steps](https://docs.micr
 
 ## Launch the Azure Percept DK Setup Experience
 
+<!---
 > [!NOTE]
 > Connecting over ethernet? See [this how-to guide](<link needed>) for detailed instructions.
-
+--->
 1. Connect your host computer directly to the dev kit’s wi-fi access point. This is done just like connecting to any other wi-fi network,
     - **network name**: scz-xxxx (where “xxxx” is the last four digits of the dev kit’s MAC network address)
     - **password**: can be found on the Welcome Card that came with the dev kit
@@ -102,8 +103,9 @@ If you wish to create a new subscription, follow [these steps](https://docs.micr
 
 1. Begin the dev kit connection process - On the next screen, click **Connect with a new device** to begin the process of connecting your dev kit to Azure IoT Hub. 
 
+    <!---
     Connecting with an existing IoT Edge device connection string? See this [how-to guide](<link needed>) for reference.
-
+    --->
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-07-connect-device.png" alt-text="Connect to Azure."::: 
 
 1. Copy the device code - Click the **Copy** link to copy your device code. Then click **Login to Azure**. 
@@ -204,4 +206,4 @@ If you wish to create a new subscription, follow [these steps](https://docs.micr
 
 ## Next steps
 
-You can follow a similar flow to try out [prebuilt speech models](./tutorial-nocode-speech.md).
+You can follow a similar flow to try out [prebuilt speech models](./tutorial-no-code-speech.md).

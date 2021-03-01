@@ -13,7 +13,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 This article describes how to configure the keyword and commands of your voice assistant application within [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). For guidance on configuring your keyword within IoT Hub instead of the portal, please see this [how-to article](./how-to-configure-voice-assistant.md).
 
-If you have not yet created a voice assistant application, please see [Build a no-code voice assistant with Azure Percept Studio and Azure Percept Audio](./tutorial-nocode-speech.md).
+If you have not yet created a voice assistant application, please see [Build a no-code voice assistant with Azure Percept Studio and Azure Percept Audio](./tutorial-no-code-speech.md).
 
 ## Keyword configuration
 
@@ -87,4 +87,4 @@ Follow the [Speech Studio documentation](https://docs.microsoft.com/azure/cognit
 
 ## Next steps
 
-After building a voice assistant application, try developing a [no-code vision solution](./tutorial-nocode-vision) with your Azure Percept DK.
+After building a voice assistant application, try developing a [no-code vision solution](./tutorial-nocode-vision.md) with your Azure Percept DK.
