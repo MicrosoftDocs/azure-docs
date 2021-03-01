@@ -36,7 +36,7 @@ This article discusses the technical details regarding the migration tool as per
 - Customers can retrieve their new deployments through [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) and [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/get). 
 
 ### Cloud Service and deployments
-- Each Cloud Services (extended support) deployment is independent. 
+- Each Cloud Services (extended support) deployment is an independent Cloud Service. Deployment are no longer grouped into a cloud service using slots.
 - If you have two slots in your Cloud Service (classic), you need to delete one slot (staging) and use the migration tool to move the other (production) slot to Azure Resource Manager. 
 - The public IP address on the Cloud Service deployment remains the same after migration to Azure Resource Manager and is exposed as a Basic SKU IP (dynamic or static) resource. 
 - The DNS name and domain (cloudapp.azure.net) for the migrated cloud service remains the same. 
@@ -68,7 +68,7 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 |---|---|---|---|
 | Cloud Service | `cloudservicename` | Not associated| Not associated |
 | Deployment (portal created) <br><br> Deployment (non-portal created)  | `deploymentname` | Cloud Services (extended support) | `deploymentname` |  
-| Virtual Network | `vnetname` <br><br> `Group resourcegroupname vnetname` <br><br> Not applicable |  Virtual Network (not portal created) <br><br> Virtual Network (portal created) <br><br> Virtual Networks (Default) | `vnetname` <br><br> `group-resourcegroupname-vnetname` <br><br> `DefaultRdfevirtualnetwork_vnetid`|
+| Virtual Network | `vnetname` <br><br> `Group resourcegroupname vnetname` <br><br> Not associated |  Virtual Network (not portal created) <br><br> Virtual Network (portal created) <br><br> Virtual Networks (Default) | `vnetname` <br><br> `group-resourcegroupname-vnetname` <br><br> `DefaultRdfevirtualnetwork_vnetid`|
 | Not associated | Not associated | Key Vault | `cloudservicename` | 
 | Not associated | Not associated | Resource Group for Cloud Service Deployments | `cloudservicename-migrated` | 
 | Not associated | Not associated | Resource Group for Virtual Network | `vnetname-migrated` <br><br> `group-resourcegroupname-vnetname-migrated`|
