@@ -55,7 +55,7 @@ Verify your prerequisites, which depend on whether you are using the Azure CLI o
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
++ In a terminal or command window, run `func --version` to check that the <abbr title="The set of command line tools for working with Azure Functions on your local computer.">Azure Functions Core Tools</abbr> are version 3.x.
 
 + Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later. 
 
@@ -285,7 +285,7 @@ Before you can deploy your function code to Azure, you need to create a <abbr ti
 
     ---
 
-    Replace `<STORAGE_NAME>` with a name that is appropriate to you and <abbr title="The name must be unique across all storage accounts used by all Azure customers globally. For example, you can use a combination of your personal or company name, application name, and a numeric identifier, as in contosobizappstorage20">unique in Azure Storage</abbr>. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements).
+    Replace `<STORAGE_NAME>` with a name that is appropriate to you and <abbr title="The name must be unique across all storage accounts used by all Azure customers globally. For example, you can use a combination of your personal or company name, application name, and a numeric identifier, as in contosobizappstorage20.">unique in Azure Storage</abbr>. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements).
     
     The storage account incurs only a few cents (USD) for this quickstart.
 
