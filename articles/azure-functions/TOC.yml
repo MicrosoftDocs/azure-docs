@@ -182,7 +182,7 @@
           href: functions-dotnet-class-library.md
         - name: C# (out-of-process)
           displayName: .NET isolated, .NET 5
-          href: dotnet-out-of-process-guide.md  
+          href: dotnet-isolated-process-guide.md  
         - name: C# script (.csx)
           href: functions-reference-csharp.md
         - name: F#

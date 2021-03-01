@@ -54,15 +54,21 @@ A .NET isolated function project is basically a .NET console app project that ta
 
 ## Package references
 
-The .NET isolated worker process requires a separate set of packages from regular .NET functions. You'll also need to add any binding extension packages to your project.
+To be able to run out-opf-process, your .NET project needs to use a unique set of packages, both for core functionality and binding extensions. 
 
-Add the following packages to your project:
+### Core packages 
+
+The following packages are required to run your .NET functions in an isolated process:
 
 + [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)
++ [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/)
 
-+ 
-+ 
+### Extension packages
 
+Because functions that run in a .NET isolated process use different binding types, they require a unique set of binding extension packages. 
+
+You'll find these extension packages under [Microsoft.Azure.Functions.Worker.Extensions](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions).
+ 
 ## Start-up and configuration 
 
 When using .NET isolated functions, you have access to the start-up of your function app, which is usually in program.cs. Because you are responsible for creating and starting your own host instance, you have direct access to the configuration pipeline and can much more easily inject dependencies and run middleware. 
