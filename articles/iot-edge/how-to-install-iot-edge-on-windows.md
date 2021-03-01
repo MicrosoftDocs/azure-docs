@@ -344,9 +344,6 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
    Ssh-EflowVm
    ```
 
-   >[!NOTE]
-   >The default username for the IoT Edge for Linux on Windows virtual machine is `eflowVmUserName`.
-
 1. Once you are logged in, you can check the list of running IoT Edge modules using the following Linux command:
 
    ```bash
