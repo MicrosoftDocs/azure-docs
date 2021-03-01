@@ -43,7 +43,7 @@ To prevent users from deleting a storage account or modifying its configuration,
 - A **CannotDelete** lock prevents users from deleting a storage account, but permits reading and modifying its configuration.
 - A **ReadOnly** lock prevents users from deleting a storage account or modifying its configuration, but permits reading the configuration.
 
-For more information about Azure Resource Manager locks, see [Lock resources to prevent changes](../../azure-resource-manager/management/lock-resources.md).
+To learn how to configure a lock for a storage account, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md). For more information about Azure Resource Manager locks, see [Lock resources to prevent changes](../../azure-resource-manager/management/lock-resources.md).
 
 #### Recommendation summary
 

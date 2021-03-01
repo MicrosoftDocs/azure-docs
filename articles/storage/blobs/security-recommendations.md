@@ -8,14 +8,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 03/01/2021
 ms.author: tamram
 ms.custom: security-recommendations
 ---
 
 # Security recommendations for Blob storage
 
-This article contains security recommendations for Blob storage. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model. For more information on how Microsoft fulfills service provider responsibilities, read [Shared responsibilities for cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf).
+This article contains security recommendations for Blob storage. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model. For more information on how Microsoft fulfills service provider responsibilities, see [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 
 Some of the recommendations included in this article can be automatically monitored by Azure Security Center. Azure Security Center is the first line of defense in protecting your resources in Azure. For information on Azure Security Center, see the [What is Azure Security Center?](../../security-center/security-center-introduction.md)
 
@@ -29,7 +29,7 @@ Azure Security Center periodically analyzes the security state of your Azure res
 | Enable Azure Defender for all of your storage accounts | Azure Defender for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered in Azure Security Center when anomalies in activity occur and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. For more information, see [Configure Azure Defender for Azure Storage](../common/azure-defender-storage-configure.md). | [Yes](../../security-center/security-center-remediate-recommendations.md) |
 | Turn on soft delete for blobs | Soft delete for blobs enables you to recover blob data after it has been deleted. For more information on soft delete for blobs, see [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md). | - |
 | Turn on soft delete for containers | Soft delete for containers enables you to recover a container after it has been deleted. For more information on soft delete for containers, see [Soft delete for containers (preview)](./soft-delete-container-overview.md). | - |
-| Lock storage account to prevent accidental account deletion | You can lock an Azure Resource Manager resources, such as a subscription, resource group, or storage account, to prevent other users in your organization from accidentally deleting or modifying it. Locking a storage account does not prevent data within that account from being deleted. It only prevents the account itself from being deleted. For more information, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
+| Lock storage account to prevent accidental or malicious deletion or configuration changes | Apply an Azure Resource Manager lock to your storage account to protect the account from accidental or malicious deletion or configuration change. Locking a storage account does not prevent data within that account from being deleted. It only prevents the account itself from being deleted. For more information, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md).
 | Store business-critical data in immutable blobs | Configure legal holds and time-based retention policies to store blob data in a WORM (Write Once, Read Many) state. Blobs stored immutably can be read, but cannot be modified or deleted for the duration of the retention interval. For more information, see [Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md). | - |
 | Require secure transfer (HTTPS) to the storage account | When you require secure transfer for a storage account, all requests to the storage account must be made over HTTPS. Any requests made over HTTP are rejected. Microsoft recommends that you always require secure transfer for all of your storage accounts. For more information, see [Require secure transfer to ensure secure connections](../common/storage-require-secure-transfer.md). | - |
 | Limit shared access signature (SAS) tokens to HTTPS connections only | Requiring HTTPS when a client uses a SAS token to access blob data helps to minimize the risk of eavesdropping. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md). | - |
