@@ -148,7 +148,48 @@ module.exports = df.entity(function(context) {
     }
 });
 ```
+# [Python](#tab/python)
 
+### Example: Python entity
+
+The following code is the `Counter` entity implemented as a durable function written in Python.
+
+**Counter/function.json**
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**Counter/__init__.py**
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def entity_function(context: df.DurableEntityContext):
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        pass
+    context.set_state(current_value)
+    context.set_result(current_value)
+
+
+main = df.Entity.create(entity_function)
+```
 ---
 
 ## Access entities
@@ -200,6 +241,19 @@ module.exports = async function (context) {
 };
 ```
 
+# [Python](#tab/python)
+
+```Python
+from azure.durable_functions import DurableOrchestrationClient
+import azure.functions as func
+
+
+async def main(req: func.HttpRequest, starter: str, message):
+    client = DurableOrchestrationClient(starter)
+    entityId = df.EntityId("Counter", "myCounter")
+    await client.signal_entity(entityId, "add", 1)
+```
+
 ---
 
 The term *signal* means that the entity API invocation is one-way and asynchronous. It's not possible for a client function to know when the entity has processed the operation. Also, the client function can't observe any result values or exceptions. 
@@ -234,6 +288,11 @@ module.exports = async function (context) {
     return stateResponse.entityState;
 };
 ```
+
+# [Python](#tab/python)
+
+> [!NOTE]
+> Python does not currently support reading entity states from a client. Use an orchestrator's `callEntity` instead.
 
 ---
 
@@ -278,6 +337,21 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > JavaScript does not currently support signaling an entity from an orchestrator. Use `callEntity` instead.
 
+# [Python](#tab/python)
+
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    entityId = df.EntityId("Counter", "myCounter")
+    current_value = yield context.call_entity(entityId, "get")
+    if current_value < 10:
+        context.signal_entity(entityId, "add", 1)
+    return state
+```
+
 ---
 
 Only orchestrations are capable of calling entities and getting a response, which could be either a return value or an exception. Client functions that use the [client binding](durable-functions-bindings.md#entity-client) can only signal entities.
@@ -317,6 +391,11 @@ For example, we can modify the previous `Counter` entity example so that it send
         context.df.setState(currentValue + amount);
         break;
 ```
+
+# [Python](#tab/python)
+
+> [!NOTE]
+> Python does not support entity-to-entity signals yet. Please use an orchestrator for signaling entities instead.
 
 ---
 
