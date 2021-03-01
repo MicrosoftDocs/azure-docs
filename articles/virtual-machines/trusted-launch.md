@@ -8,7 +8,7 @@ ms.subservice: security
 ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
-ms.custom: template-concept
+ms.custom: template-concept; references_regions
 ---
 
 # Trusted launch for Azure virtual machines (preview)
