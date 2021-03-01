@@ -261,16 +261,28 @@ The following classes and interfaces handle some of the major features of the Az
 With the user token an authenticated meeting client can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens check the [User Access Tokens](../../access-tokens.md) guide. For the quickstart, replace `<USER_ACCESS_TOKEN>` with a user access token generated for your Azure Communication Service resource.
 
 ```java
-/**
- * Create the meeting client for joining meetings
- */
 private void createMeetingClient() {
     try {
-        CommunicationTokenCredential credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");
+        CommunicationTokenCredential credential = new CommunicationTokenCredential(tokenRefresher, true, "<USER_ACCESS_TOKEN>");
         meetingUIClient = new MeetingUIClient(credential);
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to create meeting client: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
+}
+```
+
+## Setup Token refreshing
+
+Add token fetching code to the fetchToken method
+
+```java
+Callable<String> tokenRefresher = () -> {
+    return fetchToken();
+};
+
+public String fetchToken() {
+    // Get new token
+    return "";
 }
 ```
 
