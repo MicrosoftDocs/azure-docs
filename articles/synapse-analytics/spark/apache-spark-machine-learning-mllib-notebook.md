@@ -192,7 +192,7 @@ Now that there are two DataFrames, the next task is to create the model formula 
 > [!Note]
 > To save the model, you'll need the *Storage Blob Data Contributor* Azure role. Under your storage account, go to **Access Control (IAM)** and select **Add role assignment**. Assign the Storage Blob Data Contributor role to your Azure SQL Database server. Only members with owner privileges can perform this step. 
 >
->For various Azure built-in roles, see [this guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+>For various Azure built-in roles, see [this guide](../../role-based-access-control/built-in-roles.md).
 
 ```python
 ## Create a new logistic regression object for the model
@@ -251,9 +251,9 @@ After you finish running the application, shut down the notebook to release the 
 
 ## Next steps
 
-- [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [.NET for Apache Spark documentation](/dotnet/spark)
 - [Azure Synapse Analytics](../index.yml)
 - [Apache Spark official documentation](https://spark.apache.org/docs/2.4.5/)
 
 >[!NOTE]
-> Some of the official Apache Spark documentation relies on using the Spark console, which is not available on Apache Spark in Azure Synapse Analytics. Use the [notebook](../quickstart-apache-spark-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) or [IntelliJ](../spark/intellij-tool-synapse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) experiences instead.
+> Some of the official Apache Spark documentation relies on using the Spark console, which is not available on Apache Spark in Azure Synapse Analytics. Use the [notebook](../quickstart-apache-spark-notebook.md) or [IntelliJ](../spark/intellij-tool-synapse.md) experiences instead.
