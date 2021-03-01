@@ -245,7 +245,7 @@ A Python web API will need to use some middleware to validate the bearer token r
 
 ---
 
-You can also see an example of OBO flow implementation in [Node.js and Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/Function/MyHttpTrigger/index.js#L61).
+You can also see an example of the OBO flow implementation in the [ms-identity-python-on-behalf-of](https://github.com/Azure-Samples/ms-identity-python-on-behalf-of) sample.
 
 ## Protocol
 
