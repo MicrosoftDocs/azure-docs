@@ -22,7 +22,7 @@ This quickstart demonstrates how to use the Azure portal to create an Azure Mana
 
 ## Prerequisites
 
-An Azure subscription or free Azure Cosmos DB trial account
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## <a id="create-account"></a>Create a managed instance cluster
 
@@ -77,7 +77,7 @@ If you're not going to continue to use this managed instance cluster, delete it 
 1. From the left-hand menu of Azure portal, select **Resource groups**.
 1. From the list, select the resource group you created for this quickstart.
 1. On the resource group **Overview** pane, select **Delete resource group**.
-3. In the next window, enter the name of the resource group to delete, and then select **Delete**.
+1. In the next window, enter the name of the resource group to delete, and then select **Delete**.
 
 ## Next steps
 

@@ -32,8 +32,10 @@ landingContent:
             url: compare-cosmosdb-managed-instance.md
       - linkListType: quickstart
         links:
-          - text: Create a managed instance cluster
+          - text: Create a cluster - Portal
             url: create-cluster-portal.md
+          - text: Create a cluster - CLI
+            url: create-cluster-cli.md
           - text: Deploy a Spark cluster with Azure Databricks
             url: deploy-cluster-databricks.md 
       - linkListType: concept
