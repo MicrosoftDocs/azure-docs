@@ -70,7 +70,7 @@ The following sections describe how to add a self-service password experience to
 
 ### Indicate a user selected the Forgot your password? link
 
-To indicate to the policy that the user has selected the **Forgot your password?** link, define a claim to represent this as a boolean. This claim will be used to direct the user journey to the Forgot Password technical profile. This claim can also be issued to the token so the application is aware that the user signed in via the Forgot Password flow.
+To indicate to the policy that the user has selected the **Forgot your password?** link, define a boolean claim. This claim will be used to direct the user journey to the Forgot Password technical profile. This claim can also be issued to the token so the application is aware that the user signed in via the Forgot Password flow.
 
 You declare your claims in the [claims schema](claimsschema.md). Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 
@@ -112,7 +112,7 @@ You declare your claims in the [claims schema](claimsschema.md). Open the extens
 </BuildingBlocks> -->
 ```
 
-To initiate the `isForgotPassword` claim, a claims transformation technical profile is used. This technical profile be referenced later. When invoked, it will set the value of the `isForgotPassword` claim to `true`. Find the `ClaimsProviders` element. If the element doesn't exist, add it. Then add the following claims provider:  
+To initiate the `isForgotPassword` claim, a claims transformation technical profile is used. This technical profile will be referenced later. When invoked, it will set the value of the `isForgotPassword` claim to `true`. Find the `ClaimsProviders` element. If the element doesn't exist, add it. Then add the following claims provider:  
 
 ```xml
 <!-- 
@@ -213,7 +213,7 @@ Now that you've modified or created a user journey, in the **Relying Party** sec
 
 ### Indicate the Forgot Password flow to your App
 
-Your application might need to detect whether the user signed in via the Forgot Password user flow. The **isForgotPassword** claim contains a boolean value that indicates this, which can be issued in the token sent to your application. If required, add `isForgotPassword` to the output claims in the **Relying Party** section. Your application can check the `isForgotPassword` claim to determine if the user reset their password.
+Your application might need to detect whether the user signed in via the Forgot Password user flow. The **isForgotPassword** claim contains a boolean value that indicates this, which can be issued in the token sent to your application. If necessary, add `isForgotPassword` to the output claims in the **Relying Party** section. Your application can check the `isForgotPassword` claim to determine if the user resets their password.
 
 ```xml
 <RelyingParty>
@@ -250,7 +250,7 @@ Your application might need to detect whether the user signed in via the Forgot 
 
 ## Password reset policy (legacy)
 
-If the [self-service password reset](#self-service-password-reset-recommended) experience is not enabled, clicking this link doesn't automatically trigger a password reset user flow. Instead, the error code `AADB2C90118` is returned to your application. Your application needs to handle this error code by re-initializing the authentication library to authenticate an Azure AD B2C password reset user flow.
+If the [self-service password reset](#self-service-password-reset-recommended) experience is not enabled, clicking this link doesn't automatically trigger a password reset user flow. Instead, the error code `AADB2C90118` is returned to your application. Your application needs to handle this error code by reinitializing the authentication library to authenticate an Azure AD B2C password reset user flow.
 
 In the following diagram:
 
