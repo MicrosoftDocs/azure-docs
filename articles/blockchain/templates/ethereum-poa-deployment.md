@@ -1,10 +1,10 @@
 ---
 title: Deploy Ethereum Proof-of-Authority consortium solution template on Azure
 description: Use the Ethereum Proof-of-Authority consortium solution to deploy and configure a multi-member consortium Ethereum network on Azure
-ms.date: 07/23/2020
+ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: devx-track-js
+ms.custom: contperf-fy21q3
 ---
 # Deploy Ethereum proof-of-authority consortium solution template on Azure
 
@@ -43,9 +43,7 @@ Each consortium member deployment includes:
 * Azure Monitor for aggregating logs and performance statistics
 * VNet Gateway (optional) for allowing VPN connections across private VNets
 
-By default, the RPC and peering endpoints are accessible over public IP to enable simplified connectivity across
-
-subscriptions and clouds. For application level access-controls, you can use [Parity's permissioning contracts](https://openethereum.github.io/Permissioning.html). Networks deployed behind VPNs, which leverage VNet gateways for cross-subscription connectivity are supported. Since VPN and VNet deployments are more complex, you may want to start with a public IP model when prototyping a solution.
+By default, the RPC and peering endpoints are accessible over public IP to enable simplified connectivity across subscriptions and clouds. For application level access-controls, you can use [Parity's permissioning contracts](https://openethereum.github.io/Permissioning.html). Networks deployed behind VPNs, which leverage VNet gateways for cross-subscription connectivity are supported. Since VPN and VNet deployments are more complex, you may want to start with a public IP model when prototyping a solution.
 
 Docker containers are used for reliability and modularity. Azure Container Registry is used to host and serve versioned images as part of each deployment. The container images consist of:
 
@@ -552,181 +550,7 @@ On the top-right, is your Ethereum account alias and identicon.  If you're an ad
 
 ![Account](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
-## Ethereum development<a id="tutorials"></a>
-
-To compile, deploy, and test smart contracts, here are a few options you can consider for Ethereum development:
-* [Truffle Suite](https://www.trufflesuite.com/docs/truffle/overview) - Client-based Ethereum development environment
-* [Ethereum Remix](https://remix-ide.readthedocs.io/en/latest/index.html ) - Browser-based and local Ethereum development environment
-
-### Compile, deploy, and execute smart contract
-
-In the following example, you create a simple smart contract. You use Truffle to compile and deploy the smart contract to your blockchain network. Once deployed, you call a smart contract function via a transaction.
-
-#### Prerequisites
-
-* Install [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python is needed for Truffle and Web3. Select the install option to include Python in your path.
-* Install Truffle v5.0.5 `npm install -g truffle@v5.0.5`. Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/). For more information, see [Truffle documentation](https://github.com/trufflesuite/truffle).
-
-### Create Truffle project
-
-Before you can compile and deploy a smart contract, you need to create a Truffle project.
-
-1. Open a command prompt or shell.
-1. Create a folder named `HelloWorld`.
-1. Change directory to the new `HelloWorld` folder.
-1. Initialize a new Truffle project using the command `truffle init`.
-
-    ![Create a new Truffle project](./media/ethereum-poa-deployment/create-truffle-project.png)
-
-### Add a smart contract
-
-Create your smart contracts in the **contracts** subdirectory of your Truffle project.
-
-1. Create a file in the named `postBox.sol` in the **contracts** subdirectory of your Truffle project.
-1. Add the following Solidity code to **postBox.sol**.
-
-    ```javascript
-    pragma solidity ^0.5.0;
-    
-    contract postBox {
-        string message;
-        function postMsg(string memory text) public {
-            message = text;
-        }
-        function getMsg() public view returns (string memory) {
-            return message;
-        }
-    }
-    ```
-
-### Deploy smart contract using Truffle
-
-Truffle projects contain a configuration file for blockchain network connection details. Modify the configuration file to include the connection information for your network.
-
-> [!WARNING]
-> Never send your Ethereum private key over the network. Ensure that each transaction is signed locally first and the signed transaction is sent over the network.
-
-1. You need the mnemonic phrase for the [Ethereum admin account used when deploying your blockchain network](#ethereum-settings). If you used MetaMask to create the account, you can retrieve the mnemonic from MetaMask. Select the administrator account icon on the top right of the MetaMask extension and select **Settings > Security & Privacy > Reveal Seed Words**.
-1. Replace the contents of `truffle-config.js` in your Truffle project with the following content. Replace the placeholder endpoint and mnemonic values.
-
-    ```javascript
-    const HDWalletProvider = require("truffle-hdwallet-provider");
-    const rpc_endpoint = "<Ethereum RPC endpoint>";
-    const mnemonic = "Twelve words you can find in MetaMask > Security & Privacy > Reveal Seed Words";
-
-    module.exports = {
-      networks: {
-        development: {
-          host: "localhost",
-          port: 8545,
-          network_id: "*" // Match any network id
-        },
-        poa: {
-          provider: new HDWalletProvider(mnemonic, rpc_endpoint),
-          network_id: 10101010,
-          gasPrice : 0
-        }
-      }
-    };
-    ```
-
-1. Since we are using the Truffle HD Wallet provider, install the module in your project using the command `npm install truffle-hdwallet-provider --save`.
-
-Truffle uses migration scripts to deploy smart contracts to a blockchain network. You need a migration script to deploy your new smart contract.
-
-1. Add a new migration to deploy the new contract. Create file `2_deploy_contracts.js` in the **migrations** subdirectory of the Truffle project.
-
-    ``` javascript
-    var postBox = artifacts.require("postBox");
-    
-    module.exports = deployer => {
-        deployer.deploy(postBox);
-    };
-    ```
-
-1. Deploy to the PoA network using the Truffle migrate command. At the command prompt in the Truffle project directory, run:
-
-    ```javascript
-    truffle migrate --network poa
-    ```
-
-### Call a smart contract function
-
-Now that your smart contract is deployed, you can send a transaction to call a function.
-
-1. In the Truffle project directory, create a new file named `sendtransaction.js`.
-1. Add the following contents to **sendtransaction.js**.
-
-    ``` javascript
-    var postBox = artifacts.require("postBox");
-    
-    module.exports = function(done) {
-      console.log("Getting the deployed version of the postBox smart contract")
-      postBox.deployed().then(function(instance) {
-        console.log("Calling postMsg function for contract ", instance.address);
-        return instance.postMsg("Hello, blockchain!");
-      }).then(function(result) {
-        console.log("Transaction hash: ", result.tx);
-        console.log("Request complete");
-        done();
-      }).catch(function(e) {
-        console.log(e);
-        done();
-      });
-    };
-    ```
-
-1. Execute the script using the Truffle execute command.
-
-    ```javascript
-    truffle exec sendtransaction.js --network poa
-    ```
-
-    ![Execute script to call function via transaction](./media/ethereum-poa-deployment/send-transaction.png)
-
-## WebAssembly (WASM) support
-
-WebAssembly support is already enabled for you on newly deployed PoA networks. It allows for smart-contract development in any language that transpiles to Web-Assembly (Rust, C, C++). For more information, see: [Parity Overview of WebAssembly](https://openethereum.github.io/WebAssembly-Home.html) and [Tutorial from Parity Tech](https://github.com/paritytech/pwasm-tutorial)
-
-## FAQ
-
-### I notice there are many transactions on the network that I didn't send. Where are these coming from?
-
-It is insecure to unlock the [personal API](https://web3js.readthedocs.io/en/v1.2.0/web3-eth-personal.html). Bots listen for unlocked Ethereum accounts and attempt to drain the funds. The bot assumes these accounts contain real-ether and attempt to be the first to siphon the balance. Do not enable the personal API on the network. Instead pre-sign the transactions either manually using a wallet like MetaMask or programmatically.
-
-### How to SSH onto a VM?
-
-The SSH port is not exposed for security reasons. Follow [this guide to enable the SSH port](#ssh-access).
-
-### How do I set up an audit member or transaction nodes?
-
-Transaction nodes are a set of parity clients that are peered with the network but are not participating in consensus. These nodes can still be used to submit Ethereum transactions and read the smart contract state. This mechanism works for providing auditability to non-authority consortium members on the network. To achieve this, follow the steps in [Growing the Consortium](#growing-the-consortium).
-
-### Why are MetaMask transactions taking a long time?
-
-To ensure transactions are received in the correct order, each Ethereum transaction comes with an incrementing nonce. If you've used an account in MetaMask on a different network, you need to reset the nonce value. Click on the settings icon (three-bars), Settings, Reset Account. The transaction history will be cleared and now you can resubmit the transaction.
-
-### Do I need to specify gas fee in MetaMask?
-
-Ether doesn't serve a purpose in proof-of-authority consortium. Hence, there is no need to specify gas fee when submitting transactions in MetaMask.
-
-### What should I do if my deployment fails due to failure to provision Azure OMS?
-
-Monitoring is an optional feature. In some rare cases where your deployment fails because of inability to successfully provision Azure Monitor resource, you can redeploy without Azure Monitor.
-
-### Are public IP deployments compatible with private network deployments?
-
-No. Peering requires two-way communication so the entire network must either be public or private.
-
-### What is the expected transaction throughput of Proof-of-Authority?
-
-The transaction throughput will be highly dependent upon the types of transactions and the network topology. Using simple transactions, we've benchmarked an average of 400 transactions per second with a network deployed across multiple regions.
-
-### How do I subscribe to smart contract events?
-
-Ethereum Proof-of-Authority now supports web-sockets.  Check your deployment output to locate the web-socket URL and port.
-
-## Support and feedback
+## Support and feedback<a id="tutorials"></a>
 
 For Azure Blockchain news, visit the [Azure Blockchain blog](https://azure.microsoft.com/blog/topics/blockchain/) to stay up to date on blockchain service offerings and information from the Azure Blockchain engineering team.
 
