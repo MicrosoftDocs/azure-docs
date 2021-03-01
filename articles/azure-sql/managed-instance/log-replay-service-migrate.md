@@ -208,7 +208,7 @@ SAS authentication will be generated with the time validity that you have specif
 
   ![Log Replay Service generated SAS authentication URI example](./media/log-replay-service-migrate/lrs-generated-uri-token.png)
 
-### Structure of the SAS token
+### Copy parameters from SAS token generated
 
 To be able to properly use the SAS token to start LRS, we need to understand its structure. The URI of the SAS token generated consists of two parts - 1. StorageContainerUri and 2. StorageContainerSasToken, separated with a question mark (?), as shown in the image below.
 
