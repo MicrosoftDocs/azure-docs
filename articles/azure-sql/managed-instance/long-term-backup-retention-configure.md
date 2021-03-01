@@ -25,17 +25,17 @@ The following sections show you how to use PowerShell to configure the long-term
 
 ## Using the Azure portal
 
-The following sections show you how to use the Azure portal to configure the long-term retention, view backups in long-term retention, and restore backup from long-term retention.
+The following sections show you how to use the Azure portal to set long-term retention policies, manage available long-term retention backups, and restore from an available backup.
 
 ### Configure long-term retention policies
 
 You can configure SQL Managed Instance to [retain automated backups](long-term-retention-overview.md) for a period longer than the retention period for your service tier.
 
-1. In the Azure portal, select your managed instance and then click **Backups**. On the **Retention policies** tab, select the checkbox for the database on which you want to set or modify long-term backup retention policies. If the checkbox next to the database is not selected, the changes for the policy will not apply to that database.  
+1. In the Azure portal, select your managed instance and then click **Backups**. On the **Retention policies** tab, select the database(s) on which you want to set or modify long-term backup retention policies. Changes will not apply to any databases left unselected. 
 
    ![manage backups link](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
-2. In the **Configure policies** pane, select if want to retain weekly, monthly or yearly backups and specify the retention period for each.
+2. In the **Configure policies** pane, specify your desired retention period for weekly, monthly, or yearly backups. Choose a retention period of '0' to indicate that no long-term backup retention should be set.
 
    ![configure policies](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
 
@@ -62,7 +62,7 @@ View the backups that are retained for a specific database with an LTR policy, a
    
    ![restore](./media/long-term-backup-retention-configure/ltr-restore.png)
 
-1. Click **OK** to restore your database from the backup in Azure storage to the new database.
+1. Click **Review + Create** to review your Restore details. Then click **Create** to restore your database from the chosen backup.
 
 1. On the toolbar, click the notification icon to view the status of the restore job.
 
