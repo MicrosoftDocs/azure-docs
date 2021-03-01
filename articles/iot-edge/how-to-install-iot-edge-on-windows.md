@@ -81,7 +81,7 @@ Azure IoT Edge for Linux on Windows supports the following provisioning methods:
 
 Manual provisioning is easier to get started with a few devices. The Device Provisioning Service is helpful for provisioning many devices.
 
-If you plan on using one of the DPS methods to provision your device or devices, follow the steps in the appropriate article linked above to create an instance of DPS, link your DPS instance to your IoT Hub, and create a DPS enrollment. You can create an *individual enrollment* for a single device or a *group enrollment* for a group of devices. For more information about the enrollment types, visit the [Azure IoT Hub Device Provisioning Service concepts](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment).
+If you plan on using one of the DPS methods to provision your device or devices, follow the steps in the appropriate article linked above to create an instance of DPS, link your DPS instance to your IoT Hub, and create a DPS enrollment. You can create an *individual enrollment* for a single device or a *group enrollment* for a group of devices. For more information about the enrollment types, visit the [Azure IoT Hub Device Provisioning Service concepts](../iot-dps/concepts-service.md#enrollment).
 
 ## Create a new deployment
 
@@ -93,7 +93,7 @@ On the Windows Admin Center start page, under the list of connections, you will 
 
 You can use Windows Admin Center to make install and manage Azure IoT Edge for Linux on Windows on either your local device or remote managed devices. In this guide, the local host connection will serve as the target device for the deployment of Azure IoT Edge for Linux on Windows.
 
-If you want to deploy to a remote target device instead of your local device and you do not see your desired target device in the list, follow the [instructions to add your device.](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
+If you want to deploy to a remote target device instead of your local device and you do not see your desired target device in the list, follow the [instructions to add your device.](/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
 
    ![Initial Windows Admin Center dashboard with target device listed](./media/how-to-install-iot-edge-on-windows/windows-admin-center-initial-dashboard.png)
 
@@ -132,7 +132,7 @@ Once your deployment is complete, you are ready to provision your device. Select
 Install IoT Edge for Linux on Windows onto your target device if you have not already.
 
 > [!NOTE]
-> The following PowerShell process outlines how to create a local host deployment of Azure IoT Edge for Linux on Windows. To create a deployment to a remote target device using PowerShell, you can use [Remote PowerShell](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_remote) to establish a connection to a remote device and run these commands remotely on that device.
+> The following PowerShell process outlines how to create a local host deployment of Azure IoT Edge for Linux on Windows. To create a deployment to a remote target device using PowerShell, you can use [Remote PowerShell](/powershell/module/microsoft.powershell.core/about/about_remote) to establish a connection to a remote device and run these commands remotely on that device.
 
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
 
@@ -337,5 +337,3 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
 ## Next steps
 
 Continue to [deploy IoT Edge modules](how-to-deploy-modules-portal.md) to learn how to deploy modules onto your device.
-
-Refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#Deploy-Eflow) to all the commands available through PowerShell.
