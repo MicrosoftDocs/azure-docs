@@ -2,7 +2,7 @@
 title: Create Bicep files - Visual Studio Code
 description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources
 author: mumian
-ms.date: 02/26/2021
+ms.date: 03/01/2021
 ms.topic: quickstart
 ms.author: jgao
 
@@ -67,13 +67,10 @@ Now create and use a parameter to specify the storage account name.
 Add the following code to the beginning of the file:
 
 ```bicep
-param storageAccountName string {
-  metadata: {
-    description: 'storage account name'
-  }
-  minLength: 3
-  maxLength: 24
-}
+@minLength(3)
+@maxLength(24)
+@description('Specify a storage account name.')
+param storageAccountName string
 ```
 
 Azure storage account names have a minimum length of 3 characters and a maximum of 24. Use `minLength` and `maxLength` to provide appropriate values.
