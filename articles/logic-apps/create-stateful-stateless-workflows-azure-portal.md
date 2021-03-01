@@ -77,7 +77,7 @@ This article shows how to build your logic app and workflow in the Azure portal 
    | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for your logic app. |
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you create your logic app and related resources. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a resource group named `Fabrikam-Workflows-RG`. |
    | **Logic app name** | Yes | <*logic-app-name*> | The name to use for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a logic app named `Fabrikam-Workflows`. <p><p>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Preview)** resource is powered by Azure Functions, which uses the same app naming convention. |
-   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. You can deploy to Azure by selecting **Workflow** or to a Docker container. <p><p>This example uses **Workflow**, which is the **Logic App (Preview)** resource in Azure. <p><p>If you select **Docker Container**, [specify the container to use in your logic app's settings](#set-docker-container). |
+   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. You can deploy to Azure by selecting **Workflow** or **Docker Container**. <p><p>This example uses **Workflow**, which deploys the **Logic App (Preview)** resource to the Azure portal. <p><p>**Note**: Before you select **Docker Container**, make sure that create your Docker container image. For example, you can create this image through [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md), or [Azure Container Instance](../container-instances/container-instances-overview.md). That way, after you select **Docker Container**, you can [specify the container that you want to use in your logic app's settings](#set-docker-container). |
    | **Region** | Yes | <*Azure-region*> | The Azure region to use when creating your resource group and resources. <p><p>This example uses **West US**. |
    |||||
 
@@ -114,7 +114,7 @@ This article shows how to build your logic app and workflow in the Azure portal 
 
    After Azure finishes deployment, your logic app is automatically live and running but doesn't do anything yet because no workflows exist.
 
-1. On the deployment completion page, select **Go to resource** so that you can start building your workflow. If you selected **Docker Container** while creating your logic app, continue with the [steps to specify the Docker container for deployment](#set-docker-container).
+1. On the deployment completion page, select **Go to resource** so that you can start building your workflow. If you selected **Docker Container** for deploying your logic app, continue with the [steps to provide information about that Docker container](#set-docker-container).
 
    ![Screenshot that shows the Azure portal and the finished deployment.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-completed-deployment.png)
 
@@ -122,17 +122,13 @@ This article shows how to build your logic app and workflow in the Azure portal 
 
 ## Specify Docker container for deployment
 
-After you create a logic app that deploys to a Docker container, make sure that you provide information about that container.
+Before you start these steps, you need a Docker container image. For example, you can create this image through [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md), or [Azure Container Instance](../container-instances/container-instances-overview.md). You can then provide information about your Docker container after you create your logic app.
 
 1. In the Azure portal, go to your logic app resource.
 
 1. On the logic app menu, under **Settings**, select **Deployment Center**.
 
-1. Provide the details and location for your Docker container image. For more information, see the similar steps for setting up [deployment to a Docker container for a function app](../devops/pipelines/targets/function-app-container.md).
-
-   ![Screenshot that shows the logic app menu with "Container settings" selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-deploy-container-settings.png)
-
-1. When you're finished, save your settings.
+1. On the **Deployment Center** pane, follow the instructions for providing and managing the details for your Docker container.
 
 <a name="add-workflow"></a>
 
