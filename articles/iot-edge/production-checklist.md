@@ -4,7 +4,7 @@ description: Learn how to take your Azure IoT Edge solution from development to 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/10/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -35,8 +35,10 @@ Every IoT Edge device in production needs a device certificate authority (CA) ce
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
+
 > [!NOTE]
 > Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
+
 :::moniker-end
 
 To understand the role of the device CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
@@ -248,6 +250,7 @@ On Linux, the IoT Edge daemon uses journals as the default logging driver. You c
 
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
+
 Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemon's logs can be individually queried with `journalctl`, the `iotedge system` commands provide a convenient way to query the combined logs.
 
 * Consolidated `iotedge` command:

@@ -30,8 +30,10 @@ The following figure illustrates IoT Edge's usage of certificates. There may be 
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
+
 > [!NOTE]
 > Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038. This limitation applies to the device CA certificate, any certificates in the trust bundle, and the device ID certificates used for X.509 provisioning methods.
+
 :::moniker-end
 
 ### Certificate authority

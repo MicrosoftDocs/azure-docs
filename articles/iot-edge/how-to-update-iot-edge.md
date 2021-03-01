@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/20/2021
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -123,8 +123,11 @@ With IoT Edge for Windows, IoT Edge runs directly on the Windows device. For upd
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
+
 Currently, there is not support for IoT Edge version 1.2 running on Windows devices.
+
 :::moniker-end
+
 ---
 
 ## Update the runtime containers
@@ -193,7 +196,7 @@ Some of the key differences between 1.2 and earlier versions include:
 * The **libiothsm-std** package is no longer used. If you used the standard package provided as part of the IoT Edge release, then your configurations can be transferred to the new version. If you used a different implementation of libiothsm-std, then any user-provided certificates like the device identity certificate, device CA, and trust bundle will need to be reconfigured.
 * A new identity service, **aziot-identity-service** was introduced as part of the 1.2 release. This service handles the identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub, like Azure IoT Hub Device Update. <!--TODO: add link to ADU when available -->
 * The default config file has a new name and location. Formerly `/etc/iotedge/config.yaml`, your device configuration information is now expected to be in `/etc/aziot/congig.toml` by default. The `iotedge config import` command can be used to help migrate configuration information form the old location and syntax to the new one.
-* Any modules that use the IoT Edge workload API to encrypt or decrypt persistent data won't be decryptable after the update. IoT Edge dynamically generates a master identity key and encryption key for internal use. This key won't be transferred to the new service. IoT Edge v1.2 will generate a new one.
+* Any modules that use the IoT Edge workload API to encrypt or decrypt persistent data can't be decrypted after the update. IoT Edge dynamically generates a master identity key and encryption key for internal use. This key won't be transferred to the new service. IoT Edge v1.2 will generate a new one.
 
 Before automating any update processes, validate that it works on test machines.
 

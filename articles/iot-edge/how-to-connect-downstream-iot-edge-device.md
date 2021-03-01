@@ -4,7 +4,7 @@ description: How to configure an IoT Edge device to connect to Azure IoT Edge ga
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -116,7 +116,7 @@ The steps in this section reference the **root CA certificate** and **device CA 
 
 Use the following steps to configure IoT Edge on your device.
 
-On Linux, make sure that the user **iotedge** has read permissions for the directory holding the certificates and keys.
+Make sure that the user **iotedge** has read permissions for the directory holding the certificates and keys.
 
 1. Install the **root CA certificate** on this IoT Edge device.
 

@@ -5,7 +5,7 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 4/3/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -277,6 +277,7 @@ If the runtime started successfully, you can go into your IoT Hub and start depl
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
+
 Check the status of the IoT Edge service.
 
 ```cmd/sh
@@ -294,10 +295,12 @@ List running modules.
 ```cmd/sh
 iotedge list
 ```
+
 :::moniker-end
 
 <!-- 1.2 -->
-:::moniker range="iotedge-2020-11"
+:::moniker range=">=iotedge-2020-11"
+
 Check the status of the IoT Edge service.
 
 ```cmd/sh
@@ -315,6 +318,7 @@ List running modules.
 ```cmd/sh
 sudo iotedge list
 ```
+
 :::moniker-end
 
 ### Windows device

@@ -5,7 +5,7 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: kevindaw
-ms.date: 04/09/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -51,6 +51,7 @@ You need the following files to set up automatic provisioning with X.509:
 :::moniker range="iotedge-2018-06"
 > [!NOTE]
 > Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
+
 :::moniker-end
 
 ### Use test certificates (optional)
@@ -276,7 +277,7 @@ Have the following information ready:
 <!-- end 1.1. -->
 
 <!-- 1.2 -->
-:::moniker range="iotedge-2020-11"
+:::moniker range=">=iotedge-2020-11"
 
 1. Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
 
@@ -361,6 +362,7 @@ Use the following commands on your device to verify that the runtime installed a
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
+
 Check the status of the IoT Edge service.
 
 ```cmd/sh
@@ -381,7 +383,8 @@ iotedge list
 :::moniker-end
 
 <!-- 1.2 -->
-:::moniker range="iotedge-2020-11"
+:::moniker range=">=iotedge-2020-11"
+
 Check the status of the IoT Edge service.
 
 ```cmd/sh

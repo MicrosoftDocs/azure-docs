@@ -115,6 +115,7 @@ The IoT Edge daemon always uses HTTPS to send requests to IoT Hub.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
+
 Open an editor in the terminal to configure the IoT Edge daemon.
 
 ```bash
@@ -150,6 +151,20 @@ systemctl show --property=Environment iotedge
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
+
+Open an editor in the terminal to configure the IoT Edge daemon.
+
+```bash
+sudo systemctl edit aziot-edged
+```
+
+Enter the following text, replacing **\<proxy URL>** with your proxy server address and port. Then, save and exit.
+
+```ini
+[Service]
+Environment="https_proxy=<proxy URL>"
+```
+
 Starting in version 1.2, IoT Edge uses the IoT identity service to handle device provisioning with IoT Hub or IoT Hub Device Provisioning Service. Open an editor in the terminal to configure the IoT identity service daemon.
 
 ```bash
@@ -163,21 +178,22 @@ Enter the following text, replacing **\<proxy URL>** with your proxy server addr
 Environment="https_proxy=<proxy URL>"
 ```
 
-Refresh the service manager to pick up the new configuration for IoT Edge.
+Refresh the service manager to pick up the new configurations.
 
 ```bash
 sudo systemctl daemon-reload
 ```
 
-Restart the IoT Edge system services for the changes to take effect.
+Restart the IoT Edge system services for the changes to both daemons to take effect.
 
 ```bash
 sudo iotedge system restart
 ```
 
-Verify that your environment variable was created, and the new configuration was loaded.
+Verify that your environment variables were created, and the new configuration was loaded.
 
 ```bash
+systemctl show --property=Environment aziot-edged
 systemctl show --property=Environment aziot-identityd
 ```
 :::moniker-end

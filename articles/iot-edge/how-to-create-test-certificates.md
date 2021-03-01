@@ -228,7 +228,7 @@ Device CA certificates go in the **Certificate** section of the config.yaml file
 :::moniker-end
 
 <!-- 1.2 -->
-:::moniker range="iotedge-2020-11"
+:::moniker range=">=iotedge-2020-11"
 Device CA certificates go in the **Edge CA** section of the config.toml file on the IoT Edge device.
 :::moniker-end
 

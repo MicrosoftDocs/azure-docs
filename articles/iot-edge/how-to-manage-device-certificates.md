@@ -4,7 +4,7 @@ description: Create test certificates, install, and manage them on an Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -47,8 +47,10 @@ In this article, what we refer to as the *root CA* is not the topmost certificat
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
+
 > [!NOTE]
 > Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
+
 :::moniker-end
 
 To see an example of these certificates, review the scripts that create demo certificates in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
@@ -132,6 +134,10 @@ For example, if you used the sample scripts to [Create demo certificates](how-to
 :::moniker-end
 <!-- end 1.2 -->
 
+<!-- 1.1. -->
+<!-- Temporarily, customizable certificate lifetime not available in 1.2. Update before GA. -->
+:::moniker range="iotedge-2018-06"
+
 ## Customize certificate lifetime
 
 IoT Edge automatically generates certificates on the device in several cases, including:
@@ -147,9 +153,6 @@ For these two automatically generated certificates, you have the option of setti
 >There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 90 day lifetime, but is automatically renewed before expiring. The **auto_generated_ca_lifetime_days** value doesn't affect this certificate.
 
 Upon expiry after the specified number of days, IoT Edge has to be restarted to regenerate the device CA certificate. The device CA certificate won't be renewed automatically.
-
-<!-- 1.1. -->
-:::moniker range="iotedge-2018-06"
 
 1. To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config file.
 
@@ -198,6 +201,7 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
    ```
 
    Check the output of the **production readiness: certificates** check, which lists the number of days until the automatically generated device CA certificates expire.
+
 :::moniker-end
 <!-- end 1.1 -->
 

@@ -4,7 +4,7 @@ description: Use an Azure IoT Edge device as a transparent gateway that can proc
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -48,7 +48,7 @@ A downstream device can be any application or platform that has an identity crea
 <!-- end 1.1 -->
 
 <!-- 1.2 -->
-:::moniker range="iotedge-2020-11"
+:::moniker range=">=iotedge-2020-11"
 A downstream device can be any application or platform that has an identity created with the [Azure IoT Hub](../iot-hub/index.yml) cloud service. These applications often use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself.
 :::moniker-end
 <!-- end 1.2 -->
@@ -94,7 +94,7 @@ If you don't have your own certificate authority and want to use demo certificat
       * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` and
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
-If you created the certificates on a different machine, copy them over to your IoT Edge device.
+If you created the certificates on a different machine, copy them over to your IoT Edge device then proceed with the next steps.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"

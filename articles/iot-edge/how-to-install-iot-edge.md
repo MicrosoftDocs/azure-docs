@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 01/20/2021
+ms.date: 03/01/2021
 ms.author: kgremban
 ---
 
@@ -92,14 +92,14 @@ If you get errors when installing the Moby container engine, verify your Linux k
 
 In the output of the script, check that all items under `Generally Necessary` and `Network Drivers` are enabled. If you are missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config. Similarly, if you are using a kernel configuration generator like `defconfig` or `menuconfig`, find and enable the respective features and rebuild your kernel accordingly. Once you have deployed your newly modified kernel, run the check-config script again to verify that all the required features were successfully enabled.
 
+## Install IoT Edge
+
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
-## Install the IoT Edge security daemon
-
 The IoT Edge security daemon provides and maintains security standards on the IoT Edge device. The daemon starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
 
-The steps in this section represent the typical process to install the latest version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the [Offline or specific version installation](#offline-or-specific-version-installation-optional) steps in the next section.
+The steps in this section represent the typical process to install the latest version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the [Offline or specific version installation](#offline-or-specific-version-installation-optional) steps later in this article.
 
 Update package lists on your device.
 
@@ -133,14 +133,14 @@ If the version that you want to install isn't listed, follow the [Offline or spe
 <!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-## Install IoT Edge and the identity service
-
-This section provides the steps to install IoT Edge on your device. The IoT Edge service provides and maintains security standards on the IoT Edge device. The service starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
+The IoT Edge service provides and maintains security standards on the IoT Edge device. The service starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
 
 The IoT identity service was introduced along with version 1.2 of IoT Edge. This service handles the identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub.
 
+The steps in this section represent the typical process to install the latest version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the [Offline or specific version installation](#offline-or-specific-version-installation-optional) steps later in this article.
+
 >[!NOTE]
->The steps in this section show you how to install IoT Edge version 1.2, which is currently in public preview. If you are looking for the steps to install the latest generally available version of IoT Edge, view the [1.1 (LTS)](?view=iotedge-2018-06) version of this article.
+>The steps in this section show you how to install IoT Edge version 1.2, which is currently in public preview. If you are looking for the steps to install the latest generally available version of IoT Edge, view the [1.1 (LTS)](?view=iotedge-2018-06&preserve-view=true) version of this article.
 >
 >If you already have an IoT Edge device running an older version and want to upgrade to 1.2, use the steps in [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md). Version 1.2 is sufficiently different from previous versions of IoT Edge that specific steps are necessary to upgrade.
 
@@ -192,6 +192,7 @@ This section walks through the steps to provision a device with symmetric key au
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
+
 On the IoT Edge device, open the configuration file.
 
    ```bash
@@ -226,6 +227,7 @@ After entering the provisioning information in the configuration file, restart t
 
 <!-- 1.2 -->
 ::: moniker range = ">=iotedge-2020-11"
+
 Create the configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
 
    ```bash
@@ -272,6 +274,7 @@ This section walks through the steps to provision a device with X.509 certificat
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06
+
 On the IoT Edge device, open the configuration file.
 
    ```bash
@@ -314,6 +317,7 @@ After entering the provisioning information in the configuration file, restart t
 
 <!-- 1.2 -->
 ::: moniker range=">=iotedge=2020-11"
+
 Create the configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
 
    ```bash
@@ -348,7 +352,7 @@ Update the following fields:
 * **iothub_hostname**: Hostname of the IoT hub the device will connect to. For example, `{IoT hub name}.azure-devices.net`.
 * **device_id**: The ID that you provided when you registered the device.
 * **identity_cert**: URI to an identity certificate on the device, for example: `file:///path/identity_certificate.pem`. Or, dynamically issue the certificate using EST or a local certificate authority.
-* **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///path/identity_key.pem`. Or, provide a PKCS#11 URI and then provide your configuration information in the **PKCS#11** section later in the file.
+* **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///path/identity_key.pem`. Or, provide a PKCS#11 URI and then provide your configuration information in the **PKCS#11** section later in the config file.
 
 Save and close the file.
 
@@ -467,6 +471,9 @@ Using curl commands, you can target the component files directly from the IoT Ed
 <!-- 1.2 -->
 ::: moniker range =">=iotedge-2020-11"
 
+>[!NOTE]
+>If your device is currently running IoT Edge version 1.1 or older, uninstall the **iotedge** and **libiothsm-std** packages before following the steps in this section. For more information, see [Update from 1.0 or 1.1 to 1.2](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12).
+
 1. Navigate to the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases), and find the release version that you want to target.
 
 2. Expand the **Assets** section for that version.
@@ -518,7 +525,7 @@ sudo apt-get remove aziot-edge
 
 ::: moniker-end
 
-Use the flag `--purge` if you want to delete all the files associated with IoT Edge, including your configuration files. Leave this flag out if you want to reinstall IoT Edge and use the same configuration information in the future.
+Use the `--purge` flag if you want to delete all the files associated with IoT Edge, including your configuration files. Leave this flag out if you want to reinstall IoT Edge and use the same configuration information in the future.
 
 When the IoT Edge runtime is removed, any containers that it created are stopped but still exist on your device. View all containers to see which ones remain.
 
