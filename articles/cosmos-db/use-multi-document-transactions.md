@@ -28,7 +28,7 @@ Multi-document transactions follow **ACID** semantics:
 
 ## Requirements
 
-Multi-document transactions are supported within an unsharded collection in API version 4.0. Multi-document transactions are not supported across collections or in sharded collections. The timeout for transactions is a fixed 5 seconds.
+Multi-document transactions are supported within an unsharded collection in API version 4.0. Multi-document transactions are not supported across collections or in sharded collections in 4.0. The timeout for transactions is a fixed 5 seconds.
 
 All drivers that support wire protocol version 4.0 or greater will support Azure Cosmos DB API for MongoDB multi-document transactions.
 
