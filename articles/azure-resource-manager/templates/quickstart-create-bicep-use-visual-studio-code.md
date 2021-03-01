@@ -12,7 +12,7 @@ ms.author: jgao
 
 # Quickstart: Create Bicep files with Visual Studio Code
 
-The Bicep extension for Visual Studio Code provide language support and resource autocompletion. These tools help create and validate [Bicep](./bicep-overview.md) files. In this quickstart, you use the extension to create a Bicep file from scratch. While doing so you experience the extensions capabilities such as validation, and completions.
+The Bicep extension for Visual Studio Code provides language support and resource autocompletion. These tools help create and validate [Bicep](./bicep-overview.md) files. In this quickstart, you use the extension to create a Bicep file from scratch. While doing so you experience the extensions capabilities such as validation, and completions.
 
 To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installed. You also need either the latest [Azure CLI](/cli/azure/?view=azure-cli-latest&preserve-view=true) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az?view=azps-3.7.0&preserve-view=true) installed and authenticated.
 
@@ -44,9 +44,9 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 The resource declaration has four components:
 
 - **resource**: Keyword.
-- **symbolic name** (stg): This is an identifier for referencing the resource throughout your bicep file. It is not what the name of the resource will be when it's deployed. The name of the resource is defined by the **name** property.  See the fourth component in this list.
+- **symbolic name** (stg): Symbolic name is an identifier for referencing the resource throughout your bicep file. It is not what the name of the resource will be when it's deployed. The name of the resource is defined by the **name** property.  See the fourth component in this list.
 - **resource type** (Microsoft.Storage/storageAccounts@2019-06-01): It is composed of the resource provider (Microsoft.Storage), resource type (storageAccounts), and apiVersion (2019-06-01). Each resource provider publishes its own API versions, so this value is specific to the type. You can find more types and apiVersions for various Azure resources from [ARM template reference](/azure/templates/).
-- **properties** (everything inside = {...}): These are the specific properties you would like to specify for the given resource type. These are exactly the same properties available to you in an ARM Template. Every resource has a `name` property. Most resources also have a `location` property, which sets the region where the resource is deployed. The other properties vary by resource type and API version.
+- **properties** (everything inside = {...}): Specify the properties for the resource type. Every resource has a `name` property. Most resources also have a `location` property, which sets the region where the resource is deployed. The other properties vary by resource type and API version.
 
 ## Completion and validation
 
