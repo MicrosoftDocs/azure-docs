@@ -277,8 +277,8 @@
   items:
   - name: Useful resources
     href: resources.md
-  - name: Azure Security, Privacy, & Compliance blog
-    href: /archive/blogs/azuresecurity/
+  - name: Azure Sentinel blog
+    href: https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing

@@ -24,66 +24,23 @@ ms.author: yelevin
 
 This article lists resources that can help you get more information about working with Azure Sentinel.
 
-- **Azure Logic Apps connectors**: <https://docs.microsoft.com/connectors/>
+**Learn more about creating queries**. Azure Sentinel uses Azure Monitor Log Analytics's Kusto Query Language (KQL) to build queries. For more information, see:
 
+- [KQL concepts](/azure/data-explorer/kusto/concepts/)
+- [KQL queries](/azure/data-explorer/kusto/query/)
+- [KQL quick reference guide](/azure/data-explorer/kql-quick-reference).
+- [Get started with KQL queries](../azure-monitor/logs/get-started-queries.md)
 
-## Auditing and reporting
-Audit logs of Azure Sentinel are maintained in [Azure Activity Logs](../azure-monitor/essentials/platform-logs-overview.md).
+**Create automation in Azure Sentinel** using Azure Logic Apps, with a growing gallery of built-in playbooks. For more information, see [Azure Logic Apps connectors](https://docs.microsoft.com/connectors/).
 
-The following supported operations can be audited.
+**Comment on our blogs and forums!** We love hearing from our users.
 
-|Operation name|	Resource type|
-|----|----|
-|Create or update workbook	|Microsoft.Insights/workbooks|
-|Delete Workbook	|Microsoft.Insights/workbooks|
-|Set Workflow	|Microsoft.Logic/workflows|
-|Delete Workflow	|Microsoft.Logic/workflows|
-|Create Saved Search	|Microsoft.OperationalInsights/workspaces/savedSearches|
-|Delete Saved Search	|Microsoft.OperationalInsights/workspaces/savedSearches|
-|Update Alert Rules	|Microsoft.SecurityInsights/alertRules|
-|Delete Alert Rules	|Microsoft.SecurityInsights/alertRules|
-|Update Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules/actions|
-|Delete Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules/actions|
-|Update Bookmarks	|Microsoft.SecurityInsights/bookmarks|
-|Delete Bookmarks	|Microsoft.SecurityInsights/bookmarks|
-|Update Cases	|Microsoft.SecurityInsights/Cases|
-|Update Case Investigation	|Microsoft.SecurityInsights/Cases/investigations|
-|Create Case Comments	|Microsoft.SecurityInsights/Cases/comments|
-|Update Data Connectors	|Microsoft.SecurityInsights/dataConnectors|
-|Delete Data Connectors	|Microsoft.SecurityInsights/dataConnectors|
-|Update Settings	|Microsoft.SecurityInsights/settings|
+In the TechCommunity space for Azure Sentinel:
 
-### View audit and reporting data in Azure Sentinel
+- [View and comment on recent blog posts](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog)
+- [Post your own questions about Azure Sentinel](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel)
 
-You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform research and analytics on it.
-
-1. Connect the [Azure Activity](connect-azure-activity.md) data source. After doing this, audit events are streamed into a new table in the **Logs** screen called AzureActivity.
-
-1. Then, query the data using KQL, like you would any other table.
-
-    For example, to find out who was the last user to edit a particular analytics rule, use the following query (replacing `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with the rule ID of the rule you want to check):
-
-    ```kusto
-    AzureActivity
-    | where OperationNameValue startswith "MICROSOFT.SECURITYINSIGHTS/ALERTRULES/WRITE"
-    | where Properties contains "alertRules/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    | project Caller , TimeGenerated , Properties
-    ```
-
-
-## Blogs and forums
-
-We love hearing from our users!
-
-- **Post your questions** on the [TechCommunity space](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) for Azure Sentinel. 
-
-- **Send suggestions for improvements** via our [User Voice](https://feedback.azure.com/forums/920458-azure-sentinel) program.
-
-- **View and comment** on our Azure Sentinel blog posts:
-
-    - [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 
-    - [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)
-
+You can also send suggestions for improvements via our [User Voice](https://feedback.azure.com/forums/920458-azure-sentinel) program.
 
 ## Next steps
 
