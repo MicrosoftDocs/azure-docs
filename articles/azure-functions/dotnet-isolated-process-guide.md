@@ -20,10 +20,6 @@ Previously Azure Functions has only supported a single mode for writing .NET fun
 
 Because these functions run in a separate process, there are some [feature and functionality differences](#differences-with-net-class-libraries) between .NET isolated function apps and .NET class library function apps.
 
-Running .NET isolated functions out-of-process lets Functions support both current releases of .NET and LTS releases. This solution is an interim one to developing and running functions developed using the latest versions of .NET in the current .NET support model. In the short term, there are some [feature and functionality differences](#differences-with-net-class-libraries) between .NET isolated function apps and .NET class library function apps, run in-process with the runtime. 
-
-.NET isolated uses an out-of-process .NET language worker when running your .NET functions. This is the same basic architecture used by the other non-.NET languages supported by Functions. 
-
 ### Benefits of running out-of-process
 
 When running out-of-process, your .NET functions can take advantage of the following benefits: 
