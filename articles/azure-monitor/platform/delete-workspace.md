@@ -57,7 +57,7 @@ You can delete a workspace using [PowerShell](/powershell/module/azurerm.operati
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
 
-## Permanent workspace delete (purge)
+## Permanent workspace delete
 
 The soft-delete method may not fit in some scenarios such as development and testing, where you need to repeat a deployment with the same settings and workspace name. In such cases you can permanently delete your workspace and "override" the soft-delete period. The permanent workspace delete operation releases the workspace name and you can create a new workspace using the same name.
 
@@ -73,7 +73,7 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 ```
 
 > [!NOTE]
-> Any workspace that has already been soft-deleted must be recovered before it can be purged.
+> Any workspace that has already been soft-deleted must be recovered before it can be permanently deleted.
 
 ## Recover workspace
 
@@ -104,16 +104,16 @@ You can recover your workspace during the soft-delete period including its data,
 
 ### PowerShell
 
-Use [Get-AzOperationalInsightsDeletedWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsdeletedworkspace) to locate and [Restore-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/restore-azoperationalinsightsworkspace) to recover soft-deleted workspaces.
-
-> [!NOTE]
-> If the resource group that contained the workspace has been deleted, it must be recreated first. Resource groups can't be recovered. 
-
 ```PowerShell
 PS C:\>Select-AzSubscription "subscription-name-the-workspace-was-in"
 PS C:\>Get-AzOperationalInsightsDeletedWorkspace
 PS C:\>Recover-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name-the-workspace-was-in" -Name "deleted-workspace-name" -Location "region-name-the-workspace-was-in"
 ```
+
+Use [Get-AzOperationalInsightsDeletedWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsdeletedworkspace) to locate and [Restore-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/restore-azoperationalinsightsworkspace) to recover soft-deleted workspaces.
+
+> [!NOTE]
+> If the resource group that contained the workspace has been deleted, it must be recreated first. Resource groups can't be recovered. 
 
 The workspace and all its data are brought back after the recovery operation. Solutions and linked services were permanently removed from the workspace when it was deleted and these should be reconfigured to bring the workspace to its previously configured state. Some of the data may not be available for query after the workspace recovery until the associated solutions are re-installed and their schemas are added to the workspace.
 
