@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2019
+ms.date: 03/01/2020
 ms.author: TomSh
 
 ---
@@ -89,9 +89,16 @@ Azure Monitor logs can be a useful tool in forensic and other security analysis,
 [Azure Advisor](../../advisor/index.yml) is a personalized cloud consultant that helps you to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the [performance](../../advisor/advisor-performance-recommendations.md), [security](../../advisor/advisor-security-recommendations.md), and [high availability](../../advisor/advisor-high-availability-recommendations.md) of your resources while looking for opportunities to [reduce your overall Azure spend](../../advisor/advisor-cost-recommendations.md). Azure Advisor provides security recommendations, which can significantly improve your overall security posture for solutions you deploy in Azure. These recommendations are drawn from security analysis performed by [Azure Security Center.](../../security-center/security-center-introduction.md)
 
 ### Azure Security Center
-[Security Center](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+[Security Center](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure, multi-cloud, and hybrid resources. It provides policy management for all Azure resources. Its integrated cloud workload protection platform, Azure Defender, provides integrated security monitoring across your cloud workloads, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-In addition, Security Center helps with security operations by providing you a single dashboard that surfaces alerts and recommendations that can be acted upon immediately. Often, you can remediate issues with a single click within the Security Center console.
+Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a [secure score](../../security-center/secure-score-security-controls.md) so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
+
+In addition, Security Center helps with security operations by providing dashboards for:
+
+- Security hardening recommendations - Often, these include quick fix links so you can quickly strengthen your posture - and increase your secure score - from within the Security Center console
+- Azure Defender alerts - Including detailed information about the affected resource, steps to investigate or resolve the issue, and the MITRE ATT&CK tactics typically associated with the alert type
+- Resource management - Use the integrated asset inventory dashboard and its powerful filters to view the status of subscriptions, resources, and more
+
 ## Applications
 The section provides additional information regarding key features in application security and summary information about these capabilities.
 
