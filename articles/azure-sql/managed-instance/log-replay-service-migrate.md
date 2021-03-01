@@ -296,7 +296,7 @@ az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
 	--storage-sas "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
 
-### Scripting the LRS start in continuous mode
+### Scripting LRS start in continuous mode
 
 PowerShell and CLI clients to start LRS in continuous mode are synchronous. This means that clients will wait for the API response to report on success or failure to start the job. During this wait the command will not return the control back to the command prompt. In case you are scripting the migration experience, and require the LRS start command to give control back immediately to continue with rest of the script, you can execute PowerShell as a background job with -AsJob switch. For example:
 
