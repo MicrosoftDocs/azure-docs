@@ -2,7 +2,7 @@
 title: Tutorial - add functions to Bicep files
 description: Add functions to your Bicep files to construct values.
 author: mumian
-ms.date: 02/17/2021
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:

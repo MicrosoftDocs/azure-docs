@@ -2,7 +2,7 @@
 title: Tutorial - Export JSON template from the Azure portal for Bicep development
 description: Learn how to use an exported JSON template to complete your Bicep development.
 author: mumian
-ms.date: 02/26/2021
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -78,7 +78,7 @@ The following example highlights the additions to your Bicep file. It contains t
 
 Copy the whole file and replace your Bicep file with its contents.
 
-:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.bicep" range="1-74" highlight="19,35-52":::
+:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.bicep" range="1-53" highlight="18,34-51":::
 
 ## Deploy Bicep file
 

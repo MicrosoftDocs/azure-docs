@@ -2,7 +2,7 @@
 title: Tutorial - add tags to resources in Bicep
 description: Add tags to resources that you deploy in your Bicep files. Tags let you logically organize resources.
 author: mumian
-ms.date: 02/25/2021
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
@@ -34,7 +34,7 @@ You tag resources to add values that help you identify their use. For example, y
 
 The following example highlights the changes to the Bicep file. Copy the whole file and replace your Bicep file with its contents.
 
-:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.bicep" range="1-86" highlight="32-35,43,56,76":::
+:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.bicep" range="1-81" highlight="27-30,38,51,71":::
 
 ## Deploy Bicep file
 

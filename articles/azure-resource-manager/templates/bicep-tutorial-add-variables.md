@@ -2,7 +2,7 @@
 title: Tutorial - add variable to Bicep file
 description: Add variables to your Bicep file to simplify the syntax.
 author: mumian
-ms.date: 02/17/2021
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
@@ -32,7 +32,7 @@ The parameter for the storage account name is hard-to-use because you have to pr
 
 The following example highlights the changes to add a variable to your Bicep file that creates a unique storage account name. Copy the whole file and replace your Bicep file with its contents.
 
-:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.bicep" range="1-32" highlight="1-4,20,23":::
+:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.bicep" range="1-31" highlight="1-3,19,22":::
 
 Notice that it includes a variable named `uniqueStorageName`. This variable uses three functions to construct a string value.
 
@@ -40,7 +40,7 @@ You're familiar with the [resourceGroup](template-functions-resource.md#resource
 
 The [uniqueString](template-functions-string.md#uniquestring) function creates a 13 character hash value. The returned value is determined by the parameters you pass in. For this tutorial, you use the resource group ID as the input for the hash value. That means you could deploy this Bicep file to different resource groups and get a different unique string value. However, you get the same value if you deploy to the same resource group.
 
-The [concat](template-functions-string.md#concat) function takes values and combines them. For this variable, it takes the string from the parameter and the string from the `uniqueString` function, and combines them into one string. Bicep also support string interpolation. For example, var storageName = '${storagePrefix}storage001'.
+Bicep supports a [string interpolation](https://en.wikipedia.org/wiki/String_interpolation#) syntax. For this variable, it takes the string from the parameter and the string from the `uniqueString` function, and combines them into one string.
 
 The `storagePrefix` parameter enables you to pass in a prefix that helps you identify storage accounts. You can create your own naming convention that makes it easier to identify storage accounts after deployment from a long list of resources.
 

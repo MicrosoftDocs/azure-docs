@@ -2,7 +2,7 @@
 title: Tutorial - Create & deploy Bicep files
 description: Create your first Bicep file for deploying Azure resources. In the tutorial, you learn about the Bicep file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 02/26/2021
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:

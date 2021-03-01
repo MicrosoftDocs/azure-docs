@@ -2,7 +2,7 @@
 title: Tutorial - add outputs to Bicep file
 description: Add outputs to your Bicep file to simplify the syntax.
 author: mumian
-ms.date: 02/26/2021
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
@@ -34,15 +34,13 @@ You can use outputs to return values from the deployment. For example, it might 
 
 The following example highlights the change to your Bicep file to add an output value. Copy the whole file and replace your Bicep file with its contents.
 
-:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep" range="1-34" highlight="34":::
+:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep" range="1-33" highlight="33":::
 
 There are some important items to note about the output value you added.
 
 The type of returned value is set to `object`, which means it returns a template object.
 
-It uses the [reference](template-functions-resource.md#reference) function to get the runtime state of the storage account. To get the runtime state of a resource, you pass in the name or ID of a resource. In this case, you use the same variable you used to create the name of the storage account.
-
-Finally, it returns the `primaryEndpoints` property from the storage account.
+To get the `primaryEndpoints` property from the storage account, you use the storage account symbolic name.
 
 ## Deploy Bicep file
 

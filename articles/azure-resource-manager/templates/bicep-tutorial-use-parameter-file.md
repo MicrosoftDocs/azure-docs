@@ -2,7 +2,7 @@
 title: Tutorial - use parameter file to deploy Bicep file
 description: Use parameter files that contain the values to use for deploying your Bicep file.
 author: mumian
-ms.date: 09/10/2020
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ---

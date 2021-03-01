@@ -2,7 +2,7 @@
 title: Tutorial - Use quickstart templates for Bicep development
 description: Learn how to use Azure Quickstart templates to complete your Bicep development.
 author: mumian
-ms.date: 02/18/2021
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
@@ -53,9 +53,9 @@ Currently, the Azure Quickstart templates only provide JSON templates. There are
 
 Merge the decompiled quickstart template with the existing Bicep file. Same as what you did in the previous tutorial, update the resource symbolic name, and the resource name to match your naming convention.
 
-:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.bicep" range="1-79" highlight="20-31,34,67-77":::
+:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.bicep" range="1-73" highlight="20-25,28,61-71":::
 
-The web app name needs to be unique across Azure. To prevent having duplicate names, the `webAppPortalName` variable has been updated from `var webAppPortalName_var = '${webAppName}-webapp'` to `var webAppPortalName = concat(webAppName, uniqueString(resourceGroup().id))`.
+The web app name needs to be unique across Azure. To prevent having duplicate names, the `webAppPortalName` variable has been updated from `var webAppPortalName_var = '${webAppName}-webapp'` to `var webAppPortalName = '${webAppName}${uniqueString(resourceGroup().id)}'`.
 
 ## Deploy Bicep file
 

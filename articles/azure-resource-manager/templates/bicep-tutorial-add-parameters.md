@@ -2,7 +2,7 @@
 title: Tutorial - add parameters to Bicep file
 description: Add parameters to your Bicep file to make it reusable.
 author: mumian
-ms.date: 02/26/2021
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -33,7 +33,7 @@ To make your Bicep file reusable, let's add a parameter that you can use to pass
 
 Copy the whole file and replace it with the following contents.
 
-:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.bicep" range="1-16" highlight="1-4,7":::
+:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.bicep" range="1-15" highlight="1-3,6":::
 
 Notice the parameters can be referenced directly by using their names in Bicep, compared to requiring [parameters('storageName')] in ARM JSON template.
 
@@ -83,7 +83,7 @@ Parameters enable you to customize the deployment by providing values that are t
 
 The previous Bicep file always deployed a **Standard_LRS** storage account. You might want the flexibility to deploy different SKUs depending on the environment. The following example shows the changes to add a parameter for SKU. Copy the whole file and paste over your Bicep file.
 
-:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.bicep" range="1-29" highlight="5-17,23":::
+:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.bicep" range="1-27" highlight="5-15,21":::
 
 The `storageSKU` parameter has a default value. This value is used when a value isn't specified during the deployment. It also has a list of allowed values. These values match the values that are needed to create a storage account. You don't want users of your Bicep file to pass in SKUs that don't work.
 
