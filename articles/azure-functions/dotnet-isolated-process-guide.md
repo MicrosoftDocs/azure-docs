@@ -16,7 +16,7 @@ This article is an introduction to using C# to develop .NET isolated functions, 
 
 ## Why .NET isolated
 
-Previously Azure Functions has only supported a single mode for writing .NET functions, which run [alongside the host in the same process as a class library](functions-dotnet-class-library.md).  This provides deep integration between the host process and the function process, allowing things like SDKs from triggers and bindings to be shared directly with the .NET function.  However, this also introduces tighter coupling between the host process and the .NET function.  For example, .NET functions running in process are required to be running the same version of the .NET runtime.  To provide the option to run outside these constraints, you can choose to run in an isolated process.  This enables using current releases (such as .NET 5) that the runtime may not be utilizing.
+Previously Azure Functions has only supported a single mode for writing .NET functions, which run [alongside the host in the same process as a class library](functions-dotnet-class-library.md). This provides deep integration between the host process and the function process. For example, .NET class library functions can share binding APIs and types. However, this also requires a tighter coupling between the host process and the .NET function. For example, .NET functions running in-process are required to run on the same version of .NET as the Functions runtime. To enable you to run outside these constraints, you can now choose to run in an isolated process. This also lets you develop functions that use current .NET releases (such as .NET 5.0), not natively supported by the Functions runtime.
 
 Because these functions run in a separate process, there are some [feature and functionality differences](#differences-with-net-class-libraries) between .NET isolated function apps and .NET class library function apps.
 
@@ -26,20 +26,11 @@ Running .NET isolated functions out-of-process lets Functions support both curre
 
 ### Benefits of running out-of-process
 
-When running out of process, .NET isolated functions don't have access to the kind of deep integration as when being loaded as class libraries by the main process. This isolation has particular effects on logging, HTTP messaging, and binding return types. However, there are benefits for .NET isolated to being able to run out-of-process, which include the following:
+When running out-of-process, your .NET functions can take advantage of the following benefits: 
 
-+ Run on .NET 5.0: the main benefit is being able to run on .NET 5.0 and using the latest version of .NET.
-+ Fewer conflicts: because the functions run in a separate process, assemblies used in your app won't conflict with different version of the same assemblies used by the host process.   
++ Fewer conflicts: because the functions run in a separate process, assemblies used in your app won't conflict with different version of the same assemblies used by the host process.  
 + Full control of the process: you control the start-up of the app and can control the configurations used and the middleware started.
 + Dependency injection: because you have full control of the process, you can use .NET Core behaviors for dependency injection and incorporating middleware into your function app. 
-
-## Prerequisites 
-
-You must have the following software installed on your local computer to be able to create and deploy functions that use .NET 5.0.
-
-* [.NET 5.x](https://dotnet.microsoft.com/download/dotnet/5.0) (5.1 recommended)
-
-* [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 3.0.3160, or a later version.
 
 ## Supported versions
 
@@ -85,7 +76,7 @@ A `HostBuilder` is used to build and return a fully initialized `IHost` instance
 
 ### Configuration
 
-Configuration for Functions-specific behaviors is still done by using the [host.json file](functions-host-json.md). However, having access to the host builder pipeline means that you can set any app-specific configurations during initialization. 
+Having access to the host builder pipeline means that you can set any app-specific configurations during initialization. These configurations apply to your function app running in a separate process. To make changes to the functions host or trigger and binding configuration, you'll still need to use the [host.json file](functions-host-json.md).      
 
 The following example shows how to add configuration `args` read from the command line: 
  
@@ -129,9 +120,9 @@ The trigger attribute specifies the trigger type and binds input data to a metho
 
 The `Function` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name.
 
-Because .NET isolated projects run in a separate worker process, bindings can't take advantage of rich binding classes, such as `ICollector<T>`, `IAsyncCollector<T>`, and `CloudBlockBlob`. There's also no direct support for types inherited from underlying service SDKs, such as [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet) and [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet). Instead, bindings rely on strings, arrays, and serializable types, such as POCO objects. 
+Because .NET isolated projects run in a separate worker process, bindings can't take advantage of rich binding classes, such as `ICollector<T>`, `IAsyncCollector<T>`, and `CloudBlockBlob`. There's also no direct support for types inherited from underlying service SDKs, such as [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet) and [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet). Instead, bindings rely on strings, arrays, and serializable types, such as plain old class objects (POCOs). 
 
-For HTTP triggers, you also don't have access to the original HTTP request and response objects. 
+For HTTP triggers, you must use `HttpRequestData` and `HttpResponseData` to access the request and response data. This is because you  don't have access to the original HTTP request and response objects when running out-of-process. 
 
 ### Input bindings
 
@@ -169,9 +160,11 @@ The following example shows how to get an `ILogger` and write logs inside a func
 
 Use various method of `ILogger` to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
 
+An [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0) is also provided when using [dependency injection](#dependency-injection).
+
 ## Differences with .NET class library functions
 
-This section described the functional and behavioral differences running on .NET 5.0 out-of-process compared to .NET class library functions running in process:
+This section describes the current state of the functional and behavioral differences running on .NET 5.0 out-of-process compared to .NET class library functions running in-process:
 
 | Feature/behavior |  In-process (.NET Core 3.1) | Out-of-process (.NET 5.0) |
 | ---- | ---- | ---- |
