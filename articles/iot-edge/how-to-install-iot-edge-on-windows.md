@@ -337,6 +337,7 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
        ```
 
 ---
+
 # [PowerShell](#tab/powershell)
 
 1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
