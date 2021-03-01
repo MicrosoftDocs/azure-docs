@@ -34,6 +34,6 @@ An example of starting Storage Explorer with custom command-line options
 
 ## When to use command-line options
 
-Some command-line options can be used to customize Storage Explorer. For those options that have corresponding user configurations, such as `--lang`. We recommend using the user configurations instead of using the command-line option. 
+Some command-line options can be used to customize Storage Explorer. For those options that have corresponding user settings, such as `--lang`. We recommend using the user settings instead of using the command-line option. 
 
 The other command-line options can be useful for debugging and troubleshooting. If you run into a problem in Storage Explorer, reproducing the problem in debug mode can help us get more detailed information to investigate.
