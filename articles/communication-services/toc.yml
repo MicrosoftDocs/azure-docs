@@ -22,6 +22,8 @@
     items:
       - name: Add meeting composite to your app
         href: quickstarts/meeting/getting-started-with-meeting-composite.md
+      - name: Use the meeting composite library
+        href: quickstarts/meeting/samples-for-meeting-composite.md
   - name: Telephony and SMS
     items:
       - name: Get a telephone number

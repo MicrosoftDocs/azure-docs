@@ -82,7 +82,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Add meeting composite to your app
-            url: quickstarts/meeting/getting-started-with-meeting-composite.md        
+            url: quickstarts/meeting/getting-started-with-meeting-composite.md       
+          - text: Use the meeting composite library
+            url: quickstarts/meeting/samples-for-meeting-composite.md             
   - title: Chat
     linkLists:
       - linkListType: quickstart

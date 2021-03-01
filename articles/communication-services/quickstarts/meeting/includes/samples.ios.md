@@ -1,33 +1,25 @@
 ---
-title: Quickstart - Add joining a meeting to an iOS app using Azure Communication Services
-description: In this quickstart, you learn how to use the Azure Communication Services Meeting Client library for iOS.
 author: palatter
-ms.author: palatter
-ms.date: 01/25/2021
-ms.topic: quickstart
 ms.service: azure-communication-services
+ms.topic: include
+ms.date: 24/02/2021
+ms.author: palatter
 ---
-
-In this quickstart, you'll learn how to join a meeting using the Azure Communication Services Meeting Client library for iOS.
 
 ## Prerequisites
 
-To complete this tutorial, you’ll need the following prerequisites:
-
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A [User Access Token](../../access-tokens.md) for your Azure Communication Service.
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
+- Optional: Complete the quickstart for [getting started with adding meeting composite to your application](../getting-started-with-meeting-composite.md)
 
 ## Setting up
 
 ### Creating the Xcode project
 
-In Xcode, create a new iOS project and select the **App** template. We will be using UIKit storyboards. You're not going to create tests during this quick start. Feel free to uncheck **Include Tests**.
+In Xcode, create a new iOS project and select the **Single View App** template. This quickstart uses the [UIKit framework](https://developer.apple.com/documentation/uikit), so you should set the the **Language** to **Swift** and the **User Interface** to **UIKit**. You're not going to create unit tests or UI tests during this quickstart. Feel free to uncheck **Include Unit Tests** and also uncheck **Include UI Tests**.
 
-:::image type="content" source="../media/ios/xcode-new-project-template-select.png" alt-text="Screenshot showing the New Project template selection within Xcode.":::
-
-:::image type="content" source="../media/ios/xcode-new-project-details.png" alt-text="Screenshot showing the New Project details within Xcode.":::
+:::image type="content" source="../media/ios/xcode-new-project-details.png" alt-text="Screenshot showing the create new New Project window within Xcode.":::
 
 ### Install the package and dependencies with CocoaPods
 
@@ -43,7 +35,7 @@ In Xcode, create a new iOS project and select the **App** template. We will be u
     ```
 
 2. Run `pod install`.
-3. Open the `.xcworkspace` with Xcode.
+3. Open the `.xcworkspace` with XCode.
 
 ### Request access to the microphone
 
@@ -82,29 +74,6 @@ import AzureCommunication
 import MeetingUIClient
 ```
 
-Replace the implementation of the `ViewController` class with a simple button to allow the user to join a meeting. We will attach business logic to the button in this quickstart.
-
-```swift
-class ViewController: UIViewController {
-
-    private var meetingClient: MeetingClient?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Initialize meetingClient
-    }
-
-    @IBAction func joinMeetingTapped(_ sender: UIButton) {
-        joinMeeting()
-    }
-    
-    private func joinMeeting() {
-        // Add join meeting logic
-    }
-}
-```
-
 ## Object model
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Meeting Composite library:
@@ -131,8 +100,6 @@ Initialize a `MeetingClient` instance with a User Access Token which will enable
         }
 ```
 
-You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available.
-
 ## Get the Teams meeting link
 
 The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
@@ -144,9 +111,75 @@ You can also get the required meeting information from the **Join Meeting** URL 
 The `joinMeeting` method is set as the action that will be performed when the *Join Meeting* button is tapped. Update the implementation to join a meeting with the `MeetingClient`:
 
 ```swift
+
+let meetingJoinOptions = MeetingJoinOptions(displayName: "John Smith")
+    
+meetingClient?.join(meetingUrl: meetingURL, meetingJoinOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
+    if (error != nil) {
+        print("Join meeting failed: \(error!)")
+    }
+})
+
+```
+
+## Meeting Composite Events
+
+Add the `MeetingUIClientDelegate` to your class.
+
+```swift
+class ViewController: UIViewController, MeetingUIClientDelegate {
+
+    private var meetingClient: MeetingUIClient?
+```
+
+Set the `meetingUIClientDelegate` to `self`.
+
+```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    meetingClient?.meetingUIClientDelegate = self
+}
+```
+
+Implement the `didUpdateCallState` and `didUpdateRemoteParticipantCount` functions.
+
+```swift
+    func meetingUIClient(didUpdateCallState callState: CallState) {
+        switch callState {
+        case .connecting:
+            print("Call state has changed to 'Connecting'")
+        case .connected:
+            print("Call state has changed to 'Connected'")
+        case .waitingInLobby:
+            print("Call state has changed to 'Waiting in Lobby'")
+        case .ended:
+            print("Call state has changed to 'Ended'")
+        }
+    }
+    
+    func meetingUIClient(didUpdateRemoteParticipantCount remoteParticpantCount: UInt) {
+        print("Remote participant count has changed to: \(remoteParticpantCount)")
+    }
+```
+
+## Assigning avatars for users
+
+Add the `MeetingIdentityProviderDelegate` to your class.
+
+```swift
+class ViewController: UIViewController, MeetingIdentityProviderDelegate {
+
+    private var meetingClient: MeetingUIClient?
+```
+
+Set the `MeetingIdentityProviderDelegate` to `self` before joining the meeting.
+
+```swift
 private func joinMeeting() {
+    meetingClient?.meetingIdentityProviderDelegate = self
     let meetingJoinOptions = MeetingJoinOptions(displayName: "John Smith")
-        
+
     meetingClient?.join(meetingUrl: meetingURL, meetingJoinOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
         if (error != nil) {
             print("Join meeting failed: \(error!)")
@@ -155,17 +188,27 @@ private func joinMeeting() {
 }
 ```
 
-## Run the code
+Map each `userMri` with the corresponding avatar.
 
-You can build and run your app on iOS simulator by selecting **Product** > **Run** or by using the (&#8984;-R) keyboard shortcut.
-
-:::image type="content" source="../media/ios/quick-start-join-meeting.png" alt-text="Final look and feel of the quick start app":::
-
-:::image type="content" source="../media/ios/quick-start-meeting-joined.png" alt-text="Final look and feel once the meeting has been joined":::
-
-> [!NOTE]
-> The first time you join a meeting, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API to [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.
-
-## Sample Code
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/meeting-sdk-ios-getting-started)
+```swift
+func avatarForUserMri(userMri: String, completionHandler completion: @escaping (UIImage?) -> Void) {
+        if (userMri .starts(with: "8:teamsvisitor:")) {
+            // Anonymous teams user will start with prefix 8:teamsvistor:
+            let image = UIImage (named: "avatarPink")
+            completion(image!)
+        }
+        else if (userMri .starts(with: "8:orgid:")) {
+            // OrgID user will start with prefix 8:orgid:
+            let image = UIImage (named: "avatarDoctor")
+            completion(image!)
+        }
+        else if (userMri .starts(with: "8:acs:")) {
+            // ACS user will start with prefix 8:acs:
+            let image = UIImage (named: "avatarGreen")
+            completion(image!)
+        }
+        else {
+            completion(nil)
+        }
+}
+```
