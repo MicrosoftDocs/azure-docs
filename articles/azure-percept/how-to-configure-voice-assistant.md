@@ -11,7 +11,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Configure voice assistant application using Azure IoT Hub
 
-This article describes how to configure your voice assistant application using IoT Hub. For a step-by-step tutorial that guides you through the process of creating a voice assistant using demo template, see [Build a no-code voice assistant with Azure Percept Studio and Azure Percept Audio](./tutorial-nocode-speech.md).
+This article describes how to configure your voice assistant application using IoT Hub. For a step-by-step tutorial that guides you through the process of creating a voice assistant using demo template, see [Build a no-code voice assistant with Azure Percept Studio and Azure Percept Audio](./tutorial-no-code-speech.md).
 
 ## Update your voice assistant configuration
 

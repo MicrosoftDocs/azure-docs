@@ -17,11 +17,11 @@ By using Azure Private Link, you can connect to an Azure Cosmos account via a pr
 > [!NOTE]
 > Private Link doesn't prevent your Azure Cosmos endpoints from being resolved by public DNS. Filtering of incoming requests happens at application level, not transport or network level.
 
-Private Link allows users to access an Azure Cosmos account from within the virtual network or from any peered virtual network. Resources mapped to Private Link are also accessible on-premises over private peering through VPN or Azure ExpressRoute. 
+Private Link allows users to access an Azure Cosmos account from within the virtual network or from any peered virtual network. Resources mapped to Private Link are also accessible on-premises over private peering through VPN or Azure ExpressRoute.
 
-You can connect to an Azure Cosmos account configured with Private Link by using the automatic or manual approval method. To learn more, see the [Approval workflow](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) section of the Private Link documentation. 
+You can connect to an Azure Cosmos account configured with Private Link by using the automatic or manual approval method. To learn more, see the [Approval workflow](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) section of the Private Link documentation.
 
-This article describes the steps to create a private endpoint. It assumes that you're using the automatic approval method.
+This article describes how to set up private endpoints for Azure Cosmos DB transactional store. It assumes that you're using the automatic approval method. If you are using the analytical store, see [Private endpoints for the analytical store](analytical-store-private-endpoints.md) article.
 
 ## Create a private endpoint by using the Azure portal
 

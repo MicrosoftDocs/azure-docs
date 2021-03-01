@@ -4,7 +4,7 @@ description: Learn more about Azure Percept Audio
 author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
@@ -44,7 +44,7 @@ Azure Percept Audio passes the audio input to the Azure Percept DK carrier board
 
 - [Assemble your Azure Percept DK](./quickstart-percept-dk-unboxing.md)
 - [Complete the Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md)
-- [Connect your Azure Percept Audio device to your devkit](quickstart-percept-audio-setup)
+- [Connect your Azure Percept Audio device to your devkit](./quickstart-percept-audio-setup.md)
 
 ### Build a no-code prototype
 

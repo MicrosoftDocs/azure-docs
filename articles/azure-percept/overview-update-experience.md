@@ -4,7 +4,7 @@ description: Learn more about how to keep the Azure Percept DK up-to-date
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---

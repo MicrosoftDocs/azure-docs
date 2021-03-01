@@ -39,7 +39,7 @@ Follow the steps below to set up an SSH connection to your Azure Percept DK thro
     1. Connection Type: SSH
 
     > [!NOTE]
-    > The **Host Name** is your device's IP address. If your dev kit is connected to the dev kit's Wi-Fi access point, the IP address will be 10.1.1.1. If your dev kit is connected over Ethernet, use the local IP address of the device, which you can get from the Ethernet router or hub. If your device is connected over Wi-Fi, you must use the IP address that was provided collected during the [Azure Percept DK on-boarding experience](./quickstart-percept-dk-setup.md).
+    > The **Host Name** is your device's IP address. If your dev kit is connected to the dev kit's Wi-Fi access point, the IP address will be 10.1.1.1. If your dev kit is connected over Ethernet, use the local IP address of the device, which you can get from the Ethernet router or hub. If your device is connected over Wi-Fi, you must use the IP address that was provided collected during the [Azure Percept DK on-boarding experience](./quickstart-percept-dk-set-up.md).
 
     :::image type="content" source="./media/how-to-ssh-into-percept-dk/ssh-putty.png" alt-text="Image.":::
 

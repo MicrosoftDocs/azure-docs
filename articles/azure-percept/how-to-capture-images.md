@@ -17,7 +17,7 @@ Follow this guide to capture images using the Vision SoM of the Azure Percept DK
 
 - Azure Percept DK (devkit)
 - [Azure subscription](https://azure.microsoft.com/free/)
-- [Azure Percept DK setup experience](./quickstart-percept-dk-setup.md): you connected your devkit to a Wi-Fi network, created an IoT Hub, and connected your devkit to the IoT Hub
+- [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md): you connected your devkit to a Wi-Fi network, created an IoT Hub, and connected your devkit to the IoT Hub
 - [No-code vision project](./tutorial-nocode-vision.md)
 
 ## Capture images

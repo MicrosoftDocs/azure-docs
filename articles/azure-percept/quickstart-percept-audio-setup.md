@@ -18,7 +18,7 @@ Azure Percept Audio works out of the box with Azure Percept DK. No unique setup 
 - Azure Percept DK (devkit)
 - Azure Percept Audio
 - [Azure subscription](https://azure.microsoft.com/free/)
-- [Azure Percept DK setup experience](./quickstart-percept-dk-setup.md): you connected your devkit to a Wi-Fi network, created an IoT Hub, and connected your devkit to the IoT Hub
+- [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md): you connected your devkit to a Wi-Fi network, created an IoT Hub, and connected your devkit to the IoT Hub
 
 ## Connecting your devices
 
@@ -41,4 +41,4 @@ Azure Percept Audio works out of the box with Azure Percept DK. No unique setup 
 
 ## Next steps
 
-Create a [no-code speech solution](./tutorial-nocode-speech.md).
+Create a [no-code speech solution](./tutorial-no-code-speech.md).

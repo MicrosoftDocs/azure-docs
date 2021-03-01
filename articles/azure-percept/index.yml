@@ -101,7 +101,6 @@ landingContent:
         links:
           - text: Advanced development using cloud services
             url: advanced-development-cloud.md
-        links:
           - text: Advanced development using local tools
             url: advanced-development-local.md
 
@@ -115,9 +114,7 @@ landingContent:
         links:
           - text: Set up updates
             url: how-to-set-up-over-the-air-updates.md
-        links:
           - text: Over-the-air updates
             url: how-to-update-over-the-air.md
-        links:
           - text: Update over USB
             url: how-to-update-via-usb.md
