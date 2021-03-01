@@ -20,7 +20,7 @@ This article shows you how to get information about your IoT Central application
 
 ## Get information about your application
 
-To get information about your IoT Central application:
+To get information about your IoT Central application: 
 
 1. Select the **Help** link on the top menu.
 
