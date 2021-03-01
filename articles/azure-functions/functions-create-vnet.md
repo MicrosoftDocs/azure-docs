@@ -309,7 +309,7 @@ To use your function app with virtual networks, you'll need to join it to a subn
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | **Source** | Github | You should have created a Github repo with the sample code in step 2. | 
+    | **Source** | GitHub | You should have created a GitHub repo with the sample code in step 2. | 
     | **Organization**  | myOrganization | This is the organization your repo is checked into, usually your account. |
     | **Repository** | myRepo | The repo you created with the sample code. |
     | **Branch** | main | This is the repo you just created, so use the master branch. |
