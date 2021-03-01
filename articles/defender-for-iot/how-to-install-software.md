@@ -578,8 +578,8 @@ To install:
 1. Select the **sensor Office** option.
 1. The installation parameter options appear.  Define the appliance profile and network properties:
 
-| Parameter | Configuration |
-| ----------| ------------- |
+    | Parameter | Configuration |
+    | ----------| ------------- |
     | **Hardware profile** | Select **office** |
     | **Management interface** | **enp3s0** |
     | **Default network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
