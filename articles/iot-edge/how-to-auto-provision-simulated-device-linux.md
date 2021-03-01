@@ -8,7 +8,9 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+monikerRange: "iotedge-2018-06"
 ---
+
 # Create and provision an IoT Edge device with a TPM on Linux
 
 This article shows how to test auto-provisioning on a Linux IoT Edge device using a Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices with the [Device Provisioning Service](../iot-dps/index.yml). If you're unfamiliar with the process of auto-provisioning, review the [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) overview before continuing.
@@ -250,6 +252,9 @@ Once the runtime is installed on your device, configure the device with the info
 
 ## Give IoT Edge access to the TPM
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 The IoT Edge runtime needs to access the TPM to automatically provision your device.
 
 You can give TPM access to the IoT Edge runtime by overriding the systemd settings so that the `iotedge` service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access.
@@ -300,6 +305,63 @@ You can give TPM access to the IoT Edge runtime by overriding the systemd settin
    ```
 
    If you don't see that the correct permissions have been applied, try rebooting your machine to refresh udev.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+The IoT Edge runtime relies on a TPM service that broker's access to a device's TPM. This service needs to access the TPM to automatically provision your device.
+
+You can give access to the TPM by overriding the systemd settings so that the `aziottpm` service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access.
+
+1. Find the file path to the TPM hardware module on your device and save it as a local variable.
+
+   ```bash
+   tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
+   ```
+
+2. Create a new rule that will give the IoT Edge runtime access to tpm0.
+
+   ```bash
+   sudo touch /etc/udev/rules.d/tpmaccess.rules
+   ```
+
+3. Open the rules file.
+
+   ```bash
+   sudo nano /etc/udev/rules.d/tpmaccess.rules
+   ```
+
+4. Copy the following access information into the rules file.
+
+   ```input
+   # allow aziottpm access to tpm0
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0600"
+   ```
+
+5. Save and exit the file.
+
+6. Trigger the udev system to evaluate the new rule.
+
+   ```bash
+   /bin/udevadm trigger $tpm
+   ```
+
+7. Verify that the rule was successfully applied.
+
+   ```bash
+   ls -l /dev/tpm0
+   ```
+
+   Successful output appears as follows:
+
+   ```output
+   crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpm0
+   ```
+
+   If you don't see that the correct permissions have been applied, try rebooting your machine to refresh udev.
+:::moniker-end
+<!-- end 1.2 -->
 
 ## Restart IoT Edge and verify successful installation
 
