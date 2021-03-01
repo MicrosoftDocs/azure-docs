@@ -1,5 +1,5 @@
 ---
-title: Register a Teradata source and setup scans (preview)
+title: Register a Teradata source and setup scans (preview) in Azure Purview
 description: This article outlines how to register a Teradata source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
@@ -48,7 +48,6 @@ Teradata database and fetches **Lineage** between data assets.
 The only supported authentication for a Teradata source is **Basic authentication**.
 
 ## Register a Teradata source
---------------------------
 
 To register a new Teradata source in your data catalog, do the
 following:
@@ -58,7 +57,7 @@ following:
 3.  Select **Register**
 4.  On Register sources, select **Teradata**. Select **Continue**
 
-    :::image type="content" source="media/register-scan-teradata-source/register-sources.png" alt-text="register sources options" border="true":::
+    :::image type="content" source="media/register-scan-teradata-source/register-sources.png" alt-text="register Teradata options" border="true":::
 
 On the **Register sources (Teradata)** screen, do the following:
 
@@ -73,7 +72,7 @@ On the **Register sources (Teradata)** screen, do the following:
 
 4.  Finish to register the data source.
 
-    :::image type="content" source="media/register-scan-teradata-source/register-sources-2.png" alt-text="register sources options" border="true":::
+    :::image type="content" source="media/register-scan-teradata-source/register-sources-2.png" alt-text="register Teradata" border="true":::
 
 ## Creating and running a scan
 

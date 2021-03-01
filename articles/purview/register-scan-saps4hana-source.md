@@ -1,5 +1,5 @@
 ---
-title: Register SAP S/4HANA source and setup scans (preview)
+title: Register SAP S/4HANA source and setup scans (preview) in Azure Purview
 description: This article outlines how to register SAP S/4HANA source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ---
-# Register and Scan SAP S/4HANA source (preview)
+# Register and Scan a SAP S/4HANA source (preview)
 
 This article outlines how to register an SAP S/4HANA source in Purview
 and set up a scan.
@@ -40,7 +40,7 @@ The SAP S/4HANA source supports **Full scan** to extract metadata from a SAP S/4
     SAP\'s website and install it on the self-hosted integration runtime
     machine. During installation, make sure you select the **Install Assemblies to GAC** option in the **Optional setup steps** window.
 
-    :::image type="content" source="media/register-scan-saps4hana-source/requirement.png" alt-text="register sources options" border="true":::
+    :::image type="content" source="media/register-scan-saps4hana-source/requirement.png" alt-text="pre-requisite" border="true":::
 
 5.  The connector reads metadata from SAP using the Java Connector (JCo)
     3.0 API. Hence make sure the Java Connector is available on your
@@ -71,7 +71,7 @@ following:
 3.  Select **Register**
 4.  On Register sources, select **SAP S/4HANA.** Select **Continue**
 
-    :::image type="content" source="media/register-scan-saps4hana-source/register-saps-4-hana.png" alt-text="register sources options" border="true":::
+    :::image type="content" source="media/register-scan-saps4hana-source/register-saps-4-hana.png" alt-text="register SAPS/4Hana options" border="true":::
 
 On the **Register sources (SAP S/4HANA)** screen, do the following:
 
@@ -89,7 +89,7 @@ On the **Register sources (SAP S/4HANA)** screen, do the following:
 
 5.  Finish to register the data source.
 
-    :::image type="content" source="media/register-scan-saps4hana-source/register-saps-4-hana-2.png" alt-text="register sources options" border="true":::
+    :::image type="content" source="media/register-scan-saps4hana-source/register-saps-4-hana-2.png" alt-text="register SAP S/4HANA" border="true":::
 
 ## Creating and running a scan
 
@@ -129,7 +129,7 @@ To create and run a new scan, do the following:
         on customer's VM to be used by scanning processes. This is
         dependent on the size of SAP S/4HANA source to be scanned.
 
-    :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="register sources options" border="true":::
+    :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="scan SAP S/4HANA" border="true":::
 
 6.  Click on **Continue**.
 

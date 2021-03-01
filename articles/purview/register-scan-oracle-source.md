@@ -1,5 +1,5 @@
 ---
-title: Register Oracle source and setup scans (preview)
+title: Register Oracle source and setup scans (preview) in Azure Purview
 description: This article outlines how to register Oracle source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
@@ -83,7 +83,7 @@ To register a new Oracle source in your data catalog, do the following:
 3.  Select **Register**
 4.  On Register sources, select **Oracle**. Select **Continue**.
 
-    :::image type="content" source="media/register-scan-oracle-source/register-sources.png" alt-text="register sources options" border="true":::
+    :::image type="content" source="media/register-scan-oracle-source/register-sources.png" alt-text="register sources" border="true":::
 
 On the **Register sources (Oracle)** screen, do the following:
 
@@ -154,7 +154,7 @@ To create and run a new scan, do the following:
     customer's VM to be used by scanning processes. This is dependent on
     the size of SAP S/4HANA source to be scanned.
 
-    :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="register sources options" border="true":::
+    :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
 
 8.  Click on **Continue**.
 

@@ -1,5 +1,5 @@
 ---
-title: Deploy the metadata extraction ABAP function fodule for the SAP R3 family of bridges 
+title: Deploy the metadata extraction ABAP function module for the SAP R3 family of bridges in Azure Purview
 description: This article outlines the steps to deploy ABAP function module in SAP Server
 author: chandrakavya
 ms.author: kchandra
@@ -8,8 +8,8 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
 ---
-# Deploy the metadata extraction ABAP function fodule for the SAP R3 family of bridges 
-
+# Deploy the metadata extraction ABAP function module for the SAP R3 family of bridges 
+This article outlines the steps to deploy ABAP function module in SAP Server
 ## Overview 
 
 The SAP Business Suite 4 HANA (S/4HANA), ECC, and R/3 ERP bridge can be used to extract metadata from the SAP Server. This is achieved by placing ABAP function module on the SAP server. This

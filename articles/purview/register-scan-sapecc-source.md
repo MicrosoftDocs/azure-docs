@@ -1,5 +1,5 @@
 ---
-title: Register SAP ECC source and setup scans (preview)
+title: Register SAP ECC source and setup scans (preview) in Azure Purview
 description: This article outlines how to register SAP ECC source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
@@ -41,7 +41,7 @@ instance and fetches **Lineage** between data assets.
     SAP\'s website and install it on the self-hosted integration runtime
     machine. During installation, make sure you select the **Install    Assemblies to GAC** option in the **Optional setup steps** window.
 
-    :::image type="content" source="media/register-scan-sapecc-source/requirement.png" alt-text="register sources options" border="true":::
+    :::image type="content" source="media/register-scan-sapecc-source/requirement.png" alt-text="pre-requisite" border="true":::
 
 5.  The connector reads metadata from SAP using the Java Connector (JCo)
     3.0 API. Hence make sure the Java Connector is available on your
@@ -72,7 +72,7 @@ To register a new SAP ECC source in your data catalog, do the following:
 3.  Select **Register**
 4.  On Register sources, select **SAP ECC**. Select **Continue.**
 
-    :::image type="content" source="media/register-scan-sapecc-source/register-sapecc.png" alt-text="register sources options" border="true":::
+    :::image type="content" source="media/register-scan-sapecc-source/register-sapecc.png" alt-text="register SAPECC options" border="true":::
 
 On the **Register sources (SAP ECC)** screen, do the following:
 
@@ -89,7 +89,7 @@ On the **Register sources (SAP ECC)** screen, do the following:
 
 5.  Finish to register the data source.
 
-    :::image type="content" source="media/register-scan-sapecc-source/register-sapecc-2.png" alt-text="register sources options" border="true":::
+    :::image type="content" source="media/register-scan-sapecc-source/register-sapecc-2.png" alt-text="register SAPECC" border="true":::
 
 ## Creating and running a scan
 
@@ -130,7 +130,7 @@ To create and run a new scan, do the following:
         customer's VM to be used by scanning processes. This is
         dependent on the size of SAP ECC source to be scanned.
 
-    :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="register sources options" border="true":::
+    :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="scan SAPECC" border="true":::
 
 6.  Click on **Continue**.
 
