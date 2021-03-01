@@ -29,7 +29,7 @@ Select "Empty Activity" project template under "Phone and Tablet".
 
 :::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen.":::
 
-Select Minimum client library of "API 26: Android 8.0 (Oreo)" or greater.
+Select Minimum client library of "API 21: Android 5.0 (Lollipop)" or greater.
 
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen 2.":::
 
@@ -253,7 +253,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | MeetingClient| The MeetingClient is the main entry point to the Meeting library. |
-| JoinOptions | JoinOptions are used for configurable options such as display name. |
+| MeetingJoinOptions | MeetingJoinOptions are used for configurable options such as display name. |
 | CallState | The CallState is used to for reporting call state changes. The options are as follows: connecting, waitingInLobby, connected, and ended. |
 
 ## Create a MeetingClient from the user access token
