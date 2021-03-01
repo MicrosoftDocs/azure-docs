@@ -78,7 +78,7 @@ Use the `createChatThread` method on the chatClient to create a chat thread
 - Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateTopic` function.
 - Use `participants` property to pass a  list of `ChatParticipant` objects to be added to the chat thread. The `ChatParticipant` object is initialized with a `CommunicationIdentifier` object. `CommunicationIdentifier` could be of type `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier`. For example, to get a `CommunicationIdentifier` object, you will need to pass an Access ID which you created by following instruction to [Create a user](../../access-tokens.md#create-an-identity)
 
-The response object from the createChatThread method contains the chatThread details. To interact with the chat thread operations such as adding participants, sending a message, deleting a message, etc., a chatThreadClient client instance needs to instantiated using the GetChatThreadClient method on the ChatClient client.
+The response object from the `createChatThread` method contains the `chatThread` details. To interact with the chat thread operations such as adding participants, sending a message, deleting a message, etc., a `chatThreadClient` client instance needs to instantiated using the `GetChatThreadClient` method on the `ChatClient` client.
 
 ```csharp
 var chatParticipant = new ChatParticipant(communicationIdentifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
