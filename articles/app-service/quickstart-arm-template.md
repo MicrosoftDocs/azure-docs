@@ -8,6 +8,10 @@ ms.topic: quickstart
 ms.date: 10/16/2020
 ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-arm-template-uiex
 ---
 
 # Quickstart: Create App Service app using an ARM template

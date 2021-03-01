@@ -81,11 +81,11 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ### Azure Machine Learning Studio Notebooks Experience (January Update)
 + **New features**
   + Native Markdown Editor in AzureML. Users can now render and edit markdown files natively in AzureML Studio.
-  + [Run Button for Scripts (.py, .R and .sh)](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#run-a-notebook-or-python-script). Users can easily now run Python, R and Bash script in AzureML
-  + [Variable Explorer](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#explore-variables-in-the-notebook). Explore the contents of variables and data frames in a pop-up panel. Users can easily check data type, size, and contents.
-  + [Table of Content](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#navigate-with-a-toc). Navigate to sections of your notebook, indicated by Markdown headers.
+  + [Run Button for Scripts (.py, .R and .sh)](./how-to-run-jupyter-notebooks.md#run-a-notebook-or-python-script). Users can easily now run Python, R and Bash script in AzureML
+  + [Variable Explorer](./how-to-run-jupyter-notebooks.md#explore-variables-in-the-notebook). Explore the contents of variables and data frames in a pop-up panel. Users can easily check data type, size, and contents.
+  + [Table of Content](./how-to-run-jupyter-notebooks.md#navigate-with-a-toc). Navigate to sections of your notebook, indicated by Markdown headers.
   + Export your Notebook as Latex/HTML/Py. Create easy-to-share notebook files by exporting to LaTex, HTML, or .py
-  + Intellicode. ML-powered results provides an enhanced [intelligent autocompletion experience](https://docs.microsoft.com/visualstudio/intellicode/overview).
+  + Intellicode. ML-powered results provides an enhanced [intelligent autocompletion experience](/visualstudio/intellicode/overview).
 
 + **Bug fixes and improvements**
   + Improved page load times
