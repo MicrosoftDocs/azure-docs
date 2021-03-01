@@ -20,7 +20,7 @@ ms.author: inhenkel
 
 ## Introduction
 
-This quickstart shows you how to do basic encoding with Python and Azure Media Services. It uses the 2020-05-01 Media Service v3 API. 
+This quickstart shows you how to do basic encoding with Python and Azure Media Services. It uses the 2020-05-01 Media Service v3 API.
 
 ## Prerequisites
 
@@ -32,19 +32,19 @@ This quickstart shows you how to do basic encoding with Python and Azure Media S
 
 ## Get the sample
 
-Create a fork and clone the sample located in the [Python samples repository](https://github.com/Azure-Samples/media-services-v3-python). For this quickstart, we are working with the BasicEncoding sample.
+Create a fork and clone the sample located in the [Python samples repository](https://github.com/Azure-Samples/media-services-v3-python). For this quickstart, we're working with the BasicEncoding sample.
 
 ## Create the .env file
 
-Get the values from your account to create an *.env* file. That's right, save it with no name, just the extension.  Use *sample.env* as a template then save the .env file to the BasicEncoder folder in your local clone.
+Get the values from your account to create an *.env* file. That's right, save it with no name, just the extension.  Use *sample.env* as a template then save the *.env* file to the BasicEncoder folder in your local clone.
 
 ## Try the code
 
 The code below is thoroughly commented.  Use the whole script or use parts of it for your own script.
 
-In this sample, a random number is generated for naming things so you can identify them as a group that was created together when you ran the script.  This is optional, and can be removed when you are done testing the script.
+In this sample, a random number is generated for naming things so you can identify them as a group that was created together when you ran the script.  The random number is optional, and can be removed when you're done testing the script.
 
-We are not using the SAS URL for the input asset in this sample.
+We're not using the SAS URL for the input asset in this sample.
 
 ```python
 import adal
@@ -223,7 +223,7 @@ countdown(int(time_in_seconds))
 
 ## Delete resources
 
-When you are finished with the quickstart, delete the resources created in the resource group.
+When you're finished with the quickstart, delete the resources created in the resource group.
 
 ## Next steps
 
