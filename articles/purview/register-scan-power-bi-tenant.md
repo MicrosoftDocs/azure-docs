@@ -93,11 +93,13 @@ First, add a special feature flag to your Purview URL
     > For Power BI, data source registration and scan is allowed for only one instance.
 
 
-4. Give your scan a name. Notice that the only authentication method supported is **Managed Identity**.
+4. Give your scan a name. Then select the option to include or exclude the personal workspaces. Notice that the only authentication method supported is **Managed Identity**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Image showing Power BI scan setup":::
 
-    The scan name must be between 3-63 characters long and must contain only letters, numbers, underscores, and hyphens.  Spaces aren't allowed.
+    > [!Note]
+    > * Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of PowerBI source
+    > * The scan name must be between 3-63 characters long and must contain only letters, numbers, underscores, and hyphens. Spaces aren't allowed.
 
 5. Set up a scan trigger. Your options are **Once**, **Every 7 days**, and **Every 30 days**.
 
