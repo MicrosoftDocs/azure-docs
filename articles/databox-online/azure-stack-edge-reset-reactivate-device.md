@@ -32,8 +32,8 @@ To wipe the data off the data disks of your device, you need to reset your devic
 
 Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container.
 
->[IMPORTANT] 
-> Resetting your device will erase all local data and workloads from your device, and this is a non-reversible operation. Do this only if you want to start afresh with the device.
+>[IMPORTANT]
+> Resetting your device will erase all local data and workloads from your device, and that can't be reversed. Reset your device only if you want to start afresh with the device.
 
 You can reset your device in the local web UI or in PowerShell. For PowerShell instructions, see [Reset your device](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
@@ -46,6 +46,8 @@ After you reset the device, you'll need to reactivate the device as a new resour
 To reactivate your existing device, follow these steps:
 
 1. Create a new order for the existing device by following the steps in [Create a new resource](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#create-a-new-resource). On the **Shipping address** tab, select **I already have a device**.
+
+   ![Specify no new device in Shipping address](./media/azure-stack-edge-reset-reactivate-device/create-resource-with-no-new-device.png)
 
 1. [Get the activation key](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#get-the-activation-key).
 
