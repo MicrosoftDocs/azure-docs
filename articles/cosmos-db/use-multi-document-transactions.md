@@ -28,13 +28,13 @@ Multi-document transactions follow **ACID** semantics:
 
 ## Requirements
 
-Multi-document transactions are supported within an unsharded collection in version 4.0. Multi-document transactions are not supported across collections or in sharded collections.
+Multi-document transactions are supported within an unsharded collection in API version 4.0. Multi-document transactions are not supported across collections or in sharded collections. The timeout for transactions is a fixed 5 seconds.
 
 All drivers that support wire protocol version 4.0 or greater will support Azure Cosmos DB API for MongoDB multi-document transactions.
 
 ## Run multi-document transactions in MongoDB shell
 > [!Note]
-> This example does not work in the MongoSH beta shell embedded in MongoDB Compass.
+> This example does not work in the MongoSH beta (shell) embedded in MongoDB Compass.
 
 1. Open a command prompt, go to the directory where Mongo shell version 4.0 and higher is installed:
 
