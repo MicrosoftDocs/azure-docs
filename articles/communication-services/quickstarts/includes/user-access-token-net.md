@@ -115,9 +115,10 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 Use the `createUserWithToken` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
 
 ```csharp  
-var identityWithTokenresponse = await client.CreateUserWithTokenAsync(scopes: new [] { CommunicationTokenScope.VoIP });
-var identity = identityWithTokenresponse.Value.user.Id;
-var token = identityWithTokenresponse.Value.token.Token;
+var identityWithTokenResponse = await client.CreateUserWithTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
+var identity = identityWithTokenResponse.Value.user.Id;
+var token = identityWithTokenResponse.Value.token.Token;
+var expiresOn = identityWithTokenResponse.Value.token.ExpiresOn;
 ```
 
 ## Refresh access tokens
