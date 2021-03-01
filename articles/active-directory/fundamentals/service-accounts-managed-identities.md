@@ -85,7 +85,7 @@ There are several ways in which you can find managed identities:
 
 2. Select the filter for “Managed Identities” 
 
-   ![Image of the all applications screen with the Application type dropdown highlighting "Managed Identities."](./media/securing-service-accounts/service-accounts-managed-identities-1.png)
+   ![Image of the all applications screen with the Application type dropdown highlighting "Managed Identities."](./media/securing-service-accounts/service-accounts-managed-identities.png)
 
  
 
