@@ -189,21 +189,49 @@ WITH COMPRESSION, CHECKSUM
 
 Azure Blob Storage is used as an intermediary storage for backup files between SQL Server and SQL Managed Instance. SAS authentication token with List and Read only permissions needs to be generated for use by LRS service. This will enable LRS service to access the Azure Blob Storage and use the backup files to restore them on SQL Managed Instance. Follow these steps to generate SAS authentication for LRS use:
 
-1. Access storage account using Azure portal
-2. Navigate to Storage Explorer
-3. Expand Blob Containers
-4. Right click on the blob container
-5. Select Get Shared Access Signature
-6. Select the token expiry timeframe. Ensure the token is valid for duration of your migration.
+1. Access the Storage Explorer from Azure portal
+2. Expand Blob Containers
+3. Right click on the blob container and select Get Shared Access Signature
+
+  ![Log Replay Service generate SAS authentication token](./media/log-replay-service-migrate/lrs-sas-token-01.png)
+
+4. Select the token expiry timeframe. Ensure the token is valid for duration of your migration.
+5. Select the time zone for the token - UTC or your local time
 	- Time zone of the token and your SQL Managed Instance might mismatch. Ensure that SAS token has the appropriate time validity taking time zones into consideration. If possible, set the time zone to an earlier and later time of your planned migration window.
-8. Ensure Read and List only permissions are selected
-9. Click create
-10. Copy the token after the question mark "?" and onwards. The SAS token is typically starting with "sv=2020-10" in the URI for use in your code.
+6. Select Read and List only permissions only
+	- No other permissions must be selected, or otherwise LRS will not be able to start. This security requirement is by design.
+7. Click in Create button
+
+  ![Log Replay Service generate SAS authentication token](./media/log-replay-service-migrate/lrs-sas-token-02.png)
+
+SAS authentication will be generated with the time validity that you have specified earlier. Note that you will need the URI version of the token generated - as shown in the screenshot below.
+
+  ![Log Replay Service generated SAS authentication URI example](./media/log-replay-service-migrate/lrs-generated-uri-token.png)
+
+### Structure of the SAS token
+
+To be able to properly use the SAS token to start LRS, we need to understand its structure. The URI of the SAS token generated consists of two parts - 1. StorageContainerUri and 2. StorageContainerSasToken, separated with a question mark (?), as shown in the image below.
+
+  ![Log Replay Service generated SAS authentication URI example](./media/log-replay-service-migrate/lrs-token-structure.png)
+
+- The first part starting with "https://" until the question mark (?) is used for the StorageContainerURI parameter that is fed as in input to LRS. This gives LRS information about the folder where database backup files are stored.
+- The second part, starting after the question mark (?), in the example "sp=" and all the way until the end of the string is StorageContainerSasToken parameter. This is the actual signed authentication token, valid for the duration of the time specified. Note that this part does not necessarily need to start with "sp=" as shown, and that your case might differ.
+
+Copy parameters as follows:
+
+1. Copy the first part of the token starting from https:// all the way until the question mark (?) and use it as StorageContainerUri parameter in PowerShell or CLI for starting LRS, as shown in the screenshot below.
+
+  ![Log Replay Service copy StorageContainerUri parameter](./media/log-replay-service-migrate/lrs-token-uri-copy-part1.png)
+
+2. Copy the second part of the token starting from question mark (?), all the way until the end of the string, and use it as StorageContainerSasToken parameter in PowerShell or CLI for starting LRS, as shown in the screenshot below.
+
+  ![Log Replay Service copy StorageContainerSasToken parameter](./media/log-replay-service-migrate/lrs-token-uri-copy-part2.png)
 
 > [!IMPORTANT]
 > - Permissions for the SAS token for Azure Blob Storage need to be Read and List only. If any other permissions are granted for the SAS authentication token, starting LRS service will fail. These security requirements are by design.
 > - The token must have the appropriate time validity. Ensure time zones between the token and managed instance are taken into consideration.
-> - Ensure the token is copied starting from "sv=2020-10..." until the end of the string.
+> - Ensure that StorageContainerUri parameter for PowerShell or CLI is copied from the URI of the generated token, starting from https:// until the questions mark (?). Do not include the question mark.
+> Ensure that StorageContainerSasToken parameter for PowerShell of CLI is copied from the URI of the generated token, starting from the question mark (?), until the end of the string. Do not include the question mark.
 
 ### Log in to Azure and select subscription
 
