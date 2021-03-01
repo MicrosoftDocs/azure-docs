@@ -32,13 +32,13 @@ To verify if your Azure account is an “owner” or “contributor” on the su
     > If you have multiple Azure accounts, your browser may cache credentials from another account. See the troubleshooting guide for more information on how to ensure you are signed in with the correct account.
 
 1. Expand the main menu from the upper left corner of your screen and click on “Subscriptions” or select “Subscriptions” from the menu of icons on the home page. 
-<!---
+    <!---
     :::image type="content" source="./media/quickstart-percept-dk-setup/prereq-01-subscription.png" alt-text="supscription icon in Azure portal.":::
---->
+    --->
 1. Select your subscription from the list. If you do not see your subscription in the list, make sure you are signed in with the correct Azure account. 
-<!---
+    <!---
     :::image type="content" source="./media/quickstart-percept-dk-setup/prereq-02-sub-list.png" alt-text="supscription list in Azure portal.":::
---->
+    --->
 If you wish to create a new subscription, follow [these steps](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription).
 
 1. From the Subscription menu select “Access control (IAM)”
@@ -103,9 +103,9 @@ If you wish to create a new subscription, follow [these steps](https://docs.micr
 
 1. Begin the dev kit connection process - On the next screen, click **Connect with a new device** to begin the process of connecting your dev kit to Azure IoT Hub. 
 
-<!---
+    <!---
     Connecting with an existing IoT Edge device connection string? See this [how-to guide](<link needed>) for reference.
---->
+    --->
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-07-connect-device.png" alt-text="Connect to Azure."::: 
 
 1. Copy the device code - Click the **Copy** link to copy your device code. Then click **Login to Azure**. 
