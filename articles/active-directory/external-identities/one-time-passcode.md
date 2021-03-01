@@ -110,13 +110,13 @@ However, if you'd prefer to opt out of the feature and allow it to be automatica
 
 - **Disable email one-time passcode for guests**. Turns off the email one-time passcode feature for your tenant, and prevents the feature from turning on in October 2021.
 
-## Note for Azure Government customers
+## Note for Azure US Government customers
 
-The email one-time passcode feature is disabled by default in the Azure Government cloud.  
+The email one-time passcode feature is disabled by default in the Azure US Government cloud.  
 
  ![Email one-time passcode disabled](media/one-time-passcode/enable-email-otp-disabled.png)
 
-To enable the email one-time passcode feature in Azure Government cloud:
+To enable the email one-time passcode feature in Azure US Government cloud:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD global administrator.
 2. In the navigation pane, select **Azure Active Directory**.
@@ -125,5 +125,7 @@ To enable the email one-time passcode feature in Azure Government cloud:
    > [!NOTE]
    > - If you don't see **Organizational relationships**, search for "External Identities” in the search bar at the top.
 
-4. Select **Email one-time passcode**, and then select **No**.
+4. Select **Email one-time passcode**, and then select **Yes**.
 5. Select **Save**.
+
+For more information about current limitations, see [Azure US Government clouds](current-limitations.md#azure-us-government-clouds).
