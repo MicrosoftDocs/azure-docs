@@ -16,7 +16,7 @@ ms.date: 03/01/2021
 
 This article explains how to manually configure database migration from SQL Server 2008-2019 to SQL Managed Instance using Log Replay Service (LRS) currently in public preview. This is a cloud service enabled for Managed Instance based on the SQL Server log shipping technology. LRS should be used in cases when there exist complex custom migrations and hybrid architectures, when more control is needed, when there exists little tolerance for downtime, or when Azure Data Migration Service (DMS) cannot be used.
 
-Note that both DMS and LRS use the same underlying migration technology and the same APIs. With releasing LRS, we are further enabling complex custom migrations and hybrid architecture between on-prem. SQL Server and SQL Managed Instances.
+Both DMS and LRS use the same underlying migration technology and the same APIs. With releasing LRS, we are further enabling complex custom migrations and hybrid architecture between on-prem. SQL Server and SQL Managed Instances.
 
 ## When to use Log Replay Service
 
@@ -45,7 +45,7 @@ LRS will monitor Azure Blob Storage for any new differential, or log backups add
 
 LRS does not require a specific backup file naming convention as it scans all files placed on Azure Blob Storage and it constructs the backup chain from reading the file headers only. Databases are in "restoring" state during the migration process, as they are restored in [NORECOVERY](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql#comparison-of-recovery-and-norecovery) mode, and cannot be used for reading or writing until the migration process has been fully completed. 
 
-In migrating several databases, backups for each database need to be placed in a separate folder on Azure Blob Storage. LRS needs to be started separately for each database and different paths to separate Azure Blob Storage folders needs to be specified. 
+In migrating several databases, backups for each database need to be placed in a separate folder on Azure Blob Storage. LRS has to be started separately for each database and different paths to separate Azure Blob Storage folders needs to be specified. 
 
 LRS can be started in autocomplete, or continuous mode. When started in autocomplete mode, the migration will complete automatically when the last backup file name specified has been restored. When started in continuous mode, the service will continuously restore any new backup files added, and the migration will complete on the manual cutover only. It is recommended that the manual cutover is executed only after the final log-tail backup has been taken and shown as restored on SQL Managed Instance. The final cutover step will make the database come online and available for read and write use on SQL Managed Instance.
 
@@ -58,7 +58,7 @@ Once LRS is stopped, either automatically on autocomplete, or manually on cutove
 | **1. Copy database backups from SQL Server to Azure Blob Storage**. | - Copy full, differential, and log backups from SQL Server to Azure Blob Storage container using [Azcopy](../../storage/common/storage-use-azcopy-v10.md), or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). <br />- Use any file names, as LRS does not require a specific file naming convention.<br />- In migrating several databases, a separate folder is required for each database. |
 | **2. Start the LRS service in the cloud**. | - Service can be started with a choice of cmdlets: <br /> PowerShell [start-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_start cmdlets](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start). <br /> - Start LRS separately for each different database pointing to a different backup folder on Azure Blob Storage. <br />- Once started, the service will take backups from the Azure Blob Storage container and start restoring them on SQL Managed Instance.<br /> - In case LRS was started in continuous mode, once all initially uploaded backups are restored, the service will watch for any new files uploaded to the folder and will continuously apply logs based on the LSN chain, until the service is stopped. |
 | **2.1. Monitor the operation progress**. | - Progress of the restore operation can be monitored with a choice of or cmdlets: <br /> PowerShell [get-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_show cmdlets](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show). |
-| **2.2. Stop\abort the operation if needed**. | - In case that migration process needs to be aborted, the operation can be stopped with a choice of cmdlets: <br /> PowerShell [stop-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_stop](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop) cmdlets. <br /><br />- This will result in deletion of the database being restored on SQL Managed Instance. <br />- Once stopped, LRS cannot be resumed for a database. Migration process needs to be restarted from scratch. |
+| **2.2. Stop\abort the operation if needed**. | - In case that migration process needs to be aborted, the operation can be stopped with a choice of cmdlets: <br /> PowerShell [stop-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_stop](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop) cmdlets. <br /><br />- This will result in deletion of the database being restored on SQL Managed Instance. <br />- Once stopped, LRS cannot be resumed for a database. Migration process has to be restarted from scratch. |
 | **3. Cutover to the cloud when ready**. | - Stop the application and the workload. Take the last log-tail backup and upload to Azure Blob Storage.<br /> - Complete the cutover by initiating LRS complete operation with a choice of cmdlets: <br />PowerShell [complete-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_complete](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete) cmdlets. <br /><br />- This will cause LRS service to be stopped and database to come online for read and write use on SQL Managed Instance.<br /> - Repoint the application connection string from SQL Server to SQL Managed Instance. |
 
 ## Requirements for getting started
@@ -78,7 +78,7 @@ Once LRS is stopped, either automatically on autocomplete, or manually on cutove
 
 ### Migrating multiple databases
 - Backup files for different databases must be placed in separate folders on Azure Blob Storage.
-- LRS needs to be started separately for each database pointing to an appropriate folder on Azure Blob Storage.
+- LRS has to be started separately for each database pointing to an appropriate folder on Azure Blob Storage.
 - LRS can support up to 100 simultaneous restore processes per single SQL Managed Instance.
 
 ### Azure RBAC permissions required
@@ -204,18 +204,18 @@ Azure Blob Storage is used as an intermediary storage for backup files between S
 
   ![Log Replay Service generate SAS authentication token](./media/log-replay-service-migrate/lrs-sas-token-02.png)
 
-SAS authentication will be generated with the time validity that you have specified earlier. Note that you will need the URI version of the token generated - as shown in the screenshot below.
+SAS authentication will be generated with the time validity that you have specified earlier. You will need the URI version of the token generated - as shown in the screenshot below.
 
   ![Log Replay Service generated SAS authentication URI example](./media/log-replay-service-migrate/lrs-generated-uri-token.png)
 
 ### Copy parameters from SAS token generated
 
-To be able to properly use the SAS token to start LRS, we need to understand its structure. The URI of the SAS token generated consists of two parts - 1. StorageContainerUri and 2. StorageContainerSasToken, separated with a question mark (?), as shown in the image below.
+To be able to properly use the SAS token to start LRS, we need to understand its structure. The URI of the SAS token generated consists of two parts - 1. StorageContainerUri, and 2. StorageContainerSasToken, separated with a question mark (?), as shown in the image below.
 
   ![Log Replay Service generated SAS authentication URI example](./media/log-replay-service-migrate/lrs-token-structure.png)
 
 - The first part starting with "https://" until the question mark (?) is used for the StorageContainerURI parameter that is fed as in input to LRS. This gives LRS information about the folder where database backup files are stored.
-- The second part, starting after the question mark (?), in the example "sp=" and all the way until the end of the string is StorageContainerSasToken parameter. This is the actual signed authentication token, valid for the duration of the time specified. Note that this part does not necessarily need to start with "sp=" as shown, and that your case might differ.
+- The second part, starting after the question mark (?), in the example "sp=" and all the way until the end of the string is StorageContainerSasToken parameter. This is the actual signed authentication token, valid for the duration of the time specified. This part does not necessarily need to start with "sp=" as shown, and that your case might differ.
 
 Copy parameters as follows:
 
@@ -376,7 +376,7 @@ Functional limitations of Log Replay Service (LRS) are:
 - LRS requires databases on the SQL Server to be backed up with CHECKSUM option enabled.
 - SAS token for use by LRS needs to be generated for the entire Azure Blob Storage container, and must have Read and List permissions only.
 - Backup files for different databases must be placed in separate folders on Azure Blob Storage.
-- LRS needs to be started separately for each database pointing to separate folders with backup files on Azure Blob Storage.
+- LRS has to be started separately for each database pointing to separate folders with backup files on Azure Blob Storage.
 - LRS can support up to 100 simultaneous restore processes per single SQL Managed Instance.
 
 ## Troubleshooting
