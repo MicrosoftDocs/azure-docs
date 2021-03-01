@@ -1,5 +1,5 @@
 ---
-title: How to migrate from AGIC Helm to AGIC add-on
+title: How to migrate from Azure Application Gateway Ingress Controller Helm to AGIC add-on
 description: This article provides instructions on how to migrate from AGIC deployed through Helm to AGIC deployed as an AKS add-on
 services: application-gateway
 author: caya
@@ -42,3 +42,7 @@ az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id
 Alternatively, you can navigate to your AKS cluster in Portal using this [link](https://portal.azure.com/?feature.aksagic=true) and enable the AGIC add-on in the Networking tab of your cluster. Select your existing Application Gateway from the dropdown menu when you choose which Application Gateway the add-on should target. 
 
 ![Application Gateway Ingress Controller Portal](./media/tutorial-ingress-controller-add-on-existing/portal_ingress_controller_addon.png)
+
+## Next Steps
+- [**Application Gateway Ingress Controller Troubleshooting**](ingress-controller-troubleshoot.md): Troubleshooting guide for AGIC 
+- [**Application Gateway Ingress Controller Annotations**](ingress-controller-annotations.md): List of annotations on AGIC 
