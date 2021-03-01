@@ -133,7 +133,7 @@ For federated identities, depending on the identity provider, the **issuerAssign
 
 ## Password profile property
 
-For a local identity, the **passwordProfile** attribute is required, and contains the user's password. The `forceChangePasswordNextSignIn` attribute indicates whether a user must reset the password on the next login. For more information, see [Set up force password reset flow in Azure Active Directory B2C](force-password-reset.md).
+For a local identity, the **passwordProfile** attribute is required, and contains the user's password. The `forceChangePasswordNextSignIn` attribute indicates whether a user must reset the password at the next sign-in. For more information, see [Set up force password reset flow in Azure Active Directory B2C](force-password-reset.md).
 
 For a federated (social) identity, the **passwordProfile** attribute is not required.
 
