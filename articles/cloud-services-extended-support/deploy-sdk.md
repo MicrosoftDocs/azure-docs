@@ -151,7 +151,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. Create a public IP address and (optionally) set the DNS label property of the public IP address. If you're using a static IP, it needs to referenced as a reserved IP in the service configuration file.
+7. Create a public IP address and (optionally) set the DNS label property of the public IP address. If you're using a static IP, it needs to be referenced as a reserved IP in the service configuration file.
 
     ```csharp
     PublicIPAddress publicIPAddressParams = new PublicIPAddress(name: “ContosIp”) 
@@ -242,7 +242,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
            };
     ```
 
-13. Create a role profile object. A role profile defines a role-specific properties for a SKU, such as name, capacity, and tier. 
+13. Create a role profile object. A role profile defines role-specific properties for a SKU, such as name, capacity, and tier. 
 
     In this example, we define two roles: ContosoFrontend and ContosoBackend. Role profile information should match the role configuration defined in the service configuration (.cscfg) file and the service definition (.csdef) file.
 
