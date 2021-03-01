@@ -57,7 +57,7 @@ issuancerules
 
 Claims used in default policy are considered deprecated but are fully supported and will continue to be included in the future. It is recommended to use the non-deprecated claim names. For more information on the recommended claim names, see [claim sets](/azure/attestation/claim-sets). 
 
-## Sample custom policy for an SGX enclave to support multiple enclaves
+## Sample custom policy to support multiple SGX enclaves
 
 ```
 version= 1.0;
