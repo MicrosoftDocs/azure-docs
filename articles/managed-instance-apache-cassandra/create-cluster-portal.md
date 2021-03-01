@@ -62,13 +62,39 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    :::image type="content" source="./media/create-cluster-portal/review-create.png" alt-text="Review summary to create the cluster." lightbox="./media/create-cluster-portal/review-create.png" border="true":::
 
-1. After the resources are created, the overview page will show the cluster name and the number of nodes.
+1. After the deployment has finished, check your resource group to see the newly created managed instance resource:
 
-   :::image type="content" source="./media/create-cluster-portal/overview.png" alt-text="Overview page after the cluster is created." lightbox="./media/create-cluster-portal/overview.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/managed-instance.png" alt-text="Overview page after the cluster is created." lightbox="./media/create-cluster-portal/managed-instance.png" border="true":::
 
 1. To browse through the cluster nodes, navigate to the Virtual Network pane you have used to create the cluster and open the **Overview** pane to view them:
 
    :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/resources.png" border="true":::
+
+
+
+## Connecting to your cluster
+
+Azure Managed Instance for Apache Cassandra does not create nodes with public IP addresses, so to connect to your newly created Cassandra cluster, you will need to create another resource inside the VNet. This could be an application, or a Virtual Machine with Apache's open-source query tool [CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html) installed. You can use a [template](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) to deploy an Ubuntu Virtual Machine. When deployed, use SSH to connect to the machine, and install CQLSH using the below commands:
+
+```shell
+# Install default-jre and default-jdk
+sudo apt update
+sudo apt install openjdk-8-jdk openjdk-8-jre
+
+# Install the Cassandra libraries in order to get CQLSH:
+echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install cassandra
+
+# Export the SSL variables:
+export SSL_VERSION=TLSv1_2
+export SSL_VALIDATE=false
+
+# Connect to CQLSH (replace <IP> with the private IP addresses of the nodes in your Datacenter):
+host=("<IP>" "<IP>" "<IP>")
+cqlsh $host 9042 -u cassandra -p cassandra --ssl
+```
 
 ## Clean up resources
 
