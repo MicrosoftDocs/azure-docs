@@ -20,16 +20,49 @@ ms.author: yelevin
 
 # Azure Sentinel UEBA enrichments reference
 
-These tables list and describe entity enrichments that can be used to focus and sharpen your investigation of security incidents.
+This article describes the **Behavior analytics** table found on the [entity details pages](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages), as well as other entity enrichments you can use to focus and sharpen your security incident investigations.
 
-The first two tables, **User insights** and **Device insights**, contain entity information from Active Directory / Azure AD and Microsoft Threat Intelligence sources.
+The [User insights table](#user-insights-table) and the [Device insights table](#device-insights-table) contain entity information from Active Directory / Azure AD and Microsoft Threat Intelligence sources.
 
-<a name="baseline-explained"></a>The rest of the tables, under **Activity insights tables**, contain entity information based on the behavioral profiles built by Azure Sentinel's entity behavior analytics. The activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which this dynamic baseline is derived. This period is specified in the [**Baseline**](#activity-insights-tables) column in this table.
+Other tables, described under [Activity insights tables](#activity-insights-tables), contain entity information based on the behavioral profiles built by Azure Sentinel's entity behavior analytics. 
+
+User activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which the dynamic baseline is derived. The lookback period is specified in the [**Baseline**](#activity-insights-tables) column in this table.
 
 > [!NOTE] 
-> The **Enrichment name** field in all three tables displays two rows of information. The first, in **bold**, is the "friendly name" of the enrichment. The second *(in italics and parentheses)* is the field name of the enrichment as stored in the [**Behavior Analytics table**](identify-threats-with-entity-behavior-analytics.md#data-schema).
+> The **Enrichment name** field in the [User insights table](#user-insights-table), [Device insights table](#device-insights-table), and the [Activity insights tables](#activity-insights-tables) displays two rows of information. 
+> 
+> The first, in **bold**, is the "friendly name" of the enrichment. The second *(in italics and parentheses)* is the field name of the enrichment as stored in the [**Behavior Analytics table**](#behavior-analytics-table).
+
+## Behavior analytics table
+
+The following table describes the behavior analytics data displayed on each [entity details page](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) in Azure Sentinel.
+
+| Field                     | Description                                                         |
+|---------------------------|---------------------------------------------------------------------|
+| **TenantId**                  | unique ID number of the tenant                                      |
+| **SourceRecordId**            | unique ID number of the EBA event                                   |
+| **TimeGenerated**             | timestamp of the activity's occurrence                              |
+| **TimeProcessed**             | timestamp of the activity's processing by the EBA engine            |
+| **ActivityType**              | high-level category of the activity                                 |
+| **ActionType**                | normalized name of the activity                                     |
+| **UserName**                  | username of the user that initiated the activity                    |
+| **UserPrincipalName**         | full username of the user that initiated the activity               |
+| **EventSource**               | data source that provided the original event                        |
+| **SourceIPAddress**           | IP address from which activity was initiated                        |
+| **SourceIPLocation**          | country from which activity was initiated, enriched from IP address |
+| **SourceDevice**              | hostname of the device that initiated the activity                  |
+| **DestinationIPAddress**      | IP address of the target of the activity                            |
+| **DestinationIPLocation**     | country of the target of the activity, enriched from IP address     |
+| **DestinationDevice**         | name of the target device                                           |
+| **UsersInsights**         | contextual enrichments of involved users                            |
+| **DevicesInsights**       | contextual enrichments of involved devices                          |
+| **ActivityInsights**      | contextual analysis of activity based on our profiling              |
+| **InvestigationPriority** | anomaly score, between 0-10 (0=benign, 10=highly anomalous)         |
+|
 
 ## User insights table
+
+The following table describes the  <?> listed in the **User insights** table in Azure Sentinel (where?)
 
 | Enrichment name | Description | Sample value |
 | --- | --- | --- | --- |
