@@ -1203,7 +1203,7 @@ Release notes for `v1.4.0`:
 | `es-mx-dalianeural`                 | Container image with the `es-MX` locale and `es-MX-DaliaNeural` voice.     |
 | `fr-ca-sylvieneural`                | Container image with the `fr-CA` locale and `fr-CA-SylvieNeural` voice.    |
 | `fr-fr-deniseneural`                | Container image with the `fr-FR` locale and `fr-FR-DeniseNeural` voice.    |
-| `hi-in/swaracpuneural`              | Container image with the `hi-IN` locale and `hi-IN-Swaraneural` voice.     |
+| `hi-in-swaracpuneural`              | Container image with the `hi-IN` locale and `hi-IN-Swaraneural` voice.     |
 | `it-it-elsaneural`                  | Container image with the `it-IT` locale and `it-IT-ElsaNeural` voice.      |
 | `ja-jp-nanamineural`                | Container image with the `ja-JP` locale and `ja-JP-NanamiNeural` voice.    |
 | `ko-kr-sunhineural`                 | Container image with the `ko-KR` locale and `ko-KR-SunHiNeural` voice.     |
