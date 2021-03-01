@@ -109,12 +109,12 @@
         - name: Identify required appliances 
           displayName: virtual, Dell, HPE, SMB, certified, hardware, deployment
           href: how-to-identify-required-appliances.md
-        - name: Install software
-          displayName: virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install
-          href: how-to-install-software.md
         - name: Set up your network
           displayName: passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning
           href: how-to-set-up-your-network.md
+        - name: Install software
+          displayName: virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install
+          href: how-to-install-software.md
     - name: Prepare your sensors
       items:
       - name: Onboard sensors
