@@ -24,6 +24,8 @@ To download AzCopy and learn about the ways that you can provide authorization c
 
 Apply the following guidelines to your AzCopy commands. 
 
+- Your client must have network access to both the source and destination storage accounts. To learn how to configure the network settings for each storage account, see [Configure Azure Storage firewalls and virtual networks](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
+
 - Append a SAS token to each source URL. 
 
   If you provide authorization credentials by using Azure Active Directory (Azure AD), you can omit the SAS token only from the destination URL. Make sure that you've set up the proper roles in your destination account. See [Option 1: Use Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory). 

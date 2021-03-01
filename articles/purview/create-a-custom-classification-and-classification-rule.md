@@ -1,12 +1,12 @@
 ---
 title: Create a custom classification and classification rule (preview)
 description: This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization. It also describes the creation of custom classification rules that let you find specified data throughout your data estate.
-author: chandrakavya
-ms.author: kchandra
+author: animukherjee
+ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/1/2020
+ms.date: 2/5/2021
 ---
 # Custom classifications in Azure Purview 
 
@@ -36,7 +36,7 @@ The **Add new classification** pane opens, where you can give your
 classification a name and a description. It's good practice to use a
 name-spacing convention, such as `your company name.classification name`.
 The Microsoft system classifications are grouped under the reserved
-`MS.` namespace. An example is **MS.GOVERNMENT.US.SOCIAL\_SECURITY\_NUMBER**.
+`MICROSOFT.` namespace. An example is **MICROSOFT.GOVERNMENT.US.SOCIAL\_SECURITY\_NUMBER**.
 
 The name of your classification must start with a letter followed by a
 sequence of letters, numbers, and period (.) or underscore characters.

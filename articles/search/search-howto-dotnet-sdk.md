@@ -26,7 +26,7 @@ As with previous versions, you can use this library to:
 + Load and manage search documents in an index
 + Execute queries, all without having to deal with the details of HTTP and JSON
 
-The library is distributed as a single [Azure.Search.Document NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/), which includes all APIs used for programmatic access to a search service.
+The library is distributed as a single [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/), which includes all APIs used for programmatic access to a search service.
 
 The client library defines classes like `SearchIndex`, `SearchField`, and `SearchDocument`, as well as operations like `SearchIndexClient.CreateIndex` and `SearchClient.Search` on the `SearchIndexClient` and `SearchClient` classes. These classes are organized into the following namespaces:
 

@@ -267,7 +267,7 @@ For example:
 
 #### Get a user token interactively
 
-Sometimes you need the user to interact with the Microsoft identity platform endpoint. For example:
+Sometimes you need the user to interact with the Microsoft identity platform. For example:
 
 * Users might need to reenter their credentials because their password has expired.
 * Your application is requesting access to additional resource scopes that the user needs to consent to.
@@ -275,7 +275,7 @@ Sometimes you need the user to interact with the Microsoft identity platform end
 
 The recommended pattern for most applications is to call `acquireTokenSilent` first, then catch the exception, and then call `acquireTokenPopup` (or `acquireTokenRedirect`) to start an interactive request.
 
-Calling `acquireTokenPopup` results in a pop-up sign-in window. Alternatively, `acquireTokenRedirect` redirects users to the Microsoft identity platform endpoint. In that window, users need to confirm their credentials, give consent to the required resource, or complete two-factor authentication.
+Calling `acquireTokenPopup` results in a pop-up sign-in window. Alternatively, `acquireTokenRedirect` redirects users to the Microsoft identity platform. In that window, users need to confirm their credentials, give consent to the required resource, or complete two-factor authentication.
 
 ```javascript
   const requestObj = {

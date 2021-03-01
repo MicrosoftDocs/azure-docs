@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: ajburnle
 ms.reviewer: krbain
-ms.custom: "it-pro, seodec18, contperfq4"                      
+ms.custom: "it-pro, seodec18, contperf-fy20q4"                      
 ms.collection: M365-identity-device-management
 ---
 

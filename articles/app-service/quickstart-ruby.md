@@ -80,7 +80,7 @@ Run the following commands to deploy the local application to your Azure web app
 
 ```bash
 git remote add azure <Git deployment URL from above>
-git push azure master
+git push azure main
 ```
 
 Confirm that the remote deployment operations report success. The commands produce output similar to the following text:
@@ -99,7 +99,7 @@ remote: Running post deployment command(s)...
 remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
 To https://<app-name>.scm.azurewebsites.net/<app-name>.git
-   a6e73a2..ae34be9  master -> master
+   a6e73a2..ae34be9  main -> main
 ```
 
 Once the deployment has completed, wait about 10 seconds for the web app to restart, and then navigate to the web app and verify the results.

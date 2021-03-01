@@ -28,6 +28,8 @@ This tutorial covers the following tasks:
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
+For a Microsoft Learn module that uses a secure value from a key vault, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
+
 ## Prerequisites
 
 To complete this article, you need:
@@ -38,6 +40,7 @@ To complete this article, you need:
     ```console
     openssl rand -base64 32
     ```
+
     Verify that the generated password meets the VM password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when you create a VM?](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
 ## Prepare a key vault
@@ -48,7 +51,7 @@ In this section, you create a key vault and add a secret to it, so that you can 
 * Adds a secret to the key vault. The secret stores the VM administrator password.
 
 > [!NOTE]
-> As the user who's deploying the virtual machine template, if you're not the Owner of or a Contributor to the key vault, the Owner or a Contributor must grant you access to the *Microsoft.KeyVault/vaults/deploy/action* permission for the key vault. For more information, see [Use Azure Key Vault to pass a secure parameter value during deployment](./key-vault-parameter.md).
+> As the user who's deploying the virtual machine template, if you're not the Owner of or a Contributor to the key vault, the Owner or a Contributor must grant you access to the `Microsoft.KeyVault/vaults/deploy/action` permission for the key vault. For more information, see [Use Azure Key Vault to pass a secure parameter value during deployment](./key-vault-parameter.md).
 
 To run the following Azure PowerShell script, select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell pane, and then select **Paste**.
 
@@ -74,7 +77,7 @@ Write-Host "Press [ENTER] to continue ..."
 > * The default name for the secret is **vmAdminPassword**. It's hardcoded in the template.
 > * To enable the template to retrieve the secret, you must enable an access policy called **Enable access to Azure Resource Manager for template deployment** for the key vault. This policy is enabled in the template. For more information about the access policy, see [Deploy key vaults and secrets](./key-vault-parameter.md#deploy-key-vaults-and-secrets).
 
-The template has one output value, called *keyVaultId*. You will use this ID along with the secret name to retrieve the secret value later in the tutorial. The resource ID format is:
+The template has one output value, called `keyVaultId`. You will use this ID along with the secret name to retrieve the secret value later in the tutorial. The resource ID format is:
 
 ```json
 /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -82,7 +85,7 @@ The template has one output value, called *keyVaultId*. You will use this ID alo
 
 When you copy and paste the ID, it might be broken into multiple lines. Merge the lines and trim the extra spaces.
 
-To validate the deployment, run the following PowerShell command in the same shell pane to retrieve the secret in clear text. The command works only in the same shell session, because it uses the variable *$keyVaultName*, which is defined in the preceding PowerShell script.
+To validate the deployment, run the following PowerShell command in the same shell pane to retrieve the secret in clear text. The command works only in the same shell session, because it uses the variable `$keyVaultName`, which is defined in the preceding PowerShell script.
 
 ```azurepowershell
 (Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
@@ -133,7 +136,7 @@ By using the static ID method, you don't need to make any changes to the templat
     "adminPassword": {
         "reference": {
             "keyVault": {
-            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+                "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
             },
             "secretName": "vmAdminPassword"
         }
@@ -141,14 +144,14 @@ By using the static ID method, you don't need to make any changes to the templat
     ```
 
     > [!IMPORTANT]
-    > Replace the value for **id** with the resource ID of the key vault that you created in the previous procedure. The secretName is hardcoded as **vmAdminPassword**.  See [Prepare a key vault](#prepare-a-key-vault).
+    > Replace the value for `id` with the resource ID of the key vault that you created in the previous procedure. The `secretName` is hardcoded as **vmAdminPassword**.  See [Prepare a key vault](#prepare-a-key-vault).
 
     ![Integrate key vault and Resource Manager template virtual machine deployment parameters file](./media/template-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 
 1. Update the following values:
 
-    * **adminUsername**: The name of the virtual machine administrator account.
-    * **dnsLabelPrefix**: Name the dnsLabelPrefix value.
+    * `adminUsername`: The name of the virtual machine administrator account.
+    * `dnsLabelPrefix`: Name the `dnsLabelPrefix` value.
 
     For examples of names, see the preceding image.
 
@@ -162,7 +165,7 @@ By using the static ID method, you don't need to make any changes to the templat
 
     ![Azure portal Cloud Shell upload file](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Select **Upload/download files**, and then select **Upload**. Upload both *azuredeploy.json* and *azuredeploy.parameters.json* to Cloud Shell. After uploading the file, you can use the **ls** command and the **cat** command to verify the file is uploaded successfully.
+1. Select **Upload/download files**, and then select **Upload**. Upload both *azuredeploy.json* and *azuredeploy.parameters.json* to Cloud Shell. After uploading the file, you can use the `ls` command and the `cat` command to verify the file is uploaded successfully.
 
 1. Run the following PowerShell script to deploy the template.
 
@@ -188,7 +191,7 @@ After you've successfully deployed the virtual machine, test the sign-in credent
 1. Open the [Azure portal](https://portal.azure.com).
 
 1. Select **Resource groups** > **\<*YourResourceGroupName*>** > **simpleWinVM**.
-1. Select **connect** at the top.
+1. Select **Connect** at the top.
 1. Select **Download RDP File**, and then follow the instructions to sign in to the virtual machine by using the password that's stored in the key vault.
 
 ## Clean up resources

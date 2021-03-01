@@ -76,6 +76,12 @@ Make sure the Linux machine you use as a log forwarder is running one of the fol
  
 Make sure your machine also meets the following requirements: 
 
+- Capacity
+  - Your machine must have a minimum of **4 CPU cores and 8 GB RAM**.
+
+    > [!NOTE]
+    > - A single log forwarder machine using the **rsyslog** daemon has a supported capacity of **up to 8500 events per second (EPS)** collected.
+
 - Permissions
   - You must have elevated permissions (sudo) on your machine. 
 

@@ -19,7 +19,7 @@ In this article, you'll find tips for implementing group by options in dedicated
 
 ## What does GROUP BY do?
 
-The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL clause aggregates data to a summary set of rows. GROUP BY has some options that dedicated SQL pool doesn't support. These options have workarounds, which are as follows:
+The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL clause aggregates data to a summary set of rows. GROUP BY has some options that dedicated SQL pool doesn't support. These options have workarounds, which are as follows:
 
 * GROUP BY with ROLLUP
 * GROUPING SETS

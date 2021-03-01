@@ -55,10 +55,12 @@
           href: manage-vm-extensions-powershell.md
         - name: Deploy extensions using ARM template
           href: manage-vm-extensions-template.md
-    - name: Used managed identities on server
+    - name: Use managed identities on server
       href: managed-identity-authentication.md
     - name: Manage agent
       href: manage-agent.md
+    - name: Migrate machine across regions
+      href: manage-howto-migrate.md
   - name: Scenarios
     items:
     - name: Onboard to Azure Sentinel
@@ -81,6 +83,8 @@
       href: /powershell/module/az.connectedmachine
     - name: .NET
       href: /dotnet/api/overview/azure/hybridcompute/management
+    - name: Azure Stack HCI REST
+      href: /rest/api/stackhci
     - name: REST
       href: /rest/api/hybridcompute
     - name: Go
@@ -97,4 +101,4 @@
 - name: Resources
   items:
     - name: Azure Arc jumpstart
-      href: https://github.com/microsoft/azure_arc
+      href: https://azurearcjumpstart.io

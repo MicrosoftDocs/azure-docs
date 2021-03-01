@@ -253,9 +253,7 @@ In this section, you'll run a query to answer the question of how many twins in 
 
 To see the answer, run the following query in the **QUERY EXPLORER** box.
 
-```SQL
-SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
 
 Recall from viewing the twin properties earlier that Room0 has a temperature of 70, and Room1 has a temperature of 80. For this reason, only Room1 shows up in the results here.
     
@@ -286,9 +284,7 @@ Now, you'll see a **Patch Information** window where the patch code appears that
 
 To verify that the graph successfully registered your update to the temperature for Room0, rerun the query from earlier to get all the twins in the environment with a temperature above 75.
 
-```SQL
-SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
 
 Now that the temperature of Room0 has been changed from 70 to 76, both twins should show up in the result.
 
@@ -312,11 +308,15 @@ In this quickstart, you made the temperature update manually. It's common in Azu
 
 To wrap up the work for this quickstart, first end the running console app. This action shuts off the connection to the ADT Explorer app in the browser. You'll no longer be able to view live data in the browser. You can close the browser tab.
 
-If you plan to continue to the Azure Digital Twins tutorials, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
+Then, you can choose which resources you'd like to remove, depending on what you'd like to do next.
+
+* **If you plan to continue to the Azure Digital Twins tutorials**, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Finally, delete the project sample folder, **Azure_Digital_Twins__ADT__explorer**, you downloaded to your local machine. You might have to delete both the zipped and unzipped versions.
+You may also want to delete the project folder from your local machine.
 
 ## Next steps
 

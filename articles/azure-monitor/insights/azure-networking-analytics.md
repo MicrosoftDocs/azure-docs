@@ -100,24 +100,36 @@ The "view detailed metrics" tab will open up the pre-populated workbook summariz
 
 [ ![Screenshot of Application Gateway workbook ](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
 
+### New capabilities with Azure Monitor Network Insights workbook
+
+> [!NOTE]
+> There are no additional costs associated with Azure Monitor Insights workbook. Log Analytics workspace will continue to be billed as per usage.
+
+The Network Insights workbook allows you to take advantage of the latest capabilities of Azure Monitor and Log Analytics including:
+
+* Centralized console for monitoring and troubleshooting with both [metric](../insights/network-insights-overview.md#resource-health-and-metrics) and log data.
+
+* Flexible canvas to support creation of custom rich [visualizations](../visualize/workbooks-overview.md#visualizations).
+
+* Ability to consume and [share workbook templates](../visualize/workbooks-overview.md#workbooks-versus-workbook-templates) with wider community.
+
+To find more information about the capabilities of the new workbook solution check out [Workbooks-overview](../visualize/workbooks-overview.md)
+
 ## Migrating from Azure Gateway analytics solution to Azure Monitor workbooks
 
 > [!NOTE]
-> The Azure Application Gateway analytics solution is outdated and the recommended way for consuming analytics is via workbooks exposed through Azure Monitor Network insights for the Application Gateway resource.
+> Azure Monitor Network Insights workbook is the recommended solution for accessing metric and log analytics for your Application Gateway resources.
 
-* If diagnostics setting is already enabled to store logs into a Log Analytics workspace, Azure Monitor Network insights workbook can consume data from the same location. There is no new configuration required.
+1. Ensure [diagnostics settings are enabled](#enable-azure-application-gateway-diagnostics-in-the-portal) to store logs into a Log Analytics workspace. If it is already configured, Azure Monitor Network Insights workbook will be able to consume data from the same location and no additional changes are required.
 
-* All past data is already available within the workbook from the point diagnostic settings were enabled. There is no data transfer required.
+> [!NOTE]
+> All past data is already available within the workbook from the point diagnostic settings were originally enabled. There is no data transfer required.
 
-* There is no active toggle required to switch to workbooks. Both the analytics solution and Network insight workbook can work in parallel.
+2. Access the [default insights workbook](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) for your Application Gateway resource. All existing insights supported by the Application Gateway analytics solution will be already present in the workbook. You can extend this by adding custom [visualizations](../visualize/workbooks-overview.md#visualizations) based on metric & log data.
 
-* There are no additional costs associated with Azure Monitor workbooks. Log Analytics workspace will continue to be billed as per usage.
-
-* To clean up the Azure Gateway analytics solution from your workspace, you can delete the solution from the solution resource page.
+3. After you are able to see all your metric and log insights, to clean up the Azure Gateway analytics solution from your workspace, you can delete the solution from the solution resource page.
 
 [ ![Screenshot of the delete option for Azure Application Gateway analytics solution.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
-
-To find more information about the capabilities of the new workbook solution check out [Workbooks-overview](../platform/workbooks-overview.md)
 
 ## Azure Network Security Group analytics solution in Azure Monitor
 
@@ -216,5 +228,5 @@ Data collected before the change is not visible in the new solution. You can con
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## Next steps
-* Use [Log queries in Azure Monitor](../log-query/log-query-overview.md) to view detailed Azure diagnostics data.
+* Use [Log queries in Azure Monitor](../logs/log-query-overview.md) to view detailed Azure diagnostics data.
 

@@ -226,7 +226,7 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 
 ### Acquiring an access token 
 
-You can obtain an access token in one of several ways: by obtaining it [from a federated identity provider](idp-pass-through-custom.md), by calling a REST API that returns an access token, by using an [ROPC flow](../active-directory/develop/v2-oauth-ropc.md), or by using the [client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
+You can obtain an access token in one of several ways: by obtaining it [from a federated identity provider](idp-pass-through-user-flow.md), by calling a REST API that returns an access token, by using an [ROPC flow](../active-directory/develop/v2-oauth-ropc.md), or by using the [client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
 
 The following example uses a REST API technical profile to make a request to the Azure AD token endpoint using the client credentials passed as HTTP basic authentication. To configure this in Azure AD, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). You may need to modify this to interface with your Identity Provider. 
 

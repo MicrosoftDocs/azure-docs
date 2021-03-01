@@ -3,7 +3,7 @@ title: Troubleshoot problems signing in to an application from Azure AD My Apps
 description: Troubleshoot problems signing in to an application from Azure AD My Apps
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,7 +11,7 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Troubleshoot problems signing in to an application from Azure AD My Apps

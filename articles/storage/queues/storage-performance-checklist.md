@@ -1,54 +1,55 @@
 ---
-title: Performance and scalability checklist for Queue storage - Azure Storage
-description: A checklist of proven practices for use with Queue storage in developing high-performance applications.
-services: storage
+title: Performance and scalability checklist for Queue Storage - Azure Storage
+description: A checklist of proven practices for use with Queue Storage in developing high-performance applications.
 author: tamram
-
-ms.service: storage
-ms.topic: overview
-ms.date: 10/10/2019
+services: storage
 ms.author: tamram
+ms.date: 10/10/2019
+ms.topic: overview
+ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
 ---
 
-# Performance and scalability checklist for Queue storage
+<!-- docutune:casing "Timeout and Server Busy errors" -->
 
-Microsoft has developed a number of proven practices for developing high-performance applications with Queue storage. This checklist identifies key practices that developers can follow to optimize performance. Keep these practices in mind while you are designing your application and throughout the process.
+# Performance and scalability checklist for Queue Storage
 
-Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) and [Scalability and performance targets for Queue storage](scalability-targets.md).
+Microsoft has developed a number of proven practices for developing high-performance applications with Queue Storage. This checklist identifies key practices that developers can follow to optimize performance. Keep these practices in mind while you are designing your application and throughout the process.
+
+Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) and [Scalability and performance targets for Queue Storage](scalability-targets.md).
 
 ## Checklist
 
-This article organizes proven practices for performance into a checklist you can follow while developing your Queue storage application.
+This article organizes proven practices for performance into a checklist you can follow while developing your Queue Storage application.
 
 | Done | Category | Design consideration |
-| --- | --- | --- |
-| &nbsp; |Scalability targets |[Can you design your application to use no more than the maximum number of storage accounts?](#maximum-number-of-storage-accounts) |
-| &nbsp; |Scalability targets |[Are you avoiding approaching capacity and transaction limits?](#capacity-and-transaction-targets) |
-| &nbsp; |Networking |[Do client-side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
-| &nbsp; |Networking |[Do client-side devices have a high quality network link?](#link-quality) |
-| &nbsp; |Networking |[Is the client application in the same region as the storage account?](#location) |
-| &nbsp; |Direct Client Access |[Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
-| &nbsp; |.NET configuration |[Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
-| &nbsp; |.NET configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
-| &nbsp; |.NET configuration |[For .NET applications, have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
-| &nbsp; |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don't overload your client's capabilities or approach the scalability targets?](#unbounded-parallelism) |
-| &nbsp; |Tools |[Are you using the latest versions of Microsoft-provided client libraries and tools?](#client-libraries-and-tools) |
-| &nbsp; |Retries |[Are you using a retry policy with an exponential backoff for throttling errors and timeouts?](#timeout-and-server-busy-errors) |
-| &nbsp; |Retries |[Is your application avoiding retries for non-retryable errors?](#non-retryable-errors) |
-| &nbsp; |Configuration |[Have you turned off the Nagle algorithm to improve the performance of small requests?](#disable-nagle) |
-| &nbsp; |Message size |[Are your messages compact to improve the performance of the queue?](#message-size) |
-| &nbsp; |Bulk retrieval |[Are you retrieving multiple messages in a single GET operation?](#batch-retrieval) |
-| &nbsp; |Polling frequency |[Are you polling frequently enough to reduce the perceived latency of your application?](#queue-polling-interval) |
-| &nbsp; |Update Message |[Are you using the Update Message operation to store progress in processing messages, so that you can avoid having to reprocess the entire message if an error occurs?](#use-update-message) |
-| &nbsp; |Architecture |[Are you using queues to make your entire application more scalable by keeping long-running workloads out of the critical path and scale then independently?](#application-architecture) |
+|--|--|--|
+| &nbsp; | Scalability targets | [Can you design your application to use no more than the maximum number of storage accounts?](#maximum-number-of-storage-accounts) |
+| &nbsp; | Scalability targets | [Are you avoiding approaching capacity and transaction limits?](#capacity-and-transaction-targets) |
+| &nbsp; | Networking | [Do client-side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
+| &nbsp; | Networking | [Do client-side devices have a high quality network link?](#link-quality) |
+| &nbsp; | Networking | [Is the client application in the same region as the storage account?](#location) |
+| &nbsp; | Direct client access | [Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
+| &nbsp; | .NET configuration | [Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
+| &nbsp; | .NET configuration | [Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
+| &nbsp; | .NET configuration | [For .NET applications, have you configured .NET to use a sufficient number of threads?](#increase-the-minimum-number-of-threads) |
+| &nbsp; | Parallelism | [Have you ensured that parallelism is bounded appropriately so that you don't overload your client's capabilities or approach the scalability targets?](#unbounded-parallelism) |
+| &nbsp; | Tools | [Are you using the latest versions of Microsoft-provided client libraries and tools?](#client-libraries-and-tools) |
+| &nbsp; | Retries | [Are you using a retry policy with an exponential backoff for throttling errors and timeouts?](#timeout-and-server-busy-errors) |
+| &nbsp; | Retries | [Is your application avoiding retries for non-retryable errors?](#non-retryable-errors) |
+| &nbsp; | Configuration | [Have you turned off Nagle's algorithm to improve the performance of small requests?](#disable-nagles-algorithm) |
+| &nbsp; | Message size | [Are your messages compact to improve the performance of the queue?](#message-size) |
+| &nbsp; | Bulk retrieval | [Are you retrieving multiple messages in a single get operation?](#batch-retrieval) |
+| &nbsp; | Polling frequency | [Are you polling frequently enough to reduce the perceived latency of your application?](#queue-polling-interval) |
+| &nbsp; | Update message | [Are you performing an update message operation to store progress in processing messages, so that you can avoid having to reprocess the entire message if an error occurs?](#perform-an-update-message-operation) |
+| &nbsp; | Architecture | [Are you using queues to make your entire application more scalable by keeping long-running workloads out of the critical path and scale then independently?](#application-architecture) |
 
 ## Scalability targets
 
-If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes. Avoiding these errors by staying within the limits of the scalability targets is an important part of enhancing your application's performance.
+If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (`Server Busy`) or 500 (`Operation Timeout`) error codes. Avoiding these errors by staying within the limits of the scalability targets is an important part of enhancing your application's performance.
 
-For more information about scalability targets for the Queue service, see [Azure Storage scalability and performance targets](./scalability-targets.md#scale-targets-for-queue-storage).
+For more information about scalability targets for Queue Storage, see [Azure Storage scalability and performance targets](./scalability-targets.md#scale-targets-for-queue-storage).
 
 ### Maximum number of storage accounts
 
@@ -62,7 +63,7 @@ If your application is approaching the scalability targets for a single storage 
 - Reconsider the workload that causes your application to approach or exceed the scalability target. Can you design it differently to use less bandwidth or capacity, or fewer transactions?
 - If your application must exceed one of the scalability targets, then create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. Storage accounts themselves have no cost other than your usage in terms of data stored, transactions made, or data transferred.
 - If your application is approaching the bandwidth targets, consider compressing data on the client side to reduce the bandwidth required to send the data to Azure Storage. While compressing data may save bandwidth and improve network performance, it can also have negative effects on performance. Evaluate the performance impact of the additional processing requirements for data compression and decompression on the client side. Keep in mind that storing compressed data can make troubleshooting more difficult because it may be more challenging to view the data using standard tools.
-- If your application is approaching the scalability targets, then make sure that you are using an exponential backoff for retries. It's best to try to avoid reaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly, which could make throttling worse. For more information, see the section titled [Timeout and Server Busy errors](#timeout-and-server-busy-errors).
+- If your application is approaching the scalability targets, then make sure that you are using an exponential backoff for retries. It's best to try to avoid reaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly, which could make throttling worse. For more information, see the [Timeout and Server Busy errors](#timeout-and-server-busy-errors) section.
 
 ## Networking
 
@@ -74,17 +75,17 @@ Bandwidth and the quality of the network link play important roles in applicatio
 
 #### Throughput
 
-For bandwidth, the problem is often the capabilities of the client. Larger Azure instances have NICs with greater capacity, so you should consider using a larger instance or more VMs if you need higher network limits from a single machine. If you are accessing Azure Storage from an on premises application, then the same rule applies: understand the network capabilities of the client device and the network connectivity to the Azure Storage location and either improve them as needed or design your application to work within their capabilities.
+For bandwidth, the problem is often the capabilities of the client. Larger Azure instances have NICs with greater capacity, so you should consider using a larger instance or more VMs if you need higher network limits from a single machine. If you are accessing Azure Storage from an on-premises application, then the same rule applies: understand the network capabilities of the client device and the network connectivity to the Azure Storage location and either improve them as needed or design your application to work within their capabilities.
 
 #### Link quality
 
-As with any network usage, keep in mind that network conditions resulting in errors and packet loss will slow effective throughput. Using WireShark or NetMon may help in diagnosing this issue.
+As with any network usage, keep in mind that network conditions resulting in errors and packet loss will slow effective throughput. Using Wireshark or Network Monitor may help in diagnosing this issue.
 
 ### Location
 
-In any distributed environment, placing the client near to the server delivers in the best performance. For accessing Azure Storage with the lowest latency, the best location for your client is within the same Azure region. For example, if you have an Azure web app that uses Azure Storage, then locate them both within a single region, such as US West or Asia Southeast. Co-locating resources reduces the latency and the cost, as bandwidth usage within a single region is free.
+In any distributed environment, placing the client near to the server delivers in the best performance. For accessing Azure Storage with the lowest latency, the best location for your client is within the same Azure region. For example, if you have an Azure web app that uses Azure Storage, then locate them both within a single region, such as West US or Southeast Asia. Co-locating resources reduces the latency and the cost, as bandwidth usage within a single region is free.
 
-If client applications will access Azure Storage but are not hosted within Azure, such as mobile device apps or on premises enterprise services, then locating the storage account in a region near to those clients may reduce latency. If your clients are broadly distributed (for example, some in North America, and some in Europe), then consider using one storage account per region. This approach is easier to implement if the data the application stores is specific to individual users, and does not require replicating data between storage accounts.
+If client applications will access Azure Storage but are not hosted within Azure, such as mobile device apps or on-premises enterprise services, then locating the storage account in a region near to those clients may reduce latency. If your clients are broadly distributed (for example, some in North America, and some in Europe), then consider using one storage account per region. This approach is easier to implement if the data the application stores is specific to individual users, and does not require replicating data between storage accounts.
 
 ## SAS and CORS
 
@@ -100,7 +101,7 @@ Both SAS and CORS can help you avoid unnecessary load on your web application.
 
 ## .NET configuration
 
-If using the .NET Framework, this section lists several quick configuration settings that you can use to make significant performance improvements. If using other languages, check to see if similar concepts apply in your chosen language.
+If using the .NET Framework, this section lists several quick configuration settings that you can use to make significant performance improvements. If using other languages, check to see whether similar concepts apply in your chosen language.
 
 ### Use .NET Core
 
@@ -108,8 +109,8 @@ Develop your Azure Storage applications with .NET Core 2.1 or later to take adva
 
 For more information on performance improvements in .NET Core, see the following blog posts:
 
-- [Performance Improvements in .NET Core 3.0](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-3-0/)
-- [Performance Improvements in .NET Core 2.1](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-2-1/)
+- [Performance improvements in .NET Core 3.0](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-3-0/)
+- [Performance improvements in .NET Core 2.1](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-2-1/)
 
 ### Increase default connection limit
 
@@ -123,9 +124,9 @@ Set the connection limit before opening any connections.
 
 For other programming languages, see that language's documentation to determine how to set the connection limit.
 
-For more information, see the blog post [Web Services: Concurrent Connections](/archive/blogs/darrenj/web-services-concurrent-connections).
+For more information, see the blog post [Web services: Concurrent connections](/archive/blogs/darrenj/web-services-concurrent-connections).
 
-### Increase minimum number of threads
+### Increase the minimum number of threads
 
 If you are using synchronous calls together with asynchronous tasks, you may want to increase the number of threads in the thread pool:
 
@@ -133,7 +134,7 @@ If you are using synchronous calls together with asynchronous tasks, you may wan
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-For more information, see the [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads) method.
+For more information, see the [`ThreadPool.SetMinThreads`](/dotnet/api/system.threading.threadpool.setminthreads) method.
 
 ## Unbounded parallelism
 
@@ -149,19 +150,19 @@ Azure Storage returns an error when the service cannot process a request. Unders
 
 ### Timeout and Server Busy errors
 
-Azure Storage may throttle your application if it approaches the scalability limits. In some cases, Azure Storage may be unable to handle a request due to some transient condition. In both cases, the service may return a 503 (Server Busy) or 500 (Timeout) error. These errors can also occur if the service is rebalancing data partitions to allow for higher throughput. The client application should typically retry the operation that causes one of these errors. However, if Azure Storage is throttling your application because it is exceeding scalability targets, or even if the service was unable to serve the request for some other reason, aggressive retries may make the problem worse. Using an exponential back off retry policy is recommended, and the client libraries default to this behavior. For example, your application may retry after 2 seconds, then 4 seconds, then 10 seconds, then 30 seconds, and then give up completely. In this way, your application significantly reduces its load on the service, rather than exacerbating behavior that could lead to throttling.
+Azure Storage may throttle your application if it approaches the scalability limits. In some cases, Azure Storage may be unable to handle a request due to some transient condition. In both cases, the service may return a 503 (`Server Busy`) or 500 (`Timeout`) error. These errors can also occur if the service is rebalancing data partitions to allow for higher throughput. The client application should typically retry the operation that causes one of these errors. However, if Azure Storage is throttling your application because it is exceeding scalability targets, or even if the service was unable to serve the request for some other reason, aggressive retries may make the problem worse. Using an exponential back off retry policy is recommended, and the client libraries default to this behavior. For example, your application may retry after 2 seconds, then 4 seconds, then 10 seconds, then 30 seconds, and then give up completely. In this way, your application significantly reduces its load on the service, rather than exacerbating behavior that could lead to throttling.
 
 Connectivity errors can be retried immediately, because they are not the result of throttling and are expected to be transient.
 
 ### Non-retryable errors
 
-The client libraries handle retries with an awareness of which errors can be retried and which cannot. However, if you are calling the Azure Storage REST API directly, there are some errors that you should not retry. For example, a 400 (Bad Request) error indicates that the client application sent a request that could not be processed because it was not in the expected form. Resending this request results the same response every time, so there is no point in retrying it. If you are calling the Azure Storage REST API directly, be aware of potential errors and whether they should be retried.
+The client libraries handle retries with an awareness of which errors can be retried and which cannot. However, if you are calling the Azure Storage REST API directly, there are some errors that you should not retry. For example, a 400 (`Bad Request`) error indicates that the client application sent a request that could not be processed because it was not in the expected form. Resending this request results the same response every time, so there is no point in retrying it. If you are calling the Azure Storage REST API directly, be aware of potential errors and whether they should be retried.
 
 For more information on Azure Storage error codes, see [Status and error codes](/rest/api/storageservices/status-and-error-codes2).
 
-## Disable Nagle
+## Disable Nagle's algorithm
 
-Nagle's algorithm is widely implemented across TCP/IP networks as a means to improve network performance. However, it is not optimal in all circumstances (such as highly interactive environments). Nagle's algorithm has a negative impact on the performance of requests to the Azure Table service, and you should disable it if possible.
+Nagle's algorithm is widely implemented across TCP/IP networks as a means to improve network performance. However, it is not optimal in all circumstances (such as highly interactive environments). Nagle's algorithm has a negative impact on the performance of requests to Azure Table Storage, and you should disable it if possible.
 
 ## Message size
 
@@ -169,17 +170,17 @@ Queue performance and scalability decrease as message size increases. Put only t
 
 ## Batch retrieval
 
-You can retrieve up to 32 messages from a queue in a single operation. Batch retrieval can reduce the number of roundtrips from the client application, which is especially useful for environments, such as mobile devices, with high latency.
+You can retrieve up to 32 messages from a queue in a single operation. Batch retrieval can reduce the number of round trips from the client application, which is especially useful for environments, such as mobile devices, with high latency.
 
 ## Queue polling interval
 
 Most applications poll for messages from a queue, which can be one of the largest sources of transactions for that application. Select your polling interval wisely: polling too frequently could cause your application to approach the scalability targets for the queue. However, at 200,000 transactions for $0.01 (at the time of writing), a single processor polling once every second for a month would cost less than 15 cents so cost is not typically a factor that affects your choice of polling interval.
 
-For up-to-date cost information, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
+For up-to-date cost information, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-## Use Update Message
+## Perform an update message operation
 
-You can use the **Update Message** operation to increase the invisibility timeout or to update the state information of a message. Using **Update Message** can be a more efficient approach than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Your application can save the job state to the message and then continue working, instead of requeuing the message for the next step of the job every time a step completes. Keep in mind that each **Update Message** operation counts towards the scalability target.
+You can perform an update message operation to increase the invisibility timeout or to update the state information of a message. This approach can be a more efficient than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Your application can save the job state to the message and then continue working, instead of requeuing the message for the next step of the job every time a step completes. Keep in mind that each update message operation counts towards the scalability target.
 
 ## Application architecture
 
@@ -190,6 +191,6 @@ Use queues to make your application architecture scalable. The following lists s
 
 ## Next steps
 
-- [Scalability and performance targets for Queue storage](scalability-targets.md)
+- [Scalability and performance targets for Queue Storage](scalability-targets.md)
 - [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)

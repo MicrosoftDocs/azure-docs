@@ -5,7 +5,7 @@ description: Authenticate to Azure App Configuration using managed identities
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 2/25/2020
 ---
@@ -76,7 +76,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 1. Add a reference to the *Azure.Identity* package:
 
-    ```cli
+    ```bash
     dotnet add package Azure.Identity
     ```
 
@@ -96,7 +96,7 @@ To set up a managed identity in the portal, you first create an application and 
     using Azure.Identity;
     ```
 
-1. If you wish to access only values stored directly in App Configuration, update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.
+1. If you wish to access only values stored directly in App Configuration, update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method (this is found in the `Microsoft.Azure.AppConfiguration.AspNetCore` package).
 
     > [!IMPORTANT]
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
@@ -132,6 +132,15 @@ To set up a managed identity in the portal, you first create an application and 
             .UseStartup<Startup>());
     ```
     ---
+
+    > [!NOTE]
+    > In the case you want to use a **user-assigned managed identity**, be sure to specify the clientId when creating the [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true).
+    >```
+    >config.AddAzureAppConfiguration(options =>
+    >   options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));
+    >```
+    >As explained in the [Managed Identities for Azure resources FAQs](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request), there is a default way to resolve which managed identity is used. In this case, the Azure Identity library enforces you to specify the desired identity to avoid posible runtime issues in the future (for instance, if a new user-assigned managed identity is added or if the system-assigned managed identity is enabled). So, you will need to specify the clientId even if only one user-assigned managed identity is defined, and there is no system-assigned managed identity.
+
 
 1. To use both App Configuration values and Key Vault references, update *Program.cs* as shown below. This code calls `SetCredential` as part of `ConfigureKeyVault` to tell the config provider what credential to use when authenticating to Key Vault.
 
@@ -187,6 +196,8 @@ To set up a managed identity in the portal, you first create an application and 
 
     > [!NOTE]
     > The `ManagedIdentityCredential` works only in Azure environments of services that support managed identity authentication. It doesn't work in the local environment. Use [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) for the code to work in both local and Azure environments as it will fall back to a few authentication options including managed identity.
+    > 
+    > In case you want to use a **user-asigned managed identity** with the `DefaultAzureCredential` when deployed to Azure, [specify the clientId](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -207,7 +218,7 @@ git add .
 git commit -m "Initial version"
 ```
 
-To enable local Git deployment for your app with the Kudu build server, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in Cloud Shell.
+To enable local Git deployment for your app with the Kudu build server, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/#az-webapp-deployment-source-config-local-git) in Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>

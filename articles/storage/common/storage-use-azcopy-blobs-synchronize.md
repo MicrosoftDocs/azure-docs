@@ -74,7 +74,7 @@ The first container that appears in this command is the source. The second one i
 | **Syntax** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
 | **Example** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 
-## Update a directory with changes to a directory in another file share
+## Update a directory with changes to a directory in another container
 
 The first directory that appears in this command is the source. The second one is the destination.
 

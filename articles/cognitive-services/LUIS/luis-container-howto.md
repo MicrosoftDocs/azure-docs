@@ -369,9 +369,6 @@ The LUIS container sends billing information to Azure, using a _Cognitive Servic
 
 For more information about these options, see [Configure containers](luis-container-configuration.md).
 
-<!--blogs/samples/video courses -->
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
-
 ## Summary
 
 In this article, you learned concepts and workflow for downloading, installing, and running Language Understanding (LUIS) containers. In summary:

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # A web app that calls web APIs: Code configuration
@@ -41,7 +41,7 @@ Select the tab for the platform you're interested in:
 
 ## Client secrets or client certificates
 
-Given that your web app now calls a downstream web API, you need to provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that specifies:
+Given that your web app now calls a downstream web API, provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that specifies:
 
 - The URL of the downstream web API
 - The scopes required for calling the API
@@ -107,7 +107,7 @@ Your web app will need to acquire a token for the downstream API. You specify it
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                .AddInMemoryTokenCaches();
@@ -137,7 +137,7 @@ If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to dir
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                   .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
@@ -161,7 +161,7 @@ To call a web API other than Microsoft Graph, *Microsoft.Identity.Web* provides 
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                   .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
@@ -181,7 +181,7 @@ The following image shows the various possibilities of *Microsoft.Identity.Web* 
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Block diagram showing service configuration options in startup dot C S for calling a web API and specifying a token cache implementation":::
 
 > [!NOTE]
-> To fully understand the code examples here, you need to be familiar with [ASP.NET Core fundamentals](/aspnet/core/fundamentals), and in particular with [dependency injection](/aspnet/core/fundamentals/dependency-injection) and [options](/aspnet/core/fundamentals/configuration/options).
+> To fully understand the code examples here, be familiar with [ASP.NET Core fundamentals](/aspnet/core/fundamentals), and in particular with [dependency injection](/aspnet/core/fundamentals/dependency-injection) and [options](/aspnet/core/fundamentals/configuration/options).
 
 # [ASP.NET](#tab/aspnet)
 

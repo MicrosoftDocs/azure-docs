@@ -294,7 +294,7 @@ To continue to interact with the PowerShell Gallery, run the following command b
 User assigned with appropriate roles. But facing authorization issues while managing attestation policies through PowerShell.
 
 ### Error
-The client with object id <object Id>  does not have authorization to perform action Microsoft.Authorization/roleassignments/write over scope ‘subcriptions/<subscriptionId>resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/<role assignmentId>’ or the scope is invalid. If access was recently granted, please refresh your credentials
+The client with object id &lt;object Id&gt;  does not have authorization to perform action Microsoft.Authorization/roleassignments/write over scope ‘subcriptions/&lt;subscriptionId&gt;resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/&lt;role assignmentId&gt;’ or the scope is invalid. If access was recently granted, please refresh your credentials
 
 ### Troubleshooting steps
 

@@ -38,7 +38,7 @@ Other parameters you can adjust include:
 | `DCL` | Queries like "GRANT PERMISSION" |
 | `ADMIN` | Queries like "SHOW STATUS" |
 | `GENERAL` | All in DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and ADMIN |
-| `TABLE_ACCESS` | - Only available for MySQL 5.7 <br> - Table read statements, such as SELECT or INSERT INTO ... SELECT <br> - Table delete statements, such as DELETE or TRUNCATE TABLE <br> - Table insert statements, such as INSERT or REPLACE <br> - Table update statements, such as UPDATE |
+| `TABLE_ACCESS` | - Available for MySQL 5.7 and MySQL 8.0 <br> - Table read statements, such as SELECT or INSERT INTO ... SELECT <br> - Table delete statements, such as DELETE or TRUNCATE TABLE <br> - Table insert statements, such as INSERT or REPLACE <br> - Table update statements, such as UPDATE |
 
 ## Access audit logs
 

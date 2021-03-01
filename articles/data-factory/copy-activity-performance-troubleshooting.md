@@ -1,17 +1,12 @@
 ---
 title: Troubleshoot copy activity performance
 description: Learn about how to troubleshoot copy activity performance in Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
+ms.date: 01/07/2021
 ---
 
 # Troubleshoot copy activity performance
@@ -167,6 +162,59 @@ When the copy performance doesn't meet your expectation, to troubleshoot single 
 
   - Consider to gradually tune the [parallel copies](copy-activity-performance-features.md), note that too many parallel copies may even hurt the performance.
 
+
+## Connector and IR performance
+
+This section explores some performance troubleshooting guides for particular connector type or integration runtime.
+
+### Activity execution time varies using Azure IR vs Azure VNet IR
+
+Activity execution time varies when the dataset is based on different Integration Runtime.
+
+- **Symptoms**: Simply toggling the Linked Service dropdown in the dataset performs the same pipeline activities, but has drastically different run-times. When the dataset is based on the Managed Virtual Network Integration Runtime, it takes more than 2 minutes on average to complete the run, but it takes approximately 20 seconds to complete when based on the Default Integration Runtime.
+
+- **Cause**: Checking the details of pipeline runs, you can see that the slow pipeline is running on Managed VNet (Virtual Network) IR while the normal one is running on Azure IR. By design, Managed VNet IR takes longer queue time than Azure IR as we are not reserving one compute node per data factory, so there is a warm up around 2 minutes for each copy activity to start, and it occurs primarily on VNet join rather than Azure IR.
+
+    
+### Low performance when loading data into Azure SQL Database
+
+- **Symptoms**: Copying data in to Azure SQL Database turns to be slow.
+
+- **Cause**: The root cause of the issue is mostly triggered by the bottleneck of Azure SQL Database side. Following are some possible causes:
+
+    - Azure SQL Database tier is not high enough.
+
+    - Azure SQL Database DTU usage is close to 100%. You can [monitor the performance](../azure-sql/database/monitor-tune-overview.md) and consider to upgrade the Azure SQL Database tier.
+
+    - Indexes are not set properly. Remove all the indexes before data load and recreate them after load complete.
+
+    - WriteBatchSize is not large enough to fit schema row size. Try to enlarge the property for the issue.
+
+    - Instead of bulk inset, stored procedure is being used, which is expected to have worse performance. 
+
+
+### Timeout or slow performance when parsing large Excel file
+
+- **Symptoms**:
+
+    - When you create Excel dataset and import schema from connection/store, preview data, list, or refresh worksheets, you may hit timeout error if the excel file is large in size.
+
+    - When you use copy activity to copy data from large Excel file (>= 100 MB) into other data store, you may experience slow performance or OOM issue.
+
+- **Cause**: 
+
+    - For operations like importing schema, previewing data, and listing worksheets on excel dataset, the timeout is 100 s and static. For large Excel file, these operations may not finish within the timeout value.
+
+    - ADF copy activity reads the whole Excel file into memory then locate the specified worksheet and cells to read data. This behavior is due to the underlying SDK ADF uses.
+
+- **Resolution**: 
+
+    - For importing schema, you can generate a smaller sample file, which is a subset of original file, and choose "import schema from sample file" instead of "import schema from connection/store".
+
+    - For listing worksheet, in the worksheet dropdown, you can click "Edit" and input the sheet name/index instead.
+
+    - To copy large excel file (>100 MB) into other store, you can use Data Flow Excel source which sport streaming read and perform better.
+    
 ## Other references
 
 Here is performance monitoring and tuning references for some of the supported data stores:

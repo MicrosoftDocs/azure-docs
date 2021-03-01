@@ -164,6 +164,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is performance of the Application Gateway degraded?</li><li>Is the Application Gateway available?</li></ul>|
 
+## Microsoft.network/bastionhosts
+|Executed Checks|
+|---|
+|<ul><li>Is the Bastion Host up and running?</li></ul>|
+
 ## Microsoft.network/connections
 |Executed Checks|
 |---|

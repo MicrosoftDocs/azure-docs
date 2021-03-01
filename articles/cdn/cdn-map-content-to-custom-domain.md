@@ -7,7 +7,7 @@ author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 11/06/2020
+ms.date: 02/04/2020
 ms.author: allensu
 ms.custom: mvc
 # As a website owner, I want to add a custom domain to my CDN endpoint so that my users can use my custom domain to access my content.
@@ -158,6 +158,10 @@ To create a CNAME record for your custom domain:
 
 After you've registered your custom domain, you can then add it to your CDN endpoint. 
 
+
+---
+# [**Azure portal**](#tab/azure-portal)
+
 1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to the CDN profile containing the endpoint that you want to map to a custom domain.
     
 2. On the **CDN profile** page, select the CDN endpoint to associate with the custom domain.
@@ -184,7 +188,43 @@ After you've registered your custom domain, you can then add it to your CDN endp
     - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
     - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes in 10 minutes.   
 
+# [**PowerShell**](#tab/azure-powershell)
 
+1. Sign in to Azure PowerShell:
+
+```azurepowershell-interactive
+    Connect-AzAccount
+
+```
+2. Use [New-AzCdnCustomDomain](/powershell/module/az.cdn/new-azcdncustomdomain) to map the custom domain to your CDN endpoint. 
+
+    * Replace **myendpoint8675.azureedge.net** with your endpoint url.
+    * Replace **myendpoint8675** with your CDN endpoint name.
+    * Replace **www.contoso.com** with your custom domain name.
+    * Replace **myCDN** with your CDN profile name.
+    * Replace **myResourceGroupCDN** with your resource group name.
+
+```azurepowershell-interactive
+    $parameters = @{
+        Hostname = 'myendpoint8675.azureedge.net'
+        EndPointName = 'myendpoint8675'
+        CustomDomainName = 'www.contoso.com'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    New-AzCdnCustomDomain @parameters
+```
+
+Azure verifies that the CNAME record exists for the custom domain name you entered. If the CNAME is correct, your custom domain will be validated. 
+
+   It can take some time for the new custom domain settings to propagate to all CDN edge nodes: 
+
+- For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
+- For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
+- For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes in 10 minutes.   
+
+
+---
 ## Verify the custom domain
 
 After you've completed the registration of your custom domain, verify that the custom domain references your CDN endpoint.
@@ -195,6 +235,9 @@ After you've completed the registration of your custom domain, verify that the c
 
 ## Clean up resources
 
+---
+# [**Azure portal**](#tab/azure-portal-cleanup)
+
 If you no longer want to associate your endpoint with a custom domain, remove the custom domain by doing the following steps:
  
 1. In your CDN profile, select the endpoint with the custom domain that you want to remove.
@@ -203,6 +246,29 @@ If you no longer want to associate your endpoint with a custom domain, remove th
 
    The custom domain is disassociated from your endpoint.
 
+# [**PowerShell**](#tab/azure-powershell-cleanup)
+
+If you no longer want to associate your endpoint with a custom domain, remove the custom domain by doing the following steps:
+
+1. Use [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain) to remove the custom domain from the endpoint:
+
+    * Replace **myendpoint8675** with your CDN endpoint name.
+    * Replace **www.contoso.com** with your custom domain name.
+    * Replace **myCDN** with your CDN profile name.
+    * Replace **myResourceGroupCDN** with your resource group name.
+
+
+```azurepowershell-interactive
+    $parameters = @{
+        CustomDomainName = 'www.contoso.com'
+        EndPointName = 'myendpoint8675'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    Remove-AzCdnCustomDomain @parameters
+```
+
+---
 ## Next steps
 
 In this tutorial, you learned how to:

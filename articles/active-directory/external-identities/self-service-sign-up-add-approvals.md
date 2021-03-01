@@ -23,6 +23,9 @@ This article gives an example of how to integrate with an approval system. In th
 - Automatically approve the user and allow Azure AD to create the user account.
 - Trigger a manual review. If the request is approved, the approval system uses Microsoft Graph to provision the user account. The approval system can also notify the user that their account has been created.
 
+> [!IMPORTANT]
+>**Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
+
 ## Register an application for your approval system
 
 You need to register your approval system as an application in your Azure AD tenant so it can authenticate with Azure AD and have permission to create users. Learn more about [authentication and authorization basics for Microsoft Graph](/graph/auth/auth-concepts).
@@ -350,8 +353,8 @@ POST https://graph.microsoft.com/v1.0/invitations
 Content-type: application/json
 
 {
-    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com",
-    "inviteRedirectUrl" : "https://myapp.com"
+    "invitedUserEmailAddress": "johnsmith@fabrikam.onmicrosoft.com",
+    "inviteRedirectUrl" : "https://myapp.com"
 }
 ```
 
@@ -363,9 +366,9 @@ Content-type: application/json
 
 {
     ...
-    "invitedUser": {
-        "id": "<generated-user-guid>"
-    }
+    "invitedUser": {
+        "id": "<generated-user-guid>"
+    }
 }
 ```
 

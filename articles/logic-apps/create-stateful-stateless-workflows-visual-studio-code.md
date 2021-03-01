@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 02/23/2021
 ---
 
 # Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -759,7 +759,7 @@ You can publish your logic app as a new resource, which automatically creates an
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to provide a name for the new logic app to create.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. Select a hosting plan for your new logic app, either [**App Service Plan**](../azure-functions/functions-scale.md#app-service-plan) or [**Premium**](../azure-functions/functions-scale.md#premium-plan). This example selects **App Service Plan**.
+   1. Select a hosting plan for your new logic app, either [**App Service Plan**](../azure-functions/dedicated-plan.md) or [**Premium**](../azure-functions/functions-premium-plan.md). This example selects **App Service Plan**.
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select "App Service Plan" or "Premium".](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 
@@ -788,7 +788,7 @@ You can publish your logic app as a new resource, which automatically creates an
 
       1. Select either an existing Application Insights resource or **Create new Application Insights resource**.
 
-      1. In the [Azure portal](htpps://portal.azure.com), go to your Application Insights resource.
+      1. In the [Azure portal](https://portal.azure.com), go to your Application Insights resource.
 
       1. On the resource menu, select **Overview**. Find and copy the **Instrumentation Key** value.
 
@@ -1106,7 +1106,7 @@ If you're not familiar with Docker, review these topics:
    For example, this sample Docker file deploys a logic app with a stateful workflow. The file specifies the connection string and access key for the Azure Storage account that was used for publishing the logic app to the Azure portal.
 
    ```text
-   FROM mcr.microsoft.com/dotnet/core/sdk3.1 AS installer-env
+   FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS installer-env
 
    COPY . /src/dotnet-function-app
    RUN cd /src/dotnet-function-app && \

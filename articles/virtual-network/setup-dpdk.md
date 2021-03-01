@@ -46,7 +46,7 @@ The following distributions from the Azure Marketplace are supported:
 
 **Custom kernel support**
 
-For any Linux kernel version that's not listed, see [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel). For more information, you can also contact [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com). 
+For any Linux kernel version that's not listed, see [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel). For more information, you can also contact [aznetdpdk@microsoft.com](mailto:aznetdpdk@microsoft.com). 
 
 ## Region support
 

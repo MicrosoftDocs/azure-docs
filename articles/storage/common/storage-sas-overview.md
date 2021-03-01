@@ -6,7 +6,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
@@ -107,7 +107,7 @@ The SAS token is a string that you generate on the client side, for example by u
 
 Client applications provide the SAS URI to Azure Storage as part of a request. Then, the service checks the SAS parameters and the signature to verify that it is valid. If the service verifies that the signature is valid, then the request is authorized. Otherwise, the request is declined with error code 403 (Forbidden).
 
-Here's an example of a service SAS URI, showing the resource URI and the SAS token:
+Here's an example of a service SAS URI, showing the resource URI and the SAS token. Because the SAS token comprises the URI query string, the resource URI must be followed first by a question mark, and then by the SAS token:
 
 ![Components of a service SAS URI](./media/storage-sas-overview/sas-storage-uri.png)
 

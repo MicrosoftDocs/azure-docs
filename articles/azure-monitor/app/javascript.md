@@ -173,7 +173,7 @@ Most configuration fields are named such that they can be defaulted to false. Al
 | sessionExpirationMs | 86400000 | A session is logged if it has continued for this amount of time in milliseconds. Default is 24 hours |
 | maxBatchSizeInBytes | 10000 | Max size of telemetry batch. If a batch exceeds this limit, it is immediately sent and a new batch is started |
 | maxBatchInterval | 15000 | How long to batch telemetry for before sending (milliseconds) |
-| disableExceptionTracking | false | If true, exceptions are no autocollected. Default is false. |
+| disableExceptionTracking | false | If true, exceptions are not autocollected. Default is false. |
 | disableTelemetry | false | If true, telemetry is not collected or sent. Default is false. |
 | enableDebug | false | If true, **internal** debugging data is thrown as an exception **instead** of being logged, regardless of SDK logging settings. Default is false. <br>***Note:*** Enabling this setting will result in dropped telemetry whenever an internal error occurs. This can be useful for quickly identifying issues with your configuration or usage of the SDK. If you do not want to lose telemetry while debugging, consider using `consoleLoggingLevel` or `telemetryLoggingLevel` instead of `enableDebug`. |
 | loggingLevelConsole | 0 | Logs **internal** Application Insights errors to console. <br>0: off, <br>1: Critical errors only, <br>2: Everything (errors & warnings) |
@@ -191,7 +191,7 @@ Most configuration fields are named such that they can be defaulted to false. Al
 | correlationHeaderDomains |  | Enable correlation headers for specific domains |
 | disableFlushOnBeforeUnload | false | Default false. If true, flush method will not be called when onBeforeUnload event triggers |
 | enableSessionStorageBuffer | true | Default true. If true, the buffer with all unsent telemetry is stored in session storage. The buffer is restored on page load |
-| isCookieUseDisabled | false | Default false. If true, the SDK will not store or read any data from cookies.|
+| isCookieUseDisabled | false | Default false. If true, the SDK will not store or read any data from cookies. Note that this disables the User and Session cookies and renders the usage blades and experiences useless. |
 | cookieDomain | null | Custom cookie domain. This is helpful if you want to share Application Insights cookies across subdomains. |
 | isRetryDisabled | false | Default false. If false, retry on 206 (partial success), 408 (timeout), 429 (too many requests), 500 (internal server error), 503 (service unavailable), and 0 (offline, only if detected) |
 | isStorageUseDisabled | false | If true, the SDK will not store or read any data from local and session storage. Default is false. |
@@ -214,7 +214,7 @@ Most configuration fields are named such that they can be defaulted to false. Al
 
 ## Enable time-on-page tracking
 
-By setting `autoTrackPageVisitTime: true`, the time a user spends on each page is tracked. On each new PageView, the duration the user spent on the *previous* page is sent as a [custom metric](../platform/metrics-custom-overview.md) named `PageVisitTime`. This custom metric is viewable in the [Metrics Explorer](../platform/metrics-getting-started.md) as a "log-based metric".
+By setting `autoTrackPageVisitTime: true`, the time a user spends on each page is tracked. On each new PageView, the duration the user spent on the *previous* page is sent as a [custom metric](../essentials/metrics-custom-overview.md) named `PageVisitTime`. This custom metric is viewable in the [Metrics Explorer](../essentials/metrics-getting-started.md) as a "log-based metric".
 
 ## Enable Correlation
 
@@ -261,7 +261,8 @@ Currently, we offer a separate [React plugin](javascript-react-plugin.md), which
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
-| [Angular](javascript-angular-plugin.md) |
+| [Angular](javascript-angular-plugin.md)|
+| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md)|
 
 ## Explore browser/client-side data
 
@@ -335,7 +336,7 @@ Breaking changes in the SDK V2 version:
 - To allow for better API signatures, some of the API calls, such as trackPageView and trackException, have been updated. Running in Internet Explorer 8 and earlier versions of the browser is not supported.
 - The telemetry envelope has field name and structure changes due to data schema updates.
 - Moved `context.operation` to `context.telemetryTrace`. Some fields were also changed (`operation.id` --> `telemetryTrace.traceID`).
-  - To manually refresh the current pageview ID (for example, in SPA apps), use `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()`.
+  - To manually refresh the current pageview ID (for example, in SPA apps), use `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()`.
     > [!NOTE]
     > To keep the trace ID unique, where you previously used `Util.newId()`, now use `Util.generateW3CId()`. Both ultimately end up being the operation ID.
 
