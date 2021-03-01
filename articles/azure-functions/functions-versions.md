@@ -25,7 +25,7 @@ The following table indicates which programming languages are currently supporte
 
 ## <a name="creating-1x-apps"></a>Run on a specific version
 
-By default, function apps created in the Azure portal and by the Azure CLI are set to version 3.x. You can modify this version as needed. You can only change the runtime version to 1.x after you create your function app but before you add any functions.  Moving between 2.x and 3.x is allowed even with apps that have existing functions. Before moving an app with existing functions from 2.x to 3.x, please be aware of any [breaking changes between 2.x and 3.x](#breaking-changes-between-2x-and-3x). 
+By default, function apps created in the Azure portal and by the Azure CLI are set to version 3.x. You can modify this version as needed. You can only downgrade the runtime version to 1.x after you create your function app but before you add any functions.  Moving between 2.x and 3.x is allowed even with apps that have existing functions. Before moving an app with existing functions from 2.x to 3.x, be aware of any [breaking changes between 2.x and 3.x](#breaking-changes-between-2x-and-3x). 
 
 Before making a change to the major version of the runtime, you should first test your existing code by deploying to another function app running on the latest major version. This testing helps to make sure it runs correctly after the upgrade. 
 

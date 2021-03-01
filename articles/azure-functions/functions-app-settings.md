@@ -154,7 +154,7 @@ Dictates whether editing in the Azure portal is enabled. Valid values are "readw
 
 ## FUNCTIONS\_EXTENSION\_VERSION
 
-The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, "~2"). When new versions for the same major version are available, they are automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, "2.0.12345"). Default is "~3". A value of `~1` pins your app to version 1.x of the runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
+The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, "~3"). When new versions for the same major version are available, they are automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, "3.0.12345"). Default is "~3". A value of `~1` pins your app to version 1.x of the runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
 
 |Key|Sample value|
 |---|------------|
