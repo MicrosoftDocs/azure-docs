@@ -132,7 +132,7 @@ Use the `createThread` method to create a chat thread.
 
 `createThreadRequest` is used to describe the thread request:
 
-- Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
+- Use `topic` to give a topic to this chat. Topics can be updated after the chat thread is created using the `UpdateThread` function.
 - Use `participants` to list the participants to be added to the chat thread.
 
 When resolved, `createChatThread` method returns a `CreateChatThreadResponse`. This model contains a `chatThread` property where you can access the `id` of the newly created thread. You can then use the `id` to get an instance of a `ChatThreadClient`. The `ChatThreadClient` can then be used to perform operation within the thread such as sending messages or listing participants.
