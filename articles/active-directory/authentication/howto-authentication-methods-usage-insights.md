@@ -27,6 +27,7 @@ The following roles can access usage and insights:
 
 - Reports Reader
 - Security Reader
+- Security Operator
 - Security Administrator
 - Global Administrator
 
