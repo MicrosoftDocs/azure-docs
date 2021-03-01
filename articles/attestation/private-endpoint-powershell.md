@@ -16,7 +16,7 @@ Get started with Azure Private Link by using a private endpoint to connect secur
 
 In this quickstart, you'll create a private endpoint for Azure Attestation and deploy a virtual machine to test the private connection.  
 
-NOTE: The current implementation only includes automatic approval option. The subscription must be white listed to be able to proceed with private endpoint creation. Please reach out to the service team or submit an Azure support request on the [Azure support page](https://azure.microsoft.com/support/options/) before proceeding with the below steps
+**NOTE:** The current implementation only includes automatic approval option. The subscription must be white listed to be able to proceed with private endpoint creation. Please reach out to the service team or submit an Azure support request on the [Azure support page](https://azure.microsoft.com/support/options/) before proceeding with the below steps
 
 ## Prerequisites
 
