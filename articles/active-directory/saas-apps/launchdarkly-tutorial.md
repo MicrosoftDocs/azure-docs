@@ -34,8 +34,11 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* LaunchDarkly supports **SP and IDP** initiated SSO.
+* LaunchDarkly supports **IDP** initiated SSO.
 * LaunchDarkly supports **Just In Time** user provisioning.
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Add LaunchDarkly from the gallery
 
@@ -71,7 +74,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** text box, type the URL:
     `app.launchdarkly.com`
@@ -81,8 +84,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	> [!NOTE]
 	> The Reply URL value is not real. You will update the value with the actual Reply URL, which is explained later in the tutorial. If you are intending to use the application in **IDP** mode you need to leave the **Sign on URL** field blank, otherwise you will not be able to initiate the login from the **IDP**. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode. Leave the **Sign-on URL** blank.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -150,19 +151,11 @@ In this section, a user called B.Simon is created in LaunchDarkly. LaunchDarkly 
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-#### SP initiated:
+* Click on Test this application in Azure portal and you should be automatically signed in to the LaunchDarkly for which you set up the SSO.
 
-* Click on **Test this application** in Azure portal. This will redirect to LaunchDarkly Sign on URL where you can initiate the login flow.  
-
-* Go to LaunchDarkly Sign-on URL directly and initiate the login flow from there.
-
-#### IDP initiated:
-
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the LaunchDarkly for which you set up the SSO. 
-
-You can also use Microsoft My Apps to test the application in any mode. When you click the LaunchDarkly tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the LaunchDarkly for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the LaunchDarkly tile in the My Apps, you should be automatically signed in to the LaunchDarkly for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next steps
 
