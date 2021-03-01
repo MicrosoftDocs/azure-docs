@@ -155,13 +155,13 @@ The general format of the command to change its password is:
 azdata arc postgres server edit --name <server group name> --admin-password
 ```
 
-Where --admin-password is a boolean that relates to the presence of a value in the AZDATA_PASSWORD **session**'s environment variable.
-If the AZDATA_PASSWORD **session**'s environment variable exists and has a value, running the above command will set the password of the postgres user to the value of this environment variable.
+Where `--admin-password` is a boolean that relates to the presence of a value in the AZDATA_PASSWORD **session** environment variable.
+If the AZDATA_PASSWORD **session** environment variable exists and has a value, running the above command will set the password of the postgres user to the value of this environment variable.
 
-If the AZDATA_PASSWORD **session**'s environment variable exists but has not value or the AZDATA_PASSWORD **session**'s environment variable does not exist, running the above command will prompt the user to enter a password interactively
+If the AZDATA_PASSWORD **session** environment variable exists but has not value or the AZDATA_PASSWORD **session** environment variable does not exist, running the above command will prompt the user to enter a password interactively
 
 #### Changing the password of the postgres administrative user in an interactive way:
-1. Delete the AZDATA_PASSWORD **session**'s environment variable or delete its value
+1. Delete the AZDATA_PASSWORD **session** environment variable or delete its value
 2. Run the command:
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
@@ -182,8 +182,8 @@ If the AZDATA_PASSWORD **session**'s environment variable exists but has not val
    postgres01 is Ready
    ```
    
-#### Changing the password of the postgres administrative user using the AZDATA_PASSWORD **session**'s environment variable:
-1. Set the value of the AZDATA_PASSWORD **session**'s environment variable to what you want to password to be.
+#### Change the password of the postgres administrative user using the AZDATA_PASSWORD **session** environment variable:
+1. Set the value of the AZDATA_PASSWORD **session** environment variable to what you want to password to be.
 2. Run the  command:
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
@@ -213,7 +213,7 @@ If the AZDATA_PASSWORD **session**'s environment variable exists but has not val
 > ```
 
 ## Audit
-For audit scenarios please configure your server group to use the pgaudit extensions of Postgres. For more details about pgaudit read its documentation [here](https://github.com/pgaudit/pgaudit/blob/master/README.md). To enable the pgaudit extension in your server group please read [this](https://docs.microsoft.com/azure/azure-arc/data/using-extensions-in-postgresql-hyperscale-server-group) article.
+For audit scenarios please configure your server group to use the `pgaudit` extensions of Postgres. For more details about `pgaudit` read its documentation [here](https://github.com/pgaudit/pgaudit/blob/master/README.md). To enable the `pgaudit` extension in your server group please read [this](using-extensions-in-postgresql-hyperscale-server-group.md) article.
 
 
 ## Next steps

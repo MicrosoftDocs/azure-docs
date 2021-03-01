@@ -21,12 +21,12 @@ PostgreSQL is at its best when you use it with extensions. In fact, a key elemen
 
 ## Supported extensions
 The standard [`contrib`](https://www.postgresql.org/docs/12/contrib.html) extensions and the following extensions are already deployed in the containers of your Azure Arc enabled PostgreSQL Hyperscale server group:
-- [citus](https://github.com/citusdata/citus), v: 9.4. The Citus extension by [Citus Data](https://www.citusdata.com/) is loaded by default as it brings the Hyperscale capability to the PostgreSQL engine. Dropping the Citus extension from your Azure Arc PostgreSQL Hyperscale server group is not supported.
-- [pg_cron](https://github.com/citusdata/pg_cron), v: 1.2
-- [pgaudit](https://www.pgaudit.org/), v: 1.4
+- [`citus`](https://github.com/citusdata/citus), v: 9.4. The Citus extension by [Citus Data](https://www.citusdata.com/) is loaded by default as it brings the Hyperscale capability to the PostgreSQL engine. Dropping the Citus extension from your Azure Arc PostgreSQL Hyperscale server group is not supported.
+- [`pg_cron`](https://github.com/citusdata/pg_cron), v: 1.2
+- [`pgaudit`](https://www.pgaudit.org/), v: 1.4
 - plpgsql, v: 1.0
-- [postgis](https://postgis.net), v: 3.0.2
-- [plv8](https://plv8.github.io/), v: 2.3.14
+- [`postgis`](https://postgis.net), v: 3.0.2
+- [`plv8`](https://plv8.github.io/), v: 2.3.14
 
 Updates to this list will be posted as it evolves over time.
 
@@ -34,18 +34,18 @@ Updates to this list will be posted as it evolves over time.
 > While you may bring to your server group an extension other than those listed above, in this Preview, it will not be persisted to your system. It means that it will not be available after a restart of the system and you would need to bring it again.
 
 This guide will take in a scenario to use two of these extensions:
-- [PostGIS](https://postgis.net/)
-- [pg_cron](https://github.com/citusdata/pg_cron)
+- [`PostGIS`](https://postgis.net/)
+- [`pg_cron`](https://github.com/citusdata/pg_cron)
 
 ## Which extensions need to be added to the shared_preload_libraries and created?
 
 |Extensions   |Requires to be added to shared_preload_libraries  |Requires to be created |
 |-------------|--------------------------------------------------|---------------------- |
-|pg_cron      |No       |Yes        |
-|pg_audit     |Yes       |Yes        |
-|plpgsql      |Yes       |Yes        |
-|postgis      |No       |Yes        |
-|plv8      |No       |Yes        |
+|`pg_cron`      |No       |Yes        |
+|`pg_audit`     |Yes       |Yes        |
+|`plpgsql`      |Yes       |Yes        |
+|`postgis`      |No       |Yes        |
+|`plv8`      |No       |Yes        |
 
 ## Add extensions to the shared_preload_libraries
 For details about that are shared_preload_libraries please read the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES):
@@ -115,8 +115,8 @@ Connect to your server group with the client tool of your choice and run the sta
 drop extension <extension name>;
 ```
 
-## The PostGIS extension
-You do not need to add the PostGIS extension to the shared_preload_libraries.
+## The `PostGIS` extension
+You do not need to add the `PostGIS` extension to the `shared_preload_libraries`.
 Get [sample data](http://duspviz.mit.edu/tutorials/intro-postgis/) from the MIT’s Department of Urban Studies & Planning. Run `apt-get install unzip` to install unzip as needed.
 
 ```console
@@ -124,7 +124,7 @@ wget http://duspviz.mit.edu/_assets/data/intro-postgis-datasets.zip
 unzip intro-postgis-datasets.zip
 ```
 
-Let's connect to our database, and create the PostGIS extension:
+Let's connect to our database, and create the `PostGIS` extension:
 
 ```console
 CREATE EXTENSION postgis;
@@ -150,7 +150,7 @@ CREATE TABLE coffee_shops (
 CREATE INDEX coffee_shops_gist ON coffee_shops USING gist (geom);
 ```
 
-Now, we can combine PostGIS with the scale-out functionality, by making the coffee_shops table distributed:
+Now, we can combine `PostGIS` with the scale-out functionality, by making the coffee_shops table distributed:
 
 ```sql
 SELECT create_distributed_table('coffee_shops', 'id');
@@ -162,7 +162,7 @@ Let's load some data:
 \copy coffee_shops(id,name,address,city,state,zip,lat,lon) from cambridge_coffee_shops.csv CSV HEADER;
 ```
 
-And fill the `geom` field with the correctly encoded latitude and longitude in the PostGIS `geometry` data type:
+And fill the `geom` field with the correctly encoded latitude and longitude in the `PostGIS` `geometry` data type:
 
 ```sql
 UPDATE coffee_shops SET geom = ST_SetSRID(ST_MakePoint(lon,lat),4326);
@@ -175,7 +175,7 @@ SELECT name, address FROM coffee_shops ORDER BY geom <-> ST_SetSRID(ST_MakePoint
 ```
 
 
-## The pg_cron extension
+## The `pg_cron` extension
 
 Now, let's enable `pg_cron` on our PostgreSQL server group by adding it to the shared_preload_libraries:
 
@@ -225,6 +225,6 @@ See the [pg_cron README](https://github.com/citusdata/pg_cron) for full details 
 
 
 ## Next steps
-- Read documentation on [plv8](https://plv8.github.io/)
-- Read documentation on [PostGIS](https://postgis.net/)
+- Read documentation on [`plv8`](https://plv8.github.io/)
+- Read documentation on [`PostGIS`](https://postgis.net/)
 - Read documentation on [`pg_cron`](https://github.com/citusdata/pg_cron)
