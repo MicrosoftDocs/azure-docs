@@ -44,7 +44,7 @@ This section, you verify the built-in high availability provided by Kubernetes. 
    For example
 
    ```output
-   user@pc:/# kubectl delete pod sql1-0 -n arc.
+   user@pc:/# kubectl delete pod sql1-0 -n arc
    pod "sql1-0" deleted
    ```
 
@@ -209,7 +209,7 @@ Additional steps are required to restore a database into an availability group. 
 > As a best practice, you should cleanup by deleting the Kubernetes service created above by running this command:
 >
 >```bash
->kubectl delete svc sql2-0-p -n mssql-cluster
+>kubectl delete svc sql2-0-p -n arc
 >```
 
 ### Limitations
