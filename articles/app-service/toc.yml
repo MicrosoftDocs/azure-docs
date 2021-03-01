@@ -323,7 +323,7 @@
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=app-service
   - name: Migration Assistant guides
-    href: https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs
+    href: /app-service-migration-guides.md
   - name: Best practices
     href: app-service-best-practices.md
   - name: Samples
