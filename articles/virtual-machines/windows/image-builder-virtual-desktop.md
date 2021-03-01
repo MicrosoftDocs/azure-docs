@@ -304,6 +304,6 @@ Delete the resource group.
 Remove-AzResourceGroup $imageResourceGroup -Force
 ```
 
-## Next Steps
+## Next steps
 
 You can try more examples [on GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
