@@ -100,7 +100,7 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
 
 You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](/java/api/overview/azure/core-http-netty-readme?preserve-view=true&view=azure-java-stable) that is provided by `azure-core`.
 
-You can also provide the entire connection string using the connectionString() function instead of providing the endpoint and access key.
+You can also provide the entire connection string using the `connectionString()` function instead of providing the endpoint and access key.
 ```java
 // Your can find your connection string from your resource in the Azure Portal
 String connectionString = "<connection_string>";
