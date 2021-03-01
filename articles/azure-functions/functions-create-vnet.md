@@ -70,7 +70,7 @@ First, you create a .NET function app in the [Premium plan] as this tutorial wil
 
     ![Deployment notification](./media/functions-premium-create/function-app-create-notification2.png)
 
-1. Congratulations! You have successfully created your premium function app!
+1. Congratulations! You've successfully created your premium function app!
 
 ## Create Azure resources
 
@@ -147,7 +147,7 @@ Now, create the virtual network to which the Azure Function app will integrate.
 
 ## Lock down your storage account with private endpoints
 
-Azure Private Endpoints are used to connect to specific Azure resources using a private IP address. This ensures that network traffic remains within the designated virtual network, and access is available only for specific resources. Now, create the private endpoints for Azure File storage and Azure Blob storage with your storage account.
+Azure Private Endpoints are used to connect to specific Azure resources using a private IP address. This connection ensures that network traffic remains within the chosen virtual network, and access is available only for specific resources. Now, create the private endpoints for Azure File storage and Azure Blob storage with your storage account.
 
 1. In your new storage account, select **Networking** in the left menu.
 
@@ -309,7 +309,7 @@ To use your function app with virtual networks, you'll need to join it to a subn
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | **Source** | GitHub | You should have created a GitHub repo with the sample code in step 2. | 
+    | **Source** | Github | You should have created a Github repo with the sample code in step 2. | 
     | **Organization**  | myOrganization | This is the organization your repo is checked into, usually your account. |
     | **Repository** | myRepo | The repo you created with the sample code. |
     | **Branch** | main | This is the repo you just created, so use the master branch. |
