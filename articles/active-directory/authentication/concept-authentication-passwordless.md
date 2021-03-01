@@ -91,6 +91,8 @@ FIDO2 security keys can be used to sign in to their Azure AD or hybrid Azure AD 
 
 Sign-in with FIDO2 security keys to Azure AD are currently in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+We have a reference document for which [browsers support FIDO2 authentication with Azure AD](fido2-compatibility.md), as well as best practices for developers wanting to [support FIDO2 auth in the applications they develop](../develop/support-fido2-authentication.md).
+
 ![Sign in to Microsoft Edge with a security key](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
 The following process is used when a user signs in with a FIDO2 security key:
