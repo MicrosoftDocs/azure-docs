@@ -170,7 +170,9 @@ Customers need to update their tooling and automation to start using the new API
     - [Alerts](enable-alerts.md) are not migrated. After migration, recreate the alerts.
     - The Key Vault is created without any access policies. Create policies on the Key Vault to control access to the certificates.  
 
-The Key Vault is created without any access policies. Create policies on the Key Vault to control access to the certificates.## Next steps
+The Key Vault is created without any access policies. Create policies on the Key Vault to control access to the certificates.
+
+## Next steps
 - [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
 - Migrate to Cloud Services (extended support) using the [Azure portal](in-place-migration-portal.md)
 - Migrate to Cloud Services (extended support) using [PowerShell](in-place-migration-powershell.md)
