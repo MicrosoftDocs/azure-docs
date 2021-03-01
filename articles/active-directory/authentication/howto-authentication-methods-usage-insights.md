@@ -29,6 +29,7 @@ The following roles can access usage and insights:
 - Security Reader
 - Security Operator
 - Security Administrator
+- Global Reader
 - Global Administrator
 
  An Azure AD Premium P1 or P2 license is required to access usage and insights. Azure AD Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -118,7 +119,8 @@ The registration details report shows the following information for each user:
 
 ## Limitations
 
-Temporary Access Pass (TAP) registrations are not reflected in the registration tab of the report because they are only valid for short period of time.
+- The data in the report is not updated in real-time and may reflect a latency of up to a few hours.
+- Temporary Access Pass (TAP) registrations are not reflected in the registration tab of the report because they are only valid for short period of time.
 
 ## Next steps
 
