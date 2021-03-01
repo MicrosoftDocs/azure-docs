@@ -283,7 +283,7 @@ threadClient.addChatParticipants(threadId, addParticipantsRequest, new Callback<
 });
 ```
 
-1. Replace `<second_user_id>` in the class with the Communication Services user ID of the user to be added. 
+Replace `<second_user_id>` in the class with the Communication Services user ID of the user to be added. 
 
 ## List users in a thread
 
@@ -366,7 +366,7 @@ void listChatParticipantsNext(String nextLink, AsyncPagedDataCollection<ChatPart
 
 ## Remove user from a chat thread
 
-Make sure to replace `<second_user_id>` to a valid user id, we will remove second user from the thread now.
+Make sure to replace `<second_user_id>` to a valid user ID, we will remove second user from the thread now.
 
 Replace the `<REMOVE A USER>` comment with the following code:
 
@@ -406,7 +406,7 @@ threadClient.sendTypingNotification(threadId, new Callback<Void>() {
 
 ## Send a read receipt
 
-Make sure to replace `<chat_message_id>` with a valid chat message id, we will send read receipt for this message now.
+Make sure to replace `<chat_message_id>` with a valid chat message ID, we will send read receipt for this message now.
 
 Replace the `<SEND A READ RECEIPT>` comment with the following code:
 
