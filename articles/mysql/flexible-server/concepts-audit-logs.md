@@ -41,7 +41,7 @@ Other parameters you can adjust to control audit logging behavior include:
 | `DCL` | Queries like "GRANT PERMISSION" |
 | `ADMIN` | Queries like "SHOW STATUS" |
 | `GENERAL` | All in DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and ADMIN |
-| `TABLE_ACCESS` | Table read statements, such as SELECT or INSERT INTO ... SELECT <br> - Table delete statements, such as DELETE or TRUNCATE TABLE <br> - Table insert statements, such as INSERT or REPLACE <br> - Table update statements, such as UPDATE |
+| `TABLE_ACCESS` | - Table read statements, such as SELECT or INSERT INTO ... SELECT <br> - Table delete statements, such as DELETE or TRUNCATE TABLE <br> - Table insert statements, such as INSERT or REPLACE <br> - Table update statements, such as UPDATE |
 
 ## Access audit logs
 
