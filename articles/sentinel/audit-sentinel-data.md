@@ -1,6 +1,6 @@
 ---
-title: View audit and reporting data in Azure Sentinel| Microsoft Docs
-description: This article describes how to view audit and reporting data in Azure Sentinel.
+title: Audit Azure Sentinel queries and activities | Microsoft Docs
+description: This article describes how to audit queries and activities performed in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -18,14 +18,15 @@ ms.date: 03/01/2021
 ms.author: bagol
 
 ---
-# View audit data in Azure Sentinel
+# Audit Azure Sentinel queries and activities
 
-This article describes how you can use Azure Sentinel to audit the activities in your Security Operations (SOC) environment, such as for both internal and external compliance requirements.
+This article describes how you can view audit data for queries run and activities performed in your Azure Sentinel workspace, such as for internal and external compliance requirements in your Security Operations (SOC) workspace.
 
 Azure Sentinel provides access to:
 
-- The **LAQueryLogs** table, which provides details about the queries run in Log Analytics, including queries run from Azure Sentinel.
-- The **AzureActivity** table, which provides details about all actions taken in Azure Sentinel, such as editing alert rules. The **AzureActivity** table does not log specific query data.
+- The **AzureActivity** table, which provides details about all actions taken in Azure Sentinel, such as editing alert rules. The **AzureActivity** table does not log specific query data. For more information, see [Auditing with Azure Activity logs](#auditing-with-azure-activity-logs).
+
+- The **LAQueryLogs** table, which provides details about the queries run in Log Analytics, including queries run from Azure Sentinel. For more information, see [Auditing with LAQueryLogs](#auditing-with-laquerylogs).
 
 > [!TIP]
 > In addition to the manual queries described in this article, Azure Sentinel provides a built-in workbook to help you audit the activities in your SOC environment.
@@ -33,81 +34,6 @@ Azure Sentinel provides access to:
 > In the Azure Sentinel **Workbooks** area, search for the **Workspace audit** workbook.
 
 
-## Auditing with LAQueryLogs
-
-The **LAQueryLogs** table provides details about log queries run in Log Analytics. Since Log Analytics is used as Azure Sentinel's underlying query log, you can configure your system to display LAQueryLogs data in your Azure Sentinel workspace.
-
-LAQueryLogs data includes information such as:
-
-- When queries were run
-- Who ran queries in Log Analytics
-- What tool was used to run queries in Log Analytics, such as Azure Sentinel
-- The query texts themselves
-- Performance data on each query run
-
-
-
-> [!NOTE]
-> - The **LAQueryLogs** table only includes queries that have been run in the Logs blade of Azure Sentinel. It does not include the queries run by scheduled analytics rules, using the **Investigation Graph** or in the Azure Sentinel **Hunting** page.
-> - There may be a short delay between the time a query is run and the data is populated in the **LAQueryLogs** table. We recommend waiting about 5 minutes to query the **LAQueryLogs** table for audit data.
->
-
-**To query the LAQueryLogs table**:
-
-1. The **LAQueryLogs** table isn't enabled by default in your Log Analytics workspace. To use **LAQueryLogs** data when auditing in Azure Sentinel, first enable the **LAQueryLogs** in your Log Analytics workspace's **Diagnostics settings** area.
-
-    For more information about enabling the **LAQueryLogs** table and a full list of the audit data provided, see [Audit queries in Azure Monitor Logs](/azure/azure-monitor/logs/query-audit).
-
-1. Then, query the data using KQL, like you would any other table.
-
-    For example, the following query shows how many queries were run in the last week, on a per-day basis:
-
-    ```kql
-    LAQueryLogs
-    | where TimeGenerated > ago(7d)
-    | summarize events_count=count() by bin(TimeGenerated, 1d)
-    ```
-
-The following sections show more sample queries to run on the **LAQueryLogs** table when auditing activities in your SOC environment using Azure Sentinel.
-
-### The number of queries run where the response wasn't "OK"
-
-The following **LAQueryLogs** table query shows the number of queries run, where anything other than an HTTP response of **200 OK** was received. For example, this number will include queries that had failed to run.
-
-```kql
-LAQueryLogs
-| where ResponseCode != 200 
-| count 
-```
-
-### Show users for CPU-intensive queries
-
-The following **LAQueryLogs** table query lists the users who ran the most CPU-intensive queries, based on CPU used and length of query time.
-
-```kql
-LAQueryLogs
-|summarize arg_max(StatsCPUTimeMs, *) by AADClientId
-| extend User = AADEmail, QueryRunTime = StatsCPUTimeMs
-| project User, QueryRunTime, QueryText
-| order by QueryRunTime desc
-```
-
-### Show users who ran the most queries in the past week
-
-The following **LAQueryLogs** table query lists the users who ran the most queries in the last week.
-
-```kql
-LAQueryLogs
-| where TimeGenerated > ago(7d)
-| summarize events_count=count() by AADEmail
-| extend UserPrincipalName = AADEmail, Queries = events_count
-| join kind= leftouter (
-    SigninLogs)
-    on UserPrincipalName
-| project UserDisplayName, UserPrincipalName, Queries
-| summarize arg_max(Queries, *) by UserPrincipalName
-| sort by Queries desc
-```
 
 ## Auditing with Azure Activity logs
 
@@ -120,6 +46,13 @@ You can use the **AzureActivity** table when auditing activity in your SOC envir
 1. Connect the [Azure Activity](connect-azure-activity.md) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
 
 1. Then, query the data using KQL, like you would any other table.
+
+    The **AzureActivity** table includes data from many services, including Azure Sentinel. To filter in only data from Azure Sentinel, start your query with the following code:
+
+    ```kql
+     AzureActivity
+    | where OperationNameValue startswith "MICROSOFT.SECURITYINSIGHTS"
+    ```
 
     For example, to find out who was the last user to edit a particular analytics rule, use the following query (replacing `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with the rule ID of the rule you want to check):
 
@@ -134,7 +67,7 @@ Add more parameters to your query to explore the **AzureActivities** table furth
 
 For more information, see [Azure Sentinel data included in Azure Activity logs](#azure-sentinel-data-included-in-azure-activity-logs).
 
-### Find all actions taken by a specific AD user in the last 24 hours
+### Find all actions taken by a specific user in the last 24 hours
 
 The following **AzureActivity** table query lists all actions taken by a specific Azure AD user in the last 24 hours.
 
@@ -196,6 +129,83 @@ For example, the following table lists selected operations found in Azure Activi
 | | |
 
 For more information, see [Azure Activity Log event schema](/azure/azure-monitor/essentials/activity-log-schema).
+
+
+## Auditing with LAQueryLogs
+
+The **LAQueryLogs** table provides details about log queries run in Log Analytics. Since Log Analytics is used as Azure Sentinel's underlying data store, you can configure your system to collect LAQueryLogs data in your Azure Sentinel workspace.
+
+LAQueryLogs data includes information such as:
+
+- When queries were run
+- Who ran queries in Log Analytics
+- What tool was used to run queries in Log Analytics, such as Azure Sentinel
+- The query texts themselves
+- Performance data on each query run
+
+> [!NOTE]
+> - The **LAQueryLogs** table only includes queries that have been run in the Logs blade of Azure Sentinel. It does not include the queries run by scheduled analytics rules, using the **Investigation Graph** or in the Azure Sentinel **Hunting** page.
+> - There may be a short delay between the time a query is run and the data is populated in the **LAQueryLogs** table. We recommend waiting about 5 minutes to query the **LAQueryLogs** table for audit data.
+>
+
+
+**To query the LAQueryLogs table**:
+
+1. The **LAQueryLogs** table isn't enabled by default in your Log Analytics workspace. To use **LAQueryLogs** data when auditing in Azure Sentinel, first enable the **LAQueryLogs** in your Log Analytics workspace's **Diagnostics settings** area.
+
+    For more information, see [Audit queries in Azure Monitor logs](/azure/azure-monitor/logs/query-audit).
+
+
+1. Then, query the data using KQL, like you would any other table.
+
+    For example, the following query shows how many queries were run in the last week, on a per-day basis:
+
+    ```kql
+    LAQueryLogs
+    | where TimeGenerated > ago(7d)
+    | summarize events_count=count() by bin(TimeGenerated, 1d)
+    ```
+
+The following sections show more sample queries to run on the **LAQueryLogs** table when auditing activities in your SOC environment using Azure Sentinel.
+
+### The number of queries run where the response wasn't "OK"
+
+The following **LAQueryLogs** table query shows the number of queries run, where anything other than an HTTP response of **200 OK** was received. For example, this number will include queries that had failed to run.
+
+```kql
+LAQueryLogs
+| where ResponseCode != 200 
+| count 
+```
+
+### Show users for CPU-intensive queries
+
+The following **LAQueryLogs** table query lists the users who ran the most CPU-intensive queries, based on CPU used and length of query time.
+
+```kql
+LAQueryLogs
+|summarize arg_max(StatsCPUTimeMs, *) by AADClientId
+| extend User = AADEmail, QueryRunTime = StatsCPUTimeMs
+| project User, QueryRunTime, QueryText
+| order by QueryRunTime desc
+```
+
+### Show users who ran the most queries in the past week
+
+The following **LAQueryLogs** table query lists the users who ran the most queries in the last week.
+
+```kql
+LAQueryLogs
+| where TimeGenerated > ago(7d)
+| summarize events_count=count() by AADEmail
+| extend UserPrincipalName = AADEmail, Queries = events_count
+| join kind= leftouter (
+    SigninLogs)
+    on UserPrincipalName
+| project UserDisplayName, UserPrincipalName, Queries
+| summarize arg_max(Queries, *) by UserPrincipalName
+| sort by Queries desc
+```
 
 ## Configuring alerts for Azure Sentinel activities
 
