@@ -10,7 +10,7 @@ ms.custom: mvc
 
 # Azure Kubernetes Service
 
-Azure Kubernetes Service (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading much of the complexity and operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. Since Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes. Thus, AKS is free; you only pay for the agent nodes within your clusters, not for the masters.  
+Azure Kubernetes Service (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. Since Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes. Thus, AKS is free; you only pay for the agent nodes within your clusters, not for the masters.  
 
 You can create an AKS cluster using:
 * [The Azure CLI](aks-cli)
@@ -47,7 +47,9 @@ To secure your AKS clusters, see [Integrate Azure Active Directory with AKS][aks
 
 ### Integrated logging and monitoring
 
-Azure Monitor for Container Health collects memory and processor performance metrics from containers, nodes, and controllers within your AKS cluster and deployed applications. You can review both container logs and [the Kubernetes master logs][aks-master-logs], which are stored in an Azure Log Analytics workspace and are available through the Azure portal, Azure CLI, or a REST endpoint.
+Azure Monitor for Container Health collects memory and processor performance metrics from containers, nodes, and controllers within your AKS cluster and deployed applications. You can review both container logs and [the Kubernetes master logs][aks-master-logs], which are:
+* Stored in an Azure Log Analytics workspace.
+* Available through the Azure portal, Azure CLI, or a REST endpoint.
 
 For more information, see [Monitor Azure Kubernetes Service container health][container-health].
 
@@ -55,11 +57,11 @@ For more information, see [Monitor Azure Kubernetes Service container health][co
 
 AKS nodes run on Azure virtual machines (VMs). With AKS nodes, you can connect storage to nodes and pods, upgrade cluster components, and use GPUs. AKS supports Kubernetes clusters that run multiple node pools to support mixed operating systems and Windows Server containers.  
 
-For more information regarding Kubernetes cluster, node, and node pool capabilities, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
+For more information about Kubernetes cluster, node, and node pool capabilities, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
 ### Cluster node and pod scaling
 
-As demand for resources change, the number of cluster nodes or pods that run your services automatically scales up or down. You can use both the horizontal pod autoscaler or the cluster autoscaler to automatically adjust to demands and only run necessary resources.
+As demand for resources change, the number of cluster nodes or pods that run your services automatically scales up or down. You can adjust both the horizontal pod autoscaler or the cluster autoscaler to adjust to demands and only run necessary resources.
 
 For more information, see [Scale an Azure Kubernetes Service (AKS) cluster][aks-scale].
 
@@ -83,7 +85,9 @@ For more information, see [Confidential computing nodes on AKS][conf-com-node].
 
 ### Storage volume support
 
-To support application workloads, you can mount static or dynamic storage volumes for persistent data. Depending on the number of connected pods expected to share the storage volumes, you can use storage backed by either Azure Disks for single pod access, or Azure Files for multiple concurrent pod access.
+To support application workloads, you can mount static or dynamic storage volumes for persistent data. Depending on the number of connected pods expected to share the storage volumes, you can use storage backed by either:
+* Azure Disks for single pod access, or 
+* Azure Files for multiple, concurrent pod access.
 
 For more information, see [Storage options for applications in AKS][concepts-storage].
 
