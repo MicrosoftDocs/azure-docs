@@ -25,7 +25,7 @@ Azure multiple Source supports scans to capture metadata and schema on most Azur
 
 ### Setting up authentication for enumerating resources under a subscription or resource group
 
-1. Navigate to the subscription or the resource group in Azure Portal.  
+1. Navigate to the subscription or the resource group in the Azure portal.  
 1. Select **Access Control (IAM)** from the left navigation menu 
 1. You must be owner or user access administrator to add a role on the subscription or resource group. Select *+Add* button. 
 1. Set the **Reader** Role and enter your Azure Purview account name (which represents its MSI) under Select input box. Click *Save* to finish the role assignment.
@@ -133,4 +133,3 @@ To manage or delete a scan, do the following:
 
 - [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
 - [Search the Azure Purview Data Catalog](how-to-search-catalog.md)    
-
