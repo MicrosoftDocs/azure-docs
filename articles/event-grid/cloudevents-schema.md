@@ -56,8 +56,7 @@ You can use Event Grid for both input and output of events in the CloudEvents sc
  Event Grid resource | Input schema       | Delivery schema
 |---------------------|-------------------|---------------------
 | System Topics       | Event Grid schema | Event Grid schema or CloudEvents schema
-| User Topics/Domains | Event Grid schema | Event Grid schema
-| User Topics/Domains | Event Grid schema | CloudEvents schema
+| User Topics/Domains | Event Grid schema | Event Grid schema or CloudEvents schema
 | User Topics/Domains | CloudEvents schema | CloudEvents schema
 | User Topics/Domains | Custom schema     | Custom schema, Event Grid schema, or CloudEvents schema
 | PartnerTopics       | CloudEvents schema | CloudEvents schema
