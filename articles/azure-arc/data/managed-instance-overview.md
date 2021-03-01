@@ -25,7 +25,7 @@ Azure Arc enabled SQL Managed Instance has near 100% compatibility with the late
 
 Learn more about [Features and Capabilities of Azure Arc enabled SQL Managed Instance](managed-instance-features.md)
 
-[Azure Arc-enabled Managed Instance high availability](managed-instance-high-availability.md)
+[Azure Arc enabled Managed Instance high availability](managed-instance-high-availability.md)
 
 [Start by creating a Data Controller](create-data-controller.md)
 
