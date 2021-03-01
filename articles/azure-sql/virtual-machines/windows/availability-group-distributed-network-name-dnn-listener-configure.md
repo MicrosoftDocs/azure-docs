@@ -34,8 +34,8 @@ A distributed network name (DNN) listener replaces the traditional virtual netwo
 
 Use the DNN listener to replace an existing VNN listener, or alternatively, use it in conjunction with an existing VNN listener so that your availability group has two distinct connection points - one using the VNN listener name (and port if non-default), and one using the DNN listener name and port.
 
-![CAUTION]
- The routing behavior when using a DNN differs when using a VNN. Do not use port 1433. To learn more, see the [Port consideration](#port-considerations) section later in this article.
+[!CAUTION]
+The routing behavior when using a DNN differs when using a VNN. Do not use port 1433. To learn more, see the [Port consideration](#port-considerations) section later in this article.
 
 ## Prerequisites
 
@@ -119,7 +119,7 @@ Use either SQL Server Management Studio or Transact-SQL to confirm your DNN list
 
 ### SQL Server Management Studio
 
-Expand **Availability Group Listeners** in [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to view your DNN listener:
+Expand **Availability Group listeners** in [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to view your DNN listener:
 
 :::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-in-ssms.png" alt-text="View the DNN listener under availability group listeners in SQL Server Management Studio (SSMS)":::
 
@@ -162,7 +162,6 @@ Test the connectivity to your DNN listener with these steps:
 1. Fail the availability group over to another replica.
 1. After a reasonable amount of time, run `SELECT @@SERVERNAME` to confirm your availability group is now hosted on another replica.
 
-
 ## Limitations
 
 - Currently, a DNN listener for an availability group is only supported for SQL Server 2019 CU8 and later on Windows Server 2016 and later.
@@ -170,7 +169,7 @@ Test the connectivity to your DNN listener with these steps:
 
 ## Port considerations
 
-DNN Listeners are designed to listen on all IP addresses, but on a specific, unique port.  The DNS entry for the listener name should resolve to the addresses of all replicas in the AG.  This is done automatically with the Powershell script below.  Because DNN listeners accept connections on all IP addresses, it is critical that the port used for a listener be unique, and not in use by any other replica in the AG.  Since SQL Server either directly or via the Browser, always listens on port 1433, that port cannot be used for any DNN listener.
+DNN listeners are designed to listen on all IP addresses, but on a specific, unique port.  The DNS entry for the listener name should resolve to the addresses of all replicas in the AG.  This is done automatically with the Powershell script above in the [Create Script](#create-script) section.  Because DNN listeners accept connections on all IP addresses, it is critical that the port used for a listener be unique, and not in use by any other replica in the AG.  Since SQL Server either directly or via the Browser, always listens on port 1433, that port cannot be used for any DNN listener.
 
 ## Next steps
 
