@@ -1224,7 +1224,7 @@ When your workflow contains a Request trigger, you need to [get the trigger's ca
    }
    ```
 
-1. Save this key value somewhere safe for later use.
+1. Save this key value somewhere safe for you to use later.
 
 <a name="build-run-docker-container-image"></a>
 
@@ -1278,13 +1278,7 @@ To delete an item in your workflow from the designer, follow any of these steps:
 
 ### Designer fails to open
 
-When you try to open the designer, you get this error, **"Workflow design time could not be started"**, which can happen due to storage or extension bundle issues. Review these possible causes and solutions:
-
-* On Windows, if the Azure Storage Emulator isn't running yet, start the Azure Storage Emulator and then reopen the designer.
-
-* On macOS or Linux, in your project's **workflow-designtime** folder, open the **local.settings.json** file, and replace the `AzureWebJobsStorage` property value with the Azure storage account connection string that you added to the same **local.settings.json** file in your project's root folder.
-
-* If you tried to open the designer, and then discontinued or deleted your project, the extension bundle might not be downloading correctly. To check whether this cause is the problem, follow these steps:
+When you try to open the designer, you get this error, **"Workflow design time could not be started"**. If you previously tried to open the designer, and then discontinued or deleted your project, the extension bundle might not be downloading correctly. To check whether this cause is the problem, follow these steps:
 
   1. In Visual Studio Code, open the Output window. From the **View** menu, select **Output**.
 
