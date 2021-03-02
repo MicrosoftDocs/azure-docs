@@ -17,8 +17,8 @@ This article describes how to enable Azure Monitor for VMs for a virtual machine
 
 ## Prerequisites
 
-- [Create and configure a Log Analytics workspace](../insights/vminsights-configure-workspace.md).
-- See [Supported operating systems](../insights/vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
+- [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md).
+- See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
 
 
 ## Overview
@@ -33,7 +33,7 @@ Firewall requirements for the Log Analytics agent are provided in [Log Analytics
 ## Dependency agent
 
 >[!NOTE]
->The following information described in this section is also applicable to the [Service Map solution](../insights/service-map.md).  
+>The following information described in this section is also applicable to the [Service Map solution](./service-map.md).  
 
 You can download the Dependency agent from these locations:
 
