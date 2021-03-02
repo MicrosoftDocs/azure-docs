@@ -83,6 +83,8 @@ The following operations are available on Authentication API request metrics:
 | CreateToken          | Creates an access token. |
 | RevokeToken          | Revokes all access tokens created for an identity before a time given. |
 
+:::image type="content" source="./media/acs-auth-metrics.png" alt-text="Authentication Request Metric.":::
+
 ## Next Steps
 
 - Learn more about [Data Platform Metrics](../../azure-monitor/essentials/data-platform-metrics.md)
