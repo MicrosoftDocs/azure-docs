@@ -612,7 +612,7 @@ To complete the publishing process, see [Review and publish offers](review-publi
    Azure virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used. 
 
    Linux VM extension validations require the following to be part of the image:
-* Azure Linux Agent greater 2.2.41 
+* Azure Linux Agent greater 2.2.41
 * Python version above 2.8 
 
 
