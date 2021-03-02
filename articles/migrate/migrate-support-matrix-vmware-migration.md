@@ -24,8 +24,8 @@ Review [this article](server-migrate-overview.md) to figure out which method you
 
 ## Migration limitations
 
-- You can select up to 10 VMs at once for replication. If you want to migrate more machines, then replicate in groups of 10.
-- For VMware agentless migration, you can run up to 500 replications simultaneously.
+- You can select up to 10 VMs at once for replication through the Azure portal. If you want to migrate more machines, then replicate in groups of 10. There's no limit on the number of VMs that can be replicated through PowerShell cmdlets. Our recommendation is to replicate not more than 500 VMs at a time from a single vCenter through PowerShell to ensure optimal performance.
+- For VMware agentless migration, you can run up to 500 replications simultaneously from each vCenter Server.
 
 ## Agentless migration 
 
