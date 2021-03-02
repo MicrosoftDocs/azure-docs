@@ -11,38 +11,40 @@ ms.custom: template-tutorial
 # Tutorial: Implement CI/CD with GitOps using Azure Arc-enabled Kubernetes clusters
 
 
-This tutorial walks through setting up a CI/CD solution using GitOps with Azure Arc enabled Kubernetes clusters. For more information on this architecture, see the (TODO: link) architecture overview.
+In this tutorial, you will set up a CI/CD solution using GitOps with Azure Arc enabled Kubernetes clusters. Using the sample Azure Vote app, you will:
 
-By the end of this tutorial, you'll have an GitOps enabled CI/CD workflow with the sample Azure Vote app.
+> [!div class="checklist"]
+> * Create an Azure Arc enabled Kubernetes cluster.
+> * Connect your application and GitOps repos to Azure Repos.
+> * Import CI/CD pipelines.
+> * Connect your ACR to Azure DevOps and Kubernetes.
+> * Create environment variable groups.
+> * Deploy the `dev` and `stage` environments.
+> * Test the application environments.
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 ## Before you begin
 
-This tutorial assumes you're familiar with the following technologies and tutorials:
+This tutorial assumes familiarity with Azure DevOps, Azure Repos and Pipelines, and Azure CLI.
+[!INCLUDE Azure]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+* Sign into [Azure DevOps Services](https://dev.azure.com/).
+* Complete the [previous tutorial](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) to learn how to deploy GitOps for your CI/CD environment.
+* Understand the [benefits and architecture](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-configurations) of this feature.
+* Verify you have:
+   * A [connected Azure Arc enabled Kubernetes cluster](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
+   * A connected Azure Container Registry (ACR) with either [AKS integration](https://docs.microsoft.com/en-us/azure/aks/cluster-container-registry-integration) or [non-AKS cluster authentication](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-kubernetes). 
+   * "Build Admin" and "Project Admin" permissions for [Azure Repos](https://docs.microsoft.com/azure/devops/repos/get-started/what-is-repos) and [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-get-started).
+* Install the following Azure Arc enabled Kubernetes CLI extensions:
 
-
-#### Configurations and GitOps with Azure Arc enabled Kubernetes
-  - See the [conceptual overview](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-configurations) for more information on the architecture of GitOps with Azure Arc enabled Kubernetes clusters.
-  - Walk through the [GitOps tutorial](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) to understand the commands you'll use to deploy GitOps for your CI/CD environment.
-#### Azure DevOps
-  - You'll be using Azure DevOps to host the repos and pipelines for CI/CD.
-  - See the [user tutorial](https://docs.microsoft.com/azure/devops/user-tutorial/sign-up-invite-teammates) to get started with Azure DevOps.
-  - Ensure you have [permissions](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions) to create and use [Azure Repos](https://docs.microsoft.com/azure/devops/repos/get-started/what-is-repos) and [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-get-started).
-#### Azure Container Registry
-  - You'll use an Azure Container Registry to deploy images for the sample application.
-  - If you're using Azure Kubernetes Services (AKS) to host Kubernetes, you can follow the [Authentication Guide](https://docs.microsoft.com/azure/aks/cluster-container-registry-integration) to connect Azure Container Registry (ACR) with AKS.
-  - For non-AKS and local clusters, see the [image pull secret](https://docs.microsoft.com/azure/container-registry/container-registry-auth-kubernetes) tutorial.
-  - You'll need to create connections during the tutorial.
-- A local or [Azure Cloud shell](https://docs.microsoft.com/azure/cloud-shell/overview) environment with `kubectl` and the Azure CLI (`az`) commands installed and updated.
-  - Make sure that you have Azure Arc Kubernetes CLI extensions installed and updated, as explained in the [Arc Connection](https://docs.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster#install-the-azure-arc-enabled-kubernetes-cli-extensions) tutorial.
-
-With these resources on hand, you're ready to create the GitOps CI/CD workflow.
-
-## Create an Azure Arc-enabled Kubernetes Cluster
-The cluster hosts the app and the GitOps operator used for continuous deployment.
-
-This tutorial and the example code assume you're naming your cluster **arc-cicd-cluster**.
-
-Create and connect a Kubernetes cluster to Azure arc using the [cluster connection quickstart](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster).
+  ```azurecli
+  az extension add --name connectedk8s
+  az extension add --name k8sconfiguration
+  ```
+  * To update these extensions to the latest version, run the following commands:
+   ```azurecli
+   az extension update --name connectedk8s
+   az extension update --name k8sconfiguration
+   ```
 
 ## Import application and GitOps repos into Azure Repos
 
