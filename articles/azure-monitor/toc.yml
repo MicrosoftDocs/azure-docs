@@ -97,9 +97,9 @@
       href: logs/resource-manager-log-queries.md
     - name: Workbooks
       href: visualize/resource-manager-workbooks.md
-    - name: Azure Monitor for containers
+    - name: Container insights
       href: containers/resource-manager-container-insights.md
-    - name: Azure Monitor for VMs
+    - name: VM insights
       href: vm/resource-manager-vminsights.md
   - name: Azure CLI
     href: cli-samples.md
@@ -986,7 +986,7 @@
       href: app/change-analysis-visualizations.md
     - name: Troubleshoot
       href: app/change-analysis-troubleshoot.md
-  - name: Azure Monitor for VMs
+  - name: VM insights
     items:
     - name: Overview
       href: vm/vminsights-overview.md
@@ -1040,7 +1040,7 @@
       href: vm/vminsights-workbooks.md
     - name: Disable monitoring
       href: vm/vminsights-optout.md
-  - name: Azure Monitor for containers 
+  - name: Container insights 
     items:
     - name: Overview
       href: containers/container-insights-overview.md
