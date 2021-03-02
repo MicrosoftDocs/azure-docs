@@ -572,6 +572,10 @@
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md
     - name: Submit Spark job definitions
       href: ./spark/apache-spark-job-definitions.md
+    - name: Connect and monitor Azure Synapse Spark Application level metrics
+      href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
+    - name: Monitor Apache Spark Application-level metrics with Prometheus and Grafana
+      href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
   - name: Concepts
     items:
     - name: Apache Spark 

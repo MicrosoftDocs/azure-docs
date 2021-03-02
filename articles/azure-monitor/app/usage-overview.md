@@ -40,11 +40,6 @@ The best experience is obtained by installing Application Insights both in your 
 
     Publish your app to monitor your app's performance and find out what your users are doing with your app.
 
-## Include user and session ID in your telemetry
-To track users over time, Application Insights requires a way to identify them. The Events tool is the only Usage tool that does not require a user ID or a session ID.
-
-Start sending user and session IDs using [this process](./usage-send-user-context.md).
-
 ## Explore usage demographics and statistics
 Find out when people use your app, what pages they're most interested in, where your users are located, what browsers and operating systems they use. 
 
@@ -176,5 +171,3 @@ All new TelemetryClients automatically add the property value you specify. Indiv
    - [Retention](usage-retention.md)
    - [User Flows](usage-flows.md)
    - [Workbooks](../visualize/workbooks-overview.md)
-   - [Add user context](usage-send-user-context.md)
-

@@ -16,7 +16,7 @@ ms.author: chrande
 The following article describes common errors and solutions for deployments using the Azure Cosmos DB API for MongoDB.
 
 >[!Note]
-> Azure Cosmos DB does not host the MongoDB engine. It provides an implementation of the MongoDB wire protocol. Therefore, some of these errors are only found in Azure Cosmos DB's API for MongoDB. 
+> Azure Cosmos DB does not host the MongoDB engine. It provides an implementation of the MongoDB [wire protocol version 4.0](mongodb-feature-support-40.md), [3.6](mongodb-feature-support-36.md), and legacy support for [wire protocol version 3.2](mongodb-feature-support.md). Therefore, some of these errors are only found in Azure Cosmos DB's API for MongoDB.
 
 ## Common errors and solutions
 

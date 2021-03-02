@@ -10,6 +10,9 @@ ms.service: azure-communication-services
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling client library for Android.
 
+> [!NOTE]
+> This document uses version 1.0.0-beta.8 of the calling client library.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

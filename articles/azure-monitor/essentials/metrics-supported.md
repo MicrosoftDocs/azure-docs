@@ -150,7 +150,7 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |---|---|---|---|---|---|---|
 |active-timer-count|Yes|active-timer-count|Count|Average|Number of timers that are currently active|Deployment, AppName, Pod|
 |alloc-rate|Yes|alloc-rate|Bytes|Average|Number of bytes allocated in the managed heap|Deployment, AppName, Pod|
-|AppCpuUsage|Yes|App CPU Usage (preview)|Percent|Average|The recent CPU usage for the app|Deployment, AppName, Pod|
+|AppCpuUsage|Yes|App CPU Usage |Percent|Average|The recent CPU usage for the app|Deployment, AppName, Pod|
 |assembly-count|Yes|assembly-count|Count|Average|Number of Assemblies Loaded|Deployment, AppName, Pod|
 |cpu-usage|Yes|cpu-usage|Percent|Average|% time the process has utilized the CPU|Deployment, AppName, Pod|
 |current-requests|Yes|current-requests|Count|Average|Total number of requests in processing in the lifetime of the process|Deployment, AppName, Pod|

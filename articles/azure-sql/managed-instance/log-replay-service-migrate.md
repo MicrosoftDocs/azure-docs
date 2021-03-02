@@ -143,8 +143,6 @@ WITH COMPRESSION, CHECKSUM
 GO
 ```
 
-Files backed up to the local storage will need to be uploaded to the Azure Blob Storage.
-
 ### Create Azure Blob storage
 
 Azure Blob Storage is used as an intermediary storage for backup files between SQL Server and SQL Managed Instance. To create a new storage account and a blob container inside the storage account, follow these steps:
@@ -392,4 +390,4 @@ Once you start the LRS, use the monitoring cmdlets (get-azsqlinstancedatabaselog
 ## Next steps
 - Learn more about [Migrate SQL Server to SQL Managed instance](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 - Learn more about [Differences between SQL Server and Azure SQL Managed Instance](transact-sql-tsql-differences-sql-server.md).
-- Learn more about [Best practices to cost and size workloads migrated to Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs).
+- Learn more about [Best practices to cost and size workloads migrated to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs).
