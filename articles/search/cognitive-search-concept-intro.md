@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
+ms.custom: references_regions
 ---
 # AI enrichment in Azure Cognitive Search
 
@@ -30,14 +31,14 @@ Natural language and image processing is applied during the data ingestion phase
 
 ## Feature availability
 
-AI enrichment is only available in regions where Azure Cognitive Services are also available.  You can check the current availability of AI enrichment on the [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.  AI enrichment is available in all supported regions except:
+AI enrichment is available in regions where Azure Cognitive Services are also available.  You can check the current availability of AI enrichment on the [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.  AI enrichment is available in all supported regions except:
 
 + Australia Southeast
 + China North 2
 + Norway East
 + Germany West Central
 
-If your search service is located in one of these regions, you will not be able to create and use skillsets, but all other search service functionality is available and supported.
+If your search service is located in one of these regions, you will not be able to create and use skillsets, but all other search service functionality is available and fully supported.
 
 ## When to use AI enrichment
 
