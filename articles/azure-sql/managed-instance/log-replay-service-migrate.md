@@ -249,7 +249,9 @@ az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
 
 ### Scripting LRS start in continuous mode
 
-PowerShell and CLI clients to start LRS in continuous mode are synchronous. This means that clients will wait for the API response to report on success or failure to start the job. During this wait the command will not return the control back to the command prompt. In case you are scripting the migration experience, and require the LRS start command to give control back immediately to continue with rest of the script, you can execute PowerShell as a background job with -AsJob switch. For example:
+PowerShell and CLI clients to start LRS in continuous mode are synchronous. This means that clients will wait for the API response to report on success or failure to start the job. 
+
+During this wait, the command won't return control to the command prompt. If you're scripting the migration experience, and you need the LRS start command to give back control immediately to continue with rest of the script, you can run PowerShell as a background job with the `-AsJob` switch. For example:
 
 ```PowerShell
 $lrsjob = Start-AzSqlInstanceDatabaseLogReplay <required parameters> -AsJob
@@ -257,14 +259,14 @@ $lrsjob = Start-AzSqlInstanceDatabaseLogReplay <required parameters> -AsJob
 
 When you start a background job, a job object returns immediately, even if the job takes an extended time to finish. You can continue to work in the session without interruption while the job runs. For details on running PowerShell as a background job, see the [PowerShell Start-Job](/powershell/module/microsoft.powershell.core/start-job#description) documentation.
 
-Similarly, to start a CLI command on Linux as a background process, use the ampersand (&) sign at the end of the LRS start command.
+Similarly, to start an Azure CLI command on Linux as a background process, use the ampersand (`&`) at the end of the LRS start command.
 
 ```CLI
 az sql midb log-replay start <required parameters> &
 ```
 
 > [!IMPORTANT]
-> After you start LRS, any system-managed software patches will be halted for the next 47 hours. After this window, the next automated software patch will automatically stop the ongoing LRS. If that happens, migration can't be resumed and needs to be restarted from scratch. 
+> After you start LRS, any system-managed software patches are halted for 47 hours. After this window, the next automated software patch will automatically stop LRS. If that happens, you can't resume migration and need to restart it from scratch. 
 
 ## Monitor the migration progress
 
@@ -321,14 +323,14 @@ az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last
 
 ## Functional limitations
 
-Functional limitations of Log Replay Service (LRS) are:
-- Database being restored cannot be used for read-only access during the migration process.
-- System managed software patches will be blocked for 47 hours since starting LRS. Upon expiry of this time window, the next software update will stop LRS. In such case, LRS needs to be restarted from scratch.
-- LRS requires databases on the SQL Server to be backed up with CHECKSUM option enabled.
-- SAS token for use by LRS needs to be generated for the entire Azure Blob Storage container, and must have Read and List permissions only.
-- Backup files for different databases must be placed in separate folders on Azure Blob Storage.
-- LRS has to be started separately for each database pointing to separate folders with backup files on Azure Blob Storage.
-- LRS can support up to 100 simultaneous restore processes per single SQL Managed Instance.
+Functional limitations of LRS are:
+- The database that you're restoring can't be used for read-only access during the migration process.
+- System-managed software patches are blocked for 47 hours after you start LRS. After this time window expires, the next software update will stop LRS. You then need to restart LRS from scratch.
+- LRS requires databases on SQL Server to be backed up with the `CHECKSUM` option enabled.
+- The SAS token that LRS will use must be generated for the entire Azure Blob Storage container, and it must have only read and list permissions.
+- Backup files for different databases must be placed in separate folders on Blob Storage.
+- LRS must be started separately for each database that points to separate folders with backup files on Blob Storage.
+- LRS can support up to 100 simultaneous restore processes per single managed instance.
 
 ## Troubleshooting
 
