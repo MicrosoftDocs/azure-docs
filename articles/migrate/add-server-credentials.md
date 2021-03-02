@@ -47,7 +47,7 @@ Feature | Windows credentials | Linux credentials
 
 ### Recommended practices to provide credentials
 
-- It is recommended to create a dedicated domain user account with the [required permissions](how-to-add-server-credentials.md#required-permissions), which is scoped to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases on the desired servers.
+- It is recommended to create a dedicated domain user account with the [required permissions](add-server-credentials.md#required-permissions), which is scoped to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases on the desired servers.
 - It is recommended to provide at least one successfully validated domain credential or at least one non-domain credential to initiate software inventory.
 - To discover SQL Server instances and databases, you can provide domain credentials, if you have configured Windows authentication mode on your SQL Servers.
 -  You can also provide SQL Server authentication credentials if you have configured SQL Server authentication mode on your SQL Servers but it is recommended to provide at least one successfully validated domain credential or at least one Windows (Non-domain) credential so that the appliance can first complete the software inventory.
@@ -63,4 +63,4 @@ Feature | Windows credentials | Linux credentials
 
 ## Next steps
 
-Review the tutorials for [discovery of servers running in your VMware environment](./tutorial-discovery-vmware.md)
+Review the tutorials for [discovery of servers running in your VMware environment](tutorial-discovery-vmware.md)

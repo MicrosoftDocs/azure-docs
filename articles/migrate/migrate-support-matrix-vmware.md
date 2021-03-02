@@ -10,7 +10,7 @@ ms.date: 11/10/2020
 
 # Support matrix for VMware assessment 
 
-This article summarizes prerequisites and support requirements when you discover and assess servers running in VMware environment for migration to Azure, using the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment) tool. To assess servers, you create an Azure Migrate project which adds the Server Assessment tool to the project. After the tool is added, you deploy the Azure Migrate appliance. The appliance continuously discovers on-premises servers, and sends configuration and performance metadata to Azure. After discovery is complete, you gather discovered servers into groups, and run an assessment for a group.
+This article summarizes prerequisites and support requirements when you discover and assess servers running in VMware environment for migration to Azure, using the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. To assess servers, you create an Azure Migrate project which adds the Server Assessment tool to the project. After the tool is added, you deploy the Azure Migrate appliance. The appliance continuously discovers on-premises servers, and sends configuration and performance metadata to Azure. After discovery is complete, you gather discovered servers into groups, and run an assessment for a group.
 
 If you want to migrate VMware servers to Azure, review the [migration support matrix](migrate-support-matrix-vmware-migration.md).
 
@@ -92,8 +92,8 @@ In addition to discovering Servers, Server Assessment can discover applications,
 **Supported SQL services** | Only SQL Server Database Engine is supported. <br/> Discovery of SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS), and SQL Server Analysis Services (SSAS) is not supported.
 
 > [!Note]
-> Azure Migrate will encrypt the communication between Azure Migrate appliance and source SQL Server instances (with Encrypt connection property set to TRUE). These connections are encrypted with [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate?view=dotnet-plat-ext-5.0) (set to TRUE); the transport layer will use SSL to encrypt the channel and bypass the certificate chain to validate trust. The appliance server must be set up to [**trust the certificate's root authority**](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
-If no certificate has been provisioned on the server when it starts up, SQL Server generates a self-signed certificate which is used to encrypt login packets. [**Learn more**](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+> Azure Migrate will encrypt the communication between Azure Migrate appliance and source SQL Server instances (with Encrypt connection property set to TRUE). These connections are encrypted with [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (set to TRUE); the transport layer will use SSL to encrypt the channel and bypass the certificate chain to validate trust. The appliance server must be set up to [**trust the certificate's root authority**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
+If no certificate has been provisioned on the server when it starts up, SQL Server generates a self-signed certificate which is used to encrypt login packets. [**Learn more**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 ## Dependency analysis requirements (agentless)
 

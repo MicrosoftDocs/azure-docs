@@ -74,7 +74,7 @@ Select the servers on which you want to enable dependency discovery.
 
 :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png" alt-text="Start dependency analysis":::
 
-You can visualize dependencies around six hours after enabling dependency analysis on servers. If you want to simultaneously enable multiple servers for dependency analysis, you can use [PowerShell](#start-or-stop-dependency-discovery-using-powershell) to do so.
+You can visualize dependencies around six hours after enabling dependency analysis on servers. If you want to simultaneously enable multiple servers for dependency analysis, you can use [PowerShell](#start-or-stop-dependency-analysis-using-powershell) to do so.
 
 ## Visualize dependencies
 
@@ -136,7 +136,7 @@ Select the servers on which you want to stop dependency discovery.
 1. In the **Remove servers** page, select the server which you want to stop for dependency analysis.
 1. After selecting the servers,click **Remove servers**.
 
-If you want to stop dependency simultaneously on multiple servers, you can use [PowerShell](#start-or-stop-dependency-discovery-using-powershell) to do so.
+If you want to stop dependency simultaneously on multiple servers, you can use [PowerShell](#start-or-stop-dependency-analysis-using-powershell) to do so.
 
 ## Start or stop dependency analysis using PowerShell
 
