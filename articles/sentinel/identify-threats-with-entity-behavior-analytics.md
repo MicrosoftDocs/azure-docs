@@ -25,15 +25,13 @@ ms.author: yelevin
 
 ## What is User and Entity Behavior Analytics (UEBA)?
 
-### The concept
-
 Identifying threats inside your organization and their potential impact - whether a compromised entity or a malicious insider - has always been a time-consuming and labor-intensive process. Sifting through alerts, connecting the dots, and active hunting all add up to massive amounts of time and effort expended with minimal returns, and the possibility of sophisticated threats simply evading discovery. Particularly elusive threats like zero-day, targeted, and advanced persistent threats can be the most dangerous to your organization, making their detection all the more critical.
 
 The UEBA capability in Azure Sentinel eliminates the drudgery from your analysts’ workloads and the uncertainty from their efforts, and delivers high-fidelity, actionable intelligence, so they can focus on investigation and remediation.
 
 As Azure Sentinel collects logs and alerts from all of its connected data sources, it analyzes them and builds baseline behavioral profiles of your organization’s entities (such as users, hosts, IP addresses, and applications) across time and peer group horizon. Using a variety of techniques and machine learning capabilities, Azure Sentinel can then identify anomalous activity and help you determine if an asset has been compromised. Not only that, but it can also figure out the relative sensitivity of particular assets, identify peer groups of assets, and evaluate the potential impact of any given compromised asset (its “blast radius”). Armed with this information, you can effectively prioritize your investigation and incident handling. 
 
-### Architecture overview
+### UEBA analytics architecture
 
 :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/entity-behavior-analytics-architecture.png" alt-text="Entity behavior analytics architecture":::
 
@@ -142,6 +140,8 @@ Entity pages are designed to be part of multiple usage scenarios, and can be acc
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Entity page use cases":::
 
+For more information about the data displayed in the **Entity behavior analytics** table, see [Azure Sentinel UEBA enrichments reference](ueba-enrichments.md).
+
 ## Querying behavior analytics data
 
 Using [KQL](/azure/data-explorer/kusto/query/), we can query the Behavioral Analytics Table.
@@ -177,9 +177,28 @@ You can use the [Jupyter notebook](https://github.com/Azure/Azure-Sentinel-Noteb
 
 ### Hunting queries and exploration queries
 
-Azure Sentinel provides out-of-the-box a set of hunting queries, exploration queries, and a workbook, based on the BehaviorAnalytics table. These tools present enriched data, focused on specific use cases, that indicate anomalous behavior. 
+Azure Sentinel provides out-of-the-box a set of hunting queries, exploration queries, and the **User and Entity Behavior Analytics** workbook, which is based on the **BehaviorAnalytics** table. These tools present enriched data, focused on specific use cases, that indicate anomalous behavior.
 
-Learn more about [hunting and the investigation graph](./hunting.md) in Azure Sentinel.
+For more information, see:
+
+- [Hunt for threats with Azure Sentinel](hunting.md)
+- [Visualize and monitor your data](tutorial-monitor-your-data.md)
+
+In today’s cybersecurity landscape, bad actors have almost made a game of trying to breach through various defenses, as defense tools are becoming obsolete. Today, organizations have such a vast and porous digital estate that it has become unmanageable to obtain a comprehensive picture of the risk and posture their environment may be facing. 
+
+As organizations focus heavily on reactive efforts such as analytics and rules, bad actors are quickly finding ways to evade them. This is where UEBA comes to play by providing risk scoring methodologies and algorithms to figure out what is really happening.
+
+## Commonly used UEBA queries
+
+The following table describes commonly used queries that use UEBA analytics data.
+
+|Example |Query description  |
+|---------|---------|
+|**Proactive, routine searches in entity data**     |  We recommend running regular, proactive searches through user activity to create leads for further investigation. <br><br>Use the Azure Sentinel **User and Entity Behavior Analytics** workbook to query your data, such as for: <br>- **Top risky users**, with anomalies or attached incidents <br>- **Data on specific users**, to determine whether subject has indeed been compromised, or whether there is an insider threat due to action deviating from the user's profile. <br><br>Use the **User and Entity Behavior Analytics** workbook to capture non-routine actions and find anomalous activities and potentially non-compliance practices. For example, a user who connects to a VPN when they never have before would be an anomalous activity.|
+|**Use UEBA data to analyze false positives**     |Sometimes, an incident captured in an investigation is a false positive.<br><br> A common example of a false positive is when impossible travel activity is detected, such as a user who signed into an application or portal from both New York and London within the same hour.<br><br>While Azure Sentinel notes the impossible travel as an anomaly, an investigation with the user might clarify that a VPN was used with an alternative location to where the user actually was. <br><br>In such cases, use the user page and timeline to drill down to a specific user with anomalous activity and determine whether the locations capture are included in their commonly known locations.<br><br>**Tips**: <br>- When dealing with an impossible travel detection, you can also use the **Anomalous Geo Location** UEBA hunting query, which picks up any critical information such as user insights, device insights, and activity insights for defined users. <br>- You might also want to run another query to verify whether the user with anomalous location activity has peers who often connect from the same locations. If so, this incident would be more clearly a false positive.   |
+|**Identify password spray and spear phishing attempts**     |   If you are investigating a Potential Password Spray or Spear Phishing incident, you might want to use the built-in **Insights** area on the investigation graph for the relevant user before your restrict the account. <br><br>For even more details, view the full Entity Behavior page for your user, which displays any historical alerts or past sign-in anomalies.        |
+|     |         |
+
 
 ## Next steps
 In this document, you learned about Azure Sentinel's entity behavior analytics capabilities. For practical guidance on implementation, and to use the insights you've gained, see the following articles:
