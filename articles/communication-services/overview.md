@@ -38,7 +38,7 @@ The following resources are a great place to start if you're new to Azure Commun
 
 | Resource                               |Description                           |
 |---                                    |---                                   |
-|**[Create a Communication Services resource](./quickstarts/create-communication-resource.md)**|You can begin using Azure Communication Services by using the Azure portal, Azure Cli, or .Net client library to provision your first Communication Services resource. Once you have your Communication Services resource connection string, you can provision your first user access tokens.|
+|**[Create a Communication Services resource](./quickstarts/create-communication-resource.md)**|You can begin using Azure Communication Services by using the Azure Portal, Azure CLI, or .NET client library to provision your first Communication Services resource. Once you have your Communication Services resource connection string, you can provision your first user access tokens.|
 |**[Create your first user access token](./quickstarts/access-tokens.md)**|User access tokens are used to authenticate your services against your Azure Communication Services resource. These tokens are provisioned and reissued using the Communication Services Identity client library.|
 |**[Get a phone number](./quickstarts/telephony-sms/get-phone-number.md)**|You can use Azure Communication Services to provision and release telephone numbers. These telephone numbers can be used to initiate outbound calls and build SMS communications solutions.|
 |**[Send an SMS from your app](./quickstarts/telephony-sms/send.md)**|The Azure Communication Services SMS client library allows you to send and receive SMS messages from your .NET and JavaScript applications.|
