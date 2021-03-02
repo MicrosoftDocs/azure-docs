@@ -163,6 +163,19 @@ If discovered VMs don't appear in the portal or if the VM data is outdated, wait
 
 If you delete VMs and they still appear in the portal, wait 30 minutes. If they still appear, refresh as described above.
 
+## Discovered applications and SQL Server instances and databases not in portal
+
+After you have initiated discovery on the appliance, it may take up to 24 hours to start showing the inventory data in the portal.
+
+If you have not provided Windows authentication or SQL Server authentication credentials on the appliance configuration manager, then add the credentials so that the appliance can use them to connect to respective SQL Server instances.
+
+Once connected, appliance gathers configuration and performance data of SQL Server instances and databases. The SQL Server configuration data is updated once every 24 hours and the performance data is captured every 30 seconds. Hence any change to the properties of the SQL Server instance and databases such as database status, compatibility level etc. can take up to 24 hours to update on the portal.
+
+## SQL Server instance is showing up in "Not connected" state on portal
+To view the issues encountered during discovery of SQL Server instances and databases please click on "Not connected" status in connection status column on 'Discovered servers' page in your project.
+
+Creating assessment on top of servers containing SQL instances that were not discovered completely or are in not connected state, may lead to readiness being marked as "unknown".
+
 ## I do not see performance data for some network adapters on my physical servers
 
 This can happen if the physical server has Hyper-V virtualization enabled. Due to a product gap, the network throughput is captured on the virtual network adapters discovered.

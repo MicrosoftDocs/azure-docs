@@ -74,6 +74,9 @@ Server Assessment uses a lightweight [Azure Migrate appliance](migrate-appliance
 - Appliance discovery is agentless. Nothing is installed on discovered machines.
 - After appliance discovery, you can gather discovered machines into groups and run assessments for each group.
 
+> [!Note]
+> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
+
 ## Azure Migrate: Server Migration tool
 
 The Azure Migrate: Server Migration tool helps you migrate to Azure:
