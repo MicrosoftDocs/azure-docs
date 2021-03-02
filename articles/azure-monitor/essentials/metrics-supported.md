@@ -6,7 +6,6 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 02/06/2021
 ms.author: robb
-ms.subservice: metrics
 ---
 # Supported metrics with Azure Monitor
 
