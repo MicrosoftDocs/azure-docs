@@ -138,11 +138,11 @@ The Dev Tools Pack Installer is a one-stop solution that installs and configures
 
 1. On the **Install Dev Tools Pack Installer** page, click **View license** to view the license agreements of each software package included in the installer. If you accept the terms in the license agreements, check the box and click **Next**.
 
-    :::image type="content" source="./media/dev-tools-installer/dev_tools_license_agreements.png" alt-text="License agreement screen in the installer.":::
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-license-agreements.png" alt-text="License agreement screen in the installer.":::
 
 1. Click on **Privacy Statement** to review the Microsoft Privacy Statement. If you agree to the privacy statement terms and would like to send diagnostic data to Microsoft, select **Yes** and click **Next**. Otherwise, select **No** and click **Next**.
 
-    :::image type="content" source="./media/dev-tools-installer/dev_tools_privacy_statement.png" alt-text="Privacy statement agreement screen in the installer.":::
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-privacy-statement.png" alt-text="Privacy statement agreement screen in the installer.":::
 
 1. On the **Configure Components** page, select the optional tools you would like to install (the mandatory tools will install by default).
 
@@ -150,11 +150,11 @@ The Dev Tools Pack Installer is a one-stop solution that installs and configures
 
     1. Click **Install** to proceed with the installation.
 
-    :::image type="content" source="./media/dev-tools-installer/dev_tools_configure_components.png" alt-text="Installer screen showing available software packages.":::
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-configure-components.png" alt-text="Installer screen showing available software packages.":::
 
 1. After successful installation of all selected components, the wizard proceeds to the **Completing the Setup Wizard** page. Click **Finish** to exit the installer.
 
-    :::image type="content" source="./media/dev-tools-installer/dev_tools_finish.png" alt-text="Installer completion screen.":::
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-finish.png" alt-text="Installer completion screen.":::
 
 ## Docker status check
 
@@ -166,11 +166,11 @@ If the installer notifies you to verify Docker Desktop is in a good running stat
       
          1. Expand system tray hidden icons if hidden:
 
-            :::image type="content" source="./media/dev-tools-installer/SystemTray.png" alt-text="System Tray.":::
+            :::image type="content" source="./media/dev-tools-installer/system-tray.png" alt-text="System Tray.":::
          
          1. Verify the Docker Desktop icon shows 'Docker Desktop is Running':
 
-            :::image type="content" source="./media/dev-tools-installer/DockerStatusRunning.png" alt-text="Docker Status.":::
+            :::image type="content" source="./media/dev-tools-installer/docker-status-running.png" alt-text="Docker Status.":::
          
          1. If you do not see the above icon listed in the system tray, launch Docker Desktop from the start menu.
          
