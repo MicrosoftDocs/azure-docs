@@ -23,15 +23,17 @@ There are two components to the Windows Virtual Desktop service that the KDC pro
 - The feed in the Windows Virtual Desktop client that gives users a list of available desktops or applications they have access to.
 - The RDP session that results from a user selecting one of those available resources.
 
-The KDC proxy covers both components without having to use Windows Virtual Desktop and Remote Desktop Services at the same time. This article will show you how to configure the proxy in the Azure portal.
+This article will show you how to configure the feed in the Windows Virtual Desktop client in the Azure portal. If you want to learn how to configure the RD Gateway role, see [Deploy the RD Gateway role](/windows-server/remote/rd-gateway-role).
 
 ## Requirements
 
-To set up and configure the KDC proxy, you'll need the following things:
+To configure the feed for the KDC proxy, you'll need the following things:
 
-- [The Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop)
+- Access to the Azure portal and an Azure administrator account.
 - The client machine you're configuring must be running either Windows 10 or Windows 7
 - The KDC Proxy Server OS must be running Windows Server 2016 or later
+
+Once you've made sure you meet these requirements, you're ready to get started.
 
 ## How to configure the KDC proxy
 
@@ -44,11 +46,13 @@ To configure the KDC proxy:
 3. Select the host pool you want to enable the KDC proxy for, then select **RDP Properties**.
 
     > [!div class="mx-imgBorder"]
-    > ![A screenshot of the Azure portal page showing a user selecting Host pools, then the name of the example host pool, then RDP properties.](media/rdp-properties.png)
+    > ![A screenshot of the Azure portal page showing a user selecting host pools, then the name of the example host pool, then RDP properties.](media/rdp-properties.png)
 
 4. Select the **Advanced** tab, then enter a value in the following format without spaces:
 
-    > kdcproxyname:s:\<fqdn\>
+    ```azure
+    kdcproxyname:s:<fqdn>
+    ```
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot showing the Advanced tab selected, with the value entered as described in step 4.](media/advanced-tab-selected.png)
@@ -59,6 +63,6 @@ To configure the KDC proxy:
 
 ## Next steps
 
-To learn how to manage the Remote Desktop Services side of the KDC proxy and assign the RD Gateway role, see [Deploy the RD Gateway role in Windows Virtual Desktop](/windows-server/rd-gateway-role.md).
+To learn how to manage the Remote Desktop Services side of the KDC proxy and assign the RD Gateway role, see [Deploy the RD Gateway role](/windows-server/remote/rd-gateway-role).
 
 If you're interested in scaling your KDC proxy servers, learn how to set up high availability for KDC proxy at [Add high availability to the RD Web and Gateway web front](/windows-server/remote/remote-desktop-services/rds-rdweb-gateway-ha).
