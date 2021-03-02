@@ -14475,6 +14475,51 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cassandra-managed-instance/compare-cosmosdb-managed-instance.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/compare-cosmosdb-managed-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/configure-hybrid-cluster.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/configure-hybrid-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/create-cluster-portal.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/create-cluster-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/deploy-cluster-databricks.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/deploy-cluster-databricks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/faq.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/index.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/introduction.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/manage-resources-cli.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/manage-resources-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/visualize-prometheus-grafana.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/visualize-prometheus-grafana",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/distribute-data-globally-benefits.md",
       "redirect_url": "/azure/cosmos-db/distribute-data-globally",
       "redirect_document_id": true
@@ -63563,6 +63608,11 @@
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/windows/automatic-vm-guest-patching.md",
+      "redirect_url": "/azure/virtual-machines/automatic-vm-guest-patching",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/troubleshooting/allocation-failure-classic.md",
