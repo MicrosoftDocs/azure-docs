@@ -108,6 +108,8 @@
       href: connect-virtual-network-gateway-vwan.md
     - name: Configure custom IPsec policy
       href: virtual-wan-custom-ipsec-portal.md
+    - name: Configure NAT rules
+      href: nat-rules-vpn-gateway.md
   - name: User VPN (point-to-site)
     items:
     - name: Create a User VPN connection
