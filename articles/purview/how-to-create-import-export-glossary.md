@@ -84,6 +84,10 @@ You should be able to export terms from glossary as long as the selected terms b
 
 2. Select **Export** to download the selected terms.
 
+ > [!Important]
+   > If the terms in a hierarchy belong to different term templates then you need to split them in different .CSV files for import. Also, updating a parent of a term is currently not supported using import process.
+
+
 ## Next steps
 
 Follow the [Tutorial: Create and import glossary terms](tutorial-import-create-glossary-terms.md) to learn more.

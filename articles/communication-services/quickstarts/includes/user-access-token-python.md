@@ -47,7 +47,7 @@ ms.author: tchladek
 While still in the application directory, install the Azure Communication Services Administration client library for Python package by using the `pip install` command.
 
 ```console
-pip install azure-communication-administration
+pip install azure-communication-identity
 ```
 
 ## Authenticate the client
@@ -118,8 +118,8 @@ print("\nDeleted the identity with ID: " + identity.identifier)
 
 ## Run the code
 
-From a console prompt, navigate to the directory containing the *issue-access-token.py* file, then execute the following `python` command to run the app.
+From a console prompt, navigate to the directory containing the *issue-access-tokens.py* file, then execute the following `python` command to run the app.
 
 ```console
-python ./issue-access-token.py
+python ./issue-access-tokens.py
 ```

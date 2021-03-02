@@ -16,6 +16,9 @@ ms.author: mikben
 
 ### Install the client library
 
+> [!NOTE]
+> This document uses version 1.0.0-beta.6 of the calling client library.
+
 Use the `npm install` command to install the Azure Communication Services Calling and Common client libraries for JavaScript.
 This document is referencing types in version 1.0.0-beta.5 of calling library.
 
@@ -41,7 +44,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 Instantiate a new `CallClient` instance. You can configure it with custom options like a Logger instance.
 Once a `CallClient` is instantiated, you can create a `CallAgent` instance by calling the `createCallAgent` method on the `CallClient` instance. This asynchronously returns a `CallAgent` instance object.
-The `createCallAgent` method takes a `CommunicationTokenCredential` as an argument, which accepts a [user access token](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
+The `createCallAgent` method takes a `CommunicationTokenCredential` as an argument, which accepts a [user access token](../../access-tokens.md).
 To access the `DeviceManager` a callAgent instance must first be created. You can then use the `getDeviceManager` method on the `CallClient` instance to get the DeviceManager.
 
 ```js
