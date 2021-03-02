@@ -270,4 +270,3 @@ When upgrading from the 2.x SDK spring boot starter,
 note that the cloud role name will no longer default to `spring.application.name`.
 See the [3.0 configuration docs](./java-standalone-config.md#cloud-role-name)
 for setting the cloud role name in 3.0 via json config or environment variable.
->>>>>>> upstream/master
