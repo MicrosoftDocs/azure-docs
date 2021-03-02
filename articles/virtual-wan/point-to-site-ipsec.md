@@ -15,8 +15,6 @@ ms.author: wellee
 
 This article shows the supported IPsec policy combinations for Point-to-site VPN connectivity in Azure Virtual WAN.
 
-[!INCLUDE [Feature rollout](../../includes/virtual-wan-portal-feature-rollout.md)]
-
 ## Default IPsec policies
 
 The following table shows the default IPsec parameters for Point-to-site VPN connections. These parameters are automatically chosen by the Virtual WAN Point-to-site VPN gateway when a Point-to-site profile is created.
