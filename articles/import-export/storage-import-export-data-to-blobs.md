@@ -5,10 +5,11 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/01/2021
+ms.date: 03/02/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: contperf-fy21q3
 ---
 # Use the Azure Import/Export service to import data to Azure Blob Storage
 
@@ -97,23 +98,25 @@ Perform the following steps to create an import job in the Azure portal.
 1. Log on to https://portal.azure.com/.
 2. Search for **import/export jobs**.
 
-    ![Search on import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
+   ![Search on import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
 3. Select **+ New**.
 
-    ![Select New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
+   ![Select New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. In **Basics**:
 
    1. Select a subscription.
    1. Select a resource group, or select **Create new** and create a new one.
    1. Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
-       * The name may contain only lowercase letters, numbers, and hyphens.
-       * The name must start with a letter, and may not contain spaces.
+      * The name may contain only lowercase letters, numbers, and hyphens.
+      * The name must start with a letter, and may not contain spaces.
+
    1. Select **Import into Azure**.
-   1. When you finish basic settings, select **Next:Job details >**.
 
     ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+
+    Select **Next: Job details >** to proceed.
 
 5. In **Job details**:
 
@@ -121,11 +124,12 @@ Perform the following steps to create an import job in the Azure portal.
    1. Select the destination Azure region for the order.
    1. Select the storage account for the import.
       
-      The dropoff location is automatically populated based on the region of the storage account selected.<!--The region AND the storage account? Is this populated after the region is selected or after the storage account is selected?-->
+      The dropoff location is automatically populated based on the region of the storage account selected.
    1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.
-   1. When you finish the job details, select **Next:Shipping >**.
 
-   ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png).<!--Screen dump includes messaging related to an older version of the tool that was used to create the journal. How does the screen change when the latest tool version is used? Is the download instruction at top always displayed (unconditionally)?-->
+   ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png).
+
+   Select **Next: Shipping >** to proceed.
 
 6. In **Shipping**:
 
@@ -136,15 +140,15 @@ Perform the following steps to create an import job in the Azure portal.
        > [!TIP]
        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
-   1. When you finish the shipping information, select **Review + Create**.
+   ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
- ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
+   Select **Review + create** to proceed.
 
 7. In the order summary:
 
    1. Review the **Terms**, and then select "I acknowledge that all the information provided is correct and agree to the terms and conditions." Validation is then performed.
    1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
-   1. Click **Create**.
+   1. Select **Create**.
 
      ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 

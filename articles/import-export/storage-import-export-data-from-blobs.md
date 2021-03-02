@@ -9,6 +9,7 @@ ms.date: 03/02/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: contperf-fy21q3
 ---
 # Use the Azure Import/Export service to export data from Azure Blob storage
 
@@ -52,11 +53,12 @@ Perform the following steps to create an export job in the Azure portal.
    1. Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
        * The name may contain only lowercase letters, numbers, and hyphens.
        * The name must start with a letter, and may not contain spaces.
+
    1. Select **Export from Azure**.
 
     ![Basics options for an export order](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
 
-    Select **Next:Job details >** to proceed.
+    Select **Next: Job details >** to proceed.
 
 5. In **Job details**:
 
@@ -77,7 +79,7 @@ Perform the following steps to create an export job in the Azure portal.
         |------|-----------|      
         |**Add containers**|Export all blobs in a container.<br>Select **Add containers**, and enter each container name.|
         |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).|
-        |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name.<!--If they want to specify a single container name, won't they just use "Add containers" (second option)?--> |
+        |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name. |
 
         ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
 
@@ -88,12 +90,12 @@ Perform the following steps to create an export job in the Azure portal.
 
        To see how to add an XML file to a container, see [Export order using XML file](data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
-      ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)<!--Please verify the formats in this screenshot. They are fictitious.-->
+      ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
 
    > [!NOTE]
    > If a blob to be exported is in use during data copy, the Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
 
-   Select **Next:Shipping >** to proceed.
+   Select **Next: Shipping >** to proceed.
 
 6. In **Shipping**:
 
