@@ -34,7 +34,7 @@ The Authenticating of an ID Token allows users to prove who they are before rece
 
 Any identity provider that supports the OpenID Connect protocol is supported. Examples of supported identity providers include Azure Active Directory, and Azure AD B2C. This article contains the details of the OpenID Connect protocol used during the credential issuing process.
 
-![credential issuance process](/media/tutorial-sample-app-your-idp/sLqFtc9.png)
+![credential issuance process](/media/tutorial-sample-app-your-idp/slqftc9.png)
 
 To issue the Ninja Verifiable Credential, you need to provide the issuer service with the configuration details of your OpenID compliant identity provider. 
 
@@ -70,7 +70,7 @@ Configuration equates to the OpenID Connect metadata document URI.
 **ISSUE** By using the Oauth 2.0 endpoint we can only include first and last name from our IDP. For this portion of the tutorial that is ok for now. Check out the Customize ID token claims for more information. 
 ::::
 
-```json=
+```json
 {
   "attestations": {
     "idTokens": [
@@ -121,36 +121,36 @@ Copy down your Application (client) ID as you will need this later to update you
 
 ### Generate a client secret
 
-- Certificates & secrets
-- New client secret
-- Add description: "Node app client secret"
-- Expires: in one year
-
-Copy down the SECRET as you will need this to update your Sample Node app. 
+- Select **Certificates & secrets**.
+- In the **Client secrets** section choose **New client secret**
+- Add description like "Node VC client secret"
+- Expires: in one year 
+- Copy down the SECRET as you will need this to update your Sample Node app.
 
 >[!WARNING]
 > You have one chance to copy down the secret. The secret is one way hashed after this. Do not copy the ID. 
 
-
-```
-tP1WN~872_4GQR42nGL~GAgx__ASKdAbp6
-```
-
 ![Certificates and secrets](/media/tutorial-sample-app-your-idp/nfskid8.png)
 
-After creating your application and client secret in Azure AD, you need to grant the application permission to perform operations on your Key Vault. This enables the website to access and use the private keys that are stored in Key Vault.
+After creating your application and client secret in Azure AD, you need to grant the application permission to perform operations on your Key Vault. Making these permission changes is required to enable the website to access and use the private keys stored there.
 
 - Go to Key Vault.
 - Access Policies on left nav
 - Create new
 - Key permissions: Get, Sign
 - Select Principle: copy in the name you generated earlier. Select it.
-- Press Add
+- Select **Add**.
+- Choose **SAVE**.
 
-Don't forget to press SAVE.
+For more information about Key Vault permissions 
 
 ![assign key vault permissions](/media/tutorial-sample-app-your-idp/si53el7.png)
 
-## Summary and next steps
+## Summary
 
-You should have created a new VC that has your own IDP and copied the contract URL. You should have also generated a Client ID for the node app along with a client secret. We will need these values in the next section to turn your Sample code to start using your own keys from key vault. 
+We created a new verifiable credential using your identity provider. There are some values  and that has your own IDP and copied the contract URL. You should have also generated a Client ID for the node app along with a client secret. We will need these values in the next section to turn your Sample code to start using your own keys from key vault. 
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Tutorial: Update Sample with your IDP VC and to use your key vault ](tutorial-04-update-sample-your-idp-vc.md)

@@ -140,7 +140,7 @@ Now that your Credential has been created, lets copy the Credential URL and run 
 
 https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a33457/portableIdentities/contracts/SampleNinja
 
-```json=
+```json
 {
   "id": "SampleNinja",
   "display": {
@@ -207,9 +207,9 @@ https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a
 
 ## Update Contract URL in Sample
 
-Open your Issuer Sample code app.js file. 
+Open your Issuer Sample code app.js file.
 
-Update the constant 'credential' with your new contract URL. 
+Update the constant 'credential' with your new contract URL.
 
 ```
 /////////// Set the expected values for the Verifiable Credential
@@ -219,8 +219,8 @@ const credentialType = ['VerifiedCredentialNinja'];
 
 In the terminal, run your node app.
 
-```
-$ node ./app.js
+```cmd
+node ./app.js
 ```
 
 Open up your url from ngrok and test issuing the VC to yourself.
@@ -250,4 +250,4 @@ Here are those instructions if you forgot [Run Verifier Sample](https://hackmd.i
 
 Now that you have the sample code issuing a VC by your issuer, lets jump into the next section where you use your own identity provider to gate who can get the VC.
 
-[Tutorial - Hook up your IDP to a new Verifiable Credential, use contract uri in Sample](tutorial-sample-app-your-idp.md)
+- [Tutorial - Configure your identity provider using the verifiable credentials sample app](tutorial-sample-app-your-idp.md)
