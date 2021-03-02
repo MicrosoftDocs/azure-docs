@@ -40,6 +40,12 @@ The [Event Grid trigger](functions-bindings-event-grid.md) also has built-in sup
 
 See the [Image resize with Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) tutorial of an Event Grid example.
 
+#### Storage Extension 5.x and higher
+
+When using the preview storage extension, there is inbuilt support for Event Grid in the Blob trigger. To use this feature, add the **Source = BlobTriggerSource.EventGrid** parameter to your blob trigger function.
+
+For more information on how to use the Blob Trigger based on Event Grid, go to the [Event Grid Blob Trigger guide](./functions-event-grid-blob-trigger.md)
+
 ### Queue storage trigger
 
 Another approach to processing blobs is to write queue messages that correspond to blobs being created or modified and then use a [Queue storage trigger](./functions-bindings-storage-queue.md) to begin processing.
