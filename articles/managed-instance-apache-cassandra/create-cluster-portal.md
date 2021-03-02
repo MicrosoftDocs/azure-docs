@@ -60,9 +60,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Then click **Review + create** > **Create**
 
+    > [!NOTE]
+    > It can take up to 15 minutes for the cluster to be created.
+
    :::image type="content" source="./media/create-cluster-portal/review-create.png" alt-text="Review summary to create the cluster." lightbox="./media/create-cluster-portal/review-create.png" border="true":::
 
-1. After the deployment has finished, check your resource group to see the newly created managed instance resource:
+
+1. After the deployment has finished, check your resource group to see the newly created managed instance cluster:
 
    :::image type="content" source="./media/create-cluster-portal/managed-instance.png" alt-text="Overview page after the cluster is created." lightbox="./media/create-cluster-portal/managed-instance.png" border="true":::
 
