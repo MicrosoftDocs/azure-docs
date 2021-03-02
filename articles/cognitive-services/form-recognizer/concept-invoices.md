@@ -45,7 +45,7 @@ The [Analyze Invoice](https://westcentralus.dev.cognitive.microsoft.com/docs/ser
 
 |Response header| Result URL |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/invoice/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## The Get Analyze Invoice Result operation
 

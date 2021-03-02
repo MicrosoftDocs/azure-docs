@@ -74,7 +74,7 @@ To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
 ## Supported locales 
 
 * **Pre-built Receipt v2.0** (GA) supports sales receipts in the EN-US locale
-* **Pre-built Receipt v2.1-preview.2** (Public Preview) adds additional support for the following EN receipt locales: 
+* **Pre-built Receipt v2.1-preview.3** (Public Preview) adds additional support for the following EN receipt locales: 
   * EN-AU 
   * EN-CA 
   * EN-GB 
@@ -83,7 +83,7 @@ To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
   > [!NOTE]
   > Language input 
   >
-  > Prebuilt Receipt v2.1-preview.2 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (EN-AU), Canada (EN-CA), Great Britain (EN-GB), and India (EN-IN), you can specify the locale to get improved results. If no locale is specified in v2.1-preview.2, the model will default to the EN-US model.
+  > Prebuilt Receipt v2.1-preview.3 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (EN-AU), Canada (EN-CA), Great Britain (EN-GB), and India (EN-IN), you can specify the locale to get improved results. If no locale is specified in v2.1-preview.3, the model will default to the EN-US model.
 
 
 ## The Analyze Receipt operation

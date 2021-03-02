@@ -44,7 +44,7 @@ The [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.com/docs/serv
 
 |Response header| Result URL |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## The Get Analyze Layout Result operation
 

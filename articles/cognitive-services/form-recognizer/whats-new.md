@@ -21,7 +21,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### New features
 
-**Form Recognizer v2.1 public preview 2 is now available.** V2.1-preview.2 has been released, including the following features: 
+**Form Recognizer v2.1 public preview 2 is now available.** v2.1-preview.3 has been released, including the following features: 
 
 - **New prebuilt invoice model** - The new prebuilt Invoice model enables customers to take invoices in a variety of formats and return structured data to automate the invoice processing. It combines our powerful Optical Character Recognition (OCR) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts the text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, amount due, tax amount, ship to, bill to, and more.
 

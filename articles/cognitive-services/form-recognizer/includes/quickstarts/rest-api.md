@@ -45,14 +45,14 @@ curl -v -i POST "https://{Endpoint}/formrecognizer/v2.0/layout/analyze" -H "Cont
 # [v2.1 preview](#tab/v2-1)    
 
 ```bash
-curl -v -i POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{​​​​​​​'source': '{your-document-url}'}​​​​​​​​"
+curl -v -i POST "https://{Endpoint}/formrecognizer/v2.1-preview.3/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{​​​​​​​'source': '{your-document-url}'}​​​​​​​​"
 ```
 ---
 
 You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results. In the following example, the string after `analyzeResults/` is the operation ID.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.2/layout/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.3/layout/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ### Get layout results
@@ -72,7 +72,7 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/layout/analyzeResults/{re
 
 # [v2.1 preview](#tab/v2-1)  
 ```bash
-curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/layout/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.3/layout/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 ---
 
@@ -327,13 +327,13 @@ To start analyzing an invoice, use the cURL command below. For more information 
 
 
 ```bash
-curl -v -i POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:  {subscription key}" --data-ascii "{​​​​​​​'source': '{your invoice URL}'}​​​​​​​​"
+curl -v -i POST "https://{Endpoint}/formrecognizer/v2.1-preview.3/prebuilt/invoice/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:  {subscription key}" --data-ascii "{​​​​​​​'source': '{your invoice URL}'}​​​​​​​​"
 ```
 
 You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/invoice/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ### Get invoice results
@@ -345,7 +345,7 @@ After you've called the **[Analyze Invoice](https://westcentralus.dev.cognitive.
 1. Replace `{subscription key}` with your subscription key.
 
 ```bash
-curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.3/prebuilt/invoice/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
 ### Examine the response
@@ -539,7 +539,7 @@ curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/custom/models" -H "Conte
 
 # [v2.1 preview](#tab/v2-1)    
 ```bash
-curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}'}"
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.3/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}'}"
 ```
 
 ---
@@ -565,7 +565,7 @@ curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/custom/models" -H "Conte
 ```
 # [v2.1 preview](#tab/v2-1)    
 ```bash
-curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}', 'useLabelFile':true}"
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.3/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}', 'useLabelFile':true}"
 ```
 
 ---
@@ -588,7 +588,7 @@ curl -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{model ID}" -H
 ```
 # [v2.1 preview](#tab/v2-1)    
 ```bash
-curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{model ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.3/custom/models/{model ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
     
 ---
@@ -680,7 +680,7 @@ curl -v "https://{Endpoint}/formrecognizer/v2.0/custom/models/{model ID}/analyze
 
 # [v2.1 preview](#tab/v2-1)    
 ```bash
-curl -v "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{model ID}/analyze?includeTextDetails=true" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" -d "{ 'source': '{SAS URL}' } "
+curl -v "https://{Endpoint}/formrecognizer/v2.1-preview.3/custom/models/{model ID}/analyze?includeTextDetails=true" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" -d "{ 'source': '{SAS URL}' } "
 ```
     
 ---
@@ -1006,14 +1006,14 @@ curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/prebuilt/receipt/analyze
 # [v2.1 preview](#tab/v2-1)    
 
 ```bash
-curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.3/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
 ```
 ---
 
 You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results. In the following example, the string after `operations/` is the operation ID.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ### Get the receipt results
@@ -1030,7 +1030,7 @@ curl -X GET "https://{Endpoint}/formrecognizer/v2.0/prebuilt/receipt/analyzeResu
 ```
 # [v2.1 preview](#tab/v2-1)  
 ```bash
-curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/receipt/analyzeResults/{operationId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.3/prebuilt/receipt/analyzeResults/{operationId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 ---
 
@@ -1385,13 +1385,13 @@ This section demonstrates how to analyze and extract common fields from English 
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 
 ```bash
-curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.3/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
 ```
 
 You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ### Get business card results
@@ -1403,7 +1403,7 @@ After you've called the **Analyze Business Card** API, you call the **[Get Analy
 1. Replace `{subscription key}` with your subscription key.
 
 ```bash
-curl -v -X GET "https://westcentralus.api.cognitive.microsoft.com/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/{resultId}"
+curl -v -X GET "https://westcentralus.api.cognitive.microsoft.com/formrecognizer/v2.1-preview.3/prebuilt/businessCard/analyzeResults/{resultId}"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
@@ -1549,7 +1549,7 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models?op=full"
 # [v2.1 preview](#tab/v2-1)    
 
 ```bash
-curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models?op=full"
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.3/custom/models?op=full"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 ---
@@ -1592,7 +1592,7 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{modelId}" 
 # [v2.1 preview](#tab/v2-1)    
 
 ```bash
-curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.3/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 ---
 
@@ -1653,7 +1653,7 @@ curl -v -X DELETE "https://{Endpoint}/formrecognizer/v2.0/custom/models/{modelId
 # [v2.1 preview](#tab/v2-1)
 
 ```bash
-curl -v -X DELETE "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X DELETE "https://{Endpoint}/formrecognizer/v2.1-preview.3/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 ---
 
