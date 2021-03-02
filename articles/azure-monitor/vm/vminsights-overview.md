@@ -1,7 +1,6 @@
 ---
 title: What is VM insights?
 description: Overview of VM insights, which monitors the health and performance of the Azure VMs and automatically discovers and maps application components and their dependencies. 
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
