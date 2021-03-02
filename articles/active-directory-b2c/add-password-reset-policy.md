@@ -19,7 +19,7 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-## Password rest flow
+## Password reset flow
 
 Password reset policy allows users to reset their own forgotten password. The password reset flow involves following steps: 
 1. From the sign-up and sign-in page, user clicks on the "Forgot your password?" link. Azure AD B2C returns the AADB2C90118 error code to your app. The app handles this error code by invoking the password reset policy. 
