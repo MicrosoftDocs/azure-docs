@@ -6,7 +6,6 @@ ms.date: 02/24/2021
 author: stuartatmicrosoft
 ms.author: stkirk
 ms.service: azure-redhat-openshift
-ms.topic: article
 keywords: encryption, byok, aro, openshift, red hat
 # Customer intent: My security policies dictate that data at rest must be encrypted. Beyond this, the key used to encrypt data must be able to be changed at-will by a person authorized to do so.
 ---
