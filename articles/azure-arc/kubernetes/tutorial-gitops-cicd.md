@@ -67,7 +67,7 @@ Learn more about [importing Git repos](https://docs.microsoft.com/azure/devops/r
 
 To continuously deploy your app, connect the application repo to your cluster using GitOps. Your **arc-cicd-demo-gitops** GitOps repo contains the basic resources to get your app up and running on your **arc-cicd-cluster** cluster.
 
-The initial GitOps cluster contains only a [manifest](https://github.com/Azure/arc-cicd-demo-gitops/blob/master/arc-cicd-cluster/manifests/namespaces.yml) that creates the **dev** and **stage** namespaces corresponding to the deployment environments.
+The initial GitOps repo contains only a [manifest](https://github.com/Azure/arc-cicd-demo-gitops/blob/master/arc-cicd-cluster/manifests/namespaces.yml) that creates the **dev** and **stage** namespaces corresponding to the deployment environments.
 
 The GitOps connection that you create will automatically:
 * Sync the manifests in the manifest directory.
@@ -146,7 +146,7 @@ az aks update -n arc-cicd-cluster -g myResourceGroup --attach-acr arc-demo-acr
 
 To connect non-AKS and local clusters to your ACR, create an image pull secret. Kubernetes uses image pull secrets to store information needed to authenticate your registry.
 
-Create an image pull secret with the following kubectl command:
+Create an image pull secret with the following `kubectl` command. You'll need to do this for both the `dev` and `stage` namespaces.
 ```console
 kubectl create secret docker-registry <secret-name> \
     --namespace <namespace> \
@@ -154,6 +154,7 @@ kubectl create secret docker-registry <secret-name> \
     --docker-username=<service-principal-ID> \
     --docker-password=<service-principal-password>
 ```
+
 > [!TIP]
 > To avoid having to set an imagePullSecret for every Pod, consider adding the imagePullSecret to the Service account in the `dev` and `stage` namespaces. See the [Kubernetes tutorial](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#add-imagepullsecrets-to-a-service-account) for more information.
 
@@ -283,7 +284,7 @@ Once the pipeline run has finished, you have assured the quality of the applicat
 
 ## CD process approvals
 
-The successful CI pipeline run will triggers the CD pipeline to complete the deployment process. Similar to the first time you can the CD pipeline, you'll deploy to each environment incrementally. This time, the pipeline requires you to approve each deployment environment.
+A successful CI pipeline run triggers the CD pipeline to complete the deployment process. Similar to the first time you can the CD pipeline, you'll deploy to each environment incrementally. This time, the pipeline requires you to approve each deployment environment.
 
 1. Approve the deployment to the `dev` environment.
 1. Once the template and manifest changes to the GitOps repo have been generated, the CD pipeline will create a commit, push it, and create a PR for approval.
