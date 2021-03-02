@@ -115,7 +115,7 @@ To configure network isolation for this account from a Synapse workspace:
    az cosmosdb update --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --network-acl-bypass AzureServices --network-acl-bypass-resource-ids "/subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Synapse/workspaces/wsName"
    ```
 
-   > [NOTE]
+   > [!NOTE]
    > Azure Cosmos DB account and Azure Synapse Analytics workspace should be under same Azure Active Directory (AD) tenant.
 
 2. You can now access the account from serverless SQL pools, using T-SQL queries over Azure Synapse Link. However, to ensure network isolation for the data in analytical store, you must add an **analytical** managed private endpoint for this account. Otherwise, the data in the analytical store will not be blocked from public access.
