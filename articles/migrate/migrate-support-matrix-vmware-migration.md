@@ -25,7 +25,7 @@ Review [this article](server-migrate-overview.md) to figure out which method you
 ## Migration limitations
 
 - You can select up to 10 VMs at once for replication. If you want to migrate more machines, then replicate in groups of 10.
-- For VMware agentless migration, you can run up to 300 replications simultaneously.
+- For VMware agentless migration, you can run up to 500 replications simultaneously.
 
 ## Agentless migration 
 
@@ -67,7 +67,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
-**Simultaneous replication** | 300 VMs per vCenter Server. If you have more, migrate them in batches of 300.
+**Simultaneous replication** | 500 VMs per vCenter Server. If you have more, migrate them in batches of 500.
 **Automatic installation of Azure VM agent (Windows Agent)** | Supported for Windows Server 2008 R2 onwards.
 
 ### Appliance requirements (agentless)

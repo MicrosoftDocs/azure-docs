@@ -188,6 +188,8 @@
         href: how-to-migrate-vmware-vms-with-cmk-disks.md
     - name: Scale migration
       items:
+      - name: How to migrate VMware VMs at scale using the agentless replication method
+        href: how-to-scale-out-for-migration.md
       - name: Automate migration of large number of VMs
         href: how-to-migrate-at-scale.md
       - name: How to automate VMware migration

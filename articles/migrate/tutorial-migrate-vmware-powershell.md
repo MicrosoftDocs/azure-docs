@@ -130,7 +130,7 @@ Initialize-AzMigrateReplicationInfrastructure -ResourceGroupName $ResourceGroup.
 
 ## 7. Replicate VMs
 
-After completing discovery and initializing replication infrastructure, you can begin replication of VMware VMs to Azure. You can run up to 300 replications simultaneously.
+After completing discovery and initializing replication infrastructure, you can begin replication of VMware VMs to Azure. You can run up to 500 replications simultaneously.
 
 You can specify the replication properties as follows.
 
