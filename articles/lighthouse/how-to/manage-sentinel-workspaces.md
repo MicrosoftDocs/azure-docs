@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Sentinel workspaces at scale
 description: Learn how to effectively manage Azure Sentinel on delegated customer resources.
-ms.date: 02/24/2021
+ms.date: 03/02/2021
 ms.topic: how-to
 ---
 
