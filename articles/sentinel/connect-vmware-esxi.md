@@ -1,5 +1,5 @@
 ---
-title: Connect VMware ESXi data to Azure Sentinel| Microsoft Docs
+title: Connect VMware ESXi data to Azure Sentinel | Microsoft Docs
 description: Learn how to use the VMware ESXi data connector to pull ESXi logs into Azure Sentinel. View ESXi data in workbooks, create alerts, and improve investigation.
 services: sentinel
 documentationcenter: na
