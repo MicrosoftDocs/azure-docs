@@ -170,7 +170,7 @@ This section describes the current state of the functional and behavioral differ
 | Output bindings | Out parameters | Return values |
 | Output binding types |  `IAsyncCollector`, [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet&preserve-view=true), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true), and other client-specific types | Simple types, JSON serializable types, and arrays. |
 | Multiple output bindings | Supported | [Supported](#multiple-output-bindings) |
-| HTTP trigger | [`HttpRequest`](/dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0)/[`ObjectResult`](/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true) | `HttpRequestData`/`HttpResponseData` |
+| HTTP trigger | [`HttpRequest`](/dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true)/[`ObjectResult`](/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true) | `HttpRequestData`/`HttpResponseData` |
 | Durable Functions | [Supported](durable/durable-functions-overview.md) | Not supported | 
 | Imperative bindings | [Supported](functions-dotnet-class-library.md#binding-at-runtime) | Not supported |
 | function.json artifact | Generated | Not generated |
