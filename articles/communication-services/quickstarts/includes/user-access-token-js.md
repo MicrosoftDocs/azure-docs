@@ -118,7 +118,7 @@ Use the `createUserWithToken` method to create a Communication Services identity
 
 ```javascript
 // Issue an identity and an access token with the "voip" scope for the new identity
-let identityTokenResponse = await this.client.createUserWithToken([ "voip" ]);
+let identityTokenResponse = await this.client.createUserWithToken(["voip"]);
 const { token, expiresOn, user } = identityTokenResponse;
 console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
 console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
