@@ -138,13 +138,13 @@ You can use our new unified **App registrations** experience or our legacy  **Ap
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Delete all **User flows (policies)** in your Azure AD B2C tenant.
+1. Delete all **Identity Providers** in your Azure AD B2C tenant.
 1. Select **App registrations**, then select the **All applications** tab.
 1. Delete all applications that you registered.
 1. Delete the **b2c-extensions-app**.
 1. Under **Manage**, select **Users**.
 1. Select each user in turn (exclude the *Subscription Administrator* user you are currently signed in as). Select **Delete** at the bottom of the page and select **Yes** when prompted.
 1. Select **Azure Active Directory** on the left-hand menu.
-1. Under **Manage**, select **User settings**.
 1. Under **Manage**, select **Properties**
 1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
 1. Sign out of the Azure portal and then sign back in to refresh your access.
