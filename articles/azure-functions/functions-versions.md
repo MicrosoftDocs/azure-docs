@@ -87,7 +87,7 @@ The main differences between versions when running .NET class library functions 
 * Breaking changes introduced by .NET Core in [version 3.1](/dotnet/core/compatibility/3.1) and [version 3.0](/dotnet/core/compatibility/3.0), which aren't specific to Functions but might still affect your app.
 
 >[!NOTE]
->Due to support issues with .NET Core 2.2, function apps pinned to version 2 (`~2`) are essentially running on .NET Core 3.1. To learn more, see [Functions v2.x compatibility mode](functions-dotnet-class-library.md#functions-v2x-compatibility-mode).
+>Due to support issues with .NET Core 2.2, function apps pinned to version 2 (`~2`) are essentially running on .NET Core 3.1. To learn more, see [Functions v2.x compatibility mode](functions-dotnet-class-library.md#functions-v2x-considerations).
 
 ## Migrating from 1.x to later versions
 
