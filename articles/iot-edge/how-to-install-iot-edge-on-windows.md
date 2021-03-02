@@ -39,7 +39,7 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
   * Minimum Storage: 10 GB
 
 * Access to Windows Admin Center with the Azure IoT Edge extension for Windows Admin Center installed:
-   <!-- The link below needs the language localization to work; otherwise broken -->
+
    1. Download the [Windows Admin Center installer](https://aka.ms/wacdownload).
 
    1. Run the downloaded installer and follow the install wizard prompts to install Windows Admin Center. Once installed, open Windows Admin Center.
