@@ -6,8 +6,18 @@ ms.date: 03/12/2021
 ---
 
 # Azure VMware Solution platform updates
+Starting March 4, 2021, Azure VMware Solution will start patching ESXi in existing private clouds to VMware ESXi 6.7, Patch Release ESXi670-202011002. During this time, we expect no impact to Azure VMware Solution services or your workloads. For more details on the fixes, please refer to VMware ESXi 6.7, Patch Release ESXi670-202011002. 
+
+We will also apply the officially documented workarounds for the vSphere stack as per the VMware security advisory, VMSA-2021-0002.
+
+You will be notified of this maintenance activity via Azure Service Health.
+
+Note: During this maintenance activity, various VMware alerts like 'Lost network connectivity on DVPorts' and 'Lost uplink redundancy on DVPorts', will appear in vCenter and will clear automatically as the maintenance progresses.
+
+
 
 ## Azure VMware Solutions
+
 ### March  2021 update 
 
 An important update to Azure VMware Solutions will be performed in March. An email notification, sent as a part of maintenance will include the timeline of the maintenance. In this article, you learn about what to expect during this maintenance operation and changes to your private cloud.
