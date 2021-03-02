@@ -35,97 +35,9 @@ With this configuration, keep in mind that if the particular partition to which 
 
 One possible solution to ensure ordering, while also maximizing up time, would be to aggregate events as part of your event processing application. The easiest way to accomplish it is to stamp your event with a custom sequence number property.
 
-In this scenario, producer client sends events to one of the available partitions in your event hub, and sets the corresponding sequence number from your application. This solution requires state to be kept by your processing application, but gives your senders an endpoint that is more likely to be available.
+In this scenario, producer client sends events to one of the available partitions in your event hub, and sets the corresponding sequence number from your application. This solution requires state to be kept by your processing application, but gives your senders an endpoint that is more likely to be available. 
 
 
-## Appendix
-
-### .NET examples
-
-#### Send events to a specific partition
-
-#### [Azure.Messaging.EventHubs (5.0.0 or later)](#tab/latest)
-Set the partition key on an event or an event batch. In the following example, the partition ID is specified on an event batch. Doing so ensures that when these events are read from the partition, they are read in order. 
-
-
-```csharp
-var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
-var eventHubName = "<< NAME OF THE EVENT HUB >>";
-
-var producer = new EventHubProducerClient(connectionString, eventHubName);
-
-try
-{
-    string firstPartition = (await producer.GetPartitionIdsAsync()).First();
-
-    var batchOptions = new CreateBatchOptions
-    {
-        PartitionId = firstPartition
-    };
-
-    using var eventBatch = await producer.CreateBatchAsync(batchOptions);
-
-    for (var index = 0; index < 5; ++index)
-    {
-        var eventBody = new BinaryData($"Event #{ index }");
-        var eventData = new EventData(eventBody);
-
-        if (!eventBatch.TryAdd(eventData))
-        {
-            throw new Exception($"The event at { index } could not be added.");
-        }
-    }
-
-    await producer.SendAsync(eventBatch);
-}
-finally
-{
-    await producer.CloseAsync();
-}
-```
-
-#### [Microsoft.Azure.EventHubs (4.1.0 or earlier)](#tab/old)
-Use a `PartitionSender` object to only send events to a certain partition. To migrate to the newer **Azure.Messaging.EventHubs** library, see [Migrating code from PartitionSender to EventHubProducerClient for publishing events to a partition](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
-
-```csharp
-var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
-var eventHubName = "<< NAME OF THE EVENT HUB >>";
-
-var connectionStringBuilder = new EventHubsConnectionStringBuilder(connectionString){ EntityPath = eventHubName }; 
-var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
-
-// partition ID 0 is used for this example
-PartitionSender partitionSender = eventHubClient.CreatePartitionSender("0");
-try
-{
-    EventDataBatch eventBatch = partitionSender.CreateBatch();
-
-    for (var counter = 0; counter < int.MaxValue; ++counter)
-    {
-        var eventBody = $"Event Number: { counter }";
-        var eventData = new EventData(Encoding.UTF8.GetBytes(eventBody));
-
-        if (!eventBatch.TryAdd(eventData))
-        {
-            // At this point, the batch is full but our last event was not
-            // accepted.  For our purposes, the event is unimportant so we
-            // will intentionally ignore it.  In a real-world scenario, a
-            // decision would have to be made as to whether the event should
-            // be dropped or published on its own.
-
-            break;
-        }
-    }
-    await partitionSender.SendAsync(eventBatch);
-}
-finally
-{
-    await partitionSender.CloseAsync();
-    await eventHubClient.CloseAsync();
-}
-```
-
----
 
 ### Set a sequence number
 The following example stamps your event with a custom sequence number property. 
