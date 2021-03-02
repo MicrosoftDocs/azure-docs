@@ -14,7 +14,7 @@ ms.date: 07/24/2020
 This article is an introduction to developing Azure Functions by using C# in .NET class libraries.
 
 >[!IMPORTANT]
->This article supports .NET class library functions that run in-process with the runtime. Functions also supports .NET 5.x by running .NET class library functions isolated from the runtime. To learn more, see [.NET isolated class library functions](dotnet-isolated-guide.md).
+>This article supports .NET class library functions that run in-process with the runtime. Functions also supports .NET 5.x by running .NET class library functions isolated from the runtime. To learn more, see [.NET isolated class library functions](dotnet-isolated-process-guide.md).
 
 As a C# developer, you may also be interested in one of the following articles:
 
@@ -34,7 +34,7 @@ Versions of the Functions runtime work with specific versions of .NET. The follo
 | Functions 2.x | .NET Core 2.2 |
 | Functions 1.x | .NET Framework 4.7 |
 
-<sup>*</sup> Must run [out-of-process](dotnet-isolated-guide.md).
+<sup>*</sup> Must run [out-of-process](dotnet-isolated-process-guide.md).
 
 To learn more, see [Azure Functions runtime versions overview](functions-versions.md)
 
