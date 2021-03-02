@@ -110,6 +110,24 @@ Now select your new container and upload the Rules file you created earlier. Onc
 ![upload rules file](media/tutorial-create-samplecard-your-issuer/3WOwn6Z.png)
 
 
+## Role Assignment for Storage Blob
+
+Before creating the credential, we need to first give the signed in user the right role assignment so we can access the files in Storage Blob. 
+
+- Navigate to Storage > Container
+- Choose Access Control (IAM) in left menu
+- Role Assignments 
+- Add
+
+
+    ![Create a new credential screen](media/tutorial-create-sample-card-your-issuer/role_assignment.jpg)
+
+- Role: Storage Blob Data Reader
+- Assign access to: User, group or service principle
+- Select: choose the user that you are signed in with
+- Save
+
+Now that you have completed this, wait 5 minutes to go to the next section and create your Verifiable Credential. 
 
 
 
