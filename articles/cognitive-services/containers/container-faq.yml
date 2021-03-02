@@ -104,7 +104,7 @@ sections:
           > [!IMPORTANT]
           > Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information only with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft.
 
-          Here’s an example of the information a container sends to Microsoft for billing:
+          Here’s an example of the information a container communicates for metering:
           
           ```json 
           "usageRequestBody": {
