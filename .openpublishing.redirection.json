@@ -3975,11 +3975,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-resource-manager/management/azure-resource-manager-security-controls.md",
-      "redirect_url": "/azure/azure-resource-manager/management/security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/app-service/web-sites-enable-diagnostic-log.md",
       "redirect_url": "/azure/app-service/troubleshoot-diagnostic-logs",
       "redirect_document_id": false
@@ -40451,6 +40446,11 @@
     },
     {
       "source_path_from_root": "/articles/vmware-cloudsimple/enable-cloudsimple-service.md",
+      "redirect_url": "/azure/vmware-cloudsimple/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vmware-cloudsimple/migration-using-azure-data-box.md",
       "redirect_url": "/azure/vmware-cloudsimple/",
       "redirect_document_id": false
     },
