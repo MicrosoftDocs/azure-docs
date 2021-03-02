@@ -143,8 +143,6 @@
   items:
     - name: Create a schema registry
       href: create-schema-registry.md  
-    - name: Send events to a specific partition
-      href: send-events-specific-partition.md
     - name: Move
       items:
       - name: Move a namespace to another region
