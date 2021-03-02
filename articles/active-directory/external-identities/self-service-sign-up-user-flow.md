@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 
 ms.author: mimart
 author: msmimart
@@ -14,9 +14,7 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Add a self-service sign-up user flow to an app (Preview)
-> [!NOTE]
-> Self-service sign-up is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Add a self-service sign-up user flow to an app
 
 You can create user flows for apps that are built by your organization. Associating your user flow with an application allows you to enable sign-up on that app. You can choose more than one application to be associated with the user flow. Once you associate the user flow with one or more applications, users who visit that app will be able to sign up and gain a guest account using the options configured in the user flow.
 
@@ -32,9 +30,6 @@ Azure AD is the default identity provider for self-service sign-up. This means t
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
 - [Add Google to your list of social identity providers](google-federation.md)
 
-> [!NOTE]
-> In the current preview, if a self-service sign-up user flow is associated with an app and you send a user an invitation to that app, the user won't be able to use a Gmail account to redeem the invitation. As a workaround, the user can go through the self-service sign-up process. Or, they can redeem the invitation by accessing a different app or by using their My Apps portal at https://myapps.microsoft.com.
-
 ### Define custom attributes (optional)
 
 User attributes are values collected from the user during self-service sign-up. Azure AD comes with a built-in set of attributes, but you can create custom attributes for use in your user flow. You can also read and write these attributes by using the Microsoft Graph API. See [Define custom attributes for user flows](user-flow-add-custom-attributes.md).
@@ -46,7 +41,7 @@ Before you can add a self-service sign-up user flow to your applications, you ne
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. Select **User settings**, and then under **External users**, select **Manage external collaboration settings**.
-4. Set the **Enable guest self-service sign up via user flows (Preview)** toggle to **Yes**.
+4. Set the **Enable guest self-service sign up via user flows** toggle to **Yes**.
 
    ![Enable guest self-service sign-up](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
 5. Select **Save**.
@@ -57,7 +52,7 @@ Next, you'll create the user flow for self-service sign-up and add it to an appl
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
-4. Select **User flows (Preview)**, and then select **New user flow**.
+4. Select **User flows**, and then select **New user flow**.
 
    ![Add a new user flow button](media/self-service-sign-up-user-flow/new-user-flow.png)
 
@@ -71,14 +66,14 @@ Next, you'll create the user flow for self-service sign-up and add it to an appl
 > You can only collect attributes when a user signs up for the first time. After a user signs up, they will no longer be prompted to collect attribute information, even if you change the user flow.
 
 8. Select **Create**.
-9. The new user flow appears in the **User flows (Preview)** list. If necessary, refresh the page.
+9. The new user flow appears in the **User flows** list. If necessary, refresh the page.
 
 ## Select the layout of the attribute collection form
 
 You can choose order in which the attributes are displayed on the sign-up page. 
 
 1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
-2. Select **External Identities**, select **User flows (Preview)**.
+2. Select **External Identities**, select **User flows**.
 3. Select the self-service sign-up user flow from the list.
 4. Under **Customize**, select **Page layouts**.
 5. The attributes you chose to collect are listed. To change the order of display, select an attribute, and then select **Move up**, **Move down**, **Move to the top**, or **Move to the bottom**.
@@ -91,7 +86,7 @@ Now you can associate applications with the user flow.
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
-4. Under **Self-service sign up**, select **User flows (Preview)**.
+4. Under **Self-service sign up**, select **User flows**.
 5. Select the self-service sign-up user flow from the list.
 6. In the left menu, under **Use**, select **Applications**.
 7. Select **Add application**.

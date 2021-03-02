@@ -5,7 +5,7 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/02/2021
 ms.author: chrande
 ---
 
@@ -75,7 +75,7 @@ In a similar way, the partitioning capability automatically adds capacity and re
 
 ## <a id="indexing"></a>Index your data
 
-The Azure Cosmos DB's API for MongoDB server version 3.6 automatically indexes the `_id` field only. This field can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key. To index additional fields, you apply the MongoDB index-management commands. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
+The Azure Cosmos DB's API for MongoDB server versions 3.6 and higher automatically indexes the `_id` field only. This field can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key. To index additional fields, you apply the [MongoDB index-management commands](mongodb-indexing.md). This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
 
 The indexing capabilities provided by Azure Cosmos DB include adding compound indices, unique indices and time-to-live (TTL) indices. The index management interface is mapped to the `createIndex()` command. Learn more at [Indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)article.
 

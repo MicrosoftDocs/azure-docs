@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/22/2021
 
 ms.author: baselden
 author: justinha
@@ -147,7 +147,7 @@ There are three types of passwordless sign-in deployments available with securit
 
 -    Azure Active Directory web apps on a supported browser
 -    Azure Active Directory Joined Windows 10 devices
--    Hybrid Azure Active Directory Joined Windows 10 devices (preview)
+-    Hybrid Azure Active Directory Joined Windows 10 devices
      -    Provides access to both cloud-based and on premises resources. For more information about access to on-premises resources, see [SSO to on-premises resources using FIDO2 keys](./howto-authentication-passwordless-security-key-on-premises.md)
 
 You must enable **Compatible FIDO2 security keys**. Microsoft announced [key partnerships with FIDO2 key vendors](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
@@ -191,7 +191,7 @@ Enabling Windows 10 sign-in using FIDO2 security keys requires enabling the cred
 
 #### Enable on-premises integration
 
-To enable access to on-premises resources, follow the steps to [Enable passwordless security key sign in to on-premises resources (preview)](howto-authentication-passwordless-security-key-on-premises.md).
+To enable access to on-premises resources, follow the steps to [Enable passwordless security key sign in to on-premises resources](howto-authentication-passwordless-security-key-on-premises.md).
 
 > [!IMPORTANT]
 > These steps must also be completed for any hybrid Azure AD joined devices to utilize FIDO2 security keys for Windows 10 sign in.
