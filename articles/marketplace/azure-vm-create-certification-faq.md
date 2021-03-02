@@ -591,13 +591,13 @@ To complete the publishing process, see [Review and publish offers](review-publi
 
 ### VM images with limited access or requiring custom templates
 
-#### Locked Down(or) SSH disabled offer
+#### Locked down (or) SSH disabled offer
 
-  Images which are published with either SSH disabled(for Linux) or RDP disabled(  for Windows) are treated as Locked down VMs. There are special business scenarios due to which Publishers only allow restricted access to no/a few users. 
+  Images which are published with either SSH disabled(for Linux) or RDP disabled (for Windows) are treated as Locked down VMs. There are special business scenarios due to which Publishers only allow restricted access to no/a few users. 
   During validation checks, Locked down VMs might not allow execution of certain certification commands.
 
 
-#### Custom Templates
+#### Custom templates
 
    In general, all the images which are published under single VM offers will follow standard ARM template for deployment. However, there are scenarios where publisher might requires customization while deploying VMs (e.g. multiple NIC(s) to be configured).
     
@@ -607,7 +607,7 @@ To complete the publishing process, see [Review and publish offers](review-publi
    * Additional metadata to be inserted in ARM template.
    * Commands that are prerequisite to the execution of ARM template.
 
-### VM Extensions   
+### VM extensions   
 
    Azure virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used. 
 
