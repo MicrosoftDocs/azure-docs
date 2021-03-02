@@ -455,7 +455,7 @@
       href: how-to-managed-cluster-app-deployment-template.md
     - name: Enable disk encryption for managed cluster nodes
       href: how-to-enable-managed-cluster-disk-encryption.md
-    - name: Use managed identity for managed cluster node
+    - name: Use managed identity for managed cluster nodes
       href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
   - name: Plan and prepare
     items:
