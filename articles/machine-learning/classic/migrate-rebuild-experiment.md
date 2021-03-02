@@ -15,7 +15,7 @@ ms.date: 02/04/2021
 
 In this article, you learn how to rebuild a Studio (classic) experiment in Azure Machine Learning. For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
 
-Studio (classic) **experiment** are similar to **pipelines** in Azure Machine Learning. However, in Azure Machine Learning pipelines are built on the same back-end that powers the SDK. This means that both drag-and-drop *and* code-first workflows can share development artifacts.
+Studio (classic) **experiments are similar to **pipelines** in Azure Machine Learning. However, in Azure Machine Learning pipelines are built on the same back-end that powers the SDK. This means that both drag-and-drop *and* code-first workflows can share development artifacts.
 
 For more information on building pipelines with the SDK, see [What are Azure Machine Learning pipelines](../concept-ml-pipelines.md#building-pipelines-with-the-python-sdk).
 
@@ -25,10 +25,11 @@ For more information on building pipelines with the SDK, see [What are Azure Mac
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
 - A Studio (classic) experiment to migrate.
+- [Upload your dataset](migrate-register-dataset.md) to Azure Machine Learning.
 
 ## Rebuild the pipeline
 
-After you [upload you your dataset to Azure Machine Learning](migrate-register-dataset.md), you're ready to recreate your experiment. **Azure Machine Learning designer** provides a similar drag-and-drop experience to Studio (classic).
+After you [upload your dataset to Azure Machine Learning](migrate-register-dataset.md), you're ready to recreate your experiment.
 
 In Azure Machine Learning, the visual graph is called a **pipeline draft**. In this section, you recreate your classic experiment as a pipeline draft.
 
@@ -38,7 +39,7 @@ In Azure Machine Learning, the visual graph is called a **pipeline draft**. In t
 
 1. Manually rebuild your experiment with designer modules.
     
-    Consult the [module-mapping table](migrate-overview.md#studio-classic-and-designer-module-mapping) to find replacement modules. Many of Studio (classic)'s most popular modules have identical versions the designer.
+    Consult the [module-mapping table](migrate-overview.md#studio-classic-and-designer-module-mapping) to find replacement modules. Many of Studio (classic)'s most popular modules have identical versions in the designer.
 
     > [!Important]
     > If your experiment uses the Execute R Script module, you need to perform additional steps to migrate your experiment. For more information, see the [Migration reference](migrate-execute-r-script.md).

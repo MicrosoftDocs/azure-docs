@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classic): Migrate to Azure Machine Learning - Consume pipeline endpoints'
-description: Integrate pipeline endpoitns with with client applications in Azure Machine Learning
+description: Integrate pipeline endpoints with client applications in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -56,7 +56,7 @@ Call the REST endpoint from your client application. You can use the Swagger spe
 1. Select your pipeline endpoint.
 1. In the **Pipeline endpoint overview** pane, select the link under **REST endpoint documentation**.
 
-### Use Azure Data FActory
+### Use Azure Data Factory
 
 You can call your Azure Machine Learning pipeline as a step in an Azure Data Factory pipeline. For more information, see [Execute Azure Machine Learning pipelines in Azure Data Factory](../../data-factory/transform-data-machine-learning-service.md).
 

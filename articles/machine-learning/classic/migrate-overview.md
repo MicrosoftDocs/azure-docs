@@ -20,7 +20,7 @@ Azure Machine Learning provides a modernized data science platform that combines
 
 ## Recommended approach
 
-To migrate to Azure Machine Learning we recommend the following approach:
+To migrate to Azure Machine Learning, we recommend the following approach:
 
 > [!div class="checklist"]
 > * Step 1: Assess Azure Machine Learning
@@ -35,7 +35,8 @@ To migrate to Azure Machine Learning we recommend the following approach:
 
 1. [Compare the capabilities](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) of Azure Machine Learning and Studio (classic).
     
-     Azure Machine Learning supports code-first development in addition to the drag-and-drop designer. For more information on the code-first development cycle, see [MLOps: Model management, deployment, and monitoring](../concept-model-management-and-deployment.md).
+    >[!NOTE]
+    > The **designer** feature in Azure Machine Learning provides a similar drag-and-drop experience to Studio (classic). However, Azure Machine Learning also provides robust [code-first workflows](../concept-model-management-and-deployment.md) as an alternative. This migration series focuses on the designer, since it's the most similar to Studio (classic) experience.
 
 1. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer module-mapping](#studio-classic-and-designer-module-mapping) table.
 
@@ -43,7 +44,7 @@ To migrate to Azure Machine Learning we recommend the following approach:
 
 ## Step 2: Create a migration plan
 
-1. Identify which Studio (classic) data sets, models, and web services you want to migrate.
+1. Identify the Studio (classic) **data sets**, **models**, and **web services** that you want to migrate.
 
 1. Determine the impact that a migration will have on your business.
 
@@ -55,7 +56,8 @@ To migrate to Azure Machine Learning we recommend the following approach:
 1. Use the designer to [rebuild experiments](migrate-rebuild-experiment.md).
 1. Use the designer to [redeploy web services](migrate-rebuild-web-service.md).
 
-Azure Machine Learning also supports code-first workflows for [datasets](../how-to-create-register-datasets.md), [training](../how-to-set-up-training-targets.md), and [deployment](../how-to-deploy-and-where.md).
+    >[!NOTE]
+    > Azure Machine Learning also supports code-first workflows for [datasets](../how-to-create-register-datasets.md), [training](../how-to-set-up-training-targets.md), and [deployment](../how-to-deploy-and-where.md).
 
 ## Step 4: Integrate client apps
 
@@ -63,7 +65,7 @@ Azure Machine Learning also supports code-first workflows for [datasets](../how-
 
 ## Step 5: Cleanup Studio (classic) assets
 
-1. [Clean up your Studio (classic) assets](export-delete-personal-data-dsr.md) to avoid additional charges. You may want to retain Studio (classic) assets for fallback until you have validated Azure Machine Learning workloads.
+1. [Clean up your Studio (classic) assets](export-delete-personal-data-dsr.md) to avoid extra charges. You may want to retain Studio (classic) assets for fallback until you have validated Azure Machine Learning workloads.
 
 ## Studio (classic) and designer module-mapping
 
@@ -146,7 +148,7 @@ In Azure Machine Learning, **real-time endpoints** are used for real-time predic
 
 ## Next steps
 
-In this article, you learned the high-level requirements for migrating. For detailed steps see the other articles in the Studio (classic) migration series:
+In this article, you learned the high-level requirements for migrating to Azure Machine Learning. For detailed steps see the other articles in the Studio (classic) migration series:
 
 1. **Migration overview**.
 1. [Migrate dataset](migrate-register-dataset.md).

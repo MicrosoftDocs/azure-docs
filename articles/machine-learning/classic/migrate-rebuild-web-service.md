@@ -42,7 +42,7 @@ After you create a training pipeline, you're ready to deploy it as a real-time e
 
 In Studio (classic), you use a **REQUEST/RESPOND web service** to deploy a model for real-time predictions. In Azure Machine Learning, you use a **real-time endpoint**.
 
-There are multiple ways to deploy a model in Azure Machine Learning. One of the simplest ways is to use the designer to automate the deployment process:
+There are multiple ways to deploy a model in Azure Machine Learning. One of the simplest ways is to use the designer to automate the deployment process. Use the following steps to deploy a model as a real-time endpoint:
 
 1. Run your completed training pipeline at least once.
 1. After the run completes, at the top of the canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
@@ -53,7 +53,7 @@ There are multiple ways to deploy a model in Azure Machine Learning. One of the 
 
     In the designer, this step also registers the trained model to your Azure Machine Learning workspace.
 
-1. Select **Submit** to run the real-time inference pipeline, and verify that it run successfully.
+1. Select **Submit** to run the real-time inference pipeline, and verify that it runs successfully.
 
 1. After you verify the inference pipeline, select **Deploy**.
 
@@ -68,7 +68,7 @@ There are multiple ways to deploy a model in Azure Machine Learning. One of the 
 
 ### Test the real-time endpoint
 
-After deployment completes, you can see additional details and test your endpoint:
+After deployment completes, you can see more details and test your endpoint:
 
 1. Go the **Endpoints** tab.
 1. Select you endpoint.
@@ -109,7 +109,7 @@ Use the following steps to publish a pipeline endpoint for batch prediction:
     
     A new pipeline endpoint creates a new REST endpoint for your pipeline. 
 
-    If you select an existing pipeline endpoint, you don't overwrite the existing pipeline. Instead, Azure Machine Learning versions each pipeline in an pipeline endpoint. You can specify which version to run in your REST call. You must also set a default pipeline if the REST call doesn't specify a version.
+    If you select an existing pipeline endpoint, you don't overwrite the existing pipeline. Instead, Azure Machine Learning versions each pipeline in a pipeline endpoint. You can specify which version to run in your REST call. You must also set a default pipeline if the REST call doesn't specify a version.
 
 
  ### Publish a pipeline endpoint for retraining
