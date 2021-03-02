@@ -105,6 +105,9 @@ The sample configuration downloaded in these examples collects a set of standard
 > [!NOTE]
 > For enabling the new Azure Monitor Sink, the VMs need to have System Assigned Identity enabled for MSI Auth token generation. This can be done during VM creation or after the VM has been created. Steps for enabling System Assigned Identity through portal, CLI, PowerShell, and resource manager.  are listed in detail [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
 
+> [!NOTE]
+> The customer would also need to add AzMonSink to their public settings (explained in public settings section below) to start getting metrics sent to Azure Monitor Metrics
+
 #### Azure CLI sample
 
 ```azurecli
@@ -323,6 +326,9 @@ Data directed to a JsonBlob sink is stored in blobs in Azure storage. Each insta
 
 This structure contains various blocks of settings that control the information collected by the extension. Each setting (except ladCfg) is optional. If you specify metric or syslog collection in `ladCfg`, you must also specify `StorageAccount`. sinksConfig element needs to be specified in order to enable Azure Monitor Sink for metrics from LAD 4.0
 
+> [!NOTE]
+> For LAD4 Public Preview onboarding, ladCfg element has to be present in the public config. It can be an empty element as shown in the subsection below
+
 ```json
 {
     "ladCfg":  { ... },
@@ -356,13 +362,15 @@ The remaining elements are described in detail in the following sections.
 
 This structure controls the gathering of metrics and logs for delivery to the Azure Metrics service and to other data sinks. You must specify either `performanceCounters` or `syslogEvents` or both. You must specify the `metrics` structure.
 
-If you don't want to enable syslog or metrics collection, then you can simply specify an empty structure for ladCfg element as shown below - 
 
-```json
-"ladCfg": {
-    "diagnosticMonitorConfiguration": {}
-    }
-```
+> [!NOTE]
+> If you don't want to enable syslog or metrics collection, then you can simply specify an empty structure for ladCfg element as shown below - 
+> 
+> ```json
+> "ladCfg": {
+>    "diagnosticMonitorConfiguration": {}
+>    }
+>```
 
 Element | Value
 ------- | -----
