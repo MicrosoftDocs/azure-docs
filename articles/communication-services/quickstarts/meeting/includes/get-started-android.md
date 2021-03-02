@@ -273,7 +273,7 @@ private void createMeetingClient() {
 
 ## Setup Token refreshing
 
-Create a Callable `tokenRefresher` method. Then create a fetchToken method to get the user token. [You can find instructions on how to do so here] (https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-java)
+Create a Callable `tokenRefresher` method. Then create a fetchToken method to get the user token. [You can find instructions on how to do so here](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-java)
 
 ```java
 Callable<String> tokenRefresher = () -> {
