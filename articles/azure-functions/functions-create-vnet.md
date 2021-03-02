@@ -16,7 +16,7 @@ This tutorial shows you how to use Azure Functions to connect to resources in an
 > * Create Azure resources (Service Bus, Storage Account, Virtual Network)
 > * Lock down your Storage account behind a private endpoint
 > * Lock down your Service Bus behind a private endpoint
-> * Deploy an Azure Function with a Service Bus trigger and HTTP trigger
+> * Deploy a function app with both Service Bus and HTTP triggers.
 > * Lock down your function app behind a private endpoint
 > * Test to see that your function app is secure behind the virtual network
 > * Clean up resources
@@ -119,7 +119,7 @@ The tutorial creates two subnets:
 - **default**: Subnet for private endpoints. Private IP addresses are given from this subnet.
 - **functions**: Subnet for Azure Function virtual network integration. This subnet is delegated to the Function App.
 
-Now, create the virtual network to which the Azure Function app will integrate.
+Now, create the virtual network to which the function app integrates.
 
 1. From the Azure portal menu or the Home page, select **Create a resource**.
 
@@ -255,7 +255,7 @@ This will be the queue for which your Azure Functions Service Bus Trigger will g
 
 ## Integrate function app with your virtual network
 
-To use your function app with virtual networks, you'll need to join it to a subnet. We use a specific subnet for the Azure Function virtual network integration and the default sub net for all other private endpoints created in this tutorial.
+To use your function app with virtual networks, you'll need to join it to a subnet. We use a specific subnet for the Azure Functions virtual network integration and the default sub net for all other private endpoints created in this tutorial.
 
 1. In your function app, select **Networking** in the left menu.
 
