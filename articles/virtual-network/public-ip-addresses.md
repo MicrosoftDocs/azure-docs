@@ -157,14 +157,17 @@ For more information about Azure load balancer SKUs, see [Azure load balancer st
 * Azure virtual networks
 * On-premises network(s). 
 
-A public IP address is assigned to the VPN Gateway to enable communication with the remote network. You can only assign a *dynamic* basic public IP address to a VPN gateway.
+A public IP address is assigned to the VPN Gateway to enable communication with the remote network. 
+
+* Assign a **dynamic** basic public IP to a VPNGw 1-5 SKU front-end configuration.
+* Assign a **static** standard public IP address to a a VPNGwAZ 1-5 SKU front-end configuration.
 
 ## Application gateways
 
 You can associate a public IP address with an Azure [Application Gateway](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), by assigning it to the gateway's **frontend** configuration. 
 
 * Assign a **dynamic** basic public IP to an application gateway V1 front-end configuration. 
-* Assign a **static** standard SKU address to a V2 front-end configuration.
+* Assign a **static** standard public IP address to a V2 front-end configuration.
 
 ## Azure Firewall
 
