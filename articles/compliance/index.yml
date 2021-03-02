@@ -169,6 +169,10 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-finma-switzerland
           itemType: concept
           text: FINMA (Switzerland)
+
+    # Card
+    - title: Financial services
+      links:
         - url: /azure/compliance/offerings/offering-finra-4511-us
           itemType: concept
           text: FINRA 4511 (US)
@@ -178,11 +182,6 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-fsa-denmark
           itemType: concept
           text: FSA (Denmark)
-
-
-    # Card
-    - title: Financial services
-      links:
         - url: /azure/compliance/offerings/offering-glba-us
           itemType: concept
           text: GLBA (US)
@@ -198,6 +197,10 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-osfi-canada
           itemType: concept
           text: OSFI (Canada)
+
+    # Card
+    - title: Financial services
+      links:
         - url: /azure/compliance/offerings/offering-ospar-singapore
           itemType: concept
           text: OSPAR (Singapore)
