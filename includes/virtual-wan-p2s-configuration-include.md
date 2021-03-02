@@ -1,16 +1,11 @@
 ---
- title: include file
- description: include file
- services: virtual-wan
- author: cherylmc
- ms.service: virtual-wan
- ms.topic: include
- ms.date: 02/23/2021
- ms.author: cherylmc
- ms.custom: include file
+author: cherylmc
+ms.author: cherylmc
+ms.date: 02/23/2021
+ms.service: virtual-wan
+ms.topic: include
+ms.date: 02/23/2021
 ---
-
-[!INCLUDE [Feature rollout](virtual-wan-portal-feature-rollout.md)]
 
 1. Navigate to **All resources** and select the virtual WAN that you created, then select **User VPN configurations** from the menu on the left.
 1. On the **User VPN configurations** page, select **+Create user VPN config** at the top of the page to open the **Create new user VPN configuration** page.
@@ -33,7 +28,7 @@
 
      In this example, RADIUS authentication is selected. For RADIUS-based authentication, you can provide a secondary RADIUS server IP address and server secret.
 
-     :::image type="content" source="media/virtual-wan-p2s-configuration/ike-radius.png" alt-text="Screenshot of IPsec switch.":::
+     :::image type="content" source="media/virtual-wan-p2s-configuration/ike-radius.png" alt-text="Screenshot of IKE.":::
 
    **OpenVPN**
 
