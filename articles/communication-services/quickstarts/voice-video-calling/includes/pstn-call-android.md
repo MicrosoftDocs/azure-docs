@@ -51,7 +51,7 @@ Modify `startCall()` event handler in **MainActivity.java**, so that it handles 
         StartCallOptions options = new StartCallOptions();
         options.setAlternateCallerId(callerPhone);
         options.setVideoOptions(new VideoOptions(null));
-        call = agent.call(
+        call = agent.startCall(
                 getApplicationContext(),
                 new PhoneNumber[] {new PhoneNumber(calleePhone)},
                 options);
