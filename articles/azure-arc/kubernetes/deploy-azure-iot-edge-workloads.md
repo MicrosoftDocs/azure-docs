@@ -54,10 +54,10 @@ Use the `az` Azure CLI `connectedk8s` extension to connect a Kubernetes cluster 
 
 The [example Git repo](https://github.com/veyalla/edgearc) points to the IoT Edge Helm chart and references the secret created in the pre-requisites section.
 
-Use the `az` Azure CLI `k8sconfiguration` extension to create a configuration that links the connected cluster to the Git repo:
+Use the `az` Azure CLI `k8s-configuration` extension to create a configuration that links the connected cluster to the Git repo:
 
   ```
-  az k8sconfiguration create --name iotedge --cluster-name AzureArcIotEdge --resource-group AzureArcTest --operator-instance-name iotedge --operator-namespace azure-arc-iot-edge --enable-helm-operator --helm-operator-chart-version 0.6.0 --helm-operator-chart-values "--set helm.versions=v3" --repository-url "git://github.com/veyalla/edgearc.git" --cluster-scoped
+  az k8s-configuration create --name iotedge --cluster-name AzureArcIotEdge --resource-group AzureArcTest --operator-instance-name iotedge --operator-namespace azure-arc-iot-edge --enable-helm-operator --helm-operator-chart-version 0.6.0 --helm-operator-chart-values "--set helm.versions=v3" --repository-url "git://github.com/veyalla/edgearc.git" --cluster-scoped
   ```
 
 In a few minutes, you should see the IoT Edge workload modules deployed into your cluster's `iotedge` namespace. 
@@ -69,7 +69,7 @@ View the `SimulatedTemperatureSensor` pod logs in that namespace to see the samp
 Remove the configuration using:
 
 ```
-az k8sconfiguration delete -g AzureArcTest --cluster-name AzureArcIotEdge --name iotedge
+az k8s-configuration delete -g AzureArcTest --cluster-name AzureArcIotEdge --name iotedge
 ```
 
 ## Next steps
