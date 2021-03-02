@@ -35,8 +35,8 @@ This article discusses the technical details regarding the migration tool as per
 - The names of resources like virtual network and VM SKU are different. See [Translation of resources and naming convention post migration](#translation-of-resources-and-naming-convention-post-migration)
 - Customers can retrieve their new deployments through [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) and [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/get). 
 
-### Cloud Service (hosted service) and deployments
-- Cloud Services (extended support) does not support the concept of hosted service. Each deployment is independent. 
+### Cloud Service and deployments
+- Each Cloud Services (extended support) deployment is an independent Cloud Service. Deployment are no longer grouped into a cloud service using slots.
 - If you have two slots in your Cloud Service (classic), you need to delete one slot (staging) and use the migration tool to move the other (production) slot to Azure Resource Manager. 
 - The public IP address on the Cloud Service deployment remains the same after migration to Azure Resource Manager and is exposed as a Basic SKU IP (dynamic or static) resource. 
 - The DNS name and domain (cloudapp.azure.net) for the migrated cloud service remains the same. 
@@ -57,8 +57,8 @@ This article discusses the technical details regarding the migration tool as per
 - For a Cloud Service using a public endpoint, a platform created load balancer associated with the Cloud Service is exposed inside the customer’s subscription in Azure Resource Manager. The load balancer is a read-only resource, and updates are restricted only through the Service Configuration (.cscfg) and Service Definition (.csdef) files. 
 
 ### Key Vault
-- As part of migration, we automatically create a new Key Vault and migrate all the certificates to it. The tool does not allow you to use an existing Key Vault. 
-- Cloud Services (extended support) require a Key Vault located in the same region and subscription. This Key Vault is auto created as part of the migration. 
+- As part of migration, Azure automatically creates a new Key Vault and migrates all the certificates to it. The tool does not allow you to use an existing Key Vault. 
+- Cloud Services (extended support) require a Key Vault located in the same region and subscription. This Key Vault is automatically created as part of the migration. 
 
 
 ## Translation of resources and naming convention post migration
@@ -68,7 +68,7 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 |---|---|---|---|
 | Cloud Service | `cloudservicename` | Not associated| Not associated |
 | Deployment (portal created) <br><br> Deployment (non-portal created)  | `deploymentname` | Cloud Services (extended support) | `deploymentname` |  
-| Virtual Network | `vnetname` <br><br> `Group resourcegroupname` <br><br> `vnetname` |  Virtual Network (not portal created) <br><br> Virtual Network (portal created) <br><br> Virtual Networks (Default) | `vnetname` <br><br> `group-resourcegroupname-vnetname` <br><br> `DefaultRdfevirtualnetwork_vnetid`|
+| Virtual Network | `vnetname` <br><br> `Group resourcegroupname vnetname` <br><br> Not associated |  Virtual Network (not portal created) <br><br> Virtual Network (portal created) <br><br> Virtual Networks (Default) | `vnetname` <br><br> `group-resourcegroupname-vnetname` <br><br> `DefaultRdfevirtualnetwork_vnetid`|
 | Not associated | Not associated | Key Vault | `cloudservicename` | 
 | Not associated | Not associated | Resource Group for Cloud Service Deployments | `cloudservicename-migrated` | 
 | Not associated | Not associated | Resource Group for Virtual Network | `vnetname-migrated` <br><br> `group-resourcegroupname-vnetname-migrated`|
@@ -87,7 +87,7 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 
 ### Migration failed in an operation. 
 - If validate failed, it is because the deployment or virtual network contains an unsupported scenario/feature/resource. Use the list of unsupported scenarios to find the work-around in the documents.  
-- Prepare operation also does validation include some expensive validations (not covered in validate). Prepare failure could be due to an unsupported scenario. Find the scenario and the work-around in the public documents. Abort needs to be called to go back to the original state. 
+- Prepare operation first does validation including some expensive validations (not covered in validate). Prepare failure could be due to an unsupported scenario. Find the scenario and the work-around in the public documents. Abort needs to be called to go back to the original state and unlock the deployment for updates and delete operations.
 - If abort failed, retry the operation. If retries fail, then contact support.
 - If commit failed, retry the operation. If retry fail, then contact support. Even in commit failure, there should no data plane issue to your deployment. Your deployment should be handle customer traffic without any issue. 
 

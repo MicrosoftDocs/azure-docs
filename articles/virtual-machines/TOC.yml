@@ -99,12 +99,6 @@
     href: ./workloads/sap/get-started.md
   - name: Oracle
     href: ./workloads/oracle/oracle-database-quick-create.md
-  - name: Elasticsearch
-    href: ./linux/tutorial-elasticsearch.md
-  - name: Mainframe rehosting
-    href: ./workloads/mainframe-rehosting/overview.md
-  - name: SQL on Virtual Machines
-    href: https://docs.microsoft.com/azure/azure-sql/virtual-machines/
   - name: High Performance Computing (HPC)
     href: /azure/architecture/topics/high-performance-computing/
 - name: Instances
