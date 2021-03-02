@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 03/01/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Gateway so I can use it to transfer data to Azure.  
 ---
@@ -62,7 +62,7 @@ Before you deploy a virtual device, make sure that:
 - The host system is able to dedicate the following resources to provision your Data Box virtual device:
   
   - A minimum of 4 virtual processors.
-  - At least 8 GB of RAM.
+  - At least 8 GB of RAM. We strongly recommend at least 16 GB of RAM.
   - One network interface.
   - A 250 GB OS disk.
   - A 2 TB virtual disk for system data.
