@@ -1,6 +1,6 @@
 ---
 title: Deploy resources with Azure CLI and template
-description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template or Bicep file.
+description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template or a Bicep file.
 ms.topic: conceptual
 ms.date: 03/02/2021
 ---
