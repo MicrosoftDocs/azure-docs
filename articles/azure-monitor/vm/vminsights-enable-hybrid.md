@@ -1,6 +1,6 @@
 ---
 title: Enable Azure Monitor for a hybrid environment
-description: This article describes how you enable Azure Monitor for VMs for a hybrid cloud environment that contains one or more virtual machines.
+description: This article describes how you enable VM insights for a hybrid cloud environment that contains one or more virtual machines.
 ms.subservice:
 ms.topic: conceptual
 author: bwren
@@ -9,11 +9,11 @@ ms.date: 07/27/2020
 
 ---
 
-# Enable Azure Monitor for VMs for a hybrid virtual machine
-This article describes how to enable Azure Monitor for VMs for a virtual machine outside of Azure, including on-premises and other cloud environments.
+# Enable VM insights for a hybrid virtual machine
+This article describes how to enable VM insights for a virtual machine outside of Azure, including on-premises and other cloud environments.
 
 > [!IMPORTANT]
-> The recommended method of enabling hybrid VMs is first enabling [Azure Arc for servers](../../azure-arc/servers/overview.md) so that the VMs can be enabled for Azure Monitor for VMs using processes similar to Azure VMs. This article describes how to onboard hybrid VMs if you choose not to use Azure Arc.
+> The recommended method of enabling hybrid VMs is first enabling [Azure Arc for servers](../../azure-arc/servers/overview.md) so that the VMs can be enabled for VM insights using processes similar to Azure VMs. This article describes how to onboard hybrid VMs if you choose not to use Azure Arc.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Virtual machines outside of Azure require the same Log Analytics agent and Depen
 See [Connect Windows computers to Azure Monitor](../agents/agent-windows.md) or [Connect Linux computers to Azure Monitor](../agents/agent-linux.md) for details on deploying the Log Analytics agent. Details for the Dependency agent are provided in this article. 
 
 ## Firewall requirements
-Firewall requirements for the Log Analytics agent are provided in [Log Analytics agent overview](../agents/log-analytics-agent.md#network-requirements). The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/agents/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
+Firewall requirements for the Log Analytics agent are provided in [Log Analytics agent overview](../agents/log-analytics-agent.md#network-requirements). The VM insights Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/agents/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
 
 ## Dependency agent
@@ -173,8 +173,8 @@ Check the C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file (Win
 
 ## Next steps
 
-Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs.
+Now that monitoring is enabled for your virtual machines, this information is available for analysis with VM insights.
 
-- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+- To view discovered application dependencies, see [View VM insights Map](vminsights-maps.md).
 
 - To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM performance](vminsights-performance.md).
