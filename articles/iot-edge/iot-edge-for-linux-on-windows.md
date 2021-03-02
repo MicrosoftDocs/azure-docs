@@ -46,8 +46,6 @@ For samples that demonstrate communication between Windows applications and IoT 
 
 IoT Edge for Linux on Windows is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Installation and management processes may be different than for generally available features.
 
-Currently, IoT Edge for Linux on Windows uses the Windows Insider Preview version of Windows Admin Center. For more information about the Windows Insider Program and to register, see [What is the Windows Insider Program?](https://insider.windows.com/about-windows-insider-program).
-
 ## Support
 
 Use the IoT Edge support and feedback channels to get assistance with IoT Edge for Linux on Windows.
