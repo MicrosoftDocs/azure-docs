@@ -99,8 +99,8 @@ When creating a role definition, you need to provide:
 
 > [!NOTE]
 > The operations described below are currently available in:
-> - Azure PowerShell: [Az.CosmosDB 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
-> - Azure CLI: ['cosmosdb-preview' extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+> - Azure PowerShell: [Az.CosmosDB version 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - Azure CLI: ['cosmosdb-preview' extension version 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
 
 ### Using Azure PowerShell
 
@@ -281,8 +281,8 @@ Once you've created your role definitions, you can associate them with your AAD 
 
 > [!NOTE]
 > The operations described below are currently available in:
-> - Azure PowerShell: [Az.CosmosDB 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
-> - Azure CLI: ['cosmosdb-preview' extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+> - Azure PowerShell: [Az.CosmosDB version 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - Azure CLI: ['cosmosdb-preview' extension version 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
 
 ### Using Azure PowerShell
 
