@@ -26,7 +26,7 @@ After you click the **Networking** category, you can view two issues related to 
 
    ![Self diagnostic options](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-req-outbound-options.png)
 
-Find your target issue, and click it to view the diagnostic report. A summary of diagnostics will be displayed. 
+Select your target issue to view the diagnostic report. A summary of diagnostics will be displayed, such as: 
 
 * *Resource has been removed.*
 * *Resource is not deployed in your own virtual network*.
@@ -34,12 +34,12 @@ Find your target issue, and click it to view the diagnostic report. A summary of
 Some results contain related documentation. Different subnets will display the results separately.
 
 ## DNS Resolution 
-Healthy applications show results such as:
+If you select **DNS Resolution**, results will indicate whether there are DNS issues with applications.  Healthy apps are listed as follows:
 
 * *DNS issues resolved with no issues in subnet 'subnet01'*.
 * *DNS issues resolved with no issues in subnet 'subnet02'*.
 
-The following diagnostic report example assumes the context end time is **2021-01-21T11:22:00Z**. The latest TIMESTAMP in the **DNS Resolution Table Renderings** was the previous day, more than **30 minutes** from the context end time, so the health status will be unknown. The health check log may not have been sent out because of the blocked network. 
+The following diagnostic report example details a problem. It assumes the context end time is **2021-01-21T11:22:00Z**. The latest TIMESTAMP in the **DNS Resolution Table Renderings** was the previous day, more than **30 minutes** from the context end time, so the health status will be unknown. The health check log may not have been sent out because of the blocked network. 
 
 The unknown health status results contain related documentation.  You can click the left angle bracket to see the drop-down display.
 
@@ -51,7 +51,8 @@ In the drop-down **DNS Resolution Table Renderings** you will find the detail me
 
 ## Required Outbound Traffic 
 
-Healthy applications show results such as:
+If you select **Required Outbound Traffic**, results will indicate whether there are outbound traffic issues with applications.  Healthy apps are listed as follows:
+
 * *Required outbound traffic resolved with no issues in subnet 'subnet01'.
 * *Required outbound traffic resolved with no issues in subnet 'subnet02'.
 
