@@ -77,7 +77,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ### Formulate the request
 
-1. Set "queryType" to "semantic" and "queryLanguage" to "en-us. Both parameters are required.
+1. Set `**"queryType"**` to "semantic" and `**"queryLanguage"**` to "en-us. Both parameters are required.
 
    The queryLanguage must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. If queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"). Any language-agnostic analyzers, such as keyword or simple, have no conflict with queryLanguage values.
 
@@ -85,7 +85,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    While content in a search index can be composed in multiple languages, the query input is most likely in one. The search engine doesn't check for compatibility of queryLanguage, language analyzer, and the language in which content is composed, so be sure to scope queries accordingly to avoid producing incorrect results.
 
-1. Optional but recommended, set "searchFields".
+<a name="searchfields"></a>
+
+1. Set `**"searchFields"**` (optional, but recommended).
 
    In a semantic query, the order of fields in "searchFields" reflects the priority or relative importance of the field in semantic rankings. Only top-level string fields (standalone or in a collection) will be used. Because searchFields has other behaviors in simple and full Lucene queries (where there is no implied priority order), any non-string fields and subfields won't result in an error, but they also won't be used in semantic ranking.
 
@@ -99,9 +101,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    + If there are no fields specified, then all searchable fields will be considered for semantic ranking of documents. However, this is not recommended since it may not yield the most optimal results from your search index.
 
-1. Remove "orderBy" clauses, if they exist in an existing request. The semantic score is used to order results, and if you include explicit sort logic, an HTTP 400 error is returned.
+1. Remove `**"orderBy"**` clauses, if they exist in an existing request. The semantic score is used to order results, and if you include explicit sort logic, an HTTP 400 error is returned.
 
-1. Optionally, add "answers" set to "extractive" and specify the number of answers if you want more than 1.
+1. Optionally, add `**"answers"**` set to "extractive" and specify the number of answers if you want more than 1.
 
 1. Optionally, customize the highlight style applied to captions. Captions apply highlight formatting over key passages in the document that summarize the response. The default is `<em>`. If you want to specify the type of formatting (for example, yellow background), you can set the highlightPreTag and highlightPostTag.
 
