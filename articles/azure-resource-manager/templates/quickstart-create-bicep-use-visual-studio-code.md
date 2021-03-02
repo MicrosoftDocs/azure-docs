@@ -2,7 +2,7 @@
 title: Create Bicep files - Visual Studio Code
 description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/02/2021
 ms.topic: quickstart
 ms.author: jgao
 
@@ -54,11 +54,11 @@ One of the most powerful capabilities of the extension is its integration with A
 
 First, update the storage account kind to an invalid value such as `megaStorage`. Notice that this action produces a warning indicating that `megaStorage` is not a valid value.
 
-![Image showing an invalid storage configuration](./media/quickstart-create-bicep-use-visual-studio-code/7.png)
+![Image showing an invalid storage configuration](./media/quickstart-create-bicep-use-visual-studio-code/azure-resource-manager-template-bicep-visual-studio-code-validation.png)
 
 To use the completion capabilities, remove `megaStorage`, place the cursor inside of the single quotes, and press `ctrl` + `space`. This action presents a completion list of valid values.
 
-![Image showing extension auto-completion](./media/quickstart-create-bicep-use-visual-studio-code/8.png)
+![Image showing extension auto-completion](./media/quickstart-create-bicep-use-visual-studio-code/azure-resource-manager-template-bicep-visual-studio-code-auto-completion.png)
 
 ## Add parameters
 
@@ -77,7 +77,7 @@ Azure storage account names have a minimum length of 3 characters and a maximum 
 
 Now, on the storage resource, update the name property to use the parameter. To do so, remove the current storage resource name including the single quotes. press `ctrl` + `space`. Select the **storageAccountName** parameter from the list. Notice the parameters can be referenced directly by using their names in Bicep. The JSON templates require a parameter() function.
 
-![Image showing auto-completion when using parameters in Bicep resources](./media/quickstart-create-bicep-use-visual-studio-code/12.png)
+![Image showing auto-completion when using parameters in Bicep resources](./media/quickstart-create-bicep-use-visual-studio-code/azure-resource-manager-template-bicep-visual-studio-code-validation-parameters.png)
 
 ## Deploy the Bicep file
 
