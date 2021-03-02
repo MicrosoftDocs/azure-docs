@@ -256,7 +256,7 @@ dependencies
 
 ## 2.x SDK logging appenders
 
-The 3.0 agent [auto-collects logging](./java-standalone-config#auto-collected-logging)
+The 3.0 agent [auto-collects logging](./java-standalone-config.md#auto-collected-logging)
 without the need for configuring any logging appenders.
 If you are using 2.x SDK logging appenders, those can be removed, as they will be suppressed by the 3.0 agent anyways.
 
