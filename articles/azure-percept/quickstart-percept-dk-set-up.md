@@ -20,7 +20,7 @@ If you experience any issues during this Quick Start, refer to the [troubleshoot
 - An Azure Percept DK.
 - A Windows, Linux, or OS X based host computer with wi-fi capability and a web browser.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- The Azure account must have the “owner” or “contributor” role on the subscription. Learn more about Azure role definitions
+- The Azure account must have the “owner” or “contributor” role on the subscription. Learn more about [Azure role definitions](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
 
 ### Prerequisite check
 
