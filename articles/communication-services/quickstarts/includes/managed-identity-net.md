@@ -32,7 +32,7 @@ Then, use the client to issue a token for a new user:
      public async Task<Response<CommunicationUserToken>> CreateIdentityAndGetTokenAsync(Uri resourceEdnpoint)
      {
           TokenCredential credential = new DefaultAzureCredential();
-          // You can find your endpoint and access key from your resource in the Azure Portal
+          // You can find your endpoint and access key from your resource in the Azure portal
           String resourceEndpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 
           var client = new CommunicationIdentityClient(resourceEndpoint, credential);
@@ -52,7 +52,7 @@ The following code example shows how to create a SMS service client object with 
      public async Task SendSms(Uri resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
      {
           TokenCredential credential = new DefaultAzureCredential();
-          // You can find your endpoint and access key from your resource in the Azure Portal
+          // You can find your endpoint and access key from your resource in the Azure portal
           String resourceEndpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 
           SmsClient smsClient = new SmsClient(resourceEndpoint, credential);
