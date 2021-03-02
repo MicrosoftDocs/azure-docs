@@ -300,13 +300,13 @@ Follow these steps to enable the collection of metrics from the Live Video Analy
      `AZURE_CLIENT_SECRET`: Specifies the app secret to use.  
      
      >[!TIP]
-     > You can give the service principal the **Monitoring Metrics Publisher** role. Follow the steps in **[Create service principal](https://docs.microsoft.com/azure/azure-arc/data/upload-metrics-and-logs-to-azure-monitor?pivots=client-operating-system-macos-and-linux#create-service-principal)** to create the service principal and assign the role .
+     > You can give the service principal the **Monitoring Metrics Publisher** role. Follow the steps in **[Create service principal](../../azure-arc/data/upload-metrics-and-logs-to-azure-monitor.md?pivots=client-operating-system-macos-and-linux#create-service-principal)** to create the service principal and assign the role .
 
 1. After the modules are deployed, metrics will appear in Azure Monitor under a single namespace. Metric names will match the ones emitted by Prometheus. 
 
    In this case, in the Azure portal, go to the IoT hub and select **Metrics** in the left pane. You should see the metrics there.
 
-Using Prometheus along with [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial), you can generate and [monitor metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) such as used CPUPercent, MemoryUsedPercent, etc. Using Kusto query language, you can write queries as below and get CPU percentage used by the IoT edge modules.
+Using Prometheus along with [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md), you can generate and [monitor metrics](../../azure-monitor/essentials/metrics-supported.md) such as used CPUPercent, MemoryUsedPercent, etc. Using Kusto query language, you can write queries as below and get CPU percentage used by the IoT edge modules.
 ```kusto
 let cpu_metrics = promMetrics_CL
 | where Name_s == "edgeAgent_used_cpu_percent"

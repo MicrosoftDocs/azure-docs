@@ -45,7 +45,7 @@ To confirm whether your share is being throttled, you can access and use Azure m
     - ClientShareIngressThrottlingError
     - ClientShareIopsThrottlingError
 
-    To learn more about each response type, see [Metric dimensions](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions).
+    To learn more about each response type, see [Metric dimensions](./storage-files-monitoring-reference.md#metrics-dimensions).
 
     ![Screenshot of the metrics options for premium file shares, showing a "Response type" property filter.](media/storage-troubleshooting-premium-fileshares/metrics.png)
 

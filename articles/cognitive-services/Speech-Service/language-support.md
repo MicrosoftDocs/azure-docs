@@ -186,6 +186,7 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Finnish (Finland) | `fi-FI` | Female | `fi-FI-SelmaNeural` <sup>New</sup> | General |
 | Finnish (Finland) | `fi-FI` | Male | `fi-FI-HarriNeural` <sup>New</sup> | General |
 | French (Canada) | `fr-CA` | Female | `fr-CA-SylvieNeural` | General |
+| French (Canada) | `fr-CA` | Male | `fr-CA-AntoineNeural` <sup>New</sup> | General |
 | French (Canada) | `fr-CA` | Male | `fr-CA-JeanNeural` | General |
 | French (France) | `fr-FR` | Female | `fr-FR-DeniseNeural` | General |
 | French (France) | `fr-FR` | Male | `fr-FR-HenriNeural` | General |

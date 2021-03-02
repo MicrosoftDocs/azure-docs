@@ -5,8 +5,9 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/29/2020
 ms.topic: how-to
-ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subervice: image-builder
+ms.colletion: windows
 ms.reviewer: danis
 ---
 # Use Azure Image Builder for Windows VMs allowing access to an existing Azure VNET

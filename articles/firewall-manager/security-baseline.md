@@ -224,7 +224,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 
 - [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) 
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -435,7 +435,7 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 
 - [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Storing resource logs in an Azure Storage Account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Storing resource logs in an Azure Storage Account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center monitoring**: Currently not available
 

@@ -179,7 +179,7 @@ We use subscription key and authoring key interchangably. For more details on au
 
 [QnA Maker](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker) uses two different object models:
 * **[QnAMakerClient](#qnamakerclient-object-model)** is the object to create, manage, publish, and download the knowledgebase.
-* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** is the object to query the knowledge base with the GenerateAnswer API and send new suggested questions using the Train API (as part of [active learning](../concepts/active-learning-suggestions.md)).
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** is the object to query the knowledge base with the GenerateAnswer API and send new suggested questions using the Train API (as part of [active learning](../how-to/use-active-learning.md)).
 
 # [QnA Maker managed (preview release)](#tab/version-2)
 
