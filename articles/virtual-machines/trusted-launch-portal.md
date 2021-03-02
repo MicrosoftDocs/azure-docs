@@ -7,7 +7,7 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to 
-ms.date: 02/26/2021
+ms.date: 03/02/2021
 ms.custom: template-how-to 
 ---
 
@@ -26,7 +26,7 @@ ms.custom: template-how-to
 
 Create a virtual machine with trusted launch enabled.
 
-1. Sign in to the Azure [portal](https://portal.azure.com).
+1. Sign in to the Azure [portal](https://aka.ms/TL_preview).
 1. Search for **Virtual Machines**.
 1. Under **Services**, select **Virtual machines**.
 1. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
