@@ -6,7 +6,8 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ---
 
 # Create an image and use a user-assigned managed identity to access files in Azure Storage 

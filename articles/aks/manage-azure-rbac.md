@@ -151,17 +151,17 @@ Copy the below json into a file called `deploy-view.json`.
 
 ```json
 {
-	"Name": "AKS Deployment Viewer",
-	"Description": "Lets you view all deployments in cluster/namespace.",
+    "Name": "AKS Deployment Viewer",
+    "Description": "Lets you view all deployments in cluster/namespace.",
     "Actions": [],
     "NotActions": [],
     "DataActions": [
-        "Microsoft.ContainerService/managedClusters/apps/deployments/read"	
+        "Microsoft.ContainerService/managedClusters/apps/deployments/read"
     ],
     "NotDataActions": [],
-	"assignableScopes": [
-		"/subscriptions/<YOUR SUBSCRIPTION ID>"
-	]	
+    "assignableScopes": [
+        "/subscriptions/<YOUR SUBSCRIPTION ID>"
+    ]
 }
 ```
 

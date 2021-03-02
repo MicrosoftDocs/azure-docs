@@ -6,7 +6,8 @@ ms.author: danis
 ms.date: 02/18/2021
 ms.topic: reference
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: cynthn
 ---
 # Preview: Create an Azure Image Builder template 

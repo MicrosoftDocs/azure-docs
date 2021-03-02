@@ -15,7 +15,7 @@ definitions related to Azure Security Center. The following groupings of policy 
 available:
 
 - The [initiatives](#azure-security-center-initiatives) group lists the Azure Policy initiative
-  definitions in the 'Security Center' category.
+  definitions in the "Security Center" category.
 - The [default initiative](#azure-security-center-initiatives) group lists all the Azure Policy
   definitions that are part of Security Center's default initiative,
   [Azure Security Benchmark](../security/benchmarks/introduction.md). This Microsoft-authored,
@@ -24,7 +24,7 @@ available:
   [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on
   cloud-centric security.
 - The [category](#azure-security-center-category) group lists all the Azure Policy definitions in
-  the 'Security Center' category.
+  the "Security Center" category.
 
 For more information about security policies, see
 [Working with security policies](./tutorial-security-policy.md). For additional Azure Policy

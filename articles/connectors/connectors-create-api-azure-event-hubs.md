@@ -91,7 +91,7 @@ This example shows how you can start a logic app workflow when new events are se
 create a blank logic app, which opens Logic Apps Designer. 
 This example uses the Azure portal.
 
-1. In the search box, enter "event hubs" as your filter. 
+1. In the search box, enter "event hubs" as your filter. 
 From the triggers list, select this trigger:
 **When events are available in Event Hub - Event Hubs**
 
@@ -157,7 +157,7 @@ This example uses the Azure portal.
    Choose the plus sign (**+**) that appears, 
    and then select **Add an action**.
 
-1. In the search box, enter "event hubs" as your filter.
+1. In the search box, enter "event hubs" as your filter.
 From the actions list, select this action: 
 **Send event - Event Hubs**
 

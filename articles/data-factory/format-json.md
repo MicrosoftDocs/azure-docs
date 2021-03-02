@@ -213,7 +213,7 @@ The below table lists the properties supported by a json source. You can edit th
 
 ### Source format options
 
-Using a JSON dataset as a source in your data flow allows you to set five additional settings. These settings can be found under the **JSON settings** accordion in the **Source Options** tab.  
+Using a JSON dataset as a source in your data flow allows you to set five additional settings. These settings can be found under the **JSON settings** accordion in the **Source Options** tab. For **Document Form** setting, you can select one of **Single document**, **Document per line**  and **Array of documents** types.
 
 ![JSON Settings](media/data-flow/json-settings.png "JSON Settings")
 
