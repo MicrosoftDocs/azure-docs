@@ -17,7 +17,7 @@ In the [previous tutorial](bicep-tutorial-use-parameter-file.md), you learned ho
 
 We recommend that you complete the [tutorial about parameter file](bicep-tutorial-use-parameter-file.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-bicep.md#get-tools).
 
 ## Review Bicep file
 

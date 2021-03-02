@@ -50,7 +50,7 @@ Finally, notice that the storage name is now set to the variable instead of a pa
 
 Let's deploy the Bicep file. Deploying this Bicep file is easier than the previous Bicep files because you provide just the prefix for the storage name.
 
-If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-bicep.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-bicep.md#deploy-bicep-file).
 
 # [PowerShell](#tab/azure-powershell)
 
