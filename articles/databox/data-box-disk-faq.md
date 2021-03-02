@@ -50,7 +50,7 @@ A. For 5 disks, each with 8 TB capacity (7 TB of usable capacity), the maximum u
 A.  To see where the Data Box Disks are currently available, go to the [Region availability](data-box-disk-overview.md#region-availability).  
 
 ### Q. Which regions can I store data in with Data Box Disks?
-A. Data Box Disk is supported for all regions within US, Canada, EU, UK, Australia, Singapore, India, China, HK, Japan, Korea, and South Africa. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
+A. Data Box Disk is supported for all regions within US, Canada, EU, UK, Australia, Singapore, India, China, Hong Kong, Japan, Korea, and South Africa. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
 ### Q. How can I import source data present at my location in one country/region to an Azure region in a different country?
 A. Data Box Disk supports data ingestion only within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where Data Box Disks can ship to and from any EU country/region.
