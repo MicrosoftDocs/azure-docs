@@ -40,29 +40,29 @@ One or more Azure Arc enabled Kubernetes clusters serve the different environmen
 As an application developer, Alice:
 * Writes application code.
 * Determines how to run the application in a Docker container.
-* Defines the templates that run the container and dependent services in a Kubernetes cluster. 
+* Defines the templates that run the container and dependent services in a Kubernetes cluster.
 
 While Alice knows the application needs the capability to run in multiple environments, she doesn't know the specific settings for each environment.
 
 Suppose Alice wants to make an application change that alters the Docker image used in the application deployment template.
 
 1. Alice changes the deployment template, pushes it to a remote branch on the application repo, and opens a PR for review.
-2. Alice asks her team to review the change.  
-    * The PR pipeline runs validation. 
+2. Alice asks her team to review the change.
+    * The PR pipeline runs validation.
     * After a successful pipeline run, the team signs off and the change is merged.
-3. The CI pipeline validates Alice's change and successfully completes. 
+3. The CI pipeline validates Alice's change and successfully completes.
     * The change is safe to deploy to the cluster, and the artifacts are saved to the CI pipeline run.
-4. Alice's change merges triggers the CD pipeline. 
-    * The CD pipeline picks up the artifacts stored by Alice's CI pipeline run. 
+4. Alice's change merges and triggers the CD pipeline.
+    * The CD pipeline picks up the artifacts stored by Alice's CI pipeline run.
     * The CD pipeline substitutes the templates with environment specific values, and stages any changes against the existing cluster state in the GitOps repo.
     * The CD pipeline creates a PR to the GitOps repo with the desired changes to the cluster state.
 5. Alice's team reviews and approves her PR.
     * The change is merged into the target branch corresponding to the environment.
-6. Within minutes, Flux notices a change in the GitOps repo and pulls Alice's change. 
-    * Because of the Docker image change, the application pod requires an update. 
+6. Within minutes, Flux notices a change in the GitOps repo and pulls Alice's change.
+    * Because of the Docker image change, the application pod requires an update.
     * Flux applies the change to the cluster.
 7. Alice tests the application endpoint to verify the deployment successfully completed.
-   > [!NOTE]  
+   > [!NOTE]
    > For more environments targeted for deployment, the CD pipeline iterates by creating a PR for the next environment and repeats steps 4-7. The process many need extra approval for riskier deployments or environments, such as a security-related change or a production environment.
 8.  Once all the environments have received successful deployments, the pipeline completes.
 
