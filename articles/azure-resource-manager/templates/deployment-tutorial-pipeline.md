@@ -95,7 +95,7 @@ The _azuredeploy.json_ has been added to the local repository. Next, you upload 
     ```bash
     git add .
     git commit -m "Add web app templates."
-    git push origin master
+    git push origin main
     ```
 
     You might get a warning about LF. You can ignore the warning. **main** is the main branch.  You typically create a branch for each update. To simplify the tutorial, you use the main branch directly.
