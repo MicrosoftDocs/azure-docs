@@ -1,89 +1,208 @@
 ---
-title: How to Use DFS-N with Azure Files
+title: How to use DFS-N with Azure Files
 description: Common DFS-N use cases with Azure Files
-author: mtalasila
+author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 1/20/2020
-ms.author: mtalasila
+ms.date: 3/02/2021
+ms.author: rogarana
 ms.subservice: files
 ms.topic: how-to
 ---
 
-# Using DFS-N with Azure Files
+# How to use DFS-N with Azure Files
+[Distributed File Systems Namespaces](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview), commonly referred to as DFS-N or DFS Namespaces, is a Windows Server server role that is widely used to simplify the deployment and maintenance of SMB file shares in production. DFS-N is a storage namespace virtualization technology, which means that it enables you to provide a layer of indirection between the UNC path of your file shares and the actual file shares themselves. DFS-N works with SMB file shares, agnostic of those file shares are hosted: DFS-N can be used with SMB shares hosted on an on-premises Windows File Server with or without Azure File Sync, Azure file shares directly, SMB file shares hosted in Azure NetApp Files or other third party offerings, and even with file shares hosted in other clouds. 
 
-## DFS-N Overview
- DFS-N (DFS Namespaces) is a role in Windows Server that enables you to group shared folders located on different servers into logically structured namespaces. If the data in a shared folder is located on a different server, the folder becomes a reparse point that redirects to the folder with the data on a different server (folder target). For more details about DFS-N, please see [DFS Namespaces overview] (https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview). 
+At its core, DFS-N provides a mapping between a user-friendly UNC path, like `\\contoso\shares\ProjectX` and the underlying UNC path of the SMB share like `\\Server01-Prod\ProjectX` or `\\storageaccount.file.core.windows.net\projectx`. When the end-user wants to navigate to their file share, they type in the user-friendly UNC path, but their SMB client accesses the underlying SMB path of the mapping. You can also extend this basic concept to take over an existing file server name, such as `\\MyServer\ProjectX`.
 
-[![Demo on how to set up DFS-N with Azure Files - click to play!](./media/storage-files-dfsn/video-snapshot-dfsn.png)](https://www.youtube.com/watch?v=KG0OX0RgytI). 
-> [!NOTE]
-> Skip to 10:10 in the video to see how to set up DFS-N.  
+- Provide a migration-proof name for a logical set of data. In this example, you have a mapping like `\\contoso\shares\Engineering` that maps to `\\OldServer\Engineering`. When you complete your migration to Azure Files, you can change your mapping such that your user-friendly UNC path points at `\\storageaccount.file.core.windows.net\engineering`. When an end-user accesses the user-friendly UNC path, they will be seamlessly redirected to the Azure file share path.
 
+- Establish a common name for a logical set of data that is distributed to multiple different servers at different physical sites, such as through Azure File Sync. In this example, a name such as `\\contoso\shares\FileSyncExample` is mapped to multiple UNC paths such as `\\FileSyncServer1\ExampleShare`, `\\FileSyncServer2\DifferentShareName`, `\\FileSyncServer3\ExampleShare`. When the user accesses the user-friendly UNC, they are given a list of possible UNC paths and choose the one closest to them based on Active Directory site definitions.
 
-## Common Use Cases
-DFS-N has 4 major use cases with Azure Files. 
+- Extend a logical set of data across size, IO, or other scale thresholds. This is very common when dealing with user directories, where every user gets their own folder on a share, or with scratch shares, where users get arbitrary space to handle temporary data needs. Through using DFS-N, you stitch together multiple folders into a cohesive namespace. For example, `\\contoso\shares\UserShares\user1` maps to `\\storageaccount.file.core.windows.net\user1`, `\\contoso\shares\UserShares\user2` maps to `\\storageaccount.file.core.windows.net\user2`, and so on.  
 
-1. Using an alternate name (ex: an existing file server name) to mount your file share
-2. Having the ability to establish a cache of data next to your users but keep UNC paths the same across branch offices
-3. Circumventing folder size or server space limitations
-4. Active Directory integration with DFS-N
-	
-### Use Case 1: Using an alternate name (ex: an existing file server name) to mount your file share
+You can see an example of how to use DFS-N with your Azure Files deployment in the following video overview.
 
-1. Go to your DFS-N server. If this is a Windows VM, install the DFS-N role via Server Manager.
-	
-2. Add some registry entries to enable the root consolidation feature:
+[![Demo on how to set up DFS-N with Azure Files - click to play!](./media/manage-namespaces/video-snapshot-dfsn.png)](https://www.youtube.com/watch?v=jd49W33DxkQ). 
+> [!NOTE]  
+> Skip to 10:10 in the video to see how to set up DFS-N.
 
-    1. Open an elevated PowerShell session
-    1. Run the following commands:
-        ```powershell
-        new-item -Type Registry HKLM:SYSTEM\CurrentControlSet\Services\Dfs
-        
-        new-item -Type Registry HKLM:SYSTEM\CurrentControlSet\Services\Dfs\Parameters
-    		
-        new-item -Type Registry HKLM:SYSTEM\CurrentControlSet\Services\Dfs\Parameters\Replicated
-    	
-        new-itemproperty HKLM:SYSTEM\CurrentControlSet\Services\Dfs\Parameters\Replicated ServerConsolidationRetry -Value 1
-        ```
-3. Now that you enabled the root consolidation feature, you must have the new server take over the name of your old server.
-	1. Create an A record for the old server and assign it to the IP address of the new server.
-	1. Create a new namespace. Under **"Enter the name of the server that will host the namespace"**, enter your DFS-N server name. Select **"Next"**. Then, under **"Enter a name for the namespace"**, enter **#[old server name]**. Select **"Next"**. Select a **standalone namespace**, because the root consolidation feature only works with a standalone namespace. Select **"Next"**. Select **"Create"**.
-4. Navigate into your newly created namespace and create a folder target for your share.
-	1. Add the path to your storage account as: **\\\\[FQDN]\\[share name]**
+If you already have a DFS Namespace in place, no special steps are required to use it with Azure Files and File Sync. If you're accessing your Azure file share from on-premises, normal networking considerations apply; see [Azure Files networking considerations](./storage-files-networking-overview.md) for more information.
 
-5. Now, to test this out, open your client-side file explorer, enter the name of your old server and the share you want to access as: **\\\\[old server name]\\[share name]**
-	1. You should be able to see any files that you may have within that specific file share!
+## Namespace types
+DFS-N provides two main namespace types:
+- **Domain-based namespace**: A namespace hosted as part of your Active Directory domain. Namespaces hosted as part of AD will have a UNC path containing the name of your domain, for example, `\\contoso.com\shares\myshare`, if your domain is `contoso.com`. Domain-based namespaces support larger scale limits and built-in redundancy through AD. Domain-based namespaces can't be a clustered resource on a failover cluster. 
+- **Standalone namespace**: A namespace hosted on an individual server, not part of AD. Standalone namespaces will have a name based on the name of the standalone server, such as `\\MyStandaloneServer\shares\myshare`, where your standalone server is named `MyStandaloneServer`. Standalone namespaces support lower scale targets than domain-based namespaces but can be hosted as a clustered resource on a failover cluster.
 
-### Use Case 2: Having the ability to establish a cache of data next to your users but keep UNC paths the same across branch offices
+## Requirements
+To use DFS-N with Azure Files and File Sync, you must have the following resources:
 
-DFS-N is useful in scenarios like this because it lets you have multiple folder targets for each share. 
+- An Active Directory domain. This can be hosted anywhere you like, such as on-premises, in an Azure VM, or even in another cloud.
+- A Windows Server that can host the namespace. A common pattern deployment pattern for DFS-N is to use the Active Directory domain controller to host the namespaces, however the namespaces can be setup from any server with the DFS-N server role installed. DFS-N is available on all supported Windows Server versions.
+- An SMB file share hosted in a domain-joined environment, such as an Azure file share hosted within a domain-joined storage account, or a file share hosted on a domain-joined Windows File Server using Azure File Sync. For more on domain-joining your storage account, see [Identity-based authentication](storage-files-active-directory-overview.md). Windows File Servers are domain-joined the same way regardless of whether you are using Azure File Sync.
+- The SMB file shares you want to use with DFS-N are reachable from your on-premises networks. This is primarily a concern for Azure file shares, however, technically applies to any file share hosted in Azure or any other cloud. For more information on networking, see [Networking considerations for direct access](storage-files-networking-overview.md).
 
-To add a folder target by using DFS Management, use the following procedure:
-1. Click **Start**, point to **Administrative Tools**, and then click **DFS Management**.
-2. In the console tree, under the Namespaces node, right-click a folder, and then click **Add Folder Target**.
-3. Type the path to the folder target or click **Browse** to locate the folder target. Add as many folder targets as you would like. 
-		a. To create a folder target for your Azure file share, when adding a new folder target, add the path to your storage account as: **\\\\[FQDN]\\[share name]**.
+## Install the DFS-N server role
+If you are already using DFS-N, or wish to set up DFS-N on your domain controller, you may safely skip these steps.
 
-### Use Case 3: Circumventing file share size limitations
+# [Portal](#tab/azure-portal)
+To install the DFS-N server role, open the Server Manager on your server. Click **Manage**, and then click **Add Roles and Features**. The resulting wizard guides you through the installation of the necessary Windows components to run and manage DFS-N. 
 
-DFS-N is beneficial if you have size/space limitations on a folder or server. You can store overflowing folders on another server or in Azure Files and add a folder target. This way, you can still maintain a single namespace while circumventing size/space limitations. 
+In the **Installation Type** section of the installation wizard, select the **Role-based or feature-based installation** radio button and click **Next**. On the **Server Selection** section, select the desired server(s) on which you would like to install the DFS-N server role, and click **Next**. 
 
-> [!NOTE]
-> If you do not already have DFS-N set up, please see the video at the top of this page and skip to 10:10.  
+In the **Server Roles** section, select and check the **DFS Namespaces** role from role list. You can find this under **File and Storage Services** > **File and ISCSI Services**. When you click the DFS-N server role, it may also add any required supporting server roles or features that you don't already have installed.
 
-1. Change the folders you plan to migrate to read-only access. This is to avoid data loss during migration.
-2. Migrate all the data in those chosen folders to new file share(s) in Azure Files.
-3. In the console tree, under the Namespaces node, right-click each folder target, and then click **Add Folder Target**.
-4. For each folder you chose to migrate, add the path to your storage account as: **\\\\[FQDN]\\[share name]**. This effectively converts these folders to reparse points. 
-5. Add back read-write access, if desired.
+![A screenshot of the **Add Roles and Features** wizard with the **DFS Namespaces** role selected.](./media/manage-namespaces/dfs-namespaces-install.png)
 
-### Use Case 4: AD integration with DFS-N
+After you have checked the **DFS Namespaces** role, you may click **Next** on all subsequent screens, and click **Install** as soon as the wizard enables the button. When the installation is complete, you may configure your DFS-N namespace.
 
-1. Ensure that the storage account with the file shares you want to add as targets has the appropriate identity-based access option enabled.
-	1. If you are using **Azure AD** - Go to your storage account, click on **Configuration** under Settings in the side navigation, and click on **Enabled** under Azure Active Directory Domain Services. 
-	2. If you are using **on-premises AD** - see [Enable AD DS authentication to Azure file shares](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-enable).
-2. Go to your DFS-N server. If this is a Windows VM, install the DFS-N role via Server Manager if you haven't already.
-3. Create a new namespace. Choose **domain-based namespace** and follow the wizard's instructions. 
-4. In the console tree, under the Namespaces node, right-click each folder target, and then click **Add Folder Target**.
-5. Type the path to the folder target, or click **Browse** to locate the folder target. Add as many folder targets as you would like. 
-	1. To create a folder target for your Azure file share, when adding a new folder target, add the path to your storage account as: **\\\\[FQDN]\\[share name]**.
+# [PowerShell](#tab/azure-powershell)
+From an elevated PowerShell session (or using PowerShell remoting), execute the following commands.
+
+```PowerShell
+Install-WindowsFeature -Name "FS-DFS-Namespace", "RSAT-DFS-Mgmt-Con"
+```
+---
+
+## Taking over existing server names with root consolidation
+One important use for DFS-N is to take over an existing server name for the purposes of refactoring the physical layout of the file shares. For example, you may wish to consolidate file shares from multiple old file servers together on a single file server during a modernization migration. Traditionally, end-user familarity and document-linking limit your ability to consolidate file shares from disparate file servers together on one host, but the DFS-N root consolidation feature allows you to stand-up a single DFS-N server to multiple server names and route to the appropriate share name.
+
+Although useful for a variety of datacenter migration scenarios, root consolidation is especially useful for adopting cloud-native Azure file shares as:
+
+- Azure file shares don't allow you to keep existing on-premises server names.
+- Azure file shares must be accessed via the fully qualified domain name (FQDN) of the storage account. For example, an Azure file share called `share` in storage account `storageaccount` is always accessed through the `\\storageaccount.file.core.windows.net\share` UNC path. This can be confusing to end-users who expect a short name (ex. `\\MyServer\share`) or a name that is a subdomain of the organization's domain name (ex. `\\MyServer.contoso.com\share`).
+
+Root consolidation may only be used with standalone namespaces. If you already have an existing domain-based namespace for your file shares, you do not need to create a root consolidated namespace.
+
+### Enabling root consolidation
+Root consolidation can be enabled by setting the following registry keys from an elevated PowerShell session (or using PowerShell remoting).
+
+```PowerShell
+New-Item `
+    -Path "HKLM:SYSTEM\CurrentControlSet\Services\Dfs" `
+    -Type Registry `
+    -ErrorAction SilentlyContinue
+New-Item `
+    -Path "HKLM:SYSTEM\CurrentControlSet\Services\Dfs\Parameters" `
+    -Type Registry `
+    -ErrorAction SilentlyContinue
+New-Item `
+    -Path "HKLM:SYSTEM\CurrentControlSet\Services\Dfs\Parameters\Replicated" `
+    -Type Registry `
+    -ErrorAction SilentlyContinue
+Set-ItemProperty `
+    -Path "HKLM:SYSTEM\CurrentControlSet\Services\Dfs\Parameters\Replicated" `
+    -Name "ServerConsolidationRetry" `
+    -Value 1
+```
+
+### Creating DNS entries for existing file server names
+In order for your DFS-N server to respond to existing file server names, create CNAME records for your existing file servers that point at the DFS-N server name. The exact procedure for updating your DNS records may depend on what servers your organization is using and if your organization is using custom tooling to automate the management of DNS. The following steps are shown for the DNS server included with Windows Server and automatically used by Active Directory.
+
+# [Portal](#tab/azure-portal)
+On a Windows DNS server, open the DNS management console. This can be found by clicking the **Start** button and typing **DNS**. Navigate to the forward lookup zone for your domain. For example, if your domain is `contoso.com`, the forward lookup zone can be found under **Forward Lookup Zones** > **`contoso.com`** in the management console. The exact hierarchy shown in this dialog will depend on the DNS configuration for your network.
+
+Right-click on your forward lookup zone and select **New Alias (CNAME)**. In the resulting dialog, enter the short name for the file server you're replacing (the fully qualified domain name will be auto-populated in the textbox labeled **Fully qualified domain name**). In the textbox labeled **Fully qualified domain name (FQDN) for the target host**, enter the name of the DFS-N server you have set up. You can use the **Browse** button to help you select the server if desired. Click **OK** to create the CNAME record for your server.
+
+![A screenshot depicting the **New Resource Record** for a CNAME DNS entry](./media/manage-namespaces/root-consolidation-cname.png)
+
+# [PowerShell](#tab/azure-powershell)
+On a Windows DNS server, open a PowerShell session (or use PowerShell remoting) to execute the following commands, populating `$oldServer` and `$dfsnServer`, with the relevant values for your environment (`$domain` will auto-populate with the domain name, but you can also manually type this out as well).
+
+```PowerShell
+# Variables
+$oldServer = "MyServer"
+$domain = Get-CimInstance -ClassName "Win32_ComputerSystem" | `
+    Select-Object -ExpandProperty Domain
+$dfsnServer = "CloudDFSN.$domain"
+
+# Create CNAME record
+Import-Module -Name DnsServer
+Add-DnsServerResourceRecordCName `
+    -Name $oldServer `
+    -HostNameAlias $dfsnServer `
+    -ZoneName $domain
+```
+
+---
+
+## Create a namespace
+The basic unit of management in DFS-N is the namespace. The namespace root, or name, is the starting point of the namespace, such that in the UNC path `\\contoso.com\Public\`, the namespace root is `Public`. 
+
+If you are using DFS-N to take over an existing server name with DFS-N root consolidation, the name of the namespace should be the name of the DFS-N server, prepended with the `#` character. For example, if you wanted to take over an existing server named `MyServer`, you would create a DFS-N namespace called `#MyServer`. The PowerShell section below takes care of prepending the `#`, but if you create via the DFS Management console, you will need to prepend as appropriate. 
+
+# [Portal](#tab/azure-portal)
+To create a new namespace, open the **DFS Management** console. This can be found by clicking the **Start** button and typing **DFS Management**. The resulting management console has two sections **Namespaces** and **Replication**, which refer to DFS-N and DFS-R respectively. Azure File Sync provides a modern replication and synchronization mechanism that may be used in place of DFS-R if replication is also desired.
+
+Click on the **Namespaces** section, and click on the **New Namespace** button (you may also right-click on the **Namespaces** section). The resulting **New Namespace Wizard** walks you through creating a DFS-N namespace. 
+
+The first section in the wizard requires you to pick the DFS-N server to host the namespace. Multiple servers can host a namespace, but you will need to set up DFS-N with one server at a time. Enter the name of the desired DFS-N server and click **Next**. In the **Namespace Name and Settings** section, you can enter the desired name of your namespace and click **Next**. 
+
+The **Namespace Type** section allows you to choose between a **Domain-based namespace** and a **Stand-alone namepsace**. If you intend to use DFS-N to preserve an existing file server/NAS device name, you should select the standalone namespace option. For any other scenarios for DFS-N, you probably want to select a domain-based namespace. Refer to [namespace types](#namespace-types) above for more information on choosing between namespace types.
+
+![A screenshot of selecting between a domain-based namespace and a standalone namespace in the **New Namespace Wizard**](./media/manage-namespaces/dfs-namespace-type.png)
+
+Select the desired namespace type for your environment and click **Next**. The wizard will then summarize the namespace to be created. Click **Create** to create the namespace and **Close** when the dialog completes.
+
+# [PowerShell](#tab/azure-powershell)
+From a PowerShell session on the DFS-N server, execute the following PowerShell commands, populating `$namespace`, `$type`, and `$takeOverName` with the relevant values for your environment.
+
+```PowerShell
+# Variables
+$namespace = "Public"
+$type = "DomainV2" # "Standalone"
+$takeOverName = $false # $true
+
+$namespace = if ($takeOverName -and $type -eq "Standalone" -and $namespace[0] -ne "#") { 
+    "#$namespace" 
+} else { $namespace }
+$dfsnServer = $env:ComputerName
+$namespaceServer = if ($type -eq "DomainV2") { 
+    Get-CimInstance -ClassName "Win32_ComputerSystem" | `
+    Select-Object -ExpandProperty Domain
+} else { $dfsnServer }
+
+# Create share for DFS-N namespace
+$smbShare = "C:\DFSRoots\$namespace"
+if (!(Test-Path -Path $smbShare)) { New-Item -Path $smbShare -ItemType Directory }
+New-SmbShare -Name $namespace -Path $smbShare -FullAccess Everyone
+
+# Create DFS-N namespace
+Import-Module -Name DFSN
+$namespacePath = "\\$namespaceServer\$namespace"
+$targetPath = "\\$dfsnServer\$namespace"
+New-DfsnRoot -Path $namespacePath -TargetPath $targetPath -Type $type
+```
+---
+
+## Configure folders and folder targets
+For a DFS-N namespace to be useful, it must have folders and folder targets. Each folder can have one or more folder targets, which are pointers to the SMB file share(s) that host that content. When users browse a folder with folder targets, the client computer receives a referral that transparently redirects the client computer to one of the folder targets. You can also have folders without folder targets to add structure and hierachy to the namespace.
+
+You can think of DFS-N folders as analagous to file shares. 
+
+# [Portal](#tab/azure-portal)
+In the DFS Management console, click on the namespace you just created and click **New Folder**. The resulting **New Folder** dialog will allow you to create both the folder and its targets.
+
+![A screenshot of the **New Folder** dialog](./media/manage-namespaces/dfs-folder-targets.png)
+
+In the textbox labeled **Name** provide the name of the folder. Click **Add...** to add folder targets for this folder. The resulting **Add Folder Target** dialog provides a textbox labeled **Path to folder target** where you can provide the UNC path to the desired folder. Click **OK** on the **Add Folder Target** dialog. If you are adding a UNC path to an Azure file share, you may receive a message reporting that the server `storageaccount.file.core.windows.net` cannot be contacts. This is expected; click **Yes** to continue. Finally, click **OK** on the **New Folder** dialog to create the folder and folder targets.
+
+# [PowerShell](#tab/azure-powershell)
+```PowerShell
+# Variables
+$shareName = "MyShare"
+$targetUNC = "\\storageaccount.file.core.windows.net\myshare"
+
+# Create folder and folder targets
+$sharePath = "$namespacePath\$shareName"
+New-DfsnFolder -Path $sharePath -TargetPath $targetUNC
+```
+
+---
+
+Now that you have created a namespace, a folder, and a folder target, you should be able to mount your file share through DFS-N. If you are using a domain-based namespace, the full path for your share should be `\\<domain-name>\<namespace>\<share>`. If you are using a standalone namespace, the full path for your share should be `\\<DFS-server>\<namespace>\<share>`. If you are using a standalone namespace with root consolidation, you can access directly through your old server name, such as `\\<old-server>\<share>`.
+
+## See also
+- Deploying an Azure file share: [Planning for an Azure Files deployment](storage-files-planning.md) and [How to create an file share](storage-how-to-create-file-share.md).
+- Configuring file share access: [Identity-based authentication](storage-files-active-directory-overview.md) and [Networking considerations for direct access](storage-files-networking-overview.md).
+- [Windows Server Distributed File System Namespaces](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)
