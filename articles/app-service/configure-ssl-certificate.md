@@ -67,6 +67,17 @@ The free App Service Managed Certificate is a turn-key solution for securing you
 > The free certificate is issued by DigiCert. For some top-level domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
 > 
 
+### Free App Service Managed Certificate for apex domains requirements
+App Service Managed Certificates for apex domains are validated with HTTP token validation, so you want to make sure that you have the following set up, otherwise your certificate validation will fail.
+
+1. You have added an apex domain to your web app and have the correct A record set in your DNS record.
+1. Your web app is accessible from the public network. You cannot validate your certificate if your web app is not accessible from the public network.
+
+This scenario is not supported when using alias record for apex domain referencing Traffic Manager.
+
+### Free App Service Managed Certificate support for sub-domains requirements
+App Service Managed Certificates for sub-domains are validated with CNAME records. In order to successfully create a managed certificate, you will need to have a CNAME record of the subdomain pointing to the web app. The same validation process is also done during certificate renewal. If you change or delete the CNAME record, the certificate renewal will fail.
+
 ### create a free App Service Managed Certificate
 
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from the left menu, select **App Services** > **\<app-name>**.
@@ -80,14 +91,6 @@ Select the custom domain to create a free certificate for and select **Create**.
 When the operation completes, you see the certificate in the **Private Key Certificates** list.
 
 ![Create free certificate finished](./media/configure-ssl-certificate/create-free-cert-finished.png)
-
-### Free App Service Managed Certificate support for apex domains
-In order to create an App Service Managed Certificate for your apex domain, you will need to have an A Record pointing to the IP Address of your web app. This will also be required for a successful renewal of your certificate.
-
-If your web app is not accessible by public internet (ie. IP restrictions), your certificate will not be able to validate and thus get issued. If your web app is not accessible by public internet upon renewal, your certificate will also fail to renew.
-
-### Free App Service Managed Certificate support for sub-domains
-In order to create an App Service Managed Certificate for your sub-domain, you will need to have an CNAME Record pointing to the your web app. This will also be required for a successful renewal of your certificate.
 
 > [!IMPORTANT] 
 > To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
