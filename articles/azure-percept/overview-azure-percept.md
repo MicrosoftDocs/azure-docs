@@ -15,23 +15,23 @@ Azure Percept is a family of hardware, software, and services designed to accele
 
 The integration challenges one faces when attempting to deploy edge AI solutions at scale can be summed up into three major points of friction:
 
-- Identifying and selecting the right silicon to power the solutions.
-- Ensuring the collective security of the hardware, software, models, and data.
-- The ability to build and manage solutions that seamlessly work.
+1. Identifying and selecting the right silicon to power the solutions.
+2. Ensuring the collective security of the hardware, software, models, and data.
+3. The ability to build and manage solutions that seamlessly work, at scale.
 
 ## Components of Azure Percept
 
 The main components of Azure Percept are:
 
-- AI hardware reference design and certification programs.
+1. AI hardware reference design and certification programs.
 
     - Provides the ecosystem of hardware developers with patterns and best practices for developing edge AI hardware that can be integrated easily with Azure AI and IoT services.
 
-- Azure Percept DK (devkit).
+2. Azure Percept DK (devkit).
 
-    - A development kit that is flexible enough to support a wide variety of prototyping scenarios.
+    - A development kit that is flexible enough to support a wide variety of prototyping scenarios for device builders, solution builders and customers.
 
-- Services and workflows to accelerate edge AI model and solution development.
+3. Services and workflows to accelerate edge AI model and solution development.
 
     - Development workflows and pre-built models accessible from Azure Percept Studio.
     - Model development services.

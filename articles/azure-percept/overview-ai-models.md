@@ -4,7 +4,7 @@ description: Learn more about the AI models available for prototyping and deploy
 author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
-ms.topic: conceptual
+ms.topic: concept
 ms.date: 02/16/2021
 ms.custom: template-concept
 ---
@@ -48,6 +48,9 @@ Pre-built voice assistant keywords and commands are available directly through t
 
 ## Advanced development
 
-For advanced developers, the available [Jupyter notebook](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/Transferlearningusing_SSDLiteV2%20Model.ipynb) performs transfer learning using a pre-trained TensorFlow model (MobileNetSSDV2Lite) in Python with a custom dataset for object detection. The notebook utilizes remote compute instances through [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/#product-overview) and can be run in the cloud using the AzureML portal or locally in [Visual Studio Code](https://code.visualstudio.com/).
+Please see the [Azure Percept DK advanced development GitHub](https://github.com/microsoft/azure-percept-advanced-development) for
+up-to-date guidance, tutorials, and examples for things like:
 
-Also included are some helpful Python [scripts](https://github.com/microsoft/Project-Santa-Cruz-Preview/tree/main/Sample-Scripts-and-Notebooks/Official/Scripts) for managing datasets and the [Dev Tools Pack Installer](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/dev-tools-installer.md), which installs and configures all of the tools required to develop an advanced AI solution.
+* Bringing a custom AI model to the device
+* Updating a model we already support with transfer learning
+* And more
