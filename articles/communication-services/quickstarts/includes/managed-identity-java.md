@@ -43,7 +43,7 @@ Then, use the client to issue a token for a new user:
 
 ```java
      public AccessToken createIdentityAndGetTokenAsync() {
-          // You can find your endpoint and access key from your resource in the Azure Portal
+          // You can find your endpoint and access key from your resource in the Azure portal
           String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 
           HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
