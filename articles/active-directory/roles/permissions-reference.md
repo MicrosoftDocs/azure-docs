@@ -32,7 +32,7 @@ If it's frustrating for you to find the role you need out of a list of many role
 
 ### A role exists now that didn't exist when you assigned the Global Administrator role
 
-It's possible that a role or roles were added to Azure AD that provide more granular permissions that were not an option when you elevated some users to Global Administrator. Over time, we are rolling out additional roles that accomplish tasks that only the Global Administrator role could do before. You can see these reflected in the following [Available roles](#available-roles).
+It's possible that a role or roles were added to Azure AD that provide more granular permissions that were not an option when you elevated some users to Global Administrator. Over time, we are rolling out additional roles that accomplish tasks that only the Global Administrator role could do before. You can see these reflected in the following [All roles](#all-roles).
 
 ## Assign or remove administrator roles
 
