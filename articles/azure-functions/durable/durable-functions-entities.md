@@ -183,9 +183,9 @@ def entity_function(context: df.DurableEntityContext):
     elif operation == "reset":
         current_value = 0
     elif operation == "get":
-        pass
+        context.set_result(current_value)
     context.set_state(current_value)
-    context.set_result(current_value)
+
 
 
 main = df.Entity.create(entity_function)
