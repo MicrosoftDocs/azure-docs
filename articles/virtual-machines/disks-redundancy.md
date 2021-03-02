@@ -115,3 +115,7 @@ New-AzResourceGroupDeployment -ResourceGroupName zrstesting `
 -osDiskType "StandardSSD_LRS" `
 -dataDiskType "Premium_ZRS" `
 ```
+
+## Next steps
+
+- Use these sample [Azure Resource Manager templates to create a VM with ZRS disks](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/ZRSDisks).
