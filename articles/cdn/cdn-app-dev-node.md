@@ -361,11 +361,10 @@ Finally, let's delete our profile.
 ![Delete profile](./media/cdn-app-dev-node/cdn-delete-profile.png)
 
 ## Next Steps
-To see the completed project from this walkthrough, [download the sample](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-JavaScript-c712bc74).
 
-To see the reference for the Azure CDN SDK for JavaScript, view the [reference](https://azure.github.io/azure-sdk-for-js/@azure/arm-cdn/latest/).
+To see the reference for the Azure CDN SDK for JavaScript, view the [reference](https://docs.microsoft.com/javascript/api/@azure/arm-cdn).
 
-To find additional documentation on the Azure SDK for JavaScript, view the [full reference](https://azure.github.io/azure-sdk-for-js/).
+To find additional documentation on the Azure SDK for JavaScript, view the [full reference](https://docs.microsoft.com/javascript/api/@azure/arm-cdn).
 
 Manage your CDN resources with [PowerShell](cdn-manage-powershell.md).
 
