@@ -37,7 +37,7 @@ npm init -y
 
 ### Install the package
 
-Use the `npm install` command to install the Azure Communication Services Administration client library for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Identity client library for JavaScript.
 
 ```console
 
