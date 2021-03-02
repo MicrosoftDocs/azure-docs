@@ -147,7 +147,7 @@ Click on the exception row to see the details of the server-side exception that 
 
 ![Server-side diagnostics](./media/monitor-web-app-availability/open-instance-4.png)
 
-In addition to the raw results, you can also view two key Availability metrics in [Metrics Explorer](../platform/metrics-getting-started.md):
+In addition to the raw results, you can also view two key Availability metrics in [Metrics Explorer](../essentials/metrics-getting-started.md):
 
 1. Availability: Percentage of the tests that were successful, across all test executions.
 2. Test Duration: Average test duration across all test executions.
@@ -155,7 +155,7 @@ In addition to the raw results, you can also view two key Availability metrics i
 ## Automation
 
 * [Use PowerShell scripts to set up an availability test](./powershell.md#add-an-availability-test) automatically.
-* Set up a [webhook](../platform/alerts-webhooks.md) that is called when an alert is raised.
+* Set up a [webhook](../alerts/alerts-webhooks.md) that is called when an alert is raised.
 
 ## Troubleshooting
 

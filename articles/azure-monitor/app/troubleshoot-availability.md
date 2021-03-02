@@ -58,7 +58,7 @@ Check the classic alerts configuration to confirm your email is directly listed,
 
 ### I did not receive the webhook notification?
 
-Check to ensure the application receiving the webhook notification is available, and successfully processes the webhook requests. See [this](../platform/alerts-log-webhook.md) for more information.
+Check to ensure the application receiving the webhook notification is available, and successfully processes the webhook requests. See [this](../alerts/alerts-log-webhook.md) for more information.
 
 ### I am getting  403 Forbidden errors, what does this mean?
 
@@ -110,7 +110,7 @@ This is currently not supported.
 
 ## Who receives the (classic) alert notifications?
 
-This section only applies to classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../platform/alerts-classic.overview.md)and the new alerts experience refer to the [alerts overview article](../platform/alerts-overview.md). To control alert notification in the new alerts experience use [action groups](../platform/action-groups.md).
+This section only applies to classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../alerts/alerts-classic.overview.md)and the new alerts experience refer to the [alerts overview article](../alerts/alerts-overview.md). To control alert notification in the new alerts experience use [action groups](../alerts/action-groups.md).
 
 * We recommend the use of specific recipients for classic alert notifications.
 
@@ -121,7 +121,7 @@ This section only applies to classic alerts and will help you optimize your aler
 > [!NOTE]
 > If you currently use the **bulk/group** check-box option, and disable it, you will not be able to revert the change.
 
-Use the new alert experience/near-realtime alerts if you need to notify users based on their roles. With [action groups](../platform/action-groups.md), you can configure email notifications to users with any of the contributor/owner/reader roles (not combined together as a single option).
+Use the new alert experience/near-realtime alerts if you need to notify users based on their roles. With [action groups](../alerts/action-groups.md), you can configure email notifications to users with any of the contributor/owner/reader roles (not combined together as a single option).
 
 ## Next steps
 

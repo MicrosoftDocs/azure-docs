@@ -5,6 +5,7 @@ services: virtual-machines
 ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
+ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha

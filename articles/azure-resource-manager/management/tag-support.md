@@ -1560,6 +1560,9 @@ Jump to a resource provider namespace:
 > | workspaces / models / versions | No | No |
 > | workspaces / onlineEndpoints | Yes | Yes |
 > | workspaces / onlineEndpoints / deployments | Yes | Yes |
+ 
+> [!NOTE]
+> Workspace tags don't propagate to compute clusters and compute instances. 
 
 ## Microsoft.Maintenance
 

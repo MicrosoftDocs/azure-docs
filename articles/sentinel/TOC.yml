@@ -246,9 +246,9 @@
   - name: Azure RBAC roles
     items:
     - name: All Azure roles
-      href: /azure/role-based-access-control/built-in-roles#all
+      href: ../role-based-access-control/built-in-roles.md#all
     - name: Azure Sentinel roles
-      href: /azure/role-based-access-control/built-in-roles#security
+      href: ../role-based-access-control/built-in-roles.md#security
   - name: REST APIs
     items:
     - name: Azure Sentinel REST-API
@@ -283,4 +283,3 @@
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
   
 
-    

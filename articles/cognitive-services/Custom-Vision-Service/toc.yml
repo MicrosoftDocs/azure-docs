@@ -59,8 +59,10 @@
     href: ./update-application-to-3.0-sdk.md
 - name: Reference
   items:
-  - name: REST API  
-    href: https://docs.microsoft.com/rest/api/custom-vision/
+  - name: Custom Vision Training API  
+    href: https://go.microsoft.com/fwlink/?linkid=865446
+  - name: Custom Vision Prediction API 
+    href: https://go.microsoft.com/fwlink/?linkid=865445
   - name: SDKs
     items:
     - name: .NET

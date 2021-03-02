@@ -28,7 +28,7 @@ This article lists resources that can help you get more information about workin
 
 
 ## Auditing and reporting
-Audit logs of Azure Sentinel are maintained in [Azure Activity Logs](../azure-monitor/platform/platform-logs-overview.md).
+Audit logs of Azure Sentinel are maintained in [Azure Activity Logs](../azure-monitor/essentials/platform-logs-overview.md).
 
 The following supported operations can be audited.
 

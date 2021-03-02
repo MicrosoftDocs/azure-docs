@@ -74,7 +74,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable Azure VMware Solution
+          - text: Request host quota and enable Azure VMware Solution
             url: enable-azure-vmware-solution.md
           - text: Save costs with a reserved instance
             url: reserved-instance.md

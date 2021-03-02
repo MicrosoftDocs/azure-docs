@@ -133,7 +133,7 @@ To configure writing audit logs to a Log Analytics workspace, select **Log Analy
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-For more details about Azure Monitor Log Analytics workspace, see [Designing your Azure Monitor Logs deployment](../../azure-monitor/platform/design-logs-deployment.md)
+For more details about Azure Monitor Log Analytics workspace, see [Designing your Azure Monitor Logs deployment](../../azure-monitor/logs/design-logs-deployment.md)
    
 ### <a id="audit-event-hub-destination"></a>Audit to Event Hub destination
 
@@ -164,7 +164,7 @@ If you chose to write audit logs to Azure Monitor logs:
     ![Log Analytics Security Insights](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
 - Alternatively, you can also access the audit logs from Log Analytics blade. Open your Log Analytics workspace and under **General** section, click **Logs**. You can start with a simple query, such as: *search "SQLSecurityAuditEvents"* to view the audit logs.
-    From here, you can also use [Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md)  to run advanced searches on your audit log data. Azure Monitor logs gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Azure Monitor logs search language and commands, see [Azure Monitor logs search reference](../../azure-monitor/log-query/log-query-overview.md).
+    From here, you can also use [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md)  to run advanced searches on your audit log data. Azure Monitor logs gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Azure Monitor logs search language and commands, see [Azure Monitor logs search reference](../../azure-monitor/logs/log-query-overview.md).
 
 If you chose to write audit logs to Event Hub:
 

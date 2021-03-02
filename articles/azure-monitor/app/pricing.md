@@ -13,7 +13,7 @@ ms.reviewer: mbullwin
 # Manage usage and costs for Application Insights
 
 > [!NOTE]
-> This article describes how to understand and control your costs for Application Insights.  A related article, [Monitoring usage and estimated costs](../platform/usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models.
+> This article describes how to understand and control your costs for Application Insights.  A related article, [Monitoring usage and estimated costs](..//usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models.
 
 Application Insights is designed to get everything you need to monitor the availability, performance, and usage of your web applications, whether they're hosted on Azure or on-premises. Application Insights supports popular languages and frameworks, such as .NET, Java, and Node.js, and integrates with DevOps processes and tools like Azure DevOps, Jira, and PagerDuty. It's important to understand what determines the costs of monitoring your applications. In this article, we review what drives your application monitoring costs and how you can proactively monitor and control them.
 
@@ -29,7 +29,7 @@ The Application Insights option to [Enable alerting on custom metric dimensions]
 
 ### Workspace-based Application Insights
 
-For Application Insights resources which send their data to a Log Analytics workspace, called [workspace-based Application Insights resources](create-workspace-resource.md), the billing for data ingestion and retention is done by the workspace where the Application Insights data is located. This enables customers to leverage all options of the Log Analytics [pricing model](../platform/manage-cost-storage.md#pricing-model) that includes Capacity Reservations in addition to Pay-As-You-Go. Log Analytics also has more options for data retention, including [retention by data type](../platform/manage-cost-storage.md#retention-by-data-type). Application Insights data types in the workspace receive 90 days of retention without charges. Usage of web tests and enabling alerting on custom metric dimensions is still reported through Application Insights. Learn how to track data ingestion and retention costs in Log Analytics using the [Usage and estimated costs](../platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Azure Cost Management + Billing](../platform/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) and [Log Analytics queries](#data-volume-for-workspace-based-application-insights-resources). 
+For Application Insights resources which send their data to a Log Analytics workspace, called [workspace-based Application Insights resources](create-workspace-resource.md), the billing for data ingestion and retention is done by the workspace where the Application Insights data is located. This enables customers to leverage all options of the Log Analytics [pricing model](../logs/manage-cost-storage.md#pricing-model) that includes Capacity Reservations in addition to Pay-As-You-Go. Log Analytics also has more options for data retention, including [retention by data type](../logs/manage-cost-storage.md#retention-by-data-type). Application Insights data types in the workspace receive 90 days of retention without charges. Usage of web tests and enabling alerting on custom metric dimensions is still reported through Application Insights. Learn how to track data ingestion and retention costs in Log Analytics using the [Usage and estimated costs](../logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) and [Log Analytics queries](#data-volume-for-workspace-based-application-insights-resources). 
 
 ## Estimating the costs to manage your application
 
@@ -102,7 +102,7 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
 ```
 
-Note that this query can be used in an [Azure Log Alert](../platform/alerts-unified-log.md) to set up alerting on data volumes.  
+Note that this query can be used in an [Azure Log Alert](../alerts/alerts-unified-log.md) to set up alerting on data volumes.  
 
 To learn more about your telemetry data changes, we can get the count of events by type using the query:
 
@@ -220,7 +220,7 @@ To [change the daily cap via Azure Resource Manager](./powershell.md), the prope
 
 ### Create alerts for the Daily Cap
 
-The Application Insights Daily Cap creates an event in the Azure activity log when the ingested data volumes reaches the warning level or the daily cap level.  You can [create an alert based on these activity log events](../platform/alerts-activity-log.md#create-with-the-azure-portal). The signal names for these events are:
+The Application Insights Daily Cap creates an event in the Azure activity log when the ingested data volumes reaches the warning level or the daily cap level.  You can [create an alert based on these activity log events](../alerts/alerts-activity-log.md#create-with-the-azure-portal). The signal names for these events are:
 
 * Application Insights component daily cap warning threshold reached
 
@@ -244,7 +244,7 @@ To set ingestion sampling, go to the  **Pricing** pane:
 > The **Data sampling** pane controls only the value of ingestion sampling. It doesn't reflect the sampling rate that's applied by the Application Insights SDK in your app. If the incoming telemetry has already been sampled in the SDK, ingestion sampling isn't applied.
 >
 
-To discover the actual sampling rate, no matter where it's been applied, use an [Analytics query](../log-query/log-query-overview.md). The query looks like this:
+To discover the actual sampling rate, no matter where it's been applied, use an [Analytics query](../logs/log-query-overview.md). The query looks like this:
 
 ```kusto
 requests | where timestamp > ago(1d)
@@ -284,13 +284,13 @@ For early adopters of Azure Application Insights, there are still two possible p
 
 These legacy pricing tiers have been renamed. The Enterprise pricing tier is now called **Per Node** and the Basic pricing tier is now called **Per GB**. These new names are used below and in the Azure portal.  
 
-The Per Node (formerly Enterprise) tier has a per-node charge, and each node receives a daily data allowance. In the Per Node pricing tier, you are charged for data ingested above the included allowance. If you are using Operations Management Suite, you should choose the Per Node tier. In April 2018, we [introduced](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) a new pricing model for Azure monitoring. This model adopts a simple "pay-as-you-go" model across the complete portfolio of monitoring services. Learn more about the [new pricing model](../platform/usage-estimated-costs.md).
+The Per Node (formerly Enterprise) tier has a per-node charge, and each node receives a daily data allowance. In the Per Node pricing tier, you are charged for data ingested above the included allowance. If you are using Operations Management Suite, you should choose the Per Node tier. In April 2018, we [introduced](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) a new pricing model for Azure monitoring. This model adopts a simple "pay-as-you-go" model across the complete portfolio of monitoring services. Learn more about the [new pricing model](..//usage-estimated-costs.md).
 
 For current prices in your currency and region, see [Application Insights pricing](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ### Understanding billed usage on the legacy Enterprise (Per Node) tier 
 
-As described below in more detail, the legacy Enterprise (Per Node) tier combines usage from across all Application Insights resources in a subscription to calculate the number of nodes and the data overage. Due to this combination process, **usage for all Application Insights resources in a subscription are reported against just one of the resources**.  This makes reconciling your [billed usage](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) with the usage you observe for each Application Insights resources very complicated. 
+As described below in more detail, the legacy Enterprise (Per Node) tier combines usage from across all Application Insights resources in a subscription to calculate the number of nodes and the data overage. Due to this combination process, **usage for all Application Insights resources in a subscription are reported against just one of the resources**.  This makes reconciling your [billed usage](#viewing-application-insights-usage-on-your-azure-bill) with the usage you observe for each Application Insights resources very complicated. 
 
 > [!WARNING]
 > Because of the complexity of tracking and understanding usage of Application Insights resources in the legacy Enterprise (Per Node) tier we strongly recommend using the current Pay-As-You-Go pricing tier. 

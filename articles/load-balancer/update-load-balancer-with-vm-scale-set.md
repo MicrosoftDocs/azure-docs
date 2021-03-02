@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/30/2020
+ms.date: 12/29/2020
 ms.author: irenehua
 ---
 # Update or delete a load balancer used by virtual machine scale sets
@@ -77,14 +77,15 @@ az network lb inbound-nat-pool update
 
 ## Delete inbound NAT rules
 
-Individual inbound NAT rules can't be deleted, but you can delete the entire set of inbound NAT rules.
+Individual inbound NAT rules can't be deleted, but you can delete the entire set of inbound NAT rules by deleting the inbound NAT pool.
 
-To delete the whole set of inbound NAT rules used by the scale set, first remove the NAT pool from the scale set. A full example using the CLI is shown here:
-    
+To delete the NAT pool, first remove it from the scale set. A full example using the CLI is shown here:
+
 ```azurecli-interactive
     az vmss update
        --resource-group MyResourceGroup
        --name MyVMSS
+       --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools
      az vmss update-instances 
        --instance-ids "*" 
        --resource-group MyResourceGroup

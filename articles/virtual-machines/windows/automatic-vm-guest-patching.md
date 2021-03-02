@@ -2,7 +2,9 @@
 title: Automatic VM Guest Patching for Windows VMs in Azure
 description: Learn how to automatically patch Windows virtual machines in Azure
 author: mayanknayar
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: automatic-guest-patching
+ms.collection: windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 12/23/2020
