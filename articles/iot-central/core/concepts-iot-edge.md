@@ -55,19 +55,19 @@ To learn more about the IoT Edge gateway patterns, see [How an IoT Edge device c
 
 Downstream devices can connect to an IoT Edge gateway device through the *IoT Edge hub*  module. In this scenario, the IoT Edge device is a transparent gateway:
 
-:::image type="content" source="media/concepts-iot-edge/gateway-transparent.png" alt-text="Diagram of transparent gateway":::
+:::image type="content" source="media/concepts-iot-edge/gateway-transparent.png" alt-text="Diagram of transparent gateway" border="false":::
 
 Downstream devices can also connect to an IoT Edge gateway device through a custom module. In the following scenario, downstream devices connect through a *Modbus* custom module. In this scenario, the IoT Edge device is a translation gateway:
 
-:::image type="content" source="media/concepts-iot-edge/gateway-module.png" alt-text="Diagram of custom module connection":::
+:::image type="content" source="media/concepts-iot-edge/gateway-module.png" alt-text="Diagram of custom module connection" border="false":::
 
 The following diagram shows connections to an IoT Edge gateway device through both types of modules. In this scenario, the IoT Edge device is both a transparent and a translation gateway:
 
-:::image type="content" source="media/concepts-iot-edge/gateway-module-transparent.png" alt-text="Diagram of connecting using both connection modules":::
+:::image type="content" source="media/concepts-iot-edge/gateway-module-transparent.png" alt-text="Diagram of connecting using both connection modules" border="false":::
 
 Downstream devices can connect to an IoT Edge gateway device through multiple custom modules. The following diagram shows downstream devices connecting through a Modbus custom module, a BLE custom module, and the *IoT Edge hub*  module:
 
-:::image type="content" source="media/concepts-iot-edge/gateway-module2-transparent.png" alt-text="Diagram of connecting using multiple custom modules":::
+:::image type="content" source="media/concepts-iot-edge/gateway-two-modules-transparent.png" alt-text="Diagram of connecting using multiple custom modules" border="false":::
 
 <!-- To do: add link to how to configure gateway article? -->
 
