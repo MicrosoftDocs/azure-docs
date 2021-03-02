@@ -23,24 +23,19 @@ An *identity provider* creates, maintains, and manages identity information whil
 
 In addition to Azure AD accounts, External Identities offers a variety of identity providers.
 
-- **Microsoft accounts**: Guest users can use their own personal Microsoft account (MSA) to redeem your B2B collaboration invitations. When setting up a self-service sign-up user flow, you can add [Microsoft Account (Preview)](microsoft-account.md) as one of the allowed identity providers. No additional configuration is needed to make this identity provider available for user flows.
+- **Microsoft accounts** (Preview): Guest users can use their own personal Microsoft account (MSA) to redeem your B2B collaboration invitations. When setting up a self-service sign-up user flow, you can add [Microsoft Account (Preview)](microsoft-account.md) as one of the allowed identity providers. No additional configuration is needed to make this identity provider available for user flows.
 
-- **Email one-time passcode**: When redeeming an invitation or accessing a shared resource, a guest user can request a temporary code, which is sent to their email address. Then they enter this code to continue signing in. The email one-time passcode feature authenticates B2B guest users when they can't be authenticated through other means. When setting up a self-service sign-up user flow, you can add **Email One-Time Passcode (Preview)** as one of the allowed identity providers. Some setup is required; see [Email one-time passcode authentication](one-time-passcode.md).
+- **Email one-time passcode** (Preview): When redeeming an invitation or accessing a shared resource, a guest user can request a temporary code, which is sent to their email address. Then they enter this code to continue signing in. The email one-time passcode feature authenticates B2B guest users when they can't be authenticated through other means. When setting up a self-service sign-up user flow, you can add **Email One-Time Passcode (Preview)** as one of the allowed identity providers. Some setup is required; see [Email one-time passcode authentication](one-time-passcode.md).
 
 - **Google**: Google federation allows external users to redeem invitations from you by signing in to your apps with their own Gmail accounts. Google federation can also be used in your self-service sign-up user flows. See how to [add Google as an identity provider](google-federation.md).
    > [!IMPORTANT]
    > **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
-
-   > [!NOTE]
-   > In the current self-service sign-up preview, if a user flow is associated with an app and you send a user an invitation to that app, the user won't be able to use a Gmail account to redeem the invitation. As a workaround, the user can go through the self-service sign-up process. Or, they can redeem the invitation by accessing a different app or by using their My Apps portal at https://myapps.microsoft.com.
 
 - **Facebook**: When building an app, you can configure self-service sign-up and enable Facebook federation so that users can sign up for your app using their own Facebook accounts. Facebook can only be used for self-service sign-up user flows and isn't available as a sign-in option when users are redeeming  invitations from you. See how to [add Facebook as an identity provider](facebook-federation.md).
 
 - **Direct federation**: You can also set up direct federation with any external identity provider that supports the SAML or WS-Fed protocols. Direct federation allows external users to redeem invitations from you by signing in to your apps with their existing social or enterprise accounts. See how to [set up direct federation](direct-federation.md).
    > [!NOTE]
    > Direct federation identity providers can't be used in your self-service sign-up user flows.
-
-
 
 ## Adding social identity providers
 
