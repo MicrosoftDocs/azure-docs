@@ -17,16 +17,19 @@ In this tutorial, you'll set up a CI/CD solution using GitOps with Azure Arc ena
 > * Create an Azure Arc enabled Kubernetes cluster.
 > * Connect your application and GitOps repos to Azure Repos.
 > * Import CI/CD pipelines.
-> * Connect your ACR to Azure DevOps and Kubernetes.
+> * Connect your Azure Container Registry (ACR) to Azure DevOps and Kubernetes.
 > * Create environment variable groups.
 > * Deploy the `dev` and `stage` environments.
 > * Test the application environments.
+
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## Before you begin
 
 This tutorial assumes familiarity with Azure DevOps, Azure Repos and Pipelines, and Azure CLI.
-[!INCLUDE Azure]
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 * Sign into [Azure DevOps Services](https://dev.azure.com/).
 * Complete the [previous tutorial](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) to learn how to deploy GitOps for your CI/CD environment.
 * Understand the [benefits and architecture](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-configurations) of this feature.
@@ -80,17 +83,17 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
 
    ```azurecli
    az k8sconfiguration create \
-   --name cluster-config \
-   --cluster-name arc-cicd-cluster \
-   --resource-group myResourceGroup \
-   --operator-instance-name cluster-config \
-   --operator-namespace cluster-config \
-   --repository-url https://dev.azure.com/<Your organization>/arc-cicd-demo-gitops \
-   --https-user <Azure Repos username> \
-   --https-key <Azure Repos PAT token> \
-   --scope cluster \
-   --cluster-type connectedClusters \
-   --operator-params='--git-readonly --git-path=arc-cicd-cluster/manifests'
+      --name cluster-config \
+      --cluster-name arc-cicd-cluster \
+      --resource-group myResourceGroup \
+      --operator-instance-name cluster-config \
+      --operator-namespace cluster-config \
+      --repository-url https://dev.azure.com/<Your organization>/arc-cicd-demo-gitops \
+      --https-user <Azure Repos username> \
+      --https-key <Azure Repos PAT token> \
+      --scope cluster \
+      --cluster-type connectedClusters \
+      --operator-params='--git-readonly --git-path=arc-cicd-cluster/manifests'
    ```
 
 1. Ensure that Flux *only* uses the `arc-cicd-cluster/manifests` directory as the base path. Define the path by using the following operator parameter:
@@ -164,6 +167,7 @@ kubectl create secret docker-registry <secret-name> \
 
 ### App repo variable group
 [Create a variable group](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups) named **az-vote-app-dev**. Set the following values:
+
 | Variable | Value |
 | -------- | ----- |
 | AZ_ACR_NAME | (your ACR instance, for example. azurearctest.azurecr.io) |
@@ -191,7 +195,7 @@ kubectl create secret docker-registry <secret-name> \
 | ENVIRONMENT_NAME | Stage |
 | TARGET_NAMESPACE | `stage` |
 
-You're now ready to deploy to the dev and stage environments.
+You're now ready to deploy to the `dev` and `stage` environments.
 
 ## Deploy the dev environment for the first time
 With the CI and CD pipelines created, run the CI pipeline to deploy the app for the first time.
@@ -203,11 +207,11 @@ During the initial CI pipeline run, you may get a resource authorization error i
 1. Authorize the use.
 1. Rerun the pipeline.
 
-The CI pipeline does the following tasks:
+The CI pipeline:
 1. Ensures the application change passes all automated quality checks for deployment.
-1. Does any extra validation that couldn't be completed in the PR pipeline.
+2. Does any extra validation that couldn't be completed in the PR pipeline.
     * Specific to GitOps, the pipeline also publishes the artifacts for the commit that will be deployed by the CD pipeline.
-1. Verifies the Docker image has changed and the new image is pushed.
+3. Verifies the Docker image has changed and the new image is pushed.
 
 ### CD pipeline
 The successful CI pipeline run triggers the CD pipeline to complete the deployment process. You'll deploy to each environment incrementally.
@@ -219,10 +223,10 @@ The successful CI pipeline run triggers the CD pipeline to complete the deployme
 > 1. Rerun the CI pipeline.
 
 Once the template and manifest changes to the GitOps repo have been generated, the CD pipeline will create a commit, push it, and create a PR for approval.
-1. Open the PR link given in the task.
+1. Open the PR link given in the `Create PR` task output.
 1. Verify the changes to the GitOps repo. You should see:
    * High-level Helm template changes.
-   * Low-level Kubernetes manifests that show the underlying changes to the desired state.
+   * Low-level Kubernetes manifests that show the underlying changes to the desired state. Flux deploys these manifests.
 1. If everything looks good, approve and complete the PR.
 
 1. After a few minutes, Flux picks up the change and starts the deployment.
@@ -230,7 +234,7 @@ Once the template and manifest changes to the GitOps repo have been generated, t
 
    `kubectl port-forward -n dev svc/azure-vote-front 8080:80`
 
-1. View the Azure Vote app in your browser at http://localhost:8080/.
+1. View the Azure Vote app in your browser at `http://localhost:8080/`.
 
 1. Vote for your favorites and get ready to make some changes to the app.
 
@@ -298,8 +302,8 @@ A successful CI pipeline run triggers the CD pipeline to complete the deployment
 1. As a basic smoke test, navigate to the application page and verify the voting app now displays Tabs vs Spaces.
    * Forward the port locally using `kubectl` and ensure the app works correctly using:
    `kubectl port-forward -n dev svc/azure-vote-front 8080:80`
-1. View the Azure Vote app in your browser at http://localhost:8080/ and verify the voting choices have changed to Tabs vs Spaces. 
-1. Repeat steps 1-8 for the `stage` environment.
+   * View the Azure Vote app in your browser at http://localhost:8080/ and verify the voting choices have changed to Tabs vs Spaces. 
+1. Repeat steps 1-7 for the `stage` environment.
 
 Your deployment is now complete. This ends the CI/CD workflow.
 
