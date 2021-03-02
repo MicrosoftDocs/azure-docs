@@ -21,7 +21,7 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The Sophos Cloud Optix connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Sophos Cloud Optix connector allows you to easily connect all your Sophos Cloud Optix security solution logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation.  This gives you more insight into your organization's cloud security and compliance posture and improves your cloud security operation capabilities. Integration between Sophos Cloud Optix and Azure Sentinel makes use of REST API.
+Sophos Cloud Optix connector allows you to easily connect all your Sophos Cloud Optix security solution logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation.  This capability gives you more insight into your organization's cloud security and compliance posture and improves your cloud security operation capabilities. Integration between Sophos Cloud Optix and Azure Sentinel makes use of REST API.
 
 > [!NOTE]
 > Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
@@ -42,7 +42,7 @@ Sophos Cloud Optix can integrate and export logs directly to Azure Sentinel.
 
 After a successful connection is established, the data appears in **Logs** under the **Custom Logs** section, in the *SophosCloudOptix_CL* table.
 
-To query Sophos Cloud Optix data, enter `SophosCloudOptix_CL` in the query window. See the **Next steps** tab in the connector page, as well as the [Sophos documentation](https://docs.sophos.com/pcg/optix/help/en-us/pcg/optix/concepts/ExampleAzureSentinelQueries.html), for some useful query samples.
+To query Sophos Cloud Optix data, enter `SophosCloudOptix_CL` in the query window. See the **Next steps** tab on the connector page, and the [Sophos documentation](https://docs.sophos.com/pcg/optix/help/en-us/pcg/optix/concepts/ExampleAzureSentinelQueries.html), for some useful query samples.
 
 ## Validate connectivity
 
