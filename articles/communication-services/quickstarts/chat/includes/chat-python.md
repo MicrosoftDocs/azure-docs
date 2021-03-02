@@ -85,7 +85,7 @@ Use the `create_chat_thread` method to create a chat thread.
 
 - Use `topic` to give a thread topic; Topic can be updated after the chat thread is created using the `update_thread` function.
 - Use `thread_participants` to list the `ChatThreadParticipant` to be added to the chat thread, the `ChatThreadParticipant` takes `CommunicationUserIdentifier` type as `user`, which is what you got after you
-created by [Create a user](../../includes/user-access-token-python.md#create-an-identity)
+created by [Create a user](../../access-tokens.md#create-an-identity)
 - Use `repeatability_request_id` to direct that the request is repeatable. The client can make the request multiple times with the same Repeatability-Request-ID and get back an appropriate response without the server executing the request multiple times.
 
 The response `chat_thread_client` is used to perform operations on the newly created chat thread like adding participants to the chat thread, send message, delete message, etc. It contains a `thread_id` property which is the unique ID of the chat thread.
@@ -311,7 +311,7 @@ Once a chat thread is created, you can then add and remove users from it. By add
 Use `add_participant` method to add thread participants to the thread identified by thread_id.
 
 - Use `thread_participant` to specify the participant to be added to the chat thread;
-- `user`, required, is the `CommunicationUserIdentifier` you created by `CommunicationIdentityClient` at [create a user](../../includes/user-access-token-python.md#create-an-identity)
+- `user`, required, is the `CommunicationUserIdentifier` you created by `CommunicationIdentityClient` at [create a user](../../access-tokens.md#create-an-identity)
 - `display_name`, optional, is the display name for the thread participant.
 - `share_history_time`, optional, is the time from which the chat history is shared with the participant. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the participant was added, set it to the current date. To share partial history, set it to an intermediary date.
 
