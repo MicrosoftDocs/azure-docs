@@ -1,6 +1,6 @@
 ---
-title: Enable Azure Monitor for VMs using PowerShell
-description: Describes how to enable Azure Monitor for VMs for Azure virtual machines or virtual machine scale sets using Azure PowerShell.
+title: Enable VM insights using PowerShell
+description: Describes how to enable VM insights for Azure virtual machines or virtual machine scale sets using Azure PowerShell.
 ms.subservice:
 ms.topic: conceptual
 author: bwren
@@ -9,8 +9,8 @@ ms.date: 07/27/2020
 
 ---
 
-# Enable Azure Monitor for VMs using PowerShell
-This article describes how to enable Azure Monitor for VMs on Azure virtual machines using PowerShell. This procedure can be used for the following:
+# Enable VM insights using PowerShell
+This article describes how to enable VM insights on Azure virtual machines using PowerShell. This procedure can be used for the following:
 
 - Azure virtual machine
 - Azure virtual machine scale set
@@ -23,7 +23,7 @@ This article describes how to enable Azure Monitor for VMs on Azure virtual mach
 
 ## PowerShell script
 
-To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights), which is available from the Azure PowerShell Gallery. This script iterates through:
+To enable VM insights for multiple VMs or virtual machine scale sets, use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights), which is available from the Azure PowerShell Gallery. This script iterates through:
 
 - Every virtual machine and virtual machine scale set in your subscription.
 - The scoped resource group that's specified by *ResourceGroup*.
@@ -135,7 +135,7 @@ PARAMETERS
     Specify to use a PolicyAssignmentName for source and to reinstall (move to a new workspace)
 ```
 
-The following example demonstrates using the PowerShell commands in the folder to enable Azure Monitor for VMs and understand the expected output:
+The following example demonstrates using the PowerShell commands in the folder to enable VM insights and understand the expected output:
 
 ```powershell
 $WorkspaceId = "<GUID>"
@@ -186,5 +186,5 @@ Failed: (0)
 
 ## Next steps
 
-* See [Use Azure Monitor for VMs Map](vminsights-maps.md) to view discovered application dependencies. 
+* See [Use VM insights Map](vminsights-maps.md) to view discovered application dependencies. 
 * See [View Azure VM performance](vminsights-performance.md) to identify bottlenecks, overall utilization, and your VM's performance.
