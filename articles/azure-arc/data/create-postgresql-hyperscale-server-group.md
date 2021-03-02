@@ -20,14 +20,14 @@ This document describes the steps to create a PostgreSQL Hyperscale server group
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Getting started
-If you are already familiar with the topics below you may skip this paragraph.
+If you are already familiar with the topics below, you may skip this paragraph.
 There are important topics you may want read before you proceed with creation:
 - [Overview of Azure Arc enabled data services](overview.md)
 - [Connectivity modes and requirements](connectivity.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 
-If you prefer to try things out without provisioning an full environment yourself, get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
+If you prefer to try out things without provisioning a full environment yourself, get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
 
 ## Login to the Azure Arc data controller
@@ -38,7 +38,7 @@ Before you can create an instance, you must first login to the Azure Arc data co
 azdata login
 ```
 
-You will then be prompted for the username, password and the system namespace.  
+You will then be prompted for the username, password, and the system namespace.  
 
 > If you used the script to create the data controller then your namespace should be **arc**
 
@@ -49,25 +49,37 @@ Password:
 Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
 ```
 
+## Preliminary and temporary step for OpenShift users only
+Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL Hyperscale server group. The security context constraint (SCC) arc-data-scc is the one you added when you deployed the Azure Arc data controller.
+
+```Console
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
+```
+
+**Server-group-name is the name of the server group you will create during the next step.**
+
+For more details on SCCs in OpenShift, please refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html). You may now implement the next step.
+
+
 ## Create an Azure Arc enabled PostgreSQL Hyperscale server group
 
 To create an Azure Arc enabled PostgreSQL Hyperscale server group on your Arc data controller, you will use the command `azdata arc postgres server create` to which you will pass several parameters.
 
-For details about all the parameters you can set at the creation time, please review the output of the command:
+For details about all the parameters you can set at the creation time, review the output of the command:
 ```console
 azdata arc postgres server create --help
 ```
 
-The main parameters should should consider are:
-- **the name of the server group** you want to deploy. Indicate either `--name` or `-n` followed by a name which length must not exceed 11 characters.
+The main parameters should consider are:
+- **the name of the server group** you want to deploy. Indicate either `--name` or `-n` followed by a name whose length must not exceed 11 characters.
 
-- **the version of the PostgreSQL engine** you want to deploy: by default it is version 12. To deploy version 12 you can either omit this parameter or pass one of the following parameters: `--engine-version 12` or `-ev 12`. To deploy version 11, indicate `--engine-version 11` or `-ev 11`.
+- **the version of the PostgreSQL engine** you want to deploy: by default it is version 12. To deploy version 12, you can either omit this parameter or pass one of the following parameters: `--engine-version 12` or `-ev 12`. To deploy version 11, indicate `--engine-version 11` or `-ev 11`.
 
-- **the number of worker nodes** you want to deploy to scale out and potentially reach better performances. Before proceeding here, please read the concepts about Postgres Hyperscale [here](https://docs.microsoft.com/azure/azure-arc/data/concepts-distributed-postgres-hyperscale). To indicate the number of worker nodes to deploy, use the parameter `--workers` or `-w` followed by an integer greater or equal to 2. For example, if you want to deploy a server group with 2 worker nodes, indicate `--workers 2` or `-w 2`. This will create 3 pods, one for the coordinator node/instance and two for the worker nodes/instances (one for each of the workers).
+- **the number of worker nodes** you want to deploy to scale out and potentially reach better performances. Before proceeding here, read the concepts about Postgres Hyperscale [here](https://docs.microsoft.com/azure/azure-arc/data/concepts-distributed-postgres-hyperscale). To indicate the number of worker nodes to deploy, use the parameter `--workers` or `-w` followed by an integer greater or equal to 2. For example, if you want to deploy a server group with 2 worker nodes, indicate `--workers 2` or `-w 2`. This will create three pods, one for the coordinator node/instance and two for the worker nodes/instances (one for each of the workers).
 
-- **the storage classes** you want your server group to use. It is important you set the storage class right at the time you deploy a server group as this cannot be changed after you deploy. If you were to change the storage class after deployment, you would need to extract the data, delete your server group, create a new server group and import the data. You may specify the storage classes to use for the data, the transaction logs and the backups. By default, if do not indicate storage classes, the storage classes of the data controller will be used.
+- **the storage classes** you want your server group to use. It is important you set the storage class right at the time you deploy a server group as this cannot be changed after you deploy. If you were to change the storage class after deployment, you would need to extract the data, delete your server group, create a new server group, and import the data. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
     - to set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd` followed by the name of the storage class.
-    - to set the storage class for the transaction logs, indicate the parameter `--storage-class-logs` or `-scl` followed by the name of the storage class.
+    - to set the storage class for the logs, indicate the parameter `--storage-class-logs` or `-scl` followed by the name of the storage class.
     - to set the storage class for the backups: in this Preview of the Azure Arc enabled PostgreSQL Hyperscale there are two ways to set storage classes depending on what types of backup/restore operations you want to do. We are working on simplifying this experience. You will either indicate a storage class or a volume claim mount. A volume claim mount is a pair of an existing persistent volume claim (in the same namespace) and volume type (and optional metadata depending on the volume type) separated by colon. The persistent volume will be mounted in each pod for the PostgreSQL server group.
         - if you want plan to do only full database restores, set the parameter `--storage-class-backups` or `-scb` followed by the name of the storage class.
         - if you plan to do both full database restores and point in time restores, set the parameter `--volume-claim-mounts` or `-vcm` followed by the name of a volume claim and a volume type.
@@ -121,7 +133,7 @@ azdata arc postgres server create -n postgres01 --workers 2 -vcm backup-pvc:back
 
 
 > [!NOTE]  
-> - If you deployed the data controller using `AZDATA_USERNAME` and `AZDATA_PASSWORD` session environment variables in the same terminal session, then the values for `AZDATA_PASSWORD` will be used to deploy the PostgreSQL Hyperscale server group too. If you prefer to use another password, either (1) update the value for `AZDATA_PASSWORD` or (2) delete the `AZDATA_PASSWORD` environment variable or delete its value be prompted to enter a password interactively when you create a server group.
+> - If you deployed the data controller using `AZDATA_USERNAME` and `AZDATA_PASSWORD` session environment variables in the same terminal session, then the values for `AZDATA_PASSWORD` will be used to deploy the PostgreSQL Hyperscale server group too. If you prefer to use another password, either (1) update the value for `AZDATA_PASSWORD` or (2) delete the `AZDATA_PASSWORD` environment variable or (3) delete its value to be prompted to enter a password interactively when you create a server group.
 > - Creating a PostgreSQL Hyperscale server group will not immediately register resources in Azure. As part of the process of uploading [resource inventory](upload-metrics-and-logs-to-azure-monitor.md)  or [usage data](view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in the Azure portal.
 
 
