@@ -382,7 +382,12 @@ To configure a phrase list, you need to add your own phrases when you make the c
         audio_config=audio_config)
     phrase_list_grammer = speechsdk.PhraseListGrammar.from_recognizer(recognizer)
     phrase_list_grammer.addPhrase(phrase)
-
+    
+    dict_speech_config.set_service_property(
+        name='setflight',
+        value='xonlineinterp',
+        channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+    )
 ```
 
 If you have multiple phrases to add, call `.addPhrase()` for each phrase to add it to the phrase list. 
