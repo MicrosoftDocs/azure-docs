@@ -33,12 +33,12 @@ In this tutorial, you learn how to:
 - [Visual Studio Code](https://code.visualstudio.com/): We'll use this to edit code in your local development environment.
 - [webpack](https://webpack.js.org/): This will be used to bundle and locally host your code.
 - [Node.js](https://nodejs.org/en/): This will be used to install and manage dependencies like Azure Communication Services client libraries and webpack.
-- [nvm and npm](https://docs.microsoft.com/windows/nodejs/setup-on-windows) to handle version control.
-- The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. [Read more about hosting static web sites in Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)
+- [nvm and npm](/windows/nodejs/setup-on-windows) to handle version control.
+- The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. [Read more about hosting static web sites in Azure Storage](../../storage/blobs/storage-blob-static-website.md)
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The extension allows deploying websites (similar to the previous) but with the option to configure the fully managed  continuous integration and continuous delivery (CI/CD).
 - The [Azure Function extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to build your own serverless applications. For example, you can host your authentication application in Azure functions.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
-- A user access token. See the [access tokens quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or the [trusted service tutorial](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial) for instructions.
+- A user access token. See the [access tokens quickstart](../quickstarts/access-tokens.md?pivots=programming-language-javascript) or the [trusted service tutorial](./trusted-service-tutorial.md) for instructions.
 
 
 ## Configure your development environment
@@ -52,7 +52,7 @@ Your local development environment will be configured like this:
 
 We'll use Node.js to download and install various dependencies we need for our client-side application. We'll use it to generate static files that we'll then host in Azure, so you don't need to worry about configuring it on your server.
 
-Windows developers can follow [this NodeJS tutorial](https://docs.microsoft.com/windows/nodejs/setup-on-windows) to configure Node, nvm, and npm. 
+Windows developers can follow [this NodeJS tutorial](/windows/nodejs/setup-on-windows) to configure Node, nvm, and npm. 
 
 We tested this tutorial using the LTS 12.20.0 version. After you install nvm, use the following PowerShell command to deploy the version that you want to use:
 

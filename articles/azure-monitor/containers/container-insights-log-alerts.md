@@ -1,14 +1,14 @@
 ---
-title: Log alerts from Azure Monitor for containers | Microsoft Docs
-description: This article describes how to create custom log alerts for memory and CPU utilization from Azure Monitor for containers.
+title: Log alerts from Container insights | Microsoft Docs
+description: This article describes how to create custom log alerts for memory and CPU utilization from Container insights.
 ms.topic: conceptual
 ms.date: 01/05/2021
 
 ---
 
-# How to create log alerts from Azure Monitor for containers
+# How to create log alerts from Container insights
 
-Azure Monitor for containers monitors the performance of container workloads that are deployed to managed or self-managed Kubernetes clusters. To alert on what matters, this article describes how to create log-based alerts for the following situations with AKS clusters:
+Container insights monitors the performance of container workloads that are deployed to managed or self-managed Kubernetes clusters. To alert on what matters, this article describes how to create log-based alerts for the following situations with AKS clusters:
 
 - When CPU or memory utilization on cluster nodes exceeds a threshold
 - When CPU or memory utilization on any container within a controller exceeds a threshold as compared to a limit that's set on the corresponding resource
@@ -16,9 +16,9 @@ Azure Monitor for containers monitors the performance of container workloads tha
 - *Failed*, *Pending*, *Unknown*, *Running*, or *Succeeded* pod-phase counts
 - When free disk space on cluster nodes exceeds a threshold
 
-To alert for high CPU or memory utilization, or low free disk space on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. While metric alerts have lower latency than log alerts, log alerts provide advanced querying and greater sophistication. Log alert queries compare a datetime to the present by using the *now* operator and going back one hour. (Azure Monitor for containers stores all dates in Coordinated Universal Time (UTC) format.)
+To alert for high CPU or memory utilization, or low free disk space on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. While metric alerts have lower latency than log alerts, log alerts provide advanced querying and greater sophistication. Log alert queries compare a datetime to the present by using the *now* operator and going back one hour. (Container insights stores all dates in Coordinated Universal Time (UTC) format.)
 
-If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../alerts/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
+If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../alerts/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
 
 ## Resource utilization log search queries
 
@@ -271,7 +271,7 @@ InsightsMetrics
 
 ## Create an alert rule
 
-This section walks through the creation of a metric measurement alert rule using performance data from Azure Monitor for containers. You can use this basic process with a variety of log queries to alert on different performance counters. Use one of the log search queries provided earlier to start with. To create using an ARM template, see [Samples of Log alert creation using Azure Resource Template](../alerts/alerts-log-create-templates.md).
+This section walks through the creation of a metric measurement alert rule using performance data from Container insights. You can use this basic process with a variety of log queries to alert on different performance counters. Use one of the log search queries provided earlier to start with. To create using an ARM template, see [Samples of Log alert creation using Azure Resource Template](../alerts/alerts-log-create-templates.md).
 
 >[!NOTE]
 >The following procedure to create an alert rule for container resource utilization requires you to switch to a new log alerts API as described in [Switch API preference for log alerts](../alerts/alerts-log-api-switch.md).
@@ -279,7 +279,7 @@ This section walks through the creation of a metric measurement alert rule using
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the Azure portal, search for and select **Log Analytics workspaces**.
-3. In your list of Log Analytics workspaces, select the workspace supporting Azure Monitor for containers. 
+3. In your list of Log Analytics workspaces, select the workspace supporting Container insights. 
 4. In the pane on the left side, select **Logs** to open the Azure Monitor logs page. You use this page to write and execute Azure log queries.
 5. On the **Logs** page, paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field and then select **Run** to validate the results. If you do not perform this step, the **+New alert** option is not available to select.
 6. Select **+New alert** to create a log alert.

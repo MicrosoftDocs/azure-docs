@@ -133,7 +133,9 @@ See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md).
 
 **A**: Training a model with audio data can be a lengthy process. Depending on the amount of data, it can take several days to create a custom model. If it cannot be finished within one week, the service might abort the training operation and report the model as failed.
 
-For faster results, use one of the [regions](custom-speech-overview.md#set-up-your-azure-account) where dedicated hardware is available for training. In general, the service processes approximately 10 hours of audio data per day in regions with such hardware. It can only process about 1 hour of audio data per day in other regions. You can copy the fully trained model to another region using the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Training with just text is much faster and typically finishes within minutes.
+Use one of the [regions](custom-speech-overview.md#set-up-your-azure-account) where dedicated hardware is available for training. The Speech service will use up to 20 hours of audio for training in these regions. In other regions, it will only use up to 8 hours.
+
+In general, the service processes approximately 10 hours of audio data per day in regions with dedicated hardware. It can only process about 1 hour of audio data per day in other regions. You can copy the fully trained model to another region using the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Training with just text is much faster and typically finishes within minutes.
 
 Some base models cannot be customized with audio data. For them the service will just use the text of the transcription for training and ignore the audio data. Training will then be finished much faster and results will be the same as training with just text. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data.
 
