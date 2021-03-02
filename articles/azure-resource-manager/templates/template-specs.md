@@ -2,7 +2,7 @@
 title: Create & deploy template specs
 description: Describes how to create template specs and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/02/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -150,6 +150,14 @@ id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templat
 az deployment group create \
   --resource-group demoRG \
   --template-spec $id
+```
+
+# [Portal/URL](#tab/portal)
+
+You can open a URL in the following format to deploy a template spec:
+
+```url
+https://portal.azure.com/#create/Microsoft.Template/templateSpecVersionId/%2fsubscriptions%2f{subscription-id}%2fresourceGroups%2f{resource-group-name}%2fproviders%2fMicrosoft.Resources%2ftemplateSpecs%2f{template-spec-name}%2fversions%2f{template-spec-version}
 ```
 
 ---
