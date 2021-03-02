@@ -48,18 +48,18 @@
     - name: Your marketplace benefits
       href: gtm-your-marketplace-benefits.md
       items: 
-      - name: Co-sell with Microsoft
-        items:
-        - name: Co-sell overview
-          href: marketplace-co-sell.md
-        - name: Co-sell requirements
-          href: co-sell-requirements.md 
-        - name: Configure co-sell
-          href: commercial-marketplace-co-sell.md
-        - name: Verify co-sell status
-          href: co-sell-status.md   
-        - name: Migrate co-sell solutions from OCP GTM
-          href: co-sell-solution-migration.md 
+    - name: Co-sell with Microsoft
+      items:
+      - name: Co-sell overview
+        href: marketplace-co-sell.md
+      - name: Co-sell requirements
+        href: co-sell-requirements.md 
+      - name: Configure co-sell
+        href: commercial-marketplace-co-sell.md
+      - name: Verify co-sell status
+        href: co-sell-status.md   
+      - name: Migrate co-sell solutions from OCP GTM
+        href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
       href: cloud-solution-providers.md  
     - name: Connect Program onboarding guide  
