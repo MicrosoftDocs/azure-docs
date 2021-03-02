@@ -34,6 +34,8 @@
     href: concept-invoices.md
 - name: How-to guides
   items:
+  - name: How to interpret JSON output responses from Form Recognizer
+    href: json-output.md
   - name: Build a training data set
     href: build-training-data-set.md
   - name: Deploy the sample labeling tool
