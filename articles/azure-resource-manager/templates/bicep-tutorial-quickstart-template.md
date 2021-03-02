@@ -38,7 +38,7 @@ Currently, the Azure Quickstart templates only provide JSON templates. There are
 1. Select **Browse on GitHub**.
 1. Select _azuredeploy.json_. This is the template you can use.
 1. Select **Raw**, and then make a copy of the URL.
-1. Browse to **https://bicepdemo.z22.web.core.windows.net/**, Select **Decomplie**, and the provide the raw template URL.
+1. Browse to **https://bicepdemo.z22.web.core.windows.net/**, Select **Decompile**, and then provide the raw template URL.
 1. Review the Bicep template. In particular, look for the `Microsoft.Web/sites` resource.
 
     ![Resource Manager template quickstart web site](./media/bicep-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
@@ -47,7 +47,7 @@ Currently, the Azure Quickstart templates only provide JSON templates. There are
 
     In ARM JSON templates, you must manually specify resource dependencies with the _dependsOn_ property. The website resource depends on the app service plan resource. With Bicep, if you reference any property of the resource by using the symbolic name, the dependsOn property is automatically added.
 
-    You can easily reference the resource Id from the symbolic name of the app service plan (appServicePlanName.id) which will be translated to the resourceId(...) function in the compiled JSON template.
+    You can easily reference the resource ID from the symbolic name of the app service plan (appServicePlanName.id) which will be translated to the resourceId(...) function in the compiled JSON template.
 
 ## Revise existing Bicep file
 

@@ -74,13 +74,13 @@ Okay, you're ready to start learning about Bicep.
     The resource declaration has four components:
 
     - **resource**: keyword.
-    - **symbolic name** (stg): This is an identifier for referencing the resource throughout your bicep file. It is not what the name of the resource will be when it's deployed. The name of the resource is defined by the **name** property.  See the fourth component in this list.
+    - **symbolic name** (stg): A symbolic name is an identifier for referencing the resource throughout your bicep file. It is not what the name of the resource will be when it's deployed. The name of the resource is defined by the **name** property.  See the fourth component in this list.
     - **resource type** (Microsoft.Storage/storageAccounts@2019-06-01): It is composed of the resource provider (Microsoft.Storage), resource type (storageAccounts), and apiVersion (2019-06-01). Each resource provider publishes its own API versions, so this value is specific to the type. You can find more types and apiVersions for various Azure resources from [ARM template reference](/azure/templates/).
     - **properties** (everything inside = {...}): These are the specific properties you would like to specify for the given resource type. These are exactly the same properties available to you in an ARM Template. Every resource has a `name` property. Most resources also have a `location` property, which sets the region where the resource is deployed. The other properties vary by resource type and API version. It's important to understand the connection between the API version and the available properties, so let's jump into more detail.
 
         For this storage account, you can see that API version at [storageAccounts 2019-06-01](/azure/templates/microsoft.storage/2019-06-01/storageaccounts). Notice that you didn't add all of the properties to your Bicep file. Many of the properties are optional. The `Microsoft.Storage` resource provider could release a new API version, but the version you're deploying doesn't have to change. You can continue using that version and know that the results of your deployment will be consistent.
 
-        If you view an older API version, such as [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), you'll see that a smaller set of properties are available.
+        If you view an older API version, such as [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), you'll see that a smaller set of properties is available.
 
         If you decide to change the API version for a resource, make sure you evaluate the properties for that version and adjust your Bicep file appropriately.
 
@@ -155,7 +155,7 @@ az group create \
 
 ## Deploy Bicep file
 
-Bicep is a transparent abstraction over Azure Resource Manager templates (ARM templates). Each Bicep file compiles to a standard ARM template before it is deployed. You can either compile your Bicep file into an ARM template before deploying it or directly deploy your Bicep file. To deploy the Bicep file, use either Azure CLI or Azure PowerShell. Use the resource group you created. Give a name to the deployment so you can easily identify it in the deployment history. For convenience, also create a variable that stores the path to the Bicep file. This variable makes it easier for you to run the deployment commands because you don't have to retype the path every time you deploy. Replace `{provide-the-path-to-the-bicep-file}` including the curly braces `{}` with the path to your Bicep file with the .bicep file extension name.
+Bicep is a transparent abstraction over Azure Resource Manager templates (ARM templates). Each Bicep file compiles to a standard ARM template before it is deployed. You can either compile your Bicep file into an ARM template before deploying it or directly deploy your Bicep file. To deploy the Bicep file, use either Azure CLI or Azure PowerShell. Use the resource group you created. Give a name to the deployment so you can easily identify it in the deployment history. For convenience, also create a variable that stores the path to the Bicep file. This variable makes it easier for you to run the deployment commands because you don't have to retype the path every time you deploy. Replace `{provide-the-path-to-the-bicep-file}` including the curly braces `{}` with the path to your Bicep file with the _.bicep_ file extension name.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -223,7 +223,7 @@ If you're stopping now, you might want to delete the resource group.
 
 ## Next steps
 
-You created a simple Bicep file to deploy to Azure.  In the later tutorials, you learn how to add parameters, variables, outputs and modules to a Bicep file. These features are the building blocks for much more complex Bicep files.
+You created a simple Bicep file to deploy to Azure.  In the later tutorials, you learn how to add parameters, variables, outputs, and modules to a Bicep file. These features are the building blocks for much more complex Bicep files.
 
 > [!div class="nextstepaction"]
 > [Add parameters](bicep-tutorial-add-parameters.md)
