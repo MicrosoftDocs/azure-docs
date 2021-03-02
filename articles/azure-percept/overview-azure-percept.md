@@ -15,9 +15,9 @@ Azure Percept is a family of hardware, software, and services designed to accele
 
 The integration challenges one faces when attempting to deploy edge AI solutions at scale can be summed up into three major points of friction:
 
-1. Identifying and selecting the right silicon to power the solutions.
-2. Ensuring the collective security of the hardware, software, models, and data.
-3. The ability to build and manage solutions that seamlessly work, at scale.
+- Identifying and selecting the right silicon to power the solutions.
+- Ensuring the collective security of the hardware, software, models, and data.
+- The ability to build and manage solutions that seamlessly work, at scale.
 
 ## Components of Azure Percept
 

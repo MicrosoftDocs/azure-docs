@@ -4,7 +4,7 @@ description: Learn more about advanced development tools on Azure Percept
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
 ---

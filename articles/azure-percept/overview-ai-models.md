@@ -4,7 +4,7 @@ description: Learn more about the AI models available for prototyping and deploy
 author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: template-concept
 ---
