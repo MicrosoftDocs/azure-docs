@@ -1,5 +1,5 @@
 ---
-title: Tutorial - add variable to Bicep file
+title: Tutorial - add variable to Azure Resource Manager Bicep file
 description: Add variables to your Bicep file to simplify the syntax.
 author: mumian
 ms.date: 03/01/2021
@@ -8,7 +8,7 @@ ms.author: jgao
 ms.custom:
 ---
 
-# Tutorial: Add variables to your Bicep file
+# Tutorial: Add variables to Azure Resource Manager Bicep file
 
 In this tutorial, you learn how to add a variable to your Bicep file. Variables simplify your Bicep files by enabling you to write an expression once and reuse it throughout the Bicep file. This tutorial takes **7 minutes** to complete.
 
@@ -50,7 +50,7 @@ Finally, notice that the storage name is now set to the variable instead of a pa
 
 Let's deploy the Bicep file. Deploying this Bicep file is easier than the previous Bicep files because you provide just the prefix for the storage name.
 
-If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](bicep-tutorial-create-first-bicep.md#create-resource-group). The example assumes you've set the `bicepFile` variable to the path to the Bicep file, as shown in the [first tutorial](bicep-tutorial-create-first-bicep.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
 

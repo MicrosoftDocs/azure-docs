@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use quickstart templates for Bicep development
+title: Tutorial - Use quickstart templates for Azure Resource Manager Bicep development
 description: Learn how to use Azure Quickstart templates to complete your Bicep development.
 author: mumian
 ms.date: 03/01/2021
@@ -8,7 +8,7 @@ ms.author: jgao
 ms.custom:
 ---
 
-# Tutorial: Use Azure Quickstart templates for Bicep development
+# Tutorial: Use Azure Quickstart templates for Azure Resource Manager Bicep development
 
 [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/) is a repository of community contributed JSON templates. You can use the sample templates in your Bicep development. In this tutorial, you find a website resource definition, decompile it to Bicep, and add it to your Bicep file. It takes about **12 minutes** to complete.
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - add modules to your Bicep file
+title: Tutorial - add modules to Azure Resource Manager Bicep file
 description: Use modules to encapsulate complex details of the raw resource declaration.
 author: mumian
 ms.date: 03/01/2021
@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Add modules to your Bicep file
+# Tutorial: Add modules to Azure Resource Manager Bicep file
 
 In the [previous tutorial](bicep-tutorial-use-parameter-file.md), you learned how to use a parameter file to deploy your Bicep file. In this tutorial, you learn how to use Bicep modules to encapsulate complex details of the raw resource declaration. The modules can be shared and reused within your solution.  It takes about **12 minutes** to complete.
 
@@ -15,9 +15,9 @@ In the [previous tutorial](bicep-tutorial-use-parameter-file.md), you learned ho
 
 ## Prerequisites
 
-We recommend that you complete the [tutorial about parameter file](template-tutorial-bicep-use-parameter-file.md), but it's not required.
+We recommend that you complete the [tutorial about parameter file](bicep-tutorial-use-parameter-file.md), but it's not required.
 
-You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](template-tutorial-bicep-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [Bicep tools](bicep-tutorial-create-first-template.md#get-tools).
 
 ## Review Bicep file
 
@@ -123,4 +123,4 @@ Congratulations, you've finished this introduction to deploying Bicep files to A
 The next tutorial series goes into more detail about deploying templates.
 
 > [!div class="nextstepaction"]
-> [Add modules](./bicep-tutorial-use-modules.md)
+> [Add modules](./bicep-tutorial-add-modules.md)

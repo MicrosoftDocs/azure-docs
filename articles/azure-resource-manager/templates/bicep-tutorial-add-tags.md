@@ -1,5 +1,5 @@
 ---
-title: Tutorial - add tags to resources in Bicep
+title: Tutorial - add tags to resources in Azure Resource Manager Bicep file
 description: Add tags to resources that you deploy in your Bicep files. Tags let you logically organize resources.
 author: mumian
 ms.date: 03/01/2021
@@ -8,7 +8,7 @@ ms.author: jgao
 ms.custom:
 ---
 
-# Tutorial: Add tags in your Bicep files
+# Tutorial: Add tags in Azure Resource Manager Bicep files
 
 In this tutorial, you learn how to add tags to resources in your Bicep files. [Tags](../management/tag-resources.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
 

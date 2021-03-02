@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create & deploy Bicep files
+title: Tutorial - Create & deploy Azure Resource Manager Bicep files
 description: Create your first Bicep file for deploying Azure resources. In the tutorial, you learn about the Bicep file syntax and how to deploy a storage account.
 author: mumian
 ms.date: 03/02/2021
@@ -11,7 +11,7 @@ ms.custom:
 
 ---
 
-# Tutorial: Create and deploy your first Bicep file
+# Tutorial: Create and deploy first Azure Resource Manager Bicep file
 
 This tutorial introduces you to [Bicep](./bicep-overview.md). It shows you how to create a starter Bicep file and deploy it to Azure. You'll learn about the structure of the Bicep file and the tools you'll need for working with Bicep files. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
 

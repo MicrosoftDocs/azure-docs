@@ -1,5 +1,5 @@
 ---
-title: Tutorial - add parameters to Bicep file
+title: Tutorial - add parameters to Azure Resource Manager Bicep file
 description: Add parameters to your Bicep file to make it reusable.
 author: mumian
 ms.date: 03/01/2021
@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Add parameters to your Bicep file
+# Tutorial: Add parameters to Azure Resource Manager Bicep file
 
 In the [previous tutorial](bicep-tutorial-create-first-bicep.md), you learned how to deploy a storage account. In this tutorial, you learn how to improve the Bicep file by adding parameters. This tutorial takes about **14 minutes** to complete.
 

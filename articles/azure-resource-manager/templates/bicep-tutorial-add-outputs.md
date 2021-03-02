@@ -1,5 +1,5 @@
 ---
-title: Tutorial - add outputs to Bicep file
+title: Tutorial - add outputs to Azure Resource Manager Bicep file
 description: Add outputs to your Bicep file to simplify the syntax.
 author: mumian
 ms.date: 03/01/2021
@@ -8,7 +8,7 @@ ms.author: jgao
 ms.custom:
 ---
 
-# Tutorial: Add outputs to your Bicep file
+# Tutorial: Add outputs to Azure Resource Manager Bicep file
 
 In this tutorial, you learn how to return a value from your deployment. You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
 
