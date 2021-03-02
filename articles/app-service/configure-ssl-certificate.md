@@ -40,7 +40,7 @@ The following table lists the options you have for adding certificates in App Se
 > [!NOTE]
 > Azure Web Apps does **not** support AES256 and all pfx files should be encrypted with TripleDES.
 
-The [free App Service Managed Certificate](#create-a-free-certificate-preview) or the [App Service certificate](#import-an-app-service-certificate) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
+The [free App Service Managed Certificate](#create-a-free-managed-certificate-preview) or the [App Service certificate](#import-an-app-service-certificate) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
 
 * Exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)
 * Contains private key at least 2048 bits long
