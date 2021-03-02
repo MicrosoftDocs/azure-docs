@@ -164,6 +164,8 @@
         href: ev4-esv4-series.md
       - name: M-series
         href: m-series.md
+      - name: Msv2 and Mdsv2 Medium Memory series
+        href: msv2-mdsv2-series.md
       - name: Mv2-series
         href: mv2-series.md
       - name: Constrained vCPUs
@@ -822,6 +824,8 @@
     href: managed-disks-overview.md
   - name: Select a disk type for IaaS VMs
     href: disks-types.md
+  - name: Disk redundancy options
+    href: disks-redundancy.md
   - name: Shared disks
     href: disks-shared.md
   - name: Enable shared disks
@@ -952,8 +956,10 @@
       href: premium-storage-performance.md
     - name: Disk related metrics
       href: disks-metrics.md
-    - name: Disk bursting
+    - name: Disk bursting models
       href: disk-bursting.md
+    - name: Enable on-demand bursting
+      href: disks-enable-bursting.md
     - name: Disk performance tiers
       href: disks-change-performance.md
     - name: Change disk performance tier
@@ -1157,6 +1163,12 @@
       href: ./windows/security-baseline.md
   - name: Recommendations
     href: security-recommendations.md
+  - name: Trusted launch 
+    items:
+    - name: Overview
+      href: trusted-launch.md
+    - name: Deploy using the portal
+      href: trusted-launch-portal.md
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
   - name: Policy
@@ -1231,9 +1243,9 @@
   - name: Overview
     href: maintenance-and-updates.md
   - name: Automatic VM guest patching (preview)
-    href: ./windows/automatic-vm-guest-patching.md
+    href: automatic-vm-guest-patching.md
   - name: Automatic extension upgrade (preview)
-    href: ./automatic-extension-upgrade.md
+    href: automatic-extension-upgrade.md
   - name: Maintenance control
     items:
     - name: Maintenance notifications
