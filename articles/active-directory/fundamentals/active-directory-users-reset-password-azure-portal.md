@@ -48,6 +48,10 @@ As an administrator, you can reset a user's password if the password is forgotte
     >[!Note]
     >The temporary password never expires. The next time the user signs in, the password will still work, regardless how much time has passed since the temporary password was generated.
 
+> [!IMPORTANT]
+> If an administrator is unable to reset the user's password, and in the Application Event Logs on the Azure AD Connect server the following error code hr=80231367 is seen, review the user's attributes in Active Directory.  If the attribute **AdminCount** is set to 1, this will prevent an administrator from resetting the user's password.  The attribute **AdminCount** must be set to 0, in order for an administrators to reset the user's password.
+
+
 ## Next steps
 
 After you've reset your user's password, you can perform the following basic processes:

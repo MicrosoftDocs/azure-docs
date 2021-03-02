@@ -68,7 +68,7 @@
   - name: Resource Manager templates
     items:
     - name: Overview
-      href: /resource-manager-samples.md
+      href: resource-manager-samples.md
     - name: Agents
       href: agents/resource-manager-agent.md
     - name: Alerts
@@ -97,14 +97,14 @@
       href: logs/resource-manager-log-queries.md
     - name: Workbooks
       href: visualize/resource-manager-workbooks.md
-    - name: Azure Monitor for containers
+    - name: Container insights
       href: containers/resource-manager-container-insights.md
-    - name: Azure Monitor for VMs
+    - name: VM insights
       href: vm/resource-manager-vminsights.md
   - name: Azure CLI
-    href: /cli-samples.md
+    href: cli-samples.md
   - name: Azure PowerShell
-    href: /powershell-samples.md
+    href: powershell-samples.md
 - name: Concepts
   items:
   - name: What can you monitor?
@@ -114,7 +114,7 @@
   - name: Data sources
     href: agents/data-sources.md
   - name: Data platform
-    href: /data-platform.md
+    href: data-platform.md
   - name: Data security
     items:
     - name: Log data
@@ -142,7 +142,7 @@
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
-    href: /partners.md
+    href: partners.md
   - name: Security
     items:
     - name: Security baseline
@@ -169,14 +169,14 @@
   - name: Manage and configure
     items:
     - name: Roles permissions and security
-      href: /roles-permissions-security.md
+      href: roles-permissions-security.md
     - name: IP addresses
       href: app/ip-addresses.md
       displayname: firewall, firewall exceptions, whitelist
     - name: Usage and cost
       items:
       - name: Usage and estimated costs
-        href: /usage-estimated-costs.md
+        href: usage-estimated-costs.md
       - name: Application usage and costs
         href: app/pricing.md
       - name: Log data usage and costs
@@ -879,8 +879,6 @@
       - name: Overview
         displayname: user behavior analytics, user behavior, usage, behavioral analytics
         href: app/usage-overview.md
-      - name: Send user context
-        href: app/usage-send-user-context.md
       - name: Users, Sessions, Events
         href: app/usage-segmentation.md
       - name: Funnels
@@ -988,7 +986,7 @@
       href: app/change-analysis-visualizations.md
     - name: Troubleshoot
       href: app/change-analysis-troubleshoot.md
-  - name: Azure Monitor for VMs
+  - name: VM insights
     items:
     - name: Overview
       href: vm/vminsights-overview.md
@@ -1042,7 +1040,7 @@
       href: vm/vminsights-workbooks.md
     - name: Disable monitoring
       href: vm/vminsights-optout.md
-  - name: Azure Monitor for containers 
+  - name: Container insights 
     items:
     - name: Overview
       href: containers/container-insights-overview.md
@@ -1399,7 +1397,7 @@
       href: /azure/templates/microsoft.operationalinsights/allversions
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
-    href: /policy-reference.md
+    href: policy-reference.md
   - name: Feature and API Retirement 
     items:
     - name: OperationalInsights API

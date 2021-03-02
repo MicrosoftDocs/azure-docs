@@ -51,9 +51,11 @@ pod 'AzureCommunicationChat', '~> 1.0.0-beta.8'
 Install the dependencies, this will also create an Xcode workspace:
 `pod install`
 
+**After running pod install, re-open the project in Xcode by selecting the newly created `.xcworkspace`.**
+
 ### Setup the placeholders
 
-Open the workspace file `ChatQuickstart.xcworkspace` in Xcode and then open `ViewController.swift`.
+Open the workspace `ChatQuickstart.xcworkspace` in Xcode and then open `ViewController.swift`.
 
 In this Quickstart, we will add our code to `viewController`, and view the output in the Xcode console. This quickstart does not address building a UI in iOS. 
 
@@ -118,6 +120,10 @@ let endpoint = "<ACS_RESOURCE_ENDPOINT>"
 
 Replace `<ACS_RESOURCE_ENDPOINT>` with the endpoint of your ACS Resource.
 Replace `<ACCESS_TOKEN>` with a valid ACS access token.
+
+This quickstart does not cover creating a service tier to manage tokens for your chat application, although it is recommended. See the following documentation for more detail [Chat Architecture](../../../concepts/chat/concepts.md)
+
+Learn more about [User Access Tokens](../../access-tokens.md).
 
 ## Object model 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for JavaScript.

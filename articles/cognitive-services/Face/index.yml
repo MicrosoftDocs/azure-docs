@@ -100,7 +100,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/face/
+            url: /rest/api/face/
           - text: .NET SDK
             url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
           - text: Python SDK

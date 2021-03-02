@@ -6,7 +6,7 @@ author: jimzim
 ms.author: jzim
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: container-service 
+ms.service: azure-redhat-openshift 
 ms.custom: devx-track-azurecli
 #Customer intent: As a developer, I need to understand the prerequisites for working with Azure Red Hat OpenShift
 ---

@@ -183,6 +183,10 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
 
+## Azure VMware Solution limits
+
+[!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
+
 ## Backup limits
 
 [!INCLUDE [azure-backup-limits](../../../includes/azure-backup-limits.md)]

@@ -13,7 +13,7 @@ The [knowledge base development lifecycle](../Concepts/development-lifecycle-kno
 
 ## Extraction
 
-The QnA Maker service is continually improving the algorithms that extract QnAs from content and expanding the list of supported file and HTML formats. Follow the [guidelines](../index.yml) for data extraction based on your document type.
+The QnA Maker service is continually improving the algorithms that extract QnAs from content and expanding the list of supported file and HTML formats. Follow the [guidelines](../Concepts/data-sources-and-content.md) for data extraction based on your document type.
 
 In general, FAQ pages should be stand-alone and not combined with other information. Product manuals should have clear headings and preferably an index page.
 

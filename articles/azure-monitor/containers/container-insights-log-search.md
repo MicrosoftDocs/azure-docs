@@ -1,18 +1,18 @@
 ---
-title: How to Query Logs from Azure Monitor for containers | Microsoft Docs
-description: Azure Monitor for containers collects metrics and log data and this article describes the records and includes sample queries.
+title: How to Query Logs from Container insights | Microsoft Docs
+description: Container insights collects metrics and log data and this article describes the records and includes sample queries.
 ms.topic: conceptual
 ms.date: 06/01/2020
 
 ---
 
-# How to query logs from Azure Monitor for containers
+# How to query logs from Container insights
 
-Azure Monitor for containers collects performance metrics, inventory data, and health state information from container hosts and containers. The data is collected every three minutes and forwarded to the Log Analytics workspace in Azure Monitor. This data is available for [query](../log-query/log-query-overview.md) in Azure Monitor. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
+Container insights collects performance metrics, inventory data, and health state information from container hosts and containers. The data is collected every three minutes and forwarded to the Log Analytics workspace in Azure Monitor. This data is available for [query](../logs/log-query-overview.md) in Azure Monitor. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
 ## Container records
 
-In the following table, details of records collected by Azure Monitor for containers are provided. For a listing of the column descriptions, see the reference for the [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) and [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) tables.
+In the following table, details of records collected by Container insights are provided. For a listing of the column descriptions, see the reference for the [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) and [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) tables.
 
 | Data | Data source | Data type | Fields |
 |------|-------------|-----------|--------|
@@ -106,4 +106,4 @@ The output shows results similar to the following example:
 
 ## Next steps
 
-Azure Monitor for containers does not include a predefined set of alerts. Review the [Create performance alerts with Azure Monitor for containers](./container-insights-log-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
+Container insights does not include a predefined set of alerts. Review the [Create performance alerts with Container insights](./container-insights-log-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.

@@ -12,7 +12,7 @@ ms.date: 06/25/2020
 
 # Quickstart: Send Azure Activity log to Log Analytics workspace using an ARM template
 
-The Activity log is a platform log in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. This quickstart shows how to use Azure Resource Manager templates (ARM templates) to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs where you can analyze it using [log queries](../log-query/log-query-overview.md) and enable other features such as [log alerts](../alerts/alerts-log-query.md) and [workbooks](../visualize/workbooks-overview.md).
+The Activity log is a platform log in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. This quickstart shows how to use Azure Resource Manager templates (ARM templates) to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs where you can analyze it using [log queries](../logs/log-query-overview.md) and enable other features such as [log alerts](../alerts/alerts-log-query.md) and [workbooks](../visualize/workbooks-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -256,7 +256,7 @@ az deployment sub create --name CreateDiagnosticSetting --location eastus --temp
 # [PowerShell](#tab/PowerShell)
 
 ```powershell
-New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName="Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
+New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName "Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
 ```
 ---
 
@@ -317,7 +317,7 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## Next steps
 
-In this quickstart, you configured the Activity log to be sent to a Log Analytics workspace. You can now configure other data to be collected into the workspace where you can analyze it together using [log queries](../log-query/log-query-overview.md) in Azure Monitor and leverage features such as [log alerts](../alerts/alerts-log-query.md) and [workbooks](../visualize/workbooks-overview.md). You should next gather [resource logs](../essentials/resource-logs.md) from your Azure resources which compliment the data in the Activity log providing insight into the operations that were performed within each resource.
+In this quickstart, you configured the Activity log to be sent to a Log Analytics workspace. You can now configure other data to be collected into the workspace where you can analyze it together using [log queries](../logs/log-query-overview.md) in Azure Monitor and leverage features such as [log alerts](../alerts/alerts-log-query.md) and [workbooks](../visualize/workbooks-overview.md). You should next gather [resource logs](../essentials/resource-logs.md) from your Azure resources which compliment the data in the Activity log providing insight into the operations that were performed within each resource.
 
 > [!div class="nextstepaction"]
 > [Collect and analyze resource logs with Azure Monitor](../essentials/tutorial-resource-logs.md)

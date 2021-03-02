@@ -22,6 +22,9 @@ Azure Event Grid is a fully managed event routing service, which uses a publish-
 
 :::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Diagram showing Azure Event Grid's event model.":::
 
+> [!NOTE]
+> To learn more about how data residency relates to event handling, visit the [Data Residency conceptual documentation](./privacy.md)
+
 ## Events types
 
 Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. 

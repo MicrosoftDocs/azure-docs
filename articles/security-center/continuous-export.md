@@ -205,7 +205,7 @@ You'll now see new Azure Security Center alerts or recommendations (depending on
 
 To download a CSV report for alerts or recommendations, open the **Security alerts** or **Recommendations** page and select the **Download CSV report** button.
 
-[![Download alerts data as a CSV file](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
+:::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="Download alerts data as a CSV file" lightbox="./media/continuous-export/download-alerts-csv.png":::
 
 > [!NOTE]
 > These reports contain alerts and recommendations for resources from the currently selected subscriptions.
