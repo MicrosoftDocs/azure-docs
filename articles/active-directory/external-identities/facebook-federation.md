@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 03/02/2021
 
 ms.author: mimart
 author: msmimart
@@ -19,7 +19,11 @@ ms.collection: M365-identity-device-management
 
 # Add Facebook as an identity provider for External Identities
 
-You can add Facebook to your self-service sign-up user flows (Preview) so that users can sign in to your applications using their own Facebook accounts. To allow users to sign in using Facebook, you'll first need to [enable self-service sign-up](self-service-sign-up-user-flow.md) for your tenant. After you add Facebook as an identity provider, set up a user flow for the application and select Facebook as one of the sign-in options.
+You can add Facebook to your self-service sign-up user flows so that users can sign in to your applications using their own Facebook accounts. To allow users to sign in using Facebook, you'll first need to [enable self-service sign-up](self-service-sign-up-user-flow.md) for your tenant. After you add Facebook as an identity provider, set up a user flow for the application and select Facebook as one of the sign-in options.
+
+After you've added Facebook as one of your application's sign-in options, on the **Sign in** page, a user can simply enter the email they use to sign in to Facebook, or they can select **Sign-in options** and choose **Sign in with Facebook**. In either case, they'll be redirected to the Facebook login page for authentication.
+
+![Sign in options for facebook users](media/facebook-federation/sign-in-with-facebook-overview.png)
 
 > [!NOTE]
 > Users can only use their Facebook accounts to sign up through apps using self-service sign-up and user flows. Users cannot be invited and redeem their invitation using a Facebook account.
