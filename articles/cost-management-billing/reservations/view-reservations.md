@@ -48,7 +48,7 @@ If you have access to reservations or reservation orders with Azure RBAC access,
     - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
     - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
 1. In the left menu, select **Reservation transactions**. The list of reservation transactions is shown.
-1. A banner at the top of the page reads *Now billing administrators can manage reservations. Click here to manage reservations. Read more about this preview feature at aka.ms/babrowse.* Select the banner.
+1. A banner at the top of the page reads *Now billing administrators can manage reservations. Click here to manage reservations.* Select the banner.
 1. The complete list of reservations for your EA enrollment or billing profile is shown.
 1. If you want to take ownership of a reservation, select it. Then in the Setting up permissions page, select **Grant access**. You're given owner access to the reservation and reservation order.
 

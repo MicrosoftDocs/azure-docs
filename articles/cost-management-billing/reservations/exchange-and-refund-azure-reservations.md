@@ -11,7 +11,17 @@ ms.author: banders
 
 # Self-service exchanges and refunds for Azure Reservations
 
-Azure Reservations provide flexibility to help meet your evolving needs. You can exchange a reservation for another reservation of the same type. For example, you can exchange a virtual machine reservation to purchase another reservation for any other VM size or region. Likewise, a SQL PaaS Database reservation can be exchanged to purchase another reservation for any SQL PaaS Database type or region. You can also refund reservations, but the sum total of all canceled reservation commitment in your billing scope (such as EA, Microsoft Customer Agreement, and Microsoft Partner Agreement) can't exceed USD 50,000 in a 12 month rolling window. Azure Databricks reserved capacity, Azure VMware solution by CloudSimple reservation, Azure Red Hat Open Shift reservation, Red Hat plans and, SUSE Linux plans aren't eligible for refunds.
+Azure Reservations provide flexibility to help meet your evolving needs. You can exchange reservations for another reservation of the same type. For example, you can return multiple compute reservations including Azure Dedicated Host, Azure VMware Solution, and Azure Virtual Machines with each other all at once. In other words, reservation products are interchangeable with each other if they're the same type of reservation. In an other example, you can exchange multiple SQL database reservation types including Managed Instances and Elastic Pool with each other.
+
+However, you can't exchange dissimilar reservations. For example, you can't exchange a Cosmos DB reservation for SQL Database.
+
+You can also exchange a reservation to purchase another reservation of a similar type in a different region. For example, you can exchange a reservation that's in West US 2 for one that's in West Europe.
+
+When you exchange a reservation, you can change your term from one-year to three-year.
+
+You can also refund reservations, but the sum total of all canceled reservation commitment in your billing scope (such as EA, Microsoft Customer Agreement, and Microsoft Partner Agreement) can't exceed USD 50,000 in a 12 month rolling window.
+
+Azure Databricks reserved capacity, Azure VMware solution by CloudSimple reservation, Azure Red Hat Open Shift reservation, Red Hat plans and, SUSE Linux plans aren't eligible for refunds.
 
 Self-service exchange and cancel capability isn't available for US Government Enterprise Agreement customers. Other US Government subscription types including Pay-As-You-Go and Cloud Solution Provider (CSP) are supported.
 
@@ -34,7 +44,7 @@ To refund a reservation, go to **Reservation Details** and select **Refund**.
 
 ## Exchange multiple reservations
 
-You can return different types of reservations in one action. For example, you can return multiple reservations for Azure Dedicated Host and Azure VMware Solution and exchange them for Azure Virtual Machines with one action.
+You can return similar types of reservations in one action.
 
 When you exchange reservations, the new purchase currency amount must be greater than the refund amount. If your new purchase amount is less than the refund amount, you'll get an error. If you see the error, reduce the quantity that you want to return or increase the amount to purchase.
 
