@@ -41,7 +41,7 @@ To add a scale-out appliance, follow the steps mentioned below:
 1. Click on **Discover** > **Are you machines virtualized?** 
 1. Select **Yes, with VMware VSphere Hypervisor.**
 1. Select agentless replication in the next step.
-1. Select **Scale-out an existing primary appliance** in the select the type of appliance dropdowm.
+1. Select **Scale-out an existing primary appliance** in the select the type of appliance menu.
 1. Select the primary appliance (the appliance using which discovery was performed) that you wish to scale-out.
 
 :::image type="content" source="./media/how-to-scale-out-for-migration/add-scale-out.png" alt-text="Discover machines page for scale-out onboarding":::
