@@ -156,7 +156,8 @@ The following Resource Provider modes are currently supported as a **preview**:
 
 The optional `metadata` property stores information about the policy definition. Customers can
 define any properties and values useful to their organization in `metadata`. However, there are some
-_common_ properties used by Azure Policy and in built-ins.
+_common_ properties used by Azure Policy and in built-ins. Each `metadata` property has a limit of
+1024 characters.
 
 ### Common metadata properties
 
