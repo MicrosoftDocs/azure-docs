@@ -60,7 +60,7 @@ In this section, you'll create a cross-region load balancer and public IP addres
     | Tier           | Select **Global** |
     | Public IP address | Select **Create new**.|
     | Public IP address name | Type **myPublicIP-CR** in the text box.|
-    | Routing preference| Select **Microsoft network**. </br> For more information on routing preference, see [What is routing preference (preview)?](./routing-preference-overview.md). |
+    | Routing preference| Select **Microsoft network**. </br> For more information on routing preference, see [What is routing preference (preview)?](../virtual-network/routing-preference-overview.md). |
 
     > [!NOTE]
     > Cross region load-balancer can only be deployed in the following home regions: **East US 2, West US, West Europe, Southeast Asia, Central US, North Europe, East Asia**. For more information, see **https://aka.ms/homeregionforglb**.
