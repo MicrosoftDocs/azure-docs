@@ -98,20 +98,6 @@ Example `subscription.json`:
 
 [!INCLUDE [Unity troubleshooting](../../../includes/object-anchors-quickstart-unity-troubleshooting.md)]
 
-### Capturing diagnostics
-
-If you're still not able to find the issue, you can capture diagnostics and send it to us.
-
-Open the <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">hand menu</a> and select **Start Tracing** (see section **Run the Sample App**).
-
-Try to detect your object again.
-
-Open the <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">hand menu</a> and select **Stop Tracing**.
-
-In Windows Device Portal, navigate to your application's `TempState` folder and download the `.zip` file. Send the `.zip` file to us.
-
-:::image type="content" source="./media/portal-debug-diagnostics.png" alt-text="capture diagnostics":::
-
 ## Next steps
 
 > [!div class="nextstepaction"]
