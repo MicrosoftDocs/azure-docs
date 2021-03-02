@@ -518,6 +518,8 @@ groups:
     title: C#
   - id: programming-language-go
     title: Go
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
   - id: programming-language-rest-api
@@ -1049,6 +1051,17 @@ groups:
     title: Python
   - id: rest-api
     title: REST
+# Owner: diberry
+- id: app-service-webjob
+  title: WebJob types
+  prompt: Choose a type of WebJob
+  pivots:
+  - id: webjob-type-continuous
+    title: Continuous
+  - id: webjob-type-scheduled
+    title: Scheduled
+  - id: webjob-type-manual
+    title: Manual
 # Owner: mbullwin
 - id: qnamaker-quickstart
   title: Programming languages

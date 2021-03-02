@@ -33,39 +33,47 @@ To complete this quickstart, make sure you have:
 
 First, you need to create an account with the Object Anchors service.
 
-1. Go to the [Azure portal](https://portal.azure.com/)
+1. Go to the [Azure portal](https://portal.azure.com/) and select **Create a resource**.
+
+   :::image type="content" source="./media/create-aoa-resource-1.png" alt-text="Create a new resource":::
 
 2. Search for the **Object Anchors** resource.
 
-   :::image type="content" source="./media/search-ou-resource.png" alt-text="Search for Object Anchors Resource":::
+   Search for "Object Anchors".
 
-   Select **Object Anchors** on the results page.
+   :::image type="content" source="./media/create-aoa-resource-2.png" alt-text="Select the Object Anchors Resource":::
 
-   :::image type="content" source="./media/select-ou-resource.png" alt-text="Select the Object Anchors Resource":::
+   On the **Object Anchors** resource in the search results, select **Create -> Object Anchors**.
 
-   Select **Create** to begin creating the resource.
-
-   :::image type="content" source="./media/create-ou-resource-1.png" alt-text="Create an Object Anchors Resource":::
+   :::image type="content" source="./media/create-aoa-resource-3.png" alt-text="Create an Object Anchors Resource":::
 
 3. In the **Object Anchors Account** dialog box:
-    * Enter a unique, alphanumeric resource name.
+    * Enter a unique resource name.
     * Select the subscription you want to attach the resource to.
     * Create or use an existing resource group.
     * Select the region you'd like your resource to exist in.
 
-    :::image type="content" source="./media/create-ou-resource-2.png" alt-text="Enter Object Anchors Resource account details":::
+    :::image type="content" source="./media/create-aoa-resource-4.png" alt-text="Enter Object Anchors resource account details":::
 
-4. Once your resource has been created, navigate to the overview page and take note of the **Account ID**. You'll need it later.
+    Select **Create** to begin creating the resource.
 
-   :::image type="content" source="./media/copy-ou-account-id.png" alt-text="Copy the account ID for your Object Anchors resource":::
+4. Once the resource has been created, select **Go to resource**.
 
-   Go to **Keys** and take note of the **Primary Key**. You'll need it later.
+   :::image type="content" source="./media/create-aoa-resource-5.png" alt-text="Go to resource":::
 
-   :::image type="content" source="./media/copy-ou-primary-key.png" alt-text="Copy the account key for your Object Anchors resource":::
+5. On the overview page:
 
-   Go to **Properties** and take note of the **Location ID**. You'll need it later.
+   Take note of the **Account Domain**. You'll need it later.
 
-   :::image type="content" source="./media/copy-ou-account-region.png" alt-text="Copy the account region for your Object Anchors resource":::
+   :::image type="content" source="./media/create-aoa-resource-6.1.png" alt-text="Copy the account domain for your Object Anchors resource":::
+
+   Take note of the **Account ID**. You'll need it later.
+
+   :::image type="content" source="./media/create-aoa-resource-6.2.png" alt-text="Copy the account ID for your Object Anchors resource":::
+
+   Go to the **Access Keys** page and take note of the **Primary key**. You'll need it later.
+
+   :::image type="content" source="./media/create-aoa-resource-7.png" alt-text="Copy the account key for your Object Anchors resource":::
 
 ## Get the sample project
 
@@ -79,11 +87,11 @@ Now, you can go ahead and convert your 3D model.
 
 2. Open the `Configuration.cs` file located in the root of the project and replace the `set-me` values on following fields:
 
-   | Field          | Description                                                      |
-   |----------------|------------------------------------------------------------------|
-   | AccountId      | The **Account ID** of the Object Anchors Account created above.  |
-   | AccountKey     | The **Primary key** of the Object Anchors Account created above  |
-   | Account Region | The **Location ID** of the Object Anchors Account created above. |
+   | Field         | Description                                                         |
+   |---------------|---------------------------------------------------------------------|
+   | AccountDomain | The **Account Domain** of the Object Anchors account created above. |
+   | AccountId     | The **Account ID** of the Object Anchors account created above.     |
+   | AccountKey    | The **Primary key** of the Object Anchors account created above     |
 
    There are four additional fields that need to be verified:
 

@@ -126,7 +126,7 @@ This article explores common troubleshooting methods for mapping data flows in A
  
 - **Message**: Cluster ran into out of memory issue during execution, please retry using an integration runtime with bigger core count and/or memory optimized compute type
 - **Causes**: Cluster is running out of memory.
-- **Recommendation**: Debug clusters are meant for development purposes. Leverage data sampling appropriate compute type and size to run the payload. Refer to [Dataflow Performance Guide](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance) for tuning the dataflows for best performance.
+- **Recommendation**: Debug clusters are meant for development purposes. Leverage data sampling appropriate compute type and size to run the payload. Refer to [Dataflow Performance Guide](./concepts-data-flow-performance.md) for tuning the dataflows for best performance.
 
 ### Error code: DF-Executor-illegalArgument
 - **Message**: Please make sure that the access key in your Linked Service is correct.
@@ -176,7 +176,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 - **Message**: Invalid range is provided.
 - **Causes**: Undetermined
-- **Recommendation**: Please check parameter value and specify valid range by reference: [Excel properties](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+- **Recommendation**: Please check parameter value and specify valid range by reference: [Excel properties](./format-excel.md#dataset-properties).
 
 - **Message**: Invalid excel file is provided while only .xlsx and .xls are supported
 - **Causes**: Undetermined
@@ -198,7 +198,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Error code: 4502
 - **Message**: There are substantial concurrent MappingDataflow executions which are causing failures due to throttling under Integration Runtime.
-- **Causes**: A lot of Dataflow Activity runs are going on concurrently on the Integration Runtime. Please learn more about the [Azure Data Factory limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#data-factory-limits).
+- **Causes**: A lot of Dataflow Activity runs are going on concurrently on the Integration Runtime. Please learn more about the [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 - **Recommendation**: In case you are looking to run more Data flow activities in parallel, please distribute those on multiple integration runtimes.
 
 

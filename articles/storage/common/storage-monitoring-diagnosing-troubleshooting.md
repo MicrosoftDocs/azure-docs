@@ -784,7 +784,7 @@ You can find more information at [What is Application Insights](../../azure-moni
 
 For more information about analytics in Azure Storage, see these resources:
 
-* [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md)
+* [Monitor a storage account in the Azure portal](./manage-storage-analytics-logs.md)
 * [Storage analytics](storage-analytics.md)
 * [Storage analytics metrics](storage-analytics-metrics.md)
 * [Storage analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema)

@@ -1,5 +1,6 @@
 ---
-title: Quickstart - Join a Teams meeting
+title: Quickstart - Join a Teams meeting from a web app
+description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling client library for JavaScript
 author: chpalm
 ms.author: mikben
 ms.date: 10/10/2020
@@ -7,9 +8,11 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
+In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling client library for JavaScript.
+
 ## Prerequisites
 
-- A working [Communication Services calling app](../getting-started-with-calling.md).
+- A working [Communication Services calling web app](../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
 
 
@@ -30,6 +33,7 @@ The text box will be used to enter the Teams meeting context and the button will
     <input id="teams-link-input" type="text" placeholder="Teams meeting link"
         style="margin-bottom:1em; width: 300px;" />
         <p>Call state <span style="font-weight: bold" id="call-state">-</span></p>
+        <p><span style="font-weight: bold" id="recording-state"></span></p>
     <div>
         <button id="join-meeting-button" type="button" disabled="false">
             Join Teams Meeting
@@ -50,6 +54,7 @@ Replace content of client.js file with following snippet.
 
 ```javascript
 import { CallClient } from "@azure/communication-calling";
+import { Features } from "@azure/communication-calling";
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
@@ -58,6 +63,7 @@ const meetingLinkInput = document.getElementById('teams-link-input');
 const hangUpButton = document.getElementById('hang-up-button');
 const teamsMeetingJoinButton = document.getElementById('join-meeting-button');
 const callStateElement = document.getElementById('call-state');
+const recordingStateElement = document.getElementById('recording-state');
 
 async function init() {
     const callClient = new CallClient();
@@ -81,9 +87,18 @@ teamsMeetingJoinButton.addEventListener("click", () => {
     // join with meeting link
     call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
     
-    call.on('callStateChanged', () => {
+    call.on('stateChanged', () => {
         callStateElement.innerText = call.state;
     })
+
+    call.api(Features.Recording).on('isRecordingActiveChanged', () => {
+        if (call.api(Features.Recording).isRecordingActive) {
+            recordingStateElement.innerText = "This call is being recorded";
+        }
+        else {
+            recordingStateElement.innerText = "";
+        }
+    });
     // toggle button states
     hangUpButton.disabled = false;
     teamsMeetingJoinButton.disabled = true;
