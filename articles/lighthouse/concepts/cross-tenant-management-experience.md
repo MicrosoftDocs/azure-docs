@@ -107,7 +107,8 @@ Most tasks and services can be performed on delegated resources across managed t
 
 [Azure Policy](../../governance/policy/index.yml):
 
-- Create and edit policy definitions within delegated subscriptions; deploy policies across multiple tenants
+- Create and edit policy definitions within delegated subscriptions
+- Deploy policy definitions and policy assignments across multiple tenants
 - Assign customer-defined policy definitions within delegated subscriptions
 - Customers see policies authored by the service provider alongside any policies they've authored themselves
 - Can [remediate deployIfNotExists or modify assignments within the managed tenant](../how-to/deploy-policy-remediation.md)
