@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/24/2021
+ms.date: 03/01/2021
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -18,7 +18,7 @@ You can track the status of your import or export jobs on the **Import/Export** 
 1. Log on to https://portal.azure.com/.
 2. Search for **import/export jobs**.
 
-    ![Search on import/export jobs](./media/storage-import-export-service/open-import-export-tab.png).
+    ![Search on import/export jobs](./media/storage-import-export-service/open-import-export-tab.png)
 
  3. A list of your Import/Export jobs appears on the page.
 
