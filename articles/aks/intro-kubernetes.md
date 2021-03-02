@@ -153,8 +153,8 @@ Learn more about deploying and managing AKS with the Azure CLI Quickstart.
 [azure-devops]: ../devops-project/overview.md
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
-[container-health]: ../azure-monitor/insights/container-insights-overview.md
-[aks-master-logs]: view-master-logs.md
+[container-health]: ../azure-monitor/containers/container-insights-overview.md
+[aks-master-logs]: ./view-control-plane-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
