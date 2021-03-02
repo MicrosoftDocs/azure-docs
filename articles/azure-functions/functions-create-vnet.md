@@ -117,7 +117,7 @@ Azure resources in this tutorial either integrate with or are placed within a vi
 
 The tutorial creates two subnets:
 - **default**: Subnet for private endpoints. Private IP addresses are given from this subnet.
-- **functions**: Subnet for Azure Function virtual network integration. This subnet is delegated to the Function App.
+- **functions**: Subnet for Azure Functions virtual network integration. This subnet is delegated to the function app.
 
 Now, create the virtual network to which the function app integrates.
 
@@ -131,7 +131,7 @@ Now, create the virtual network to which the function app integrates.
     | ------------ | ---------------- | ---------------- |
     | **Subscription** | Your subscription | The subscription under which your resources are created. | 
     | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choose the resource group you created with your function app. |
-    | **Name** | myVirtualNet| The name of your virtual network to which your function will connect. |
+    | **Name** | myVirtualNet| The name of your virtual network to which your function app will connect. |
     | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Choose the region you created your function app in. |
 
 1. On the **IP Addresses** tab, select **Add subnet**. Use the settings as specified below when adding a subnet:
