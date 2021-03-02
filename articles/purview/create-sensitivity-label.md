@@ -213,5 +213,3 @@ Find insights on your classified and labeled data in Azure Purview using the **C
 
 > [!div class="nextstepaction"]
 > [Sensitivity label insights](sensitivity-insights.md)
-
-
