@@ -63,7 +63,7 @@ Follow these steps to remotely connect from an NFS client.
 
 1. To open PowerShell session, type:
 
-    `sudo pwsh`
+    `pwsh`
  
 2. For connecting using the remote client, type:
 
