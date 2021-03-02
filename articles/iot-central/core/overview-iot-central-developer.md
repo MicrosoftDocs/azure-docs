@@ -4,17 +4,17 @@ description: Azure IoT Central is an IoT application platform that simplifies th
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/05/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: [mvc, device-developer]
 ---
 
-# IoT Central device development overview
+# IoT Central device development guide
 
 *This article applies to device developers.*
 
-An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This overview is intended for device developers who implement code to run on devices that connect to IoT Central.
+An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is intended for device developers who implement code to run on devices that connect to IoT Central.
 
 Devices interact with an IoT Central application using the following primitives:
 

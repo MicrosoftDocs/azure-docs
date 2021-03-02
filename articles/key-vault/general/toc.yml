@@ -48,9 +48,11 @@
   items:
   - name: Basic concepts
     href: basic-concepts.md
+  - name: Best practices
+    href: best-practices.md
   - name: Security
     items:
-    - name: Security overview
+    - name: Overview
       href: security-overview.md
     - name: Secure access to a key vault
       href: secure-your-key-vault.md
@@ -100,10 +102,12 @@
         href: assign-access-policy-powershell.md
       - name: Portal
         href: assign-access-policy-portal.md
-    - name: Use an Azure RBAC for managing access to keys, secrets, and certificates (preview)
-      href: rbac-guide.md
-    - name: Vault access policies to Azure RBAC migration guide
-      href: rbac-migration.md  
+    - name: Azure RBAC permission model
+      items:
+      - name: Use an Azure RBAC for managing access to keys, secrets, and certificates
+        href: rbac-guide.md
+      - name: Vault access policies to Azure RBAC migration guide
+        href: rbac-migration.md  
     - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md
   - name: Develop

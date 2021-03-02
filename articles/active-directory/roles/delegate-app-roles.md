@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 This article describes how to use permissions granted by custom roles in Azure Active Directory (Azure AD) to address your application management needs. In Azure AD, you can delegate Application creation and management permissions in the following ways:
 
-- [Restricting who can create applications](#restrict-who-can-create-applications) and manage the applications they create. By default in Azure AD, all users can register application registrations and manage all aspects of applications they create. This can be restricted to only allow selected people that permission.
+- [Restricting who can create applications](#restrict-who-can-create-applications) and manage the applications they create. By default in Azure AD, all users can register applications and manage all aspects of applications they create. This can be restricted to only allow selected people that permission.
 - [Assigning one or more owners to an application](#assign-application-owners). This is a simple way to grant someone the ability to manage all aspects of Azure AD configuration for a specific application.
 - [Assigning a built-in administrative role](#assign-built-in-application-admin-roles) that grants access to manage configuration in Azure AD for all applications. This is the recommended way to grant IT experts access to manage broad application configuration permissions without granting access to manage other parts of Azure AD not related to application configuration.
 - [Creating a custom role](#create-and-assign-a-custom-role-preview) defining very specific permissions and assigning it to someone either to the scope of a single application as a limited owner, or at the directory scope (all applications) as a limited administrator.
@@ -31,7 +31,7 @@ It's important to consider granting access using one of the above methods for tw
 
 ## Restrict who can create applications
 
-By default in Azure AD, all users can register application registrations and manage all aspects of applications they create. Everyone also has the ability to consent to apps accessing company data on their behalf. You can choose to selectively grant those permissions by setting the global switches to 'No' and adding the selected users to the Application Developer role.
+By default in Azure AD, all users can register applications and manage all aspects of applications they create. Everyone also has the ability to consent to apps accessing company data on their behalf. You can choose to selectively grant those permissions by setting the global switches to 'No' and adding the selected users to the Application Developer role.
 
 ### To disable the default ability to create application registrations or consent to applications
 

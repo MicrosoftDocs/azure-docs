@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Security and data protection for Azure Stack Edge Pro R and Azure Stack Edge Mini R
 
-[!INCLUDE [applies-to-r-skus](../../includes/azure-stack-edge-applies-to-r-sku.md)]
+[!INCLUDE [applies-to-pro-r-and-mini-r--skus](../../includes/azure-stack-edge-applies-to-pro-r-mini-r-sku.md)]
 
 Security is a major concern when you're adopting a new technology, especially if the technology is used with confidential or proprietary data. Azure Stack Edge Pro R and Azure Stack Edge Mini R help you ensure that only authorized entities can view, modify, or delete your data.
 
@@ -72,7 +72,7 @@ You can:
 
 ### Establish trust with the device via certificates
 
-Azure Stack Edge rugged device lets you bring your own certificates and install those to be used for all public endpoints. For more information, go to [Upload your certificate](azure-stack-edge-j-series-manage-certificates.md#upload-certificates). For a list of all the certificates that can be installed on your device, go to [Manage certificates on your device](azure-stack-edge-j-series-manage-certificates.md).
+Azure Stack Edge rugged device lets you bring your own certificates and install those to be used for all public endpoints. For more information, go to [Upload your certificate](azure-stack-edge-gpu-manage-certificates.md#upload-certificates). For a list of all the certificates that can be installed on your device, go to [Manage certificates on your device](azure-stack-edge-gpu-manage-certificates.md).
 
 - When you configure compute on your device, an IoT device and an IoT Edge device are created. These devices are automatically assigned symmetric access keys. As a security best practice, these keys are rotated regularly via the IoT Hub service.
 

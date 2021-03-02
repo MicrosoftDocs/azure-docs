@@ -64,6 +64,9 @@ To view the [resource quotas](batch-quota-limit.md) that apply to the Batch acco
 
 If you choose to create a Batch account in user subscription mode, perform the following additional steps before creating the account.
 
+> [!IMPORTANT]
+> The user creating the Batch account in user subscription mode needs to have Contributor or Owner role assignment for the subscription in which the Batch account will be created.
+
 ### Allow Azure Batch to access the subscription (one-time operation)
 
 When creating your first Batch account in user subscription mode, you need to register your subscription with Batch. (If you already did this, skip to the next section.)

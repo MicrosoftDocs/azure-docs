@@ -33,7 +33,11 @@ This table shows which listing options are available for each offer type.
 
 &#42; The Get It Now listing option includes Get It Now (Free), bring your own license (BYOL), Subscription, and Usage-based pricing. For details, see [Get It Now](#get-it-now).
 
-### Free Trial
+## Changing offer type
+
+[!INCLUDE [change-offer-type](./includes/change-offer-type.md)]
+
+## Free Trial
 
 Use the commercial marketplace to enhance discoverability and automate provisioning of your solution's trial experience. This enables prospective customers to use your software as a service (SaaS), IaaS or Microsoft in-app experience at no cost from 30 days to six months, depending on the offer type.
 
@@ -41,18 +45,18 @@ Customers use the _Free Trial_ button on your offer’s listing page to try your
 
 For virtual machine offers, customers are charged Azure infrastructure costs for using the offer during a trial period. Upon expiration of the trial period, customers are automatically charged for the last plan they tried based on standard rates unless they cancel before the end of the trial period.
 
-### Test Drive
+## Test Drive
 
 Customers use the _Test Drive_ button on your offer’s listing page to get access to a preconfigured environment for a fixed number of hours. To learn more about test drives, see [What is a test drive?](what-is-test-drive.md)
 
 > [!TIP]
 > A test drive is different from a free trial. You can offer a test drive, free trial, or both. They both provide your customers with your solution for a fixed period-of-time. But a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
-### Contact Me
+## Contact Me
 
 Simple listing of your application or service. Customers use the _Contact Me_ button on your offer’s listing page to request that you connect with them about your offer.
 
-### Get It Now
+## Get It Now
 
 This listing option includes transactable offers (subscriptions and user-based pricing), bring your own license offers, and Get It Now (Free). Transactable offers are sold through the commercial marketplace. Microsoft is responsible for billing and collections. Customers use the _Get It Now button_ to get the offer.
 
@@ -87,28 +91,28 @@ This table shows which offer types support the additional pricing options that a
 
 <sup>2</sup> Priced per hour and billed monthly.
 
-#### Get It Now (Free)
+### Get It Now (Free)
 
 Use this listing option to offer your application for free. Customers use the _Get It Now_ button to get your free offer.
 
 > [!NOTE]
 > Get It Now (Free) offers are not eligible for Marketplace Rewards benefits for transactable offers. Because there is no transaction through the storefront, these are categorized as “Trial.” See [Marketplace Rewards](#marketplace-rewards) below.
 
-#### Bring Your Own License (BYOL)
+### Bring Your Own License (BYOL)
 
 Use this listing option to let customers deploy your offer using a license purchased outside the commercial marketplace. This option is ideal for on-premises-to-cloud migrations. Customers use the _Get It Now_ button to purchase your offer using a license they pre-purchased from you.
 
 > [!NOTE]
 > BYOL offers are not eligible for Marketplace Rewards benefits for transactable offers. Because these require a customer to acquire the license from the partner and there is no transaction through the commercial marketplace storefront, these are categorized as “List.” See [Marketplace Rewards](#marketplace-rewards) below.
 
-#### Subscription
+### Subscription
 
 You can charge a flat fee for these offer types:
 
 - Azure Application (Managed app) offers support monthly subscriptions.
 - SaaS offers support both monthly and annual subscriptions.
 
-#### Usage-based pricing
+### Usage-based pricing
 
 The following offer types support usage-based pricing:
 

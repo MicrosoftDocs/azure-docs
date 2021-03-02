@@ -110,7 +110,7 @@ HDInsight only supports Azure Key Vault. If you have your own key vault, you can
 
 You're now ready to create a new HDInsight cluster. Customer-managed keys can only be applied to new clusters during cluster creation. Encryption can't be removed from customer-managed key clusters, and customer-managed keys can't be added to existing clusters.
 
-Beginning with the [November 2020 release](hdinsight-release-notes.md#release-date-11182020), HDInsight supports the creation of clusters using both versioned and version-less key URIs. If you create the cluster with a version-less key URI, then the HDInsight cluster will try to perform key auto-rotation when the key is updated in your Azure Key Vault. If you create the cluster with a versioned key URI, you will have to perform a manual key rotation as discussed in [Rotating the encryption key](#rotating-the-encryption-key).
+Beginning with the November 2020 release, HDInsight supports the creation of clusters using both versioned and version-less key URIs. If you create the cluster with a version-less key URI, then the HDInsight cluster will try to perform key auto-rotation when the key is updated in your Azure Key Vault. If you create the cluster with a versioned key URI, you will have to perform a manual key rotation as discussed in [Rotating the encryption key](#rotating-the-encryption-key).
 
 For clusters created before the November 2020 release, you will have to perform key rotation manually using the versioned key URI.
 

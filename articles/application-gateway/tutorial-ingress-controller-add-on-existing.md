@@ -62,7 +62,7 @@ In the following example, you'll be deploying a new AKS cluster named *myCluster
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
 ```
 
-To configure additional parameters for the `az aks create` command, visit references [here](/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
+To configure additional parameters for the `az aks create` command, visit references [here](/cli/azure/aks#az-aks-create). 
 
 ## Deploy a new Application Gateway 
 

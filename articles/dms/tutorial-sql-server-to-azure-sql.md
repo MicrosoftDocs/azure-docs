@@ -29,10 +29,6 @@ You will learn how to:
 > - Run the migration.
 > - Monitor the migration.
 
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
-
-This article describes an offline migration from SQL Server to a database in Azure SQL Database. For an online migration, see [Migrate SQL Server to Azure SQL Database online using DMS](tutorial-sql-server-azure-sql-online.md).
-
 ## Prerequisites
 
 To complete this tutorial, you need to:
@@ -58,7 +54,7 @@ To complete this tutorial, you need to:
     >
     >If you don’t have site-to-site connectivity between the on-premises network and Azure or if there is limited site-to-site connectivity bandwidth, consider using Azure Database Migration Service in hybrid mode (Preview). Hybrid mode leverages an on-premises migration worker together with an instance of Azure Database Migration Service running in the cloud. To create an instance of Azure Database Migration Service in hybrid mode, see the article [Create an instance of Azure Database Migration Service in hybrid mode using the Azure portal](./quickstart-create-data-migration-service-hybrid-portal.md).
 
-- Ensure that your virtual network Network Security Group outbound security rules don't block the following communication ports required for the Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on Azure virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+- Ensure that your virtual network Network Security Group outbound security rules don't block the outbound port 443 of ServiceTag for ServiceBus, Storage and AzureMonitor. For more detail on Azure virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 - Configure your [Windows Firewall for database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Open your Windows firewall to allow Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433. If your default instance is listening on some other port, add that to the firewall.
 - If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that Azure Database Migration Service can connect to a named instance on your source server.
@@ -232,6 +228,9 @@ After the service is created, locate it within the Azure portal, open it, and th
 1. On the **Select target** screen, specify the connection details for the target Azure SQL Database, which is the pre-provisioned Azure SQL Database to which the **Adventureworks2016** schema was deployed by using the Data Migration Assistant.
 
     ![Select Target](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
+    
+    > [!NOTE]
+    > Private endpoint connections to the target Azure SQL Database are supported by the Azure Database Migration Service except when using a custom DNS name. 
 
 2. Select **Next: Map to target databases** screen, map the source and the target database for migration.
 
@@ -267,7 +266,5 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 ### Additional resources
 
-- [SQL migration using Azure Data Migration Service](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587) hands-on lab.
-- For information about known issues and limitations when performing online migrations to Azure SQL Database, see the article [Known issues and workarounds with Azure SQL Database online migrations](known-issues-azure-sql-online.md).
 - For information about Azure Database Migration Service, see the article [What is Azure Database Migration Service?](./dms-overview.md).
 - For information about Azure SQL Database, see the article [What is the Azure SQL Database service?](../azure-sql/database/sql-database-paas-overview.md).

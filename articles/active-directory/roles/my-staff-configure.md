@@ -84,7 +84,7 @@ The following roles have permission to reset a user's password:
 
 - [Authentication administrator](permissions-reference.md#authentication-administrator)
 - [Privileged authentication administrator](permissions-reference.md#privileged-authentication-administrator)
-- [Global administrator](permissions-reference.md#global-administrator--company-administrator)
+- [Global administrator](permissions-reference.md#global-administrator)
 - [Helpdesk administrator](permissions-reference.md#helpdesk-administrator)
 - [User administrator](permissions-reference.md#user-administrator)
 - [Password administrator](permissions-reference.md#password-administrator)
@@ -112,7 +112,7 @@ To manage a user's phone number, you must be assigned one of the following roles
 
 - [Authentication administrator](permissions-reference.md#authentication-administrator)
 - [Privileged authentication administrator](permissions-reference.md#privileged-authentication-administrator)
-- [Global administrator](permissions-reference.md#global-administrator--company-administrator)
+- [Global administrator](permissions-reference.md#global-administrator)
 
 ## Search
 

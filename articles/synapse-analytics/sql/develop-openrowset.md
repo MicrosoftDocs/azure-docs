@@ -218,6 +218,7 @@ CSV parser version 1.0 specifics:
 CSV parser version 2.0 specifics:
 
 - Not all data types are supported.
+- Maximum character column length is 8000.
 - Maximum row size limit is 8 MB.
 - Following options aren't supported: DATA_COMPRESSION.
 - Quoted empty string ("") is interpreted as empty string.

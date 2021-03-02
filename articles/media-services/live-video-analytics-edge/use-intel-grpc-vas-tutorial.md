@@ -3,7 +3,6 @@ title:  Analyze live video by using Intel OpenVINO™ DL Streamer – Edge AI Ex
 description: This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feed from a (simulated) IP camera. 
 ms.topic: tutorial
 ms.date: 02/04/2021
-ms.topic: tutorial
 ms.service: media-services
 ms.author: faneerde
 author: faneerde
@@ -127,10 +126,34 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     The *deployment.openvino.grpc.cpu.amd64.json* manifest file is created in the *src/edge/config* folder.
 
 > [!NOTE]
-We also included a *deployment.openvino.grpc.gpu.template.json* template that enables GPU support for the Intel OpenVINO DL Streamer - Edge AI Extension module.
+We also included a *deployment.openvino.grpc.gpu.template.json* template that enables GPU support for the Intel OpenVINO DL Streamer - Edge AI Extension module. These templates point to Intel's Docker hub image.
+
+The above mentioned templates point to the intel Docker hub image. If you rather want to host a copy on your own Azure Container Registry you can follow step 1 and 2 below:
+1. SSH into a device with docker CLI tools installed (i.e. your edge device) and pull/tag/push the container with these steps:
+    * Pull Intel's image from Docker hub:
+
+        `sudo docker pull intel/video-analytics-serving:0.4.1-dlstreamer-edge-ai-extension`
+    
+    * Tag Intel's image with your own Azure Container Registry name. Replace {YOUR ACR NAME} with your ACR name which you can find in the .env file:
+
+        `sudo docker image tag intel/video-analytics-serving:0.4.1-dlstreamer-edge-ai-extension {YOUR ACR NAME/video-analytics-serving:0.4.1-dlstreamer-edge-ai-extension}`
+    
+    * Push your tagged image to your Azure Container Registry:
+
+        `sudo docker push {YOUR ACR NAME/video-analytics-serving:0.4.1-dlstreamer-edge-ai-extension}`
+    
+2. Now you need to edit the templates to reference your new image hosted on Azure Container Registry.
+    * Right-click the *deployment.openvino.grpc.cpu.template.json* and navigate to the *lavExtension* module portion and replace:
+
+        `intel/video-analytics-serving:0.4.1-dlstreamer-edge-ai-extension`
+
+        with:
+
+        `{YOUR ACR NAME/video-analytics-serving:0.4.1-dlstreamer-edge-ai-extension}`
+    * Repeat step 2 for the *deployment.openvino.grpc.gpu.template.json*
 
 
-1. If you completed the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then skip this step. 
+3. If you completed the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then skip this step. 
 
     Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
     

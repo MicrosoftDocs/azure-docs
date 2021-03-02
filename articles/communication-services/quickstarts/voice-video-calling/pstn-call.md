@@ -11,9 +11,8 @@ zone_pivot_groups: acs-plat-web-ios-android
 ---
 
 # Quickstart: Call To Phone
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Get started with Azure Communication Services by using the Communication Services calling client library to add PSTN calling to your app. 
+Get started with Azure Communication Services by using the Communication Services calling client library to add PSTN calling to your app.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/pstn-call-js.md)]

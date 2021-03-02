@@ -154,7 +154,7 @@ If you want the test validation to ignore a certain output, set the **Required**
       "ExpectedOutputs": [
         {
           "OutputAlias": [Output alias string],
-          "FilePath": "Required",
+          "FilePath": [Required],
           "Required": true
         }
       ]
@@ -162,6 +162,9 @@ If you want the test validation to ignore a certain output, set the **Required**
   ]
 }
 ```
+
+> [!NOTE]
+> Currently, the only allowed value for the `ScriptType` element is `InputMock`, which is also the default value. If you set it to any other value, it's ignored and the default value (`InputMock`) is used. 
 
 ### Run a unit test
 

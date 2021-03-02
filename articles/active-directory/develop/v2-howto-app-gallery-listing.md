@@ -80,7 +80,7 @@ You can get a free test account with all the premium Azure AD features - 90 days
 
 ## Step 1 - Choose the right single sign-on standard for your app
 
-To list an application in the Azure AD app gallery, you need to implement at least one of the supported single sign-on options. To understand the single sign-on options, and how customers will configure them in Azure AD, see [SSO options](../manage-apps/sso-options.md).
+To list an application in the Azure AD app gallery, implement at least one of the supported single sign-on options. To understand the single sign-on options, and how customers will configure them in Azure AD, see [SSO options](../manage-apps/sso-options.md).
 
 The following table compares the main standards: Open Authentication 2.0 (OAuth 2.0) with OpenID Connect (OIDC), Security Assertion Markup Language (SAML), and Web Services Federation (WS-Fed).
 
@@ -181,7 +181,7 @@ You will need an Azure AD tenant in order to test your app. To set up your devel
 
 Alternatively, an Azure AD tenant comes with every Microsoft 365 subscription. To set up a free Microsoft 365 development environment, see [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
-Once you have a tenant, you need to test single-sign on and [provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Once you have a tenant, test single-sign on and [provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-aad-scim-client). 
 
 **For OIDC or Oath applications**, [Register your application](quickstart-register-app.md) as a multi-tenant application. ‎Select the Accounts in any organizational directory and personal Microsoft accounts option in Supported Account types.
 
