@@ -81,7 +81,7 @@ Create a file in the root directory of your project called **client.js** to cont
 
 ### Create a chat client
 
-To create a chat client in your web app, you'll use the Communications Service **endpoint** and the **access token** that was generated as part of pre-requisite steps.
+To create a chat client in your web app, you'll use the Communications Service **endpoint** and the **access token** that was generated as part of prerequisite steps.
 
 User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. This quickstart does not cover creating a service tier to manage tokens for your chat application. See [chat concepts](../../../concepts/chat/concepts.md) for more information about chat architecture, and [user access tokens](../../access-tokens.md) for more information about access tokens.
 
