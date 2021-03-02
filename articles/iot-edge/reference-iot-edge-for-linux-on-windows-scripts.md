@@ -1,6 +1,6 @@
 ---
-title: PowerShell scripts for IoT Edge for Linux on Windows | Microsoft Docs 
-description: Reference information for IoT Edge for Linux on Windows PowerShell scripts to deploy, provision, and status IoT Edge for Linux on Windows virtual machines.
+title: PowerShell scripts for Azure IoT Edge for Linux on Windows | Microsoft Docs 
+description: Reference information for Azure IoT Edge for Linux on Windows PowerShell scripts to deploy, provision, and status IoT Edge for Linux on Windows virtual machines.
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
