@@ -26,7 +26,7 @@ When running out-of-process, your .NET functions can take advantage of the follo
 
 + Fewer conflicts: because the functions run in a separate process, assemblies used in your app won't conflict with different version of the same assemblies used by the host process.  
 + Full control of the process: you control the start-up of the app and can control the configurations used and the middleware started.
-+ Dependency injection: because you have full control of the process, you can use .NET Core behaviors for dependency injection and incorporating middleware into your function app. 
++ Dependency injection: because you have full control of the process, you can use current .NET behaviors for dependency injection and incorporating middleware into your function app. 
 
 ## Supported versions
 
@@ -100,15 +100,13 @@ While the full middleware registration set of APIs is not yet exposed, middlewar
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="25-28" :::
 
-To learn more, see [ASP.NET Core middleware](/aspnet/core/fundamentals/middleware/?view=aspnetcore-5.0).
-
 ## Execution context
 
 .NET isolated passes a `FunctionContext` object to your function methods. This object lets you get an [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0) instance to write to the logs by calling the `GetLogger` method and supplying a `categoryName` string. To learn more, see [Logging](#logging). 
 
 ## Bindings 
 
-Bindings are defined by using attributes on methods, parameters, and return types. A function method is a static method with a `Function` and a trigger attribute applied to an input parameter, as shown in the following example:
+Bindings are defined by using attributes on methods, parameters, and return types. A function method is a method with a `Function` and a trigger attribute applied to an input parameter, as shown in the following example:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="13-16" :::
 
