@@ -43,7 +43,7 @@ The best way to know if a particular logging statement meets the logging framewo
 is to confirm that it is showing up in your normal application log (e.g. file or console).
 
 Also note that if an exception is passed to the logger, then the log message (and exception)
-will show up in the Azure Portal under the `exceptions` table instead of the `traces` table.
+will show up in the Azure portal under the `exceptions` table instead of the `traces` table.
 
 See the [auto-collected logging configuration](./java-standalone-config.md#auto-collected-logging) for more details.
 
