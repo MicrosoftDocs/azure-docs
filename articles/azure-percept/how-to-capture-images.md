@@ -51,7 +51,7 @@ Follow this guide to capture images using the Vision SoM of the Azure Percept DK
         1. Select your preferred imaging rate under **Capture rate**.
         1. Select the total number of images you would like to collect under **Target**.
 
-    :::image type="content" source="./media/how-to-capture-images/take-photo.png" alt-text="Percept devices page with available actions listed.":::
+    :::image type="content" source="./media/how-to-capture-images/take-photo.png" alt-text="Image capture screen.":::
 
 All images will be accessible in [Custom Vision](https://www.customvision.ai/).
 
