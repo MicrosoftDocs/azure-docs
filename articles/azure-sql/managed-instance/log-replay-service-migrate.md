@@ -7,9 +7,8 @@ ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
 author: danimir
-ms.author: danil
 ms.reviewer: sstein
-ms.date: 02/23/2021
+ms.date: 03/01/2021
 ---
 
 # Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service
@@ -116,7 +115,7 @@ You can make backups of SQL Server by using either of the following options:
 Set databases that you want to migrate to the full recovery mode to allow log backups.
 
 ```SQL
--- To permit log backups, before the full database backup, modify the database to use the full recovery model.
+-- To permit log backups, before the full database backup, modify the database to use the full recovery
 USE master
 ALTER DATABASE SampleDB
 SET RECOVERY FULL
@@ -128,20 +127,20 @@ To manually make full, diff, and log backups of your database on local storage, 
 ```SQL
 -- Example of how to make a full database backup to the local disk
 BACKUP DATABASE [SampleDB]
-TO DISK='C:\BACKUP\SampleDB_full_14_43.bak',
+TO DISK='C:\BACKUP\SampleDB_full.bak'
 WITH INIT, COMPRESSION, CHECKSUM
 GO
 
 -- Example of how to make a differential database backup to the local disk
 BACKUP DATABASE [SampleDB]
-TO DISK='C:\BACKUP\SampleDB_diff_14_44.bak',
+TO DISK='C:\BACKUP\SampleDB_diff.bak'
 WITH DIFFERENTIAL, COMPRESSION, CHECKSUM
 GO
 
 -- Example of how to make the log backup
 BACKUP LOG [SampleDB]
-TO DISK='C:\BACKUP\SampleDB_log_14_45.bak',
-WITH CHECKSUM
+TO DISK='C:\BACKUP\SampleDB_log.trn'
+WITH COMPRESSION, CHECKSUM
 GO
 ```
 
@@ -213,7 +212,7 @@ Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 	-InstanceName "ManagedInstance01" `
 	-Name "ManagedDatabaseName" `
 	-Collation "SQL_Latin1_General_CP1_CI_AS" `
-	-StorageContainerUri "https://test.blob.core.windows.net/testing" `
+	-StorageContainerUri "https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>" `
 	-StorageContainerSasToken "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D" `
 	-AutoCompleteRestore `
 	-LastBackupName "last_backup.bak"
@@ -223,7 +222,7 @@ Here's an example of starting LRS in autocomplete mode by using the Azure CLI:
 
 ```CLI
 az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb -a --last-bn "backup.bak"
-	--storage-uri "https://test.blob.core.windows.net/testing"
+	--storage-uri "https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>"
 	--storage-sas "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
 
@@ -235,7 +234,7 @@ Here's an example of starting LRS in continuous mode by using PowerShell:
 Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 	-InstanceName "ManagedInstance01" `
 	-Name "ManagedDatabaseName" `
-	-Collation "SQL_Latin1_General_CP1_CI_AS" -StorageContainerUri "https://test.blob.core.windows.net/testing" `
+	-Collation "SQL_Latin1_General_CP1_CI_AS" -StorageContainerUri "https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>" `
 	-StorageContainerSasToken "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
 
@@ -243,8 +242,24 @@ Here's an example of starting LRS in continuous mode by using the Azure CLI:
 
 ```CLI
 az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
-	--storage-uri "https://test.blob.core.windows.net/testing"
+	--storage-uri "https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>"
 	--storage-sas "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
+```
+
+### Scripting LRS start in continuous mode
+
+PowerShell and CLI clients to start LRS in continuous mode are synchronous. This means that clients will wait for the API response to report on success or failure to start the job. During this wait the command will not return the control back to the command prompt. In case you are scripting the migration experience, and require the LRS start command to give control back immediately to continue with rest of the script, you can execute PowerShell as a background job with -AsJob switch. For example:
+
+```PowerShell
+$lrsjob = Start-AzSqlInstanceDatabaseLogReplay <required parameters> -AsJob
+```
+
+When you start a background job, a job object returns immediately, even if the job takes an extended time to finish. You can continue to work in the session without interruption while the job runs. For details on running PowerShell as a background job, see the [PowerShell Start-Job](/powershell/module/microsoft.powershell.core/start-job#description) documentation.
+
+Similarly, to start a CLI command on Linux as a background process, use the ampersand (&) sign at the end of the LRS start command.
+
+```CLI
+az sql midb log-replay start <required parameters> &
 ```
 
 > [!IMPORTANT]
@@ -302,6 +317,17 @@ To complete the migration process in LRS continuous mode through the Azure CLI, 
 ```CLI
 az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last-backup-name "backup.bak"
 ```
+
+## Functional limitations
+
+Functional limitations of Log Replay Service (LRS) are:
+- Database being restored cannot be used for read-only access during the migration process.
+- System managed software patches will be blocked for 47 hours since starting LRS. Upon expiry of this time window, the next software update will stop LRS. In such case, LRS needs to be restarted from scratch.
+- LRS requires databases on the SQL Server to be backed up with CHECKSUM option enabled.
+- SAS token for use by LRS needs to be generated for the entire Azure Blob Storage container, and must have Read and List permissions only.
+- Backup files for different databases must be placed in separate folders on Azure Blob Storage.
+- LRS has to be started separately for each database pointing to separate folders with backup files on Azure Blob Storage.
+- LRS can support up to 100 simultaneous restore processes per single SQL Managed Instance.
 
 ## Troubleshooting
 
