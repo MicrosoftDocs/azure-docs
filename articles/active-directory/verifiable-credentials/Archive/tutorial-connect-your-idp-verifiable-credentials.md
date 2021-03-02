@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 02/22/2021
+ms.date: 03/22/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I want to connect verifiable credentials to work with my identity provider
