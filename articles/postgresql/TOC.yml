@@ -113,6 +113,9 @@
     items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Servers
@@ -572,14 +575,6 @@
       - name: Design a real-time dashboard
         href: tutorial-design-database-hyperscale-realtime.md
         displayName: hyperscale, tutorial, real-time
-  - name: Samples
-    items:
-    - name: Azure CLI
-      href: sample-scripts-azure-cli.md
-      displayName: samples, azure cli
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Distributed data
