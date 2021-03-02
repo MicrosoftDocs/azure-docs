@@ -226,7 +226,7 @@ After entering the provisioning information in the configuration file, restart t
 ::: moniker-end
 
 <!-- 1.2 -->
-::: moniker range = ">=iotedge-2020-11"
+::: moniker range=">=iotedge-2020-11"
 
 Create the configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
 
@@ -469,7 +469,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
 ::: moniker-end
 
 <!-- 1.2 -->
-::: moniker range =">=iotedge-2020-11"
+::: moniker range=">=iotedge-2020-11"
 
 >[!NOTE]
 >If your device is currently running IoT Edge version 1.1 or older, uninstall the **iotedge** and **libiothsm-std** packages before following the steps in this section. For more information, see [Update from 1.0 or 1.1 to 1.2](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12).
