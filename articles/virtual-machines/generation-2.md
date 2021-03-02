@@ -74,10 +74,10 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 
 | Generation 2 feature                | On-premises Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
-| Secure boot                         | :heavy_check_mark:  | With Trusted launch (preview)   |
+| Secure boot                         | :heavy_check_mark:  | With trusted launch (preview)   |
 | Shielded VM                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | With Trusted launch (preview)  |
-| Virtualization-based security (VBS) | :heavy_check_mark:  | With Trusted launch (preview)   |
+| vTPM                                | :heavy_check_mark:  | With trusted launch (preview)  |
+| Virtualization-based security (VBS) | :heavy_check_mark:  | With trusted launch (preview)   |
 | VHDX format                         | :heavy_check_mark:  | :x:   |
 
 For more information, see [Trusted launch (preview)](trusted-launch.md).
