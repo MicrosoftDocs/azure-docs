@@ -18,7 +18,7 @@ In this article, you will learn how to set up managed private endpoints for Azur
 
 ### Set up an Azure Synapse Analytics workspace with a managed virtual network
 
-[Create a workspace in Azure Synapse Analytics with data-exfiltration enabled.](../synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection.md). With [data-exfiltration protection](../synapse-analytics/security/workspace-data-exfiltration-protection.md), you can ensure that malicious users cannot copy or transfer data from your Azure resources to locations outside your organization’s scope.
+[Create a workspace in Azure Synapse Analytics with data-exfiltration enabled.](../synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection.md) With [data-exfiltration protection](../synapse-analytics/security/workspace-data-exfiltration-protection.md), you can ensure that malicious users cannot copy or transfer data from your Azure resources to locations outside your organization’s scope.
 
 The following access restrictions are applicable when data-exfiltration protection is turned on for an Azure Synapse Analytics workspace:
 

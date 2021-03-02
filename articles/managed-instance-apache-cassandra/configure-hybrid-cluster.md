@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create Azure Managed Instance for Apache Cassandra cluster from the Azure portal
-description: This quickstart shows how to create an Azure Managed Instance for Apache Cassandra cluster using the Azure portal.
+title: Quickstart - Configure a hybrid cluster with Azure Managed Instance for Apache Cassandra
+description: This quickstart shows how to configure a hybrid cluster with Azure Managed Instance for Apache Cassandra.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
@@ -131,14 +131,14 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
     > [!NOTE]
     > If you want to add more datacenters, you can repeat the above steps, but you only need the seed nodes. 
 
-1. Finally, use the following SQL query to update the replication strategy in each keyspace to include all datacenters across the cluster:
+1. Finally, use the following CQL query to update the replication strategy in each keyspace to include all datacenters across the cluster:
 
-   ```SQL
+   ```bash
    ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3};
    ```
    You also need to update the password tables:
 
-   ```SQL
+   ```bash
     ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3}
    ```
 
