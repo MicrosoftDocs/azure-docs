@@ -147,7 +147,7 @@ You can specify the replication properties as follows.
 - **Infrastructure redundancy** - Specify infrastructure redundancy option as follows.
     - Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. This option is only available if the target region selected for the migration supports Availability Zones. To use availability zones, specify the availability zone value for (`TargetAvailabilityZone`) parameter.
     - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets to use this option. To use availability set, specify the availability set ID for (`TargetAvailabilitySet`) parameter.
- - **Boot Diagnostic Storage Account** - To use a boot diagnostic storage account, specify the Id for (`TargetBootDiagnosticStorageAccount`) parameter.
+ - **Boot Diagnostic Storage Account** - To use a boot diagnostic storage account, specify the ID for (`TargetBootDiagnosticStorageAccount`) parameter.
     -  The storage account used for boot diagnostics should be in the same subscription that you're migrating your VMs to.  
     - By default, no value is set for this parameter. 
 
