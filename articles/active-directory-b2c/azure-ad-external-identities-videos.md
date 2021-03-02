@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Active Directory B2C Videos 
+title: Microsoft Azure Active Directory B2C videos 
 titleSuffix: Azure AD B2C
 description: Microsoft Azure Active Directory B2C Video Series 
 services: active-directory-b2c
