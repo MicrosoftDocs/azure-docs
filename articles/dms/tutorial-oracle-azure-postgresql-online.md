@@ -8,6 +8,7 @@ ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
+ms.subservice: migration-guide
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: tutorial
