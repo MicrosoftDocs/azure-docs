@@ -75,7 +75,7 @@ On the sign-up or sign-in page, Azure AD B2C presents a list of external identit
 
 ![Mobile sign-in example with a social account (Facebook)](media/technical-overview/external-idp.png)
 
-To see how to add identity providers in Azure AD B2C, see [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](tutorial-add-identity-providers.md).
+To see how to add identity providers in Azure AD B2C, see [Add identity providers to your applications in Azure Active Directory B2C](add-identity-provider.md).
 
 ## Identity experiences: user flows or custom policies
 

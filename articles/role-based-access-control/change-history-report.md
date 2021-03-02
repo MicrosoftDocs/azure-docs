@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ---
 # View activity logs for Azure RBAC changes
 
-Sometimes you need information about Azure role-based access control (Azure RBAC) changes, such as for auditing or troubleshooting purposes. Anytime someone makes changes to role assignments or role definitions within your subscriptions, the changes get logged in [Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md). You can view the activity logs to see all the Azure RBAC changes for the past 90 days.
+Sometimes you need information about Azure role-based access control (Azure RBAC) changes, such as for auditing or troubleshooting purposes. Anytime someone makes changes to role assignments or role definitions within your subscriptions, the changes get logged in [Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md). You can view the activity logs to see all the Azure RBAC changes for the past 90 days.
 
 ## Operations that are logged
 
@@ -117,7 +117,7 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 ## Azure Monitor logs
 
-[Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md) is another tool you can use to collect and analyze Azure RBAC changes for all your Azure resources. Azure Monitor logs has the following benefits:
+[Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) is another tool you can use to collect and analyze Azure RBAC changes for all your Azure resources. Azure Monitor logs has the following benefits:
 
 - Write complex queries and logic
 - Integrate with alerts, Power BI, and other tools
@@ -126,15 +126,15 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 Here are the basic steps to get started:
 
-1. [Create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
+1. [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
 
-1. [Configure the Activity Log Analytics solution](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution) for your workspace.
+1. [Configure the Activity Log Analytics solution](../azure-monitor/essentials/activity-log.md#activity-log-analytics-monitoring-solution) for your workspace.
 
-1. [View the activity logs](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution). A quick way to navigate to the Activity Log Analytics solution Overview page is to click the **Logs** option.
+1. [View the activity logs](../azure-monitor/essentials/activity-log.md#activity-log-analytics-monitoring-solution). A quick way to navigate to the Activity Log Analytics solution Overview page is to click the **Logs** option.
 
    ![Azure Monitor logs option in portal](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Optionally use the [Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) to query and view the logs. For more information, see [Get started with Azure Monitor log queries](../azure-monitor/log-query/get-started-queries.md).
+1. Optionally use the [Azure Monitor Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) to query and view the logs. For more information, see [Get started with Azure Monitor log queries](../azure-monitor/logs/get-started-queries.md).
 
 Here's a query that returns new role assignments organized by target resource provider:
 
@@ -158,4 +158,4 @@ AzureActivity
 
 ## Next steps
 * [View events in activity log](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
-* [Monitor Subscription Activity with the Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md)
+* [Monitor Subscription Activity with the Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md)

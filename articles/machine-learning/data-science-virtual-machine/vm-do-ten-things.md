@@ -3,8 +3,7 @@ title: Explore data and model on Windows
 titleSuffix: Azure Data Science Virtual Machine 
 description: Perform data exploration and modeling tasks on the Windows Data Science Virtual Machine.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 
 author: lobrien

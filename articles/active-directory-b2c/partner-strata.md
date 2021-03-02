@@ -80,7 +80,7 @@ To get the software you'll use to integrate your legacy on-premises app with Azu
 
 2. **Create a user flow**: Create a [sign-up and sign-in user flow](./tutorial-create-user-flows.md).
 
-3. **Add an IdP**: Choose to sign in your user with either a local account or a social or enterprise [IdP](./tutorial-add-identity-providers.md).
+3. **Add an IdP**: Choose to sign in your user with either a local account or a social or enterprise [IdP](./add-identity-provider.md).
 
 4. **Define user attributes**: Define the attributes to be collected during sign-up.
 

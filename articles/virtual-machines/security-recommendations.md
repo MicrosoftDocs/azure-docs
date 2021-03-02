@@ -51,7 +51,7 @@ For general information about Azure Security Center, see [What is Azure Security
 
 | Recommendation | Comments | Security Center |
 |-|----|--|
-| Monitor your VMs. | You can use [Azure Monitor for VMs](../azure-monitor/insights/vminsights-overview.md) to monitor the state of your Azure VMs and virtual machine scale sets. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. | - |
+| Monitor your VMs. | You can use [Azure Monitor for VMs](../azure-monitor/vm/vminsights-overview.md) to monitor the state of your Azure VMs and virtual machine scale sets. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. | - |
 
 ## Networking
 

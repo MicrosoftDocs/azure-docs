@@ -33,8 +33,6 @@ When creating custom presets, the following considerations apply:
 
 Make sure to remember the resource group name and the Media Services account name.
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
-
 ## Define a custom preset
 
 The following example defines the request body of a new Transform. We define a set of outputs that we want to be generated when this Transform is used.

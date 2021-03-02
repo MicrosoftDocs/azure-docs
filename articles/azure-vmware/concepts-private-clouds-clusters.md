@@ -20,7 +20,7 @@ This article describes all of these concepts.
 
 ## Private clouds
 
-Private clouds contain vSAN clusters built with dedicated, bare-metal Azure hosts. Each private cloud can have multiple clusters managed by the same vCenter server and NSX-T manager. You can deploy and manage private clouds in the portal, CLI, or PowerShell. 
+Private clouds contain vSAN clusters built with dedicated, bare-metal Azure hosts. Each private cloud can have multiple clusters managed by the same vCenter server and NSX-T Manager. You can deploy and manage private clouds in the portal, CLI, or PowerShell. 
 
 As with other resources, private clouds are installed and managed from within an Azure subscription. The number of private clouds within a subscription is scalable. Initially, there's a limit of one private cloud per subscription.
 
@@ -68,6 +68,7 @@ Now that you've covered Azure VMware Solution private cloud concepts, you may wa
 - [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
 
 <!-- LINKS - internal -->
+[concepts-networking]: ./concepts-networking.md
 
 <!-- LINKS - external-->
 [VCSA versions]: https://kb.vmware.com/s/article/2143838

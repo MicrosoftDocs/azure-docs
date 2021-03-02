@@ -71,7 +71,7 @@ To check your subscription permissions:
 
 Let's jump straight into creating the identity. If you run into a problem, check the [required permissions](#permissions-required-for-registering-an-app) to make sure your account can create the identity.
 
-1. Sign in to your Azure Account through the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to your Azure Account through the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. Select **Azure Active Directory**.
 1. Select **App registrations**.
 1. Select **New registration**.
@@ -177,7 +177,7 @@ If you choose not to use a certificate, you can create a new application secret.
 ## Configure access policies on resources
 Keep in mind, you might need to configure additional permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) to give your application access to keys, secrets, or certificates.
 
-1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>, navigate to your key vault and select **Access policies**.
+1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, navigate to your key vault and select **Access policies**.
 1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application.  Select the service principal you created previously.
 1. Select **Add** to add the access policy, then **Save** to commit your changes.
     ![Add access policy](./media/howto-create-service-principal-portal/add-access-policy.png)

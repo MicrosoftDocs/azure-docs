@@ -1,20 +1,11 @@
 ---
 title: Copy data from Hive using Azure Data Factory 
 description: Learn how to copy data from Hive to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: jingwang
-
 ---
 # Copy and transform data from Hive using Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -194,17 +185,17 @@ These settings translate into the following data flow script:
 
 ```
 source(
-	allowSchemaDrift: true,
-	validateSchema: false,
-	ignoreNoFilesFound: false,
-	format: 'table',
-	store: 'hive',
-	schemaName: 'default',
-	tableName: 'hivesampletable',
-	staged: true,
-	storageContainer: 'khive',
-	storageFolderPath: '',
-	stagingDatabaseName: 'default') ~> hivesource
+    allowSchemaDrift: true,
+    validateSchema: false,
+    ignoreNoFilesFound: false,
+    format: 'table',
+    store: 'hive',
+    schemaName: 'default',
+    tableName: 'hivesampletable',
+    staged: true,
+    storageContainer: 'khive',
+    storageFolderPath: '',
+    stagingDatabaseName: 'default') ~> hivesource
 ```
 ### Known limitations
 
