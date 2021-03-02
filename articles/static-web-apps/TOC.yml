@@ -45,6 +45,8 @@
       href: application-settings.md
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
+    - name: Reset deployment tokens
+      href: deployment-token-management.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator

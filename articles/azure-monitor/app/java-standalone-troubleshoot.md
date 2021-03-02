@@ -48,9 +48,16 @@ See the [auto-collected logging configuration](./java-standalone-config.md#auto-
 
 This section helps you to troubleshoot and possibly fix the exceptions related to SSL certificates when using the Java agent.
 
-There are two different paths to troubleshoot this issue.
+There are two different paths below for resolving this issue:
+* If using a default Java keystore
+* If using a custom Java keystore
 
-### If using a default Java Keystore:
+If you aren't sure which path to follow, check to see if you have a JVM arg `-Djavax.net.ssl.trustStore=...`.
+If you _don't_ have such a JVM arg, then you are probably using the default Java keystore.
+If you _do_ have such a JVM arg, then you are probably using a custom keystore,
+and the JVM arg will point you to your custom keystore.
+
+### If using the default Java keystore:
 
 Typically the default Java keystore will already have all of the CA root certificates. However there might be some exceptions, such as the ingestion endpoint certificate might be signed by a different root certificate. So we recommend the following three steps to resolve this issue:
 
@@ -65,7 +72,7 @@ Typically the default Java keystore will already have all of the CA root certifi
     Once you have the certificate downloaded, generate a SHA-1 hash on the certificate using the below command:
     > `keytool -printcert -v -file "your_downloaded_root_certificate.cer"`
  
-    Copy the SHA-1 value and check if this value is present in "temp.txt" file you saved previously.  If you are not able to find the SHA-1 value in the temp file, it indicates that the downloaded root cert is missing in default Java Keystore.
+    Copy the SHA-1 value and check if this value is present in "temp.txt" file you saved previously.  If you are not able to find the SHA-1 value in the temp file, it indicates that the downloaded root cert is missing in default Java keystore.
 
 
 3. Import the root certificate to the default Java keystore using the following command:
@@ -76,7 +83,7 @@ Typically the default Java keystore will already have all of the CA root certifi
     > `keytool -import -file "your downloaded root cert file" -alias "some meaningful name" $JAVA_HOME/jre/lib/security/cacerts`
 
 
-### If using a custom Java Keystore:
+### If using a custom Java keystore:
 
 If you are using a custom Java keystore, you may need to import the Application Insights endpoint(s) root SSL certificate(s) into it.
 We recommend the following two steps to resolve this issue:
