@@ -245,10 +245,10 @@ you can write a Logs (Kusto) query to join from the dependency table to the requ
 let start = datetime('...');
 let end = datetime('...');
 dependencies
-| where timestamp > start and timestamp < end
+| where timestamp between (start .. end)
 | project timestamp, type, name, operation_Id
 | join (requests
-    | where timestamp > start and timestamp < end
+    | where timestamp between (start .. end)
     | project operation_Name, operation_Id)
     on $left.operation_Id == $right.operation_Id
 | summarize count() by operation_Name, type, name
