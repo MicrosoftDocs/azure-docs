@@ -80,7 +80,7 @@ Instantiate a `CommunicationIdentityClient` with your resource's access key and 
 Add the following code to the `main` method:
 
 ```java
-// Your can find your endpoint and access key from your resource in the Azure Portal
+// Your can find your endpoint and access key from your resource in the Azure portal
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 String accessKey = "SECRET";
 
@@ -100,7 +100,7 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
 
 Alternatively, if you have managed identity set up, see [Use managed identities](../managed-identity.md), you may use managed identity to initialize and authenticate with Identity service.
 ```java
-// Your can find your endpoint from your resource in the Azure Portal
+// Your can find your endpoint from your resource in the Azure portal
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 
 // Create an HttpClient builder of your choice and customize it
@@ -121,7 +121,7 @@ You can initialize the client with any custom HTTP client the implements the `co
 
 You can also provide the entire connection string using the `connectionString()` function instead of providing the endpoint and access key.
 ```java
-// Your can find your connection string from your resource in the Azure Portal
+// Your can find your connection string from your resource in the Azure portal
 String connectionString = "<connection_string>";
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
     .connectionString(connectionString)
