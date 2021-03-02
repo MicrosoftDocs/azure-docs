@@ -14,7 +14,7 @@ ms.custom: references_regions
 # Add spell check to queries in Cognitive Search
 
 > [!IMPORTANT]
-> Spell correction is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Spell correction is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During the initial preview launch, there is no charge for speller. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 You can improve recall by spell-correcting individual search query terms before they reach the search engine. The **speller** parameter is supported for all query types: [simple](query-simple-syntax.md), [full](query-lucene-syntax.md), and the new [semantic](semantic-how-to-query-request.md) option currently in public preview.
 
@@ -72,7 +72,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Spell correction with semantic search
 
-This query, with typos in every term except one, undergoes spelling corrections to return relevant results. In a semantic query, the order of fields in the `searchFields` parameter informs search rank. To learn more, see [Create a semantic query](semantic-how-to-query-request.md).
+This query, with typos in every term except one, undergoes spelling corrections to return relevant results. To learn more, see [Create a semantic query](semantic-how-to-query-request.md).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview     
@@ -89,7 +89,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Language considerations
 
-The queryLanguage parameter required for speller must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. Specified in a query request, the queryLanguage determines which dictionaries are used for spell check, and is also used as an input to the [semantic ranking algorithm](semantic-how-to-query-response.md) if you are using it. Language analyzers are used during indexing, and while retrieving matching documents in the search index. To be consistent, if queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"). 
+The queryLanguage parameter required for speller must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. Specified in a query request, the queryLanguage determines which lexicons are used for spell check, and is also used as an input to the [semantic ranking algorithm](semantic-how-to-query-response.md) if you are using it. Language analyzers are used during indexing, and while retrieving matching documents in the search index. To be consistent, if queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"). 
 
 > [!NOTE]
 > Language-agnostic analyzers (such as keyword, simple, standard, stop, whitespace, or `standardasciifolding.lucene`) do not conflict with queryLanguage settings.
