@@ -25,7 +25,7 @@ At this time, Microsoft has worked with partners to develop an ontology for [sma
 
 ## RealEstateCore smart building ontology
 
-*Find the ontology here: [**Open Digital Twins Definition Language (DTDL) RealEstateCore Ontology**](https://github.com/Azure/opendigitaltwins-building)*.
+*Find the ontology here: [**Digital Twins Definition Language-based RealEstateCore ontology for smart buildings**](https://github.com/Azure/opendigitaltwins-building)*.
 
 Microsoft has partnered with [RealEstateCore](https://www.realestatecore.io/), a Swedish consortium of real estate owners, software vendors, and research institutions, to deliver this open-source DTDL ontology for the real estate industry.
 
@@ -37,13 +37,15 @@ You can also read more about the partnership with RealEstateCore and goals for t
 
 ## Smart cities ontology
 
-*Find the ontology here: [**DTDL based ontology for Smart Cities**](https://github.com/Azure/opendigitaltwins-smartcities)*.
+*Find the ontology here: [**Digital Twins Definition Language (DTDL) ontology for Smart Cities**](https://github.com/Azure/opendigitaltwins-smartcities)*.
 
 Microsoft has collaborated with [Open Agile Smart Cities (OASC)](https://oascities.org/) and [Sirus](https://sirus.be/) to provide a DTDL-based ontology for smart cities, starting with [ETSI CIM NGSI-LD](https://www.etsi.org/committee/cim). In addition to ETSI NGSI-LD, we’ve also evaluated Saref4City, CityGML, ISO and others.
 
 The current release of the ontology is focused on an initial set of models. The ontology authors welcome you to contribute to extend the initial set of use cases, as well as improve the existing models. 
 
 To learn more about the ontology, how to use it, and how to contribute, visit the ontology's repository on GitHub: [Azure/opendigitaltwins-smartcities](https://github.com/Azure/opendigitaltwins-smartcities). 
+
+You can also read more about the partnerships and approach for smart cities in this blog post and accompanying video: [Smart Cities Ontology for Digital Twins](https://techcommunity.microsoft.com/t5/internet-of-things/smart-cities-ontology-for-digital-twins/ba-p/2166585).
 
 ## Next steps
 
