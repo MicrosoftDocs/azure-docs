@@ -130,7 +130,8 @@
         href: connect-infoblox.md
       - name: Juniper SRX
         href: connect-juniper-srx.md
-
+      - name: NXLog DNS logs
+        href: connect-nxlog-dns.md
       - name: NXLog LinuxAudit
         href: connect-nxlog-linuxaudit.md
       - name: Okta SSO
@@ -149,6 +150,8 @@
         href: connect-qualys-vm.md
       - name: Salesforce Service Cloud
         href: connect-salesforce-service-cloud.md
+      - name: Sophos Cloud Optix
+        href: connect-sophos-cloud-optix.md
       - name: Sophos XG Firewall
         href: connect-sophos-xg-firewall.md
       - name: Squadra Technologies secRMM
@@ -185,6 +188,8 @@
             href: connect-akamai-security-events.md
           - name: Aruba ClearPass
             href: connect-aruba-clearpass.md
+          - name: Broadcom Symantec DLP
+            href: connect-broadcom-symantec-dlp.md
           - name: Check Point
             href: connect-checkpoint.md
           - name: Cisco ASA
