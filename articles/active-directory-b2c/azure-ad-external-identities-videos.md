@@ -21,7 +21,8 @@ Learn the basics of External Identities - Azure Active Directory B2C (Azure AD B
 
 ## Azure Active Directory B2C architecture deep dive series
 
-Get a deeper view into the features and technical aspects of Azure Active Directory B2C service.
+Get a deeper view into the features and technical aspects of the Azure AD B2C service.
+
 
 | Video title    |      |  Video title     |        |
 |:------|:------|:------|:------|
