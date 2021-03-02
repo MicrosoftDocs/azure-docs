@@ -38,7 +38,9 @@ To submit a query to the service from a client app, you will use the Azure Digit
 
 When writing queries for Azure Digital Twins, keep the following considerations in mind:
 * **Remember case sensitivity**: All Azure Digital Twins query operations are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
-* **Escape single quotes**: If your query text includes a single quote character in the data, the quote will need to be escaped with the `\` character. Here is an example that deals with a property value of *D'Souza*: `SELECT T FROM digitaltwins T WHERE name = 'D\'Souza'`.
+* **Escape single quotes**: If your query text includes a single quote character in the data, the quote will need to be escaped with the `\` character. Here is an example that deals with a property value of *D'Souza*:
+
+  :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="EscapedSingleQuote":::
 
 ## Reference: Expressions and conditions
 
