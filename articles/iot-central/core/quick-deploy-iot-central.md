@@ -14,8 +14,9 @@ manager: corywink
 
 This quickstart shows you how to create an Azure IoT Central application.
 
+## Prerequisite 
 
-[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
+You'll need an Azure subscription with *Contributor* access.
 
 ## Create an application
 
@@ -55,6 +56,10 @@ To create a new Azure IoT Central application from the **Custom application** te
 1. Review the Terms and Conditions, and select **Create** at the bottom of the page. After a few minutes, you IoT Central application is ready to use:
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentral-application.png" alt-text="Azure IoT Central application":::
+
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## Next steps
 

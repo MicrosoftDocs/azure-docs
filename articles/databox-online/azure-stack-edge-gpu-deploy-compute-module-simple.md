@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 02/03/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -147,4 +147,4 @@ In this tutorial, you learned how to:
 To learn how to administer your Azure Stack Edge Pro device, see:
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer an Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Use local web UI to administer an Azure Stack Edge Pro](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md)

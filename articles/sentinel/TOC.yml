@@ -37,6 +37,8 @@
     href: identify-threats-with-entity-behavior-analytics.md
   - name: Import threat intelligence into Azure Sentinel
     href: import-threat-intelligence.md
+  - name: Integrate Microsoft 365 Defender with Azure Sentinel
+    href: microsoft-365-defender-sentinel-integration.md
   - name: Use external data with watchlists
     href: watchlists.md
   - name: Normalize your data across tables
@@ -96,8 +98,14 @@
         href: connect-windows-security-events.md  
     - name: Connect external solutions
       items:
+      - name: Agari Phishing Defense and Brand Protection
+        href: connect-agari-phishing-defense.md
       - name: Alcide kAudit
         href: connect-alcide-kaudit.md
+      - name: Alsid for Active Directory
+        href: connect-alsid-active-directory.md
+      - name: Apache HTTP Server
+        href: connect-apache-http-server.md
       - name: Barracuda WAF
         href: connect-barracuda.md 
       - name: Barracuda CloudGen Firewall
@@ -106,6 +114,10 @@
         href: connect-better-mtd.md
       - name: Beyond Security beSECURE
         href: connect-besecure.md
+      - name: Cisco Meraki
+        href: connect-cisco-meraki.md
+      - name: Cisco Umbrella
+        href: connect-cisco-umbrella.md
       - name: Cisco Unified Computing System
         href: connect-cisco-ucs.md
       - name: Citrix Analytics (Security)
@@ -114,10 +126,16 @@
         href: connect-f5-big-ip.md
       - name: Forcepoint DLP
         href: connect-forcepoint-dlp.md
+      - name: Google Workspace (G Suite)
+        href: connect-google-workspace.md
       - name: Infoblox NIOS
         href: connect-infoblox.md
       - name: Juniper SRX
         href: connect-juniper-srx.md
+      - name: NXLog DNS logs
+        href: connect-nxlog-dns.md
+      - name: NXLog LinuxAudit
+        href: connect-nxlog-linuxaudit.md
       - name: Okta SSO
         href: connect-okta-single-sign-on.md
       - name: Orca Security
@@ -134,6 +152,8 @@
         href: connect-qualys-vm.md
       - name: Salesforce Service Cloud
         href: connect-salesforce-service-cloud.md
+      - name: Sophos Cloud Optix
+        href: connect-sophos-cloud-optix.md
       - name: Sophos XG Firewall
         href: connect-sophos-xg-firewall.md
       - name: Squadra Technologies secRMM
@@ -150,6 +170,8 @@
         href: connect-syslog.md
       - name: VMware Carbon Black Cloud Endpoint Standard
         href: connect-vmware-carbon-black.md
+      - name: VMware ESXi
+        href: connect-vmware-esxi.md
       - name: Zimperium Mobile Threat Defense
         href: connect-zimperium-mtd.md
       - name: Connect using Logstash
@@ -164,6 +186,12 @@
           items:  
           - name: AI Vectra Detect
             href: connect-ai-vectra-detect.md
+          - name: Akamai Security Events
+            href: connect-akamai-security-events.md
+          - name: Aruba ClearPass
+            href: connect-aruba-clearpass.md
+          - name: Broadcom Symantec DLP
+            href: connect-broadcom-symantec-dlp.md
           - name: Check Point
             href: connect-checkpoint.md
           - name: Cisco ASA
@@ -182,6 +210,8 @@
             href: connect-fortinet.md
           - name: Illusive Networks AMS
             href: connect-illusive-attack-management-system.md
+          - name: Imperva WAF Gateway
+            href: connect-imperva-waf-gateway.md
           - name: One Identity Safeguard
             href: connect-one-identity.md
           - name: Palo Alto Networks
@@ -198,6 +228,8 @@
             href: connect-zscaler.md   
         - name: STEP 3 Validate connectivity 
           href: connect-cef-verify.md
+    - name: Create custom connectors
+      href: create-custom-connector.md
     - name: Connect threat intelligence
       href: connect-threat-intelligence.md  
     - name: Connect Azure Stack VMs
@@ -232,9 +264,9 @@
   - name: Azure RBAC roles
     items:
     - name: All Azure roles
-      href: /azure/role-based-access-control/built-in-roles#all
+      href: ../role-based-access-control/built-in-roles.md#all
     - name: Azure Sentinel roles
-      href: /azure/role-based-access-control/built-in-roles#security
+      href: ../role-based-access-control/built-in-roles.md#security
   - name: REST APIs
     items:
     - name: Azure Sentinel REST-API
@@ -243,8 +275,6 @@
       href: hunting-with-rest-api.md
     - name: Manage watchlists with REST-API
       href: watchlist-with-rest-api.md
-  - name: Azure Monitor data reference
-    href: /azure/azure-monitor/reference/
   - name: Azure Sentinel Logic Apps connector
     href: /connectors/azuresentinel/
   - name: Network normalization schema
@@ -263,8 +293,6 @@
   items:
   - name: Useful resources
     href: resources.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel
   - name: Azure Security, Privacy, & Compliance blog
     href: /archive/blogs/azuresecurity/
   - name: Regional availability
@@ -273,4 +301,3 @@
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
   
 
-    

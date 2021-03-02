@@ -4,8 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: The supported program languages and related tools pre-installed on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 
 author: lobrien

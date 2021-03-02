@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
+ms.date: 02/04/2021
 ms.author: memildin
 
 ---
-# Customizing the set of standards in your regulatory compliance dashboard
+# Customize the set of standards in your regulatory compliance dashboard
 
 Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance requirements.
 
@@ -87,7 +87,7 @@ The following steps explain how to add a package to monitor your compliance with
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Regulatory compliance dashboard" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
-## Removing a standard from your dashboard
+## Remove a standard from your dashboard
 
 If any of the supplied regulatory standards isn't relevant to your organization, it's a simple process to remove them from the UI. This lets you further customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you.
 
@@ -118,5 +118,5 @@ In this article, you learned how to **add compliance standards** to monitor your
 For related material, see the following pages:
 
 - [Azure Security Benchmark](../security/benchmarks/introduction.md)
-- [Security center regulatory compliance dashboard](security-center-compliance-dashboard.md)
+- [Security center regulatory compliance dashboard](security-center-compliance-dashboard.md) - Learn how to track and export your regulatory compliance data with Security Center and external tools
 - [Working with security policies](tutorial-security-policy.md)

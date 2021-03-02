@@ -55,7 +55,7 @@ Other settings specific to web APIs are the exposed API and the exposed scopes o
 
 Scopes usually have the form `resourceURI/scopeName`. For Microsoft Graph, the scopes have shortcuts. For example, `User.Read` is a shortcut for `https://graph.microsoft.com/user.read`.
 
-During app registration, you need to define these parameters:
+During app registration, define these parameters:
 
 - The resource URI
 - One or more scopes
@@ -65,7 +65,7 @@ By default, the application registration portal recommends that you use the reso
 
 To client applications, scopes show up as *delegated permissions* and app roles show up as *application permissions* for your web API.
 
-Scopes also appear on the consent window that's presented to users of your app. So you need to provide the corresponding strings that describe the scope:
+Scopes also appear on the consent window that's presented to users of your app. Therefore, provide the corresponding strings that describe the scope:
 
 - As seen by a user.
 - As seen by a tenant admin, who can grant admin consent.
@@ -96,7 +96,7 @@ In this section, you learn how to register your protected web API so that daemon
 
 #### Exposing application permissions (app roles)
 
-To expose application permissions, you need to edit the manifest.
+To expose application permissions, edit the manifest.
 
 1. In the application registration for your application, select **Manifest**.
 1. To edit the manifest, find the `appRoles` setting and add application roles. The role definitions are provided in the following sample JSON block.
@@ -109,16 +109,16 @@ The following sample shows the contents of `appRoles`, where the value of `id` c
 
 ```json
 "appRoles": [
-	{
-	"allowedMemberTypes": [ "Application" ],
-	"description": "Accesses the TodoListService-Cert as an application.",
-	"displayName": "access_as_application",
-	"id": "ccf784a6-fd0c-45f2-9c08-2f9d162a0628",
-	"isEnabled": true,
-	"lang": null,
-	"origin": "Application",
-	"value": "access_as_application"
-	}
+  {
+    "allowedMemberTypes": [ "Application" ],
+    "description": "Accesses the TodoListService-Cert as an application.",
+    "displayName": "access_as_application",
+    "id": "ccf784a6-fd0c-45f2-9c08-2f9d162a0628",
+    "isEnabled": true,
+    "lang": null,
+    "origin": "Application",
+    "value": "access_as_application"
+  }
 ],
 ```
 

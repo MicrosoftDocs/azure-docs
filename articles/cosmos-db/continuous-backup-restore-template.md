@@ -10,16 +10,21 @@ ms.reviewer: sngun
 
 ---
 
-# Configure and manage continuous backup and point in time restore - using Azure Resource Manager templates
+# Configure and manage continuous backup and point in time restore (Preview) - using Azure Resource Manager templates
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within the last 30 days.
+> [!IMPORTANT]
+> The point-in-time restore feature(continuous backup mode) for Azure Cosmos DB is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure Cosmos DB's point-in-time restore feature(Preview) helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within the last 30 days.
 
 This article describes how to provision an account with continuous backup and restore data using Azure Resource Manager Templates.
 
 ## <a id="provision"></a>Provision an account with continuous backup
 
-You can use Azure Resource Manager templates to deploy an Azure Cosmos DB account with continuous mode. When defining the template to provision an account, include the "backupPolicy" parameter as shown in the following example:
+You can use Azure Resource Manager templates to deploy an Azure Cosmos DB account with continuous mode. When defining the template to provision an account, include the `backupPolicy` parameter as shown in the following example:
 
 ```json
 {
@@ -57,9 +62,9 @@ az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 You can also restore an account using Resource Manager template. When defining the template include the following parameters:
 
-* Set the "createMode" parameter to "Restore"
-* Define the "restoreParameters", notice that the "restoreSource" value is extracted from the output of the `az cosmosdb restorable-database-account list` command for your source account. The Instance ID attribute for your account name is used to do the restore.
-* Set the "restoreMode" parameter to "PointInTime" and configure the "restoreTimestampInUtc" value.
+* Set the `createMode` parameter to *Restore*
+* Define the `restoreParameters`, notice that the `restoreSource` value is extracted from the output of the `az cosmosdb restorable-database-account list` command for your source account. The Instance ID attribute for your account name is used to do the restore.
+* Set the `restoreMode` parameter to *PointInTime* and configure the `restoreTimestampInUtc` value.
 
 ```json
 {

@@ -160,4 +160,4 @@ In this tutorial, you learned how to:
 > * Update the sample to use the application
 
 > [!div class="nextstepaction"]
-> [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Add identity providers to your applications in Azure Active Directory B2C](add-identity-provider.md)

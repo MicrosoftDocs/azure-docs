@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot Azure Data Factory UX
 description: Learn how to troubleshoot Azure Data Factory UX issues.
-services: data-factory
 author: ceespino
 ms.service: data-factory
 ms.topic: troubleshooting

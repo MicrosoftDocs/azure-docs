@@ -75,7 +75,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 
 ## Create incremental backup policy
 
-To create an incremental backup policy, execute the [az backup policy create](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_create) command with the following parameters:
+To create an incremental backup policy, execute the [az backup policy create](/cli/azure/backup/policy#az_backup_policy_create) command with the following parameters:
 
 * **--backup-management-type** – Azure Workload
 * **--workload-type** - SAPHana
@@ -90,7 +90,7 @@ Example:
 az backup policy create --resource-group saphanaResourceGroup --vault-name saphanaVault --name sappolicy --backup-management-type AzureWorkload --policy sappolicy.json --workload-type SAPHana
 ```
 
-Sample JSON (sappolicy.json) output:
+Sample JSON (sappolicy.json):
 
 ```json
   "eTag": null,
@@ -221,11 +221,13 @@ Sample JSON (sappolicy.json) output:
     ],
     "workLoadType": "SAPHanaDatabase"
   },
-  "resourceGroup": "azurefiles",
+  "resourceGroup": "saphanaResourceGroup",
   "tags": null,
   "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
 } 
 ```
+
+Once the policy is created successfully, the output of the command will display the policy JSON that you passed as a parameter while executing the command.
 
 You can modify the following section of the policy to specify the desired backup frequency and retention for incremental backups.
 

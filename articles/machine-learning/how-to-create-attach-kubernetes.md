@@ -205,7 +205,7 @@ For information on creating an AKS cluster in the portal, see [Create compute ta
 
 **Time estimate:** Approximately 5 minutes.
 
-If you already have AKS cluster in your Azure subscription, and it is version 1.17 or lower, you can use it to deploy your image.
+If you already have AKS cluster in your Azure subscription, you can use it with your workspace.
 
 > [!TIP]
 > The existing AKS cluster can be in a Azure region other than your Azure Machine Learning workspace.

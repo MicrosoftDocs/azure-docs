@@ -87,7 +87,7 @@ When you click the **Roles** tab, you will see the list of built-in and custom r
 
 ![Built-in roles in the Azure portal](./media/rbac-and-directory-admin-roles/roles-list.png)
 
-For more information, see [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md).
+For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
 
 ## Azure AD roles
 

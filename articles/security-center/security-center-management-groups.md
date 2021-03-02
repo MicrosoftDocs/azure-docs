@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: memildin
 
 ---
@@ -77,12 +77,14 @@ You can add subscriptions to the management group that you created.
 
 ## Grant tenant-wide permissions to yourself
 
-A user with the Azure Active Directory role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Azure Security Center. 
+A user with the Azure Active Directory (AD) role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Azure Security Center. Permission elevation is required because Azure AD role assignments don't grant access to Azure resources. 
 
 > [!TIP]
-> If your organization manages resource access with [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), or any other PIM tool, the global administrator role must be active for the user making these changes.
+> Learn more about permission elevation for the Global Administrator role in [Elevate access to manage all Azure subscriptions and management groups](../role-based-access-control/elevate-access-global-admin.md).
 
 To assign yourself tenant-level permissions:
+
+1. If your organization manages resource access with [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), or any other PIM tool, the global administrator role must be active for the user following the procedure below.
 
 1. As a Global Administrator user without an assignment on the root management group of the tenant, open Security Center's **Overview** page and select the **tenant-wide visibility** link in the banner. 
 

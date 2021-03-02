@@ -31,7 +31,7 @@ The prebuilt Business Card API extracts key fields from business cards and retur
 |:-----|:----|:----|:----|
 | ContactNames | array of objects | Contact name extracted from business card | [{ "FirstName": "John", "LastName": "Doe" }] |
 | FirstName | string | First (given) name of contact | "John" | 
-| LastName | string | Last (family) name of contact | 	"Doe" | 
+| LastName | string | Last (family) name of contact |     "Doe" | 
 | CompanyNames | array of strings | Company name extracted from business card | ["Contoso"] | 
 | Departments | array of strings | Department or organization of contact | ["R&D"] | 
 | JobTitles | array of strings | Listed Job title of contact | ["Software Engineer"] | 
@@ -41,7 +41,7 @@ The prebuilt Business Card API extracts key fields from business cards and retur
 | MobilePhones | array of phone numbers | Mobile phone number extracted from business card | ["+19876543210"] |
 | Faxes | array of phone numbers | Fax phone number extracted from business card | ["+19876543211"] |
 | WorkPhones | array of phone numbers | Work phone number extracted from business card | ["+19876543231"] |
-| OtherPhones	 | array of phone numbers | Other phone number extracted from business card | ["+19876543233"] |
+| OtherPhones     | array of phone numbers | Other phone number extracted from business card | ["+19876543233"] |
 
 
 The Business Card API can also return all recognized text from the Business Card. This OCR output is included in the JSON response.  
@@ -72,8 +72,11 @@ When the **status** field has the **succeeded** value, the JSON response will in
 
 ### Sample JSON output
 
+The response to the Get Analyze Business Card Result operation will be the structured representation of the business card with all the information extracted.  See here for a [sample business card file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) and its structured output [sample business card output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json).
+
 See the following example of a successful JSON response:
-The "readResults" node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The "documentResults" node contains the business-card-specific values that the model discovered. This is where you'll find useful contact information like the first name, last name, company name and more.
+* The `"readResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. 
+* The `"documentResults"` node contains the business-card-specific values that the model discovered. This is where you'll find useful contact information like the first name, last name, company name and more.
 
 ```json
 {

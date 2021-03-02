@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Red Hat OpenShift 4 private cluster
 description: Learn how to create an Azure Red Hat OpenShift private cluster running OpenShift 4
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
 author: sakthi-vetrivel

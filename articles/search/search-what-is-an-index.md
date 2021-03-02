@@ -12,9 +12,9 @@ ms.date: 02/03/2021
 ---
 # Creating search indexes in Azure Cognitive Search
 
-A search index stores searchable content used for full text and filtered queries. An index is defined by a schema and saved to the service, with data import following as a second step. 
+Cognitive Search stores searchable content used for full text and filtered queries in a *search index*. An index is defined by a schema and saved to the service, with data import following as a second step. 
 
-Indexes contain *documents*. Conceptually, a document is a single unit of searchable data in your index. A retailer might have a document for each product, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* equates to a *table*, and *documents* are roughly equivalent to *rows* in a table.
+Indexes contain *search documents*. Conceptually, a document is a single unit of searchable data in your index. A retailer might have a document for each product, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* equates to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
 ## What's an index schema?
 
@@ -101,7 +101,9 @@ For Cognitive Search, the Azure SDKs implement generally available features. As 
 | JavaScript | [SearchIndexClient](/javascript/api/@azure/search-documents/searchindexclient) | [Indexes](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/indexes) |
 | Python | [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) | [sample_index_crud_operations.py](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) |
 
-## Defining fields
+## Define fields
+
+A search document is defined by the `fields` collection. You will need fields for queries and keys. You will probably also need fields to support filters, facets, and sorts. You might also need fields for data that a user never sees, for example you might want fields for profit margins or marketing promotions that you can use to modify search rank.
 
 One field of type Edm.String must be designated as the document key. It's used to uniquely identify each search document. You can retrieve a document by its key to populate a details page.  
 
@@ -141,9 +143,11 @@ The following screenshot illustrates index storage patterns resulting from vario
 
 ![Index size based on attribute selection](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
 
-Although these index variants are artificial, we can refer to them for broad comparisons of how attributes affect storage. Does setting "retrievable" increase index size? No. Does adding fields to a **suggester** increase index size? Yes.
+Although these index variants are artificial, we can refer to them for broad comparisons of how attributes affect storage. Does setting "retrievable" increase index size? No. Does adding fields to a **suggester** increase index size? Yes. 
 
-Indexes that support filter and sort are proportionally larger than indexes supporting just full text search. This is because filter and sort operations scan for exact matches, requiring the presence of verbatim text strings. In contrast, searchable fields supporting full-text queries use inverted indexes, which are populated with tokenized terms that consume less space than whole documents. 
+Making a field filterable or sortable also adds to storage consumption because filtered and sorted fields are not tokenized so that character sequences can be matched verbatim.
+
+Also not reflected in the above table is the impact of [analyzers](search-analyzers.md). If you are using the edgeNgram tokenizer to store verbatim sequences of characters (a, ab, abc, abcd), the size of the index will be larger than if you used a standard analyzer.
 
 > [!Note]
 > Storage architecture is considered an implementation detail of Azure Cognitive Search and could change without notice. There is no guarantee that current behavior will persist in the future.
@@ -164,9 +168,9 @@ The following options can be set for CORS:
 
 ## Next steps
 
-You can get hands on experience creating an index using almost any sample or walkthrough for Cognitive Search. You can choose any of the quickstarts from the table of contents to get started.
+You can get hands on experience creating an index using almost any sample or walkthrough for Cognitive Search. For starters, you could choose any of the quickstarts from the table of contents.
 
-You'll also want to become familiar with methodologies for loading an index with data. Index definition and population are done together. The following articles provide more information.
+But you'll also want to become familiar with methodologies for loading an index with data. Index definition and data import strategies are defined in tandem. The following articles provide more information about loading an index.
 
 + [Data import overview](search-what-is-data-import.md)
 
