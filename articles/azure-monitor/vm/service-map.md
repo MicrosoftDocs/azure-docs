@@ -238,7 +238,7 @@ Service Map integrates with Log Search to show a count of all available log even
 
 ## Service Desk integration
 
-Service Map integration with the IT Service Management Connector is automatic when both solutions are enabled and configured in your Log Analytics workspace. The integration in Service Map is labeled "Service Desk." For more information, see [Centrally manage ITSM work items using IT Service Management Connector](../platform/itsmc-overview.md).
+Service Map integration with the IT Service Management Connector is automatic when both solutions are enabled and configured in your Log Analytics workspace. The integration in Service Map is labeled "Service Desk." For more information, see [Centrally manage ITSM work items using IT Service Management Connector](../alerts/itsmc-overview.md).
 
 The **Machine Service Desk** pane lists all IT Service Management events for the selected server in the selected time range. The server displays an icon if there are current items and the Machine Service Desk pane lists them.
 
@@ -301,7 +301,7 @@ The **Machine Updates** pane displays data from the Update Management solution f
 
 ## Log Analytics records
 
-Service Map computer and process inventory data is available for [search](../log-query/log-query-overview.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
+Service Map computer and process inventory data is available for [search](../logs/log-query-overview.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
 One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to Service Map. These records have the properties in the following tables. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource. 
 
@@ -547,7 +547,7 @@ For more information about data collection and usage, see the [Microsoft Online 
 
 ## Next steps
 
-Learn more about [log searches](../log-query/log-query-overview.md) in Log Analytics to retrieve data that's collected by Service Map.
+Learn more about [log searches](../logs/log-query-overview.md) in Log Analytics to retrieve data that's collected by Service Map.
 
 ## Troubleshooting
 
