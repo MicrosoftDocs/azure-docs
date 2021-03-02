@@ -43,10 +43,7 @@ In this scenario, producer client sends events to one of the available partition
 This article shows you how to send events to a specific partition in Azure Event Hubs. 
 
 ### [.NET (Azure.Messaging.EventHubs)](#tab/dotnetlatest)
-1. If you are sending a single event to an event hub, use the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_SendAsync_System_Collections_Generic_IEnumerable_Azure_Messaging_EventHubs_EventData__Azure_Messaging_EventHubs_Producer_SendEventOptions_System_Threading_CancellationToken_) method with [SendEventOptions.PartitionId](https://docs.microsoft.com/en-us//dotnet/api/azure.messaging.eventhubs.producer.sendeventoptions.partitionid?view=azure-dotnet#Azure_Messaging_EventHubs_Producer_SendEventOptions_PartitionId) set to the ID of the partition that you are targeting. 
-
-    If you are sending a batch of events to an event hub, create the batch using the [EventHubProducerClient.CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync?view=azure-dotnet#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_CreateBatchAsync_Azure_Messaging_EventHubs_Producer_CreateBatchOptions_System_Threading_CancellationToken_) method with [CreateBatchOptions.PartionId](/dotnet/api/azure.messaging.eventhubs.producer.sendeventoptions.partitionid?view=azure-dotnet#Azure_Messaging_EventHubs_Producer_SendEventOptions_PartitionId) set to the ID of the partition that you are targeting. 
-2. Then, use the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_SendAsync_Azure_Messaging_EventHubs_Producer_EventDataBatch_System_Threading_CancellationToken_) method to send the batch to the event hub. See the following example. 
+If you are sending a batch of events, create the batch using the [EventHubProducerClient.CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync?view=azure-dotnet#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_CreateBatchAsync_Azure_Messaging_EventHubs_Producer_CreateBatchOptions_System_Threading_CancellationToken_) method by specifying either the **partition ID** or the **partition key** in [CreateBatchOptions](//dotnet/api/azure.messaging.eventhubs.producer.createbatchoptions?view=azure-dotnet). The following code sends a batch of events to a specific partition by specifying a partition key. 
 
 ```csharp
 var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
@@ -56,11 +53,9 @@ var producer = new EventHubProducerClient(connectionString, eventHubName);
 
 try
 {
-    string firstPartition = (await producer.GetPartitionIdsAsync()).First();
-
     var batchOptions = new CreateBatchOptions
     {
-        PartitionId = firstPartition
+        PartitionKey = "customer1234"
     };
 
     using var eventBatch = await producer.CreateBatchAsync(batchOptions);
@@ -84,6 +79,8 @@ finally
 }
 ```
 
+If you are not using the batching approach, use the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_SendAsync_System_Collections_Generic_IEnumerable_Azure_Messaging_EventHubs_EventData__Azure_Messaging_EventHubs_Producer_SendEventOptions_System_Threading_CancellationToken_) method by specifying either the **partition ID** or **the partition key** in [SendEventOptions](/dotnet/api/azure.messaging.eventhubs.producer.sendeventoptions?view=azure-dotnet).
+
 ### [.NET (Microsoft.Azure.EventHubs)](#tab/dotnetold)
 1. Use the [EventHubClient.CreatePartitionSender("Partition ID")](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createpartitionsender?view=azure-dotnet) method to create a [PartitionSender](/dotnet/api/microsoft.azure.eventhubs.partitionsender?view=azure-dotnet) object for the specified partition. 
 1. Then, use the [PartitionSender.SendAsync](/dotnet/api/microsoft.azure.eventhubs.partitionsender?view=azure-dotnet) methods to send a single event or a batch of events to the partition. 
@@ -92,9 +89,6 @@ finally
     > To migrate to the newer **Azure.Messaging.EventHubs** library, see [Migrating code from PartitionSender to EventHubProducerClient for publishing events to a partition](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
 
     ```csharp
-    var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
-    var eventHubName = "<< NAME OF THE EVENT HUB >>";
-    
     var connectionStringBuilder = new EventHubsConnectionStringBuilder(connectionString){ EntityPath = eventHubName }; 
     var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
     
