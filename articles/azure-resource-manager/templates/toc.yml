@@ -141,7 +141,7 @@
       - name: Managed Applications
         href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Monitor
-        href: ../../azure-monitor/learn/quick-collect-activity-log-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+        href: ../../azure-monitor/essentials/quick-collect-activity-log-arm.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
       - name: Policy
         href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Portal
@@ -298,6 +298,12 @@
   items:
   - name: Template best practices
     href: template-best-practices.md
+  - name: Bicep
+    items:
+    - name: Overview
+      href: bicep-overview.md 
+    - name: Going from JSON to Bicep
+      href: compare-template-syntax.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
   - name: Templates for cloud consistency
@@ -491,6 +497,8 @@
     items:
     - name: All functions
       href: template-functions.md
+    - name: Any function (Bicep)
+      href: template-functions-any.md
     - name: Array functions
       href: template-functions-array.md
     - name: Comparison functions

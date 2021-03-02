@@ -6,12 +6,17 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/howto-authentication-methods-usage-insights.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-authentication-methods-activity",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/python.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/python",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-arc/kubernetes/use-gitops-connect-cluster.md",
+      "source_path": "articles/azure-arc/kubernetes/use-gitops-connected-cluster.md",
       "redirect_url": "/azure/azure-arc/kubernetes/tutorial-use-gitops-connect-cluster",
       "redirect_document_id": false
     },
@@ -3952,6 +3957,26 @@
     {
       "source_path_from_root": "/articles/app-service/app-service-security-controls.md",
       "redirect_url": "/azure/app-service/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security/fundamentals/security-controls.md",
+      "redirect_url": "/azure/security/benchmarks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-relay/service-bus-relay-security-controls.md",
+      "redirect_url": "/azure/service-bus-messaging/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/azure-resource-manager-security-controls.md",
+      "redirect_url": "/azure/azure-resource-manager/management/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/azure-resource-manager-security-controls.md",
+      "redirect_url": "/azure/azure-resource-manager/management/security-baseline",
       "redirect_document_id": false
     },
     {

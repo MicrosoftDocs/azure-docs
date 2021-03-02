@@ -74,5 +74,5 @@ requests
 
 ## Next steps
 
-* [Get started](../platform/workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](../platform/workbooks-access-control.md) and share access to your workbook resources.
+* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
+* [Control](./workbooks-access-control.md) and share access to your workbook resources.
