@@ -22,8 +22,6 @@ This article provides details about how Azure Kinect hardware integrates Microso
 
 ![Azure Kinect DK](./media/resources/hardware-specs-media/device-wire.png)
 
-Step 3D CAD file for Azure Kinect DK.
-
 ## Terms
 
 These abbreviated terms are used throughout this article.
