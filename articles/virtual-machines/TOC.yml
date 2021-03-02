@@ -1157,6 +1157,12 @@
       href: ./windows/security-baseline.md
   - name: Recommendations
     href: security-recommendations.md
+  - name: Trusted launch 
+    items:
+    - name: Overview
+      href: trusted-launch.md
+    - name: Deploy using the portal
+      href: trusted-launch-portal.md
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
   - name: Policy
