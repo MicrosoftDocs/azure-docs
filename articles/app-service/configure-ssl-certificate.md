@@ -4,7 +4,7 @@ description: Create a free certificate, import an App Service certificate, impor
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 10/25/2019
+ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---
@@ -29,10 +29,11 @@ The following table lists the options you have for adding certificates in App Se
 
 ## Prerequisites
 
-To follow this how-to guide:
-
 - [Create an App Service app](./index.yml).
-- Free certificate only: map a subdomain (for example, `www.contoso.com`) to App Service with a [CNAME record](app-service-web-tutorial-custom-domain.md#map-a-cname-record).
+- To use the same certificate for multiple apps, create the apps in the same resource group and region combination.
+- **Free certificate only**:
+    - Map the domain you want a certificate for to App Service. For information, see [Tutorial: Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md).
+    - Make sure your app doesn't have any [IP restrictions](app-service-ip-restrictions.md) configured. Both certificate creation and its periodic renewal depends on your app being reachable from the internet.
 
 ## Private certificate requirements
 
@@ -57,28 +58,19 @@ To secure a custom domain in a TLS binding, the certificate has additional requi
 
 ## Create a free managed certificate (Preview)
 
+> [!NOTE]
+> Before creating a free managed certificate, make sure you have [fulfilled the prerequisites](#prerequisites) for your app.
+
 The free App Service Managed Certificate is a turn-key solution for securing your custom DNS name in App Service. It's a fully functional TLS/SSL certificate that's managed by App Service and renewed automatically. The free certificate comes with the following limitations:
 
 - Does not support wildcard certificates.
 - Is not exportable.
-- Is not supported on App Service Environment (ASE)
+- Is not supported on App Service Environment (ASE).
+- Is not supported with root domains that are integrated with Traffic Manager.
 
 > [!NOTE]
 > The free certificate is issued by DigiCert. For some top-level domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
 > 
-
-### Free App Service Managed Certificate for apex domains requirements
-App Service Managed Certificates for apex domains are validated with HTTP token validation which App Service will set up on your behalf. However, to ensure a successful validation, you want to make sure that you have the following set up, otherwise your certificate validation will fail.
-
-1. You have added an apex domain to your web app and have the correct A record set in your DNS record.
-1. Your web app is accessible from the public network. You cannot validate your certificate if your web app is not accessible from the public network.
-
-This scenario is not supported when using alias record for apex domain referencing Traffic Manager.
-
-### Free App Service Managed Certificate support for sub-domains requirements
-App Service Managed Certificates for sub-domains are validated with CNAME records. In order to successfully create a managed certificate, you will need to have a CNAME record of the subdomain pointing to the web app. The same validation process is also done during certificate renewal. If you change or delete the CNAME record, the certificate renewal will fail.
-
-### create a free App Service Managed Certificate
 
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from the left menu, select **App Services** > **\<app-name>**.
 
