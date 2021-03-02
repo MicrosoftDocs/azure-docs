@@ -34,7 +34,7 @@ Tracking Azure usage from Azure apps published to the commercial marketplace is 
 If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#use-resource-manager-apis) to pass it to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center on your plan's Technical Configuration page.
 
 > [!NOTE]
-> For existing Azure apps, a one-time migration was performed in January 2021 to update the tracking IDs in each plan's technical configuration. Usage from past deployments of those offers will remain tracked in Microsoft systems.
+> For existing Azure apps, a one-time migration was performed in March 2021 to update the tracking IDs in each plan's technical configuration. Usage from past deployments of those offers will remain tracked in Microsoft systems.
 
 ## Other use cases 
 
@@ -116,36 +116,28 @@ You can use the script to verify that the GUID is successfully added to your Res
 
 Sign in to Azure. Select the subscription with the deployment you want to verify before you run the script. Run the script within the subscription context of the deployment.
 
-The **GUID** and **resourceGroup** name of the deployment are required parameters.
+The **GUID** (below called "deploymentName") and **resourceGroupName** name of the deployment are required parameters.
 
-You can get [the original script](https://gist.github.com/bmoore-msft/ae6b8226311014d6e7177c5127c7eba1#file-verify-deploymentguid-ps1) on GitHub.
+You can get [the original script](https://gist.github.com/bmoore-msft/ae6b8226311014d6e7177c5127c7eba1) on GitHub.
 
 ```powershell
 Param(
-    [GUID][Parameter(Mandatory=$true)]$guid,
+    [string][Parameter(Mandatory=$true)]$deploymentName, # the full name of the deployment, e.g. pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
     [string][Parameter(Mandatory=$true)]$resourceGroupName
 )
 
-# Get the correlationId of the pid deployment
-
-$correlationId = (Get-AzResourceGroupDeployment -ResourceGroupName
-$resourceGroupName -Name "pid-$guid").correlationId
+# Get the correlationId of the named deployment
+$correlationId = (Get-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name "$deploymentName").correlationId
 
 # Find all deployments with that correlationId
-
 $deployments = Get-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName | Where-Object{$_.correlationId -eq $correlationId}
 
-# Find all deploymentOperations in a deployment by name
-# PowerShell doesn't surface outputResources on the deployment
-# or correlationId on the deploymentOperation
+# Find all deploymentOperations in all deployments with that correlationId as PowerShell doesn't surface outputResources on the deployment or correlationId on the deploymentOperation
 
 foreach ($deployment in $deployments){
-
-# Get deploymentOperations by deploymentName
-# then the resourceId for any create operation
-
-($deployment | Get-AzResourceGroupDeploymentOperation | Where-Object{$_.properties.provisioningOperation -eq "Create" -and $_.properties.targetResource.resourceType -ne "Microsoft.Resources/deployments"}).properties.targetResource.id
-
+    # Get deploymentOperations by deploymentName
+    # then the resourceIds for each resource
+    ($deployment | Get-AzResourceGroupDeploymentOperation | Where-Object{$_.targetResource -notlike "*Microsoft.Resources/deployments*"}).TargetResource
 }
 ```
 
