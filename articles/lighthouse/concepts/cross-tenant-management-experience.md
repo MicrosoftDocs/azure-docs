@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 02/08/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
 ---
 
@@ -107,10 +107,11 @@ Most tasks and services can be performed on delegated resources across managed t
 
 [Azure Policy](../../governance/policy/index.yml):
 
-- Create and edit policy definitions within delegated subscriptions
+- Create and edit policy definitions within delegated subscriptions; deploy policies across multiple tenants
 - Assign customer-defined policy definitions within delegated subscriptions
 - Customers see policies authored by the service provider alongside any policies they've authored themselves
 - Can [remediate deployIfNotExists or modify assignments within the managed tenant](../how-to/deploy-policy-remediation.md)
+- Note that viewing compliance details for non-compliant resources in customer tenants is not currently supported
 
 [Azure Resource Graph](../../governance/resource-graph/index.yml):
 
