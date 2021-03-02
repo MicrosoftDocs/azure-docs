@@ -106,6 +106,7 @@ sections:
 
           Here’s an example of the information a container communicates for metering:
           
+          
           ```json 
           "usageRequestBody": {
             "id": "customer_subscriptionID",
