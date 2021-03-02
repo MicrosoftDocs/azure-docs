@@ -18,6 +18,43 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## 2021-03-08
+
+### Azure Machine Learning SDK for Python v1.24.0
++ **New features**
+  + **azureml-automl-core**
+    + Removed backwards compatible imports from `azureml.automl.core.shared`. Module not found errors in the `azureml.automl.core.shared` namespace can be resolved by importing from `azureml.automl.runtime.shared`.
+  + **azureml-automl-runtime**
+    +  Re-enabled enable_local_managed flag allowing AutoML runs to run against a local docker or conda environment.
+    + Removed backwards compatible imports from `azureml.automl.core.shared`. Module not found errors in the `azureml.automl.core.shared` namespace can be resolved by importing from `azureml.automl.runtime.shared`.
+  + **azureml-contrib-automl-dnn-forecasting**
+    + Removed backwards compatible imports from `azureml.automl.core.shared`. Module not found errors in the `azureml.automl.core.shared` namespace can be resolved by importing from `azureml.automl.runtime.shared`.
+  + **azureml-contrib-automl-dnn-vision**
+    + Exposed object detection yolo model.
+  + **azureml-contrib-dataset**
+    + Added functionality to filter Datasets.
+  + **azureml-contrib-fairness**
+    + Include JSON schema in wheel for `azureml-contrib-fairness`
+  + **azureml-contrib-k8s**
+    + Must now provide resource_id to attach instead of resource group and cluster name.
+  + **azureml-contrib-mir**
+    + With setting show_output to True when deploy models, inference configuration and deployment configuration will be replayed before sending the request to server.
+  + **azureml-core**
+    + Added functionality to filter Datasets.
+    + Previously, it was possibly for users to create provisioning configurations for `AmlCompute` `ComputeTarget`'s that did not satisfy the password strength requirements for the `admin_user_password` field (they must contain at least 3 of the following: 1 lowercase letter, 1 uppercase letter, 1 digit, and 1 special character from the following set `\\`~!@#$%^&*()=+_[]{}|;:./'",<>?`). If the user created a configuration with a weak password and ran a job using that configuration, the job would fail at runtime. Now, the call to `AmlCompute.provisioning_configuration` will throw a `ComputeTargetException` with an accompanying error message explaining the password strength requirements. Additionally, it was also possible in some cases to specify a configuration with a negative number of maximum nodes. It is no longer possible to do this. Now, `AmlCompute.provisioning_configuration` will throw a `ComputeTargetException` if the `max_nodes` argument is a negative integer.
+    + With setting show_output to True when deploy models, inference configuration and deployment configuration will be replayed before sending the request to server.
+    + Allow customer specified AzureML auth config directory through environment variable: AZUREML_AUTH_CONFIG_DIR
+    + Previously, it was possible to create a provisioning configuration with the minimum node count less than the maximum node count. This has now been fixed. If you now try to create a provisioning configuration with `min_nodes < max_nodes` the SDK will raise a `C...
+  + **azureml-interpret**
+    + fix explanation dashboard not showing aggregate feature importances for sparse engineered explanations
+    + optimized memory usage of ExplanationClient in azureml-interpret package
+  + **azureml-train-automl-client**
+    +  Fixed show_output=False to return control to the user when running using spark.
+    +  Re-enabled enable_local_managed flag allowing AutoML runs to run against a local docker or conda environment.
+  + **azureml-train-automl-runtime**
+    +  Fixed show_output=False to return control to the user when running using spark.
+    +  Re-enabled enable_local_managed flag allowing AutoML runs to run against a local docker or conda environment.
+
 ## 2021-02-16
 
 ### Azure Machine Learning SDK for Python v1.23.0
