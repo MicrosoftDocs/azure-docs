@@ -225,7 +225,7 @@ reviewed and mitigated.
 
 You can build a picture of the attack surface by scanning the
 application. Microsoft offers an attack surface analysis tool called
-[Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including
+[Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including
 [OWASP Zed Attack Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project),
 [Arachni](http://arachni-scanner.com/),
 [Skipfish](https://code.google.com/p/skipfish/), and

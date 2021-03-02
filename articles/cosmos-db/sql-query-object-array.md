@@ -5,14 +5,38 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 02/02/2021
 ms.author: tisande
 
 ---
 # Working with arrays and objects in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-A key feature of the Azure Cosmos DB SQL API is array and object creation.
+A key feature of the Azure Cosmos DB SQL API is array and object creation. This document uses examples that can be recreated using the [Family dataset](sql-query-getting-started.md#upload-sample-data).
+
+Here's an example item in this dataset:
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "parents": [
+     { "firstName": "Thomas" },
+     { "firstName": "Mary Kay"}
+  ],
+  "children": [
+     {
+         "firstName": "Henriette Thaulow",
+         "gender": "female",
+         "grade": 5,
+         "pets": [{ "givenName": "Fluffy" }]
+     }
+  ],
+  "address": { "state": "WA", "county": "King", "city": "Seattle" },
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
 
 ## Arrays
 
@@ -172,6 +196,8 @@ The results are:
 
 > [!NOTE]
 > When using the IN keyword for iteration, you cannot filter or project any properties outside of the array. Instead, you should use [JOINs](sql-query-join.md).
+
+For additional examples, read our [blog post on working with arrays in Azure Cosmos DB](https://devblogs.microsoft.com/cosmosdb/understanding-how-to-query-arrays-in-azure-cosmos-db/).
 
 ## Next steps
 

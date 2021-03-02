@@ -33,7 +33,7 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
     ![Screenshot showing the "Grant admin consent for Graph explorer" link.](./media/admin-units-manage/select-graph-explorer.png)
 
 
-1. Use the preview version of Azure AD PowerShell.
+1. Use [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## Add an administrative unit
 
@@ -53,7 +53,7 @@ You can add an administrative unit by using either the Azure portal or PowerShel
 
 ### Use PowerShell
 
-Install Azure AD PowerShell (preview) before you try to run the following commands:
+Install [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) before you try to run the following commands:
 
 ```powershell
 Connect-AzureAD

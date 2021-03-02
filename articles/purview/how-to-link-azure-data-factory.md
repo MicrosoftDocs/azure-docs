@@ -101,29 +101,29 @@ The integration between Data Factory and Purview supports only a subset of the d
 
 ### Data Factory Copy Data support
 
-| Data storage system | Supported as source | Supported as sink |
-| ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 | Yes | Yes (non-binary copy only) |
-| ADLS Gen2 | Yes | Yes |
-| Azure Blob | Yes | Yes |
-| Azure Cosmos DB (SQL API) | Yes | Yes |
-| Azure Cosmos DB (Mongo API) | Yes | Yes |
-| Azure Cognitive Search | Yes | Yes |
-| Azure Data Explorer | Yes | Yes |
-| Azure Database for Maria DB \* | Yes | Yes |
-| Azure Database for MYSQL \* | Yes | Yes |
-| Azure Database for PostgreSQL \* | Yes | Yes |
-| Azure File Storage | Yes | Yes |
-| Azure Table Storage | Yes | Yes |
-| Azure SQL Database \* | Yes | Yes |
-| Azure SQL MI \* | Yes | Yes |
-| Azure Synapse Analytics(formerly SQL DW) \* | Yes | Yes |
-| SQL Server On-prem (SHIR required) \* | Yes | Yes |
-| Amazon S3 | Yes | Yes |
-| Teradata | Yes | Yes |
-| SAP s4 Hana | Yes | Yes |
-| SAP ECC | Yes | Yes |
-| Hive | Yes | Yes |
+| Data storage system | Supported as source | 
+| ------------------- | ------------------- | 
+| ADLS Gen1 | Yes | 
+| ADLS Gen2 | Yes | 
+| Azure Blob | Yes |
+| Azure Cosmos DB (SQL API) | Yes | 
+| Azure Cosmos DB (Mongo API) | Yes |
+| Azure Cognitive Search | Yes | 
+| Azure Data Explorer | Yes | 
+| Azure Database for Maria DB \* | Yes | 
+| Azure Database for MYSQL \* | Yes | 
+| Azure Database for PostgreSQL \* | Yes |
+| Azure File Storage | Yes | 
+| Azure Table Storage | Yes |
+| Azure SQL Database \* | Yes | 
+| Azure SQL MI \* | Yes | 
+| Azure Synapse Analytics(formerly SQL DW) \* | Yes | 
+| SQL Server On-prem  \* | Yes | 
+| Amazon S3 | Yes | 
+| Teradata | Yes | 
+| SAP Table connector | Yes |
+| SAP ECC | Yes | 
+| Hive | Yes | 
 
 > [!Note]
 > The lineage feature has certain performance overhead in Data Factory copy activity. For those who setup data factory connections in Purview, you may observe certain copy jobs taking longer to complete. Mostly the impact is none to negligible. Please contact support with time comparison if the copy jobs take significantly longer to finish than usual.
@@ -131,7 +131,7 @@ The integration between Data Factory and Purview supports only a subset of the d
 ### Data Factory Data Flow support
 
 | Data storage system | Supported |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- | 
 | ADLS Gen1 | Yes |
 | ADLS Gen2 | Yes |
 | Azure Blob | Yes |
@@ -141,7 +141,7 @@ The integration between Data Factory and Purview supports only a subset of the d
 ### Data Factory Execute SSIS Package support
 
 | Data storage system | Supported |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- |
 | Azure Blob | Yes |
 | ADLS Gen1 | Yes |
 | ADLS Gen2 | Yes |

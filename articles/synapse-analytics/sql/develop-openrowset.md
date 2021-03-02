@@ -92,6 +92,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 [ , PARSER_VERSION = 'parser_version' ]
 [ , HEADER_ROW = { TRUE | FALSE } ]
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
+[ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
 ```
 
 ## Arguments
@@ -218,6 +219,7 @@ CSV parser version 1.0 specifics:
 CSV parser version 2.0 specifics:
 
 - Not all data types are supported.
+- Maximum character column length is 8000.
 - Maximum row size limit is 8 MB.
 - Following options aren't supported: DATA_COMPRESSION.
 - Quoted empty string ("") is interpreted as empty string.
@@ -232,6 +234,10 @@ Specifies whether CSV file contains header row. Default is FALSE. Supported in P
 DATAFILETYPE = { 'char' | 'widechar' }
 
 Specifies encoding: char is used for UTF8, widechar is used for UTF16 files.
+
+CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
+
+Specifies the code page of the data in the data file. The default value is 65001 (UTF-8 encoding). See more details about this option [here](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15#codepage).
 
 ## Fast delimited text parsing
 

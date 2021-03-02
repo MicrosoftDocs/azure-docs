@@ -1,19 +1,13 @@
 ---
 title: Set up an Azure-SSIS Integration Runtime with PowerShell 
 description: Learn how to set up an Azure-SSIS Integration Runtime in Azure Data Factory with PowerShell so you can deploy and run SSIS packages in Azure.
-services: data-factory
-documentationcenter: ""
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: tutorial
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 10/13/2020
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: mflasko
 ---
 
 # Set up an Azure-SSIS IR in Azure Data Factory by using PowerShell

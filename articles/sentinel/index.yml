@@ -27,6 +27,8 @@ landingContent:
         links:
           - text: What is Azure Sentinel?
             url: overview.md
+          - text: What's new in Azure Sentinel?
+            url: whats-new.md
        
   # Card (optional)
   - title: Get started

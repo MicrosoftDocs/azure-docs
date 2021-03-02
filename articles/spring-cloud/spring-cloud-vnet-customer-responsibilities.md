@@ -29,13 +29,13 @@ The following is a list of resource requirements for Azure Spring Cloud services
 
   | Destination Endpoint | Port | Use | Note |
   |------|------|------|
-  | *:1194 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - AzureCloud:1194 | UDP:1194 | Underlying Kubernetes Cluster management. | |
-  | *:443 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - AzureCloud:443 | TCP:443 | Azure Spring Cloud Service Management. | Information of service instance "requiredTraffics" could be known in resource payload, under "networkProfile" section. |
-  | *:9000 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - AzureCloud:9000 | TCP:9000 | Underlying Kubernetes Cluster management. |
+  | *:1194 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:1194 | UDP:1194 | Underlying Kubernetes Cluster management. | |
+  | *:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:443 | TCP:443 | Azure Spring Cloud Service Management. | Information of service instance "requiredTraffics" could be known in resource payload, under "networkProfile" section. |
+  | *:9000 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:9000 | TCP:9000 | Underlying Kubernetes Cluster management. |
   | *:123 *Or* ntp.ubuntu.com:123 | UDP:123 | NTP time synchronization on Linux nodes. | |
-  | *.azure.io:443 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - AzureContainerRegistry:443 | TCP:443 | Azure Container Registry. | Can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). |
-  | *.core.windows.net:443 and *.core.windows.net:445 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | Azure File Storage | Can be replaced by enabling *Azure Storage* [service endpoint in virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). |
-  | *.servicebus.windows.net:443 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - EventHub:443 | TCP:443 | Azure Event Hub. | Can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). |
+  | *.azure.io:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureContainerRegistry:443 | TCP:443 | Azure Container Registry. | Can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
+  | *.core.windows.net:443 and *.core.windows.net:445 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | Azure File Storage | Can be replaced by enabling *Azure Storage* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
+  | *.servicebus.windows.net:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443 | TCP:443 | Azure Event Hub. | Can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
   
 
 ## Azure Spring Cloud FQDN requirements / application rules
@@ -58,4 +58,4 @@ Azure Firewall provides a fully qualified domain name (FQDN) tag **AzureKubernet
 
 ## See also
 * [Access your application in a private network](spring-cloud-access-app-virtual-network.md)
-* [Expose apps using Application Gateway and Azure Firewall](spring-cloud-expose-apps-gateway-azure-firewall.md) 
+* [Expose apps using Application Gateway and Azure Firewall](spring-cloud-expose-apps-gateway-azure-firewall.md)

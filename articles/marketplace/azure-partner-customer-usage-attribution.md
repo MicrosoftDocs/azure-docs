@@ -229,7 +229,6 @@ provider "azurerm" {
           # new stuff for ISV attribution
           partner_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
 ```
-
 Set the value of *partner_id* to a registered GUID. DO NOT prefix the GUID with "pid-", just set it to the actual GUID.
 
 > [!IMPORTANT]

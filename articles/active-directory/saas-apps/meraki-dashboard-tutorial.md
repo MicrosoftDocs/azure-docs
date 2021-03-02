@@ -99,7 +99,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Edit SAML Signing Certificate](common/edit-certificate.png)
 
-1. In the **SAML Signing Certificate** section, copy the **Thumbprint Value** and save it on your computer.
+1. In the **SAML Signing Certificate** section, copy the **Thumbprint Value** and save it on your computer. This value needs to be converted to include colons in order for the Meraki dashboard to understand it . For example, if the thumbprint from Azure is `C2569F50A4AAEDBB8E` it will need to be changed to `C2:56:9F:50:A4:AA:ED:BB:8E` to use it later in Meraki Dashboard.
 
     ![Copy Thumbprint value](common/copy-thumbprint.png)
 
@@ -161,7 +161,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Meraki Dashboard Add a SAML IdP](./media/meraki-dashboard-tutorial/configure-3.png)
 
-1. Paste the **Thumbprint** Value, which you have copied from the Azure portal into **X.590 cert SHA1 fingerprint** textbox. Then click **Save**. After saving, the Consumer URL will show up. Copy Consumer URL value and paste this into **Reply URL** textbox in the **Basic SAML Configuration Section** in the Azure portal.
+1. Paste the converted **Thumbprint** Value, which you have copied from the Azure portal and converted in specified format as mentioned in step 9 of previous section  into **X.590 cert SHA1 fingerprint** textbox. Then click **Save**. After saving, the Consumer URL will show up. Copy Consumer URL value and paste this into **Reply URL** textbox in the **Basic SAML Configuration Section** in the Azure portal.
 
     ![Meraki Dashboard Configuration](./media/meraki-dashboard-tutorial/configure-4.png)
 

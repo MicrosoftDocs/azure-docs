@@ -115,6 +115,9 @@ In the non-query paging pattern, here is a sample method showing how to retrieve
 
 The second pattern is only generated for the Query API. It uses a `continuationToken` explicitly.
 
+>[!TIP]
+> A main reason for getting pages is to calculate the [Query Unit charges](concepts-query-units.md) for a Query API call.
+
 Here is an example with this pattern:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="PagedQuery":::

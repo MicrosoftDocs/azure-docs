@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
 
@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Moderate e-commerce product images with Azure Content Moderator
 
-In this tutorial, you'll learn how to use Azure Cognitive Services, including Content Moderator, to classify and moderate product images for an e-commerce scenario. You'll use Computer Vision and Custom Vision to apply tags (labels) to images, and then you will create a team review, which combines Content Moderator's machine-learning-based technologies with human review teams to provide an intelligent moderation system.
+In this tutorial, you'll learn how to use Azure Cognitive Services, including Content Moderator, to classify and moderate product images for an e-commerce scenario. You'll use Computer Vision and Custom Vision to apply tags (labels) to images, and then you'll create a team review, which combines Content Moderator's machine-learning-based technologies with human review teams to provide an intelligent moderation system.
 
 This tutorial shows you how to:
 
@@ -53,7 +53,7 @@ Next, create custom tags in the Review tool (see the [Tags](./review-tool-user-g
 ## Create Visual Studio project
 
 1. In Visual Studio, open the New Project dialog. Expand **Installed**, then **Visual C#**, then select **Console app (.NET Framework)**.
-1. Name the application **EcommerceModeration**, then click **OK**.
+1. Name the application **EcommerceModeration**, then select **OK**.
 1. If you're adding this project to an existing solution, select this project as the single startup project.
 
 This tutorial highlights the code that is central to the project, but it won't cover every line of code. Copy the full contents of _Program.cs_ from the sample project ([Samples eCommerce Catalog Moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)) into the _Program.cs_ file of your new project. Then, step through the following sections to learn about how the project works and how to use it yourself.

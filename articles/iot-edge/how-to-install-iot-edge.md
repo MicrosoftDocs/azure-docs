@@ -28,7 +28,7 @@ This article lists the steps to install the Azure IoT Edge runtime on Linux devi
 
 * A Linux device
 
-  Have an X64, ARM32, or ARM64 Linux device. Microsoft provides installation packages for Ubuntu Server 16.04, Ubuntu Server 18.04, and Raspberry Pi OS Stretch operating systems.
+  Have an X64, ARM32, or ARM64 Linux device. Microsoft provides installation packages for Ubuntu Server 18.04 and Raspberry Pi OS Stretch operating systems.
 
   For the latest information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems)
 
@@ -38,12 +38,6 @@ This article lists the steps to install the Azure IoT Edge runtime on Linux devi
 * Prepare your device to access the Microsoft installation packages.
 
   Install the repository configuration that matches your device operating system.
-
-  * **Ubuntu Server 16.04**:
-
-    ```bash
-    curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
-    ```
 
   * **Ubuntu Server 18.04**:
 

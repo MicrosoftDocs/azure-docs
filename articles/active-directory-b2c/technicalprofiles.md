@@ -18,17 +18,17 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A technical profile provides a framework with a built-in mechanism to communicate with different type of parties using a custom policy in Azure Active Directory B2C (Azure AD B2C). Technical profiles are used to communicate with your Azure AD B2C tenant, to create a user, or read a user profile. A technical profile can be self-asserted to enable interaction with the user. For example, collect the user's credential to sign in and then render the sign-up page or password reset page.
+A technical profile provides a framework with a built-in mechanism to communicate with different type of parties. Technical profiles are used to communicate with your Azure AD B2C tenant, to create a user, or read a user profile. A technical profile can be self-asserted to enable interaction with the user. For example, collect the user's credential to sign in and then render the sign-up page or password reset page.
 
 ## Type of technical profiles
 
 A technical profile enables these types of scenarios:
 
-- [Application Insights](application-insights-technical-profile.md) - Sending event data to [Application Insights](../azure-monitor/app/app-insights-overview.md).
+- [Application Insights](analytics-with-application-insights.md) - Sending event data to [Application Insights](../azure-monitor/app/app-insights-overview.md).
 - [Azure Active Directory](active-directory-technical-profile.md) - Provides support for the Azure Active Directory B2C user management.
 - [Azure AD Multi-Factor Authentication](multi-factor-auth-technical-profile.md) -  provides support for verifying a phone number by using Azure AD Multi-Factor Authentication (MFA). 
 - [Claims transformation](claims-transformation-technical-profile.md) - Call output claims transformations to manipulate claims values, validate claims, or set default values for a set of output claims.
-- [ID token hint](id-token-hint.md) - Validates `id_token_hint` JWT token signature, the issuer name and the token audience and extracts the claim from the inbound token.
+- [ID token hint](id-token-hint.md) - Validates `id_token_hint` JWT token signature, the issuer name, and the token audience and extracts the claim from the inbound token.
 - [JWT token issuer](jwt-issuer-technical-profile.md) -  Emits a JWT token that is returned back to the relying party application.
 - [OAuth1](oauth1-technical-profile.md) - Federation with any OAuth 1.0 protocol identity provider.
 - [OAuth2](oauth2-technical-profile.md) - Federation with any OAuth 2.0 protocol identity provider.
@@ -43,7 +43,7 @@ A technical profile enables these types of scenarios:
 
 ## Technical profile flow
 
-All types of technical profiles share the same concept. You send input claims, run claims transformation, and communicate with the configured party, such as an identity provider, REST API, or Azure AD directory services. After the process is completed, the technical profile returns the output claims and may run output claims transformation. The following diagram shows how the transformations and mappings referenced in the technical profile are processed. Regardless of the party the technical profile interacts with, after any claims transformation is executed, the output claims from the technical profile are immediately stored in the claims bag.
+All types of technical profiles share the same concept. Start by reading the input claims, run claims transformation. Then communicate with the configured party, such as an identity provider, REST API, or Azure AD directory services. After the process is completed, the technical profile returns the output claims and may run output claims transformation. The following diagram shows how the transformations and mappings referenced in the technical profile are processed. After the claims transformation is executed, the output claims are immediately stored in the claims bag. Regardless of the party the technical profile interacts with.
 
 ![Diagram illustrating the technical profile flow](./media/technical-profiles/technical-profile-flow.png)
 
@@ -60,7 +60,7 @@ All types of technical profiles share the same concept. You send input claims, r
 1. **Output claims transformations** - After the technical profile is completed, Azure AD B2C runs output [claims transformation](claimstransformations.md). 
 1. **Single sign-on (SSO) session management** - Persists technical profile's data to the session, using [SSO session management](custom-policy-reference-sso.md).
 
-A **TechnicalProfiles** element contains a set of technical profiles supported by the claim provider. Every claims provider must have one or more technical profiles that determine the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles.
+A **TechnicalProfiles** element contains a set of technical profiles supported by the claim provider. Every claims provider must have at least one technical profile. The technical profile determines the endpoints, and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles.
 
 ```xml
 <ClaimsProvider>
@@ -92,14 +92,14 @@ The **TechnicalProfile** contains the following elements:
 | DisplayName | 1:1 | The display name of the technical profile. |
 | Description | 0:1 | The description of the technical profile. |
 | Protocol | 1:1 | The protocol used for the communication with the other party. |
-| Metadata | 0:1 | A collection of key/value pairs that are utilized by the protocol for communicating with the endpoint in the course of a transaction. |
+| Metadata | 0:1 | A collection of key/value that controls the behavior of the technical profile. |
 | InputTokenFormat | 0:1 | The format of the input token. Possible values: `JSON`, `JWT`, `SAML11`, or `SAML2`. The `JWT` value represents a JSON Web Token as per IETF specification. The `SAML11` value represents a SAML 1.1 security token as per OASIS specification.  The `SAML2` value represents a SAML 2.0 security token as per OASIS specification. |
 | OutputTokenFormat | 0:1 | The format of the output token. Possible values: `JSON`, `JWT`, `SAML11`, or `SAML2`. |
 | CryptographicKeys | 0:1 | A list of cryptographic keys that are used in the technical profile. |
 | InputClaimsTransformations | 0:1 | A list of previously defined references to claims transformations that should be executed before any claims are sent to the claims provider or the relying party. |
 | InputClaims | 0:1 | A list of the previously defined references to claim types that are taken as input in the technical profile. |
-| PersistedClaims | 0:1 | A list of the previously defined references to claim types that are persisted by the claims provider that relates to the technical profile. |
-| DisplayClaims | 0:1 | A list of the previously defined references to claim types that are presented by the claims provider that relates to the [self-asserted technical profile](self-asserted-technical-profile.md). The DisplayClaims feature is currently in **preview**. |
+| PersistedClaims | 0:1 | A list of the previously defined references to claim types that will be persisted by the technical profile. |
+| DisplayClaims | 0:1 | A list of the previously defined references to claim types that are presented by the [self-asserted technical profile](self-asserted-technical-profile.md). The DisplayClaims feature is currently in **preview**. |
 | OutputClaims | 0:1 | A list of the previously defined references to claim types that are taken as output in the technical profile. |
 | OutputClaimsTransformations | 0:1 | A list of previously defined references to claims transformations that should be executed after the claims are received from the claims provider. |
 | ValidationTechnicalProfiles | 0:n | A list of references to other technical profiles that the technical profile uses for validation purposes. For more information, see [validation technical profile](validation-technical-profile.md)|
@@ -117,7 +117,7 @@ The **Protocol** specifies the protocol to be used for the communication with th
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Name | Yes | The name of a valid protocol supported by Azure AD B2C that is used as part of the technical profile. Possible values: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, or `None`. |
-| Handler | No | When the protocol name is set to `Proprietary`, specify the fully-qualified name of the assembly that is used by Azure AD B2C to determine the protocol handler. |
+| Handler | No | When the protocol name is set to `Proprietary`, specify the name of the assembly that is used by Azure AD B2C to determine the protocol handler. |
 
 ## Metadata
 
@@ -125,7 +125,7 @@ The **Metadata** element contains the relevant configuration options to a specif
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Item | 0:n | The metadata that relates to the technical profile. Each type of technical profile has a different set of metadata items. See the technical profile types section, for more information. |
+| Item | 0:n | The metadata that relates to the technical profile. Each type of technical profile has a different set of metadata items. For more information, see the technical profile types section.  |
 
 ### Item
 
@@ -169,7 +169,7 @@ The following example illustrates the use of metadata relevant to [REST API tech
 
 ## Cryptographic keys
 
-Azure AD B2C stores secrets and certificates in the form of [policy keys](policy-keys-overview.md) to establish trust with the services it integrates with. During the technical profile executing, Azure AD B2C retrieves the cryptographic keys from Azure AD B2C policy keys, and then uses the keys establish trust, encrypt or sign a token. These trusts consist of:
+To establish trust with the services it integrates with, Azure AD B2C stores secrets and certificates in the form of [policy keys](policy-keys-overview.md). During the technical profile executing, Azure AD B2C retrieves the cryptographic keys from Azure AD B2C policy keys. Then uses the keys establish trust, encrypt or sign a token. These trusts consist of:
 
 - Federation with [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys), and [SAML](saml-identity-provider-technical-profile.md#cryptographic-keys) identity providers
 - Secure the connecting with [REST API services](secure-rest-api.md)
@@ -194,7 +194,7 @@ The **Key** element contains the following attribute:
 
 The **InputClaimsTransformations** element may contain a collection of input claims transformation elements that are used to modify input claims or generate new one. 
 
-The output claims of a previous claims transformation in the claims transformation collection can be input claims of a subsequent input claims transformation, allowing you to have a sequence of claims transformation depending on each other.
+The output claims of a previous claims transformation in the claims transformation collection can be input claims of a subsequent input claims transformation allowing you to have a sequence of claims transformation depending on each other.
 
 The **InputClaimsTransformations** element contains the following element:
 
@@ -247,13 +247,13 @@ The **InputClaim** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Yes | The identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file. |
+| ClaimTypeReferenceId | Yes | The identifier of a claim type. The claim is already defined in the claims schema section in the policy file, or parent policy file. |
 | DefaultValue | No | A default value to use to create a claim if the claim indicated by ClaimTypeReferenceId does not exist so that the resulting claim can be used as an InputClaim by the technical profile. |
 | PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the PartnerClaimType attribute is not specified, then the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is different from the other party. For example, the first claim name is 'givenName', while the partner uses a claim named 'first_name'. |
 
 ## Display claims
 
-The **DisplayClaims** element contains a list of claims defined by [self-asserted technical profile](self-asserted-technical-profile.md) to be presented on the screen for collecting data from the user. In the display claims collection, you can include a reference to a [claim type](claimsschema.md), or a [DisplayControl](display-controls.md) that you've created. 
+The **DisplayClaims** element contains a list of claims to be presented on the screen to collect data from the user. In the display claims collection, you can include a reference to a [claim type](claimsschema.md), or a [DisplayControl](display-controls.md) that you've created. 
 
 - A claim type is a reference to a claim to be displayed on the screen. 
   - To force the user to provide a value for a specific claim, set the **Required** attribute of the **DisplayClaim** element to `true`.
@@ -322,7 +322,7 @@ The **PersistedClaim** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Yes | The identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file. |
-| DefaultValue | No | A default value to use to create a claim if the claim indicated by ClaimTypeReferenceId does not exist so that the resulting claim can be used as an InputClaim by the technical profile. |
+| DefaultValue | No | A default value to use to create a claim if the claim does not exist. |
 | PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the PartnerClaimType attribute is not specified, then the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is different from the other party. For example, the first claim name is 'givenName', while the partner uses a claim named 'first_name'. |
 
 In the following example, the **AAD-UserWriteUsingLogonEmail** technical profile or the [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts), which creates new local account, persists following claims:
@@ -353,13 +353,13 @@ The **OutputClaim** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Yes | The identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file. |
-| DefaultValue | No | A default value to use to create a claim if the claim indicated by ClaimTypeReferenceId does not exist so that the resulting claim can be used as an InputClaim by the technical profile. |
+| DefaultValue | No | A default value to use to create a claim if the claim does not exist. |
 |AlwaysUseDefaultValue |No |Force the use of the default value.  |
-| PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the PartnerClaimType attribute is not specified, then the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is different from the other party. For example, the first claim name is 'givenName', while the partner uses a claim named 'first_name'. |
+| PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the partner claim type attribute is not specified, the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is different from the other party. For example, the first claim name is 'givenName', while the partner uses a claim named 'first_name'. |
 
 ## Output claims transformations
 
-The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones. After execution, the output claims are put back in the claims bag. You can use those claims in the next orchestrations step.
+The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements. The output claims transformations are used to modify the output claims or generate new ones. After execution, the output claims are put back in the claims bag. You can use those claims in the next orchestrations step.
 
 The output claims of a previous claims transformation in the claims transformation collection can be input claims of a subsequent input claims transformation, allowing you to have a sequence of claims transformation depending on each other.
 
@@ -400,7 +400,7 @@ The following technical profile references the AssertAccountEnabledIsTrue claims
 
 ## Validation technical profiles
 
-A validation technical profile is used for validating some or all of the output claims of the referencing in a [self-asserted technical profile](self-asserted-technical-profile.md#validation-technical-profiles). A validation technical profile is an ordinary technical profile from any protocol, such as [Azure Active Directory](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims, or returns error code. The error message is rendered to the user on screen, allowing the user to retry.
+A validation technical profile is used for validating output claims in a [self-asserted technical profile](self-asserted-technical-profile.md#validation-technical-profiles). A validation technical profile is an ordinary technical profile from any protocol, such as [Azure Active Directory](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims, or returns error code. The error message is rendered to the user on screen, allowing the user to retry.
 
 The following diagram illustrates how Azure AD B2C uses a validation technical profile to validate the user credentials
 
@@ -430,7 +430,9 @@ The **SubjectNamingInfo** defines the subject name used in tokens in a [relying 
 
 ## Include technical profile
 
-A technical profile can include another technical profile to change settings or add new functionality. The **IncludeTechnicalProfile** element is a reference to the common technical profile from which a technical profile is derived. To reduce redundancy and complexity of your policy elements, use inclusion when you have multiple technical profiles that share the core elements. Use a common technical profile with the common set of configuration, along with specific task technical profiles that include the common technical profile. For example, suppose you have a [REST API technical profile](restful-technical-profile.md) with a single endpoint where you need to send different set of claims for different scenarios. Create a common technical profile with the shared functionality, such as the REST API endpoint URI, metadata, authentication type, and cryptographic keys. Then create specific task technical profiles that include the common technical profile, add the input claims, output claims, or overwrite the REST API endpoint URI relevant to that technical profile.
+A technical profile can include another technical profile to change settings or add new functionality. The **IncludeTechnicalProfile** element is a reference to the common technical profile from which a technical profile is derived. To reduce redundancy and complexity of your policy elements, use inclusion when you have multiple technical profiles that share the core elements. Use a common technical profile with the common set of configuration, along with specific task technical profiles that include the common technical profile. 
+
+Suppose you have a [REST API technical profile](restful-technical-profile.md) with a single endpoint where you need to send different set of claims for different scenarios. Create a common technical profile with the shared functionality, such as, the REST API endpoint URI, metadata, authentication type, and cryptographic keys. Create specific task technical profiles that include the common technical profile. Then add the input claims, output claims, or overwrite the REST API endpoint URI relevant to that technical profile.
 
 The **IncludeTechnicalProfile** element contains the following attribute:
 
@@ -442,14 +444,14 @@ The **IncludeTechnicalProfile** element contains the following attribute:
 The following example illustrates the use of the inclusion:
 
 - *REST-API-Common* - a common technical profile with the basic configuration.
-- *REST-ValidateProfile* - includes the *REST-API-Commom* technical profile, and specifies the input and output claims.
-- *REST-UpdateProfile* - includes the *REST-API-Commom* technical profile, specifies the input claims, and overwrites the `ServiceUrl` metadata.
+- *REST-ValidateProfile* - includes the *REST-API-Common* technical profile, and specifies the input and output claims.
+- *REST-UpdateProfile* - includes the *REST-API-Common* technical profile, specifies the input claims, and overwrites the `ServiceUrl` metadata.
 
 ```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="REST-API-Commom">
+    <TechnicalProfile Id="REST-API-Common">
       <DisplayName>Base REST API configuration</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
@@ -474,7 +476,7 @@ The following example illustrates the use of the inclusion:
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="promoCode" />
       </OutputClaims>
-      <IncludeTechnicalProfile ReferenceId="REST-API-Commom" />
+      <IncludeTechnicalProfile ReferenceId="REST-API-Common" />
     </TechnicalProfile>
 
     <TechnicalProfile Id="REST-UpdateProfile">
@@ -486,7 +488,7 @@ The following example illustrates the use of the inclusion:
         <InputClaim ClaimTypeReferenceId="objectId" />
         <InputClaim ClaimTypeReferenceId="email" />
       </InputClaims>
-      <IncludeTechnicalProfile ReferenceId="REST-API-Commom" />
+      <IncludeTechnicalProfile ReferenceId="REST-API-Common" />
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
@@ -557,7 +559,10 @@ The [ClaimsProviderSelections](userjourneys.md#claimsproviderselection) in a use
 - **OnItemExistenceInStringCollectionClaim**, execute only when an item exists in a string collection claim.
 - **OnItemAbsenceInStringCollectionClaim** execute only when an item does not exist in a string collection claim.
 
-Using **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** or **OnItemAbsenceInStringCollectionClaim**, requires you to provide the following metadata: **ClaimTypeOnWhichToEnable** specifies the claim's type that is to be evaluated, **ClaimValueOnWhichToEnable** specifies the value that is to be compared.
+Using **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim**, or **OnItemAbsenceInStringCollectionClaim**, requires you to provide the following metadata: 
+
+- **ClaimTypeOnWhichToEnable** - specifies the claim's type that is to be evaluated.
+- **ClaimValueOnWhichToEnable** - specifies the value that is to be compared.
 
 The following technical profile is executed only if the **identityProviders** string collection contains the value of `facebook.com`:
 

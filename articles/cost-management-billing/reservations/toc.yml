@@ -16,7 +16,7 @@
   - name: How discount is applied
     items:
     - name: App Service
-      href: reservation-discount-app-service-isolated-stamp.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: reservation-discount-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cache for Redis
       href: understand-azure-cache-for-redis-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Cosmos DB
@@ -65,7 +65,7 @@
     - name: Buy an Azure reservation
       href: prepare-buy-reservation.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: App Service
-      href: prepay-app-service-isolated-stamp.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: prepay-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cache for Redis reservation
       href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Database for MariaDB
