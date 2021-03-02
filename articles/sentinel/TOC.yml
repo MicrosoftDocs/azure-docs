@@ -37,6 +37,8 @@
     href: identify-threats-with-entity-behavior-analytics.md
   - name: Import threat intelligence into Azure Sentinel
     href: import-threat-intelligence.md
+  - name: Integrate Microsoft 365 Defender with Azure Sentinel
+    href: microsoft-365-defender-sentinel-integration.md
   - name: Use external data with watchlists
     href: watchlists.md
   - name: Normalize your data across tables
