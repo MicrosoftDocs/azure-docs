@@ -64,7 +64,7 @@ az spring-cloud app create -n "springapp" -s "myspringcloud" -g "myResourceGroup
 export SERVICE_IDENTITY=$(az spring-cloud app show --name "springapp" -s "myspringcloud" -g "myResourceGroup" | jq -r '.identity.principalId')
 ```
 
-Make a note of the returned `url`, which will be in the format"https://<your-app-name>.azuremicroservices.io". It will be used in the following step.
+Make a note of the returned `url`, which will be in the format `https://<your-app-name>.azuremicroservices.io`. It will be used in the following step.
 
 
 ## Grant your app access to Key Vault

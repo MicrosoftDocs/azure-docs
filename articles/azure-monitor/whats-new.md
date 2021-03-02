@@ -16,15 +16,15 @@ This article provides lists Azure Monitor articles that are either new or have b
 ### General	
 - [Azure Monitor FAQ](faq.md) - Added entry on device information for Application Insights.
 ### Agents	
-- [Collecting Event Tracing for Windows (ETW) Events for analysis Azure Monitor Logs](platform/data-sources-event-tracing-windows.md) - New article.
-- [Data Collection Rules in Azure Monitor (preview)](platform/data-collection-rule-overview.md) - Added links to PowerShell and CLI samples.
+- [Collecting Event Tracing for Windows (ETW) Events for analysis Azure Monitor Logs](./agents/data-sources-event-tracing-windows.md) - New article.
+- [Data Collection Rules in Azure Monitor (preview)](./agents/data-collection-rule-overview.md) - Added links to PowerShell and CLI samples.
 
 ### Alerts	
-- [Configure Azure to connect ITSM tools using Secure Export](platform/itsm-connector-secure-webhook-connections-azure-configuration.md) - New article.
-- [Connector status errors in the ITSMC dashboard](platform/itsmc-dashboard-errors.md) - New article.
-- [Investigate errors by using the ITSMC dashboard](platform/itsmc-dashboard.md) - New article.
-- [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added sections for dynamic thresholds.
-- [Troubleshoot problems in IT Service Management Connector](platform/itsmc-troubleshoot-overview.md) - New article.
+- [Configure Azure to connect ITSM tools using Secure Export](./alerts/itsm-connector-secure-webhook-connections-azure-configuration.md) - New article.
+- [Connector status errors in the ITSMC dashboard](./alerts/itsmc-dashboard-errors.md) - New article.
+- [Investigate errors by using the ITSMC dashboard](./alerts/itsmc-dashboard.md) - New article.
+- [Troubleshooting Azure metric alerts](./alerts/alerts-troubleshoot-metric.md) - Added sections for dynamic thresholds.
+- [Troubleshoot problems in IT Service Management Connector](./alerts/itsmc-troubleshoot-overview.md) - New article.
 
 ### Application Insights
 - [Azure Application Insights telemetry correlation](app/correlation.md) - Added trace correlation when one module calls another in OpenCensus Python.
@@ -41,25 +41,25 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Azure Monitor for Azure Data Explorer (preview)](insights/data-explorer.md) - New article.
 
 ### Logs	
-- [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Introduce user assigned managed identity.
-- [Azure Monitor Logs Dedicated Clusters](log-query/logs-dedicated-clusters.md) - Updated reponse code.
-- [Cross service query - Azure Monitor and Azure Data Explorer (Preview)](platform/azure-monitor-troubleshooting-logs.md) - New article.
+- [Azure Monitor customer-managed key](./logs/customer-managed-keys.md) - Introduce user assigned managed identity.
+- [Azure Monitor Logs Dedicated Clusters](./logs/logs-dedicated-clusters.md) - Updated reponse code.
+- [Cross service query - Azure Monitor and Azure Data Explorer (Preview)](/azure/azure-monitor/platform/azure-data-explorer-monitor-cross-service-query) - New article.
 
 ### Metrics
-- [Azure Monitor Metrics metrics aggregation and display explained](platform/metrics-aggregation-explained.md) - New article.
+- [Azure Monitor Metrics metrics aggregation and display explained](./essentials/metrics-aggregation-explained.md) - New article.
 
 ### Platform Logs
-- [Azure Monitor Resource Logs supported services and categories](platform/resource-logs-categories.md) - New article.
+- [Azure Monitor Resource Logs supported services and categories](./essentials/resource-logs-categories.md) - New article.
 
 ### Visualizations
-- [Azure Monitor workbooks data sources](platform/workbooks-data-sources.md) - Added merge and change analysis.
+- [Azure Monitor workbooks data sources](./visualize/workbooks-data-sources.md) - Added merge and change analysis.
 
 
 ## December 2020
 
 ### General
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Added error messages.
-- [Partners who integrate with Azure Monitor](/partners.md) - Added section on Event Hub integration.
+- [Partners who integrate with Azure Monitor](partners.md) - Added section on Event Hub integration.
 
 ### Agents
 - [Cross-resource query Azure Data Explorer by using Azure Monitor](logs/azure-monitor-data-explorer-proxy.md) - New article.
@@ -162,16 +162,16 @@ New and updated articles from restructure of log query content.
 
 ### Virtual machines
 
-- [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md) - Added supported regions.
+- [Enable VM insights overview](vm/vminsights-enable-overview.md) - Added supported regions.
 
-New articles for Azure Monitor for VMs guest health (preview)
+New articles for VM insights guest health (preview)
 
-- [Azure Monitor for VMs guest health (preview)](vm/vminsights-health-overview.md)
-- [Azure Monitor for VMs guest health alerts (preview)](vm/vminsights-health-alerts.md)
-- [Configure monitoring in Azure Monitor for VMs guest health (preview)](vm/vminsights-health-configure.md)
-- [Configure monitoring in Azure Monitor for VMs guest health using data collection rules (preview)](vm/vminsights-health-configure-dcr.md)
-- [Enable Azure Monitor for VMs guest health (preview)](vm/vminsights-health-enable.md)
-- [Troubleshoot Azure Monitor for VMs guest health (preview)](vm/vminsights-health-troubleshoot.md)
+- [VM insights guest health (preview)](vm/vminsights-health-overview.md)
+- [VM insights guest health alerts (preview)](vm/vminsights-health-alerts.md)
+- [Configure monitoring in VM insights guest health (preview)](vm/vminsights-health-configure.md)
+- [Configure monitoring in VM insights guest health using data collection rules (preview)](vm/vminsights-health-configure-dcr.md)
+- [Enable VM insights guest health (preview)](vm/vminsights-health-enable.md)
+- [Troubleshoot VM insights guest health (preview)](vm/vminsights-health-troubleshoot.md)
 
 
 
@@ -226,8 +226,8 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Azure Activity Log event schema](essentials/activity-log-schema.md) - Added description of severity levels.
 
 ### Virtual machines
-- [Change analysis in Azure Monitor for VMs](vm/vminsights-change-analysis.md) - New article.
-- [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md) - Added supported regions.
+- [Change analysis in VM insights](vm/vminsights-change-analysis.md) - New article.
+- [Enable VM insights overview](vm/vminsights-enable-overview.md) - Added supported regions.
 - [How to update Azure Monitor for containers for metrics](containers/container-insights-update-metrics.md) -  Added support for Azure Arc enabled Kubernetes cluster.
 
 
@@ -313,7 +313,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 
 #### New and updated articles from restructure of agent content
-- [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md)
+- [Enable VM insights overview](vm/vminsights-enable-overview.md)
 - [Install Log Analytics agent on Linux computers](agents/agent-linux.md)
 - [Install Log Analytics agent on Windows computers](agents/agent-windows.md)
 - [Log Analytics agent overview](agents/log-analytics-agent.md)
@@ -366,7 +366,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 ## July 2020
 
 ### General
-- [Deploy Azure Monitor](deploy-scale.md) - Restructure of Azure Monitor for VMs onboarding content.
+- [Deploy Azure Monitor](deploy-scale.md) - Restructure of VM insights onboarding content.
 - [Use Azure Private Link to securely connect networks to Azure Monitor](logs/private-link-security.md) - Added section on limits.
 
 ### Alerts
@@ -402,18 +402,18 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 ### Virtual machines
 
-New and updated articles from restructure of Azure Monitor for VMs content
+New and updated articles from restructure of VM insights content
 
-- [What is Azure Monitor for VMs?](vm/vminsights-overview.md)
-- [Configure Log Analytics workspace for Azure Monitor for VMs](vm/vminsights-configure-workspace.md)
+- [What is VM insights?](vm/vminsights-overview.md)
+- [Configure Log Analytics workspace for VM insights](vm/vminsights-configure-workspace.md)
 - [Connect Linux computers to Azure Monitor](agents/agent-linux.md)
 - [Enable Azure Monitor for a hybrid environment](vm/vminsights-enable-hybrid.md)
 - [Enable Azure Monitor for single virtual machine or virtual machine scale set in the Azure portal](vm/vminsights-enable-portal.md)
-- [Enable Azure Monitor for VMs by using Azure Policy](./vm/vminsights-enable-policy.md)
-- [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md)
-- [Enable Azure Monitor for VMs using PowerShell](vm/vminsights-enable-powershell.md)
-- [Enable Azure Monitor for VMs using Resource Manager templates](vm/vminsights-enable-resource-manager.md)
-- [Enable Azure Monitor for VMs with PowerShell or templates](./vm/vminsights-enable-powershell.md)
+- [Enable VM insights by using Azure Policy](./vm/vminsights-enable-policy.md)
+- [Enable VM insights overview](vm/vminsights-enable-overview.md)
+- [Enable VM insights using PowerShell](vm/vminsights-enable-powershell.md)
+- [Enable VM insights using Resource Manager templates](vm/vminsights-enable-resource-manager.md)
+- [Enable VM insights with PowerShell or templates](./vm/vminsights-enable-powershell.md)
 
 
 ### Visualizations
@@ -489,9 +489,9 @@ New and updated articles from restructure and consolidation of platform log cont
 - [View Azure Activity log events in Azure Monitor](./essentials/activity-log.md#view-the-activity-log)
 
 ### Virtual machines
-- [Enable Azure Monitor for VMs in the Azure portal](./vm/vminsights-enable-portal.md) - Updated to include Azure Arc.
-- [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md) - Updated to include Azure Arc.
-- [What is Azure Monitor for VMs?](vm/vminsights-overview.md) - Updated to include Azure Arc.
+- [Enable VM insights in the Azure portal](./vm/vminsights-enable-portal.md) - Updated to include Azure Arc.
+- [Enable VM insights overview](vm/vminsights-enable-overview.md) - Updated to include Azure Arc.
+- [What is VM insights?](vm/vminsights-overview.md) - Updated to include Azure Arc.
 
 
 ### Visualizations
@@ -518,7 +518,7 @@ New and updated articles from restructure and consolidation of platform log cont
 - [Resource Manager template samples for action groups](alerts/resource-manager-action-groups.md)
 - [Resource Manager template samples for agents](agents/resource-manager-agent.md)
 - [Resource Manager template samples for Azure Monitor for containers](containers/resource-manager-container-insights.md)
-- [Resource Manager template samples for Azure Monitor for VMs](vm/resource-manager-vminsights.md)
+- [Resource Manager template samples for VM insights](vm/resource-manager-vminsights.md)
 - [Resource Manager template samples for diagnostic settings](essentials/resource-manager-diagnostic-settings.md)
 - [Resource Manager template samples for Log Analytics workspaces](logs/resource-manager-workspace.md)
 - [Resource Manager template samples for log queries](logs/resource-manager-log-queries.md)
@@ -582,12 +582,12 @@ New and updated articles from restructure and consolidation of platform log cont
 
 
 ### Virtual machines
-- [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md) - Added to supported versions of Ubuntu Server. Added supported regions for Log Analytics workspace.
-- [How to chart performance with Azure Monitor for VMs](vm/vminsights-performance.md) - Added limitations section for unavailable metrics.
+- [Enable VM insights overview](vm/vminsights-enable-overview.md) - Added to supported versions of Ubuntu Server. Added supported regions for Log Analytics workspace.
+- [How to chart performance with VM insights](vm/vminsights-performance.md) - Added limitations section for unavailable metrics.
 
 ### Visualizations
 - [Azure Monitor Workbooks and Azure Resource Manager Templates](visualize/workbooks-automate.md) - Added Resource Manager update for deploying a workbook template.
-- [Azure Monitor Workbooks Groups](platform/workbooks-groups.md) - New article.
+- [Azure Monitor Workbooks Groups](./visualize/workbooks-groups.md) - New article.
 - [Azure Monitor Workbooks - Transform JSON data with JSONPath](visualize/workbooks-jsonpath.md) - New article.
 
 
@@ -690,18 +690,18 @@ New and updated articles from restructure and consolidation of platform log cont
 ### Virtual machines
 
 - [Monitor Azure virtual machines with Azure Monitor](vm/monitor-vm-azure.md) - New article.
-- [Quickstart: Monitor Azure virtual machines with Azure Monitor](vm/quick-monitor-azure-vm.md) - Updated to add Azure Monitor for VMs.
-- [Alerts from Azure Monitor for VMs](vm/vminsights-alerts.md) - New article.
-- [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md) - Updated agent download links.
+- [Quickstart: Monitor Azure virtual machines with Azure Monitor](vm/quick-monitor-azure-vm.md) - Updated to add VM insights.
+- [Alerts from VM insights](vm/vminsights-alerts.md) - New article.
+- [Enable VM insights overview](vm/vminsights-enable-overview.md) - Updated agent download links.
 
-General updates for general availability of Azure Monitor for VMs
+General updates for general availability of VM insights
 
-- [What is Azure Monitor for VMs?](vm/vminsights-overview.md)
-- [Azure Monitor for VMs (GA) frequently asked questions](vm/vminsights-ga-release-faq.md) 
-- [Enable Azure Monitor for VMs by using Azure Policy](./vm/vminsights-enable-policy.md) 
-- [How to chart performance with Azure Monitor for VMs](vm/vminsights-performance.md)
-- [How to Query Logs from Azure Monitor for VMs](vm/vminsights-log-search.md)
-- [View app dependencies with Azure Monitor for VMs](vm/vminsights-maps.md) 
+- [What is VM insights?](vm/vminsights-overview.md)
+- [VM insights (GA) frequently asked questions](vm/vminsights-ga-release-faq.md) 
+- [Enable VM insights by using Azure Policy](./vm/vminsights-enable-policy.md) 
+- [How to chart performance with VM insights](vm/vminsights-performance.md)
+- [How to Query Logs from VM insights](vm/vminsights-log-search.md)
+- [View app dependencies with VM insights](vm/vminsights-maps.md) 
 
 ### Visualizations
 
@@ -733,9 +733,9 @@ Multiple updates as part of rewrite of diagnostics extension content.
 
 - [Integrate Azure Active Directory with Azure Kubernetes Service](../aks/azure-ad-integration-cli.md) - Added note for creating a client application to support Kubernetes RBAC-enabled cluster to support Azure Monitor for containers.
 
-#### Azure Monitor for VMs
+#### VM insights
 
-- [Azure Monitor for VMs (GA) frequently asked questions](vm/vminsights-ga-release-faq.md) - Change to how performance data is stored.
+- [VM insights (GA) frequently asked questions](vm/vminsights-ga-release-faq.md) - Change to how performance data is stored.
 
 #### Office 365
 
@@ -801,9 +801,9 @@ Multiple New articles for view designer to workbooks conversion guide.
 - [Configure Azure Monitor for containers Prometheus Integration](containers/container-insights-prometheus-integration.md) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
 - [How to update Azure Monitor for containers for metrics](containers/container-insights-update-metrics.md) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
 
-#### Azure Monitor for VMs
+#### VM insights
 
-- [Azure Monitor for VMs (GA) frequently asked questions](vm/vminsights-ga-release-faq.md) - Added information on upgrading workspace and agents to new version.
+- [VM insights (GA) frequently asked questions](vm/vminsights-ga-release-faq.md) - Added information on upgrading workspace and agents to new version.
 
 #### Office 365
 
