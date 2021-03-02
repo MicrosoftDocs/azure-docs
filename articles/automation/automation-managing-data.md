@@ -3,7 +3,7 @@ title: Azure Automation data security
 description: This article helps you learn how Azure Automation protects your privacy and secures your data.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/08/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
 ---
 # Management of Azure Automation data
@@ -48,7 +48,9 @@ The following table summarizes the retention policy for different resources.
 | Modules |A module is permanently removed 30 days after a user deletes it, or 30 days after a user deletes the account that holds the module. |
 | Node Configurations/MOF Files |An old node configuration is permanently removed 30 days after a new node configuration is generated. |
 | Node Reports |A node report is permanently removed 90 days after a new report is generated for that node. |
-| Runbooks |A runbook is permanently removed 30 days after a user deletes the resource, or 30 days after a user deletes the account that holds the resource. |
+| Runbooks |A runbook is permanently removed 30 days after a user deletes the resource, or 30 days after a user deletes the account that holds the resource<sup>1</sup>. |
+
+<sup>1</sup>The runbook can be recovered within the 30-day window by filing an Azure support incident with Microsoft Azure Support. Go to the [Azure support site](/support/options) and select **Submit a support request**.
 
 The retention policy applies to all users and currently can't be customized. However, if you need to keep data for a longer period, you can [forward Azure Automation job data to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md).
 
