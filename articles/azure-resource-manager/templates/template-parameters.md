@@ -295,9 +295,7 @@ You can add a description to a parameter to help users of your template understa
 # [Bicep](#tab/bicep)
 
 ```bicep
-@metadata({
-    description: 'Must be at least Standard_A3 to support 2 NICs.'
-})
+@description('Must be at least Standard_A3 to support 2 NICs.')
 param virtualMachineSize string = 'Standard_DS1_v2'
 ```
 
