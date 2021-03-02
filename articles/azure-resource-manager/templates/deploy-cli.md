@@ -143,7 +143,7 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 ## Deploy template spec
 
 > [!NOTE]
-> Currently, Azure CLI doesn't support creating template specs by providing Bicep file.
+> Currently, Azure CLI doesn't support creating template specs by providing Bicep files. However you can create an ARM template or a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. Here is an [example](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 
 Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
 
@@ -187,7 +187,7 @@ To pass inline parameters, provide the values in `parameters`. For example, to p
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file demotemplate.json \
+  --template-file <path-to-template-or-bicep> \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
@@ -198,7 +198,7 @@ You can also get the contents of file and provide that content as an inline para
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file demotemplate.json \
+  --template-file <path-to-template-or-bicep> \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
@@ -237,7 +237,7 @@ Use double quotes around the JSON that you want to pass into the object.
 
 ### Parameter files
 
-Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be a local file. External parameter files aren't supported with Azure CLI.
+Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be a local file. External parameter files aren't supported with Azure CLI. Both ARM template and Bicep file use JSON parameter files.
 
 For more information about the parameter file, see [Create Resource Manager parameter file](parameter-files.md).
 
@@ -275,7 +275,7 @@ To deploy a template with multi-line strings or comments using Azure CLI with ve
 
 ## Next steps
 
-- To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
-- To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
-- To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
-- For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
+* To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
+* To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
+* To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
