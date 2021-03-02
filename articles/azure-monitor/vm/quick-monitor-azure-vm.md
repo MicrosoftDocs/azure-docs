@@ -14,11 +14,11 @@ ms.date: 03/10/2020
 
 This quickstart assumes you have an existing Azure virtual machine. If not you can create a [Windows VM](../../virtual-machines/windows/quick-create-portal.md) or create a [Linux VM](../../virtual-machines/linux/quick-create-cli.md) following our VM quickstarts.
 
-For more detailed descriptions of monitoring data collected from Azure resources  see [Monitoring Azure virtual machines with Azure Monitor](../insights/monitor-vm-azure.md).
+For more detailed descriptions of monitoring data collected from Azure resources  see [Monitoring Azure virtual machines with Azure Monitor](./monitor-vm-azure.md).
 
 
 ## Complete the Monitor an Azure resource quickstart.
-Complete [Monitor an Azure resource with Azure Monitor](../learn/quick-monitor-azure-resource.md) to view the overview page, activity log, and metrics for a VM in your subscription. Azure VMs collect the same monitoring data as any other Azure resource, but this is only for the host VM. The rest of this quickstart will focus on monitoring the guest operating system and its workloads.
+Complete [Monitor an Azure resource with Azure Monitor](../essentials/quick-monitor-azure-resource.md) to view the overview page, activity log, and metrics for a VM in your subscription. Azure VMs collect the same monitoring data as any other Azure resource, but this is only for the host VM. The rest of this quickstart will focus on monitoring the guest operating system and its workloads.
 
 
 ## Enable VM insights
@@ -102,4 +102,4 @@ When you create a new Log Analytics workspace, it needs to be configured to coll
 In this quickstart, you enabled VM insights for a virtual machine and configured the Log Analytics workspace to collect events for the guest operating system. To learn how to view and analyze the data, continue to the tutorial.
 
 > [!div class="nextstepaction"]
-> [View or analyze data in Log Analytics](../log-query/log-analytics-tutorial.md)
+> [View or analyze data in Log Analytics](../logs/log-analytics-tutorial.md)

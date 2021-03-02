@@ -336,5 +336,5 @@ The following sample adds an Azure virtual machine scale set to VM insights.
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](../samples/resource-manager-samples.md).
-* [Learn more about VM insights](../vm/vminsights-overview.md).
+* [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
+* [Learn more about VM insights](vminsights-overview.md).

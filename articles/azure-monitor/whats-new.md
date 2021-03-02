@@ -16,15 +16,15 @@ This article provides lists Azure Monitor articles that are either new or have b
 ### General	
 - [Azure Monitor FAQ](faq.md) - Added entry on device information for Application Insights.
 ### Agents	
-- [Collecting Event Tracing for Windows (ETW) Events for analysis Azure Monitor Logs](platform/data-sources-event-tracing-windows.md) - New article.
-- [Data Collection Rules in Azure Monitor (preview)](platform/data-collection-rule-overview.md) - Added links to PowerShell and CLI samples.
+- [Collecting Event Tracing for Windows (ETW) Events for analysis Azure Monitor Logs](./agents/data-sources-event-tracing-windows.md) - New article.
+- [Data Collection Rules in Azure Monitor (preview)](./agents/data-collection-rule-overview.md) - Added links to PowerShell and CLI samples.
 
 ### Alerts	
-- [Configure Azure to connect ITSM tools using Secure Export](platform/itsm-connector-secure-webhook-connections-azure-configuration.md) - New article.
-- [Connector status errors in the ITSMC dashboard](platform/itsmc-dashboard-errors.md) - New article.
-- [Investigate errors by using the ITSMC dashboard](platform/itsmc-dashboard.md) - New article.
-- [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added sections for dynamic thresholds.
-- [Troubleshoot problems in IT Service Management Connector](platform/itsmc-troubleshoot-overview.md) - New article.
+- [Configure Azure to connect ITSM tools using Secure Export](./alerts/itsm-connector-secure-webhook-connections-azure-configuration.md) - New article.
+- [Connector status errors in the ITSMC dashboard](./alerts/itsmc-dashboard-errors.md) - New article.
+- [Investigate errors by using the ITSMC dashboard](./alerts/itsmc-dashboard.md) - New article.
+- [Troubleshooting Azure metric alerts](./alerts/alerts-troubleshoot-metric.md) - Added sections for dynamic thresholds.
+- [Troubleshoot problems in IT Service Management Connector](./alerts/itsmc-troubleshoot-overview.md) - New article.
 
 ### Application Insights
 - [Azure Application Insights telemetry correlation](app/correlation.md) - Added trace correlation when one module calls another in OpenCensus Python.
@@ -41,18 +41,18 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Azure Monitor for Azure Data Explorer (preview)](insights/data-explorer.md) - New article.
 
 ### Logs	
-- [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Introduce user assigned managed identity.
-- [Azure Monitor Logs Dedicated Clusters](log-query/logs-dedicated-clusters.md) - Updated reponse code.
-- [Cross service query - Azure Monitor and Azure Data Explorer (Preview)](platform/azure-monitor-troubleshooting-logs.md) - New article.
+- [Azure Monitor customer-managed key](./logs/customer-managed-keys.md) - Introduce user assigned managed identity.
+- [Azure Monitor Logs Dedicated Clusters](./logs/logs-dedicated-clusters.md) - Updated reponse code.
+- [Cross service query - Azure Monitor and Azure Data Explorer (Preview)](/azure/azure-monitor/platform/azure-data-explorer-monitor-cross-service-query) - New article.
 
 ### Metrics
-- [Azure Monitor Metrics metrics aggregation and display explained](platform/metrics-aggregation-explained.md) - New article.
+- [Azure Monitor Metrics metrics aggregation and display explained](./essentials/metrics-aggregation-explained.md) - New article.
 
 ### Platform Logs
-- [Azure Monitor Resource Logs supported services and categories](platform/resource-logs-categories.md) - New article.
+- [Azure Monitor Resource Logs supported services and categories](./essentials/resource-logs-categories.md) - New article.
 
 ### Visualizations
-- [Azure Monitor workbooks data sources](platform/workbooks-data-sources.md) - Added merge and change analysis.
+- [Azure Monitor workbooks data sources](./visualize/workbooks-data-sources.md) - Added merge and change analysis.
 
 
 ## December 2020
@@ -587,7 +587,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 ### Visualizations
 - [Azure Monitor Workbooks and Azure Resource Manager Templates](visualize/workbooks-automate.md) - Added Resource Manager update for deploying a workbook template.
-- [Azure Monitor Workbooks Groups](platform/workbooks-groups.md) - New article.
+- [Azure Monitor Workbooks Groups](./visualize/workbooks-groups.md) - New article.
 - [Azure Monitor Workbooks - Transform JSON data with JSONPath](visualize/workbooks-jsonpath.md) - New article.
 
 

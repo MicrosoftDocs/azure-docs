@@ -18,8 +18,8 @@ This article describes how to enable VM insights for a virtual machine or virtua
 
 ## Prerequisites
 
-- [Create and configure a Log Analytics workspace](../insights/vminsights-configure-workspace.md). 
-- See [Supported operating systems](../insights/vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
+- [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md). 
+- See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
 
 ## Resource Manager templates
 

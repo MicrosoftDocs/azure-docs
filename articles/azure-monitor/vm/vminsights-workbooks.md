@@ -92,7 +92,7 @@ Query sections are highly flexible and can be used to answer questions like:
 
 You also aren't only limited to querying from the context of the virtual machine you launched the workbook from. You can query across multiple virtual machines, as well as Log Analytics workspaces, as long as you have access permission to those resources.
 
-To include data from other Log Analytics workspaces or from a specific Application Insights app using the **workspace** identifier. To learn more about cross-resource queries, refer to the [official guidance](../log-query/cross-workspace-query.md).
+To include data from other Log Analytics workspaces or from a specific Application Insights app using the **workspace** identifier. To learn more about cross-resource queries, refer to the [official guidance](../logs/cross-workspace-query.md).
 
 ### Advanced analytic query settings
 

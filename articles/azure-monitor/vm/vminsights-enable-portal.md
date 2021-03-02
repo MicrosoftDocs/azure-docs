@@ -18,8 +18,8 @@ This article describes how to enable VM insights for a virtual machine or virtua
 
 ## Prerequisites
 
-- [Create and configure a Log Analytics workspace](../insights/vminsights-configure-workspace.md). Alternatively, you can create a new workspace during this process.
-- See [Supported operating systems](../insights/vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
+- [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md). Alternatively, you can create a new workspace during this process.
+- See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
 
 ## Enable VM insights
 
@@ -27,7 +27,7 @@ From the Azure portal, select **Virtual machines**, **Virtual machine scale sets
 
 ![Enable VM insights for a VM](media/vminsights-enable-portal/enable-vminsights-vm-portal.png)
 
-If the virtual machine isn't already connected to a Log Analytics workspace, then you'll be prompted to select one. If you haven't previously [created a workspace](../../azure-monitor/learn/quick-create-workspace.md), then you can select a default for the location where the virtual machine or virtual machine scale set is deployed in the subscription. This workspace will be created and configured if it doesn't already exist. If you select an existing workspace, it will be configured for VM insights if it wasn't already.
+If the virtual machine isn't already connected to a Log Analytics workspace, then you'll be prompted to select one. If you haven't previously [created a workspace](../logs/quick-create-workspace.md), then you can select a default for the location where the virtual machine or virtual machine scale set is deployed in the subscription. This workspace will be created and configured if it doesn't already exist. If you select an existing workspace, it will be configured for VM insights if it wasn't already.
 
 > [!NOTE]
 > If you select a workspace that wasn't previously configured for VM insights, the *VMInsights* management pack will be added to this workspace. This will be applied to any agent already connected to the workspace, whether or not it's enabled for VM insights. Performance data will be collected from these virtual machines and stored in the *InsightsMetrics* table.

@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 
 ms.author: mimart
 author: msmimart
@@ -26,7 +26,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
-4. Select **All API connectors (Preview)**, and then select **New API connector**.
+4. Select **All API connectors**, and then select **New API connector**.
 
    ![Add a new API connector](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
 
@@ -93,7 +93,7 @@ Follow these steps to add an API connector to a self-service sign-up user flow.
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
-4. Select **User flows (Preview)**, and then select the user flow you want to add the API connector to.
+4. Select **User flows**, and then select the user flow you want to add the API connector to.
 5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
 
    - **After signing in with an identity provider**
