@@ -34,6 +34,9 @@ In the following sections, you learn how to:
 
 Applications that you or your organization have registered are represented by both an application object and service principal object in your tenant. For more information, see [Application Objects and Service Principal Objects](./app-objects-and-service-principals.md).
 
+> [!NOTE]
+> Deleting an application will also delete its service principal object in the application's home directory. For multi-tenant applications, service principal objects in other directories will not be deleted.
+
 To delete an application, be listed as an owner of the application or have admin privileges.
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.

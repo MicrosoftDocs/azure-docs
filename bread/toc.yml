@@ -209,6 +209,12 @@
     tocHref: /azure/iot-fundamentals/
     topicHref: /azure/iot-fundamentals/
     items:
+      - name: Azure Percept
+        tocHref: /azure/azure-percept/
+        topicHref: /azure/azure-percept/
+      - name: Device Update for IoT Hub
+        tocHref: /azure/iot-hub-device-update/
+        topicHref: /azure/iot-hub-device-update/            
       - name: IoT Hub
         tocHref: /azure/iot-hub/
         topicHref: /azure/iot-hub/
@@ -451,6 +457,9 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+  - name: Managed Instance for Apache Cassandra
+    tocHref: /azure/managed-instance-apache-cassandra/
+    topicHref: /azure/managed-instance-apache-cassandra/
   - name: Storage
     tocHref: /azure/storage/
     topicHref: /azure/storage/
@@ -710,6 +719,9 @@
       - name: Peering Service
         tocHref: /azure/peering-service/
         topicHref: /azure/peering-service/
+      - name: Route Server (Preview)
+        tocHref: /azure/route-server/
+        topicHref: /azure/route-server/
       - name: Traffic Manager
         tocHref: /azure/traffic-manager/
         topicHref: /azure/traffic-manager/
