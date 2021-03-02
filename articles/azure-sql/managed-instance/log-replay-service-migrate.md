@@ -259,7 +259,7 @@ Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 	-InstanceName "ManagedInstance01" `
 	-Name "ManagedDatabaseName" `
 	-Collation "SQL_Latin1_General_CP1_CI_AS" `
-	-StorageContainerUri "https://test.blob.core.windows.net/testing" `
+	-StorageContainerUri "https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>" `
 	-StorageContainerSasToken "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D" `
 	-AutoCompleteRestore `
 	-LastBackupName "last_backup.bak"
@@ -269,7 +269,7 @@ Start LRS in autocomplete mode - CLI example:
 
 ```CLI
 az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb -a --last-bn "backup.bak"
-	--storage-uri "https://test.blob.core.windows.net/testing"
+	--storage-uri "https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>"
 	--storage-sas "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
 
@@ -281,7 +281,7 @@ Start LRS in continuous mode - PowerShell example:
 Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 	-InstanceName "ManagedInstance01" `
 	-Name "ManagedDatabaseName" `
-	-Collation "SQL_Latin1_General_CP1_CI_AS" -StorageContainerUri "https://test.blob.core.windows.net/testing" `
+	-Collation "SQL_Latin1_General_CP1_CI_AS" -StorageContainerUri "https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>" `
 	-StorageContainerSasToken "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
 
@@ -289,7 +289,7 @@ Start LRS in continuous mode - CLI example:
 
 ```CLI
 az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
-	--storage-uri "https://test.blob.core.windows.net/testing"
+	--storage-uri "https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>"
 	--storage-sas "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
 
