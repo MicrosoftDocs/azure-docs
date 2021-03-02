@@ -126,14 +126,53 @@ CLIENT_SECRET = "22222222-2222-2222-2222-222222222222" # Placeholder - for use O
     ```console
     cd ms-identity-python-webapp
     ```
+
 1. Run the following commands to install the required packages from PyPI and run the web app on your local machine:
 
-    ```console
-    pip install -r requirements.txt
-    flask run --host localhost --port 5000
-    ```
 
-    The console window displays the port number of the locally running application:
+# [bash](#tab/bash)
+
+```bash
+# Configure the Python virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+# Run the dev server
+flask run --host localhost --port 5000
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+# Configure the Python virtual environment
+py -3 -m venv venv
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
+venv\scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+# Run the dev server
+flask run --host localhost --port 5000
+```
+
+# [CMD](#tab/cmd)
+
+```cmd
+:: Configure the Python virtual environment
+py -3 -m venv venv
+venv\scripts\activate
+
+:: Install dependencies
+pip install -r requirements.txt
+:: Run the dev server
+flask run --host localhost --port 5000
+```
+---
+
+
+1. The console window displays the port number of the locally running application:
 
     ```console
      * Serving Flask app "app" (lazy loading)
