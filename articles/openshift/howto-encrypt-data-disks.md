@@ -16,7 +16,7 @@ keywords: encryption, byok, aro, openshift, red hat
 Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft platform-managed keys that includes OS and data disks. For more control over encryption keys, you can supply customer-managed keys to encrypt data in your Azure Red Hat OpenShift clusters.
 
 > [!NOTE]
-> At this stage, support exists only for encrypting ARO persistent volumes with customer-managed keys. This feature is not presently available for master/worker node operating system disks.
+> At this stage, support exists only for encrypting ARO persistent volumes with customer-managed keys. This feature is not presently available for operating system disks.
 
 > [!IMPORTANT]
 > ARO preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. ARO previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use.
@@ -174,8 +174,7 @@ oc apply -f managed-premium-encrypted-byok.yaml
 oc apply -f managed-ultra-encrypted-byok.yaml
 ```
 ## Test encryption with customer-managed keys
-To check if your cluster is using a customer-managed key for PVC encryption, we'll create a persistent volume claim using the appropriate storage class. The code snippet below creates a pod and mounts a persistent volume claim using Standard disks.
-
+To check if your cluster is using a customer-managed key for PVC encryption, we'll create a persistent volume claim using the appropriate storage class. The code snippet below creates a pod and mounts a persistent volume claim using Standard disks
 ```
 # Create a pod which uses a persistent volume claim referencing the new storage class
 cat > test-pvc.yaml<< EOF
