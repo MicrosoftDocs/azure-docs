@@ -355,9 +355,44 @@ The following table explains the binding configuration properties that you set i
 |**eventHubName** |**EventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced via [app settings](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%` |
 |**consumerGroup** |**ConsumerGroup** | An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
 |**cardinality** | n/a | Used for all non-C# languages. Set to `many` in order to enable batching.  If omitted or set to `one`, a single message is passed to the function.<br><br>In C#, this property is automatically assigned whenever the trigger has an array for the type.|
-|**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the [namespace](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), not the event hub itself. This connection string must have at least read permissions to activate the trigger.|
+|**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the [namespace](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), not the event hub itself. This connection string must have at least read permissions to activate the trigger.<br><br>If you are using [version 5.x or higher of the extension](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+
+## Usage
+
+### Default
+
+You can use the following parameter types for the triggering blob:
+
+* `Stream`
+* `TextReader`
+* `string`
+* `Byte[]`
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
+
+<sup>1</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
+
+If you try to bind to one of the Storage SDK types and get an error message, make sure that you have a reference to [the correct Storage SDK version](../articles/azure-functions/functions-bindings-storage-blob.md#azure-storage-sdk-version-in-functions-1x).
+
+Binding to `string`, or `Byte[]` is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage) later in this article.
+
+### Additional types
+
+Apps using the [5.0.0 or higher version of the Storage extension](../articles/azure-functions/functions-bindings-storage-blob.md#storage-extension-5x-and-higher) may also use types from the [Azure SDK for .NET](/dotnet/api/overview/azure/storage.blobs-readme). This version drops support for the legacy `ICloudBlob`, `CloudBlockBlob`, `CloudPageBlob`, and `CloudAppendBlob` types in favor of the following types:
+
+- [BlobClient](/dotnet/api/azure.storage.blobs.blobclient)<sup>1</sup>
+- [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)<sup>1</sup>
+- [PageBlobClient](/dotnet/api/azure.storage.blobs.specialized.pageblobclient)<sup>1</sup>
+- [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient)<sup>1</sup>
+- [BlobBaseClient](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient)<sup>1</sup>
+
+<sup>1</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
+
+For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs#examples).
 
 ## Event metadata
 
@@ -376,8 +411,5 @@ The Event Hubs trigger provides several [metadata properties](../articles/azure-
 See [code examples](#example) that use these properties earlier in this article.
 
 ## host.json properties
-<a name="host-json"></a>
 
-The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) file contains settings that control Event Hubs trigger behavior. The configuration is different depending on the Azure Functions version.
-
-[!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]
+The [host.json](functions-host-json.md#eventHub) file contains settings that control Event Hub trigger behavior. See the [host.json settings](functions-bindings-event-hubs.md#hostjson-settings) section for details regarding available settings.
