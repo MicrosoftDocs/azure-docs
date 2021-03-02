@@ -62,6 +62,9 @@ Automatic key rotation is in preview and only available in the following regions
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks isn't transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
+
+Learn how to enable customer-managed keys for managed disks with either the [Azure PowerShell module](windows/disks-enable-customer-managed-keys-powershell.md), the [Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) or the [Azure portal](disks-enable-customer-managed-keys-portal.md). To enable customer-managed keys with automatic key rotation, see [Set up an Azure Key Vault and DiskEncryptionSet with automatic key rotation (preview)](windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview).
+
 ## Encryption at host - End-to-end encryption for your VM data
 
 When you enable encryption at host, that encryption starts on the VM host itself, the Azure server that your VM is allocated to. The data for your temporary disk and OS/data disk caches are stored on that VM host. After enabling encryption at host, all this data is encrypted at rest and flows encrypted to the Storage service, where it is persisted. Essentially, encryption at host encrypts your data from end-to-end. Encryption at host does not use your VM's CPU and doesn't impact your VM's performance. 
@@ -80,6 +83,8 @@ Temporary disks and ephemeral OS disks are encrypted at rest with platform-manag
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
+Learn how to enable end-to-end encryption using encryption at host with either the [Azure PowerShell module](windows/disks-enable-host-based-encryption-powershell.md), the [Azure CLI](linux/disks-enable-host-based-encryption-cli.md), or the [Azure portal](disks-enable-host-based-encryption-portal.md).
+
 ## Double encryption at rest
 
 High security sensitive customers who are concerned of the risk associated with any particular encryption algorithm, implementation, or key being compromised can now opt for additional layer of encryption using a different encryption algorithm/mode at the infrastructure layer using platform managed encryption keys. This new layer can be applied to persisted OS and data disks, snapshots, and images, all of which will be encrypted at rest with double encryption.
@@ -87,6 +92,8 @@ High security sensitive customers who are concerned of the risk associated with 
 ### Supported regions
 
 Double encryption is available in all regions that managed disks are available.
+
+Learn how to enable double encryption at rest for managed disks with either the [Azure PowerShell module](windows/disks-enable-double-encryption-at-rest-powershell.md), the [Azure CLI](linux/disks-enable-double-encryption-at-rest-cli.md) or the [Azure portal](disks-enable-double-encryption-at-rest-portal.md).
 
 ## Server-side encryption versus Azure disk encryption
 
@@ -96,8 +103,5 @@ Double encryption is available in all regions that managed disks are available.
 
 ## Next steps
 
-- Enable end-to-end encryption using encryption at host with either the [Azure PowerShell module](windows/disks-enable-host-based-encryption-powershell.md), the [Azure CLI](linux/disks-enable-host-based-encryption-cli.md), or the [Azure portal](disks-enable-host-based-encryption-portal.md).
-- Enable double encryption at rest for managed disks with either the [Azure PowerShell module](windows/disks-enable-double-encryption-at-rest-powershell.md), the [Azure CLI](linux/disks-enable-double-encryption-at-rest-cli.md) or the [Azure portal](disks-enable-double-encryption-at-rest-portal.md).
-- Enable customer-managed keys for managed disks with either the [Azure PowerShell module](windows/disks-enable-customer-managed-keys-powershell.md), the [Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) or the [Azure portal](disks-enable-customer-managed-keys-portal.md).
 - [Explore the Azure Resource Manager templates for creating encrypted disks with customer-managed keys](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [What is Azure Key Vault?](../key-vault/general/overview.md)
