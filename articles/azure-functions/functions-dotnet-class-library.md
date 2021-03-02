@@ -30,7 +30,7 @@ Versions of the Functions runtime work with specific versions of .NET. The follo
 
 | Functions runtime version | Max .NET version |
 | ---- | ---- |
-| Functions 3.x | .NET Core 3.1<br/>.NET 5.1<sup>*</sup> |
+| Functions 3.x | .NET Core 3.1<br/>.NET 5.0<sup>*</sup> |
 | Functions 2.x | .NET Core 2.2 |
 | Functions 1.x | .NET Framework 4.7 |
 
