@@ -84,5 +84,5 @@ To pin your multiple-resource chart to a dashboard, see [Pinning to dashboards](
 ## Next steps
 
 * [Troubleshoot the metrics explorer](../essentials/metrics-troubleshoot.md)
-* [See a list of available metrics for Azure services](../platform/metrics-supported.md)
+* [See a list of available metrics for Azure services](./metrics-supported.md)
 * [See examples of configured charts](../essentials/metric-chart-samples.md)

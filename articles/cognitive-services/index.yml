@@ -53,7 +53,7 @@ conceptualContent:
         - url: ./computer-vision/index.yml
           itemType: overview
           text: Computer Vision
-        - url: ./Custom-Vision-Service/index.yml
+        - url: ./custom-vision-service/index.yml
           itemType: overview
           text: Custom Vision
         - url: ./face/index.yml

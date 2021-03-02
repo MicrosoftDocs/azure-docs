@@ -240,3 +240,20 @@ Previously in the 2.x SDK, the operation name from the request telemetry was als
 Application Insights Java 3.0 no longer populates operation name on dependency telemetry.
 If you want to see the operation name for the request that is the parent of the dependency telemetry,
 you can write a Logs (Kusto) query to join from the dependency table to the request table.
+
+## 2.x SDK logging appenders
+
+The 3.0 agent [auto-collects logging](./java-standalone-config#auto-collected-logging)
+without the need for configuring any logging appenders.
+If you are using 2.x SDK logging appenders, those can be removed, as they will be suppressed by the 3.0 agent anyways.
+
+## 2.x SDK spring boot starter
+
+There is no 3.0 spring boot starter.
+The 3.0 agent setup and configuration follows the same [simple steps](./java-in-process-agent.md#quickstart)
+whether you are using spring boot or not.
+
+When upgrading from the 2.x SDK spring boot starter,
+note that the cloud role name will no longer default to `spring.application.name`.
+See the [3.0 configuration docs](./java-standalone-config.md#cloud-role-name)
+for setting the cloud role name in 3.0 via json config or environment variable.

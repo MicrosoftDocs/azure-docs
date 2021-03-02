@@ -15,34 +15,34 @@ Alternately, you can  a virtual machine scale set extension on a Service Fabric 
 
 ```json
 {
-    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-    "apiVersion": "[variables('sfApiVersion')]",
-    "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-    "dependsOn": [
-        "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
-    ],
-    "location": "[resourceGroup().location]",
-    "properties": {
-        "isPrimary": true,
-        "vmInstanceCount": 3,
-        "dataDiskSizeGB": 100,
-        "vmSize": "Standard_D2",
-        "vmImagePublisher": "MicrosoftWindowsServer",
-        "vmImageOffer": "WindowsServer",
-        "vmImageSku": "2019-Datacenter",
-        "vmImageVersion": "latest",
-        "vmExtensions": [{
-            "name": "ExtensionA",
-            "properties": {
-                "publisher": "ExtensionA.Publisher",
-                "type": "KeyVaultForWindows",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                }
-            }
-        }]
-    }
+    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+    "apiVersion": "[variables('sfApiVersion')]",
+    "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+    "dependsOn": [
+        "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+    ],
+    "location": "[resourceGroup().location]",
+    "properties": {
+        "isPrimary": true,
+        "vmInstanceCount": 3,
+        "dataDiskSizeGB": 100,
+        "vmSize": "Standard_D2",
+        "vmImagePublisher": "MicrosoftWindowsServer",
+        "vmImageOffer": "WindowsServer",
+        "vmImageSku": "2019-Datacenter",
+        "vmImageVersion": "latest",
+        "vmExtensions": [{
+            "name": "ExtensionA",
+            "properties": {
+                "publisher": "ExtensionA.Publisher",
+                "type": "KeyVaultForWindows",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                }
+            }
+        }]
+    }
 }
 ```
 
