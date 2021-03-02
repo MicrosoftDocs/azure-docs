@@ -31,7 +31,7 @@ To use this feature, you need:
 
 - An Azure event hub that contains Azure AD activity logs. Learn how to [stream your activity logs to an event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md). 
 
--  The [Microsoft Azure Add on for Splunk](https://splunkbase.splunk.com/app/3757/). 
+-  The [Splunk Add-on for Microsoft Cloud Services](https://splunkbase.splunk.com/app/3110/#/details). 
 
 ## Integrate Azure Active Directory logs 
 
