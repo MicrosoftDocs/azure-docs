@@ -73,7 +73,7 @@ Apps also frequently need to access corporate resources such as internal databas
 ## Preview
 The App Service Environment v3 is in public preview.  Some features are being added during the preview progression. The current limitations of ASEv3 include:
 
-- Inability to scale an App Service plan beyond five instances
+- Inability to scale an App Service plan beyond 50 instances
 - Inability to get a container from a private registry
 - Inability for currently unsupported App Service features to go through customer VNet
 - No external deployment model with an internet accessible endpoint
