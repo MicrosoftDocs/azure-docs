@@ -17,7 +17,7 @@ ms.topic: how-to
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-When you backup or restore your Azure Arc enabled PostgreSQL Hyperscale server group, the entire set of databases on all the PostgreSQL nodes of your server group is backed-up and/or restored.
+When you back up or restore your Azure Arc enabled PostgreSQL Hyperscale server group, the entire set of databases on all the PostgreSQL nodes of your server group is backed-up and/or restored.
 
 ## Take a manual full backup
 

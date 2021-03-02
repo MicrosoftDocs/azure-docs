@@ -75,7 +75,7 @@ The main parameters should consider are:
 
 - **the version of the PostgreSQL engine** you want to deploy: by default it is version 12. To deploy version 12, you can either omit this parameter or pass one of the following parameters: `--engine-version 12` or `-ev 12`. To deploy version 11, indicate `--engine-version 11` or `-ev 11`.
 
-- **the number of worker nodes** you want to deploy to scale out and potentially reach better performances. Before proceeding here, read the concepts about Postgres Hyperscale [here](https://docs.microsoft.com/azure/azure-arc/data/concepts-distributed-postgres-hyperscale). To indicate the number of worker nodes to deploy, use the parameter `--workers` or `-w` followed by an integer greater or equal to 2. For example, if you want to deploy a server group with 2 worker nodes, indicate `--workers 2` or `-w 2`. This will create three pods, one for the coordinator node/instance and two for the worker nodes/instances (one for each of the workers).
+- **the number of worker nodes** you want to deploy to scale out and potentially reach better performances. Before proceeding here, read the [concepts about Postgres Hyperscale](concepts-distributed-postgres-hyperscale.md). To indicate the number of worker nodes to deploy, use the parameter `--workers` or `-w` followed by an integer greater or equal to 2. For example, if you want to deploy a server group with 2 worker nodes, indicate `--workers 2` or `-w 2`. This will create three pods, one for the coordinator node/instance and two for the worker nodes/instances (one for each of the workers).
 
 - **the storage classes** you want your server group to use. It is important you set the storage class right at the time you deploy a server group as this cannot be changed after you deploy. If you were to change the storage class after deployment, you would need to extract the data, delete your server group, create a new server group, and import the data. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
     - to set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd` followed by the name of the storage class.
@@ -126,10 +126,8 @@ Next, create the server group:
 azdata arc postgres server create -n postgres01 --workers 2 -vcm backup-pvc:backup
 ```
 
-
-
 > [!IMPORTANT]
-> - Read the current limitations related to backup/restore [here](https://docs.microsoft.com/azure/azure-arc/data/limitations-postgresql-hyperscale#backup-and-restore).
+> - Read the [current limitations related to backup/restore](limitations-postgresql-hyperscale.md#backup-and-restore).
 
 
 > [!NOTE]  
@@ -178,9 +176,7 @@ For example:
 ]
 ```
 
-You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL Hyperscale server group from your favorite tool:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc. When you do so, you connect to the coordinator node/instance which takes care of routing the query to the appropriate worker nodes/instances if you have created distributed tables. For more details, read the concepts of Azure Arc enabled PostgreSQL Hyperscale [here](https://docs.microsoft.com/azure/azure-arc/data/concepts-distributed-postgres-hyperscale).
-
-
+You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL Hyperscale server group from your favorite tool:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc. When you do so, you connect to the coordinator node/instance which takes care of routing the query to the appropriate worker nodes/instances if you have created distributed tables. For more details, read the [concepts of Azure Arc enabled PostgreSQL Hyperscale](concepts-distributed-postgres-hyperscale.md).
 
 ## Special note about Azure virtual machine deployments
 

@@ -214,7 +214,7 @@ Additional steps are required to restore a database into an availability group. 
 
 ### Limitations
 
-Azure Arc enabled Managed Instance availability groups has the same [limitations as Big Data Cluster availability groups. CLick here to learn more.](/sql/big-data-cluster/deployment-high-availability#known-limitations)
+Azure Arc enabled Managed Instance availability groups has the same [limitations as Big Data Cluster availability groups. Click here to learn more.](/sql/big-data-cluster/deployment-high-availability#known-limitations)
 
 ## Next steps
 

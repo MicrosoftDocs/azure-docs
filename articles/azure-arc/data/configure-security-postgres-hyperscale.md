@@ -160,7 +160,8 @@ If the AZDATA_PASSWORD **session** environment variable exists and has a value, 
 
 If the AZDATA_PASSWORD **session** environment variable exists but has not value or the AZDATA_PASSWORD **session** environment variable does not exist, running the above command will prompt the user to enter a password interactively
 
-#### Changing the password of the postgres administrative user in an interactive way:
+#### Change the password of the postgres administrative user in an interactive way
+
 1. Delete the AZDATA_PASSWORD **session** environment variable or delete its value
 2. Run the command:
    ```console
@@ -213,10 +214,11 @@ If the AZDATA_PASSWORD **session** environment variable exists but has not value
 > ```
 
 ## Audit
-For audit scenarios please configure your server group to use the `pgaudit` extensions of Postgres. For more details about `pgaudit` read its documentation [here](https://github.com/pgaudit/pgaudit/blob/master/README.md). To enable the `pgaudit` extension in your server group please read [this](using-extensions-in-postgresql-hyperscale-server-group.md) article.
+
+For audit scenarios please configure your server group to use the `pgaudit` extensions of Postgres. For more details about `pgaudit` see [`pgAudit` GitHub project](https://github.com/pgaudit/pgaudit/blob/master/README.md). To enable the `pgaudit` extension in your server group read [Use PostgreSQL extensions](using-extensions-in-postgresql-hyperscale-server-group.md).
 
 
 ## Next steps
-- Read details about the `pgcrypto` extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).
-- Read details about how to use Postgres extensions [here](using-extensions-in-postgresql-hyperscale-server-group.md).
+- See [`pgcrypto` extension](https://www.postgresql.org/docs/current/pgcrypto.html)
+- See [Use PostgreSQL extensions](using-extensions-in-postgresql-hyperscale-server-group.md)
 
