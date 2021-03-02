@@ -2,7 +2,7 @@
 title: Tutorial - Create & deploy Bicep files
 description: Create your first Bicep file for deploying Azure resources. In the tutorial, you learn about the Bicep file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/02/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
@@ -13,11 +13,11 @@ ms.custom:
 
 # Tutorial: Create and deploy your first Bicep file
 
-This tutorial introduces you to [Bicep](https://github.com/azure/bicep). It shows you how to create a starter Bicep file and deploy it to Azure. You'll learn about the structure of the Bicep file and the tools you'll need for working with Bicep files. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
+This tutorial introduces you to [Bicep](./bicep-overview.md). It shows you how to create a starter Bicep file and deploy it to Azure. You'll learn about the structure of the Bicep file and the tools you'll need for working with Bicep files. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
 
 This tutorial is the first of a series. As you progress through the series, you modify the starting Bicep file step by step until you've explored all of the core parts of a Bicep file. These elements are the building blocks for much more complex Bicep files. We hope by the end of the series you're confident creating your own Bicep files and ready to automate your deployments with Bicep files.
 
-If you want to learn about the benefits of using Bicep and why you should automate deployment with Bicep files, see [Bicep](https://github.com/azure/bicep).
+If you want to learn about the benefits of using Bicep and why you should automate deployment with Bicep files, see [Bicep](./bicep-overview.md).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
