@@ -18,7 +18,7 @@ Azure managed disks offer two storage redundancy options, zone-redundant storage
 
 Locally-redundant storage (LRS) replicates your data three times within a single data center in the selected region. LRS protects your data against server rack and drive failures. 
 
-There are a few ways you can protect your application using LRS disks from an entire zone failure that may occur due to natural disasters or hardware issues :
+There are a few ways you can protect your application using LRS disks from an entire zone failure that may occur due to natural disasters or hardware issues:
 - Use an application like SQL Server AlwaysOn, that can synchronously write data to two zones, and automatically failover to another zone during a disaster.
 - Take frequent backups of LRS disks with ZRS snapshots.
 - Enable cross-zone disaster recovery for LRS disks via [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md). However, cross-zone disaster recovery doesn't provide zero Recovery Point Objective (RPO).
@@ -29,7 +29,7 @@ If your workflow doesn't support application-level synchronous writes across zon
 
 Zone-redundant storage (ZRS) replicates your Azure managed disk synchronously across three Azure availability zones in the selected region. Each availability zone is a separate physical location with independent power, cooling, and networking. 
 
-ZRS disks allow you to recover from failures in availability zones. If an entire zone went down, a ZRS disk can be attached to a VM in a different zone. You can also use ZRS disks in combination with shared disks to provide improved availability for clustered or distributed applications like SQL FCI, SAP ASCS/SCS, or GFS2. You can attach a shared ZRS disk to primary and secondary VMs in different zones to take advantage of both ZRS and [Availability Zones](../availability-zones/az-overview.md). If your primary zone fails, you can quickly fail over to the secondary VM using [SCSI persistent reservation](disks-shared-enable.md#supported-scsi-pr-commands).
+ZRS disks allow you to recover from failures in availability zones. If an entire zone went down, a ZRS disk can be attached to a VM in a different zone. You can also use ZRS disks as a shared disk to provide improved availability for clustered or distributed applications like SQL FCI, SAP ASCS/SCS, or GFS2. You can attach a shared ZRS disk to primary and secondary VMs in different zones to take advantage of both ZRS and [Availability Zones](../availability-zones/az-overview.md). If your primary zone fails, you can quickly fail over to the secondary VM using [SCSI persistent reservation](disks-shared-enable.md#supported-scsi-pr-commands).
 
 ### Limitations
 
@@ -51,7 +51,7 @@ Except for more write latency, disks using ZRS are identical to disks using LRS.
 
 ### Create ZRS managed disks
 
-You need to use the `2020-12-01` API with your Azure Resource Manager template to create a ZRS disk.
+Use the `2020-12-01` API with your Azure Resource Manager template to create a ZRS disk.
 
 #### Create a VM with ZRS disks
 
