@@ -16,7 +16,7 @@ ms.date: 01/03/2021
 
 # Tutorial: Migrate SQL Server to Azure SQL Database using DMS
 
-You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to [Azure SQL Database](/azure/sql-database/). In this tutorial, you migrate the [Adventureworks2016](/sql/samples/adventureworks-install-configure?tabs=ssms&view=sql-server-ver15#download-backup-files) database restored to an on-premises instance of SQL Server 2016 (or later) to a single database or pooled database in Azure SQL Database by using Azure Database Migration Service.
+You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to [Azure SQL Database](/azure/sql-database/). In this tutorial, you migrate the [Adventureworks2016](/sql/samples/adventureworks-install-configure#download-backup-files) database restored to an on-premises instance of SQL Server 2016 (or later) to a single database or pooled database in Azure SQL Database by using Azure Database Migration Service.
 
 You will learn how to:
 > [!div class="checklist"]
@@ -231,7 +231,7 @@ Select either all databases or specific databases that you want to migrate to Az
 1. Choose the database(s) you want to migrate from the list of available databases. 
 1. Review the expected downtime. If it's acceptable, select **Next: Select target >>**
 
-   ![Source Details](media/tutorial-sql-server-to-azure-sql/select-database.png)
+   ![Source databases](media/tutorial-sql-server-to-azure-sql/select-database.png)
 
 
 
@@ -239,7 +239,7 @@ Select either all databases or specific databases that you want to migrate to Az
 
 1. On the **Select target** screen, provide authentication settings to your Azure SQL Database. 
 
-   ![Map to target databases](media/tutorial-sql-server-to-azure-sql/select-target.png)
+   ![Select target](media/tutorial-sql-server-to-azure-sql/select-target.png)
 
 1. Select **Next: Map to target databases** screen, map the source and the target database for migration.
 
