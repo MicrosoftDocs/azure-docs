@@ -60,11 +60,11 @@ Follow these commands to create your metrics upload service principal:
 > [!NOTE]
 > Creating a service principal requires [certain permissions in Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
-To create a service principal, update the following example. Replace `<ServicePrincipalName>` with the name of your service principal and run the command:
+To create a service principal, update the following example. Replace `<ServicePrincipalName>`, `SubscriptionId` and `resourcegroup` with your values and run the command:
 
 ```azurecli
-az ad sp create-for-rbac --name <ServicePrincipalName>
-``` 
+az ad sp create-for-rbac --name <ServicePrincipalName> --role Contributor --scopes /subscriptions/{SubscriptionId}/resourceGroups/{resourcegroup}
+```
 
 If you created the service principal earlier, and just need to get the current credentials, run the following command to reset the credential.
 
@@ -74,8 +74,8 @@ az ad sp credential reset --name <ServicePrincipalName>
 
 For example, to create a service principal named `azure-arc-metrics`, run the following command
 
-```
-az ad sp create-for-rbac --name azure-arc-metrics
+```azurecli
+az ad sp create-for-rbac --name azure-arc-metrics --role Contributor --scopes /subscriptions/a345c178a-845a-6a5g-56a9-ff1b456123z2/resourceGroups/myresourcegroup
 ```
 
 Example output:
@@ -132,16 +132,15 @@ Run this command to assign the service principal to the `Monitoring Metrics Publ
 > You need to use double quotes for role names when running from a Windows environment.
 
 ```azurecli
-az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role "Contributor" --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
+
 ```
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos-and-linux"
 
 ```azurecli
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
 ```
 
 ::: zone-end
@@ -149,8 +148,7 @@ az role assignment create --assignee <appId> --role 'Contributor' --scope subscr
 ::: zone pivot="client-operating-system-powershell"
 
 ```powershell
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
 ```
 
 ::: zone-end

@@ -6,8 +6,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/howto-authentication-methods-usage-insights.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-authentication-methods-activity",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/python.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-arc/kubernetes/use-gitops-connected-cluster.md",
+      "redirect_url": "/azure/azure-arc/kubernetes/tutorial-use-gitops-connect-cluster",
       "redirect_document_id": false
     },
     {
@@ -3947,6 +3957,21 @@
     {
       "source_path_from_root": "/articles/app-service/app-service-security-controls.md",
       "redirect_url": "/azure/app-service/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security/fundamentals/security-controls.md",
+      "redirect_url": "/azure/security/benchmarks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-relay/service-bus-relay-security-controls.md",
+      "redirect_url": "/azure/service-bus-messaging/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/azure-resource-manager-security-controls.md",
+      "redirect_url": "/azure/azure-resource-manager/management/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -14470,6 +14495,51 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cassandra-managed-instance/compare-cosmosdb-managed-instance.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/compare-cosmosdb-managed-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/configure-hybrid-cluster.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/configure-hybrid-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/create-cluster-portal.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/create-cluster-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/deploy-cluster-databricks.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/deploy-cluster-databricks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/faq.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/index.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/introduction.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/manage-resources-cli.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/manage-resources-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cassandra-managed-instance/visualize-prometheus-grafana.md",
+      "redirect_url": "/azure/managed-instance-apache-cassandra/visualize-prometheus-grafana",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/distribute-data-globally-benefits.md",
       "redirect_url": "/azure/cosmos-db/distribute-data-globally",
       "redirect_document_id": true
@@ -23288,6 +23358,11 @@
       "source_path_from_root": "/articles/iot-central/core/overview-iot-options.md",
       "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies/",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/healthcare/howto-health-data-triage.md",
+      "redirect_url": "/azure/iot-central/healthcare/tutorial-health-data-triage/",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/iot-central/core/index.yml",
@@ -40371,6 +40446,11 @@
     },
     {
       "source_path_from_root": "/articles/vmware-cloudsimple/enable-cloudsimple-service.md",
+      "redirect_url": "/azure/vmware-cloudsimple/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vmware-cloudsimple/migration-using-azure-data-box.md",
       "redirect_url": "/azure/vmware-cloudsimple/",
       "redirect_document_id": false
     },
@@ -63555,6 +63635,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-machines/windows/automatic-vm-guest-patching.md",
+      "redirect_url": "/azure/virtual-machines/automatic-vm-guest-patching",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/troubleshooting/allocation-failure-classic.md",
       "redirect_url": "/troubleshoot/azure/virtual-machines/allocation-failure-classic",
       "redirect_document_id": false
@@ -64133,6 +64218,11 @@
         "source_path": "articles/virtual-machines/troubleshooting/windows-update-installation-capacity.md",
         "redirect_url": "/troubleshoot/azure/virtual-machines/windows-update-installation-capacity",
         "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/azure-monitor/app/usage-send-user-context.md",
+      "redirect_url": "/azure/azure-monitor/app/usage-overview",
+      "redirect_document_id": false
+  }
   ]
 }

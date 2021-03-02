@@ -161,4 +161,4 @@ ProvisioningState       : Succeeded
 
 ## Next steps
 
-If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../platform/delete-workspace.md). Don't forget about the **Workspace Resource ID** copied earlier in step 4, you're going to need that.
+If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../logs/delete-workspace.md). Don't forget about the **Workspace Resource ID** copied earlier in step 4, you're going to need that.
