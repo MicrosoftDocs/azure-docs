@@ -7,6 +7,7 @@ ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
 author: danimir
+ms.author: danimir
 ms.reviewer: sstein
 ms.date: 03/01/2021
 ---
