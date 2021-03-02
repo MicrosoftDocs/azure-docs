@@ -228,7 +228,7 @@ To copy data from an SAP table, the following properties are supported:
 | `sapDataColumnDelimiter` | The single character that is used as delimiter passed to SAP RFC to split the output data. | No |
 
 >[!TIP]
->If your SAP table has a large volume of data, such as several billion rows, use `partitionOption` and `partitionSetting` to split the data into smaller partitions. In this case, the data is read per partition, and each data partition is retrieved from your SAP server via a single RFC call.<br/>
+>If your SAP table has a large volume of data, such as several billion rows, use `partitionOption` and `partitionSetting` to split the data into smaller partitions. In this case, the data is read per partition, and each data partition is retrieved from your SAP server via a single RFC call.
 <br/>
 >Taking `partitionOption` as `partitionOnInt` as an example, the number of rows in each partition is calculated with this formula: (total rows falling between `partitionUpperBound` and `partitionLowerBound`)/`maxPartitionsNumber`.<br/>
 <br/>
@@ -236,7 +236,7 @@ To copy data from an SAP table, the following properties are supported:
 
 
 >[!TIP]
-> The `BASXML` is enabled by default on Azure Data Factory side for SAP Table connector.<br/>
+> The `BASXML` is enabled by default for this SAP Table connector on Azure Data Factory side.
 
 In `rfcTableOptions`, you can use the following common SAP query operators to filter the rows:
 
