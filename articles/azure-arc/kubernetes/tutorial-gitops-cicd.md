@@ -11,7 +11,7 @@ ms.custom: template-tutorial
 # Tutorial: Implement CI/CD with GitOps using Azure Arc-enabled Kubernetes clusters
 
 
-In this tutorial, you will set up a CI/CD solution using GitOps with Azure Arc enabled Kubernetes clusters. Using the sample Azure Vote app, you will:
+In this tutorial, you'll set up a CI/CD solution using GitOps with Azure Arc enabled Kubernetes clusters. Using the sample Azure Vote app, you'll:
 
 > [!div class="checklist"]
 > * Create an Azure Arc enabled Kubernetes cluster.
@@ -73,7 +73,7 @@ The GitOps connection that you create will automatically:
 * Sync the manifests in the manifest directory.
 * Update the cluster state.
 
-The CI/CD workflow will populate the manifest directory with additional manifests to deploy the app.
+The CI/CD workflow will populate the manifest directory with extra manifests to deploy the app.
 
 
 1. [Create a new GitOps connection](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) to your newly imported **arc-cicd-demo-gitops** repo in Azure Repos.
@@ -99,20 +99,20 @@ The CI/CD workflow will populate the manifest directory with additional manifest
 > [!NOTE]
 > If you are using an HTTPS connection string and are having connection problems, ensure you omit the username prefix in the URL. For example, `https://alice@dev.azure.com/contoso/arc-cicd-demo-gitops` must have `alice@` removed. The `--https-user` specifies the user instead, for example `--https-user alice`.
 
-1. Check the state of the deployment in Azure Portal.
+1. Check the state of the deployment in Azure portal.
    * If successful, you'll see both `dev` and `stage` namespaces created in your cluster.
 
 ## Import the CI/CD pipelines
 
 Now that you've synced a GitOps connection, you'll need to import the CI/CD pipelines that create the manifests.
 
-The application repo contains a .pipeline folder with the pipelines you'll use for PRs, CI, and CD. Import and rename the three pipelines provided in the sample repo:
+The application repo contains a `.pipeline` folder with the pipelines you'll use for PRs, CI, and CD. Import and rename the three pipelines provided in the sample repo:
 
 | Pipeline file name | Description |
 | ------------- | ------------- |
-| [.pipelines/az-vote-pr-pipeline.yaml](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-pr-pipeline.yaml)  | The application PR pipeline, named **arc-cicd-demo-src PR** |
-| [.pipelines/az-vote-ci-pipeline.yaml](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-ci-pipeline.yaml) | The application CI pipeline, named **arc-cicd-demo-src CI** |
-| [.pipelines/az-vote-cd-pipeline.yaml](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-cd-pipeline.yaml) | The application CD pipeline, named **arc-cicd-demo-src CD** |
+| [`.pipelines/az-vote-pr-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-pr-pipeline.yaml)  | The application PR pipeline, named **arc-cicd-demo-src PR** |
+| [`.pipelines/az-vote-ci-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-ci-pipeline.yaml) | The application CI pipeline, named **arc-cicd-demo-src CI** |
+| [`.pipelines/az-vote-cd-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-cd-pipeline.yaml) | The application CD pipeline, named **arc-cicd-demo-src CD** |
 
 
 
@@ -132,7 +132,7 @@ During the CI process, you'll deploy your application containers to a registry. 
 5. Choose **OK** to create the connection.
 
 ### Connect ACR to Kubernetes
-Enable your Kubernetes cluster to pull images from your ACR. If it is private, authentication will be required.
+Enable your Kubernetes cluster to pull images from your ACR. If it's private, authentication will be required.
 
 #### Connect ACR to existing AKS clusters
 
@@ -146,7 +146,7 @@ az aks update -n arc-cicd-cluster -g myResourceGroup --attach-acr arc-demo-acr
 
 To connect non-AKS and local clusters to your ACR, create an image pull secret. Kubernetes uses image pull secrets to store information needed to authenticate your registry.
 
-Create an image pull secret with the following `kubectl` command. You'll need to do this for both the `dev` and `stage` namespaces.
+Create an image pull secret with the following `kubectl` command. Repeat for both the `dev` and `stage` namespaces.
 ```console
 kubectl create secret docker-registry <secret-name> \
     --namespace <namespace> \
@@ -164,7 +164,7 @@ kubectl create secret docker-registry <secret-name> \
 [Create a variable group](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml) named **az-vote-app-dev**. Set the following values:
 | Variable | Value |
 | -------- | ----- |
-| AZ_ACR_NAME | (your ACR instance, e.g. azurearctest.azurecr.io) |
+| AZ_ACR_NAME | (your ACR instance, for example. azurearctest.azurecr.io) |
 | AZURE_SUBSCRIPTION | (your Azure Service Connection, which should be **arc-demo-acr** from earlier in the tutorial) |
 | AZURE_VOTE_IMAGE_REPO | The full path to the Azure Vote App repo, for example azurearctest.azurecr.io/azvote |
 | ENVIRONMENT_NAME | Dev |
@@ -202,9 +202,9 @@ During the initial CI pipeline run, you may get a resource authorization error i
 1. Authorize the use.
 1. Rerun the pipeline.
 
-The CI pipeline performs the following tasks:
+The CI pipeline does the following tasks:
 1. Ensures the application change passes all automated quality checks for deployment.
-1. Performs any extra validation that couldn't be completed in the PR pipeline.
+1. Does any extra validation that couldn't be completed in the PR pipeline.
     * Specific to GitOps, the pipeline also publishes the artifacts for the commit that will be deployed by the CD pipeline.
 1. Verifies the Docker image has changed and the new image is pushed.
 
@@ -213,7 +213,7 @@ The successful CI pipeline run triggers the CD pipeline to complete the deployme
 
 > [!TIP]
 > If the CD pipeline does not automatically trigger:
-> 1. Verify the name matches the branch trigger in [.pipelines/az-vote-cd-pipeline.yaml](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-cd-pipeline.yaml)
+> 1. Verify the name matches the branch trigger in [`.pipelines/az-vote-cd-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-cd-pipeline.yaml)
 >    * It should be `arc-cicd-demo-src CI`.
 > 1. Rerun the CI pipeline.
 
@@ -302,7 +302,7 @@ A successful CI pipeline run triggers the CD pipeline to complete the deployment
 
 ## Next steps
 
-In this tutorial you have set up a full CI/CD workflow that implements DevOps from application development through deployment. Changes to the app automatically trigger validation and deployment, gated by manual approvals.
+In this tutorial, you have set up a full CI/CD workflow that implements DevOps from application development through deployment. Changes to the app automatically trigger validation and deployment, gated by manual approvals.
 
 Advance to our conceptual article to learn more about GitOps and configurations with Azure Arc enabled Kubernetes.
 
