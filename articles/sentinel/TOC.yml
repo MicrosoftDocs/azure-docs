@@ -112,6 +112,8 @@
         href: connect-better-mtd.md
       - name: Beyond Security beSECURE
         href: connect-besecure.md
+      - name: Cisco Meraki
+        href: connect-cisco-meraki.md
       - name: Cisco Umbrella
         href: connect-cisco-umbrella.md
       - name: Cisco Unified Computing System
@@ -122,10 +124,15 @@
         href: connect-f5-big-ip.md
       - name: Forcepoint DLP
         href: connect-forcepoint-dlp.md
+      - name: Google Workspace (G Suite)
+        href: connect-google-workspace.md
       - name: Infoblox NIOS
         href: connect-infoblox.md
       - name: Juniper SRX
         href: connect-juniper-srx.md
+
+      - name: NXLog LinuxAudit
+        href: connect-nxlog-linuxaudit.md
       - name: Okta SSO
         href: connect-okta-single-sign-on.md
       - name: Orca Security
@@ -158,6 +165,8 @@
         href: connect-syslog.md
       - name: VMware Carbon Black Cloud Endpoint Standard
         href: connect-vmware-carbon-black.md
+      - name: VMware ESXi
+        href: connect-vmware-esxi.md
       - name: Zimperium Mobile Threat Defense
         href: connect-zimperium-mtd.md
       - name: Connect using Logstash
@@ -174,6 +183,8 @@
             href: connect-ai-vectra-detect.md
           - name: Akamai Security Events
             href: connect-akamai-security-events.md
+          - name: Aruba ClearPass
+            href: connect-aruba-clearpass.md
           - name: Check Point
             href: connect-checkpoint.md
           - name: Cisco ASA
