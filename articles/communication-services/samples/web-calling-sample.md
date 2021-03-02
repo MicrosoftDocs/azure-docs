@@ -14,13 +14,11 @@ ms.service: azure-communication-services
 
 # Get started with the web calling sample
 
-The web calling sample is a web application that serves as a step-by-step walkthrough of the various capabilities provided by the Communication Services web calling client library. 
+The web calling sample is a web application that serves as a step-by-step walkthrough of the various capabilities provided by the Communication Services web calling client library.
 
 This sample was built for developers and makes it very easy for you to get started with Communication Services. Its user interface is divided into multiple sections, each featuring a "Show code" button that allows you to copy code directly from your browser into your own Communication Services application.
 
 ## Get started with the web calling sample
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > [This sample is available on Github.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
@@ -32,7 +30,7 @@ Once the [web calling sample](https://github.com/Azure-Samples/communication-ser
 
 :::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Web calling tutorial 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
-## User provisioning and SDK initialization 
+## User provisioning and SDK initialization
 
 Click on the "Provisioning user and initialize SDK" to initialize your SDK using a token provisioned by the backend token provisioning service. This backend service is in `/project/webpack.config.js`.
 
@@ -48,7 +46,7 @@ You're now ready to begin placing calls using your Communication Services resour
 
 The Communication Services web calling SDK allows for **1:1**, **1:N**, and **group** calling.
 
-For 1:1 or 1:N outgoing calls, you can specify multiple Communication Services User Identities to call using comma-separated values. You can can also specify traditional (PSTN) phone numbers to call using comma-separated values. 
+For 1:1 or 1:N outgoing calls, you can specify multiple Communication Services User Identities to call using comma-separated values. You can can also specify traditional (PSTN) phone numbers to call using comma-separated values.
 
 When calling PSTN phone numbers, specify your alternate caller ID. Click on the "Place call" button to place an outgoing call:
 
@@ -76,7 +74,7 @@ This sample also provides code snippets for the following capabilities:
 
 ## Next steps
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)
 
 For more information, see the following articles:

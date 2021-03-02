@@ -14,17 +14,15 @@ ms.service: azure-communication-services
 ---
 # Call flow basics
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 The section below gives an overview of the call flows in Azure Communication Services. Signaling and media flows depend on the types of calls your users are making. Examples of call types include one-to-one VoIP, one-to-one PSTN, and group calls containing a combination of VoIP and PSTN-connected participants. Review [Call types](./voice-video-calling/about-call-types.md).
 
 ## About signaling and media protocols
 
-When you establish a peer-to-peer or group call, two protocols are used behind the scenes - HTTP (REST) for signaling and SRTP for media. 
+When you establish a peer-to-peer or group call, two protocols are used behind the scenes - HTTP (REST) for signaling and SRTP for media.
 
-Signaling between the client libraries or between client libraries and Communication Services Signaling Controllers is handled with HTTP REST (TLS). For Real-Time Media Traffic (RTP), the User Datagram Protocol (UDP) is preferred. If the use of UDP is prevented by your firewall, the client library will use the Transmission Control Protocol (TCP) for media. 
+Signaling between the client libraries or between client libraries and Communication Services Signaling Controllers is handled with HTTP REST (TLS). For Real-Time Media Traffic (RTP), the User Datagram Protocol (UDP) is preferred. If the use of UDP is prevented by your firewall, the client library will use the Transmission Control Protocol (TCP) for media.
 
-Let's review the signaling and media protocols in various scenarios. 
+Let's review the signaling and media protocols in various scenarios.
 
 ## Call flow cases
 
@@ -36,7 +34,7 @@ In one-to-one VoIP or video calls, traffic prefers the most direct path. "Direct
 
 ### Case 2: VoIP where a direct connection between devices is not possible, but where connection between NAT devices is possible
 
-If two devices are located in subnets that can't reach each other (for example, Alice works from a coffee shop and Bob works from his home office) but the connection between the NAT devices is possible, the client side client libraries will establish connectivity via NAT devices. 
+If two devices are located in subnets that can't reach each other (for example, Alice works from a coffee shop and Bob works from his home office) but the connection between the NAT devices is possible, the client side client libraries will establish connectivity via NAT devices.
 
 For Alice it will be the NAT of the coffee shop and for Bob it will be the NAT of the home office. Alice's device will send the external address of her NAT and Bob's will do the same. The client libraries learn the external addresses from a STUN (Session Traversal Utilities for NAT) service that Azure Communication Services provides free of charge. The logic that handles the handshake between Alice and Bob is embedded within the Azure Communication Services provided client libraries. (You don't need any additional configuration)
 
@@ -47,7 +45,7 @@ For Alice it will be the NAT of the coffee shop and for Bob it will be the NAT o
 If one or both client devices are behind a symmetric NAT, a separate cloud service to relay the media between the two client libraries is required. This service is called TURN (Traversal Using Relays around NAT) and is also provided by the Communication Services. The Communication Services calling client library automatically uses TURN services based on detected network conditions. Use of Microsoft's TURN service is charged separately.
 
 :::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagram showing a VOIP call which utilizes a TURN connection.":::
- 
+
 ### Case 4: Group calls with PSTN
 
 Both signaling and media for PSTN Calls use the Azure Communication Services telephony resource. This resource is interconnected with other carriers.
@@ -74,7 +72,7 @@ If the client library can't use UDP for media due to firewall restrictions, an a
 
 ### Case 5: Communication Services client library and Microsoft Teams in a scheduled Teams meeting
 
-Signaling flows through the signaling controller. Media flows through the Media Processor. The signaling controller and Media Processor are shared between Communication Services and Microsoft Teams. 
+Signaling flows through the signaling controller. Media flows through the Media Processor. The signaling controller and Media Processor are shared between Communication Services and Microsoft Teams.
 
 :::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagram showing Communication Services client library and Teams Client in a scheduled Teams meeting.":::
 
