@@ -142,37 +142,7 @@ Entity pages are designed to be part of multiple usage scenarios, and can be acc
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Entity page use cases":::
 
-
-## Data schema
-
-### Behavior analytics table
-
-| Field                     | Description                                                         |
-|---------------------------|---------------------------------------------------------------------|
-| TenantId                  | unique ID number of the tenant                                      |
-| SourceRecordId            | unique ID number of the EBA event                                   |
-| TimeGenerated             | timestamp of the activity's occurrence                              |
-| TimeProcessed             | timestamp of the activity's processing by the EBA engine            |
-| ActivityType              | high-level category of the activity                                 |
-| ActionType                | normalized name of the activity                                     |
-| UserName                  | username of the user that initiated the activity                    |
-| UserPrincipalName         | full username of the user that initiated the activity               |
-| EventSource               | data source that provided the original event                        |
-| SourceIPAddress           | IP address from which activity was initiated                        |
-| SourceIPLocation          | country from which activity was initiated, enriched from IP address |
-| SourceDevice              | hostname of the device that initiated the activity                  |
-| DestinationIPAddress      | IP address of the target of the activity                            |
-| DestinationIPLocation     | country of the target of the activity, enriched from IP address     |
-| DestinationDevice         | name of the target device                                           |
-| **UsersInsights**         | contextual enrichments of involved users                            |
-| **DevicesInsights**       | contextual enrichments of involved devices                          |
-| **ActivityInsights**      | contextual analysis of activity based on our profiling              |
-| **InvestigationPriority** | anomaly score, between 0-10 (0=benign, 10=highly anomalous)         |
-|
-
-You can see the full set of contextual enrichments referenced in **UsersInsights**, **DevicesInsights**, and **ActivityInsights** in the [UEBA enrichments reference document](ueba-enrichments.md).
-
-### Querying behavior analytics data
+## Querying behavior analytics data
 
 Using [KQL](/azure/data-explorer/kusto/query/), we can query the Behavioral Analytics Table.
 

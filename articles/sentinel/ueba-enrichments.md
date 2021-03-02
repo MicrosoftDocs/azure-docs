@@ -93,7 +93,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 
 ## Activity insights tables
 
-#### Action performed
+### Action performed
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -104,7 +104,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **Action uncommonly performed in tenant**<br>*(ActionUncommonlyPerformedInTenant)* | 180 | The action is not commonly performed in the organization. | True, False |
 |
 
-#### App used
+### App used
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -115,7 +115,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **App uncommonly used in tenant**<br>*(AppUncommonlyUsedInTenant)* | 180 | The app is not commonly used in the organization. | True, False |
 | 
 
-#### Browser used
+### Browser used
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -126,7 +126,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **Browser uncommonly used in tenant**<br>*(BrowserUncommonlyUsedInTenant)* | 30 | The browser is not commonly used in the organization. | True, False |
 | 
 
-#### Country connected from
+### Country connected from
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -137,7 +137,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **Country uncommonly connected from in tenant**<br>*(CountryUncommonlyConnectedFromInTenant)* | 90 | The geo location, as resolved from the IP address, is not commonly connected from in the organization. | True, False |
 | 
 
-#### Device used to connect
+### Device used to connect
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -148,7 +148,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **Device uncommonly used in tenant**<br>*(DeviceUncommonlyUsedInTenant)* | 180 | The device is not commonly used in the organization. | True, False |
 | 
 
-#### Other device-related
+### Other device-related
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -156,7 +156,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **Device family uncommonly used in tenant**<br>*(DeviceFamilyUncommonlyUsedInTenant)* | 30 | The device family is not commonly used in the organization. | True, False |
 | 
 
-#### Internet Service Provider used to connect
+### Internet Service Provider used to connect
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -167,7 +167,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **ISP uncommonly used in tenant**<br>*(ISPUncommonlyUsedInTenant)* | 30 | The ISP is not commonly used in the organization. | True, False |
 | 
 
-#### Resource accessed
+### Resource accessed
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -178,7 +178,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **Resource uncommonly accessed in tenant**<br>*(ResourceUncommonlyAccessedInTenant)* | 180 | The resource is not commonly accessed in the organization. | True, False |
 | 
 
-#### Miscellaneous
+### Miscellaneous
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
