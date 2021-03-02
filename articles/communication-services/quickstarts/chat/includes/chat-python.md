@@ -196,7 +196,7 @@ send_message_result_id_w_str = chat_thread_client.send_message(content=content, 
 ## Get a specific chat message from a chat thread
 The `get_message` function can be used to retrieve a specific message, identified by a message_id
 
-- Use `message_id` to specify the message id
+- Use `message_id` to specify the message ID.
 
 The response of type `ChatMessage` contains all information related to the single message.
 
@@ -266,7 +266,7 @@ print('Updated message content: ', chat_message.content.message)
 ## Send read receipt for a message
 The `send_read_receipt` method can be used to posts a read receipt event to a thread, on behalf of a user.
 
-- Use `message_id` to specify the id of the latest message read by current user
+- Use `message_id` to specify the ID of the latest message read by current user.
 
 ```python
 message_id=send_message_result_id
