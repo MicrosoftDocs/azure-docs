@@ -50,16 +50,20 @@ In Azure Purview, you can create glossary terms and attach them to assets. Later
 
 1. In the **Insights** :::image type="icon" source="media/glossary-insights/ico-insights.png" border="false"::: area, select **Glossary** to display the Purview **Glossary insights** report.
 
-The **Glossary Insights** page displays the following areas:
-1. **High level KPIs** to show glossary terms and catalog users
+**Glossary Insights** provides you as a business user, valuable information to maintain a well-defined glossary for your organization.
 
-2. **Top glossary terms and count of assets** shows the tops 5 glossary terms with assets attached to them. All other assets are accounted in "Other" category in the graph.
+1. The report starts with **High level KPIs** that shows ***Total terms*** in your Purview account, ***Approved terms without assets*** and ***Expired terms with assets***. Each of these values will help you identify the health of your Glossary.
 
-3. **Glossary terms by term status** shows distribution of glossary terms by status such as "Draft", "Approved", "Alert" and "Expired". 
+   :::image type="content" source="./media/glossary-insights/glossary-insights1.png" alt-text="View glossary insights"::: 
 
-1. Hover or click on the slice of the graph with a status and note the count of terms with that status.
 
-1. **Distribution of roles by number of users** shows distribution of roles by number of users per role in Purview.
+2. **Snapshot of terms** section shows you term status as ***Draft***, ***Approved***, ***Alert*** and ***Expired*** for terms with a grouping of assets and terms without assets .
+
+3. Click on **View more** to see the term names with various status and more details about ***Stewards*** and ***Experts***. When you click "View more" for Approved terms with assets, Insights allows you to navigate to the glossary term detail page, where you can see what assets are tagged with the glossary term.
+
+4. In Glossary insights page, view a distribution of **Incomplete terms** by type of information missing. The graph shows count of terms with ***Missing definition***, ***Missing expert***, ***Missing steward*** and ***Missing multiple*** fields.
+
+1. Click on ***View more*** from **Incomplete terms**, to view the terms that have missing information. You can navigate to Glossary term detail page to input the missing information and fix the couple. 
 
    :::image type="content" source="./media/glossary-insights/glossary-insights1.png" alt-text="View glossary insights":::
 
