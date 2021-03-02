@@ -50,16 +50,16 @@ To configure the KDC proxy:
 
 4. Select the **Advanced** tab, then enter a value in the following format without spaces:
 
-    ```azure
-    kdcproxyname:s:<fqdn>
-    ```
+    
+    > kdcproxyname:s:\<fqdn\>
+    
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot showing the Advanced tab selected, with the value entered as described in step 4.](media/advanced-tab-selected.png)
 
 5. Select **Save**.
 
-6. The selected host pool should now begin to issue RDP connection files with the kdcproxyname field that you entered included.
+6. The selected host pool should now begin to issue RDP connection files that include the kdcproxyname value you entered in step 4.
 
 ## Next steps
 
