@@ -18,7 +18,7 @@ ms.custom: how-to
 
 Azure Machine Learning compute cluster and compute instance are managed compute infrastructure. As a managed service, Microsoft manages the host OS and the packages and software versions that are installed.
 
-The host OS for compute cluster and compute instance has been Ubuntu 16.04 LTS. On April 30, 2021, Ubuntu is ending support for 16.04. Microsoft will automatically update the base OS image to Ubuntu 18.04 LTS for continued security updates and support from the Ubuntu community.
+The host OS for compute cluster and compute instance has been Ubuntu 16.04 LTS. On April 30, 2021, Ubuntu is ending support for 16.04. Microsoft will automatically update the base OS image to Ubuntu 18.04 LTS. Updating to 18.04 will ensure continued security updates and support from the Ubuntu community.
 
 > [!TIP]
 > The host OS is not the OS version you might specify for the [environment](how-to-use-environments.md) when training or deploying a model. Environments run inside Docker, which is running on the host OS.
@@ -35,8 +35,8 @@ See the following links for information on stopping and restarting compute clust
 
 * __Azure Machine Learning compute cluster__:
 
-    * If the cluster is configured with __min nodes = 0__, it will automatically be upgraded when all jobs are completed and it reduces to 0 nodes.
-    * If __min nodes > 0__, temporarily change the minimum nodes to 0 and allow the cluster to reduce to 0 nodes.
+    * If the cluster is configured with __min nodes = 0__, it will automatically be upgraded when all jobs are completed and it reduces to zero nodes.
+    * If __min nodes > 0__, temporarily change the minimum nodes to zero and allow the cluster to reduce to zero nodes.
 
     For more information on changing the minimum nodes, see the [az ml computetarget update amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/update?view=azure-cli-latest#ext_azure_cli_ml_az_ml_computetarget_update_amlcompute) Azure CLI command, or the [AmlCompute.update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-) SDK reference.
 
