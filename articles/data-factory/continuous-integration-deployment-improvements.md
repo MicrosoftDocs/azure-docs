@@ -114,7 +114,7 @@ Follow the below steps to get started:
             "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
         },
         "dependencies":{
-            "@microsoft/azure-data-factory-utilities":"^0.1.2"
+            "@microsoft/azure-data-factory-utilities":"^0.1.3"
         }
     } 
     ```

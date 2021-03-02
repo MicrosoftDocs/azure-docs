@@ -99,7 +99,7 @@ Concurrent Request limits for **Base** and **Custom** models need to be adjusted
 Existing value of Concurrent Request limit parameter is **not** visible via Azure portal, Command-Line tools, or API requests. To verify the existing value, create an Azure Support Request.
 
 >[!NOTE]
->[Speech containers](speech-container-howto.md) do not require increases of Concurrent Request limit, as containers are constrained only by the CPUs of the hardware they are hosted on. However Speech containers have their own capacity limitations that should be taken into account. See the question *"Could you help with capacity planning and cost estimation of on-prem Speech-to-text containers?"* from the [Speech containers FAQ](speech-container-faq.md).
+>[Speech containers](speech-container-howto.md) do not require increases of Concurrent Request limit, as containers are constrained only by the CPUs of the hardware they are hosted on. However Speech containers have their own capacity limitations that should be taken into account. See the question *"Could you help with capacity planning and cost estimation of on-prem Speech-to-text containers?"* from the [Speech containers FAQ](./speech-container-howto.md).
 
 #### Have the required information ready:
 - For **Base model**:
@@ -200,4 +200,3 @@ Initiate the increase of Concurrent Request limit for your resource or if necess
   - Azure resource information you [collected before](#prepare-the-required-information) 
   - Complete entering the required information and click *Create* button in *Review + create* tab
   - Note the support request number in Azure portal notifications. You will be contacted shortly for further processing
-

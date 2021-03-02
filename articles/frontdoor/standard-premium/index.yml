@@ -100,7 +100,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Enable Private Link
-            url: how-to-enable-private-link.md
+            url: how-to-enable-private-link-web-app.md
           - text: Configure WAF policy
             url: ../../web-application-firewall/afds/waf-front-door-create-portal.md
 

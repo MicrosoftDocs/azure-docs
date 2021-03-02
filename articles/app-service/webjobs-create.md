@@ -10,7 +10,10 @@ ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 #Customer intent: As a web developer, I want to leverage background tasks to keep my application running smoothly.
-
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./webjobs-create-ieux
 ---
 
 # Run background tasks with WebJobs in Azure App Service
