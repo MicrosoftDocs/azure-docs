@@ -4,6 +4,8 @@
   items:
   - name: About Object Anchors
     href: overview.md
+  - name: Best Practices
+    href: best-practices.md
 - name: Concepts
   items:
   - name: Runtime SDK Overview
