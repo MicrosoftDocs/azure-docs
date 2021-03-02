@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/02/2021
 ms.author: thweiss
 ---
 
@@ -96,6 +96,11 @@ When creating a role definition, you need to provide:
     - `/` (account-level),
     - `/dbs/<database-name>` (database-level),
     - `/dbs/<database-name>/colls/<container-name>` (container-level).
+
+> [!NOTE]
+> The operations described below are currently available in:
+> - Azure PowerShell: [Az.CosmosDB 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - Azure CLI: ['cosmosdb-preview' extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
 
 ### Using Azure PowerShell
 
@@ -273,6 +278,11 @@ Once you've created your role definitions, you can associate them with your AAD 
 
 > [!NOTE]
 > If you want to create a role assignment for a service principal, make sure to use its **Object ID** as found in the **Enterprise applications** section of the **Azure Active Directory** portal blade.
+
+> [!NOTE]
+> The operations described below are currently available in:
+> - Azure PowerShell: [Az.CosmosDB 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - Azure CLI: ['cosmosdb-preview' extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
 
 ### Using Azure PowerShell
 
