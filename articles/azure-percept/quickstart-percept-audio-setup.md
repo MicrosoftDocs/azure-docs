@@ -26,8 +26,8 @@ Azure Percept Audio works out of the box with Azure Percept DK. No unique setup 
 
 1. Power on the devkit.
 
-    1. LED L01 on the Audio SoM will change to solid green to indicate that the device was powered on.
-    1. LED L02 will change to blinking green to indicate that the Audio SoM is authenticating.
+    - LED L01 on the Audio SoM will change to solid green to indicate that the device was powered on.
+    - LED L02 will change to blinking green to indicate that the Audio SoM is authenticating.
 
 1. Wait for the authentication process to complete--this can take up to 3 minutes.
 

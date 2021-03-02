@@ -13,6 +13,8 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 Azure Percept Studio is the single launch point for creating edge AI models and solutions. Azure Percept studio allows you to discover and complete guided workflows that make it easy to integrate edge AI capable hardware and powerful Azure AI and IoT cloud services.
 
+## Features
+
 In the studio, you can see your edge AI capable devices as end points for collecting initial and ongoing training data as well as deployment targets for model iterations. Having access to devices and training data allows for rapid prototyping and iterative Edge AI model development for both [vision](./tutorial-nocode-vision.md) and [speech](./tutorial-no-code-speech.md) scenarios.
 
 ![Project flow from homepage in Azure Percept Studio.](./media/overview-azure-percept-studio/percept-studio-flow.png)
