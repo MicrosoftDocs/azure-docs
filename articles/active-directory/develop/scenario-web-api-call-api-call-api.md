@@ -26,9 +26,15 @@ After you have a token, you can call a protected web API. You usually call the d
 
 When you use *Microsoft.Identity.Web*, you have three usage scenarios:
 
-- [Option 1: Call Microsoft Graph with the Microsoft Graph SDK](#option-1-call-microsoft-graph-with-the-sdk)
-- [Option 2: Call a downstream web API with the helper class](#option-2-call-a-downstream-web-api-with-the-helper-class)
-- [Option 3: Call a downstream web API without the helper class](#option-3-call-a-downstream-web-api-without-the-helper-class)
+- [A web API that calls web APIs: Call an API](#a-web-api-that-calls-web-apis-call-an-api)
+  - [Controller code](#controller-code)
+- [ASP.NET Core](#aspnet-core)
+      - [Option 1: Call Microsoft Graph with the SDK](#option-1-call-microsoft-graph-with-the-sdk)
+      - [Option 2: Call a downstream web API with the helper class](#option-2-call-a-downstream-web-api-with-the-helper-class)
+      - [Option 3: Call a downstream web API without the helper class](#option-3-call-a-downstream-web-api-without-the-helper-class)
+- [Java](#java)
+- [Python](#python)
+  - [Next steps](#next-steps)
 
 #### Option 1: Call Microsoft Graph with the SDK
 
@@ -156,7 +162,7 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 ```
 
 # [Python](#tab/python)
-A sample demonstrating this flow with MSAL Python isn't yet available.
+A sample demonstrating this flow with MSAL Python is available at [ms-identity-python-on-behalf-of](https://github.com/Azure-Samples/ms-identity-python-on-behalf-of).
 
 ---
 
