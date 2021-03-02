@@ -60,6 +60,12 @@ To [delete a Time Series Insights Environments](https://docs.microsoft.com/en-us
 az tsi environment delete --name "my-tsi-env" --resource-group $rg
 ```
 
+To [delete the storage account](https://docs.microsoft.com/en-us/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_delete), run the following command:
+
+```azurecli-interactive
+az storage account delete --name $storage --resource-group $rg
+```
+
 To [delete a resource group](/cli/azure/group#az-group-delete) and all its resources, run the following command:
 
 ```azurecli-interactive
