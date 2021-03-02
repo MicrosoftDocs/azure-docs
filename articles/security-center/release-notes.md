@@ -335,7 +335,7 @@ When you define a continuous export, set the export frequency:
 - **Streaming** – assessments will be sent in real time when a resource’s health state is updated (if no updates occur, no data will be sent).
 - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent every week (this is a preview feature for weekly snapshots of secure scores and regulatory compliance data).
 
-Learn more about the full capabilities of this feature in [Continuously export Security Center data](continuous-export.md)
+Learn more about the full capabilities of this feature in [Continuously export Security Center data](continuous-export.md).
 
 ## December 2020
 

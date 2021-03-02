@@ -274,6 +274,8 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-containerhost"></a>Alerts for containers - host level
 
+Azure Defender provides alerts for the Kubernetes cluster host level are not limited to the alerts below 
+
 [Further details and notes](defender-for-kubernetes-introduction.md)
 
 | Alert                                                                          | Description                                                                                                                                                                                                                                                                                                | MITRE tactics<br>([Learn more](#intentions)) | Severity |

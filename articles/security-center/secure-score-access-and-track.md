@@ -13,10 +13,6 @@ ms.date: 02/25/2021
 
 You can find your overall secure score, as well as your score per subscription, through the Azure portal or programatically as described in the following sections:
 
-- [Get your secure score from the portal](#get-your-secure-score-from-the-portal)
-- [Get your secure score from the REST API](#get-your-secure-score-from-the-rest-api)
-- [Get your secure score from Azure Resource Graph (ARG)](#get-your-secure-score-from-azure-resource-graph-arg)
-
 > [!TIP]
 > For a detailed explanation of how your scores are calculated, see [Calculations - understanding your score](secure-score-security-controls.md#calculations---understanding-your-score).
 
@@ -85,6 +81,14 @@ To access the secure score for multiple subscriptions with ARG:
 
 
 ## Tracking your secure score over time
+
+### Secure Score Over Time report in workbooks page
+
+Security Center's workbooks page includes a ready-made report for visually tracking the scores of your subscriptions, security controls, and more. Learn more in [Create rich, interactive reports of Security Center data](custom-dashboards-azure-workbooks.md).
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="A section of the secure score over time report from Azure Security Center's workbooks gallery":::
+
+### Power BI Pro dashboards
 
 If you're a Power BI user with a Pro account, you can use the **Secure Score Over Time** Power BI dashboard to track your secure score over time and investigate any changes.
 

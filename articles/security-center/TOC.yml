@@ -95,6 +95,9 @@
     href: overview-page.md
   - name: Use the Azure Defender dashboard
     href: azure-defender-dashboard.md
+  - name: Create rich, interactive reports of Security Center data
+    displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
+    href: custom-dashboards-azure-workbooks.md
   - name: Use security recommendations to improve security
     items:
     - name: Review your security recommendations
@@ -121,7 +124,7 @@
       href: defender-for-servers-introduction.md
     - name: Vulnerability scanning
       items:
-      - name: Integrated VA scanner for machines
+      - name: Scan your machines with the integrated VA scanner
         displayName: qualys, vulnerability, arc, hybrid
         href: deploy-vulnerability-assessment-vm.md
       - name: Scan your VMs with a BYOL VA solution
@@ -184,10 +187,10 @@
     - name: Container security features of Security Center
       displayName: kubernetes, aks, acr, registries, k8s
       href: container-security.md
-    - name: Azure Defender for Kubernetes
+    - name: Overview of Azure Defender for Kubernetes
       displayName: clusters, k8s, aks
       href: defender-for-kubernetes-introduction.md
-    - name: Azure Defender for container registries
+    - name: Overview of Azure Defender for container registries
       displayName: ACR, registry, images
       href: defender-for-container-registries-introduction.md
     - name: Scan your registry images for vulnerabilities
