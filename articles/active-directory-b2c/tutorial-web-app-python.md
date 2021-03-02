@@ -7,7 +7,7 @@ author: msmimart
 manager: celestedg
 
 ms.author: mimart
-ms.date: 06/12/2020
+ms.date: 04/01/2021
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
@@ -39,7 +39,7 @@ You need the following Azure AD B2C resources in place before continuing with th
 Additionally, you need the following in your local development environment:
 
 * [Visual Studio Code](https://code.visualstudio.com/) or another code editor
-* [Python](https://nodejs.org/en/download/) 2.7+ or 3+
+* [Python](https://www.python.org/downloads/)
 
 ## Add a redirect URI
 
@@ -126,7 +126,7 @@ CLIENT_SECRET = "22222222-2222-2222-2222-222222222222" # Placeholder - for use O
     ```console
     cd ms-identity-python-webapp
     ```
-1. Run the following commands to install the required packages from PyPi and run the web app on your local machine:
+1. Run the following commands to install the required packages from PyPI and run the web app on your local machine:
 
     ```console
     pip install -r requirements.txt
