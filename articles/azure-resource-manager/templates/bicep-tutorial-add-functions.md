@@ -2,10 +2,10 @@
 title: Tutorial - add functions to Azure Resource Manager Bicep files
 description: Add functions to your Bicep files to construct values.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/02/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: references_regions 
+ms.custom: references_regions
 ---
 
 # Tutorial: Add functions to Azure Resource Manager Bicep file
