@@ -16,7 +16,7 @@ This General Availability FAQ covers changes that were made in Q4 2019 and Q1 20
 We released a new version of VM insights in January 2020 ahead of our GA announcement. Customers enabling VM insights will now receive the GA version, but existing customers using the version of VM insights from Q4 2019 and earlier will be prompted to upgrade. This FAQ offers guidance to perform an upgrade at scale if you have large deployments across multiple workspaces.
 
 
-With this upgrade, VM insights performance data are stored in the same *InsightsMetrics* table as [Azure Monitor for containers](../containers/container-insights-overview.md), which makes it easier for you to query the two data sets. Also, you are able to store more diverse data sets that we could not store in the table previously used. 
+With this upgrade, Azure Monitor for VMs performance data are stored in the same *InsightsMetrics* table as [Container insights](../containers/container-insights-overview.md), which makes it easier for you to query the two data sets. Also, you are able to store more diverse data sets that we could not store in the table previously used. 
 
 Our performance views are now using the data we store in the *InsightsMetrics* table.  If you have not yet upgraded to use the latest VMInsights solution on your workspace, your charts will no longer display information.  You can upgrade from our **Get Started** page as described below.
 
@@ -24,7 +24,7 @@ Our performance views are now using the data we store in the *InsightsMetrics* t
 ## What is changing?
 We have released a new solution, named VMInsights, that includes additional capabilities for data collection along with a new location for storing this data in your Log Analytics workspace. 
 
-In the past, we enabled the ServiceMap solution on your workspace and setup performance counters in your Log Analytics workspace to send the data to the *Perf* table. This new solution sends the data to a table named *InsightsMetrics* that is also used by Azure Monitor for containers. This table schema allows us to store additional metrics and service data sets that are not compatible with the *Perf* table format.
+In the past, we enabled the ServiceMap solution on your workspace and setup performance counters in your Log Analytics workspace to send the data to the *Perf* table. This new solution sends the data to a table named *InsightsMetrics* that is also used by Container insights. This table schema allows us to store additional metrics and service data sets that are not compatible with the *Perf* table format.
 
 We have updated our Performance charts to use the data we store in the *InsightsMetrics* table. You can upgrade to use the *InsightsMetrics* table from our **Get Started** page as described below.
 

@@ -75,7 +75,7 @@ Azure Automanage is available at no additional cost in public preview. Attached 
 
 **Can I apply Automanage through Azure policy?**
 
-Yes, we have a built-in policy that will automatically apply Automanage to all VMs within your defined scope. You will also specify the configuration profile (DevTest or Production) along with your Automanage account. Learn more about enabling Automanage through Azure policy [here](virtual-machines-policy-enable.md).
+Yes, we have a built-in policy that will automatically apply Automanage to all VMs within your defined scope. You will also specify the environment configuration (DevTest or Production) along with your Automanage account. Learn more about enabling Automanage through Azure policy [here](virtual-machines-policy-enable.md).
 
 
 **What is an Automanage account?**
@@ -88,9 +88,9 @@ The Automanage Account is an MSI (Managed Service Identity) that provides the se
 If your VM is linked to an existing Log Analytics workspace, we will reuse that workspace to apply these solutions: Change Tracking, Inventory, and Update Management. All VMs connected to that workspace will have those solutions enabled.
 
 
-**Can I change the configuration profile of my VM?**
+**Can I change the environment of my VM?**
 
-At this time, you will need to disable Automanage for that VM and then re-enable Automanage with the desired configuration profile and preferences.
+At this time, you will need to disable Automanage for that VM and then re-enable Automanage with the desired environment and preferences.
 
 
 **If my VM is already configured for a service, like Update Management, will Automanage reconfigure it?**
