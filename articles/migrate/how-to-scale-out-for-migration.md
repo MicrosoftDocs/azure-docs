@@ -48,9 +48,9 @@ To add a scale-out appliance, follow the steps mentioned below:
 
 ### 1. Generate the Azure Migrate project key
 
-- In **Generate Azure Migrate project key**, provide a suffix name for the scale-out appliance. The suffix can contain only alphanumeric characters and has a length limit of 14 characters.
-- Click **Generate key** to start the creation of the required Azure resources. Please do not close the Discover page during the creation of resources.
-- Copy the generated key. You will need the key later to complete the registration of the scale-out appliance.
+1. In **Generate Azure Migrate project key**, provide a suffix name for the scale-out appliance. The suffix can contain only alphanumeric characters and has a length limit of 14 characters.
+2. Click **Generate key** to start the creation of the required Azure resources. Please do not close the Discover page during the creation of resources.
+3. Copy the generated key. You will need the key later to complete the registration of the scale-out appliance.
 
 ### 2. Download the installer for the scale-out appliance
 
@@ -60,11 +60,11 @@ In **Download Azure Migrate appliance**, click  **Download**. You need to downlo
 > [!TIP]
 > You can validate the checksum of the downloaded zip file using these steps:
 >
-> - Open command prompt as an administrator
-> - Run the following command to generate the hash for the zipped file:
+> 1. Open command prompt as an administrator
+> 2. Run the following command to generate the hash for the zipped file:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> - Download the latest version of the scale-out appliance installer from the portal if the computed hash value doesnt match this string:
+> 3. Download the latest version of the scale-out appliance installer from the portal if the computed hash value doesnt match this string:
 e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
 
 ### 3. Run the Azure Migrate installer script
@@ -104,10 +104,10 @@ Before you begin ensure that the [these Azure endpoints](migrate-appliance.md#pu
 - Accept the **license terms**, and read the third-party information.
 - In the configuration manager > **Set up prerequisites**, do the following:
    - **Connectivity**: The appliance checks that the server has internet access. If the server uses a proxy:
-     - Click on **Set up proxy** to specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
-     - Specify credentials if the proxy needs authentication.
-     - Only HTTP proxy is supported.
-     - If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
+     1. Click on **Set up proxy** to specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
+     2. Specify credentials if the proxy needs authentication.
+     3. Only HTTP proxy is supported.
+     4. If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
    - **Time sync**: The time on the appliance should be in sync with internet time for discovery to work properly.
    - **Install updates**: The appliance ensures that the latest updates are installed. After the check completes, you can click on **View appliance services** to see the status and versions of the services running on the appliance server.
    - **Install VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If it isn't installed, download VDDK 6.7 from VMware, and extract the downloaded zip contents to the specified location on the appliance, as provided in the **Installation instructions** on the Appliance Configuration Manager screen.
@@ -150,7 +150,7 @@ At this point you should revalidate that the scale-out appliance is able to conn
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Import successful":::
 
 > [!IMPORTANT]
-> If you edit the vCenter Server credentials on the primary appliance, ensure that you import the configuration files again to the scale-out appliance to get the latest configuration and continue any ongoing replications.<br/> If you do not need the scale-out appliance any longer, make sure that you disable the scale-out appliance. [**Learn more**](common-questions-appliance) on how to disable the scale-out appliance when not needed.
+> If you edit the vCenter Server credentials on the primary appliance, ensure that you import the configuration files again to the scale-out appliance to get the latest configuration and continue any ongoing replications.<br/> If you do not need the scale-out appliance any longer, make sure that you disable the scale-out appliance. [**Learn more**](./common-questions-appliance) on how to disable the scale-out appliance when not needed.
 
 ## Replicate
 
