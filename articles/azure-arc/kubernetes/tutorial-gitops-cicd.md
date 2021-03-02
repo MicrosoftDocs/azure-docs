@@ -91,7 +91,7 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
      --cluster-type connectedClusters \
      --operator-params='--git-readonly --git-path=arc-cicd-cluster/manifests'
 
-1. Ensure that Flux *only* uses the **arc-cicd-cluster/manifests** directory as the base path. Define the path by using the following operator parameter:
+1. Ensure that Flux *only* uses the `arc-cicd-cluster/manifests` directory as the base path. Define the path by using the following operator parameter:
 
    `--git-path=arc-cicd-cluster/manifests`
 
@@ -168,27 +168,27 @@ kubectl create secret docker-registry <secret-name> \
 | AZURE_SUBSCRIPTION | (your Azure Service Connection, which should be **arc-demo-acr** from earlier in the tutorial) |
 | AZURE_VOTE_IMAGE_REPO | The full path to the Azure Vote App repo, for example azurearctest.azurecr.io/azvote |
 | ENVIRONMENT_NAME | Dev |
-| MANIFESTS_BRANCH | master |
+| MANIFESTS_BRANCH | `master` |
 | MANIFESTS_REPO | The Git connection string for your GitOps repo |
 | PAT | A [created PAT token](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat) with Read/Write source permissions. Save it to use later when creating the `stage` variable group. |
-| SRC_FOLDER | azure-vote | 
-| TARGET_CLUSTER | arc-cicd-cluster |
-| TARGET_NAMESPACE | dev |
+| SRC_FOLDER | `azure-vote` | 
+| TARGET_CLUSTER | `arc-cicd-cluster` |
+| TARGET_NAMESPACE | `dev` |
 
 > [!IMPORTANT]
 > Mark your PAT as a secret type. In your applications, consider linking secrets from an [Azure KeyVault](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault).
 >
 ### Stage environment variable group
 
-1. Clone the az-vote-app-dev variable group.
+1. Clone the **az-vote-app-dev** variable group.
 1. Change the name to **az-vote-app-stage**.
 1. Ensure the following values for the corresponding variables:
 
 | Variable | Value |
 | -------- | ----- |
 | ENVIRONMENT_NAME | Stage |
-| MANIFESTS_BRANCH | stage |
-| TARGET_NAMESPACE | stage |
+| MANIFESTS_BRANCH | `stage` |
+| TARGET_NAMESPACE | `stage` |
 
 You're now ready to deploy to the dev and stage environments.
 
@@ -236,7 +236,7 @@ Once the template and manifest changes to the GitOps repo have been generated, t
 ## Set up environment approvals
 Upon app deployment, you can not only make changes to the code or templates, but you can also unintentionally put the cluster into a bad state.
 
-If the dev environment reveals a break after deployment, keep it from going to subsequent environments using environment approvals.
+If the dev environment reveals a break after deployment, keep it from going to later environments using environment approvals.
 
 1. In your Azure DevOps project, go to the environment that needs to be protected.
 1. Navigate to **Approvals and Checks** for the resource.
@@ -252,7 +252,7 @@ Next time the CD pipeline runs, the pipeline will pause after the GitOps PR crea
 
 With this baseline set of templates and manifests representing the state on the cluster, you'll make a small change to the app.
 
-1. In the **arc-cicd-demo-src** repo, edit [azure-vote/src/azure-vote-front/config_file.cfg](https://github.com/Azure/arc-cicd-demo-src/blob/master/azure-vote/src/azure-vote-front/config_file.cfg) file.
+1. In the **arc-cicd-demo-src** repo, edit [`azure-vote/src/azure-vote-front/config_file.cfg`](https://github.com/Azure/arc-cicd-demo-src/blob/master/azure-vote/src/azure-vote-front/config_file.cfg) file.
 
 2. Since "Cats vs Dogs" isn't getting enough votes, change it to "Tabs vs Spaces" to drive up the vote count.
 
