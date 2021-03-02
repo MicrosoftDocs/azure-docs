@@ -28,7 +28,7 @@ ms.date: 02/23/2021
 
      In this example, RADIUS authentication is selected. For RADIUS-based authentication, you can provide a secondary RADIUS server IP address and server secret.
 
-     :::image type="content" source="media/virtual-wan-p2s-configuration/ike-radius.png" alt-text="Screenshot of IPsec switch to custom.":::
+     :::image type="content" source="media/virtual-wan-p2s-configuration/ike-radius.png" alt-text="Screenshot of IKE.":::
 
    **OpenVPN**
 
