@@ -5,10 +5,16 @@
   items:
   - name: What is the Text Analytics API?
     href: overview.md
+  - name: Language support
+    href: language-support.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
   - name: Example user scenarios
     href: text-analytics-user-scenarios.md
   - name: What's new
     href: whats-new.md
+  - name: FAQ
+    href: text-analytics-resource-faq.md
 - name: Responsible use of AI
   items: 
   - name: Transparency notes
@@ -28,37 +34,8 @@
   - name: Integration and responsible use
     href: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
     displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-- name: Quickstarts
-  expanded: true
-  items:
-    - name: Use the client library and REST API
-      href: quickstarts/client-libraries-rest-api.md
-- name: Tutorials
-  items:
-    - name: Integrate Power BI to analyze customer feedback
-      href: Tutorials/tutorial-power-bi-key-phrases.md
-    - name: Text Analytics in Power Apps
-      href: https://powerapps.microsoft.com/tutorials/cognitive-services-api/
-    - name: Sentiment analysis on streaming data using Azure Databricks
-      maintainContext: true
-      href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services
-    - name: Use Flask to translate text, analyze sentiment, and synthesize speech
-      maintainContext: true
-      href: ../translator/tutorial-build-flask-app-translation-synthesis.md
-    - name: Extract information in Excel using Power Automate
-      href: tutorials/extract-excel-information.md
-- name: Concepts
-  items:
-  - name: Named entity types
-    href: named-entity-types.md
-  - name: Language support
-    href: language-support.md
-  - name: Text offsets
-    href: concepts/text-offsets.md
-  - name: Data limits
-    href: concepts/data-limits.md
-  - name: Model versioning
-    href: concepts/model-versioning.md
+- name: Text Analytics quickstart
+  href: quickstarts/client-libraries-rest-api.md
 - name: How-to guides
   items:
    - name: Call the Text Analytics API
@@ -88,6 +65,32 @@
         href: ../containers/index.yml
    - name: Migrate to version 3 of the API
      href: migration-guide.md
+- name: Concepts
+  items:
+  - name: Named entity types
+    href: named-entity-types.md
+  - name: Language support
+    href: language-support.md
+  - name: Text offsets
+    href: concepts/text-offsets.md
+  - name: Data limits
+    href: concepts/data-limits.md
+  - name: Model versioning
+    href: concepts/model-versioning.md
+- name: Tutorials
+  items:
+    - name: Integrate Power BI to analyze customer feedback
+      href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: Text Analytics in Power Apps
+      href: https://powerapps.microsoft.com/tutorials/cognitive-services-api/
+    - name: Sentiment analysis on streaming data using Azure Databricks
+      maintainContext: true
+      href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services
+    - name: Use Flask to translate text, analyze sentiment, and synthesize speech
+      maintainContext: true
+      href: ../translator/tutorial-build-flask-app-translation-synthesis.md
+    - name: Extract information in Excel using Power Automate
+      href: tutorials/extract-excel-information.md
 - name: Reference
   items:
   - name: CLI reference
@@ -132,10 +135,6 @@
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/text-analytics/context/context
   - name: External and community content
     href: text-analytics-resource-external-community.md
-  - name: FAQ
-    href: text-analytics-resource-faq.md
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Compliance
