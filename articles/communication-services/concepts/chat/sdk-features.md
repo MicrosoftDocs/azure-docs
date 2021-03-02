@@ -13,8 +13,6 @@ ms.service: azure-communication-services
 ---
 # Chat client library overview
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 Azure Communication Services Chat client libraries can be used to add rich, real-time chat to your applications.
 
 ## Chat client library capabilities

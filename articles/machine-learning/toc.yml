@@ -321,11 +321,14 @@
             - name: Create datasets with labels
               displayName: data, labels, torchvision
               href: how-to-use-labeled-dataset.md
-        - name: Get data
+        - name: Get & prepare data
           items: 
             - name: Data ingestion with Azure Data Factory
               displayName: data, ingestion, adf
               href: how-to-data-ingest-adf.md
+            - name: Data preparation with Azure Synapse
+              displayName: data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore
+              href: how-to-data-prep-synapse-spark-pool.md
             - name: DevOps for data ingestion
               displayName: data, ingestion, devops
               href: how-to-cicd-data-ingestion.md
@@ -534,6 +537,8 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Deploy ML pipelines (Python)
           href: how-to-deploy-pipelines.md
+        - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
+          href: how-to-use-synapsesparkstep.md
         - name: Trigger a pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Designer (drag-n-drop)
