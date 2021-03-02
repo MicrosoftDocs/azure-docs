@@ -106,13 +106,13 @@ Azure Arc is a hybrid management tool that will allow you to deploy applications
 
 Beginning March 2021, Azure Arc enabled Kubernetes will be generally available to the users and standard usage charges apply. As a valued preview customer, the Azure Arc enabled Kubernetes will be available to you at no charge for Azure Stack Edge device(s). To avail the preview offer, create a [Support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
 
-    1. Under **Issue type**, select **Billing**.
-    2. Under **Subscription**, select your subscription.
-    3. Under **Service**, select **My services**, then select **Azure Stack Edge**.
-    4. Under **Resource**, select your resource.
-    5. Under **Summary**, type a description of your issue.
-    6. Under **Problem type**, select **Unexpected Charges**.
-    7. Under **Problem subtype**, select **Help me understand charges on my free trial**.
+1. Under **Issue type**, select **Billing**.
+2. Under **Subscription**, select your subscription.
+3. Under **Service**, select **My services**, then select **Azure Stack Edge**.
+4. Under **Resource**, select your resource.
+5. Under **Summary**, type a description of your issue.
+6. Under **Problem type**, select **Unexpected Charges**.
+7. Under **Problem subtype**, select **Help me understand charges on my free trial**.
 
 
 ## Next steps
