@@ -78,18 +78,20 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
 
 1. [Create a new GitOps connection](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) to your newly imported **arc-cicd-demo-gitops** repo in Azure Repos.
 
-   ```az k8sconfiguration create \
-     --name cluster-config \
-     --cluster-name arc-cicd-cluster \
-     --resource-group myResourceGroup \
-     --operator-instance-name cluster-config \
-     --operator-namespace cluster-config \
-     --repository-url https://dev.azure.com/<Your organization>/arc-cicd-demo-gitops \
-     --https-user <Azure Repos username> \
-     --https-key <Azure Repos PAT token> \
-     --scope cluster \
-     --cluster-type connectedClusters \
-     --operator-params='--git-readonly --git-path=arc-cicd-cluster/manifests'
+   ```azurecli
+   az k8sconfiguration create \
+   --name cluster-config \
+   --cluster-name arc-cicd-cluster \
+   --resource-group myResourceGroup \
+   --operator-instance-name cluster-config \
+   --operator-namespace cluster-config \
+   --repository-url https://dev.azure.com/<Your organization>/arc-cicd-demo-gitops \
+   --https-user <Azure Repos username> \
+   --https-key <Azure Repos PAT token> \
+   --scope cluster \
+   --cluster-type connectedClusters \
+   --operator-params='--git-readonly --git-path=arc-cicd-cluster/manifests'
+   ```
 
 1. Ensure that Flux *only* uses the `arc-cicd-cluster/manifests` directory as the base path. Define the path by using the following operator parameter:
 
@@ -299,6 +301,26 @@ A successful CI pipeline run triggers the CD pipeline to complete the deployment
    `kubectl port-forward -n dev svc/azure-vote-front 8080:80`
 1. View the Azure Vote app in your browser at http://localhost:8080/ and verify the voting choices have changed to Tabs vs Spaces. 
 1. Repeat steps 1-8 for the `stage` environment.
+
+Your deployment is now complete. This ends the CI/CD workflow.
+
+## Clean up resources
+
+If you're not going to continue to use this application, delete
+any resources with the following steps:
+
+1. Arc GitOps connection
+   ```azurecli
+   az k8sconfiguration delete \
+   --name cluster-config \
+   --cluster-name arc-cicd-cluster \
+   --resource-group myResourceGroup \
+   --cluster-type connectedClusters
+   ```
+2. `dev` namespace
+   * `kubectl delete namespace dev`
+3. `stage` namespace
+   * `kubectl delete namespace stage`
 
 ## Next steps
 
