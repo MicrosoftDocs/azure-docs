@@ -16,7 +16,7 @@ ms.custom: how-to, devx-track-python, contperf-fy21q1
 
 # Create and run machine learning pipelines with Azure Machine Learning SDK
 
-In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Use **ML pipelines** to create a workflow that stitches together various ML phases. Then, publish that pipeline for later access or sharing with others. Track ML pipelines to see how your model is performing in the real world and to detect data drift. ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, as well as sharing ML workflows with others.
+In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Use **ML pipelines** to create a workflow that stitches together various ML phases. Then, publish that pipeline for later access or sharing with others. Track ML pipelines to see how your model is performing in the real world and to detect data drift. ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, and sharing ML workflows with others.
 
 This article is not a tutorial. For guidance on creating your first pipeline, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](tutorial-pipeline-batch-scoring-classification.md) or [Use automated ML in an Azure Machine Learning pipeline in Python](how-to-use-automlstep-in-pipelines.md). 
 
@@ -55,7 +55,7 @@ Create the resources required to run an ML pipeline:
 
 ### Set up a datastore
 
-A datastore stores the data for the pipeline to access. Each workspace has a default datastore. You can register additional datastores. 
+A datastore stores the data for the pipeline to access. Each workspace has a default datastore. You can register more datastores. 
 
 When you create your workspace, [Azure Files](../storage/files/storage-files-introduction.md) and [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md) are attached to the workspace. A default datastore is registered to connect to the Azure Blob storage. To learn more, see [Deciding when to use Azure Files, Azure Blobs, or Azure Disks](../storage/common/storage-introduction.md). 
 
@@ -115,7 +115,7 @@ In Azure Machine Learning, the term __compute__ (or __compute target__) refers t
 
 ### Azure Machine Learning compute
 
-You can create an Azure Machine Learning compute for running your steps. The code for other compute targets is very similar, with slightly different parameters, depending on the type. 
+You can create an Azure Machine Learning compute for running your steps. The code for other compute targets is similar, with slightly different parameters, depending on the type. 
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -171,7 +171,7 @@ else:
         pin_sdk_version=False)
 ```
 
-The code above shows two options for handling dependencies. As presented, with `USE_CURATED_ENV = True`, the configuration is based on a curated environment. Curated environments are "prebaked" with common inter-dependent libraries and can be significantly faster to bring online. Curated environments have prebuilt Docker images in the [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). For more information, see [Azure Machine Learning curated environments](resource-curated-environments.md).
+The code above shows two options for handling dependencies. As presented, with `USE_CURATED_ENV = True`, the configuration is based on a curated environment. Curated environments are "prebaked" with common inter-dependent libraries and can be faster to bring online. Curated environments have prebuilt Docker images in the [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). For more information, see [Azure Machine Learning curated environments](resource-curated-environments.md).
 
 The path taken if you change `USE_CURATED_ENV` to `False` shows the pattern for explicitly setting your dependencies. In that scenario, a new custom Docker image will be created and registered in an Azure Container Registry within your resource group (see [Introduction to private Docker container registries in Azure](../container-registry/container-registry-intro.md)). Building and registering this image can take quite a few minutes.
 
@@ -224,7 +224,7 @@ train_step = PythonScriptStep(
 )
 ```
 
-The above code is very similar to that for the data preparation step. The training code is in a directory separate from that of the data preparation code. The `OutputFileDatasetConfig` output of the data preparation step, `output_data1` is used as the _input_ to the training step. A new `OutputFileDatasetConfig` object, `training_results` is created to hold the results for a subsequent comparison or deployment step. 
+The above code is similar to the code in the data preparation step. The training code is in a directory separate from that of the data preparation code. The `OutputFileDatasetConfig` output of the data preparation step, `output_data1` is used as the _input_ to the training step. A new `OutputFileDatasetConfig` object, `training_results` is created to hold the results for a subsequent comparison or deployment step. 
 
 For other code examples, see how to [build a two step ML pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb) and [how to write data back to datastores upon run completion](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
 
@@ -344,7 +344,7 @@ train_step = PythonScriptStep(script_name="train.py",
 
 ### How Python environments work with pipeline parameters
 
-As discussed previously in [Configure the training run's environment](#configure-the-training-runs-environment), environment state and Python library dependencies are specified using an `Environment` object. Generally, you can specify an existing `Environment` by referring to its name and, optionally, a version:
+As discussed previously in [Configure the training run's environment](#configure-the-training-runs-environment), environment state, and Python library dependencies are specified using an `Environment` object. Generally, you can specify an existing `Environment` by referring to its name and, optionally, a version:
 
 ```python
 aml_run_config = RunConfiguration()
