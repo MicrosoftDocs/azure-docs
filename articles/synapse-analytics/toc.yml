@@ -1,6 +1,6 @@
 - name: Azure Synapse Analytics
   href: index.yml
-- name: Switch to dedicated SQL pool (formerly SQL DW)
+- name: Switch to dedicated SQL pool (formerly SQL DW) >
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Overview
   items:
@@ -59,7 +59,7 @@
     - name: Create a workspace using Azure PowerShell
       href: quickstart-create-workspace-powershell.md
       displayName: quickstart
-    - name: Deploy with a template
+    - name: Deploy with ARM template
       href: quickstart-deployment-template-workspaces.md
       displayName: quickstart
     - name: Link a Power BI workspace
