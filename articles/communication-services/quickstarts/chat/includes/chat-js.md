@@ -81,11 +81,7 @@ Create a file in the root directory of your project called **client.js** to cont
 
 ### Create a chat client
 
-<<<<<<< HEAD
 To create a chat client in your web app, you'll use the Communications Service **endpoint** and the **access token** that was generated as part of pre-requisite steps.
-=======
-To create a chat client in your web app, you'll use the Communications Service **endpoint** and the **access token** that was generated as part of prerequisite steps.
->>>>>>> 27d25544839a326517c7a05c19de9225461a8865
 
 User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. This quickstart does not cover creating a service tier to manage tokens for your chat application. See [chat concepts](../../../concepts/chat/concepts.md) for more information about chat architecture, and [user access tokens](../../access-tokens.md) for more information about access tokens.
 
@@ -136,11 +132,7 @@ Use the `createThread` method to create a chat thread.
 
 `createThreadRequest` is used to describe the thread request:
 
-<<<<<<< HEAD
 - Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
-=======
-- Use `topic` to give a topic to this chat. Topics can be updated after the chat thread is created using the `UpdateThread` function.
->>>>>>> 27d25544839a326517c7a05c19de9225461a8865
 - Use `participants` to list the participants to be added to the chat thread.
 
 When resolved, `createChatThread` method returns a `CreateChatThreadResponse`. This model contains a `chatThread` property where you can access the `id` of the newly created thread. You can then use the `id` to get an instance of a `ChatThreadClient`. The `ChatThreadClient` can then be used to perform operation within the thread such as sending messages or listing participants.
@@ -206,11 +198,7 @@ Use `sendMessage` method to send a chat message to the thread you just created, 
 
 `sendMessageOptions` describes the optional fields of chat message request:
 
-<<<<<<< HEAD
 - Use `priority` to specify the chat message priority level, such as 'Normal' or 'High'; this property can be used to have UI indicator for the recipient user in your app to bring attention to the message or execute custom business logic.
-=======
-- Use `priority` to specify the chat message priority level, such as 'Normal' or 'High'. This property can be used to display a UI indicator for the recipient user in your app to bring attention to the message or execute custom business logic.
->>>>>>> 27d25544839a326517c7a05c19de9225461a8865
 - Use `senderDisplayName` to specify the display name of the sender;
 
 The response `sendChatMessageResult` contains an ID, which is the unique ID of that message.
