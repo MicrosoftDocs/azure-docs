@@ -13,7 +13,7 @@ ms.reviewer: mikben
 
 # Authorize access with managed identity to your communication resource in your development environment
 
-The Azure Identity client library provides Azure Active Directory (AAD) token authentication support for the Azure SDK. The latest versions of the Azure Communication Services client libraries for .NET, Java, Python, and JavaScript integrate with the Azure Identity library to provide a simple and secure means to acquire an OAuth 2.0 token for authorization of Azure Communication Services requests.
+The Azure Identity client library provides Azure Active Directory (Azure AD) token authentication support for the Azure SDK. The latest versions of the Azure Communication Services client libraries for .NET, Java, Python, and JavaScript integrate with the Azure Identity library to provide a simple and secure means to acquire an OAuth 2.0 token for authorization of Azure Communication Services requests.
 
 An advantage of the Azure Identity client library is that it enables you to use the same code to authenticate across multiple services whether your application is running in the development environment or in Azure. The Azure Identity client library authenticates a security principal. When your code is running in Azure, the security principal is a managed identity for Azure resources. In the development environment, the managed identity does not exist, so the client library authenticates either the user or a registered application for testing purposes.
 
