@@ -39,7 +39,9 @@ In Unity, open the `quickstarts/apps/unity/basic` project.
 
 [!INCLUDE [Unity build and run](../../../includes/object-anchors-quickstart-unity-build-run.md)]
 
-[!INCLUDE [Unity build sample scene](../../../includes/object-anchors-quickstart-unity-build-sample-scene.md)]
+[!INCLUDE [Unity build sample scene 1](../../../includes/object-anchors-quickstart-unity-build-sample-scene-1.md)]
+
+[!INCLUDE [Unity build sample scene 2](../../../includes/object-anchors-quickstart-unity-build-sample-scene-2.md)]
 
 [!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 

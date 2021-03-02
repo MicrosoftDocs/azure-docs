@@ -40,7 +40,12 @@ In Unity, open the `quickstarts/apps/unity/mrtk` project.
 
 [!INCLUDE [Unity build and run](../../../includes/object-anchors-quickstart-unity-build-run.md)]
 
-[!INCLUDE [Unity build sample scene](../../../includes/object-anchors-quickstart-unity-build-sample-scene.md)]
+[!INCLUDE [Unity build sample scene 1](../../../includes/object-anchors-quickstart-unity-build-sample-scene-1.md)]
+
+When a "TMP Importer" dialog prompts you to import TextMesh Pro resources, select "Import TMP Essentials" to do so.
+:::image type="content" source="./media/textmesh-pro-importer-dialog.png" alt-text="Import TextMesh Pro resources":::
+
+[!INCLUDE [Unity build sample scene 2](../../../includes/object-anchors-quickstart-unity-build-sample-scene-2.md)]
 
 [!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 
