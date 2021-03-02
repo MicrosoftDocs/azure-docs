@@ -318,9 +318,9 @@ Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For
 
 ## Next steps
 
-This article is part three in a four-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+This article is part three of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
 
 * [Part 1: Virtual network overview](how-to-network-security-overview.md)
 * [Part 2: Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
-* [Part 5:Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Part 5: Enable studio functionality](how-to-enable-studio-virtual-network.md)
