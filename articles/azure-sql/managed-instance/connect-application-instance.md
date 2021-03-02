@@ -51,7 +51,7 @@ You can also connect your on-premises application to SQL Managed Instance. SQL M
 
 There are two options for how to connect on-premises to an Azure virtual network:
 
-- Site-to-site VPN connection ([Azure portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
+- Site-to-site VPN connection ([Azure portal](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) connection  
 
 If you've established an on-premises to Azure connection successfully and you can't establish a connection to SQL Managed Instance, check if your firewall has an open outbound connection on SQL port 1433 as well as the 11000-11999 range of ports for redirection.
@@ -101,7 +101,7 @@ For troubleshooting connectivity issues, review the following:
    ![ingress/egress numbers](./media/connect-application-instance/ingress-egress-numbers.png)
 
 - Check that the client machine (that is running the VPN client) has route entries for all the virtual networks that you need to access. The routes are stored in
-`%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
+`%AppData%\Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
 
    ![route.txt](./media/connect-application-instance/route-txt.png)
 

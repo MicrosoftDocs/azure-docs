@@ -46,7 +46,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: How soon should I see activities data after getting a premium license?**
 
-**A:** If you already have activities data as a free license, then you can see it immediately. If you don’t have any data, then it will take one or two days for the data to show up in the reports.
+**A:** If you already have activities data as a free license, then you can see it immediately. If you don’t have any data, then it will take up to 3 days for the data to show up in the reports.
 
 ---
 
@@ -141,8 +141,8 @@ Here, you can view all the policies that impacted the sign-in and the result for
 
 **A:** Conditional Access status can have the following values:
 
-* **Not Applied**: This means that there was no CA policy with the user and app in scope. 
-* **Success**: This means that there was a CA policy with the user and app in scope and CA policies were successfully satisfied. 
+* **Not Applied**: This means that there was no Conditional Access policy with the user and app in scope. 
+* **Success**: This means that there was a Conditional Access policy with the user and app in scope and Conditional Access policies were successfully satisfied. 
 * **Failure**: The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access.
     
 **Q: What are all possible values for the Conditional Access policy result?**
@@ -156,7 +156,7 @@ Here, you can view all the policies that impacted the sign-in and the result for
     
 **Q: The policy name in the all sign-in report does not match the policy name in CA. Why?**
 
-**A:** The policy name in the all sign-in report is based on the CA policy name at the time of the sign-in. This can be inconsistent with the policy name in CA if you updated the policy name later, that is, after the sign-in.
+**A:** The policy name in the all sign-in report is based on the Conditional Access policy name at the time of the sign-in. This can be inconsistent with the policy name in CA if you updated the policy name later, that is, after the sign-in.
 
 **Q: My sign-in was blocked due to a Conditional Access policy, but the sign-in activity report shows that the sign-in succeeded. Why?**
 

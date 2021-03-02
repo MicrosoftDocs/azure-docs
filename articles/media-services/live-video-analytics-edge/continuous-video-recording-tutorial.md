@@ -46,6 +46,9 @@ At the end of these steps, you'll have relevant Azure resources deployed in your
 * Azure Media Services account
 * Linux VM in Azure, with the [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) installed
 
+> [!TIP]
+> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](troubleshoot-how-to.md#common-error-resolutions)** to resolve some commonly encountered issues.
+
 ## Concepts
 
 As explained in the [media graph concept](media-graph-concept.md) article, a media graph lets you define:
@@ -59,7 +62,9 @@ As explained in the [media graph concept](media-graph-concept.md) article, a med
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="Media graph":::
 
-In this tutorial, you'll use one edge module built by using the [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera. Inside the media graph, you'll use an [RTSP source](media-graph-concept.md#rtsp-source) node to get the live feed and send that video to the [asset sink node](media-graph-concept.md#asset-sink), which records the video to an asset.
+In this tutorial, you'll use one edge module built by using the [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera. Inside the media graph, you'll use an [RTSP source](media-graph-concept.md#rtsp-source) node to get the live feed and send that video to the [asset sink node](media-graph-concept.md#asset-sink), which records the video to an asset. The video that will be used in this tutorial is [a highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv).
+<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 
 ## Set up your development environment
 
@@ -98,8 +103,8 @@ You'll need the files for these steps:
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    OUTPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/output"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
+    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"  
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
     CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
@@ -130,6 +135,12 @@ The deployment manifest defines what modules are deployed to an edge device and 
 1. Set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. Copy the string from the src/cloud-to-device-console-app/appsettings.json file. 
 
     ![Set IoT Hub connection string](./media/quickstarts/set-iotconnection-string.png)
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
+
 1. Right-click the src/edge/deployment.template.json file, and select **Generate IoT Edge Deployment Manifest**. Visual Studio Code uses the values from the .env file to replace the variables found in the deployment template file. This action creates a manifest file in the src/edge/config folder named **deployment.amd64.json**.
 
    ![Generate IoT Edge deployment manifest](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
@@ -153,6 +164,12 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
 
     ![Start Monitoring Built-in Event Endpoint](./media/quickstarts/start-monitoring-iothub-events.png)
 
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
+
 ## Run the program 
 
 1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
@@ -164,14 +181,14 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
-1. <!--In Visual Studio Code, go-->Go to src/cloud-to-device-console-app/operations.json.
+1. Go to src/cloud-to-device-console-app/operations.json.
 1. Under the **GraphTopologySet** node, edit the following:
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/2.0/topology.json" `
 1. Next, under the **GraphInstanceSet** and **GraphTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the previous graph topology:
 
     `"topologyName" : "CVRToAMSAsset"`  
-1. Open the [topology](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) in a browser, and look at assetNamePattern. To make sure you have an asset with a unique name, you might want to change the graph instance name in the operations.json file (from the default value of Sample-Graph-1).
+1. Open the [topology](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/2.0/topology.json) in a browser, and look at assetNamePattern. To make sure you have an asset with a unique name, you might want to change the graph instance name in the operations.json file (from the default value of Sample-Graph-1).
 
     `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
 1. Start a debugging session by selecting F5. You'll see some messages printed in the **TERMINAL** window.
@@ -182,7 +199,7 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -199,7 +216,7 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
      
      ```
      {
-       "@apiVersion": "1.0",
+       "@apiVersion": "2.0",
        "name": "Sample-Graph-1",
        "properties": {
          "topologyName": "CVRToAMSAsset",
@@ -272,7 +289,7 @@ When the graph instance is activated, the RTSP source node attempts to connect t
 
 ### RecordingStarted event
 
-When the asset sink node starts to record video, it emits this event of type Microsoft.Media.Graph.Operational.RecordingStarted:
+When the asset sink node starts to record video, it emits this event of type **Microsoft.Media.Graph.Operational.RecordingStarted**:
 
 ```
 [IoTHubMonitor] [9:42:38 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -297,7 +314,7 @@ The body section contains information about the output location. In this case, i
 
 ### RecordingAvailable event
 
-As the name suggests, the RecordingStarted event is sent when recording has started, but video data might not have been uploaded to the asset yet. When the asset sink node has uploaded video data to the asset, it emits this event of type Microsoft.Media.Graph.Operational.RecordingAvailable:
+As the name suggests, the RecordingStarted event is sent when recording has started, but video data might not have been uploaded to the asset yet. When the asset sink node has uploaded video data to the asset, it emits this event of type **Microsoft.Media.Graph.Operational.RecordingAvailable**:
 
 ```
 [IoTHubMonitor] [[9:43:38 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -324,7 +341,7 @@ The body section contains information about the output location. In this case, i
 
 ### RecordingStopped event
 
-When you deactivate the Graph Instance, the asset sink node stops recording video to the asset. It emits this event of type Microsoft.Media.Graph.Operational.RecordingStopped:
+When you deactivate the Graph Instance, the asset sink node stops recording video to the asset. It emits this event of type **Microsoft.Media.Graph.Operational.RecordingStopped**:
 
 ```
 [IoTHubMonitor] [11:33:31 PM] Message received from [lva-sample-device/lvaEdge]:

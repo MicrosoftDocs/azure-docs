@@ -1,9 +1,6 @@
 ---
 title: Use C# with MapReduce on Hadoop in HDInsight - Azure 
 description: Learn how to use C# to create MapReduce solutions with Apache Hadoop in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: "hdinsightactive, seoapr2020, devx-track-csharp"
@@ -18,7 +15,7 @@ Apache Hadoop streaming allows you to run MapReduce jobs using a script or execu
 
 ## .NET on HDInsight
 
-HDInsight clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6. For more information on the version of Mono included with HDInsight, see [Apache Hadoop components available with different HDInsight versions](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).
+HDInsight clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6. For more information on the version of Mono included with HDInsight, see [Apache Hadoop components available with HDInsight versions](../hdinsight-component-versioning.md).
 
 For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/).
 

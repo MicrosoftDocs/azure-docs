@@ -5,7 +5,7 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 10/05/2019
+ms.date: 01/15/2021
 ms.author: rohink
 ---
 # Azure Private DNS FAQ
@@ -82,6 +82,10 @@ If your existing private DNS zone were created using preview API, you must migra
 ## How do I migrate my existing private DNS zones to the new model?
 
 We strongly recommend that you migrate to the new resource model as soon as possible. Legacy resource model will be supported, however, further features will not be developed on top of this model. In future, we intend to deprecate it in favor of new resource model. For guidance on how to migrate your existing private DNS zones to new resource model see[migration guide for Azure DNS private zones](private-dns-migration-guide.md).
+
+### Does Azure DNS private zones store any customer content?
+
+No, Azure DNS private zones doesn't store any customer content.
 
 ## Next steps
 

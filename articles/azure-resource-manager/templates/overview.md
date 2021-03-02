@@ -2,7 +2,7 @@
 title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates (ARM templates) for deployment of resources.
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 01/20/2021
 ---
 
 # What are ARM templates?
@@ -121,9 +121,16 @@ If you envision your tiers having separate lifecycles, you can deploy your three
 
 For information about nested templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
 
+## Share templates
+
+After creating your template, you may wish to share it with other users in your organization. [Template specs](template-specs.md) enable you to store a template as a resource type. You use role-based access control to manage access to the template spec. Users with read access to the template spec can deploy it, but not change the template.
+
+This approach means you can safely share templates that meet your organization's standards.
+
 ## Next steps
 
 * For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first ARM template](template-tutorial-create-first-template.md).
+* To learn about ARM templates through a guided set of modules on Microsoft Learn, see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
 * For information about the properties in template files, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 * To learn about exporting templates, see [Quickstart: Create and deploy ARM templates by using the Azure portal](quickstart-create-templates-use-the-portal.md).
 * For answers to common questions, see [Frequently asked questions about ARM templates](frequently-asked-questions.md).

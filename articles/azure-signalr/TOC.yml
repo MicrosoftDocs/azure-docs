@@ -59,6 +59,22 @@
       href: ../azure-functions/functions-bindings-signalr-service.md
     - name: Upstream settings
       href: concept-upstream.md
+  - name: Availability
+    items:
+      - name: Gracefully shutdown your app server.
+        href: server-graceful-shutdown.md
+  - name: Security
+    items:
+      - name: Authorization
+        items:
+          - name: Authorize access with Azure Active Directory
+            href: authorize-access-azure-active-directory.md
+      - name: Authentication
+        items:
+        - name: Authenticate from an application
+          href: authenticate-application.md
+        - name: Authenticate with a managed identity
+          href: authenticate-managed-identity.md
   - name: High availability
     items:
     - name: Resiliency and disaster recovery
@@ -75,6 +91,8 @@
     items:
     - name: Security baseline
       href: security-baseline.md
+    - name: Security controls by Azure Policy
+      href: ./security-controls-policy.md
 - name: How-to guides
   items:
   - name: Scale

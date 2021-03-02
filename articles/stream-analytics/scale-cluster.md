@@ -3,7 +3,6 @@ title: Resize an Azure Stream Analytics cluster
 description: Learn how to scale up and down the size of an Azure Stream Analytics cluster.
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc

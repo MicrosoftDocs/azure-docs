@@ -56,7 +56,7 @@ Once you're ready for launch, you can use all the workflow scripts you created f
 Automai lets you use the same scripts for performance testing, functional testing, performance monitoring, and even robotic process automation, all on one platform.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N).
-- [Go to the partner website](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580).
+- [Go to the partner website](https://www.automai.com/windows-virtual-desktop-performance-testing/).
 
 ## Cloudhouse
 

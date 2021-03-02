@@ -1,7 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Analyze video and audio files
-titleSuffix: Azure Media Services
 description: Learn how to analyze audio and video content using AudioAnalyzerPreset and VideoAnalyzerPreset in Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -254,7 +253,7 @@ Example:
       ],
       "instances": [
         {
-	  "thumbnailId": "00000000-0000-0000-0000-000000000000",
+          "thumbnailId": "00000000-0000-0000-0000-000000000000",
           "start": "00: 00: 05.2670000",
           "end": "00: 00: 10.3000000"
         }

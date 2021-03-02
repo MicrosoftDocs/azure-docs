@@ -53,15 +53,15 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 2. Click **Add Sync**.
 
-      ![Add](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
+    ![Add](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
 
 3. Select **Sync users from Microsoft Azure** and click **Next**.
 
-      ![Sync](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
+    ![Screenshot that shows 'Sync users from Microsoft Azure Active Directory' selected.](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
 
 4. Copy and save the **Tenant URL** and the **Secret token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Adobe Identity Management application in the Azure portal.
 
-      ![Sync](media/adobe-identity-management-provisioning-tutorial/token.png)
+    ![Sync](media/adobe-identity-management-provisioning-tutorial/token.png)
 
 ## Step 3. Add Adobe Identity Management from the Azure AD application gallery
 
@@ -84,27 +84,27 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Adobe Identity Management**.
 
-	![The Adobe Identity Management link in the Applications list](common/all-applications.png)
+    ![The Adobe Identity Management link in the Applications list](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+    ![Provisioning tab](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab automatic](common/provisioning-automatic.png)
+    ![Provisioning tab automatic](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input your Adobe Identity Management Tenant URL and Secret Token retrieved earlier from Step 2. Click **Test Connection** to ensure Azure AD can connect to Adobe Identity Management. If the connection fails, ensure your Adobe Identity Management account has Admin permissions and try again.
 
- 	![Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-	![Notification Email](common/provisioning-notification-email.png)
+    ![Notification Email](common/provisioning-notification-email.png)
 
 7. Select **Save**.
 
@@ -135,15 +135,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 13. To enable the Azure AD provisioning service for Adobe Identity Management, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+    ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
 14. Define the users and/or groups that you would like to provision to Adobe Identity Management by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Provisioning Scope](common/provisioning-scope.png)
+    ![Provisioning Scope](common/provisioning-scope.png)
 
 15. When you are ready to provision, click **Save**.
 
-	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+    ![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 

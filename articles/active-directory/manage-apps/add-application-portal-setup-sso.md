@@ -3,7 +3,7 @@ title: 'Quickstart: Set up SAML-based single sign-on (SSO) for an application in
 description: This quickstart walks through the process of setting up SAML-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart

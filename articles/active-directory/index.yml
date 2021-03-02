@@ -85,19 +85,19 @@ conceptualContent:
         url: ./authentication/index.yml
         text: See more
 
-    - title: Cloud provisioning
+    - title: Cloud sync
       links:
-        - url: ./cloud-provisioning/what-is-cloud-provisioning.md
+        - url: ./cloud-sync/what-is-cloud-sync.md
           itemType: overview
-          text:  What is cloud provisioning?
-        - url: ./cloud-provisioning/tutorial-single-forest.md
+          text:  What is cloud sync?
+        - url: ./cloud-sync/tutorial-single-forest.md
           itemType: tutorial
           text:  Integrate a single forest with a single Azure AD tenant
-        - url: ./cloud-provisioning/how-to-install.md
+        - url: ./cloud-sync/how-to-install.md
           itemType: how-to-guide
-          text:  Install Azure AD Connect cloud provisioning agent
+          text:  Install Azure AD Connect provisioning agent
       footerLink:
-        url: ./cloud-provisioning/index.yml
+        url: ./cloud-sync/index.yml
         text: See more
 
     - title: Conditional Access

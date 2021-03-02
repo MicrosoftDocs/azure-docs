@@ -1,18 +1,12 @@
 ---
 title: Schema and data type mapping in copy activity 
 description: Learn about how copy activity in Azure Data Factory maps schemas and data types from source data to sink data.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-
 ---
 # Schema and data type mapping in copy activity
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -62,7 +56,7 @@ The following properties are supported under `translator` in addition to `mappin
 
 For example, to copy data from Salesforce to Azure SQL Database and explicitly map three columns:
 
-1. On copy activity -> mapping tab, click **Import schema** button to import both source and sink schemas.
+1. On copy activity -> mapping tab, click **Import schemas** button to import both source and sink schemas.
 
 2. Map the needed fields and exclude/delete the rest.
 
@@ -176,11 +170,14 @@ And you want to copy it into a text file in the following format with header lin
 
 You can define such mapping on Data Factory authoring UI:
 
-1. On copy activity -> mapping tab, click **Import schema** button to import both source and sink schemas. As Data Factory samples the top few objects when importing schema, if any field doesn't show up, you can add it to the correct layer in the hierarchy - hover on an existing field name and choose to add a node, an object, or an array.
+1. On copy activity -> mapping tab, click **Import schemas** button to import both source and sink schemas. As Data Factory samples the top few objects when importing schema, if any field doesn't show up, you can add it to the correct layer in the hierarchy - hover on an existing field name and choose to add a node, an object, or an array.
 
 2. Select the array from which you want to iterate and extract data. It will be auto populated as **Collection reference**. Note only single array is supported for such operation.
 
 3. Map the needed fields to sink. Data Factory automatically determines the corresponding JSON paths for the hierarchical side.
+
+> [!NOTE]
+> For records where the array marked as collection reference is empty and the check box is selected, the entire record is skipped.
 
 ![Map hierarchical to tabular using UI](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 
@@ -332,12 +329,12 @@ The following properties are supported in copy activity for data type conversion
             "type": "TabularTranslator",
             "typeConversion": true,
             "typeConversionSettings": {
-            	"allowDataTruncation": true,
-              	"treatBooleanAsNumber": true,
-              	"dateTimeFormat": "yyyy-MM-dd HH:mm:ss.fff",
-              	"dateTimeOffsetFormat": "yyyy-MM-dd HH:mm:ss.fff zzz",
-              	"timeSpanFormat": "dd\.hh\:mm",
-              	"culture": "en-gb"
+                "allowDataTruncation": true,
+                "treatBooleanAsNumber": true,
+                "dateTimeFormat": "yyyy-MM-dd HH:mm:ss.fff",
+                "dateTimeOffsetFormat": "yyyy-MM-dd HH:mm:ss.fff zzz",
+                "timeSpanFormat": "dd\.hh\:mm",
+                "culture": "en-gb"
             }
         }
 	},

@@ -3,7 +3,7 @@ title: Telemetry, property, and command payloads in Azure IoT Central | Microsof
 description: Azure IoT Central device templates let you specify the telemetry, properties, and commands of a device must implement. Understand the format of the data a device can exchange with IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/05/2020
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -182,6 +182,9 @@ The following snippet from a device model shows the definition of a `geopoint` t
   "schema": "geopoint"
 }
 ```
+
+> [!NOTE]
+> The **geopoint** schema type is not part of the [Digital Twins Definition Language specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
 
 A device client should send the telemetry as JSON that looks like the following example. IoT Central displays the value as a pin on a map:
 
@@ -571,6 +574,9 @@ The following snippet from a device model shows the definition of a `geopoint` p
 }
 ```
 
+> [!NOTE]
+> The **geopoint** schema type is not part of the [Digital Twins Definition Language specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
+
 A device client should send a JSON payload that looks like the following example as a reported property in the device twin:
 
 ```json
@@ -716,7 +722,7 @@ IoT Central expects a response from the device to writeable property updates. Th
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | The property change operation was successfully completed. |
 | `'ac': 202`  or `'ac': 201` | Pending | The property change operation is pending or in progress |
-| `'ac': 4xx` | Error | The requested property change was not valid or had an error |
+| `'ac': 4xx` | Error | The requested property change wasn't valid or had an error |
 | `'ac': 5xx` | Error | The device experienced an unexpected error when processing the requested change. |
 
 `av` is the version number sent to the device.
@@ -823,9 +829,6 @@ The device should send the following JSON payload to IoT Central after it proces
 ```
 
 ## Commands
-
-> [!NOTE]
-> In the IoT Central web UI, you can select the **Queue if offline** option for a command. This setting isn't included if you export a model or interface from the device template.
 
 The following snippet from a device model shows the definition of a command that has no parameters and that doesn't expect the device to return anything:
 
@@ -995,6 +998,91 @@ When the device has finished processing the request, it should send a property t
 }
 ```
 
+### Offline commands
+
+In the IoT Central web UI, you can select the **Queue if offline** option for a command. Offline commands are one-way notifications to the device from your solution that are delivered as soon as a device connects. Offline commands can have request parameters but don't return a response.
+
+The **Queue if offline** setting isn't included if you export a model or interface from the device template. You can't tell by looking at an exported model or interface JSON that a command is an offline command.
+
+Offline commands use [IoT Hub cloud-to-device messages](../../iot-hub/iot-hub-devguide-messages-c2d.md) to send the command and payload to the device.
+
+The following snippet from a device model shows the definition of a command. The command has an object parameter with a datetime field and an enumeration:
+
+```json
+{
+  "@type": "Command",
+  "displayName": {
+    "en": "Generate Diagnostics"
+  },
+  "name": "GenerateDiagnostics",
+  "request": {
+    "@type": "CommandPayload",
+    "displayName": {
+      "en": "Payload"
+    },
+    "name": "Payload",
+    "schema": {
+      "@type": "Object",
+      "displayName": {
+        "en": "Object"
+      },
+      "fields": [
+        {
+          "displayName": {
+            "en": "StartTime"
+          },
+          "name": "StartTime",
+          "schema": "dateTime"
+        },
+        {
+          "displayName": {
+            "en": "Bank"
+          },
+          "name": "Bank",
+          "schema": {
+            "@type": "Enum",
+            "displayName": {
+              "en": "Enum"
+            },
+            "enumValues": [
+              {
+                "displayName": {
+                  "en": "Bank 1"
+                },
+                "enumValue": 1,
+                "name": "Bank1"
+              },
+              {
+                "displayName": {
+                  "en": "Bank2"
+                },
+                "enumValue": 2,
+                "name": "Bank2"
+              },
+              {
+                "displayName": {
+                  "en": "Bank3"
+                },
+                "enumValue": 3,
+                "name": "Bank3"
+              }
+            ],
+            "valueSchema": "integer"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+If you enable the **Queue if offline** option in the device template UI for the command in the previous snippet, then the message the device receives includes the following properties:
+
+| Property name | Example value |
+| ---------- | ----- |
+| `custom_properties` | `{'method-name': 'GenerateDiagnostics'}` |
+| `data` | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
+
 ## Next steps
 
-As a device developer, now that you"ve learned about device templates, a suggested next steps is to read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
+As a device developer, now that you've learned about device templates, a suggested next steps is to read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.

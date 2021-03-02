@@ -6,7 +6,8 @@ ms.author: danis
 ms.date: 05/06/2020
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ---
 
 # Configure Azure Image Builder Service permissions using PowerShell
@@ -210,4 +211,4 @@ New-AzRoleAssignment @parameters
 
 ## Next steps
 
-For more information, see [Azure Image Builder overview](image-builder-overview.md).
+For more information, see [Azure Image Builder overview](../image-builder-overview.md).

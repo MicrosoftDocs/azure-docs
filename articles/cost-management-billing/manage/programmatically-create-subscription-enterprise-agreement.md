@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 01/13/2021
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -26,7 +26,9 @@ When you create an Azure subscription programmatically, that subscription is gov
 You must have an Owner role on an Enrollment Account to create a subscription. There are two ways to get the role:
 
 * The Enterprise Administrator of your enrollment can [make you an Account Owner](https://ea.azure.com/helpdocs/addNewAccount) (sign in required) which makes you an Owner of the Enrollment Account.
-* An existing Owner of the Enrollment Account can [grant you access](grant-access-to-create-subscription.md). Similarly, to use a service principal to create an EA subscription, you must [grant that service principal the ability to create subscriptions](grant-access-to-create-subscription.md).
+* An existing Owner of the Enrollment Account can [grant you access](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Similarly, to use a service principal to create an EA subscription, you must [grant that service principal the ability to create subscriptions](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
+  > [!NOTE]
+  > Ensure that you use the correct API version to give the enrollment account owner permissions. For this article and for the APIs documented in it, use the [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put) API. If you're migrating to use the newer APIs, you must grant owner permission again using [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Your previous configuration made with the [2015-07-01 version](grant-access-to-create-subscription.md) doesn't automatically convert for use with the newer APIs.
 
 ## Find accounts you have access to
 

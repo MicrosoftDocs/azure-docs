@@ -212,7 +212,7 @@ When you use the Request trigger to handle inbound requests, you can model the r
 > If a Response action includes these headers, Logic Apps removes these headers from the generated response message without showing any warning or error:
 >
 > * `Allow`
-> * `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
+> * `Content-*` headers except for `Content-Disposition`, `Content-Encoding`, and `Content-Type` when you use POST and PUT operations, but are not included for GET operations
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`

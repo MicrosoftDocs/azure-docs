@@ -6,8 +6,7 @@ documentationcenter:
 author: prtyag
 manager: hrushib
 editor:
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -30,7 +29,7 @@ Instance(**Type I and Type II**)
 
 ## Supported SKUs
 
-|  Hana Large Instance type   |  OS vendor   |  OS package version   |  SKU	       |
+|  Hana Large Instance type   |  OS vendor   |  OS package version   |  SKU |
 |-----------------------------|--------------|-----------------------|-------------|
 |   Type I                    |  SuSE        |   SLES 12 SP3         |  S224m      |
 |   Type I                    |  SuSE        |   SLES 12 SP4         |  S224m      |

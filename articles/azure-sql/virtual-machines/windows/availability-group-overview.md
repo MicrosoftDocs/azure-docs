@@ -9,6 +9,7 @@ tags: azure-service-management
 
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -60,7 +61,7 @@ To get started, see [configure a load balancer](availability-group-vnn-azure-loa
 
 ### DNN listener
 
-SQL Server 2019 CU8 introduces support for the distributed network name (DNN) listener. The DNN listener replaces the traditional availability group listener, negating the need for an Azure Loud Balancer to route traffic on the Azure network. 
+SQL Server 2019 CU8 introduces support for the distributed network name (DNN) listener. The DNN listener replaces the traditional availability group listener, negating the need for an Azure Load Balancer to route traffic on the Azure network. 
 
 The DNN listener is the recommended HADR connectivity solution in Azure as it simplifies deployment, reduces maintenance and cost, and reduces failover time in the event of a failure. 
 

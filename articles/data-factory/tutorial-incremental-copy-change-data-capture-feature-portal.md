@@ -1,19 +1,16 @@
 ---
 title: Incrementally copy data using Change Data Capture
 description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from a table in Azure SQL Managed Instance database to Azure Storage.
-services: data-factory
 ms.author: nihurt
 author: hurtn
-manager: 
-ms.reviewer: 
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
-ms.custom: 
-ms.date: 05/04/2020
+ms.date: 02/18/2021
 ---
 
 # Incrementally load data from Azure SQL Managed Instance to Azure Storage using change data capture (CDC)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on **change data capture (CDC)** information in the source Azure SQL Managed Instance database to an Azure blob storage.  
 
@@ -60,17 +57,17 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     create table customers 
     (
     customer_id int, 
-	first_name varchar(50), 
-	last_name varchar(50), 
-	email varchar(100), 
-	city varchar(50), CONSTRAINT "PK_Customers" PRIMARY KEY CLUSTERED ("customer_id") 
+    first_name varchar(50), 
+    last_name varchar(50), 
+    email varchar(100), 
+    city varchar(50), CONSTRAINT "PK_Customers" PRIMARY KEY CLUSTERED ("customer_id") 
      );
     ```
 4. Enable **Change Data Capture** mechanism on your database and the source table (customers) by running the following SQL query:
 
     > [!NOTE]
     > - Replace &lt;your source schema name&gt; with the schema of your Azure SQL MI that has the customers table.
-    > - Change data capture doesn't do anything as part of the transactions that change the table being tracked. Instead, the insert, update, and delete operations are written to the transaction log. Data that is deposited in change tables will grow unmanageably if you do not periodically and systematically prune the data. For more information, see [Enable Change Data Capture for a database](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?enable-change-data-capture-for-a-database=&view=sql-server-ver15)
+    > - Change data capture doesn't do anything as part of the transactions that change the table being tracked. Instead, the insert, update, and delete operations are written to the transaction log. Data that is deposited in change tables will grow unmanageably if you do not periodically and systematically prune the data. For more information, see [Enable Change Data Capture for a database](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server#enable-change-data-capture-for-a-database)
 
     ```sql
     EXEC sys.sp_cdc_enable_db 
@@ -85,12 +82,12 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
     ```sql
      insert into customers 
-     	(customer_id, first_name, last_name, email, city) 
+         (customer_id, first_name, last_name, email, city) 
      values 
-     	(1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
-     	(2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
+         (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
+         (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
         (3, 'Nathalia', 'Seckom', 'nseckom2@blogger.com', 'Portsmouth');
-	```
+    ```
 
     > [!NOTE]
     > No historical changes to the table are captured prior to change data capture being enabled.
@@ -108,7 +105,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
 
-    *Data factory name “ADFTutorialDataFactory” is not available.*
+    *Data factory name "ADFTutorialDataFactory" is not available.*
 3. Select **V2** for the **version**.
 4. Select your Azure **subscription** in which you want to create the data factory.
 5. For the **Resource Group**, do one of the following steps:
@@ -188,7 +185,7 @@ In this step, you create a dataset to represent the source data.
 3. In the **Set properties** tab, set the dataset name and connection information:
  
    1. Select **AzureSqlMI1** for **Linked service**.
-   2. Select **[dbo].[dbo_customers_CT]** for **Table name**.  Note: this table was automatically created when CDC was enabled on the customers table. Changed data is never queried from this table directly but is instead extracted through the [CDC functions](/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql?view=sql-server-ver15).
+   2. Select **[dbo].[dbo_customers_CT]** for **Table name**.  Note: this table was automatically created when CDC was enabled on the customers table. Changed data is never queried from this table directly but is instead extracted through the [CDC functions](/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql).
 
    ![Source connection](./media/tutorial-incremental-copy-change-data-capture-feature-portal/source-dataset-configuration.png)
 
@@ -228,12 +225,12 @@ In this step, you create a pipeline, which first checks the number of changed re
 4. Switch to the **Settings** in the **Properties** window:
    1. Specify the SQL MI dataset name for the **Source Dataset** field.
    2. Select the Query option and enter the following into the query box:
-	```sql
-	DECLARE  @from_lsn binary(10), @to_lsn binary(10);  
-	SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers');  
-	SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal',  GETDATE());
-	SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
-	```
+    ```sql
+    DECLARE  @from_lsn binary(10), @to_lsn binary(10);  
+    SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers');  
+    SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal',  GETDATE());
+    SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
+    ```
    3. Enable **First row only**
 
     ![Lookup Activity - settings](./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-settings.png)

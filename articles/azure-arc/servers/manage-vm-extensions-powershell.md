@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension using Azure PowerShell
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments using Azure PowerShell.
-ms.date: 11/24/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
 ---
 
@@ -30,8 +30,10 @@ The following example enables the Log Analytics VM extension on a Arc enabled Li
 ```powershell
 PS C:\> $Setting = @{ "workspaceId" = "workspaceId" }
 PS C:\> $protectedSetting = @{ "workspaceKey" = "workspaceKey" }
-PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType OmsAgentforLinux"
+PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType "OmsAgentForLinux"
 ```
+
+To enable the Log Analytics VM extension on an Arc enabled Windows server, change the value for the `-ExtensionType` parameter to `"MicrosoftMonitoringAgent"` in the previous example.
 
 The following example enables the Custom Script Extension on an Arc enabled server:
 

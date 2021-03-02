@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # A web app that calls web APIs: Call a web API

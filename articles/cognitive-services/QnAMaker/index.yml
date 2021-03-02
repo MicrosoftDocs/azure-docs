@@ -60,9 +60,7 @@ landingContent:
         links:
           - text: "Quickstart: With Postman or cURL"
             url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-          - text: "Quickstart: Using REST and cURL"
-            url: quickstarts/quickstart-rest-curl.md
-          - text: "Quickstart: Using SDK"
+          - text: "Quickstart: Using SDK and REST API"
             url: quickstarts/quickstart-sdk.md
       - linkListType: how-to-guide
         links:

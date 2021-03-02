@@ -47,7 +47,7 @@ You can create charts with supported metrics by using the **Metrics** tab of the
 
 :::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Topic - Metrics page":::
 
-To learn more about metrics, see [Metrics in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md)
+To learn more about metrics, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
 
 For example, see the metrics chart for the **Published Events** metric.
 
@@ -86,7 +86,7 @@ You can create charts with supported metrics by using the **Metrics** tab of the
 
 :::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="System Topic - Metrics page":::
 
-To learn more about metrics, see [Metrics in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md)
+To learn more about metrics, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
 
 
 ## Next steps

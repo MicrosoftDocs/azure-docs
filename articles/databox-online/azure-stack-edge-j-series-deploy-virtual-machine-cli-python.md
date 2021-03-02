@@ -1,13 +1,13 @@
 ---
 title: Deploy VMs on your Azure Stack Edge Pro device GPU via Azure CLI and Python
-description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge Pro GPU device using Azure CLI and Python.
+description: Describes how to create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device using Azure CLI and Python.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 01/22/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -24,9 +24,9 @@ This tutorial describes how to create and manage a VM on your Azure Stack Edge P
 
 The deployment workflow is illustrated in the following diagram.
 
-![VM deployment workflow](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
+![VM deployment workflow](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
-The high level summary of the deployment workflow are as follows:
+The high-level summary of the deployment workflow is as follows:
 
 1. Connect to Azure Resource Manager
 2. Create a resource group
@@ -40,7 +40,7 @@ The high level summary of the deployment workflow are as follows:
 10. Create a VNet
 11. Create a VNIC using the VNet subnet ID
 
-For a detailed explanation of the workflow diagram, see [Deploy VMs on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). For information on how to connect to Azure Resource Manager, see [Connect to Azure Resource Manager using Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
+For a detailed explanation of the workflow diagram, see [Deploy VMs on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). For information on how to connect to Azure Resource Manager, see [Connect to Azure Resource Manager using Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
 
 ## Prerequisites
 
@@ -67,9 +67,9 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 3. You created and installed all the certificates on your Azure Stack Edge Pro device and in the trusted store of your client. Follow the procedure described in [Step 2: Create and install certificates](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
-4. You created a Base-64 encoded *.cer* certificate (PEM format) for your Azure Stack Edge Pro device. This is already uploaded as signing chain on the device and installed in the trusted root store on your client. This certificate is also required in *pem* format for Python to work on this client.
+4. You created a Base-64 encoded *.cer* certificate (PEM format) for your Azure Stack Edge Pro device. That certificate is already uploaded as signing chain on the device and installed in the trusted root store on your client. This certificate is also required in *pem* format for Python to work on this client.
 
-    Convert this certificate to pem format by using the `certutil` command. You must run this command in the directory that contains your certificate.
+    Convert this certificate to `pem` format by using the `certutil` command. You must run this command in the directory that contains your certificate.
 
     ```powershell
     certutil.exe <SourceCertificateName.cer> <DestinationCertificateName.pem>
@@ -83,9 +83,9 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     CertUtil: -encode command completed successfully.
     PS C:\Certificates>
     ```    
-    You will also add this pem to the Python store later.
+    You will also add this `pem` to the Python store later.
 
-5. You assigned the device IP in your **Network** page in the local web UI of device. You need to add this IP to:
+5. You assigned the device IP in your **Network** page in the local web UI of device. Add this IP to:
 
     - The host file on the client, OR,
     - The DNS server configuration
@@ -114,13 +114,13 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 ### Verify profile and install Azure CLI
 
-<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908&preserve-view=true#azure-resource-manager-api-profiles).-->
 
 1. Install Azure CLI on your client. In this example, Azure CLI 2.0.80 was installed. To verify the version of Azure CLI, run the `az --version` command.
 
-    The following is a sample output of the above command:
+    The following is sample output from the above command:
 
-    ```powershell
+    ```output
     PS C:\windows\system32> az --version
     azure-cli                         2.0.80
     
@@ -144,9 +144,9 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     PS C:\windows\system32>
     ```
 
-    If you do not have Azure CLI, download and [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). You can run Azure CLI using Windows command prompt or through Windows PowerShell.
+    If you do not have Azure CLI, download and [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows). You can run Azure CLI using Windows command prompt or through Windows PowerShell.
 
-2. Make a note of the CLI's Python location. You need this to determine the location of trusted root certificate store for Azure CLI.
+2. Make a note of the CLI's Python location. You need the Python location to determine the location of the trusted root certificate store for Azure CLI.
 
 3. To run the sample script used in this article, you will need the following Python library versions:
 
@@ -168,7 +168,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     The following sample output shows the installation of Haikunator:
 
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install haikunator
 
     Collecting haikunator
@@ -184,7 +184,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     The following sample output shows the installation of pip for `msrestazure`: 
     
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install msrestazure==0.6.2
     Requirement already satisfied: msrestazure==0.6.2 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (0.6.2)
     Requirement already satisfied: msrest<2.0.0,>=0.6.0 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (from msrestazure==0.6.2) (0.6.10)
@@ -200,7 +200,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 1. Find the certificate location on your machine. The location may vary depending on where you installed `az cli`. Run Windows PowerShell as administrator. Switch to the path where `az cli` installed Python: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe`.
 
-    To get the certificate location type the following command:
+    To get the certificate location, type the following command:
 
     ```powershell
     .\python -c "import certifi; print(certifi.where())"
@@ -208,7 +208,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     
     The cmdlet returns the certificate location, as seen below:  
         
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python -c "import certifi; print(certifi.where())"
     C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
@@ -263,7 +263,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     $ENV:ADAL_PYTHON_SSL_NO_VERIFY = 1
     ```
 
-2. Set environment variables for the script for Azure Resource Manager endpoint, location where the resources are created and the path to where the source VHD is located. The location for the resources is fixed across all the Azure Stack Edge Pro devices and is set to `dbelocal`. You also need to specify the address prefixes and private IP address. All the following environment variables are values based on your values with the exception of `AZURE_RESOURCE_LOCATION`, which should be hardcoded to `"dbelocal"`.
+2. Set environment variables for the script for Azure Resource Manager endpoint, location where the resources are created and the path to where the source VHD is located. The location for the resources is fixed across all the Azure Stack Edge Pro devices and is set to `dbelocal`. You also need to specify the address prefixes and private IP address. All the following environment variables are values based on your values except for `AZURE_RESOURCE_LOCATION`, which should be hardcoded to `"dbelocal"`.
 
     ```powershell
     $ENV:ARM_ENDPOINT = "https://management.team3device.teatraining1.com"
@@ -316,11 +316,11 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     ```powershell
     PS C:\Certificates> az login -u EdgeARMuser
     ```
-   After using the login command you are prompted for a password. Provide the Azure Resource Manager password.
+   After using the login command, you are prompted for a password. Provide the Azure Resource Manager password.
 
-   The following shows sample output for a successful sign in after supplying the password:  
+   The following shows sample output for a successful sign-in after supplying the password:  
    
-   ```powershell
+   ```output
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az login -u EdgeARMuser
    Password:
    [
@@ -339,7 +339,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-   Make a note of the `id` and `tenantId` values as these correspond to your Azure Resource Manager Subscription ID and Azure Resource Manager Tenant ID respectively and will be used in the later step.
+   Make a note of the `id` and `tenantId` values as these values correspond to your Azure Resource Manager Subscription ID and Azure Resource Manager Tenant ID respectively and will be used in the later step.
        
    The following environment variables need to be set to work as *service principal*:
 

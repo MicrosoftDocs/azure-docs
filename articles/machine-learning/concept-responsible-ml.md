@@ -8,7 +8,8 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 11/16/2020
+ms.date: 02/25/2021
+ms.custom: responsible-ml
 #intent: As a data scientist, I want to know learn what responsible machine learning is and how I can use it in Azure Machine Learning
 ---
 
@@ -37,7 +38,7 @@ As artificial intelligence and autonomous systems integrate more into the fabric
 
 Hard to explain or opaque-box systems can be problematic because it makes it hard for stakeholders like system developers, regulators, users, and business decision makers to understand why systems make certain decisions. Some AI systems are more explainable than others and there's sometimes a tradeoff between a system with higher accuracy and one that is more explainable.
 
-To build interpretable AI systems, use [InterpretML](https://github.com/interpretml/interpret), an open-source package built by Microsoft. [InterpretML can be used inside of Azure Machine Learning](how-to-machine-learning-interpretability.md) to [interpret and explain your machine learning models](how-to-machine-learning-interpretability-aml.md), including [automated machine learning models](how-to-machine-learning-interpretability-automl.md).
+To build interpretable AI systems, use [InterpretML](https://github.com/interpretml/interpret), an open-source package built by Microsoft. The InterpretML package supports a wide variety of interpretability techniques such as SHapley Additive exPlanations (SHAP), mimic explainer and permutation feature importance (PFI).  [InterpretML can be used inside of Azure Machine Learning](how-to-machine-learning-interpretability.md) to [interpret and explain your machine learning models](how-to-machine-learning-interpretability-aml.md), including [automated machine learning models](how-to-machine-learning-interpretability-automl.md).
 
 ## Mitigate fairness in machine learning models
 
@@ -58,10 +59,7 @@ When data is used for analysis, it's important that the data remains private and
 
 In traditional scenarios, raw data is stored in files and databases. When users analyze data, they typically use the raw data. This is a concern because it might infringe on an individual's privacy. Differential privacy tries to deal with this problem by adding "noise" or randomness to the data so that users can't identify any individual data points.
 
-Implementing differentially private systems is difficult. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) is an open-source project that contains different components for building global differentially private systems. To learn more about differential privacy and the WhiteNoise project, see the [preserve data privacy by using differential privacy and WhiteNoise](./concept-differential-privacy.md) article.
-
-> [!NOTE]
-> Please note that we are renaming the toolkit and will be introducing the new name in the coming weeks. 
+Implementing differentially private systems is difficult. [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core) is an open-source project that contains different components for building global differentially private systems. To learn more about differential privacy and the SmartNoise project, see the [preserve data privacy by using differential privacy and SmartNoise](./concept-differential-privacy.md) article.
 
 ## Work on encrypted data with homomorphic encryption
 

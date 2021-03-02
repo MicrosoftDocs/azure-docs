@@ -215,5 +215,5 @@ Check the link in the following section for troubleshooting Azure File Sync prob
 There's more to discover about Azure file shares and Azure File Sync. The following articles contain advanced options, best practices, and troubleshooting help. These articles link to [Azure file share documentation](storage-files-introduction.md) as appropriate.
 
 * [Azure File Sync overview](./storage-sync-files-planning.md)
-* [Azure File Sync deployment guide](storage-files-deployment-guide.md)
+* [Azure File Sync deployment guide](./storage-how-to-create-file-share.md)
 * [Azure File Sync troubleshooting](storage-sync-files-troubleshoot.md)

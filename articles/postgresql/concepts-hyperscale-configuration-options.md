@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 7/1/2020
+ms.date: 1/12/2021
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) configuration options
@@ -139,6 +139,13 @@ be scaled down (decreased).
 Up to 2 TiB of storage is supported on coordinator and worker nodes. See the
 available storage options and IOPS calculation [above](#compute-and-storage)
 for node and cluster sizes.
+
+### Database creation
+
+The Azure portal provides credentials to connect to exactly one database per
+Hyperscale (Citus) server group, the `citus` database. Creating another
+database is currently not allowed, and the CREATE DATABASE command will fail
+with an error.
 
 ## Pricing
 For the most up-to-date pricing information, see the service

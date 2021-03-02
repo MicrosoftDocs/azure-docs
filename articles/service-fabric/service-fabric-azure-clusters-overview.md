@@ -89,16 +89,17 @@ For more information, read [Upgrading clusters](service-fabric-cluster-upgrade.m
 ## Supported operating systems
 You are able to create clusters on virtual machines running these operating systems:
 
-| Operating system | Earliest supported Service Fabric version |
-| --- | --- |
-| Windows Server 2012 R2 | All versions |
-| Windows Server 2016 | All versions |
-| Windows Server 1709 | 6.0 |
-| Windows Server 1803 | 6.4 |
-| Windows Server 1809 | 6.4.654.9590 |
-| Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6.0 |
-| Linux Ubuntu 18.04 | 7.1 |
+| Operating system | Earliest supported Service Fabric version | Last supported Service Fabric version |
+| --- | --- | --- | 
+| Windows Server 2019 | 6.4.654.9590 | N/A |
+| Windows Server 2016 | All versions | N/A |
+| Windows Server 20H2 | 7.2.445.9590 | N/A |
+| Windows Server 1809 | 6.4.654.9590 | 7.2.445.9590 |
+| Windows Server 1803 | 6.4 | 7.2.445.9590 |
+| Windows Server 1709 | 6.0 | 7.2.445.9590 |
+| Windows Server 2012 | All versions | N/A | 
+| Linux Ubuntu 16.04 | 6.0 | N/A |
+| Linux Ubuntu 18.04 | 7.1 | N/A |
 
 For additional information see [Supported Cluster Versions in Azure](./service-fabric-versions.md#supported-operating-systems)
 

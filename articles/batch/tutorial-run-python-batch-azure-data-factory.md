@@ -11,7 +11,7 @@ ms.custom: mvc, devx-track-python
 
 # Tutorial: Run Python scripts through Azure Data Factory using Azure Batch
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Authenticate with Batch and Storage accounts
@@ -143,12 +143,23 @@ In case warnings or errors are produced by the execution of your script, you can
 1. Click on the task that had a failure exit code.
 1. View `stdout.txt` and `stderr.txt` to investigate and diagnose your problem.
 
+## Clean up resources
+
+Although you're not charged for jobs and tasks themselves, you are charged for compute nodes. Thus, we recommend that you allocate pools only as needed. When you delete the pool, all task output on the nodes is deleted. However, the input and output files remain in the storage account. When no longer needed, you can also delete the Batch account and the storage account.
+
 ## Next steps
 
-In this tutorial, you explored an example that taught you how to run Python scripts as part of a pipeline through Azure Data Factory using Azure Batch.
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Authenticate with Batch and Storage accounts
+> * Develop and run a script in Python
+> * Create a pool of compute nodes to run an application
+> * Schedule your Python workloads
+> * Monitor your analytics pipeline
+> * Access your logfiles
 
 To learn more about Azure Data Factory, see:
 
 > [!div class="nextstepaction"]
 > [Azure Data Factory overview](../data-factory/introduction.md)
-

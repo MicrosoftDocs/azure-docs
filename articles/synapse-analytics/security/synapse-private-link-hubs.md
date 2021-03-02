@@ -30,10 +30,10 @@ You can create your private link hub by searching for *Synapse private link hubs
 ## Azure Private Links Hubs and Azure Virtual Network
 You must connect your Azure virtual network to the Synapse private link hub resource to secure the end-to-end connection to Synapse Studio. For this, you must create a private endpoint from your virtual network to the private link hub you created. You can use the Azure portal for your private link hub and go to the Private endpoint section. Select "+ Private endpoint" to create a new private endpoint that connects to your private link hub.
 
-:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Create a private endpoint to private link hub":::
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Screenshot that shows the private endpoint connections page.":::
 
 Make sure to choose the "Microsoft.Synapse/privateLinkHubs" Resource type on the "Resource" tab.
-:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Create a private endpoint to private link hub":::
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Screenshot that shows the 'Create a private endpoint' page with 'Resource type' highlighted.":::
 
 On "Configuration" tab, select "privatelink.azuresynapse.net" for Private DNS Zones when integrating with your virtual network and private DNS zone.
 

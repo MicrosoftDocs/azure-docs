@@ -347,9 +347,6 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4
 
   ![Initializr page](media/spring-cloud-quickstart-java/initializr-page.png)
 
-> [!NOTE]
-> We've identified an issue with Spring Boot 2.4 on TLS authentication between your apps and Eureka and are currently working with the Spring community to resolve it. Please refer to our [FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) for the workaround.
-
 1. Click **Generate** when all the dependencies are set. Download and unpack the package, then create a web controller for a simple web application by adding `src/main/java/com/example/hellospring/HelloController.java` as follows:
 
     ```java
@@ -414,7 +411,7 @@ The following procedure builds and deploys the application using the Azure CLI. 
 1. Create the app with public endpoint assigned:
 
     ```azurecli
-    az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --is-public
+    az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --is-public true
     ```
 
 1. Deploy the Jar file for the app (`target\hellospring-0.0.1-SNAPSHOT.jar` on Windows):

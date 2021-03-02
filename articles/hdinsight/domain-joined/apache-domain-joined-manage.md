@@ -1,12 +1,8 @@
 ---
 title: Manage Enterprise Security Package clusters - Azure HDInsight
 description: Learn how to manage Azure HDInsight clusters with Enterprise Security Package.
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh 
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ---
 
@@ -46,7 +42,7 @@ Security and user isolation are important for a HDInsight cluster with Enterpris
 
 |Workload|Scenario|Access Method|
 |--------|--------|-------------|
-|Apache Hadoop|Hive – Interactive Jobs/Queries	|<ul><li>[Beeline](#beeline)</li><li>[Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Hadoop|Hive – Interactive Jobs/Queries    |<ul><li>[Beeline](#beeline)</li><li>[Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|Interactive Jobs/Queries, PySpark interactive|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin with Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|Batch Scenarios – Spark submit, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
 |Interactive Query (LLAP)|Interactive|<ul><li>[Beeline](#beeline)</li><li>[Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
@@ -58,7 +54,7 @@ Security and user isolation are important for a HDInsight cluster with Enterpris
 Using the standard APIs helps from security perspective. You also get the following benefits:
 
 - **Management** – You can manage your code and automate jobs using standard APIs – Livy, HS2 etc.
-- **Audit** – With SSH, there's no way to audit, which users SSH'd to the cluster. This wouldn’t be the case when jobs are constructed via standard endpoints as they would be executed in context of user.
+- **Audit** – With SSH, there's no way to audit, which users SSH'd to the cluster. This wouldn't be the case when jobs are constructed via standard endpoints as they would be executed in context of user.
 
 ### <a name="beeline"></a>Use Beeline
 
@@ -88,7 +84,7 @@ A HDInsight cluster with ESP has three new users in addition to Ambari Admin.
 
 - **Ranger admin**:  This account is the local Apache Ranger admin account. It isn't an active directory domain user. This account can be used to setup policies and make other users admins or delegated admins (so that those users can manage policies). By default, the username is *admin* and the password is the same as the Ambari admin password. The password can be updated from the Settings page in Ranger.
 
-- **Cluster admin domain user**: This account is an active directory domain user designated as the Hadoop cluster admin including Ambari and Ranger. You must provide this user’s credentials during cluster creation. This user has the following privileges:
+- **Cluster admin domain user**: This account is an active directory domain user designated as the Hadoop cluster admin including Ambari and Ranger. You must provide this user's credentials during cluster creation. This user has the following privileges:
     - Join machines to the domain and place them within the OU that you specify during cluster creation.
     - Create service principals within the OU that you specify during cluster creation.
     - Create reverse DNS entries.

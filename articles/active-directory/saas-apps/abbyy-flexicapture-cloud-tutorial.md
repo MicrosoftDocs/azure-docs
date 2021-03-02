@@ -84,16 +84,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.flexicapture.com/FlexiCapture12/Login/<TENANT_NAME>`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ABBYY FlexiCapture Cloud Client support team](mailto:support@abbyy.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ABBYY FlexiCapture Cloud Client support team](mailto:support@abbyy.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up ABBYY FlexiCapture Cloud** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.

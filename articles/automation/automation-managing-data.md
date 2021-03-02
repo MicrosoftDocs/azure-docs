@@ -3,7 +3,7 @@ title: Azure Automation data security
 description: This article helps you learn how Azure Automation protects your privacy and secures your data.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 07/20/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
 ---
 # Management of Azure Automation data
@@ -20,11 +20,9 @@ To insure the security of data in transit to Azure Automation, we strongly encou
 
 * DSC nodes
 
-Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. Starting in September 2020, we begin enforcing TLS 1.2 and later versions of the encryption protocol.
+Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. We do not recommend explicitly setting your agent to only use TLS 1.2 unless absolutely necessary, as it can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols as they become available, such as TLS 1.3.
 
-We do not recommend explicitly setting your agent to only use TLS 1.2 unless absolutely necessary, as it can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols as they become available, such as TLS 1.3.
-
-For information about TLS 1.2 support with the Log Analytics agent for Windows and Linux, which is a dependency for the Hybrid Runbook Worker role, see [Log Analytics agent overview - TLS 1.2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol). 
+For information about TLS 1.2 support with the Log Analytics agent for Windows and Linux, which is a dependency for the Hybrid Runbook Worker role, see [Log Analytics agent overview - TLS 1.2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol).
 
 ### Platform-specific guidance
 
@@ -45,7 +43,7 @@ The following table summarizes the retention policy for different resources.
 |:--- |:--- |
 | Accounts |An account is permanently removed 30 days after a user deletes it. |
 | Assets |An asset is permanently removed 30 days after a user deletes it, or 30 days after a user deletes an account that holds the asset. Assets include variables, schedules, credentials, certificates, Python 2 packages, and connections. |
-| DSC Nodes |A DSC node is permanently removed 30 days after being unregistered from an Automation account using Azure portal or the [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) cmdlet in Windows PowerShell. A node is also permanently removed 30 days after a user deletes the account that holds the node. |
+| DSC Nodes |A DSC node is permanently removed 30 days after being unregistered from an Automation account using Azure portal or the [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode) cmdlet in Windows PowerShell. A node is also permanently removed 30 days after a user deletes the account that holds the node. |
 | Jobs |A job is deleted and permanently removed 30 days after modification, for example, after the job completes, is stopped, or is suspended. |
 | Modules |A module is permanently removed 30 days after a user deletes it, or 30 days after a user deletes the account that holds the module. |
 | Node Configurations/MOF Files |An old node configuration is permanently removed 30 days after a new node configuration is generated. |
@@ -74,8 +72,7 @@ You can't retrieve the values for encrypted variables or the password fields of 
 
 ### DSC configurations
 
-You can export your DSC configurations to script files using either the Azure portal or the 
-[Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0) cmdlet in Windows PowerShell. You can import and use these configurations in another Automation account.
+You can export your DSC configurations to script files using either the Azure portal or the [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration) cmdlet in Windows PowerShell. You can import and use these configurations in another Automation account.
 
 ## Geo-replication in Azure Automation
 

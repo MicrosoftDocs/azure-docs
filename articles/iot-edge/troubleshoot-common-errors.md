@@ -167,7 +167,7 @@ In the deployment.json file:
    ```json
    "edgeHub": {
        "settings": {
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+           "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
        },
        "type": "docker",
@@ -181,7 +181,7 @@ In the deployment.json file:
    ```json
    "edgeHub": {
        "settings": {
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.0"
+           "image": "mcr.microsoft.com/azureiotedge-hub:1.1"
        },
        "type": "docker",
        "status": "running",
@@ -279,7 +279,7 @@ In the deployment manifest:
 "edgeHub": {
   "type": "docker",
   "settings": {
-    "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+    "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
     "createOptions": <snipped>
   },
   "env": {

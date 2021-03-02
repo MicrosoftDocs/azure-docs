@@ -19,21 +19,65 @@ Compared to v2, the v3 version of the Speech services REST API for speech-to-tex
 
 ## Forward compatibility
 
-All entities from v2 can be also found in the v3 API under the same identity. Where the schema of a result has changed, (for example, transcriptions), the result of a GET in the v3 version of the API uses the v3 schema. The result of a GET in the v2 version of the API uses the same v2 schema. Newly created entities on v3 are **not** available in results from v2 APIs.
+All entities from v2 can also be found in the v3 API under the same identity. Where the schema of a result has changed, (for example, transcriptions), the result of a GET in the v3 version of the API uses the v3 schema. The result of a GET in the v2 version of the API uses the same v2 schema. Newly created entities on v3 are **not** available in responses from v2 APIs. 
+
+## Migration steps
+
+This is a summary list of items you need to be aware of when you are preparing for migration. Details are found in the individual links. Depending on your current use of the API not all steps listed here may apply. Only a few changes require non-trivial changes in the calling code. Most changes just require a change to item names. 
+
+General changes: 
+
+1. [Change the host name](#host-name-changes)
+
+1. [Rename the property id to self in your client code](#identity-of-an-entity) 
+
+1. [Change code to iterate over collections of entities](#working-with-collections-of-entities)
+
+1. [Rename the property name to displayName in your client code](#name-of-an-entity)
+
+1. [Adjust the retrieval of the metadata of referenced entities](#accessing-referenced-entities)
+
+1. If you use Batch transcription: 
+
+    * [Adjust code for creating batch transcriptions](#creating-transcriptions) 
+
+    * [Adapt code to the new transcription results schema](#format-of-v3-transcription-results)
+
+    * [Adjust code for how results are retrieved](#getting-the-content-of-entities-and-the-results)
+
+1. If you use Custom model training/testing APIs: 
+
+    * [Apply modifications to custom model training](#customizing-models)
+
+    * [Change how base and custom models are retrieved](#retrieving-base-and-custom-models)
+
+    * [Rename the path segment accuracytests to evaluations in your client code](#accuracy-tests)
+
+1. If you use endpoints APIs:
+
+    * [Change how endpoint logs are retrieved](#retrieving-endpoint-logs)
+
+1. Other minor changes: 
+
+    * [Pass all custom properties as customProperties instead of properties in your POST requests](#using-custom-properties)
+
+    * [Read the location from response header Location instead of Operation-Location](#response-headers)
 
 ## Breaking changes
-
-The list of breaking changes has been sorted by the magnitude of changes required to adapt. Only a few changes require non-trivial changes in the calling code. Most changes just require a change to item names.
 
 ### Host name changes
 
 Endpoint host names have changed from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com`. Paths to the new endpoints no longer contain `api/` because it's part of the hostname. The [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) lists valid regions and paths.
+>[!IMPORTANT]
+>Change the hostname from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com` where region is the region of your speech subscription. Also remove `api/`from any path in your client code.
 
 ### Identity of an entity
 
 The property `id` is now `self`. In v2, an API user had to know how our paths on the API are being created. This was non-extensible and required unnecessary work from the user. The property `id` (uuid) is replaced by `self` (string), which is location of the entity (URL). The value is still unique between all your entities. If `id` is stored as a string in your code, a rename is enough to support the new schema. You can now use the `self` content as the URL for the `GET`, `PATCH`, and `DELETE` REST calls for your entity.
 
 If the entity has additional functionality available through other paths, they are listed under `links`. The following example for transcription shows a separate method to `GET` the content of the transcription:
+>[!IMPORTANT]
+>Rename the property `id` to `self` in your client code. Change the type from `uuid` to `string` if needed. 
 
 **v2 transcription:**
 
@@ -86,6 +130,9 @@ The `values` property contains a subset of the available collection entities. Th
 
 This change requires calling the `GET` for the collection in a loop until all elements have been returned.
 
+>[!IMPORTANT]
+>When the response of a GET to `speechtotext/v3.0/{collection}` contains a value in `$.@nextLink`, continue issuing `GETs` on `$.@nextLink` until `$.@nextLink` is not set to retrieve all elements of that collection.
+
 ### Creating transcriptions
 
 A detailed description on how to create batches of transcriptions can be found in [Batch transcription How-to](./batch-transcription.md).
@@ -129,6 +176,8 @@ The new property `timeToLive` under `properties` can help prune the existing com
   }
 }
 ```
+>[!IMPORTANT]
+>Rename the property `recordingsUrl` to `contentUrls` and pass an array of urls instead of a single url. Pass settings for `diarizationEnabled` or `wordLevelTimestampsEnabled` as `bool` instead of `string`.
 
 ### Format of v3 transcription results
 
@@ -196,6 +245,9 @@ Sample of a v3 transcription result. The differences are described in the commen
   ]
 }
 ```
+>[!IMPORTANT]
+>Deserialize the transcription result into the new type as shown above. Instead of a single file per audio channel, distinguish channels by checking the property value of `channel` for each element in `recognizedPhrases`. There is now a single result file for each input file.
+
 
 ### Getting the content of entities and the results
 
@@ -265,6 +317,9 @@ to access the content of each file. To control the validity duration of the SAS 
 
 The `kind` property indicates the format of content of the file. For transcriptions, the files of kind `TranscriptionReport` are the summary of the job and files of the kind `Transcription` are the result of the job itself.
 
+>[!IMPORTANT]
+>To get the results of operations, use a `GET` on `/speechtotext/v3.0/{collection}/{id}/files`, they are no longer contained in the responses of `GET` on `/speechtotext/v3.0/{collection}/{id}` or `/speechtotext/v3.0/{collection}`.
+
 ### Customizing models
 
 Before v3, there was a distinction between an _acoustic model_ and a _language model_ when a model was being trained. This distinction resulted in the need to specify multiple models when creating endpoints or transcriptions. To simplify this process for a caller, we removed the differences and made everything depend on the content of the datasets that are being used for model training. With this change, the model creation now supports mixed datasets (language data and acoustic data). Endpoints and transcriptions now require only one model.
@@ -273,12 +328,18 @@ With this change, the need for a `kind` in the `POST` operation has been removed
 
 To improve the results of a trained model, the acoustic data is automatically used internally during language training. In general, models created through the v3 API deliver more accurate results than models created with the v2 API.
 
+>[!IMPORTANT]
+>To customize both the acoustic and language model part, pass all of the required language and acoustic datasets in `datasets[]` of the POST to `/speechtotext/v3.0/models`. This will create a single model with both parts customized.
+
 ### Retrieving base and custom models
 
 To simplify getting the available models, v3 has separated the collections of "base models" from the customer owned "customized models". The two routes are now
 `GET /speechtotext/v3.0/models/base` and `GET /speechtotext/v3.0/models/`.
 
 In v2, all models were returned together in a single response.
+
+>[!IMPORTANT]
+>To get a list of provided base models for customization, use `GET` on `/speechtotext/v3.0/models/base`. You can find your own customized models with a `GET` on `/speechtotext/v3.0/models`.
 
 ### Name of an entity
 
@@ -299,6 +360,9 @@ The `name` property is now `displayName`. This is consistent with other Azure AP
     "displayName": "Transcription using locale en-US"
 }
 ```
+
+>[!IMPORTANT]
+>Rename the property `name` to `displayName` in your client code.
 
 ### Accessing referenced entities
 
@@ -348,6 +412,10 @@ In v2, referenced entities were always inlined, for example the used models of a
 
 If you need to consume the details of a referenced model as shown in the above example, just issue a GET on `$.model.self`.
 
+>[!IMPORTANT]
+>To retrieve the metadata of referenced entities, issue a GET on `$.{referencedEntity}.self`, for example to retrieve the model of a transcription do a `GET` on `$.model.self`.
+
+
 ### Retrieving endpoint logs
 
 Version v2 of the service supported logging endpoint results. To retrieve the results of an endpoint with v2, you would create a "data export", which represented a snapshot of the results defined by a time range. The process of exporting batches of data was inflexible. The v3 API gives access to each individual file and allows iteration through them.
@@ -389,6 +457,9 @@ Pagination for endpoint logs works similar to all other collections, except that
 
 In v3, each endpoint log can be deleted individually by issuing a `DELETE` operation on the `self` of a file, or by using `DELETE` on `$.links.logs`. To specify an end date, the query parameter `endDate` can be added to the request.
 
+>[!IMPORTANT]
+>Instead of creating log exports on `/api/speechtotext/v2.0/endpoints/{id}/data` use `/v3.0/endpoints/{id}/files/logs/` to access log files individually. 
+
 ### Using custom properties
 
 To separate custom properties from the optional configuration properties, all explicitly named properties are now located in the `properties` property and all properties defined by the callers are now located in the `customProperties` property.
@@ -421,15 +492,26 @@ To separate custom properties from the optional configuration properties, all ex
 
 This change also lets you use correct types on all explicitly named properties under `properties` (for example boolean instead of string).
 
+>[!IMPORTANT]
+>Pass all custom properties as `customProperties` instead of `properties` in your `POST` requests.
+
 ### Response headers
 
 v3 no longer returns the `Operation-Location` header in addition to the `Location` header on `POST` requests. The value of both headers in v2 was the same. Now only `Location` is returned.
 
 Because the new API version is now managed by Azure API management (APIM), the throttling related headers `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and `X-RateLimit-Reset` aren't contained in the response headers.
 
+>[!IMPORTANT]
+>Read the location from response header `Location` instead of `Operation-Location`. In case of a 429 response code, read the `Retry-After` header value instead of `X-RateLimit-Limit`, `X-RateLimit-Remaining`, or `X-RateLimit-Reset`.
+
+
 ### Accuracy tests
 
 Accuracy tests have been renamed to evaluations because the new name describes better what they represent. The new paths are: `https://{region}.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations`.
+
+>[!IMPORTANT]
+>Rename the path segment `accuracytests` to `evaluations` in your client code.
+
 
 ## Next steps
 

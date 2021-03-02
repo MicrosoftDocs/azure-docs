@@ -5,7 +5,7 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 12/15/2020
 ms.author: banders
 ---
 
@@ -16,7 +16,7 @@ Azure Reservations provide flexibility to help meet your evolving needs. You can
 Self-service exchange and cancel capability isn't available for US Government Enterprise Agreement customers. Other US Government subscription types including Pay-As-You-Go and Cloud Solution Provider (CSP) are supported.
 
 > [!NOTE]
-> - **You must have owner access on the Reservation Order to exchange or refund an existing reservation**. You can [Add or change users who can manage a reservation](./manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+> - **You must have owner access on the Reservation Order to exchange or refund an existing reservation**. You can [Add or change users who can manage a reservation](./manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 > - Microsoft is not currently charging early termination fees for reservation refunds. We might charge the fees for refunds made in the future. We currently don't have a date for enabling the fee.
 
 ## How to exchange or refund an existing reservation
@@ -42,7 +42,7 @@ First, Microsoft cancels the existing reservation and refunds the pro-rated amou
 
 ### Enterprise agreement customers
 
-Money is added to the monetary commitment for exchanges and refunds if the original purchase was made using one. If the monetary commitment term using the reservation was purchased is no longer active, then credit is added to your current enterprise agreement monetary commitment term. The credit is valid for 90 days from the date of refund. Unused credit expires at the end of 90 days.
+Money is added to the Azure Prepayment (previously called monetary commitment) for exchanges and refunds if the original purchase was made using one. If the Azure Prepayment term using the reservation was purchased is no longer active, then credit is added to your current enterprise agreement Azure Prepayment term. The credit is valid for 90 days from the date of refund. Unused credit expires at the end of 90 days.
 
 If the original purchase was made as an overage, the original invoice on which the reservation was purchased and all later invoices are reopened and readjusted. Microsoft issues a credit memo for the refunds.
 
@@ -61,7 +61,7 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 **Exchange policies**
 
 - You can return multiple existing reservations to purchase one new reservation of the same type. You can't exchange reservations of one type for another. For example, you can't return a VM reservation to purchase a SQL reservation. You can change a reservation property such as family, series, version, SKU, region, quantity, and term with an exchange.
-- Only reservation owners can process an exchange. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Only reservation owners can process an exchange. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 - An exchange is processed as a refund and a repurchase – different transactions are created for the cancellation and the new reservation purchase. The prorated reservation amount is refunded for the reservations that's traded-in. You're charged fully for the new purchase. The prorated reservation amount is the daily prorated residual value of the reservation being returned.
 - You can exchange or refund reservations even if the enterprise agreement used to purchase the reservation is expired and was renewed as a new agreement.
 - The new reservation's lifetime commitment should equal or be greater than the returned reservation's remaining commitment. Example: for a three-year reservation that's $100 per month and exchanged after the 18th payment, the new reservation's lifetime commitment should be $1,800 or more (paid monthly or upfront).
@@ -74,7 +74,7 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 - The total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment. For example, for a three-year reservation that's 100 USD per month and it's refunded in the 18th month, the canceled commitment is 1,800 USD. After the refund, your new available limit for refund will be 48,200 USD. In 365 days from the refund, the 48,200 USD limit will be increased by 1,800 USD and your new pool will be 50,000 USD. Any other reservation cancellation for the billing profile or EA enrollment will deplete the same pool, and the same replenishment logic will apply.
 - Azure won't process any refund that will exceed the 50,000 USD limit in a 12-month window for a billing profile or EA enrollment.
 - Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
-- Only reservation order owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Only reservation order owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
 ## Need help? Contact us.
 

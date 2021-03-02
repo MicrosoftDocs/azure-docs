@@ -3,22 +3,41 @@ title: Azure Key Vault recovery overview | Microsoft Docs
 description: Key Vault Recovery features are designed to prevent the accidental or malicious deletion of your key vault and secrets, keys, and certificate stored inside key-vault.
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
-author: ShaneBala-keyvault
-ms.author: sudbalas
-manager: ravijan
+ms.topic: how-to
+ms.author: mbaldwin
+author: msmbaldwin
+manager: rkarlin
 ms.date: 09/30/2020
 ---
 
-# How to enable soft delete and purge protection
+# Azure Key Vault recovery management with soft delete and purge protection
 
 This article covers two recovery features of Azure Key Vault, soft delete and purge protection. This document provides an overview of these features, and shows you how to manage them through the Azure portal, Azure CLI, and Azure PowerShell.
 
+For more information about Key Vault, see
+- [Key Vault overview](overview.md)
+- [Azure Key Vault keys, secrets, and certificates overview](about-keys-secrets-certificates.md)
+
+## Prerequisites
+
+* An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+* [PowerShell module](/powershell/azure/install-az-ps).
+* [Azure CLI](/cli/azure/install-azure-cli)
+* A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
+* The user will need the following permissions (at subscription level) to perform operations on soft-deleted vaults:
+
+  | Permission | Description |
+  |---|---|
+  |Microsoft.KeyVault/locations/deletedVaults/read|View the properties of a soft deleted key vault|
+  |Microsoft.KeyVault/locations/deletedVaults/purge/action|Purge a soft deleted key vault|
+
+
 ## What are soft-delete and purge protection
 
-Soft delete and purge protection are two different key vault recovery features.
+[Soft delete](soft-delete-overview.md) and purge protection are two different key vault recovery features.
+
 > [!IMPORTANT]
-> Soft delete protection is required to be enabled on all key vaults. The ability to disable soft-delete protection will be deprecated by December 2020. Please see full details [**here**.](soft-delete-change.md)
+> Turning on soft delete is critical to ensuring that your key vaults and credentials are protected from accidental deletion. However, turning on soft delete is considered a breaking change because it may require you to change your application logic or provide additional permissions to your service principals. Before turning on soft delete using the instructions below, please make sure that your application is compatible with the change using this document [**here**.](soft-delete-change.md)
 
 **Soft delete** is designed to prevent accidental deletion of your key vault and keys, secrets, and certificates stored inside key vault. Think of soft-delete like a recycle bin. When you delete a key vault or a key vault object, it will remain recoverable for a user configurable retention period or a default of 90 days. Key vaults in the soft deleted state can also be **purged** which means they are permanently deleted. This allows you to recreate key vaults and key vault objects with the same name. Both recovering and deleting key vaults and objects require elevated access policy permissions. **Once soft delete has been enabled, it cannot be disabled.**
 
@@ -28,6 +47,8 @@ It is important to note that **key vault names are globally unique**, so you won
 
 > [!NOTE]
 > Purge Protection is designed so that no administrator role or permission can  override, disable, or circumvent purge protection. **Once purge protection is enabled, it cannot be disabled or overridden by anyone including Microsoft.** This means you must recover a deleted key vault or wait for the retention period to elapse before reusing the key vault name.
+
+For more information about soft-delete, see [Azure Key Vault soft-delete overview](soft-delete-overview.md)
 
 # [Azure portal](#tab/azure-portal)
 
@@ -61,7 +82,7 @@ It is important to note that **key vault names are globally unique**, so you won
 1. At the top of the screen click the option to "Manage deleted vaults"
 1. A context pane will open on the right side of your screen.
 1. Select your subscription.
-1. If your key vault has been soft-deleted it will appear in the context pane on the right.
+1. If your key vault has been soft deleted it will appear in the context pane on the right.
 1. If there are too many vaults, you can either click "Load More" at the bottom of the context pane or use CLI or PowerShell to get the results.
 1. Once you find the vault you wish to recover or purge, select the checkbox next to it.
 1. Select the recover option at the bottom of the context pane if you would like to recover the key vault.
@@ -365,3 +386,14 @@ It is important to note that **key vault names are globally unique**, so you won
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
+---
+
+## Next steps
+
+- [Azure Key Vault PowerShell cmdlets](/powershell/module/az.keyvault)
+- [Key Vault Azure CLI commands](/cli/azure/keyvault)
+- [Azure Key Vault backup](backup.md)
+- [How to enable Key Vault logging](howto-logging.md)
+- [Secure access to a key vault](secure-your-key-vault.md)
+- [Azure Key Vault developer's guide](developers-guide.md)
+- [Best practices to use a key vault](security-overview.md)

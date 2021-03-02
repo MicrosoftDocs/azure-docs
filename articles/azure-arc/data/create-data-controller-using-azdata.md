@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ---
 
@@ -54,7 +54,7 @@ kubectl config current-context
 
 ### Connectivity modes
 
-As described in [Connectivity modes and requirements](https://docs.microsoft.com/azure/azure-arc/data/connectivity), Azure Arc data controller can be deployed either with either `direct` or `indirect` connectivity mode. With `direct` connectivity mode, usage data is automatically and continuously sent to Azure. In this articles, the examples specify `direct` connectivity mode as follows:
+As described in [Connectivity modes and requirements](./connectivity.md), Azure Arc data controller can be deployed either with either `direct` or `indirect` connectivity mode. With `direct` connectivity mode, usage data is automatically and continuously sent to Azure. In this articles, the examples specify `direct` connectivity mode as follows:
 
    ```console
    --connectivity-mode direct
@@ -111,6 +111,7 @@ Save the `appId`, `password`, and `tenant` values in an environment variable for
 SET SPN_CLIENT_ID=<appId>
 SET SPN_CLIENT_SECRET=<password>
 SET SPN_TENANT_ID=<tenant>
+SET SPN_AUTHORITY=https://login.microsoftonline.com
 ```
 
 #### Save environment variables in Linux or macOS
@@ -119,6 +120,7 @@ SET SPN_TENANT_ID=<tenant>
 export SPN_CLIENT_ID='<appId>'
 export SPN_CLIENT_SECRET='<password>'
 export SPN_TENANT_ID='<tenant>'
+export SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
 #### Save environment variables in PowerShell
@@ -127,6 +129,7 @@ export SPN_TENANT_ID='<tenant>'
 $Env:SPN_CLIENT_ID="<appId>"
 $Env:SPN_CLIENT_SECRET="<password>"
 $Env:SPN_TENANT_ID="<tenant>"
+$Env:SPN_AUTHORITY="https://login.microsoftonline.com"
 ```
 
 After you have created the service principal, assign the service principal to the appropriate role. 
@@ -258,15 +261,28 @@ Once you have run the command, continue on to [Monitoring the creation status](#
 
 ### Create on Azure Red Hat OpenShift (ARO)
 
-To create a data controller on Azure Red Hat OpenShift, you will need to execute the following commands against your cluster to relax the security constraints. This is a temporary requirement which will be removed in the future.
-> [!NOTE]
->   Use the same namespace here and in the `azdata arc dc create` command below. Example is `arc`.
+Azure Red Hat OpenShift requires a security context constraint.
 
-First, download the custom security context constraint (SCC) from [GitHub](https://github.com/microsoft/azure_arc/tree/master/arc_data_services/deploy/yaml) and apply it to your cluster.
+#### Apply the security context
+
+Before you create the data controller on Azure Red Hat OpenShift, you will need to apply specific security context constraints (SCC). For the preview release, these relax the security constraints. Future releases will provide updated SCC.
+
+[!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
+
+#### Create custom deployment profile
+
+Use the profile `azure-arc-azure-openshift` for Azure RedHat Open Shift.
+
+```console
+azdata arc dc config init --source azure-arc-azure-openshift --path ./custom
+```
+
+#### Create data controller
 
 You can run the following command to create the data controller:
+
 > [!NOTE]
->   Use the same namespace here and in the `oc adm policy add-scc-to-user` commands above. Example is `arc`.
+> Use the same namespace here and in the `oc adm policy add-scc-to-user` commands above. Example is `arc`.
 
 ```console
 azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode direct
@@ -279,17 +295,16 @@ Once you have run the command, continue on to [Monitoring the creation status](#
 
 ### Create on Red Hat OpenShift Container Platform (OCP)
 
-
 > [!NOTE]
 > If you are using Red Hat OpenShift Container Platform on Azure, it is recommended to use the latest available version.
 
-To create a data controller on Red Hat OpenShift Container Platform, you will need to execute the following commands against your cluster to relax the security constraints. This is a temporary requirement which will be removed in the future.
-> [!NOTE]
->   Use the same namespace here and in the `azdata arc dc create` command below. Example is `arc`.
+Before you create the data controller on Red Hat OCP, you will need to apply specific security context constraints. 
 
-```console
-oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
-```
+#### Apply the security context constraint
+
+[!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
+
+#### Determine storage class
 
 You will also need to determine which storage class to use by running the following command.
 
@@ -297,18 +312,17 @@ You will also need to determine which storage class to use by running the follow
 kubectl get storageclass
 ```
 
-First, start by creating a new custom deployment profile file based on the azure-arc-openshift deployment profile by running the following command. This command will create a directory `custom` in your current working directory and a custom deployment profile file `control.json` in that directory.
+#### Create custom deployment profile
+
+Create a new custom deployment profile file based on the `azure-arc-openshift` deployment profile by running the following command. This command creates a directory `custom` in your current working directory and a custom deployment profile file `control.json` in that directory.
 
 Use the profile `azure-arc-openshift` for OpenShift Container Platform.
 
 ```console
 azdata arc dc config init --source azure-arc-openshift --path ./custom
 ```
-Use the profile `azure-arc-azure-openshift` for Azure RedHat Open Shift.
 
-```console
-azdata arc dc config init --source azure-arc-azure-openshift --path ./custom
-```
+#### Set storage class 
 
 Now, set the desired storage class by replacing `<storageclassname>` in the command below with the name of the storage class that you want to use that was determined by running the `kubectl get storageclass` command above.
 
@@ -321,13 +335,17 @@ azdata arc dc config replace --path ./custom/control.json --json-values "spec.st
 #azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=mystorageclass"
 ```
 
-By default, the azure-arc-openshift deployment profile uses `NodePort` as the service type. If you are using an OpenShift cluster that is integrated with a load balancer, you can change the configuration to use the LoadBalancer service type using the following command:
+#### Set LoadBalancer (optional)
+
+By default, the `azure-arc-openshift` deployment profile uses `NodePort` as the service type. If you are using an OpenShift cluster that is integrated with a load balancer, you can change the configuration to use the `LoadBalancer` service type using the following command:
 
 ```console
 azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer"
 ```
 
-When using OpenShift you might want to run with the default security policies in OpenShift or want to generally lock down the environment more than typical. You can optionally choose to disable some features to minimize the permissions required at deployment time and at run time by running the following commands.
+#### Verify security policies
+
+When using OpenShift, you might want to run with the default security policies in OpenShift or want to generally lock down the environment more than typical. You can optionally choose to disable some features to minimize the permissions required at deployment time and at run time by running the following commands.
 
 This command disables metrics collections about pods. You will not be able to see metrics about pods in the Grafana dashboards if you disable this feature. Default is true.
 
@@ -346,7 +364,10 @@ This command disables the ability to take memory dumps for troubleshooting purpo
 azdata arc dc config replace --path ./custom/control.json --json-values spec.security.allowDumps=false
 ```
 
+#### Create data controller
+
 Now you are ready to create the data controller using the following command.
+
 > [!NOTE]
 >   Use the same namespace here and in the `oc adm policy add-scc-to-user` commands above. Example is `arc`.
 

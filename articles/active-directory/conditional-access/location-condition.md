@@ -194,6 +194,9 @@ When a cloud proxy is in place, a policy that is used to require a hybrid Azure 
 
 A preview version of the Graph API for named locations is available, for more information see the [namedLocation API](/graph/api/resources/namedlocation?view=graph-rest-beta).
 
+> [!NOTE]
+> Named locations that you create by using PowerShell display only in Named locations (preview). You can't see named locations in the old view.  
+
 ## Next steps
 
 - If you want to know how to configure a Conditional Access policy, see the article [Building a Conditional Access policy](concept-conditional-access-policies.md).

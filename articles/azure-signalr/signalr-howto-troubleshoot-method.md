@@ -1,7 +1,7 @@
 ---
 title: "Troubleshooting practice for Azure SignalR Service"
 description: Learn how to troubleshoot connectivity and message delivery issues
-author: YanJin
+author: yjin81
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
@@ -23,6 +23,8 @@ First, you need to check from the Azure portal which [ServiceMode](./concept-ser
 * For `Classic` mode, refer to [classic mode troubleshooting](#classic_mode_tsg)
 
 <a name="default_mode_tsg"></a>
+
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## Default mode troubleshooting
 
@@ -68,6 +70,7 @@ SignalR *Server* maintains the *Server Connection* between *Server* and *Service
 
 View server-side network trace to find out the status code and error detail why *Server Connection* drops or is rejected by the *Service*, and look for the root cause inside [Troubleshooting Guide](./signalr-howto-troubleshoot-guide.md).
 
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ### How to add logs
 
@@ -161,6 +164,8 @@ You can also [enable diagnostic logs](./signalr-howto-diagnostic-logs.md) for Az
 
 <a name="serverless_mode_tsg"></a>
 
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## Serverless mode troubleshooting
 
 When **ASRS** is in *Serverless* mode, only **ASP.NET Core SignalR** supports `Serverless` mode, and **ASP.NET SignalR** does **NOT** support this mode.
@@ -169,11 +174,15 @@ To diagnose connectivity issues in `Serverless` mode, the most straight forward 
 
 <a name="classic_mode_tsg"></a>
 
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## Classic mode troubleshooting
 
 `Classic` mode is obsoleted and is not encouraged to use. When in this mode, Azure SignalR service uses the connected *Server Connections* to determine if current service is in `default` mode or `serverless` mode. This can lead to some intermediate client connectivity issues because, when there is a sudden drop of all the connected *Server Connection*, for example due to network instability, Azure SignalR believes it is now switched to `serverless` mode, and clients connected during this period will never be routed to the hosted app server. Enable [service-side logs](#add_logs_server) and check if there are any clients recorded as `ServerlessModeEntered` if you have hosted app server however some clients never reach the app server side. If there is any, [abort these client connections](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md#API) and let the clients restart can help.
 
 Troubleshooting `classic` mode connectivity and message delivery issues are similar to [troubleshooting default mode issues](#default_mode_tsg).
+
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## Service health
 
@@ -190,6 +199,8 @@ You can check the health api for service health.
     * If all above options do not work, contact us by adding new support request in Azure portal.
 
 More about [disaster recovery](./signalr-concept-disaster-recovery.md).
+
+[Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## Next steps
 

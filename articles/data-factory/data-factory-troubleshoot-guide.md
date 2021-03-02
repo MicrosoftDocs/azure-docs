@@ -1,16 +1,15 @@
 ---
 title: Troubleshoot Azure Data Factory | Microsoft Docs
 description: Learn how to troubleshoot external control activities in Azure Data Factory.
-services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/16/2020
+ms.date: 12/30/2020
 ms.author: abnarain
-ms.reviewer: craigg
 ---
 
 # Troubleshoot Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article explores common troubleshooting methods for external control activities in Azure Data Factory.
@@ -493,7 +492,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `There are duplicate files in the resource folder.`
 
-- **Cause**: Multiple files of the same name are in different sub-folders of folderPath.
+- **Cause**: Multiple files of the same name are in different subfolders of folderPath.
 
 - **Recommendation**: Custom activities flatten folder structure under folderPath. If you need to preserve the folder structure, zip the files and extract them in Azure Batch by using an unzip command.
    
@@ -540,7 +539,6 @@ The following table applies to Azure Batch.
 - **Cause**: There was an internal error while trying to read the Service Principal or instantiating the MSI authentication.
 
 - **Recommendation**: Consider providing a service principal, which has permissions to create an HDInsight cluster in the provided subscription and try again. Verify that the [Manage Identities are set up correctly](../hdinsight/hdinsight-managed-identities.md).
-
 
 ### Error code: 2300
 
@@ -949,6 +947,16 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Provide an Azure Blob storage account as an additional storage for HDInsight on-demand linked service.
 
+### SSL error when ADF linked service using HDInsight ESP cluster
+
+- **Message**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+
+- **Cause**: The issue is most likely related with System Trust Store.
+
+- **Resolution**: You can navigate to the path **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** and open DriverConfiguration64.exe to change the setting.
+
+    ![Uncheck Use System Trust Store](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+
 ## Web Activity
 
 ### Error code: 2128
@@ -1006,15 +1014,15 @@ For more information, see [Getting started with Fiddler](https://docs.telerik.co
 
 ### Activity stuck issue
 
-When you observe that the activity is running much longer than your normal runs with barely no progress, it may happen to be stuck. You can try canceling it and retry to see if it helps. If it’s a copy activity, you can learn about the performance monitoring and troubleshooting from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md); if it’s a data flow, learn from [Mapping data flows performance](concepts-data-flow-performance.md) and tuning guide.
+When you observe that the activity is running much longer than your normal runs with barely no progress, it may happen to be stuck. You can try canceling it and retry to see if it helps. If it's a copy activity, you can learn about the performance monitoring and troubleshooting from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md); if it's a data flow, learn from [Mapping data flows performance](concepts-data-flow-performance.md) and tuning guide.
 
 ### Payload is too large
 
 **Error message:** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**Cause:** The payload for each activity run includes the activity configuration, the associated dataset(s) and linked service(s) configurations if any, and a small portion of system properties generated per activity type. The limit of such payload size is 896KB as mentioned in [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) section.
+**Cause:** The payload for each activity run includes the activity configuration, the associated dataset(s), and linked service(s) configurations if any, and a small portion of system properties generated per activity type. The limit of such payload size is 896 KB as mentioned in [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) section.
 
-**Recommendation:** You hit this limit likely because you pass in one or more large parameter values from either upstream activity output or external, especially if you pass actual data across activities in control flow. Please check if you can reduce the size of large parameter values, or tune your pipeline logic to avoid passing such values across activities and handle it inside the activity instead.
+**Recommendation:** You hit this limit likely because you pass in one or more large parameter values from either upstream activity output or external, especially if you pass actual data across activities in control flow. Check if you can reduce the size of large parameter values, or tune your pipeline logic to avoid passing such values across activities and handle it inside the activity instead.
 
 ## Next steps
 

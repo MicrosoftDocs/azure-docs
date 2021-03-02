@@ -12,7 +12,7 @@ ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
 
 # Deploy to App Service using GitHub Actions
 
-Get started with [GitHub Actions](https://help.github.com/en/articles/about-github-actions) to automate your workflow and deploy to [Azure App Service](overview.md) from GitHub. 
+Get started with [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions) to automate your workflow and deploy to [Azure App Service](overview.md) from GitHub. 
 
 ## Prerequisites 
 
@@ -188,7 +188,7 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
@@ -301,7 +301,7 @@ jobs:
 
     steps:
       # Checkout the repo
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       
       # Setup .NET Core SDK
       - name: Setup .NET Core
@@ -345,7 +345,7 @@ jobs:
     runs-on: windows-latest
     steps:
 
-    - uses: actions/checkout@master  
+    - uses: actions/checkout@main  
     
     - name: Install Nuget
       uses: nuget/setup-nuget@v1
@@ -431,7 +431,7 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
@@ -512,7 +512,7 @@ jobs:
 
     steps:
       # Checkout the repo
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -563,7 +563,7 @@ jobs:
     steps:
 
     # checkout the repo
-    - uses: actions/checkout@master  
+    - uses: actions/checkout@main
     
     - uses: azure/login@v1
       with:
@@ -653,7 +653,7 @@ jobs:
     steps:
     # checkout the repo
     - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
+      uses: actions/checkout@main
    
     - uses: azure/login@v1
       with:
@@ -742,7 +742,7 @@ You can find our set of Actions grouped into different repositories on GitHub, e
 
 - [Docker login/logout](https://github.com/Azure/docker-login)
 
-- [Events that trigger workflows](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
 
 - [K8s deploy](https://github.com/Azure/k8s-deploy)
 

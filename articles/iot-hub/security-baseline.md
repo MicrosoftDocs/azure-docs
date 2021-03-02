@@ -146,9 +146,9 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to Azure IoT Hub. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -183,9 +183,9 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 - [Set up Azure IoT Hub logs](monitor-iot-hub-reference.md#resource-logs)
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -203,7 +203,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: In Azure Monitor, set the log retention period for Log Analytics workspaces associated with your Azure IoT Hub instances according to your organization's compliance regulations.
 
-- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -218,9 +218,9 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 - [Monitor Azure IoT health](monitor-iot-hub.md)
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
   
-- [Getting started with Log Analytics queries](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Getting started with Log Analytics queries](../azure-monitor/logs/log-analytics-tutorial.md)
    
-- [ How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [ How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -234,7 +234,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 - [Azure Security Center for IoT alerts](../defender-for-iot/concept-security-alerts.md)
 
-- [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -327,7 +327,7 @@ Enable Azure AD MFA to protect your overall Azure tenant, benefiting all service
 
 **Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand secure, Azure-managed workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -528,7 +528,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as it is writte
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure IoT Hub and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 

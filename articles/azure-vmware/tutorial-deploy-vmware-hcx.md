@@ -71,12 +71,15 @@ Before you deploy the virtual appliance to your on-premises vCenter, you must do
 
    :::image type="content" source="media/tutorial-vmware-hcx/find-hcx-ip-address.png" alt-text="Screenshot of the VMware HCX IP address." lightbox="media/tutorial-vmware-hcx/find-hcx-ip-address.png":::
 
-1. Select **Manage** > **Identity** and select **vCenter admin password** to identify the password.
+1. Select **Manage** > **Identity**. 
+
+   The URLs and user credentials for private cloud vCenter and NSX-T Manager display.
 
    > [!TIP]
-   > The vCenter password was defined when you set up the private cloud. It's the same password you'll use to sign in to Azure VMware Solution HCX Manager.
+   > The vCenter password was defined when you set up the private cloud. It's the same password you'll use to sign in to Azure VMware Solution HCX Manager. You can select **Generate a new password** to generate new vCenter and NSX-T passwords.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/hcx-admin-password.png" alt-text="find hcx password." lightbox="media/tutorial-vmware-hcx/hcx-admin-password.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Display private cloud vCenter and NSX Manager URLs and credentials." border="true":::
+
 
 1. Open a browser window, sign in to the Azure VMware Solution HCX Manager on `https://x.x.x.9` port 443 with the **cloudadmin\@vsphere.local** user credentials
 
@@ -158,7 +161,7 @@ After the services restart, you'll see vCenter showing as green on the screen th
 
 :::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Screenshot of the dashboard with green vCenter status." lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
 
-For an end-to-end overview of this procedure, view the [Azure VMware Solution: Activate HCX](https://www.youtube.com/embed/jzQZawslF8w) video.
+For an end-to-end overview of this procedure, view the [Azure VMware Solution: Activate HCX](https://www.youtube.com/embed/PnVg6SZkQsY?rel=0&amp;vq=hd720) video.
 
    > [!IMPORTANT]
    > Whether you're using VMware HCX Advanced or VMware HCX Enterprise, you may need to install the patch from VMware's [KB article 81558](https://kb.vmware.com/s/article/81558). 
@@ -187,7 +190,7 @@ You can connect or pair the VMware HCX Cloud Manager in Azure VMware Solution wi
 
    :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Screenshot that shows the pairing of the HCX Manager in Azure VMware Solution and the VMware HCX Connector.":::
 
-For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Site Pairing](https://www.youtube.com/embed/iTJtjbiwvsw) video.
+For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Site Pairing](https://www.youtube.com/embed/jXOmYUnbWZY?rel=0&amp;vq=hd720) video.
 
 ### Create network profiles
 

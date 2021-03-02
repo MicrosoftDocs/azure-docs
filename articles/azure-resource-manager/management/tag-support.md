@@ -1560,6 +1560,9 @@ Jump to a resource provider namespace:
 > | workspaces / models / versions | No | No |
 > | workspaces / onlineEndpoints | Yes | Yes |
 > | workspaces / onlineEndpoints / deployments | Yes | Yes |
+ 
+> [!NOTE]
+> Workspace tags don't propagate to compute clusters and compute instances. 
 
 ## Microsoft.Maintenance
 
@@ -2248,7 +2251,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Yes | Yes |
-> | managedInstances / databases | Yes (see [note below](#sqlnote)) | Yes |
+> | managedInstances / databases | No | No |
 > | managedInstances / databases / backupShortTermRetentionPolicies | No | No |
 > | managedInstances / databases / schemas / tables / columns / sensitivityLabels | No | No |
 > | managedInstances / databases / vulnerabilityAssessments | No | No |
@@ -2257,6 +2260,7 @@ Jump to a resource provider namespace:
 > | managedInstances / keys | No | No |
 > | managedInstances / restorableDroppedDatabases / backupShortTermRetentionPolicies | No | No |
 > | managedInstances / vulnerabilityAssessments | No | No |
+> | longtermRetentionManagedInstance / longtermRetentionDatabase / longtermRetentionBackup | No | No |
 > | servers | Yes | Yes |
 > | servers / administrators | No | No |
 > | servers / communicationLinks | No | No |
@@ -2267,6 +2271,7 @@ Jump to a resource provider namespace:
 > | servers / restorableDroppedDatabases | No | No |
 > | servers / serviceobjectives | No | No |
 > | servers / tdeCertificates | No | No |
+> | longtermRetentionServer / longtermRetentionDatabase / longtermRetentionBackup | No | No |
 > | virtualClusters | No | No |
 
 <a id="sqlnote"></a>

@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 08/27/2020
+ms.date: 01/19/2021
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -15,7 +15,7 @@ ms.custom: mvc
 
 In this quickstart, you use Azure PowerShell to create an application gateway. Then you test it to make sure it works correctly. 
 
-The application gateway directs application web traffic to specific resources in a backend pool. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public front-end IP, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
+The application gateway directs application web traffic to specific resources in a backend pool. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public front-end IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
 
 You can also complete this quickstart using [Azure CLI](quick-create-cli.md) or the [Azure portal](quick-create-portal.md).
 
@@ -43,7 +43,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 ## Create network resources
 
-For Azure to communicate between the resources that you create, it needs a virtual network.  The application gateway subnet can contain only application gateways. No other resources are allowed.  You can either create a new subnet for Application Gateway or use an existing one. In this example, you create two subnets in this example: one for the application gateway, and another for the backend servers. You can configure the Frontend IP of the Application Gateway to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
+For Azure to communicate between the resources that you create, it needs a virtual network.  The application gateway subnet can contain only application gateways. No other resources are allowed.  You can either create a new subnet for Application Gateway or use an existing one. You create two subnets in this example: one for the application gateway, and another for the backend servers. You can configure the Frontend IP address of the Application Gateway to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP address.
 
 1. Create the subnet configurations using `New-AzVirtualNetworkSubnetConfig`.
 2. Create the virtual network with the subnet configurations using `New-AzVirtualNetwork`. 
@@ -76,7 +76,7 @@ New-AzPublicIpAddress `
 ### Create the IP configurations and frontend port
 
 1. Use `New-AzApplicationGatewayIPConfiguration` to create the configuration that associates the subnet you created with the application gateway. 
-2. Use `New-AzApplicationGatewayFrontendIPConfig` to create the configuration that assigns the public IP address that you previously created to the application gateway. 
+2. Use `New-AzApplicationGatewayFrontendIPConfig` to create the configuration that assigns the public IP address that you previously created for the application gateway. 
 3. Use `New-AzApplicationGatewayFrontendPort` to assign port 80 to access the application gateway.
 
 ```azurepowershell-interactive
@@ -96,7 +96,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### Create the backend pool
 
-1. Use `New-AzApplicationGatewayBackendAddressPool` to create the backend pool for the application gateway. The backend pool will be empty for now. When you create the backend server NICs in the next section, you will add them to the backend pool.
+1. Use `New-AzApplicationGatewayBackendAddressPool` to create the backend pool for the application gateway. The backend pool is empty for now. When you create the backend server NICs in the next section, you'll add them to the backend pool.
 2. Configure the settings for the backend pool with `New-AzApplicationGatewayBackendHttpSetting`.
 
 ```azurepowershell-interactive
@@ -159,7 +159,9 @@ New-AzApplicationGateway `
 
 ### Backend servers
 
-Now that you have created the Application Gateway, create the backend virtual machines which will host the websites. Backend can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you create two virtual machines for Azure to use as backend servers for the application gateway. You also install IIS on the virtual machines to verify that Azure successfully created the application gateway.
+Now that you have created the Application Gateway, create the backend virtual machines which will host the websites. A backend can be composed of NICs, virtual machine scale sets, public IP address, internal IP address, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. 
+
+In this example, you create two virtual machines to use as backend servers for the application gateway. You also install IIS on the virtual machines to verify that Azure successfully created the application gateway.
 
 #### Create two virtual machines
 
@@ -168,7 +170,7 @@ Now that you have created the Application Gateway, create the backend virtual ma
 3. Create a virtual machine configuration with `New-AzVMConfig`.
 4. Create the virtual machine with `New-AzVM`.
 
-When you run the following code sample to create the virtual machines, Azure prompts you for credentials. Enter *azureuser* for the user name and a password:
+When you run the following code sample to create the virtual machines, Azure prompts you for credentials. Enter a user name and a password:
 ​    
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway -ResourceGroupName myResourceGroupAG -Name myAppGateway
@@ -219,7 +221,9 @@ for ($i=1; $i -le 2; $i++)
 
 ## Test the application gateway
 
-Although IIS isn't required to create the application gateway, you installed it in this quickstart to verify whether Azure successfully created the application gateway. Use IIS to test the application gateway:
+Although IIS isn't required to create the application gateway, you installed it in this quickstart to verify if Azure successfully created the application gateway.
+
+Use IIS to test the application gateway:
 
 1. Run `Get-AzPublicIPAddress` to get the public IP address of the application gateway. 
 2. Copy and paste the public IP address into the address bar of your browser. When you refresh the browser, you should see the name of the virtual machine. A valid response verifies that the application gateway was successfully created and it can successfully connect with the backend.

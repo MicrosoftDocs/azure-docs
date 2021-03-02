@@ -7,6 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server

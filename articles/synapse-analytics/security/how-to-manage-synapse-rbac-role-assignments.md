@@ -1,12 +1,12 @@
 ---
 title: How to manage Synapse RBAC assignments in Synapse Studio
 description: This article describes how to assign and revoke Synapse RBAC roles to AAD security principals
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 
@@ -60,7 +60,7 @@ To assign a role at a finer-grained scope, select **Workspace item** as the scop
 
 ![Add workspace item role assignment - select item type](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-item-type.png) 
 
-Select the specific **item** to be used as the scope, then select the **role** to be assigned from the drop-down.  The drop-down lists only those roles that are valid for the selected item type. [Learn more](https://go.microsoft.com/fwlink/?linkid=2148306).  
+Select the specific **item** to be used as the scope, then select the **role** to be assigned from the drop-down.  The drop-down lists only those roles that are valid for the selected item type. [Learn more](./synapse-workspace-synapse-rbac.md).  
 
 ![Add workspace item role assignment - select role](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-role.png) 
  
@@ -76,4 +76,4 @@ Remember that changes to role assignments will take 2-5 minutes to take effect.
 
 ## Next steps
 
-[Understand the Synapse RBAC roles required to perform common tasks](./synapse-workspace-understand-what-role-you-need.md) 
+[Understand the Synapse RBAC roles required to perform common tasks](./synapse-workspace-understand-what-role-you-need.md)

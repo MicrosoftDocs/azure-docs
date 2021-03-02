@@ -65,7 +65,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adding a client secret.":::
 
-5. Sometimes it takes longer than expected to sync a user from Azure AD to a CRM instance. To aid with this, we added a process to force sync user, but it requires the Azure AD application to be whitelisted by Partner Center. To do this, see [User sync to Customer Engagement instance](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
+5. Sometimes it takes longer than expected to sync a user from Azure AD to a CRM instance. To aid with this, we added a process to force sync user, but it requires the Azure AD application to be allowlisted by Partner Center. To do this, see [User sync to Customer Engagement instance](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
 6. Add the Service Principal role to the application to allow the Azure AD app to remove users from your Azure tenant.
     1. Open an Administrative-level PowerShell command prompt.
     2. Install-Module MSOnline (run this command if MSOnline is not installed).

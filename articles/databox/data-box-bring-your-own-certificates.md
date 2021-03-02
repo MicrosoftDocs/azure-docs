@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/08/2020
+ms.date: 12/11/2020
 ms.author: alkohli
 ---
 
@@ -46,7 +46,7 @@ The certificates must meet the following requirements:
   |Blob storage|`*.blob.<DeviceName>.<DNSdomain>`|`*.blob.< DeviceName>.<DNSdomain>`|`*.blob.mydevice1.microsoftdatabox.com` |
   |Multi-SAN single certificate|`<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`<br>`*.blob.<DeviceName>.<DNSdomain>`|`mydevice1.microsoftdatabox.com` |
 
-For more information, see [Certificate requirements](../../articles/databox-online/azure-stack-edge-j-series-certificate-requirements.md).
+For more information, see [Certificate requirements](../../articles/databox-online/azure-stack-edge-gpu-certificate-requirements.md).
 
 ## Add certificates to device
 
@@ -91,11 +91,12 @@ To add your own certificate to your device, follow these steps:
 
    ![Error after a new Local web UI certificate is added to a Data Box device](media/data-box-bring-your-own-certificates/certificates-unable-to-communicate-error.png) TEST. RESTORE IF ERROR IS REPRODUCED.-->
 
-6. Install the new certificate on the client computer you're using to access the local web UI. For instructions, see [Import certificates to client](#import-certificates-to-client), below.
-
-7. If you changed the certificate for the local Web UI, you need to restart the browser and then the local web UI. This step is needed to avoid any SSL cache issues.
+6. If you changed the certificate for the local Web UI, you need to restart the browser and then the local web UI. This step is needed to avoid any SSL cache issues.
 
   <!-- TESTING THIS - The communication error should be gone from the **Certificates** screen.-->
+
+7. Install the new certificate on the client computer you're using to access the local web UI. For instructions, see [Import certificates to client](#import-certificates-to-client), below.
+
 
 ## Import certificates to client
 

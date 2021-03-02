@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -13,7 +14,7 @@ ms.workload: iaas-sql-server
 ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2 
 
 ---
 # Register SQL Server VM with SQL IaaS Agent Extension
@@ -183,6 +184,9 @@ $sqlvm.SqlManagementType
 ## Upgrade to full  
 
 SQL Server VMs that have registered the extension in *lightweight* mode can upgrade to _full_ using the Azure portal, the Azure CLI, or Azure PowerShell. SQL Server VMs in _NoAgent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to [unregister](#unregister-from-extension) the SQL Server VM from the SQL IaaS Agent extension. Doing so will remove the **SQL virtual machine** _resource_, but will not delete the actual virtual machine. 
+
+> [!NOTE]
+> When you upgrade the management mode for the SQL IaaS extension to full, it will restart the SQL Server service. In some cases, the restart may cause the service principal names (SPNs) associated with the SQL Server service to change to the wrong user account. If you have connectivity issues after upgrading the management mode to full, [unregister and reregister your SPNs](/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections).
 
 
 ### Azure portal

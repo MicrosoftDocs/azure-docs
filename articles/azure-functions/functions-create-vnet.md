@@ -157,4 +157,4 @@ Functions running in a Premium plan share the same underlying App Service infras
 > [!div class="nextstepaction"]
 > [Learn more about the networking options in Functions](./functions-networking-options.md)
 
-[Premium plan]: functions-scale.md#premium-plan
+[Premium plan]: functions-premium-plan.md

@@ -30,14 +30,14 @@ To try out the Form Recognizer Invoice Service, go to the online Sample UI Tool:
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
 
-You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognzier resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
+You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
 
 ![Analyzed invoice example](./media/analyze-invoice.png)
 
 
 ### Input requirements 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## The Analyze Invoice operation
 
@@ -76,9 +76,9 @@ The Invoice service will extract the text, tables and 26 invoice fields. Followi
 | CustomerName | string | Customer being invoiced | Microsoft Corp |  |
 | CustomerId | string | Reference ID for the customer | CID-12345 |  |
 | PurchaseOrder | string | A purchase order reference number | PO-3333 | |  |
-| InvoiceId | string | Id for this specific invoice (often "Invoice Number") | INV-100 | |  |
-| InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 
-| DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| InvoiceId | string | ID for this specific invoice (often "Invoice Number") | INV-100 | |  |
+| InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 2019-11-15 |
+| DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 |
 | VendorName | string | Vendor who has created this invoice | CONTOSO LTD. | |
 | VendorAddress | string | Mailing address for the Vendor | 123 456th St New York, NY, 10001 | |
 | VendorAddressRecipient | string | Name associated with the VendorAddress | Contoso Headquarters | |
@@ -104,8 +104,8 @@ The Invoice service will extract the text, tables and 26 invoice fields. Followi
 ## Next steps
 
 - Try your own invoices and samples in the [Form Recognizer Sample UI](https://fott-preview.azurewebsites.net/).
-- Complete a [Form Recognizer client library quickstart](quickstarts/client-library.md) to get started writing an invoice processing app with Form Recognizer in the language of your choice.
-- Or, follow the [Extract invoice data](./quickstarts/python-invoices.md) quickstart to implement invoice data extraction using Python and the REST API.
+- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing an invoice processing app with Form Recognizer in the development language of your choice.
+
 ## See also
 
 * [What is Form Recognizer?](./overview.md)

@@ -4,6 +4,8 @@ description: Debug snapshots are automatically collected when exceptions are thr
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
+author: cweining
+ms.author: cweining
 
 ms.reviewer: cweining
 ---

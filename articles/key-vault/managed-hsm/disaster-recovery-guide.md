@@ -101,7 +101,7 @@ To create an HSM backup, you will need the following
 We use `az keyvault backup` command to the HSM backup in the storage container **mhsmbackupcontainer**, which is in the storage account **ContosoBackup** for the example below. We create a SAS token that expires in 30 minutes and provide that to Managed HSM to write the backup.
 
 ```azurecli-interactive
-end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
 az storage container create --account-name  mhsmdemobackup --name mhsmbackupcontainer  --account-key $skey
 sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name ContosoBackup --permissions crdw --expiry $end --account-key $skey -o tsv)
@@ -118,7 +118,7 @@ For this step you need the following:
 
 
 ```azurecli-interactive
-end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
 sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-name ContosoBackup --permissions rl --expiry $end --account-key $skey -o tsv)
 az keyvault restore start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-ContosoMHSM-2020083120161860

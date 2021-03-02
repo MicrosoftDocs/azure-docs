@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-# Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
+# Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
 ---
 
 # Daemon app that calls web APIs - code configuration
@@ -108,7 +108,7 @@ When you build a confidential client with certificates, the [parameters.json](ht
 
 ### Instantiate the MSAL application
 
-To instantiate the MSAL application, you need to add, reference, or import the MSAL package (depending on the language).
+To instantiate the MSAL application, add, reference, or import the MSAL package (depending on the language).
 
 The construction is different, depending on whether you're using client secrets or certificates (or, as an advanced scenario, signed assertions).
 
@@ -286,7 +286,7 @@ MSAL.NET has two methods to provide signed assertions to the confidential client
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-When you use `WithClientAssertion`, you need to provide a signed JWT. This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md).
+When you use `WithClientAssertion`, provide a signed JWT. This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();

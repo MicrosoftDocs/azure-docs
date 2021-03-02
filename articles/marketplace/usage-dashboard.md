@@ -130,7 +130,7 @@ _**Table 1: Dictionary of data terms**_
 | Offer Name | Offer Name | The name of the commercial marketplace offering. |
 | DeploymentMethod | Deprecated | Deprecated (Same definition as Offer type)
  |
-| Customer Company Name | Customer Company Name | The company name provided by the customer. The name could be different than the city in a customer's Azure subscription. |
+| Customer Company Name | Customer Company Name | The company name provided by the customer. The name could be different than the name in a customer's Azure subscription. |
 | Usage Date | Usage Date | The date of usage event generation for usage-based assets. |
 | IsMultisolution | Is Multisolution | Signifies whether the offer is a Multisolution offer type. |
 | Is New Customer | Deprecated | Deprecated |
