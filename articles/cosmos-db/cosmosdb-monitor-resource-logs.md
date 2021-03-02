@@ -241,7 +241,7 @@ For detailed information about how to create a diagnostic setting by using the A
    ```Kusto
    AzureDiagnostics
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics"
-   | where todouble(sizeKb_d) > 800000
+   | where todouble(sizeKb_d) > 8000000
    ```
 
 1. How to get P99 or P50 replication latencies for operations, request charge or the length of the response?
