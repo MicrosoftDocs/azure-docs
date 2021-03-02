@@ -2,7 +2,7 @@
 title: Container image storage 
 description: Details on how your container images and other artifacts are stored in Azure Container Registry, including security, redundancy, and capacity.
 ms.topic: article
-ms.date: 02/26/2021
+ms.date: 03/02/2021
 ---
 
 # Container image storage in Azure Container Registry
@@ -15,10 +15,11 @@ All container images and other artifacts in your registry are encrypted at rest.
 
 ## Geo-redundant storage
 
-Azure uses a geo-redundant storage scheme to guard against loss of your container images and other artifacts. Azure Container Registry automatically replicates your container images to multiple geographically distant data centers, preventing their loss if a regional storage failure occurs.
+For container registries deployed in most regions, Azure uses a geo-redundant storage scheme to help guard against loss of your container images and other artifacts. Azure Container Registry automatically replicates your container images to multiple geographically distant data centers, preventing their loss if a regional storage failure occurs.
 
 > [!IMPORTANT]
-> Due to data residency requirements in Brazil South, and Southeast Asia, Azure Container Registry data in those regions is stored on [local geo only](https://azure.microsoft.com/global-infrastructure/geographies/). For Southeast Asia, all the data are stored in Singapore. For Brazil South, all data are stored in Brazil. When the region is lost due to a significant disaster, Microsoft will not be able to recover your Azure Container Registry data.
+> * If a regional storage failure occurs, registry data can only be recovered by contacting Azure Support. 
+> * Due to data residency requirements in Brazil South, and Southeast Asia, Azure Container Registry data in those regions is stored on [local geo only](https://azure.microsoft.com/global-infrastructure/geographies/). For Southeast Asia, all the data are stored in Singapore. For Brazil South, all data are stored in Brazil. When the region is lost due to a significant disaster, Microsoft will not be able to recover your Azure Container Registry data.
 
 ## Geo-replication
 
@@ -26,7 +27,7 @@ For scenarios requiring even more high-availability assurance, consider using th
 
 ## Zone redundancy
 
-To create a resilient and high-availability Azure container registry, optionally enable [zone redundancy](zone-redundancy.md) in select Azure regions. Zone redundancy uses Azure [availability zones](../availability-zones/az-overview.md) to replicate your registry to a minimum of three separate zones in each enabled region. Combine geo-replication and zone redundancy to enhance both the reliability and performance of a registry. 
+To create a resilient and high-availability Azure container registry, optionally enable [zone redundancy](zone-redundancy.md) in select Azure regions. A feature of the Premium service tier, Zone redundancy uses Azure [availability zones](../availability-zones/az-overview.md) to replicate your registry to a minimum of three separate zones in each enabled region. Combine geo-replication and zone redundancy to enhance both the reliability and performance of a registry. 
 
 ## Scalable storage
 
