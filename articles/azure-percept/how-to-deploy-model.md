@@ -41,8 +41,6 @@ Follow this guide to deploy a vision AI model to your Azure Percept DK from with
 
 1. If you opted to deploy a sample model, select the model and click **Deploy to device**.
 
-    :::image type="content" source="./media/how-to-deploy-model/select-sample-model.png" alt-text="Percept devices list.":::
-
 1. When your model deployment is successful, you will receive a status message in the upper right corner of your screen. To view your model inferencing in action, click the **View stream** link in the status message to see the RTSP video stream from the Vision SoM of your devkit.
 
 ## Next steps
