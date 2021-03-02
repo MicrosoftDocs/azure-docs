@@ -1,6 +1,6 @@
 ---
-title: Deploy a vision AI model to your Azure Percept DK
-description: Learn how to deploy a vision AI model to your Azure Percept DK from Azure Percept Studio
+title: Capture images for a no-code vision solution
+description: Learn how to capture images with your Azure Percept DK in Azure Percept Studio for a no-code vision solution
 author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
