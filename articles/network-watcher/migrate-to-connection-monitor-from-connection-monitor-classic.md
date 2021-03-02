@@ -44,8 +44,7 @@ If you're using a custom workspace, ensure that Network Watcher is enabled in yo
 	
 1. Select your subscription and the connection monitors you want to migrate, and then select **Migrate selected**. 
 
-With only a few clicks, you've migrated the existing connection monitors to Connection Monitor. 
-*Note* - Once migrated from CM (Classic) to CM, you will not be able to see the monitor under CM (Classic)
+With only a few clicks, you've migrated the existing connection monitors to Connection Monitor. Once migrated from CM (Classic) to CM, you will not be able to see the monitor under CM (Classic)
 
 You can now customize Connection Monitor properties, change the default workspace, download templates, and check the migration status. 
 
