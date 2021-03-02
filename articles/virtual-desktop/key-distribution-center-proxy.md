@@ -3,7 +3,7 @@ title: Set up Kerberos Key Distribution Center proxy Windows Virtual Desktop - A
 description: How to set up a Windows Virtual Desktop host pool to use a Kerberos Key Distribution Center proxy.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/30/2021
+ms.date: 03/02/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -14,7 +14,16 @@ manager: lizross
 > This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article will show you how to configure a Kerberos Key Distribution Center (KDC) proxy (preview) for your host pool. This proxy lets organizations authenticate with Kerberos outside of their enterprise boundaries. For example, you can use the KDC proxy to enable Smartcard authentication for external clients.
+Security-conscious customers, such as financial or government organizations, prefer to sign in using Smartcard because it requires a direct connection with an Active Directory (AD) domain controller for Kerberos authentication. Without this direct connection, users can't sign in to the organization's network externally. Windows Virtual Desktop supports signing in externally by using the KDC proxy service. The KDC proxy allows for authentication for the Remote Desktop Protocol of a Windows Virtual Desktop session, letting the user sign in securely without needing to repeatedly enter a password. This makes working from home much easier, and allows for certain disaster recovery scenarios to run more smoothly.
+
+However, the KDC proxy is a component of the Windows Server Gateway role in Windows Server 2016 or later, not Azure. How Do you use a Remote Desktop Services role to sign in to Windows Virtual Desktop? To answer that, let's take a quick look at the components.
+
+There are two components to the Windows Virtual Desktop service that the KDC proxy needs to authenticate before it can work properly:
+
+- The feed in the WVD client that gives users a list of available desktops or applications they have access to.
+- The RDP session that results from a user selecting one of those available resources.
+
+The KDC proxy covers both components without having to use Windows Virtual Desktop and Remote Desktop Services at the same time. This article will show you how to configure the proxy in the Azure portal.
 
 ## How to configure the KDC proxy
 
