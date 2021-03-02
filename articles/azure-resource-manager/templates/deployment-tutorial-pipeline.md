@@ -169,7 +169,7 @@ To create a pipeline with a step to deploy a template:
     * **Action**: Select the **Create Or Update Resource Group** action does 2 actions - 1. create a resource group if a new resource group name is provided; 2. deploy the template specified.
     * **Resource group**: Enter a new resource group name. For example, **AzureRmPipeline-rg**.
     * **Location**: Select a location for the resource group, for example, **Central US**.
-    * **Template location**: Select **URL of the file**, which means the task looks for the template file by using the URL.
+    * **Template location**: Select **URL of the file**, which means the task looks for the template file by using the URL. Because _relativePath_ is used in the main template and _relativePath_ is only supported on URI-based deployments, you must use URL here.
     * **Template link**: Enter the URL that you got at the end of the [Prepare a GitHub repository](#prepare-a-github-repository) section. It starts with `https://raw.githubusercontent.com`.
     * **Template parameters link**: Leave this field blank. You will specify the parameter values in the **Override template parameters**.
     * **Override template parameters**: Enter `-projectName [EnterAProjectName]`.
