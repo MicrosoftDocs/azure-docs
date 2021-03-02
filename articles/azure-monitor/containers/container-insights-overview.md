@@ -54,7 +54,7 @@ The main differences in monitoring a Windows Server cluster compared to a Linux 
 
 Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Container insights.
 
-> [!VIDEO https://www.youtube.com/embed/RjsNmapggPU]
+> [!VIDEO https://youtu.be/XEdwGvS2AwA]
 
 ## How do I access this feature?
 
@@ -66,4 +66,4 @@ If you are interested in monitoring and managing your Docker and Windows contain
 
 ## Next steps
 
-To begin monitoring your Kubernetes cluster, review [How to enable the Container insights](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring.
+To begin monitoring your Kubernetes cluster, review [How to enable Container insights](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring.
