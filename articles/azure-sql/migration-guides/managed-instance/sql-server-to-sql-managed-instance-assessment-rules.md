@@ -14,9 +14,9 @@ ms.date: 12/15/2020
 # Assessment rules for SQL Server to SQL Managed Instance migration
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
-Migration tools validate your source SQL Server instance by running a number of assessment rules to identify issues that must be addressed before migrating your SQL Server database to Azure SQL Database. 
+Migration tools validate your source SQL Server instance by running a number of assessment rules to identify issues that must be addressed before migrating your SQL Server database to Azure SQL Managed Instance. 
 
-This article provides a list of the rules used to assess the feasibility of migrating your SQL Server database to Azure SQL Database. 
+This article provides a list of the rules used to assess the feasibility of migrating your SQL Server database to Azure SQL Managed Instance. 
 
 ## AnalysisCommand job<a id="AnalysisCommandJob"></a>
 
@@ -32,11 +32,10 @@ Review impacted objects section in Azure Migrate to see all jobs using Analysis 
 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
-## AnalysisQuery job<a id="AnalysisQueryJob<"></a>
-**Category**: Warning   
+## AnalysisQuery job<a id="AnalysisQueryJob"></a>
 
 **Title: AnalysisQuery job step is not supported in Azure SQL Managed Instance.**   
-
+**Category**: Warning   
 
 **Description**   
 It is a job step that runs an Analysis Services query. AnalysisQuery job step is not supported in Azure SQL Managed Instance.
@@ -52,9 +51,6 @@ More information: [SQL Server Agent differences in Azure SQL Managed Instance ](
 
 **Title: 'CREATE ASSEMBLY' and 'ALTER ASSEMBLY' with a file parameter are unsupported in Azure SQL Managed Instance.**   
 **Category**: Warning   
-
-**Category**   
-Warning   
 
 **Description**   
 Azure SQL Managed Instance cannot access file shares or Windows folders. See the "Impacted Objects" section for the specific uses of BULK INSERT statements that do not reference an Azure blob. Objects with 'BULK INSERT' where the source is not Azure blob storage will not work after migrating to Azure SQL Managed Instance.
@@ -82,7 +78,7 @@ More information: [Bulk Insert and OPENROWSET differences in Azure SQL Managed I
 
 ## CLR Security<a id="ClrStrictSecurity"></a>
 
-**Title: CLR assemblies marked as SAFE or EXTERNAL_ACCESS are considered UNSAFE** 
+**Title: CLR assemblies marked as SAFE or EXTERNAL_ACCESS are considered UNSAFE**   
 **Category**: Issue   
 
 **Description**   
@@ -100,7 +96,6 @@ More information: [CLR strict security](/sql/database-engine/configure-windows/c
 **Category**: Warning   
 
 **Description**   
-Category:    
 The COMPUTE clause generates totals that appear as additional summary columns at the end of the result set. However, this clause is no longer supported in Azure SQL Managed Instance.
 
 
@@ -140,7 +135,7 @@ More information: [Cryptographic provider differences in Azure SQL Managed Insta
 
 ## Database compatibility<a id="DbCompatLevelLowerThan100"></a>
 
-**Title: Database compatibility level below 100 is not supported** 
+**Title: Database compatibility level below 100 is not supported**   
 **Category**: Warning   
 
 **Description**   
@@ -574,7 +569,7 @@ More information: [Stored Procedure differences in Azure SQL Managed Instance](.
 
 ## Next steps
 
-To start migrating your SQL Server to Azure SQL Database, see the [SQL Server to SQL Managed Instance migration guide](sql-server-to-managed-instance-guide.md).
+To start migrating your SQL Server to Azure SQL Managed Instance, see the [SQL Server to SQL Managed Instance migration guide](sql-server-to-managed-instance-guide.md).
 
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 
