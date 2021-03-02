@@ -67,7 +67,7 @@ The following code example shows how to create a service client object with mana
 
 ```java
      public SendSmsResponse sendSms() {
-          // You can find your endpoint and access key from your resource in the Azure Portal
+          // You can find your endpoint and access key from your resource in the Azure portal
           String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 
           HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
