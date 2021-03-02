@@ -13,8 +13,6 @@ ms.service: azure-communication-services
 
 # Region availability and data residency
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 Azure Communication Services is committed to helping our customers meet their privacy and personal data requirements. As a developer using Communication Services with a direct relationship with humans using the application, you are potentially a controller of their data. Since Azure Communication Services is storing this data on your behalf, we are most likely a processor of this data. This page summarizes how the service retains data and how you can identify, export, and delete this data.
 
 ## Data residency
@@ -61,7 +59,7 @@ Chat threads and messages are retained until explicitly deleted. A fully idle th
 
 ### SMS
 
-Sent and received SMS messages are ephemerally processed by the service and not retained. 
+Sent and received SMS messages are ephemerally processed by the service and not retained.
 
 ### PSTN voice calling
 
