@@ -37,7 +37,7 @@ You will need an Azure subscription ([create one for free](https://azure.microso
 
 ### Input requirements 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## The Analyze Invoice operation
 
