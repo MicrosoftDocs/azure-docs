@@ -44,7 +44,9 @@ Function apps that target the latest 2.x version (`~2`) are automatically upgrad
 >[!NOTE]
 >If your function app is pinned to `~2.0` and you change this version target to `~2`, your function app may break. If you deploy using ARM, check the version in your templates. If this occurs, change your version back to target `~2.0` and fix compatibility issues. 
 
-Function apps that target `~2.0` continue to run on .NET Core 2.2. This version of .NET Core no longer receives security and other maintenance updates. Therefore, you should work to make your functions compatible with .NET Core 3.1 as soon as possible. After you've resolved these issues, change your version back to `~2` or upgrade to `~3`. To learn more about targeting versions of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+Function apps that target `~2.0` continue to run on .NET Core 2.2. This version of .NET Core no longer receives security and other maintenance updates. To learn more, see [this announcement page](https://github.com/Azure/app-service-announcements/issues/266). 
+
+You should work to make your functions compatible with .NET Core 3.1 as soon as possible. After you've resolved these issues, change your version back to `~2` or upgrade to `~3`. To learn more about targeting versions of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 When running on Linux in a Premium or dedicated (App Service) plan, you pin your version by instead targeting a specific image by setting the `linuxFxVersion` site config setting to `DOCKER|mcr.microsoft.com/azure-functions/dotnet:2.0.14786-appservice` To learn how to set `linuxFxVersion`, see [Manual version updates on Linux](set-runtime-version.md#manual-version-updates-on-linux).
 
