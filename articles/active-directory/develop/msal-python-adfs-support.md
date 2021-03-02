@@ -32,7 +32,7 @@ There are usually two ways of authenticating against AD FS:
 
 The following applies whether you connect directly to Active Directory Federation Services (AD FS) or through Active Directory.
 
-When you call `acquire_token_by_authorization_code` or `acquire_token_by_device_flow`, the user experience is typically as follows:
+When you call [`acquire_token_by_authorization_code`](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_by_authorization_code) or [`acquire_token_by_device_flow`](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_device_flow), the user experience is typically as follows:
 
 1. The user enters their account ID.
 2. Azure AD displays briefly the message "Taking you to your organization's page" and the user is redirected to the sign-in page of the identity provider. The sign-in page is usually customized with the logo of the organization.
@@ -46,7 +46,7 @@ The supported AD FS versions in this federated scenario are:
 
 The following applies whether you connect directly to Active Directory Federation Services (AD FS) or through Active Directory.
 
-When you acquire a token using `acquire_token_by_username_password`, MSAL Python gets the identity provider to contact based on the username. MSAL Python gets a [SAML 1.1 token](reference-saml-tokens.md) from the identity provider, which it then provides to Azure AD which returns the JSON Web Token (JWT).
+When you acquire a token using [`acquire_token_by_username_password`](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_username_password), MSAL Python gets the identity provider to contact based on the username. MSAL Python gets a [SAML 1.1 token](reference-saml-tokens.md) from the identity provider, which it then provides to Azure AD which returns the JSON Web Token (JWT).
 
 ## Connecting directly to AD FS
 
