@@ -273,7 +273,7 @@ At this point, the IoT Edge runtime is installed on your Linux device, and you n
 This section walks through the steps to provision a device with X.509 certificate authentication. You should have registered your device in IoT Hub, providing thumbprints that match the certificate and private key located on your IoT Edge device. If not, follow the steps in [Register an IoT Edge device in IoT Hub](how-to-register-device.md).
 
 <!-- 1.1 -->
-::: moniker range="iotedge-2018-06
+::: moniker range="iotedge-2018-06"
 
 On the IoT Edge device, open the configuration file.
 
@@ -316,7 +316,7 @@ After entering the provisioning information in the configuration file, restart t
 ::: moniker-end
 
 <!-- 1.2 -->
-::: moniker range=">=iotedge=2020-11"
+::: moniker range=">=iotedge-2020-11"
 
 Create the configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
 
