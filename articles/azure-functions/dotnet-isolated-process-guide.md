@@ -1,10 +1,10 @@
 ---
-title: .NET isolated guide for .NET 5.0 in Azure Functions
-description: Learn how to run .NET class library functions, such as functions that run on .NET 5.0, out-of-process in Azure Functions.  
+title: .NET isolated process guide for .NET 5.0 in Azure Functions
+description: Learn how to use a .NET isolated process to run your C# functions on .NET 5.0 out-of-process in Azure.  
 
 ms.service: azure-functions
 ms.topic: conceptual 
-ms.date: 02/06/2021
+ms.date: 03/01/2021
 ms.custom: template-concept 
 ---
 
@@ -12,11 +12,11 @@ ms.custom: template-concept
 
 _.NET 5.0 support is currently in preview._
 
-This article is an introduction to using C# to develop .NET isolated functions, which run out-of-process in Azure Functions. Running out-of-process provides a way for you to create and run functions that target the current .NET 5.0 release. 
+This article is an introduction to using C# to develop .NET isolated process functions, which run out-of-process in Azure Functions. Running out-of-process lets you decouple your function code from the Azure Functions runtime. It also provides a way for you to create and run functions that target the current .NET 5.0 release. 
 
 ## Why .NET isolated
 
-Previously Azure Functions has only supported a single mode for writing .NET functions, which run [alongside the host in the same process as a class library](functions-dotnet-class-library.md). This provides deep integration between the host process and the function process. For example, .NET class library functions can share binding APIs and types. However, this also requires a tighter coupling between the host process and the .NET function. For example, .NET functions running in-process are required to run on the same version of .NET as the Functions runtime. To enable you to run outside these constraints, you can now choose to run in an isolated process. This also lets you develop functions that use current .NET releases (such as .NET 5.0), not natively supported by the Functions runtime.
+Previously Azure Functions has only supported a tightly integrated mode for .NET functions, which run [alongside the host in the same process as a class library](functions-dotnet-class-library.md). This mode provides deep integration between the host process and the function process. For example, .NET class library functions can share binding APIs and types. However, this integration also requires a tighter coupling between the host process and the .NET function. For example, .NET functions running in-process are required to run on the same version of .NET as the Functions runtime. To enable you to run outside these constraints, you can now choose to run in an isolated process. This process isolation also lets you develop functions that use current .NET releases (such as .NET 5.0), not natively supported by the Functions runtime.
 
 Because these functions run in a separate process, there are some [feature and functionality differences](#differences-with-net-class-libraries) between .NET isolated function apps and .NET class library function apps.
 
@@ -34,7 +34,7 @@ The only version of .NET that is currently supported to run out-of-process is .N
 
 ## .NET isolated project
 
-A .NET isolated function project is basically a .NET console app project that targets .NET 5.0. The basic files required in any .NET isolated project are the following:
+A .NET isolated function project is basically a .NET console app project that targets .NET 5.0. The following are the basic files required in any .NET isolated project:
 
 + [host.json](functions-host-json.md) file.
 + [local.settings.json](functions-run-local.md#local-settings-file) file.
@@ -43,7 +43,7 @@ A .NET isolated function project is basically a .NET console app project that ta
 
 ## Package references
 
-To be able to run out-opf-process, your .NET project needs to use a unique set of packages, both for core functionality and binding extensions. 
+When running out-of-process, your .NET project uses a unique set of packages, which implement both core functionality and binding extensions. 
 
 ### Core packages 
 
@@ -60,9 +60,9 @@ You'll find these extension packages under [Microsoft.Azure.Functions.Worker.Ext
  
 ## Start-up and configuration 
 
-When using .NET isolated functions, you have access to the start-up of your function app, which is usually in Program.cs. Because you are responsible for creating and starting your own host instance, you have direct access to the configuration pipeline and can much more easily inject dependencies and run middleware. 
+When using .NET isolated functions, you have access to the start-up of your function app, which is usually in Program.cs. You're responsible for creating and starting your own host instance. As such, you also have direct access to the configuration pipeline for your app. You can much more easily inject dependencies and run middleware when running out-of-process. 
 
-The following code shows an example of a HostBuilder pipeline:
+The following code shows an example of a `HostBuilder` pipeline:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="20-33":::
 
@@ -74,7 +74,7 @@ A `HostBuilder` is used to build and return a fully initialized `IHost` instance
 
 Having access to the host builder pipeline means that you can set any app-specific configurations during initialization. These configurations apply to your function app running in a separate process. To make changes to the functions host or trigger and binding configuration, you'll still need to use the [host.json file](functions-host-json.md).      
 
-The following example shows how to add configuration `args` read from the command line: 
+The following example shows how to add configuration `args`, which are read as command-line arguments: 
  
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="21-24" :::
 
@@ -94,7 +94,7 @@ To learn more, see [Dependency injection in ASP.NET Core](aspnet/core/fundamenta
 
 ### Middleware
 
-.NET isolated also supports middleware registration, again by using a model similar to what exists in ASP.NET. This gives you the ability to inject logic into the invocation pipeline, pre- and post-function executions.
+.NET isolated also supports middleware registration, again by using a model similar to what exists in ASP.NET. This model gives you the ability to inject logic into the invocation pipeline, and before and after functions execute.
 
 While the full middleware registration set of APIs is not yet exposed, middleware registration is supported and we've added an example to the sample application under the Middleware folder.
 
@@ -104,7 +104,7 @@ To learn more, see [ASP.NET Core middleware](/aspnet/core/fundamentals/middlewar
 
 ## Execution context
 
-.NET isolated passes a `FunctionContext` object to your function methods. This object lets you get an [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0) instance to write to the logs by calling the `GetLogger` method and supplying a `categoryName` string. To learn more, see [Logging](#logging).
+.NET isolated passes a `FunctionContext` object to your function methods. This object lets you get an [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0) instance to write to the logs by calling the `GetLogger` method and supplying a `categoryName` string. To learn more, see [Logging](#logging). 
 
 ## Bindings 
 
@@ -122,7 +122,7 @@ For HTTP triggers, you must use `HttpRequestData` and `HttpResponseData` to acce
 
 ### Input bindings
 
-In addition to the trigger, a function can have zero or more other input bindings. Like triggers, input bindings are defined by applying a binding attribute to an input parameter. When the function executes, the runtime tries to get data specified in the binding. The data being requested is often dependent on information provided by the trigger using binding parameters.  
+A function can have zero or more input bindings that can pass data to a function. Like triggers, input bindings are defined by applying a binding attribute to an input parameter. When the function executes, the runtime tries to get data specified in the binding. The data being requested is often dependent on information provided by the trigger using binding parameters.  
 
 ### Output bindings
 
@@ -134,7 +134,7 @@ To write to an output binding, you must apply an output binding attribute to the
 
 The data written to an output binding is always the return value of the function. If you need to write to more than one output binding, you must create a custom return type. This return type must have the output binding attribute applied to one or more properties of the class. The following example writes to both an HTTP response and a queue output binding:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Function1/Function1.cs" range="18-53" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Function1/Function1.cs" range="14-33":::
 
 ### HTTP trigger
 
@@ -154,7 +154,7 @@ The following example shows how to get an `ILogger` and write logs inside a func
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="19-20" ::: 
 
-Use various method of `ILogger` to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
+Use various methods of `ILogger` to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
 
 An [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0) is also provided when using [dependency injection](#dependency-injection).
 
@@ -179,7 +179,7 @@ This section describes the current state of the functional and behavioral differ
 | Configuration | [host.json](functions-host-json.md) | [host.json](functions-host-json.md) and [custom initialization](#configuration) |
 | Dependency injection | [Supported](functions-dotnet-dependency-injection.md)  | [Supported](#dependency-injection) |
 | Middleware | Not supported | [Supported](#middleware) |
-| Cold start times | Typical | Longer (due to just-in-time start-up). Run on Linux instead of Windows to reduce potential delays. |
+| Cold start times | Typical | Longer, because of just-in-time start-up. Run on Linux instead of Windows to reduce potential delays. |
 | ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | _TBD_ |
 
 
