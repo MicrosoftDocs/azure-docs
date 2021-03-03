@@ -5,11 +5,10 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.custom: contperf-fy21q3
+ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
 # Use the Azure Import/Export service to import data to Azure Blob Storage
 
