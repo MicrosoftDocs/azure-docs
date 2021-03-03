@@ -71,6 +71,81 @@ In addition to toast messages, There are many other ways to present the metadata
 - Add a [Fragment](https://developer.android.com/guide/components/fragments) to the current activity.
 - Navigate to another activity or view.
 
+## Display a popup
+
+The Azure Maps Android SDK provides a `Popup` class that makes it easy to create UI annotation elements that are anchored to a position on the map. For popups you have to pass in a view with a relative layout into the `content` option of the popup. Here is a simple layout example that displays dark text on top of a while background.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:layout_margin="8dp"
+    android:padding="10dp"
+
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:text=""
+        android:textSize="18dp"
+        android:textColor="#222"
+        android:layout_height="wrap_content"
+        android:width="200dp"/>
+
+</RelativeLayout>
+```
+
+Assuming the above layout is stored in a file called `popup_text.xml` in the `res -> layout` folder of an app, the following code creates a popup, adds it to the map. When a feature is clicked, the `title` property is displayed using the `popup_text.xml` layout, with the bottom center of the layout anchored to the specified position on the map.
+
+```java
+//Create a popup and add it to the map.
+Popup popup = new Popup();
+map.popups.add(popup);
+
+map.events.add((OnFeatureClick)(feature) -> {
+    //Get the first feature and it's properties.
+    Feature f = feature.get(0);
+    JsonObject props = f.properties();
+
+    //Retrieve the custom layout for the popup.
+    View customView = LayoutInflater.from(this).inflate(R.layout.popup_text, null);
+
+    //Access the text view within the custom view and set the text to the title property of the feature.
+    TextView tv = customView.findViewById(R.id.message);
+    tv.setText(props.get("title").getAsString());
+
+    //Get the coordinates from the clicked feature and create a position object.
+    List<Double> c = ((Point)(f.geometry())).coordinates();
+    Position pos = new Position(c.get(0), c.get(1));
+
+    //Set the options on the popup.
+    popup.setOptions(
+        //Set the popups position.
+        position(pos),
+
+        //Set the anchor point of the popup content.
+        anchor(AnchorType.BOTTOM),
+
+        //Set the content of the popup.
+        content(customView)
+
+        //Optionally, hide the close button of the popup.
+        //, closeButton(false)
+    );
+
+    //Open the popup.
+    popup.open();
+});
+
+```
+
+The following screen capture shows popups appearing when features are clicked and staying anchored to their specified location on the map as it moves.
+
+![Animation of a popup being displayed and the map moved with the popup anchored to a position on the map](./media/display-feature-information-android/android-popup.gif)
+
 ## Next steps
 
 To add more data to your map:

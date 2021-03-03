@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Azure Arc enabled Kubernetes (preview)
+title: Azure Arc enabled Kubernetes
 summary: Learn how to manage Kubernetes clusters with Azure Arc
 
 metadata:
@@ -8,7 +8,7 @@ metadata:
   author: shashankbarsin
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 02/15/2021
+  ms.date: 03/02/2021
   ms.author: shasb
 
 landingContent:
@@ -18,6 +18,8 @@ landingContent:
         links:
           - text: What is Azure Arc enabled Kubernetes?
             url: overview.md
+          - text: Azure Arc Validation Program
+            url: validation-program.md
       - linkListType: concept
         links:
           - text: Agent architecture
@@ -31,15 +33,20 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Connect cluster
-            url: connect-cluster.md
-      
-  - title: Configure, govern and monitor clusters
+          - text: Connect a cluster to Azure Arc
+            url: quickstart-connect-cluster.md
+
+  - title: Deploy configurations using GitOps
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy configurations using GitOps
+            url: tutorial-use-gitops-connected-cluster.md
+
+  - title: Configure, govern, and monitor clusters
     linkLists:
       - linkListType: how-to-guide
         links:  
-          - text: Deploy configurations using GitOps
-            url: use-gitops-connected-cluster.md
           - text: Deploy Helm charts using GitOps
             url: use-gitops-with-helm.md
           - text: Enforce GitOps using Azure Policy

@@ -37,6 +37,7 @@ import os
 # Add required client library components from quickstart here
 
 try:
+    print('Azure Communication Services - Chat Quickstart')
     # Quickstart code goes here
 except Exception as ex:
     print('Exception:')
@@ -121,11 +122,11 @@ chat_thread_client = chat_client.create_chat_thread(topic, participants, repeata
 ```
 
 ## Get a chat thread client
-The `get_chat_thread` method returns a thread client for a thread that already exists. It can be used for performing operations on the created thread: add participants, send message, etc. thread_id is the unique ID of the existing chat thread.
+The `get_chat_thread_client` method returns a thread client for a thread that already exists. It can be used for performing operations on the created thread: add participants, send message, etc. thread_id is the unique ID of the existing chat thread.
 
 ```python
-thread_id = 'id'
-chat_thread = chat_client.get_chat_thread(thread_id)
+thread_id = chat_thread_client.thread_id
+chat_thread_client = chat_client.get_chat_thread_client(thread_id)
 ```
 
 ## List all chat threads
@@ -136,14 +137,16 @@ The `list_chat_threads` method returns a iterator of type `ChatThreadInfo`. It c
 
 ```python
 from datetime import datetime, timedelta
+import pytz
 
 start_time = datetime.utcnow() - timedelta(days=2)
 start_time = start_time.replace(tzinfo=pytz.utc)
 chat_thread_infos = chat_client.list_chat_threads(results_per_page=5, start_time=start_time)
 
-for info in chat_thread_infos:
-    # Iterate over all chat threads
-    print("thread id:", info.id)
+for chat_thread_info_page in chat_thread_infos.by_page():
+    for chat_thread_info in chat_thread_info_page:
+        # Iterate over all chat threads
+        print("thread id:", chat_thread_info.id)
 ```
 
 ## Delete a chat thread
@@ -152,7 +155,7 @@ The `delete_chat_thread` is used to delete a chat thread.
 - Use `thread_id` to specify the thread_id of an existing chat thread that needs to be deleted
 
 ```python
-thread_id='id'
+thread_id = chat_thread_client.thread_id
 chat_client.delete_chat_thread(thread_id)
 ```
 
@@ -168,6 +171,7 @@ The response is an "id" of type `str`, which is the unique ID of that message.
 
 #### Message type not specified
 ```python
+chat_thread_client = chat_client.create_chat_thread(topic, participants)
 
 content='hello world'
 sender_display_name='sender name'
@@ -192,12 +196,12 @@ send_message_result_id_w_str = chat_thread_client.send_message(content=content, 
 ## Get a specific chat message from a chat thread
 The `get_message` function can be used to retrieve a specific message, identified by a message_id
 
-- Use `message_id` to specify the message id
+- Use `message_id` to specify the message ID.
 
 The response of type `ChatMessage` contains all information related to the single message.
 
 ```python
-message_id = 'message_id'
+message_id = send_message_result_id
 chat_message = chat_thread_client.get_message(message_id)
 ```
 
@@ -210,6 +214,10 @@ You can retrieve chat messages by polling the `list_messages` method at specifie
 
 ```python
 chat_messages = chat_thread_client.list_messages(results_per_page=1, start_time=start_time)
+for chat_message_page in chat_messages.by_page():
+    for chat_message in chat_message_page:
+        print('ChatMessage: ', chat_message)
+        print('ChatMessage: ', chat_message.content.message)
 ```
 
 `list_messages` returns the latest version of the message, including any edits or deletes that happened to the message using `update_message` and `delete_message`. For deleted messages `ChatMessage.deleted_on` returns a datetime value indicating when that message was deleted. For edited messages, `ChatMessage.edited_on` returns a datetime indicating when the message was edited. The original time of message creation can be accessed using `ChatMessage.created_on` which can be used for ordering the messages.
@@ -234,6 +242,8 @@ You can update the topic of a chat thread using the `update_topic` method
 ```python
 topic = "updated thread topic"
 chat_thread_client.update_topic(topic=topic)
+updated_topic = chat_client.get_chat_thread(chat_thread_client.thread_id).topic
+print('Updated topic: ', updated_topic)
 ```
 
 ## Update a message
@@ -243,18 +253,23 @@ You can update the content of an existing message using the `update_message` met
 - Use `content` to set the new content of the message
 
 ```python
-message_id='id'
-content = 'updated content'
-chat_thread_client.update_message(message_id=message_id, content=content)
+content = 'Hello world!'
+send_message_result_id = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name)
+
+content = 'Hello! I am updated content'
+chat_thread_client.update_message(message_id=send_message_result_id, content=content)
+
+chat_message = chat_thread_client.get_message(send_message_result_id)
+print('Updated message content: ', chat_message.content.message)
 ```
 
 ## Send read receipt for a message
 The `send_read_receipt` method can be used to posts a read receipt event to a thread, on behalf of a user.
 
-- Use `message_id` to specify the id of the latest message read by current user
+- Use `message_id` to specify the ID of the latest message read by current user.
 
 ```python
-message_id='id'
+message_id=send_message_result_id
 chat_thread_client.send_read_receipt(message_id=message_id)
 ```
 
@@ -267,9 +282,9 @@ The `list_read_receipts` method can be used to get read receipts for a thread.
 ```python
 read_receipts = chat_thread_client.list_read_receipts(results_per_page=2, skip=0)
 
-for page in read_receipts.by_page():
-    for item in page:
-        print(item)
+for read_receipt_page in read_receipts.by_page():
+    for read_receipt in read_receipt_page:
+        print('ChatMessageReadReceipt: ', read_receipt)
 ```
 
 ## Send typing notification
@@ -285,7 +300,7 @@ The `delete_message` method can be used to delete a message, identified by a mes
 - Use `message_id` to specify the message_id
 
 ```python
-message_id='id'
+message_id=send_message_result_id
 chat_thread_client.delete_message(message_id=message_id)
 ```
 
@@ -337,7 +352,7 @@ Use `remove_participant` method to remove thread participant from the thread ide
 - `user` is the `CommunicationUserIdentifier` to be removed from the thread.
 
 ```python
-chat_thread_client.remove_participant(user)
+chat_thread_client.remove_participant(new_user)
 ```
 
 ## Run the code

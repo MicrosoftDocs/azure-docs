@@ -819,6 +819,6 @@ See the relevant [EventHubs documentation](../../event-hubs/event-hubs-about.md)
 
 ## Next steps
 
-* Create metric alerts in [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) for the metrics you collect.
-* Create [monitoring charts](../../azure-monitor/platform/data-platform.md) for your metrics.
+* Create metric alerts in [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md) for the metrics you collect.
+* Create [monitoring charts](../../azure-monitor/data-platform.md) for your metrics.
 * Learn how to [create a virtual machine scale set](../linux/tutorial-create-vmss.md) using your metrics to control autoscaling.
