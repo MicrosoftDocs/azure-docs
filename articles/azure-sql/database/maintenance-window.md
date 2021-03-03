@@ -23,7 +23,7 @@ For more information on maintenance events, see [Plan for Azure maintenance even
 
 Azure performs planned maintenance updates on Azure SQL Database and SQL Managed Instance resources periodically that often include updates to underlying hardware, software including underlying operating system (OS), and the SQL engine. During a maintenance update, resources are fully available and accessible but some of the maintenance updates require a failover as Azure takes instances offline for a short time to apply the maintenance updates (eight seconds in duration on average).  Planned maintenance updates occur once every 35 days on average, which means customer can expect approximately one planned maintenance event per month per Azure SQL Database or SQL managed instance, and only during the maintenance window slots selected by the customer.   
 
-The maintenance window is intended for business workloads that are sensitive to the potential connectivity interruptions that can result from planned maintenance events during the default window.  
+The maintenance window is intended for business workloads that are not resilient to intermittent connectivity issues that can result from planned maintenance events.
 
 The maintenance window can be configured using the Azure portal, PowerShell, CLI, or Azure API. It can be configured on creation or for existing SQL databases and SQL managed instances.
 
@@ -32,15 +32,15 @@ The maintenance window can be configured using the Azure portal, PowerShell,
 By default, all Azure SQL Databases and managed instance databases are updated only during 5PM to 8AM local times daily to avoid peak business hours interruptions. Local time is determined by the [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) that hosts the resource. You can further adjust the maintenance updates to a time suitable to your database by choosing from two additional maintenance window slots:
 
 * **Default** window, 5PM to 8AM local time Monday - Sunday 
-* Weekday window, 10PM to 6AM local time Monday – Thursday: **Requires customer opt-in** 
-* Weekend window, 10PM to 6AM local time Friday - Sunday: **Requires customer opt-in**  
+* Weekday window, 10PM to 6AM local time Monday – Thursday
+* Weekend window, 10PM to 6AM local time Friday - Sunday
 
 Once the maintenance window selection is made, all planned maintenance updates will only occur during the window of your choice.   
 
 > [!Note]
 > In addition to planned maintenance updates, in rare circumstances unplanned maintenance events can cause unavailability. 
 
-### Cost
+### Cost and eligibility
 
 Choosing a maintenance window is free of charge for the following subscription [offer types](https://azure.microsoft.com/support/legal/offer-details/): Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise, or Microsoft Customer Agreement.
 
