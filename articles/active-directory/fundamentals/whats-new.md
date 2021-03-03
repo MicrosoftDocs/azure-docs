@@ -136,6 +136,16 @@ Users with this role can configure the authentication methods policy, tenant-wid
 
 ---
 
+### Public Preview - /synchronization (provisioning) APIs now support application permissions
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** Identity Lifecycle Management
+ 
+Customers can now use application.readwrite.ownedby as an application permission to call the synchronization APIs. Note this is only supported for provisioning from Azure AD out into third-party applications (for example, AWS, Data Bricks, etc.). It is currently not supported for HR-provisioning (Workday / Successfactors) or Cloud Sync (AD to Azure AD). [Learn more](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
+ 
+---
+
 ### General availability - User collections on My Apps are available now!
 
 **Type:** New feature  
@@ -156,16 +166,6 @@ Microsoft Authenticator provides multi-factor authentication (MFA) and account m
 
 To use autofill on Authenticator, users need to add their personal Microsoft account to Authenticator and use it to sync their passwords. Work or school accounts cannot be used to sync passwords at this time. [Learn more](../user-help/user-help-auth-app-faq.md#autofill-for-it-admins).
 
----
-
-### General availability - /synchronization (provisioning) APIs now support application permissions
-
-**Type:** New feature  
-**Service category:** App Provisioning  
-**Product capability:** Identity Lifecycle Management
- 
-Customers can now use application.readwrite.ownedby as an application permission to call the synchronization APIs. Note this is only supported for provisioning from Azure AD out into third-party applications (for example, AWS, Data Bricks, etc.). It is currently not supported for HR-provisioning (Workday / Successfactors) or Cloud Sync (AD to Azure AD). [Learn more](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
- 
 ---
 
 ### General availability - Invite internal users to B2B collaboration
@@ -232,7 +232,7 @@ For more information, read [Automate user provisioning to SaaS applications with
 **Service category:** RBAC  
 **Product capability:** Access Control
  
-10 Azure AD built-in roles have been renamed so that they're aligned across the [Microsoft 365 admin center](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), [Azure AD portal](https://portal.azure.com/), and [Microsoft Graph](https://developer.microsoft.com/graph/). To learn more about the new roles, refer to [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md#available-roles).
+10 Azure AD built-in roles have been renamed so that they're aligned across the [Microsoft 365 admin center](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), [Azure AD portal](https://portal.azure.com/), and [Microsoft Graph](https://developer.microsoft.com/graph/). To learn more about the new roles, refer to [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md#all-roles).
 
 ---
 
