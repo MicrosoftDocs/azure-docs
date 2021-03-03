@@ -13,27 +13,31 @@ ms.topic: how-to
 
 # Calculate the count and total size of blobs per container
 
-Calculating the blob count and total size of blobs per container is difficult. The following example leverages the Azure Blob Storage inventory feature and Azure Synapse to calculate these values.
+This article uses the Azure Blob Storage inventory feature and Azure Synapse to calculate the blob count and total size of blobs per container. These values are useful when estimating storage billing costs.
 
 > [!NOTE]
-> Metadata is not included in this method. Inventory uses list blobs API with default parameters, so it doesn’t support snapshots, $ containers etc yet (we are requesting). And due to complexity of snapshot effective size, it can’t support even snapshots can be listed. Query Acceleration doesn’t help for the missing functions on string and groupby, especially the later one doesn’t align with the improvement strategy.
+> Blob metadata is not included in this method. The Azure Blob Storage inventory feature uses the [List Blobs](/rest/api/storageservices/list-blobs) REST API with default parameters. So, the example doesn’t support snapshots, '$' containers, and so on.
 
 ## Enable inventory reports
 
-[Enable inventory reports](blob-inventory.md#enable-inventory-reports) on your storage account
+The first step in this method is to [enable inventory reports](blob-inventory.md#enable-inventory-reports) on your storage account.
 
 ## Create a Synapse workspace
 
-[Create a Synapse workspace](/azure/synapse-analytics/get-started-create-workspace)
+Next, [create a Synapse workspace](/azure/synapse-analytics/get-started-create-workspace) where you will execute a SQL query to report the inventory results.
 
-## Run a SQL query
+## Create the SQL query
+
+After you create your Synapse workspace, navigate to [https://web.azuresynapse.net](https://web.azuresynapse.net).
+
+## Run the SQL query
 
 Run the following SQL query in your Azure Synapse workspace to [read the inventory CSV file](/azure/synapse-analytics/sql/query-single-csv-file#read-a-csv-file). For the `bulk` parameter, use the URL to the inventory report CSV file that you would like to analyze.
 
 ```sql
 SELECT LEFT(Name, CHARINDEX('/', Name) - 1) AS Container, SUM(Content_Length) As TotalBlobSize, COUNT(*) As TotalBlobCount
 FROM openrowset(
-    bulk 'https://demo2francecentral.blob.core.windows.net/inventory/2021/01/25/19-27-36/DefaultRule-AllBlobs.csv',
+    bulk '<URL to your inventory CSV file>',
     format = 'csv', parser_version = '2.0', firstrow = 2
     )
 WITH (
@@ -49,9 +53,7 @@ WITH (
 GROUP BY LEFT(Name, CHARINDEX('/', Name) - 1)
 ```
 
-## Output
-
-See the blob count and total size per container
+The blob count and total size per container are reported in the output pane.
 
 :::image type="content" source="media/calculate-blob-count-size/output.jpg" alt-text="Output from running the script to calculate blob count and total size.":::
 
