@@ -169,7 +169,9 @@ param exampleObject object = {
 
 ## Strings
 
-Start and end string values with double quotation marks (`"string value"`).
+In JSON, strings start and end with double quotes (`"string value"`). In Bicep, the string starts and ends with singled quotes (`'string value'`).
+
+
 
 ## Secure strings and objects
 
