@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 102/22/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
