@@ -2,7 +2,6 @@
 title: Monitor an Azure virtual machine with Azure Monitor
 description: Learn how to collect and analyze data for an Azure virtual machine in Azure Monitor.
 ms.service:  azure-monitor
-ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
@@ -10,26 +9,26 @@ ms.date: 03/10/2020
 ---
 
 # Quickstart: Monitor an Azure virtual machine with Azure Monitor
-[Azure Monitor](../overview.md) starts collecting data from Azure virtual machines the moment that they're created. In this quickstart, you'll take a brief walkthrough the data that's automatically collected for an Azure VM and how to view it in the Azure portal. You'll then enable [Azure Monitor for VMs](../vm/vminsights-overview.md) for your VM which will enable agents on the VM to collect and analyze data from the guest operating system including processes and their dependencies.
+[Azure Monitor](../overview.md) starts collecting data from Azure virtual machines the moment that they're created. In this quickstart, you'll take a brief walkthrough the data that's automatically collected for an Azure VM and how to view it in the Azure portal. You'll then enable [VM insights](../vm/vminsights-overview.md) for your VM which will enable agents on the VM to collect and analyze data from the guest operating system including processes and their dependencies.
 
 This quickstart assumes you have an existing Azure virtual machine. If not you can create a [Windows VM](../../virtual-machines/windows/quick-create-portal.md) or create a [Linux VM](../../virtual-machines/linux/quick-create-cli.md) following our VM quickstarts.
 
-For more detailed descriptions of monitoring data collected from Azure resources  see [Monitoring Azure virtual machines with Azure Monitor](../insights/monitor-vm-azure.md).
+For more detailed descriptions of monitoring data collected from Azure resources  see [Monitoring Azure virtual machines with Azure Monitor](./monitor-vm-azure.md).
 
 
 ## Complete the Monitor an Azure resource quickstart.
-Complete [Monitor an Azure resource with Azure Monitor](../learn/quick-monitor-azure-resource.md) to view the overview page, activity log, and metrics for a VM in your subscription. Azure VMs collect the same monitoring data as any other Azure resource, but this is only for the host VM. The rest of this quickstart will focus on monitoring the guest operating system and its workloads.
+Complete [Monitor an Azure resource with Azure Monitor](../essentials/quick-monitor-azure-resource.md) to view the overview page, activity log, and metrics for a VM in your subscription. Azure VMs collect the same monitoring data as any other Azure resource, but this is only for the host VM. The rest of this quickstart will focus on monitoring the guest operating system and its workloads.
 
 
-## Enable Azure Monitor for VMs
-While metrics and activity logs will be collected for the host VM, you need an agent and some configuration to collect and analyze monitoring data from the guest operating system and its workloads. Azure Monitor for VMs installs these agents and provides additional powerful features for monitoring your virtual machines.
+## Enable VM insights
+While metrics and activity logs will be collected for the host VM, you need an agent and some configuration to collect and analyze monitoring data from the guest operating system and its workloads. VM insights installs these agents and provides additional powerful features for monitoring your virtual machines.
 
 1. Go to the menu for your virtual machine.
 2. Either click **Go to Insights** from the tile in the **Overview** page, or click on **Insights** from the **Monitoring** menu.
 
     ![Overview page](media/quick-monitor-azure-vm/overview-insights.png)
 
-3. If Azure Monitor for VMs has not yet been enabled for the virtual machine, click **Enable**. 
+3. If VM insights has not yet been enabled for the virtual machine, click **Enable**. 
 
     ![Enable insights](media/quick-monitor-azure-vm/enable-insights.png)
 
@@ -37,7 +36,7 @@ While metrics and activity logs will be collected for the host VM, you need an a
 
     ![Select workspace](media/quick-monitor-azure-vm/select-workspace.png)
 
-5. Onboarding will take a few minutes as extensions are enabled and agents are installed on your virtual machine. When it's complete, you get a message that insights have been successfully deployed. Click **Azure Monitor** to open Azure Monitor for VMs.
+5. Onboarding will take a few minutes as extensions are enabled and agents are installed on your virtual machine. When it's complete, you get a message that insights have been successfully deployed. Click **Azure Monitor** to open VM insights.
 
     ![Open Azure Monitor](media/quick-monitor-azure-vm/azure-monitor.png)
 
@@ -99,7 +98,7 @@ When you create a new Log Analytics workspace, it needs to be configured to coll
     ![Log analytics](media/quick-monitor-azure-vm/log-analytics.png)
 
 ## Next steps
-In this quickstart, you enabled Azure Monitor for VMs for a virtual machine and configured the Log Analytics workspace to collect events for the guest operating system. To learn how to view and analyze the data, continue to the tutorial.
+In this quickstart, you enabled VM insights for a virtual machine and configured the Log Analytics workspace to collect events for the guest operating system. To learn how to view and analyze the data, continue to the tutorial.
 
 > [!div class="nextstepaction"]
-> [View or analyze data in Log Analytics](../log-query/log-analytics-tutorial.md)
+> [View or analyze data in Log Analytics](../logs/log-analytics-tutorial.md)

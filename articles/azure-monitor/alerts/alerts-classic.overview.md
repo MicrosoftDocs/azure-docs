@@ -2,14 +2,13 @@
 title: Overview of classic alerts in Azure Monitor
 description: Classic alerts are being deprecated. Alerts enable you to monitor Azure resource metrics, events, or logs and be notified when a condition you specify is met.
 ms.topic: conceptual
-ms.date: 05/19/2018
-ms.subservice: alerts
+ms.date: 02/14/2021
 ---
 
 # What are classic alerts in Microsoft Azure?
 
 > [!NOTE]
-> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users, though still in limited use for resources that do not yet support the new alerts.
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
 >
 
 Alerts allow you to configure conditions over data and become notified when the conditions match the latest monitoring data.
@@ -18,7 +17,7 @@ Alerts allow you to configure conditions over data and become notified when the 
 
 In the past Azure Monitor, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Overtime, Azure improved and combined both the user interface and different methods of alerting. The consolidation is still in process.
 
-You can view classic alerts only in the classic alerts user screen in the Azure Portal. You get this screen from the **View classic alerts** button on the alerts screen. 
+You can view classic alerts only in the classic alerts user screen in the Azure portal. You get this screen from the **View classic alerts** button on the alerts screen. 
 
  ![Alert choices in Azure portal](media/alerts-classic.overview/monitor-alert-screen2.png)
 
