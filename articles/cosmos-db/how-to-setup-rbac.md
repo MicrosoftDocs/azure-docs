@@ -360,6 +360,12 @@ This additional information flows in the **DataPlaneRequests** log category and 
 - `aadPrincipalId_g` shows the principal ID of the AAD identity that was used to authenticate the request.
 - `aadAppliedRoleAssignmentId_g` shows the [role assignment](#role-assignments) that was honored when authorizing the request.
 
+## Limits
+
+- You can create up to 100 role definitions and 2,000 role assignments per Azure Cosmos DB account.
+- Azure AD group resolution is not currently supported for identities that belong to more than 200 groups.
+- The Azure AD token is currently passed as a header with each individual request sent to the Azure Cosmos DB service, increasing the overall payload size.
+
 ## Frequently asked questions
 
 ### Which Azure Cosmos DB APIs are supported by RBAC?

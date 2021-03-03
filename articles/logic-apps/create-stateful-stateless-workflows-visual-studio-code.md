@@ -146,7 +146,8 @@ To locally build and run your logic app project in Visual Studio Code when using
 
 * To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [Node.js versions 10.x.x, 11.x.x, or 12.x.x](https://nodejs.org/en/download/releases/).
 
-  > [!TIP] For Windows, download the MSI version. If you use the ZIP version instead, you have to 
+  > [!TIP] 
+  > For Windows, download the MSI version. If you use the ZIP version instead, you have to 
   > manually make Node.js available by using a PATH environment variable for your operating system.
 
 * To locally run webhook-based triggers and actions, such as the [built-in HTTP Webhook trigger](../connectors/connectors-native-webhook.md), in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
