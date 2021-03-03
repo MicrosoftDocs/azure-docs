@@ -77,6 +77,9 @@ landingContent:
             url: tutorial-monitor-your-data.md
           - text: Investigate incidents
             url: tutorial-investigate-cases.md
+      - linkListType: reference
+          - text: Commonly used Azure Sentinel workbooks
+            url: top-workbooks.md
             
  # Card (optional)
   - title: Detect threats
