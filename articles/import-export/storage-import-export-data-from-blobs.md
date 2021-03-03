@@ -87,7 +87,7 @@ Perform the following steps to create an export job in the Azure portal.
       > [!IMPORTANT]
       > If you use an XML file to select the blobs to export, make sure that the XML contains valid paths and/or prefixes. If the file is invalid or no data matches the paths specified, the order terminates with partial data or no data exported.
 
-       To see how to add an XML file to a container, see [Export order using XML file](data-box-deploy-export-ordered.md#export-order-using-xml-file).
+       To see how to add an XML file to a container, see [Export order using XML file](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
       ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
 
