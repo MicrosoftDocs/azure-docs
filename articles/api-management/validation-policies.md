@@ -15,7 +15,7 @@ ms.author: apimpm
 
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
-Use validation policies to validate API requests and responses against an OpenAPI schema and protect from vulnerabilities such as injection of headers or payload. Validation policies provide flexibility to respond to an additional class of threats that are not covered by security products that rely on static, predefined rules.
+Use validation policies to validate API requests and responses against an OpenAPI schema and protect from vulnerabilities such as injection of headers or payload. While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that are not covered by security products that rely on static, predefined rules.
 
 ## Validation policies
 
@@ -26,8 +26,6 @@ Use validation policies to validate API requests and responses against an OpenAP
 
 > [!NOTE]
 > The maximum size of the API schema that can be used by a validation policy is 4 MB. If the schema exceeds this limit, validation policies will return errors on runtime. To increase it, please contact [support](https://azure.microsoft.com/support/options/). 
-
-Exposing APIs poses new threats, which are not covered by traditional security products designed to protect web applications. In particular, Web Application Firewall (WAF) relies on static, predefined rules, which don’t adapt to APIs. Although it protects APIs from attacks such as SQL injection, it leaves them vulnerable to injection of headers or payload. Reliance on the static rules also often results in false positives and WAF blocking valid requests. 
 
 ## Actions
 
