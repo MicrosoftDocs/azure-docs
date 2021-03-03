@@ -29,7 +29,7 @@
     items:
     - name: Permissions in Azure Sentinel
       href: roles.md
-    - name: Manage access to resource data
+    - name: Manage access by resource
       href: resource-context-rbac.md
   - name: Advanced multistage attack detection
     href: fusion.md
