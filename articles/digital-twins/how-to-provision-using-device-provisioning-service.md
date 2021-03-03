@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Auto-manage devices using DPS
 titleSuffix: Azure Digital Twins
-description: See how to set up an automated process to provision and retire IoT devices in Azure Digital Twins using Device Provisioning Service (DPS).
+description: See how to setup an automated process to provision and retire IoT devices in Azure Digital Twins using Device Provisioning Service (DPS).
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 2/24/2021
@@ -25,7 +25,7 @@ For more information about the _provision_ and _retire_ stages, and to better un
 
 ## Prerequisites
 
-Before you can set up the provisioning, you'll need to set up the following:
+Before you can setup the provisioning, you'll need to setup the following:
 
 [!INCLUDE [digital-twins-prereq-provisioning-and-time-series-insights-integration.md](../../includes/digital-twins-prereq-provisioning-and-time-series-insights-integration.md)]
 
@@ -58,7 +58,7 @@ Here is a description of the process flow:
 4. DPS registers the device with an IoT hub, and populates the device's desired twin state.
 5. The IoT hub returns device ID information and the IoT hub connection information to the device. The device can now connect to the IoT hub.
 
-The following sections walk through the steps to set up this auto-provision device flow.
+The following sections walk through the steps to setup this auto-provision device flow.
 
 ### Create a Device Provisioning Service
 
@@ -127,7 +127,7 @@ Then, upload the model file to Azure Digital Twins with the following Azure CLI 
 az dt model create -n <your-Azure-digital-twins-instance-name> --models {file_path_or_inline_json}
 ```
 
-For more information about models, refer [*how to manage models*](how-to-manage-models.md#upload-models).
+For more information about models, refer [*how to manage model*](how-to-manage-model.md#upload-models).
 
 #### Configure and run the simulator
 
@@ -145,9 +145,9 @@ Next, in your device simulator directory, copy the .env.template file to a new f
 
 * PROVISIONING_REGISTRATION_ID: You can choose a registration ID for your device.
 
-* PROVISIONING_SYMMETRIC_KEY: This is the primary key for the enrollment you set up earlier. To get this value again, navigate to your device provisioning service in the Azure portal, select *Manage enrollments*, then select the enrollment group that you created earlier and copy the *Primary Key*.
+* PROVISIONING_SYMMETRIC_KEY: This is the primary key for the enrollment you setup earlier. To get this value again, navigate to your device provisioning service in the Azure portal, select *Manage enrollments*, then select the enrollment group that you created earlier and copy the *Primary Key*.
 
-    :::image type="content" source="media/how-to-provision-using-dps/sas-primary-key.png" alt-text="The Azure portal view of the device provisioning overview page to copy the ID Scope value" lightbox="media/how-to-provision-using-dps/sas-primary-key.png":::
+    :::image type="content" source="media/how-to-provision-using-dps/sas-primary-key.png" alt-text="The Azure portal view of the device provisioning service manage enrollments page to copy the SAS primary key value" lightbox="media/how-to-provision-using-dps/sas-primary-key.png":::
 
 Now, use the values above to update .env file settings.
 
@@ -174,7 +174,7 @@ You should see the device being registered and connected to IoT Hub, and then st
 
 ### Validate
 
-As a result of the flow you've set up in this article, the device will be automatically registered in Azure Digital Twins. Using the following [Azure Digital Twins CLI](how-to-use-cli.md) command to find the twin of the device in the Azure Digital Twins instance you created.
+As a result of the flow you've setup in this article, the device will be automatically registered in Azure Digital Twins. Using the following [Azure Digital Twins CLI](how-to-use-cli.md) command to find the twin of the device in the Azure Digital Twins instance you created.
 
 ```azurecli-interactive
 az dt twin show -n <Digital Twins instance name> --twin-id "<Device Registration ID>"
@@ -194,7 +194,7 @@ Here is a description of the process flow:
 2. IoT Hub deletes the device and generates a [device lifecycle](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) event that will be routed to an [event hub](../event-hubs/event-hubs-about.md).
 3. An Azure function deletes the twin of the device in Azure Digital Twins.
 
-The following sections walk through the steps to set up this auto-retire device flow.
+The following sections walk through the steps to setup this auto-retire device flow.
 
 ### Create an event hub
 
@@ -202,7 +202,7 @@ You now need to create an Azure [event hub](../event-hubs/event-hubs-about.md), 
 
 Go through the steps described in the [*Create an event hub*](../event-hubs/event-hubs-create.md) quickstart, using the following information:
 * If you're using the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), you can reuse the resource group you created for the end-to-end tutorial.
-* Name your event hub *lifecycleevents*, or something else of your choice, and remember the namespace you created. You will use these when you set up the lifecycle function and IoT Hub route in the next sections.
+* Name your event hub *lifecycleevents*, or something else of your choice, and remember the namespace you created. You will use these when you setup the lifecycle function and IoT Hub route in the next sections.
 
 ### Create an Azure function
 
@@ -244,7 +244,7 @@ Ensure that the permissions and Managed Identity role assignment are configured 
 
 ### Create an IoT Hub route for lifecycle events
 
-Now you need to set up an IoT Hub route, to route device lifecycle events. In this case, you will specifically listen to device delete events, identified by `if (opType == "deleteDeviceIdentity")`. This will trigger the delete of the digital twin item, finalizing the retirement of a device and its digital twin.
+Now you need to setup an IoT Hub route, to route device lifecycle events. In this case, you will specifically listen to device delete events, identified by `if (opType == "deleteDeviceIdentity")`. This will trigger the delete of the digital twin item, finalizing the retirement of a device and its digital twin.
 
 Instructions for creating an IoT Hub route are described in this article: [*Use IoT Hub message routing to send device-to-cloud messages to different endpoints*](../iot-hub/iot-hub-devguide-messages-d2c.md). The section *Non-telemetry events* explains that you can use **device lifecycle events** as the data source for the route.
 
@@ -261,7 +261,7 @@ To trigger the process of retirement, you need to manually delete the device fro
 
 In the [first half of this article](#auto-provision-device-using-device-provisioning-service), you created a device in IoT Hub and a corresponding digital twin. 
 
-Now, go to the IoT Hub and delete that device (you can do this with an [Azure CLI command](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest#ext_azure_iot_az_iot_hub_module_identity_delete) or in the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+Now, go to the IoT Hub and delete that device (you can do this with an [Azure CLI command](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest#ext_azure_iot_az_iot_hub_module_identity_delete&preserve-view=true) or in the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
 
 The device will be automatically removed from Azure Digital Twins. 
 
