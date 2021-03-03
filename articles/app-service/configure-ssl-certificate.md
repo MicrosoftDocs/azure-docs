@@ -33,7 +33,7 @@ The following table lists the options you have for adding certificates in App Se
 - For a private certificate, make sure that it satisfies all [requirements from App Service](#private-certificate-requirements).
 - **Free certificate only**:
     - Map the domain you want a certificate for to App Service. For information, see [Tutorial: Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md).
-    - Make sure your app doesn't have any [IP restrictions](app-service-ip-restrictions.md) configured. Both certificate creation and its periodic renewal depends on your app being reachable from the internet.
+    - For a root domain (like contoso.com), make sure your app doesn't have any [IP restrictions](app-service-ip-restrictions.md) configured. Both certificate creation and its periodic renewal for a root domain depends on your app being reachable from the internet.
 
 ## Private certificate requirements
 
