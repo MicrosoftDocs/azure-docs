@@ -23,6 +23,9 @@ A cluster is used for high availability and disaster recovery (HADR) with SQL Se
 
 This article provides cluster configuration best practices for both [failover cluster instances (FCIs)](failover-cluster-instance-overview.md) and [availability groups](availability-group-overview.md) when you use them with SQL Server on Azure VMs. 
 
+## Overview
+
+
 
 ## Networking
 
@@ -46,6 +49,17 @@ The following table lists the quorum options available in the order recommended 
 ||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**Supported OS**| All |Windows Server 2016+| All|
+
+### Recommended Adjustments to Quorum Voting
+
+When enabling or disabling a given WSFC node's vote, follow these guidelines:
+•	No vote by default. Assume that each node should not vote without explicit justification.
+•	Include all primary replicas. Each WSFC node that hosts an availability group primary replica or is the preferred owner of an FCI should have a vote.
+•	Include possible automatic failover owners. Each node that could host a primary replica, as the result of an automatic availability group failover or FCI failover, should have a vote. If there is only one availability group in the WSFC cluster and availability replicas are hosted only by standalone instances, this rule includes only the secondary replica that is the automatic failover target.
+•	Exclude secondary site nodes. In general, do not give votes to WSFC nodes that reside at a secondary disaster recovery site. You do not want nodes in the secondary site to contribute to a decision to take the cluster offline when there is nothing wrong with the primary site.
+•	Number of votes. If necessary, add a cloud witness, file share witness, a witness node, or a witness disk to the cluster and adjust the quorum mode to prevent possible ties in the quorum vote. It is recommended to have three or more quorum votes. 
+•	Re-assess vote assignments post-failover. You do not want to fail over into a cluster configuration that does not support a healthy quorum.
+
 
 
 ### Disk witness

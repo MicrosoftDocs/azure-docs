@@ -44,6 +44,7 @@ Availability Zones protect against the failure of an entire datacenter, with eac
 When creating Azure VMs, you must choose between configuring Availability Sets vs Availability Zones.  An Azure Vm cannot participate in both.
 
 
+## Connectivity
 
 
 

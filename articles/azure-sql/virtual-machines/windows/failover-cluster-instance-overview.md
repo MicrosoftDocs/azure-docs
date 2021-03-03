@@ -139,7 +139,7 @@ For example, NetApp Private Storage (NPS) exposes an iSCSI target via ExpressRou
 
 For shared storage and data replication solutions from Microsoft partners, contact the vendor for any issues related to accessing data on failover.
 
-
+## Connectivity
 
 ## Limitations
 
