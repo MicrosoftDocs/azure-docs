@@ -1,11 +1,11 @@
 ---
 title: Connect to Azure Database for MySQL using dbForge Studio for MySQL
 description: The article demonstrates how to connect to Azure Database for MySQL Server via dbForge Studio for MySQL.
-author: Devart
-ms.author: JordanS22
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 03/03/2021
 ---
 
 # Connect to Azure Database for MySQL using dbForge Studio for MySQL
@@ -13,7 +13,7 @@ ms.date: 02/11/2021
 To connect to Azure Database for MySQL using dbForge Studio for MySQL:
 1. On the Database menu, click New Connection.
 2. Provide a host name and login credentials.
-3. Click the Test Connection button to check the configuration.
+3. Select the Test Connection button to check the configuration.
 
 :::image type="content" source=".media/azure-connection-1.png" alt-text="azure-connection-1":::
 
@@ -33,7 +33,7 @@ The Database Backup Wizard will appear.
 
 1.4 Next, specify errors processing behavior and logging options.
 
-1.5 Click Backup.
+1.5 Select Backup.
 
 ### Step 2. Restore the database
 
@@ -45,7 +45,7 @@ The Database Backup Wizard will appear.
 
 :::image type="content" source=".media/restore-step1.png" alt-text="restore-step1":::
 
-2.4 Click Restore.
+2.4 Select Restore.
 
 2.5 Check the result.
 
@@ -55,8 +55,7 @@ The Copy Databases functionality is somewhat similar to the Backup and Restore, 
 In this worked example, we will migrate the *world_x* database from MySQL server to Azure Database for MySQL.
 To migrate a database using the Copy Databases functionality:
 1. On the Database menu, click Copy Databases. 
-2. In the Copy Databases tab that appears, specify the source and target connection and select the database(s) to be migrated. We enter Azure MySQL connection and select the *world_x* database.
-Click the green arrow to initiate the process.
+2. In the Copy Databases tab that appears, specify the source and target connection and select the database(s) to be migrated. We enter Azure MySQL connection and select the *world_x* database. Select the green arrow to initiate the process.
 3. Check the result.
 As a result of our database migration efforts, the *world_x* database has successfully appeared in Azure MySQL.
 
@@ -72,11 +71,11 @@ In this worked example, we will migrate the *world* database that resides on MyS
 2.1 On the Comparison menu, click New Schema Comparison.
 The New Schema Comparison Wizard appears.
 
-2.2 Select the Source and the Target, then specify the schema comparison options. Click Compare.
+2.2 Select the Source and the Target, then specify the schema comparison options. Select Compare.
 
-2.3 In the comparison results grid that appears, select objects for synchronization. Click the green arrow button to open the Schema Synchronization Wizard.
+2.3 In the comparison results grid that appears, select objects for synchronization. Select the green arrow button to open the Schema Synchronization Wizard.
 
-2.4 Walk through the steps of the wizard configuring synchronization. Click Synchronize to deploy the changes.
+2.4 Walk through the steps of the wizard configuring synchronization. Select Synchronize to deploy the changes.
 
 :::image type="content" source=".media/schema-sync-wizard.png" alt-text="schema-sync-wizard":::
 
@@ -84,13 +83,13 @@ The New Schema Comparison Wizard appears.
 
 3.1 On the Comparison menu, click New Data Comparison. The New Data Comparison Wizard appears. 
 
-3.2 Select the Source and the Target, then specify the data comparison options and change mappings if necessary. Click Compare. 
+3.2 Select the Source and the Target, then specify the data comparison options and change mappings if necessary. Select Compare. 
 
-3.3 In the comparison results grid that appears, select objects for synchronization. Click the green arrow button to open the Data Synchronization Wizard. 
+3.3 In the comparison results grid that appears, select objects for synchronization. Select the green arrow button to open the Data Synchronization Wizard. 
 
 :::image type="content" source=".media/data-comp-result.png" alt-text="data-comp-result":::
 
-3.4 Walk through the steps of the wizard configuring synchronization. Click Synchronize to deploy the changes. 
+3.4 Walk through the steps of the wizard configuring synchronization. Select Synchronize to deploy the changes. 
 
 3.5 Check the result.
 
