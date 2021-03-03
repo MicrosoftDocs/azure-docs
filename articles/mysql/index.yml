@@ -39,7 +39,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Server concepts
-            url: concept-servers.md
+            url: concepts-servers.md
           - text: Understand pricing tiers
             url: concepts-pricing-tiers.md
           - text: Limitations
