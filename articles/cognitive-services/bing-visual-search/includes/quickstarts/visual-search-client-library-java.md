@@ -18,7 +18,7 @@ Use the Bing Visual Search client library for Java to:
 * Upload an image to send a visual search request.
 * Get the image insight token and visual search tags.
 
-[Reference documentation](/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | [Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | [Samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Reference documentation](/java/api/overview/azure/cognitiveservices/client/bingvisualsearch) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | [Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | [Samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
 ## Prerequisites
 
@@ -122,7 +122,7 @@ These code snippets show you how to do the following tasks with the Bing Visual 
 > This quickstart assumes you've [created an environment variable](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for your Bing Visual Search key, named `BING_SEARCH_V7_SUBSCRIPTION_KEY`.
 
 
-In your main method, be sure to use your subscription key to instantiate a [BingVisualSearchAPI](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingvisualsearchapi?view=azure-java-stable) object.
+In your main method, be sure to use your subscription key to instantiate a [BingVisualSearchAPI](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingvisualsearchapi) object.
 
 ```csharp
 BingVisualSearchAPI client = BingVisualSearchManager.authenticate(subscriptionKey);
@@ -130,13 +130,13 @@ BingVisualSearchAPI client = BingVisualSearchManager.authenticate(subscriptionKe
 
 ## Send a visual search request
 
-In a new method, send the image byte array (which was created in the `main()` method) using the client's [bingImages().visualSearch()](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingimages.visualsearch?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_visualsearch_BingImages_visualSearch__) method. 
+In a new method, send the image byte array (which was created in the `main()` method) using the client's [bingImages().visualSearch()](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingimages.visualsearch#com_microsoft_azure_cognitiveservices_search_visualsearch_BingImages_visualSearch__) method. 
 
 [!code-java[visualSearch() method](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=visualSearch)]
 
 ## Print the image insight token and visual search tags
 
-Check if the [ImageKnowledge](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.models.imageknowledge?view=azure-java-stable) object is null. If not, print the image insights token, the number of tags, the number of actions, and the first action type.
+Check if the [ImageKnowledge](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.models.imageknowledge) object is null. If not, print the image insights token, the number of tags, the number of actions, and the first action type.
 
 [!code-java[Print token and tags](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=printVisualSearchResults)]
 

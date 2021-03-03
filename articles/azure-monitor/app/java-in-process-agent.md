@@ -233,6 +233,7 @@ try {
 } finally {
     long endTime = System.currentTimeMillis();
     RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+    telemetry.setSuccess(success);
     telemetry.setTimestamp(new Date(startTime));
     telemetry.setDuration(new Duration(endTime - startTime));
     telemetryClient.trackDependency(telemetry);
@@ -326,11 +327,3 @@ import com.microsoft.applicationinsights.web.internal.ThreadContext;
 RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
 requestTelemetry.setName("myname");
 ```
-
-> [!NOTE]
-> All other operations on a `RequestTelemetry` retrieved from
-> `ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry()` besides those described above,
-> will fail fast and throw an exception to let you know that is undefined behavior under the 3.0 agent.
->
-> If you need interop for any other methods on `RequestTelemetry` please let us know by opening an issue
-> https://github.com/microsoft/ApplicationInsights-Java/issues.

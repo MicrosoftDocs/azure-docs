@@ -523,4 +523,4 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 - [Access Azure Storage securely using a managed identity](scenario-secure-app-access-storage.md)
 - [Call Microsoft Graph securely using a managed identity](scenario-secure-app-access-microsoft-graph-as-app.md)
 
-[Microsoft.Azure.Services.AppAuthentication reference]: ../key-vault/general/service-to-service-authentication.md
+[Microsoft.Azure.Services.AppAuthentication reference]: /dotnet/api/overview/azure/service-to-service-authentication

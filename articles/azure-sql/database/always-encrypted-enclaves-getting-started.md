@@ -19,7 +19,7 @@ ms.date: 01/15/2021
 > [!NOTE]
 > Always Encrypted with secure enclaves for Azure SQL Database is currently in **public preview**.
 
-This tutorial teaches you how to get started with [Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) in Azure SQL Database. It will show you:
+This tutorial teaches you how to get started with [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) in Azure SQL Database. It will show you:
 
 > [!div class="checklist"]
 > - How to create an environment for testing and evaluating Always Encrypted with secure enclaves.
@@ -27,11 +27,11 @@ This tutorial teaches you how to get started with [Always Encrypted with secure 
 
 ## Prerequisites
 
-This tutorial requires Azure PowerShell and [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+This tutorial requires Azure PowerShell and [SSMS](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ### PowerShell requirements
 
-See [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure) for information on how to install and run Azure PowerShell. 
+See [Overview of Azure PowerShell](/powershell/azure) for information on how to install and run Azure PowerShell. 
 
 Minimum version of Az modules required to support attestation operations:
 
@@ -60,7 +60,7 @@ To continue to interact with the PowerShell Gallery, run the following command b
 
 ### SSMS requirements
 
-See [Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) for information on how to download SSMS.
+See [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) for information on how to download SSMS.
 
 The required minimum version of SSMS is 18.8.
 
@@ -69,7 +69,7 @@ The required minimum version of SSMS is 18.8.
 
  In this step, you will create a new Azure SQL Database logical server and a new database using the DC-series hardware configuration. Always Encrypted with secure enclaves in Azure SQL Database uses Intel SGX enclaves, which are supported in the DC-series hardware configuration. For more information, see [DC-series](service-tiers-vcore.md#dc-series).
 
-1. Open a PowerShell console and sign into Azure. If needed, [switch to the subscription](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps) you are using for this tutorial.
+1. Open a PowerShell console and sign into Azure. If needed, [switch to the subscription](/powershell/azure/manage-subscriptions-azureps) you are using for this tutorial.
 
   ```PowerShell
   Connect-AzAccount
@@ -350,10 +350,10 @@ You can run rich queries against the encrypted columns. Some query processing wi
 ## Next steps
 
 After completing this tutorial, you can go to one of the following tutorials:
-- [Tutorial: Develop a .NET application using Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps)
-- [Tutorial: Develop a .NET Framework application using Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps)
-- [Tutorial: Creating and using indexes on enclave-enabled columns using randomized encryption](https://docs.microsoft.com/sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption)
+- [Tutorial: Develop a .NET application using Always Encrypted with secure enclaves](/sql/connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps)
+- [Tutorial: Develop a .NET Framework application using Always Encrypted with secure enclaves](/sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps)
+- [Tutorial: Creating and using indexes on enclave-enabled columns using randomized encryption](/sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption)
 
 ## See Also
 
-- [Configure and use Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves)
+- [Configure and use Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves)

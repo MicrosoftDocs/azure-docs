@@ -11,7 +11,7 @@ As a backup admin, you can use Backup Center as a single pane of glass to monito
 
 ## Supported scenarios
 
-* Backup Center is currently supported for Azure VM backup and Azure Database for PostgreSQL Server backup.
+* Backup Center is currently supported for Azure VM backup, SQL in Azure VM backup, SAP HANA in Azure VM backup, Azure Files backup, Azure Blobs backup, Azure Managed Disks backup and Azure Database for PostgreSQL Server backup.
 * Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
 ## Backup instances

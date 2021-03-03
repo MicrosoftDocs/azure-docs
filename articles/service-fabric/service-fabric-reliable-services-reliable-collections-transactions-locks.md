@@ -12,7 +12,7 @@ A transaction is a sequence of operations performed as a single logical unit of 
 
 * **Atomicity**: A transaction must be an atomic unit of work. In other words, either all its data modifications are performed, or none of them is performed.
 * **Consistency**: When completed, a transaction must leave all data in a consistent state. All internal data structures must be correct at the end of the transaction.
-* **Isolation**: Modifications made by concurrent transactions must be isolated from the modifications made by any other concurrent transactions. The isolation level used for an operation within an [ITransaction](/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) is determined by the [IReliableState](/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) performing the operation.
+* **Isolation**: Modifications made by concurrent transactions must be isolated from the modifications made by any other concurrent transactions. The isolation level used for an operation within an [ITransaction](/dotnet/api/microsoft.servicefabric.data.itransaction) is determined by the [IReliableState](/dotnet/api/microsoft.servicefabric.data.ireliablestate) performing the operation.
 * **Durability**: After a transaction has completed, its effects are permanently in place in the system. The modifications persist even in the event of a system failure.
 
 ### Isolation levels
@@ -80,4 +80,4 @@ In this case, one or both of the operations will time out. In this scenario, an 
 * [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
 * [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
 * [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
-* [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+* [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

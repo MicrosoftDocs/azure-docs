@@ -9,9 +9,9 @@ ms.date: 03/11/2020
 
 ## Add or remove service types during an application upgrade
 
-If a new service type is added to a published application as part of an upgrade, then the new service type is added to the deployed application. Such an upgrade does not affect any of the service instances that were already part of the application, but an instance of the service type that was added must be created for the new service type to be active (see [New-ServiceFabricService](/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
+If a new service type is added to a published application as part of an upgrade, then the new service type is added to the deployed application. Such an upgrade does not affect any of the service instances that were already part of the application, but an instance of the service type that was added must be created for the new service type to be active (see [New-ServiceFabricService](/powershell/module/servicefabric/new-servicefabricservice)).
 
-Similarly, service types can be removed from an application as part of an upgrade. However, all service instances of the to-be-removed service type must be removed before proceeding with the upgrade (see [Remove-ServiceFabricService](/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
+Similarly, service types can be removed from an application as part of an upgrade. However, all service instances of the to-be-removed service type must be removed before proceeding with the upgrade (see [Remove-ServiceFabricService](/powershell/module/servicefabric/remove-servicefabricservice)).
 
 ## Avoid connection drops during stateless service planned downtime
 
@@ -109,7 +109,7 @@ The overridden delay duration only applies to the invoked upgrade instance and d
 
 In *Monitored* mode, Service Fabric applies health policies to ensure that the application is healthy as the upgrade progresses. If health policies are violated, then the upgrade is either suspended or automatically rolled back depending on the specified *FailureAction*.
 
-In *UnmonitoredManual* mode, the application administrator has total control over the progression of the upgrade. This mode is useful when applying custom health evaluation policies or performing non-conventional upgrades to bypass health monitoring completely (e.g. the application is already in data loss). An upgrade running in this mode will suspend itself after completing each UD and must be explicitly resumed using [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). When an upgrade is suspended and ready to be resumed by the user, its upgrade state will show *RollforwardPending* (see [UpgradeState](/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
+In *UnmonitoredManual* mode, the application administrator has total control over the progression of the upgrade. This mode is useful when applying custom health evaluation policies or performing non-conventional upgrades to bypass health monitoring completely (e.g. the application is already in data loss). An upgrade running in this mode will suspend itself after completing each UD and must be explicitly resumed using [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade). When an upgrade is suspended and ready to be resumed by the user, its upgrade state will show *RollforwardPending* (see [UpgradeState](/dotnet/api/system.fabric.applicationupgradestate)).
 
 Finally, the *UnmonitoredAuto* mode is useful for performing fast upgrade iterations during service development or testing since no user input is required and no application health policies are evaluated.
 
@@ -175,7 +175,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "1"; "NewParameter" = "testBefore" }
 ```
 
-Now, upgrade the application using the **Start-ServiceFabricApplicationUpgrade** cmdlet. This example shows an monitored upgrade, but an unmonitored upgrade can also be used. To see a full description of flags accepted by this cmdlet, see the [Azure Service Fabric PowerShell module reference](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters)
+Now, upgrade the application using the **Start-ServiceFabricApplicationUpgrade** cmdlet. This example shows an monitored upgrade, but an unmonitored upgrade can also be used. To see a full description of flags accepted by this cmdlet, see the [Azure Service Fabric PowerShell module reference](/powershell/module/servicefabric/start-servicefabricapplicationupgrade#parameters)
 
 ```PowerShell
 PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testAfter"}
@@ -200,11 +200,11 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## Roll back application upgrades
 
-While upgrades can be rolled forward in one of three modes (*Monitored*, *UnmonitoredAuto*, or *UnmonitoredManual*), they can only be rolled back in either *UnmonitoredAuto* or *UnmonitoredManual* mode. Rolling back in *UnmonitoredAuto* mode works the same way as rolling forward with the exception that the default value of *UpgradeReplicaSetCheckTimeout* is different - see [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md). Rolling back in *UnmonitoredManual* mode works the same way as rolling forward - the rollback will suspend itself after completing each UD and must be explicitly resumed using [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) to continue with the rollback.
+While upgrades can be rolled forward in one of three modes (*Monitored*, *UnmonitoredAuto*, or *UnmonitoredManual*), they can only be rolled back in either *UnmonitoredAuto* or *UnmonitoredManual* mode. Rolling back in *UnmonitoredAuto* mode works the same way as rolling forward with the exception that the default value of *UpgradeReplicaSetCheckTimeout* is different - see [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md). Rolling back in *UnmonitoredManual* mode works the same way as rolling forward - the rollback will suspend itself after completing each UD and must be explicitly resumed using [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade) to continue with the rollback.
 
-Rollbacks can be triggered automatically when the health policies of an upgrade in *Monitored* mode with a *FailureAction* of *Rollback* are violated (see [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md)) or explicitly using [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+Rollbacks can be triggered automatically when the health policies of an upgrade in *Monitored* mode with a *FailureAction* of *Rollback* are violated (see [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md)) or explicitly using [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback).
 
-During rollback, the value of *UpgradeReplicaSetCheckTimeout* and the mode can still be changed at any time using [Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
+During rollback, the value of *UpgradeReplicaSetCheckTimeout* and the mode can still be changed at any time using [Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade).
 
 ## Next steps
 [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.

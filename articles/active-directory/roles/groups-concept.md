@@ -2,14 +2,14 @@
 title: Use cloud groups to manage role assignments in Azure Active Directory | Microsoft Docs
 description: Preview custom Azure AD roles for delegating identity management. Manage Azure role assignments in the Azure portal, PowerShell, or Graph API.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 
@@ -24,7 +24,7 @@ Consider this example: Contoso has hired people across geographies to manage and
 
 ## How this feature works
 
-Create a new Microsoft 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You could also enable this property when creating a group in the Azure portal by turning on **Azure AD roles can be assigned to the group**. Either way, you can then assign the group to one or more Azure AD roles in the same way as you assign roles to users. A maximum of 200 role-assignable groups can be created in a single Azure AD organization (tenant).
+Create a new Microsoft 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You could also enable this property when creating a group in the Azure portal by turning on **Azure AD roles can be assigned to the group**. Either way, you can then assign the group to one or more Azure AD roles in the same way as you assign roles to users. A maximum of 250 role-assignable groups can be created in a single Azure AD organization (tenant).
 
 If you do not want members of the group to have standing access to the role, you can use Azure AD Privileged Identity Management. Assign a group as an eligible member of an Azure AD role. Each member of the group is then eligible to have their assignment activated for the role that the group is assigned to. They can then activate their role assignment for a fixed time duration.
 

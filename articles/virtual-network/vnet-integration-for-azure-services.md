@@ -71,6 +71,6 @@ For more information about Service Tags and Azure services that support them, se
 
 ## Next steps
 
-- Learn how to [integrate you app with an Azure network](../app-service/web-sites-integrate-with-vnet.md).
+- Learn how to [integrate your app with an Azure network](../app-service/web-sites-integrate-with-vnet.md).
 - Learn how to [restrict access to resources using Service Tags](tutorial-restrict-network-access-to-resources.md).
 - Learn how to [connect privately to an Azure Cosmos account using Azure Private Link](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).

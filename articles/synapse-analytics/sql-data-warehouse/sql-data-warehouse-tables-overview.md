@@ -70,7 +70,7 @@ As such, external tables are useful for loading data. For a loading tutorial, se
 
 ## Data types
 
-Dedicated SQL pool supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes) in the CREATE TABLE statement. For guidance on using data types, see [Data types](sql-data-warehouse-tables-data-types.md).
+Dedicated SQL pool supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json?view=azure-sqldw-latest&preserve-view=true#datatypes) in the CREATE TABLE statement. For guidance on using data types, see [Data types](sql-data-warehouse-tables-data-types.md).
 
 ## Distributed tables
 

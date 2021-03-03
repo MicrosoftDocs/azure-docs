@@ -60,7 +60,7 @@ After a successful connection is established, the data appears in **Logs** under
 
 To use the relevant schema in Logs for the Alcide kAudit, search for the data types mentioned above.
 
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics.
+It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 11/08/2020
+ms.date: 02/28/2021
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Auditing for Azure SQL Database and Azure Synapse Analytics
@@ -41,6 +41,8 @@ You can use SQL Database auditing to:
 - **Premium storage** is currently **not supported**.
 - **Hierarchical namespace** for **Azure Data Lake Storage Gen2 storage account** is currently **not supported**.
 - Enabling auditing on a paused **Azure Synapse** is not supported. To enable auditing, resume Azure Synapse.
+- Auditing for **Azure Synapse SQL pools** supports default audit action groups **only**.
+
 
 #### <a id="server-vs-database-level"></a>Define server-level vs. database-level auditing policy
 
@@ -133,7 +135,7 @@ To configure writing audit logs to a Log Analytics workspace, select **Log Analy
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-For more details about Azure Monitor Log Analytics workspace, see [Designing your Azure Monitor Logs deployment](../../azure-monitor/platform/design-logs-deployment.md)
+For more details about Azure Monitor Log Analytics workspace, see [Designing your Azure Monitor Logs deployment](../../azure-monitor/logs/design-logs-deployment.md)
    
 ### <a id="audit-event-hub-destination"></a>Audit to Event Hub destination
 
@@ -164,7 +166,7 @@ If you chose to write audit logs to Azure Monitor logs:
     ![Log Analytics Security Insights](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
 - Alternatively, you can also access the audit logs from Log Analytics blade. Open your Log Analytics workspace and under **General** section, click **Logs**. You can start with a simple query, such as: *search "SQLSecurityAuditEvents"* to view the audit logs.
-    From here, you can also use [Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md)  to run advanced searches on your audit log data. Azure Monitor logs gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Azure Monitor logs search language and commands, see [Azure Monitor logs search reference](../../azure-monitor/log-query/log-query-overview.md).
+    From here, you can also use [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md)  to run advanced searches on your audit log data. Azure Monitor logs gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Azure Monitor logs search language and commands, see [Azure Monitor logs search reference](../../azure-monitor/logs/log-query-overview.md).
 
 If you chose to write audit logs to Event Hub:
 
@@ -267,6 +269,11 @@ Extended policy with WHERE clause support for additional filtering:
 - [Create or Update Server *Extended* Auditing Policy](/rest/api/sql/server%20auditing%20settings/createorupdate)
 - [Get Database *Extended* Auditing Policy](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Get Server *Extended* Auditing Policy](/rest/api/sql/server%20auditing%20settings/get)
+
+### Using Azure CLI
+
+- [Manage a server's auditing policy](/cli/azure/sql/server/audit-policy?view=azure-cli-latest)
+- [Manage a database's auditing policy](/cli/azure/sql/db/audit-policy?view=azure-cli-latest)
 
 ### Using Azure Resource Manager templates
 

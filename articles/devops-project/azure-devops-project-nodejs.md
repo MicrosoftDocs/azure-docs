@@ -3,15 +3,12 @@ title: Create a CI/CD pipeline for a PWA with GatsbyJS and Azure DevOps Starter
 description: Learn to create a NodeJS progressive web app (PWA) using GatsbyJS and the simplified Azure DevOps Starter creation experience.
 ms.prod: devops
 ms.technology: devops-cicd
-services: vsts
 documentationcenter: vs-devops-build
-author: arob98
-manager: angrobe
+author: mijacobs
+ms.author: mijacobs
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
-ms.author: angrobe
 ms.custom: mvc, devx-track-js
 ---
 
@@ -68,7 +65,7 @@ DevOps Starter creates a CI/CD pipeline in Azure Pipelines. You can create a new
 
     ![Azure DevOps Dashboard](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 
-1. From your Azure DevOps project, you can invite team members to collaborate and establish a Kanban board to start tracking your work. For more information, see [here](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).
+1. From your Azure DevOps project, you can invite team members to collaborate and establish a Kanban board to start tracking your work. For more information, see [here](/azure/devops/user-guide/what-is-azure-devops).
 
 ![Azure DevOps Overview](_img/azure-devops-project-nodejs/azure-devops-overview.png)
 
@@ -190,4 +187,4 @@ You can delete Azure App Service and other related resources that you created wh
 When you configure your CI/CD process, build and release pipelines are automatically created. You can change these build and release pipelines to meet the needs of your team. To learn more about the CI/CD pipeline, see:
 
 > [!div class="nextstepaction"]
-> [Customize CD process](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Customize CD process](/azure/devops/pipelines/release/define-multistage-release-process)

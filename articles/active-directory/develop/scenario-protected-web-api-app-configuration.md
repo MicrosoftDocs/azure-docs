@@ -18,7 +18,7 @@ ms.custom: aaddev
 
 # Protected web API: Code configuration
 
-To configure the code for your protected web API, you need to understand:
+To configure the code for your protected web API, understand:
 
 - What defines APIs as protected.
 - How to configure a bearer token.
@@ -52,7 +52,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> A client application requests the bearer token to the Microsoft identity platform endpoint *for the web API*. The web API is the only application that should verify the token and view the claims it contains. Client apps should never try to inspect the claims in tokens.
+> A client application requests the bearer token to the Microsoft identity platform *for the web API*. The web API is the only application that should verify the token and view the claims it contains. Client apps should never try to inspect the claims in tokens.
 >
 > In the future, the web API might require that the token be encrypted. This requirement would prevent access for client apps that can view access tokens.
 
@@ -137,7 +137,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) web APIs that sign in users within your organization or any organization. They don't sign in users with personal accounts. However, you can change the templates to use the Microsoft identity platform endpoint by using [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) replacing the code in *Startup.cs*:
+ Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) web APIs that sign in users within your organization or any organization. They don't sign in users with personal accounts. However, you can change the templates to use the Microsoft identity platform by using [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) replacing the code in *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;

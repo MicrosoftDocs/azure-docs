@@ -169,20 +169,21 @@ conceptualContent:
         text: See more
 
 
-    - title: Global load balancer 
+    - title: Secure cloud CDN and global load balancer
       links: 
         - url: ../frontdoor/front-door-overview.md
           itemType: overview
           text:  What is Azure Front Door Service?
+        - url: ../frontdoor/standard-premium/overview.md
+          itemType: overview
+          text: What is Azure Front Door Standard/Premium (Preview)?
         - url: ../frontdoor/front-door-custom-domain.md
           itemType: how-to-guide
           text:  Add a custom domain to your Azure Front Door Service
         - url: ../frontdoor/front-door-how-to-redirect-https.md
           itemType: how-to-guide
           text:  HTTP to HTTPS redirection
-        - url: ../frontdoor/front-door-troubleshoot-routing.md
-          itemType: how-to-guide
-          text: Troubleshoot routing issues 
+
       footerLink: 
         url: ../frontdoor/index.yml
         text: See more

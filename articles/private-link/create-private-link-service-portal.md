@@ -169,7 +169,7 @@ In this section, you'll create a load balancer rule:
 
 4. Leave the rest of the defaults and then select **OK**.
 
-## Create a Private Link service
+## Create a private link service
 
 In this section, you'll create a Private Link service behind a standard load balancer.
 
@@ -215,9 +215,115 @@ In this section, you'll create a Private Link service behind a standard load bal
 
 12. Select **Create** in the **Review + create** tab.
 
+Your private link service is created and can receive traffic. If you want to see traffic flows, configure your application behind your standard load balancer.
+
+
+## Create private endpoint
+
+In this section, you'll map the private link service to a private endpoint. A virtual network contains the private endpoint for the private link service. This virtual network contains the resources that will access your private link service.
+
+### Create private endpoint virtual network
+
+1. On the upper-left side of the screen, select **Create a resource > Networking > Virtual network** or search for **Virtual network** in the search box.
+
+2. In **Create virtual network**, enter or select this information in the **Basics** tab:
+
+    | **Setting**          | **Value**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Project Details**  |                                                                 |
+    | Subscription     | Select your Azure subscription                                  |
+    | Resource Group   | Select **CreatePrivLinkService-rg** |
+    | **Instance details** |                                                                 |
+    | Name             | Enter **myVNetPE**                                    |
+    | Region           | Select **East US 2** |
+
+3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
+
+4. In the **IP Addresses** tab, enter this information:
+
+    | Setting            | Value                      |
+    |--------------------|----------------------------|
+    | IPv4 address space | Enter **11.1.0.0/16** |
+
+5. Under **Subnet name**, select the word **default**.
+
+6. In **Edit subnet**, enter this information:
+
+    | Setting            | Value                      |
+    |--------------------|----------------------------|
+    | Subnet name | Enter **mySubnetPE** |
+    | Subnet address range | Enter **11.1.0.0/24** |
+
+7. Select **Save**.
+
+8. Select the **Review + create** tab or select the **Review + create** button.
+
+9. Select **Create**.
+
+### Create private endpoint
+
+1. On the upper-left side of the screen in the portal, select **Create a resource** > **Networking** > **Private Link**, or in the search box enter **Private Link**.
+
+2. Select **Create**.
+
+3. In **Private Link Center**, select **Private endpoints** in the left-hand menu.
+
+4. In **Private endpoints**, select **+ Add**.
+
+5. In the **Basics** tab of **Create a private endpoint**, enter, or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** | |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **CreatePrivLinkService-rg**. You created this resource group in the previous section.|
+    | **Instance details** |  |
+    | Name  | Enter **myPrivateEndpoint**. |
+    | Region | Select **East US 2**. |
+
+6. Select the **Resource** tab or the **Next: Resource** button at the bottom of the page.
+    
+7. In **Resource**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Connection method | Select **Connect to an Azure resource in my directory**. |
+    | Subscription | Select your subscription. |
+    | Resource type | Select **Microsoft.Network/privateLinkServices**. |
+    | Resource | Select **myPrivateLinkService**. |
+
+8. Select the **Configuration** tab or the **Next: Configuration** button at the bottom of the screen.
+
+9. In **Configuration**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Networking** |  |
+    | Virtual Network | Select **myVNetPE**. |
+    | Subnet | Select **mySubnetPE**. |
+
+10. Select the **Review + create** tab, or the **Review + create** button at the bottom of the screen.
+
+11. Select **Create**.
+
+### IP address of private endpoint
+
+In this section, you'll find the IP address of the private endpoint that corresponds with the load balancer and private link service.
+
+1. In the left-hand column of the Azure portal, select **Resource groups**.
+
+2. Select the **CreatePrivLinkService-rg** resource group.
+
+3. In the **CreatePrivLinkService-rg** resource group, select **myPrivateEndpoint**.
+
+4. In the **Overview** page of **myPrivateEndpoint**, select the name of the network interface associated with the private endpoint.  The network interface name begins with **myPrivateEndpoint.nic**.
+
+5. In the **Overview** page of the private endpoint nic, the IP address of the endpoint is displayed in **Private IP address**.
+    
+
 ## Clean up resources
 
-When you're done using the Private Link service, delete the resource group to clean up the resources used in this quickstart.
+When you're done using the private link service, delete the resource group to clean up the resources used in this quickstart.
 
 1. Enter **CreatePrivLinkService-rg** in the search box at the top of the portal, and select **CreatePrivLinkService-rg** from the search results.
 1. Select **Delete resource group**.
@@ -229,7 +335,8 @@ When you're done using the Private Link service, delete the resource group to cl
 In this quickstart, you:
 
 * Created a virtual network and internal Azure Load Balancer.
-* Created a private link service
+* Created a private link service.
+* Created a virtual network and a private endpoint for the private link service.
 
 To learn more about Azure Private endpoint, continue to:
 > [!div class="nextstepaction"]

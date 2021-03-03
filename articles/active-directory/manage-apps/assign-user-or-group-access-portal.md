@@ -3,7 +3,7 @@ title: Manage user assignment for an app in Azure Active Directory
 description: Learn how to assign and unassign users, and groups, for an app using Azure Active Directory for identity management.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -143,7 +143,7 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
 ## Related articles
 
 - [Learn more about end-user access to applications](end-user-experiences.md)
-- [Plan an Azure AD My Apps deployment](access-panel-deployment-plan.md)
+- [Plan an Azure AD My Apps deployment](my-apps-deployment-plan.md)
 - [Managing access to apps](what-is-access-management.md)
  
 ## Next steps

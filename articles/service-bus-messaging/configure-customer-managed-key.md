@@ -2,21 +2,15 @@
 title: Configure your own key for encrypting Azure Service Bus data at rest
 description: This article provides information on how to configure your own key for encrypting Azure Service Bus data rest. 
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 02/10/2021
 ---
 
 # Configure customer-managed keys for encrypting Azure Service Bus data at rest by using the Azure portal
-Azure Service Bus Premium provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Service Bus Premium relies on Azure Storage to store the data and by default, all the data that is stored with Azure Storage is encrypted using Microsoft-managed keys. 
+Azure Service Bus Premium provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Service Bus Premium uses Azure Storage to store the data. All the data that's stored with Azure Storage is encrypted using Microsoft-managed keys. If you use your own key (also referred to as Bring Your Own Key (BYOK) or customer-managed key), the data is still encrypted using the Microsoft-managed key, but in addition the Microsoft-managed key will be encrypted using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the BYOK feature is a one time setup process on your namespace.
 
-## Overview
-Azure Service Bus now supports the option of encrypting data at rest with either Microsoft-managed keys or customer-managed keys (Bring Your Own Key - BYOK). this feature enables you to create, rotate, disable, and revoke access to the customer-managed keys that are used for encrypting Azure Service Bus at rest.
-
-Enabling the BYOK feature is a one time setup process on your namespace.
-
-> [!NOTE]
-> There are some caveats to the customer managed key for service side encryption. 
->   * This feature is supported by [Azure Service Bus Premium](service-bus-premium-messaging.md) tier. It cannot be enabled for standard tier Service Bus namespaces.
->   * The encryption can only be enabled for new or empty namespaces. If the namespace contains any queues or topics, then the encryption operation will fail.
+There are some caveats to the customer managed key for service side encryption. 
+- This feature is supported by [Azure Service Bus Premium](service-bus-premium-messaging.md) tier. It cannot be enabled for standard tier Service Bus namespaces.
+- The encryption can only be enabled for new or empty namespaces. If the namespace contains any queues or topics, then the encryption operation will fail.
 
 You can use Azure Key Vault to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
 
@@ -65,13 +59,13 @@ After you enable customer-managed keys, you need to associate the customer manag
         > [!NOTE]
         > For redundancy, you can add up to 3 keys. In the event that one of the keys has expired, or is not accessible, the other keys will be used for encryption.
         
-    1. Fill in the details for the key and click **Select**. This will enable the encryption of data at rest on the namespace with a customer managed key. 
+    1. Fill in the details for the key and click **Select**. This will enable the encryption of the Microsoft-managed key with your key (customer-managed key). 
 
 
     > [!IMPORTANT]
-    > If you are looking to use Customer managed key along with Geo disaster recovery, please review the below  - 
+    > If you are looking to use Customer managed key along with Geo disaster recovery, please review this section. 
     >
-    > To enable encryption at rest with customer managed key, an [access policy](../key-vault/general/secure-your-key-vault.md) is set up for the Service Bus' managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
+    > To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](../key-vault/general/secure-your-key-vault.md) is set up for the Service Bus' managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
     >
     > Due to this:
     > 
@@ -95,6 +89,17 @@ You can rotate your key in the key vault by using the Azure Key Vaults rotation 
 Revoking access to the encryption keys won't purge the data from Service Bus. However, the data can't be accessed from the Service Bus namespace. You can revoke the encryption key through access policy or by deleting the key. Learn more about access policies and securing your key vault from [Secure access to a key vault](../key-vault/general/secure-your-key-vault.md).
 
 Once the encryption key is revoked, the Service Bus service on the encrypted namespace will become inoperable. If the access to the key is enabled or the deleted key is restored, Service Bus service will pick the key so you can access the data from the encrypted Service Bus namespace.
+
+## Caching of keys
+The Service Bus instance polls its listed encryption keys every 5 minutes. It caches and uses them until the next poll, which is after 5 minutes. As long as at least one key is available, queues and topics are accessible. If all listed keys are inaccessible when it polls, all queues and topics will become unavailable. 
+
+Here are more details: 
+
+- Every 5 minutes, the Service Bus service polls all customer-managed keys listed in the namespace’s record:
+    - If a key has been rotated, the record is updated with the new key.
+    - If a key has been revoked, the key is removed from the record.
+    - If all keys have been revoked, the namespace’s encryption status is set to **Revoked**. The data can't be accessed from the Service Bus namespace.. 
+    
 
 ## Use Resource Manager template to enable encryption
 This section shows how to do the following tasks using **Azure Resource Manager templates**. 

@@ -91,9 +91,7 @@ To add a Conditional Access policy based on the Identity Protection risk detecti
 
 1. Under **Security**, select **Conditional Access (Preview)**. The **Conditional Access Policies** page opens. 
 
-1. Select **New policy** and follow the Azure AD Conditional Access documentation to create a new policy. The following is an example:
-
-   - [Sign-in risk-based Conditional Access: Enable with Conditional Access policy](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy)
+1. Select **New policy** and follow the Azure AD Conditional Access documentation to create a new policy. For risk-based policies, you will need to configure separate policies based on [user risk](../active-directory/conditional-access/howto-conditional-access-policy-risk-user.md#enable-with-conditional-access-policy) or [sign-in risk](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy) depending on which type of risk you want to use as a condition. We do not recommend using both risk types in a single policy.
 
    > [!IMPORTANT]
    > When selecting the users you want to apply the policy to, don't select **All users** only, or you could block yourself from signing in.

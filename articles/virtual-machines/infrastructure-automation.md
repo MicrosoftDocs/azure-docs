@@ -121,7 +121,7 @@ Learn how to:
 
 Learn more about:
 
-- [Azure DevOps Services](/azure/devops/user-guide/index?view=vsts).
+- [Azure DevOps Services](/azure/devops/user-guide/index).
 
 
 ## Jenkins

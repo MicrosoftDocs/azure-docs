@@ -3,11 +3,9 @@ title: Delta format in Azure Data Factory
 description: Transform and move data from a delta lake using the delta format
 author: djpmsft
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: daperlov
-
 ---
 
 # Delta format in Azure Data Factory

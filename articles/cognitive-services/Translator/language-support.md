@@ -3,17 +3,17 @@ title: Language support - Translator
 titleSuffix: Azure Cognitive Services
 description: Cognitive Services Translator supports the following languages for text to text translation using Neural Machine Translation (NMT).
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 # Language and region support for text and speech translation
 
-Use Translator to translate to and from any of the 70+ text translation languages. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of Translator when a neural system is available.
+Use Translator to translate to and from any of the 90 text translation languages and dialects. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of Translator when a neural system is available.
 
 You can also use Translator in conjunction with Custom Translator to build neural translation systems that understand the terminology used in your own business and industry, and with Microsoft Speech Service to add speech translation to your app.
 
@@ -31,8 +31,12 @@ Translator supports the following languages for text to text translation.
 | Language | Language code |
 |:-|:-:|
 | Afrikaans | `af` |
+| Albanian | `sq` |
+| Amharic | `am` |
 | Arabic | `ar` |
+| Armenian | `hy` |
 | Assamese | `as` |
+| Azerbaijani | `az` |
 | Bangla | `bn` |
 | Bosnian (Latin) | `bs` |
 | Bulgarian | `bg` |
@@ -62,16 +66,19 @@ Translator supports the following languages for text to text translation.
 | Hungarian | `hu` |
 | Icelandic | `is` |
 | Indonesian | `id` |
+| Inuktitut | `iu` |
 | Irish | `ga` |
 | Italian | `it` |
 | Japanese | `ja` |
 | Kannada | `kn` |
 | Kazakh | `kk` |
+| Khmer | `km` |
 | Klingon | `tlh-Latn` |
 | Klingon (plqaD) | `tlh-Piqd` |
 | Korean | `ko` |
 | Kurdish (Central) | `ku` |
 | Kurdish (Northern) | `kmr` |
+| Lao | `lo` |
 | Latvian | `lv` |
 | Lithuanian | `lt` |
 | Malagasy | `mg` |
@@ -80,12 +87,14 @@ Translator supports the following languages for text to text translation.
 | Maltese | `mt` |
 | Maori | `mi` |
 | Marathi | `mr` |
+| Myanmar | `my` |
+| Nepali | `ne` |
 | Norwegian | `nb` |
 | Odia | `or` |
 | Pashto | `ps` |
 | Persian | `fa` |
 | Polish | `pl` |
-| Portuguese (Brazil) | `pt-br` |
+| Portuguese (Brazil) | `pt` |
 | Portuguese (Portugal) | `pt-pt` |
 | Punjabi | `pa` |
 | Queretaro Otomi | `otq` |
@@ -103,6 +112,7 @@ Translator supports the following languages for text to text translation.
 | Tamil | `ta` |
 | Telugu | `te` |
 | Thai | `th` |
+| Tigrinya | `ti` |
 | Tongan | `to` |
 | Turkish | `tr` |
 | Ukrainian | `uk` |
@@ -123,6 +133,7 @@ Translator detects the following languages for translation and transliteration.
 | Language | Language code |
 |:-|:-:|
 | Afrikaans | `af` |
+| Albanian | `sq` |
 | Arabic | `ar` |
 | Bulgarian | `bg` |
 | Catalan | `ca` |
@@ -145,6 +156,7 @@ Translator detects the following languages for translation and transliteration.
 | Hungarian | `hu` |
 | Icelandic | `is` |
 | Indonesian | `id` |
+| Inuktitut | `iu` |
 | Irish | `ga` |
 | Italian | `it` |
 | Japanese | `ja` |
@@ -188,6 +200,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Language    | Language code | Script | To/From | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabic | `ar` | Arabic `Arab` | <--> | Latin `Latn` |
+| Assamese | `as` | Bengali `Beng` | <--> | Latin `Latn` |
 | Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
 |Belarusian| `be` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 |Bulgarian| `bg` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
@@ -202,6 +215,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Japanese | `ja` | Japanese `Jpan` | <--> | Latin `Latn` |
 | Kannada | `kn` | Kannada `Knda` | <--> | Latin `Latn` |
 |Kazakh| `kk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+|Korean| `ko` | Korean `Kore`  | <--> | Latin `Latn` |
 |Kyrgyz| `ky` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 |Macedonian| `mk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | <--> | Latin `Latn` |
@@ -214,6 +228,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Serbian (Cyrillic) | `sr-Cyrl` | Cyrillic `Cyrl`  | --> | Latin `Latn` |
 | Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
 |Sindhi| `sd` | Arabic `Arab`  | <--> | Latin `Latn` |
+|Sinhala| `si` | Sinhala `Sinh`  | <--> | Latin `Latn` |
 |Tajik| `tg` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 | Tamil | `ta` | Tamil `Taml` | <--> | Latin `Latn` |
 |Tatar| `tt` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
@@ -334,7 +349,7 @@ The following languages are available for customization to or from English using
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
-| Portuguese (Brazil) | `pt-br` |
+| Portuguese (Brazil) | `pt` |
 | Punjabi|`pa`|
 | Romanian      | `ro`          |
 | Russian      | `ru`          |

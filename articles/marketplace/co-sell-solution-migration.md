@@ -39,7 +39,7 @@ After you’ve enrolled in the commercial marketplace, prepare to migrate your s
 
 Follow these steps before importing your solutions from OCP GTM:
 
-1. Visit your company's [publisher list](https://partner.microsoft.com/dashboard/account/v3/publishers/list). It includes the account owner, managers, and developers who have publishing access. Learn more about [Partner Center user roles](/azure/marketplace/partner-center-portal/manage-account#define-user-roles-and-permissions).
+1. Visit your company's [publisher list](https://partner.microsoft.com/dashboard/account/v3/publishers/list). It includes the account owner, managers, and developers who have publishing access. Learn more about [Partner Center user roles](./partner-center-portal/manage-account.md#define-user-roles-and-permissions).
 2. Ask one of the listed contacts to [add users](https://partner.microsoft.com/dashboard/account/usermanagement) to the commercial marketplace as *managers* or *developers*, since only these roles can edit and publish solutions.
 3. Work with your developers to move your solutions from your OCP GTM account to the commercial marketplace.
 4. Decide which of the following you want to do:
@@ -152,4 +152,3 @@ For detailed instructions on the information you need to provide before your off
 - [Resell through CSP Partners](cloud-solution-providers.md)
 - [How to submit co-sell materials in partner center](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
 - View these [FAQs](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)
-

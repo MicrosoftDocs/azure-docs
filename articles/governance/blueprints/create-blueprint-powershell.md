@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a blueprint with PowerShell"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the PowerShell.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with PowerShell
@@ -14,12 +14,13 @@ organization, such as:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-before you begin.
-
-If it isn't already installed, follow the instructions in
-[Add the Az.Blueprint module](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) to
-install and validate the **Az.Blueprint** module from the PowerShell Gallery.
+- If you don't have an Azure subscription, create a
+  [free account](https://azure.microsoft.com/free) before you begin.
+- If it isn't already installed, follow the instructions in
+  [Add the Az.Blueprint module](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) to
+  install and validate the **Az.Blueprint** module from the PowerShell Gallery.
+- If you've not used Azure Blueprints before, register the resource provider through Azure
+  PowerShell with `Register-AzResourceProvider -ProviderNamespace Microsoft.Blueprint`.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

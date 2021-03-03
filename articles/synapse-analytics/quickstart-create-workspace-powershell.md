@@ -24,7 +24,7 @@ before you begin.
 
 ## Prerequisites
 
-- [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md)
 
     > [!IMPORTANT]
     > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2
@@ -79,26 +79,6 @@ Install-Module -Name Az.Synapse
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $SynapseResourceGroup -Location $Region
-   ```
-
-1. Retrieve the ADLS Gen 2 Storage Account key:
-
-   ```azurepowershell-interactive
-   $StorageAccountKey = Get-AzStorageAccountKey -ResourceGroupName $StorageAccountResourceGroup -Name $StorageAccountName |
-     Select-Object -First 1 -ExpandProperty Value
-    ```
-
-1. Retrieve the ADLS Gen 2 Storage Endpoint URL:
-
-   ```azurepowershell-interactive
-   $StorageEndpointUrl = (Get-AzStorageAccount -ResourceGroupName $StorageAccountResourceGroup -Name $StorageAccountName).PrimaryEndpoints.Dfs
-   ```
-
-1. (Optional) You can always check what your ADLS Gen2 Storage Account key and endpoint are:
-
-   ```azurepowershell-interactive
-   Write-Output "Storage Account Key: $StorageAccountKey"
-   Write-Output "Storage Endpoint URL: $StorageEndpointUrl"
    ```
 
 1. Create an Azure Synapse Workspace:
