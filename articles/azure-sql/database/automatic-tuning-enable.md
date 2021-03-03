@@ -116,12 +116,12 @@ In case of error messages that automated recommendation management has been disa
 The following steps can be considered to rectify this issue:
 - Clean up the Query Store, or modify the data retention period to "auto" by using T-SQL. See how to [configure recommended retention and capture policy for Query Store](/azure/azure-sql/database/query-performance-insight-use#recommended-retention-and-capture-policy).
 - Use SQL Server Management Studio (SSMS) and follow these steps:
-  1. Connect to the Azure SQL Database
-  2. Right click on the database
-  3. Go to Properties and click on Query Store
-  4. Change the Operation Mode to Read-Write
-  5. Change the Store Capture Mode to Auto
-  6. Change the Size Based Cleanup Mode to Auto
+  - Connect to the Azure SQL Database
+  - Right click on the database
+  - Go to Properties and click on Query Store
+  - Change the Operation Mode to Read-Write
+  - Change the Store Capture Mode to Auto
+  - Change the Size Based Cleanup Mode to Auto
 
 ### Permissions
 
