@@ -6,7 +6,7 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 03/03/2021
 ---
 
 # Azure Database for PostgreSQL - Flexible Server
@@ -80,6 +80,24 @@ Flexible servers allows full private access to the servers using Azure virtual n
 ## Monitoring and alerting
 
 The flexible server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service exposes host server metrics to monitor resources utilization and allows configuring slow query logs. Using these tools, you can quickly optimize your workloads, and configure your server for best performance.
+
+## Azure regions
+
+One of the advantage of running your workload in Azure is it's global reach. The flexible server is available today in following Azure regions:
+
+| Region | Availability | Zone redundant HA | 
+| --- | --- | --- |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | 
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Central US | :heavy_check_mark: | :heavy_check_mark: | 
+| East US | :heavy_check_mark: | :heavy_check_mark: | 
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: | 
+
+We continue to add new regions. 
 
 ## Migration
 
