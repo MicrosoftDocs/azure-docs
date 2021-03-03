@@ -173,7 +173,7 @@ Use the following steps to import a Databricks notebook that contains the Python
 
 1. Select the **Workspace** to view the imported notebook:
 
-    ![Imported notebook](media/howto-create-custom-analytics/import-notebook.png)
+    ![Imported notebook](media/howto-create-custom-analytics/import-notebook2.png)
 
 1. Edit the code in the first Python cell to add the Event Hubs connection string you saved previously:
 
