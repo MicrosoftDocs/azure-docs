@@ -51,3 +51,9 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 | Name | Required | Type | Description |
 | --------- | --------- | --------- | --------- |
 | Sha256 | True | string | Base64-encoded hash of the file using the SHA-256 algorithm. |
+
+## Next steps
+
+Learn more about [import concepts](./import-concepts.md).
+
+If you're ready, try out the [Import How-To guide](./import-update.md), which will walk you through the import process step by step.
