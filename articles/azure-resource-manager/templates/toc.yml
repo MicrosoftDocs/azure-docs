@@ -222,7 +222,7 @@
         href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutorials
   items:
-  - name: Beginner templates
+  - name: Beginner JSON templates
     items:
     - name: 1 - Create first template
       href: template-tutorial-create-first-template.md
@@ -244,6 +244,28 @@
       href: template-tutorial-add-tags.md
     - name: 10 - Use parameter file
       href: template-tutorial-use-parameter-file.md
+  - name: Beginner Bicep
+    items:
+    - name: 1 - Create first template
+      href: bicep-tutorial-create-first-bicep.md
+    - name: 2 - Add parameters
+      href: bicep-tutorial-add-parameters.md
+    - name: 3 - Add template functions
+      href: bicep-tutorial-add-functions.md
+    - name: 4 - Add variables
+      href: bicep-tutorial-add-variables.md
+    - name: 5 - Add outputs
+      href: bicep-tutorial-add-outputs.md
+    - name: 6 - Use exported template
+      href: bicep-tutorial-export-template.md
+    - name: 7 - Use Quickstart template
+      href: bicep-tutorial-quickstart-template.md
+    - name: 8 - Add tags
+      href: bicep-tutorial-add-tags.md
+    - name: 9 - Use parameter file
+      href: bicep-tutorial-use-parameter-file.md
+    - name: 10 - Add modules
+      href: bicep-tutorial-add-modules.md
   - name: Deployment
     items:
     - name: 1 - Deploy a local template
