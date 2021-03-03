@@ -60,7 +60,7 @@ az spring-cloud create -n "myspringcloud" -g "myResourceGroup"
 The following example creates an app named `springapp` with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
 
 ```azurecli
-az spring-cloud app create -n "springapp" -s "myspringcloud" -g "myResourceGroup" --is-public true --assign-identity
+az spring-cloud app create -n "springapp" -s "myspringcloud" -g "myResourceGroup" --assign-endpoint true --assign-identity
 export SERVICE_IDENTITY=$(az spring-cloud app show --name "springapp" -s "myspringcloud" -g "myResourceGroup" | jq -r '.identity.principalId')
 ```
 
