@@ -14,6 +14,8 @@ services: iot-edge
 
 This article provides details about which systems and components are supported by IoT Edge, whether officially or in preview.
 
+## Get support
+
 If you experience problems while using the Azure IoT Edge service, there are several ways to seek support. Try one of the following channels for support:
 
 **Reporting bugs** – The majority of development that goes into the Azure IoT Edge product happens in the IoT Edge open-source project. Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the project. Bugs related to Azure IoT Edge for Linux on Windows can be reported on the [iotedge-eflow issues page](https://github.com/azure/iotedge-eflow/issues). Fixes rapidly make their way from the projects in to product updates.

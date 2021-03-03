@@ -211,6 +211,8 @@ param siteName string = 'site${uniqueString(resourceGroup().id)}'
 param hostingPlanName string = '${siteName}-plan'
 ```
 
+---
+
 ## Length constraints
 
 You can specify minimum and maximum lengths for string and array parameters. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.

@@ -37,9 +37,9 @@ cd spring-cloud-circuitbreaker-demo && mvn clean package -DskipTests
 2. Create applications with endpoints
 
 ```azurecli
-az spring-cloud app create --name resilience4j --is-public \
+az spring-cloud app create --name resilience4j --assign-endpoint \
     -s ${asc-service-name} -g ${asc-resource-group}
-az spring-cloud app create --name reactive-resilience4j --is-public \
+az spring-cloud app create --name reactive-resilience4j --assign-endpoint \
     -s ${asc-service-name} -g ${asc-resource-group}
 ```
 

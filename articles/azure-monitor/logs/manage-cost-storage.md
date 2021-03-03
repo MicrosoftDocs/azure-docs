@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2021
 ms.author: bwren
-ms.subservice: 
 ---
  
 # Manage usage and costs with Azure Monitor Logs	

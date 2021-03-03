@@ -1,7 +1,7 @@
 ---
 title: How to import a new update | Microsoft Docs
 description: How-To guide for importing a new update into IoT Hub Device Update for IoT Hub.
-author: andbrown
+author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
