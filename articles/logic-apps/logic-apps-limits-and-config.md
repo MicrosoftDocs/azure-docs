@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 02/05/2021
+ms.date: 02/18/2021
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -135,7 +135,7 @@ Here are the limits for a single logic app definition:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Action: Executions per 5 minutes | 100,000 is the default limit, but 300,000 is the maximum limit. | To raise the default limit to the maximum for your logic app, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one logic app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
+| Action: Executions per 5-minute rolling interval | - 100,000 executions (default) <p><p>- 300,000 executions (maximum in high throughput mode)  | To raise the default limit to the maximum limit for your logic app, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one logic app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
 | Action: Concurrent outbound calls | ~2,500 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
 | Runtime endpoint: Concurrent inbound calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
 | Runtime endpoint: Read calls per 5 minutes  | 60,000 | This limit applies to calls that get the raw inputs and outputs from a logic app's run history. You can distribute the workload across more than one app as necessary. |
@@ -147,7 +147,7 @@ Here are the limits for a single logic app definition:
 
 #### Run in high throughput mode
 
-For a single logic app definition, the number of actions that execute every 5 minutes has a [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise the default limit to the maximum for your logic app, you can enable high throughput mode, which is in preview. Or, you can [distribute the workload across more than one logic app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary.
+For a single logic app definition, the number of actions that execute every 5 minutes has a [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise the default limit to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) for your logic app, which is three times the default limit, you can enable high throughput mode, which is in preview. Or, you can [distribute the workload across more than one logic app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary.
 
 1. In the Azure portal, on your logic app menu, under **Settings**, select **Workflow settings**.
 

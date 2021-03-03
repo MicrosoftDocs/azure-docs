@@ -518,6 +518,8 @@ groups:
     title: C#
   - id: programming-language-go
     title: Go
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
   - id: programming-language-rest-api

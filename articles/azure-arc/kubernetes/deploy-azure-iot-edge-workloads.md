@@ -3,7 +3,7 @@ title: "Deploy Azure IoT Edge workloads (Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/10/2021
+ms.date: 02/19/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -40,7 +40,7 @@ The diagram below illustrates Azure Arc and Azure IoT Edge's relationship:
   $ kubectl create secret generic dcs --from-file=fully-qualified-path-to-values.yaml --namespace iotedge
   ```
 
-  You can also set up remotely using the [cluster config example](./use-gitops-connected-cluster.md).
+  You can also set up remotely using the [cluster config example](./tutorial-use-gitops-connected-cluster.md).
 
 ## Connect a cluster
 

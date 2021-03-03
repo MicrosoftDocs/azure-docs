@@ -37,7 +37,7 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * [Azure Stack Edge / Data Box Gateway Resource Creation](../../databox-online/azure-stack-edge-deploy-prep.md)
 * [Install and Setup](../../databox-online/azure-stack-edge-deploy-install.md)
 * [Connection and Activation](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md)
-* [Attach an IoT Hub to Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-configure-compute#configure-compute)
+* [Attach an IoT Hub to Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-configure-compute.md#configure-compute)
 ### Enable Compute Prerequisites on the Azure Stack Edge Local UI
 
 Before you continue, make sure that:

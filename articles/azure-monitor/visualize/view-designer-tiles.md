@@ -32,7 +32,7 @@ The available View Designer tiles are described in the following table:
 The next sections describe the tile types and their properties in detail.
 
 > [!NOTE]
-> Tiles in views are based on [log queries](../log-query/log-query-overview.md) in your Log Analytics workspace. They do not currently support [cross resource queries](../log-query/cross-workspace-query.md) to retrieve data from Application Insights.
+> Tiles in views are based on [log queries](../logs/log-query-overview.md) in your Log Analytics workspace. They do not currently support [cross resource queries](../logs/cross-workspace-query.md) to retrieve data from Application Insights.
 
 ## Number tile
 The **Number** tile displays both the count of records from a log query and a label.
@@ -169,5 +169,5 @@ The **Two timelines** tile displays the results of two log queries over time as 
 
 
 ## Next steps
-* Learn about [log queries](../log-query/log-query-overview.md) to support the queries in tiles.
+* Learn about [log queries](../logs/log-query-overview.md) to support the queries in tiles.
 * Add [visualization parts](view-designer-parts.md) to your custom view.

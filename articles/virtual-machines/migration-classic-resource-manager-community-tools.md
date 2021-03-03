@@ -4,6 +4,7 @@ description: This article catalogs the tools that have been provided by the comm
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020

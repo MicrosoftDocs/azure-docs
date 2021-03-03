@@ -42,8 +42,8 @@ sections:
 
       - question: Where does data stored in App Configuration reside? 
         answer: |
-          Customer data stored in App Configuration resides in the region where the customer's App Configuration store was created. App Configuration may replicate data to [paired regions](../best-practices-availability-paired-regions.md) for data resiliency, but it won't replicate or move customer data outside their Geo as defined by [data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Customers and end users may move, copy, or access their customer data from any location globally.
-          
+          Customer data stored in App Configuration resides in the region where the customer's App Configuration store was created. This applies to all available regions. Customers and end users may move, copy, or access their customer data from any location globally.
+
       - question: How is App Configuration different from Azure App Service settings?
         answer: |
           Azure App Service allows you to define app settings for each App Service instance. These settings are passed as environment variables to the application code. You can associate a setting with a specific deployment slot, if you want. For more information, see [Configure app settings](../app-service/configure-common.md#configure-app-settings).

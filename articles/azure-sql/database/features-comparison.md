@@ -8,10 +8,10 @@ ms.subservice: features
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
+author: danimir
+ms.author: danil
 ms.reviewer: bonova, sstein, danil
-ms.date: 12/25/2020
+ms.date: 02/21/2021
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -72,7 +72,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Language elements](/sql/t-sql/language-elements/language-elements-transact-sql) | Most - see individual elements |  Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Linked servers](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic query](elastic-query-horizontal-partitioning.md) | Yes. Only to [SQL Server and SQL Database](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) without distributed transactions. |
 | [Linked servers](/sql/relational-databases/linked-servers/linked-servers-database-engine) that read from files (CSV, Excel)| No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) or [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) as an alternative for CSV format. | No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) or [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) as an alternative for CSV format. Track these requests on [SQL Managed Instance feedback item](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
-| [Log shipping](/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [High availability](high-availability-sla.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md). | Natively built in as a part of Azure Data Migration Service migration process. Not available as High availability solution, because other [High availability](high-availability-sla.md) methods are included with every database and it is not recommended to use Log-shipping as HA alternative. Disaster recovery is discussed in [Overview of business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md). Not available as a replication mechanism between databases - use secondary replicas on [Business Critical tier](service-tier-business-critical.md), [auto-failover groups](auto-failover-group-overview.md), or [transactional replication](../managed-instance/replication-transactional-overview.md) as the alternatives. |
+| [Log shipping](/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [High availability](high-availability-sla.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md). | Natively built in as a part of [Azure Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md) migration process. Natively built for custom data migration projects as an external [Log Replay Service (LRS)](../managed-instance/log-replay-service-migrate.md).<br /> Not available as High availability solution, because other [High availability](high-availability-sla.md) methods are included with every database and it is not recommended to use Log-shipping as HA alternative. Disaster recovery is discussed in [Overview of business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md). Not available as a replication mechanism between databases - use secondary replicas on [Business Critical tier](service-tier-business-critical.md), [auto-failover groups](auto-failover-group-overview.md), or [transactional replication](../managed-instance/replication-transactional-overview.md) as the alternatives. |
 | [Logins and users](/sql/relational-databases/security/authentication-access/principals-database-engine) | Yes, but `CREATE` and `ALTER` login statements do not offer all the options (no Windows and server-level Azure Active Directory logins). `EXECUTE AS LOGIN` is not supported - use `EXECUTE AS USER` instead.  | Yes, with some [differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#logins-and-users). Windows logins are not supported and they should be replaced with Azure Active Directory logins. |
 | [Minimal logging in bulk import](/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | No, only Full Recovery model is supported. | No, only Full Recovery model is supported. |
 | [Modifying system data](/sql/relational-databases/databases/system-databases) | No | Yes |
@@ -154,7 +154,7 @@ Azure SQL Database and Azure SQL Managed Instance support various data tools tha
 | Azure portal | Yes | Yes |
 | Azure CLI | Yes | Yes|
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | Yes | Yes |
-| Azure Powershell | Yes | Yes |
+| Azure PowerShell | Yes | Yes |
 | [BACPAC file (export)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Yes - see [SQL Database export](database-export.md) | Yes - see [SQL Managed Instance export](database-export.md) |
 | [BACPAC file (import)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Yes - see [SQL Database import](database-import.md) | Yes - see [SQL Managed Instance import](database-import.md) |
 | [Data Quality Services (DQS)](/sql/data-quality-services/data-quality-services) | No | No |
@@ -164,7 +164,7 @@ Azure SQL Database and Azure SQL Managed Instance support various data tools tha
 | [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Yes [version 18.0 and higher](/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Yes | Yes |
 | [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | No - see [Extended events](xevent-db-diff-from-svr.md) | Yes |
-| [System Center Operations Manager (SCOM)](/system-center/scom/welcome) | [Yes](https://www.microsoft.com/download/details.aspx?id=38829) | Yes, [in preview](https://www.microsoft.com/download/details.aspx?id=38829) |
+| [System Center Operations Manager (SCOM)](/system-center/scom/welcome) | [Yes](https://www.microsoft.com/download/details.aspx?id=38829) | [Yes](https://www.microsoft.com/en-us/download/details.aspx?id=101203) |
 
 ## Migration methods
 

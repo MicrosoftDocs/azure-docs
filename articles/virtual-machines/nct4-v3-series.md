@@ -1,8 +1,8 @@
 ---
 title: NCas T4 v3-series 
 description: Specifications for the NCas T4 v3-series VMs.
-services: virtual-machines
-ms.subservice: sizes
+ms.service: virtual-machines
+ms.subservice: hpc
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual

@@ -3,6 +3,7 @@ title: Use proximity placement groups
 description: Learn about creating and using proximity placement groups for virtual machines in Azure. 
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
