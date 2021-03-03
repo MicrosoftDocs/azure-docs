@@ -16,7 +16,7 @@ ms.author: barclayn
 
 # Create Sample Ninja Credential in your Issuer
 
-Now that we have our Verifiable Credentials service set up in Azure Active Directory (AAD). Let's use the Sample Code's Ninja Credential and use that with our Issuer. 
+Now that we have our Verifiable Credentials service set up in Azure Active Directory (AAD). Let's use the Sample Code's Ninja Credential and use that with our Issuer.
 
 ## Create the Rules and Display Files
 
@@ -85,27 +85,31 @@ Create another file for the Display file and save it as 'display-example.json'. 
 
 We need a storage account to hold the rule and display files we created in the previous step.
 
-Create a storage account using the following options:
+1. Create a storage account using the following options:
 
-- **Name:**  A unique name
-- **Account kind:** Storage V2 (Why did we choose this? is this required
-- **Performance:** Standard
-- **Replication:** Locally redundant  (IS THERE A REASON FOR THIS? WHAT WOULD BE THE RECOMMENDATION FOR PRODUCTION? GEO REDUNDANT? )
-- **Location:** (US) EAST US
-- **Resource group:** Choose the same resource group we used in earlier tutorials (**vc-resource-group**)
+    - **Name:**  A unique name
+    - **Account kind:** Storage V2 (Why did we choose this? is this required
+    - **Performance:** Standard
+    - **Replication:** Locally redundant  (IS THERE A REASON FOR THIS? WHAT WOULD BE THE RECOMMENDATION FOR PRODUCTION? GEO REDUNDANT? )
+    - **Location:** (US) EAST US
+    - **Resource group:** Choose the same resource group we used in earlier tutorials (**vc-resource-group**)
+    
+    For detailed steps you can review the [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal) article.
+    
+    ![Create a new storage account](media/tutorial-create-sample-card-your-issuer/create-storage-account.png)
 
-For detailed steps you can review the [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal) article.
+2. Once that you have a storage account we need to create a container in our new storage account
 
-![Create a new storage account](media/tutorial-create-sample-card-your-issuer/create-storage-account.png)
+    - **Name:** vc-container
+    - **Public access level:** Private (no anonymous access)
 
-Once that you have a storage account we need to create a container.
 
-- **Name:** vc-container
-- **Public access level:** Private (no anonymous access)
+    >[!IMPORTANT]
+    >After creating the container assign the **Storage Blob Data Reader** role to the account you are logged in with while going through the tutorial. Keep in mind that even if you created the container with the account you are using the **Owner** role is not enough on its own. For more information review [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md)
+    
+    ![Create a container](media/tutorial-create-sample-card-your-issuer/new-container.png)
 
-![Create a container](media/tutorial-create-sample-card-your-issuer/new-container.png)
-
-Now select your new container and upload the Rules and display files you created earlier. Once that they are uploaded continue to the next section.
+3. Now select your new container and upload the Rules and display files you created earlier. Once that they are uploaded continue to the next section.
 
 ## Create the Ninja Credential VC
 
@@ -129,12 +133,12 @@ Now select your new container and upload the Rules and display files you created
 - From the **Create a new credential** screen choose **Create**.
 
 >[!NOTE]
-> If you created a new blob storage you will see an error. Wait 10 minutes and try again.
+> If you just created a new blob storage you will see an error. Wait 10 minutes and try again.
 
 
 ## Credential URL
 
-Now that your Credential has been created, lets copy the Credential URL and run it in the browser to see if it works.  
+Now that you have a new credential, let's copy the credential URL and run it in the browser to see if it works.  
 
 ![The issue credential URL](media/tutorial-create-samplecard-your-issuer/DdV0c8A.png)
 
