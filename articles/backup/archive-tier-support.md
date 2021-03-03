@@ -31,7 +31,7 @@ Supported clients:
 - The capability is provided using PowerShell
 
 >[!NOTE]
->Archive Tier Support for Azure VMs and SQL Server in Azure VMs is in limited public preview with limited signups. To sign up for archive support use this [link](aka.ms/ArchivePreviewInterestForm).
+>Archive Tier Support for Azure VMs and SQL Server in Azure VMs is in limited public preview with limited signups. To sign up for archive support use this [link](https://aka.ms/ArchivePreviewInterestForm).
 
 ## Get started with PowerShell
 
