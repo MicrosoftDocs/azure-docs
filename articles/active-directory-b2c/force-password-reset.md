@@ -58,7 +58,7 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 
 ### Test the user flow
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator or a password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference.md#available-roles).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator or a password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference.md#all-roles).
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Users**. Search for and select the user you'll use to test the password reset, and then select **Reset Password**.
@@ -81,7 +81,7 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 
 ### Test the policy
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator or a password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference.md#available-roles).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator or a password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference.md#all-roles).
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Users**. Search for and select the user you'll use to test the password reset, and then select **Reset Password**.
