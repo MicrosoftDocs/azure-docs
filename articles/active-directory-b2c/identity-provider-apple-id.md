@@ -142,13 +142,6 @@ The Azure function responds with a properly formatted and signed client secret J
 
 ## Create a policy key
 
-> [!IMPORTANT] 
-> Sign in with Apple requires the Admin to renew their client secret every 6 months.
-> 
->  You'll need to manually renew the Apple client secret if it expires and store the new value in the policy key.
->  
->   We recommend you set your own reminder within 6 months to generate a new client secret. 
-
 You need to store the client secret that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -161,6 +154,11 @@ You need to store the client secret that you previously recorded in your Azure A
 1. In **Secret**, enter the value of a token returned by the Azure Function (a JWT token).
 1. For **Key usage**, select **Signature**.
 1. Select **Create**.
+
+> [!IMPORTANT] 
+> - Sign in with Apple requires the Admin to renew their client secret every 6 months.
+> - You'll need to manually renew the Apple client secret if it expires and store the new value in the policy key.
+> - We recommend you set your own reminder within 6 months to generate a new client secret. 
 
 ## Configure Apple as an identity provider
 
