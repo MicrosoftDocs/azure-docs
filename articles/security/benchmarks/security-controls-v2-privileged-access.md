@@ -159,8 +159,6 @@ Secured, isolated workstations are critically important for the security of sens
 
 - [Understand privileged access workstations](/security/compass/privileged-access-deployment)
 
-- [Deploy a privileged access workstation](../../active-directory/devices/howto-azure-managed-workstation)
-
 **Responsibility**: Customer
 
 **Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):

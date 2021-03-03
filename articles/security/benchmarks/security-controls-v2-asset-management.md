@@ -150,7 +150,7 @@ You can also use a third-party solution to discover and identify unapproved soft
 
 - [Understand Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md)
 
-- [How to control PowerShell script execution in Windows environments](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [How to control PowerShell script execution in Windows environments](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **Responsibility**: Customer
 
