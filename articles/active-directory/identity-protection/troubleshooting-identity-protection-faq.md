@@ -97,3 +97,28 @@ The high aggregate risk score could be based on other features of the sign-in, o
 ### What is the difference between the "Activity from anonymous IP address" and "Anonymous IP address" detections?
 
 The "Anonymous IP address" detection's source is Azure AD Identity Protection, while the "Activity from anonymous IP address" detection is integrated from MCAS (Microsoft Cloud App Security). While they have very similar names and it is possible that you may see overlap in these signals, they have distinct back-end detections.
+
+### Leaked credentials
+
+#### Where does Microsoft find leaked credentials?
+
+Microsoft finds leaked credentials in a variety of places, including:
+
+- Public paste sites such as pastebin.com and paste.ca where bad actors typically post such material. This location is most bad actors' first stop on their hunt to find stolen credentials.
+- Law enforcement agencies.
+- Other groups at Microsoft doing dark web research.
+
+#### Why aren't I seeing any leaked credentials?
+
+Leaked credentials are processed anytime Microsoft finds a new, publicly available batch. Due to the sensitive nature, the leaked credentials are deleted shortly after processing. Only new leaked credentials found after you enable password hash synchronization (PHS) will be processed against your tenant. Verifying against previously found credential pairs is not performed. 
+
+#### I haven't seen any leaked credential risk events for quite some time?
+
+If you haven't seen any leaked credential risk events, it's because of the following reasons:
+
+- You don't have PHS enabled for your tenant.
+- Microsoft hasn't found any leaked credential pairs that match your users.
+
+#### How often does Microsoft process new credentials?
+
+Credentials are processed immediately after they have been found, normally in multiple batches per day.
