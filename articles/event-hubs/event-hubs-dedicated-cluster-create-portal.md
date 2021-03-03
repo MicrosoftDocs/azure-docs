@@ -25,6 +25,9 @@ To complete this quickstart, make sure that you have:
 ## Create an Event Hubs Dedicated Cluster
 An Event Hubs cluster provides a unique scoping container in which you can create one or more namespaces. In this Preview phase of the portal self-serve experience, you can create 1 CU clusters in select regions. If you need a cluster larger than 1 CU, you can submit an Azure support request to scale up your cluster after its creation.
 
+> [!IMPORTANT]
+> You won't be able to delete the cluster for at least 4 hours after you create it. Therefore, you will be charged for a minimum 4 hours of usage of the cluster. For more information on pricing, see [Event Hubs - Pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
+
 To create a cluster in your resource group using the Azure portal, please complete the following steps:
 
 1. Follow [this link](https://aka.ms/eventhubsclusterquickstart) to create a cluster on Azure portal. Conversely, select **All services** from the left navigation pane, then type in "Event Hubs Clusters" in the search bar and select "Event Hubs Clusters" from the list of results.
@@ -84,9 +87,12 @@ If you wish to change the size of your cluster after creation or if your preferr
 
  ## Delete a dedicated cluster
  
-1. To delete the cluster, select **Delete** from the top menu. Please note that your cluster will be billed for a minimum of 4 hours of usage after creation. 
-2. A message will appear confirming your wish to delete the cluster.
-3. Type the **name of the cluster** and select **Delete** to delete the cluster.
+1. To delete the cluster, select **Delete** from the top menu. 
+
+    > [!IMPORTANT]
+    > You won't be able to delete the cluster for at least 4 hours after you create it. Therefore, you will be charged for minimum 4 hours of usage of the cluster. For more information on pricing, see [Event Hubs - Pricing](https://azure.microsoft.com/pricing/details/event-hubs/).     
+1. A message will appear confirming your wish to delete the cluster.
+1. Type the **name of the cluster** and select **Delete** to delete the cluster.
 
     ![Delete cluster page](./media/event-hubs-dedicated-cluster-create-portal/delete-cluster-page.png)
 
