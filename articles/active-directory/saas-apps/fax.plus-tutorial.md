@@ -35,6 +35,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * FAX.PLUS supports **SP and IDP** initiated SSO.
 * FAX.PLUS supports **Just In Time** user provisioning.
+* 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Add FAX.PLUS from the gallery
 
