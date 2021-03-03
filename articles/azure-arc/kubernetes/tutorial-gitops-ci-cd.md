@@ -34,20 +34,21 @@ This tutorial assumes familiarity with Azure DevOps, Azure Repos and Pipelines, 
 * Complete the [previous tutorial](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) to learn how to deploy GitOps for your CI/CD environment.
 * Understand the [benefits and architecture](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-configurations) of this feature.
 * Verify you have:
-   * A [connected Azure Arc enabled Kubernetes cluster](https://docs.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
-   * A connected Azure Container Registry (ACR) with either [AKS integration](https://docs.microsoft.com/azure/aks/cluster-container-registry-integration) or [non-AKS cluster authentication](https://docs.microsoft.com/azure/container-registry/container-registry-auth-kubernetes).
-   * "Build Admin" and "Project Admin" permissions for [Azure Repos](https://docs.microsoft.com/azure/devops/repos/get-started/what-is-repos) and [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-get-started).
-* Install the following Azure Arc enabled Kubernetes CLI extensions:
+  * A [connected Azure Arc enabled Kubernetes cluster](https://docs.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
+  * A connected Azure Container Registry (ACR) with either [AKS integration](https://docs.microsoft.com/azure/aks/cluster-container-registry-integration) or [non-AKS cluster authentication](https://docs.microsoft.com/azure/container-registry/container-registry-auth-kubernetes).
+  * "Build Admin" and "Project Admin" permissions for [Azure Repos](https://docs.microsoft.com/azure/devops/repos/get-started/what-is-repos) and [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-get-started).
+* Install the following Azure Arc enabled Kubernetes CLI extensions of versions >= 1.0.0:
 
   ```azurecli
   az extension add --name connectedk8s
-  az extension add --name k8sconfiguration
+  az extension add --name k8s-configuration
   ```
   * To update these extensions to the latest version, run the following commands:
-   ```azurecli
-   az extension update --name connectedk8s
-   az extension update --name k8sconfiguration
-   ```
+
+    ```azurecli
+    az extension update --name connectedk8s
+    az extension update --name k8s-configuration
+    ```
 
 ## Import application and GitOps repos into Azure Repos
 
@@ -100,9 +101,8 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
 
    `--git-path=arc-cicd-cluster/manifests`
 
-
-> [!NOTE]
-> If you are using an HTTPS connection string and are having connection problems, ensure you omit the username prefix in the URL. For example, `https://alice@dev.azure.com/contoso/arc-cicd-demo-gitops` must have `alice@` removed. The `--https-user` specifies the user instead, for example `--https-user alice`.
+   > [!NOTE]
+   > If you are using an HTTPS connection string and are having connection problems, ensure you omit the username prefix in the URL. For example, `https://alice@dev.azure.com/contoso/arc-cicd-demo-gitops` must have `alice@` removed. The `--https-user` specifies the user instead, for example `--https-user alice`.
 
 1. Check the state of the deployment in Azure portal.
    * If successful, you'll see both `dev` and `stage` namespaces created in your cluster.
@@ -208,10 +208,10 @@ During the initial CI pipeline run, you may get a resource authorization error i
 1. Rerun the pipeline.
 
 The CI pipeline:
-1. Ensures the application change passes all automated quality checks for deployment.
-2. Does any extra validation that couldn't be completed in the PR pipeline.
+* Ensures the application change passes all automated quality checks for deployment.
+* Does any extra validation that couldn't be completed in the PR pipeline.
     * Specific to GitOps, the pipeline also publishes the artifacts for the commit that will be deployed by the CD pipeline.
-3. Verifies the Docker image has changed and the new image is pushed.
+* Verifies the Docker image has changed and the new image is pushed.
 
 ### CD pipeline
 The successful CI pipeline run triggers the CD pipeline to complete the deployment process. You'll deploy to each environment incrementally.
@@ -268,7 +268,7 @@ With this baseline set of templates and manifests representing the state on the 
 
 The PR pipeline is the first line of defense against a faulty change. Usual application code quality checks include linting and static analysis. From a GitOps perspective, you also need to assure the same quality for the resulting infrastructure to be deployed.
 
-The application's Dockerfile and Helm charts can be linted in a similar way to the application.
+The application's Dockerfile and Helm charts can use linting in a similar way to the application.
 
 Errors found during linting range from:
 * Incorrectly formatted YAML files, to
