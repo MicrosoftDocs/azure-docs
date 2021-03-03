@@ -17,6 +17,9 @@ or API app to [Azure App Service](./overview.md).
 
 The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment.
 
+> [!NOTE]
+> The **Development Center (Classic)** page in the Azure portal, which is the old deployment experience, will be deprecated in March, 2021. This change will not affect any existing deployment settings in your app, and you can continue to manage app deployment in the **Deployment Center** page.
+
 ## Get deployment credentials
 
 1. Follow the instructions at [Configure deployment credentials for Azure App Service](deploy-configure-credentials.md) to copy the application-scope credentials or set the user-scope credentials. You can connect to the FTP/S endpoint of your app using either credentials.
