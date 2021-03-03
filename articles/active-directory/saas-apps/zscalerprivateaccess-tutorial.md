@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/23/2021
+ms.date: 03/03/2021
 ms.author: jeedes
 ---
 
@@ -33,7 +33,9 @@ To get started, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. Zscaler Private Access (ZPA) supports **SP** initiated SSO.
+In this tutorial, you configure and test Azure AD SSO in a test environment. 
+
+* Zscaler Private Access (ZPA) supports **SP** initiated SSO.
 
 ## Add Zscaler Private Access (ZPA) from the gallery
 
