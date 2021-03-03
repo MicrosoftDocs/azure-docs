@@ -56,8 +56,8 @@ Often, when doing interactive data analysis or machine learning, you may find th
 Session-scoped packages allow users to define package dependencies at the start of their session. When you install a session-scoped package, only the current session has access to the specified packages. As a result, these session-scoped packages will not impact other sessions or jobs using the same Apache Spark pool. In addition, these libraries are installed on top of the base runtime and pool level packages. 
 
 To learn more about how to manage session-scoped packages, visit the following how-to guides:
-- [Python session packages (preview): ](./apache-spark-manage-python-packages.md#session-scoped-libraries-(preview)) At the start of a session, provide a Conda *environment.yml* to install additional Python packages from popular repositories. 
-- [Scala/Java session packages: ](./apache-spark-manage-scala-packages.md#workspace-packages) At the start of your session, provide a list of jar files to install using ```%%configure```.
+- [Python session packages (preview): ](./apache-spark-manage-python-packages.md) At the start of a session, provide a Conda *environment.yml* to install additional Python packages from popular repositories. 
+- [Scala/Java session packages: ](./apache-spark-manage-scala-packages.md) At the start of your session, provide a list of jar files to install using ```%%configure```.
 
 ## Next steps
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
