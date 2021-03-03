@@ -928,7 +928,7 @@
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-custom-setup-li-idp.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
