@@ -65,7 +65,7 @@ The template has the following sections:
 
 * [User-defined functions](template-user-defined-functions.md) - Create customized functions that simplify your template.
 
-* [Resources](resource-declaration) - Specify the resources to deploy.
+* [Resources](resource-declaration.md) - Specify the resources to deploy.
 
 * [Outputs](template-outputs.md) - Return values from the deployed resources.
 
