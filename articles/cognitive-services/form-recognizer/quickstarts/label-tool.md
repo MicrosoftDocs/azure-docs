@@ -162,13 +162,15 @@ When you create or open a project, the main tag editor window opens. The tag edi
 * The main editor pane that allows you to apply tags.
 * The tags editor pane that allows users to modify, lock, reorder, and delete tags. 
 
-### Identify text elements
+### Identify text elements or empty regions
 
 Click **Run OCR on all files** on the left pane to get the text layout information for each document. The labeling tool will draw bounding boxes around each text element.
 
 It will also show which tables have been automatically extracted. Click on the table/grid icon on the left hand of the document to see the extracted table. In this quickstart, because the table content is automatically extracted, we will not be labeling the table content, but rather rely on the automated extraction.
 
 :::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Table visualization in sample labeling tool.":::
+
+In v2.1, if your training document does not have a value filled in, you can draw in a box where the value should be by using "Draw region" on the upper left corner of the UI to make the region taggable.
 
 ### Apply labels to text
 
@@ -179,7 +181,7 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
    1. Click **+** to create a new tag.
    1. Enter the tag name.
    1. Press Enter to save the tag.
-1. In the main editor, click to select words from the highlighted text elements.
+1. In the main editor, click to select words from the highlighted text elements or a region you drew in.
 1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
     > [!Tip]
     > Keep the following tips in mind when you're labeling your forms.
@@ -259,6 +261,15 @@ The following value types and variations are currently supported:
 > * 01/Jan/2020
 > * 01Jan2020
 > * 01 Jan 2020
+
+### Label tables (v2.1 only)
+In certain cases, your data might lend itself better to being labeled as a table rather than key-value pairs. In this case, you can create a table tag by clicking on "Add a new table tag," specify whether the table will have a fixed number of rows or variable number of rows depending on the document, and define the schema.
+
+:::image type="content" source="../media/label-tool/table-tag.png" alt-text="Configuring a table tag.":::
+
+Once you have defined your table tag, then you can tag the cell values.
+
+:::image type="content" source="../media/table-labeling.png" alt-text="Labeling a table.":::
 
 ## Train a custom model
 
