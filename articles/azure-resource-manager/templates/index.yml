@@ -25,14 +25,14 @@ landingContent:
         links:
           - text: What are templates?
             url: overview.md
+          - text: What is Bicep?
+            url: bicep-overview.md
       - linkListType: concept
         links:
           - text: Best practices
             url: template-best-practices.md
           - text: Frequently asked questions
             url: frequently-asked-questions.md
-          - text: Bicep
-            url: bicep-overview.md
           - text: Template specs
             url: template-specs.md
           - text: Deployment modes
