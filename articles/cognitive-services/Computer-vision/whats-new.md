@@ -16,6 +16,14 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+## March 2021
+
+### Computer Vision 3.2 Public Preview update
+The Computer Vision API v3.2 public preview has been updated. This release brings together the latest iterations of the Read API and all other Computer Vision features in a single version.
+
+> [!div class="nextstepaction"]
+> [See Computer Vision v3.2 public preview 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
+
 ## February 2021
 
 ### Read API v3.2 Public Preview with OCR support for 73 languages
@@ -29,7 +37,7 @@ Computer Vision's Read API v3.2 public preview, available as cloud service and D
 [Learn more](concept-recognizing-text.md) about the Read API.
 
 > [!div class="nextstepaction"]
-> [Use the Read API v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+> [Use the Read API v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 
 ## January 2021
