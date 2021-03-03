@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 2/24/2021
 ms.author: peiliu
 ms.reviewer: mikben
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Use managed identities
