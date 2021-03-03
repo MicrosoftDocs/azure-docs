@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/24/2021
+ms.date: 03/03/2021
 ms.author: jeedes
 
 ---
@@ -57,8 +57,8 @@ To configure and test Azure AD SSO with FAX.PLUS, perform the following steps:
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure FAX.PLUS SSO](#configure-fax.plus-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create FAX.PLUS test user](#create-fax.plus-test-user)** - to have a counterpart of B.Simon in FAX.PLUS that is linked to the Azure AD representation of user.
+1. **[Configure FAX.PLUS SSO](#configure-faxplus-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create FAX.PLUS test user](#create-faxplus-test-user)** - to have a counterpart of B.Simon in FAX.PLUS that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
