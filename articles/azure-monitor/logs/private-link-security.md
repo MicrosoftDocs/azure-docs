@@ -5,7 +5,6 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.subservice: 
 ---
 
 # Use Azure Private Link to securely connect networks to Azure Monitor
