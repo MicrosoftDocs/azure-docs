@@ -133,8 +133,8 @@ This section guides you through the steps to configure the Azure AD provisioning
    |externalId|String|
    |nickName|String|
    |locale|String|
-   |roles[primary eq"True".type]|String|
-   |roles[primary eq"True".value]|String|
+   |roles[primary eq "True".type]|String|
+   |roles[primary eq "True".value]|String|
    |timezone|String|
    |userType|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|

@@ -138,5 +138,5 @@ After you've enabled phone sign-up and sign-in and the recovery email prompt in 
 
 ## Next steps
 
-- [Add external identity providers](tutorial-add-identity-providers.md)
+- [Add external identity providers](add-identity-provider.md)
 - [Create a user flow](tutorial-create-user-flows.md)

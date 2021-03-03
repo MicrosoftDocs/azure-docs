@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Custom models
+title: DTDL models
 titleSuffix: Azure Digital Twins
-description: Understand how Azure Digital Twins uses user-defined models to describe entities in your environment.
+description: Understand how Azure Digital Twins uses custom models to describe entities in your environment.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Understand twin models in Azure Digital Twins
 
-A key characteristic of Azure Digital Twins is the ability to define your own vocabulary and build your twin graph in the self-defined terms of your business. This capability is provided through user-defined **models**. You can think of models as the nouns in a description of your world. 
+A key characteristic of Azure Digital Twins is the ability to define your own vocabulary and build your twin graph in the self-defined terms of your business. This capability is provided through user-provided **models**. You can think of models as the nouns in a description of your world. 
 
 A model is similar to a **class** in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of entity in your environment can do. Later, you will use these models to create [**digital twins**](concepts-twins-graph.md) that represent specific entities that meet this type description.
 
@@ -137,23 +137,31 @@ While designing models to reflect the entities in your environment, it can be us
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## Integrating with industry-standard models
+## Tools for models 
 
-Using models that are based on industry standards or use standard ontology representation, such as RDF or OWL, provides a rich starting point when designing your Azure Digital Twins models. Using industry models also helps with standardization and information sharing.
+There are several samples available to make it even easier to deal with models and ontologies. They are located in this repository: [Tools for Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools).
 
-To be used with Azure Digital Twins, a model must be represented in the JSON-LD-based [**Digital Twins Definition Language (DTDL)**](concepts-models.md). Therefore, to use an industry-standard model, you must first convert it to DTDL so that Azure Digital Twins can use it. The DTDL model then serves as the source of truth for the model within Azure Digital Twins.
+This section describes the current set of samples in more detail.
 
-There are two main paths to integrating industry-standard models with DTDL, depending on your situation:
-* If you have yet to create your models, you can design them around **existing starter DTDL ontologies** that contain language specific to your industry.
-* If you already have existing models that are based on an industry standard, you'll need to **convert them to DTDL** in order to bring them into Azure Digital Twins.
+### Model uploader 
 
-For more on both of these processes, see [*How-to: Integrate industry-standard models*](how-to-integrate-models.md).
+_**For uploading models to Azure Digital Twins**_
+
+Once you are finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. This is done using the [Azure Digital Twins APIs](how-to-use-apis-sdks.md), as described in [*How-to: Manage DTDL models*](how-to-manage-model.md#upload-models).
+
+However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use this sample to upload many models at once: [**Azure Digital Twins Model Uploader**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
+
+### Model visualizer 
+
+_**For visualizing models**_
+
+Once you have uploaded models into your Azure Digital Twins instance, you can view the models in your Azure Digital Twins instance, including any inheritance and model relationships, using the [**ADT Model Visualizer**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). This sample is currently in a draft state. We encourage the digital twins development community to extend and contribute to the sample. 
 
 ## Next steps
 
-See how to manage models with the DigitalTwinModels APIs:
-* [*How-to: Manage custom models*](how-to-manage-model.md)
+* Learn about creating models based on industry-standard ontologies: [*Concepts: What is an ontology?*](concepts-ontologies.md)
 
-Or, learn about how digital twins are created based on models:
-* [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md)
+* Dive deeper into managing models with API operations: [*How-to: Manage DTDL models*](how-to-manage-model.md)
+
+* Learn about how models are used to create digital twins: [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md)
 

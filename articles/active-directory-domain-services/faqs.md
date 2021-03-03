@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 02/09/2021
 ms.author: justinha
 
 ---
@@ -148,7 +148,7 @@ Azure AD Domain Services is included in the free trial for Azure. You can sign u
 No. Once you've enabled an Azure AD Domain Services managed domain, the service is available within your selected virtual network until you delete the managed domain. There's no way to pause the service. Billing continues on an hourly basis until you delete the managed domain.
 
 ### Can I fail over Azure AD Domain Services to another region for a DR event?
-No. Azure AD Domain Services doesn't currently provide a geo-redundant deployment model. It's limited to a single virtual network in an Azure region. If you want to utilize multiple Azure regions, you need to run your Active Directory Domain Controllers on Azure IaaS VMs. For architecture guidance, see [Extend your on-premises Active Directory domain to Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain).
+Yes, to provide geographical resiliency for a managed domain, you can create an additional [replica set](tutorial-create-replica-set.md) to a peered virtual network in any Azure region that supports Azure AD DS. Replica sets share the same namespace and configuration with the managed domain.
 
 ### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)? Do I need Azure AD Premium to use Azure AD Domain Services?
 No. Azure AD Domain Services is a pay-as-you-go Azure service and isn't part of EMS. Azure AD Domain Services can be used with all editions of Azure AD (Free and Premium). You're billed on an hourly basis, depending on usage.

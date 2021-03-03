@@ -70,11 +70,24 @@ Rules for a network security group (NSG) or firewall can block communication bet
 
 ### Agents for on-premises machines
 
-To make Connection Monitor recognize your on-premises machines as sources for monitoring, install the Log Analytics agent on the machines. Then enable the Network Performance Monitor solution. These agents are linked to Log Analytics workspaces, so you need to set up the workspace ID and primary key before the agents can start monitoring.
+To make Connection Monitor recognize your on-premises machines as sources for monitoring, install the Log Analytics agent on the machines.  Then enable the Network Performance Monitor solution. These agents are linked to Log Analytics workspaces, so you need to set up the workspace ID and primary key before the agents can start monitoring.
 
 To install the Log Analytics agent for Windows machines, see [Azure Monitor virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
 
 If the path includes firewalls or network virtual appliances (NVAs), then make sure that the destination is reachable.
+
+For Windows machines, to open the port, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrative privileges.
+
+For Linux machines, portNumbers to be used needs to be changed manually. 
+* Navigate to path: /var/opt/microsoft/omsagent/npm_state . 
+* Open file: npmdregistry
+* Change the value for Port Number ```“PortNumber:<port of your choice>”```
+
+ Do note that port numbers being used should be same across all the agents used in a workspace. 
+
+The script creates registry keys required by the solution. It also creates Windows Firewall rules to allow agents to create TCP connections with each other. The registry keys created by the script specify whether to log the debug logs and the path for the logs file. The script also defines the agent TCP port used for communication. The values for these keys are automatically set by the script. Don't manually change these keys. The port opened by default is 8084. You can use a custom port by providing the parameter portNumber to the script. Use the same port on all the computers where the script is run. [Read more](../azure-monitor/agents/log-analytics-agent.md#network-requirements) about the network requirements for Log Analytics agents
+
+The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
 
 ## Enable Network Watcher on your subscription
 

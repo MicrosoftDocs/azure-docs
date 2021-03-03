@@ -29,7 +29,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [Active Directory (Azure AD) Application Proxy frequently asked questions](application-proxy-faq.md)
 - [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md)
-- [Develop line-of-business apps for Azure Active Directory](developer-guidance-for-integrating-applications.md)
+- [Develop line-of-business apps for Azure Active Directory](../develop/v2-overview.md)
 - [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
 - [Understand linked sign-on](configure-linked-sign-on.md)
 - [Understand password-based single sign-on](configure-password-single-sign-on-non-gallery-applications.md)

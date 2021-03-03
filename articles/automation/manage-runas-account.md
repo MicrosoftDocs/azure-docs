@@ -59,10 +59,10 @@ Before granting the Run As account permissions, you need to first note the displ
 
 For detailed steps for how to add role assignments, check out the following articles depending on the method you want to use.
 
-* [Add Azure role assignment from the Azure portal](../role-based-access-control/role-assignments-portal.md)
-* [Add Azure role assignment using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-* [Add Azure role assignment using the Azure CLI](../role-based-access-control/role-assignments-cli.md)
-* [Add Azure role assignment using the REST API](..//role-based-access-control/role-assignments-rest.md)
+* [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+* [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Assign Azure roles using the Azure CLI](../role-based-access-control/role-assignments-cli.md)
+* [Assign Azure roles using the REST API](..//role-based-access-control/role-assignments-rest.md)
 
 After assigning the Run As account to the role, in your runbook specify `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` to set the subscription context to use. For more information, see [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 

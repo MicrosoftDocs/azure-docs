@@ -2,7 +2,7 @@
 title: Configure your own key for encrypting Azure Service Bus data at rest
 description: This article provides information on how to configure your own key for encrypting Azure Service Bus data rest. 
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 02/10/2021
 ---
 
 # Configure customer-managed keys for encrypting Azure Service Bus data at rest by using the Azure portal
@@ -89,6 +89,17 @@ You can rotate your key in the key vault by using the Azure Key Vaults rotation 
 Revoking access to the encryption keys won't purge the data from Service Bus. However, the data can't be accessed from the Service Bus namespace. You can revoke the encryption key through access policy or by deleting the key. Learn more about access policies and securing your key vault from [Secure access to a key vault](../key-vault/general/secure-your-key-vault.md).
 
 Once the encryption key is revoked, the Service Bus service on the encrypted namespace will become inoperable. If the access to the key is enabled or the deleted key is restored, Service Bus service will pick the key so you can access the data from the encrypted Service Bus namespace.
+
+## Caching of keys
+The Service Bus instance polls its listed encryption keys every 5 minutes. It caches and uses them until the next poll, which is after 5 minutes. As long as at least one key is available, queues and topics are accessible. If all listed keys are inaccessible when it polls, all queues and topics will become unavailable. 
+
+Here are more details: 
+
+- Every 5 minutes, the Service Bus service polls all customer-managed keys listed in the namespace’s record:
+    - If a key has been rotated, the record is updated with the new key.
+    - If a key has been revoked, the key is removed from the record.
+    - If all keys have been revoked, the namespace’s encryption status is set to **Revoked**. The data can't be accessed from the Service Bus namespace.. 
+    
 
 ## Use Resource Manager template to enable encryption
 This section shows how to do the following tasks using **Azure Resource Manager templates**. 

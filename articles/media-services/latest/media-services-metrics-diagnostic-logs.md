@@ -19,15 +19,15 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[Azure Monitor](../../azure-monitor/overview.md) lets you monitor metrics and diagnostic logs that help you understand how your apps are performing. All data collected by Azure Monitor fits into one of two fundamental types: metrics and logs. You can monitor Media Services diagnostic logs and create alerts and notifications for the collected metrics and logs. You can visualize and analyze the metrics data using [Metrics explorer](../../azure-monitor/platform/metrics-getting-started.md). You can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), or use third-party services.
+[Azure Monitor](../../azure-monitor/overview.md) lets you monitor metrics and diagnostic logs that help you understand how your apps are performing. All data collected by Azure Monitor fits into one of two fundamental types: metrics and logs. You can monitor Media Services diagnostic logs and create alerts and notifications for the collected metrics and logs. You can visualize and analyze the metrics data using [Metrics explorer](../../azure-monitor/essentials/metrics-getting-started.md). You can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), or use third-party services.
 
-For a detailed overview, see [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md) and [Azure Monitor Diagnostic logs](../../azure-monitor/platform/platform-logs-overview.md).
+For a detailed overview, see [Azure Monitor Metrics](../../azure-monitor/data-platform.md) and [Azure Monitor Diagnostic logs](../../azure-monitor/essentials/platform-logs-overview.md).
 
 This topic discusses supported [Media Services Metrics](#media-services-metrics) and [Media Services Diagnostic logs](#media-services-diagnostic-logs).
 
 ## Media Services metrics
 
-Metrics are collected at regular intervals whether or not the value changes. They're useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic. For information on how to create metric alerts, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+Metrics are collected at regular intervals whether or not the value changes. They're useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic. For information on how to create metric alerts, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 Media Services supports monitoring metrics for the following resources:
 
@@ -84,7 +84,7 @@ See [How to monitor Media Services metrics](media-services-metrics-howto.md).
 
 ## Media Services diagnostic logs
 
-Diagnostic logs provide rich and frequent data about the operation of an Azure resource. For more information, see [How to collect and consume log data from your Azure resources](../../azure-monitor/platform/platform-logs-overview.md).
+Diagnostic logs provide rich and frequent data about the operation of an Azure resource. For more information, see [How to collect and consume log data from your Azure resources](../../azure-monitor/essentials/platform-logs-overview.md).
 
 Media Services supports the following diagnostic logs:
 
@@ -111,7 +111,7 @@ See [How to monitor Media Service diagnostic logs](media-services-diagnostic-log
 
 ## Next steps
 
-* [How to collect and consume log data from your Azure resources](../../azure-monitor/platform/platform-logs-overview.md)
-* [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
+* [How to collect and consume log data from your Azure resources](../../azure-monitor/essentials/platform-logs-overview.md)
+* [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/alerts/alerts-metric.md)
 * [How to monitor Media Services metrics](media-services-metrics-howto.md)
 * [How to monitor Media Service diagnostic logs](media-services-diagnostic-logs-howto.md)

@@ -40,7 +40,7 @@ By defining lists of known-safe applications, and generating alerts when anythin
 - Prevent specific software that's banned by your organization
 - Increase oversight of apps that access sensitive data
 
-No enforcement options are available and none are planned. Adaptive application controls are intended to provide security alerts if any application runs other than the ones you've defined as safe.
+No enforcement options are currently available. Adaptive application controls are intended to provide security alerts if any application runs other than the ones you've defined as safe.
 
 ## Availability
 
@@ -215,7 +215,7 @@ When you move a machine from one group to another, the application control polic
 
 To manage your adaptive application controls programatically, use our REST API. 
 
-The full API documentation is [here](/rest/api/securitycenter/adaptiveapplicationcontrols).
+The relevant API documentation is available in [the Adaptive Application Controls section of Security Center's API docs](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Some of the functions that are available from the REST API:
 
@@ -234,7 +234,7 @@ Some of the functions that are available from the REST API:
 ## FAQ - Adaptive application controls
 
 ### Are there any options to enforce the application controls?
-No enforcement options are available and none are planned. Adaptive application controls are intended to provide **security alerts** if any application runs other than the ones you've defined as safe. They have a range of benefits ([What are the benefits of adaptive application controls?](#what-are-the-benefits-of-adaptive-application-controls)) and are extremely customizable as shown on this page.
+No enforcement options are currently available. Adaptive application controls are intended to provide **security alerts** if any application runs other than the ones you've defined as safe. They have a range of benefits ([What are the benefits of adaptive application controls?](#what-are-the-benefits-of-adaptive-application-controls)) and are extremely customizable as shown on this page.
 
  
 

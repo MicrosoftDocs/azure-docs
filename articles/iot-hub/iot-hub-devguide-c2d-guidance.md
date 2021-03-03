@@ -21,6 +21,8 @@ IoT Hub provides three options for device apps to expose functionality to a back
 
 * [Cloud-to-device messages](iot-hub-devguide-messages-c2d.md) for one-way notifications to the device app.
 
+To learn how [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) uses these options to control IoT Plug and Play devices, see [IoT Plug and Play service developer guide](../iot-pnp/concepts-developer-guide-service.md).
+
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Here is a detailed comparison of the various cloud-to-device communication options.

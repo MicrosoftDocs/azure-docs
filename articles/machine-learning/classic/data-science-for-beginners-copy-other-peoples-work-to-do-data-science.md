@@ -3,7 +3,7 @@ title: 'Copy data science examples - ML Studio (classic) - Azure'
 description: 'Trade secret of data science: Get others to do your work for you. Get machine learning examples from the Azure AI Gallery.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 
 author: sdgilley

@@ -192,12 +192,12 @@ The following table shows the relationship between the Enterprise Agreement admi
 |Account Owner OR Department Admin|✘ Disabled |none|No pricing|
 |None|Not applicable |Owner|Retail pricing|
 
-You set the Enterprise admin role and view charges policies in the Enterprise portal. The Azure role can be updated in the Azure portal. For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You set the Enterprise admin role and view charges policies in the Enterprise portal. The Azure role can be updated in the Azure portal. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 
 ## Next steps
 
 - [Manage access to billing information for Azure](manage-billing-access.md)
-- [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
 - [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
