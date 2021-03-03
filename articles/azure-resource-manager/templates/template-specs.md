@@ -154,12 +154,6 @@ az deployment group create \
 
 ---
 
-You can also open a URL in the following format to deploy a template spec:
-
-```url
-https://portal.azure.com/#create/Microsoft.Template/templateSpecVersionId/%2fsubscriptions%2f{subscription-id}%2fresourceGroups%2f{resource-group-name}%2fproviders%2fMicrosoft.Resources%2ftemplateSpecs%2f{template-spec-name}%2fversions%2f{template-spec-version}
-```
-
 In practice, you'll typically run `Get-AzTemplateSpec` or `az ts show` to get the ID of the template spec you want to deploy.
 
 # [PowerShell](#tab/azure-powershell)
