@@ -12,7 +12,7 @@ ms.date: 07/22/2020
 
 VM insights monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources. It can help deliver predictable performance and availability of vital applications by identifying performance bottlenecks and network issues and can also help you understand whether an issue is related to other dependencies.
 
-VM insights supports Windows and Linux operating systems on the following:
+VM insights supports Windows and Linux operating systems on the following machines:
 
 - Azure virtual machines
 - Azure virtual machine scale sets
@@ -34,7 +34,7 @@ There's no direct cost for VM insights, but you're charged for its activity in t
 - Alert rules based on log and health data.
 - Notifications sent from alert rules.
 
-The log size varies by the string lengths of performance counters, and it can increase with the number of logical disks and network adapters allocated to the VM. If you're already using Service Map, the only change you'll see is the additional performance data that's sent to the Azure Monitor `InsightsMetrics` data type.​
+The log size varies by the string lengths of performance counters, and it can increase with the number of logical disks and network adapters allocated to the VM. If you're already using Service Map, the only change you'll see is the extra performance data that's sent to the Azure Monitor `InsightsMetrics` data type.​
 
 
 ## Configuring VM insights
