@@ -10,6 +10,7 @@ ms.author: dapine
 |----------------------|------------------------------------------------------------------------------------|----------------------------|
 | C# <sup>1</sup>      | Windows, Linux, macOS, Mono, Xamarin.iOS, Xamarin.Mac, Xamarin.Android, UWP, Unity | [.NET SDK][net-sdk]        |
 | C++                  | Windows, Linux, macOS                                                              | [C++ SDK][cpp-sdk]         |
+| Go                   | Windows, Linux, macOS                                                              | [Go SDK][go-sdk]                           |
 | Java <sup>2</sup>    | Android, Windows, Linux, macOS                                                     | [Java SDK][javasdk]        |
 | JavaScript           | Browser, Node.js                                                                   | [JavaScript SDK][ecmasdk]  |
 | Objective-C / Swift  | iOS, macOS                                                                         | [Objective-C SDK][obj-sdk] |
@@ -21,6 +22,7 @@ ms.author: dapine
 
 [net-sdk]: /dotnet/api/overview/azure/cognitiveservices/client/speechservice
 [cpp-sdk]: /cpp/cognitive-services/speech/
+[go-sdk]: https://github.com/Microsoft/cognitive-services-speech-sdk-go
 [javasdk]: /java/api/com.microsoft.cognitiveservices.speech
 [ecmasdk]: /javascript/api/microsoft-cognitiveservices-speech-sdk/
 [obj-sdk]: /objectivec/cognitive-services/speech/
