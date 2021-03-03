@@ -47,7 +47,7 @@ This issue usually appears if you created a VM from a VHD that has a lock on it.
 
 ## How do I create a VM from a generalized vhd?
 
-For details see [Prepare an Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-image-test#prepare-an-azure-resource-manager-template) or [Deploy an Azure VM using PowerShell](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-image-test#deploy-an-azure-vm-using-powershell).
+For details see [Prepare an Azure Resource Manager template](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#prepare-an-azure-resource-manager-template) or [Deploy an Azure VM using PowerShell](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#deploy-an-azure-vm-using-powershell).
 
 ## Next steps
 

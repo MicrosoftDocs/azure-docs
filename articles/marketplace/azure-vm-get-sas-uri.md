@@ -12,7 +12,7 @@ ms.date: 02/19/2021
 # How to generate a SAS URI for a VM image
 
 > [!NOTE]
-> You don’t need a SAS URI to publish your VM. You can simply share an image in Parter Center. Refer to [Create a virtual machine using an approved base](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-create-using-approved-base) or [Create a virtual machine using your own image](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-create-using-own-image) instructions.
+> You don’t need a SAS URI to publish your VM. You can simply share an image in Parter Center. Refer to [Create a virtual machine using an approved base](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base) or [Create a virtual machine using your own image](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-own-image) instructions.
 
 Generating SAS URIs for your VHDs has these requirements:
 
@@ -26,7 +26,7 @@ Generating SAS URIs for your VHDs has these requirements:
 You can skip this step if you already have a vhd uploaded in a Storage Account. 
 To extract the vhd from your VM, you need to take a snapshot of your VM disk and extract vhd from the snapshot.
 
-For more details see [take a snap shot of the VM disk](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-create-using-approved-base#take-a-snapshot-of-the-vm-disk), [Extract the vhd](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-create-using-approved-base#extract-the-vhdb), and [Script explanation](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-create-using-approved-base#script-explanation).
+For more details see [take a snap shot of the VM disk](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base#take-a-snapshot-of-the-vm-disk), [Extract the vhd](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base#extract-the-vhdb), and [Script explanation](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base#script-explanation).
 
 ## Generate the SAS address
 

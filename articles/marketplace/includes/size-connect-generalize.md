@@ -57,7 +57,7 @@ To publish, the publisher account must have an Owner access to the SIG. To grant
 6. Select the Azure email of the person who will be publishing the image.
 7. Select **Save**.
 
-:::image type="content" source="media/create-vm/add-role-assignment.png" alt-text="Shows the add role assignment window.":::
+:::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="Shows the add role assignment window.":::
 
 > [!NOTE]
-> You don’t need to generate SAS URIs as you can now publish a SIG Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](azure-vm-get-sas-uri.md).
+> You don’t need to generate SAS URIs as you can now publish a SIG Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](../azure-vm-get-sas-uri.md).
