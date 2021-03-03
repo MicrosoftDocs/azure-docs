@@ -39,7 +39,7 @@ If you select **DNS Resolution**, results will indicate whether there are DNS is
 * *DNS issues resolved with no issues in subnet 'subnet01'*.
 * *DNS issues resolved with no issues in subnet 'subnet02'*.
 
-The following diagnostic report example indicates that the health of the application is unknown. The reporting time frame does not include the time when the health status was requested.  Assume that the context end time is *2021-03-03T04:20:00Z*. The latest TIMESTAMP in the **DNS Resolution Table Renderings** is *2021-03-03T03:390:00Z*, the previous day. The health check log may not have been sent out because of a blocked network. 
+The following diagnostic report example indicates that the health of the application is unknown. The reporting time frame does not include the time when the health status was reported.  Assume that the context end time is *2021-03-03T04:20:00Z*. The latest TIMESTAMP in the **DNS Resolution Table Renderings** is *2021-03-03T03:39:00Z*, the previous day. The health check log may not have been sent out because of a blocked network. 
 
 The unknown health status results contain related documentation.  You can click the left angle bracket to see the drop-down display.
 
@@ -60,7 +60,7 @@ If any subnet is blocked by NSG or firewall rules, and if you have not blocked t
     
    ![Endpoint failed](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-failed.png)
 
-If there are no data in the `Required Outbound Traffic Table Renderings` within 30 minutes, the result will be `health status unknown`. 
+If there is no data in the `Required Outbound Traffic Table Renderings` within 30 minutes, the result will be `health status unknown`. 
 Maybe your network is blocked or the log service is down.
 
    ![Diagnostic endpoint unknown](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-unknown.png)
