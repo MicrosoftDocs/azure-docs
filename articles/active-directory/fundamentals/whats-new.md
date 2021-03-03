@@ -64,7 +64,7 @@ For guidance on how to enable support for TLS 1.2 in your environment, in prepar
 - [How to enable TLS 1.2 on clients](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2-client)
 - [Preparing for TLS 1.2 in Office 365 and Office 365 GCC](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365?view=o365-worldwide)
 - [Enforce TLS 1.2 for the Azure AD Registration Service](../devices/reference-device-registration-tls-1-2.md)
-- [TLS 1.2 enforcement for Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-tls-enforcement)
+- [TLS 1.2 enforcement for Azure AD Connect](../hybrid/reference-connect-tls-enforcement.md)
 - [Understand Azure AD Application Proxy connectors](../manage-apps/application-proxy-connectors.md#requirements-and-deployment)
 
 If you want to review a report that will show you some dependencies on older TLS protocols refer to the [TLS Deprecation report](https://servicetrust.microsoft.com/AdminPage/TlsDeprecationReport/Download). 
@@ -82,7 +82,7 @@ If you want to review a report that will show you some dependencies on older TLS
  
 Currently, applications using dynamic permissions are given all of the permissions they're consented to access. This includes applications that are unrequested and even if they trigger conditional access.  For example, this can cause an app requesting only `user.read` that also has consent for `files.read`, to be forced to pass the Conditional Access assigned for the `files.read` permission. 
 
-To reduce the number of unnecessary Conditional Access prompts, Azure AD is changing the way that unrequested scopes are provided to applications. Apps with only explicitly requested scopes will trigger Conditional Access. For more information, read [What's new in authentication](../develop/reference-breaking-changes.md#Conditional-Access-will-only-trigger-for-explicitly-requested-scopes).
+To reduce the number of unnecessary Conditional Access prompts, Azure AD is changing the way that unrequested scopes are provided to applications. Apps with only explicitly requested scopes will trigger Conditional Access. For more information, read [What's new in authentication](../develop/reference-breaking-changes.md#conditional-access-will-only-trigger-for-explicitly-requested-scopes).
  
 ---
  
@@ -164,7 +164,7 @@ To use autofill on Authenticator, users need to add their personal Microsoft acc
 **Service category:** App Provisioning  
 **Product capability:** Identity Lifecycle Management
  
-Customers can now use application.readwrite.ownedby as an application permission to call the synchronization APIs. Note this is only supported for provisioning from Azure AD out into third-party applications (for example, AWS, Data Bricks, etc.). It is currently not supported for HR-provisioning (Workday / Successfactors) or Cloud Sync (AD to Azure AD). [Learn more](https://docs.microsoft.com/en-us/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
+Customers can now use application.readwrite.ownedby as an application permission to call the synchronization APIs. Note this is only supported for provisioning from Azure AD out into third-party applications (for example, AWS, Data Bricks, etc.). It is currently not supported for HR-provisioning (Workday / Successfactors) or Cloud Sync (AD to Azure AD). [Learn more](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
  
 ---
 
@@ -242,7 +242,7 @@ For more information, read [Automate user provisioning to SaaS applications with
 **Service category:** User Experience and Management  
 **Product capability:** End User Experiences
  
-In the past, company logos weren't used on Azure Active Directory sign-in pages. Company branding is now located to the top left of MFA/SSPR Combined Registration. Company branding is also included on My Sign-Ins and the Security Info page. [Learn more](../fundamentals/customize-branding).
+In the past, company logos weren't used on Azure Active Directory sign-in pages. Company branding is now located to the top left of MFA/SSPR Combined Registration. Company branding is also included on My Sign-Ins and the Security Info page. [Learn more](../fundamentals/customize-branding.md).
 
 ---
 
@@ -263,7 +263,7 @@ An extra option when you select approvers is now available in Entitlement Manage
 **Product capability:** Monitoring & Reporting
  
 
-The refreshed Authentication Methods Activity dashboard gives admins an overview of authentication method registration and usage activity in their tenant. The report summarizes the number of users registered for each method, and also which methods are used during sign-in and password reset. [Learn more](../authentication/howto-authentication-methods-usage-insights).
+The refreshed Authentication Methods Activity dashboard gives admins an overview of authentication method registration and usage activity in their tenant. The report summarizes the number of users registered for each method, and also which methods are used during sign-in and password reset. [Learn more](../authentication/howto-authentication-methods-activity.md).
  
 ---
 
