@@ -31,6 +31,19 @@ You must have a function app to host the execution of your functions. A function
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
+## Supported Runtime stacks 
+
+The following table explains the Runtime stacks that Azure Function supports and the coressponding Operating system recommended for the stack.
+
+| Runtime stack | Linux | Windows 
+|:--- |:--- |:--- |
+| .Net |✓ |✓ |
+| Node.js |✓ |✓ |
+| Python |✓ | |
+| Java |✓ |✓ |
+| PowerShell Core | |✓ |
+| Custom Handler |✓ |✓ |
+
 Next, create a function in the new function app.
 
 ## <a name="create-function"></a>Create an HTTP trigger function
