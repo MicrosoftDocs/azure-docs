@@ -641,8 +641,6 @@ name: JavaScript CI
 
 on: [push]
 
-name: Node.js
-
 env:
   AZURE_WEBAPP_NAME: my-app   # set this to your application's name
   NODE_VERSION: '14.x'                # set this to the node version to use
