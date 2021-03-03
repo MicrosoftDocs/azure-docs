@@ -1,5 +1,5 @@
 ---
-title: Create an Azure CDN profile and endpoint 
+title: Create an Azure Content Delivery Network (CDN) profile and endpoint 
 description: Azure CLI sample to create an Azure CDN profile, endpoint, origin group, and origin. 
 author: asudbring
 ms.author: allensu
@@ -21,7 +21,7 @@ Manage these Azure Content Delivery Network (CDN) operations with sample Azure C
 - Create a CDN origin group.
 - Create a CDN origin.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
@@ -61,9 +61,9 @@ az group delete --name MyResourceGroup
 
 ## Azure CLI references used in this article
 
-- [az cdn endpoint create](https://docs.microsoft.com/cli/azure/cdn/endpoint?view=azure-cli-latest#az_cdn_endpoint_create)
-- [az cdn endpoint update](https://docs.microsoft.com/cli/azure/cdn/endpoint?view=azure-cli-latest#az_cdn_endpoint_update)
-- [az cdn origin create](https://docs.microsoft.com/cli/azure/cdn/origin?view=azure-cli-latest#az_cdn_origin_create)
-- [az cdn origin-group create](https://docs.microsoft.com/cli/azure/cdn/origin-group?view=azure-cli-latest#az_cdn_origin_group_create)
-- [az cdn profile create](https://docs.microsoft.com/cli/azure/cdn/profile?view=azure-cli-latest#az_cdn_profile_create)
-- [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_create)
+- [az cdn endpoint create](https://docs.microsoft.com/cli/azure/cdn/endpoint#az_cdn_endpoint_create)
+- [az cdn endpoint update](https://docs.microsoft.com/cli/azure/cdn/endpoint#az_cdn_endpoint_update)
+- [az cdn origin create](https://docs.microsoft.com/cli/azure/cdn/origin#az_cdn_origin_create)
+- [az cdn origin-group create](https://docs.microsoft.com/cli/azure/cdn/origin-group#az_cdn_origin_group_create)
+- [az cdn profile create](https://docs.microsoft.com/cli/azure/cdn/profile#az_cdn_profile_create)
+- [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create)
