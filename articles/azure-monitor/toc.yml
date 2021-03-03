@@ -879,8 +879,6 @@
       - name: Overview
         displayname: user behavior analytics, user behavior, usage, behavioral analytics
         href: app/usage-overview.md
-      - name: Send user context
-        href: app/usage-send-user-context.md
       - name: Users, Sessions, Events
         href: app/usage-segmentation.md
       - name: Funnels

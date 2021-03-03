@@ -53,7 +53,7 @@ To protect your assets at rest, the assets should be encrypted by the storage si
 
 ## Storage account double encryption
 
-Storage accounts support double encryption but the second layer must explicitly be enabled. See [Azure Storage encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption).  
+Storage accounts support double encryption but the second layer must explicitly be enabled. See [Azure Storage encryption for data at rest](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption).  
 
 ## Storage account errors
 

@@ -13,7 +13,7 @@ ms.date: 10/21/2020
 Performance counters in Windows and Linux provide insight into the performance of hardware components, operating systems, and applications.  Azure Monitor can collect performance counters from Log Analytics agents at frequent intervals for Near Real Time (NRT) analysis in addition to aggregating performance data for longer term analysis and reporting.
 
 > [!IMPORTANT]
-> This article covers collecting performance data with the [Log Analytics agent](../platform/log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](../agents/agents-overview.md) for a list of the available agents and the data they can collect.
+> This article covers collecting performance data with the [Log Analytics agent](./log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](../agents/agents-overview.md) for a list of the available agents and the data they can collect.
 
 ![Performance counters](media/data-sources-performance-counters/overview.png)
 
@@ -220,5 +220,5 @@ The following table provides different examples of log queries that retrieve Per
 
 ## Next steps
 * [Collect performance counters from Linux applications](data-sources-linux-applications.md) including MySQL and Apache HTTP Server.
-* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  
-* Export collected data to [Power BI](../platform/powerbi.md) for additional visualizations and analysis.
+* Learn about [log queries](../logs/log-query-overview.md) to analyze the data collected from data sources and solutions.  
+* Export collected data to [Power BI](../visualize/powerbi.md) for additional visualizations and analysis.

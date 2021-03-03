@@ -353,8 +353,8 @@ POST https://graph.microsoft.com/v1.0/invitations
 Content-type: application/json
 
 {
-    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com",
-    "inviteRedirectUrl" : "https://myapp.com"
+    "invitedUserEmailAddress": "johnsmith@fabrikam.onmicrosoft.com",
+    "inviteRedirectUrl" : "https://myapp.com"
 }
 ```
 
@@ -366,9 +366,9 @@ Content-type: application/json
 
 {
     ...
-    "invitedUser": {
-        "id": "<generated-user-guid>"
-    }
+    "invitedUser": {
+        "id": "<generated-user-guid>"
+    }
 }
 ```
 

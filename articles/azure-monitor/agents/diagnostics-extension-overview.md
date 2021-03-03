@@ -29,8 +29,8 @@ The Log Analytics agent in Azure Monitor can also be used to collect monitoring 
 The key differences to consider are:
 
 - Azure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.
-- Azure Diagnostics extension sends data to Azure Storage, [Azure Monitor Metrics](../platform/data-platform-metrics.md) (Windows only) and Event Hubs. The Log Analytics agent collects data to [Azure Monitor Logs](../platform/data-platform-logs.md).
-- The Log Analytics agent is required for [solutions](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor for VMs](../insights/vminsights-overview.md), and other services such as [Azure Security Center](../../security-center/index.yml).
+- Azure Diagnostics extension sends data to Azure Storage, [Azure Monitor Metrics](../essentials/data-platform-metrics.md) (Windows only) and Event Hubs. The Log Analytics agent collects data to [Azure Monitor Logs](../logs/data-platform-logs.md).
+- The Log Analytics agent is required for [solutions](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor for VMs](../vm/vminsights-overview.md), and other services such as [Azure Security Center](../../security-center/index.yml).
 
 ## Costs
 There is no cost for Azure Diagnostic Extension, but you may incur charges for the data ingested. Check [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for the destination where you're collecting data.
@@ -70,7 +70,7 @@ Configure one or more *data sinks* to send data to other additional destinations
 
 | Destination | Description |
 |:---|:---|
-| Azure Monitor Metrics | Collect performance data to Azure Monitor Metrics. See [Send Guest OS metrics to the Azure Monitor metric database](../platform/collect-custom-metrics-guestos-resource-manager-vm.md).  |
+| Azure Monitor Metrics | Collect performance data to Azure Monitor Metrics. See [Send Guest OS metrics to the Azure Monitor metric database](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md).  |
 | Event hubs | Use Azure Event Hubs to send data outside of Azure. See [Streaming Azure Diagnostics data to Event Hubs](diagnostics-extension-stream-event-hubs.md) |
 | Azure Storage blobs | Write to data to blobs in Azure Storage in addition to tables. |
 | Application Insights | Collect data from applications running in your VM to Application Insights to integrate with other application monitoring. See [Send diagnostic data to Application Insights](diagnostics-extension-to-application-insights.md). |
@@ -85,7 +85,7 @@ LAD writes data to tables in Azure Storage. It supports the sinks in the followi
 |:---|:---|
 | Event hubs | Use Azure Event Hubs to send data outside of Azure. |
 | Azure Storage blobs | Write to data to blobs in Azure Storage in addition to tables. |
-| Azure Monitor Metrics | Install the Telegraf agent in addition to LAD. See [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md).
+| Azure Monitor Metrics | Install the Telegraf agent in addition to LAD. See [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md).
 
 
 ## Installation and configuration

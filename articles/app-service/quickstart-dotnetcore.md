@@ -182,7 +182,7 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-[App Service on Linux](overview.md#app-service-on-linux) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](/aspnet/core/) app on App Service on Linux. You create the app using the [Azure CLI](/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the app.
+[App Service on Linux](overview.md#app-service-on-linux) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](/aspnet/core/) app and deploy to a Linux hosted App Service using the [Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
