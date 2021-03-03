@@ -15,14 +15,14 @@ ms.subservice: spark
 When installing Python packages, the Conda package manager uses channels to look for packages. You may need to create a custom Conda channel for various reasons. For example, you may find that:
 
 - your workspace is data exfiltration protected and outbound connections are blocked.  
-- you have packages that you do not want to upload to public repositories.
-- you want to set up a alternate repository for the users within your workspace.
+- you have packages that you don't want to upload to public repositories.
+- you want to set up am alternate repository for the users within your workspace.
 
-In this article, we will provide a step-by-step guide to help you create your custom Conda channel within your Azure Data Lake Storage account.
+In this article, we'll provide a step-by-step guide to help you create your custom Conda channel within your Azure Data Lake Storage account.
 
 ## Set up your local machine
 
-1. Install Conda on your local machine.You can refer to the [Azure Synapse Spark runtime](./apache-spark-version-support.md) to identify the the Conda version that is used on the same runtime.
+1. Install Conda on your local machine.You can refer to the [Azure Synapse Spark runtime](./apache-spark-version-support.md) to identify the Conda version that is used on the same runtime.
    
 2. To create a custom channel, install conda-build.
 ```
@@ -40,7 +40,7 @@ sudo chmod 777 -R /usr/lib/anaconda3a.
 ## Mount the storage account onto your machine
 Next, we will mount the Azure Data Lake Storage  Gen2 account onto your local machine. This process can also be done with a WASB account; however, we will go through an example for the  ADLSg2 account 
  
-For more information on how to do this, you can visit [this page](https://github.com/Azure/azure-storage-fuse#blobfuse ). 
+For more information on how to mount the storage account on your local machine, you can visit [this page](https://github.com/Azure/azure-storage-fuse#blobfuse ). 
 
 1. You can install blobfuse from the Linux Software Repository for Microsoft products.
 
@@ -62,7 +62,7 @@ sudo mkdir -p /mnt/blobfusetmp
 sudo chown <myuser> /mnt/blobfusetmp
 ```
 ## Create the channel
-In the next set up steps, we will create a custom Conda channel. 
+In the next set of steps, we will create a custom Conda channel. 
 
 1. On your local machine, create a directory to organize all the packages for your custom channel.
    
@@ -90,7 +90,7 @@ conda index channel1
 For more information, you can also [visit the Conda user guide](https://docs.conda.io/projects/conda/latest/user-guide/tasks/create-custom-channels.html) to creating custom channels. 
 
 ## Storage account permissions
-Now, we will need to validate the permissions on the storage account. To do this, navigate to the path where custom channel will be created. Then, create a SAS token for ```privatechannel``` which has read, list, and execute permissions. 
+Now, we will need to validate the permissions on the storage account. To set these permissions, navigate to the path where custom channel will be created. Then, create a SAS token for ```privatechannel``` that has read, list, and execute permissions. 
 
 The channel name will now be the blob SAS URL that is generated from this process.  
 
