@@ -4,10 +4,12 @@ description: Learn how to copy data from and to IBM Informix by using a copy act
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/28/2020
+ms.date: 02/20/2021
 ms.author: jingwang
 ---
+
 # Copy data from and to IBM Informix using Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an IBM Informix data store. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
@@ -21,12 +23,13 @@ This Informix connector is supported for the following activities:
 
 You can copy data from Informix source to any supported sink data store, or copy from any supported source data store to Informix sink. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
+
 ## Prerequisites
 
 To use this Informix connector, you need to:
 
 - Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-- Install the Informix ODBC driver for the data store on the Integration Runtime machine. For example, you can use driver "IBM INFORMIX Informix DRIVER (64-bit)".
+- Install the Informix ODBC driver for the data store on the Integration Runtime machine. For driver installation and setup, refer [Informix ODBC Driver Guide](https://www.ibm.com/support/knowledgecenter/SSGU8G_11.70.0/com.ibm.odbc.doc/odbc.htm) article in IBM Knowledge Center for details, or contact IBM support team for driver installation guidance.
 
 ## Getting started
 
