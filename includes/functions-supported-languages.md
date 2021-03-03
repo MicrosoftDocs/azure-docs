@@ -18,7 +18,7 @@ ms.custom: include file
 |[TypeScript](../articles/azure-functions/functions-reference-node.md#typescript) |N/A|GA<sup>2</sup>| GA<sup>2</sup> |
 
 
-<sup>1</sup> .NET class library apps targeting runtime version 2.x are now run on .NET Core 3.1 in .NET Core 2.x compatibility mode.  
+<sup>1</sup> .NET class library apps targeting runtime version 2.x may now be run on .NET Core 3.1 in .NET Core 2.x compatibility mode. To learn more, see [Functions v2.x considerations](../articles/azure-functions/functions-dotnet-class-library.md#functions-v2x-considerations).  
 <sup>2</sup> Supported through transpiling to JavaScript.
 
 See the language-specific developer guide article for more details about supported language versions.   
