@@ -1182,6 +1182,8 @@ This container image has the following tags available. You can also find a full 
 
 Release notes for `v1.4.0`:
 * Upgrade to latest models. 
+* The CPU cost and latency was reduced.
+* Better support of prosody tuning with SSML tag (e.g. pitch contour).
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
