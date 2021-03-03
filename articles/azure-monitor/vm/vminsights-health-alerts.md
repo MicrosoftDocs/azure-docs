@@ -1,7 +1,6 @@
 ---
 title: VM insights guest health alerts (preview)
 description: Describes the alerts created by VM insights guest health including how to enable them and configure notifications.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

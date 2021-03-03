@@ -80,19 +80,19 @@ landingContent:
       - linkListType: overview
         links:
           - text: Overview of Device Update for IoT Hub
-            url: /iot-hub-device-update/understand-device-update.md
+            url: ../iot-hub-device-update/understand-device-update.md
       - linkListType: how-to-guide
         links:
           - text: Import an update
-            url: /iot-hub-device-update/import-update.md
+            url: ../iot-hub-device-update/import-update.md
       - linkListType: how-to-guide
         links:
           - text: Create an update group
-            url: /iot-hub-device-update/create-update-group.md
+            url: ../iot-hub-device-update/create-update-group.md
       - linkListType: how-to-guide
         links:
           - text: Deploy an update
-            url: /iot-hub-device-update/deploy-update.md
+            url: ../iot-hub-device-update/deploy-update.md
 
  -   title: IoT Hub on Azure Stack Hub (preview)
      linkLists:

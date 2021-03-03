@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot VM insights guest health (preview)
 description: Describes troubleshooting steps that you can take when you have issues with VM insights health.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

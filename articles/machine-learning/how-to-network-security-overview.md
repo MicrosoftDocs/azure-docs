@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/06/2020
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
 
@@ -102,10 +102,7 @@ In this section, you learn how Azure Machine Learning securely communicates betw
 
 1. Azure Batch services receives the job from the workspace and submits the training job to the compute environment through the public load balancer that's provisioned with the compute resource. 
 
-1. The compute resource receive the job and begins training. The compute resources accesses secure storage accounts to download training files and upload output. 
-
-![Architecture diagram showing how an Azure Machine Learning training job gets submitted while using a VNet](./media/how-to-network-security-overview/secure-training-job-submission.png)
-
+1. The compute resource receive the job and begins training. The compute resources accesses secure storage accounts to download training files and upload output.
 
 ### Limitations
 

@@ -36,7 +36,7 @@ The migration helps produce the following results:
 ## Prerequisites
 
 * Ensure that Network Watcher is enabled in your subscription and the region of the Log Analytics workspace. 
-* In case, Azure VM belonging to a different region/subscription than Log Analytics workspace is used, make sure Network Watcher is enabled for that subscription and region.   
+* In case Azure VM belonging to a different region/subscription than that of Log Analytics workspace is used as an endpoint, make sure Network Watcher is enabled for that subscription and region.   
 * Azure virtual machines with Log Analytics agents installed must be enabled with the Network Watcher extension.
 
 ## Migrate the tests
