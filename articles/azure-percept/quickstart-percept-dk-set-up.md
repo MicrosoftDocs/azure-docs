@@ -200,8 +200,6 @@ If you wish to create a new subscription, follow [these steps](https://docs.micr
 	
 1. Deploy a new pre-built sample to your connected device. Select a sample from the library and click on “Deploy to Device”
 
-	:::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-1-select-prebuilt.png" alt-text="Select a pre-built.":::
-	
 	:::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-2-select-journey.png" alt-text="See object detection in action.":::
 
 ## Next steps
