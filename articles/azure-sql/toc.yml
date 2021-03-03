@@ -335,14 +335,21 @@
 
   - name: Migration guides
     items: 
+    - name: From Access
+      href: migration-guides/database/access-to-sql-database-guide
     - name: From DB2
       href: migration-guides/database/db2-to-sql-database-guide.md
+    - name: From MySQL
+      href: migration-guides/database/mysql-to-sql-database-guide.md
+    - name: From SAP ASE 
+      href: migration-guides/database/sap-ase-to-sql-database.md
     - name: From SQL Server
       items: 
       - name: Overview
         href: migration-guides/database/sql-server-to-sql-database-overview.md
       - name: Migrate
         href: migration-guides/database/sql-server-to-sql-database-guide.md
+
 
   - name: Concepts
     items:
