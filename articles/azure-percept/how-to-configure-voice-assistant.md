@@ -25,7 +25,7 @@ This article describes how to configure your voice assistant application using I
 
 1. Click on **Set Modules**.
 
-    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/set-modules.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/set-modules.png" alt-text="Screenshot of device page with Set Modules highlighted.":::
 
 1. Verify that the following entry is present under the **Container Registry Credentials** section. Add credentials if required.
 
@@ -35,7 +35,7 @@ This article describes how to configure your voice assistant application using I
 
 1. In the **IoT Edge Modules** section, select **azureearspeechclientmodule**.
 
-    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/modules.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/modules.png" alt-text="Screenshot showing list of all IoT Edge modules on the device.":::
 
 1. Click on the **Module Settings** tab. Verify the following configuration:
 
@@ -83,16 +83,16 @@ To locate your **appID**, **key**, and **region**, go to [Speech Studio](https:/
 1. On the **Speech Studio** home page, click on **Custom Commands** under **Voice Assistants**.
 1. Select your target project.
 
-    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/project.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/project.png" alt-text="Screenshot of project page in Speech Studio.":::
 
 1. Click on **Settings** on the left-hand menu panel.
 1. The **appID** and **key** will be located under the **General** settings tab.
 
-    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/general-settings.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/general-settings.png" alt-text="Screenshot of speech project general settings.":::
 
 1. To find your **region**, open the **LUIS resources** tab within the settings. The **Authoring resource** selection will contain region information.
 
-    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/luis-resources.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant-using-iot-hub/luis-resources.png" alt-text="Screenshot of speech project LUIS resources.":::
 
 1. After entering your **speechConfigs** information, click **Update**.
 
