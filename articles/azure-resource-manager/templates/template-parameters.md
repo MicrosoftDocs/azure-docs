@@ -2,7 +2,7 @@
 title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template) and Bicep file.
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 03/03/2021
 ---
 
 # Parameters in ARM templates
@@ -210,6 +210,8 @@ You can use another parameter value to build a default value. The following temp
 param siteName string = 'site${uniqueString(resourceGroup().id)}'
 param hostingPlanName string = '${siteName}-plan'
 ```
+
+---
 
 ## Length constraints
 

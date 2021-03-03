@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
-ms.subservice: application-insights
 ---
 
 # Application Insights log-based metrics

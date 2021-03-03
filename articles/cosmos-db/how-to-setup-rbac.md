@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/02/2021
 ms.author: thweiss
 ---
 
@@ -96,6 +96,11 @@ When creating a role definition, you need to provide:
     - `/` (account-level),
     - `/dbs/<database-name>` (database-level),
     - `/dbs/<database-name>/colls/<container-name>` (container-level).
+
+> [!NOTE]
+> The operations described below are currently available in:
+> - Azure PowerShell: [Az.CosmosDB version 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - Azure CLI: ['cosmosdb-preview' extension version 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
 
 ### Using Azure PowerShell
 
@@ -274,6 +279,11 @@ Once you've created your role definitions, you can associate them with your AAD 
 > [!NOTE]
 > If you want to create a role assignment for a service principal, make sure to use its **Object ID** as found in the **Enterprise applications** section of the **Azure Active Directory** portal blade.
 
+> [!NOTE]
+> The operations described below are currently available in:
+> - Azure PowerShell: [Az.CosmosDB version 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - Azure CLI: ['cosmosdb-preview' extension version 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+
 ### Using Azure PowerShell
 
 Assign a role to an identity:
@@ -349,6 +359,12 @@ This additional information flows in the **DataPlaneRequests** log category and 
 
 - `aadPrincipalId_g` shows the principal ID of the AAD identity that was used to authenticate the request.
 - `aadAppliedRoleAssignmentId_g` shows the [role assignment](#role-assignments) that was honored when authorizing the request.
+
+## Limits
+
+- You can create up to 100 role definitions and 2,000 role assignments per Azure Cosmos DB account.
+- Azure AD group resolution is not currently supported for identities that belong to more than 200 groups.
+- The Azure AD token is currently passed as a header with each individual request sent to the Azure Cosmos DB service, increasing the overall payload size.
 
 ## Frequently asked questions
 
