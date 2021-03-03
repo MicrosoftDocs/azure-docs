@@ -30,18 +30,16 @@ The following table lists the options you have for adding certificates in App Se
 ## Prerequisites
 
 - [Create an App Service app](./index.yml).
+- For a private certificate, make sure that it satisfies all [requirements from App Service](#private-certificate-requirements).
 - **Free certificate only**:
     - Map the domain you want a certificate for to App Service. For information, see [Tutorial: Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md).
     - Make sure your app doesn't have any [IP restrictions](app-service-ip-restrictions.md) configured. Both certificate creation and its periodic renewal depends on your app being reachable from the internet.
 
 ## Private certificate requirements
 
-> [!NOTE]
-> Azure Web Apps does **not** support AES256 and all pfx files should be encrypted with TripleDES.
+The [free App Service Managed Certificate](#create-a-free-managed-certificate-preview) and the [App Service certificate](#import-an-app-service-certificate) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
 
-The [free App Service Managed Certificate](#create-a-free-managed-certificate-preview) or the [App Service certificate](#import-an-app-service-certificate) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
-
-* Exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)
+* Exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions), encrypted using triple DES.
 * Contains private key at least 2048 bits long
 * Contains all intermediate certificates in the certificate chain
 
