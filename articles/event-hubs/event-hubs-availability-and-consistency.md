@@ -34,217 +34,59 @@ In some scenarios, the ordering of events can be important. For example, you may
 
 With this configuration, keep in mind that if the particular partition to which you are sending is unavailable, you will receive an error response. As a point of comparison, if you don't have an affinity to a single partition, the Event Hubs service sends your event to the next available partition.
 
-One possible solution to ensure ordering, while also maximizing up time, would be to aggregate events as part of your event processing application. The easiest way to accomplish it is to stamp your event with a custom sequence number property.
-
-In this scenario, producer client sends events to one of the available partitions in your event hub, and sets the corresponding sequence number from your application. This solution requires state to be kept by your processing application, but gives your senders an endpoint that is more likely to be available. 
 
 ## Appendix
 
 ## Send events to a specific partition
 This section shows you how to send events to a specific partition in Azure Event Hubs. 
 
-### [.NET (Azure.Messaging.EventHubs)](#tab/dotnetlatest)
-If you are sending a batch of events, create the batch using the [EventHubProducerClient.CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_CreateBatchAsync_Azure_Messaging_EventHubs_Producer_CreateBatchOptions_System_Threading_CancellationToken_) method by specifying either the **partition ID** or the **partition key** in [CreateBatchOptions](//dotnet/api/azure.messaging.eventhubs.producer.createbatchoptions). The following code sends a batch of events to a specific partition by specifying a partition key. 
+### [.NET](#tab/dotnet)
+For the full sample code that shows you how to send an event batch to an event hub (without setting partition ID/key), see [Send events to and receive events from Azure Event Hubs - .NET (Azure.Messaging.EventHubs)](event-hubs-dotnet-standard-getstarted-send.md).
+
+To send events to a specific partition, create the batch using the [EventHubProducerClient.CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_CreateBatchAsync_Azure_Messaging_EventHubs_Producer_CreateBatchOptions_System_Threading_CancellationToken_) method by specifying either the **partition ID** or the **partition key** in [CreateBatchOptions](//dotnet/api/azure.messaging.eventhubs.producer.createbatchoptions). The following code sends a batch of events to a specific partition by specifying a partition key. 
 
 ```csharp
-var producer = new EventHubProducerClient(connectionString, eventHubName);
-try
-{
-    // specify partition key in batch options
-    var batchOptions = new CreateBatchOptions { PartitionKey = "customer1234" };
-
-    using var eventBatch = await producer.CreateBatchAsync(batchOptions);
-
-    for (var index = 0; index < 5; ++index)
-    {
-        var eventBody = new BinaryData($"Event #{ index }");
-        var eventData = new EventData(eventBody);
-
-        if (!eventBatch.TryAdd(eventData))
-        {
-            throw new Exception($"The event at { index } could not be added.");
-        }
-    }
-
-    await producer.SendAsync(eventBatch);
-}
-finally
-{
-    await producer.CloseAsync();
-}
+var batchOptions = new CreateBatchOptions { PartitionKey = "customer1234" };
+using var eventBatch = await producer.CreateBatchAsync(batchOptions);
 ```
 
 If you are not using the batching approach, use the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_SendAsync_System_Collections_Generic_IEnumerable_Azure_Messaging_EventHubs_EventData__Azure_Messaging_EventHubs_Producer_SendEventOptions_System_Threading_CancellationToken_) method by specifying either the **partition ID** or **the partition key** in [SendEventOptions](/dotnet/api/azure.messaging.eventhubs.producer.sendeventoptions).
 
-### [.NET (Microsoft.Azure.EventHubs)](#tab/dotnetold)
-1. Use the [EventHubClient.CreatePartitionSender("Partition ID")](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createpartitionsender) method to create a [PartitionSender](/dotnet/api/microsoft.azure.eventhubs.partitionsender) object for the specified partition. 
-1. Then, use the [PartitionSender.SendAsync](/dotnet/api/microsoft.azure.eventhubs.partitionsender) methods to send a single event or a batch of events to the partition. 
 
-    > [!NOTE]
-    > To migrate to the newer **Azure.Messaging.EventHubs** library, see [Migrating code from PartitionSender to EventHubProducerClient for publishing events to a partition](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
+### [Java](#tab/java)
+For the full sample code that shows you how to send an event batch to an event hub (without setting partition ID/key), see [Use Java to send events to or receive events from Azure Event Hubs (azure-messaging-eventhubs)](event-hubs-java-get-started-send.md).
 
-    ```csharp
-    var connectionStringBuilder = new EventHubsConnectionStringBuilder(connectionString){ EntityPath = eventHubName }; 
-    var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
-    
-    // partition ID 0 is used for this example
-    PartitionSender partitionSender = eventHubClient.CreatePartitionSender("0");
-    try
-    {
-        EventDataBatch eventBatch = partitionSender.CreateBatch();
-    
-        for (var counter = 0; counter < int.MaxValue; ++counter)
-        {
-            var eventBody = $"Event Number: { counter }";
-            var eventData = new EventData(Encoding.UTF8.GetBytes(eventBody));
-    
-            if (!eventBatch.TryAdd(eventData))
-            {
-                // At this point, the batch is full but our last event was not
-                // accepted.  For our purposes, the event is unimportant so we
-                // will intentionally ignore it.  In a real-world scenario, a
-                // decision would have to be made as to whether the event should
-                // be dropped or published on its own.
-    
-                break;
-            }
-        }
-        await partitionSender.SendAsync(eventBatch);
-    }
-    finally
-    {
-        await partitionSender.CloseAsync();
-        await eventHubClient.CloseAsync();
-    }
-    ```
-
-### [Java (azure-messaging-eventhubs)](#tab/latestjava)
+To send events to a specific partition, create the batch using the [createBatch](/java/api/com.azure.messaging.eventhubs.eventhubproducerclient.createbatch) method by specifying either the **partition ID** or the **partition key** in [createBatchOptions](/java/api/com.azure.messaging.eventhubs.models.createbatchoptions). The following code sends a batch of events to a specific partition by specifying a partition key. 
 
 ```java
-// create a producer client using the namespace connection string and event hub name
-EventHubProducerClient producer = new EventHubClientBuilder()
-    .connectionString(connectionString, eventHubName)
-    .buildProducerClient();
-
-// prepare a batch of events to send to the event hub    
 CreateBatchOptions batchOptions = new CreateBatchOptions();
-batchOptions.setPartitionId();
-
-EventDataBatch batch = producer.createBatch(batchOptions);
-batch.tryAdd(new EventData("First event"));
-batch.tryAdd(new EventData("Second event"));
-
-// send the batch of events to the event hub
-producer.send(batch);
+batchOptions.setPartitionKey("customer1234");
 ```
-
-### [Java (azure-eventhubs)](#tab/oldjava)
 
 
 ### [Python](#tab/python) 
+For the full sample code that shows you how to send an event batch to an event hub (without setting partition ID/key), see [Send events to or receive events from event hubs by using Python (azure-eventhub)](event-hubs-python-get-started-send.md).
 
-1. When creating a batch using the [EventHubProducerClient.create_batch](/python/api/azure-eventhub/azure.eventhub.eventhubproducerclient#create-batch---kwargs-) method, specify the `partition_id` or the `partition_key`. 
-1. Use the [EventHubProducerClient.send_batch](/python/api/azure-eventhub/azure.eventhub.aio.eventhubproducerclient#send-batch-event-data-batch--typing-union-azure-eventhub--common-eventdatabatch--typing-list-azure-eventhub-) method to send the batch to the event hub's partition. 
+To send events to a specific partition, when creating a batch using the [EventHubProducerClient.create_batch](/python/api/azure-eventhub/azure.eventhub.eventhubproducerclient#create-batch---kwargs-) method, specify the `partition_id` or the `partition_key`. Then, use the [EventHubProducerClient.send_batch](/python/api/azure-eventhub/azure.eventhub.aio.eventhubproducerclient#send-batch-event-data-batch--typing-union-azure-eventhub--common-eventdatabatch--typing-list-azure-eventhub-) method to send the batch to the event hub's partition. 
 
 ```python
-# create the producer client
-producer = EventHubProducerClient.from_connection_string(conn_str="EVENT HUBS NAMESPACE - CONNECTION STRING", eventhub_name="EVENT HUB NAME")
-
-async with producer:
-    # specify partition key while creating a batch
-    event_data_batch = await producer.create_batch(partition_key='customer1234')
-
-    # add events to the batch.
-    event_data_batch.add(EventData('First event '))
-    event_data_batch.add(EventData('Second event'))
-
-    # send the batch of events to the partition
-    await producer.send_batch(event_data_batch)
+event_data_batch = await producer.create_batch(partition_key='customer1234')
 ```
 
 ### [JavaScript](#tab/javascript)
+For the full sample code that shows you how to send an event batch to an event hub (without setting partition ID/key), see [Send events to or receive events from event hubs by using JavaScript (azure/event-hubs)](event-hubs-node-get-started-send.md).
 
-1. Create a [EventHubProducerClient.CreateBatchOptions](/javascript/api/@azure/event-hubs/eventhubproducerclient#createBatch_CreateBatchOptions_) object by specifying the `partitionId` or the `partitionKey`. 
-2. [Create a batch](/javascript/api/@azure/event-hubs/eventhubproducerclient#createBatch_CreateBatchOptions_) using the `CreateBatchOptions` object. 
-1. Send the batch to the event hub using the [EventHubProducerClient.SendBatch](/javascript/api/@azure/event-hubs/eventhubproducerclient#sendBatch_EventDataBatch__OperationOptions_) method. 
+To send events to a specific partition, [Create a batch](/javascript/api/@azure/event-hubs/eventhubproducerclient#createBatch_CreateBatchOptions_) using the [EventHubProducerClient.CreateBatchOptions](/javascript/api/@azure/event-hubs/eventhubproducerclient#createBatch_CreateBatchOptions_) object by specifying the `partitionId` or the `partitionKey`. Then, send the batch to the event hub using the [EventHubProducerClient.SendBatch](/javascript/api/@azure/event-hubs/eventhubproducerclient#sendBatch_EventDataBatch__OperationOptions_) method. 
 
-    See the following example.
+See the following example.
 
-    ```javascript
-    // create the producer client
-    const producer = new EventHubProducerClient(connectionString, eventHubName);
-
-    // specify the partition key in batch options
-    const batchOptions = { partitionKey = "customer1234"; };
-
-    // create a batch
-    const batch = await producer.createBatch(batchOptions);
-
-    // add events to the batch
-    batch.tryAdd({ body: "First event" });
-    batch.tryAdd({ body: "Second event" });
-
-    // send the event batch to the partition
-    await producer.sendBatch(batch);    
-    ```
+```javascript
+const batchOptions = { partitionKey = "customer1234"; };
+const batch = await producer.createBatch(batchOptions);
+```
 
 ---
 
-### Set a sequence number
-The following example stamps your event with a custom sequence number property. 
-
-#### [Azure.Messaging.EventHubs (5.0.0 or later)](#tab/latest)
-
-```csharp
-// create a producer client that you can use to send events to an event hub
-await using (var producerClient = new EventHubProducerClient(connectionString, eventHubName))
-{
-    // get the latest sequence number from your application
-    var sequenceNumber = GetNextSequenceNumber();
-
-    // create a batch of events 
-    using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
-
-    // create a new EventData object by encoding a string as a byte array
-    var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
-
-    // set a custom sequence number property
-    data.Properties.Add("MyAppSequenceNumber", sequenceNumber);
-
-    // add events to the batch. An event is a represented by a collection of bytes and metadata. 
-    if (! eventBatch.TryAdd(data))
-    {
-        throw new Exception($"The event could not be added.");
-    }
-
-    // use the producer client to send the batch of events to the event hub
-    await producerClient.SendAsync(eventBatch);
-}
-```
-
-#### [Microsoft.Azure.EventHubs (4.1.0 or earlier)](#tab/old)
-```csharp
-var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
-var eventHubName = "<< NAME OF THE EVENT HUB >>";
-
-var connectionStringBuilder = new EventHubsConnectionStringBuilder(connectionString){ EntityPath = eventHubName }; 
-var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
-
-// Get the latest sequence number from your application
-var sequenceNumber = GetNextSequenceNumber();
-
-// Create a new EventData object by encoding a string as a byte array
-var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
-
-// Set a custom sequence number property
-data.Properties.Add("MyAppSequenceNumber", sequenceNumber);
-
-// Send single message async
-await eventHubClient.SendAsync(data);
-```
----
-
-This example sends your event to one of the available partitions in your event hub, and sets the corresponding sequence number from your application. This solution requires state to be kept by your processing application, but gives your senders an endpoint that is more likely to be available.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
