@@ -55,7 +55,7 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 ## Create a GitHub issue
 
 <div class='icon is-large'>
-    <img alt='GitHub' src='./media/common/github.svg'>
+    <img alt='GitHub-image' src='./media/common/github.svg'>
 </div>
 
 If you need help with one of the Microsoft Authentication Libraries (MSAL), open an issue in its repository on GitHub.
