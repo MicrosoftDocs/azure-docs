@@ -4,14 +4,13 @@ description: Specify the Localization element of a custom policy in Azure Active
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.custom:"b2c-support"
+ms.custom: "b2c-support"
 ---
 
 # Localization element

@@ -1,7 +1,6 @@
 ---
 title: Collect Windows and Linux performance data sources with Log Analytics agent in Azure Monitor
 description: Performance counters are collected by Azure Monitor to analyze performance on Windows and Linux agents.  This article describes how to configure collection of Performance counters for both Windows and Linux agents, details of they are stored in the workspace, and how to analyze them in the Azure portal.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

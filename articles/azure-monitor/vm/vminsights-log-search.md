@@ -1,7 +1,6 @@
 ---
 title: How to Query Logs from VM insights
 description: VM insights solution collects metrics and log data to and this article describes the records and includes sample queries.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

@@ -17,7 +17,6 @@ Azure Percept enables you to develop and deploy AI models directly to your Azure
 
 Azure Percept Studio contains sample models for the following applications:
 
-- face detection
 - people detection
 - vehicle detection
 - general object detection
