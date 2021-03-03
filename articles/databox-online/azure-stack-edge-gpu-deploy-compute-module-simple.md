@@ -71,7 +71,7 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
     `rsync <source file path> < destination file path>`
 
-    For more information about the `rsync` command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm).
+    For more information about the `rsync` command, go to [`Rsync` documentation](https://www.computerhope.com/unix/rsync.htm).
  
 3. Go to **Cloud storage gateway > Shares** to see the updated list of shares.
 

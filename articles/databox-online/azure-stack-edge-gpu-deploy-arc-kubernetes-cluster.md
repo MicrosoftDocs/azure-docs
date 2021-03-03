@@ -227,4 +227,4 @@ To remove the Azure Arc management, follow these steps:
 ## Next steps
 
 To understand how to run an Azure Arc deployment, see 
-[Deploy a stateless PHP Guestbook application with Redis via GitOps on an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)
+[Deploy a stateless PHP `Guestbook` application with Redis via GitOps on an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)

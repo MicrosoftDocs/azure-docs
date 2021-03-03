@@ -1,5 +1,5 @@
 ---
-title: Deploy `PHP Guestbook` app on Arc enabled Kubernetes on Azure Stack Edge Pro GPU device| Microsoft Docs
+title: Deploy PHP `Guestbook` app on Arc enabled Kubernetes on Azure Stack Edge Pro GPU device| Microsoft Docs
 description: Describes how to deploy a PHP `Guestbook` stateless application with Redis using GitOps on an Arc enabled Kubernetes cluster of your Azure Stack Edge Pro device.
 services: databox
 author: alkohli
