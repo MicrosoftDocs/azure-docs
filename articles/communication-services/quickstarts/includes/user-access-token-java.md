@@ -38,7 +38,7 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
-    <artifactId>azure-communication-administration</artifactId>
+    <artifactId>azure-communication-identity</artifactId>
     <version>1.0.0-beta.3</version> 
 </dependency>
 ```
@@ -55,7 +55,7 @@ From the project directory:
 Use the following code to begin:
 
 ```java
-import com.azure.communication.administration.*;
+import com.azure.communication.identity.*;
 import com.azure.communication.common.*;
 import java.io.*;
 import java.util.*;

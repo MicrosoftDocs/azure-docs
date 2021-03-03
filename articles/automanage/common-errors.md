@@ -32,7 +32,7 @@ If you don't see any failed deployments in the resource group or subscription co
 Error |  Mitigation
 :-----|:-------------|
 Automanage account insufficient permissions error | This may happen if you have recently moved a subscription containing a new Automanage Account into a new tenant. Steps to resolve this are located [here](./repair-automanage-account.md).
-Workspace region not matching region mapping requirements | Automanage was unable to onboard your machine but the Log Analytics workspace that the machine is currently linked to is not mapped to a supported Automation region. Ensure that your existing Log Analytics workspace and Automation account are located in a [supported region mapping](https://docs.microsoft.com/azure/automation/how-to/region-mappings).
+Workspace region not matching region mapping requirements | Automanage was unable to onboard your machine but the Log Analytics workspace that the machine is currently linked to is not mapped to a supported Automation region. Ensure that your existing Log Analytics workspace and Automation account are located in a [supported region mapping](../automation/how-to/region-mappings.md).
 "The assignment has failed; there is no additional information available" | Please open a case with Microsoft Azure support.
 
 ## Next steps
@@ -41,4 +41,3 @@ Workspace region not matching region mapping requirements | Automanage was unabl
 
 > [!div class="nextstepaction"]
 > [Enable Automanage for virtual machines in the Azure portal](quick-create-virtual-machines-portal.md)
-

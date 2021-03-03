@@ -15,9 +15,9 @@ The Azure Monitor agent (AMA) collects monitoring data from the guest operating 
 ## Relationship to other agents
 The Azure Monitor Agent replaces the following agents that are currently used by Azure Monitor to collect guest data from virtual machines:
 
-- [Log Analytics agent](../platform/log-analytics-agent.md) - Sends data to Log Analytics workspace and supports Azure Monitor for VMs and monitoring solutions.
-- [Diagnostic extension](../platform/diagnostics-extension-overview.md) - Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
-- [Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md) - Sends data to Azure Monitor Metrics (Linux only).
+- [Log Analytics agent](./log-analytics-agent.md) - Sends data to Log Analytics workspace and supports VM insights and monitoring solutions.
+- [Diagnostic extension](./diagnostics-extension-overview.md) - Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
+- [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md) - Sends data to Azure Monitor Metrics (Linux only).
 
 In addition to consolidating this functionality into a single agent, the Azure Monitor Agent provides the following benefits over the existing agents:
 
@@ -48,7 +48,7 @@ Azure Monitor agent coexists with the [generally available agents for Azure Moni
 ## Current limitations
 The following limitations apply during public preview of the Azure Monitor Agent:
 
-- The Azure Monitor agent does not support solutions and insights such as Azure Monitor for VMs and Azure Security Center. The only scenario currently supported is collecting data using the data collection rules that you configure. 
+- The Azure Monitor agent does not support solutions and insights such as VM insights and Azure Security Center. The only scenario currently supported is collecting data using the data collection rules that you configure. 
 - Data collection rules must be created in the same region as any Log Analytics workspace used as a destination.
 - Azure virtual machines, virtual machine scale sets, and Azure Arc enabled servers are currently supported. Azure Kubernetes Service and other compute resource types are not currently supported.
 - The virtual machine must have access to the following HTTPS endpoints:
@@ -60,7 +60,7 @@ The following limitations apply during public preview of the Azure Monitor Agent
 ## Coexistence with other agents
 The Azure Monitor agent can coexist with the existing agents so that you can continue to use their existing functionality during evaluation or migration. This is particularly important because of the limitations in public preview in supporting existing solutions. You should be careful though in collecting duplicate data since this could skew query results and result in additional charges for data ingestion and retention.
 
-For example, Azure Monitor for VMs uses the Log Analytics agent to send performance data to a Log Analytics workspace. You may also have configured the workspace to collect Windows events and Syslog events from agents. If you install the Azure Monitor agent and create a data collection rule for these same events and performance data, it will result in duplicate data.
+For example, VM insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You may also have configured the workspace to collect Windows events and Syslog events from agents. If you install the Azure Monitor agent and create a data collection rule for these same events and performance data, it will result in duplicate data.
 
 
 ## Costs
