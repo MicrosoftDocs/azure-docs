@@ -38,6 +38,10 @@ You'll need to first [create a WSFC](https://docs.microsoft.com/windows-server/f
 
 Azure VMware Solution, which is based on vSAN 6.7 Update 3, provides native support for virtualized WSFC. It supports SCSI-3 Persistent Reservations (SCSI3PR) on a virtual disk level. This support is required by WSFC to arbitrate access to a shared disk between nodes. Support of SCSI3PRs enables configuration of WSFC with a disk resource shared between VMs natively on vSAN datastores.
 
+The following diagram illustrates the architecture of WSFC virtual nodes on an Azure VMware Solution private cloud.
+
+![Diagram showing the architecture of WSFC virtual nodes on an Azure VMware Solution private cloud.](media/windows-server-failover-cluster/windows-server-failover-architecture.png)
+
 ## Supported configurations
 
 Currently, the following configurations are supported:
