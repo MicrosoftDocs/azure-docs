@@ -37,7 +37,7 @@ Before you reset, create a copy of the local data on the device if needed. You c
 
 You can reset your device in the local web UI or in PowerShell. For PowerShell instructions, see [Reset your device](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
-[!INCLUDE] [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)
+[!INCLUDE [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)]
 
 ## Reactivate device
 

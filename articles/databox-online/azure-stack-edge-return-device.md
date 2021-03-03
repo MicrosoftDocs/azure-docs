@@ -35,7 +35,7 @@ You can initiate the device return even before the device is reset.
 You can reset your device in the local web UI or in PowerShell. For PowerShell instructions, see [Reset your device](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
 
-[!INCLUDE] [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)
+[!INCLUDE [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)]
 
 > [!NOTE]
 > - If you're exchanging or upgrading to a new device, we recommend that you reset your device only after you've received the new device.
