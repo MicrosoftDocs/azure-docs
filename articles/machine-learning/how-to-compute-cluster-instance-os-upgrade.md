@@ -21,7 +21,7 @@ Azure Machine Learning compute cluster and compute instance are managed compute 
 The host OS for compute cluster and compute instance has been Ubuntu 16.04 LTS. On April 30, 2021, Ubuntu is ending support for 16.04. Microsoft will automatically update the base OS image to Ubuntu 18.04 LTS. Updating to 18.04 will ensure continued security updates and support from the Ubuntu community.
 
 > [!TIP]
-> The host OS is not the OS version you might specify for the [environment](how-to-use-environments.md) when training or deploying a model. Environments run inside Docker, which is running on the host OS.
+> The host OS is not the OS version you might specify for the [environment](how-to-use-environments.md) when training or deploying a model. Environments run inside Docker. Docker runs on the host OS.
 
 ## Creating new resources
 
