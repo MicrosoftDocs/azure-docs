@@ -103,7 +103,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
 ## Next steps
 
 * Try motion detection along with recording relevant videos in the cloud. Follow the steps from the [detect motion, record video clips to Media Services](detect-motion-record-video-clips-media-services-quickstart.md#review-the-sample-video) quickstart.
-* Run [AI on Live Video](use-your-model-quickstart#overview) (you can skip the prerequisite setup as it has already been done above)
+* Run [AI on Live Video](use-your-model-quickstart.md#overview) (you can skip the prerequisite setup as it has already been done above)
 * Use our [VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) to view additional media graphs.
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera)  that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.
 
