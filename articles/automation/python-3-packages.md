@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Manage Python 3 packages (preview) in Azure Automation
 
-Azure Automation allows you to run Python 3 runbooks (preview) on Azure and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#Import-a-package-with-dependencies). This article describes how to manage and use Python 3 packages (preview) in Azure Automation.
+Azure Automation allows you to run Python 3 runbooks (preview) on Azure and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). This article describes how to manage and use Python 3 packages (preview) in Azure Automation.
 
 ## Import a package
 
@@ -34,7 +34,7 @@ https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py
 ```
 
 #### Importing the script into a runbook
-For information on importing the runbook, see [Import a runbook from the Azure portal](manage-runbooks#import-a-runbook-from-the-azure-portal.md). Copy the file from GitHub to storage that the portal can access before you run the import.
+For information on importing the runbook, see [Import a runbook from the Azure portal](manage-runbooks.md#import-a-runbook-from-the-azure-portal). Copy the file from GitHub to storage that the portal can access before you run the import.
 
 The **Import a runbook** page defaults the runbook name to match the name of the script. If you have access to the field, you can change the name. **Runbook type** may default to **Python 2**. If it does, make sure to change it to **Python 3**.
 
@@ -53,7 +53,7 @@ The script (`import_py3package_from_pypi.py`) requires the following parameters.
 | automation_account | Automation account name |
 | module_name | Name of the module to import from `pypi.org` |
 
-For more information on using parameters with runbooks, see [Work with runbook parameters](start-runbooks#work-with-runbook-parameters.md).
+For more information on using parameters with runbooks, see [Work with runbook parameters](start-runbooks.md#work-with-runbook-parameters).
 
 ## Use a package in a runbook
 
