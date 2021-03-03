@@ -41,7 +41,7 @@ To increase redundancy and high availability, SQL Server VMs should either be in
 Placing a set of VMs in the same availability set protects from outages within a datacenter caused by equipment failure (VMs within an Availability Set do not share resources) or from updates (VMs within an Availability Set are not updated at the same time). 
 Availability Zones protect against the failure of an entire datacenter, with each Zone representing a set of datacenters within a region.  By ensuring resources are placed in different Availability Zones, no datacenter-level outage can take all of your VMs offline.
 
-When creating Azure VMs, you must choose between configuring Availability Sets vs Availability Zones.  An Azure Vm cannnot participate in both.
+When creating Azure VMs, you must choose between configuring Availability Sets vs Availability Zones.  An Azure Vm cannot participate in both.
 
 
 ## Connectivity 
