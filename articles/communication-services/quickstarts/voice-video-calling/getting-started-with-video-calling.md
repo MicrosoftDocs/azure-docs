@@ -322,4 +322,4 @@ You can make an 1:1 outgoing video call by providing a user ID in the text field
 You can download the sample app from [Github](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/Add%201%20on%201%20video%20calling).
 
 ## Clean up resources
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](https://docs.microsoft.com/en-gb/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources).
