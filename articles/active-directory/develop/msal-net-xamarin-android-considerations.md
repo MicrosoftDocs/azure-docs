@@ -73,7 +73,7 @@ protected override void OnActivityResult(int requestCode,
 
 ## Update the Android Manifest for System Browser Support 
 
-The *AndroidManifest.xml* file should contain the following values for system browser support:
+To support the system browser, the *AndroidManifest.xml* file should contain the following values:
 
 ```xml
 <activity android:name="microsoft.identity.client.BrowserTabActivity" android:configChanges="orientation|screenSize">
