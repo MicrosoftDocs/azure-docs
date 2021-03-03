@@ -101,13 +101,13 @@ The integration between Data Factory and Purview supports only a subset of the d
 
 ### Data Factory Copy activity support
 
-| Data storage system | Supported | 
+| Data store | Supported | 
 | ------------------- | ------------------- | 
-| Azure Blob | Yes |
-| Azure Cosmos DB (SQL API) | Yes | 
-| Azure Cosmos DB's API for MongoDB | Yes |
+| Azure Blob Storage | Yes |
 | Azure Cognitive Search | Yes | 
-| Azure Data Explorer | Yes | 
+| Azure Cosmos DB (SQL API) \* | Yes | 
+| Azure Cosmos DB's API for MongoDB \* | Yes |
+| Azure Data Explorer \* | Yes | 
 | Azure Data Lake Storage Gen1 | Yes | 
 | Azure Data Lake Storage Gen2 | Yes | 
 | Azure Database for Maria DB \* | Yes | 
@@ -117,15 +117,15 @@ The integration between Data Factory and Purview supports only a subset of the d
 | Azure SQL Database \* | Yes | 
 | Azure SQL Managed Instance \* | Yes | 
 | Azure Synapse Analytics \* | Yes | 
-| Azure Table Storage | Yes |
-| SQL Server On-prem  \* | Yes | 
+| Azure Table Storage \* | Yes |
+| SQL Server \* | Yes | 
 | Amazon S3 | Yes | 
-| Hive | Yes | 
-| SAP ECC | Yes |
-| SAP Table | Yes |
-| Teradata | Yes |
+| Hive \* | Yes | 
+| SAP ECC \* | Yes |
+| SAP Table \* | Yes |
+| Teradata \* | Yes |
 
-*\* For SQL (Azure and on-premises) scenarios, Azure Purview doesn't support stored procedures or scripts for lineage or scanning. Lineage is limited to table and view sources only.*
+*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
 > [!Note]
 > The lineage feature has certain performance overhead in Data Factory copy activity. For those who setup data factory connections in Purview, you may observe certain copy jobs taking longer to complete. Mostly the impact is none to negligible. Please contact support with time comparison if the copy jobs take significantly longer to finish than usual.
@@ -143,30 +143,30 @@ Currently, if you use the following copy activity features, the lineage is not y
 
 ### Data Factory Data Flow support
 
-| Data storage system | Supported |
+| Data store | Supported |
 | ------------------- | ------------------- | 
-| Azure Blob | Yes |
+| Azure Blob Storage | Yes |
 | Azure Data Lake Storage Gen1 | Yes |
 | Azure Data Lake Storage Gen2 | Yes |
 | Azure SQL Database \* | Yes |
 | Azure Synapse Analytics \* | Yes |
 
-*\* For SQL (Azure and on-premises) scenarios, Azure Purview doesn't support stored procedures or scripts for lineage or scanning. Lineage is limited to table and view sources only.*
+*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
 ### Data Factory Execute SSIS Package support
 
-| Data storage system | Supported |
+| Data store | Supported |
 | ------------------- | ------------------- |
-| Azure Blob | Yes |
+| Azure Blob Storage | Yes |
 | Azure Data Lake Storage Gen1 | Yes |
 | Azure Data Lake Storage Gen2 | Yes |
 | Azure File Storage | Yes |
 | Azure SQL Database \* | Yes |
 | Azure SQL Managed Instance \*| Yes |
 | Azure Synapse Analytics \* | Yes |
-| SQL Server On-prem \* | Yes |
+| SQL Server \* | Yes |
 
-*\* For SQL (Azure and on-premises) scenarios, Azure Purview doesn't support stored procedures or scripts for lineage or scanning. Lineage is limited to table and view sources only.*
+*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
 > [!Note]
 > Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
