@@ -64223,6 +64223,11 @@
       "source_path": "articles/azure-monitor/app/usage-send-user-context.md",
       "redirect_url": "/azure/azure-monitor/app/usage-overview",
       "redirect_document_id": false
-  }
+    },
+    {
+      "source_path": "articles/virtual-network/tutorial-create-validate-nat-gateway-portal.md",
+      "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-portal",
+      "redirect_document_id": false
+    }
   ]
 }
