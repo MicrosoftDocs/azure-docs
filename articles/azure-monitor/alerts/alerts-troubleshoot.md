@@ -5,7 +5,6 @@ author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
-ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor alerts
 
