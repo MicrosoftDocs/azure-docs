@@ -80,7 +80,7 @@ Yes. In fact, Azure Front Door supports host, path, query string redirection, an
 
 ### How do I lock down the access to my backend to only Azure Front Door?
 
-Best way to lock down your application to accept traffic only from your specific Front Door instance is to publish your application via Private Endpoint. Network traffic between Front Door and the application traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet.
+The best way to lock down your application to accept traffic only from your specific Front Door instance is to publish your application via Private Endpoint. Network traffic between Front Door and the application traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 Learn more about the [securing origin for Front Door with Private Link](concept-private-link.md).  
 
