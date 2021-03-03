@@ -185,6 +185,8 @@
       href: core/concepts-telemetry-properties-commands.md
     - name: Connect IoT Edge devices
       href: core/concepts-iot-edge.md
+    - name: Best practices
+      href: core/concepts-best-practices.md
 
 - name: How-to guides
   items:
