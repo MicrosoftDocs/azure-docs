@@ -55,11 +55,6 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
    :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Enterprise tier advanced":::
 
-   > [!NOTE] 
-   > Redis Modules aren't supported in Enterprise Flash tier yet. If you plan to use a Redis Module,
-   > be sure to choose an Enterprise tier cache.
-   >
-   
 1. Select **Next: Tags** and skip.
 
 1. Select **Next: Review + create**.
