@@ -1,22 +1,18 @@
 ---
-title: Gain tenant-wide visibility for Azure Security Center | Microsoft Docs
-description: This article explains how to manage your security posture at scale by applying policies to all subscriptions linked to your Azure Active Directory tenant.
+title: Organize subscriptions into management groups and assign roles to users for Azure Security Center
+description: Learn how to organize your Azure subscriptions into management groups in Azure Security Center and assign roles to users in your organization
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2021
+ms.date: 03/04/2021
 ms.author: memildin
 
 ---
 
-# Organize management groups, subscriptions, and tenant-wide visibility
+# Organize subscriptions into management groups and assign roles to users
 
 This article explains how to manage your organization’s security posture at scale by applying security policies to all Azure subscriptions linked to your Azure Active Directory tenant.
 
@@ -132,6 +128,6 @@ Once the Azure roles have been assigned to the users, the tenant administrator s
 
 
 ## Next steps
-In this article, you learned how to gain tenant-wide visibility for Azure Security Center. For related information, see:
+In this article, you learned how to organize subscriptions into management groups and assign roles to users. For related information, see:
 
 - [Permissions in Azure Security Center](security-center-permissions.md)
