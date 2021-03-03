@@ -52,6 +52,11 @@ An auditing policy can be defined for a specific database or as a default [serve
 
 - If *server auditing is enabled*, it *always applies to the database*. The database will be audited, regardless of the database auditing settings.
 
+- When auditing policy is defined at the database-level to a Log Analytics workspace or an Event Hub destination, the following operations will not keep the source database-level auditing policy:
+    - [Database copy](database-copy.md)
+    - [Point-in-time restore](recovery-using-backups.md)
+    - [Geo-replication](active-geo-replication-overview.md) (Secondary database will not have database-level auditing)
+
 - Enabling auditing on the database, in addition to enabling it on the server, does *not* override or change any of the settings of the server auditing. Both audits will exist side by side. In other words, the database is audited twice in parallel; once by the server policy and once by the database policy.
 
    > [!NOTE]
@@ -88,7 +93,8 @@ Azure SQL Database and Azure Synapse Audit stores 4000 characters of data for ch
 The following section describes the configuration of auditing using the Azure portal.
 
   > [!NOTE]
-  > Enabling auditing on a paused dedicated SQL pool is not possible. To enable auditing, un-pause the dedicated SQL pool. Learn more about [dedicated SQL pool](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - Enabling auditing on a paused dedicated SQL pool is not possible. To enable auditing, un-pause the dedicated SQL pool. Learn more about [dedicated SQL pool](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - When auditing is configured to a Log Analytics workspace or to an Even Hub destination via the Azure portal or PowerShell cmdlet, a [Diagnostic Setting](../../azure-monitor/essentials/diagnostic-settings.md) is created with "SQLSecurityAuditEvents" category enabled.
 
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Navigate to **Auditing** under the Security heading in your **SQL database** or **SQL server** pane.
