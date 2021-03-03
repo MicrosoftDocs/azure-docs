@@ -121,8 +121,6 @@ publishers](../articles/event-hubs/event-hubs-features.md#event-publishers)
 section. 
 
 For more information about partitions and the trade-off between availability and
-reliability, see the [Event Hubs programming
-guide](../articles/event-hubs/event-hubs-programming-guide.md#partition-key) and
-the [Availability and consistency in Event
+reliability, see [Availability and consistency in Event
 Hubs](../articles/event-hubs/event-hubs-availability-and-consistency.md)
 article.
