@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 02/25/2021
+ms.date: 03/03/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -53,9 +53,9 @@ WITH (
 GROUP BY LEFT(Name, CHARINDEX('/', Name) - 1)
 ```
 
-The blob count and total size per container are reported in the output pane.
+The blob count and total size per container are reported in the **Results** pane.
 
-:::image type="content" source="media/calculate-blob-count-size/output.jpg" alt-text="Output from running the script to calculate blob count and total size.":::
+:::image type="content" source="media/calc-blob-count-size/output.jpg" alt-text="Output from running the script to calculate blob count and total size.":::
 
 ## Next steps
 
