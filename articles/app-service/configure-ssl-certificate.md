@@ -30,7 +30,6 @@ The following table lists the options you have for adding certificates in App Se
 ## Prerequisites
 
 - [Create an App Service app](./index.yml).
-- To use the same certificate for multiple apps, create the apps in the same resource group and region combination.
 - **Free certificate only**:
     - Map the domain you want a certificate for to App Service. For information, see [Tutorial: Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md).
     - Make sure your app doesn't have any [IP restrictions](app-service-ip-restrictions.md) configured. Both certificate creation and its periodic renewal depends on your app being reachable from the internet.
