@@ -28,10 +28,18 @@ If you are new to Azure file shares, we recommend reading our [planning guide](s
 
 When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines can mount Azure file shares using your existing AD DS credentials. This capability can be enabled with an AD DS environment hosted either in on-prem machines or hosted in Azure.
 
-> [!NOTE]
-> To help you setup Azure Files AD authentication for some common use cases, we published two videos with step by step guidance for the following scenarios:
-> - [Replacing on-premises file servers with Azure Files (including setup on private link for files and AD authentication)](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
-> - [Using Azure Files as the profile container for Windows Virtual Desktop (including setup on AD authentication and FsLogix configuration)](https://www.youtube.com/embed/9S5A1IJqfOQ)
+## Videos
+
+To help you setup Azure Files AD authentication for some common use cases, we published two videos with step by step guidance for the following scenarios:
+
+### Replacing on-premises file servers with Azure Files (including setup on private link for files and AD authentication)
+
+> [!VIDEO https://www.youtube.com/embed/jd49W33DxkQ]
+
+### Using Azure Files as the profile container for Windows Virtual Desktop (including setup on AD authentication and FsLogix configuration)
+
+> [!VIDEO https://www.youtube.com/embed/9S5A1IJqfOQ]
+
 
 ## Prerequisites 
 
