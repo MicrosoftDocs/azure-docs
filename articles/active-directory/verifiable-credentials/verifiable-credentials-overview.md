@@ -18,6 +18,11 @@ ms.author: barclayn
 Welcome to the developer documentation for Verifiable Credentials at Microsoft. Verifiable credentials are a new way to exchange verified information about people, organizations, and more. Verifiable credentials put people in control of their personal information, enabling more trustworthy digital experiences while respecting people's privacy.  Verifiable Credentials allow you to validate information about people, organizations, and things. 
 
 What are the components of a verifiable credentials?
+- Azure Verifiable Credential Issuer Service
+- VC SDK
+- Authenticator (iOS and Android)
+- ION
+
 What is a verifiable credential?
 What makes up the overall ‘solution’? 
 What are the use cases and requirements?

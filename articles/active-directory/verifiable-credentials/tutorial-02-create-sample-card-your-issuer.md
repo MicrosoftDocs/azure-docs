@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 02/19/2021
+ms.date: 03/03/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can learn how to issue cards using Azure verifiable credentials
@@ -103,6 +103,35 @@ We need a storage account to hold the rule and display files we created in the p
     - **Name:** vc-container
     - **Public access level:** Private (no anonymous access)
 
+![Create a container](media/tutorial-create-samplecard-your-issuer/Zk8wgsR.png)
+
+Now select your new container and upload the Rules file you created earlier. Once it hs been uploaded, click on the rules file and press Select at the bottom. 
+
+![upload rules file](media/tutorial-create-samplecard-your-issuer/3WOwn6Z.png)
+
+## Role Assignment for Storage Blob
+
+Before creating the credential, we need to first give the signed in user the right role assignment so we can access the files in Storage Blob. 
+
+- Navigate to Storage > Container
+- Choose Access Control (IAM) in left menu
+- Role Assignments 
+- Add
+
+
+    ![Create a new credential screen](media/tutorial-create-sample-card-your-issuer/role_assignment.jpg)
+
+- Role: Storage Blob Data Reader
+- Assign access to: User, group or service principle
+- Select: choose the user that you are signed in with
+- Save
+
+Now that you have completed this, wait 5 minutes to go to the next section and create your Verifiable Credential. 
+
+## New Container
+
+Once that you have a storage account we need to create a container.
+>>>>>>> e382d34e605c891983554fa466d108ab4dccc056
 
     >[!IMPORTANT]
     >After creating the container assign the **Storage Blob Data Reader** role to the account you are logged in with while going through the tutorial. Keep in mind that even if you created the container with the account you are using the **Owner** role is not enough on its own. For more information review [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md)
@@ -110,6 +139,22 @@ We need a storage account to hold the rule and display files we created in the p
     ![Create a container](media/tutorial-create-sample-card-your-issuer/new-container.png)
 
 3. Now select your new container and upload the Rules and display files you created earlier. Once that they are uploaded continue to the next section.
+
+    ![Create a new credential screen](media/tutorial-create-sample-card-your-issuer/role_assignment.jpg)
+
+- Role: Storage Blob Data Reader
+- Assign access to: User, group or service principle
+- Select: choose the user that you are signed in with
+- Save
+
+Now that you have completed this, wait 5 minutes to go to the next section and create your Verifiable Credential. 
+
+- **Name:** vc-container
+- **Public access level:** Private (no anonymous access)
+
+![Create a container](media/tutorial-create-sample-card-your-issuer/new-container.png)
+
+Now select your new container and upload the Rules and display files you created earlier. Once that they are uploaded continue to the next section.
 
 ## Create the Ninja Credential VC
 
