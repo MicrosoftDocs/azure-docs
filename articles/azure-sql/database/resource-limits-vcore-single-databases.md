@@ -36,14 +36,14 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Min-max vCores|0.5-1|0.5-2|0.5-4|0.75-6|1.0-8|
 |Min-max memory (GB)|2.02-3|2.05-6|2.10-12|2.25-18|3.00-24|
 |Min-max auto-pause delay (minutes)|60-10080|60-10080|60-10080|60-10080|60-10080|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|
+|Columnstore support|Yes*|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|512|1024|1024|1024|1536|
 |Max log size (GB)|154|307|307|307|461|
 |TempDB max data size (GB)|32|64|128|192|256|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Max data IOPS *|320|640|1280|1920|2560|
+|Max data IOPS \*\*|320|640|1280|1920|2560|
 |Max log rate (MBps)|4.5|9|18|27|36|
 |Max concurrent workers (requests)|75|150|300|450|600|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
@@ -52,7 +52,8 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance).
+\* Service objectives with smaller max vcore configurations may have insufficient memory for creating and using column store indexes.  If encountering performance problems with column store, increase the max vcore configuration to increase the max memory available.  
+\*\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance).
 
 ### Gen5 compute generation (part 2)
 

@@ -25,6 +25,8 @@
   items:
   - name: Security
     items:
+    - name: Protect Microsoft 365 from on-premises attacks 
+      href: protect-m365-from-on-premises-attacks.md    
     - name: Secure external collaboration
       items:
       - name: Secure external access overview 
@@ -47,8 +49,28 @@
         href: 8-secure-access-sensitivity-labels.md
       - name: 9 Secure access to Teams, SharePoint, and OneDrive
         href: 9-secure-access-teams-sharepoint.md
-    - name: Protect Microsoft 365 from on-premises attacks 
-      href: protect-m365-from-on-premises-attacks.md
+    - name: Secure Service Accounts
+      items:
+      - name: Introduction to Azure service accounts
+        href: service-accounts-introduction-azure.md
+      - name: Securing managed identities
+        href: service-accounts-managed-identities.md
+      - name: Securing service principals
+        href: service-accounts-principal.md
+      - name: Governing Azure service accounts
+        href: service-accounts-governing-azure.md       
+      - name: Introduction to on-premises service accounts
+        href: service-accounts-on-premises.md
+      - name: Securing group MSAs
+        href: service-accounts-group-managed.md
+      - name: Securing standalone MSAs
+        href: service-accounts-standalone-managed.md
+      - name: Securing computer accounts
+        href: service-accounts-computer.md
+      - name: Securing user-based service accounts
+        href: service-accounts-user-on-premises.md
+      - name: Govern on-premises service accounts
+        href: service-accounts-govern-on-premises.md
     - name: Enable MFA
       href: concept-fundamentals-mfa-get-started.md
     - name: Security defaults
@@ -140,7 +162,7 @@
         - name: Development overview
           href: resilience-app-development-overview.md
         - name: Client applications
-          href: resilience-client-app.md
+          href: resilience-client-app.md  
         - name: Daemon applications
           href: resilience-daemon-app.md
       - name: Monitor application health for resilience

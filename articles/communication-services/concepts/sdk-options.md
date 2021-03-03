@@ -23,7 +23,7 @@ Azure Communication Services capabilities are conceptually organized into six ar
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
 | Azure Resource Manager | REST | Open            | Azure.ResourceManager.Communication | Provision and manage Communication Services resources             |
 | Common                 | REST | Open               | Azure.Communication.Common          | Provides base types for other client libraries |
-| Administration         | REST | Open               | Azure.Communication.Administration  | Manage users, access tokens, and phone numbers, allocate standards-compliant STUN and TURN servers |
+| Identity         | REST | Open               | Azure.Communication.Identity  | Manage users and access tokens |
 | Chat                   | REST with proprietary signaling | Open with closed source signaling package    | Azure.Communication.Chat            | Add real-time text based chat to your applications  |
 | SMS                    | REST | Open              | Azure.Communication.SMS             | Send and receive SMS messages |
 | Calling                | Proprietary transport | Closed |Azure.Communication.Calling         | Leverage voice, video, screen-sharing, and other real-time data communication capabilities          |
@@ -39,10 +39,12 @@ Publishing locations for individual client library packages are detailed below.
 | Azure Resource Manager | -         | [NuGet](https://www.nuget.org/packages/Azure.ResourceManager.Communication)    |   [PyPi](https://pypi.org/project/azure-mgmt-communication/)    |  -  | -              | -  | [Go via GitHub](https://github.com/Azure/azure-sdk-for-go/releases/tag/v46.3.0) |
 | Common         | [npm](https://www.npmjs.com/package/@azure/communication-common)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Common/)    | N/A      | [Maven](https://search.maven.org/search?q=a:azure-communication-common)   | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases/tag/1.0.0-beta.1)            | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-common)             | -                              |
 | Administration | [npm](https://www.npmjs.com/package/@azure/communication-administration)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Administration)    | [PyPi](https://pypi.org/project/azure-communication-administration/)      | [Maven](https://search.maven.org/search?q=a:azure-communication-administration)   | -              | -              | -                            |
+| Identity | [npm](https://www.npmjs.com/package/@azure/communication-identity)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.identity)    | [PyPi](https://pypi.org/project/azure-communication-identity/)      | [Maven](https://search.maven.org/search?q=a:azure-communication-identity)   | -              | -              | -                            |
 | Chat           | [npm](https://www.npmjs.com/package/@azure/communication-chat)        | [NuGet](https://www.nuget.org/packages/Azure.Communication.Chat)     | [PyPi](https://pypi.org/project/azure-communication-chat/)     | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases)  | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | -                              |
 | SMS            | [npm](https://www.npmjs.com/package/@azure/communication-sms)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Sms)    | [PyPi](https://pypi.org/project/azure-communication-sms/)       | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms)   | -              | -              | -                              |
 | Calling        | [npm](https://www.npmjs.com/package/@azure/communication-calling)         | -      | -      | -     | [GitHub](https://github.com/Azure/Communication/releases/tag/v1.0.0-beta.2)     | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)            | -                              |
-| Reference Documentation     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](https://docs.microsoft.com/objectivec/communication-services/calling/)      | [docs](https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android)            | -                              |
+| Reference Documentation     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.communication.calling?view=communication-services-java-android)            | -                              |
+
 ## REST APIs
 
 Communication Services APIs are documented alongside other Azure REST APIs in [docs.microsoft.com](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using Postman. This documentation is also offered in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs).
@@ -72,6 +74,21 @@ Support via .NET Core 2.0:
 - Mono 5.4
 - Xamarin iOS 10.14
 - Xamarin Mac 3.8
+
+## Calling client library timeouts
+
+The following timeouts apply to the Communication Services calling client libraries:
+
+| Action           | Timeout in seconds |
+| -------------- | ---------- |
+| Reconnect/removal participant | 120 |
+| Add or remove new modality from a call (Start/stop video or screensharing) | 40 |
+| Call Transfer operation timeout | 60 |
+| 1:1 call establishment timeout | 85 |
+| Group call establishment timeout | 85 |
+| PSTN call establishment timeout | 115 |
+| Promote 1:1 call to a group call timeout | 115 |
+
 
 ## API stability expectations 
 

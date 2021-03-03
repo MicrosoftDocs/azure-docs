@@ -2,7 +2,7 @@
 title: Azure Service Bus metrics in Azure Monitor| Microsoft Docs
 description: This article explains how to use Azure Monitor to monitor Service Bus entities (queues, topics, and subscriptions).
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 02/12/2021
 ---
 
 # Azure Service Bus metrics in Azure Monitor
@@ -16,9 +16,9 @@ Azure Monitor provides unified user interfaces for monitoring across various Azu
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Azure Monitor logs and Event Hubs. For more information, see [Metrics in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Azure Monitor logs and Event Hubs. For more information, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
 
-Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to keep data for a longer period of time, you can archive metrics data to an Azure Storage account. This value is configured in [diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) in Azure Monitor.
+Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to keep data for a longer period of time, you can archive metrics data to an Azure Storage account. This value is configured in [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) in Azure Monitor.
 
 ## Access metrics in the portal
 
@@ -69,7 +69,7 @@ The following two types of errors are classified as user errors:
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-|Incoming Messages|The number of events or messages sent to Service Bus over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
+|Incoming Messages|The number of events or messages sent to Service Bus over a specified period. This metric doesn't include messages that are auto forwarded.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
 |Outgoing Messages|The number of events or messages received from Service Bus over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
 | Messages| Count of messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: Entity name |
 | Active Messages| Count of active messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: Entity name |
@@ -95,7 +95,7 @@ The following two types of errors are classified as user errors:
 > [!NOTE] 
 > The following metrics are available only with the **premium** tier. 
 > 
-> The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](../azure-monitor/platform/alerts-metric.md) for these metrics using Azure Monitor.
+> The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](../azure-monitor/alerts/alerts-metric.md) for these metrics using Azure Monitor.
 > 
 > The other metric you could monitor is: **throttled requests**. It shouldn't be an issue though as long as the namespace stays within its memory, CPU, and brokered connections limits. For more information, see [Throttling in Azure Service Bus Premium tier](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 

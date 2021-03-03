@@ -9,7 +9,7 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
+ms.date: 02/18/2020
 ---
 # Migration overview: SQL Server to SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -84,6 +84,7 @@ The following table lists the recommended migration tools:
 |---------|---------|
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | First party Azure service that supports migration in the offline mode for applications that can afford downtime during the migration process. Unlike the continuous migration in online mode, offline mode migration runs a one-time restore of a full database backup from the source to the target. | 
 |[Native backup and restore](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance supports RESTORE of native SQL Server database backups (.bak files), making it the easiest migration option for customers who can provide full database backups to Azure storage. Full and differential backups are also supported and documented in the [migration assets section](#migration-assets) later in this article.| 
+|[Log Replay Service (LRS)](../../managed-instance/log-replay-service-migrate.md) | This is a cloud service enabled for Managed Instance based on the SQL Server log shipping technology, making it a migration option for customers who can provide full, differential and log database backups to Azure storage. LRS is used to restore backup files from Azure Blob Storage to SQL Managed Instance.| 
 | | |
 
 ### Alternative tools
@@ -108,8 +109,9 @@ The following table compares the recommended migration options:
 
 |Migration option  |When to use  |Considerations  |
 |---------|---------|---------|
-|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | - Migrate single databases or multiple databases at scale. </br> - Can accommodate downtime during migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM |  - Migrations at scale can be automated via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md). </br> - Time to complete migration is dependent on database size and impacted by backup and restore time. </br> - Sufficient downtime may be required. |
+|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | - Migrate single databases or multiple databases at scale. </br> - Can accommodate downtime during migration process. </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM |  - Migrations at scale can be automated via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). </br> - Time to complete migration is dependent on database size and impacted by backup and restore time. </br> - Sufficient downtime may be required. |
 |[Native backup and restore](../../managed-instance/restore-sample-database-quickstart.md) | - Migrate individual line-of-business application database(s).  </br> - Quick and easy migration without a separate migration service or tool.  </br> </br> Supported sources: </br> - SQL Server (2005 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - Database backup uses multiple threads to optimize data transfer to Azure Blob storage but ISV bandwidth and database size can impact transfer rate. </br> - Downtime should accommodate the time required to perform a full backup and restore (which is a size of data operation).| 
+|[Log Replay Service (LRS)](../../managed-instance/log-replay-service-migrate.md) | - Migrate individual line-of-business application database(s).  </br> - More control is needed for database migrations.  </br> </br> Supported sources: </br> - SQL Server (2008 - 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - The migration entails making full database backups on SQL Server and copying backup files to Azure Blob Storage. LRS is used to restore backup files from Azure Blob Storage to SQL Managed Instance. </br> - Databases being restored during the migration process will be in a restoring mode and cannot be used to read or write until the process has been completed..| 
 | | | |
 
 ### Alternative options
@@ -155,7 +157,7 @@ Beyond the high availability architecture that is included in SQL Managed Instan
 
 #### SQL Agent jobs
 
-Use the offline Azure Database Migration Service (DMS) option to migrate [SQL Agent jobs](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md#offline-migrations). Otherwise, script the jobs in Transact-SQL (T-SQL) using SQL Server Management Studio and then manually recreate them on the target SQL Managed Instance. 
+Use the offline Azure Database Migration Service (DMS) option to migrate [SQL Agent jobs](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). Otherwise, script the jobs in Transact-SQL (T-SQL) using SQL Server Management Studio and then manually recreate them on the target SQL Managed Instance. 
 
 > [!IMPORTANT]
 > Currently, Azure DMS only supports jobs with T-SQL subsystem steps. Jobs with SSIS package steps will have to be manually migrated. 

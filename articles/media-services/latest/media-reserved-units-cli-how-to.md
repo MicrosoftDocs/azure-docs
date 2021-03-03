@@ -26,8 +26,6 @@ This article shows you how to scale Media Reserved Units (MRSs) for faster encod
 
 Understand [Media Reserved Units](concept-media-reserved-units.md).
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
-
 ## Scale Media Reserved Units with CLI
 
 Run the `mru` command.

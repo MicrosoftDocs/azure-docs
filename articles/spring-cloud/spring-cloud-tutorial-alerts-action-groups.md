@@ -108,7 +108,7 @@ A rule can also be created using the **Metrics** page:
 In this tutorial you learned how to set up alerts and action groups for an Azure Spring Cloud application. To learn more about action groups, see:
 
 > [!div class="nextstepaction"]
-> [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md)
+> [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md)
 
 > [!div class="nextstepaction"]
-> [SMS Alert Behavior in Action Groups](../azure-monitor/platform/alerts-sms-behavior.md)
+> [SMS Alert Behavior in Action Groups](../azure-monitor/alerts/alerts-sms-behavior.md)

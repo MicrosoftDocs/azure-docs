@@ -166,11 +166,11 @@ To enable Azure AD users to sign in to TalentLMS, they must be provisioned into 
 
     ![Add User](./media/talentlms-tutorial/IC777299.png "Add User")  
 
-    a. In the **First name** textbox, enter the first name of user like **Britta**.
+    a. In the **First name** textbox, enter the first name of user like `Britta`.
 
-    b. In the **Last name** textbox, enter the last name of user like **Simon**.
+    b. In the **Last name** textbox, enter the last name of user like `Simon`.
  
-    c. In the **Email address** textbox, enter the email of user like `brittasimon\@contoso.com`.
+    c. In the **Email address** textbox, enter the email of user like `brittasimon@contoso.com`.
 
     d. Click **Add User**.
 
@@ -185,8 +185,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to TalentLMS Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the TalentLMS tile in the My Apps, this will redirect to TalentLMS Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the TalentLMS tile in the My Apps, this will redirect to TalentLMS Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure TalentLMS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure TalentLMS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

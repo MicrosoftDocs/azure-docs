@@ -69,6 +69,19 @@ The [Azure CLI extension for machine learning](reference-azure-machine-learning-
 * `--pe-vnet-name`: The existing virtual network to create the private endpoint in.
 * `--pe-subnet-name`: The name of the subnet to create the private endpoint in. The default value is `default`.
 
+These parameters are in addition to other required parameters for the create command. For example, the following command creates a new workspace in the West US region, using an existing resource group and VNet:
+
+```azurecli
+az ml workspace create -r myresourcegroup \
+    -l westus \
+    -n myworkspace \
+    --pe-name myprivateendpoint \
+    --pe-auto-approval \
+    --pe-resource-group myresourcegroup \
+    --pe-vnet-name myvnet \
+    --pe-subnet-name mysubnet
+```
+
 # [Portal](#tab/azure-portal)
 
 The __Networking__ tab in Azure Machine Learning studio allows you to configure a private endpoint. However, it requires an existing virtual network. For more information, see [Create workspaces in the portal](how-to-manage-workspace.md).
@@ -154,7 +167,12 @@ For information on Azure Virtual Machines, see the [Virtual Machines documentati
 
 ## Enable public access
 
-After configuring a workspace with a private endpoint, you can optionally enable public access to the workspace. Doing so does not remove the private endpoint. It enables public access in addition to the private access. To enable public access to a private link-enabled workspace, use the following steps:
+In some situations, you may want to allow someone to connect to your secured workspace over a public endpoint, instead of through the VNet. After configuring a workspace with a private endpoint, you can optionally enable public access to the workspace. Doing so does not remove the private endpoint. All communications between components behind the VNet is still secured. It enables public access only to the workspace, in addition to the private access through the VNet.
+
+> [!WARNING]
+> When connecting over the public endpoint, some features of studio will fail to access your data. This problem happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account.
+
+To enable public access to a private link-enabled workspace, use the following steps:
 
 # [Python](#tab/python)
 

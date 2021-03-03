@@ -33,7 +33,7 @@ Either way, be sure to [follow the principle of least privilege when defining wh
 
 Azure Lighthouse only provides logical links between a managing tenant and managed tenants, rather than physically moving data or resources. Furthermore, the access always goes in only one direction, from the managing tenant to the managed tenants.  Users and groups in the managing tenant should continue to use multi-factor authentication when performing management operations on managed tenant resources.
 
-Enterprises with internal or external governance and compliance guardrails can use [Azure Activity logs](../../azure-monitor/platform/platform-logs-overview.md) to meet their transparency requirements. When enterprise tenants have established managing and managed tenant relationships, users in each tenant can view logged activity to see actions taken by users in the managing tenant.
+Enterprises with internal or external governance and compliance guardrails can use [Azure Activity logs](../../azure-monitor/essentials/platform-logs-overview.md) to meet their transparency requirements. When enterprise tenants have established managing and managed tenant relationships, users in each tenant can view logged activity to see actions taken by users in the managing tenant.
 
 ## Onboarding considerations
 

@@ -74,7 +74,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable Azure VMware Solution
+          - text: Request host quota and enable Azure VMware Solution
             url: enable-azure-vmware-solution.md
           - text: Save costs with a reserved instance
             url: reserved-instance.md
@@ -82,6 +82,8 @@ landingContent:
             url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
           - text: Manage DHCP
             url: manage-dhcp.md
+          - text: Configure NSX network components
+            url: configure-nsx-network-components-azure-portal.md
           - text: Deploy disaster recovery for VMs
             url: disaster-recovery-for-virtual-machines.md
           - text: Deploy VM via content library
