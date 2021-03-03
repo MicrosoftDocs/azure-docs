@@ -1,11 +1,11 @@
 ---
 title: Connect to Azure Database for MySQL using dbForge Studio for MySQL
 description: The article demonstrates how to connect to Azure Database for MySQL Server via dbForge Studio for MySQL.
-author: Devart
-ms.author: JordanS22
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 03/03/2021
 ---
 
 # Connect to Azure Database for MySQL using dbForge Studio for MySQL
