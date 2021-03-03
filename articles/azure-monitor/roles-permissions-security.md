@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
-ms.subservice: ""
 ---
 # Roles, permissions, and security in Azure Monitor
 
