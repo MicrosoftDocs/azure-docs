@@ -592,7 +592,7 @@
       href: ./spark/apache-spark-delta-lake-overview.md
     - name: Manage packages
       items:
-      - name: Manage Python packaeges
+      - name: Manage Python packages
         href: ./spark/apache-spark-manage-python-packages.md
       - name: Manage Scala packages
         href: ./spark/apache-spark-manage-scala-packages.md
