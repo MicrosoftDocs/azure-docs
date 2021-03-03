@@ -18,7 +18,7 @@ Azure Cache for Redis' Enterprise tiers provide fully integrated and managed [Re
 
 ## Prerequisites
 
-You'll need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [Enterprise tier requirements](cache-overview.md#special-considerations-for-enterprise-tiers).
+You'll need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [special considerations for Enterprise tiers](cache-overview.md#special-considerations-for-enterprise-tiers).
 
 ## Create a cache
 1. To create a cache, sign in to the Azure portal using the link in your preview invitation and select **Create a resource**.
