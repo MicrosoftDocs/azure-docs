@@ -17,11 +17,11 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 1. Edit the *operations.json* file:
  
     * Change the link to the graph topology:
-    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/2.0/topology.json"`
+    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-with-grpcExtension/2.0/topology.json"`
     * Under GraphInstanceSet, edit the name of the graph topology to match the value in the preceding link:
-    * `"topologyName"` : `"InferencingWithGrpcExtension"`
+    * `"topologyName"` : `"EVROnMotionPlusGrpcExtension"`
     * Under GraphTopologyDelete, edit the name:
-    * `"name"` : `"InferencingWithGrpcExtension"`
+    * `"name"` : `"EVROnMotionPlusGrpcExtension"`
 
 > [!NOTE]
 > <p>
@@ -42,7 +42,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 > 	},
 > 	"dataTransfer": {
 > 		"mode": "sharedMemory",
-> 		"SharedMemorySizeMiB": "5"
+> 		"SharedMemorySizeMiB": "256"
 > 	},
 > 	"image": {
 > 		"scale": {
@@ -159,7 +159,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
       "@apiVersion": "2.0",
       "name": "Sample-Graph-1",
       "properties": {
-        "topologyName": "InferencingWithGrpcExtension",
+        "topologyName": "EVROnMotionPlusGrpcExtension",
         "description": "Sample graph description",
         "parameters": [
           {

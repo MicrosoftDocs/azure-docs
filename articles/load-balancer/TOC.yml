@@ -160,8 +160,6 @@
       href: load-balancer-troubleshoot-health-probe-status.md  
     - name: Backend pool (VM) traffic
       href: load-balancer-troubleshoot-backend-traffic.md         
-    - name: Common deployment errors
-      href: load-balancer-common-deployment-errors.md
     - name: Common outbound connection issues
       href: troubleshoot-outbound-connection.md
     - name: Resource health and inbound availability issues
@@ -191,6 +189,8 @@
     displayName: ARM
   - name: Common error codes for Azure Instance Metadata Service (IMDS)
     href: troubleshoot-load-balancer-imds.md
+  - name: Common deployment errors
+    href: load-balancer-common-deployment-errors.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

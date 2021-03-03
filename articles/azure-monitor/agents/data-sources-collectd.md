@@ -128,5 +128,5 @@ To maintain a familiar model between infrastructure metrics already collected by
 | `values[]` | CounterValue |
 
 ## Next steps
-* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
-* Use [Custom Fields](../platform/custom-fields.md) to parse data from syslog records into individual fields.
+* Learn about [log queries](../logs/log-query-overview.md) to analyze the data collected from data sources and solutions. 
+* Use [Custom Fields](../logs/custom-fields.md) to parse data from syslog records into individual fields.
