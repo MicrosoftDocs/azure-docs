@@ -134,7 +134,7 @@ System.out.println("\nIssued an access token with 'voip' scope that expires at: 
 
 ## Create an identity and issue token in one call
 
-Alternatively, use the 'createUserWithToken' method to to create a new entry in the directory with a unique `Id` and
+Alternatively, use the 'createUserAndToken' method to to create a new entry in the directory with a unique `Id` and
 issue an access token.
 
 ```java
