@@ -84,7 +84,7 @@ This section will cover how to use the Azure App Configuration task in an Azure 
 1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found [here](/azure/devops/pipelines/release/environments).
 ![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
 1. Click **+** next to the Job to which you want to add a new task.
-![Screenshot shows the selected stage in the Tasks dropdown.](./media/add-task-to-job.png)
+![Screenshot shows the plus button next to the job.](./media/add-task-to-job.png)
 1. Configure the necessary parameters within the task to pull your key-values from your App Configuration store. Descriptions of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
       - Set the **Azure subscription** parameter to the name of the service connection you created in a previous step.
       - Set the **App Configuration name** to the resource name of your App Configuration store.
