@@ -22,16 +22,24 @@ ms.author: yelevin
 
 This article lists resources that can help you get more information about working with Azure Sentinel.
 
-**Learn more about creating queries**. Azure Sentinel uses Azure Monitor Log Analytics's Kusto Query Language (KQL) to build queries. For more information, see:
+## Learn more about creating queries
+
+Azure Sentinel uses Azure Monitor Log Analytics's Kusto Query Language (KQL) to build queries. For more information, see:
 
 - [KQL concepts](/azure/data-explorer/kusto/concepts/)
 - [KQL queries](/azure/data-explorer/kusto/query/)
 - [KQL quick reference guide](/azure/data-explorer/kql-quick-reference).
 - [Get started with KQL queries](../azure-monitor/logs/get-started-queries.md)
 
-**Create automation in Azure Sentinel** using Azure Logic Apps, with a growing gallery of built-in playbooks. For more information, see [Azure Logic Apps connectors](https://docs.microsoft.com/connectors/).
+## Learn more about creating automation
 
-**Comment on our blogs and forums!** We love hearing from our users.
+Create automation in Azure Sentinel using Azure Logic Apps, with a growing gallery of built-in playbooks. 
+
+For more information, see [Azure Logic Apps connectors](https://docs.microsoft.com/connectors/).
+
+## Comment on our blogs and forums
+
+We love hearing from our users.
 
 In the TechCommunity space for Azure Sentinel:
 
@@ -40,7 +48,9 @@ In the TechCommunity space for Azure Sentinel:
 
 You can also send suggestions for improvements via our [User Voice](https://feedback.azure.com/forums/920458-azure-sentinel) program.
 
-**Join the Azure Sentinel GitHub community**. The [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel) is a powerful resource for threat detection and automation. 
+## Join the Azure Sentinel GitHub community
+
+The [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel) is a powerful resource for threat detection and automation. 
 
 Our Microsoft security analysts constantly create and add new workbooks, playbooks, hunting queries, and more, posting them to the community for you to use in your environment. 
 
