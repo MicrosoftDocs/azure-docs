@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot reservation transfers between tenants
+title: Troubleshoot Azure reservation transfers between tenants
 description: This article helps reservation owners transfer a reservation order from one Azure Active Directory tenant (directory) to another.
 author: bandersmsft
 ms.service: cost-management-billing
