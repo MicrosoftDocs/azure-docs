@@ -113,12 +113,12 @@
         - name: Identify required appliances 
           displayName: virtual, Dell, HPE, SMB, certified, hardware, deployment
           href: how-to-identify-required-appliances.md
-        - name: Install software
-          displayName: virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install, deploy
-          href: how-to-install-software.md
         - name: Set up your network
           displayName: passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning
           href: how-to-set-up-your-network.md
+        - name: Install software
+          displayName: virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install
+          href: how-to-install-software.md
     - name: Prepare your sensors
       items:
       - name: Onboard sensors
@@ -155,9 +155,8 @@
     - name: Manage sensors on the cloud
       href: how-to-manage-sensors-on-the-cloud.md
     - name: Manage the on-premises management console
-      displayName: activation, certificate, software update, backup, restore, proxy, password recovery
+      displayName: upgrade, activation, certificate, software update, backup, restore, proxy, password recovery
       href: how-to-manage-the-on-premises-management-console.md
-      displayName: upgrade, activation, certificate, SSL, TLS, connect, sync, backup, restore, software update, failure
     - name: Work with threat intelligence packages
       href: how-to-work-with-threat-intelligence-packages.md
     - name: Work with device inventory information

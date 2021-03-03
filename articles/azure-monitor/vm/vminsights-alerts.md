@@ -1,7 +1,6 @@
 ---
 title: Alerts from VM insights
 description: Describes how to create alert rules from performance data collected by VM insights.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

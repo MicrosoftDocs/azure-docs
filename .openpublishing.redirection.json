@@ -928,7 +928,7 @@
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-custom-setup-li-idp.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
@@ -23361,7 +23361,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/healthcare/howto-health-data-triage.md",
-      "redirect_url": "/azure/iot-central/healthcare/tutorial-health-data-triage/",
+      "redirect_url": "/azure/iot-central/healthcare/tutorial-health-data-triage",
       "redirect_document_id": true
     },
     {
@@ -31377,11 +31377,6 @@
     {
       "source_path_from_root": "/articles/private-link/create-private-endpoint-webapp-portal.md",
       "redirect_url": "/azure/private-link/tutorial-private-endpoint-webapp-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/purview/register-scan-teradata-source.md",
-      "redirect_url": "/azure/purview/manage-data-sources",
       "redirect_document_id": false
     },
     {
