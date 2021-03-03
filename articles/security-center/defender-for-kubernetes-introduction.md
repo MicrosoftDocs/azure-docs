@@ -75,7 +75,7 @@ If your clusters are already running the Azure Monitor for containers agent, you
 In this article, you learned about Security Center's Kubernetes protection including Azure Defender for Kubernetes. 
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Enable Azure Defender](enable-azure-defender.md)
 
 For related material, see the following articles: 
 

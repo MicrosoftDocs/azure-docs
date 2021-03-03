@@ -2,15 +2,10 @@
 title: Integrate security solutions in Azure Security Center | Microsoft Docs
 description: Learn about how Azure Security Center integrates with partners to enhance the overall security of your Azure resources.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/10/2020
 ms.author: memildin
 
@@ -34,7 +29,7 @@ To learn more about the integration of vulnerability scanning tools from Qualys,
 
 Security Center also offers vulnerability analysis for your:
 
-* SQL databases - see [Explore vulnerability assessment reports in the vulnerability assessment dashboard](defender-for-sql-usage.md#explore-vulnerability-assessment-reports)
+* SQL databases - see [Explore vulnerability assessment reports in the vulnerability assessment dashboard](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports)
 * Azure Container Registry images - see [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md)
 
 ## How security solutions are integrated

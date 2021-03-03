@@ -91,9 +91,9 @@ The built-in initiative has all of Security Center’s policies enabled by defau
 
 In the following examples, replace these variables:
 
-- **{scope}** enter the name of the management group or subscription to which you're applying the policy.
-- **{policyAssignmentName}** enter the [name of the relevant policy assignment](#policy-names).
-- **{name}** enter your name, or the name of the administrator who approved the policy change.
+- **{scope}** enter the name of the management group or subscription to which you're applying the policy
+- **{policyAssignmentName}** enter the name of the relevant policy assignment
+- **{name}** enter your name, or the name of the administrator who approved the policy change
 
 This example shows you how to assign the built-in Security Center initiative on a subscription or management group
  

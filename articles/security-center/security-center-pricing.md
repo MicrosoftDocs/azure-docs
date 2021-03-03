@@ -31,16 +31,20 @@ Security Center is offered in two modes:
 
 ## FAQ - Pricing and billing 
 
-- [How can I track who in my organization enabled Azure Defender changes in Azure Security Center?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
-- [What are the plans offered by Security Center?](#what-are-the-plans-offered-by-security-center)
-- [How do I enable Azure Defender for my subscription?](#how-do-i-enable-azure-defender-for-my-subscription)
-- [Can I enable Azure Defender for servers on a subset of servers in my subscription?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
-- [If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
-- [My subscription has Azure Defender for servers enabled, do I pay for not-running servers?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
-- [Will I be charged for machines without the Log Analytics agent installed?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
-- [If a Log Analytics agent reports to multiple workspaces, will I be charged twice?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
-- [If a Log Analytics agent reports to multiple workspaces, is the 500-MB free data ingestion available on all of them?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
-- [Is the 500-MB free data ingestion calculated for an entire workspace or strictly per machine?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+- [Azure Security Center free vs Azure Defender enabled](#azure-security-center-free-vs-azure-defender-enabled)
+  - [What are the benefits of enabling Azure Defender?](#what-are-the-benefits-of-enabling-azure-defender)
+  - [FAQ - Pricing and billing](#faq---pricing-and-billing)
+    - [How can I track who in my organization enabled Azure Defender changes in Security Center?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+    - [What are the plans offered by Security Center?](#what-are-the-plans-offered-by-security-center)
+    - [How do I enable Azure Defender for my subscription?](#how-do-i-enable-azure-defender-for-my-subscription)
+    - [Can I enable Azure Defender for servers on a subset of servers in my subscription?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+    - [If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+    - [My subscription has Azure Defender for servers enabled, do I pay for not-running servers?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+    - [Will I be charged for machines without the Log Analytics agent installed?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
+    - [If a Log Analytics agent reports to multiple workspaces, will I be charged twice?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
+    - [If a Log Analytics agent reports to multiple workspaces, is the 500-MB free data ingestion available on all of them?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
+    - [Is the 500-MB free data ingestion calculated for an entire workspace or strictly per machine?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+  - [Next steps](#next-steps)
 
 ### How can I track who in my organization enabled Azure Defender changes in Security Center?
 Azure Subscriptions may have multiple administrators with permissions to change the pricing settings. To find out which user made a change, use the Azure Activity Log.
@@ -63,7 +67,7 @@ You can use any of the following ways to enable Azure Defender for your subscrip
 
 |Method  |Instructions  |
 |---------|---------|
-|Azure Security Center pages of the Azure portal|[Enable Azure Defender](#enable-azure-defender)|
+|Azure Security Center pages of the Azure portal|[Enable Azure Defender](enable-azure-defender.md)|
 |REST API|[Pricings API](/rest/api/securitycenter/pricings)|
 |Azure CLI|[az security pricing](/cli/azure/security/pricing)|
 |PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|

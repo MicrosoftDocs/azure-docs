@@ -1,6 +1,6 @@
 ---
-title: Understanding security policies, initiatives, and recommendations in Azure Security Center
-description: Learn about security policies, initiatives, and recommendations in Azure Security Center.
+title: Enable Azure Security Center's integrated workload protections
+description: Learn how to enable Azure Defender to extend the protections of Azure Security Center to your hybrid and multicloud resources
 author: memildin
 ms.author: memildin
 manager: rkarlin
