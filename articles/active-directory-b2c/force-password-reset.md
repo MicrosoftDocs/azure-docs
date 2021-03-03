@@ -33,7 +33,7 @@ The password reset flow is applicable to local accounts in Azure AD B2C that use
 
 ### Force a password reset after 90 days
 
-As an administrator, you can set a user's password expiration to 90 days, using [MS Graph](microsoft-graph-operation.md). After 90 days, the value of [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) attribute is automatically set to `true`. For more information on how to set a user's password expiration policy, see [Password policy attribute](user-profile-attributes.md#password-policy-attribute).
+As an administrator, you can set a user's password expiration to 90 days, using [MS Graph](microsoft-graph-operations.md). After 90 days, the value of [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) attribute is automatically set to `true`. For more information on how to set a user's password expiration policy, see [Password policy attribute](user-profile-attributes.md#password-policy-attribute).
 
 Once a password expiration policy has been set, you must also configure force password reset flow, as described in this article.  
 
@@ -58,7 +58,7 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 
 ### Test the user flow
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator or a password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference#available-roles).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator or a password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference.md#available-roles).
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Users**. Search for and select the user you'll use to test the password reset, and then select **Reset Password**.
@@ -81,14 +81,14 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 
 ### Test the policy
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator or a password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference#available-roles).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator or a password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference.md#available-roles).
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Users**. Search for and select the user you'll use to test the password reset, and then select **Reset Password**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select the `B2C_1A_signup_signin_Custom_ForcePasswordReset` policy to open it. 
-1. For **Application**, select a web application that you [previously registered](../articles/active-directory-b2c/troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. Sign in with the user account for which you reset the password.
 1. You now must change the password for the user. Change the password and select **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
