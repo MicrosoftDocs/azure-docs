@@ -56,7 +56,7 @@ To enable this plan:
 
 1. From Security Center's menu, open the **Pricing & settings** page.
 
-    - If you're using **Azure Security Center's default workspace** (named “defaultworkspace-[your subscription id]-[region]”), select the relevant **subscription**.
+    - If you're using **Azure Security Center's default workspace** (named “defaultworkspace-[your subscription ID]-[region]”), select the relevant **subscription**.
 
     - If you're using **a non-default workspace**, select the relevant **workspace** (enter the workspace's name in the filter if necessary):
 

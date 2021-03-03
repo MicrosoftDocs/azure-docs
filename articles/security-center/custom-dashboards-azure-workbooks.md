@@ -1,12 +1,12 @@
 ---
-title: 
-description: 
+title: Workbooks gallery in Azure Security Center
+description: Learn how to create rich, interactive reports of your Azure Security Center data with the integrated Azure Monitor Workbooks gallery
 author: memildin
 ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 03/04/2021
 ---
 
 # Create rich, interactive reports of Security Center data
@@ -65,11 +65,11 @@ The secure score over time report has five graphs for the subscriptions reportin
 
 |Graph  |Example  |
 |---------|---------|
-|**Score trends for the last week and month**<br>Use this section to monitor the current score and general trends of the scores for your subscriptions.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table1.png" alt-text="Trends for secure score on the built-in report":::|
-|**Aggregated score for all selected subscriptions**<br>Hover your mouse over any point in the trend line to see the aggregated score at any date in the selected time range.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table2.png" alt-text="Aggregated score for all selected subscriptions":::|
-|**Recommendations with the most unhealthy resources**<br>This table helps you triage the recommendations that have had the most resources changed to unhealthy over the selected period.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table3.png" alt-text="Recommendations with the most unhealthy resources":::|
-|**Scores for specific security controls**<br>Security Center's security controls are logical groupings of recommendations. This chart shows you, at a glance, the weekly scores for all of your controls.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table4.png" alt-text="Scores for your security controls over the selected time period":::|
-|**Resources changes**<br>Recommendations with the most resources that have changed state (healthy, unhealthy, or not applicable) during the selected period are listed here. Select any recommendation from the list to open a new table listing the specific resources.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table5.png" alt-text="Recommendations with the most resources that have changed health state":::|
+|**Score trends for the last week and month**<br>Use this section to monitor the current score and general trends of the scores for your subscriptions.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-1.png" alt-text="Trends for secure score on the built-in report":::|
+|**Aggregated score for all selected subscriptions**<br>Hover your mouse over any point in the trend line to see the aggregated score at any date in the selected time range.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-2.png" alt-text="Aggregated score for all selected subscriptions":::|
+|**Recommendations with the most unhealthy resources**<br>This table helps you triage the recommendations that have had the most resources changed to unhealthy over the selected period.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-3.png" alt-text="Recommendations with the most unhealthy resources":::|
+|**Scores for specific security controls**<br>Security Center's security controls are logical groupings of recommendations. This chart shows you, at a glance, the weekly scores for all of your controls.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-4.png" alt-text="Scores for your security controls over the selected time period":::|
+|**Resources changes**<br>Recommendations with the most resources that have changed state (healthy, unhealthy, or not applicable) during the selected period are listed here. Select any recommendation from the list to open a new table listing the specific resources.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-5.png" alt-text="Recommendations with the most resources that have changed health state":::|
 
 ### Use the 'System Updates' report
 
@@ -92,14 +92,14 @@ Learn more about using these scanners:
 
 - [Scan your machines with the integrated VA scanner](deploy-vulnerability-assessment-vm.md)
 - [Scan your registry images for vulnerabilities](defender-for-container-registries-usage.md)
-- [Scan your SQL resources for vulnerabilities](defender-for-sql-on-machines-va.md)
+- [Scan your SQL resources for vulnerabilities](defender-for-sql-on-machines-vulnerability-assessment.md)
 
 Findings for each of these scanners are reported in separate recommendations:
 
 - Vulnerabilities in your virtual machines should be remediated
 - Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)
-- Vulnerability assessment findings on your SQL databases should be remediated)
-- Vulnerability assessment findings on your SQL servers on machines should be remediated)
+- Vulnerability assessment findings on your SQL databases should be remediated
+- Vulnerability assessment findings on your SQL servers on machines should be remediated
 
 This report gathers these findings and organizes them by severity, resource type, and category.
 

@@ -31,7 +31,7 @@ To enable all Security Center features including threat protection capabilities,
 
 ### To enable Azure Defender on your subscriptions and workspaces:
 
-1. To enable Azure Defender on one subscription:
+- To enable Azure Defender on one subscription:
 
     1. From Security Center's main menu, select **Pricing & settings**.
     1. Select the subscription or workspace that you want to protect.
@@ -39,11 +39,11 @@ To enable all Security Center features including threat protection capabilities,
     1. Select **Save**.
 
     > [!TIP]
-    > You'll notice that each plan in Azure Defender is priced separately and can be individually set to on or off. For example, you might want to turn off Azure Defender for App Service on subscriptions that don't have an associated Azure App Service plan). 
+    > You'll notice that each plan in Azure Defender is priced separately and can be individually set to on or off. For example, you might want to turn off Azure Defender for App Service on subscriptions that don't have an associated Azure App Service plan. 
 
     :::image type="content" source="./media/security-center-pricing/pricing-tier-page.png" alt-text="Security Center's pricing page in the portal":::
 
-1. To enable Azure Defender on multiple subscriptions or workspaces:
+- To enable Azure Defender on multiple subscriptions or workspaces:
 
     1. From Security Center's sidebar, select **Getting started**.
 

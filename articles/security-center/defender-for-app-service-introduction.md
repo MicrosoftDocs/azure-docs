@@ -18,11 +18,12 @@ Security Center is natively integrated with App Service, eliminating the need fo
 
 To protect your Azure App Service plan with Azure Defender for App Service, you'll need:
 
-1. A supported App Service plan associated with dedicated machines. Supported plans are listed in [Availability](#availability).
+- A supported App Service plan associated with dedicated machines. Supported plans are listed in [Availability](#availability).
 
-1. Azure Defender enabled on your subscription as described in [Quickstart: Enable Azure Defender](enable-azure-defender.md).
+- Azure Defender enabled on your subscription as described in [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
-    You can optionally enable individual plans in Azure Defender (like Azure Defender for App Service).
+    > [!TIP]
+    > You can optionally enable individual plans in Azure Defender (like Azure Defender for App Service).
 
 ## Availability
 

@@ -1,15 +1,18 @@
 ---
 title: Auto-deploy agents for Azure Security Center | Microsoft Docs
-description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents used by Azure Security Center.
+description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Azure Security Center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 02/25/2021
+ms.date: 03/04/2021
 ms.author: memildin
 
 ---
 # Configure auto provisioning for agents and extensions from Azure Security Center
+
+Security Center collects data from your resources using the relevant agent or extensions for that resource and the type of data collection you've enabled. Use the precedures below to ensure your resource have the necessary 
+This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Azure Security Center
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).

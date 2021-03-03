@@ -83,9 +83,9 @@ Important concepts in Azure Policy:
 
 - An **assignment** is an application of an initiative or a policy to a specific scope (management group, subscription, etc.) 
 
-Security Center has a built-in initiative that includes all of its security policies. To assess Security Center’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.
+Security Center has a built-in initiative, Azure Security Benchmark, that includes all of its security policies. To assess Security Center’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.
 
-The built-in initiative has all of Security Center’s policies enabled by default. You can choose to disable certain policies from the built-in initiative. For example, to apply all of Security Center’s policies except **web application firewall**, change the value of the policy’s effect parameter to **Disabled**. 
+The built-in initiative has all of Security Center’s policies enabled by default. You can choose to disable certain policies from the built-in initiative. For example, to apply all of Security Center’s policies except **web application firewall**, change the value of the policy’s effect parameter to **Disabled**.
 
 ## API examples
 
@@ -170,24 +170,6 @@ This example shows you how to remove an assignment:
     DELETE   
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
  ```
-
-## Policy names reference <a name="policy-names"></a>
-
-|Policy name in Security Center|Policy name displayed in Azure Policy |Policy effect parameter name|
-|----|----|----|
-|SQL Encryption |Monitor unencrypted SQL database in Azure Security Center |sqlEncryptionMonitoringEffect| 
-|SQL Auditing |Monitor unaudited SQL database in Azure Security Center |sqlAuditingMonitoringEffect|
-|System updates |Monitor missing system updates in Azure Security Center |systemUpdatesMonitoringEffect|
-|Storage encryption |Audit missing blob encryption for storage accounts |storageEncryptionMonitoringEffect|
-|JIT Network access |Monitor possible network just-in-time (JIT) access in Azure Security Center |jitNetworkAccessMonitoringEffect |
-|Adaptive application controls |Monitor possible app allow lists in Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
-|Network security groups |Monitor permissive network access in Azure Security Center |networkSecurityGroupsMonitoringEffect| 
-|Security configurations |Monitor OS vulnerabilities in Azure Security Center |systemConfigurationsMonitoringEffect| 
-|Endpoint protection |Monitor missing Endpoint Protection in Azure Security Center |endpointProtectionMonitoringEffect |
-|Disk encryption |Monitor unencrypted VM Disks in Azure Security Center |diskEncryptionMonitoringEffect|
-|Vulnerability assessment |Monitor VM Vulnerabilities in Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
-|Web application firewall |Monitor unprotected web application in Azure Security Center |webApplicationFirewallMonitoringEffect |
-|Next generation firewall |Monitor unprotected network endpoints in Azure Security Center| |
 
 ::: zone-end
 

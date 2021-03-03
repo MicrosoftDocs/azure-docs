@@ -1,5 +1,5 @@
 ---
-title: Grant and request tenant-wide permissions
+title: Grant and request tenant-wide permissions in Azure Security Center
 description: Learn about security policies, initiatives, and recommendations in Azure Security Center.
 author: memildin
 ms.author: memildin

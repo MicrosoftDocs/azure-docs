@@ -3,7 +3,7 @@ title: Azure Security Center's main dashboard or 'overview' page
 description: Learn about the features of the Security Center overview page
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 03/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -35,7 +35,7 @@ In the center of the page are **four central tiles**, each linking to a dedicate
 - **Secure score** - Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level. [Learn more](secure-score-security-controls.md).
 - **Compliance** - Security Center provides insights into your compliance posture based on continuous assessments of your Azure environment. Security Center analyzes risk factors in your hybrid cloud environment according to security best practices. These assessments are mapped to compliance controls from a supported set of standards. [Learn more](security-center-compliance-dashboard.md).
 - **Azure Defender** - This is the cloud workload protection platform (CWPP) integrated within Security Center for advanced, intelligent, protection of your Azure and hybrid workloads. The tile shows the coverage of your connected resources (for the currently selected subscriptions) and the recent alerts, color-coded by severity. [Learn more](azure-defender.md).
-- **Firewall Manager** - The tile shows the status of your hubs and networks from Azure Firewall Manager[Azure Firewall Manager?](../firewall-manager/overview.md). 
+- **Firewall Manager** - The tile shows the status of your hubs and networks from [Azure Firewall Manager](../firewall-manager/overview.md). 
 
 
 The **Insights** pane offers customized items for your environment including:
