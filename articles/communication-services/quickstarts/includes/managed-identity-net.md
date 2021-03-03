@@ -68,7 +68,7 @@ The following code example shows how to create a SMS service client object with 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about authentication](../concepts/authentication.md)
+> [Learn about authentication](../../concepts/authentication.md)
 
 You may also want to:
 
