@@ -112,7 +112,7 @@ When using Microsoft Graph, check the documentation of the specific API, [like i
 
 [Create a service principal](../develop/howto-create-service-principal-portal.md)
 
- [Monitor service principal sign-ins](../reports-monitoring/concept-all-sign-ins#sign-ins-report.md)
+ [Monitor service principal sign-ins](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report.md)
 
 **To learn more about securing service accounts:**
 
@@ -122,4 +122,4 @@ When using Microsoft Graph, check the documentation of the specific API, [like i
 
 [Governing Azure service accounts](service-accounts-governing-azure.md)
 
-[Introduction to on-premises service accounts](service-accounts-on-poremises.md)
+[Introduction to on-premises service accounts](service-accounts-on-premises.md)

@@ -26,7 +26,7 @@ This section, you verify the built-in high availability provided by Kubernetes. 
 
 ### Prerequisites
 
-- Kubernetes cluster must have [shared, remote storage](https://docs.microsoft.com/en-us/azure/azure-arc/data/storage-configuration#factors-to-consider-when-choosing-your-storage-configuration) 
+- Kubernetes cluster must have [shared, remote storage](storage-configuration.md#factors-to-consider-when-choosing-your-storage-configuration) 
 - An Azure Arc enabled Managed Instance deployed with one replica (default)
 
 1. View the pods. 

@@ -135,7 +135,7 @@ If you are using a  service principal or an Azure AD user account, evaluate if y
 
 [Governing Azure service accounts](service-accounts-governing-azure.md)
 
-[Introduction to on-premises service accounts](service-accounts-on-poremises.md)
+[Introduction to on-premises service accounts](service-accounts-on-premises.md)
 
  
 
