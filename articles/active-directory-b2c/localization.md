@@ -10,7 +10,7 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.custom:"b2c-support"
+ms.custom: "b2c-support"
 ---
 
 # Localization element
