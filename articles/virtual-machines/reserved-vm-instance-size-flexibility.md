@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/02/2021
+ms.date: 03/01/2021
 ms.author: yashar
 ---
 
@@ -43,7 +43,13 @@ CSV below has the instance size flexibility groups, ArmSkuName and the ratios.
 
 [Instance size flexibility ratios](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv)
 
-We will keep the file URL and the schema fixed so you can consume this file programmatically. The data will also be available through API soon.
+Azure keeps link and schema updated so that you can use the file programmatically.
+
+## View VM size recommendations
+
+Azure shows VM size recommendations in the purchase experience. To view the smallest size recommendations, select **Group by smallest size**.
+
+:::image type="content" source="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" alt-text="Screenshot showing recommended quantities." lightbox="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" :::
 
 ## Next steps
 

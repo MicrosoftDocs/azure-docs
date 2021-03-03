@@ -4,6 +4,8 @@
   items:
   - name: What are ARM templates?
     href: overview.md
+  - name: Bicep overview
+    href: bicep-overview.md 
 - name: Quickstarts
   items:
   - name: Create templates - portal
@@ -324,9 +326,7 @@
     href: template-best-practices.md
   - name: Bicep
     items:
-    - name: Overview
-      href: bicep-overview.md 
-    - name: Going from JSON to Bicep
+    - name: Comparing JSON to Bicep
       href: compare-template-syntax.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
