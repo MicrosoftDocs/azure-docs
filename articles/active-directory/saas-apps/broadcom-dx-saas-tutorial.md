@@ -77,8 +77,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type the value:
-    `DXI_TENANT_NAME`
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `DXI_<TENANT_NAME>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://axa.dxi-na1.saas.broadcom.com/ess/authn/<TENANT_NAME>`
