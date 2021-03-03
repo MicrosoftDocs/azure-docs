@@ -4,7 +4,6 @@ description: Specify the Localization element of a custom policy in Azure Active
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
