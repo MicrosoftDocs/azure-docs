@@ -71,9 +71,9 @@ protected override void OnActivityResult(int requestCode,
 }
 ```
 
-## Update the Android Manifest for System Browser Support 
+## Update the Android Manifest for System WebView Support 
 
-To support the system browser, the *AndroidManifest.xml* file should contain the following values:
+To support the System WebView, the *AndroidManifest.xml* file should contain the following values:
 
 ```xml
 <activity android:name="microsoft.identity.client.BrowserTabActivity" android:configChanges="orientation|screenSize">
@@ -86,7 +86,7 @@ To support the system browser, the *AndroidManifest.xml* file should contain the
 </activity>
 ```
 
-The ``android:scheme`` is created from the redirect URI configured in the application portal. So if your redirect URI is ``msal4a1aa1d5-c567-49d0-ad0b-cd957a47f842://auth`` The ``android:scheme`` should be:
+The `android:scheme` is created from the redirect URI configured in the application portal. So if your redirect URI is `msal4a1aa1d5-c567-49d0-ad0b-cd957a47f842://auth` The `android:scheme` should be:
 ```xml
 <data android:scheme="msal4a1aa1d5-c567-49d0-ad0b-cd957a47f842" android:host="auth" />
 ```
@@ -106,11 +106,12 @@ Here's an example of a class that represents the values of the XML file:
   }
 ```
 
-### System Browser Support in Brokered Authentication
-If you are using the system browser for interactive authentication, it is possible you will have configured your application to use brokered authentication when the device does not have broker installed. In this scenario, MSAL will try to authenticate using the default system browser in the device. This will fail out of the box because the redirect URI is configured for broker and the system browser would know how to use it to navigate back to MSAL. To resolve this, you can configure what is known as an intent filter with the broker redirect URI that you used in step four. You will need to modify your application's manifest to add the intent filter as shown below.
+### Use System WebView in brokered authentication
+
+In order to use System WebView as a fallback for interactive authentication when you have configured your application to use brokered authentication and the device does not have broker installed, you can enable MSAL to capture the authentication response using the brokers redirect URI. MSAL will try to authenticate using the default System WebView on the device when it detects that the broker is unavailable and will fail out of the box because the redirect URI is configured for broker and the System WebView does not know how to use it to navigate back to MSAL. To resolve this, you can configure what is known as an intent filter with the broker redirect URI that you configured previously. You will need to modify your application's manifest to add the intent filter as shown below.
 
 ```XML
-<!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
+<!--Intent filter to capture System WebView or Authenticator calling back to our app after sign-in-->
 <activity
       android:name="microsoft.identity.client.BrowserTabActivity">
     <intent-filter>
@@ -126,9 +127,13 @@ If you are using the system browser for interactive authentication, it is possib
 
 Substitute the package name that you registered in the Azure portal for the `android:host=` value. Substitute the key hash that you registered in the Azure portal for the `android:path=` value. The signature hash should *not* be URL encoded. Ensure that a leading forward slash (`/`) appears at the beginning of your signature hash.
 
-### Android 11 Support
+### Xamarin.Forms 4.3.x manifest
 
-Apps targeting android 10 (API 29) and below were able to query the OS for a list of which packages were available on the device at any given time. In the interest of privacy and security Android 11 is reducing the package visibility to a default list of OS packages and along with the packages that are specified in the app's AndoridManifest.xml file. In order to utilize the system browser and brokered authentication on Android 11 you must first declare these packages so that they will be visible to the app.
+Xamarin.Forms 4.3.x generates code that sets the `package` attribute to `com.companyname.{appName}` in *AndroidManifest.xml*. If you use `DataScheme` as `msal{client_id}`, then you might want to change the value to match the value of the `MainActivity.cs` namespace.
+
+## Android 11 support
+
+In order to utilize the system browser and brokered authentication on Android 11 you must first declare these packages so that they will be visible to the app.Apps targeting Android 10 (API 29) and below were able to query the OS for a list of which packages were available on the device at any given time. In the interest of privacy and security Android 11 is reducing the package visibility to a default list of OS packages and along with the packages that are specified in the app's AndoridManifest.xml file. 
 
 To enable the application to authenticate with both the system browser and broker, add the following to the *AndroidManifest.xml*:
 
@@ -202,10 +207,6 @@ Your completed manifest that $DOES_THING_HERE should appear similar to the follo
 	</queries>
 </manifest>
 ```
-
-### Xamarin.Forms 4.3.x manifest
-
-Xamarin.Forms 4.3.x generates code that sets the `package` attribute to `com.companyname.{appName}` in *AndroidManifest.xml*. If you use `DataScheme` as `msal{client_id}`, then you might want to change the value to match the value of the `MainActivity.cs` namespace.
 
 ## Use the embedded web view (optional)
 
