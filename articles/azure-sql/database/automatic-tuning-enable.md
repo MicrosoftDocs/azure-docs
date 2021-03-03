@@ -106,7 +106,7 @@ To find out more abut T-SQL options to configure automatic tuning, see [ALTER DA
 
 ## Troubleshooting
 
-### Automated recommendation management is disabled, or disabled by the system
+### Automated recommendation management is disabled
 
 In case of error messages that automated recommendation management has been disabled, or simply disabled by system, the most common causes are:
 - Query Store is not enabled, or
