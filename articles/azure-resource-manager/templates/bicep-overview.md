@@ -17,7 +17,7 @@ Bicep is a transparent abstraction over Azure Resource Manager templates (ARM te
 
 To start with Bicep, [install the tools](https://github.com/Azure/bicep/blob/main/docs/installing.md).
 
-After installing the tools, try the [Bicep tutorial](https://github.com/Azure/bicep/blob/main/docs/tutorial/01-simple-template.md). The tutorial series walks you through the structure and capabilities of Bicep. You deploy Bicep files, and convert an ARM template into the equivalent Bicep file.
+After installing the tools, try the [Bicep tutorial](./bicep-tutorial-create-first-bicep.md). The tutorial series walks you through the structure and capabilities of Bicep. You deploy Bicep files, and convert an ARM template into the equivalent Bicep file.
 
 To view equivalent JSON and Bicep files side by side, see the [Bicep Playground](https://aka.ms/bicepdemo).
 
@@ -63,4 +63,4 @@ When you're ready, you can [convert the JSON files to Bicep](compare-template-sy
 
 ## Next steps
 
-Get started with the [Bicep tutorial](https://github.com/Azure/bicep/blob/main/docs/tutorial/01-simple-template.md).
+Get started with the [Bicep tutorial](./bicep-tutorial-create-first-bicep.md).
