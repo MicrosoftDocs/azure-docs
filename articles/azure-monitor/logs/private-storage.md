@@ -1,7 +1,6 @@
 ---
 title: Using customer-managed storage accounts in Azure Monitor Log Analytics
 description: Use your own storage account for Log Analytics scenarios
-ms.subservice: logs
 ms.topic: conceptual
 author: noakup
 ms.author: noakuper
