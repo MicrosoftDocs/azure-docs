@@ -17,11 +17,39 @@ ms.author: pafarley
 
 The Form Recognizer service is updated on an ongoing basis. Use this article to stay up to date with feature enhancements, fixes, and documentation updates.
 
+## March 2021
+
+**Form Recognizer v2.1 public preview 3 is now available.** v2.1-preview.3 has been released, including the following features:
+
+- **New prebuilt ID model** The new prebuilt ID model enables customers to take IDs and return structured data to automate processing. It combines our powerful Optical Character Recognition (OCR) capabilities with ID understanding models to extract key information from passports and U.S. driver licenses, such as name, date of birth, issue date, expiration date, and more.
+
+ > [Learn more about the prebuilt ID model](concept-id.md)
+
+ :::image type="content" source="./media/id-canpassport-example.png" alt-text="passport example" lightbox="./media/id-canpassport-example.png":::
+
+- **Line-item extraction for prebuilt invoice model** - Prebuilt Invoice model now supports line item extraction; it now extracts full items and their parts - description, amount, quantity, product ID, date and more. With a simple API/SDK call you can extract useful data from your invoices - text, table, key-value pairs, and line items.
+
+ > [Learn more about the prebuilt invoice model](concept-invoice.md)
+
+- **Supervised table labeling and training, empty-value labeling** - In addition to Form Recognizer's [state-of-the-art deep learning automatic table extraction capabilities](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011), it now enables customers to label and train on tables. This new release includes the ability to label and train on line items/tables (dynamic and fixed) and train a custom model to extract key-value pairs and line items. Once a model is trained, the model will extract line items as part of the JSON output in the documentResults section.
+
+ :::image type="content" source="./media/table-labeling.png" alt-text="Table labeling" lightbox="./media/table-labeling.png":::
+
+ In addition to labeling tables, you and now label empty values and regions; if some documents in your training set do not have values for certain fields, you can use this so that your model will know to extract values properly  from analyzed documents.
+
+- **Support for 66 new languages** - Form Recognizer's Layout API and Custom Models now support 73 languages.
+
+ > [Learn more about Form Recognizer's language support](language-support.md)
+
+- **Natural reading order, handwriting classification, and page selection** - With this update, you can choose to get the text line outputs in the natural reading order instead of the default left-to-right and to-to-bottom ordering. Use the new readingOrder query parameter and set it to "natural" value for a more human-friendly reading order output. In addition, for Latin languages, Form Recognizer will classify text lines as handwritten style or not and give a confidence score.
+
+- **Prebuilt receipt model quality improvements** This update includes a number of quality improvements for the prebuilt Receipt model, especially around line item extraction.
+
 ## November 2020
 
 ### New features
 
-**Form Recognizer v2.1 public preview 2 is now available.** v2.1-preview.3 has been released, including the following features: 
+**Form Recognizer v2.1 public preview 2 is now available.** v2.1-preview.2 has been released, including the following features: 
 
 - **New prebuilt invoice model** - The new prebuilt Invoice model enables customers to take invoices in a variety of formats and return structured data to automate the invoice processing. It combines our powerful Optical Character Recognition (OCR) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts the text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, amount due, tax amount, ship to, bill to, and more.
 
@@ -89,7 +117,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 * **Azure Gov** - Form Recognizer is now also available in Azure Gov.
 * **Enhanced security features**: 
    * **Bring your own key** - Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys, also known as bring your own key (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.  
-   * **Private endpoints** – Enables you on a virtual network (VNet) to [securely access data over a Private Link. ](../../private-link/private-link-overview.md)
+   * **Private endpoints** – Enables you on a virtual network (VNet) to [securely access data over a Private Link.](../../private-link/private-link-overview.md)
 
 
 ## June 2020
