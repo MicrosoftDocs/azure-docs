@@ -32,7 +32,7 @@ When using Identity Protection, consider the following:
 
 - Identity Protection is on by default.
 - Identity Protection is available for both local and social identities, such as Google or Facebook. For social identities, Conditional Access must be activated. Detection is limited because the social account credentials are managed by the external identity provider.
-- In Azure AD B2C tenants, only a subset of the [Azure AD Identity Protection risk detections](../active-directory/identity-protection/overview-identity-protection.md) are available. The following risk detections are supported by Azure AD B2C:  
+- In Azure AD B2C tenants, only a subset of the [Azure AD Identity Protection risk detections](../active-directory/identity-protection/overview-identity-protection.md) is available. The following risk detections are supported by Azure AD B2C:  
 
 |Risk detection type  |Description  |
 |---------|---------|
