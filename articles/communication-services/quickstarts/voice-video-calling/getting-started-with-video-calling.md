@@ -1,25 +1,19 @@
-# QuickStart: Add 1:1 video calling to your app
+---
+title: Quickstart - Add video calling to your app (JS)
+titleSuffix: An Azure Communication Services quickstart
+description: In this quickstart, you'll learn how to add calling capabilities to your app using Azure Communication Services.
+author: xumo-95
+ms.author: mikben
+ms.date: 07/24/2020
+ms.topic: quickstart
+ms.service: azure-communication-services
+---
 
-- [QuickStart: Add 1:1 video calling to your app](#quickstart-add-11-video-calling-to-your-app)
-  - [Prerequisites](#prerequisites)
-  - [Setting up](#setting-up)
-    - [Create a new Node.js application](#create-a-new-nodejs-application)
-    - [Install the package](#install-the-package)
-    - [Set up the app framework](#set-up-the-app-framework)
-  - [Object model](#object-model)
-  - [Authenticate the client and access DeviceManager](#authenticate-the-client-and-access-devicemanager)
-  - [Place a 1:1 outgoing video call to a user](#place-a-11-outgoing-video-call-to-a-user)
-  - [Receive an incoming call](#receive-an-incoming-call)
-  - [End the current call](#end-the-current-call)
-  - [Subscribe to call updates](#subscribe-to-call-updates)
-  - [Start and end video during the call](#start-and-end-video-during-the-call)
-  - [Run the code](#run-the-code)
-  - [Sample Code](#sample-code)
-  - [Clean up resources](#clean-up-resources)
-  
+# QuickStart: Add 1:1 video calling to your app (JS)
+
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
-- You need to have [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1)
+- [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1)
 - Create an active Communication Services resource. [Create a Communication Services resource](https://docs.microsoft.com/en-gb/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
 - Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](https://docs.microsoft.com/en-gb/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp).
 
@@ -30,19 +24,22 @@ Open your terminal or command window create a new directory for your app, and na
 mkdir calling-quickstart && cd calling-quickstart
 ```
 ### Install the package
-Use the npm install command to install the Azure Communication Services Calling client library for JavaScript.
-This QuickStart used Azure Communication Calling Client Library 1.0.0.beta-6. 
+Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
+
+This quickstart used Azure Communication Calling Client Library `1.0.0.beta-6`. 
+
 ```console
 npm install @azure/communication-common --save
 npm install @azure/communication-calling --save
 ```
 ### Set up the app framework
 
-This quickstart uses webpack to bundle the application assets. Run the following command to install the webpack, webpack-cli and webpack-dev-server npm packages and list them as development dependencies in your package.json:
+This quickstart uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
+
 ```console
 npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
 ```
-Create an index.html file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place a 1:1 video call.
+Create an `index.html` file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place a 1:1 video call.
 
 Here's the code:
 ```html
@@ -96,7 +93,8 @@ Here's the code:
 </html>
 ```
 
-Create a file in the root directory of your project called client.js to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements. 
+Create a file in the root directory of your project called `client.js` to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements.
+
 ```JavaScript
 import { CallClient, CallAgent, Renderer, LocalVideoStream } from "@azure/communication-calling";
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
@@ -129,8 +127,10 @@ The following classes and interfaces handle some of the major features of the Az
 ## Authenticate the client and access DeviceManager
 
 You need to replace <USER_ACCESS_TOKEN> with a valid user access token for your resource. Refer to the user access token documentation if you don't already have a token available. Using the CallClient, initialize a CallAgent instance with a CommunicationUserCredential which will enable us to make and receive calls. 
-To access the DeviceManager a callAgent instance must first be created. You can then use the getDeviceManager method on the CallClient instance to get the DeviceManager.
-Add the following code to client.js:
+To access the DeviceManager a callAgent instance must first be created. You can then use the `getDeviceManager` method on the `CallClient` instance to get the `DeviceManager`.
+
+Add the following code to `client.js`:
+
 ```JavaScript
 async function init() {
     const callClient = new CallClient();
@@ -143,11 +143,11 @@ async function init() {
 init();
 ```
 ## Place a 1:1 outgoing video call to a user
-Add an event listener to initiate a call when the callButton is clicked:
 
-First you have to enumerate local cameras using the deviceManager getCameraList API. In this Quickstart we are using the first camera in the collection. Once the desired camera is selected, a LocalVideoStream instance will be constructed and passed within videoOptions as an item within the localVideoStream array to the call method. Once your call connects it will automatically start sending a video stream to the other participant. 
+Add an event listener to initiate a call when the `callButton` is clicked:
 
-The functions refered here will be explained below. 
+First you have to enumerate local cameras using the deviceManager getCameraList API. In this quickstart we're using the first camera in the collection. Once the desired camera is selected, a LocalVideoStream instance will be constructed and passed within videoOptions as an item within the localVideoStream array to the call method. Once your call connects it will automatically start sending a video stream to the other participant. 
+
 ```JavaScript
 callButton.addEventListener("click", async () => {
     const videoDevices = await deviceManager.getCameras();
@@ -171,7 +171,8 @@ callButton.addEventListener("click", async () => {
     callButton.disabled = true;
 });
 ```  
-To render a LocalVideoStream, you need to create a new instance of Renderer, and then create a new RendererView instance using the asynchronous createView method. You may then attach view.target to any UI element. 
+To render a `LocalVideoStream`, you need to create a new instance of `Renderer`, and then create a new RendererView instance using the asynchronous `createView` method. You may then attach `view.target` to any UI element. 
+
 ```JavaScript
 async function localVideoView() {
     rendererLocal = new Renderer(localVideoStream);
@@ -179,7 +180,8 @@ async function localVideoView() {
     document.getElementById("myVideo").appendChild(view.target);
 }
 ```
-All remote participants are available through the remoteParticipants collection on a call instance. You need to subscribe to the remote participants of the current call and listen to the event 'remoteParticipantsUpdated' to subscribe to added remote participants.
+All remote participants are available through the `remoteParticipants` collection on a call instance. You need to subscribe to the remote participants of the current call and listen to the event `remoteParticipantsUpdated` to subscribe to added remote participants.
+
 ```JavaScript
 function subscribeToRemoteParticipantInCall(callInstance) {
     callInstance.remoteParticipants.forEach( p => {
@@ -192,7 +194,8 @@ function subscribeToRemoteParticipantInCall(callInstance) {
     });   
 }
 ```
-You can subscribe to the remoteParticipants collection of the current call and inspect the videoStreams collections to list the streams of each participant. You also need to subscribe to the remoteParticipantsUpdated event to handle added remote participants. 
+You can subscribe to the `remoteParticipants` collection of the current call and inspect the `videoStreams` collections to list the streams of each participant. You also need to subscribe to the remoteParticipantsUpdated event to handle added remote participants. 
+
 ```JavaScript
 function subscribeToRemoteParticipant(remoteParticipant) {
     remoteParticipant.videoStreams.forEach(v => {
@@ -205,7 +208,7 @@ function subscribeToRemoteParticipant(remoteParticipant) {
     });
 }
 ```
-You have to subscribe to a isAvailableChanged event to render the remoteVideoStream. If the isAvailable property changes to true, a remote participant is sending a stream. Whenever availability of a remote stream changes you can choose to destroy the whole Renderer, a specific RendererView or keep them, but this will result in displaying blank video frame.
+You have to subscribe to a `isAvailableChanged` event to render the `remoteVideoStream`. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. Whenever availability of a remote stream changes you can choose to destroy the whole `Renderer`, a specific `RendererView` or keep them, but this will result in displaying blank video frame.
 ```JavaScript
 function handleVideoStream(remoteVideoStream) {
     remoteVideoStream.on('availabilityChanged', async () => {
@@ -220,7 +223,8 @@ function handleVideoStream(remoteVideoStream) {
     }
 }
 ```
-To render a RemoteVideoStream, you need to create a new instance of Renderer, and then create a new RendererView instance using the asynchronous createView method. You may then attach view.target to any UI element. 
+To render a `RemoteVideoStream`, you need to create a new instance of `Renderer`, and then create a new `RendererView` instance using the asynchronous `createView` method. You may then attach `view.target` to any UI element. 
+
 ```JavaScript
 async function remoteVideoView(remoteVideoStream) {
     rendererRemote = new Renderer(remoteVideoStream);
@@ -229,9 +233,10 @@ async function remoteVideoView(remoteVideoStream) {
 }
 ```
 ## Receive an incoming call
-To handle incoming calls you need to listen to the incomingCall event of callAgent. Once there is an incoming call, you need to enumerate local cameras and construct a LocalVideoStream instance to send a video stream to the other participant. You also need to subscribe to remoteParticipants to handle remote video streams. You can accept or reject the call through the incomingCall instance. 
+To handle incoming calls you need to listen to the `incomingCall` event of `callAgent`. Once there is an incoming call, you need to enumerate local cameras and construct a `LocalVideoStream` instance to send a video stream to the other participant. You also need to subscribe to `remoteParticipants` to handle remote video streams. You can accept or reject the call through the `incomingCall` instance. 
 
-Put the implementation in init() to handle incoming calls. 
+Put the implementation in `init()` to handle incoming calls. 
+
 ```JavaScript
 callAgent.on('incomingCall', async e => {
     const videoDevices = await deviceManager.getCameras();
@@ -250,7 +255,7 @@ callAgent.on('incomingCall', async e => {
 });
 ```
 ## End the current call
-Add an event listener to end the current call when the hangUpButton is clicked:
+Add an event listener to end the current call when the `hangUpButton` is clicked:
 ```JavaScript
 hangUpButton.addEventListener("click", async () => {
     // dispose of the renderers
@@ -267,8 +272,8 @@ hangUpButton.addEventListener("click", async () => {
 ## Subscribe to call updates
 You need to subscribe to the event when the remote participant ends the call to dispose of video renderers and toggle button states. 
 
-Put the implementation in init() to subscribe to the 'callsUpdated' event. 
-
+Put the implementation in init() to subscribe to the `callsUpdated` event. 
+ ```JavaScript 
 callAgent.on('callsUpdated', e => {
     e.removed.forEach(removedCall => {
         // dispose of video renders
@@ -280,9 +285,10 @@ callAgent.on('callsUpdated', e => {
         stopVideoButton.disabled = true;
     })
 })
+```
 
 ## Start and end video during the call
-You can stop the video during the current call by adding an event listener to the Stop Video button to dispose of the renderer of localVideoStream. 
+You can stop the video during the current call by adding an event listener to the Stop Video button to dispose of the renderer of `localVideoStream`. 
  ```JavaScript       
 stopVideoButton.addEventListener("click", async () => {
     await call.stopVideo(localVideoStream);
@@ -301,7 +307,8 @@ startVideoButton.addEventListener("click", async () => {
 });
 ```
 ## Run the code
-Use the webpack-dev-server to build and run your app. Run the following command to bundle application host in on a local webserver:
+Use the `webpack-dev-server` to build and run your app. Run the following command to bundle application host in on a local webserver:
+
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
