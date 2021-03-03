@@ -82,7 +82,7 @@ To remove a data factory connection, do the following:
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
-## Configure a Self-hosted Ingegration Runtime to collect lineage
+## Configure a Self-hosted Integration Runtime to collect lineage
 
 Lineage for the Data Factory Copy activity is available for on-premises data stores like SQL databases. If you're running self-hosted integration runtime for the data movement with Azure Data Factory and want to capture lineage in Azure Purview, ensure the version is 5.0 or later. For more information about self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
