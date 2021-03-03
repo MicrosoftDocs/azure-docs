@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ---
 
@@ -106,8 +106,9 @@ azdata arc dc upload -p usage.json
 
 Follow these steps to view billing data in the Azure portal:
 
-1. Open the Azure portal using the special URL:  [https://aka.ms/arcdata](https://aka.ms/arcdata).
+1. Open the [Azure portal](https://portal.azure.com).
 1. In the search box at the top of the screen type in **Cost Management** and click on the Cost Management service.
+1. Under **Cost Management Overview**, click on the **Cost Management** tab.
 1. Click on the **Cost analysis** tab on the left.
 1. Click the **Cost by resource** button on the top of the view.
 1. Make sure that your Scope is set to the subscription in which your data service resources were created.
