@@ -106,12 +106,12 @@ To find out more abut T-SQL options to configure automatic tuning, see [ALTER DA
 
 ## Troubleshooting
 
-### Automated recommendation managemnet is disabled, or disabled by the system
+### Automated recommendation management is disabled, or disabled by the system
 
-In case of error messages that automated recommendation management has been disabled, or simply disabled by system, the most common casues are:
+In case of error messages that automated recommendation management has been disabled, or simply disabled by system, the most common causes are:
 - Query Store is not enabled, or
 - Query Store is in read-only mode for a specified database, or
-- Query Store stopped running because it used the alocated storage space.
+- Query Store stopped running because it used the allocated storage space.
 
 The following steps can be considered to rectify this issue:
 - Clean up the Query Store, or modify the data retention period to "auto" by using T-SQL. See how to [configure recommended retention and capture policy for Query Store](/azure/azure-sql/database/query-performance-insight-use#recommended-retention-and-capture-policy).
