@@ -18,7 +18,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 ## Cluster configuration requirements
 
 * All OpenShift Cluster operators must remain in a managed state. The list of cluster operators can be returned by running `oc get clusteroperators`.
-* The cluster must have a minimum of two worker nodes. Do not scale the cluster workers to zero, or attempt a graceful cluster shutdown.
+* The cluster must have a minimum of two worker nodes. Do not have taints that prevent OpenShift components to be scheduled. Do not scale the cluster workers to zero, or attempt a graceful cluster shutdown.
 * Don't remove or modify the cluster Prometheus and Alertmanager services.
 * Don't remove Service Alertmanager rules.
 * Don't remove or modify network security groups.

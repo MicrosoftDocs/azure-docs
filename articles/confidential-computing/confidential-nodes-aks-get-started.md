@@ -4,7 +4,7 @@ description: Learn to create an AKS cluster with confidential nodes and deploy a
 author: agowdamsft
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 2/8/2020
+ms.date: 2/25/2020
 ms.author: amgowda
 ---
 
@@ -21,52 +21,19 @@ In this quickstart, you'll learn how to deploy an Azure Kubernetes Service (AKS)
 
 ### Confidential computing node features (DC<x>s-v2)
 
-1. Linux Worker Nodes supporting Linux Containers Only
+1. Linux Worker Nodes supporting Linux Containers
 1. Generation 2 VM with Ubuntu 18.04 Virtual Machines Nodes
 1. Intel SGX-based CPU with Encrypted Page Cache Memory (EPC). Read more [here](./faq.md)
 1. Supporting Kubernetes version 1.16+
-1. Intel SGX DCAP Driver Pre-installed on the AKS Nodes. Read more [here](./faq.md)
+1. Intel SGX DCAP Driver pre-installed on the AKS Nodes. Read more [here](./faq.md)
 
 ## Deployment prerequisites
 The deployment tutorial requires the below :
 
 1. An active Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin
 1. Azure CLI version 2.0.64 or later installed and configured on your deployment machine (Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](../container-registry/container-registry-get-started-azure-cli.md)
-1. Azure [aks-preview extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) minimum version 0.5.0
 1. Minimum of six **DC<x>s-v2** cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription 8 cores. If you plan to provision a cluster that requires more than 8 cores, follow [these](../azure-portal/supportability/per-vm-quota-requests.md) instructions to raise a quota increase ticket
 
-## CLI-based preparation steps (required for add-on in preview - optional but recommended)
-Follow the below instructions to enable Confidential computing add-on on AKS.
-
-### Step 1: Installing the CLI prerequisites
-
-To install the aks-preview 0.5.0 extension or later, use the following Azure CLI commands:
-
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-To update the aks-preview CLI extension, use the following Azure CLI commands:
-
-```azurecli-interactive
-az extension update --name aks-preview
-```
-### Step 2: Azure Confidential Computing addon feature registration on Azure
-Registering the AKS-ConfidentialComputingAddon on the Azure Subscription. This feature will add SGX device plugin daemonset as discussed in details [here](./confidential-nodes-aks-overview.md#confidential-computing-add-on-for-aks):
-1. SGX Device Driver Plugin
-```azurecli-interactive
-az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.ContainerService
-```
-It might take several minutes for the status to show as Registered. You can check the registration status by using the 'az feature list' command. This feature registration is done only once per subscription. If this was registered previously you can skip the above step:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputingAddon')].{Name:name,State:properties.state}"
-```
-When the status shows as registered, refresh the registration of the Microsoft.ContainerService resource provider by using the 'az provider register' command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 ## Creating new AKS cluster with confidential computing nodes and add-on
 Follow the below instructions to add confidential computing capable nodes with add-on.
 

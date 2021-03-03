@@ -1,7 +1,6 @@
 ---
 title: Log data ingestion time in Azure Monitor | Microsoft Docs
 description: Explains the different factors that affect latency in collecting log data in Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -53,7 +52,7 @@ Some solutions do not collect their data from an agent and may use a collection 
 Refer to the documentation for each solution to determine its collection frequency.
 
 ### Pipeline-process time
-Once log records are ingested into the Azure Monitor pipeline (as identified in the [_TimeReceived](../platform/log-standard-columns.md#_timereceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically adds 5-15 seconds. Some management solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, the Network Performance Monitoring aggregates incoming data over 3-minute intervals, effectively adding 3-minute latency. Another process that adds latency is the process that handles custom logs. In some cases, this process might add few minutes of latency to logs that are collected from files by the agent.
+Once log records are ingested into the Azure Monitor pipeline (as identified in the [_TimeReceived](./log-standard-columns.md#_timereceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically adds 5-15 seconds. Some management solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, the Network Performance Monitoring aggregates incoming data over 3-minute intervals, effectively adding 3-minute latency. Another process that adds latency is the process that handles custom logs. In some cases, this process might add few minutes of latency to logs that are collected from files by the agent.
 
 ### New custom data types provisioning
 When a new type of custom data is created from a [custom log](../agents/data-sources-custom-logs.md) or the [Data Collector API](../logs/data-collector-api.md), the system creates a dedicated storage container. This is a one-time overhead that occurs only on the first appearance of this data type.
@@ -73,8 +72,8 @@ Ingestion time may vary for different resources under different circumstances. Y
 
 | Step | Property or Function | Comments |
 |:---|:---|:---|
-| Record created at data source | [TimeGenerated](../platform/log-standard-columns.md#timegenerated-and-timestamp) <br>If the data source doesn't set this value, then it will be set to the same time as _TimeReceived. |
-| Record received by Azure Monitor ingestion endpoint | [_TimeReceived](../platform/log-standard-columns.md#_timereceived) | |
+| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>If the data source doesn't set this value, then it will be set to the same time as _TimeReceived. |
+| Record received by Azure Monitor ingestion endpoint | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
 | Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### Ingestion latency delays

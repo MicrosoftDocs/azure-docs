@@ -116,7 +116,7 @@ FIM is only available from Security Center's pages in the Azure portal. There is
 
     - Access and view the status and settings of each workspace
 
-    - ![Upgrade plan icon][4] Upgrade the workspace to use Azure Defender. This icon Indicates that the workspace or subscription isn't protected by Azure Defender. To use the FIM features, your subscription must be protected by Azure Defender. [Learn more](security-center-pricing.md).
+    - ![Upgrade plan icon][4] Upgrade the workspace to use Azure Defender. This icon Indicates that the workspace or subscription isn't protected by Azure Defender. To use the FIM features, your subscription must be protected by Azure Defender. For more information, see [Security Center free vs Azure Defender enabled](security-center-pricing.md#security-center-free-vs-azure-defender-enabled).
 
     - ![Enable icon][3] Enable FIM on all machines under the workspace and configure the FIM options. This icon indicates that FIM is not enabled for the workspace.
 

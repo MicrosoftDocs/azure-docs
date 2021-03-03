@@ -3,7 +3,7 @@ title: Deploy a Linux Hybrid Runbook Worker in Azure Automation
 description: This article tells how to install an Azure Automation Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 02/18/2021
 ms.topic: conceptual
 ---
 
@@ -38,12 +38,15 @@ The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monit
 The Hybrid Runbook Worker feature supports the following distributions. All operating systems are assumed to be x64. x86 is not supported for any operating system.
 
 * Amazon Linux 2012.09 to 2015.09
-* CentOS Linux 5, 6, and 7
+* CentOS Linux 5, 6, 7, and 8
 * Oracle Linux 5, 6, and 7
-* Red Hat Enterprise Linux Server 5, 6, and 7
+* Red Hat Enterprise Linux Server 5, 6, 7, and 8
 * Debian GNU/Linux 6, 7, and 8
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, and 18.04 LTS
-* SUSE Linux Enterprise Server 12
+* SUSE Linux Enterprise Server 12 and 15
+
+> [!IMPORTANT]
+> Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/overview.md#supported-operating-systems).
 
 ### Minimum requirements
 

@@ -60,7 +60,7 @@ Enable diagnostic settings within Azure Monitor for access to audit, security, a
 
 - [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -112,7 +112,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel.
 
 In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint.
 
-- [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
 - [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -270,7 +270,7 @@ In Resource Manager, endpoints from any subscription can be added to Traffic Man
 
 Azure Traffic Manager has a predefined Azure role called "Traffic Manager Contributor", which can be assigned to users.
 
-- [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
 - [Traffic Manager Contributor role](../role-based-access-control/built-in-roles.md#traffic-manager-contributor)
 

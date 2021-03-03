@@ -150,8 +150,10 @@
         href: disable-user-sign-in-portal.md
       - name: Configure self-service app assignment
         href: manage-self-service-access.md
-      - name: Home Realm Discovery
+      - name: Force auto-acceleration through Home Realm Discovery policy
         href: configure-authentication-for-federated-users-portal.md
+      - name: Prevent sign-in auto-acceleration using Home Realm Discovery policy
+        href: prevent-domain-hints-with-home-realm-discovery.md
     - name: Migrate identity management to Azure AD
       items:
       - name: Migration resources
@@ -212,8 +214,10 @@
           href: application-proxy-integrate-with-microsoft-cloud-application-security.md
         - name: Integrate with Remote Desktop
           href: application-proxy-integrate-with-remote-desktop-services.md
-        - name: Integrate with SharePoint
+        - name: Integrate with SharePoint (Kerberos)
           href: application-proxy-integrate-with-sharepoint-server.md
+        - name: Integrate with SharePoint (SAML)
+          href: application-proxy-integrate-with-sharepoint-server-saml.md
         - name: Integrate with Teams
           href: application-proxy-integrate-with-teams.md
         - name: Integrate with Tableau
