@@ -43,7 +43,7 @@ Within a service, content creation and management are through [Search Service RE
 
 The examples in this article are interactive and require elevated permissions. The Azure CLI must be installed. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-You can now run the Azure CLI with the `az` command from either Windows Command Prompt, PowerShell, or [Azure Cloud Shell](../cloud-shell/overview). PowerShell offers some tab completion features not available from Windows Command Prompt. 
+You can now run the Azure CLI with the `az` command from either Windows Command Prompt, PowerShell, or [Azure Cloud Shell](../cloud-shell/overview.md). PowerShell offers some tab completion features not available from Windows Command Prompt. 
 
 ### Check the Azure CLI version
 
@@ -148,7 +148,7 @@ az search service show --name <service-name> --resource-group <resource-group-na
 
 ## Create or delete a service
 
-To [create a new search service](search-create-service-portal), use the [**az search service create**](/cli/azure/search/service#az_search_service_show) command.
+To [create a new search service](search-create-service-portal.md), use the [**az search service create**](/cli/azure/search/service#az_search_service_show) command.
 
 ```azurecli-interactive
 az search service create \
