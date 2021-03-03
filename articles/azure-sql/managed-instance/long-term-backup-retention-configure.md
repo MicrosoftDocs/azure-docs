@@ -8,14 +8,14 @@ ms.custom:
 ms.devlang: 
 ms.topic: how-to
 author: shkale-msft
-ms.author: shkale-msft
+ms.author: shkale
 ms.reviewer: mathoma, sstein
 ms.date: 02/25/2021
 ---
 # Manage Azure SQL Managed Instance long-term backup retention (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-In Azure SQL Managed Instance, you can configure a [long-term backup retention](../database/long-term-retention-overview.md#sql-managed-instance-support) policy (LTR) as a public preview feature. This allows you to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups with PowerShell.
+In Azure SQL Managed Instance, you can configure a [long-term backup retention](../database/long-term-retention-overview.md) policy (LTR) as a public preview feature. This allows you to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups with PowerShell.
 
    > [!IMPORTANT]
    > LTR for managed instances is currently available in public preview in Azure Public regions. 
@@ -29,7 +29,7 @@ The following sections show you how to use the Azure portal to set long-term ret
 
 ### Configure long-term retention policies
 
-You can configure SQL Managed Instance to [retain automated backups](long-term-retention-overview.md) for a period longer than the retention period for your service tier.
+You can configure SQL Managed Instance to [retain automated backups](../database/long-term-retention-overview.md) for a period longer than the retention period for your service tier.
 
 1. In the Azure portal, select your managed instance and then click **Backups**. On the **Retention policies** tab, select the database(s) on which you want to set or modify long-term backup retention policies. Changes will not apply to any databases left unselected. 
 
@@ -42,7 +42,7 @@ You can configure SQL Managed Instance to [retain automated backups](long-term-r
 3. When complete, click **Apply**.
 
 > [!IMPORTANT]
-> When you enable a long-term backup retention policy, it may take up to 7 days for the first backup to become visible and available to restore. For details of the LTR backup cadance, see [long-term backup retention](long-term-retention-overview.md).
+> When you enable a long-term backup retention policy, it may take up to 7 days for the first backup to become visible and available to restore. For details of the LTR backup cadance, see [long-term backup retention](../database/long-term-retention-overview.md).
 
 ### View backups and restore from a backup
 
@@ -71,7 +71,7 @@ View the backups that are retained for a specific database with an LTR policy, a
 1. When the restore job is completed, open the **Managed Instance Overview** page to view the newly restored database.
 
 > [!NOTE]
-> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](recovery-using-backups.md#point-in-time-restore).
+> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](../database/recovery-using-backups.md#point-in-time-restore).
 
 
 ## Using PowerShell
