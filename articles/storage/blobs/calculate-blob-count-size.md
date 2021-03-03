@@ -24,11 +24,11 @@ Calculating the blob count and total size of blobs per container is difficult. T
 
 ## Create a Synapse workspace
 
-[Create a Synapse workspace](azure/synapse-analytics/get-started-create-workspace)
+[Create a Synapse workspace](/azure/synapse-analytics/get-started-create-workspace)
 
 ## Run a SQL query
 
-Run the following SQL query in your Azure Synapse workspace to [read the inventory CSV file](azure/synapse-analytics/sql/query-single-csv-file#read-a-csv-file). For the `bulk` parameter, use the URL to the inventory report CSV file that you would like to analyze.
+Run the following SQL query in your Azure Synapse workspace to [read the inventory CSV file](/azure/synapse-analytics/sql/query-single-csv-file#read-a-csv-file). For the `bulk` parameter, use the URL to the inventory report CSV file that you would like to analyze.
 
 ```sql
 SELECT LEFT(Name, CHARINDEX('/', Name) - 1) AS Container, SUM(Content_Length) As TotalBlobSize, COUNT(*) As TotalBlobCount
@@ -58,4 +58,4 @@ See the blob count and total size per container
 ## Next steps
 
 - [Use Azure Storage blob inventory to manage blob data](blob-inventory.md)
-- [Calculate the total billing size of a blob container](../scripts/storage-blobs-container-calculate-billing-size-powershell)
+- [Calculate the total billing size of a blob container](../scripts/storage-blobs-container-calculate-billing-size-powershell.md)
