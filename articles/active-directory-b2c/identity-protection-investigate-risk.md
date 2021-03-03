@@ -1,5 +1,5 @@
 ---
-title: Investigate risk with Azure AD B2C Identity Protection
+title: Investigate risk with Azure Active Directory B2C Identity Protection
 description: Learn how to investigate risky users, and detections in Azure AD B2C Identity Protection
 
 services: active-directory

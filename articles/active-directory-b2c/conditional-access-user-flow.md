@@ -200,6 +200,11 @@ To enable Conditional Access for a user flow, make sure the version supports Con
 ## Test your custom policy
 
 1. Select the `B2C_1A_signup_signin_with_ca` or `B2C_1A_signup_signin_with_ca_whatif` policy to open its overview page. Then select **Run user flow**. Under **Application**, select *webapp1*. The **Reply URL** should show `https://jwt.ms`.
+1. Copy the URL under **Run user flow endpoint**.
+
+1. To simulate a risky sign-in, open the [Tor Browser](https://www.torproject.org/download/) and use the URL you copied in the previous step to sign in to the registered app.
+
+1. Enter the requested information in the sign-in page, and then attempt to sign in. The token is returned to `https://jwt.ms` and should be displayed to you. In the jwt.ms decoded token, you should see that the sign-in was blocked.
 
 ::: zone-end
 
@@ -208,13 +213,14 @@ To enable Conditional Access for a user flow, make sure the version supports Con
 ## Test your user flow
 
 1. Select the user flow you created to open its overview page, and then select **Run user flow**. Under **Application**, select *webapp1*. The **Reply URL** should show `https://jwt.ms`.
-::: zone-end
 
 1. Copy the URL under **Run user flow endpoint**.
 
 1. To simulate a risky sign-in, open the [Tor Browser](https://www.torproject.org/download/) and use the URL you copied in the previous step to sign in to the registered app.
 
 1. Enter the requested information in the sign-in page, and then attempt to sign in. The token is returned to `https://jwt.ms` and should be displayed to you. In the jwt.ms decoded token, you should see that the sign-in was blocked.
+
+::: zone-end
 
 ## Review Conditional Access outcomes in the audit report
 
