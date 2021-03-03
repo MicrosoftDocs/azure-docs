@@ -171,6 +171,7 @@ While IPv6 support is available for connections to deployments in regions with A
 * Connections to deployments in Azure via a non-AZ ExpressRoute gateway SKU
 * Connections to deployments in non-AZ regions
 * Global Reach connections between ExpressRoute circuits
+* Use of ExpressRoute with vWAN
 
 ## Next steps
 
