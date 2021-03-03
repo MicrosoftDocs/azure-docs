@@ -392,7 +392,7 @@ Math expressions provide mathematical operators to perform data-driven calculati
 | `ln2()` | number | Returns the mathematical constant `ln(2)`. |
 | `max(numbers... | expressions...)` | number | Calculates the maximum number in the specified set of numbers. |
 | `min(numbers... | expressions...)` | number | Calculates the minimum number in the specified set of numbers. |
-| `mod(number, number)` \| | `mod(Expression, Expression)` | number | Calculates the remainder when dividing the first number by the second number. Web SDK equivalent expression: `%` |
+| `mod(number, number)` \| `mod(Expression, Expression)` | number | Calculates the remainder when dividing the first number by the second number. Web SDK equivalent expression: `%` |
 | `pi()` | number | Returns the mathematical constant `PI`. |
 | `pow(number, number)` \| `pow(Expression, Expression)` | number | Calculates the value of the first value raised to the power of the second number. |
 | `product(numbers... | expressions...)` | number | Multiplies the specified numbers together. Web SDK equivalent expression: `*` |
