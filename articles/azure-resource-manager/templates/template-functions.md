@@ -28,6 +28,10 @@ Most functions work the same when deployed to a resource group, subscription, ma
 <a id="take" aria-hidden="true"></a>
 <a id="union" aria-hidden="true"></a>
 
+## Any function
+
+The [any function](template-functions-any.md) is available in Bicep to help resolve issues around data type warnings.
+
 ## Array functions
 
 Resource Manager provides several functions for working with arrays.

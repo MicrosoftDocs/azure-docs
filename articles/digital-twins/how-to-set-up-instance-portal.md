@@ -58,8 +58,8 @@ If you do want to configure more details for your instance, the next section des
 
 Here are the additional options you can configure during setup, using the other tabs in the **Create Resource** process.
 
-* **Networking**: In this tab, you can enable private endpoints with [Azure Private Link](../private-link/private-link-overview.md) to eliminate public network exposure to your instance. For instructions, see [*How-to: Enable private access with Private Link (preview)*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
-* **Advanced**: In this tab, you can enable a [system-managed identity](../active-directory/managed-identities-azure-resources/overview.md) for your instance that can be used when forwarding events to [endpoints](concepts-route-events.md). For instructions, see [*How-to: Enable managed identities for routing events (preview)*](how-to-enable-managed-identities.md#add-a-system-managed-identity-during-instance-creation).
+* **Networking**: In this tab, you can enable private endpoints with [Azure Private Link](../private-link/private-link-overview.md) to eliminate public network exposure to your instance. For instructions, see [*How-to: Enable private access with Private Link (preview)*](./how-to-enable-private-link-portal.md#add-a-private-endpoint-during-instance-creation).
+* **Advanced**: In this tab, you can enable a [system-managed identity](../active-directory/managed-identities-azure-resources/overview.md) for your instance that can be used when forwarding events to [endpoints](concepts-route-events.md). For instructions, see [*How-to: Enable managed identities for routing events (preview)*](./how-to-enable-managed-identities-portal.md#add-a-system-managed-identity-during-instance-creation).
 * **Tags**: In this tab, you can add tags to your instance to help you organize it among your Azure resources. For more about Azure resource tags, see [*Tag resources, resource groups, and subscriptions for logical organization*](../azure-resource-manager/management/tag-resources.md).
 
 ### Verify success and collect important values

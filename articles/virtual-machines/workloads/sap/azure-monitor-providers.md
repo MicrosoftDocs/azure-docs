@@ -2,12 +2,10 @@
 title: Azure Monitor for SAP Solutions providers| Microsoft Docs
 description: This article provides answers to frequently asked questions about Azure monitor for SAP solutions providers.
 author: rdeltcheva
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.reviewer: cynthn
 
 ---
 
