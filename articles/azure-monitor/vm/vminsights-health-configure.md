@@ -1,7 +1,6 @@
 ---
 title: Configure monitoring in VM insights guest health (preview)
 description: Describes how to modify default monitoring for VM insights guest health (preview) using the Azure portal.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
