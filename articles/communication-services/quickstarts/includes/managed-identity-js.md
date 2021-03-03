@@ -59,7 +59,7 @@ export async function sendSms(resourceEndpoint: string, fromNumber: any, toNumbe
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about authentication](../concepts/authentication.md)
+> [Learn about authentication](../../concepts/authentication.md)
 
 You may also want to:
 
@@ -68,4 +68,3 @@ You may also want to:
 - [Creating user access tokens](../../quickstarts/access-tokens.md)
 - [Send an SMS message](../../quickstarts/telephony-sms/send.md)
 - [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
-
