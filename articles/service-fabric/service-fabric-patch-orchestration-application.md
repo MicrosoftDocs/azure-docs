@@ -39,7 +39,7 @@ With Bronze durability, automatic OS image upgrade isn't available. While [Patch
 
 There are two ways to enable the feature with disabled Windows Update on the operation system.
 
-### ARM 
+ARM 
 ```json
 "virtualMachineProfile": { 
     "properties": {
@@ -61,14 +61,14 @@ There are two ways to enable the feature with disabled Windows Update on the ope
     }
 }
 ```
-### Azure PowerShell
+Azure PowerShell
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -AutomaticOSUpgrade $true -EnableAutomaticUpdate $false
 ``` 
 
 After this configuration change a reimage of all machines is needed to update the scale set model, so that the change is taken effect.
 
-### Azure PowerShell
+Azure PowerShell
 ```azurepowershell-interactive
 $scaleSet = Get-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName
 $instances = foreach($vm in $scaleSet)
