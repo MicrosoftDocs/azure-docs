@@ -24,8 +24,8 @@ ROBOTS: NOINDEX,NOFOLLOW
 
     ![Screenshot that shows the settings that need to be set for creating a manually triggered WebJob.](../media/web-sites-create-web-jobs/addwjtriggered.png)
     
-    | Setting      | Sample value   | Description  |
-    | ------------ | ----------------- | ------------ |
+    | Setting      | Sample value   | 
+    | ------------ | ----------------- | 
    | <abbr title="A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than `-` and `_`.">Name</abbr> | myTriggeredWebJob | 
     | <abbr title="A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script.">File Upload</abbr> | ConsoleApp.zip |
     | <abbr title="Types include continuous, triggered.">Type</abbr> | Triggered | 
