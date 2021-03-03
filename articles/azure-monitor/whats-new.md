@@ -715,7 +715,7 @@ Multiple updates as part of rewrite of diagnostics extension content.
 
 - [Overview of the Azure monitoring agents](agents/agents-overview.md) - Restructured tables to better clarify unique features of each agent.
 - [Azure Diagnostics extension overview](agents/diagnostics-extension-overview.md) - Complete rewrite.
-- [Use blob storage for IIS and table storage for events in Azure Monitor](essentials/diagnostics-extension-logs.md) - General rewrite for update and clarity.
+- [Use blob storage for IIS and table storage for events in Azure Monitor](agents/diagnostics-extension-logs.md) - General rewrite for update and clarity.
 - [Install and configure Windows Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md) - New article. 
 - [Windows diagnostics extension schema](agents/diagnostics-extension-schema-windows.md) - Reorganized.
 - [Send data from Windows Azure diagnostics extension to Azure Event Hubs](agents/diagnostics-extension-stream-event-hubs.md) - Completely rewritten and updated.
