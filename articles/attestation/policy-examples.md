@@ -27,8 +27,7 @@ authorizationrules
     => permit();
 };
 issuancerules {
-c:[type=="x-ms-sgx-is-debuggable"] => issue(type="is-debuggable", value=c.value);
-c:[type=="x-ms-sgx-mrsigner"] => issue(type="sgx-mrsigner", value=c.value);
+c:[type=="x-ms-sgx-mrsigner"] => issue(type="<custom-name>", value=c.value);
 };
 
 ```
@@ -57,6 +56,19 @@ issuancerules
 ```
 
 Claims used in default policy are considered deprecated but are fully supported and will continue to be included in the future. It is recommended to use the non-deprecated claim names. For more information on the recommended claim names, see [claim sets](/azure/attestation/claim-sets). 
+
+## Sample custom policy to support multiple SGX enclaves
+
+```
+version= 1.0;
+authorizationrules 
+{
+	[ type=="x-ms-sgx-is-debuggable", value==true ]&&
+	[ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+	[ type=="x-ms-sgx-is-debuggable", value==true ]&& 
+	[ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
+};
+```
 
 ## Unsigned Policy for an SGX enclave with PolicyFormat=JWT
 

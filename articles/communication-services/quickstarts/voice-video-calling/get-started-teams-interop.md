@@ -13,9 +13,10 @@ zone_pivot_groups: acs-plat-web-ios-android
 
 # Quickstart: Join your calling app to a Teams meeting
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+> [!IMPORTANT]
+> To enable/disable [Teams tenant interoperability](../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
-Get started with Azure Communication Services by connecting your calling solution to Microsoft Teams.
+Get started with Azure Communication Services by connecting your calling solution to Microsoft Teams using the JavaScript client library.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/teams-interop-javascript.md)]
