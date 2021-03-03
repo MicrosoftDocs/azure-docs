@@ -23,7 +23,7 @@ Azure Active Directory allows [FIDO2 security keys](./concept-authentication-pas
 
 This table shows support for authenticating Azure Active Directory (Azure AD) and Microsoft Accounts (MSA). Microsoft accounts are created by consumers for services such as Xbox, Skype, or Outlook.com. Supported device types include **USB**, near-field communication (**NFC**), and bluetooth low energy (**BLE**).
 
-| <!-- --> | Chrome | <!-- -->  | <!-- --> | Edge | <!-- --> | <!-- --> | Firefox | <!-- --> | <!-- --> |
+| OS | Chrome | Chrome  | Chrome | Edge | Edge | Edge | Firefox | Firefox | Firefox |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE |
 | **Windows**  | ![Chrome supports USB on Windows for AAD accounts.][y] | ![Chrome supports NFC on Windows for AAD accounts.][y] | ![Chrome supports BLE on Windows for AAD accounts.][y] | ![Edge supports USB on Windows for AAD accounts.][y] | ![Edge supports NFC on Windows for AAD accounts.][y] | ![Edge supports BLE on Windows for AAD accounts.][y] | ![Firefox supports USB on Windows for AAD accounts.][y] | ![Firefox supports NFC on Windows for AAD accounts.][y] | ![Firefox supports BLE on Windows for AAD accounts.][y] |
