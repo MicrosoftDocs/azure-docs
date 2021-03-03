@@ -59,10 +59,10 @@ There are two possible runtime version issues that you may encounter:
     `...`
 
     **Solution**: Please use Newtonsoft.Json file v12.0.2 or lower.
-2. Customers may experience issues with deletion of temp folders. The temp folder is produced during job execution, but it may not be deleted automatically sometimes even though the job is successfully completed. It may cause downstream applications loading failures depends on downstream application design. This issue is random and does not reproduce consistently.  
+2. Customers might see temporary files and folders on their store. Those are produced as part of the normal job execution, but are usually deleted before the customers see them. Under certain circumstances, which are rare and random, they might remain visible for a period of time. They are eventually deleted, and are never counted as part of user storage, or generate any form of charges whatsoever. Depending on the customers' job logic they might cause issues. For instance, if the job enumerates all files in the folder and then compares file lists, it might fail because of the unexpected temporary files being present. Similarly, if a downstream job enumerates all files from a given folder for further processing, it might also enumerate the temp files.  
 
-    **Solution**: A fix is identified in the runtime where the temp files will be stored in account level temp folder than the current output folder. The temp files will be written in this new temp folder and will be deleted at the end the job execution.
-    Since this fix is handling the customer data, it is extremely important to have this fix well validated within MSFT before it is released. It is expected to have this fix available as beta runtime in the middle of year 2021 and as default runtime in the 2nd half of year 2021. 
+    **Solution**: A fix is identified in the runtime where the temp files will be stored in account level temp folder than the current output folder. The temp files will be written in this new temp folder and will be deleted at the end the job execution.  
+    Since this fix is handling the customer data, it is extremely important to have this fix well validated within MSFT before it is released. It is expected to have this fix available as beta runtime in the middle of year 2021 and as default runtime in the second half of year 2021. 
 
 
 ## See also
