@@ -76,10 +76,10 @@ dotnet add package Azure.Storage.Blobs
 
 From the project directory:
 
-1. Open the *Program.cs* file in your editor
-1. Remove the `Console.WriteLine("Hello World!");` statement
-1. Add `using` directives
-1. Update the `Main` method declaration to support async code
+1. Open the *Program.cs* file in your editor.
+1. Remove the `Console.WriteLine("Hello World!");` statement.
+1. Add `using` directives.
+1. Update the `Main` method declaration to support async.
 
     Here's the code:
 
