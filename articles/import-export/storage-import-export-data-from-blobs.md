@@ -115,7 +115,7 @@ Perform the following steps to create an export job in the Azure portal.
       > [!NOTE]
       > Always send the disks to the datacenter noted in the Azure portal. If the disks are shipped to the wrong datacenter, the job will not be processed.
 
-   1. Review the **Terms** for your order for privacy and source data deletion. If you agree to the terms, select the check box beneath the terms. This starts validation of the order.
+   1. Review the **Terms** for your order for privacy and source data deletion. If you agree to the terms, select the check box beneath the terms. Validation of the order begins.
 
    ![Review and create your export order](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)
 
@@ -403,7 +403,7 @@ This *optional* step helps you determines the number of drives required for the 
     |**/sk:**|Required only if a container SAS is not specified. The account key for the storage account for the export job.|
     |**/csas:**|Required only if a storage account key is not specified. The container SAS for listing the blobs to be exported in the export job.|
     |**/ExportBlobListFile:**|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs) operation of the Import/Export service REST API.|
-    |**/DriveSize:**|Required. The size of drives to use for an export job, *e.g.*, 500 GB, 1.5 TB.|
+    |**/DriveSize:**|Required. The size of drives to use for an export job, *for example*, 500 GB, 1.5 TB.|
 
     See an [Example of the PreviewExport command](#example-of-previewexport-command).
 
