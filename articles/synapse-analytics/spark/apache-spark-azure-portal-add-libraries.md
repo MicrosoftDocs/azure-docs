@@ -1,5 +1,5 @@
 ---
-title: Library management
+title: Package management
 description: Learn how to add and manage libraries used by Apache Spark in Azure Synapse Analytics.
 services: synapse-analytics
 author: midesa
@@ -33,10 +33,10 @@ When developing custom applications or models, your team may develop various cod
 In Synapse, workspace packages can be custom or private wheel or jar files. You can upload these packages to your workspace and later assign them to a specific Spark pool. Once assigned, these workspace packages are automatically installed on all Spark pool sessions.
 
 To learn more about how to manage workspace libraries, visit the following how-to guides:
-- [Python workspace packages: ](./apache-spark-manage-python-packages.md#Install-wheel-files) Upload Python wheel files as a workspace package and later add these packages to specific serverless Apache Spark pools.
+- [Python workspace packages (preview): ](./apache-spark-manage-python-packages.md#Install-wheel-files) Upload Python wheel files as a workspace package and later add these packages to specific serverless Apache Spark pools.
 - [Scala/Java workspace packages (preview): ](./apache-spark-manage-scala-packages.md#Workspace-packages) Upload Scala and Java jar files as a workspace package and later add these packages to specific serverless Apache Spark pools.
 
-## Pool management
+## Pool packages
 In some cases, you may want to standardize the set of packages that are used on a given Apache Spark pool. This standardization can be useful if the same packages are commonly installed by multiple people on your team. 
 
 Using the Azure Synapse Analytics pool management capabilities, you can configure the default set of libraries that you would like installed on a given serverless Apache Spark pool. These libraries are installed on top of the [base runtime](./apache-spark-version-support.md). 

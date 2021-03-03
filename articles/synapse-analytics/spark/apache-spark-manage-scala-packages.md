@@ -37,9 +37,6 @@ To add workspace packages:
 
 ![Screenshot that highlights workspace packages.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "View workspace packages")
 
-> [!IMPORTANT]
-> Installing Workspace packages is currently not yet supported within data exfiltration protected (DEP) workspaces.
-
 ## Pool libraries
 Once you have identified the Scala and Java packages that you would like to use for your Spark application, you can install them into a Spark pool. Pool-level libraries are available to all notebooks and jobs running on the pool.
 

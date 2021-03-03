@@ -135,9 +135,6 @@ To add workspace packages:
 
 ![Screenshot that highlights workspace packages.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "View workspace packages")
 
-> [!IMPORTANT]
-> Installing Workspace packages is currently not yet supported within data exfiltration protected (DEP) workspaces.
-
 ### Storage account
 Custom-built wheel packages can be installed on the Apache Spark pool by uploading all the wheel files into the Azure Data Lake Storage (Gen2) account that is linked with the Synapse workspace. 
 
@@ -183,3 +180,4 @@ In some cases, to view the package versions from Conda, you may need to inspect 
 ## Next steps
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
 - Troubleshoot library installation errors: [Troubleshoot library errors](apache-spark-troubleshoot-library-errors.md)
+- Create a private Conda channel using your Azure Data Lake Storage Account: [Conda private channels](./spark/../apache-spark-custom-conda-channel.md)
