@@ -106,7 +106,7 @@ The sample configuration downloaded in these examples collects a set of standard
 > For enabling the new Azure Monitor Sink, the VMs need to have System Assigned Identity enabled for MSI Auth token generation. This can be done during VM creation or after the VM has been created. Steps for enabling System Assigned Identity through portal, CLI, PowerShell, and resource manager.  are listed in detail [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
 
 > [!NOTE]
-> The customer would also need to add AzMonSink to their public settings (explained in public settings section below) to start getting metrics sent to Azure Monitor Metrics
+> You also need to add AzMonSink to your public settings (explained in public settings section below) to start getting metrics sent to Azure Monitor Metrics.
 
 #### Azure CLI sample
 
