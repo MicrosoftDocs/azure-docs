@@ -156,7 +156,7 @@ To enable the application to authenticate with both the system browser and broke
 
 Replace `{Package Name}` with the application package name. 
 
-After adding all of the required elements to the manifest, it should look something like the following
+Your completed manifest that $DOES_THING_HERE should appear similar to the following:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
