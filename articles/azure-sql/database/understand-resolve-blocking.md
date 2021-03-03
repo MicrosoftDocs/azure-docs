@@ -13,7 +13,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: 
-ms.date: 3/01/2021
+ms.date: 3/02/2021
 ---
 # Understand and resolve Azure SQL Database blocking problems
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -414,7 +414,7 @@ The `wait_type`, `open_transaction_count`, and `status` columns refer to informa
 
 ## See also
 
-* [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/monitor-tune-overview)
+* [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](./monitor-tune-overview.md)
 * [Monitoring performance by using the Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 * [Transaction Locking and Row Versioning Guide](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide)
 * [SET TRANSACTION ISOLATION LEVEL](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql)
