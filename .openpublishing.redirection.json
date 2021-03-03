@@ -63360,6 +63360,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-logs.md",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-logs",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/platform/powerbi.md",
       "redirect_url": "/azure/azure-monitor/visualize/powerbi",
       "redirect_document_id": false
