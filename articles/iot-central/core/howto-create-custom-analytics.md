@@ -77,7 +77,7 @@ Use the [Azure portal to create an Azure Databricks Service](https://portal.azur
 
 When you've created the required resources, your **IoTCentralAnalysis** resource group looks like the following screenshot:
 
-![IoT Central analysis resource group](media/howto-create-custom-analytics/resource-group.png)
+![IoT Central analysis resource group](media/howto-create-custom-analytics/resource-group2.png)
 
 ## Create an event hub
 
@@ -92,7 +92,7 @@ You can configure an IoT Central application to continuously export telemetry to
 
 Your Event Hubs namespace looks like the following screenshot:
 
-![Event Hubs namespace](media/howto-create-custom-analytics/event-hubs-namespace.png)
+![Event Hubs namespace](media/howto-create-custom-analytics/event-hubs-namespace2.png)
 
 ## Configure export in IoT Central
 
@@ -111,7 +111,7 @@ On the [Azure IoT Central application manager](https://aka.ms/iotcentral) websit
     | Devices | Off |
     | Device Templates | Off |
 
-![Data export configuration](media/howto-create-custom-analytics/cde-configuration.png)
+![Data export configuration](media/howto-create-custom-analytics/cde-configuration2.png)
 
 Wait until the export status is **Running** before you continue.
 
@@ -159,7 +159,7 @@ The following steps show you how to import the library your sample needs into th
 
 1. The library status is now **Installed**:
 
-    ![Library installed](media/howto-create-custom-analytics/cluster-libraries.png)
+    ![Library installed](media/howto-create-custom-analytics/cluster-libraries2.png)
 
 ### Import a Databricks notebook
 
@@ -201,7 +201,7 @@ You may see an error in the last cell. If so, check the previous cells are runni
 
 In the notebook, scroll down to cell 14 to see a plot of the rolling average humidity by device type. This plot continuously updates as streaming telemetry arrives:
 
-![Smoothed telemetry plot](media/howto-create-custom-analytics/telemetry-plot.png)
+![Smoothed telemetry plot](media/howto-create-custom-analytics/telemetry-plot2.png)
 
 You can resize the chart in the notebook.
 
@@ -209,7 +209,7 @@ You can resize the chart in the notebook.
 
 In the notebook, scroll down to cell 20 to see the [box plots](https://en.wikipedia.org/wiki/Box_plot). The box plots are based on static data so to update them you must rerun the cell:
 
-![Box plots](media/howto-create-custom-analytics/box-plots.png)
+![Box plots](media/howto-create-custom-analytics/box-plots2.png)
 
 You can resize the plots in the notebook.
 
