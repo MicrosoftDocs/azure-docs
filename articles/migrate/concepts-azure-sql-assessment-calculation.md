@@ -89,7 +89,7 @@ Here's what's included in Azure SQL assessment properties:
 ## Calculate readiness
 
 > [!NOTE]
-The assessment only includes databases that are in online status. In case the database is in any other status, the assessment ignores the readiness, sizing and cost calculation for such databases. In case you wish you assess such databases, please change the status of the database and recalculate the assessment in some time.
+> The assessment only includes databases that are in online status. In case the database is in any other status, the assessment ignores the readiness, sizing and cost calculation for such databases. In case you wish you assess such databases, please change the status of the database and recalculate the assessment in some time.
 
 ### Azure SQL readiness
 
