@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -19,7 +19,7 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-As an administrator, you can reset a user's password if the user forgets their password. Or you would like to force them to reset the password. In this article, you'll learn how to force a password reset in these scenarios.
+As an administrator, you can [reset a user's password](manage-users-portal.md#reset-a-users-password) if the user forgets their password. Or you would like to force them to reset the password. In this article, you'll learn how to force a password reset in these scenarios.
 
 ## Overview
 
@@ -33,7 +33,7 @@ The password reset flow is applicable to local accounts in Azure AD B2C that use
 
 ### Force a password reset after 90 days
 
-As an administrator, you can set a user's password expiration to 90 days, using [MS Graph](microsoft-graph-operation.md). After 90 days, the value of [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) attribute is automatically set to `true`. For more information on how to set a user's password expiration policy, see [Password policy attribute](user-profile-attributes.md#password-policy-attribute).
+As an administrator, you can set a user's password expiration to 90 days, using [MS Graph](microsoft-graph-operations.md). After 90 days, the value of [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) attribute is automatically set to `true`. For more information on how to set a user's password expiration policy, see [Password policy attribute](user-profile-attributes.md#password-policy-attribute).
 
 Once a password expiration policy has been set, you must also configure force password reset flow, as described in this article.  
 
@@ -58,7 +58,7 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 
 ### Test the user flow
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator or a password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference#available-roles).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator or a password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference.md#all-roles).
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Users**. Search for and select the user you'll use to test the password reset, and then select **Reset Password**.
@@ -75,7 +75,23 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 
 ::: zone pivot="b2c-custom-policy"
 
-This feature is currently available only for user flows.
+1. Get the example of a force password reset on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset).
+1. In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
+1. Upload the policy files in the following order: the extension policy `TrustFrameworkExtensionsCustomForcePasswordReset.xml`, then the relying party policy `SignUpOrSigninCustomForcePasswordReset.xml`.
+
+### Test the policy
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator or a password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference.md#all-roles).
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. Select **Users**. Search for and select the user you'll use to test the password reset, and then select **Reset Password**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. Under **Policies**, select **Identity Experience Framework**.
+1. Select the `B2C_1A_signup_signin_Custom_ForcePasswordReset` policy to open it. 
+1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run now** button.
+1. Sign in with the user account for which you reset the password.
+1. You now must change the password for the user. Change the password and select **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
 
 ::: zone-end
 
