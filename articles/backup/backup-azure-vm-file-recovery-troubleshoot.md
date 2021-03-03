@@ -41,7 +41,7 @@ This section provides steps to troubleshoot common issues you might experience w
 
 ### You can't download the script
 
-1. Ensure you have the [required permissions to download the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#select-recovery-point-who-can-generate-script).
+1. Ensure you have the [required permissions to download the script](./backup-azure-restore-files-from-vm.md#select-recovery-point-who-can-generate-script).
 1. Verify the connection to the Azure target IPs. Run one of the following commands from an elevated command prompt:
 
    `nslookup download.microsoft.com`
@@ -62,7 +62,7 @@ When you run the Python script for Item Level Recovery (ILR) on SUSE Linux Enter
 
 You might see an "Exception caught while connecting to target" error message.
 
-1. Ensure the machine where the script is run meets the [access requirements](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-4-access-requirements-to-successfully-run-the-script).
+1. Ensure the machine where the script is run meets the [access requirements](./backup-azure-restore-files-from-vm.md#step-4-access-requirements-to-successfully-run-the-script).
 1. Verify the connection to the Azure target IPs. Run one of the following commands from an elevated command prompt:
 
    `nslookup download.microsoft.com`
@@ -83,7 +83,7 @@ Resolve this issue by following the steps for your operating system.
 When you run the script for the first time on Windows Server 2012 R2 and Windows Server 2016 (with storage pools), the storage pool might be attached to the VM in read-only.
 
 >[!Tip]
-> Ensure you have the [right machine to run the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+> Ensure you have the [right machine to run the script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 To resolve this issue, manually assign read-write access to the storage pool and attach the virtual disks:
 
@@ -103,7 +103,7 @@ To resolve this issue, manually assign read-write access to the storage pool and
 
 While performing file recovery, the backup service detects volumes and auto-mounts. However, if the backed-up disks have raw partitions, those disks aren't auto-mounted and you can't see the data disk for recovery.
 
-To resolve this issue, go to [Recover files from Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+To resolve this issue, go to [Recover files from Azure virtual machine backup](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 #### Linux file recovery fails because the OS couldn't identify the file system
 
@@ -117,7 +117,7 @@ To resolve this issue, check if the volume is encrypted with a third-party appli
 
    ![Screenshot showing the results of the command to list block devices.](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
 
-1. Verify the file system and encryption. If the volume is encrypted, file recovery isn't supported. Learn more at [Support matrix for Azure VM backup](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore).
+1. Verify the file system and encryption. If the volume is encrypted, file recovery isn't supported. Learn more at [Support matrix for Azure VM backup](./backup-support-matrix-iaas.md#support-for-file-level-restore).
 
 ### Disks are attached, but the volumes aren't mounted
 
@@ -134,7 +134,7 @@ When you run the file recovery script for Windows, you see a "0 recovery volumes
 To identify and resolve this issue, perform the following steps:
 
 >[!Tip]
->Ensure you have the [right machine to run the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+>Ensure you have the [right machine to run the script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 1. In the **cmd** window, run **diskmgmt** to open **Disk Management**.
 1. Look for any additional disks. In the following example, **Disk 2** is an additional disk.
@@ -154,9 +154,9 @@ To identify and resolve this issue, perform the following steps:
 #### Linux
 
 >[!Tip]
->Ensure you have the [right machine to run the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+>Ensure you have the [right machine to run the script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
-If the protected Linux VM uses LVM or RAID Arrays, follow the steps in [Recover files from Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+If the protected Linux VM uses LVM or RAID Arrays, follow the steps in [Recover files from Azure virtual machine backup](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 ### You can't copy the files from mounted volumes
 

@@ -1,5 +1,5 @@
 ---
-title: Monitor Media Services diagnostic logs via Azure Monitor | Microsoft Docs
+title: Monitor diagnostic logs via Azure Monitor
 description: This article demonstrates how to route and view diagnostic logs via Azure Monitor.
 services: media-services
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.author: inhenkel 
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
 ---
 
@@ -178,9 +178,9 @@ You may need to wait up to five minutes before the event appears in the storage 
 
 ## See also
 
-* [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md)
-* [Azure Monitor Diagnostic logs](../../azure-monitor/platform/platform-logs-overview.md)
-* [How to collect and consume log data from your Azure resources](../../azure-monitor/platform/platform-logs-overview.md)
+* [Azure Monitor Metrics](../../azure-monitor/data-platform.md)
+* [Azure Monitor Diagnostic logs](../../azure-monitor/essentials/platform-logs-overview.md)
+* [How to collect and consume log data from your Azure resources](../../azure-monitor/essentials/platform-logs-overview.md)
 
 ## Next steps
 

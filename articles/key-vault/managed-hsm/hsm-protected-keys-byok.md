@@ -7,7 +7,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 02/04/2021
 ms.author: ambapat
 ---
 
@@ -65,16 +65,21 @@ For more information on login options via the CLI take a look at [sign in with A
 |Cryptomathic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>See [Cryptomathic site for details](https://www.cryptomathic.com/azurebyok)|[Cryptomathic BYOK tool and documentation](https://www.cryptomathic.com/azurebyok)|
 |Securosys SA|Manufacturer, HSM as a service|Primus HSM family, Securosys Clouds HSM|[Primus BYOK tool and documentation](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>See [StorMagic site for details](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS and Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
+|IBM|Manufacturer|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
+|Utimaco|Manufacturer,<br/>HSM as a service|u.trust Anchor, CryptoServer|[Utimaco BYOK tool and Integration guide](https://support.hsm.utimaco.com/support/downloads/byok)|
 ||||
 
 
 ## Supported key types
 
-|Key name|Key type|Key size|Origin|Description|
+|Key name|Key type|Key size/curve|Origin|Description|
 |---|---|---|---|---|
 |Key Exchange Key (KEK)|RSA| 2,048-bit<br />3,072-bit<br />4,096-bit|Managed HSM|An HSM-backed RSA key pair generated in Managed HSM|
-|Target key|RSA|2,048-bit<br />3,072-bit<br />4,096-bit|Vendor HSM|The key to be transferred to the Managed HSM|
-
+|Target key|
+||RSA|2,048-bit<br />3,072-bit<br />4,096-bit|Vendor HSM|The key to be transferred to the Managed HSM|
+||EC|P-256<br />P-384<br />P-521|Vendor HSM|The key to be transferred to the Managed HSM|
+||Symmetric key (oct-HSM)|128-bit<br />192-bit<br />256-bit|Vendor HSM|The key to be transferred to the Managed HSM|
+||||
 ## Generate and transfer your key to the Managed HSM
 
 To generate and transfer your key to a Managed HSM:

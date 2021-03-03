@@ -1,4 +1,4 @@
-- name: User Help Documentation
+- name: User Help documentation
   href: index.yml
 - name: Two-step verification help
   items:
@@ -50,6 +50,8 @@
     href: auth-app-android-china.md
   - name: Backup and recover your accounts
     href: user-help-auth-app-backup-recovery.md
+  - name: Import passwords into Authenticator app
+    href: user-help-authenticator-app-import-passwords.md
   - name: FAQ
     href: user-help-auth-app-faq.md
 - name: My Account portal help
@@ -70,6 +72,8 @@
     href: my-account-portal-sign-ins-page.md
   - name: Change your portal settings
     href: my-account-portal-settings.md
+  - name: Find a My Account administrator
+    href: my-account-find-administrator.md
   - name: Switch organizations
     href: cross-tenant-switcher.md
 - name: Security info help

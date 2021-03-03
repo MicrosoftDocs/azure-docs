@@ -36,6 +36,10 @@ In this how-to guide, you use a client application that connects to Twitter and 
 
 * Install the [.NET Core CLI](/dotnet/core/tools/?tabs=netcore2x) version 2.1.0.
 
+Below is the solution architecture you are going to implement.
+
+   ![A diagram showing different pieces of services and applications used to build the solution.](./media/stream-analytics-twitter-sentiment-analysis-trends/solution-diagram.png "Solution Diagram")
+
 ## Create an event hub for streaming input
 
 The sample application generates events and pushes them to an Azure event hub. Azure Event Hubs are the preferred method of event ingestion for Stream Analytics. For more information, see the [Azure Event Hubs documentation](../event-hubs/event-hubs-about.md).

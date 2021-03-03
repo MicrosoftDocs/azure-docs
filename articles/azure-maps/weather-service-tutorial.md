@@ -23,7 +23,7 @@ Wind power is one alternative energy source for fossil fuels to combat against c
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Work with data files in [Azure Notebooks](../notebooks/index.yml) in the cloud.
+> * Work with data files in [Azure Notebooks](https://notebooks.azure.com) in the cloud.
 > *	Load demo data from file.
 > *	Call Azure Maps REST APIs in Python.
 > * Render location data on the map.
@@ -202,4 +202,4 @@ There are no resources that require cleanup.
 To learn more about Azure Notebooks, see
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](../notebooks/index.yml)
+> [Azure Notebooks](https://notebooks.azure.com)

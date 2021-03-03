@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first JavaScript query"
 description: In this quickstart, you follow the steps to enable the Resource Graph library for JavaScript and run your first query.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
 ---

@@ -95,7 +95,7 @@ Create your first experiment with your preferred method:
 
   + [Use your own environment](tutorial-1st-experiment-sdk-setup-local.md)
   + [Use Python notebooks](tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown](tutorial-1st-r-experiment.md) 
+  + [Use R Markdown](https://github.com/Azure/azureml-sdk-for-r) 
   + [Use automated machine learning](tutorial-designer-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities](tutorial-first-experiment-automated-ml.md) 
   + [Use the ML extension to the CLI](tutorial-train-deploy-model-cli.md)

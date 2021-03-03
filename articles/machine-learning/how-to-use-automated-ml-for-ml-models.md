@@ -175,6 +175,21 @@ Drill down on any of the completed models to see training run details, like a mo
 
 [![Iteration details](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
+## Model explanations
+
+To better understand your model, see which data features (raw or engineered) influenced the model's predictions with the model explanations dashboard. 
+
+The model explanations dashboard provides an overall analysis of the trained model along with its predictions and explanations. It also lets you drill into an individual data point and its individual feature importances. [Learn more about the explanation dashboard visualizations and specific plots](how-to-machine-learning-interpretability-aml.md#visualizations).
+
+To get explanations for a particular model, 
+
+1. On the **Models** tab, select the model you want to use. 
+1. Select the **Explain model** button and provide a compute that can be used to generate the explanations.
+1. Check the **Child runs** tab for the status. 
+1. Once complete, navigate to the **Explanations (preview)** tab which contains the explanations dashboard. 
+
+    ![Model explanation dashboard](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
+
 ## Deploy your model
 
 Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
@@ -211,7 +226,7 @@ Automated ML helps you with deploying the model without writing code:
 1. Select **Deploy**. Deployment can take about 20 minutes to complete.
     Once deployment begins, the **Model summary** tab appears. See the deployment progress under the **Deploy status** section. 
 
-Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI's built in Azure Machine Learning support](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context).
+Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI's built in Azure Machine Learning support](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context).
 
 ## Next steps
 

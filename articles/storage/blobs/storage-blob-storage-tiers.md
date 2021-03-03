@@ -82,7 +82,7 @@ Example usage scenarios for the archive access tier include:
 - Compliance and archival data that needs to be stored for a long time and is hardly ever accessed
 
 > [!NOTE]
-> The archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts.
+> The archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts. Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier.
 
 ## Account-level tiering
 

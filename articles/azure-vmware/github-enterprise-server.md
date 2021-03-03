@@ -2,16 +2,16 @@
 title: Set up GitHub Enterprise Server on your Azure VMware Solution private cloud
 description: Learn how to Set up GitHub Enterprise Server on your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 02/11/2021
 ---
 
 # Set up GitHub Enterprise Server on your Azure VMware Solution private cloud
 
-In this article, we walk through the steps to setup GitHub Enterprise Server, the "on-premises" version of [GitHub.com](https://github.com/), on your Azure VMware Solution private cloud. The scenario covered in this walk-through is for a GitHub Enterprise Server instance capable of serving up to 3,000 developers running up to 25 jobs per minute on GitHub Actions. It includes the setup of (at time of writing) *preview* features, such as GitHub Actions. To customize the setup for your particular needs, review the requirements listed in [Installing GitHub Enterprise Server on VMware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations).
+In this article, we walk through the steps to set up GitHub Enterprise Server, the "on-premises" version of [GitHub.com](https://github.com/), on your Azure VMware Solution private cloud. The scenario we'll cover is a GitHub Enterprise Server instance that can serve up to 3,000 developers running up to 25 jobs per minute on GitHub Actions. It includes the setup of (at time of writing) *preview* features, such as GitHub Actions. To customize the setup for your particular needs, review the requirements listed in [Installing GitHub Enterprise Server on VMware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations).
 
 ## Before you begin
 
-GitHub Enterprise Server requires a valid license key. You may sign up for a [trial license](https://enterprise.github.com/trial). If you are looking to extend the capabilities of GitHub Enterprise Server via an integration, you may qualify for a free five-seat developer license. Apply for this license through [GitHub's Partner Program](https://partner.github.com/).
+GitHub Enterprise Server requires a valid license key. You may sign up for a [trial license](https://enterprise.github.com/trial). If you're looking to extend the capabilities of GitHub Enterprise Server via an integration, you may qualify for a free five-seat developer license. Apply for this license through [GitHub's Partner Program](https://partner.github.com/).
 
 ## Installing GitHub Enterprise Server on VMware
 
@@ -25,7 +25,7 @@ Provide a recognizable name for your new virtual machine, such as GitHubEnterpri
 
 Once imported, [adjust the hardware configuration](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#creating-the-github-enterprise-server-instance) based on your needs. In our example scenario, we'll need the following configuration.
 
-| Resource | Standard Setup | Standard Setup + "Beta Features" (Actions) |
+| Resource | Standard Setup | Standard Set up + "Beta Features" (Actions) |
 | --- | --- | --- |
 | vCPUs | 4 | 8 |
 | Memory | 32 GB | 61 GB |
@@ -46,7 +46,7 @@ We recommend to at least take the following steps:
 
 1. Upload a public SSH key to the management console, so that you can [access the administrative shell via SSH](https://docs.github.com/en/enterprise/admin/configuration/accessing-the-administrative-shell-ssh). 
 
-2. [Configure TLS on your instance](https://docs.github.com/en/enterprise/admin/configuration/configuring-tls) so that you can use a certificate that is signed by a trusted certificate authority.
+2. [Configure TLS on your instance](https://docs.github.com/en/enterprise/admin/configuration/configuring-tls) so that you can use a certificate signed by a trusted certificate authority.
 
 :::image type="content" source="media/github-enterprise-server/configuring-your-instance.png" alt-text="Configuring your instance.":::
 
@@ -54,9 +54,9 @@ Apply your settings.  While the instance restarts, you can continue with the nex
 
 :::image type="content" source="media/github-enterprise-server/create-admin-account.png" alt-text="Create your admin account.":::
 
-Once the instance restarts, create a new admin account on the instance. Be sure to make a note of this user's password as well.
+After the instance restarts, you can create a new admin account on the instance. Be sure to make a note of this user's password as well.
 
-### Additional configuration steps
+### Other configuration steps
 
 To harden your instance for production use, the following optional setup steps are recommended:
 
@@ -173,11 +173,11 @@ To make this runner available to organizations in your enterprise, edit its orga
 
 :::image type="content" source="media/github-enterprise-server/edit-runner-access.png" alt-text="Edit runner access.":::
 
-Here we will make it available to all organizations, but you can also limit access to a subset of organizations, and even to specific repositories.
+Here we'll make it available to all organizations, but you can limit access to a subset of organizations, and even to specific repositories.
 
 ## (Optional) Configuring GitHub Connect
 
-Although this step is optional, we recommend it if you plan to consume open source actions available on GitHub.com. This allows you to build on the work of others by referencing these reusable actions in your workflows.
+Although this step is optional, we recommend it if you plan to consume open-source actions available on GitHub.com. It allows you to build on the work of others by referencing these reusable actions in your workflows.
 
 To enable GitHub Connect, follow the steps in [Enabling automatic access to GitHub.com actions using GitHub Connect](https://docs.github.com/en/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect).
 
@@ -218,14 +218,12 @@ If everything ran successfully, you should see a new issue in your repo, entitle
 
 Congratulations! You just completed your first Actions workflow on GitHub Enterprise Server, running on your Azure VMware Solution private cloud.
 
-We are just scratching the surface of what you can do with GitHub Actions. For more inspiration, checkout the list of Actions on [GitHub's Marketplace](https://github.com/marketplace), or [create your own](https://docs.github.com/en/actions/creating-actions).
+In this article, we set up a new instance of GitHub Enterprise Server, the self-hosted equivalent of GitHub.com, on top of your Azure VMware Solution private cloud. This instance includes support for GitHub Actions and uses Azure Blob Storage for persistence of logs and artifacts. But we're just scratching the surface of what you can do with GitHub Actions. Check out the list of Actions on [GitHub's Marketplace](https://github.com/marketplace), or [create your own](https://docs.github.com/en/actions/creating-actions).
 
 ## Next steps
 
-In this article, we set up a new instance of GitHub Enterprise Server, the self-hosted equivalent of GitHub.com, on top of your Azure VMware Solution private cloud. This instance includes support for GitHub Actions and uses Azure Blob Storage for persistence of logs and artifacts. This is a great combination for a modern, collaborative, and secure software development experience. It builds on a solid foundation of Azure VMware Solution, allowing you to leverage cloud resources in a familiar setting.
+Now that you've covered setting up GitHub Enterprise Server on your Azure VMware Solution private cloud, you may want to learn about: 
 
-For further information, see the following resources:
-
-- [Getting started with GitHub Actions](https://docs.github.com/en/actions)
-- [Join the beta program](https://resources.github.com/beta-signup/)
-- [Learn more about the administration of GitHub Enterprise Server](https://githubtraining.github.io/admin-training/#/00_getting_started)
+- [Getting started with GitHub Actions](https://docs.github.com/en/actions).
+- [Joining the beta program](https://resources.github.com/beta-signup/).
+- [Administration of GitHub Enterprise Server](https://githubtraining.github.io/admin-training/#/00_getting_started).

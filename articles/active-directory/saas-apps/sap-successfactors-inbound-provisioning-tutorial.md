@@ -181,7 +181,7 @@ This section provides steps for user account provisioning from SuccessFactors to
 
 To provision to Active Directory on-premises, the Provisioning agent must be installed on a domain-joined server that has network access to the desired Active Directory domain(s).
 
-Transfer the downloaded agent installer to the server host and follow the steps listed [in the install agent section](../cloud-provisioning/how-to-install.md) to complete the agent configuration.
+Transfer the downloaded agent installer to the server host and follow the steps listed [in the install agent section](../cloud-sync/how-to-install.md) to complete the agent configuration.
 
 ### Part 3: In the provisioning app, configure connectivity to SuccessFactors and Active Directory
 In this step, we establish connectivity with SuccessFactors and Active Directory in the Azure portal. 
@@ -204,12 +204,12 @@ In this step, we establish connectivity with SuccessFactors and Active Directory
         > This setting only comes into play for user account creations if the *parentDistinguishedName* attribute is not configured in the attribute mappings. This setting is not used for user search or update operations. The entire domain sub tree falls in the scope of the search operation.
 
    * **Notification Email –** Enter your email address, and check the "send email if failure occurs" checkbox.
-    > [!NOTE]
-    > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](../app-provisioning/application-provisioning-quarantine-status.md) state.
+     > [!NOTE]
+     > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](../app-provisioning/application-provisioning-quarantine-status.md) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the SuccessFactors credentials and the AD credentials configured on the agent setup are valid.
-    >[!div class="mx-imgBorder"]
-    >![Azure portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
+     >[!div class="mx-imgBorder"]
+     >![Azure portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
 
    * Once the credentials are saved successfully, the **Mappings** section will display the default mapping **Synchronize SuccessFactors Users to On Premises Active Directory**
 
@@ -246,9 +246,8 @@ In this section, you will configure how user data flows from SuccessFactors to A
 
 1. In the **Attribute mappings** section, you can define how individual SuccessFactors attributes map to Active Directory attributes.
 
-  >[!NOTE]
-  >For the complete list of SuccessFactors attribute supported by the application, please refer to [SuccessFactors Attribute Reference](../app-provisioning/sap-successfactors-attribute-reference.md)
-
+     >[!NOTE]
+     >For the complete list of SuccessFactors attribute supported by the application, please refer to [SuccessFactors Attribute Reference](../app-provisioning/sap-successfactors-attribute-reference.md)
 
 1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
         mappings. An individual attribute mapping supports these properties:

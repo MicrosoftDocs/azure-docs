@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Roles | user.assignedroles |
 
     > [!NOTE]
-    > You can find more guidance [here](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) on how to create custom roles in Azure AD.
+    > You can find more guidance [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) on how to create custom roles in Azure AD.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -139,7 +139,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Dotcom-Monitor Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Dotcom-Monitor tile in the My Apps, this will redirect to Dotcom-Monitor Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the Dotcom-Monitor tile in the My Apps, this will redirect to Dotcom-Monitor Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps

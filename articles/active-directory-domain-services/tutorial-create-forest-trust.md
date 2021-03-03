@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
+ms.date: 01/21/2021
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create a one-way outbound forest from an Azure Active Directory Domain Services resource forest to an on-premises Active Directory Domain Services forest to provide authentication and resource access between forests.
@@ -17,7 +17,7 @@ ms.author: justinha
 
 # Tutorial: Create an outbound forest trust to an on-premises domain in Azure Active Directory Domain Services
 
-In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so they don't know their password, you can use a resource forest in Azure Active Directory Domain Services (Azure AD DS). A resource forest uses a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. In a resource forest, on-premises password hashes are never synchronized.
+In environments where you can't synchronize password hashes, or where users exclusively sign in using smart cards and don't know their password, you can use a resource forest in Azure Active Directory Domain Services (Azure AD DS). A resource forest uses a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. In a resource forest, on-premises password hashes are never synchronized.
 
 ![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
@@ -59,7 +59,7 @@ Before you configure a forest trust in Azure AD DS, make sure your networking be
 
 * Use private IP addresses. Don't rely on DHCP with dynamic IP address assignment.
 * Avoid overlapping IP address spaces to allow virtual network peering and routing to successfully communicate between Azure and on-premises.
-* An Azure virtual network needs a gateway subnet to configure an [Azure site-to-site (S2S) VPN][vpn-gateway] or [ExpressRoute][expressroute] connection
+* An Azure virtual network needs a gateway subnet to configure an [Azure site-to-site (S2S) VPN][vpn-gateway] or [ExpressRoute][expressroute] connection.
 * Create subnets with enough IP addresses to support your scenario.
 * Make sure Azure AD DS has its own subnet, don't share this virtual network subnet with application VMs and services.
 * Peered virtual networks are NOT transitive.
@@ -82,8 +82,8 @@ The on-premises AD DS domain needs an incoming forest trust for the managed doma
 
 To configure inbound trust on the on-premises AD DS domain, complete the following steps from a management workstation for the on-premises AD DS domain:
 
-1. Select **Start | Administrative Tools | Active Directory Domains and Trusts**.
-1. Right-select domain, such as *onprem.contoso.com*, then select **Properties**.
+1. Select **Start** > **Administrative Tools** > **Active Directory Domains and Trusts**.
+1. Right-click the domain, such as *onprem.contoso.com*, then select **Properties**.
 1. Choose **Trusts** tab, then **New Trust**.
 1. Enter the name for Azure AD DS domain name, such as *aaddscontoso.com*, then select **Next**.
 1. Select the option to create a **Forest trust**, then to create a **One way: incoming** trust.
@@ -91,6 +91,14 @@ To configure inbound trust on the on-premises AD DS domain, complete the followi
 1. Choose to use **Forest-wide authentication**, then enter and confirm a trust password. This same password is also entered in the Azure portal in the next section.
 1. Step through the next few windows with default options, then choose the option for **No, do not confirm the outgoing trust**.
 1. Select **Finish**.
+
+If the forest trust is no longer needed for an environment, complete the following steps to remove it from the on-premises domain:
+
+1. Select **Start** > **Administrative Tools** > **Active Directory Domains and Trusts**.
+1. Right-click the domain, such as *onprem.contoso.com*, then select **Properties**.
+1. Choose **Trusts** tab, then **Domains that trust this domain (incoming trusts)**, click the trust to be removed, and then click **Remove**.
+1. On the Trusts tab, under **Domains trusted by this domain (outgoing trusts)**, click the trust to be removed, and then click Remove.
+1. Click **No, remove the trust from the local domain only**.
 
 ## Create outbound forest trust in Azure AD DS
 
@@ -105,11 +113,17 @@ To create the outbound trust for the managed domain in the Azure portal, complet
    > If you don't see the **Trusts** menu option, check under **Properties** for the *Forest type*. Only *resource* forests can create trusts. If the forest type is *User*, you can't create trusts. There's currently no way to change the forest type of a managed domain. You need to delete and recreate the managed domain as a resource forest.
 
 1. Enter a display name that identifies your trust, then the on-premises trusted forest DNS name, such as *onprem.contoso.com*.
-1. Provide the same trust password that was used when configuring the inbound forest trust for the on-premises AD DS domain in the previous section.
+1. Provide the same trust password that was used to configure the inbound forest trust for the on-premises AD DS domain in the previous section.
 1. Provide at least two DNS servers for the on-premises AD DS domain, such as *10.1.1.4* and *10.1.1.5*.
 1. When ready, **Save** the outbound forest trust.
 
     ![Create outbound forest trust in the Azure portal](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
+
+If the forest trust is no longer needed for an environment, complete the following steps to remove it from Azure AD DS:
+
+1. In the Azure portal, search for and select **Azure AD Domain Services**, then select your managed domain, such as *aaddscontoso.com*.
+1. From the menu on the left-hand side of the managed domain, select **Trusts**, choose the trust, and click **Remove**.
+1. Provide the same trust password that was used to configure the forest trust and click **OK**.
 
 ## Validate resource authentication
 

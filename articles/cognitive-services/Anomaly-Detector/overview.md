@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 01/05/2021
+ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
@@ -33,7 +33,7 @@ With the Anomaly Detector, you can automatically detect anomalies throughout you
 |Anomaly detection in real-time. | Detect anomalies in your streaming data by using previously seen data points to determine if your latest one is an anomaly. This operation generates a model using the data points you send, and determines if the target point is an anomaly. By calling the API with each new data point you generate, you can monitor your data as it's created. |
 |Detect anomalies throughout your data set as a batch. | Use your time series to detect any anomalies that might exist throughout your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.         |
 |Detect change points throughout your data set as a batch. | Use your time series to detect any trend change points that exist in your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.    |
-| Get additional information about your data. | Get useful details about your data and any observed anomalies, including expected values, anomaly boundaries and positions. |
+| Get additional information about your data. | Get useful details about your data and any observed anomalies, including expected values, anomaly boundaries, and positions. |
 | Adjust anomaly detection boundaries. | The Anomaly Detector API automatically creates boundaries for anomaly detection. Adjust these boundaries to increase or decrease the API's sensitivity to data anomalies, and better fit your data. |
 
 ## Demo
@@ -48,13 +48,13 @@ To learn how to call the Anomaly Detector API, try this [Notebook](https://aka.m
 To run the Notebook, complete the following steps:
 
 1. Get a valid Anomaly Detector API subscription key and an API endpoint. The section below has instructions for signing up.
-1. Sign in, and click Clone, in the upper right corner.
-1. Un-check the "public" option in the dialog box before completing the clone operation, otherwise your notebook, including any subscription keys, will be public.
-1. Click **Run on free compute**
+1. Sign in, and select Clone, in the upper right corner.
+1. Uncheck the "public" option in the dialog box before completing the clone operation, otherwise your notebook, including any subscription keys, will be public.
+1. Select **Run on free compute**
 1. Select one of the notebooks.
 1. Add your valid Anomaly Detector API subscription key to the `subscription_key` variable.
 1. Change the `endpoint` variable to your endpoint. For example: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. On the top menu bar, click **Cell**, then **Run All**.
+1. On the top menu bar, select **Cell**, then **Run All**.
 
 ## Workflow
 
@@ -92,7 +92,7 @@ No customer configuration is necessary to enable zone-resiliency. Zone-resilienc
 
 ## Deploy on premises using Docker containers
 
-[Use Anomaly Detector containers](anomaly-detector-container-howto.md) to deploy API features on-premises. Docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons.
+[Use Anomaly Detector containers](anomaly-detector-container-howto.md) to deploy API features on-premises. Docker containers enable you to bring the service closer to your data for compliance, security, or other operational reasons.
 
 ## Join the Anomaly Detector community
 

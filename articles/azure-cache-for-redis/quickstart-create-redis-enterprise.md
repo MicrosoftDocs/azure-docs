@@ -1,15 +1,16 @@
 ---
-title: 'Quickstart: Create an Enterprise tier cache'
-description: In this quickstart, learn how to create an instance of Azure Cache for Redis Enterprise tier
+title: 'Quickstart: Create a Redis Enterprise cache'
+description: In this quickstart, learn how to create an instance of Azure Cache for Redis in Enterprise tiers
 author: yegu-ms
+
 ms.author: yegu
 ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 10/28/2020
+ms.date: 02/08/2021
 #Customer intent: As a developer new to Azure Cache for Redis, I want to create an instance of Azure Cache for Redis Enterprise tier.
 ---
-# Quickstart: Create an Enterprise tier cache (preview)
+# Quickstart: Create a Redis Enterprise cache (Preview)
 
 Azure Cache for Redis' Enterprise tiers provide fully integrated and managed [Redis Enterprise](https://redislabs.com/redis-enterprise/) on Azure. They're currently available as a preview. There are two new tiers in this preview:
 * Enterprise, which uses volatile memory (DRAM) on a virtual machine to store data
@@ -17,7 +18,7 @@ Azure Cache for Redis' Enterprise tiers provide fully integrated and managed [Re
 
 ## Prerequisites
 
-You'll need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [Enterprise tier requirements](cache-overview.md#enterprise-tier-requirements).
+You'll need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [special considerations for Enterprise tiers](cache-overview.md#special-considerations-for-enterprise-tiers).
 
 ## Create a cache
 1. To create a cache, sign in to the Azure portal using the link in your preview invitation and select **Create a resource**.
@@ -54,11 +55,6 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
    :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Enterprise tier advanced":::
 
-   > [!NOTE] 
-   > Redis Modules aren't supported in Enterprise Flash tier yet. If you plan to use a Redis Module,
-   > be sure to choose an Enterprise tier cache.
-   >
-   
 1. Select **Next: Tags** and skip.
 
 1. Select **Next: Review + create**.

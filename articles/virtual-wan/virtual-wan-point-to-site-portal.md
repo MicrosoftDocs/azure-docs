@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 02/22/2021
 ms.author: cherylmc
 
 ---
@@ -21,6 +21,7 @@ In this tutorial, you learn how to:
 > * Create a virtual WAN
 > * Create a P2S configuration
 > * Create a virtual hub
+> * Choose client address pools
 > * Specify DNS servers
 > * Generate VPN client profile configuration package
 > * Configure VPN clients
@@ -45,6 +46,10 @@ A point-to-site (P2S) configuration defines the parameters for connecting remote
 ## <a name="hub"></a>Create virtual hub and gateway
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
+
+## <a name="chooseclientpools"></a> Choose P2S Client Address Pools
+
+[!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
 
 ## <a name="dns"></a>Specify DNS server
 

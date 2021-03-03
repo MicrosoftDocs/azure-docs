@@ -65,7 +65,7 @@ appInsights.loadAppInsights();
     2. To improve efficiency, the plugin uses this tag as a flag, when encountered it will stop itself from further processing the DOM (Document Object Model) upwards.
     
     > [!CAUTION]
-    > Once `parentDataTag` is used, it has a persistent effect across your whole application and not just the HTML element you used it in.
+    > Once `parentDataTag` is used, the SDK will begin looking for parent tags across your entire application and not just the HTML element where you used it.
 4. `customDataPrefix` provided by the user should always start with `data-`, for example `data-sample-`. In HTML the `data-*` global attributes form a class of attributes called custom data attributes, that allow proprietary information to be exchanged between the HTML and its DOM representation by scripts. Older browsers (Internet Explorer, Safari) will drop attributes that it doesn't understand, unless they start with `data-`.
 
     The `*` in `data-*`  may be replaced by any name following the [production rule of XML names](https://www.w3.org/TR/REC-xml/#NT-Name) with the following restrictions:
@@ -310,5 +310,5 @@ appInsights.loadAppInsights();
 
 - Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [NPM Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto-Collection Plugin.
 - Use [Events Analysis in Usage Experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
-- Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../log-query/log-analytics-tutorial.md#write-a-query).
-- Build a [Workbook](../platform/workbooks-overview.md) to create custom visualizations of click data.
+- Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). See [Sample App](https://go.microsoft.com/fwlink/?linkid=2152871) for additional guidance.
+- Build a [Workbook](../visualize/workbooks-overview.md) to create custom visualizations of click data.

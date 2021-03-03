@@ -1,6 +1,6 @@
 ---
 title: Upload, encode, and stream with Media Services v3
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: Tutorial showing how to upload a file, encode video, and stream content with Azure Media Services v3.
 services: media-services
 documentationcenter: ''

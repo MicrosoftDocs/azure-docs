@@ -1,7 +1,7 @@
 ---
 title: Authentication vs. authorization | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about the basics of authentication and authorization in the Microsoft identity platform (v2.0).
+description: Learn about the basics of authentication and authorization in the Microsoft identity platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -31,7 +31,7 @@ This article defines authentication and authorization. It also briefly covers ho
 
 ## Authentication and authorization using the Microsoft identity platform
 
-Creating apps that each maintain their own username and password information incurs a high administrative burden when you need to add or remove users across multiple apps. Instead, your apps can delegate that responsibility to a centralized identity provider.
+Creating apps that each maintain their own username and password information incurs a high administrative burden when adding or removing users across multiple apps. Instead, your apps can delegate that responsibility to a centralized identity provider.
 
 Azure Active Directory (Azure AD) is a centralized identity provider in the cloud. Delegating authentication and authorization to it enables scenarios such as:
 
@@ -48,7 +48,7 @@ This video explains the Microsoft identity platform and the basics of modern aut
 Here's a comparison of the protocols that the Microsoft identity platform uses:
 
 * **OAuth versus OpenID Connect**: The platform uses OAuth for authorization and OpenID Connect (OIDC) for authentication. OpenID Connect is built on top of OAuth 2.0, so the terminology and flow are similar between the two. You can even both authenticate a user (through OpenID Connect) and get authorization to access a protected resource that the user owns (through OAuth 2.0) in one request. For more information, see [OAuth 2.0 and OpenID Connect protocols](active-directory-v2-protocols.md) and [OpenID Connect protocol](v2-protocols-oidc.md).
-* **OAuth versus SAML**: The platform uses OAuth 2.0 for authorization and SAML for authentication. For more information on how to use these protocols together to both authenticate a user and get authorization to access a protected resource, see [Microsoft identity platform and OAuth 2.0 SAML bearer assertion flow](v2-saml-bearer-assertion.md).
+* **OAuth versus SAML**: The platform uses OAuth 2.0 for authorization and SAML for authentication. For more information on how to use these protocols together to both authenticate a user and get authorization to access a protected resource, see [Microsoft identity platform and OAuth 2.0 SAML bearer assertion flow](./scenario-token-exchange-saml-oauth.md).
 * **OpenID Connect versus SAML**: The platform uses both OpenID Connect and SAML to authenticate a user and enable single sign-on. SAML authentication is commonly used with identity providers such as Active Directory Federation Services (AD FS) federated to Azure AD, so it's often used in enterprise applications. OpenID Connect is commonly used for apps that are purely in the cloud, such as mobile apps, websites, and web APIs.
 
 ## Next steps

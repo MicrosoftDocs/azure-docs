@@ -100,7 +100,7 @@
         href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/
       - name: v3.0
         href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
-      - name: v2
+      - name: v2 (Retiring)
         href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1
   - name: SDKs
     items:
@@ -114,7 +114,7 @@
           href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
         - name: Node.js
           href: /javascript/api/overview/azure/ai-text-analytics-readme
-    - name: v2
+    - name: v2 (Retiring)
       items:
         - name: .NET
           href: /dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet

@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/19/2021
 ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want to learn how to create an Azure Time Series Insights Gen2 environment so that I can use Azure Time Series Insights Gen2 queries to understand device behavior. 
 ---
@@ -34,7 +34,7 @@ Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if yo
 
 ## Prerequisites
 
-* At minimum, you must have the **Contributor** role for the Azure subscription. For more information, read [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+* At minimum, you must have the **Contributor** role for the Azure subscription. For more information, read [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Create a device simulation
 

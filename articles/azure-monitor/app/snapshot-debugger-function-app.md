@@ -17,7 +17,7 @@ For most applications, the Free and Shared service tiers don't have enough memor
 
 ## Prerequisites
 
-* [Enable Application Insights monitoring in your Function App](https://docs.microsoft.com/azure/azure-functions/configure-monitoring#add-to-an-existing-function-app)
+* [Enable Application Insights monitoring in your Function App](../../azure-functions/configure-monitoring.md#add-to-an-existing-function-app)
 
 ## Enable Snapshot Debugger
 
@@ -142,5 +142,5 @@ We recommend you have Snapshot Debugger enabled on all your apps to ease diagnos
 
 - Generate traffic to your application that can trigger an exception. Then, wait 10 to 15 minutes for snapshots to be sent to the Application Insights instance.
 - [View snapshots](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in the Azure portal.
-- Customize Snapshot Debugger configuration based on your use-case on your Function app. For more info, see [snapshot configuration in host.json](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsightssnapshotconfiguration).
+- Customize Snapshot Debugger configuration based on your use-case on your Function app. For more info, see [snapshot configuration in host.json](../../azure-functions/functions-host-json.md#applicationinsightssnapshotconfiguration).
 - For help with troubleshooting Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).

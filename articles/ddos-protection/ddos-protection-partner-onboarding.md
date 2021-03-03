@@ -89,3 +89,4 @@ The following steps are required for partners to configure integration with Azur
 View existing partner integrations:
 
 - [Barracuda WAF-as-a-service](https://www.barracuda.com/waf-as-a-service)
+- [Azure Cloud WAF from Radware](https://www.radware.com/resources/microsoft-azure/)

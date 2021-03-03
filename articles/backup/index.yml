@@ -59,6 +59,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Blobs backup
+            url: blob-backup-overview.md
           - text: Azure Disk Backup
             url: disk-backup-overview.md
           - text: Backup Center
@@ -85,7 +87,7 @@ landingContent:
           - text: Support matrix for Azure VM backup
             url: backup-support-matrix-iaas.md
           - text: FAQ - Azure VM backup
-            url: backup-azure-vm-backup-faq.md
+            url: backup-azure-vm-backup-faq.yml
           - text: Manage Azure VM backups
             url: backup-azure-manage-vms.md
   # Card

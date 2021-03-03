@@ -31,14 +31,14 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Choose data transfer options
-            url: /azure/storage/common/storage-choose-data-transfer-solution
+            url: ../storage/common/storage-choose-data-transfer-solution.md
           - text: Use network or offline transfer
-            url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
+            url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
 
       - linkListType: whats-new
         links:
-          - text: 2007 release notes - Current
-            url: data-box-gateway-2007-release-notes.md
+          - text: 2101 release notes - Current
+            url: data-box-gateway-2101-release-notes.md
 
 
   # Card

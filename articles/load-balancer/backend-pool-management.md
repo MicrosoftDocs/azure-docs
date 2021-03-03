@@ -6,7 +6,7 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 01/28/2021
 ms.author: allensu
 
 ---
@@ -20,6 +20,8 @@ There are two ways of configuring a backend pool:
 Configure your backend pool by NIC when using existing virtual machines and virtual machine scale sets. This method builds the most direct link between your resource and the backend pool. 
 
 When preallocating your backend pool with an IP address range which you plan to later create virtual machines and virtual machine scale sets, configure your backend pool by IP address and VNET ID combination.
+
+You can configure IP-based and NIC-based backend pools for the same load balancer however, you cannot create a single backend pool that mixes backed addresses targeted by NIC and IP addresses within the same pool.
 
 The configuration sections of this article will focus on:
 
@@ -248,8 +250,16 @@ In scenarios with pre-populated backend pools, use IP and virtual network.
 
 All backend pool management is done directly on the backend pool object as highlighted in the examples below.
 
-  >[!IMPORTANT] 
-  >This feature is currently in preview. Please see the [limitations section](#limitations) for current limits of this feature.
+### Limitations
+A Backend Pool configured by IP address has the following limitations:
+  * Can only be used for Standard load balancers
+  * Limit of 100 IP addresses in the backend pool
+  * The backend resources must be in the same virtual network as the load balancer
+  * A Load Balancer with IP-based Backend Pool cannot function as a Private Link service
+  * This feature is not currently supported in the Azure portal
+  * ACI containers are not currently supported by this feature
+  * Load balancers or services fronted by load balancers cannot be placed in the backend pool of the load balancer
+  * Inbound NAT Rules cannot be specified by IP address
 
 ### PowerShell
 Create new backend pool:
@@ -511,17 +521,6 @@ JSON Request Body:
   }
 }
 ```
-
-## Limitations
-A Backend Pool configured by IP address has the following limitations:
-  * Standard load balancer only
-  * Limit of 100 IP addresses in the backend pool
-  * The backend resources must be in the same virtual network as the load balancer
-  * A Load Balancer with IP-based Backend Pool cannot function as a Private Link service
-  * This feature is not currently supported in the Azure portal
-  * ACI containers are not currently supported by this feature
-  * Load balancers or services fronted by load balancers cannot be placed in the backend pool of the load balancer
-  * Inbound NAT Rules cannot be specified by IP address
   
 ## Next steps
 In this article, you learned about Azure Load Balancer backend pool management and how to configure a backend pool by IP address and virtual network.

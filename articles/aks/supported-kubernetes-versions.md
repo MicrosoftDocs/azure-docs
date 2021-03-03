@@ -104,7 +104,7 @@ For new **minor** versions of Kubernetes
 1. AKS publishes a pre-announcement with the planned date of a new version release and respective old version deprecation on the [AKS Release notes](https://aka.ms/aks/releasenotes) at least 30 days prior to removal.
 2. AKS publishes a [service health notification](../service-health/service-health-overview.md) available to all users with AKS and portal access, and sends an email to the subscription administrators with the planned version removal dates.
 ````
-To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator).
+To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
 ````
 3. Users have **30 days** from version removal to upgrade to a supported minor version release  to continue receiving support.
 
@@ -136,12 +136,11 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | Sep-19-19  | Jan 2019   | Mar 2020  | Jan 2021| 
 | 1.17  | Dec-09-19  | Jan 2019   | Jul 2020  | 1.20 GA | 
 | 1.18  | Mar-23-20  | May 2020   | Aug 2020  | 1.21 GA | 
 | 1.19  | Aug-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
 | 1.20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1.23 GA |
-| 1.21  | Apr-08-21* | May 2021   | Jul 2021  | 1.24 GA |
+| 1.21  | Apr-08-21* | May 2021   | Jun 2021  | 1.24 GA |
 
 \* The Kubernetes 1.21 Upstream release is subject to change as the Upstream calender as yet to be finalized.
 

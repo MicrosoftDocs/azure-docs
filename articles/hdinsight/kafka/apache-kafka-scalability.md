@@ -1,9 +1,6 @@
 ---
 title: Apache Kafka increase scale - Azure HDInsight 
 description: Learn how to configure managed disks for Apache Kafka cluster on Azure HDInsight to increase scalability.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive

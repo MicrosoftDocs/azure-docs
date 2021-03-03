@@ -1,7 +1,7 @@
 ---
 title: Update an existing assignment from the portal
 description: Learn about the mechanism for updating an existing blueprint assignment from the portal in Azure Blueprints.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: how-to
 ---
 # How to update an existing blueprint assignment

@@ -342,7 +342,7 @@ To add a subscription:
 
 New subscriptions can take up to 24 hours to appear in the subscriptions list. After you've created a subscription, you can:
 
-- [Edit subscription details](https://account.azure.com/Subscriptions)
+- [Edit subscription details](https://portal.azure.com)
 - [Manage subscription services](https://portal.azure.com/#home)
 
 ## Delete subscription

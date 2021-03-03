@@ -96,7 +96,7 @@ The example JSON includes one utterance with a labeled entity to illustrate what
 
 To review the batch test results, select **See results**. The test results show graphically how the test utterances were predicted against the active version.
 
-The batch chart displays four quadrants of results. To the right of the chart is a filter. The filter contains intents and entities. When you select a [section of the chart](luis-concept-batch-test.md#batch-test-results) or a point within the chart, the associated utterance(s) display below the chart.
+The batch chart displays four quadrants of results. To the right of the chart is a filter. The filter contains intents and entities. When you select a [section of the chart](#review-batch-results-for-intents) or a point within the chart, the associated utterance(s) display below the chart.
 
 While hovering over the chart, a mouse wheel can enlarge or reduce the display in the chart. This is useful when there are many points on the chart clustered tightly together.
 
@@ -163,7 +163,7 @@ The two sections of the chart in green did match the expected prediction.
 
 ## Batch testing using the REST API 
 
-LUIS lets you batch test using the LUIS portal and REST API. The endpoints for the REST API are listed below. For information on batch testing using the LUIS portal, see [Tutorial: batch test data sets](luis-tutorial-batch-testing.md). Use the complete URLs below, replacing the placeholder values with your own LUIS Prediction key and endpoint. 
+LUIS lets you batch test using the LUIS portal and REST API. The endpoints for the REST API are listed below. For information on batch testing using the LUIS portal, see [Tutorial: batch test data sets](). Use the complete URLs below, replacing the placeholder values with your own LUIS Prediction key and endpoint. 
 
 Remember to add your LUIS key to `Ocp-Apim-Subscription-Key` in the header, and set `Content-Type` to `application/json`.
 
@@ -262,5 +262,3 @@ If testing indicates that your LUIS app doesn't recognize the correct intents an
 
 * [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md)
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md)
-* [Understand batch testing with this tutorial](luis-tutorial-batch-testing.md)
-* [Learn batch testing concepts](luis-concept-batch-test.md).
