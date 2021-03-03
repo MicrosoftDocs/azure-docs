@@ -106,7 +106,7 @@ For Azure AD roles, it's common for organizations to assign the Global Administr
 
 Follow these steps to implement the principle of least privilege for your Azure AD roles.
 
-1. Understand the granularity of the roles by reading and understanding the [available Azure AD administrator roles](../roles/permissions-reference.md#available-roles). You and your team should also reference [administrator roles by identity task in Azure AD](../roles/delegate-by-task.md), which explains the least privileged role for specific tasks.
+1. Understand the granularity of the roles by reading and understanding the available [Azure AD built-in roles](../roles/permissions-reference.md). You and your team should also reference [administrator roles by identity task in Azure AD](../roles/delegate-by-task.md), which explains the least privileged role for specific tasks.
 
 1. List who has privileged roles in your organization. You can use the Privileged Identity Management [Discovery and insights (preview)](pim-security-wizard.md) to get to reduce your exposure.
 

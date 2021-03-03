@@ -1,7 +1,6 @@
 ---
 title: Sources of data in Azure Monitor | Microsoft Docs
 description: Describes the data available to monitor the health and performance of your Azure resources and the applications running on them.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -36,7 +35,7 @@ The following table briefly describes the application tiers that may be in Azure
 
 | Tier | Description | Collection method |
 |:---|:---|:---|
-| [Operating system (guest)](#operating-system-guest) | Data about the operating system on compute resources. | Install Log Analytics agent to collect client data sources into Azure Monitor and Dependency agent to collect dependencies supporting Azure Monitor for VMs.<br>For Azure virtual machines, install Azure Diagnostic Extension to collect logs and metrics into Azure Monitor. |
+| [Operating system (guest)](#operating-system-guest) | Data about the operating system on compute resources. | Install Log Analytics agent to collect client data sources into Azure Monitor and Dependency agent to collect dependencies supporting VM insights.<br>For Azure virtual machines, install Azure Diagnostic Extension to collect logs and metrics into Azure Monitor. |
 | [Application Code](#application-code) | Data about the performance and functionality of the actual application and code, including performance traces, application logs, and user telemetry. | Instrument your code to collect data into Application Insights. |
 | [Custom sources](#custom-sources) | Data from external services or other components or devices. | Collect log or metrics data into Azure Monitor from any REST client. |
 
@@ -127,15 +126,15 @@ Install the Log Analytics agent for comprehensive monitoring and management of y
 | Destination | Description | Reference |
 |:---|:---|:---|
 | Azure Monitor Logs | The Log Analytics agent connects to Azure Monitor either directly or through System Center Operations Manager and allows you to collect data from data sources that you configure or from monitoring solutions that provide additional insights into applications running on the virtual machine. | [Agent data sources in Azure Monitor](../agents/agent-data-sources.md)<br>[Connect Operations Manager to Azure Monitor](./om-agents.md) |
-| VM Storage | Azure Monitor for VMs uses the Log Analytics agent to store heath state information in a custom location. See the next section for more information.  |
+| VM Storage | VM insights uses the Log Analytics agent to store heath state information in a custom location. See the next section for more information.  |
 
 
-### Azure Monitor for VMs 
-[Azure Monitor for VMs](../vm/vminsights-overview.md) provides a customized monitoring experience for virtual machines providing features beyond core Azure Monitor functionality. It requires a Dependency Agent on Windows and Linux virtual machines that integrates with the Log Analytics agent to collect discovered data about processes running on the virtual machine and external process dependencies.
+### VM insights 
+[VM insights](../vm/vminsights-overview.md) provides a customized monitoring experience for virtual machines providing features beyond core Azure Monitor functionality. It requires a Dependency Agent on Windows and Linux virtual machines that integrates with the Log Analytics agent to collect discovered data about processes running on the virtual machine and external process dependencies.
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Stores data about processes and dependencies on the agent. | [Using Azure Monitor for VMs (preview) Map to understand application components](../vm/vminsights-maps.md) |
+| Azure Monitor Logs | Stores data about processes and dependencies on the agent. | [Using VM insights (preview) Map to understand application components](../vm/vminsights-maps.md) |
 
 
 
@@ -169,17 +168,17 @@ When you enable Application Insights for an application by installing an instrum
 | Azure Monitor Logs | Monitoring solutions collect data into Azure Monitor logs where it may be analyzed using the query language or [views](../visualize/view-designer.md) that are typically included in the solution. | [Data collection details for monitoring solutions in Azure](../monitor-reference.md) |
 
 
-### Azure Monitor for containers
-[Azure Monitor for containers](../containers/container-insights-overview.md) provides a customized monitoring experience for [Azure Kubernetes Service (AKS)](../../aks/index.yml). It collects additional data about these resources described in the following table.
+### Container insights
+[Container insights](../containers/container-insights-overview.md) provides a customized monitoring experience for [Azure Kubernetes Service (AKS)](../../aks/index.yml). It collects additional data about these resources described in the following table.
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Stores monitoring data for AKS including inventory, logs, and events. Metric data is also stored in Logs in order to leverage its analysis functionality in the portal. | [Understand AKS cluster performance with Azure Monitor for containers](../containers/container-insights-analyze.md) |
+| Azure Monitor Logs | Stores monitoring data for AKS including inventory, logs, and events. Metric data is also stored in Logs in order to leverage its analysis functionality in the portal. | [Understand AKS cluster performance with Container insights](../containers/container-insights-analyze.md) |
 | Azure Monitor Metrics | Metric data is stored in the metric database to drive visualization and alerts. | [View container metrics in metrics explorer](../containers/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
 | Azure Kubernetes Service | Provides direct access to your Azure Kubernetes Service (AKS) container logs (stdout/stderror), events, and pod metrics in the portal. | [How to view Kubernetes logs, events, and pod metrics in real-time ](../containers/container-insights-livedata-overview.md) |
 
-### Azure Monitor for VMs
-[Azure Monitor for VMs](../vm/vminsights-overview.md) provides a customized experience for monitoring virtual machines. A description of the data collected by Azure Monitor for VMs is included in the [Operating System (guest)](#operating-system-guest) section above.
+### VM insights
+[VM insights](../vm/vminsights-overview.md) provides a customized experience for monitoring virtual machines. A description of the data collected by VM insights is included in the [Operating System (guest)](#operating-system-guest) section above.
 
 ## Custom sources
 In addition to the standard tiers of an application, you may need to monitor other resources that have telemetry that can't be collected with the other data sources. For these resources, write this data to either Metrics or Logs using an Azure Monitor API.
