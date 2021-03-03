@@ -373,7 +373,9 @@ You can use the following parameter types for the triggering Event Hub:
 * `EventData` - The default properties of EventData are provided in the for the [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
 
 ### Additional types 
-Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](https://docs.microsoft.com/en-us/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) instead of the one in [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](https://docs.microsoft.com/en-us/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) instead of the one in [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). This version drops support for the legacy `Body` type in favor of the following types:
+
+- [EventBody](https://docs.microsoft.com/en-us/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # [C# Script](#tab/csharp-script)
 
@@ -387,7 +389,9 @@ You can use the following parameter types for the triggering Event Hub:
 * `EventData` - The default properties of EventData are provided in the for the [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
 
 ### Additional types 
-Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](https://docs.microsoft.com/en-us/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) instead of the one in [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](https://docs.microsoft.com/en-us/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) instead of the one in [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). This version drops support for the legacy `Body` type in favor of the following types:
+
+- [EventBody](https://docs.microsoft.com/en-us/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # [Java](#tab/java)
 

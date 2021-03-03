@@ -127,7 +127,7 @@ An identity-based connection for an Azure service accepts the following properti
 | Property    | Required for Extensions | Environment variable | Description |
 |---|---|---|---|
 | Service URI | Azure Blob, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` |  The data plane URI of the service to which you are connecting. |
-| Fully Qualified Namespace | Event Hubs | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The data plane URI of the service to which you are connecting. |
+| Fully Qualified Namespace | Event Hubs | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Event Hub namespace. |
 
 Additional options may be supported for a given connection type. Please refer to the documentation for the component making the connection.
 
