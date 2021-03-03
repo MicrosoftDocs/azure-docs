@@ -270,7 +270,7 @@ You can search through the published kb, using `isTest=false`, or in the test kb
 
 ## Return Precise Answers
 
-The user can enable precise answer feature when using the QnA Maker managed resource. The answerSpanRequest parameter has to be updated for the same.
+The user can enable [precise answers](../reference-precise-answering.md) when using the QnA Maker managed resource. The answerSpanRequest parameter has to be updated for the same.
 
 ```json
 {
