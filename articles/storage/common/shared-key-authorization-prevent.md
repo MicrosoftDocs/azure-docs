@@ -138,7 +138,7 @@ The following example shows how to disallow access with Shared Key for an existi
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> `
     -AccountName <storage-account> `
-    -AllowBlobPublicAccess $false
+    -AllowSharedKeyAccess $false
 ```
 
 # [Azure CLI](#tab/azure-cli)
