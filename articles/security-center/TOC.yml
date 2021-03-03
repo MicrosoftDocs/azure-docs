@@ -49,11 +49,11 @@
     - name: Connect GCP accounts
       displayName: hybrid, multicloud, google
       href: quickstart-onboard-gcp.md
-  - name: 6. Create an auto-response to an alert with an ARM template
-    displayName: Resource Manager
+  - name: 6. Create auto-responses to alerts
+    displayName: Resource Manager, ARM
     href: quickstart-automation-alert.md
   - name: 7. Choose standards for your compliance dashboard
-    displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, Benchmark, Azure Security Benchmark, HIPAA
+    displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark, Azure Security Benchmark, HIPAA
     href: update-regulatory-compliance-packages.md
 
 - name: Tutorials
@@ -71,7 +71,7 @@
 
 - name: Concepts
   items:
-  - name: Cloud Security Posture Management concepts in Security Center
+  - name: Cloud Security Posture Management concepts
     items:
     - name: Policies, initiatives, and recommendations
       href: security-policy-concept.md
@@ -79,7 +79,7 @@
       href: secure-score-security-controls.md
     - name: Reference list of alerts
       href: alerts-reference.md
-  - name: Cloud Workload Protection concepts in Security Center
+  - name: Cloud Workload Protection concepts
     items:
     - name: Security alerts and incidents
       href: security-center-alerts-overview.md
@@ -88,14 +88,16 @@
 
 - name: How-to guides
   items:
-  - name: Access and track your secure score
-    href: secure-score-access-and-track.md
   - name: Use the Overview dashboard
     displayName: overview, compliance, inventory
     href: overview-page.md
   - name: Use the Azure Defender dashboard
     href: azure-defender-dashboard.md
-  - name: Create rich, interactive reports of Security Center data
+  - name: Access and track your secure score
+    href: secure-score-access-and-track.md
+  - name: Manage your resources with asset inventory
+    href: asset-inventory.md
+  - name: Build interactive reports of Security Center data
     displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
     href: custom-dashboards-azure-workbooks.md
   - name: Use security recommendations to improve security
@@ -114,8 +116,6 @@
       href: exempt-resource.md
     - name: Create custom security initiatives and policies
       href: custom-security-policies.md
-  - name: Manage your resources with asset inventory
-    href: asset-inventory.md
   - name: Protect your machines with Azure Defender for servers
     displayName: hybrid, arc, Azure Defender for machines
     items:
@@ -169,28 +169,28 @@
     - name: Overview of Azure Defender for SQL
       displayName: database
       href: defender-for-sql-introduction.md
-    - name: Enable Azure Defender for SQL servers on machines
+    - name: Enable Defender for SQL servers on machines
       href: defender-for-sql-usage.md
       displayName: hybrid, arc, Azure Defender
     - name: Scan your SQL resources for vulnerabilities
       href: defender-for-sql-on-machines-vulnerability-assessment.md
       displayName: hybrid, arc, Azure Defender
-    - name: Disable specific vulnerability finding on SQL servers
+    - name: Disable a vulnerability finding on SQL servers
       displayName: VA, registry, vulnerabilities
       href: defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings-preview
-    - name: Customize your SQL information protection policy
+    - name: Customize SQL information protection policy
       displayName: sql, database, data discovery
       href: security-center-info-protection-policy.md
-  - name: Protect your containers, hosts, and container registries
+  - name: Protect your containers, hosts, and registries
     displayName: Azure Defender
     items:
     - name: Container security features of Security Center
       displayName: kubernetes, aks, acr, registries, k8s
       href: container-security.md
-    - name: Overview of Azure Defender for Kubernetes
+    - name: Overview of Defender for Kubernetes
       displayName: clusters, k8s, aks
       href: defender-for-kubernetes-introduction.md
-    - name: Overview of Azure Defender for container registries
+    - name: Overview of Defender for container registries
       displayName: ACR, registry, images
       href: defender-for-container-registries-introduction.md
     - name: Scan your registry images for vulnerabilities
@@ -241,7 +241,7 @@
     href: security-center-identity-access.md
   - name: Use Security Center's additional threat protections
     href: other-threat-protections.md
-  - name: Manage subscriptions, management groups, users, and permissions
+  - name: Manage subscriptions, users, and permissions
     items:
     - name: Organize management groups and subscriptions
       href: security-center-management-groups.md
@@ -254,7 +254,7 @@
       href: security-center-cross-tenant-management.md
     - name: Automate onboarding using PowerShell
       href: security-center-powershell-onboarding.md
-  - name: Manage security alerts, incidents, and threat reports
+  - name: Manage alerts, incidents, and threat reports
     items:
     - name: Respond to security alerts
       href: security-center-managing-and-responding-alerts.md
