@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 02/22/2021
 ms.author: cherylmc
 
 ---
@@ -47,7 +47,6 @@ A point-to-site (P2S) configuration defines the parameters for connecting remote
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
-
 ## <a name="chooseclientpools"></a> Choose P2S Client Address Pools
 
 [!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
@@ -76,8 +75,6 @@ Once you have finished configuring your client, you can connect.
 1. Navigate to the virtual WAN.
 1. On the **Overview** page, each point on the map represents a hub.
 1. In the **Hubs and connections** section, you can view hub status, site, region, VPN connection status, and bytes in and out.
-
-
 
 ## <a name="cleanup"></a>Clean up resources
 
