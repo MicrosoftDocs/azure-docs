@@ -1,7 +1,6 @@
 ---
 title: Log Analytics agent overview
 description: This topic helps you understand how to collect data and monitor computers hosted in Azure, on-premises, or other cloud environment with Log Analytics.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

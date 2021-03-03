@@ -2,7 +2,6 @@
 title: Azure Monitor FAQ | Microsoft Docs
 description: Answers to frequently asked questions about Azure Monitor.
 services: azure-monitor
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
