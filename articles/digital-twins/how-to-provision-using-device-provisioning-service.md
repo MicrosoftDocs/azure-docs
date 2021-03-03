@@ -27,11 +27,7 @@ For more information about the _provision_ and _retire_ stages, and to better un
 
 Before you can set up the provisioning, you'll need to set up the following:
 
-* an **Azure Digital Twins instance**. Gather the **_host name_** of the instance [from the Azure portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
-* an Azure [IoT Hub](../iot-hub/about-iot-hub.md)
-* an [Azure function](../azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Gather the function **_name_** to use it in this article.
-
-If you do not have these set up already, you can create them by following the article [*how to ingest iot hub data*](how-to-ingest-iot-hub-data.md).
+[!INCLUDE [digital-twins-prereq-provisioning-and-time-series-insights-integration.md](../../includes/digital-twins-prereq-provisioning-and-time-series-insights-integration.md)]
 
 This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
 
@@ -79,7 +75,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### Create an Azure function
 
-Next, you'll create an HTTP request-triggered function inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), or your own.
+Next, you'll create an **HTTP request-triggered** function inside a function app. You can use the function app created in the article [*how to ingest iot hub data*](how-to-ingest-iot-hub-data.md), or your own.
 
 This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device. For more information about using HTTP requests with Azure functions, see [*Azure Http request trigger for Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
@@ -122,7 +118,7 @@ This sample uses a device simulator that includes provisioning using the Device 
 
 #### Upload the model
 
-The device simulator is a thermostat-type device that uses the following model: [ThermostatModel.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/ThermostatModel.json). You'll need to upload this model to Azure Digital Twins before you can create a twin of this type for the device.
+The device simulator is a thermostat-type device that uses the following model: [*ThermostatModel.json*](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/ThermostatModel.json). You'll need to upload this model to Azure Digital Twins before you can create a twin of this type for the device.
 
 First, get the model file on your machine by navigating to the model link above and copying the file body into a local .json file on your machine.
 Then, upload the model file to Azure Digital Twins with the following Azure CLI command:
@@ -221,6 +217,12 @@ Inside your published function app, add a new function class of type *Event Hub 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIotHub_delete.cs":::
 
 Save the project, then publish the function app again. For instructions on publishing the function app, see the [*Publish the app*](tutorial-end-to-end.md#publish-the-app) section of the end-to-end tutorial.
+
+You can verify that the new function app is successfully published in the Azure portal using [this](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) link. You can navigate to your function app page by selecting your function app from the list. Then, in the menu options on the left, select *Functions* to see your functions published. 
+
+Note that you might need to wait a few minutes or refresh the page couple of times before you can see the published function app.
+
+:::image type="content" source="media/how-to-provision-using-dps/azure-functions-app.png" alt-text="View your published function app in the Azure portal":::
 
 ### Configure your function
 
