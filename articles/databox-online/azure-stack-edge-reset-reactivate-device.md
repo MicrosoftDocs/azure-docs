@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/01/2020
+ms.date: 03/03/2020
 ms.author: alkohli
 ---
 
@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 ## Reset data from the device
 
-To wipe the data off the data disks of your device, you need to reset your device. 
+To wipe the data off the data disks of your device, you need to reset your device.
 
 Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container.
 
@@ -59,7 +59,7 @@ To reactivate your existing device, follow these steps:
 
 1. [Configure certificates](azure-stack-edge-gpu-deploy-configure-certificates.md).
 
-1. [Activate the device](databox-online/azure-stack-edge-gpu-deploy-activate.md).
+1. [Activate the device](azure-stack-edge-gpu-deploy-activate.md).
 
 ## Next steps
 
