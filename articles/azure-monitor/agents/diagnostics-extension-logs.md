@@ -34,7 +34,7 @@ Azure diagnostics extension stores data in an Azure Storage account. For Azure M
 
 
 ## Enable Azure diagnostics extension
-See [Install and configure Windows Azure diagnostics extension (WAD)](../agents/diagnostics-extension-windows-install.md) or [Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) for details on installing and configuring the diagnostics extension. This will alow you to specify the storage account and to configure collection of the data that you want to forward to Azure Monitor Logs.
+See [Install and configure Windows Azure diagnostics extension (WAD)](../agents/diagnostics-extension-windows-install.md) or [Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) for details on installing and configuring the diagnostics extension. This will allow you to specify the storage account and to configure collection of the data that you want to forward to Azure Monitor Logs.
 
 
 ## Collect logs from Azure Storage
@@ -58,6 +58,6 @@ In approximately 30 minutes, you are able to see data from the storage account i
 
 ## Next steps
 
-* [Collect logs and metrics for Azure services](./resource-logs.md#send-to-log-analytics-workspace) for supported Azure services.
+* [Collect logs and metrics for Azure services](../essentials/resource-logs.md#send-to-log-analytics-workspace) for supported Azure services.
 * [Enable Solutions](../insights/solutions.md) to provide insight into the data.
 * [Use search queries](../logs/log-query-overview.md) to analyze the data.
