@@ -237,7 +237,7 @@ Typical app discovery errors are summarized in the table.
 | 9026: Unable to run guest operations on the VM. | VM state does not allow guest operations to be run on the VM. | Contact Microsoft Support for a resolution. |
 | 9027: Guest operations agent is not running in the VM. | Failed to contact the guest operations agent running inside the virtual machine. | Contact Microsoft Support for a resolution. |
 | 9028: File cannot be created due to insufficient disk storage in VM. | Not enough space on the disk. | Ensure enough space is available in the disk storage of the VM. |
-| 9029: No access to powershell on the guest VM credential provided. | Access to PowerShell is not available for the user. | Ensure the user added on appliance can access PowerShell on the guest VM. |
+| 9029: No access to PowerShell on the guest VM credential provided. | Access to PowerShell is not available for the user. | Ensure the user added on appliance can access PowerShell on the guest VM. |
 | 9030: Unable to gather discovered metadata as ESXi host is disconnected. | The ESXi host is in a disconnected state. | Ensure the ESXi host running the VM is connected. |
 | 9031: Unable to gather discovered metadata as the ESXi host is not responding. | Remote host is in Invalid state. | Ensure the ESXi host running the VM is running and connected. |
 | 9032: Unable to discover due to an internal error. | The issue can occur due to an internal error. | Contact Microsoft Support for a resolution. |
