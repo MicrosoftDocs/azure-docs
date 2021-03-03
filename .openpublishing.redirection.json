@@ -936,14 +936,6 @@
       "redirect_document_id": true
     },
     {
-<<<<<<< HEAD
-=======
-      "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-custom-setup-li-idp.md",
-      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
-      "redirect_document_id": false
-    },
-    {
->>>>>>> c7ad824b18633540e9e2e2db8bf93c0079c87d3e
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
       "redirect_document_id": true
