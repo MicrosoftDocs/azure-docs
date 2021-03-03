@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/27/2021
+ms.date: 03/03/2021
 ms.author: yelevin
 
 ---
@@ -40,9 +40,11 @@ In the TechCommunity space for Azure Sentinel:
 
 You can also send suggestions for improvements via our [User Voice](https://feedback.azure.com/forums/920458-azure-sentinel) program.
 
-**Join the Azure Sentinel GitHub community**. The [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel) contains community based detections, queries, workbooks, playbooks, and other content to help secure your environment and hunt for threats. 
+**Join the Azure Sentinel GitHub community**. The [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel) is a powerful resource for threat detection and automation. 
 
-This repository welcomes contributions, such as samples and resources that you would like to see added to Azure Sentinel.
+Our Microsoft security analysts constantly create and add new workbooks, playbooks, hunting queries, and more, posting them to the community for you to use in your environment. 
+
+Download sample content from the private community GitHub repository to create custom workbooks, hunting queries, notebooks, and playbooks for Azure Sentinel.
 
 ## Next steps
 
