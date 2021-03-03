@@ -237,7 +237,7 @@ The following procedure builds and deploys the project that you created earlier.
 1. Create an app in your Azure Spring Cloud instance with a public endpoint assigned. Use the same application name "hello-world" that you specified in *appsettings.json*.
 
    ```console
-   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --is-public --runtime-version NetCore_31
+   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --assign-endpoint --runtime-version NetCore_31
    ```
 
 1. Deploy the *.zip* file to the app.
@@ -411,7 +411,7 @@ The following procedure builds and deploys the application using the Azure CLI. 
 1. Create the app with public endpoint assigned:
 
     ```azurecli
-    az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --is-public true
+    az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true
     ```
 
 1. Deploy the Jar file for the app (`target\hellospring-0.0.1-SNAPSHOT.jar` on Windows):
