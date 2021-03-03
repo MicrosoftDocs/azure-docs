@@ -15,6 +15,9 @@ ms.service: azure-communication-services
 
 # Get started with the group chat hero sample
 
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
+
 <!----
 > [!WARNING]
 > links to our Hero Sample repo need to be updated when the sample is publicly available.
