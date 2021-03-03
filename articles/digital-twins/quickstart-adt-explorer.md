@@ -60,7 +60,7 @@ The Azure Digital Twins Explorer application uses [DefaultAzureCredential](/dotn
 
 With this type of authentication, Azure Digital Twins Explorer will search for credentials within your local environment, such as an Azure sign-in in a local [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) or in Visual Studio or Visual Studio Code. For this reason, you should *sign in to Azure locally* through one of these mechanisms to set up credentials for the Azure Digital Twins Explorer app.
 
-If you're already signed in to Azure through one of these ways, you can skip to the [next section](#run-and-configure-adt-explorer).
+If you're already signed in to Azure through one of these ways, you can skip to the [next section](#run-and-configure-azure-digital-twins-explorer).
 
 Otherwise, you can install the local Azure CLI with these steps:
 
