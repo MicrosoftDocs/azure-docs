@@ -323,7 +323,7 @@ The forward-slash (`/`) in front of the signature in the `android:path` value is
                     android:path="/hgbUYHVBYUTvuvT&Y6tr554365466="/>
 ```
 
-For more information on configuring your application for system browser and Android 11 support, please take a look at [Update the Android manifest for System Browser Support](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-xamarin-android-considerations#update-the Android-manifest-for-system-browser-support).
+For more information on configuring your application for system browser and Android 11 support, please take a look at [Update the Android manifest for System Browser Support](msal-net-xamarin-android-considerations.md#update-the-android-manifest).
 
 As an alternative, you can configure MSAL to fall back to the embedded browser, which doesn't rely on a redirect URI:
 
