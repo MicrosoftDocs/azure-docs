@@ -72,7 +72,7 @@ Users in this role can create and manage all aspects of attack simulation creati
 
 ### [Authentication Administrator](#authentication-administrator-permissions)
 
-Users with this role can set or reset any authentication method (including passwords) for non-administrators and some roles. Authentication administrators can require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in. For a list of the roles that an Authentication Administrator can read or update authentcation methods, see [Password reset permissions](#password-reset-permissions).
+Users with this role can set or reset any authentication method (including passwords) for non-administrators and some roles. Authentication administrators can require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in. For a list of the roles that an Authentication Administrator can read or update authentication methods, see [Password reset permissions](#password-reset-permissions).
 
 The [Privileged authentication administrator](#privileged-authentication-administrator) role has permission to force re-registration and multi-factor authentication for all users.
 
@@ -469,7 +469,7 @@ Users with this role have global read-only access on security-related feature, i
 In | Can do
 --- | ---
 [Microsoft 365 security center](https://protection.office.com) | View security-related policies across Microsoft 365 services<br>View security threats and alerts<br>View reports
-Identity Protection Center | Read all security reports and settings information for security features<br><ul><li>Anti-spam<li>Encryption<li>Data loss prevention<li>Anti-malware<li>Advanced threat protection<li>Anti-phishing<li>Mailflow rules
+Identity Protection Center | Read all security reports and settings information for security features<br><ul><li>Anti-spam<li>Encryption<li>Data loss prevention<li>Anti-malware<li>Advanced threat protection<li>Anti-phishing<li>Mail flow rules
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Has read-only access to all information surfaced in Azure AD Privileged Identity Management: Policies and reports for Azure AD role assignments and security reviews.<br>**Cannot** sign up for Azure AD Privileged Identity Management or make any changes to it. In the Privileged Identity Management portal or via PowerShell, someone in this role can activate additional roles (for example, Global Administrator or Privileged Role Administrator), if the user is eligible for them.
 [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | View security policies<br>View and investigate security threats<br>View reports
 Windows Defender ATP and EDR | View and investigate alerts. When you turn on role-based access control in Windows Defender ATP, users with read-only permissions such as the Azure AD Security reader role lose access until they are assigned to a Windows Defender ATP role.
@@ -2057,8 +2057,8 @@ Directory Writers | Directory Writers | 9360feb5-f418-4baa-8175-e2a00bac4301
 Domain Name Administrator | Domain name administrator | 8329153b-31d0-4727-b945-745eb3bc5f31
 Dynamics 365 Administrator | Dynamics 365 administrator | 44367163-eba1-44c3-98af-f5787879f96a
 Exchange Administrator | Exchange administrator | 29232cdf-9323-42fd-ade2-1d097af3e4de
-External Id User flow Administrator | External Id User flow Administrator | 6e591065-9bad-43ed-90f3-e9424366d2f0
-External Id User Flow Attribute Administrator | External Id User Flow Attribute Administrator | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
+External ID User flow Administrator | External ID User flow Administrator | 6e591065-9bad-43ed-90f3-e9424366d2f0
+External ID User Flow Attribute Administrator | External ID User Flow Attribute Administrator | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 External Identity Provider Administrator | External Identity Provider Administrator | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Global Administrator | Global administrator | 62e90394-69f5-4237-9190-012177145e10
 Global Reader | Global reader | f2ef992c-3afb-46b9-b7cf-a126ee74c451
