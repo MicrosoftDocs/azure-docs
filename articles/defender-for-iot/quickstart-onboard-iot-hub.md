@@ -52,14 +52,24 @@ To verify the toggle is set to **On**:
 
 ## Onboard Defender for IoT to an existing IoT Hub
 
-You can monitor your device identity management, device to cloud, and cloud to device communication patterns, do the following to start the service: 
+You can onboard Defender for IoT to an existing IoT Hub, where
+you can then monitor the device identity management, device to cloud, and cloud to device communication patterns.
 
-1. Navigate to IoT Hub. 
+To onboard Defender for IoT to an existing IoT Hub:
 
-1. Select the **Security overview** menu. 
+1. Navigate to the IoT Hub. 
 
-1. Click Secure your IoT solution and complete the onboarding form. 
+1. Select the IoT Hub to be onboarded.
 
+1. Under the **Security** section, select **Overview**.
+
+1. Click **Secure your IoT solution** and complete the onboarding form. 
+
+    :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Select the secure your IoT solution button to secure your solution.":::
+
+The **Secure your IoT solution** button will only appear if the IoT Hub has not already been onboarded, or if while onboarding you left the Defender for IoT toggle on **Off**.
+
+:::image type="content" source="media/quickstart-onboard-iot-hub/toggle-is-off.png" alt-text="If your toggle was set to off during onboarding.":::
 
 ## Next steps
 
