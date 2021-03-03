@@ -121,7 +121,7 @@ The **Protocol** element specifies the protocol to be used for the communication
 
 ## Metadata
 
-The **Metadata** element contains the relevant configuration options to a specific protocol. The list of supported metadata is documented in the corresponding [technical profile](#type-of-technical-profiles) specification. A **Metadata** element contains the following element:
+The **Metadata** element contains the relevant configuration options to a specific protocol. The list of supported metadata is documented in the corresponding [technical profile](#types-of-technical-profiles) specification. A **Metadata** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
@@ -133,7 +133,7 @@ The **Item** element of the **Metadata** element contains the following attribut
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Key | Yes | The metadata key. See each [technical profile type](#type-of-technical-profiles) for the list of metadata items. |
+| Key | Yes | The metadata key. See each [technical profile type](#types-of-technical-profiles) for the list of metadata items. |
 
 The following example illustrates the use of metadata relevant to the [OAuth2 technical profile](oauth2-technical-profile.md#metadata).
 
