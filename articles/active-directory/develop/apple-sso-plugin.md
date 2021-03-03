@@ -154,7 +154,7 @@ Enabling `browser_sso_interaction_enabled` flag enables app that do not use a Mi
 - **Type**: `Integer`
 - **Value**: 1 or 0
 
-For macOS we recommend enabling this flag to get a more consistent experience across all apps. Most iOS and iPadOS use the Microsoft Authenticator application for sign-in and do not need this setting. However, if you have applicaitions that do not use the Microsoft Authenticator on iOS or iPadOS this flag may be useful. It is disabled by default.
+For macOS this setting is required to get a more consistent experience across all apps. For iOS and iPadOS this setting isn't required as most apps use the Microsoft Authenticator application for sign-in. However, if you have some applicaitions that do not use the Microsoft Authenticator on iOS or iPadOS this flag will improve the experience so we recommend you enable the setting. It is disabled by default.
 
 #### Disable asking for MFA on inital bootstrapping
 
@@ -166,11 +166,11 @@ Enabling `browser_sso_disable_mfa` turns this off and will only prompt the user 
 - **Type**: `Integer`
 - **Value**: 1 or 0
 
-We recommend keeping this flag disabled as it reduces the times the user needs to be prompted on the device. If your organization rarely uses MFA you may want to enable the flag, but we'd rather you use start using MFA more frequently as it's much safer. For this reason, it is disabled by default.
+We recommend keeping this flag disabled as it reduces the times the user needs to be prompted on the device. If your organization rarely uses MFA you may want to enable the flag, but we'd recommend you use MFA more frequently instead. For this reason, it is disabled by default.
 
 #### Disable OAuth2 application prompts
 
-The Microsoft Enterprise SSO plug-in provides SSO by appending shared credentials to network requests coming from allowed applications. However, some OAuth2 applications might not be aware of this and enforce end-user prompts at the protocol layer. If this is happening, you'll see that shared credentials are ignored for those apps and your user is prompted to sign in even though the Microsoft Enterprise SSO plug-in is working for other applications.  
+The Microsoft Enterprise SSO plug-in provides SSO by appending shared credentials to network requests coming from allowed applications. However, some OAuth2 applications might incorrectly enforce end-user prompts at the protocol layer. If this is happening, you'll see that shared credentials are ignored for those apps and your user is prompted to sign in even though the Microsoft Enterprise SSO plug-in is working for other applications.  
 
 Enabling `disable_explicit_app_prompt` flag restricts ability of both native and web applications to force an end-user prompt on the protocol layer and bypass SSO.
 
@@ -182,7 +182,7 @@ We recommend enabling this flag to get more consistent experience across all app
 
 #### Enable SSO through cookies for specific application
 
-A small number of apps might be incompatible with the SSO extension. Specifically, apps that have advanced network settings, might experience unexpected issues when they are enabled for the SSO (e.g. you might see an error that network request got canceled or interrupted). 
+A small number of apps might be incompatible with the SSO extension. Specifically, apps that have advanced network settings might experience unexpected issues when they are enabled for the SSO (e.g. you might see an error that network request got canceled or interrupted). 
 
 If you are experiencing problems signing in using method described in the `Enable SSO for apps that don't use MSAL` section, you could try alternative configuration for those apps. 
 
