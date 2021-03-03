@@ -142,15 +142,12 @@ After closing this window, you may go back and edit your vision project anytime 
 After you have trained your model and deployed it to the device, you can improve model performance by setting up retraining parameters to capture more training data. This feature is used to improve a trained model's performance by giving you the ability to capture images based on a probability range. For example, you can set your device to only capture training images when the probability is low. Here is some [additional guidance](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) on adding more images and balancing training data.
 
 1. To set up retraining, go back to your **Project**, then to **Project Summary**
-
-    :::image type="content" source="./media/tutorial-nocode-vision/nocode-vision-project-summary.png" alt-text="project summary.":::
-
 1. In the **Image capture** tab, select **Automatic image capture** and **Set up retraining**.
 1. Set up the automated image capture to collect a large quantity of images at a time by checking the **Automatic image capture** box.
 1. Select your preferred imaging rate under **Capture rate** and the total number of images you would like to collect under **Target**.
 1. In the **set up retraining** section, select the iteration that you would like to capture more training data for, then select the probability range. Only images that meet the probability rate will be uploaded to your project.
 
-    :::image type="content" source="../media/tutorial-nocode-vision/vision-image-capture.png" alt-text="image capture.":::
+    :::image type="content" source="./media/tutorial-nocode-vision/vision-image-capture.png" alt-text="image capture.":::
 
 ## Clean up resources
 

@@ -168,7 +168,7 @@ If you wish to create a new subscription, follow [these steps](https://docs.micr
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-19-0-warning.png" alt-text="Setup experience disconnect warning."::: 
 
-1. Continue to the Azure Portal – Go back to the setup experience window and click on the **Continue to the Azure portal** button to begin creating your custom AI models in Azure Percept Studio.
+1. Continue to the Azure portal – Go back to the setup experience window and click on the **Continue to the Azure portal** button to begin creating your custom AI models in Azure Percept Studio.
 
     > [!NOTE]
     > Verify that your host computer is no longer connected to the dev kit access point in your wifi settings and is now reconnected to your local wifi.

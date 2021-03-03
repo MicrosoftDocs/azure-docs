@@ -11,7 +11,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Azure Percept security overview
 
-Azure Percept DK devices are designed with a hardware root of trust— additional built-in security on every device. It helps protect privacy-sensitive sensors like cameras and microphones, inference data, and enables device authentication and authorization for Azure Percept Studio services.
+Azure Percept DK devices are designed with a hardware root of trust: additional built-in security on every device. It helps protect privacy-sensitive sensors like cameras and microphones, inference data, and enables device authentication and authorization for Azure Percept Studio services.
 
 > [!NOTE]
 > The Azure Percept DK is licensed for use in development and test environments only.
@@ -52,7 +52,7 @@ This checklist is a starting point for firewall rules:
 |*.auth.azureperceptdk.azure.net|	443|	Azure DK SOM Authentication and Authorization|
 |*.auth.projectsantacruz.azure.net|	443|	Azure DK SOM Authentication and Authorization|
 
-Additionally, review the list of [connections used by Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/production-checklist?view=iotedge-2018-06#allow-connections-from-iot-edge-devices).
+Additionally, review the list of [connections used by Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/production-checklist?view=iotedge-2018-06#allow-connections-from-iot-edge-devices).
 
 <!---
 ## Additional Recommendations for Deployment to Production
