@@ -1,7 +1,6 @@
 ---
 title: IT Service Management Connector overview
 description: This article provides an overview of IT Service Management Connector (ITSMC).
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur

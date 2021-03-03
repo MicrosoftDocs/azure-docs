@@ -1,7 +1,6 @@
 ---
 title: Overview of alerting and notification monitoring in Azure
 description: Overview of alerting in Azure Monitor
-ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 02/14/2021
 
