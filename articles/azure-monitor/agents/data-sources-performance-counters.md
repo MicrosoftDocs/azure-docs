@@ -46,7 +46,7 @@ Follow this procedure to add a new Windows performance counter to collect. Pleas
 
 ### Linux performance counters
 
-![Configure Linux Performance counters](media/data-sources-performance-counters/configure-linux-1.png)
+![Configure Linux Performance counters](media/data-sources-performance-counters/configure-linux.png)
 
 Follow this procedure to add a new Linux performance counter to collect.
 
