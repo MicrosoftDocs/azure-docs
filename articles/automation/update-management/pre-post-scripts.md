@@ -54,31 +54,31 @@ In addition to your standard runbook parameters, the `SoftwareUpdateConfiguratio
 The following example is a JSON string passed in to the **SoftwareUpdateConfigurationRunContext** parameter:
 
 ```json
-"SoftwareUpdateConfigurationRunContext":{
-      "SoftwareUpdateConfigurationName":"sampleConfiguration",
-      "SoftwareUpdateConfigurationRunId":"00000000-0000-0000-0000-000000000000",
-      "SoftwareUpdateConfigurationSettings":{
-         "operatingSystem":"Windows",
-         "duration":"PT2H0M",
-         "windows":{
-            "excludedKbNumbers":[
-               "168934",
-               "168973"
-            ],
-            "includedUpdateClassifications":"Critical",
-            "rebootSetting":"IfRequired"
-         },
-         "azureVirtualMachines":[
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
-         ],
-         "nonAzureComputerNames":[
-            "box1.contoso.com",
-            "box2.contoso.com"
-         ]
-      }
-   }
+"SoftwareUpdateConfigurationRunContext": {
+    "SoftwareUpdateConfigurationName": "sampleConfiguration",
+    "SoftwareUpdateConfigurationRunId": "00000000-0000-0000-0000-000000000000",
+    "SoftwareUpdateConfigurationSettings": {
+      "operatingSystem": "Windows",
+      "duration": "PT2H0M",
+      "windows": {
+        "excludedKbNumbers": [
+          "168934",
+          "168973"
+        ],
+        "includedUpdateClassifications": "Critical",
+        "rebootSetting": "IfRequired"
+      },
+      "azureVirtualMachines": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
+      ],
+      "nonAzureComputerNames": [
+        "box1.contoso.com",
+        "box2.contoso.com"
+      ]
+    }
+  }
 ```
 
 A full example with all properties can be found at: [Get software update configuration by name](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).

@@ -2,7 +2,7 @@
 title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: This article provides details about features and terminology of Azure Event Hubs. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 02/19/2021
 ---
 
 # Features and terminology in Azure Event Hubs
@@ -42,7 +42,12 @@ Event Hubs ensures that all events sharing a partition key value are stored toge
 
 ### Event Retention
 
-Published events are removed from an Event Hub based on a configurable, timed-based retention policy. The default value and shortest possible retention period is 1 day (24 hours). For Event Hubs Standard, the maximum retention period is 7 days. For Event Hubs Dedicated, the maximum retention period is 90 days.
+Published events are removed from an Event Hub based on a configurable, timed-based retention policy. Here are a few important points:
+
+- The **default** value and **shortest** possible retention period is **1 day (24 hours)**.
+- For Event Hubs **Standard**, the maximum retention period is **7 days**. 
+- For Event Hubs **Dedicated**, the maximum retention period is **90 days**.
+- If you change the retention period, it applies to all messages including messages that are already in the event hub. 
 
 > [!NOTE]
 > Event Hubs is a real-time event stream engine and is not designed to be used instead of a database and/or as a 
@@ -113,6 +118,9 @@ An *offset* is the position of an event within a partition. You can think of an 
 *Checkpointing* is a process by which readers mark or commit their position within a partition event sequence. Checkpointing is the responsibility of the consumer and occurs on a per-partition basis within a consumer group. This responsibility means that for each consumer group, each partition reader must keep track of its current position in the event stream, and can inform the service when it considers the data stream complete.
 
 If a reader disconnects from a partition, when it reconnects it begins reading at the checkpoint that was previously submitted by the last reader of that partition in that consumer group. When the reader connects, it passes the offset to the event hub to specify the location at which to start reading. In this way, you can use checkpointing to both mark events as "complete" by downstream applications, and to provide resiliency if a failover between readers running on different machines occurs. It is possible to return to older data by specifying a lower offset from this checkpointing process. Through this mechanism, checkpointing enables both failover resiliency and event stream replay.
+
+> [!IMPORTANT]
+> Offsets are provided by the Event Hubs service. It is the responsibility of the consumer to checkpoint as events are processed.
 
 > [!NOTE]
 > If you are using Azure Blob Storage as the checkpoint store in an environment that supports a different version of Storage Blob SDK than those typically available on Azure, you'll need to use code to change the Storage service API version to the specific version supported by that environment. For example, if you are running [Event Hubs on an Azure Stack Hub version 2002](/azure-stack/user/event-hubs-overview), the highest available version for the Storage service is version 2017-11-09. In this case, you need to use code to target the Storage service API version to 2017-11-09. For an example on how to target a specific Storage API version, see these samples on GitHub: 

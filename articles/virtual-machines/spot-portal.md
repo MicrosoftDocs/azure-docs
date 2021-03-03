@@ -3,6 +3,7 @@ title: Use the portal to deploy Azure Spot Virtual Machines
 description: How to use Azure PowerShell to deploy Spot Virtual Machines  to save on costs.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/14/2020

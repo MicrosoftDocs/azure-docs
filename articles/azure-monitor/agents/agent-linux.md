@@ -13,10 +13,10 @@ ms.date: 08/21/2020
 This article provides details on installing the Log Analytics agent on Linux computers using the following methods:
 
 * [Install the agent for Linux using a wrapper-script](#install-the-agent-using-wrapper-script) hosted on GitHub. This is the recommended method to install and upgrade the agent when the computer has connectivity with the Internet, directly or through a proxy server.
-* [Manually download and install](#install-the-agent-manually) the agent. This is required when the Linux computer does not have access to the Internet and will be communicating with Azure Monitor or Azure Automation through the [Log Analytics gateway](../platform/gateway.md). 
+* [Manually download and install](#install-the-agent-manually) the agent. This is required when the Linux computer does not have access to the Internet and will be communicating with Azure Monitor or Azure Automation through the [Log Analytics gateway](./gateway.md). 
 
 >[!IMPORTANT]
-> The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](../platform/log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
+> The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](./log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
 
 
 
@@ -28,7 +28,7 @@ See [Overview of Azure Monitor agents](agents-overview.md#supported-operating-sy
 >OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit) and OpenSSL earlier than 1.x is not supported on any platform.
 
 >[!NOTE]
->Running the Log Analytics Linux Agent in containers is not supported. If you need to monitor containers, please leverage the [Container Monitoring solution](../insights/containers.md) for Docker hosts or [Azure Monitor for containers](../insights/container-insights-overview.md) for Kubernetes.
+>Running the Log Analytics Linux Agent in containers is not supported. If you need to monitor containers, please leverage the [Container Monitoring solution](../containers/containers.md) for Docker hosts or [Container insights](../containers/container-insights-overview.md) for Kubernetes.
 
 Starting with versions released after August 2018, we are making the following changes to our support model:  
 
@@ -96,7 +96,7 @@ The following table highlights the packages required for [supported Linux distro
 >Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
 
 ## Network requirements
-See [Log Analytics agent overview](../platform/log-analytics-agent.md#network-requirements) for the network requirements for the Linux agent.
+See [Log Analytics agent overview](./log-analytics-agent.md#network-requirements) for the network requirements for the Linux agent.
 
 ## Agent install package
 

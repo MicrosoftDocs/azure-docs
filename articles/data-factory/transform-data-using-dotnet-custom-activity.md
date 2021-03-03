@@ -32,7 +32,7 @@ See following articles if you are new to Azure Batch service:
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 
 > [!IMPORTANT]
-> When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'. For more details refer [Azure Batch Pool migration guidance](https://docs.microsoft.com/azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration). 
+> When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'. For more details refer [Azure Batch Pool migration guidance](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
 
 ## Azure Batch linked service
 
@@ -296,7 +296,7 @@ Activity Error section:
 If you would like to consume the content of stdout.txt in downstream activities, you can get the path to the stdout.txt file in expression "\@activity('MyCustomActivity').output.outputs[0]".
 
 > [!IMPORTANT]
-> - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Batch task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` path. If needed, you need to clean them up separately.
+> - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Batch task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in `https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/` path. If needed, you need to clean them up separately.
 > - For Linked Services that use the Self-Hosted Integration Runtime, the sensitive information like keys or passwords are encrypted by the Self-Hosted Integration Runtime to ensure credential stays in customer defined private network environment. Some sensitive fields could be missing when referenced by your custom application code in this way. Use SecureString in extendedProperties instead of using Linked Service reference if needed.
 
 ## Pass outputs to another activity

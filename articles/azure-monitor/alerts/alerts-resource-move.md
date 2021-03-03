@@ -5,12 +5,12 @@ author: harelbr
 ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 06/26/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
 ---
 # How to update alert rules or action rules when their target resource moves to a different Azure region
 
-This article describes why existing [alert rules](../platform/alerts-overview.md) and [action rules](./alerts-action-rules.md) may be impacted when you move other Azure resources between regions, and how to identify and resolve those issues. Check the main [resource move documentation](../../azure-resource-manager/management/move-region.md) for additional information on when is resource move between regions useful and a checklist of designing a move process.
+This article describes why existing [alert rules](./alerts-overview.md) and [action rules](./alerts-action-rules.md) may be impacted when you move other Azure resources between regions, and how to identify and resolve those issues. Check the main [resource move documentation](../../azure-resource-manager/management/move-region.md) for additional information on when is resource move between regions useful and a checklist of designing a move process.
 
 ## Why the problem exists
 
@@ -42,7 +42,6 @@ The problem applies to these rule types:
 
 - Activity log alert rules
 - Action rules
-- Classic alerts
 - Metric alerts – For more information, see the next section [Alert rules based on metrics](#alert-rules-based-on-metrics).
 
 > [!NOTE]
@@ -108,4 +107,4 @@ Navigate to Alerts > Manage actions > Action rules (preview) > filter by the con
 
 ## Next steps
 
-Learn about fixing other problems with [alert notifications](alerts-troubleshoot.md), [metric alerts](alerts-troubleshoot-metric.md), and [log alerts](alerts-troubleshoot-log.md). 
+Learn about fixing other problems with [alert notifications](alerts-troubleshoot.md), [metric alerts](alerts-troubleshoot-metric.md), and [log alerts](alerts-troubleshoot-log.md).
