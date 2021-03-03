@@ -11,7 +11,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # View your Azure Percept DK's RTSP video stream
 
-Follow this guide to view the RTSP video stream from the Vision SoM of the Azure Percept DK within Azure Percept Studio. Inferencing from vision AI models deployed to your device will be viewable in the webstream.
+Follow this guide to view the RTSP video stream from the Vision SoM of the Azure Percept DK within Azure Percept Studio. Inferencing from vision AI models deployed to your device will be viewable in the web stream.
 
 ## Prerequisites
 
