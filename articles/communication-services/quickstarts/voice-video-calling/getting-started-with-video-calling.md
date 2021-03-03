@@ -314,7 +314,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 ```
 Open your browser and navigate to http://localhost:8080/. You should see the following:
 
-:::image type="content" source="/media/javascript/1on1-video-calling.png" alt-text="1 on 1 video calling page":::
+:::image type="content" source="./media/javascript/1on1-video-calling.png" alt-text="1 on 1 video calling page":::
 
 You can make an 1:1 outgoing video call by providing a user ID in the text field and clicking the Start Call button. 
 
