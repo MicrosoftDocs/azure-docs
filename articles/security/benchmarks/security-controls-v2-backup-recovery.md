@@ -14,7 +14,7 @@ ms.custom: security-benchmark
 
 Backup and Recovery covers controls to ensure that data and configuration backups at the different service tiers are performed, validated, and protected.
 
-To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Backup and Recovery](../../governance/policy/samples/azure-security-benchmark#backup-and-recovery)
+To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Backup and Recovery](../../governance/policy/samples/azure-security-benchmark.md#backup-and-recovery)
 
 ## BR-1: Ensure regular automated backups
 
