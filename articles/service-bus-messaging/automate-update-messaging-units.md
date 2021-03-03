@@ -131,17 +131,13 @@ The previous section shows you how to add a default condition for the autoscale 
     
     :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="scale to specific messaging units - repeat specific days":::
 
-    > [!IMPORTANT]
-    > To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+    
+    To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
 
-## Workload-based recommendations
-Your Service Bus-based application may have to deal with the following two types of workloads that:
-
-- Gradually grow or shrink
-- Spike up/down
-
-In the spiky workloads scenario, the metrics you review to make decisions on autoscaling may be 5-10 minutes old. For these workloads, we recommend that you have shorter durations for scaling up and longer durations for scaling down (> 10 minutes) to ensure that there are enough messaging units to process spiky workloads. 
-
+    > [!NOTE]
+    > - The metrics you review to make decisions on autoscaling may be 5-10 minutes old. When you are dealing with spiky workloads, we recommend that you have shorter durations for scaling up and longer durations for scaling down (> 10 minutes) to ensure that there are enough messaging units to process spiky workloads. 
+    > 
+    > - If you see failures due to lack of capacity (no messaging units available), raise a support ticket with us.  
 
 
 ## Next steps
