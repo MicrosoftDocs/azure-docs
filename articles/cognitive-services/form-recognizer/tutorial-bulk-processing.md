@@ -73,7 +73,7 @@ These fields will be used in the table:
 * **form_description**. Not required as part of the training. This field provides a description of the type of forms we're training the model for (for example, "client A forms," "Hotel B forms").
 * **training_container_name**. The name of the storage account container where we've stored the training dataset. It can be the same container as **scoring_container_name**.
 * **training_blob_root_folder**. The folder within the storage account where we'll store the files for the training of the model.
-* **scoring_container_name**. The name of the storage account container where we've stored the files we want to extract the key-value pairs from. It can be the same container as **training_container_name**.
+* **scoring_container_name**. The name of the storage account container where we've stored the files we want to extract the key/value pairs from. It can be the same container as **training_container_name**.
 * **scoring_input_blob_folder**. The folder in the storage account where we'll store the files to extract data from.
 * **model_id**. The ID of the model we want to retrain. For the first run, the value must be set to -1, which will cause the training notebook to create a new custom model to train. The training notebook will return the new model ID to the Azure Data Factory instance. By using a stored procedure activity, we'll update this value in the Azure SQL database.
 
@@ -87,7 +87,7 @@ These fields will be used in the table:
 ### Create the table
 
 
-1. [Create an Azure SQL database](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), and then run this SQL script in the [query editor](../../azure-sql/database/connect-query-portal.md) to create the required table:
+[Create an Azure SQL database](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), and then run this SQL script in the [query editor](../../azure-sql/database/connect-query-portal.md) to create the required table:
 
 
 ```sql
@@ -122,14 +122,14 @@ For security reasons, we don't want to store certain sensitive information in th
 
 ### Create an Azure key vault
 
-[Create a Key Vault resource](https://ms.portal.azure.com/#create/Microsoft.KeyVault). Then navigate to the Key Vault resource after it's created and, in the **settings** section, select **secrets** to add the parameters.
+[Create a Key Vault resource](https://ms.portal.azure.com/#create/Microsoft.KeyVault). Then go to the Key Vault resource after it's created and, in the **settings** section, select **secrets** to add the parameters.
 
 A new window will appear. Select **Generate/import**. Enter the name of the parameter and its value, and then select **create**. Complete those steps for the following parameters:
 
 * **CognitiveServiceEndpoint**. The endpoint URL of your Form Recognizer API.
 * **CognitiveServiceSubscriptionKey**. The access key for your Form Recognizer service. 
-* **StorageAccountName**. The storage account where the training dataset and the forms you want to extract key-value pairs from are stored. If these items are in different accounts, enter each account name as a separate secret. Remember that the training datasets must be in the same container for all form types. They can be in different folders.
-* **StorageAccountSasKey**. The shared access signature (SAS) of the storage account. To retrieve the SAS URL, go to your storage resource. On the **Storage Explorer** tab, navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read** and **List** permissions are selected, and then select **Create**. Then copy the value in the **URL** section. It should have this form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **StorageAccountName**. The storage account where the training dataset and the forms you want to extract key/value pairs from are stored. If these items are in different accounts, enter each account name as a separate secret. Remember that the training datasets must be in the same container for all form types. They can be in different folders.
+* **StorageAccountSasKey**. The shared access signature (SAS) of the storage account. To retrieve the SAS URL, go to your storage resource. On the **Storage Explorer** tab, go to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read** and **List** permissions are selected, and then select **Create**. Then copy the value in the **URL** section. It should have this form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ## Train your Form Recognizer model in a Databricks notebook
 
@@ -137,7 +137,7 @@ You'll use Azure Databricks to store and run the Python code that interacts with
 
 ### Create a notebook in Databricks
 
-[Create an Azure Databricks resource](https://ms.portal.azure.com/#create/Microsoft.Databricks) in the Azure portal. Navigate to the resource after it's created, and open the workspace.
+[Create an Azure Databricks resource](https://ms.portal.azure.com/#create/Microsoft.Databricks) in the Azure portal. Go to the resource after it's created, and open the workspace.
 
 ### Create a secret scope backed by Azure Key Vault
 
@@ -245,7 +245,7 @@ Now that we've completed the **Settings** notebook, we can create a notebook to 
             "includeSubFolders": includeSubFolders
        },
     }
-    if model_id=="-1": # If you don't already have a model you want to retrain. In this case, we create a model and use it to extract the key-value pairs.
+    if model_id=="-1": # If you don't already have a model you want to retrain. In this case, we create a model and use it to extract the key/value pairs.
       try:
           resp = post(url = post_url, json = body, headers = headers)
           if resp.status_code != 201:
@@ -311,7 +311,7 @@ Now that we've completed the **Settings** notebook, we can create a notebook to 
 
 The next step is to score the various forms we have by using the trained model. We'll mount the Azure Data Lake Storage account in Databricks and refer to the mount during the ingestion process.
 
-As we did in the training stage, we'll use Azure Data Factory to invoke the extraction of the key-value pairs from the forms. We'll loop over the forms in the folders that are specified in the parameter table.
+As we did in the training stage, we'll use Azure Data Factory to invoke the extraction of the key/value pairs from the forms. We'll loop over the forms in the folders that are specified in the parameter table.
 
 1. Create the notebook to mount the storage account in Databricks. Call it **MountDataLake**. 
 1. You'll need to call the **Settings** notebook first:
@@ -361,11 +361,11 @@ As we did in the training stage, we'll use Azure Data Factory to invoke the extr
     ```
 
     > [!NOTE]
-    > We mounted only the training storage account. In this case, the training files and the files we want to extract key-value pairs from are in the same storage account. If your scoring and training storage accounts are different, you'll need to mount both storage accounts. 
+    > We mounted only the training storage account. In this case, the training files and the files we want to extract key/value pairs from are in the same storage account. If your scoring and training storage accounts are different, you'll need to mount both storage accounts. 
 
 ### Write the scoring notebook
 
-We can now create a scoring notebook. We'll do something similar to what we did in the training notebook: we'll use files stored in folders in the Azure Data Lake Storage account we just mounted. The folder name is passed as a variable. We'll loop over all the forms in the specified folder and extract the key-value pairs from them. 
+We can now create a scoring notebook. We'll do something similar to what we did in the training notebook: we'll use files stored in folders in the Azure Data Lake Storage account we just mounted. The folder name is passed as a variable. We'll loop over all the forms in the specified folder and extract the key/value pairs from them. 
 
 1. Create a notebook and call it **ScoreFormRecognizer**. 
 1. Run the **Settings** and **MountDataLake** notebooks:
@@ -414,7 +414,7 @@ We can now create a scoring notebook. We'll do something similar to what we did 
         quit() 
     ```
 
-1. In the next cell, we'll get the results of the key-value pair extraction. This cell will output the result. We want the result in JSON format so we can process it further in Azure SQL Database or Azure Cosmos DB. So we'll write the result to a .json file. The output file name will be the name of the scored file concatenated with "_output.json". The file will be stored in the same folder as the source file.
+1. In the next cell, we'll get the results of the key/value pair extraction. This cell will output the result. We want the result in JSON format so we can process it further in Azure SQL Database or Azure Cosmos DB. So we'll write the result to a .json file. The output file name will be the name of the scored file concatenated with "_output.json". The file will be stored in the same folder as the source file.
 
     ```python
     n_tries = 10
@@ -473,7 +473,7 @@ The stored procedure takes two parameters: **model_id** and **form_batch_group_i
 
 ### Scoring pipelines
 
-To extract the key-value pairs, we'll scan all the folders in the parameterization table. For each folder, we'll extract the key-value pairs of all the files in it. Azure Data Factory doesn't currently support nested ForEach loops. Instead, we'll create two pipelines. The first pipeline will do the lookup from the parameterization table and pass the folders list as a parameter to the second pipeline.
+To extract the key/value pairs, we'll scan all the folders in the parameterization table. For each folder, we'll extract the key/value pairs of all the files in it. Azure Data Factory doesn't currently support nested ForEach loops. Instead, we'll create two pipelines. The first pipeline will do the lookup from the parameterization table and pass the folders list as a parameter to the second pipeline.
 
 :::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-1a.png" alt-text="Screenshot that shows the first scoring pipeline in Data Factory.":::
 
