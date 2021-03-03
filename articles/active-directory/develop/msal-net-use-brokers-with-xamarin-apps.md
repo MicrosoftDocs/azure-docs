@@ -357,7 +357,8 @@ Here are a few tips on avoiding issues when you implement brokered authenticatio
     1. Select the menu button on the top-left corner of the app
     1. Select **Help** > **Email Support**
     1. Select **Upload Logs Only** to send the logs.
-    1. Once you send the logs you will be presented with a popup that will contain an **Incident ID**. Please provide this incident ID when requesting assistance.
+
+        Once you send the logs, a popup window displays the **Incident ID**. Record the Incident ID and then provide it when you request assistance.
 
 ## Next steps
 
