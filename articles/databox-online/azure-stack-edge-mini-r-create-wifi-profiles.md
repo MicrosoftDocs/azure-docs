@@ -7,7 +7,7 @@ author: v-dalc@microsoft.com
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/01/2021
+ms.date: 03/02/2021
 ms.author: alkohli
 ---
 
@@ -23,7 +23,7 @@ In either case, it's very important to make sure the profile complies with the s
 
 A wireless network (Wi-Fi) profile contains the SSID (service set identifier, or **network name**), password key, and security information to be able to connect your Azure Stack Edge Mini R device to a wireless network.
 
-The following code example shows basic settings for a profile for a typical wireless network:
+The following code example shows basic settings for a profile to use with a typical wireless network:<!--Compare with the sample in Shourja's overview.-->
 
 * `SSID` is the network name.<!--This is a hexadecimal value? Always?-->  
 
@@ -56,7 +56,7 @@ On a Wi-Fi Protected Access 2 (WPA2) - Personal network (a home network or Wi-Fi
 
 For example, a Windows 10 client can generate a runtime profile for you. When you sign in to the Wi-Fi network, you're prompted for the Wi-Fi password and, once you provide that password, you're connected. No certificate is needed in this environment.
 
-On this type of network, you may be able to export a Wi-Fi profile from your laptop, and then import it to your Azure Stack Edge Mini R device. See (Export Wi-Fi profile)[#export-wifi-profile], below.
+On this type of network, you may be able to export a Wi-Fi profile from your laptop, and then add it to your Azure Stack Edge Mini R device. See (Export Wi-Fi profile)[#export-wifi-profile], below.
 
 > [!IMPORTANT]
 > Before you create a Wi-Fi profile for your Azure Stack Edge Mini R device, contact your network administrator to find out the organization's security requirements for wireless networking. You shouldn't test or use any Wi-Fi profile on your device until you know the wireless network meets requirements.
