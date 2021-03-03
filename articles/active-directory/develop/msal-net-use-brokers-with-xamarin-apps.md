@@ -348,8 +348,9 @@ Here are a few tips on avoiding issues when you implement brokered authenticatio
     1. Select the menu button in the top-right corner of the app.
     1. Select **Send Feedback** > **Having Trouble?**.
     1. Select one of the options under **What are you trying to do?** and add a description
-    1. You can then hit the arrow on the top right of the screen to send the logs.
-    1. Once you send the logs you will be presented with a popup that will contain an **Incident ID**. Please provide this incident ID when requesting assistance.
+    1. Select the arrow on the top right of the screen to send the logs.
+
+        Once you send the logs, a popup window displays the **Incident ID**. Record the Incident ID and then provide it when you request assistance.
 
   - Acquiring Intune Company Portal logs:
 
