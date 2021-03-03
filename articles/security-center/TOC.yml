@@ -77,8 +77,8 @@
       href: security-policy-concept.md
     - name: Secure score and security controls
       href: secure-score-security-controls.md
-    - name: Reference list of alerts
-      href: alerts-reference.md
+    - name: Reference list of recommendations
+      href: recommendations-reference.md
   - name: Cloud Workload Protection concepts
     items:
     - name: Security alerts and incidents
