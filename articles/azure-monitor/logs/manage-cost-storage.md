@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2021
 ms.author: bwren
-ms.subservice: 
 ---
  
 # Manage usage and costs with Azure Monitor Logs	
@@ -264,7 +263,7 @@ To get you started, here are the recommended settings for the alert querying the
 - Alert rule name: Daily data limit reached
 - Severity: Warning (Sev 1)
 
-Once alert is defined and the limit is reached, an alert is triggered and performs the response defined in the Action Group. It can notify your team via email and text messages, or automate actions using webhooks, Automation runbooks or [integrating with an external ITSM solution](../platform/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
+Once alert is defined and the limit is reached, an alert is triggered and performs the response defined in the Action Group. It can notify your team via email and text messages, or automate actions using webhooks, Automation runbooks or [integrating with an external ITSM solution](../alerts/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
 
 ## Troubleshooting why usage is higher than expected
 
@@ -486,8 +485,8 @@ Some suggestions for reducing the volume of logs collected include:
 | AzureDiagnostics           | Change [resource log collection](../essentials/diagnostic-settings.md#create-in-azure-portal) to: <br> - Reduce the number of resources send logs to Log Analytics <br> - Collect only required logs |
 | Solution data from computers that don't need the solution | Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers. |
 | Application Insights | Review options for [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
-| [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Use [Set-AzSqlServerAudit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) to tune the auditing settings. |
-| Azure Sentinel | Review any [Sentinel data sources](https://docs.microsoft.com/azure/sentinel/connect-data-sources) which you recently enabled as sources of additional data volume. |
+| [SQL Analytics](../insights/azure-sql.md) | Use [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) to tune the auditing settings. |
+| Azure Sentinel | Review any [Sentinel data sources](../../sentinel/connect-data-sources.md) which you recently enabled as sources of additional data volume. |
 
 ### Getting nodes as billed in the Per Node pricing tier
 
