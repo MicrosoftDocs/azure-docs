@@ -7,7 +7,7 @@ ms.service: event-hubs
 ms.topic: include
 ms.date: 02/01/2021
 ms.author: spelluru
-ms.custom: "include file", "fasttrack-edit", "iot", "event-hubs"
+ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 
 ---
 
