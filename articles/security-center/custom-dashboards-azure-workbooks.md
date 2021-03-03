@@ -128,7 +128,7 @@ If you've built workbooks in other Azure services and want to move them into you
 1. Select **Apply**.
 1. From the toolbar, select **Save As**.
 
-    :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks-save-as.png" alt-text="Launching the advanced editor to get the Gallery Template JSON code":::
+    :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks-save-as.png" alt-text="Saving the workbook to the gallery in Security Center":::
 
 1. Enter the required details for saving the workbook:
    1. A name for the workbook
