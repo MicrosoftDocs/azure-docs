@@ -82,30 +82,6 @@ While Microsoft does not provide specific details about how risk is calculated, 
 
 Risk detections like leaked credentials and password spray require the presence of password hashes for detection to occur. For more information about password hash synchronization, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md).
 
-### Leaked credentials
-
-#### Where does Microsoft find leaked credentials?
-
-Microsoft finds leaked credentials in a variety of places, including:
-
-- Public paste sites such as pastebin.com and paste.ca where bad actors typically post such material. This location is most bad actors' first stop on their hunt to find stolen credentials.
-- Law enforcement agencies.
-- Other groups at Microsoft doing dark web research.
-
-#### Why aren't I seeing any leaked credentials?
-
-Leaked credentials are processed anytime Microsoft finds a new, publicly available batch. Due to the sensitive nature, the leaked credentials are deleted shortly after processing. Only new leaked credentials found after you enable password hash synchronization (PHS) will be processed against your tenant. Verifying against previously found credential pairs is not performed. 
-
-#### I haven't seen any leaked credential risk events for quite some time?
-
-If you haven't seen any leaked credential risk events, it's because of the following reasons:
-
-- You don't have PHS enabled for your tenant.
-- Microsoft hasn't found any leaked credential pairs that match your users.
-
-#### How often does Microsoft process new credentials?
-
-Credentials are processed immediately after they have been found, normally in multiple batches per day.
 
 ## Next steps
 
