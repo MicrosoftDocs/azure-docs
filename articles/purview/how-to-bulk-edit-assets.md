@@ -66,7 +66,7 @@ This article describes how to tag multiple glossary terms to a list of selected 
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Screenshot of the close.":::
 
    > [!Important]
-   > The recommended number of assets for bulk edit are 15. Selecting more than 25 might cause performance issues.
+   > The recommended number of assets for bulk edit are 25. Selecting more than 25 might cause performance issues.
    > The **View Selected** box will be visible only if there is at least one asset selected.
 
 
