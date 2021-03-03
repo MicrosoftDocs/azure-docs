@@ -352,7 +352,7 @@ Here are a few tips on avoiding issues when you implement brokered authenticatio
 
         Once you send the logs, a popup window displays the **Incident ID**. Record the Incident ID and then provide it when you request assistance.
 
-  - Acquiring Intune Company Portal logs:
+  - Get Intune Company Portal logs:
 
     1. Select the menu button on the top-left corner of the app
     1. Select **Help** > **Email Support**
