@@ -139,7 +139,7 @@ issue an access token.
 
 ```java
 List<CommunicationTokenScope> scopes = Arrays.asList(CommunicationTokenScope.CHAT);
-CommunicationUserIdentifierWithTokenResult result = client.createUserWithToken(scopes);
+CommunicationUserIdentifierWithTokenResult result = client.createUserAndToken(scopes);
 CommunicationUserIdentifier user = result.getUser();
 System.out.println("\nCreated a user identity with ID: " + user.getId());
 AccessToken accessToken = result.getUserToken();
