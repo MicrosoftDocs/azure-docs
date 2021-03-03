@@ -15,7 +15,7 @@ ms.custom: contperf-fy21q1
 
 # Transfer billing ownership of an Azure subscription to another account
 
-This article shows the steps needed to transfer billing ownership of an Azure subscription to another account. Before you transfer billing ownership for a subscription, read [About transferring billing ownership for an Azure subscription](../understand/subscription-transfer.md).
+This article shows the steps needed to transfer billing ownership of an Azure subscription to another account. Before you transfer billing ownership for a subscription, read [About transferring billing ownership for an Azure subscription](subscription-transfer.md).
 
 If you want to keep your billing ownership but change subscription type, see [Switch your Azure subscription to another offer](switch-azure-offer.md). To control who can access resources in the subscription, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
@@ -92,7 +92,7 @@ The self-service subscription transfer isn't available for your billing account.
 
 ###  Not all subscription types can transfer
 
-Not all types of subscriptions support billing ownership transfer. To view list of subscription types that support transfers, see [Supported subscription types](../understand/subscription-transfer.md#supported-subscription-types)
+Not all types of subscriptions support billing ownership transfer. To view list of subscription types that support transfers, see [Azure subscription transfer hub](subscription-transfer.md).
 
 ###  Access denied error shown when trying to transfer subscription billing ownership
 
