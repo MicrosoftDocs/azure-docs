@@ -153,7 +153,8 @@ To enable the application to authenticate with both the system browser and broke
   </intent>
 </queries>
 ``` 
-Remember to replace ``{Package Name}`` with the application package name. 
+
+Replace `{Package Name}` with the application package name. 
 
 After adding all of the required elements to the manifest, it should look something like the following
 
