@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2020
+ms.date: 02/22/2021
 ms.author: Zhchia
 ---
 
@@ -22,7 +22,7 @@ ms.author: Zhchia
 
 This tutorial describes the steps you need to perform in both TravelPerk and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [TravelPerk](https://www.travelperk.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## Capabilities Supported
+## Capabilities supported
 
 > [!div class="checklist"]
 >
@@ -62,7 +62,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 5. You can specify whether you want every person's manager to automatically become the user responsible for the approval of trips. Therefore an approver will be assigned in the corresponding automatic approval process. TravelPerk will map Azure's **manager** value, to the user's desired approver. The user needs to exist on the platform before becoming the provisioned user approver.
 Approvers will not be created if they are not properly configured on TravelPerk.
 
-6. Automatic approval process creation is available in the **SCIM settings** after enabling SCIM from the integrations page. To turn it on, select **Through an Identity Provider** and switch the toggle for **Enable automatic approal process creation**.
+6. Automatic approval process creation is available in the **SCIM settings** after enabling SCIM from the integrations page. To turn it on, select **Through an Identity Provider** and switch the toggle for **Enable automatic approval process creation**.
 
 7. Click on **Save changes** once the necessary approval process is configured.
 
