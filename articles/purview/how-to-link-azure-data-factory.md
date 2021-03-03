@@ -92,7 +92,7 @@ Azure Purview captures runtime lineage from the following Azure Data Factory act
 
 - [Copy Data](../data-factory/copy-activity-overview.md)
 - [Data Flow](../data-factory/concepts-data-flow-overview.md)
-- [Execute SSIS Package](../data-factory//data-factory/how-to-invoke-ssis-package-ssis-activity.md)
+- [Execute SSIS Package](../data-factory/how-to-invoke-ssis-package-ssis-activity.md)
 
 > [!IMPORTANT]
 > Azure Purview drops lineage if the source or destination uses an unsupported data storage system.
@@ -181,7 +181,7 @@ Some additional ways of finding information in the lineage view, include the fol
 
 - In the **Lineage** tab, hover on shapes to preview additional information about the asset in the tooltip .
 - Select the node or edge to see the asset type it belongs or to switch assets.
-- Columns of a dataset are displayed in the left side of the **Lineage** tab. For more information about column-level lineage, see [Column-level lineage](catalog-lineage-user-guide.md#column-level-lineage).
+- Columns of a dataset are displayed in the left side of the **Lineage** tab. For more information about column-level lineage, see [Dataset column lineage](catalog-lineage-user-guide.md#dataset-column-lineage).
 
 ### Data lineage for 1:1 operations
 
