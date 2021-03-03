@@ -276,6 +276,8 @@
         href: azure-stack-edge-gpu-connect-powershell-interface.md 
       - name: Apply updates
         href: azure-stack-edge-gpu-install-update.md 
+      - name: Reset, reactivate device
+        href: azure-stack-edge-reset-reactivate-device.md
       - name: Return device
         href: azure-stack-edge-return-device.md     
       - name: Replace device

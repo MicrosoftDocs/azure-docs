@@ -2189,8 +2189,6 @@
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-provisioning-tutorial.md
-      - name: LinkedIn Learning
-        href: linkedin-learning-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
         href: linkedinsalesnavigator-provisioning-tutorial.md
       - name: Lucidchart
@@ -2277,6 +2275,8 @@
         href: sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
       - name: SAP SuccessFactors Writeback
         href: sap-successfactors-writeback-tutorial.md
+      - name: SecureLogin
+        href: secure-login-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
       - name: Shopify Plus
@@ -2311,8 +2311,6 @@
         href: thousandeyes-provisioning-tutorial.md
       - name: Tic-Tac Mobile
         href: tic-tac-mobile-provisioning-tutorial.md
-      - name: Templafy
-        href: templafy-provisioning-tutorial.md
       - name: Templafy SAML2
         href: templafy-saml-2-provisioning-tutorial.md
       - name: Templafy OpenID Connect

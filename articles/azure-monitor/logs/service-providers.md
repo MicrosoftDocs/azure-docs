@@ -81,7 +81,7 @@ There are two options to implement logs in a central location:
 
 * Automate creation of workspaces using [PowerShell](../logs/powershell-workspace-configuration.md)
 
-* Use [Alerts](../platform/alerts-overview.md) to integrate with existing systems
+* Use [Alerts](../alerts/alerts-overview.md) to integrate with existing systems
 
 * Generate summary reports using [Power BI](../visualize/powerbi.md)
 
