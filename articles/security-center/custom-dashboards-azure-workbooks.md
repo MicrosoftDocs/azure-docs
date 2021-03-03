@@ -42,7 +42,7 @@ With the integrated Azure Workbooks functionality, Azure Security Center makes i
 Choose one of the supplied reports or create your own.
 
 > [!TIP]
-> Use the **Edit** button to customize any of the supplied reports to your satisfaction.
+> Use the **Edit** button to customize any of the supplied reports to your satisfaction. When you're done editing, select **Save** and your changes will be saved to a new workbook.
 > 
 > :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-supplied-workbooks.png" alt-text="Editing the supplied workbooks to customize them for your particular needs":::
 
@@ -104,6 +104,38 @@ Findings for each of these scanners are reported in separate recommendations:
 This report gathers these findings and organizes them by severity, resource type, and category.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/vulnerability-assessment-findings-report.png" alt-text="Security Center's vulnerability assessment findings report":::
+
+
+## Import workbooks from other workbook galleries
+
+If you've built workbooks in other Azure services and want to move them into your Azure Security Center workbooks gallery:
+
+1. Open the target workbook.
+
+1. From the toolbar, select **Edit**.
+
+    :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks.png" alt-text="Editing an Azure Monitor workbook":::
+
+1. From the toolbar, select **</>** to enter the Advanced Editor.
+
+    :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks-advanced-editor.png" alt-text="Launching the advanced editor to get the Gallery Template JSON code":::
+
+1. Copy the workbook's Gallery Template JSON.
+
+1. Open workbooks gallery in Security Center and from the menu bar select **New**.
+1. Select the **</>** to enter the Advanced Editor.
+1. Paste in the entire Gallery Template JSON.
+1. Select **Apply**.
+1. From the toolbar, select **Save As**.
+
+    :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks-save-as.png" alt-text="Launching the advanced editor to get the Gallery Template JSON code":::
+
+1. Enter the required details for saving the workbook:
+   1. A name for the workbook
+   2. The desired region
+   3. Subscription, resource group, and sharing as appropriate.
+
+You'll find your saved workbook in the **Recently modified workbooks** category.
 
 
 ## Next steps

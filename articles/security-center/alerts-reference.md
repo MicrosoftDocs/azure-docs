@@ -14,7 +14,6 @@ ms.date: 02/21/2021
 ms.author: memildin
 
 ---
-
 # Security alerts - a reference guide
 
 This article lists the security alerts you might get from Azure Security Center and any Azure Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
@@ -274,7 +273,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-containerhost"></a>Alerts for containers - host level
 
-Azure Defender provides alerts for the Kubernetes cluster host level are not limited to the alerts below 
+Azure Defender provides alerts for the Kubernetes cluster host level are not limited to the alerts below. Many of the alerts listed in the [alerts for Azure network layer](#alerts-for-azure-network-layer), [alerts for Windows machines](#alerts-for-windows-machines), and [alerts for Linux machines](#alerts-for-linux-machines) tables are also relevant to your container hosts.
 
 [Further details and notes](defender-for-kubernetes-introduction.md)
 
@@ -292,9 +291,7 @@ Azure Defender provides alerts for the Kubernetes cluster host level are not lim
 
 ## <a name="alerts-sql-db-and-warehouse"></a>Alerts for SQL Database and Azure Synapse Analytics
 
-[Further details and notes](defender-for-sql-introduction.md)
-
-| Alert                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                               | MITRE tactics<br>([Learn more](#intentions)) | Severity |
+[Further details and notes](defender-for-sql-introduction.md)| Alert                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                               | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
 | **A possible vulnerability to SQL Injection**            | An application has generated a faulty SQL statement in the database. This can indicate a possible vulnerability to SQL injection attacks. There are two possible reasons for a faulty statement. A defect in application code might have constructed the faulty SQL statement. Or, application code or stored procedures didn't sanitize user input when constructing the faulty SQL statement, which can be exploited for SQL injection. | -                                            | Medium   |
 | **Attempted logon by a potentially harmful application** | A potentially harmful application attempted to access  SQL server '{name}'.                                                                                                                                                                                                                                                                                                                                                               | PreAttack                                    | High     |
