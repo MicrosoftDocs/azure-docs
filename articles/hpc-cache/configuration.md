@@ -42,8 +42,7 @@ If you don't want to change the MTU settings on other system components, you sho
 
 Learn more about MTU settings in Azure virtual networks by reading [TCP/IP performance tuning for Azure VMs](../virtual-network/virtual-network-tcpip-performance-tuning.md).
 
-## Configure root squash
-<!-- linked from troubleshoot and from access policies -->
+<!-- ## Configure root squash
 
 **???** missing from current GUI? **???**
 
@@ -58,7 +57,7 @@ Setting root squash on the cache can help compensate for the required ``no_root_
 The default setting is **Yes**. (Caches created before April 2020 might have the default setting **No**.)
 
 > [!TIP]
-> You also can set root squash for specific storage exports by customizing [client access polices](access-policies.md#root-squash).
+> You also can set root squash for specific storage exports by customizing [client access polices](access-policies.md#root-squash). -->
 
 ## Customize NTP
 
