@@ -382,11 +382,11 @@ At this time, you can delete the job or leave it. Jobs automatically get deleted
 
 ## Check the number of drives
 
-This *optional* step helps you determines the number of drives required for the export job. Perform this step on a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
+This *optional* step helps you determine the number of drives required for the export job. Perform this step on a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 
 1. [Download the WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659) on the Windows system.
 2. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
-3. Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
+3. Open a PowerShell or command-line window with administrative privileges. To change directory to the unzipped folder, run the following command:
 
    `cd C:\WaImportExportV1`
 
