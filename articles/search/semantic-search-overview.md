@@ -22,7 +22,7 @@ The underlying technology leverages the investments from Bing and Microsoft Rese
 
 Public preview features include:
 
-+ Semantic ranking algorithm that retrieves relevant documents based on the context or semantic meaning of search query terms
++ Semantic ranking model that scores results based on the context or semantic meaning of search query terms
 + Semantic captions that highlight relevant passages
 + Semantic answers to the query, also formulated from results
 + Spell check that corrects typos before the query terms reach the search engine
