@@ -71,7 +71,7 @@ private func joinMeeting() {
     meetingClient?.meetingIdentityProviderDelegate = self
     let meetingJoinOptions = MeetingJoinOptions(displayName: "John Smith")
 
-    meetingClient?.join(meetingUrl: meetingURL, meetingJoinOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
+    meetingClient?.join(meetingUrl: "<MEETING_URL>", meetingJoinOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
         if (error != nil) {
             print("Join meeting failed: \(error!)")
         }
