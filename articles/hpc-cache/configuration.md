@@ -10,16 +10,21 @@ ms.author: v-erkel
 
 # Configure additional Azure HPC Cache settings
 
-The **Configuration** page in the Azure portal has options for customizing several settings. Most users don't need to change these settings from their default values.
+The **Networking** page in the Azure portal has options for customizing several settings. Most users don't need to change these settings from their default values.
 
 This article also describes how to use the snapshot feature for Azure Blob storage targets. The snapshot feature has no configurable settings.
 
 To see the settings, open the cache's **Configuration** page in the Azure portal.
 
+**???** need new screenshot/s
+
 ![screenshot of configuration page in Azure portal](media/configuration.png)
 
-> [!TIP]
-> The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the configuration page and its settings.
+> [!NOTE]
+> A previous version of this page included a cache-level root squash setting, but this feature has been moved to client access policies.
+
+<!-- >> [!TIP]
+> The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the configuration page and its settings. -->
 
 ## Adjust MTU value
 <!-- linked from troubleshoot-nas article -->
@@ -40,6 +45,8 @@ Learn more about MTU settings in Azure virtual networks by reading [TCP/IP perfo
 ## Configure root squash
 <!-- linked from troubleshoot and from access policies -->
 
+**???** missing from current GUI? **???**
+
 The **Enable root squash** setting controls how Azure HPC Cache treats requests from the root user on client machines.
 
 When root squash is enabled, root users from a client are automatically mapped to the user "nobody" when they send requests through the Azure HPC Cache. It also prevents client requests from using set-UID permission bits.
@@ -52,6 +59,21 @@ The default setting is **Yes**. (Caches created before April 2020 might have the
 
 > [!TIP]
 > You also can set root squash for specific storage exports by customizing [client access polices](access-policies.md#root-squash).
+
+## Customize NTP
+
+Your cache uses the Azure-based time server time.microsoft.com by default. If you want your cache to use a different NTP server, specify it in the **NTP configuration** field. Use a fully qualified domain name or an IP address.
+
+## Set a custom DNS configuration
+
+> [!NOTE]
+> Do not change your cache DNS configuration if you don't need to. Configuration mistakes can cause the cache to become unreachable permanently.
+
+- (stuff about how to configure and why not to - from that email thread)
+- (something about a DNS forwarder?)
+
+??? where to document refresh DNS? ??? 
+
 
 ## View snapshots for blob storage targets
 

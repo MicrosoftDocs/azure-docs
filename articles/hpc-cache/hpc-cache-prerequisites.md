@@ -86,14 +86,18 @@ Check these permission-related prerequisites before starting to create your cach
   Follow the instructions in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to add the roles.
 
 ## Storage infrastructure
+<!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - make sure to fix that if you change the wording of this heading -->
 
-The cache supports Azure Blob containers or NFS hardware storage exports. Add storage targets after you create the cache.
+The cache supports Azure Blob containers and NFS hardware storage exports. Add storage targets after you create the cache.
 
 Each storage type has specific prerequisites.
 
 ### Blob storage requirements
 
 If you want to use Azure Blob storage with your cache, you need a compatible storage account and either an empty Blob container or a container that is populated with Azure HPC Cache formatted data as described in [Move data to Azure Blob storage](hpc-cache-ingest.md).
+
+> [!NOTE]
+> Different requirements apply to NFS-mounted blob storage. Read [ALDS-NFS storage requirements](additional-requirements-for-nfs-mounted-blob-storage-containers) for details.
 
 Create the account before attempting to add a storage target. You can create a new container when you add the target.
 
@@ -105,6 +109,8 @@ To create a compatible storage account, use these settings:
 * Access tier (default): **Hot**
 
 It's a good practice to use a storage account in the same location as your cache.
+
+*???* **Is this \\/ part needed for NFS blob** *???* <!--xxx -->
 
 You also must give the cache application access to your Azure storage account as mentioned in [Permissions](#permissions), above. Follow the procedure in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the required access roles. If you are not the storage account owner, have the owner do this step.
 
@@ -164,6 +170,23 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
   * If your storage has any exports that are subdirectories of another export, make sure the cache has root access to the lowest segment of the path. Read [Root access on directory paths](troubleshoot-nas.md#allow-root-access-on-directory-paths) in the NFS storage target troubleshooting article for details.
 
 * NFS back-end storage must be a compatible hardware/software platform. Contact the Azure HPC Cache team for details.
+
+### Requirements for NFS-mounted Blob storage containers (ADLS-NFS)
+
+**<update more>**
+
+Azure HPC Cache also can use a blob container mounted with the NFS protocol as a storage target.
+
+Read more about this feature in [NFS 3.0 protocol support in Azure Blob storage](../storage/blobs/network-file-system-protocol-support).
+
+There are a few extra setup steps to take before you create a container that you'll use with NFS. Read [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](../storage/blobs/network-file-system-protocol-support-how-to) for details. This is a general overview:
+
+1. Before you create a storage account to use, enable the NFS protocol feature for your subscription.
+1. Create a virtual network (VNet) for the storage account, and configure security there.
+1. Create the storage account in the secure VNet. Use the same storage account settings as for a regular Blob storage target (listed above).
+1. Create a container
+
+
 
 ## Set up Azure CLI access (optional)
 

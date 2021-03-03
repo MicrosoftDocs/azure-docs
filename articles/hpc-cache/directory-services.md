@@ -70,7 +70,7 @@ The server and base DN are the only required settings to make LDAP work, but the
 
 In the **Secure access** section, you can enable encryption and certificate validation for the LDAP connection. After you click **Yes** to enable encryption, you have these options:
 
-* **Require valid certificate** - When this is set, the LDAP server's certificate is verified against the certificate authority in the URI field below.
+* **Validate certificate** - When this is set, the LDAP server's certificate is verified against the certificate authority in the URI field below.
 
 * **CA certificate URI** - Specify the path to the authoritative certificate. This can be a link to a CA-validated certificate or to a self-signed certificate. This field is required to use the externally validated certificates setting.
 

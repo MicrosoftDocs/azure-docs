@@ -250,6 +250,20 @@ The overview page shows graphs for some basic cache statistics - cache throughpu
 
 These charts are part of Azure's built-in monitoring and analytics tools. Additional tools and alerts are available from the pages under the **Monitoring** heading in the portal sidebar. Learn more in the portal section of the [Azure Monitoring documentation](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
 
+## View warnings
+
+If the cache goes into an unhealthy state, check the **Warnings** page. This page shows notifications from the cache software that might help you understand its state.
+
+These notifications do not appear in the activity log because they are not controlled by Azure portal. They are mainly associated with advanced custom settings you might have made.
+
+Kinds of warnings you might see here include:
+
+* The cache can't reach its NTP server
+* The cache failed to download Extended Groups username information
+* Custom DNS settings have changed on a storage target
+
+**???** need screenshot? **???**
+
 ## Next steps
 
 * Learn more about [Azure metrics and statistics tools](../azure-monitor/index.yml)

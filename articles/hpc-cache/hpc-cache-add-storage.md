@@ -12,7 +12,7 @@ ms.author: v-erkel
 
 *Storage targets* are back-end storage for files that are accessed through an Azure HPC Cache. You can add NFS storage (like an on-premises hardware system), or store data in Azure Blob.
 
-You can define up to ten different storage targets for one cache. The cache presents all of the storage targets in one aggregated namespace.
+You can define up to 20 different storage targets for one cache. The cache presents all of the storage targets in one aggregated namespace.
 
 The namespace paths are configured separately after you add the storage targets. In general, an NFS storage target can have up to ten namespace paths, or more for some large configurations. Read [NFS namespace paths](add-namespace-paths.md#nfs-namespace-paths) for details.
 

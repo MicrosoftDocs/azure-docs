@@ -76,15 +76,17 @@ Check this box to allow the specified clients to directly mount this export's su
 
 Choose whether or not to set root squash for clients that match this rule.
 
-This value lets you allow root squash at the storage export level. You also can [set root squash at the cache level](configuration.md#configure-root-squash).
+This value lets you allow root squash at the storage export level.<!--You also can [set root squash at the cache level](configuration.md#configure-root-squash). -->
 
-If you turn on root squash, you must also set the anonymous ID user value to one of these options:
+If you turn on root squash, you must also set the anonymous ID user value. The portal accepts integer values between 0 and 4294967295. (The old values -2 and -1 are supported for backward compatibility, but not recommended for new configurations.)
 
-* **-2** (nobody)
-* **65534** (nobody)
-* **-1** (no access)
-* **65535** (no access)
+These values are mapped to specific user values:
+
+* **-2** or **65534** (nobody)
+* **-1** or **65535** (no access)
 * **0** (unprivileged root)
+
+Your storage system might have other values with special meanings.
 
 ## Update access policies
 

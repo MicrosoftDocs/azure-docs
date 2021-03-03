@@ -89,10 +89,13 @@ To change a blob storage target's namespace with the Azure CLI, use the command 
 
 For NFS storage targets, you can change or add virtual namespace paths, change the NFS export or subdirectory values that a namespace path points to, and change the usage model.
 
+Storage targets in caches with some types of custom DNS settings also have a control for refreshing their IP addresses. (This kind of configuration is rare.)
+
 Details are below:
 
 * [Change aggregated namespace values](#change-aggregated-namespace-values) (virtual namespace path, export, and export subdirectory)
 * [Change the usage model](#change-the-usage-model)
+* [Refresh DNS](#update-ip-address-custom-dns-configurations-only)
 
 ### Change aggregated namespace values
 
@@ -169,6 +172,14 @@ If you want to verify the names of the usage models, use the command [az hpc-cac
 If the cache is stopped or not in a healthy state, the update will apply after the cache is healthy.
 
 ---
+
+### Update IP address (custom DNS configurations only)
+
+If your cache uses a non-default DNS configuration, it's possible for your storage target's IP address to change because of back-end DNS changes. If your DNS server changes the back-end storage system's IP address, Azure HPC Cache can lose access to the storage system.
+
++ description and screensots of DNS refresh
++ why this is an interpersonal problem and maybe you should look into relationship counseling (clash scenarios things?)
+
 
 ## Next steps
 
