@@ -29,13 +29,6 @@ zone_pivot_groups: b2c-policy-type
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-    
-::: zone pivot="b2c-user-flow"
-
-> [!NOTE] 
-> Sign in with Apple can be configured only for the **recommended** version of user flows. 
-
-::: zone-end
 
 ## Create an Apple ID application
 
@@ -80,13 +73,6 @@ To enable sign-in for users with an Apple ID in Azure Active Directory B2C (Azur
 
 ## Configure Apple as an identity provider
 
-> [!IMPORTANT] 
-> Sign in with Apple requires the Admin to renew their client secret every 6 months. 
-> 
-> During the public preview of this feature, you'll need to manually renew the Apple client secret if it expires. A warning will appear in advance on Apple identity providers Configure social IDP page, but we recommend you set your own reminder. 
-> 
-> If you need to renew the secret, open Azure AD B2C in the Azure portal, go to **Identity providers** > **Apple**, and select **Renew secret**.
-
 1. Sign in to the [Azure portal](https://portal.azure.com/) as a global administrator of your Azure AD B2C tenant.
 1. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
@@ -98,10 +84,18 @@ To enable sign-in for users with an Apple ID in Azure Active Directory B2C (Azur
 1. Select and upload the **Apple certificate data**.
 1. Select **Save**.
 
+
+> [!IMPORTANT] 
+> - Sign in with Apple requires the Admin to renew their client secret every 6 months. 
+> - During the public preview of this feature, you'll need to manually renew the Apple client secret if it expires. A warning will appear in advance on Apple identity providers Configure social IDP page, but we recommend you set your own reminder. 
+> - If you need to renew the secret, open Azure AD B2C in the Azure portal, go to **Identity providers** > **Apple**, and select **Renew secret**.
+
 ## Add the Apple identity provider to a user flow
 
+To enable users to sign in using an Apple ID, you need to add the Apple identity provider to a user flow. Sign in with Apple can be configured only for the **recommended** version of user flows. To add the Apple identity provider to a user flow:
+
 1. In your Azure AD B2C tenant, select **User flows**.
-1. Select the user flow for which you want to add the Apple identity provider. The Sign in with Apple can be configured only for the **recommended** version of user flows. 
+1. Select a user flow for which you want to add the Apple identity provider. 
 1. Under **Social identity providers**, select **Apple (Preview)**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
