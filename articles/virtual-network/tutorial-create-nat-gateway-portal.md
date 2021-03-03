@@ -81,7 +81,7 @@ Before you deploy a VM and can use your NAT gateway, we need to create the resou
 
 13. Select **Create**.
 
-## NAT Gateway
+## NAT gateway
 
 You can use one or more public IP address resources, public IP prefixes, or both. We'll add a public IP resource and a NAT gateway resource.
 
