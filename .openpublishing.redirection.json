@@ -17,7 +17,7 @@
     },
     {
       "source_path": "articles/azure-arc/kubernetes/use-gitops-connected-cluster.md",
-      "redirect_url": "/azure/azure-arc/kubernetes/tutorial-use-gitops-connect-cluster",
+      "redirect_url": "/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster",
       "redirect_document_id": false
     },
     {
@@ -916,6 +916,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/conditional-access-identity-protection-setup.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-protection-investigate-risk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/conditional-access-technical-profile.md",
+      "redirect_url": "/azure/active-directory-b2c/conditional-access-user-flow",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/identity-provider-google-custom.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-google",
       "redirect_document_id": false
@@ -928,7 +938,7 @@
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-custom-setup-li-idp.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
@@ -23361,7 +23371,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/healthcare/howto-health-data-triage.md",
-      "redirect_url": "/azure/iot-central/healthcare/tutorial-health-data-triage/",
+      "redirect_url": "/azure/iot-central/healthcare/tutorial-health-data-triage",
       "redirect_document_id": true
     },
     {
@@ -31377,11 +31387,6 @@
     {
       "source_path_from_root": "/articles/private-link/create-private-endpoint-webapp-portal.md",
       "redirect_url": "/azure/private-link/tutorial-private-endpoint-webapp-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/purview/register-scan-teradata-source.md",
-      "redirect_url": "/azure/purview/manage-data-sources",
       "redirect_document_id": false
     },
     {
@@ -63351,6 +63356,11 @@
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-logs.md",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-logs.md",
       "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-logs",
       "redirect_document_id": false
     },

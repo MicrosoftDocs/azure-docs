@@ -1,7 +1,6 @@
 ---
 title: Sources of data in Azure Monitor | Microsoft Docs
 description: Describes the data available to monitor the health and performance of your Azure resources and the applications running on them.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
