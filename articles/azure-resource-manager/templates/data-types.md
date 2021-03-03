@@ -169,9 +169,25 @@ param exampleObject object = {
 
 ## Strings
 
-In JSON, strings start and end with double quotes (`"string value"`). In Bicep, the string starts and ends with singled quotes (`'string value'`).
+In JSON, strings start and end with double quotes. In Bicep, the string starts and ends with singled quotes.
 
+# [JSON](#tab/json)
 
+```json
+"parameters": {
+  "exampleString": {
+    "type": "string",
+    "defaultValue": "test value"
+  }
+},
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param exampleString string = 'test value'
+```
+---
 
 ## Secure strings and objects
 
@@ -206,40 +222,6 @@ param configValues object
 
 ---
 
-## Example
+## Next steps
 
-The following template shows the format for the data types. Each type has a default value in the correct format.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringParameter": {
-      "type": "string",
-      "defaultValue": "option 1"
-    },
-    "intParameter": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "boolParameter": {
-      "type": "bool",
-      "defaultValue": true
-    },
-    "objectParameter": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b"
-      }
-    },
-    "arrayParameter": {
-      "type": "array",
-      "defaultValue": [ 1, 2, 3 ]
-    }
-  },
-  "resources": [],
-  "outputs": {}
-}
-```
+To learn about the template syntax, see [Understand the structure and syntax of ARM templates](template-syntax.md).
