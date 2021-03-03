@@ -197,23 +197,23 @@ Azure Migrate offers a Power BI template that you can use to visualize network c
 1. Download the PowerShell module and the Power BI template from [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) repo on GitHub.
 
 2. Log in to Azure using the below instructions: 
-- Log into your Azure subscription using the Connect-AzAccount cmdlet.
+    - Log into your Azure subscription using the Connect-AzAccount cmdlet.
 
-    ```PowerShell
-    Connect-AzAccount
-    ```
+        ```PowerShell
+        Connect-AzAccount
+        ```
 
-- If using Azure Government, use the following command.
+    - If using Azure Government, use the following command.
 
-    ```PowerShell
-    Connect-AzAccount -EnvironmentName AzureUSGovernment
-    ```
+        ```PowerShell
+        Connect-AzAccount -EnvironmentName AzureUSGovernment
+        ```
 
-- Select the subscription in which you have created the Azure Migrate project
+    - Select the subscription in which you have created the Azure Migrate project
 
-    ```PowerShell
-    select-azsubscription -subscription "Fabrikam Demo Subscription"
-    ```
+        ```PowerShell
+        select-azsubscription -subscription "Fabrikam Demo Subscription"
+        ```
 
 3. Import the downloaded AzMig_Dependencies PowerShell module
 

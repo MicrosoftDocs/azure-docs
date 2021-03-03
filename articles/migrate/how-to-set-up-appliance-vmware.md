@@ -96,7 +96,7 @@ Set up the appliance for the first time.
 1. Accept the **license terms**, and read the third-party information.
 1. In the configuration manager > **Set up prerequisites**, do the following:
    - **Connectivity**: The appliance checks that the server has internet access. If the server uses a proxy:
-     - Click on **Set up proxy** to specify the proxy address in the form (http://ProxyIPAddress) or (http://ProxyFQDN) and listening port.
+     - Click on **Set up proxy** to specify the proxy address in the form `http://ProxyIPAddress` or `http://ProxyFQDN` and listening port.
      - Specify credentials if the proxy needs authentication.
      - Only HTTP proxy is supported.
      - If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.

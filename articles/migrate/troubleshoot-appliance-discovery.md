@@ -208,9 +208,9 @@ Typical app discovery errors are summarized in the table.
 
 | **Error** | **Cause** | **Action** |
 |--|--|--|
-| 9000: VMware tool status cannot be detected. | VMWare tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
-| 9001: VMware tools is not installed. | VMWare tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
-| 9002: VMware tools is not running. | VMWare tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
+| 9000: VMware tool status cannot be detected. | VMware tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
+| 9001: VMware tools is not installed. | VMware tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
+| 9002: VMware tools is not running. | VMware tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
 | 9003: Operating system type not supported for guest VM discovery. | Operating system running on the server is neither Windows nor Linux. | Supported operating system types are Windows and Linux only. If the server is indeed Windows or Linux, check the operating system type specified in vCenter Server. |
 | 9004: VM is not running. | VM is powered off. | Ensure the VM is powered on. |
 | 9005: Operating system type not supported for guest VM discovery. | Operating system type not supported for guest VM discovery. | Supported operating system types are Windows and Linux only. |
@@ -237,13 +237,13 @@ Typical app discovery errors are summarized in the table.
 | 9026: Unable to run guest operations on the VM. | VM state does not allow guest operations to be run on the VM. | Contact Microsoft Support for a resolution. |
 | 9027: Guest operations agent is not running in the VM. | Failed to contact the guest operations agent running inside the virtual machine. | Contact Microsoft Support for a resolution. |
 | 9028: File cannot be created due to insufficient disk storage in VM. | Not enough space on the disk. | Ensure enough space is available in the disk storage of the VM. |
-| 9029: No access to powershell on the guest VM credential provided. | Access to Powershell is not available for the user. | Ensure the user added on appliance can access PowerShell on the guest VM. |
+| 9029: No access to powershell on the guest VM credential provided. | Access to PowerShell is not available for the user. | Ensure the user added on appliance can access PowerShell on the guest VM. |
 | 9030: Unable to gather discovered metadata as ESXi host is disconnected. | The ESXi host is in a disconnected state. | Ensure the ESXi host running the VM is connected. |
 | 9031: Unable to gather discovered metadata as the ESXi host is not responding. | Remote host is in Invalid state. | Ensure the ESXi host running the VM is running and connected. |
 | 9032: Unable to discover due to an internal error. | The issue can occur due to an internal error. | Contact Microsoft Support for a resolution. |
 | 9033: Unable to discover as the VM username contains invalid characters. | Invalid characters were detected in the username. | Provide the VM credential again ensuring there are no invalid characters. |
 | 9034: Username provided is not in UPN format. | Username is not in UPN format. | Ensure that the username is in User Principal Name (UPN) format. |
-| 9035: Unable to discover as Powershell language mode is not set to 'Full Language'. | Language mode for Powershell in guest VM is not set to full language. | Ensure that PowerShell language mode is set to 'Full Language'. |
+| 9035: Unable to discover as PowerShell language mode is not set to 'Full Language'. | Language mode for PowerShell in guest VM is not set to full language. | Ensure that PowerShell language mode is set to 'Full Language'. |
 | 9037: Data collection paused temporarily as VM response time is too high. | The discovered VM is taking too long to respond | No action required. A retry will be attempted in 24 hours for application discovery and 3 hours for dependency analysis (agentless). |
 | 10000: Operating system type is not supported. | Operating system running on the server is neither Windows nor Linux. | Supported operating system types are Windows and Linux only. |
 | 10001: Script for server discovery is not found on the appliance. | Discovery is not working as expected. | Contact Microsoft Support for a resolution. |

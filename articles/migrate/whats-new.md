@@ -83,7 +83,7 @@ A number of new features were added to Azure Migrate:
 
 New assessment and migration tools were added to Azure Migrate:
 
-- **Rackware**: Offering cloud migration.
+- **RackWare**: Offering cloud migration.
 - **Movere**: Offering assessment.
 
 [Learn more](migrate-services-overview.md) about using tools and ISV offerings for assessment and migration in Azure Migrate.

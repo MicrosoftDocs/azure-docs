@@ -256,7 +256,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 
 ### Provide server credentials
 
-5. In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases**, you can either choose to provide multiple server credentials or if you do not want to leverage these features, you can choose to skip the step and proceed with vCenter Server discovery. You can change your intent any time later.
+In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases**, you can either choose to provide multiple server credentials or if you do not want to leverage these features, you can choose to skip the step and proceed with vCenter Server discovery. You can change your intent any time later.
 
 > [!Note]
 > Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
@@ -276,7 +276,7 @@ If you want to leverage these features, you can provide server credentials by fo
 
 ### Start discovery
 
-6. Click on **Start discovery**, to kick off vCenter Server discovery. After the discovery has been successfully initiated, you can check the discovery status against the vCenter Server IP address/FQDN in the sources table.
+1. Click on **Start discovery**, to kick off vCenter Server discovery. After the discovery has been successfully initiated, you can check the discovery status against the vCenter Server IP address/FQDN in the sources table.
 1. If you have provided server credentials, software inventory (discovery of installed applications) will be automatically initiated after the discovery of vCenter Server has completed. The software inventory is performed once every 12 hours.
 1. [Software inventory](how-to-discover-applications.md) identifies the SQL Server instances running on the servers and using the information, appliance attempts to connect to the instances through the Windows authentication or SQL Server authentication credentials provided on the appliance and gather data on SQL Server databases and their properties. The SQL discovery is performed once every 24 hours.
 1. During software inventory, the added servers credentials will be iterated against servers and validated for agentless dependency analysis.You can enable agentless dependency analysis for servers from the portal. Only the servers where the validation succeeds can be selected to enable agentless dependency analysis.

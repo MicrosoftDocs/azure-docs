@@ -277,7 +277,7 @@ Appliance collects data on SQL Server instances and databases.
 **Database Metadata** |	**Views/ SQL Server properties**
 --- | ---
 Unique identifier of the database | sys.databases
-Server defined database id | sys.databases
+Server defined database ID | sys.databases
 Name of the database | sys.databases
 Compatibility level of database | sys.databases
 Collation name of database | sys.databases

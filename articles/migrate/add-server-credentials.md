@@ -63,4 +63,4 @@ Feature | Windows credentials | Linux credentials
 
 ## Next steps
 
-Review the tutorials for [discovery of servers running in your VMware environment](tutorial-discover-vmware.md)
+Review the tutorials for [discovery of servers running in your VMware environment](tutorial-discovery-vmware.md)
