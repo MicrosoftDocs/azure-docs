@@ -916,6 +916,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/conditional-access-identity-protection-setup.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-protection-investigate-risk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/conditional-access-technical-profile.md",
+      "redirect_url": "/azure/active-directory-b2c/conditional-access-user-flow",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/identity-provider-google-custom.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-google",
       "redirect_document_id": false
