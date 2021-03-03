@@ -346,6 +346,16 @@ appCURE captures application details from running applications to ensure all poi
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38).
 - [Go to the partner page](#ssh2).
 
+## Stratodesk
+
+![Stratodesk Logo](./media/partners/stratodesk.png)
+
+Stratodesk, a leader in delivering VDI, Cloud, and IoT endpoint solutions, today officially supports the Microsoft Windows Virtual Desktop Linux Client on Stratodesk software for both x86 and ARM/Raspberry Pi devices. Stratodesk is one of the first technology provider worldwide to support the Windows Virtual Desktop Linux client on both architectures, making it easier and more affordable than ever for enterprises everywhere to connect workers with Windows 10 desktops in the Cloud.
+
+Founded in 2010, Stratodesk is redefining end user computing by delivering an all-in-one solution for VDI, DaaS and IoT markets. Stratodesk’s cutting edge Linux-based OS and management suite, NoTouch, is the hardware-agnostic solution that enables companies to cost-effectively manage their entire secure digital perimeter. Stratodesk solution works seamlessly across x86 and ARM/Raspberry Pi based hardware products to provide a unified platform for all your endpoints. It increases endpoint security, simplifies user experience, and allows customers to maximize the benefits of their existing desktop hardware through PC conversion. Today with nearly one million licenses deployed across multiple industries including healthcare, finance, retail, and education. Stratodesk is the fastest growing EUC company with offices located across the United States, Europe, and Russia.
+
+- [Go to the partner page](https://www.stratodesk.com/solutions/wvd/?utm_source=Microsoft&utm_medium=WVD_partner_listing&utm_campaign=WVD_partner_integration).
+
 ## ThinPrint
 
 ![ThinPrint Logo](./media/partners/thinprint.png)
