@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 11/06/2020
+  ms.date: 03/03/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -31,6 +31,8 @@ landingContent:
             url: template-best-practices.md
           - text: Frequently asked questions
             url: frequently-asked-questions.md
+          - text: Bicep
+            url: bicep-overview.md
           - text: Template specs
             url: template-specs.md
           - text: Deployment modes
@@ -58,8 +60,10 @@ landingContent:
 
       - linkListType: tutorial
         links:
-          - text: Beginner tutorials
+          - text: Beginner template tutorials
             url: template-tutorial-create-first-template.md
+          - text: Beginner Bicep tutorials
+            url: bicep-tutorial-create-first-bicep.md
       - linkListType: learn
         links:
           - text: Deploy with ARM templates
