@@ -97,9 +97,9 @@ To configure custom policies on your Azure AD B2C tenant, see [Get started with 
 
 To configure a SAML application in Azure AD B2C, see [Register a SAML application in Azure AD B2C](./connect-with-saml-service-providers.md). 
 
-In step ["3.2 Upload and test your policy metadata"](./connect-with-saml-service-providers.md#32-upload-and-test-your-policy-metadata), copy or note the IdP SAML metadata URL that's used by Azure AD B2C. You'll need it later.
+In step ["Upload your policy"](./connect-with-saml-service-providers.md#upload-your-policy), copy or note the IdP SAML metadata URL that's used by Azure AD B2C. You'll need it later.
 
-Follow the instructions through step ["4.2 Update the app manifest"](./connect-with-saml-service-providers.md#42-update-the-app-manifest). In step 4.2, update the app manifest properties as follows:
+Follow the instructions through step ["Configure your application in Azure AD B2C"](./connect-with-saml-service-providers.md#configure-your-application-in-azure-ad-b2c). In step 4.2, update the app manifest properties as follows:
 
 - For **identifierUris**: Use the Service Provider Entity ID that you copied or noted earlier in "Step 1.6.b".  
 - For **samlMetadataUrl**: Skip this property, because ZPA doesn't host a SAML metadata URL.  

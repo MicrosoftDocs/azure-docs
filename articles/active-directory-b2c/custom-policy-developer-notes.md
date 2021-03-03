@@ -77,7 +77,7 @@ Custom policy capabilities are under constant development. The following table i
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | For example, Google+.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | For example, Facebook.  |
 | [OAuth1](oauth1-technical-profile.md) |  | X |  | For example, Twitter. |
-| [SAML2](saml-identity-provider-technical-profile.md) |  |   | X | For example, Salesforce, ADFS. |
+| [SAML2](identity-provider-generic-saml.md) |  |   | X | For example, Salesforce, ADFS. |
 | WSFED| X |  |  |  |
 
 
