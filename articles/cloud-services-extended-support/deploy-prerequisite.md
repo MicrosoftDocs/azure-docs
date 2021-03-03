@@ -38,7 +38,7 @@ CloudServices           Microsoft.Compute    Registered
 ## Required Service Configuration (.cscfg) file updates
 
 ### 1) Virtual Network
-Cloud Service (extended support) deployments must be in a virtual network. Virtual network can be created through [Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [Azure CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) or [ARM Template](https://docs.microsoft.com/azure/virtual-network/quick-create-template). The virtual network and subnets must also be referenced in the Service Configuration (.cscfg) under the [NetworkConfiguration](schema-cscfg-networkconfiguration.md) section. 
+Cloud Service (extended support) deployments must be in a virtual network. Virtual network can be created through [Azure portal](../virtual-network/quick-create-portal.md), [PowerShell](../virtual-network/quick-create-powershell.md), [Azure CLI](../virtual-network/quick-create-cli.md) or [ARM Template](../virtual-network/quick-create-template.md). The virtual network and subnets must also be referenced in the Service Configuration (.cscfg) under the [NetworkConfiguration](schema-cscfg-networkconfiguration.md) section. 
 
 For a virtual networks belonging to the same resource group as the cloud service, referencing only the virtual network name in the Service Configuration (.cscfg) file is sufficient. If the virtual network and cloud service are in two different resource groups, then the complete Azure Resource Manager ID of the virtual network needs to be specified in the Service Configuration (.cscfg) file.
  
@@ -99,7 +99,7 @@ The following sizes are deprecated in Azure Resource Manager. However, if you wa
  For example, `<WorkerRole name="WorkerRole1" vmsize="Medium"` would become `<WorkerRole name="WorkerRole1" vmsize="Standard_A2"`.
  
 > [!NOTE]
-> To retrieve a list of available sizes see [Resource Skus - List](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and apply the following filters: <br>
+> To retrieve a list of available sizes see [Resource Skus - List](/rest/api/compute/resourceskus/list) and apply the following filters: <br>
 `ResourceType = virtualMachines ` <br>
 `VMDeploymentTypes = PaaS `
 
@@ -116,7 +116,7 @@ Deployments that utilized the old remote desktop plugins need to have the module
 
 ## Key Vault creation 
 
-Key Vault is used to store certificates that are associated to Cloud Services (extended support). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault for appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault. Key Vault can be created through [Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)and  [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). The Key Vault must be created in the same region and subscription as cloud service. For more information see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
+Key Vault is used to store certificates that are associated to Cloud Services (extended support). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault for appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault. Key Vault can be created through [Azure portal](../key-vault/general/quick-create-portal.md)and  [PowerShell](../key-vault/general/quick-create-powershell.md). The Key Vault must be created in the same region and subscription as cloud service. For more information see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
 
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
