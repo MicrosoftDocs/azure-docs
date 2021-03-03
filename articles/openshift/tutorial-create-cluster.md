@@ -56,6 +56,12 @@ You will also need sufficient Azure Active Directory permissions for the tooling
     ```azurecli-interactive
     az provider register -n Microsoft.Storage --wait
     ```
+    
+1. Register the `Microsoft.Authorization` resource provider:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Authorization --wait
+    ```
 
 ### Get a Red Hat pull secret (optional)
 
