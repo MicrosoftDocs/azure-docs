@@ -39,6 +39,12 @@ For information on how to handle throttling when these limits are exceeded, see 
 
 <sup>1</sup> A subscription-wide limit for all transaction types is five times per key vault limit. For example, HSM-other transactions per subscription are limited to 5,000 transactions in 10 seconds per subscription.
 
+### Limits on count of keys, secrets and certificates:
+
+Key Vault does not restrict the number of keys, secrets or certificates that can be stored in a Vault. The transaction limits on the vault should be taken into account to ensure that operations are not throttled.
+
+Key Vault does not restrict the number of versions on a secret, key or certificate. But storing a large number of versions can impact the performance of backup operations, see [Azure Key Vault Backup](../articles/key-vault/general/backup.md).
+
 ### Azure Private Link integration
 
 > [!NOTE]
