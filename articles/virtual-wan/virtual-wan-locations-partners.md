@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/03/2021
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
 ---
@@ -18,7 +18,7 @@ Azure Virtual WAN is a networking service that provides optimized and automated 
 
 Connectivity from the on-premises device is established in an automated way to the Virtual Hub. A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity from your on-premises network (vpnsite). You can only have one hub per region.
 
-## <a name="automation"></a>Branch IPSec connectivity automation from partners
+## <a name="automation"></a>Branch IPsec connectivity automation from partners
 
 Devices that connect to Azure Virtual WAN have built-in automation to connect. This is typically set up in the device-management UI (or equivalent), which sets up the connectivity and configuration management between the VPN branch device to an Azure Virtual Hub VPN endpoint (VPN gateway).
 
@@ -31,18 +31,18 @@ The following high-level automation is set up in the device console/management c
 
 Some connectivity partners may extend the automation to include creating the Azure Virtual Hub VNet and VPN Gateway. If you want to know more about automation, see [Automation guidelines for Virtual WAN partners](virtual-wan-configure-automation-providers.md).
 
-## <a name="partners"></a>Branch IPSec Connectivity partners
+## <a name="partners"></a>Branch IPsec Connectivity partners
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
 The following partners are slated on our roadmap based on a terms sheet signed between the companies indicating the scope of work to automate IPsec connectivity between the partner device and Azure Virtual WAN VPN Gateways : 128 Technologies, Arista, F5 Networks, Oracle SD-WAN (Talari) and SharpLink.
 
 ## Partners with integrated Virtual Hub offerings
-In addition to having automated branch office IPSec connectivity, some partners offer **Network Virtual Appliances (NVAs)** that can be integrated directly into the Azure Virtual WAN hub.  This allows the customers the option to terminate their branch connections into a compatible third-party appliance in the Virtual Hub.  
+In addition to having automated branch office IPsec connectivity, some partners offer **Network Virtual Appliances (NVAs)** that can be integrated directly into the Azure Virtual WAN hub.  This allows the customers the option to terminate their branch connections into a compatible third-party appliance in the Virtual Hub.  
 
 Partners that offer NVA in the Virtual WAN Hub must:
 
-* Have implemented IPSec Connectivity Automation from their branch device and have on-boarded their NVA offering to Azure Virtual WAN hub.
+* Have implemented IPsec Connectivity Automation from their branch device and have on-boarded their NVA offering to Azure Virtual WAN hub.
 * Have an existing Network Virtual Appliance offer available in Azure Marketplace.
 
 If you are a partner and have questions about the Managed NVA in the Virtual Hub offering, please contact us by sending email to vwannvaonboarding@microsoft.com
