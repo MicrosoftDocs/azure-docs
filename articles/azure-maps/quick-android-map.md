@@ -229,7 +229,7 @@ The next step in building your application is to install the Azure Maps Android 
     ```
 
     > [!NOTE]
-    > After you complete the preceding steps, you may probably get warnings from Android Studio about some of the code. To resolve these warnings, import the classes referenced in `MainActivity.java`.
+    > After you complete the preceding steps, you may get warnings from Android Studio about some of the code. To resolve these warnings, import the classes referenced in `MainActivity.java`.
     > You can automatically import these classes by selecting `Alt` + `Enter` (`Option` + `Return` on a Mac).
 
 ::: zone-end
