@@ -30,8 +30,8 @@ The key to configuring Microsoft Connected Cache deployments within an ISA 95 co
 
 3. The OT proxy must add the L4 MCC FQDN/IP address to the allow list.
 
-To validate that Microsoft Connected Cache is functioning properly, execute the following command in the terminal of the IoT Edge device, hosting the module, or any device on the network.
+To validate that Microsoft Connected Cache is functioning properly, execute the following command in the terminal of the IoT Edge device, hosting the module, or any device on the network. Replace \<Azure IOT Edge Gateway IP\> with the IP address or hostname of your IoT Edge gateway. (see environment variable details for information on visibility of this report).
 
 ```bash
-    wget "http://<L3 IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
+    wget http://<L3 IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
 ```
