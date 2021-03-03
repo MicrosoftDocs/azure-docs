@@ -18,7 +18,7 @@ ms.date: 02/12/2021
 > 1. [Disable pod security policy](#clean-up-resources) on the cluster
 > 1. Enable the [Azure Policy Add-on][kubernetes-policy-reference]
 > 1. Enable the desired Azure policies from [available built-in policies][policy-samples]
-> 1. Review [behavior changes between pod security policy and Azure Policy][#behavior-changes-between-pod-security-policy-and-azure-policy]
+> 1. Review [behavior changes between pod security policy and Azure Policy](#behavior-changes-between-pod-security-policy-and-azure-policy)
 
 To improve the security of your AKS cluster, you can limit what pods can be scheduled. Pods that request resources you don't allow can't run in the AKS cluster. You define this access using pod security policies. This article shows you how to use pod security policies to limit the deployment of pods in AKS.
 
