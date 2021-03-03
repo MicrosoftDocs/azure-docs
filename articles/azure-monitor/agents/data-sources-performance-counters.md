@@ -32,7 +32,7 @@ For Windows performance counters, you can choose a specific instance for each pe
 
 ### Windows performance counters
 
-![Configure Windows Performance counters](media/data-sources-performance-counters/configure-windows.png)
+[![Configure Windows Performance counters](media/data-sources-performance-counters/configure-windows.png)](media/data-sources-performance-counters/configure-windows.png#lightbox)
 
 Follow this procedure to add a new Windows performance counter to collect. Please note that V2 Windows Performance Counters are not supported.
 
@@ -46,7 +46,7 @@ Follow this procedure to add a new Windows performance counter to collect. Pleas
 
 ### Linux performance counters
 
-![Configure Linux Performance counters](media/data-sources-performance-counters/configure-linux.png)
+[![Configure Linux Performance counters](media/data-sources-performance-counters/configure-linux.png)](media/data-sources-performance-counters/configure-linux.png#lightbox)
 
 Follow this procedure to add a new Linux performance counter to collect.
 

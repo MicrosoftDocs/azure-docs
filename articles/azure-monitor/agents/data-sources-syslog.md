@@ -48,7 +48,7 @@ Configure Syslog from the [Agent configuration menu](../agents/agent-data-source
 
 You can add a new facility by clicking **Add facility**. For each facility, only messages with the selected severities will be collected.  Check the severities for the particular facility that you want to collect. You cannot provide any additional criteria to filter messages.
 
-![Configure Syslog](media/data-sources-syslog/configure.png)
+[![Configure Syslog](media/data-sources-syslog/configure.png)](media/data-sources-syslog/configure.png#lightbox)
 
 By default, all configuration changes are automatically pushed to all agents. If you want to configure Syslog manually on each Linux agent, then uncheck the box *Apply below configuration to my machines*.
 

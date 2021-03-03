@@ -40,7 +40,7 @@ To configure data sources for Log Analytics agents, go to the **Log Analytics wo
 
 Any configuration is delivered to all agents connected to that workspace.  You cannot exclude any connected agents from this configuration.
 
-![Configure Windows events](media/agent-data-sources/configure-events.png)
+[![Configure Windows events](media/agent-data-sources/configure-events.png)](media/agent-data-sources/configure-events.png#lightbox)
 
 
 

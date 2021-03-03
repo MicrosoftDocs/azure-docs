@@ -24,7 +24,7 @@ Azure Monitor only collects events from the Windows event logs that are specifie
 
 As you type the name of an event log, Azure Monitor provides suggestions of common event log names. If the log you want to add does not appear in the list, you can still add it by typing in the full name of the log. You can find the full name of the log by using event viewer. In event viewer, open the *Properties* page for the log and copy the string from the *Full Name* field.
 
-![Configure Windows events](media/data-sources-windows-events/configure.png)
+[![Configure Windows events](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
 
 > [!NOTE]
 > Critical events from the Windows event log will have a severity of "Error" in Azure Monitor Logs.
