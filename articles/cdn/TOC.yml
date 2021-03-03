@@ -33,6 +33,10 @@
   items:
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=cdn
+  - name: Azure CLI
+    items:
+      - name: Create a profile and endpoint
+        href: ./scripts/cli/cdn-cli-create-endpoint.md
 - name: Concepts
   items:
   - name: Security
