@@ -90,7 +90,7 @@ Set up the appliance for the first time.
 
 1. In the vSphere Client console, right-click the server, and then select **Open Console**.
 2. Provide the language, time zone, and password for the appliance.
-3. Open a browser on any machine that can connect to the appliance server, and open the URL of the appliance configuration manager: **https://*appliance name or IP address*: 44368**.
+3. Open a browser on any machine that can connect to the appliance server, and open the URL of the appliance configuration manager: `https://appliance name or IP address: 44368`.
 
    Alternately, you can open the configuration manager from the appliance server desktop by selecting the shortcut for the configuration manager.
 1. Accept the **license terms**, and read the third-party information.
@@ -106,14 +106,16 @@ Set up the appliance for the first time.
 
      Azure Migrate Server Migration uses the VDDK to replicate servers during migration to Azure. 
 1. If you want, you can **rerun prerequisites** at any time during appliance configuration to check if the appliance meets all the prerequisites.
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Panel 1 on appliance configuration manager":::
+
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Panel 1 on appliance configuration manager":::
 
 
 ## Register the appliance with Azure Migrate
 
 1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Server Assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
 1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
-:::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal showing the device code":::
+
+    :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal showing the device code":::
 
 1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
 1. On the new tab, paste the device code and sign in by using your Azure username and password.
@@ -123,7 +125,8 @@ Set up the appliance for the first time.
 1. After you successfully logged in, go back to the previous tab with the appliance configuration manager.
 1. If the Azure user account used for logging has the right permissions on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-registration.png" alt-text="Panel 2 on appliance configuration manager":::
+
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-registration.png" alt-text="Panel 2 on appliance configuration manager":::
 
 ## Start continuous discovery
 
@@ -137,11 +140,14 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 1. In **Step 2: Provide vCenter Server details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the vCenter Server. You can leave the **Port** to default (443) or specify a custom port on which vCenter Server listens and click on **Save**.
 1. On clicking **Save**, appliance will try validating the connection to the vCenter Server with the credentials provided and show the **Validation status** in the table against the vCenter Server IP address/FQDN.
 1. You can **revalidate** the connectivity to vCenter Server any time before starting the discovery.
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details":::
+
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details":::
 
 ### Provide server credentials
 
 In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases**, you can either choose to provide multiple server credentials or if you do not want to leverage these features, you can choose to skip the step and proceed with vCenter Server discovery. You can change your intent any time later.
+
+:::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Panel 3 on appliance configuration manager for server details":::
 
 > [!Note]
 > Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
