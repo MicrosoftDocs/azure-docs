@@ -155,9 +155,8 @@
     - name: Manage sensors on the cloud
       href: how-to-manage-sensors-on-the-cloud.md
     - name: Manage the on-premises management console
-      displayName: activation, certificate, software update, backup, restore, proxy, password recovery
+      displayName: upgrade, activation, certificate, software update, backup, restore, proxy, password recovery
       href: how-to-manage-the-on-premises-management-console.md
-      displayName: upgrade, activation, certificate, SSL, TLS, connect, sync, backup, restore, software update, failure
     - name: Work with threat intelligence packages
       href: how-to-work-with-threat-intelligence-packages.md
     - name: Work with device inventory information
