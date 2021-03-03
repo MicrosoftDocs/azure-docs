@@ -114,7 +114,7 @@ You can use one or more public IP address resources, public IP prefixes, or both
 
 6. Select the **Subnet** tab, or select the **Next: Subnet** button at the bottom of the page.
 
-7. In the **Subnet** tab, select **myVNet** in the **Virtual network** pull down.
+7. In the **Subnet** tab, select **myVNet** in the **Virtual network** pull-down.
 
 8. Check the box next to **mySubnet**.
 
@@ -128,7 +128,7 @@ In this section, you'll create a virtual machine to test the NAT gateway and ver
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine**. 
 
-2. In the **Create a virtual machine** page in the **Basics** tab, enter or select the following information:
+2. In the **Create a virtual machine** page in the **Basics** tab, enter, or select the following information:
 
     | **Setting** | **Value** |
     | ----------- | --------- |
@@ -171,7 +171,7 @@ In this section, you'll create a virtual machine to test the NAT gateway and ver
 
 ## Test NAT gateway
 
-In this section we'll test the NAT gateway by discovering the public IP address of the NAT gateway and connecting to a virtual machine to verify the address.
+In this section, we'll test the NAT gateway. We'll first discover the public IP of the NAT gateway. We'll then connect to the test virtual machine and verify the outbound connection through the NAT gateway.
     
 1. Find the public IP address for the NAT gateway on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myPublicIP**.
 
