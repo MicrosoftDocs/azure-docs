@@ -268,6 +268,30 @@ You can search through the published kb, using `isTest=false`, or in the test kb
 }
 ```
 
+## Return Precise Answers
+
+The user can enable [precise answers](../reference-precise-answering.md) when using the QnA Maker managed resource. The answerSpanRequest parameter has to be updated for the same.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3,
+    "answerSpanRequest": {
+        "enable": true,
+        "topAnswersWithSpan": 1
+    }
+}
+```
+
+Similarly, the users can choose to disable precise answers by not setting the answerSpanRequest parameter.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3
+}
+```
+
 ## Common HTTP errors
 
 |Code|Explanation|

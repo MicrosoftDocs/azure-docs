@@ -2,7 +2,6 @@
 title: Azure SQL Analytics solution in Azure Monitor | Microsoft Docs
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
 
-ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
