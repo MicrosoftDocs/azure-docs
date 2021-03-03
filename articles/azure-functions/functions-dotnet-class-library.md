@@ -1,13 +1,13 @@
 ---
-title: Azure Functions C# developer reference
-description: Understand how to develop Azure Functions using C#.
+title: Develop C# functions using Azure Functions
+description: Understand how to use C# to develop and publish code that runs in-process with the Azure Functions runtime.
 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
 
 ---
-# Azure Functions C# developer reference
+# Develop C# functions using Azure Functions
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
