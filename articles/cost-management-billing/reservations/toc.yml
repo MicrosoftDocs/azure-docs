@@ -11,10 +11,10 @@
     href: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: Reservation recommendations
     href: reserved-instance-purchase-recommendations.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: How an Azure reservation discount is applied
-    href: reservation-discount-application.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: How discount is applied
     items:
+    - name: How an Azure reservation discount is applied
+      href: reservation-discount-application.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: App Service
       href: reservation-discount-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cache for Redis
