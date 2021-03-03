@@ -2,7 +2,7 @@
 title: Azure Service Bus - Automatically update messaging units 
 description: This article shows you how you can use automatically update messaging units of a Service Bus namespace.
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 03/03/2021
 ---
 
 # Automatically update messaging units of an Azure Service Bus namespace 
@@ -131,8 +131,18 @@ The previous section shows you how to add a default condition for the autoscale 
     
     :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="scale to specific messaging units - repeat specific days":::
 
-> [!IMPORTANT]
-> To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+    > [!IMPORTANT]
+    > To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+
+## Workload-based recommendations
+Your Service Bus-based application may have to deal with the following two types of workloads that:
+
+- Gradually grow or shrink
+- Spike up/down
+
+In the spiky workloads scenario, the metrics you review to make decisions on autoscaling may be 5-10 minutes old. For these workloads, we recommend that you have shorter durations for scaling up and longer durations for scaling down (> 10 minutes) to ensure that there are enough messaging units to process spiky workloads. 
+
+
 
 ## Next steps
 To learn about messaging units, see the [Premium messaging](service-bus-premium-messaging.md)
