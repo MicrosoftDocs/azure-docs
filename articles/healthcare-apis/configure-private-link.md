@@ -16,6 +16,7 @@ Private link enables you to access Azure API for FHIR over a private endpoint, a
 
 >[!Note]
 >Neither Private Link nor Azure API for FHIR can be moved from one resource group or subscription to another once Private Link is enabled. To move, delete the Private Link first, then move Azure API for FHIR and create a new Private Link once the move is complete. Assess potential security ramifications before deleting Private Link.
+>
 >If exporting audit logs and/metrics is enabled for Azure API for FHIR, update the export setting through Diagnostic Settings from the portal.
 
 ## Prerequisites
