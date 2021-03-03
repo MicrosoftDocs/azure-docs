@@ -12,14 +12,16 @@ ms.reviewer: sstein
 ms.date: 03/01/2021
 ---
 
-# Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service
+# Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article explains how to manually configure database migration from SQL Server 2008-2019 to SQL Managed Instance by using Log Replay Service (LRS). LRS is a cloud service that's enabled for SQL Managed Instance and is based on SQL Server log-shipping technology. 
+This article explains how to manually configure database migration from SQL Server 2008-2019 to Azure SQL Managed Instance by using Log Replay Service (LRS), currently in public preview. LRS is a cloud service that's enabled for SQL Managed Instance and is based on SQL Server log-shipping technology. 
+
+[Azure Database Migration Service](/azure/dms/tutorial-sql-server-to-managed-instance) and LRS use the same underlying migration technology and the same APIs. By releasing LRS, we're further enabling complex custom migrations and hybrid architecture between on-premises SQL Server and SQL Managed Instance.
 
 ## When to use Log Replay Service
 
-When you can't use [Azure Database Migration Service](/azure/dms/tutorial-sql-server-to-managed-instance) for migration, you can use LRS directly with PowerShell, Azure CLI cmdlets, or an API to manually build and orchestrate database migrations to SQL Managed Instance. 
+When you can't use Azure Database Migration Service for migration, you can use LRS directly with PowerShell, Azure CLI cmdlets, or APIs to manually build and orchestrate database migrations to SQL Managed Instance. 
 
 You might consider using LRS in the following cases:
 - You need more control for your database migration project.
@@ -28,9 +30,11 @@ You might consider using LRS in the following cases:
 - The Database Migration Service executable file doesn't have file access to database backups.
 - No access to the host OS is available, or there are no administrator privileges.
 - You can't open network ports from your environment to Azure.
+- Backups are stored directly to Azure Blob Storage through the `TO URL` option.
+- You need to use differential backups.
 
 > [!NOTE]
-> We recommended automating the migration of databases from SQL Server to SQL Managed Instance by using Azure Database Migration Service. This service uses the same LRS cloud service at the back end, with log shipping in `NORECOVERY` mode. Consider manually using LRS to orchestrate migrations when Database Migration Service doesn't fully support your scenarios.
+> We recommended automating the migration of databases from SQL Server to SQL Managed Instance by using Database Migration Service. This service uses the same LRS cloud service at the back end, with log shipping in `NORECOVERY` mode. Consider manually using LRS to orchestrate migrations when Database Migration Service doesn't fully support your scenarios.
 
 ## How it works
 
@@ -40,7 +44,7 @@ The migration consists of making full database backups on SQL Server with `CHECK
 
 LRS monitors Blob Storage for any new differential or log backups added after the full backup has been restored. LRS then automatically restores these new files. You can use the service to monitor the progress of backup files being restored on SQL Managed Instance, and you can stop the process if necessary.
 
-LRS does not require a specific naming convention for backup files. It scans all files placed on Blob Storage and constructs the backup chain from reading the file headers only. Databases are in a "restoring" state during the migration process. Databases are restored in [NORECOVERY](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=sql-server-ver15#comparison-of-recovery-and-norecovery) mode, so they can't be used for reading or writing until the migration process is finished. 
+LRS does not require a specific naming convention for backup files. It scans all files placed on Blob Storage and constructs the backup chain from reading the file headers only. Databases are in a "restoring" state during the migration process. Databases are restored in [NORECOVERY](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=sql-server-ver15#comparison-of-recovery-and-norecovery) mode, so they can't be used for reading or writing until the migration process is completed. 
 
 If you're migrating several databases, you need to:
  
@@ -62,7 +66,7 @@ After LRS is stopped, either automatically through autocomplete or manually thro
 | **2. Start LRS in the cloud**. | You can restart the service with a choice of cmdlets: PowerShell ([start-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay)) or Azure CLI ([az_sql_midb_log_replay_start cmdlets](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start)). <br /><br /> Start LRS separately for each database that points to a backup folder on Blob Storage. <br /><br /> After you start the service, it will take backups from the Blob Storage container and start restoring them on SQL Managed Instance.<br /><br /> If you started LRS in continuous mode, after all initially uploaded backups are restored, the service will watch for any new files uploaded to the folder. The service will continuously apply logs based on the log sequence number (LSN) chain until it's stopped. |
 | **2.1. Monitor the operation's progress**. | You can monitor progress of the restore operation with a choice of cmdlets: PowerShell ([get-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay)) or Azure CLI ([az_sql_midb_log_replay_show cmdlets](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show)). |
 | **2.2. Stop the operation if needed**. | If you need to stop the migration process, you have a choice of cmdlets: PowerShell ([stop-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay)) or Azure CLI ([az_sql_midb_log_replay_stop](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop)). <br /><br /> Stopping the operation will delete the database that you're restoring on SQL Managed Instance. After you stop an operation, you can't resume LRS for a database. You need to restart the migration process from scratch. |
-| **3. Cut over to the cloud when you're ready**. | After all backups have been restored to SQL Managed Instance, complete the cutover by starting an LRS `complete` operation with a choice of cmdlets: PowerShell ([complete-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay)) or Azure CLI [az_sql_midb_log_replay_complete](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete). <br /><br /> This operation will stop LRS and cause the database to come online for read and write use on SQL Managed Instance. Then, repoint the application connection string from SQL Server to SQL Managed Instance. |
+| **3. Cut over to the cloud when you're ready**. | Stop the application and the workload. Take the last log-tail backup and upload it to Azure Blob Storage.<br /><br /> Complete the cutover by initiating an LRS `complete` operation with a choice of cmdlets: PowerShell ([complete-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay)) or Azure CLI [az_sql_midb_log_replay_complete](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete). This operation will stop LRS and cause the database to come online for read and write use on SQL Managed Instance.<br /><br /> Repoint the application connection string from SQL Server to SQL Managed Instance. |
 
 ## Requirements for getting started
 
@@ -100,9 +104,9 @@ We recommend the following best practices:
 - Plan to complete the migration within 47 hours after you start LRS. This is a grace period that prevents the installation of system-managed software patches.
 
 > [!IMPORTANT]
-> - You can't use the database that's being restored through LRS until the migration process finishes. The reason is that the underlying technology is in `NORECOVERY` restore mode.
-> - LRS doesn't support a `STANDBY` restore mode that allows read-only access to databases during the migration because of the version differences between SQL Managed Instance and in-market SQL Server databases.
-> - After migration finishes through autocomplete or manual cutover, the migration process is finalized because LRS doesn't support resuming the restore process.
+> - You can't use the database that's being restored through LRS until the migration process finishes. 
+> - LRS doesn't support read-only access to databases during the migration.
+> - After migration finishes, the migration process is finalized because LRS doesn't support resuming the restore process.
 
 ## Steps before migration
 
@@ -123,7 +127,7 @@ SET RECOVERY FULL
 GO
 ```
 
-To manually make full, diff, and log backups of your database on local storage, use the following sample T-SQL scripts. Ensure that the `CHECKSUM` option is enabled, because it's mandatory for LRS.
+To manually make full, differential, and log backups of your database on local storage, use the following sample T-SQL scripts. Ensure that the `CHECKSUM` option is enabled, because it's mandatory for LRS.
 
 ```SQL
 -- Example of how to make a full database backup to the local disk
@@ -138,14 +142,19 @@ TO DISK='C:\BACKUP\SampleDB_diff.bak'
 WITH DIFFERENTIAL, COMPRESSION, CHECKSUM
 GO
 
--- Example of how to make the log backup
+-- Example of how to make a transactional log backup to the local disk
 BACKUP LOG [SampleDB]
 TO DISK='C:\BACKUP\SampleDB_log.trn'
 WITH COMPRESSION, CHECKSUM
 GO
 ```
 
-Files backed up to local storage will need to be uploaded to Azure Blob Storage. If your corporate policy allows it, you can make backups directly to Blob Storage by following the tutorial [Use Azure Blob Storage with SQL Server](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage). If you're using this alternative approach, be sure enable the `CHECKSUM` option for all backups.
+### Create a storage account
+
+Azure Blob Storage is used as intermediary storage for backup files between SQL Server and SQL Managed Instance. To create a new storage account and a blob container inside the storage account, follow these steps:
+
+1. [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal).
+2. [Crete a blob container](../../storage/blobs/storage-quickstart-blobs-portal.md) inside the storage account.
 
 ### Copy backups from SQL Server to Blob Storage
 
@@ -154,31 +163,82 @@ In migrating databases to a managed instance by using LRS, you can use the follo
 - Using [Azcopy](/azure/storage/common/storage-use-azcopy-v10) or [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer) to upload backups to a blob container
 - Using Storage Explorer in the Azure portal
 
-### Create a Blob Storage container and SAS authentication token
+### Make backups from SQL Server directly to Blob Storage
+If your corporate and network policies allow it, an alternative is to make backups from SQL Server directly to Blob Storage by using the SQL Server native [BACKUP TO URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) option. If you can pursue this option, you don't need to make backups on the local storage and upload them to Blob Storage.
 
-Azure Blob Storage is intermediary storage for backup files between SQL Server and SQL Managed Instance. Follow these steps to create a Blob Storage container:
+As the first step, this operation requires you to generate an SAS authentication token for Blob Storage and then import the token to SQL Server. The second step is to make backups with the `TO URL` option in T-SQL. Ensure that all backups are made with the `CHEKSUM` option enabled.
 
-1. [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal).
-2. [Create a blob container](../../storage/blobs/storage-quickstart-blobs-portal.md) inside the storage account.
+For reference, the following sample code makes backups to Blob Storage. This example does not include instructions on how to import the SAS token. You can find detailed instructions, including how to generate and import the SAS token to SQL Server, in the tutorial [Use Azure Blob Storage with SQL Server](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage). 
 
-After you create a blob container, use the following steps to generate an SAS authentication token with only read and list permissions:
+```SQL
+-- Example of how to make a full database backup to a URL
+BACKUP DATABASE [SampleDB]
+TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/SampleDB_full.bak'
+WITH INIT, COMPRESSION, CHECKSUM
+GO
+-- Example of how to make a differential database backup to a URL
+BACKUP DATABASE [SampleDB]
+TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/SampleDB_diff.bak'  
+WITH DIFFERENTIAL, COMPRESSION, CHECKSUM
+GO
 
-1. Access a storage account by using the Azure portal.
-2. Go to Storage Explorer.
-3. Expand **Blob Containers**.
-4. Right-click the blob container.
-5. Select **Get Shared Access Signature**.
-6. Select the timeframe for token expiration. Ensure that the token is valid for the duration of your migration.
+-- Example of how to make a transactional log backup to a URL
+BACKUP LOG [SampleDB]
+TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/SampleDB_log.trn'  
+WITH COMPRESSION, CHECKSUM
+```
+
+### Generate a Blob Storage SAS authentication token for LRS
+
+Azure Blob Storage is used as intermediary storage for backup files between SQL Server and SQL Managed Instance. You need to generate an SAS authentication token, with only list and read permissions, for LRS. The token will enable LRS to access Blob Storage and use the backup files to restore them on SQL Managed Instance. 
+
+Follow these steps to generate the token:
+
+1. Open Storage Explorer from the Azure portal.
+2. Expand **Blob Containers**.
+3. Right-click the blob container and select **Get Shared Access Signature**.
+
+   ![Screenshot that shows selections for generating a Shared Access Signature authentication token.](./media/log-replay-service-migrate/lrs-sas-token-01.png)
+
+4. Select the timeframe for token expiration. Ensure that the token is valid for the duration of your migration.
+5. Select the time zone for the token: UTC or your local time.
 	
-   > [!NOTE]
+   > [!IMPORTANT]
    > The time zone of the token and your managed instance might mismatch. Ensure that the SAS token has the appropriate time validity, taking time zones into consideration. If possible, set the time zone to an earlier and later time of your planned migration window.
-8. Ensure that only **Read** and **List** permissions are selected.
-9. Select **Create**.
-10. Copy the token after the question mark (`?`) until the end of the string. The SAS token typically starts with `sv=2020-10` in the URI for use in your code.
+6. Select **Read** and **List** permissions only.
 
-> [!IMPORTANT]
-> - Permissions for the SAS token for Azure Blob Storage need to be only read and list. If any other permissions are granted for the SAS authentication token, LRS won't start. These security requirements are by design.
-> - The token must have the appropriate time validity. Be sure to consider the time zones between the token and the managed instance.
+   > [!IMPORTANT]
+   > Don't select any other permissions. If you do, LRS won't start. This security requirement is by design.
+7. Select **Create**.
+
+   ![Screenshot that shows selections for token expiration, time zone, and permissions, along with the Create button.](./media/log-replay-service-migrate/lrs-sas-token-02.png)
+
+The SAS authentication is generated with the time validity that you specified. You need the URI version of the token, as shown in the following screenshot.
+
+![Screenshot that shows an example of the U R I version of a Shared Access Signature token.](./media/log-replay-service-migrate/lrs-generated-uri-token.png)
+
+### Copy parameters from the SAS token
+
+Before you use the SAS token to start LRS, you need to understand its structure. The URI of the generated SAS token consists of two parts separated with a question mark (`?`), as shown in this example:
+
+![Example U R I for a generated Shared Authentication Service token for Log Replay Service.](./media/log-replay-service-migrate/lrs-token-structure.png)
+
+The first part, starting with `https://` until the question mark (`?`), is used for the `StorageContainerURI` parameter that's fed as in input to LRS. It gives LRS information about the folder where database backup files are stored.
+
+The second part, starting after the question mark (`?`) and going all the way until the end of the string, is the `StorageContainerSasToken` parameter. This is the actual signed authentication token, which is valid for the duration of the specified time. This part does not necessarily need to start with `sp=` as shown in the example. Your case might differ.
+
+Copy the parameters as follows:
+
+1. Copy the first part of the token, starting from `https://` all the way until the question mark (`?`). Use it as the `StorageContainerUri` parameter in PowerShell or the Azure CLI for starting LRS.
+
+   ![Screenshot that shows copying the first part of the token.](./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png)
+
+2. Copy the second part of the token, starting from the question mark (`?`) all the way until the end of the string. Use it as the `StorageContainerSasToken` parameter in PowerShell or the Azure CLI for starting LRS.
+
+   ![Screenshot that shows copying the second part of the token.](./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png)
+
+> [!NOTE]
+> Don't include the question mark when you copy either part of the token.
 
 ### Log in to Azure and select a subscription
 
@@ -247,8 +307,6 @@ az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
 	--storage-sas "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
 
-### Scripting LRS start in continuous mode
-
 PowerShell and CLI clients to start LRS in continuous mode are synchronous. This means that clients will wait for the API response to report on success or failure to start the job. 
 
 During this wait, the command won't return control to the command prompt. If you're scripting the migration experience, and you need the LRS start command to give back control immediately to continue with rest of the script, you can run PowerShell as a background job with the `-AsJob` switch. For example:
@@ -259,7 +317,7 @@ $lrsjob = Start-AzSqlInstanceDatabaseLogReplay <required parameters> -AsJob
 
 When you start a background job, a job object returns immediately, even if the job takes an extended time to finish. You can continue to work in the session without interruption while the job runs. For details on running PowerShell as a background job, see the [PowerShell Start-Job](/powershell/module/microsoft.powershell.core/start-job#description) documentation.
 
-Similarly, to start an Azure CLI command on Linux as a background process, use the ampersand (`&`) at the end of the LRS start command.
+Similarly, to start an Azure CLI command on Linux as a background process, use the ampersand (`&`) at the end of the LRS start command:
 
 ```CLI
 az sql midb log-replay start <required parameters> &
@@ -335,6 +393,8 @@ Functional limitations of LRS are:
 ## Troubleshooting
 
 After you start LRS, use the monitoring cmdlet (`get-azsqlinstancedatabaselogreplay` or `az_sql_midb_log_replay_show`) to see the status of the operation. If LRS fails to start after some time and you get an error, check for the most common issues:
+
+- Does an existing database on SQL Managed Instance have the same name as the one you're trying to migrate from SQL Server? Resolve this conflict by renaming one of databases.
 - Was the database backup on SQL Server made via the `CHECKSUM` option?
 - Are the permissions on the SAS token only read and list for LRS?
 - Did you copy the SAS token for LRS after the question mark (`?`), with content starting like this: `sv=2020-02-10...`? 
