@@ -1096,8 +1096,10 @@
           href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
         - name: Availability group (AG)
           href: virtual-machines/windows/availability-group-overview.md
-        - name: Failover cluster instance
+        - name: Failover cluster instance (FCI)
           href: virtual-machines/windows/failover-cluster-instance-overview.md
+        - name: Compare DNN & VNN
+          href: virtual-machines/windows/hadr-compare-virtual-distributed-network-name.md
       - name: Best practices
         items:
         - name: Performance
@@ -1173,6 +1175,12 @@
             href: virtual-machines/windows/automated-backup.md
           - name: Automated backup (SQL 2014)
             href: virtual-machines/windows/automated-backup-sql-2014.md
+        - name: Windows Server Failover Cluster
+          items: 
+            - name: Create cluster
+              href: virtual-machines/windows/hadr-create-cluster-how-to.md
+            - name: Troubleshoot issues
+              href: virtual-machines/windows/hadr-cluster-troubleshoot-issues.md
         - name: Availability group (AG)
           items:
           - name: Create AG 

@@ -1,6 +1,6 @@
 ---
-title: Cluster configuration best practices
-description: "Learn about the supported cluster configurations when you configure high availability and disaster recovery (HADR) for SQL Server on Azure Virtual Machines, such as supported quorums or connection routing options." 
+title: Compare DNN & VNN 
+description: "Compare the functionality between the Distributed Network Name and Virtual Network Name when used with failover cluster instances or availability groups with SQL Server on Azure VMs for the purpose of high availability and disaster recovery (HADR). " 
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -16,71 +16,37 @@ ms.author: mathoma
 
 ---
 
-# Cluster configuration best practices (SQL Server on Azure VMs)
+# Compare Distributed Network Name with Virtual Network Name for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-A cluster is used for high availability and disaster recovery (HADR) with SQL Server on Azure Virtual Machines (VMs). 
 
-This article provides cluster configuration best practices for both [failover cluster instances (FCIs)](failover-cluster-instance-overview.md) and [availability groups](availability-group-overview.md) when you use them with SQL Server on Azure VMs. 
+## Virtual Network Name (VNN)
 
+Traditionally, the VNN was used. The VNN is a network address/name, which is managed by the cluster system.  The cluster system moves the network address from node to node during a failover event.  The address is taken offline on the original primary replica, and brought online on the new primary replica.  In Azure VMs, this requires that a Network Load Balancer be configured to route traffic to the proper VM.
+Virtual Network Names rely on the load balancer to detect that a failure has occurred and move the address to the new host.  Configuration of the load balancer has been cumbersome and takes time to get right.
 
-## Networking
+## Distributed Network name (DNN)
 
-Use a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
+Starting with SQL Server 2019 CU8, SQL Server supports a new type of clustered network address, the DNN.
 
-### Tuning Failover Cluster Network Thresholds
+Listeners based on DNN network names work a bit differently from VNN listeners.  VNN listeners have an address which is moved from one node to another by the cluster system, while DNN listeners listen to a specific port, but for all IP addresses.  The DNS record for the listener name should resolve to all of the network addresses for replicas in the AG.  Only the primary replica will listen for connections on that port, so there is no need to move a network address around.  Because of this, there is not a need to create a network load balancer to handle redirection.  The connection will go out to all addresses which the name resolves to, and only the primary will respond on the listener port.  
 
-When running Windows Failover Cluster nodes in Azure Vms with SQL Server AlwaysOn, changing the cluster setting to a more relaxed monitoring state is recommended.  This will make the cluster much more stable and reliable.  For details on this, see [IaaS with SQL AlwaysOn - Tuning Failover Cluster Network Thresholds](/windows-server/troubleshoot/iaas-sql-failover-cluster).
+## Behavior differences
 
-## Quorum
+There are some behavioral differences which are important to take note of:
 
-Although a two-node cluster will function without a [quorum resource](/windows-server/storage/storage-spaces/understand-quorum), customers are strictly required to use a quorum resource to have production support. Cluster validation won't pass any cluster without a quorum resource. 
+First, failover time is faster for DNN than it is for VNN listeners.  This is because there is no need to wait for the network load balancer to detect the failover event, and then change its routing.  However, DNN listeners only have to start listening on the DNN port. Reduced failover time can be a significant advantage.
 
-Technically, a three-node cluster can survive a single node loss (down to two nodes) without a quorum resource. But after the cluster is down to two nodes, there's a risk that the clustered resources will go offline in the case of a node loss or communication failure to prevent a split-brain scenario.
-
-Configuring a quorum resource will allow the cluster to continue online with only one node online.
-
-The following table lists the quorum options available in the order recommended to use with an Azure VM, with the disk witness being the preferred choice: 
+Second, the behavior of existing connections to the listener is different when a failover occurs.  When there is a user-initiated failover, the network address on the original primary is not taken offline, so any existing connections to the listener on the original primary will not be broken and reconnected to the new primary.  This can be an unexpected difference in behavior.  The existing connection will remain connected to the original primary instance, even when it has transitioned to the secondary role.
 
 
-||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
-|---------|---------|---------|---------|
-|**Supported OS**| All |Windows Server 2016+| All|
+
+There’s one wrinkle that I found in verifying the behaviors:
+If you have a connection to the Primary via the listener, and there is a failover, your connection does not move.
+If you have a connection to the primary, and you have an open transaction where at least one modification has been done and you fail over, your connection is dead, and can’t be revived.  You need to reconnect.  In SSMS, you need to close the query window and open a new one.
 
 
-### Disk witness
-
-A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size that's usually less than 1 GB. The disk witness is the preferred quorum option for any cluster that uses Azure Shared Disks (or any shared-disk solution like shared SCSI, iSCSI, or fiber channel SAN).  A Clustered Shared Volume cannot be used as a disk witness.
-
-Configure an Azure shared disk as the disk witness. 
-
-To get started, see [Configure a disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
-
-
-**Supported OS**: All   
-
-
-### Cloud witness
-
-A cloud witness is a type of failover cluster quorum witness that uses Microsoft Azure to provide a vote on cluster quorum. The default size is about 1 MB and contains just the time stamp. A cloud witness is ideal for deployments in multiple sites, multiple zones, and multiple regions.
-
-To get started, see [Configure a cloud witness](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp).
-
-
-**Supported OS**: Windows Server 2016 and later   
-
-
-### File share witness
-
-A file share witness is an SMB file share that's typically configured on a file server running Windows Server. It maintains clustering information in a witness.log file, but doesn't store a copy of the cluster database. In Azure, you can you can configure an [Azure file share](../../../storage/files/storage-how-to-create-file-share.md) to use as the file share witness, or you can use a file share on a separate virtual machine.
-
-If you're going to use an Azure file share, you can mount it with the same process used to [mount the Premium file share](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
-
-To get started, see [Configure a file share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
-
-
-**Supported OS**: Windows Server 2012 and later   
-
+from  best practices
 ## Connectivity
 
 In a traditional on-premises network environment, a SQL Server failover cluster instance appears to be a single instance of SQL Server running on a single computer. Because the failover cluster instance fails over from node to node, the virtual network name (VNN) for the instance provides a unified connection point and allows applications to connect to the SQL Server instance without knowing which node is currently active. When a failover occurs, the virtual network name is registered to the new active node after it starts. This process is transparent to the client or application that's connecting to SQL Server, and this minimizes the downtime that the client or application experiences during a failure. Likewise, the availability group listener uses a VNN to route traffic to the appropriate replica. 
@@ -129,21 +95,36 @@ To get started, learn to configure a distributed network name resource for [a fa
 **Supported SQL version**: SQL Server 2019 CU2 (FCI) and SQL Server 2019 CU8 (AG)   
 **Supported HADR solution**: Failover cluster instance, and availability group   
 
+## availability group
 
-## Limitations
+In a traditional on-premises deployment, clients connect to the availability group listener using the virtual network name (VNN), and the listener routes traffic to the appropriate SQL Server replica in the availability group. However, there is an extra requirement to route traffic on the Azure network. 
 
-Consider the following limitations when you're working with FCI or availability groups and SQL Server on Azure Virtual Machines. 
+With SQL Server on Azure VMs, configure a [load balancer](availability-group-vnn-azure-load-balancer-configure.md) to route traffic to your availability group listener, or, if you're on SQL Server 2019 CU8 and later, you can configure a [distributed network name (DNN) listener](availability-group-distributed-network-name-dnn-listener-configure.md) to replace the traditional VNN availability group listener. 
 
-### MSDTC 
+For more details about cluster connectivity options, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#connectivity). 
 
-Azure Virtual Machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and [Azure Standard Load Balancer](../../../load-balancer/load-balancer-overview.md) or on SQL Server VMs that are using Azure shared disks. 
+### VNN listener 
 
-On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earlier with Clustered Shared Volumes because:
+Use an [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) to route traffic from the client to the traditional availability group virtual network name (VNN) listener on the Azure network. 
 
-- The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if storage is available. This issue has been fixed in Windows Server 2019.
-- The basic load balancer doesn't handle RPC ports.
+The load balancer holds the IP addresses for the VNN listener. If you have more than one availability group, each group requires a VNN listener. One load balancer can support multiple listeners.
+
+To get started, see [configure a load balancer](availability-group-vnn-azure-load-balancer-configure.md). 
+
+### DNN listener
+
+SQL Server 2019 CU8 introduces support for the distributed network name (DNN) listener. The DNN listener replaces the traditional availability group listener, negating the need for an Azure Load Balancer to route traffic on the Azure network. 
+
+The DNN listener is the recommended HADR connectivity solution in Azure as it simplifies deployment, reduces maintenance and cost, and reduces failover time in the event of a failure. 
+
+Use the DNN listener to replace an existing VNN listener, or alternatively, use it in conjunction with an existing VNN listener so that your availability group has two distinct connection points - one using the VNN listener name (and port if non-default), and one using the DNN listener name and port. This could be useful for customers who want to avoid the load balancer failover latency but still take advantage of SQL Server features that depend on the VNN listener, such as distributed availability groups, service broker or filestream. To learn more, see [DNN listener and SQL Server feature interoperability](availability-group-dnn-interoperability.md)
+
+To get started, see [configure a DNN listener](availability-group-distributed-network-name-dnn-listener-configure.md).
+
+## fci 
 
 
-## Next steps
+Failover cluster instances with SQL Server on Azure Virtual Machines use a [distributed network name (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md) or 
+a [virtual network name (VNN) with Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) to route traffic to the SQL Server instance, regardless of which node currently owns the clustered resources. There are additional considerations when using certain features and the DNN with a SQL Server FCI. See [DNN interoperability with SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) to learn more. 
 
-After you've determined the appropriate best practices for your solution, get started by [preparing your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md) or by creating your availability group by using the [Azure portal](availability-group-azure-portal-configure.md), the [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), or [Azure quickstart templates](availability-group-quickstart-template-configure.md).
+For more details about cluster connectivity options, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#connectivity). 
