@@ -119,7 +119,7 @@ Follow these steps to configure your storage account firewall and add an excepti
     Connect-AzAccount
     ```
 4. Define variables in PowerShell: 
-    - Resource group name - you can find this in Azure portal in overview of Synapse workspace.
+    - Resource group name - you can find this in Azure portal in overview of Storage account.
     - Account Name - name of storage account that is protected by firewall rules.
     - Tenant ID - you can find this in Azure portal in Azure Active Directory in tenant information.
     - Workspace Name - Name of the Synapse workspace.

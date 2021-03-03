@@ -110,6 +110,18 @@ Console.WriteLine(token);
 
 Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expiresOn` response property indicates the lifetime of the access token. 
 
+## Create an identity and issue an access token within the same request
+
+Use the `createUserWithToken` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
+
+```csharp  
+// Issue an identity and an access token with the "voip" scope for the new identity
+var identityWithTokenResponse = await client.CreateUserWithTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
+var identity = identityWithTokenResponse.Value.user.Id;
+var token = identityWithTokenResponse.Value.token.Token;
+var expiresOn = identityWithTokenResponse.Value.token.ExpiresOn;
+```
+
 ## Refresh access tokens
 
 To refresh an access token, pass an instance of the `CommunicationUser` object into `IssueTokenAsync`. If you've stored this `Id` and need to create a new `CommunicationUser`, you can do so by passing your stored `Id` into the `CommunicationUser` constructor as follows:

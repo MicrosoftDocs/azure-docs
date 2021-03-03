@@ -243,7 +243,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 The `cache-store-value` performs cache storage by key. The key can have an arbitrary string value and is typically provided using a policy expression.
 
 > [!NOTE]
-> This policy must have a corresponding [Get value from cache](#GetFromCacheByKey) policy.
+> The operation of storing the value in cache performed by this policy is asynchronous. The stored value can be retrieved using [Get value from cache](#GetFromCacheByKey) policy. However, the stored value may not be immediately available for retrieval since the asynchronous operation that stores the value in cache may still be in progress. 
 
 ### Policy statement
 
