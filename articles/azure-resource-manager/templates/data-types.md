@@ -25,22 +25,147 @@ Within an ARM template, you can use these data types:
 
 ## Arrays
 
-Arrays start with a left bracket (`[`) and end with a right bracket (`]`).
+Arrays start with a left bracket (`[`) and end with a right bracket (`]`). 
 
+In JSON, an array can be declared in a single line or multiple lines. Each element is separated by a comma. 
+
+In Bicep, an array must be declared in multiple lines. Don't use commas between values.
+
+# [JSON](#tab/json)
+
+```json
+"parameters": {
+  "exampleArray": {
+    "type": "array",
+    "defaultValue": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param exampleArray array = [
+  1
+  2
+  3
+]
+```
+
+---
+
+The elements of an array can be all the same type or different types.
+
+# [JSON](#tab/json)
+
+```json
+"variables": {
+  "mixedArray": [
+    "[resourceGroup().name]",
+    1,
+    true,
+    "example string"
+  ]
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+var mixedArray = [
+  resourceGroup().name
+  1
+  true
+  'example string'
+]
+```
+
+---
 
 ## Booleans
 
-When specifying boolean values, don't surround the value with quotation marks.
+When specifying boolean values, don't surround the value with quotation marks. Use `true` or `false`.
+
+# [JSON](#tab/json)
+
+```json
+"parameters": {
+  "exampleBool": {
+    "type": "bool",
+    "defaultValue": true
+  }
+},
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param exampleBool bool = true
+```
+
+---
 
 ## Integers
 
-For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a template, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
-
 When specifying integer values, don't surround the value with quotation marks.
+
+# [JSON](#tab/json)
+
+```json
+"parameters": {
+  "exampleInt": {
+    "type": "int",
+    "defaultValue": 1
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param exampleInt int = 1
+```
+
+---
+
+For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a template, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
 
 ## Objects
 
-Objects start with a left brace (`{`) and end with a right brace (`}`). 
+Objects start with a left brace (`{`) and end with a right brace (`}`). The object consists of key/value pairs. The key and value are separated by a colon (`:`). In JSON, the key is enclosed in double quotes. In Bicep, the key isn't enclosed by quotes.
+
+# [JSON](#tab/json)
+
+```json
+"parameters": {
+  "exampleObject": {
+    "type": "object",
+    "defaultValue": {
+      "name": "test name",
+      "id": "123-abc",
+      "isCurrent": true,
+      "tier": 1
+    }
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param exampleObject object = {
+  name: 'test name'
+  id: '123-abc'
+  isCurrent: true
+  tier: 1
+}
+```
+
+---
 
 ## Strings
 
