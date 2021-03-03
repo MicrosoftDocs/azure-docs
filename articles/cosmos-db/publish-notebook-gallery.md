@@ -48,7 +48,7 @@ Use the following steps to publish a notebook:
 
    You can also find the **Publish to gallery** option by selecting the **…** button next to the notebook name:
 
-   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Choose a notebook to publish to the gallery.":::
+   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Another approach to choose a notebook to publish to the gallery.":::
 
 1. Fill the **Publish to gallery** form with the following details:
 
