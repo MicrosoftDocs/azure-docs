@@ -343,7 +343,7 @@ Here are a few tips on avoiding issues when you implement brokered authenticatio
 
     Example: If you first install Microsoft Authenticator and then install Intune Company Portal, brokered authentication will *only* happen on the Microsoft Authenticator.
 - **Logs** - If you encounter an issue with brokered authentication, viewing the broker's logs might help you diagnose the cause.
-  - Acquiring Microsoft Authenticator logs:
+  - Get Microsoft Authenticator logs:
 
     1. Select the menu button in the top-right corner of the app.
     1. Select **Send Feedback** > **Having Trouble?**.
