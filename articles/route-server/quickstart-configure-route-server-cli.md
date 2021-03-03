@@ -28,7 +28,23 @@ This article helps you configure Azure Route Server to peer with network virtual
 
 ###  Sign in to your Azure account and select your subscription. 
 
-[!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)] 
+To begin your configuration, sign in to your Azure account. If you use the Cloud Shell "Try It", you're signed in automatically. Use the following examples to help you connect:
+
+```azurecli-interactive
+az login
+```
+
+Check the subscriptions for the account.
+
+```azurecli-interactive
+az account list
+```
+
+Select the subscription for which you want to create an ExpressRoute circuit.
+
+```azurecli-interactive
+az account set --subscription "<subscription ID>"
+```
 
 ### Create a resource group and virtual network 
 

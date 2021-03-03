@@ -21,7 +21,6 @@ You'll learn how to:
 > [!div class="checklist"]
 > * Create and side-load a HoloLens application
 > * Detect an object and visualize its model
-> * Capture runtime diagnostics
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -62,7 +61,7 @@ To launch and debug the app, select **Debug > Start debugging**. To stop the app
 
 ## Ingest object model and detect its instance
 
-You'll need to create an object model to run the sample app. Assume you've already got either a CAD or scanned 3D mesh model of an object in your space. Refer to [Quickstart: Ingesting a 3D Model](./get-started-model-ingestion.md) on how to create a model.
+You'll need to create an object model to run the sample app. Assume you've already got either a CAD or scanned 3D mesh model of an object in your space. Refer to [Quickstart: Ingesting a 3D Model](./get-started-model-conversion.md) on how to create a model.
 
 Download that model, **chair.ou** in our case, to your computer. Then, from the HoloLens device portal, select **System > File explorer > LocalAppData > AoaSampleApp > LocalState** and select **Browse...**. Then select your model file, **chair.ou** for example, and select **Upload**. You should then see the model file in the local cache.
 
@@ -84,7 +83,7 @@ The app aligns a 3D model to its physical counterpart closely. A user can air ta
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingesting a 3D Model](./get-started-model-ingestion.md)
+> [Quickstart: Ingesting a 3D Model](./get-started-model-conversion.md)
 
 > [!div class="nextstepaction"]
 > [Concepts: SDK overview](../concepts/sdk-overview.md)

@@ -64,7 +64,7 @@ mvn clean packge -DskipTests
 ```
 5. Create the app in your Azure Spring Cloud instance:
 ```azurecli
-az spring-cloud app create -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --is-public
+az spring-cloud app create -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --assign-endpoint
 ```
 6. Deploy the app to Azure Spring Cloud:
 ```azurecli
