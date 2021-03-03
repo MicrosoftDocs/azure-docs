@@ -38,7 +38,7 @@ With this configuration, keep in mind that if the particular partition to which 
 ## Appendix
 
 ## Send events to a specific partition
-This section shows you how to send events to a specific partition in Azure Event Hubs. 
+This section shows you how to send events to a specific partition using C#, Java, Python, and JavaScript. 
 
 ### [.NET](#tab/dotnet)
 For the full sample code that shows you how to send an event batch to an event hub (without setting partition ID/key), see [Send events to and receive events from Azure Event Hubs - .NET (Azure.Messaging.EventHubs)](event-hubs-dotnet-standard-getstarted-send.md).
@@ -54,7 +54,7 @@ You can also use the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messag
 
 ```csharp
 var sendEventOptions  = new SendEventOptions { PartitionKey = "cities" };
-// create an array of EventData
+// create the events array
 producer.SendAsync(events, sendOptions)
 ```
 
@@ -68,13 +68,13 @@ CreateBatchOptions batchOptions = new CreateBatchOptions();
 batchOptions.setPartitionKey("cities");
 ```
 
-You can also use the [EventHubProducerClient.Send](/java/api/com.azure.messaging.eventhubs.eventhubproducerclient.send#com_azure_messaging_eventhubs_EventHubProducerClient_send_java_lang_Iterable_com_azure_messaging_eventhubs_EventData__com_azure_messaging_eventhubs_models_SendOptions_) method by specifying either **partition ID** or **partition key** in [SendEventOptions](/java/api/com.azure.messaging.eventhubs.models.sendoptions).
+You can also use the [EventHubProducerClient.send](/java/api/com.azure.messaging.eventhubs.eventhubproducerclient.send#com_azure_messaging_eventhubs_EventHubProducerClient_send_java_lang_Iterable_com_azure_messaging_eventhubs_EventData__com_azure_messaging_eventhubs_models_SendOptions_) method by specifying either **partition ID** or **partition key** in [SendOptions](/java/api/com.azure.messaging.eventhubs.models.sendoptions).
 
 ```java
-List<EventData> events = Arrays.asList(new EventData("Melbourne"), new EventData("London"),
-     new EventData("New York"));
- SendOptions sendOptions = new SendOptions().setPartitionKey("cities");
- producer.send(events, sendOptions);
+List<EventData> events = Arrays.asList(new EventData("Melbourne"), new EventData("London"), new EventData("New York"));
+SendOptions sendOptions = new SendOptions();
+sendOptions.setPartitionKey("cities");
+producer.send(events, sendOptions);
 ```
 
 ### [Python](#tab/python) 
@@ -85,6 +85,13 @@ To send events to a specific partition, when creating a batch using the [`EventH
 ```python
 event_data_batch = await producer.create_batch(partition_key='cities')
 ```
+
+You can also use the [EventHubProducerClient.send_batch](/python/api/azure-eventhub/azure.eventhub.eventhubproducerclient#send-batch-event-data-batch----kwargs-) method by specifying values for `partition_id` or `partition_key` parameters.
+
+```python
+producer.send_batch(event_data_batch, partition_key="cities")
+```
+
 
 ### [JavaScript](#tab/javascript)
 For the full sample code that shows you how to send an event batch to an event hub (without setting partition ID/key), see [Send events to or receive events from event hubs by using JavaScript (azure/event-hubs)](event-hubs-node-get-started-send.md).
@@ -98,7 +105,13 @@ const batchOptions = { partitionKey = "cities"; };
 const batch = await producer.createBatch(batchOptions);
 ```
 
-You can also use the [EventHubProducerClient.sendBatch](/javascript/api/@azure/event-hubs/eventhubproducerclient?view=azure-node-latest#sendBatch_EventData____SendBatchOptions_) method by specifying either **partition ID** or **partition key** in [SendBatchOptions](/javascript/api/@azure/event-hubs/sendbatchoptions).
+You can also use the [EventHubProducerClient.sendBatch](/javascript/api/@azure/event-hubs/eventhubproducerclient#sendBatch_EventData____SendBatchOptions_) method by specifying either **partition ID** or **partition key** in [SendBatchOptions](/javascript/api/@azure/event-hubs/sendbatchoptions).
+
+```javascript
+const sendBatchOptions = { partitionKey = "cities"; };
+// prepare events
+producer.sendBatch(events, sendBatchOptions);
+```
 
 ---
 
