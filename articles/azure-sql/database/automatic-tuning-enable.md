@@ -131,7 +131,7 @@ To use automatic tuning, the minimum required permission to grant to the user is
 
 ## Configure automatic tuning e-mail notifications
 
-See the [automatic tuning e-mail notifications](automatic-tuning-email-notifications-configure.md) guide.
+To receive automated email notifications on recommendations made by the automatic tuning, see the [automatic tuning e-mail notifications](automatic-tuning-email-notifications-configure.md) guide.
 
 ## Next steps
 
