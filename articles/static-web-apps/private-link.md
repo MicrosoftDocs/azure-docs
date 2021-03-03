@@ -16,4 +16,4 @@ ms.date: 2/15/2021
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Networking options](netoworking-options.md)
+> [Networking options](./networking-options.md)
