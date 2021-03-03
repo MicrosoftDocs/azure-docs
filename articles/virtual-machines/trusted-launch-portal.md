@@ -32,7 +32,7 @@ Create a virtual machine with trusted launch enabled.
 1. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
 1. Under **Project details**, make sure the correct subscription is selected.
 1. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
-1. Under **Instance details**, type a name for the virtual machine name and choose a region that supports trusted launch.
+1. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#public-preview-limitations).
 1. Under **Image**, select an [image that supports trusted launch](trusted-launch.md#public-preview-limitations). You might only see the Gen 1 version of the image, that is okay, go on to the next step.
 1. Switch over to the **Advanced** tab by selecting it at the top of the page.
 1. Scroll down to the **VM generation** section, and then select **Gen 2**.
