@@ -33,40 +33,38 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ### Third-party data connectors
 
-Our collection of third-party integrations continues to grow, with thirty connectors being added since last month. Here's a list:
+Our collection of third-party integrations continues to grow, with thirty connectors being added in the last two months. Here's a list:
 
 - [Agari Phishing Defense and Brand Protection](connect-agari-phishing-defense.md)
 - [Akamai Security Events](connect-akamai-security-events.md)
 - [Alsid for Active Directory](connect-alsid-active-directory.md)
 - [Apache HTTP Server](connect-apache-http-server.md)
-- [Aruba ClearPass](connect-data-sources.md)
+- [Aruba ClearPass](connect-aruba-clearpass.md)
 - [Blackberry CylancePROTECT](connect-data-sources.md)
-- [Broadcom Symantec DLP](connect-data-sources.md)
+- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
 - [Cisco Firepower eStreamer](connect-data-sources.md)
-- [Cisco Meraki](connect-data-sources.md)
+- [Cisco Meraki](connect-cisco-meraki.md)
 - [Cisco Umbrella](connect-cisco-umbrella.md)
 - [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
 - [ESET Enterprise Inspector](connect-data-sources.md)
 - [ESET Security Management Center](connect-data-sources.md)
-- [Google Workspace (formerly G Suite)](connect-data-sources.md)
+- [Google Workspace (formerly G Suite)](connect-google-workspace.md)
 - [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
 - [Juniper SRX](connect-juniper-srx.md)
 - [Netskope](connect-data-sources.md)
-- [NXLog DNS Logs](connect-data-sources.md)
-- [NXLog Linux Audit](connect-data-sources.md)
+- [NXLog DNS Logs](connect-nxlog-dns.md)
+- [NXLog Linux Audit](connect-nxlog-linuxaudit.md)
 - [Onapsis Platform](connect-data-sources.md)
 - [Proofpoint On Demand Email Security (POD)](connect-proofpoint-pod.md)
 - [Qualys Vulnerability Management Knowledge Base](connect-data-sources.md)
 - [Salesforce Service Cloud](connect-salesforce-service-cloud.md)
 - [SonicWall Firewall](connect-data-sources.md)
-- [Sophos Cloud Optix](connect-data-sources.md)
+- [Sophos Cloud Optix](connect-sophos-cloud-optix.md)
 - [Squid Proxy](connect-squid-proxy.md)
 - [Symantec Endpoint Protection](connect-data-sources.md)
 - [Thycotic Secret Server](connect-thycotic-secret-server.md)
 - [Trend Micro XDR](connect-data-sources.md)
-- [VMWare ESXi](connect-data-sources.md)
-- [UEBA insights in the entity page](#ueba-insights-in-the-entity-page)
-- [Improved incident search](#improved-incident-search)
+- [VMWare ESXi](connect-vmware-esxi.md)
 
 ### UEBA insights in the entity page
 
