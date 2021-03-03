@@ -35,7 +35,16 @@
       href: database/features-comparison.md
     - name: Multi-model features
       href: multi-model-features.md
-
+    - name: Scheduled maintenance
+      items:
+      - name: Maintenance window
+        href: database/maintenance-window.md
+      - name: Configure maintenance window
+        href: database/maintenance-window-configure.md
+      - name: Maintenance window FAQ
+        href: database/maintenance-window-faq.yml
+      - name: Advance notifications
+        href: database/advance-notifications.md
     - name: In-memory OLTP
       href: in-memory-oltp-overview.md
     - name: Temporal tables
@@ -343,6 +352,9 @@
         href: migration-guides/database/sql-server-to-sql-database-overview.md
       - name: Migrate
         href: migration-guides/database/sql-server-to-sql-database-guide.md
+      - name: Assessment rules 
+        href: migration-guides/database/sql-server-to-sql-database-assessment-rules.md
+
 
   - name: Concepts
     items:
@@ -785,7 +797,10 @@
         href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
       - name: Performance baseline
         href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
-        
+      - name: Assessment rules 
+        href: migration-guides/managed-instance/sql-server-to-sql-managed-instance-assessment-rules.md
+
+
   - name: Concepts
     items:
     - name: Resource limits

@@ -89,7 +89,9 @@ For limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-a
 
 ## Integration accounts
 
-An [integration account](../logic-apps/logic-apps-pricing.md#integration-accounts) is a separate resource that you create and link to logic apps so that you can explore, build, and test B2B integration solutions that use [EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) capabilities. Azure Logic Apps offers these integration account levels or tiers:
+An [integration account](../logic-apps/logic-apps-pricing.md#integration-accounts) is a separate resource that you create and link to logic apps so that you can explore, build, and test B2B integration solutions that use [EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) capabilities.
+
+Azure Logic Apps offers these integration account levels or tiers that [vary in pricing](https://azure.microsoft.com/pricing/details/logic-apps/) and [billing model](logic-apps-pricing.md#integration-accounts), based on whether your logic apps are consumption-based or ISE-based:
 
 | Tier | Description |
 |------|-------------|
