@@ -268,6 +268,21 @@ You can search through the published kb, using `isTest=false`, or in the test kb
 }
 ```
 
+## Return Precise Answers
+
+The user can enable precise answer feature when using the QnA Maker managed resource.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3,
+    "answerSpanRequest": {
+        "enable": true,
+        "topAnswersWithSpan": 1
+    }
+}
+```
+
 ## Common HTTP errors
 
 |Code|Explanation|
