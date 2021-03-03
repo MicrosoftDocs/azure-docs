@@ -44,9 +44,9 @@ First, you create a .NET function app in the [Premium plan] as this tutorial wil
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **[Storage account](../storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](../articles/azure-functions/storage-considerations.md#storage-account-requirements). |
+    | **[Storage account](../storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](./storage-considerations.md#storage-account-requirements). |
     |**Operating system**| Windows | This tutorial uses Windows |
-    | **[Plan](./functions-scale.md)** | Premium | Hosting plan that defines how resources are allocated to your function app. Select **Premium**. By default, a new App Service plan is created. The default **Sku and size** is **EP1**, where EP stands for _elastic premium_. To learn more, see the [list of Premium SKUs](../articles/azure-functions/functions-premium-plan.md#available-instance-skus).<br/>When running JavaScript functions on a Premium plan, you should choose an instance that has fewer vCPUs. For more information, see [Choose single-core Premium plans](../articles/azure-functions/functions-reference-node.md#considerations-for-javascript-functions).  |
+    | **[Plan](./functions-scale.md)** | Premium | Hosting plan that defines how resources are allocated to your function app. Select **Premium**. By default, a new App Service plan is created. The default **Sku and size** is **EP1**, where EP stands for _elastic premium_. To learn more, see the [list of Premium SKUs](./functions-premium-plan.md#available-instance-skus).<br/>When running JavaScript functions on a Premium plan, you should choose an instance that has fewer vCPUs. For more information, see [Choose single-core Premium plans](./functions-reference-node.md#considerations-for-javascript-functions).  |
 
 1. Select **Next: Monitoring**. On the **Monitoring** page, enter the following settings:
 
@@ -301,7 +301,7 @@ To use your function app with virtual networks, you'll need to join it to a subn
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | **Source** | Github | You should have created a Github repo with the sample code in step 2. | 
+    | **Source** | GitHub | You should have created a GitHub repo with the sample code in step 2. | 
     | **Organization**  | myOrganization | This is the organization your repo is checked into, usually your account. |
     | **Repository** | myRepo | The repo you created with the sample code. |
     | **Branch** | main | This is the repo you just created, so use the main branch. |
