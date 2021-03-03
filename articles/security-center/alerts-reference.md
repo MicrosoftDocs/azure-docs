@@ -1,16 +1,13 @@
 ---
 title: Reference table for all security alerts in Azure Security Center
-description: This article lists the security alerts visible in Azure Security Center's Azure Defender dashboard.
+description: This article lists the security alerts visible in Azure Security Center's Azure Defender dashboard
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/21/2021
+ms.date: 03/03/2021
 ms.author: memildin
 
 ---
@@ -273,7 +270,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-containerhost"></a>Alerts for containers - host level
 
-Azure Defender provides alerts for the Kubernetes cluster host level are not limited to the alerts below. Many of the alerts listed in the [alerts for Azure network layer](#alerts-azurenetlayer), [alerts for Windows machines](#alerts-windows), and [alerts for Linux machines](#alerts-linux) tables are also relevant to your container hosts.
+Azure Defender alerts for cluster hosts aren't limited to the alerts below. Many of the alerts listed in the [alerts for Azure network layer](#alerts-azurenetlayer), [alerts for Windows machines](#alerts-windows), and [alerts for Linux machines](#alerts-linux) tables may also may be triggered on your container hosts. Microsoft's global threat intelligence team continuously measures and tunes many types of alerts against Kubernetes clusters to optimize detection and reduce false positives.
 
 
 [Further details and notes](defender-for-kubernetes-introduction.md)

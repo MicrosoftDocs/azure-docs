@@ -181,7 +181,7 @@
     - name: Customize SQL information protection policy
       displayName: sql, database, data discovery
       href: security-center-info-protection-policy.md
-  - name: Protect your containers, hosts, and registries
+  - name: Protect your containerized environments
     displayName: Azure Defender
     items:
     - name: Container security features of Security Center

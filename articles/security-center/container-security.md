@@ -38,7 +38,7 @@ You'll learn how Security Center helps with these core aspects of container secu
 
 The following screenshot shows the asset inventory page and the various container resource types protected by Security Center.
 
-:::image type="content" source="./media/container-security/container-security-tab.png" alt-text="Container-related resources in Security Center's asset inventory page" lightbox="./media/container-security/container-security-tab.png":::
+:::image type="content" source="./media/container-security/inventory-container-resources.png" alt-text="Container-related resources in Security Center's asset inventory page" lightbox="./media/container-security/inventory-container-resources.png":::
 
 ## Vulnerability management - scanning container images
 
