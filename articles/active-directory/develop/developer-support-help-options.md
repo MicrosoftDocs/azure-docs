@@ -60,14 +60,17 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 
 If you need help with one of the Microsoft Authentication Libraries (MSAL), open an issue in its repository on GitHub.
 
-| MSAL Library| GitHub issues URL |
-|---------------------------------------------------|----------------------------|
-| MSAL for .NET | https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
-| MSAL for Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
-| MSAL for js | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-| MSAL for Python | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
+| MSAL Library | GitHub issues URL|
+| --- | --- |
 | MSAL for Android | https://github.com/AzureAD/microsoft-authentication-library-for-android/issues |
-| MSAL for iOS/macOS | https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
+| MSAL Angular | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+| MSAL for iOS and macOS| https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
+| MSAL Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
+| MSAL.js | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+|MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
+| MSAL Node | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+| MSAL Python | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
+| MSAL React | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
 
 ## Submit feedback on Azure Feedback
 
