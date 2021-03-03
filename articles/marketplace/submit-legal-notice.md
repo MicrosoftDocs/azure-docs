@@ -15,15 +15,9 @@ ms.date: 02/12/2021
 
 As stated in the Microsoft Publisher Agreement for the commercial marketplace, any legal notices sent from a publisher to Microsoft must be submitted through a support ticket. Follow these steps to submit a notice regarding the publisher agreement.
 
-1. From the Partner Center dashboard, select **Support** from the menu on the left side, then  **New Request**.
+1. Go to the [Contractual or legal questions](https://partner.microsoft.com/support/?stage=2&topicid=05a1a389-1256-d441-89c9-a140217de6b9) section of Partner Center support.
 
-    :::image type="content" source="media/notice-submit/support-request.png" alt-text="Shows the support request window.":::
-
-1. Describe the notice you would like to make to Microsoft in the **Problem Summary** field, such as "Notice to Microsoft regarding Publisher Agreement". Select a **Problem type** of **Commercial Marketplace > Contractual or Legal questions**, then select **Review solutions**.
-
-    :::image type="content" source="media/notice-submit/help-support-window.png" alt-text="Shows the Help and Support window.":::
-
-1. Select **Provide issue details**.
+1. Select **Provide issue details** (if necessary, sign in to Partner Center first).
 
     :::image type="content" source="media/notice-submit/recommended-solutions.png" alt-text="Shows the 'Recommended solutions' window.":::
 
