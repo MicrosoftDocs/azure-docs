@@ -1,13 +1,11 @@
 ---
 title: Troubleshoot security and access control issues
 description: Learn how to troubleshoot security and access control issues in Azure Data Factory. 
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2021
+ms.date: 02/24/2021
 ms.author: lle
-ms.reviewer: craigg
 ---
 
 # Troubleshoot Azure Data Factory security and access control issues
@@ -104,7 +102,7 @@ To resolve the issue, do the following:
 
 You're unable to register the IR authentication key on the self-hosted VM because the private link is enabled. You receive the following error message:
 
-"Failed to get service token from ADF service with key *************** and time cost is: 0.1250079 seconds, the error code is: InvalidGatewayKey, activityId is: XXXXXXX and detailed error message is Client IP address is not valid private ip Cause Data factory couldn’t access the public network thereby not able to reach out to the cloud to make the successful connection."
+"Failed to get service token from ADF service with key *************** and time cost is: 0.1250079 second, the error code is: InvalidGatewayKey, activityId is: XXXXXXX and detailed error message is Client IP address is not valid private ip Cause Data factory couldn’t access the public network thereby not able to reach out to the cloud to make the successful connection."
 
 #### Cause
 
@@ -139,7 +137,6 @@ To resolve the issue, do the following:
 
 1. Add the IR authentication key again in the integration runtime.
 
-
 **Solution 2**
 
 To resolve the issue, go to [Azure Private Link for Azure Data Factory](./data-factory-private-link.md).
@@ -147,6 +144,45 @@ To resolve the issue, go to [Azure Private Link for Azure Data Factory](./data-f
 Try to enable public network access on the user interface, as shown in the following screenshot:
 
 ![Screenshot of the "Enabled" control for "Allow public network access" on the Networking pane.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+### ADF private DNS zone overrides Azure Resource Manager DNS resolution causing ‘Not found’ error
+
+#### Cause
+Both Azure Resource Manager and ADF are using the same private zone creating a potential conflict on customer’s private DNS with a scenario where the Azure Resource Manager records will not be found.
+
+#### Solution
+1. Find Private DNS zones **privatelink.azure.com** in Azure portal.
+![Screenshot of finding Private DNS zones.](media/security-access-control-troubleshoot-guide/private-dns-zones.png)
+2. Check if there is an A record **adf**.
+![Screenshot of A record.](media/security-access-control-troubleshoot-guide/a-record.png)
+3.	Go to **Virtual network links**, delete all records.
+![Screenshot of virtual network link.](media/security-access-control-troubleshoot-guide/virtual-network-link.png)
+4.	Navigate to your data factory in Azure portal and recreate the private endpoint for Azure Data Factory portal.
+![Screenshot of recreating private endpoint.](media/security-access-control-troubleshoot-guide/create-private-endpoint.png)
+5.	Go back to Private DNS zones, and check if there is a new private DNS zone **privatelink.adf.azure.com**.
+![Screenshot of new DNS record.](media/security-access-control-troubleshoot-guide/check-dns-record.png)
+
+### Connection error in public endpoint
+
+#### Symptoms
+
+When copying data with Azure Blob Storage account public access, pipeline runs randomly fail with following error.
+
+For example: The Azure Blob Storage sink was using Azure IR (public, not Managed VNet) and the Azure SQL Database source was using the Managed VNet IR. Or source/sink use Managed VNet IR only with storage public access.
+
+`
+<LogProperties><Text>Invoke callback url with req:
+"ErrorCode=UserErrorFailedToCreateAzureBlobContainer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Unable to create Azure Blob container. Endpoint: XXXXXXX/, Container Name: test.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.WindowsAzure.Storage.StorageException,Message=Unable to connect to the remote server,Source=Microsoft.WindowsAzure.Storage,''Type=System.Net.WebException,Message=Unable to connect to the remote server,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond public ip:443,Source=System,'","Details":null}}</Text></LogProperties>.
+`
+
+#### Cause
+
+ADF may still use Managed VNet IR, but you could encounter such error because the public endpoint to Azure Blob Storage in Managed VNet is not reliable based on the testing result, and Azure Blob Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from ADF Managed Virtual Network according to [Managed virtual network & managed private endpoints](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+
+#### Solution
+
+- Having private endpoint enabled on the source and also the sink side when using the Managed VNet IR.
+- If you still want to use the public endpoint, you can switch to public IR only instead of using the Managed VNet IR for the source and the sink. Even if you switch back to public IR, ADF may still use the Managed VNet IR if the Managed VNet IR is still there.
 
 ## Next steps
 

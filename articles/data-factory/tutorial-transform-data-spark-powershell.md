@@ -1,16 +1,11 @@
 ---
 title: 'Transform data using Spark in Azure Data Factory '
 description: 'This tutorial provides step-by-step instructions for transforming data by using Spark Activity in Azure Data Factory.'
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
-
 ms.topic: tutorial
 ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ---
 # Transform data in the cloud by using Spark activity in Azure Data Factory
 
@@ -49,7 +44,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
             .builder\
             .appName("PythonWordCount")\
             .getOrCreate()
-    		
+            
         lines = spark.read.text("wasbs://adftutorial@<storageaccountname>.blob.core.windows.net/spark/inputfiles/minecraftstory.txt").rdd.map(lambda r: r[0])
         counts = lines.flatMap(lambda x: x.split(' ')) \
             .map(lambda x: (x, 1)) \
@@ -59,7 +54,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         spark.stop()
     
     if __name__ == "__main__":
-    	main()
+        main()
     ```
 2. Replace **&lt;storageAccountName&gt;** with the name of your Azure Storage account. Then, save the file. 
 3. In your Azure Blob Storage, create a container named **adftutorial** if it does not exist. 
@@ -75,7 +70,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Author linked services
 You author two Linked Services in this section: 
-	
+    
 - An Azure Storage Linked Service that links an Azure Storage account to the data factory. This storage is used by the on-demand HDInsight cluster. It also contains the Spark script to be executed. 
 - An On-Demand HDInsight Linked Service. Azure Data Factory automatically creates a HDInsight cluster, run the Spark program, and then deletes the HDInsight cluster after it's idle for a pre-configured time. 
 
@@ -177,7 +172,7 @@ Note the following points:
 
 
 ## Create a data factory 
-You have authored linked service and pipeline definitions in JSON files. Now, let’s create a data factory, and deploy the linked Service and pipeline JSON files by using PowerShell cmdlets. Run the following PowerShell commands one by one: 
+You have authored linked service and pipeline definitions in JSON files. Now, let's create a data factory, and deploy the linked Service and pipeline JSON files by using PowerShell cmdlets. Run the following PowerShell commands one by one: 
 
 1. Set variables one by one.
 
@@ -254,74 +249,74 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 2. Run the following script to continuously check the pipeline run status until it finishes.
 
     ```powershell
-	while ($True) {
-	    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
-	
-	    if(!$result) {
-	        Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"
-	    }
-	    elseif (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
-	        Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
-	    }
-	    else {
-	        Write-Host "Pipeline '"$pipelineName"' run finished. Result:" -foregroundcolor "Yellow"
-	        $result
-	        break
-	    }
-	    ($result | Format-List | Out-String)
-	    Start-Sleep -Seconds 15
-	}
+    while ($True) {
+        $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    
+        if(!$result) {
+            Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"
+        }
+        elseif (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
+            Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
+        }
+        else {
+            Write-Host "Pipeline '"$pipelineName"' run finished. Result:" -foregroundcolor "Yellow"
+            $result
+            break
+        }
+        ($result | Format-List | Out-String)
+        Start-Sleep -Seconds 15
+    }
 
-	Write-Host "Activity `Output` section:" -foregroundcolor "Yellow"
-	$result.Output -join "`r`n"
+    Write-Host "Activity `Output` section:" -foregroundcolor "Yellow"
+    $result.Output -join "`r`n"
 
-	Write-Host "Activity `Error` section:" -foregroundcolor "Yellow"
-	$result.Error -join "`r`n" 
+    Write-Host "Activity `Error` section:" -foregroundcolor "Yellow"
+    $result.Error -join "`r`n" 
     ```  
 3. Here is the output of the sample run: 
 
-	```
-	Pipeline run status: In Progress
-	ResourceGroupName : ADFTutorialResourceGroup
-	DataFactoryName   : 
-	ActivityName      : MySparkActivity
-	PipelineRunId     : 94e71d08-a6fa-4191-b7d1-cf8c71cb4794
-	PipelineName      : MySparkOnDemandPipeline
-	Input             : {rootPath, entryFilePath, getDebugInfo, sparkJobLinkedService}
-	Output            : 
-	LinkedServiceName : 
-	ActivityRunStart  : 9/20/2017 6:33:47 AM
-	ActivityRunEnd    : 
-	DurationInMs      : 
-	Status            : InProgress
-	Error             :
-	…
-	
-	Pipeline ' MySparkOnDemandPipeline' run finished. Result:
-	ResourceGroupName : ADFTutorialResourceGroup
-	DataFactoryName   : MyDataFactory09102017
-	ActivityName      : MySparkActivity
-	PipelineRunId     : 94e71d08-a6fa-4191-b7d1-cf8c71cb4794
-	PipelineName      : MySparkOnDemandPipeline
-	Input             : {rootPath, entryFilePath, getDebugInfo, sparkJobLinkedService}
-	Output            : {clusterInUse, jobId, ExecutionProgress, effectiveIntegrationRuntime}
-	LinkedServiceName : 
-	ActivityRunStart  : 9/20/2017 6:33:47 AM
-	ActivityRunEnd    : 9/20/2017 6:46:30 AM
-	DurationInMs      : 763466
-	Status            : Succeeded
-	Error             : {errorCode, message, failureType, target}
-	
-	Activity Output section:
-	"clusterInUse": "https://ADFSparkSamplexxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurehdinsight.net/"
-	"jobId": "0"
-	"ExecutionProgress": "Succeeded"
-	"effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)"
-	Activity Error section:
-	"errorCode": ""
-	"message": ""
-	"failureType": ""
-	"target": "MySparkActivity"
+    ```
+    Pipeline run status: In Progress
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : 
+    ActivityName      : MySparkActivity
+    PipelineRunId     : 94e71d08-a6fa-4191-b7d1-cf8c71cb4794
+    PipelineName      : MySparkOnDemandPipeline
+    Input             : {rootPath, entryFilePath, getDebugInfo, sparkJobLinkedService}
+    Output            : 
+    LinkedServiceName : 
+    ActivityRunStart  : 9/20/2017 6:33:47 AM
+    ActivityRunEnd    : 
+    DurationInMs      : 
+    Status            : InProgress
+    Error             :
+    …
+    
+    Pipeline ' MySparkOnDemandPipeline' run finished. Result:
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : MyDataFactory09102017
+    ActivityName      : MySparkActivity
+    PipelineRunId     : 94e71d08-a6fa-4191-b7d1-cf8c71cb4794
+    PipelineName      : MySparkOnDemandPipeline
+    Input             : {rootPath, entryFilePath, getDebugInfo, sparkJobLinkedService}
+    Output            : {clusterInUse, jobId, ExecutionProgress, effectiveIntegrationRuntime}
+    LinkedServiceName : 
+    ActivityRunStart  : 9/20/2017 6:33:47 AM
+    ActivityRunEnd    : 9/20/2017 6:46:30 AM
+    DurationInMs      : 763466
+    Status            : Succeeded
+    Error             : {errorCode, message, failureType, target}
+    
+    Activity Output section:
+    "clusterInUse": "https://ADFSparkSamplexxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurehdinsight.net/"
+    "jobId": "0"
+    "ExecutionProgress": "Succeeded"
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)"
+    Activity Error section:
+    "errorCode": ""
+    "message": ""
+    "failureType": ""
+    "target": "MySparkActivity"
     ```
 4. Confirm that a folder named `outputfiles` is created in the `spark` folder of adftutorial container with the output from the spark program. 
 

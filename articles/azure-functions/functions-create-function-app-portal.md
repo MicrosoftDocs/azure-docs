@@ -10,8 +10,7 @@ ms.custom: "devx-track-csharp, mvc, devcenter, cc996988-fb4f-47"
 
 Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP trigger function in the Azure portal.
 
->[!NOTE]
->In-portal editing is only supported for JavaScript, PowerShell, TypeScript, and C# Script functions.<br><br>For C# class library, Java, and Python functions, you can create the function app in the portal, but you must also create the functions locally and then publish them to Azure. 
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)] 
 
 We instead recommend that you [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure.  
 Use one of the following links to get started with your chosen local development environment and language:

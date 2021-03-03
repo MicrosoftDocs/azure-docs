@@ -44,7 +44,7 @@ A full list of the alerts provided by Azure Defender for Resource Manager is on 
 
 Security alerts from Azure Defender for Resource Manager are based on threats detected by monitoring Azure Resource Manager operations. Azure Defender uses internal log sources of Azure Resource Manager as well as Azure Activity log, a platform log in Azure that provides insight into subscription-level events.
 
-Learn more about [Azure Activity log](../azure-monitor/platform/activity-log.md).
+Learn more about [Azure Activity log](../azure-monitor/essentials/activity-log.md).
 
 To investigate security alerts from Azure Defender for Resource Manager:
 

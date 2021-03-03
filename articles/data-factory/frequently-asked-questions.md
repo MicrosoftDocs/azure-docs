@@ -1,12 +1,9 @@
 ---
 title: 'Azure Data Factory: Frequently asked questions '
 description: Get answers to frequently asked questions about Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ---
@@ -46,7 +43,7 @@ Data Factory provides freedom to model any flow style that's required for data i
     - Looping containers:
         * The foreach activity will iterate over a specified collection of activities in a loop. 
 - Trigger-based flows:
-    - Pipelines can be triggered on demand or by wall-clock time.
+    - Pipelines can be triggered on demand, by wall-clock time, or in response to driven by event grid topics
 - Delta flows:
     - Parameters can be used to define your high-water mark for delta copy while moving dimension or reference tables from a relational store, either on-premises or in the cloud, to load the data into the lake.
 

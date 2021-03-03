@@ -1,20 +1,11 @@
 ---
 title: Move data from SAP Business Warehouse using Azure Data Factory 
 description: Learn about how to move data from SAP Business Warehouse using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: 
-
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
-
 robots: noindex
 ---
 # Move data From SAP Business Warehouse using Azure Data Factory
@@ -286,7 +277,7 @@ When moving data from SAP BW, the following mappings are used from SAP BW types 
 
 Data type in the ABAP Dictionary | .NET Data Type
 -------------------------------- | --------------
-ACCP |	Int
+ACCP |    Int
 CHAR | String
 CLNT | String
 CURR | Decimal

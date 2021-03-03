@@ -81,19 +81,19 @@ When Azure Purview matches a group of assets into a resource set, it attempts to
 
 ### Example 1
 
-Qualified name: https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}
+Qualified name: `https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}`
 
 Display name: "name of spark output"
 
 ### Example 2
 
-Qualified name: https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}
+Qualified name: `https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}`
 
 Display name: "my partitioned data"
 
 ### Example 3
 
-Qualified name: https://myblob.blob.core.windows.net/sample-data/data{N}.csv
+Qualified name: `https://myblob.blob.core.windows.net/sample-data/data{N}.csv`
 
 Display name: "data"
 

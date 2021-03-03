@@ -17,6 +17,13 @@ The following video gives a walkthrough of how to use the _video analytics - obj
 
 > [!VIDEO https://www.youtube.com/embed/Bo3FziU9bSA]
 
+In this set of tutorials, you learn how to:
+
+> [!div class="checklist"]
+> * Deploy the application
+> * Deploy an IoT Edge instance that connects to the application
+> * Monitor and manage the application
+
 ## Prerequisites
 
 An Azure subscription is recommended. Alternatively, you can use a free, 7-day trial. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
