@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 03/03/2021
 ---
 
 # What's new in Azure Sentinel
