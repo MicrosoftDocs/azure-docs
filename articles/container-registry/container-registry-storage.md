@@ -3,6 +3,7 @@ title: Container image storage
 description: Details on how your container images and other artifacts are stored in Azure Container Registry, including security, redundancy, and capacity.
 ms.topic: article
 ms.date: 03/02/2021
+ms.custom: references_regions
 ---
 
 # Container image storage in Azure Container Registry
