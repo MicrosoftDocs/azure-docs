@@ -1,6 +1,6 @@
 ---
 title: Manage access to Azure Sentinel data by resource | Microsoft Docs
-description: This article explains how to manage access to Azure Sentinel data by the resources a user can access. Managing access by resource enables you to provide access to specific data only, without the entire Azure Sentinel experience. This method is also known as resource-context RBAC.
+description: This article explains you can manage access to Azure Sentinel data by the resources a user can access. Managing access by resource enables you to provide access to specific data only, without the entire Azure Sentinel experience. This method is also known as resource-context RBAC.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/03/2021
 ms.author: bagol
 
 ---
@@ -115,7 +115,7 @@ For example, separating your VMs ensures that Syslog events that belong to Team 
 
 If you are collecting your data using the Azure Sentinel [Logstash output plugin](connect-logstash.md), use the **azure_resource_id** field to configure your custom collector to include the resource ID in your output.
 
-If you are using resource-context RBAC and want the events collected by API to be available to specific users, use the resource ID of the resource group you [created for your users](#manually-configure-resource-context-rbac).
+If you are using resource-context RBAC and want the events collected by API to be available to specific users, use the resource ID of the resource group you [created for your users](#explicitly-configure-resource-context-rbac).
 
 For example, the following code shows a sample Logstash configuration file:
 
@@ -144,7 +144,7 @@ For example, the following code shows a sample Logstash configuration file:
 
 When collecting using the [Log Analytics data collector API](/azure/azure-monitor/platform/data-collector-api), you can assign to events with a resource ID using the HTTP [*x-ms-AzureResourceId*](/azure/azure-monitor/platform/data-collector-api#request-headers) request header.
 
-If you are using resource-context RBAC and want the events collected by API to be available to specific users, use the resource ID of the resource group you [created for your users](#manually-configure-resource-context-rbac).
+If you are using resource-context RBAC and want the events collected by API to be available to specific users, use the resource ID of the resource group you [created for your users](#explicitly-configure-resource-context-rbac).
 
 
 ## Next steps
