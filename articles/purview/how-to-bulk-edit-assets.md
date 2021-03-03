@@ -60,7 +60,7 @@ This article describes how to tag multiple glossary terms to a list of selected 
 
 7. Repeat the above for classifications, owners and experts.
 
-    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Screenshot of the remove terms.":::
+    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Screenshot of the classifications and contacts.":::
 
 8. Once complete close the bulk edit blade by selecting **Close** or **Remove all and close**. Close will not remove the selected assets whereas remove all and close will remove all the selected assets.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Screenshot of the close.":::
