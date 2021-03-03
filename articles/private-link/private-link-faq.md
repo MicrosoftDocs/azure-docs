@@ -62,6 +62,12 @@ You can scale your Private Link service in a few different ways:
 - Add an IP to the Private Link service. We allow up to 8 IPs per Private Link service.  
 - Add new Private Link service to Standard Load Balancer. We allow up to eight Private Link services per load balancer.   
 
+### What is NAT(Network Address Translation) IP Configuration used in Private Link Service? How can I scale in terms of available ports and connections? 
+
+The NAT IP configuration ensures that there is no IP conflict between source (consumer side) and destination (service provider) address space by providing source NAT on the Private Link traffic on the  destination side (service provider side). The NAT IP address will show up as Source IP for all packets received by your service and destination IP for all packets sent by your service.  NAT IP can be chosen from any subnet in a service provider's virtual network. 
+
+Each NAT IP provides 64k TCP connections (64k ports) per VM behind the Standard Load Balancer. In order to scale and add more connections, you can either add new NAT IPs or add more VMs behind the Standard Load Balancer. Doing so will scale the port availability and allow for more connections. Connections will be distributed across NAT IPs and VMs behind the Standard Load Balancer.
+
 ### Can I connect my service to multiple Private Endpoints?
 Yes. One Private Link service can receive connections from multiple Private Endpoints. However one Private Endpoint can only connect to one Private Link service.  
  
