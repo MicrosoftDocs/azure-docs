@@ -3,10 +3,9 @@ title: 'Azure ExpressRoute: Add IPv6 support using Azure PowerShell'
 description: Learn how to add IPv6 support to connect to Azure deployments using Azure PowerShell.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 2/9/2021
+ms.date: 03/02/2021
 ms.author: duau
 ---
 
@@ -56,8 +55,8 @@ Your request will then be approved by the ExpressRoute team within 2-3 business 
 
 3. Add an IPv6 Private Peering to your existing IPv4 Private Peering configuration. Provide a pair of /126 IPv6 subnets that you own for your primary link and secondary links. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router.
 
-> [!Note]
-> The peer ASN and VlanId should match those in your IPv4 Private Peering configuration.
+    > [!Note]
+    > The peer ASN and VlanId should match those in your IPv4 Private Peering configuration.
 
     ```azurepowershell-interactive
     Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6
