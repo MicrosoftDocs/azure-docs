@@ -134,7 +134,7 @@ You can access data in log and metric data in Azure Monitor through their API us
 - Queries are limited in response size to 8MB and query execution time of 110 seconds.
 
 ## Next steps
-- Learn about the [data collected by Azure Monitor](/data-platform.md).
+- Learn about the [data collected by Azure Monitor](data-platform.md).
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
 - Learn about [Metrics Explorer](essentials/metrics-getting-started.md)
 - Learn about [Workbooks](./visualize/workbooks-overview.md).
