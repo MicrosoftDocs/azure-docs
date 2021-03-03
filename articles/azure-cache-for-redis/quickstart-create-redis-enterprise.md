@@ -18,7 +18,7 @@ Azure Cache for Redis' Enterprise tiers provide fully integrated and managed [Re
 
 ## Prerequisites
 
-You'll need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [Enterprise tier requirements](cache-overview.md#enterprise-and-enterprise-flash-tier-requirements).
+You'll need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [special considerations for Enterprise tiers](cache-overview.md#special-considerations-for-enterprise-tiers).
 
 ## Create a cache
 1. To create a cache, sign in to the Azure portal using the link in your preview invitation and select **Create a resource**.
@@ -55,11 +55,6 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
    :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Enterprise tier advanced":::
 
-   > [!NOTE] 
-   > Redis Modules aren't supported in Enterprise Flash tier yet. If you plan to use a Redis Module,
-   > be sure to choose an Enterprise tier cache.
-   >
-   
 1. Select **Next: Tags** and skip.
 
 1. Select **Next: Review + create**.
