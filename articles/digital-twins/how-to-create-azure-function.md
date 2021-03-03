@@ -66,7 +66,7 @@ Right-select your project and select _Manage NuGet Packages_ from the list. Then
 * `Azure.DigitalTwins.Core`
 * `Azure.Identity`
 * `System.Net.Http`
-* `Azure.Core`
+* `Azure.Core.Pipeline`
 
 **Option 2. Add packages using `dotnet` command-line tool:**
 
@@ -76,7 +76,7 @@ Alternatively, you can use the following `dotnet add` commands in a command line
 dotnet add package Azure.DigitalTwins.Core
 dotnet add package Azure.Identity
 dotnet add package System.Net.Http
-dotnet add package Azure.Core
+dotnet add package Azure.Core.Pipeline
 ```
 
 Next, in your Visual Studio Solution Explorer, open the _Function1.cs_ file where you have sample code and add the following `using` statements to your function. 

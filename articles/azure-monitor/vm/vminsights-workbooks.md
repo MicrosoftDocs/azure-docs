@@ -1,7 +1,6 @@
 ---
 title: Create interactive reports VM insights with workbooks
 description: Simplify complex reporting with predefined and custom parameterized workbooks for VM insights.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

@@ -4,7 +4,6 @@ description: Discussion of NULL vs. zero values when exporting metrics and a poi
 services: azure-monitor
 ms.topic: reference
 ms.date: 07/22/2020
-ms.subservice: metrics
 ---
 # Azure Monitor platform metrics exportable via Diagnostic Settings
 
