@@ -94,67 +94,41 @@ We need a storage account to hold the rule and display files we created in the p
     - **Location:** (US) EAST US
     - **Resource group:** Choose the same resource group we used in earlier tutorials (**vc-resource-group**)
     
-    For detailed steps you can review the [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal) article.
+    For detailed steps review the [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal) article.
     
     ![Create a new storage account](media/tutorial-create-sample-card-your-issuer/create-storage-account.png)
 
-2. Once that you have a storage account we need to create a container in our new storage account
+2. Once that you have a storage account we need to create a container in our new storage account. Create a container using the values provided below:
 
     - **Name:** vc-container
     - **Public access level:** Private (no anonymous access)
 
-![Create a container](media/tutorial-create-samplecard-your-issuer/Zk8wgsR.png)
+   ![Create a container](media/tutorial-create-sample-card-your-issuer/new-container.png)
 
-Now select your new container and upload the Rules file you created earlier. Once it hs been uploaded, click on the rules file and press Select at the bottom. 
+3. Now select your new container and upload both the rules and display files. 
 
 ![upload rules file](media/tutorial-create-samplecard-your-issuer/3WOwn6Z.png)
 
 ## Role Assignment for Storage Blob
 
-Before creating the credential, we need to first give the signed in user the right role assignment so we can access the files in Storage Blob. 
+Before creating the credential, we need to first give the signed in user the right role assignment so we can access the files in Storage Blob.
 
-- Navigate to Storage > Container
-- Choose Access Control (IAM) in left menu
-- Role Assignments 
-- Add
+1. Navigate to Storage > Container
+2. Choose Access Control (IAM) in left menu
+3. Role Assignments 
+4. Add
+5. Role: Storage Blob Data Reader
+6. Assign access to: User, group or service principle
+7. Select: choose the user that you are signed in with
+8. Save
 
-
-    ![Create a new credential screen](media/tutorial-create-sample-card-your-issuer/role_assignment.jpg)
-
-- Role: Storage Blob Data Reader
-- Assign access to: User, group or service principle
-- Select: choose the user that you are signed in with
-- Save
-
-Now that you have completed this, wait 5 minutes to go to the next section and create your Verifiable Credential. 
-
-## New Container
-
-Once that you have a storage account we need to create a container.
->>>>>>> e382d34e605c891983554fa466d108ab4dccc056
-
-    >[!IMPORTANT]
-    >After creating the container assign the **Storage Blob Data Reader** role to the account you are logged in with while going through the tutorial. Keep in mind that even if you created the container with the account you are using the **Owner** role is not enough on its own. For more information review [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md)
-    
-    ![Create a container](media/tutorial-create-sample-card-your-issuer/new-container.png)
-
-3. Now select your new container and upload the Rules and display files you created earlier. Once that they are uploaded continue to the next section.
 
     ![Create a new credential screen](media/tutorial-create-sample-card-your-issuer/role_assignment.jpg)
 
-- Role: Storage Blob Data Reader
-- Assign access to: User, group or service principle
-- Select: choose the user that you are signed in with
-- Save
+  >[!IMPORTANT]
+    >Even if you created the container with the account you are using the **Owner** role is not enough on its own. For more information review [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md) Your account needs  the **Storage Blob Data Reader** role.
 
 Now that you have completed this, wait 5 minutes to go to the next section and create your Verifiable Credential. 
-
-- **Name:** vc-container
-- **Public access level:** Private (no anonymous access)
-
-![Create a container](media/tutorial-create-sample-card-your-issuer/new-container.png)
-
-Now select your new container and upload the Rules and display files you created earlier. Once that they are uploaded continue to the next section.
 
 ## Create the Ninja Credential VC
 
@@ -180,14 +154,15 @@ Now select your new container and upload the Rules and display files you created
 >[!NOTE]
 > If you just created a new blob storage you will see an error. Wait 10 minutes and try again.
 
-
 ## Credential URL
 
-Now that you have a new credential, let's copy the credential URL and run it in the browser to see if it works.  
+Now that you have a new credential, copy the credential URL and run it in the browser to see if it works.  
 
 ![The issue credential URL](media/tutorial-create-samplecard-your-issuer/DdV0c8A.png)
 
-https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a33457/portableIdentities/contracts/SampleNinja
+You should see a response formatted as shown below:
+
+![The issue credential URL](media/tutorial-create-sample-card-your-issuer/issue-credential-url.png)
 
 ```json
 {
