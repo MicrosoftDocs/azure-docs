@@ -49,7 +49,7 @@ a location accessible from PowerShell (once the zip file is downloaded, right cl
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    For quick reference, here are some example values for the above parameters. For full documentation, see the full import manifest schema below.
+    For quick reference, here are some example values for the above parameters. You can also view the complete [import manifest schema](import-schema.md) for more details.
 
     | Parameter | Description |
     | --------- | ----------- |
@@ -62,19 +62,6 @@ a location accessible from PowerShell (once the zip file is downloaded, right cl
     | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify recommended value for `microsoft/apt:1` update type.
     | updateFilePath(s) | Path to the update file(s) on your computer
 
-    Full import manifest schema
-
-    | Name | Type | Description | Restrictions |
-    | --------- | --------- | --------- | --------- |
-    | UpdateId | `UpdateId` object | Update identity. |
-    | UpdateType | string | Update type: <ul><li>Specify `microsoft/apt:1` when performing a package-based update using reference agent.</li><li>Specify `microsoft/swupdate:1` when performing an image-based update using reference agent.</li><li>Specify `microsoft/simulator:1` when using sample agent simulator.</li><li>Specify a custom type if developing a custom agent.</li></ul> | <ul><li>Format: `{provider}/{type}:{typeVersion}`</li><li>Maximum of 32 characters total</li></ul> |
-    | InstalledCriteria | string | String interpreted by the agent to determine whether the update was applied successfully:  <ul><li>Specify **value** of SWVersion for update type `microsoft/swupdate:1`.</li><li>Specify `{name}-{version}` for update type `microsoft/apt:1`, of which name and version are obtained from the APT file.</li><li>Specify hash of the update file for update type `microsoft/simulator:1`.</li><li>Specify a custom string if developing a custom agent.</li></ul> | Maximum of 64 characters |
-    | Compatibility | Array of `CompatibilityInfo` objects | Compatibility information of device compatible with this update. | Maximum of 10 items |
-    | CreatedDateTime | date/time | Date and time at which the update was created. | Delimited ISO 8601 date and time format, in UTC |
-    | ManifestVersion | string | Import manifest schema version. Specify `2.0`, which will be compatible with `urn:azureiot:AzureDeviceUpdateCore:1` interface and `urn:azureiot:AzureDeviceUpdateCore:4` interface.</li></ul> | Must be `2.0` |
-    | Files | Array of `File` objects | Update payload files | Maximum of 5 files |
-
-Note: All fields are required.
 
 ## Review Generated Import Manifest
 

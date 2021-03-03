@@ -29,7 +29,7 @@
     items:
     - name: Permissions in Azure Sentinel
       href: roles.md
-    - name: Manage access to resource data
+    - name: Manage access by resource
       href: resource-context-rbac.md
   - name: Advanced multistage attack detection
     href: fusion.md
@@ -252,6 +252,8 @@
     href: create-incidents-from-alerts.md
   - name: Manage your SOC better with incident metrics
     href: manage-soc-with-incident-metrics.md
+  - name: Audit Azure Sentinel queries and activities
+    href: audit-sentinel-data.md
   - name: Hunting
     href: hunting.md
     items:
@@ -300,8 +302,8 @@
   items:
   - name: Useful resources
     href: resources.md
-  - name: Azure Security, Privacy, & Compliance blog
-    href: /archive/blogs/azuresecurity/
+  - name: Azure Sentinel blog
+    href: https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing
