@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Add video calling to your app (JS)
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to add calling capabilities to your app using Azure Communication Services.
+description: In this quickstart, you'll learn how to add video calling capabilities to your app using Azure Communication Services.
 author: xumo-95
 ms.author: mikben
 ms.date: 07/24/2020
@@ -12,10 +12,10 @@ ms.service: azure-communication-services
 # QuickStart: Add 1:1 video calling to your app (JS)
 
 ## Prerequisites
-- Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
+- Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1)
-- Create an active Communication Services resource. [Create a Communication Services resource](https://docs.microsoft.com/en-gb/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
-- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](https://docs.microsoft.com/en-gb/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp).
+- Create an active Communication Services resource. [Create a Communication Services resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
+- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp).
 
 ## Setting up
 ### Create a new Node.js application
