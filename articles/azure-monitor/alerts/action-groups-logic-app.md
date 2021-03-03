@@ -5,7 +5,6 @@ author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.subservice: alerts
 ---
 # How to trigger complex actions with Azure Monitor alerts
 
