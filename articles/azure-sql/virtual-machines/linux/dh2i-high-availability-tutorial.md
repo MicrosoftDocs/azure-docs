@@ -18,8 +18,9 @@ This tutorial explains how to configure SQL Server Always On availability group 
 For more information about DxEnterprise, see [DH2i DxEnterprise](https://dh2i.com/dxenterprise-availability-groups/).
 
 > [!NOTE]
-> Microsoft supports data movement, the availability group, and the SQL Server components. Contact DH2i for support related to the documentation of DH2i DxEnterprise cluster, cluster, and quorum management.
+> Microsoft supports data movement, the availability group, and the SQL Server components. Contact DH2i for support related to the documentation of DH2i DxEnterprise cluster, for the cluster and quorum management.
  
+
 This tutorial consists of the following steps:
 
 > [!div class="checklist"]
@@ -94,9 +95,7 @@ Connect to the Windows client machine running DxAdmin to connect to the cluster 
  
 ## Create the Internal Azure Load balancer for Listener (optional)
  
-In this optional step, you can create and configure the Azure Load balancer that holds the IP addresses for the availability group listeners. For more information, see [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) . 
- 
-To configure the Azure load balancer and availability group listener using DxAdmin, follow the DxEnterprise [Azure Load Balancer Quick Start Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-load-balancer-quick-start-guide/).
+In this optional step, you can create and configure the Azure Load balancer that holds the IP addresses for the availability group listeners. For more information on Azure Load Balancer, refer [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). To configure the Azure load balancer and availability group listener using DxAdmin, follow the DxEnterprise [Azure Load Balancer Quick Start Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-load-balancer-quick-start-guide/).
 
 After this step, you should have an availability group listener created and mapped to the Internal Azure load balancer.
  
@@ -105,8 +104,9 @@ After this step, you should have an availability group listener created and mapp
 For the automatic failover test, you can go ahead and bring down the primary replica (power off the virtual machine from the Azure portal). This will replicate the sudden unavailability of the primary node. The expected behavior is:
 - The cluster manager promotes one of the secondary replicas in the availability group to primary.
 - The failed primary replica automatically joins the cluster after it is back up. The cluster manager promotes it to secondary replica.
- 
-You could also perform a manual failover using the following steps:
+  
+ 
+ You could also perform a manual failover by following the below mentioned steps:
 
 1. Connect to the cluster via DxAdmin   
 1. Expand the virtual host for the availability group
