@@ -1,7 +1,6 @@
 ---
 title: Sources of data in Azure Monitor | Microsoft Docs
 description: Describes the data available to monitor the health and performance of your Azure resources and the applications running on them.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -169,12 +168,12 @@ When you enable Application Insights for an application by installing an instrum
 | Azure Monitor Logs | Monitoring solutions collect data into Azure Monitor logs where it may be analyzed using the query language or [views](../visualize/view-designer.md) that are typically included in the solution. | [Data collection details for monitoring solutions in Azure](../monitor-reference.md) |
 
 
-### Azure Monitor for containers
-[Azure Monitor for containers](../containers/container-insights-overview.md) provides a customized monitoring experience for [Azure Kubernetes Service (AKS)](../../aks/index.yml). It collects additional data about these resources described in the following table.
+### Container insights
+[Container insights](../containers/container-insights-overview.md) provides a customized monitoring experience for [Azure Kubernetes Service (AKS)](../../aks/index.yml). It collects additional data about these resources described in the following table.
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Stores monitoring data for AKS including inventory, logs, and events. Metric data is also stored in Logs in order to leverage its analysis functionality in the portal. | [Understand AKS cluster performance with Azure Monitor for containers](../containers/container-insights-analyze.md) |
+| Azure Monitor Logs | Stores monitoring data for AKS including inventory, logs, and events. Metric data is also stored in Logs in order to leverage its analysis functionality in the portal. | [Understand AKS cluster performance with Container insights](../containers/container-insights-analyze.md) |
 | Azure Monitor Metrics | Metric data is stored in the metric database to drive visualization and alerts. | [View container metrics in metrics explorer](../containers/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
 | Azure Kubernetes Service | Provides direct access to your Azure Kubernetes Service (AKS) container logs (stdout/stderror), events, and pod metrics in the portal. | [How to view Kubernetes logs, events, and pod metrics in real-time ](../containers/container-insights-livedata-overview.md) |
 

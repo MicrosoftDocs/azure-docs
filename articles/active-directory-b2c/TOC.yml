@@ -150,6 +150,8 @@
       displayName: AD-FS, ADFS
     - name: Amazon
       href: identity-provider-amazon.md
+    - name: Apple (Preview)
+      href: identity-provider-apple-id.md 
     - name: Azure AD (Single-tenant)
       href: identity-provider-azure-ad-single-tenant.md
     - name: Azure AD (Multi-tenant)
