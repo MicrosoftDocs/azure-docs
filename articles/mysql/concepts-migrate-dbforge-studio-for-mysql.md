@@ -32,7 +32,7 @@ The Database Backup Wizard will appear.
 
 1.3 On the Options tab, configure the backup process to fit your requirements.
 
-:::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/back-up-wizard-options.png" alt-text="back-up-wizard-options":::
+:::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/back-up-wizard-options.png" alt-text="Back up Wizard options":::
 
 1.4 Next, specify errors processing behavior and logging options.
 
@@ -46,7 +46,7 @@ The Database Backup Wizard will appear.
 
 2.3 In the Database Restore Wizard that opens, select a file with a database backup.
 
-:::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/restore-step1.png" alt-text="restore-step1":::
+:::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/restore-step1.png" alt-text="Restore step":::
 
 2.4 Select Restore.
 
@@ -64,7 +64,7 @@ To migrate a database using the Copy Databases functionality:
 
 As a result of our database migration efforts, the *world_x* database has successfully appeared in Azure MySQL.
 
-:::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/copy-databases-result.png" alt-text="copy-databases-result":::
+:::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/copy-databases-result.png" alt-text="Copy Databases result":::
 
 ## Migrate a database using Schema and Data Compare tools
 
@@ -86,7 +86,7 @@ The New Schema Comparison Wizard appears.
 
 2.4 Walk through the steps of the wizard configuring synchronization. Select Synchronize to deploy the changes.
 
-:::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/schema-sync-wizard.png" alt-text="schema-sync-wizard":::
+:::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/schema-sync-wizard.png" alt-text="Schema sync wizard":::
 
 ### Step 3. Data Comparison
 
@@ -96,13 +96,13 @@ The New Schema Comparison Wizard appears.
 
 3.3 In the comparison results grid that appears, select objects for synchronization. Select the green arrow button to open the Data Synchronization Wizard.
 
-:::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/data-comp-result.png" alt-text="data-comp-result":::
+:::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/data-comp-result.png" alt-text="Data comp result":::
 
 3.4 Walk through the steps of the wizard configuring synchronization. Select Synchronize to deploy the changes.
 
 3.5 Check the result.
 
-:::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/data-sync-result.png" alt-text="data-sync-result":::
+:::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/data-sync-result.png" alt-text="Data sync result":::
 
 ## Summary
 
