@@ -41,7 +41,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 ### Logs	
 - [Azure Monitor customer-managed key](./logs/customer-managed-keys.md) - Introduce user assigned managed identity.
-- [Azure Monitor Logs Dedicated Clusters](./logs/logs-dedicated-clusters.md) - Updated reponse code.
+- [Azure Monitor Logs Dedicated Clusters](./logs/logs-dedicated-clusters.md) - Updated response code.
 - [Cross service query - Azure Monitor and Azure Data Explorer (Preview)](/azure/azure-monitor/platform/azure-data-explorer-monitor-cross-service-query) - New article.
 
 ### Metrics
