@@ -18,7 +18,7 @@ This document will help you troubleshoot issues that you may experience within y
 
 ## Getting help
 
-We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this we have a dedicated support and help options page which lists your options for support.
+We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this we have a [dedicated support and help options page](../support.md) which lists your options for support.
 
 To help you troubleshoot certain types of issues, you may be asked for any of the following pieces of information:
 
