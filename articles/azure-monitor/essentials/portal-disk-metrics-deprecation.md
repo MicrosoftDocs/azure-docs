@@ -2,7 +2,6 @@
 title: Disk metrics deprecation in the Azure portal | Microsoft Docs
 description: Learn which disk metrics have been deprecated and how to update your metric alerts to use new metrics. 
 services: azure-monitor
-ms.subservice: metrics
 ms.topic: conceptual
 author: albecker1
 ms.author: albecker
