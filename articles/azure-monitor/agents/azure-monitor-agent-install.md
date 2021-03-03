@@ -1,7 +1,6 @@
 ---
 title: Install the Azure Monitor agent
 description: Options for installing the Azure Monitor Agent (AMA) on Azure virtual machines and Azure Arc enabled servers.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

@@ -1,7 +1,6 @@
 ---
 title: Partners who integrate with Azure Monitor
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
-ms.subservice: 
 ms.topic: conceptual
 ms.date: 02/19/2021
 

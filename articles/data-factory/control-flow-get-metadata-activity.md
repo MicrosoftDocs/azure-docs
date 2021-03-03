@@ -155,7 +155,7 @@ Currently, the Get Metadata activity can return the following types of metadata 
 Property | Description | Required
 -------- | ----------- | --------
 fieldList | The types of metadata information required. For details on supported metadata, see the [Metadata options](#metadata-options) section of this article. | Yes 
-dataset | The reference dataset whose metadata is to be retrieved by the Get Metadata activity. See the [Capabilities](#capabilities) section for information on supported connectors. Refer to the specific connector topics for dataset syntax details. | Yes
+dataset | The reference dataset whose metadata is to be retrieved by the Get Metadata activity. See the [Capabilities](#supported-capabilities) section for information on supported connectors. Refer to the specific connector topics for dataset syntax details. | Yes
 formatSettings | Apply when using format type dataset. | No
 storeSettings | Apply when using format type dataset. | No
 
