@@ -51,7 +51,7 @@ Storage Explorer requires the use of a password manager. You might have to conne
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-Storage Explorer is also available as a *.tar.gz* download. Dependencies must be installed manually. The following distributions of Linux support *.tar.gz* installation:
+Storage Explorer is also available as a *.tar.gz* download. If you use the *.tar.gz*, you must install dependencies manually. The following distributions of Linux support *.tar.gz* installation:
 
 * Ubuntu 20.04 x64
 * Ubuntu 18.04 x64
@@ -69,10 +69,10 @@ To download and install Storage Explorer, see [Azure Storage Explorer](https://w
 
 ## Connect to a storage account or service
 
-Storage Explorer provides several ways to connect to storage accounts:
+Storage Explorer provides several ways to connect to Azure resources:
 
 * [Sign in to Azure to access your subscriptions and their resources](#sign-in-to-azure)
-* [Attach an individual Azure Storage resource](#attach-an-individual-resource)
+* [Attach to an individual Azure Storage resource](#attach-an-individual-resource)
 * [Attach to a CosmosDB resource](#connect-to-azure-cosmos-db)
 
 ### Sign in to Azure
@@ -94,7 +94,10 @@ Storage Explorer provides several ways to connect to storage accounts:
 
     ![Option to sign in][2]
 
-1. Storage Explorer will open your default web browser for you to sign in. For more information, see [Connect Storage Explorer to an Azure Stack subscription or storage account](/azure-stack/user/azure-stack-storage-connect-se).
+    > [!TIP]
+    > For more information about Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription or storage account](/azure-stack/user/azure-stack-storage-connect-se).
+
+1. Storage Explorer will open a webpage for you to sign in.
 
 1. After you successfully sign in with an Azure account, the account and the Azure subscriptions associated with that account appear under **ACCOUNT MANAGEMENT**. Select the Azure subscriptions that you want to work with, and then select **Apply**.
 
@@ -118,7 +121,7 @@ Storage Explorer lets you connect to individual resources, such as an Azure Data
 | Queues                | Yes      | No                   | Yes (URL)                     | No                 |
 | Tables                | No       | No                   | Yes (URL)                     | No                 |
  
-Storage Explorer can also connect to a [local storage emulator](#local-storage-emulator).
+Storage Explorer can also connect to a [local storage emulator](#local-storage-emulator) using the emulator's configured ports.
 
 To connect to an individual resource, select the **Connect** button in the left-hand toolbar. Then follow the instructions for the resource type you want to connect to.
 
@@ -126,7 +129,7 @@ To connect to an individual resource, select the **Connect** button in the left-
 
 When a connection to a storage account is successfully added, a new tree node will appear under **Local & Attached** > **Storage Accounts**.
 
-For other resource types, a new node is added under **Local & Attached** > **Storage Accounts** > **(Attached Containers)**. The node will appear under a group node matching its type. For example, a new connection to a Blob container will appear under **Blob Containers**.
+For other resource types, a new node is added under **Local & Attached** > **Storage Accounts** > **(Attached Containers)**. The node will appear under a group node matching its type. For example, a new connection to an ADLS Gen2 container will appear under **Blob Containers**.
 
 If Storage Explorer couldn't add your connection, or if you can't access your data after successfully adding the connection, see the [Azure Storage Explorer troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md).
 
@@ -181,8 +184,7 @@ TableEndpoint=https://contoso.table.core.windows.net/;
 
 Storage Explorer can connect to the following resource types using a SAS URI:
 * Blob container
-* ADLS Gen2 container
-* ADLS Gen2 directory
+* ADLS Gen2 container or directory
 * File share
 * Queue
 * Table
