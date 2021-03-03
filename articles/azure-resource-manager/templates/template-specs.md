@@ -152,7 +152,7 @@ az deployment group create \
   --template-spec $id
 ```
 
-# [Portal/URL](#tab/portal)
+# [Portal](#tab/azure-portal)
 
 You can open a URL in the following format to deploy a template spec:
 
