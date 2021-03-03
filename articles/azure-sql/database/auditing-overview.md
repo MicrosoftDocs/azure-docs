@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/28/2021
+ms.date: 03/03/2021
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Auditing for Azure SQL Database and Azure Synapse Analytics
@@ -98,18 +98,18 @@ The following section describes the configuration of auditing using the Azure po
 
 4. If you prefer to enable auditing on the database level, switch **Auditing** to **ON**. If server auditing is enabled, the database-configured audit will exist side-by-side with the server audit.
 
-5. You have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to a Log Analytics workspace for consumption by Azure Monitor logs (preview), or to event hub for consumption using event hub (preview). You can configure any combination of these options, and audit logs will be written to each.
+5. You have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to a Log Analytics workspace for consumption by Azure Monitor logs, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
   
    ![storage options](./media/auditing-overview/auditing-select-destination.png)
 
-### <a id="auditing-of-microsoft-support-operations"></a>Auditing of Microsoft Support operations (Preview)
+### <a id="auditing-of-microsoft-support-operations"></a>Auditing of Microsoft Support operations
 
-Auditing of Microsoft Support operations (Preview) for Azure SQL Server allows you to audit Microsoft support engineers' operations when they need to access your server during a support request. The use of this capability, along with your auditing, enables more transparency into your workforce and allows for anomaly detection, trend visualization, and data loss prevention.
+Auditing of Microsoft Support operations for Azure SQL Server allows you to audit Microsoft support engineers' operations when they need to access your server during a support request. The use of this capability, along with your auditing, enables more transparency into your workforce and allows for anomaly detection, trend visualization, and data loss prevention.
 
-To enable Auditing of Microsoft Support operations (Preview) navigate to **Auditing** under the Security heading in your **Azure SQL server** pane, and switch **Auditing of Microsoft support operations (Preview)** to **ON**.
+To enable Auditing of Microsoft Support operations navigate to **Auditing** under the Security heading in your **Azure SQL server** pane, and switch **Auditing of Microsoft support operations** to **ON**.
 
   > [!IMPORTANT]
-  > Auditing of Microsoft support operations (Preview) does not support storage account destination. To enable the capability, a Log Analytics workspace or an Event Hub destination has to be configured.
+  > Auditing of Microsoft support operations does not support storage account destination. To enable the capability, a Log Analytics workspace or an Event Hub destination has to be configured.
 
 ![Screenshot of Microsoft Support Operations](./media/auditing-overview/support-operations.png)
 
@@ -131,7 +131,7 @@ To configure writing audit logs to a storage account, select **Storage** and ope
 
 ### <a id="audit-log-analytics-destination"></a>Audit to Log Analytics destination
   
-To configure writing audit logs to a Log Analytics workspace, select **Log Analytics (Preview)** and open **Log Analytics details**. Select or create the Log Analytics workspace where logs will be written and then click **OK**.
+To configure writing audit logs to a Log Analytics workspace, select **Log Analytics** and open **Log Analytics details**. Select or create the Log Analytics workspace where logs will be written and then click **OK**.
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -139,7 +139,7 @@ For more details about Azure Monitor Log Analytics workspace, see [Designing you
    
 ### <a id="audit-event-hub-destination"></a>Audit to Event Hub destination
 
-To configure writing audit logs to an event hub, select **Event Hub (Preview)** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
+To configure writing audit logs to an event hub, select **Event Hub** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 
