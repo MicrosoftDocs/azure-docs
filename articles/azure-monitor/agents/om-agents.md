@@ -97,6 +97,10 @@ To insure the security of data in transit to Azure Monitor, we strongly encourag
 
 Perform the following series of steps to configure your Operations Manager management group to connect to one of your Log Analytics workspaces.
 
+   >[!NOTE]
+   > If you notice that Log Analytics Data stops coming in from a particular Agent or Management Server, you can try resetting the Winsock Catalog `netsh winsock reset` and rebooting the server. Resetting the Winsock Catalog will allow network connections to be re-established that were once broken.
+
+
 During initial registration of your Operations Manager management group with a Log Analytics workspace, the option to specify the proxy configuration for the management group is not available in the Operations console.  The management group has to be successfully registered with the service before this option is available.  To work around this, you need to update the system proxy configuration using Netsh on the system your running the Operations console from to configure integration, and all management servers in the management group.  
 
 1. Open an elevated command-prompt.
