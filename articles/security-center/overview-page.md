@@ -14,12 +14,11 @@ manager: rkarlin
 
 When you open Azure Security Center, the first page to appear is the overview page. 
 
+This interactive dashboard provides a unified view into the security posture of your hybrid cloud workloads. Additionally, it shows security alerts, coverage information, and more.
+
+You can select any element on the page to get more detailed information.
+
 :::image type="content" source="media/overview-page/overview.png" alt-text="Security Center's overview page":::
-
-Discover and assess the security of your workloads, and identify and mitigate risks, with the Security Center overview page.
-
-The overview provides a unified view into the security posture of your hybrid cloud workloads. Additionally, it shows security alerts, coverage information, and more.
-
 
 ## Features of the overview page
 
@@ -33,9 +32,9 @@ The **top menu bar** offers:
 
 In the center of the page are **four central tiles**, each linking to a dedicated dashboard for more details:
 - **Secure score** - Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level. [Learn more](secure-score-security-controls.md).
-- **Compliance** - Security Center provides insights into your compliance posture based on continuous assessments of your Azure environment. Security Center analyzes risk factors in your hybrid cloud environment according to security best practices. These assessments are mapped to compliance controls from a supported set of standards. [Learn more](security-center-compliance-dashboard.md).
-- **Azure Defender** - This is the cloud workload protection platform (CWPP) integrated within Security Center for advanced, intelligent, protection of your Azure and hybrid workloads. The tile shows the coverage of your connected resources (for the currently selected subscriptions) and the recent alerts, color-coded by severity. [Learn more](azure-defender.md).
-- **Firewall Manager** - The tile shows the status of your hubs and networks from [Azure Firewall Manager](../firewall-manager/overview.md). 
+- **Regulatory compliance** - Security Center provides insights into your compliance posture based on continuous assessments of your Azure environment. Security Center analyzes risk factors in your hybrid cloud environment according to security best practices. These assessments are mapped to compliance controls from a supported set of standards. [Learn more](security-center-compliance-dashboard.md).
+- **Azure Defender** - This is the cloud workload protection platform (CWPP) integrated within Security Center for advanced, intelligent protection of your Azure and hybrid workloads. The tile shows the coverage of your connected resources (for the currently selected subscriptions) and the recent alerts, color-coded by severity. [Learn more](azure-defender.md).
+- **Firewall Manager** - This tile shows the status of your hubs and networks from [Azure Firewall Manager](../firewall-manager/overview.md). 
 
 
 The **Insights** pane offers customized items for your environment including:
