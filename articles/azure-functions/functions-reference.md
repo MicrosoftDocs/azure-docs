@@ -157,7 +157,7 @@ To connect using an Azure Active Directory service principal with a client ID an
 | Client ID | `<CONNECTION_NAME_PREFIX>__clientId` |  The client (application) ID of an app registration in the tenant. |
 | Client secret | `<CONNECTION_NAME_PREFIX>__clientSecret` | A client secret that was generated for the app registration. |
 
-Example properties required for identity-based connection with Azure Blob: 
+Example of `local.settings.json` properties required for identity-based connection with Azure Blob: 
 ```json
 {
   "IsEncrypted": false,

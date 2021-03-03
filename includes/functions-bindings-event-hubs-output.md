@@ -253,13 +253,40 @@ The following table explains the binding configuration properties that you set i
 
 # [C#](#tab/csharp)
 
+### Default
+
+You can use the following parameter types for the triggering Event Hub:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - The default properties of EventData are provided in the for the [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
 Send messages by using a method parameter such as `out string paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<string>` or
 `IAsyncCollector<string>` in place of `out string`.
+
+### Additional types 
+Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](https://docs.microsoft.com/en-us/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) instead of the one in [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
 
 # [C# Script](#tab/csharp-script)
 
+### Default
+
+You can use the following parameter types for the triggering Event Hub:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - The default properties of EventData are provided in the for the [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
 Send messages by using a method parameter such as `out string paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<string>` or
 `IAsyncCollector<string>` in place of `out string`.
+
+### Additional types 
+Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](https://docs.microsoft.com/en-us/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) instead of the one in [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### Additional types 
+Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](https://docs.microsoft.com/en-us/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) instead of the one in [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
 
 # [JavaScript](#tab/javascript)
 

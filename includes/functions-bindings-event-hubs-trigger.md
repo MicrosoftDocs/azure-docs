@@ -359,6 +359,52 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
+## Usage
+
+# [C#](#tab/csharp)
+
+### Default
+
+You can use the following parameter types for the triggering Event Hub:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - The default properties of EventData are provided in the for the [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### Additional types 
+Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](https://docs.microsoft.com/en-us/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) instead of the one in [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+# [C# Script](#tab/csharp-script)
+
+### Default
+
+You can use the following parameter types for the triggering Event Hub:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - The default properties of EventData are provided in the for the [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### Additional types 
+Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](https://docs.microsoft.com/en-us/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) instead of the one in [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+# [Java](#tab/java)
+
+Refer to the Java [trigger example](#example) for details.
+
+# [JavaScript](#tab/javascript)
+
+Refer to the Javascript [trigger example](#example) for details.
+
+# [Python](#tab/python)
+
+Refer to the Python [trigger example](#example) for details.
+
+
+---
+
+
 ## Event metadata
 
 The Event Hubs trigger provides several [metadata properties](../articles/azure-functions/./functions-bindings-expressions-patterns.md). Metadata properties can be used as part of binding expressions in other bindings or as parameters in your code. The properties come from the [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) class.
