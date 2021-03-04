@@ -23,7 +23,7 @@ Azure Standard Load Balancer supports cross-region load balancing enabling geo-r
 
 * Incoming traffic originating from multiple regions.
 * [Instant global failover](#regional-redundancy) to the next optimal regional deployment.
-* Load distribution across regions to the closest Azure region with [ultra latency](#ultra-low-latency).
+* Load distribution across regions to the closest Azure region with [ultra-low latency](#ultra-low-latency).
 * Ability to [scale up/down](#ability-to-scale-updown-behind-a-single-endpoint) behind a single endpoint.
 * [Static IP](#static-ip)
 * [Client IP preservation](#client-ip-preservation)
