@@ -95,7 +95,7 @@ The following steps will walk you through creating a user-assigned identity and 
 
 ## Removing an identity
 
-A system-assigned identity can be removed by disabling the feature by using the [az appconfig identity remove](/cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-remove) command in the Azure CLI. User-assigned identities can be removed individually. Removing a system-assigned identity in this way will also delete it from AAD. System-assigned identities are also automatically removed from AAD when the app resource is deleted.
+A system-assigned identity can be removed by disabling the feature by using the [az appconfig identity remove](/cli/azure/appconfig/identity#az-appconfig-identity-remove) command in the Azure CLI. User-assigned identities can be removed individually. Removing a system-assigned identity in this way will also delete it from AAD. System-assigned identities are also automatically removed from AAD when the app resource is deleted.
 
 ## Next steps
 

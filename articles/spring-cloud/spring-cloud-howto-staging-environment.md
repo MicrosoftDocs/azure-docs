@@ -18,7 +18,7 @@ This article explains how to set up a staging deployment using the blue-green de
 ## Prerequisites
 
 * Azure Spring Cloud instance on *Standard* **Pricing tier**.
-* Azure CLI [Azure Spring Cloud extension](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview)
+* Azure CLI [Azure Spring Cloud extension](/cli/azure/azure-cli-extensions-overview)
 
 This article uses an application built from the Spring Initializer. If you want to use a different application for this example, you will need to make a simple change in a public-facing portion of the application to differentiate your staging deployment from production.
 
@@ -64,7 +64,7 @@ mvn clean packge -DskipTests
 ```
 5. Create the app in your Azure Spring Cloud instance:
 ```azurecli
-az spring-cloud app create -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --is-public
+az spring-cloud app create -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --assign-endpoint
 ```
 6. Deploy the app to Azure Spring Cloud:
 ```azurecli

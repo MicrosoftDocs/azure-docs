@@ -118,6 +118,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | ----- | ----- | ----- | ----- |
 | Azure Active Directory | login.microsoftonline.com | login.microsoftonline.us | login.chinacloudapi.cn |
 | Azure portal | management.azure.com | management.azure.us | management.azure.cn |
+| Azure Resource Manager | management.azure.com | management.usgovcloudapi.net | management.chinacloudapi.cn |
 
 **Azure Machine Learning hosts**
 
@@ -141,7 +142,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Compute cluster/instance | \*.batchai.core.windows.net | \*.batchai.core.usgovcloudapi.net |\*.batchai.ml.azure.cn |
-| Compute cluster/instance | graph.windows.net |  |  |
+| Compute cluster/instance | graph.windows.net | graph.windows.net | graph.chinacloudapi.cn |
 | Compute instance | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
 | Compute instance | \*.instances.azureml.ms |  |  |
 

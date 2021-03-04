@@ -41,7 +41,7 @@ not available in V3:
     - We added support for audio channel mapping to the Standard encoder.  See [Audio in the Media Services Encoding Swagger documentation](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).
     - If you were using advanced features or output formats of the third-party licensed product such as MXF or ProRes, use the Azure Partner solution from Telestream, which will be transactional by the time of the V2 retirement. Alternatively you can use Imagine Communications, or [Bitmovin](http://bitmovin.com).
 
-- The “availability set” property on the Streaming Endpoint in V2 is no longer supported. See the sample project and guidance for [High Availability VOD](https://docs.microsoft.com/azure/media-services/latest/media-services-high-availability-encoding) delivery in the V3 API.
+- The “availability set” property on the Streaming Endpoint in V2 is no longer supported. See the sample project and guidance for [High Availability VOD](./media-services-high-availability-encoding.md) delivery in the V3 API.
 
 - In Media Services V3, FairPlay IV cannot be specified. While it doesn't impact customers using Media Services for both packaging and license delivery, it can be an issue when using a third-party DRM system to deliver the FairPlay licenses (hybrid mode).
 

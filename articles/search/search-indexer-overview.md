@@ -114,6 +114,7 @@ You can monitor the indexer status in the portal or through [Get Indexer Status 
 Now that you've been introduced, a next step is to review indexer properties and parameters, scheduling, and indexer monitoring. Alternatively, you could return to the list of [supported data sources](#supported-data-sources) for more information about a specific source.
 
 + [Create indexers](search-howto-create-indexers.md)
++ [Reset and run indexers](search-howto-run-reset-indexers.md)
 + [Schedule indexers](search-howto-schedule-indexers.md)
 + [Define field mappings](search-indexer-field-mappings.md)
 + [Monitor indexer status](search-howto-monitor-indexers.md)

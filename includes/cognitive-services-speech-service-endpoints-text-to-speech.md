@@ -10,27 +10,27 @@ ms.author: wolfma
 
 Use this table to determine availability of standard and neural voices by region/endpoint:
 
-| Region | Endpoint | Standard Voices | Neural Voices |
+| Region | Endpoint | Neural Voices | Standard Voices |
 |--------|----------|-----------------|---------------|
 | Australia East | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
 | Canada Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
-| East Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
+| East Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
 | East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| East US 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
-| France Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| East US 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
+| France Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
 | India Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
-| Japan West | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
-| Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
-| North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
-| North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
+| Japan West | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
+| Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
+| North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
+| North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
 | South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
 | Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
 | UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
 | West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
 | West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
 
 > [!TIP]
@@ -73,3 +73,15 @@ The following table details regional support for Custom Neural Voice features.
 | Realtime Characters | East US, West US 2, South Central US, Southeast Asia, UK South, West Europe, Australia East |
 | Long Audio Characters | East US, West Europe, UK South, Southeast Asia, India Central |
 | Custom Neural Training | East US, UK South |
+
+### Long audio API
+
+The Long audio API is available in multiple regions with unique endpoints.
+
+| Region | Endpoint |
+|--------|----------|
+| East US | `https://eastus.customvoice.api.speech.microsoft.com` |
+| India Central | `https://centralindia.customvoice.api.speech.microsoft.com` |
+| Southeast Asia | `https://southeastasia.customvoice.api.speech.microsoft.com` |
+| UK South | `https://uksouth.customvoice.api.speech.microsoft.com` |
+| West Europe | `https://westeurope.customvoice.api.speech.microsoft.com` |
