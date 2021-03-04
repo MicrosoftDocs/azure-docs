@@ -4,7 +4,7 @@ description: This article describes how to use repartitioning to optimize Azure 
 ms.service: stream-analytics
 author: sidramadoss
 ms.author: sidram
-ms.date: 09/19/2019
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: mvc
 ---
