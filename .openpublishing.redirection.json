@@ -5310,6 +5310,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/partner-solutions/apache-kafka-confluent-cloud/index.md",
+      "redirect_url": "/azure/partner-solutions/apache-kafka-confluent-cloud/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/avere-vfxt/avere-vfxt-required-ports.md",
       "redirect_url": "/azure/avere-vfxt/avere-vfxt-additional-resources",
       "redirect_document_id": true
