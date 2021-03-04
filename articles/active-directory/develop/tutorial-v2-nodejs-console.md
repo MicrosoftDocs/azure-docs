@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 02/17/2021
 ms.author: v-doeris
 ---
 
@@ -121,9 +121,9 @@ Inside the *bin* folder, create another file named *auth.js* and add the followi
 const msal = require('@azure/msal-node');
 
 /**
- * Configuration object to be passed to MSAL instance on creation. 
+ * Configuration object to be passed to MSAL instance on creation.
  * For a full list of MSAL Node configuration parameters, visit:
- * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md 
+ * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md
  */
 const msalConfig = {
     auth: {
@@ -135,8 +135,8 @@ const msalConfig = {
 
 /**
  * With client credentials flows permissions need to be granted in the portal by a tenant administrator.
- * The scope is always in the format '<resource>/.default'. For more, visit: 
- * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow 
+ * The scope is always in the format '<resource>/.default'. For more, visit:
+ * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
  */
 const tokenRequest = {
     scopes: [process.env.GRAPH_ENDPOINT + '.default'],
@@ -154,7 +154,7 @@ const cca = new msal.ConfidentialClientApplication(msalConfig);
 
 /**
  * Acquires token with client credentials.
- * @param {object} tokenRequest 
+ * @param {object} tokenRequest
  */
 async function getToken(tokenRequest) {
     return await cca.acquireTokenByClientCredential(tokenRequest);
@@ -208,8 +208,8 @@ const axios = require('axios');
 
 /**
  * Calls the endpoint with authorization bearer token.
- * @param {string} endpoint 
- * @param {string} accessToken 
+ * @param {string} endpoint
+ * @param {string} accessToken
  */
 async function callApi(endpoint, accessToken) {
 
@@ -235,7 +235,7 @@ module.exports = {
 };
 ```
 
-Here, the `callApi` method is used to make an HTTP `GET` request against a protected resource that requires an access token. The request then returns the content to the caller. This method adds the acquired token in the *HTTP Authorization header*. The protected resource here is the Microsoft Graph API [users endpoint](https://docs.microsoft.com/graph/api/user-list) which displays the users in the tenant where this app is registered.
+Here, the `callApi` method is used to make an HTTP `GET` request against a protected resource that requires an access token. The request then returns the content to the caller. This method adds the acquired token in the *HTTP Authorization header*. The protected resource here is the Microsoft Graph API [users endpoint](/graph/api/user-list) which displays the users in the tenant where this app is registered.
 
 ## Test the app
 
@@ -274,7 +274,7 @@ request made to web API at: Fri Jan 22 2021 09:31:52 GMT-0800 (Pacific Standard 
 
 ## How the application works
 
-This application uses [OAuth 2.0 client credentials grant](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. The credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. The type of applications supported with this authentication model are usually **daemons** or **service accounts**.
+This application uses [OAuth 2.0 client credentials grant](./v2-oauth2-client-creds-grant-flow.md). This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. The credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. The type of applications supported with this authentication model are usually **daemons** or **service accounts**.
 
 The scope to request for a client credential flow is the name of the resource followed by `/.default`. This notation tells Azure Active Directory (Azure AD) to use the application-level permissions declared statically during application registration. Also, these API permissions must be granted by a **tenant administrator**.
 

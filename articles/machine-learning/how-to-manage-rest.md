@@ -74,7 +74,7 @@ The response should provide an access token good for one hour:
 Make note of the token, as you'll use it to authenticate all subsequent administrative requests. You'll do so by setting an Authorization header in all requests:
 
 ```bash
-curl -h "Authentication: Bearer {your-access-token}" ...more args...
+curl -h "Authorization:Bearer {your-access-token}" ...more args...
 ```
 
 Note that the value starts with the string "Bearer " including a single space before you add the token.

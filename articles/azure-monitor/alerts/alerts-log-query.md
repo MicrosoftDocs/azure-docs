@@ -5,14 +5,13 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.subservice: alerts
 ---
 # Optimizing log alert queries
-This article describes how to write and convert [Log Alert](../platform/alerts-unified-log.md) queries to achieve optimal performance. Optimized queries reduce latency and load of alerts, which run frequently.
+This article describes how to write and convert [Log Alert](./alerts-unified-log.md) queries to achieve optimal performance. Optimized queries reduce latency and load of alerts, which run frequently.
 
 ## How to start writing an alert log query
 
-Alert queries start from [querying the log data in Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) that indicates the issue. You can use the [alert query examples topic](../log-query/example-queries.md) to understand what you can discover. You may also [get started on writing your own query](../log-query/log-analytics-tutorial.md). 
+Alert queries start from [querying the log data in Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) that indicates the issue. You can use the [alert query examples topic](../logs/example-queries.md) to understand what you can discover. You may also [get started on writing your own query](../logs/log-analytics-tutorial.md). 
 
 ### Queries that indicate the issue and not the alert
 
@@ -38,7 +37,7 @@ There's no need to add alerting logic to the query and doing that may even cause
 Using `limit` and `take` in queries can increase latency and load of alerts as the results aren't consistent over time. It's preferred you use it only if needed.
 
 ## Log query constraints
-[Log queries in Azure Monitor](../log-query/log-query-overview.md) start with either a table, [`search`](/azure/kusto/query/searchoperator), or [`union`](/azure/kusto/query/unionoperator) operator.
+[Log queries in Azure Monitor](../logs/log-query-overview.md) start with either a table, [`search`](/azure/kusto/query/searchoperator), or [`union`](/azure/kusto/query/unionoperator) operator.
 
 Queries for log alert rules should always start with a table to define a clear scope, which improves both query performance and the relevance of the results. Queries in alert rules run frequently, so using `search` and `union` can result in excessive overhead adding latency to the alert, as it requires scanning across multiple tables. These operators also reduce the ability of the alerting service to optimize the query.
 
@@ -51,7 +50,7 @@ SecurityEvent
 | where EventID == 4624
 ```
 
-Log alert rules using [cross-resource queries](../log-query/cross-workspace-query.md) are not affected by this change since cross-resource queries use a type of `union`, which limits the query scope to specific resources. The following example would be valid log alert query:
+Log alert rules using [cross-resource queries](../logs/cross-workspace-query.md) are not affected by this change since cross-resource queries use a type of `union`, which limits the query scope to specific resources. The following example would be valid log alert query:
 
 ```Kusto
 union
@@ -61,7 +60,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
-> [Cross-resource queries](../log-query/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you still use the [legacy Log Analytics Alert API](../platform/api-alerts.md) for creating log alerts, you can learn about switching [here](../alerts/alerts-log-api-switch.md).
+> [Cross-resource queries](../logs/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you still use the [legacy Log Analytics Alert API](./api-alerts.md) for creating log alerts, you can learn about switching [here](../alerts/alerts-log-api-switch.md).
 
 ## Examples
 The following examples include log queries that use `search` and `union` and provide steps you can use to modify these queries for use in alert rules.
@@ -211,4 +210,4 @@ SecurityEvent
 
 ## Next steps
 - Learn about [log alerts](alerts-log.md) in Azure Monitor.
-- Learn about [log queries](../log-query/log-query-overview.md).
+- Learn about [log queries](../logs/log-query-overview.md).

@@ -1,91 +1,82 @@
 ---
-title: Co-sell partner engagement - Microsoft commercial marketplace
+title: Co-sell with Microsoft sales teams and partners overview
 description: The Microsoft Partner Center Co-sell program for partners can help you reach a vast customer base and generate new sales.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 2/05/2021
+ms.date: 2/24/2021
 ---
 
-# Co-sell partner engagement
+# Co-sell with Microsoft sales teams and partners overview
 
-You can use the Co-sell program to work directly with Microsoft sellers on joint selling opportunities and to unlock significant additional commercial and merchandising benefits selling through Commercial Marketplace.
+Co-selling with Microsoft is defined as any collaborative engagement between Microsoft and our partner ecosystem. This process includes building demand, sales planning, sharing sales leads, accelerating partner-to-partner empowered selling, and delivering marketplace-led commerce.
 
-The Co-sell program is available for **software built with your intellectual property (IP) as repeatable, packaged offers** and for **services with Microsoft technology embedded**. Most offer types in the Co-sell program are also available in the commercial marketplace. Offers that meet additional requirements become **Co-sell ready** or **Co-sell incentivized**.
+When you choose to co-sell an offer, you can work directly with Microsoft sales teams and Microsoft partners on joint selling opportunities. This unlocks benefits when selling through the commercial marketplace online stores: Azure Marketplace and Microsoft AppSource.
 
-- **Co-sell ready** offers are exposed to Microsoft field sellers. When working with Microsoft sellers, the Co-sell program helps you reach a vast community of Microsoft managed customers to collaborate on sales opportunities that accelerate your business growth.
+Co-selling opportunities are the result of [acting on a lead](./partner-center-portal/commercial-marketplace-get-customer-leads.md), collaborating on it with Microsoft sales teams or Microsoft partners to provide a solution for a customer need.
 
-    :::image type="content" source="./media/marketplace-publishers-guide/marketplace-co-sell-v2.png" alt-text="Diagram showing how Co-sell happens when sales leads are shared, accepted, and won against Microsoft-managed customers.":::
+[![Diagram showing how Co-sell happens when sales leads are shared, accepted, and won against Microsoft-managed customers..](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png#lightbox)
 
-- **Co-sell incentivized** IP offers can earn incentives for Microsoft field sellers when they are sold in collaboration with Microsoft sales teams, in addition to the marketplace benefits listed below.</li></ul>
+These solutions (also called offers) can include software built with your intellectual property (IP) and services that support Microsoft technologies.
 
-## Marketplace benefits for incentivized offers
+## Co-sell opportunities
 
-Offers that attain **Azure IP Co-sell incentivized** status gain these additional marketplace benefits:
+A co-sell opportunity is any type of collaboration with Microsoft sales teams, Microsoft partners, or both to sell products and solutions that meet customer needs. Some of the key categories of co-sell are:
 
-- The marketplace service fee is reduced from 20% to 10%. This discount applies to your IaaS or SaaS offer sold through the commercial marketplace. For more information, see [Commercial marketplace service fees](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
-- Cloud Solution Provider (CSP) partners receive a 10% incentive to sell your IaaS or SaaS offer. Learn more about the CSP program at [Cloud Solution Provider program](cloud-solution-providers.md).
-- Sales of your offer through commercial marketplace will contribute towards customers’ Azure consumption commitments. Eligible customers will see the offer marked as **"Azure benefit eligible"** in Azure portal. For more details, see [Azure consumption commitment benefit](azure-consumption-commitment-benefit.md).
-- Offers that achieve **Azure IP Co-sell incentivized** or **Business Applications Co-sell incentivized** status will receive a **"Preferred solutions"** badge in the storefronts. The badge promotes an offer's quality, performance, and ability to address customer needs in a certain industry vertical or solution area. Learn more at [Preferred solutions in Microsoft AppSource and Azure Marketplace](preferred-solutions.md).
+- **Co-sell with Microsoft sales teams** – Work with one or more Microsoft sales teams to actively fulfill customer needs. This can include selling your offers, Microsoft’s offers, or both. You and Microsoft sales teams can identify and share customer opportunities in which your solutions may be a good fit.
+- **Partner to Partner (P2P)** – Work with another Microsoft partner to actively solve a customer problem.
+- **Private deal** – Share what you are independently working on with Microsoft so it will be reflected in the Microsoft reporting system for analysis and forecasting.
+- **Solution Assessment (SA)** – Work with partners who are vetted by the solution assessments business team to access the technology needs of customers who are using or planning to use Microsoft technologies.
 
-## Co-sell publishing steps and requirements
+## Co-sell statuses
 
-This table lists the steps and requirements to get your marketplace offer Co-sell ready or Co-sell incentivized. Not all commercial marketplace offer types are configurable for Co-sell yet in Partner Center. For the latest list of offer types that support co-sell, see [Co-sell option in the commercial marketplace](commercial-marketplace-co-sell.md). 
+There are four levels of co-sell status that can be applied to an offer:
 
-|Step    |Offer type    |Requirements    |Co-sell status    |
-|----    |-------------    |------------    |---------------   |
-|<ol start=1><li>Create an account in Partner Center and publish your offer to the commercial marketplace.</li>|All|<ul><li>The offer meets the commercial marketplace publishing requirements.</li><li>You have a complete business profile in Partner Center.</li></ul>| In Market |
-|<ol start=2><li>Submit required Co-sell materials.</li>|IP offers *with* [Co-sell option in the commercial marketplace](commercial-marketplace-co-sell.md)|[Upload required materials in Partner Center](#how-to-submit-co-sell-materials-in-partner-center)|Co-sell ready|
-||IP offers *without* [Co-sell option in the commercial marketplace](commercial-marketplace-co-sell.md)|<ul><li>Request to [work with a Cloud Specialist](https://partner.microsoft.com/campaigns/ced-nomination-form/) to provide required Co-sell documentation.</li></ul>|Co-sell ready|
-||Consulting Services|<ul><li>Request to [work with a Cloud Specialist](https://partner.microsoft.com/campaigns/ced-nomination-form/) to provide required Co-sell documentation.</li><li>Active Gold competency.</li></ul>|Co-sell ready|
-|<ol start=3><li>Qualify for IP Co-sell incentives</li>|Azure Applications, Azure Containers, IoT Edge Modules, SaaS, VMs|After achieving Co-sell ready, there are two additional requirements: <ul> Requirement 1: achieve either:<ul><li>*At the organization level:* meet or exceed $100,000 USD of Azure Consumed Revenue over the trailing 12 months.</li><li>*At the offer level:* cumulative marketplace billed revenue of $100,000 USD.</li></ul><br>Requirement 2: more than 50% of your offer's infrastructure must run on Azure:<ul><li>IP offers *with* [Co-sell option in the commercial marketplace](commercial-marketplace-co-sell.md): upload an architecture diagram with your Co-sell documents in Partner Center for review.</li><li>IP offers *without* [Co-sell option in the commercial marketplace](commercial-marketplace-co-sell.md): upload an architecture diagram to OCP GTM.|Azure IP Co-sell incentivized|
-||Dynamics|<ul><li>You have an active enrollment in ISV Connect premium tier.</li></ul>|Business Applications Co-sell incentivized|
-|||
+- Not co-sell ready
+- Co-sell ready
+- Azure IP co-sell incentivized
+- Biz Apps ISV Connect Premium  
 
-For more information about the requirements for co-sell solution offers, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
+For details about the requirements to achieve these co-sell statuses, see [Co-sell requirements](co-sell-requirements.md).
 
-## How to submit Co-sell materials in Partner Center
+## Benefits of co-sell ready status
 
-Start your Co-sell journey directly in Partner Center following the steps below. For more details, see [Co-sell option in the commercial marketplace](commercial-marketplace-co-sell.md).
+Co-sell ready status exposes your solutions to Microsoft sales teams. Co-selling with Microsoft sales teams and Microsoft partners helps you reach a vast community of Microsoft-managed customers to collaborate on sales opportunities that accelerate your business growth.
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. On the left pane, select **Commercial Marketplace** > **Overview**, then select the offer that you want to Co-sell.
+To learn how to achieve co-sell ready and Azure IP co-sell status, see [Co-sell ready and co-sell incentivized requirements](co-sell-requirements.md).
 
-    > [!NOTE]
-    > You can join the Co-sell program with a new offer not yet published or with an offer that is already published.
+## Benefits of co-sell incentivized status
 
-1. In the menu on the left, select **Co-sell with Microsoft**.
+_Co-sell incentivized_ status, includes _Azure IP Co-sell incentivized_ and _Biz Apps ISV Connect Premium incentive_. These statuses incentivize partners to sell your offer. To achieve this status, you must also achieve Co-sell ready status. Co-sell incentivized status earns all the benefits of Co-sell ready solutions and can earn additional incentives for Microsoft sales teams, and be eligible for more commercial marketplace benefits.
 
-    [![This image shows the location of the Co-sell with Microsoft tab.](media/co-sell/co-sell-with-microsoft-tab.png)](media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
+Azure IP Co-sell incentivized status can be applied to these offer types:
 
-1. Provide basic listing details to help Microsoft sellers quickly sort and discover your offer in the **Listing** section. (*Required: all fields.*)
+- Azure Application
+- Azure Container
+- Azure Virtual Machine
+- IoT Edge module
+- Software as a service (SaaS)
 
-    :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="This image shows the Listing section of the Co-sell tab.":::  
+Biz Apps ISV Connect Premium incentive status can be applied to these offer types:
 
-1. Provide details about your offer and upload collateral in the **Documents** section. Microsoft sellers will use this information to recommend and sell your offer. *(Required: Solution/offer one-pager and Solution/offer pitch deck. Required to attain Azure IP Co-sell incentivized status: Reference architecture diagram.)*
+- Dynamics 365 business central
+- Dynamics 365 for Customer Engagement & PowerApps
+- Dynamics 365 for operations
 
-    [![This image shows the Documents section in the Co-sell tab.](media/co-sell/co-sell-documents-section.png)](media/co-sell/co-sell-documents-section.png#lightbox)
+Offers that achieve _Azure IP Co-sell incentivized_ status gain these commercial marketplace benefits:
 
-1. Upload sales contact information in the **Contacts** section. Microsoft sellers may reach out to these contacts to request additional information about your offer. (*Required: a contact for each geography in which your offer is made available.*)
+- The marketplace service fee is reduced from 20% to 10%. This discount applies to your infrastructure as a service (IaaS) solution or software as a service (SaaS) solution sold through the commercial marketplace. For more information, see [Commercial marketplace service fees](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
+- Cloud Solution Provider (CSP) partners receive a 10% incentive to sell your IaaS solution or SaaS offer. To learn more about the CSP program, see [Cloud Solution Provider program](cloud-solution-providers.md).
+- Sales of your offer through the commercial marketplace will contribute towards customers’ Azure consumption commitments. Eligible customers will see the offer marked as **Azure benefit eligible** in Azure portal. For more information, see [Azure consumption commitment benefit](azure-consumption-commitment-benefit.md).
+- Offers that achieve _Azure IP Co-sell incentivized_ or _Biz Apps ISV Connect Premium incentive_ status will receive a **Preferred solutions** badge on the offer listing page in the online stores. The badge promotes an offer's quality, performance, and ability to address customer needs in a certain industry vertical or solution area. To learn more, see [Preferred solutions in Microsoft AppSource and Azure Marketplace](preferred-solutions.md).
 
-    [![This image shows the Contacts section in the Co-sell tab.](media/co-sell/co-sell-contacts-section.png)](media/co-sell/co-sell-contacts-section.png#lightbox)
-
-1. Save the draft before you continue.
-1. After you've completed all the required sections of the offer, you can submit it for review and publication. In the upper right, select **Review and publish**. Review the offer details, then select **Publish**.
-
-> [!NOTE]
-> You no longer need to contact us to nominate your offer for co-sell. After you complete all required fields on the Co-sell with Microsoft page and republish your offer, we will review your offer to determine if it meets the requirements for co-sell status.
-
-## See your offer's Co-sell status
-
-For offers with the [Co-sell option in the commercial marketplace](commercial-marketplace-co-sell.md), you can see your offer's current Co-sell status on the Offer Overview page:
-
-[![This image shows the current Co-sell status of offers.](media/co-sell/co-sell-status.png)](media/co-sell/co-sell-status.png#lightbox)
+To learn how to achieve co-sell ready and co-sell incentivized status, see [Co-sell ready and co-sell incentivized requirements](co-sell-requirements.md).
 
 ## Next steps
 
-- Learn more about [selling with Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
-- Learn more about the [Co-sell option in the commercial marketplace](commercial-marketplace-co-sell.md).
-- Read the [Co-sell Playbook](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).
+- For information about requirements, see [Co-sell ready and co-sell incentivized requirements](co-sell-requirements.md)
+- To configure an offer for co-sell, see [Configure Co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md)
+- To verify co-sell status, see [Verify co-sell status for an offer](co-sell-status.md).
+- Learn more about [Co-selling with Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).

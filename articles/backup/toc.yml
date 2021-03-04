@@ -68,6 +68,8 @@
       href: azure-file-share-support-matrix.md
     - name: Azure Disk Backup support matrix
       href: disk-backup-support-matrix.md
+    - name: Azure Blobs backup support matrix
+      href: blob-backup-support-matrix.md
     - name: Active Directory domain controllers
       href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy  
@@ -132,6 +134,8 @@
       href: backup-center-govern-environment.md
     - name: Perform actions
       href: backup-center-actions.md
+    - name: Community resources
+      href: backup-center-community.md
   - name: Azure VM backup
     items:
     - name: Overview
@@ -224,6 +228,14 @@
       href: backup-managed-disks.md
     - name: Restore
       href: restore-managed-disks.md
+  - name: Azure Blobs backup
+    items:
+    - name: Overview
+      href: blob-backup-overview.md
+    - name: Configure and manage
+      href: blob-backup-configure-manage.md
+    - name: Restore
+      href: blob-restore.md
   - name: Azure File share backup
     items:
     - name: Overview
@@ -437,6 +449,10 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
+  - name: Access tier
+    items:
+    - name: Archive tier
+      href: archive-tier-support.md
   - name: Troubleshoot
     items:
     - name: Azure VM

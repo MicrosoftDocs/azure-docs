@@ -16,6 +16,9 @@ As a Python developer, you may also be interested in one of the following articl
 | -- | -- | -- | 
 | <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
+> [!NOTE]
+> While you can [develop your Python based Azure Functions locally on Windows](create-first-function-vs-code-python.md#run-the-function-locally), Python is only supported on a Linux based hosting plan when running in Azure. See the list of supported [operating system/runtime](functions-scale.md#operating-systemruntime) combinations.
+
 ## Programming model
 
 Azure Functions expects a function to be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the `__init__.py` file. You can also [specify an alternate entry point](#alternate-entry-point).

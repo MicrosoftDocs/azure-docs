@@ -31,7 +31,7 @@ This article focuses on managing relationships and the graph as a whole; to work
 
 [!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
-You can also make changes to your graph using the Azure Digital Twins (ADT) Explorer sample, which allows you to visualize your twins and graph, and makes use of the SDK behind the scenes. The next section describes this sample in detail.
+You can also make changes to your graph using the Azure Digital Twins Explorer sample, which allows you to visualize your twins and graph, and makes use of the SDK behind the scenes. The next section describes this sample in detail.
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
