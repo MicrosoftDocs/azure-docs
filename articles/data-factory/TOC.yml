@@ -704,6 +704,8 @@
       href: how-to-create-tumbling-window-trigger.md
     - name: Create a tumbling window trigger dependency
       href: tumbling-window-trigger-dependency.md
+    - name: Reference trigger metadata in pipeline
+      href: how-to-use-trigger-parameterization.md
   - name: Data Catalog and Governance
     items:
     - name: Connect a Data Factory to Azure Purview
