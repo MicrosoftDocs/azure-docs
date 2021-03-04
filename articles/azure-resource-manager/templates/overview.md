@@ -2,7 +2,7 @@
 title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates (ARM templates) for deployment of resources.
 ms.topic: conceptual
-ms.date: 01/20/2021
+ms.date: 03/03/2021
 ---
 
 # What are ARM templates?
@@ -12,6 +12,8 @@ With the move to the cloud, many teams have adopted agile development methods. T
 To meet these challenges, you can automate deployments and use the practice of infrastructure as code. In code, you define the infrastructure that needs to be deployed. The infrastructure code becomes part of your project. Just like application code, you store the infrastructure code in a source repository and version it. Any one on your team can run the code and deploy similar environments.
 
 To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources.
+
+We've introduced a new language for developing ARM templates. The language is named Bicep, and is currently in preview. Bicep and JSON templates offer the same capabilities. You can convert template between the two languages. Bicep provides a syntax that is easier to use for creating templates. For more information, see [What is Bicep (Preview)?](bicep-overview.md).
 
 ## Why choose ARM templates?
 
@@ -63,7 +65,7 @@ The template has the following sections:
 
 * [User-defined functions](template-user-defined-functions.md) - Create customized functions that simplify your template.
 
-* [Resources](template-syntax.md#resources) - Specify the resources to deploy.
+* [Resources](resource-declaration.md) - Specify the resources to deploy.
 
 * [Outputs](template-outputs.md) - Return values from the deployed resources.
 

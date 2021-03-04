@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ---
 
 # Maintenance window (Preview)
@@ -27,29 +27,31 @@ The maintenance window is intended for business workloads that are not resilient
 
 The maintenance window can be configured using the Azure portal, PowerShell, CLI, or Azure API. It can be configured on creation or for existing SQL databases and SQL managed instances.
 
+> [!Important]
+> Configuring maintenance window is a long running asynchronous operation, similar to changing the service tier of the Azure SQL resource. The resource is available during the operation, except a short failover that happens at the end of the operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of failover you should perform the operation outside of the peak hours.
+
 ### Gain more predictability with maintenance window
 
 By default, all Azure SQL Databases and managed instance databases are updated only during 5PM to 8AM local times daily to avoid peak business hours interruptions. Local time is determined by the [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) that hosts the resource. You can further adjust the maintenance updates to a time suitable to your database by choosing from two additional maintenance window slots:
-
-* **Default** window, 5PM to 8AM local time Monday - Sunday 
+ 
 * Weekday window, 10PM to 6AM local time Monday – Thursday
 * Weekend window, 10PM to 6AM local time Friday - Sunday
 
-Once the maintenance window selection is made, all planned maintenance updates will only occur during the window of your choice.   
+Once the maintenance window selection is made and service configuration completed, all planned maintenance updates will only occur during the window of your choice.   
 
 > [!Note]
 > In addition to planned maintenance updates, in rare circumstances unplanned maintenance events can cause unavailability. 
 
 ### Cost and eligibility
 
-Choosing a maintenance window is free of charge for the following subscription [offer types](https://azure.microsoft.com/support/legal/offer-details/): Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise, or Microsoft Customer Agreement.
+Configuring and using maintenance window is free of charge for all eligible [offer types](https://azure.microsoft.com/support/legal/offer-details/): Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise, or Microsoft Customer Agreement.
 
 > [!Note]
 > An Azure offer is the type of the Azure subscription you have. For example, a subscription with [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/en-us/offers/ms-azr-0111p/), and [Visual Studio Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0063p/) are all Azure offers. Each offer or plan has different terms and benefits. Your offer or plan is shown on the subscription's Overview. For more information on switching your subscription to a different offer, see [Change your Azure subscription to a different offer](/azure/cost-management-billing/manage/switch-azure-offer).
 
 ## Advance notifications
 
-Maintenance notifications can be configured to alert customers on upcoming planned maintenance events 24 hours in advance, at the time of maintenance, and when the maintenance window is complete. For more information, see [Advance Notifications](advance-notifications.md).
+Maintenance notifications can be configured to alert you on upcoming planned maintenance events for you Azure SQL Database 24 hours in advance, at the time of maintenance, and when the maintenance window is complete. For more information, see [Advance Notifications](advance-notifications.md).
 
 ## Availability
 
@@ -57,6 +59,7 @@ Maintenance notifications can be configured to alert customers on upcoming plann
 
 Choosing a maintenance window other than the default is available on all SLOs **except for**:
 * Hyperscale 
+* Instance pools
 * Legacy Gen4 vCore
 * Basic, S0 and S1 
 * DC, Fsv2, M-series
@@ -88,7 +91,7 @@ To get the maximum benefit from maintenance windows, make sure your client appli
 
 * In Azure SQL Database, any connections using the proxy connection policy could be affected by both the chosen maintenance window and a gateway node maintenance window. However, client connections using the recommended redirect connection policy are unaffected by a gateway node maintenance failover. 
 
-* In Azure SQL managed instance, the gateway nodes are [within the virtual cluster](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) and have the same maintenance window as the managed instance, so using the proxy connection policy does not potentially expose connections to an additional maintenance window.
+* In Azure SQL managed instance, the gateway nodes are hosted [within the virtual cluster](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) and have the same maintenance window as the managed instance, but using the redirect connection policy is still recommended to minimize number of disruptions during the maintenance event.
 
 For more on the client connection policy in Azure SQL Database see [Azure SQL Database Connection policy](../database/connectivity-architecture.md#connection-policy). 
 
