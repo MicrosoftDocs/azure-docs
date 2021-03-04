@@ -34,9 +34,12 @@
       href: application-proxy-add-on-premises-application.md
   - name: Samples
     items: 
-    - name: Azure PowerShell samples for Application Management
+    - name: App Management samples
       href: app-management-powershell-samples.md
-    - name: Azure PowerShell samples for Application Proxy
+      items:
+      - name: Export all app registrations, secrets, and certs
+        href: plan-an-application-integration.md
+    - name: App Proxy samples
       href: application-proxy-powershell-samples.md
   - name: Concepts
     expanded: true

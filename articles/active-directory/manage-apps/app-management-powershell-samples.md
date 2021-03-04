@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.reviewer: mifarca
 ---
 
-# Azure AD PowerShell examples for Application Management
+# Azure Active Directory PowerShell examples for Application Management
 
 The following table includes links to PowerShell script examples for Azure AD Application Management. These samples require either:
 - The [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) or,
