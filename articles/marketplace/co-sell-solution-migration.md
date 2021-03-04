@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/07/2020
+ms.date: 3/04/2021
 ---
 
 # Migration of co-sell solutions from OCP GTM to the commercial marketplace
