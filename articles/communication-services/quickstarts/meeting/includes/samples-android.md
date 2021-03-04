@@ -1,9 +1,11 @@
 ---
+title: Using the Azure Communication Services Teams Embed for Android
+description: In this overview, you will learn how to use the Azure Communication Services Teams Embed library for Android.
 author: palatter
-ms.service: azure-communication-services
-ms.topic: include
-ms.date: 24/02/2021
 ms.author: palatter
+ms.date: 24/02/2021
+ms.topic: conceptual
+ms.service: azure-communication-services
 ---
 
 ## Prerequisites
