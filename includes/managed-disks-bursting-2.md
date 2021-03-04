@@ -5,7 +5,7 @@
  author: albecker1
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 02/12/2021
+ ms.date: 03/04/2021
  ms.author: albecker1
  ms.custom: include file
 ---
@@ -60,8 +60,6 @@ Credit-based bursting is available for disk sizes P20 and smaller in all regions
 ### Virtual machine-level bursting
 VM-level bursting support is enabled in all regions in Public Cloud on these supported sizes: 
 - [Lsv2-series](../articles/virtual-machines/lsv2-series.md)
-
-VM-level bursting is also available in West Central US for the following supported sizes:
 - [Dv3 and Dsv3-series](../articles/virtual-machines/dv3-dsv3-series.md)
 - [Ev3 and Esv3-series](../articles/virtual-machines/ev3-esv3-series.md)
 
