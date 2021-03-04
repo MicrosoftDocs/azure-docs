@@ -8,7 +8,7 @@ ms.custom: references_regions
 
 # Container image storage in Azure Container Registry
 
-Every [Basic, Standard, and Premium](container-registry-skus.md) Azure container registry benefits from advanced Azure storage features like encryption-at-rest for image data security and geo-redundancy for image data protection. The following sections describe both the features and limits of image storage in Azure Container Registry (ACR).
+Every [Basic, Standard, and Premium](container-registry-skus.md) Azure container registry benefits from advanced Azure storage features including encryption-at-rest. The following sections describe the features and limits of image storage in Azure Container Registry (ACR).
 
 ## Encryption-at-rest
 
