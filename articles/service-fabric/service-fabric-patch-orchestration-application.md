@@ -37,46 +37,49 @@ With Bronze durability, automatic OS image upgrade isn't available. While [Patch
 > [!IMPORTANT]
 > The in-VM upgrades where "Windows Update" applies operating system patches without replacing the OS disk are not supported on Azure Service Fabric.
 
-There are two ways to enable the feature with disabled Windows Update on the operation system.
+There are two steps needed to enable the feature with disabled Windows Update on the operation system correctly.
 
-ARM 
-```json
-"virtualMachineProfile": { 
-    "properties": {
-      "upgradePolicy": {
-        "automaticOSUpgradePolicy": {
-          "enableAutomaticOSUpgrade":  true
+1. Enabling automatic OS image upgrade, disabling Windows Updates
+    ARM 
+    ```json
+    "virtualMachineProfile": { 
+        "properties": {
+          "upgradePolicy": {
+            "automaticOSUpgradePolicy": {
+              "enableAutomaticOSUpgrade":  true
+            }
+          }
         }
       }
-    }
-  }
-```
-
-```json
-"virtualMachineProfile": { 
-    "osProfile": { 
-        "windowsConfiguration": { 
-            "enableAutomaticUpdates": false 
+    ```
+    
+    ```json
+    "virtualMachineProfile": { 
+        "osProfile": { 
+            "windowsConfiguration": { 
+                "enableAutomaticUpdates": false 
+            }
         }
     }
-}
-```
-Azure PowerShell
-```azurepowershell-interactive
-Update-AzVmss -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -AutomaticOSUpgrade $true -EnableAutomaticUpdate $false
-``` 
+    ```
 
-After this configuration change a reimage of all machines is needed to update the scale set model, so that the change is taken effect.
-
-Azure PowerShell
-```azurepowershell-interactive
-$scaleSet = Get-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName
-$instances = foreach($vm in $scaleSet)
-{
-    Set-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -InstanceId $vm.InstanceID -Reimage
-}
-``` 
-
+    Azure PowerShell
+    ```azurepowershell-interactive
+    Update-AzVmss -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -AutomaticOSUpgrade $true -EnableAutomaticUpdate $false
+    ``` 
+    
+1. Update scale set model
+    After this configuration change a reimage of all machines is needed to update the scale set model, so that the change is taken effect.
+    
+    Azure PowerShell
+    ```azurepowershell-interactive
+    $scaleSet = Get-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName
+    $instances = foreach($vm in $scaleSet)
+    {
+        Set-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -InstanceId $vm.InstanceID -Reimage
+    }
+    ``` 
+    
 Please have a look at [automatic OS image upgrades by Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) for further instructions.
 
 ## Patch Orchestration Application
