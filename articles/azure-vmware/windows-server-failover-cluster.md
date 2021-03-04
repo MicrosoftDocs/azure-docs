@@ -40,7 +40,7 @@ Azure VMware Solution provides native support for virtualized WSFC. It supports 
 
 The following diagram illustrates the architecture of WSFC virtual nodes on an Azure VMware Solution private cloud. It shows where Azure VMware Solution resides, including the WSFC virtual servers (red box), in relation to the broader Azure platform. This diagram illustrates a typical hub-spoke architecture, but a similar setup is possible with the use of Azure Virtual WAN. Both offer all the value other Azure services can bring you.
 
-![Diagram showing the architecture of WSFC virtual nodes on an Azure VMware Solution private cloud.](media/windows-server-failover-cluster/windows-server-failover-architecture.png)
+[![Diagram showing the architecture of WSFC virtual nodes on an Azure VMware Solution private cloud.](media/windows-server-failover-cluster/windows-server-failover-architecture.png)](media/windows-server-failover-cluster/windows-server-failover-architecture.png#lightbox)
 
 ## Supported configurations
 
