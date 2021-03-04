@@ -59,12 +59,12 @@ You can write a function by adding SDK to your function app. The function app in
 
 In order to use the SDK, you'll need to include the following packages into your project. You can either install the packages using Visual Studio's NuGet package manager, or add the packages using `dotnet` in a command-line tool.
 
-* `Azure.DigitalTwins.Core`
-* `Azure.Identity`
-* `System.Net.Http`
-* `Azure.Core.Pipeline`
+* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
+* [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
+* [System.Net.Http](https://www.nuget.org/packages/System.Net.Http/)
+* [Azure.Core](https://www.nuget.org/packages/Azure.Core/)
 
-Next, in your Visual Studio Solution Explorer, open the _Function1.cs_ file where you have sample code and add `using` statements for these packages to your function. 
+Next, in your Visual Studio Solution Explorer, open the _Function1.cs_ file where you have sample code and add the following `using` statements for these packages to your function. 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
