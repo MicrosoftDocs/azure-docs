@@ -688,7 +688,7 @@ There are some additional Log Analytics limits, some of which depend on the Log 
 - Use the steps described in [create a new log alert](../alerts/alerts-metric.md) to be notified when a search criteria is met.
 - Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers.
 - To configure an effective   event collection policy, review [Azure Security Center filtering policy](../../security-center/security-center-enable-data-collection.md).
-- Change [performance counter configuration](data-sources-performance-counters.md).
+- Change [performance counter configuration](../agents/data-sources-performance-counters.md).
 - To modify your event collection settings, review [event log configuration](../agents/data-sources-windows-events.md).
 - To modify your syslog collection settings, review [syslog configuration](../agents/data-sources-syslog.md).
 - To modify your syslog collection settings, review [syslog configuration](../agents/data-sources-syslog.md).
