@@ -6,7 +6,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/04/2021
 ms.author: cherylmc
 
 ---
@@ -59,9 +59,7 @@ The following diagram shows the projected end result:
 
 1. Specify a NAT rule.
 
-   Specify a NAT rule to ensure the Site-to-site VPN gateway is able to distinguish between the two branches with overlapping address spaces (such as 192.168.1.0/24).
-
-   In this example, we focus on Link1 for VPN Site 1.
+   Specify a NAT rule to ensure the Site-to-site VPN gateway is able to distinguish between the two branches with overlapping address spaces (such as 192.168.1.0/24). In this example, we focus on Link1 for VPN Site 1.
 
    The following NAT rule can be set up and associated to Link 1 of one of the branches. Because this is a static NAT rule, the address spaces of the InternalMapping and ExternalMapping contain the same number of IP addresses.
 
@@ -72,26 +70,25 @@ The following diagram shows the projected end result:
    * **ExternalMapping:** 10.1.1.0/24
    * **Link Connection:** Link 1
 
-1. Advertise the correct ExternalMapping
+1. Advertise the correct ExternalMapping.
 
-   In this step, ensure that your Site-to-site VPN gateway advertises the correct ExternalMapping address space to the rest of your Azure resources. There are two configuration examples:
+   In this step, ensure that your Site-to-site VPN gateway advertises the correct ExternalMapping address space to the rest of your Azure resources. There are different instructions, depending on whether BGP is enabled, or not.
 
    **Example 1: BGP is not enabled**
 
    In this example, the VPN site does not have BGP enabled.
 
-   * Navigate to the Virtual hub resource that contains the Site-to-site VPN gateway.
-   * On the virtual hub page, under **Connectivity**, select **VPN (Site-to-site)**.
-   * Select the VPN site that is connected to the Virtual WAN hub via Link 1.
-   * Click **Edit Site** and input 10.1.1.0/24 as the private address space for the VPN site.
+   * Navigate to the Virtual hub resource that contains the Site-to-site VPN gateway. On the virtual hub page, under **Connectivity**, select **VPN (Site-to-site)**.
+   * Select the VPN site that is connected to the Virtual WAN hub via Link 1. Click **Edit Site** and input 10.1.1.0/24 as the private address space for the VPN site.
 
-   :::image type="content" source="./media/nat-rules-vpn-gateway/edit-site.png" alt-text="Screenshot showing Edit VPN site page.":::
+     :::image type="content" source="./media/nat-rules-vpn-gateway/edit-site.png" alt-text="Screenshot showing Edit VPN site page.":::
 
-   **Example 2: BGP enabled**
+   **Example 2: BGP is enabled**
 
    In this example, The VPN site has BGP enabled.
 
-   Ensure that the on-premises BGP speaker located at VPN Site 1 is configured to advertise the 10.1.1.0/24 address space. During this preview, sites that have BGP enabled need to ensure that the on-premises BGP announcer (device BGP settings) include an entry for the external mapping prefixes.
+   * Ensure that the on-premises BGP speaker located at VPN Site 1 is configured to advertise the 10.1.1.0/24 address space.
+   * During this preview, sites that have BGP enabled need to ensure that the on-premises BGP announcer (device BGP settings) include an entry for the external mapping prefixes.
 
 ## Packet flow
 
