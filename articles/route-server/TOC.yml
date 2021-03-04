@@ -6,6 +6,8 @@
     href: overview.md
 - name: Quickstarts
   items:
+  - name: Configure a Route Server - Portal
+    href: quickstart-configure-route-server-portal.md
   - name: Configure a Route Server - PowerShell
     href: quickstart-configure-route-server-powershell.md
   - name: Configure a Route Server - CLI
