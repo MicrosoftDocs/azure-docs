@@ -275,8 +275,10 @@ groups:
     title: Go
   - id: programming-language-java
     title: Java
-  - id: programming-language-javascript
-    title: JavaScript
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-browserjs
+    title: JavaScript (browser)
   - id: programming-languages-objectivec-swift
     title: Objective-C/Swift
   - id: programming-language-python
