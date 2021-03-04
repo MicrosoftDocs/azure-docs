@@ -50,7 +50,7 @@ In this section, you'll create a cross-region load balancer, public IP address, 
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create):
+Create a resource group with [az group create](/cli/azure/group#az-group-create):
 
 * Named **myResourceGroupLB-CR**.
 * In the **westus** location.
@@ -152,7 +152,7 @@ Use [az network cross-region-lb address-pool address add](/cli/azure/network/cro
 
 In this section, you'll test the cross-region load balancer. You'll connect to the public IP address in a web browser.  You'll stop the virtual machines in one of the regional load balancer backend pools and observe the failover.
 
-1. To get the public IP address of the load balancer, use [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show):
+1. To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
 
 ```azurecli-interactive
   az network public-ip show \
@@ -169,7 +169,7 @@ In this section, you'll test the cross-region load balancer. You'll connect to t
 
 ## Clean up resources
 
-When no longer needed, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command to remove the resource group, load balancer, and all related resources.
+When no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
 
 ```azurecli-interactive
   az group delete \
