@@ -54,7 +54,7 @@ A previous section discusses the core resource to configure for Azure File Sync:
 
 Create multiple Storage Sync Services only if you have:
 * distinct sets of servers that must never exchange data with one another. In this case you want to design the system to exclude certain sets of servers to sync with an Azure file share that is already in use as a cloud endpoint in a sync group in a different Storage Sync Service. Another way to look at this is that Windows Servers registered to different storage sync service cannot sync with the same Azure file share.
-* a need to have more registered servers or sync groups than a single Storage Sync Service can support. Review the [Azure File Sync scale targets](../articles/storage/files/storage-files-scale-targets.md#azure-file-sync-scale-targets) for more details.
+* a need to have more registered servers or sync groups than a single Storage Sync Service can support. Review the [Azure File Sync scale targets](storage-files-scale-targets.md#azure-file-sync-scale-targets) for more details.
 
 ## Plan for balanced sync topologies
 Before you deploy any resources, it is important to plan out what you will sync on a local server, with which Azure file share. This will help you determine how many storage accounts, Azure file shares and sync resources you will need. These considerations are still relevant, even if your data doesn't currently reside on a Windows Server or the server you want to use long-term. The [migration section](#migration) can help determine appropriate migration paths for your situation.
