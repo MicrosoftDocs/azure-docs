@@ -57,13 +57,14 @@ You can refer to the [Managed Disks pricing page](https://azure.microsoft.com/pr
 
 Credit-based bursting is available for disk sizes P20 and smaller in all regions in Azure Public, Government, and China Clouds. By default, disk bursting is enabled on all new and existing deployments of supported disk sizes. VM-level bursting only uses credit-based bursting.
 
-### Virtual machine-level bursting
-VM-level bursting support is enabled in all regions in Public Cloud on these supported sizes: 
+## Virtual machine-level bursting
+
+VM-level bursting only uses the credit-based model for bursting, it is enabled by default for all VMs that support it.
+
+VM-level bursting is enabled in all regions in the Azure Public Cloud on these supported sizes: 
 - [Lsv2-series](../articles/virtual-machines/lsv2-series.md)
 - [Dv3 and Dsv3-series](../articles/virtual-machines/dv3-dsv3-series.md)
 - [Ev3 and Esv3-series](../articles/virtual-machines/ev3-esv3-series.md)
-
-By default, bursting is enabled for virtual machines that support it.
 
 ## Bursting flow
 
