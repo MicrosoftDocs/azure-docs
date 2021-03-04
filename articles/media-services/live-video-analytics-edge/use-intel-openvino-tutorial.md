@@ -113,7 +113,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
     ![Generate IoT Edge Deployment Manifest](./media/use-intel-openvino-tutorial/generate-deployment-manifest.png)  
 
-    The *deployment.yolov3.amd64.json* manifest file is created in the *src/edge/config* folder.
+    The *deployment.openvino.amd64.json* manifest file is created in the *src/edge/config* folder.
 
 1. If you completed the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then skip this step. 
 

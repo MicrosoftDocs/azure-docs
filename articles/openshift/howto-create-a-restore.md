@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Red Hat OpenShift 4 cluster application restore using Velero
 description: Learn how to create a restore of your Azure Red Hat OpenShift cluster applications using Velero
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 06/22/2020
 author: troy0820

@@ -138,7 +138,7 @@ To test the application, send an HTTP GET request to the `solar-system-weather` 
 1. To assign the endpoint, run the following command.
 
    ```azurecli
-   az spring-cloud app update -n solar-system-weather --is-public true
+   az spring-cloud app update -n solar-system-weather --assign-endpoint true
    ```
 
 1. To get the URL of the endpoint, run the following command.
@@ -240,7 +240,7 @@ We need a way to access the application via a web browser. Our gateway applicati
 1. Assign the endpoint using the following command:
 
     ```azurecli
-    az spring-cloud app update -n gateway --is-public true
+    az spring-cloud app update -n gateway --assign-endpoint true
     ```
 
 2. Query the **gateway** application for its public IP so you can verify that the application is running:

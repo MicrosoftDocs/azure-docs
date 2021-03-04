@@ -24,7 +24,7 @@ This article describes how to provision an account with continuous backup and re
 
 ## <a id="provision"></a>Provision an account with continuous backup
 
-You can use Azure Resource Manager templates to deploy an Azure Cosmos DB account with continuous mode. When defining the template to provision an account, include the "backupPolicy" parameter as shown in the following example:
+You can use Azure Resource Manager templates to deploy an Azure Cosmos DB account with continuous mode. When defining the template to provision an account, include the `backupPolicy` parameter as shown in the following example:
 
 ```json
 {
@@ -62,9 +62,9 @@ az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 You can also restore an account using Resource Manager template. When defining the template include the following parameters:
 
-* Set the "createMode" parameter to "Restore"
-* Define the "restoreParameters", notice that the "restoreSource" value is extracted from the output of the `az cosmosdb restorable-database-account list` command for your source account. The Instance ID attribute for your account name is used to do the restore.
-* Set the "restoreMode" parameter to "PointInTime" and configure the "restoreTimestampInUtc" value.
+* Set the `createMode` parameter to *Restore*
+* Define the `restoreParameters`, notice that the `restoreSource` value is extracted from the output of the `az cosmosdb restorable-database-account list` command for your source account. The Instance ID attribute for your account name is used to do the restore.
+* Set the `restoreMode` parameter to *PointInTime* and configure the `restoreTimestampInUtc` value.
 
 ```json
 {

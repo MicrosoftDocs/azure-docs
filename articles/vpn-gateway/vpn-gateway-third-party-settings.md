@@ -7,7 +7,7 @@ manager: dcscontentpm
 
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 02/10/2021
 ms.author: delhan
 
 ---

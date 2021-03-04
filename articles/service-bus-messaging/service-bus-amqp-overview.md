@@ -2,7 +2,7 @@
 title: Overview of AMQP 1.0 in Azure Service Bus
 description: Learn how Azure Service Bus supports Advanced Message Queuing Protocol (AMQP), an open standard protocol.
 ms.topic: article
-ms.date: 11/20/2020
+ms.date: 02/17/2021
 ---
 
 # AMQP 1.0 support in Service Bus
@@ -79,9 +79,8 @@ Ready to learn more? Visit the following links:
 
 * [Using Service Bus from .NET with AMQP]
 * [Using Service Bus from Java with AMQP]
-* [Installing Apache Qpid Proton-C on an Azure Linux VM]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Using Service Bus from .NET with AMQP]: service-bus-amqp-dotnet.md
 [Using Service Bus from Java with AMQP]: ./service-bus-java-how-to-use-jms-api-amqp.md
-[Installing Apache Qpid Proton-C on an Azure Linux VM]:
+

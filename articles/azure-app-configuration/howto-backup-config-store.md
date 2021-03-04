@@ -175,7 +175,7 @@ az functionapp identity assign --name $functionAppName --resource-group $resourc
 ```
 
 > [!NOTE]
-> To perform the required resource creation and role management, your account needs `Owner` permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, learn [how to add or remove Azure role assignments by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+> To perform the required resource creation and role management, your account needs `Owner` permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, learn [how to assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 Use the following commands or the [Azure portal](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) to grant the managed identity of your function app access to your App Configuration stores. Use these roles:
 - Assign the `App Configuration Data Reader` role in the primary App Configuration store.

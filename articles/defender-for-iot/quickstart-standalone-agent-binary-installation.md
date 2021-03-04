@@ -1,26 +1,26 @@
 ---
-title: Install Defender for IoT micro agent (Preview)
+title: Install Defender for IoT micro agent 
 titleSuffix: Azure Defender for IoT
 description: Learn how to install, and authenticate the Defender Micro Agent.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/18/2021
+ms.date: 3/3/2021
 ms.topic: quickstart
 ms.service: azure
 ---
 
-# Install Defender for IoT micro agent (Preview)
+# Install Defender for IoT micro agent 
 
 This article provides an explanation of how to install, and authenticate the Defender micro agent.
 
 ## Prerequisites
 
-Prior to installing the Defender for IoT module you must create a module identity in the IoT Hub. For more information on how to create a module identity, see [Create an azureiotsecurity module twin](quickstart-create-security-twin.md)
+Prior to installing the Defender for IoT module you must create a module identity in the IoT Hub. For more information on how to create a module identity, see [Create a Defender IoT micro agent module twin ](quickstart-create-micro-agent-module-twin.md).
 
 ## Install the package
 
-Install, and configure the Microsoft package repository by following [these instructions](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software). 
+Install, and configure the Microsoft package repository by following [these instructions](/windows-server/administration/linux-package-repository-for-microsoft-software). 
 
 For Debian 9, the instructions do not include the repository that needs to be added, use the following commands to add the repository: 
 
