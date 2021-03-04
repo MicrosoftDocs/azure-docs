@@ -87,10 +87,10 @@ You can also specify a recognition model for similarity search. You can assign t
 See the following code example for the .NET client library.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 ```
 
-This code creates a face list called `My face collection`, using the _recognition_03_ model for feature extraction. When you search this face list for similar faces to a new detected face, that face must have been detected ([Face - Detect]) using the _recognition_03_ model. As in the previous section, the model needs to be consistent.
+This code creates a face list called `My face collection`, using the _recognition_04_ model for feature extraction. When you search this face list for similar faces to a new detected face, that face must have been detected ([Face - Detect]) using the _recognition_04_ model. As in the previous section, the model needs to be consistent.
 
 There is no change in the [Face - Find Similar] API; you only specify the model version in detection.
 
