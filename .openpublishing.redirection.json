@@ -931,6 +931,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/connect-with-saml-service-providers.md",
+      "redirect_url": "/azure/active-directory-b2c/saml-service-provider",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/conditional-access-technical-profile.md",
       "redirect_url": "/azure/active-directory-b2c/conditional-access-user-flow",
       "redirect_document_id": true
@@ -2871,6 +2876,11 @@
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-continuous-deployment.md",
+      "redirect_url": "/azure/app-service/deploy-continuous-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/deploy-github-actions.md",
       "redirect_url": "/azure/app-service/deploy-continuous-deployment",
       "redirect_document_id": false
     },
@@ -5317,6 +5327,11 @@
     {
       "source_path_from_root": "/articles/partner-solutions/index.md",
       "redirect_url": "/azure/partner-solutions/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-solutions/apache-kafka-confluent-cloud/index.md",
+      "redirect_url": "/azure/partner-solutions/apache-kafka-confluent-cloud/overview",
       "redirect_document_id": false
     },
     {
@@ -14470,6 +14485,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/restorable-database-accounts-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-database-accounts-list-by-location.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/listbylocation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-sql-resources-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlresources/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-sql-databases-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqldatabases/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-sql-containers-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlcontainers/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-resources-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbresources/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-collections-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbcollections/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-databases-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbdatabases/list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/create-documentdb-nodejs.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-nodejs",
       "redirect_document_id": true
@@ -16767,6 +16822,11 @@
     {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-powershell-script.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-powershell-script",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-k-series-overview.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-mini-r-overview",
       "redirect_document_id": false
     },
     {
@@ -32577,6 +32637,26 @@
     {
       "source_path_from_root": "/articles/security-center/security-center-app-services.md",
       "redirect_url": "/azure/security-center/defender-for-app-service-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-monitoring.md",
+      "redirect_url": "/azure/security-center/security-center-remediate-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-using-recommendations.md",
+      "redirect_url": "/azure/security-center/security-center-remediate-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/configure-security-policy-azure-policy.md",
+      "redirect_url": "/azure/security-center/custom-security-policies?pivot=rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-alerts-cloud-smart.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-overview.md#cloud-smart-alert-correlation-in-azure-security-center-incidents",
       "redirect_document_id": false
     },
     {
