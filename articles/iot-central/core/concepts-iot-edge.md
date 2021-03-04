@@ -69,8 +69,6 @@ Downstream devices can connect to an IoT Edge gateway device through multiple cu
 
 :::image type="content" source="media/concepts-iot-edge/gateway-two-modules-transparent.png" alt-text="Diagram of connecting using multiple custom modules" border="false":::
 
-<!-- To do: add link to how to configure gateway article? -->
-
 ## IoT Edge devices and IoT Central
 
 IoT Edge devices can use *shared access signature* tokens or X.509 certificates to authenticate with IoT Central. You can manually register your IoT Edge devices in IoT Central before they connect for the first time, or use the Device Provisioning Service to handle the registration. To learn more, see [Get connected to Azure IoT Central](concepts-get-connected.md).
@@ -280,7 +278,7 @@ You can also install the IoT Edge runtime in the following environments:
 
 If you selected an IoT Edge device to be a gateway device, you can add downstream relationships to device models for devices you want to connect to the gateway device.
 
-<!-- TODO - add link to Edge Gateway how-to -->
+To learn more, see [How to connect devices through an IoT Edge transparent gateway](how-to-connect-iot-edge-transparent-gateway.md).
 
 ## Next steps
 
