@@ -15,51 +15,53 @@ ms.author: lajanuar
 
 # Form Recognizer custom models
 
-Form Recognizer uses model-based machine learning technology to analyze and extract data from your documents. A Form Recognizer model is a representation of extracted data that is used as a reference for analyzing your specific content. There are two types of Form recognizer models:
+Form Recognizer uses model-based machine learning technology to analyze and extract data from your forms and documents. A Form Recognizer model is a representation of extracted data that is used as a reference for analyzing your specific content. There are two types of Form recognizer models:
 
-* **Prebuilt models**. Form Recognizer currently supports prebuilt models for receipts, business cards, and invoices. Prebuilt models detect and extract information from document images and return the extracted data in a structured JSON output.
+* **Custom models**. Form Recognizer custom models represent extracted data from _forms_ specific to your business. Custom models must be trained to analyze your distinct form data.
 
-* **Custom models**. A Form Recognizer custom model represents extracted data that is specific to your business. Custom models must be trained to analyze your distinct data.
+* **Prebuilt models**. Form Recognizer currently supports prebuilt models for _receipts, business cards, and invoices_. Prebuilt models detect and extract information from document images and return the extracted data in a structured JSON output.
 
-## Assemble your training dataset
+## What does a custom model do?
 
- Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. Your forms can be of different file types but must be of the same type of document and follow the input requirements for Form Recognizer. *See* [Custom model input requirements](build-training-data-set.md#custom-model-input-requirements).
+Custom models apply the [Layout API]((concept-layout#try-it-out) ) to analyze all fields and values found in your custom forms. Layout API uses [Optical Character Recognition (OCR)](../computer-vision/concept-recognizing-text) to extract information from varied documents and return a structured data representation.
 
- Custom models use the [Layout API]((concept-layout#try-it-out) ) to analyze data and structure from documents. The Layout API uses [Optical Character Recognition (OCR)](../computer-vision/concept-recognizing-text) to extract information from varied documents and return a structured data representation.
+Your custom model can be trained with or without labeled datasets.
 
-Your custom model can be trained with or without labeled datasets. Unlabeled datasets rely solely on the Layout API to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. If you want to use both labeled and unlabeled documents, you must start with at least five complete documents of the same type for the labeled training data and then add unlabeled documents to the required data set.
+## Create, use, and manage your custom model
 
-## Build and use your custom model
-
-At a high level, the steps for building training, and using your custom model are as follows:
+At a high level, the steps for building, training, and using your custom model are as follows:
 
 > [!div class="nextstepaction"]
-> [1. Upload your training data](build-training-data-set.md#upload-your-training-data)  
+> [1. Assemble your training dataset](build-training-data-set.md#custom-model-input-requirements)
 
-You'll upload your training data to an Azure blob storage container.  
+Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types and contain both text and handwriting. Your forms must be of the same type of document and follow the input requirements for Form Recognizer.
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 
 > [!div class="nextstepaction"]
-> [2. Train your custom model](quickstarts/client-library.md#train-a-custom-model)  
+> [2. Upload your training dataset](build-training-data-set.md#upload-your-training-data)
 
-You can train your model [with](quickstarts/client-library.md#train-a-model-with-labels) or [without](quickstarts/client-library.md#train-a-model-without-labels) labels.  
+You'll need to upload your training data to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, *see* [Azure Storage quickstart for Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
+
+> [!div class="nextstepaction"]
+> [3. Train your custom model](quickstarts/client-library.md#train-a-custom-model)
+
+You can train your model [without](quickstarts/client-library.md#train-a-model-without-labels) or [with](quickstarts/client-library.md#train-a-model-with-labels) or labeled data sets. Unlabeled datasets rely solely on the Layout API to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled and unlabeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 
 >[!div class="nextstepaction"]
-> [3. Analyze documents with your custom model](quickstarts/client-library.md#analyze-forms-with-a-custom-model)  
+> [4. Analyze documents with your custom model](quickstarts/client-library.md#analyze-forms-with-a-custom-model).
 
-Once your model is trained, you can test  and refine to ensure it meets your expectations.  
+Test your newly trained model by using a form that wasn't part of the training dataset. You can continue to do further training to improve the performance of your custom model. 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 
 > [!div class="nextstepaction"]
-> [4. Manage your custom models](quickstarts/client-library.md#manage-custom-models)  
+> [5. Manage your custom models](quickstarts/client-library.md#manage-custom-models)
 
-You can view, retrieve, or delete your custom models at any time.
+At any time, you can view a list of all the custom models under your subscription, retrieve information about a specific custom model, or delete a custom model from your account.
 
 ## Next steps
 
-View our API documentation to learn more about Form Recognizer:
-
-**[Form Recognizer API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291)**
+View **[Form Recognizer API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291)** documentation to learn more.
 
 >
