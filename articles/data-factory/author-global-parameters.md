@@ -16,7 +16,7 @@ Global parameters are constants across a data factory that can be consumed by a 
 
 ## Creating global parameters
 
-To create a global parameter, go to the *Global parameters* tab in the *Manage* section. Select **New** to open the creation side-nav.
+To create a global parameter, go to the *Global parameters* tab in the **Manage** section. Select **New** to open the creation side-nav.
 
 ![Screenshot that highlights the New button you select to create global parameters.](media/author-global-parameters/create-global-parameter-1.png)
 
