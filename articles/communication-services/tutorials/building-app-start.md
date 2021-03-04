@@ -33,12 +33,12 @@ In this tutorial, you learn how to:
 - [Visual Studio Code](https://code.visualstudio.com/): We'll use this to edit code in your local development environment.
 - [webpack](https://webpack.js.org/): This will be used to bundle and locally host your code.
 - [Node.js](https://nodejs.org/en/): This will be used to install and manage dependencies like Azure Communication Services client libraries and webpack.
-- [nvm and npm](https://docs.microsoft.com/windows/nodejs/setup-on-windows) to handle version control.
-- The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. [Read more about hosting static web sites in Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)
+- [nvm and npm](/windows/nodejs/setup-on-windows) to handle version control.
+- The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. [Read more about hosting static web sites in Azure Storage](../../storage/blobs/storage-blob-static-website.md)
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The extension allows deploying websites (similar to the previous) but with the option to configure the fully managed  continuous integration and continuous delivery (CI/CD).
 - The [Azure Function extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to build your own serverless applications. For example, you can host your authentication application in Azure functions.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
-- A user access token. See the [access tokens quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) or the [trusted service tutorial](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial) for instructions.
+- A user access token. See the [access tokens quickstart](../quickstarts/access-tokens.md?pivots=programming-language-javascript) or the [trusted service tutorial](./trusted-service-tutorial.md) for instructions.
 
 
 ## Configure your development environment
@@ -52,7 +52,7 @@ Your local development environment will be configured like this:
 
 We'll use Node.js to download and install various dependencies we need for our client-side application. We'll use it to generate static files that we'll then host in Azure, so you don't need to worry about configuring it on your server.
 
-Windows developers can follow [this NodeJS tutorial](https://docs.microsoft.com/windows/nodejs/setup-on-windows) to configure Node, nvm, and npm. 
+Windows developers can follow [this NodeJS tutorial](/windows/nodejs/setup-on-windows) to configure Node, nvm, and npm. 
 
 We tested this tutorial using the LTS 12.20.0 version. After you install nvm, use the following PowerShell command to deploy the version that you want to use:
 
@@ -101,11 +101,25 @@ Follow the same steps for the [Azure Functions](https://marketplace.visualstudio
 
 ## Set up a local webserver
 
+### Create a new npm package
+
+In your terminal, from the path of your workspace folder, type:
+
+``` console
+npm init -y
+```
+
+This command initializes a new npm package and adds `package.json` into the root folder of your project.
+
+:::image type="content" source="./media/step-one-pic-eight.png" alt-text="Package JSON":::
+
+Additional documentation on the npm init command can be found [here](https://docs.npmjs.com/cli/v6/commands/npm-init)
+
 ### Install webpack
 
 [webpack](https://webpack.js.org/) lets you bundle code into static files that you can deploy to Azure. It also has a development server, which we'll configure to use with the calling sample.
 
-Type the following in your open terminal to install webpack:
+In your terminal type the following to install webpack:
 
 ``` Console
 npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
@@ -170,7 +184,7 @@ Source map options are listed [here](https://webpack.js.org/configuration/devtoo
 
 :::image type="content" source="./media/step-one-pic-11.png" alt-text="Configuring webpack":::
 
-To run the development server, go to `package.json.js` and add the following code under scripts:
+To run the development server, go to `package.json` and add the following code under scripts:
 
 ```JavaScript
     "build:dev": "webpack-dev-server --config webpack.dev.js"
@@ -201,7 +215,7 @@ Your file now should look like this:
 
 You added the command that can be used from npm. 
 
-:::image type="content" source="./media/step-one-pic-12.png" alt-text="Modifying package-json.js":::
+:::image type="content" source="./media/step-one-pic-12.png" alt-text="Modifying package.json":::
 
 ### Testing the development server
 
@@ -243,6 +257,7 @@ html {
     font-family: sans-serif;
   }
 ```
+Don't forget to save! The unsaved file is indicated by white dots next to file names in the file Explorer.
 
  :::image type="content" source="./media/step-one-pic-14.png" alt-text="App.js file with JS code":::
 
@@ -256,7 +271,7 @@ Use the following terminal command to test your development configuration:
 npm run build:dev
 ```
 
-The console will show you where the server is running. By default, it's `http://localhost:8080`. The build:dev command is the command we added to our `package-json.js` earlier.
+The console will show you where the server is running. By default, it's `http://localhost:8080`. The build:dev command is the command we added to our `package.json` earlier.
 
  :::image type="content" source="./media/step-one-pic-16.png" alt-text="Starting a development server":::
  
@@ -284,26 +299,11 @@ This action will add the Azure Communication Services common and calling package
 
 :::image type="content" source="./media/step-one-pic-nine.png" alt-text="Installing Azure Communication Services packages":::
 
-These packages are provided by the Azure Communication Services team and include the authentication and calling libraries. The "--save" command signals that our application depends on these packages for production use and will be included in the `dependencies` of our `package-json.js` file. When we build the application for production, the packages will be included in our production code.
+These packages are provided by the Azure Communication Services team and include the authentication and calling libraries. The "--save" command signals that our application depends on these packages for production use and will be included in the `dependencies` of our `package.json` file. When we build the application for production, the packages will be included in our production code.
 
 
 ## Publish your website to Azure Static Websites
 
-### Create a new npm package
-
-In your terminal, from the path of your workspace folder, type:
-
-``` console
-npm init -y
-```
-
-This command initializes a new npm package and adds `package.json` into the root folder of your project.
-
-:::image type="content" source="./media/step-one-pic-eight.png" alt-text="Package JSON":::
-
-Additional documentation on the npm init command can be found [here](https://docs.npmjs.com/cli/v6/commands/npm-init)
-
- 
 ### Create a configuration for production deployment
 
 Add the following code to the `webpack.prod.js`:

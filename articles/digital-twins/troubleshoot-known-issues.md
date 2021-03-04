@@ -26,8 +26,6 @@ This article provides information about known issues associated with Azure Digit
 
 **Issue description:** Some users may experience issues with the role assignment portion of [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md). The script does not indicate failure, but the *Azure Digital Twins Data Owner* role is not successfully assigned to the user, and this issue will impact ability to create other resources down the road.
 
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
-
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |
 | To determine whether your role assignment was successfully set up after running the script, follow the instructions in the [*Verify user role assignment*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) section of the setup article. If your user is not shown with this role, this issue affects you. | For users logged in with a personal [Microsoft account (MSA)](https://account.microsoft.com/account), your user's Principal ID that identifies you in commands like this may be different from your user's sign-in email, making it difficult for the script to discover and use to assign the role properly. | To resolve, you can set up your role assignment manually using either the [CLI instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions) or [Azure portal instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions). |

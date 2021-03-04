@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/30/2020
+ms.date: 12/29/2020
 ms.author: irenehua
 ---
 # Update or delete a load balancer used by virtual machine scale sets
@@ -77,14 +77,15 @@ az network lb inbound-nat-pool update
 
 ## Delete inbound NAT rules
 
-Individual inbound NAT rules can't be deleted, but you can delete the entire set of inbound NAT rules.
+Individual inbound NAT rules can't be deleted, but you can delete the entire set of inbound NAT rules by deleting the inbound NAT pool.
 
-To delete the whole set of inbound NAT rules used by the scale set, first remove the NAT pool from the scale set. A full example using the CLI is shown here:
-    
+To delete the NAT pool, first remove it from the scale set. A full example using the CLI is shown here:
+
 ```azurecli-interactive
     az vmss update
        --resource-group MyResourceGroup
        --name MyVMSS
+       --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools
      az vmss update-instances 
        --instance-ids "*" 
        --resource-group MyResourceGroup
@@ -104,6 +105,52 @@ To add multiple IP configurations:
 1. On the **Add frontend IP address** page, enter the values and select **OK**.
 1. Follow [step 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) and [step 6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) in this tutorial if new load-balancing rules are needed.
 1. Create a new set of inbound NAT rules by using the newly created front-end IP configurations if needed. An example is found in the previous section.
+
+## Multiple Virtual Machine Scale Sets behind a single Load Balancer
+
+Create inbound NAT Pool in Load Balancer, reference the inbound NAT pool in the network profile of a Virtual Machine Scale Set, and finally update the instances for the changes to take effect. Repeat the steps for all Virtual Machine Scale Sets.
+
+Make sure to create separate inbound NAT pools with non-overlapping frontend port ranges.
+  
+```azurecli-interactive
+  az network lb inbound-nat-pool create 
+          -g MyResourceGroup 
+          --lb-name MyLb
+          -n MyNatPool 
+          --protocol Tcp 
+          --frontend-port-range-start 80 
+          --frontend-port-range-end 89 
+          --backend-port 80 
+          --frontend-ip-name MyFrontendIpConfig
+  az vmss update 
+          -g MyResourceGroup 
+          -n myVMSS 
+          --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
+            
+  az vmss update-instances
+          -–instance-ids *
+          --resource-group MyResourceGroup
+          --name MyVMSS
+          
+  az network lb inbound-nat-pool create 
+          -g MyResourceGroup 
+          --lb-name MyLb
+          -n MyNatPool2
+          --protocol Tcp 
+          --frontend-port-range-start 100 
+          --frontend-port-range-end 109 
+          --backend-port 80 
+          --frontend-ip-name MyFrontendIpConfig2
+  az vmss update 
+          -g MyResourceGroup 
+          -n myVMSS2 
+          --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool2'}"
+            
+  az vmss update-instances
+          -–instance-ids *
+          --resource-group MyResourceGroup
+          --name MyVMSS2
+```
 
 ## Delete the front-end IP configuration used by the virtual machine scale set
 

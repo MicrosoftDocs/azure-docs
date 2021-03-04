@@ -225,7 +225,7 @@ Yes. You can consume Prometheus metrics and publish them to your event grid.
 
 **Can I use Azure Monitor to view the health, metrics, and performance of my media graphs in the cloud or on the edge?**
 
-Yes, we support this approach. To learn more, see [Azure Monitor Metrics overview](../../azure-monitor/platform/data-platform-metrics.md).
+Yes, we support this approach. To learn more, see [Azure Monitor Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md).
 
 **Are there any tools to make it easier to monitor the Media Services IoT Edge module?**
 

@@ -3,12 +3,11 @@ title: How to move a device to Azure IoT Central from IoT Hub
 description: How to move device to Azure IoT Central from IoT Hub
 author: TheRealJasonAndrew
 ms.author: v-anjaso
-ms.date: 12/20/2020 
+ms.date: 02/20/2021 
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ---
-
 # How to transfer a device to Azure IoT Central from IoT Hub
 
 *This article applies to operators and device developers.*  
@@ -19,7 +18,7 @@ A device first connects to a DPS endpoint to retrieve the information it needs t
 
 A device can be connected to an IoT hub directly using a connection string or using DPS. [Azure IoT Hub Device Provisioning service (DPS)](../../iot-dps/about-iot-dps.md) is the route for IoT Central.
 
-## To move the device
+## To move the device to Azure IoT Central
 
 To connect a device to IoT Central from the IOT Hub a device needs to be updated with:
 

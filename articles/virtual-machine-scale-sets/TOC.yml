@@ -164,9 +164,16 @@
   - name: Endorsed Linux distros
     href: ../virtual-machines/linux/endorsed-distros.md
     maintainContext: true
+  - name: Orchestration modes (preview) 
+    href: virtual-machine-scale-sets-orchestration-modes.md
   - name: Maintenance and updates
-    href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
-    maintainContext: true
+    items:
+    - name: Overview
+      href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
+      maintainContext: true
+    - name: Automatic extension upgrade (preview) 
+      href: ../virtual-machines/automatic-extension-upgrade.md
+      maintainContext: true
   - name: Disk storage
     items:
     - name: Managed Disks
@@ -205,7 +212,7 @@
       href: security-baseline.md
     maintainContext: true
   - name: Monitoring
-    href: ../azure-monitor/insights/monitor-vm-azure.md
+    href: ../azure-monitor/vm/monitor-vm-azure.md
     maintainContext: true
   - name: Deployment considerations
     items:
@@ -299,7 +306,7 @@
       - name: Use the Azure portal
         href: virtual-machine-scale-sets-autoscale-portal.md
       - name: Advanced autoscale
-        href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+        href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
         maintainContext: true
       - name: Troubleshoot autoscale
         href: virtual-machine-scale-sets-troubleshoot.md
@@ -339,7 +346,7 @@
         href: ../virtual-machines/windows/dedicated-hosts-powershell.md
       - name: Portal
         href: ../virtual-machines/dedicated-hosts-portal.md
-    - name: Use spot instance
+    - name: Azure Spot Virtual Machines
       href: use-spot.md
   - name: Manage
     items:

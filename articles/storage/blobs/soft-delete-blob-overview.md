@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -79,7 +79,7 @@ When **Delete Blob** is called on a base blob (any blob that is not itself a sna
 > [!NOTE]  
 > When a soft deleted blob is overwritten, a soft deleted snapshot of the blob's state prior to the write operation is automatically generated. The new blob inherits the tier of the overwritten blob.
 
-Soft delete does not save your data in cases of container or account deletion, nor when blob metadata and blob properties are overwritten. To protect a storage account from deletion, you can configure a lock using the Azure Resource Manager. For more information, see the Azure Resource Manager article [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
+Soft delete does not save your data in cases of container or account deletion, nor when blob metadata and blob properties are overwritten. To protect a storage account from deletion, you can configure a lock using the Azure Resource Manager. For more information, see the Azure Resource Manager article [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).  To protect containers from accidental deletion, configure container soft delete for the storage account. For more information, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
 
 The following table details expected behavior when soft delete is turned on:
 
