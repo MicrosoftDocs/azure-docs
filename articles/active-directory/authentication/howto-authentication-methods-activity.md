@@ -23,13 +23,18 @@ The new authentication methods activity dashboard enables admins to monitor auth
 
 ## Permissions and licenses
 
-The following roles can access usage and insights:
+Built-in and custom roles with the following permissions can access the Authentication Methods Activity blade and APIs:
+
+- Microsoft.directory/auditLogs/allProperties/read
+- Microsoft.directory/signInReports/allProperties/read
+
+The following roles have the required permissions:
 
 - Reports Reader
 - Security Reader
+- Global Reader
 - Security Operator
 - Security Administrator
-- Global Reader
 - Global Administrator
 
  An Azure AD Premium P1 or P2 license is required to access usage and insights. Azure AD Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
