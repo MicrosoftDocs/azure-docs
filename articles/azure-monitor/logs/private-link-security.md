@@ -218,7 +218,7 @@ The settings on the bottom part of this page control access from public networks
 
 ### Exceptions
 Restricting access as explained above doesn't apply to the Azure Resource Manager and therefore has the following limitations:
-* Access to data - while blocking/allowing queries from public networks applies to most Log Analytics experiences, some experiences query data through Azure Resource Manager and therefore won't be able to query data unless Private Link settings are applied to the Resource Manager as well (feature coming up soon). This includes, for example, Azure Monitor solutions, Workbooks and Insights, and the LogicApp connector.
+* Access to data - while blocking/allowing queries from public networks applies to most Log Analytics experiences, some experiences query data through Azure Resource Manager and therefore won't be able to query data unless Private Link settings are applied to the Resource Manager as well (feature coming up soon). Examples are Azure Monitor solutions, Workbooks and Insights, and the LogicApp connector.
 * Workspace management - Workspace setting and configuration changes (including turning these access settings on or off) are managed by Azure Resource Manager. Restrict access to workspace management using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md).
 
 > [!NOTE]
@@ -248,17 +248,17 @@ Second, you can control how this resource can be reached from outside of the pri
 > [!NOTE]
 > Non-portal consumption experiences must also run on the private-linked VNET that includes the monitored workloads.
 
-You’ll need to add resources hosting the monitored workloads to the private link. Here’s [documentation](../../app-service/networking/private-endpoint.md) for how to do this for App Services.
+You’ll need to add resources hosting the monitored workloads to the private link. For example, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md).
 
 Restricting access in this manner only applies to data in the Application Insights resource. However, configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. So, you should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md).
 
 > [!NOTE]
 > To fully secure workspace-based Application Insights, you need to lock down both access to Application Insights resource as well as the underlying Log Analytics workspace.
 >
-> Code-level diagnostics (profiler/debugger) need you to provide your own storage account to support private link. Here's [documentation](../app/profiler-bring-your-own-storage.md) for how to do this.
+> Code-level diagnostics (profiler/debugger) need you to [provide your own storage account](../app/profiler-bring-your-own-storage.md) to support private link.
 
 ### Handling the All-or-Nothing nature of Private Links
-As explained in [Planning your Private Link setup](#planning-your-private-link-setup), setting up a Private Link even for a single resource affects all Azure Monitor resources in that networks, and in other networks that share the same DNS. This can make your onboarding process challenging. Consider the following options:
+As explained in [Planning your Private Link setup](#planning-your-private-link-setup), setting up a Private Link even for a single resource affects all Azure Monitor resources in that networks, and in other networks that share the same DNS. This behavior can make your onboarding process challenging. Consider the following options:
 
 * All in - the simplest and most secure approach is to add all of your Application Insights components to the AMPLS. For components that you wish to still access from other networks as well, leave the “Allow public internet access for ingestion/query” flags set to Yes (the default).
 * Isolate networks - if you are (or can align with) using spoke vnets, follow the guidance in [Hub-spoke network topology in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Then, setup separate private link settings in the relevant spoke VNets. Make sure to separate DNS zones as well, since sharing DNS zones with other spoke networks will cause [DNS overrides](#the-issue-of-dns-overrides).
