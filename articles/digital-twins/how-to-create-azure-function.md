@@ -59,12 +59,12 @@ You can write a function by adding SDK to your function app. The function app in
 
 In order to use the SDK, you'll need to include the following packages into your project. You can either install the packages using Visual Studio's NuGet package manager, or add the packages using `dotnet` in a command-line tool.
 
-* `Azure.DigitalTwins.Core`
-* `Azure.Identity`
-* `System.Net.Http`
-* `Azure.Core.Pipeline`
+* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
+* [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
+* [System.Net.Http](https://www.nuget.org/packages/System.Net.Http/)
+* [Azure.Core](https://www.nuget.org/packages/Azure.Core/)
 
-Next, in your Visual Studio Solution Explorer, open the _Function1.cs_ file where you have sample code and add `using` statements for these packages to your function. 
+Next, in your Visual Studio Solution Explorer, open the _Function1.cs_ file where you have sample code and add the following `using` statements for these packages to your function. 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
@@ -138,10 +138,10 @@ You can use the function app's system-managed identity to give it the _**Azure D
 Lastly, make the URL of your Azure Digital Twins instance accessible to your function by setting an **environment variable** for it. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 > [!TIP]
-> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the hostName, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
+> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *host name*. To see the host name, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
 ```azurecli-interactive	
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
 
 # [Azure portal](#tab/portal)
@@ -185,33 +185,33 @@ To make the URL of your Azure Digital Twins instance accessible to your function
 
 To set an environment variable with the URL of your instance, first get the URL by finding your Azure Digital Twins instance's host name. Search for your instance in the [Azure portal](https://portal.azure.com) search bar. Then, select _Overview_ on the left navigation bar to view the _Host name_. Copy this value.
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Screenshot of the Azure portal: From the Overview page for the Azure Digital Twins instance, the Host name value is highlighted.":::
+:::image type="content" source="media/how-to-create-azure-function/instance-host-name.png" alt-text="Screenshot of the Azure portal: From the Overview page for the Azure Digital Twins instance, the Host name value is highlighted.":::
 
-You can now create an application setting following the steps below:
+You can now create an application setting with these steps:
 
-1. Search for your function app in the portal search bar, and select it from the results
-1. Select _Configuration_ on the navigation bar on the left to create a new application setting
-1. In the _Application settings_ tab, select _+ New application setting_
+1. Search for your function app in the portal search bar, and select it from the results.
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal: The function app's name is being searched in the portal search bar and the search result is highlighted.":::
+    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal: The function app's name is being searched in the portal search bar and the search result is highlighted.":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Screenshot of the Azure portal: In the Configuration page for the function app, the button to create a New application setting is highlighted.":::
+1. Select _Configuration_ on the navigation bar on the left. In the _Application settings_ tab, select _+ New application setting_.
 
-In the window that opens up, use the host name value copied above to create an application setting.
-* **Name**: ADT_SERVICE_URL
-* **Value**: https://{your-azure-digital-twins-host-name}
+    :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Screenshot of the Azure portal: In the Configuration page for the function app, the button to create a New application setting is highlighted.":::
 
-Select _OK_ to create an application setting.
+1. In the window that opens up, use the host name value copied above to create an application setting.
+    * **Name**: ADT_SERVICE_URL
+    * **Value**: https://{your-azure-digital-twins-host-name}
+    
+    Select _OK_ to create an application setting.
+    
+    :::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Screenshot of the Azure portal: The OK button is highlighted after filling out the Name and Value fields in the Add/Edit application setting page.":::
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Screenshot of the Azure portal: The OK button is highlighted after filling out the Name and Value fields in the Add/Edit application setting page.":::
+1. After creating the setting, you should see it appear back in the _Application settings_ tab. Verify *ADT_SERVICE_URL* appears in the list, then save the new application setting by selecting the _Save_ button.
 
-You can view your application settings with application name under the _Name_ field. Then, save your application settings by selecting the _Save_ button.
+    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Screenshot of the Azure portal: The application settings page, with the new ADT_SERVICE_URL setting highlighted. The Save button is also highlighted.":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Screenshot of the Azure portal: The application settings page, with the new ADT_SERVICE_URL setting highlighted. The Save button is also highlighted.":::
+1. Any changes to the application settings require an application restart to take effect, so select _Continue_ to restart your application when prompted.
 
-Any changes to the application settings will require an application restart to take effect. Select _Continue_ to restart your application.
-
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Screenshot of the Azure portal: There is a notice that any changes to application settings with restart your application. The Continue button is highlighted.":::
+    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Screenshot of the Azure portal: There is a notice that any changes to application settings with restart your application. The Continue button is highlighted.":::
 
 ---
 
