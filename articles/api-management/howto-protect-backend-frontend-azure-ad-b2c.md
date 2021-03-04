@@ -1,5 +1,5 @@
 ---
-title: Protect SPA backend with OAuth 2.0 by using Azure Active Directory B2C and Azure API Management.
+title: Protect SPA backend in Azure API Management with Active Directory B2C
 description: Protect an API with OAuth 2.0 by using Azure Active Directory B2C, Azure API Management and Easy Auth to be called from a JavaScript SPA using the PKCE enabled SPA Auth Flow.
 
 services: api-management, azure-ad-b2c, app-service
