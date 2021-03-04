@@ -17,7 +17,7 @@ Use the IoT Edge agent runtime responses to troubleshoot compute-related errors.
 
 For more information, see [IoT Edge Agent](../articles/iot-edge/iot-edge-runtime.md?preserve-view=true&view=iotedge-2018-06#iot-edge-agent).
 
-The following error is related to the IoT Edge service on your Azure Stack Edge Pro<!--/ Data Box Gateway--> device.
+The following error is related to the IoT Edge service on your Azure Stack Edge Pro device.
 
 ### Compute modules have Unknown status and can't be used
 
@@ -49,9 +49,9 @@ Take the following steps:
 
 #### Error description
 
-The runtime status of module shows as running but you are not able to access the app that you deployed via your module over the external network. 
+The runtime status of module shows as running but the containerized app does not have an IP assigned. 
 
-This condition is because the range of IPs that you have provided for Kubernetes external service IPs is not sufficient.
+This condition is because the range of IPs that you have provided for Kubernetes external service IPs is not sufficient. You need to extend this range to ensure that each container or VM that you deployed are covered.
 
 #### Suggested solution
 

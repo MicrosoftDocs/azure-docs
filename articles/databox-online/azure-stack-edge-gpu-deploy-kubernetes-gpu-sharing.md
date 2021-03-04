@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Deploy a Kubernetes workload using GPU sharing on your Azure Stack Edge Pro
 
-This article describes how containerized workloads can share the GPUs on your Azure Stack Edge Pro GPU device. In this article, you will run two deployments, one when the Multi-Process Service (MPS) is enabled on the device and the second, when the service is disabled. For more information, see the [Benefits of Multi-Process Service](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf).
+This article describes how containerized workloads can share the GPUs on your Azure Stack Edge Pro GPU device. In this article, you will run two jobs, one when the Multi-Process Service (MPS) is enabled on the device and the second, when the service is disabled. For more information, see the [Benefits of Multi-Process Service](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf).
 
 ## Prerequisites
 
@@ -34,57 +34,47 @@ Before you begin, make sure that:
 1. Save the following deployment `yaml` on your local system. You'll use this file to run Kubernetes deployment. This deployment is based on [Simple CUDA containers](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#running-simple-containers) that are publicly available from Nvidia. 
 
     ```yml
-    apiVersion: apps/v1
-    kind: Deployment
+    apiVersion: batch/v1
+    kind: Job
     metadata:
       name: cuda-sample1
-      labels:
-        app: nbody1
     spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: nbody1
       template:
-        metadata:
-          labels:
-            app: nbody1
         spec:
           hostPID: true
           hostIPC: true
           containers:
             - name: cuda-sample-container1
-              image: nvcr.io/nvidia/k8s/cuda-sample:nbody
+              image: nvidia/samples:nbody
+              command: ["/tmp/nbody"]
+              args: ["-benchmark", "-i=10000"]
               env:
               - name: NVIDIA_VISIBLE_DEVICES
                 value: "0"
-    
+          restartPolicy: "Never"
+      backoffLimit: 1
     ---
     
-    apiVersion: apps/v1
-    kind: Deployment
+    apiVersion: batch/v1
+    kind: Job
     metadata:
       name: cuda-sample2
-      labels:
-        app: nbody2
     spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: nbody2
       template:
         metadata:
-          labels:
-            app: nbody2
         spec:
           hostPID: true
           hostIPC: true
           containers:
             - name: cuda-sample-container2
-              image: nvcr.io/nvidia/k8s/cuda-sample:nbody
+              image: nvidia/samples:nbody
+              command: ["/tmp/nbody"]
+              args: ["-benchmark", "-i=10000"]
               env:
               - name: NVIDIA_VISIBLE_DEVICES
                 value: "0"
+          restartPolicy: "Never"
+      backoffLimit: 1
     ```
 
 ## Verify GPU driver, CUDA version
@@ -106,38 +96,38 @@ The first step is to verify that your device is running required GPU driver and 
 
     ```powershell
     [10.57.51.94]: PS>Get-HcsGpuNvidiaSmi
-	K8S-1HXQG13CL-1HXQG13:
-	
-	Tue Feb 16 15:51:05 2021
-	+-----------------------------------------------------------------------------+
-	| NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
-	|-------------------------------+----------------------+----------------------+
-	| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-	| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-	|                               |                      |               MIG M. |
-	|===============================+======================+======================|
-	|   0  Tesla T4            On   | 0000191E:00:00.0 Off |                    0 |
-	| N/A   34C    P8     9W /  70W |      0MiB / 15109MiB |      0%      Default |
-	|                               |                      |                  N/A |
-	+-------------------------------+----------------------+----------------------+
-	
-	+-----------------------------------------------------------------------------+
-	| Processes:                                                                  |
-	|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-	|        ID   ID                                                   Usage      |
-	|=============================================================================|
-	|  No running processes found                                                 |
-	+-----------------------------------------------------------------------------+
-	[10.57.51.94]: PS>    
+    K8S-1HXQG13CL-1HXQG13:
+    
+    Wed Mar  3 12:24:27 2021
+    +-----------------------------------------------------------------------------+
+    | NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
+    |-------------------------------+----------------------+----------------------+
+    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+    |                               |                      |               MIG M. |
+    |===============================+======================+======================|
+    |   0  Tesla T4            On   | 00002C74:00:00.0 Off |                    0 |
+    | N/A   34C    P8     9W /  70W |      0MiB / 15109MiB |      0%      Default |
+    |                               |                      |                  N/A |
+    +-------------------------------+----------------------+----------------------+
+    
+    +-----------------------------------------------------------------------------+
+    | Processes:                                                                  |
+    |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+    |        ID   ID                                                   Usage      |
+    |=============================================================================|
+    |  No running processes found                                                 |
+    +-----------------------------------------------------------------------------+
+    [10.57.51.94]: PS> 
     ```
-
 
 1. Keep this session open as you will use it to view the Nvidia smi output throughout the article.
 
 
-## Example deployment 1
 
-In deployment 1, you will deploy an application on your device in the namespace `mynamesp1` when the Multi-Process Service is not running. 
+## Example job without context-sharing
+
+You'll run the first job to deploy an application on your device in the namespace `mynamesp1` when the Multi-Process Service is not running and context-sharing is not enabled. 
 
 1. List all the pods running in the namespace. Run the following command: 
 
@@ -149,37 +139,20 @@ In deployment 1, you will deploy an application on your device in the namespace 
     PS C:\WINDOWS\system32> kubectl get pods -n mynamesp1
     No resources found.
     ```
-1. To create the deployment on your device, run the following command: 
+1. Start a deployment job on your device using the deployment.yaml provided earlier. Run the following command: 
 
     `kubectl apply -f <Path to the deployment .yaml> -n <Name of the namespace>`   
 
+    This job creates two containers and runs an n-body simulation on both the containers. The number of simulation iterations are specified in the `.yaml`. For more information, see [N-body simulation](https://physics.princeton.edu//~fpretori/Nbody/intro.htm).
+    
     Here is an example output:
 
     ```powershell
-    PS C:\WINDOWS\system32> kubectl apply -f 'C:\GPU-sharing\gpushare_k8_deployment_with_nbody.yaml' -n mynamesp1
-    deployment.apps/cuda-sample1 created
-    deployment.apps/cuda-sample2 created
+    PS C:\WINDOWS\system32> kubectl apply -f -n mynamesp1 C:\GPU-sharing\nbody-job\gpushare_k8_job_deployment_with_nbody.yaml
+    job.batch/cuda-sample1 created
+    job.batch/cuda-sample2 created
     PS C:\WINDOWS\system32>
     ```
-
-1. Run the `kubectl get deployment -n <Name of the namespace>` to check if the deployment was created in the specified namespace.
-			
-    Here is an example output:
-
-    ```powershell
-    PS C:\WINDOWS\system32> kubectl get deployment -n mynamesp1
-    NAME           READY   UP-TO-DATE   AVAILABLE   AGE
-    cuda-sample1   1/1     1            1           39s
-    cuda-sample2   1/1     1            1           39s
-    PS C:\WINDOWS\system32>
-    ```
-    When you inspect the deployments in your cluster, the following fields are displayed:
-
-    - NAME lists the names of the containers running in the namespace.
-    - READY displays how many replicas of the application are available to your users. It follows the pattern ready/desired.
-    - UP-TO-DATE displays the number of replicas that have been updated to achieve the desired state.
-    - AVAILABLE displays how many replicas of the application are available to your users.
-    - AGE displays the amount of time that the application has been running.
 
 1. To list the pods started in the deployment, run the following command:
 
@@ -189,83 +162,99 @@ In deployment 1, you will deploy an application on your device in the namespace 
 
     ```powershell
     PS C:\WINDOWS\system32> kubectl get pods -n mynamesp1
-    NAME                            READY   STATUS    RESTARTS   AGE
-    cuda-sample1-cf979886d-xcwsq    1/1     Running   0          56s
-    cuda-sample2-68b4899948-vcv68   1/1     Running   0          56s
+    NAME                 READY   STATUS    RESTARTS   AGE
+    cuda-sample1-27srm   1/1     Running   0          28s
+    cuda-sample2-db9vx   1/1     Running   0          27s
     PS C:\WINDOWS\system32>
     ```
 
     There are two pods, `cuda-sample1-cf979886d-xcwsq` and `cuda-sample2-68b4899948-vcv68` running on your device.
 
-1. Get a shell to the first running pod. Run the following command:
+1. Fetch the details of the pods. Run the following command:
 
-    `kubectl exec -it <Name of the pod> -n <Name of the namespace> -- bash `   
+    `kubectl -n <Name of the namespace> <Name of the job>`   
 
     Here is an example output:
 
     ```powershell
-    PS C:\WINDOWS\system32> kubectl exec -it cuda-sample1-cf979886d-xcwsq -n mynamesp1 -- bash
-    root@cuda-sample1-cf979886d-xcwsq:/#
+    PS C:\WINDOWS\system32> kubectl -n mynamesp1 describe job.batch/cuda-sample1;  kubectl -n mynamesp1 describe job.batch/cuda-sample2
+    Name:           cuda-sample1
+    Namespace:      mynamesp1
+    Selector:       controller-uid=22783f76-6af1-490d-b6eb-67dd4cda0e1f
+    Labels:         controller-uid=22783f76-6af1-490d-b6eb-67dd4cda0e1f
+                    job-name=cuda-sample1
+    Annotations:    kubectl.kubernetes.io/last-applied-configuration:
+                      {"apiVersion":"batch/v1","kind":"Job","metadata":{"annotations":{},"name":"cuda-sample1","namespace":"mynamesp1"},"spec":{"backoffLimit":1...
+    Parallelism:    1
+    Completions:    1
+    Start Time:     Wed, 03 Mar 2021 12:25:34 -0800
+    Pods Statuses:  1 Running / 0 Succeeded / 0 Failed
+    Pod Template:
+      Labels:  controller-uid=22783f76-6af1-490d-b6eb-67dd4cda0e1f
+               job-name=cuda-sample1
+      Containers:
+       cuda-sample-container1:
+        Image:      nvidia/samples:nbody
+        Port:       <none>
+        Host Port:  <none>
+        Command:
+          /tmp/nbody
+        Args:
+          -benchmark
+          -i=10000
+        Environment:
+          NVIDIA_VISIBLE_DEVICES:  0
+        Mounts:                    <none>
+      Volumes:                     <none>
+    Events:
+      Type    Reason            Age   From            Message
+      ----    ------            ----  ----            -------
+      Normal  SuccessfulCreate  60s   job-controller  Created pod: cuda-sample1-27srm
+    Name:           cuda-sample2
+    Namespace:      mynamesp1
+    Selector:       controller-uid=e68c8d5a-718e-4880-b53f-26458dc24381
+    Labels:         controller-uid=e68c8d5a-718e-4880-b53f-26458dc24381
+                    job-name=cuda-sample2
+    Annotations:    kubectl.kubernetes.io/last-applied-configuration:
+                      {"apiVersion":"batch/v1","kind":"Job","metadata":{"annotations":{},"name":"cuda-sample2","namespace":"mynamesp1"},"spec":{"backoffLimit":1...
+    Parallelism:    1
+    Completions:    1
+    Start Time:     Wed, 03 Mar 2021 12:25:35 -0800
+    Pods Statuses:  1 Running / 0 Succeeded / 0 Failed
+    Pod Template:
+      Labels:  controller-uid=e68c8d5a-718e-4880-b53f-26458dc24381
+               job-name=cuda-sample2
+      Containers:
+       cuda-sample-container2:
+        Image:      nvidia/samples:nbody
+        Port:       <none>
+        Host Port:  <none>
+        Command:
+          /tmp/nbody
+        Args:
+          -benchmark
+          -i=10000
+        Environment:
+          NVIDIA_VISIBLE_DEVICES:  0
+        Mounts:                    <none>
+      Volumes:                     <none>
+    Events:
+      Type    Reason            Age   From            Message
+      ----    ------            ----  ----            -------
+      Normal  SuccessfulCreate  60s   job-controller  Created pod: cuda-sample2-db9vx
+    PS C:\WINDOWS\system32>
     ```
-
-    Repeat this command to get a shell to the second pod running on your device. Here is an example output:
-
-    ```powershell
-    PS C:\WINDOWS\system32> kubectl exec -it cuda-sample2-68b4899948-vcv68 -n mynamesp1 -- bash
-    root@cuda-sample2-68b4899948-vcv68:/#
-    ```
-
-1. Run n-body simulation on both the pods that you are connected to. For more information, see [N-body simulation](https://physics.princeton.edu//~fpretori/Nbody/intro.htm).
-
-    Here is an example output from the first container:
-
-    ```powershell
-    root@cuda-sample1-cf979886d-xcwsq:/# nbody -benchmark -i=1000
-    Run "nbody -benchmark [-numbodies=<numBodies>]" to measure performance.
-    ============snipped==========snipped==================================
-    > Windowed mode
-    > Simulation data stored in video memory
-    > Single precision floating point simulation
-    > 1 Devices used for simulation
-    MapSMtoCores for SM 7.5 is undefined.  Default to use 64 Cores/SM
-    GPU Device 0: "Tesla T4" with compute capability 7.5
-    
-    > Compute 7.5 CUDA device: [Tesla T4]
-    40960 bodies, total time for 1000 iterations: 34524.770 ms
-    = 48.595 billion interactions per second
-    = 971.894 single-precision GFLOP/s at 20 flops per interaction
-    root@cuda-sample1-cf979886d-xcwsq:/#
-    ```
-
-    Here is an example output from the second container:
-
-    ```powershell
-    root@cuda-sample2-68b4899948-vcv68:/# nbody -benchmark -i=1000
-    Run "nbody -benchmark [-numbodies=<numBodies>]" to measure performance.
-    ============snipped==========snipped==================================
-    
-    > Windowed mode
-    > Simulation data stored in video memory
-    > Single precision floating point simulation
-    > 1 Devices used for simulation
-    MapSMtoCores for SM 7.5 is undefined.  Default to use 64 Cores/SM
-    GPU Device 0: "Tesla T4" with compute capability 7.5
-    
-    > Compute 7.5 CUDA device: [Tesla T4]
-    40960 bodies, total time for 1000 iterations: 26075.754 ms
-    = 64.340 billion interactions per second
-    = 1286.806 single-precision GFLOP/s at 20 flops per interaction
-    ```
+    The output indicates that both the pods were successfully created by the job. 
 
 1. While both the containers are running the n-body simulation, view the GPU utilization from the Nvidia smi output. Go to the PowerShell interface of the device and run `Get-HcsGpuNvidiaSmi`.
 
-    Here is an example output when both the containers are running the n-body simulation:
+    Here is an example output when both the containers are running the n-body simulation and MPS service is not running:
 
     ```powershell
     [10.57.51.94]: PS>Get-HcsGpuNvidiaSmi
     K8S-1HXQG13CL-1HXQG13:
     
-    Tue Feb 16 16:59:59 2021
+    Wed Mar  3 12:26:41 2021
     +-----------------------------------------------------------------------------+
     | NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
     |-------------------------------+----------------------+----------------------+
@@ -273,8 +262,8 @@ In deployment 1, you will deploy an application on your device in the namespace 
     | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
     |                               |                      |               MIG M. |
     |===============================+======================+======================|
-    |   0  Tesla T4            On   | 0000191E:00:00.0 Off |                    0 |
-    | N/A   69C    P0    69W /  70W |    439MiB / 15109MiB |    100%      Default |
+    |   0  Tesla T4            On   | 00002C74:00:00.0 Off |                    0 |
+    | N/A   64C    P0    71W /  70W |    221MiB / 15109MiB |    100%      Default |
     |                               |                      |                  N/A |
     +-------------------------------+----------------------+----------------------+
     
@@ -283,19 +272,134 @@ In deployment 1, you will deploy an application on your device in the namespace 
     |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
     |        ID   ID                                                   Usage      |
     |=============================================================================|
-    |    0   N/A  N/A     69272      C   /usr/local/bin/nbody              109MiB |
-    |    0   N/A  N/A     69362      C   /usr/local/bin/nbody              109MiB |
-    |    0   N/A  N/A     85161      C   nbody                             109MiB |
-    |    0   N/A  N/A     85165      C   nbody                             109MiB |
+    |    0   N/A  N/A    197976      C   /tmp/nbody                        109MiB |
+    |    0   N/A  N/A    198051      C   /tmp/nbody                        109MiB |
     +-----------------------------------------------------------------------------+
-    
     [10.57.51.94]: PS>    
     ```
-    As you can see, there are two containers (Type = C) running with n-body simulation on GPU 0. You can also view their corresponding GPU memory usage.
+    As you can see, there are two containers (Type = C) running with n-body simulation on GPU 0. 
 
-## Example deployment 2
+1. Monitor the n-body simulation. Run the `get pod` commands. Here is an example output when the simulation is running. 
 
-In deployment 2, you'll deploy the n-body simulation on two CUDA containers when MPS is running on your device. First, you'll enable MPS on the device.
+    ```powershell
+    PS C:\WINDOWS\system32> kubectl get pods -n mynamesp1
+    NAME                 READY   STATUS    RESTARTS   AGE
+    cuda-sample1-27srm   1/1     Running   0          70s
+    cuda-sample2-db9vx   1/1     Running   0          69s
+    PS C:\WINDOWS\system32>
+    ```
+
+    When the simulation is complete, the output will indicate that. Here is an example output:
+
+    ```powershell
+    PS C:\WINDOWS\system32> kubectl get pods -n mynamesp1
+    NAME                 READY   STATUS      RESTARTS   AGE
+    cuda-sample1-27srm   0/1     Completed   0          2m54s
+    cuda-sample2-db9vx   0/1     Completed   0          2m53s
+    PS C:\WINDOWS\system32>
+    ```
+1. There should be 2 container n-body simulation workloads running on the GPU 0 of your device. Here is the  Nvidia smi output:
+
+    ```powershell
+    [10.57.51.94]: PS>Get-HcsGpuNvidiaSmi
+    K8S-1HXQG13CL-1HXQG13:
+    
+    Wed Mar  3 12:25:53 2021
+    +-----------------------------------------------------------------------------+
+    | NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
+    |-------------------------------+----------------------+----------------------+
+    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+    |                               |                      |               MIG M. |
+    |===============================+======================+======================|
+    |   0  Tesla T4            On   | 00002C74:00:00.0 Off |                    0 |
+    | N/A   48C    P0    69W /  70W |    221MiB / 15109MiB |    100%      Default |
+    |                               |                      |                  N/A |
+    +-------------------------------+----------------------+----------------------+
+    
+    +-----------------------------------------------------------------------------+
+    | Processes:                                                                  |
+    |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+    |        ID   ID                                                   Usage      |
+    |=============================================================================|
+    |    0   N/A  N/A    197976      C   /tmp/nbody                        109MiB |
+    |    0   N/A  N/A    198051      C   /tmp/nbody                        109MiB |
+    +-----------------------------------------------------------------------------+    
+    [10.57.51.94]: PS>
+    ```
+
+ 
+1. After the simulation is complete, you can view the logs and the total time for the completion of the simulation. Run the following command:
+
+    `kubectl logs -n <Name of the namespace> logs <pod name> ` 
+
+    Here is an example output: 
+
+    ```powershell
+    PS C:\WINDOWS\system32> kubectl logs -n mynamesp1 cuda-sample1-27srm
+    Run "nbody -benchmark [-numbodies=<numBodies>]" to measure performance.
+    ===========// CUT //===================// CUT //=====================  
+    > Windowed mode
+    > Simulation data stored in video memory
+    > Single precision floating point simulation
+    > 1 Devices used for simulation
+    GPU Device 0: "Turing" with compute capability 7.5
+    
+    > Compute 7.5 CUDA device: [Tesla T4]
+    40960 bodies, total time for 10000 iterations: 170398.766 ms
+    = 98.459 billion interactions per second
+    = 1969.171 single-precision GFLOP/s at 20 flops per interaction
+    PS C:\WINDOWS\system32>
+    ```
+
+    ```powershell
+    PS C:\WINDOWS\system32> kubectl logs -n mynamesp1 cuda-sample2-db9vx
+    Run "nbody -benchmark [-numbodies=<numBodies>]" to measure performance.
+    ===========// CUT //===================// CUT //=====================
+    > Windowed mode
+    > Simulation data stored in video memory
+    > Single precision floating point simulation
+    > 1 Devices used for simulation
+    GPU Device 0: "Turing" with compute capability 7.5
+    
+    > Compute 7.5 CUDA device: [Tesla T4]
+    40960 bodies, total time for 10000 iterations: 170368.859 ms
+    = 98.476 billion interactions per second
+    = 1969.517 single-precision GFLOP/s at 20 flops per interaction
+    PS C:\WINDOWS\system32>    
+    ```
+  1. There should be no processes running on the GPU at this time. You can verify this by viewing the GPU utilization using the Nvidia smi out.
+
+    ```powershell
+    [10.57.51.94]: PS>Get-HcsGpuNvidiaSmi
+    K8S-1HXQG13CL-1HXQG13:
+    
+    Wed Mar  3 12:32:52 2021
+    +-----------------------------------------------------------------------------+
+    | NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
+    |-------------------------------+----------------------+----------------------+
+    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+    |                               |                      |               MIG M. |
+    |===============================+======================+======================|
+    |   0  Tesla T4            On   | 00002C74:00:00.0 Off |                    0 |
+    | N/A   38C    P8     9W /  70W |      0MiB / 15109MiB |      0%      Default |
+    |                               |                      |                  N/A |
+    +-------------------------------+----------------------+----------------------+
+    
+    +-----------------------------------------------------------------------------+
+    | Processes:                                                                  |
+    |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+    |        ID   ID                                                   Usage      |
+    |=============================================================================|
+    |  No running processes found                                                 |
+    +-----------------------------------------------------------------------------+
+    [10.57.51.94]: PS>
+    ```
+
+## Example job with context-sharing
+
+You'll run the second job to deploy the n-body simulation on two CUDA containers when MPS is running on your device and context-sharing is enabled. First, you'll enable MPS on the device.
 
 1. [Connect to the PowerShell interface of your device](azure-stack-edge-gpu-connect-powershell-interface.md).
 
@@ -304,132 +408,132 @@ In deployment 2, you'll deploy the n-body simulation on two CUDA containers when
     ```powershell
     [10.57.51.94]: PS>Start-HcsGpuMPS
     K8S-1HXQG13CL-1HXQG13:
-    Set compute mode to EXCLUSIVE_PROCESS for GPU 0000191E:00:00.0.
+    
+    Set compute mode to EXCLUSIVE_PROCESS for GPU 00002C74:00:00.0.
     All done.
     Created nvidia-mps.service
     [10.57.51.94]: PS>    
     ```
-1. Run the deployment using the same deployment `yaml` you used earlier. You may need to delete the existing deployment. See [Delete deployment](#delete-deployment).
+1. Run the job using the same deployment `yaml` you used earlier. You may need to delete the existing deployment. See [Delete deployment](#delete-deployment).
 
     Here is an example output:
 
     ```yml
-    PS C:\WINDOWS\system32> kubectl apply -f 'C:\GPU-sharing\gpushare_k8_deployment_with_nbody.yaml' -n mynamesp1
-    deployment.apps/cuda-sample1 created
-    deployment.apps/cuda-sample2 created
-    PS C:\WINDOWS\system32> kubectl get deployment -n mynamesp1
-    NAME           READY   UP-TO-DATE   AVAILABLE   AGE
-    cuda-sample1   1/1     1            1           47s
-    cuda-sample2   1/1     1            1           47s
+    PS C:\WINDOWS\system32> kubectl -n mynamesp1 delete -f C:\GPU-sharing\nbody-job\gpushare_k8_job_deployment_with_nbody.yaml
+    job.batch "cuda-sample1" deleted
+    job.batch "cuda-sample2" deleted
     PS C:\WINDOWS\system32> kubectl get pods -n mynamesp1
-    NAME                            READY   STATUS    RESTARTS   AGE
-    cuda-sample1-cf979886d-tqlg5    1/1     Running   0          59s
-    cuda-sample2-68b4899948-pthsg   1/1     Running   0          59s
+    No resources found.
+    PS C:\WINDOWS\system32> kubectl -n mynamesp1 apply -f C:\GPU-sharing\nbody-job\gpushare_k8_job_deployment_with_nbody.yaml
+    job.batch/cuda-sample1 created
+    job.batch/cuda-sample2 created
+    PS C:\WINDOWS\system32> kubectl get pods -n mynamesp1
+    NAME                 READY   STATUS    RESTARTS   AGE
+    cuda-sample1-vcznt   1/1     Running   0          21s
+    cuda-sample2-zkx4w   1/1     Running   0          21s
+    PS C:\WINDOWS\system32> kubectl -n mynamesp1 describe job.batch/cuda-sample1;  kubectl -n mynamesp1 describe job.batch/cuda-sample2
+    Name:           cuda-sample1
+    Namespace:      mynamesp1
+    Selector:       controller-uid=ed06bdf0-a282-4b35-a2a0-c0d36303a35e
+    Labels:         controller-uid=ed06bdf0-a282-4b35-a2a0-c0d36303a35e
+                    job-name=cuda-sample1
+    Annotations:    kubectl.kubernetes.io/last-applied-configuration:
+                      {"apiVersion":"batch/v1","kind":"Job","metadata":{"annotations":{},"name":"cuda-sample1","namespace":"mynamesp1"},"spec":{"backoffLimit":1...
+    Parallelism:    1
+    Completions:    1
+    Start Time:     Wed, 03 Mar 2021 21:51:51 -0800
+    Pods Statuses:  1 Running / 0 Succeeded / 0 Failed
+    Pod Template:
+      Labels:  controller-uid=ed06bdf0-a282-4b35-a2a0-c0d36303a35e
+               job-name=cuda-sample1
+      Containers:
+       cuda-sample-container1:
+        Image:      nvidia/samples:nbody
+        Port:       <none>
+        Host Port:  <none>
+        Command:
+          /tmp/nbody
+        Args:
+          -benchmark
+          -i=10000
+        Environment:
+          NVIDIA_VISIBLE_DEVICES:  0
+        Mounts:                    <none>
+      Volumes:                     <none>
+    Events:
+      Type    Reason            Age   From            Message
+      ----    ------            ----  ----            -------
+      Normal  SuccessfulCreate  46s   job-controller  Created pod: cuda-sample1-vcznt
+    Name:           cuda-sample2
+    Namespace:      mynamesp1
+    Selector:       controller-uid=6282b8fa-e76d-4f45-aa85-653ee0212b29
+    Labels:         controller-uid=6282b8fa-e76d-4f45-aa85-653ee0212b29
+                    job-name=cuda-sample2
+    Annotations:    kubectl.kubernetes.io/last-applied-configuration:
+                      {"apiVersion":"batch/v1","kind":"Job","metadata":{"annotations":{},"name":"cuda-sample2","namespace":"mynamesp1"},"spec":{"backoffLimit":1...
+    Parallelism:    1
+    Completions:    1
+    Start Time:     Wed, 03 Mar 2021 21:51:51 -0800
+    Pods Statuses:  1 Running / 0 Succeeded / 0 Failed
+    Pod Template:
+      Labels:  controller-uid=6282b8fa-e76d-4f45-aa85-653ee0212b29
+               job-name=cuda-sample2
+      Containers:
+       cuda-sample-container2:
+        Image:      nvidia/samples:nbody
+        Port:       <none>
+        Host Port:  <none>
+        Command:
+          /tmp/nbody
+        Args:
+          -benchmark
+          -i=10000
+        Environment:
+          NVIDIA_VISIBLE_DEVICES:  0
+        Mounts:                    <none>
+      Volumes:                     <none>
+    Events:
+      Type    Reason            Age   From            Message
+      ----    ------            ----  ----            -------
+      Normal  SuccessfulCreate  47s   job-controller  Created pod: cuda-sample2-zkx4w
     PS C:\WINDOWS\system32>
     ```
-
-1. Get the Nvidia smi output from the PowerShell interface of the device. You can see the `nvidia-cuda-mps-server` process running in addition to the two processes corresponding to the CUDA containers created by the deployment.
-
-    Here is an example output:
-
-    ```yml
-    [10.57.51.94]: PS>Get-HcsGpuNvidiaSmi
-    K8S-1HXQG13CL-1HXQG13:
-    
-    Thu Feb 18 16:16:42 2021
-    +-----------------------------------------------------------------------------+
-    | NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
-    |-------------------------------+----------------------+----------------------+
-    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-    |                               |                      |               MIG M. |
-    |===============================+======================+======================|
-    |   0  Tesla T4            On   | 0000191E:00:00.0 Off |                    0 |
-    | N/A   70C    P0    70W /  70W |    242MiB / 15109MiB |    100%   E. Process |
-    |                               |                      |                  N/A |
-    +-------------------------------+----------------------+----------------------+
-    
-    +-----------------------------------------------------------------------------+
-    | Processes:                                                                  |
-    |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-    |        ID   ID                                                   Usage      |
-    |=============================================================================|
-    |    0   N/A  N/A    132009    M+C   /usr/local/bin/nbody              107MiB |
-    |    0   N/A  N/A    132013      C   nvidia-cuda-mps-server             25MiB |
-    |    0   N/A  N/A    132031    M+C   /usr/local/bin/nbody              107MiB |
-    +-----------------------------------------------------------------------------+
-    ```
-
-1. Run n-body simulation on the first container. Here is an example output:
+1. 1. After the simulation is complete, you can view the logs and the total time for the completion of the simulation. Run the following command:
 
     ```powershell
-    root@cuda-sample1-cf979886d-tqlg5:/# nbody -benchmark -i=1000
-    Run "nbody -benchmark [-numbodies=<numBodies>]" to measure performance.
-    ============snipped==========snipped==================================
-    > Windowed mode
-    > Simulation data stored in video memory
-    > Single precision floating point simulation
-    > 1 Devices used for simulation
-    MapSMtoCores for SM 7.5 is undefined.  Default to use 64 Cores/SM
-    GPU Device 0: "Tesla T4" with compute capability 7.5
-    
-    > Compute 7.5 CUDA device: [Tesla T4]
-    40960 bodies, total time for 1000 iterations: 26452.020 ms
-    = 63.425 billion interactions per second
-    = 1268.502 single-precision GFLOP/s at 20 flops per interaction
-    root@cuda-sample1-cf979886d-tqlg5:/#
-    ```
-1. Run n-body simulation on the second container. Here is an example output:
-
-    ```powershell
-    root@cuda-sample2-68b4899948-pthsg:/# nbody -benchmark -i=1000
-    Run "nbody -benchmark [-numbodies=<numBodies>]" to measure performance.
-    ============snipped==========snipped==================================
-    > Windowed mode
-    > Simulation data stored in video memory
-    > Single precision floating point simulation
-    > 1 Devices used for simulation
-    MapSMtoCores for SM 7.5 is undefined.  Default to use 64 Cores/SM
-    GPU Device 0: "Tesla T4" with compute capability 7.5
-    
-    > Compute 7.5 CUDA device: [Tesla T4]
-    40960 bodies, total time for 1000 iterations: 26463.982 ms
-    = 63.396 billion interactions per second
-    = 1267.928 single-precision GFLOP/s at 20 flops per interaction
-    root@cuda-sample2-68b4899948-pthsg:/#    
+        PS C:\WINDOWS\system32> kubectl get pods -n mynamesp1
+        NAME                 READY   STATUS      RESTARTS   AGE
+        cuda-sample1-vcznt   0/1     Completed   0          5m44s
+        cuda-sample2-zkx4w   0/1     Completed   0          5m44s
+        PS C:\WINDOWS\system32> kubectl logs -n mynamesp1 cuda-sample1-vcznt
+        Run "nbody -benchmark [-numbodies=<numBodies>]" to measure performance.
+        ===========// CUT //===================// CUT //=====================    
+        > Windowed mode
+        > Simulation data stored in video memory
+        > Single precision floating point simulation
+        > 1 Devices used for simulation
+        GPU Device 0: "Turing" with compute capability 7.5
+        
+        > Compute 7.5 CUDA device: [Tesla T4]
+        40960 bodies, total time for 10000 iterations: 154979.453 ms
+        = 108.254 billion interactions per second
+        = 2165.089 single-precision GFLOP/s at 20 flops per interaction
+        PS C:\WINDOWS\system32> kubectl logs -n mynamesp1 cuda-sample2-zkx4w
+        Run "nbody -benchmark [-numbodies=<numBodies>]" to measure performance.
+        ===========// CUT //===================// CUT //=====================
+        > Windowed mode
+        > Simulation data stored in video memory
+        > Single precision floating point simulation
+        > 1 Devices used for simulation
+        GPU Device 0: "Turing" with compute capability 7.5
+        
+        > Compute 7.5 CUDA device: [Tesla T4]
+        40960 bodies, total time for 10000 iterations: 154986.734 ms
+        = 108.249 billion interactions per second
+        = 2164.987 single-precision GFLOP/s at 20 flops per interaction
+        PS C:\WINDOWS\system32>
     ```
 
-1. Get the Nvidia smi output from the PowerShell interface of the device when both the containers are running the n-body simulation. You can also see that nvidia-cuda-mps-server is running in parallel with all the other processes (2 corresponding to the container, 2 corresponding to the simulation workload)
-
-    ```powershell
-    [10.57.51.94]: PS>Get-HcsGpuNvidiaSmi
-    K8S-1HXQG13CL-1HXQG13:
-    Thu Feb 18 16:33:17 2021
-    +-----------------------------------------------------------------------------+
-    | NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
-    |-------------------------------+----------------------+----------------------+
-    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-    |                               |                      |               MIG M. |
-    |===============================+======================+======================|
-    |   0  Tesla T4            On   | 0000191E:00:00.0 Off |                    0 |
-    | N/A   69C    P0    68W /  70W |    456MiB / 15109MiB |    100%   E. Process |
-    |                               |                      |                  N/A |
-    +-------------------------------+----------------------+----------------------+
-    
-    +-----------------------------------------------------------------------------+
-    | Processes:                                                                  |
-    |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-    |        ID   ID                                                   Usage      |
-    |=============================================================================|
-    |    0   N/A  N/A    132009    M+C   /usr/local/bin/nbody              107MiB |
-    |    0   N/A  N/A    132013      C   nvidia-cuda-mps-server             25MiB |
-    |    0   N/A  N/A    132031    M+C   /usr/local/bin/nbody              107MiB |
-    |    0   N/A  N/A    165829    M+C   nbody                             107MiB |
-    |    0   N/A  N/A    166019    M+C   nbody                             107MiB |
-    +-----------------------------------------------------------------------------+
-    [10.57.51.94]: PS>    
-    ```
 
 ## Delete deployment
 
@@ -450,4 +554,4 @@ PS C:\WINDOWS\system32>
     
 ## Next steps
 
-- [Deploy an IoT Edge workload with GPU sharing on your Azure Stack Edge Pro](azure-stack-edge-gpu-placeholder.md).
+- [Deploy an IoT Edge workload with GPU sharing on your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md).
