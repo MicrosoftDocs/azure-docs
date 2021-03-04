@@ -29,7 +29,7 @@ Use the following `require` statement to import the SDK.
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
-For more information on `require`, see <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">what is require? <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+For more information on `require`, see the [require documentation](https://nodejs.org/en/knowledge/getting-started/what-is-require/).
 
 ## Create a speech configuration
 
@@ -50,7 +50,7 @@ There are a few other ways that you can initialize a [`SpeechConfig`](/javascrip
 
 ## Recognize from microphone (Browser only)
 
-Recognizing speech from a microphone is **not supported in Node.js**, and is only supported in a browser-based JavaScript environment. See the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) on Github to see the [speech-to-text from microphone implementation](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29).
+Recognizing speech from a microphone is **not supported in Node.js**, and is only supported in a browser-based JavaScript environment. See the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) on GitHub to see the [speech-to-text from microphone implementation](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29).
 
 > [!NOTE]
 > If you want to use a *specific* audio input device, you need to specify the device ID in the `AudioConfig`. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
