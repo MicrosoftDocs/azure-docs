@@ -121,7 +121,7 @@ The following example reads the **otherMails** claim and return the first item i
 
 ## StringCollectionContains
 
-Checks if a StringCollection claim type contains an element
+Checks if a StringCollection claim type contains an element.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
