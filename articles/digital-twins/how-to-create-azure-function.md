@@ -119,13 +119,13 @@ You can set up security access for the function app using either the Azure CLI o
 
 # [CLI](#tab/cli)
 
+You can run these commands in [Azure Cloud Shell](https://shell.azure.com) or a [local Azure CLI installation](/cli/azure/install-azure-cli).
+
+### Assign access role
+
 The function skeleton from earlier examples requires that a bearer token to be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
 
 You can create system-managed identity and assign the function app's identity to the _**Azure Digital Twins Data Owner**_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
-
-Use [Azure Cloud Shell](https://shell.azure.com) to run the commands.
-
-### Assign access role
 
 Use the following command to create the system-managed identity. Take note of the _principalId_ field in the output.
 
@@ -151,13 +151,15 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 
 # [Azure portal](#tab/portal)
 
+Complete the following steps in the [Azure portal](https://portal.azure.com/).
+
+### Assign access role
+
 A system assigned managed identity enables Azure resources to authenticate to cloud services (for example, Azure Key Vault) without storing credentials in code. Once enabled, all necessary permissions can be granted via Azure role-based-access-control. The lifecycle of this type of managed identity is tied to the lifecycle of this resource. Additionally, each resource (for example, Virtual Machine) can only have one system assigned managed identity.
 
 In the [Azure portal](https://portal.azure.com/), search for _function app_ in the search bar with the function app name that you created earlier. Select the *Function App* from the list. 
 
 :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal: The function app's name is being searched in the portal search bar and the search result is highlighted.":::
-
-### Assign access role
 
 On the function app window, select _Identity_ in the navigation bar on the left to enable managed identity.
 Under _System assigned_ tab, toggle the _Status_ to On and _save_ it. You will see a pop-up to _Enable system assigned managed identity_.
