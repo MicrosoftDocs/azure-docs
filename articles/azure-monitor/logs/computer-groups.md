@@ -1,7 +1,6 @@
 ---
 title: Computer groups in Azure Monitor log queries | Microsoft Docs
 description: Computer groups in Azure Monitor allow you to scope log queries to a particular set of computers.  This article describes the different methods you can use to create computer groups and how to use them in a log query.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

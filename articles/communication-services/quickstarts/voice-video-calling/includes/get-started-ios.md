@@ -10,6 +10,9 @@ ms.service: azure-communication-services
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling client library for iOS.
 
+> [!NOTE]
+> This document uses version 1.0.0-beta.8 of the calling client library.
+
 ## Prerequisites
 
 To complete this tutorial, you’ll need the following prerequisites:

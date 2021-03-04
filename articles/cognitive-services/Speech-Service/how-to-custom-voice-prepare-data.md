@@ -23,9 +23,9 @@ Before you can train your own text-to-speech voice model, you'll need audio reco
 > If you would like to train a neural voice, you must specify a voice talent profile with the audio consent file provided of the voice talent acknowledging to use his/her speech data to train a custom voice model. When preparing your recording script, make sure you include the below sentence. 
 
 > “I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice.”
-This sentence will be used to verify if the training data is done by the same person that makes the consent. Read more about the [voice talent verification](https://aka.ms/CNV-data-privacy) here.
+This sentence will be used to verify if the training data is done by the same person that makes the consent. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
 
-> Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](https://aka.ms/gating-overview) and [apply the access here](https://aka.ms/customneural). 
+> Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural). 
 
 ## Data types
 
