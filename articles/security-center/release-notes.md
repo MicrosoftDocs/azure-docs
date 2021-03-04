@@ -31,6 +31,7 @@ Updates in March include:
 - [SQL vulnerability assessment now includes the "Disable rule" experience (preview)](#sql-vulnerability-assessment-now-includes-the-disable-rule-experience-preview)
 - [Azure Monitor Workbooks integrated into Security Center and three templates provided](#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)
 - [Regulatory compliance dashboard now includes Azure Audit reports (preview)](#regulatory-compliance-dashboard-now-includes-azure-audit-reports-preview)
+- [Updates to the policies for deploying workflow automation](#updates-to-the-policies-for-deploying-workflow-automation)
 
 
 ### Azure Firewall management integrated into Security Center
@@ -84,6 +85,31 @@ You can select the tab for the relevant reports types (PCI, SOC, ISO, and others
 Learn more about [Managing the standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
 :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard.png" alt-text="Filtering the list of available Azure Audit reports":::
+
+
+
+### Updates to the policies for deploying workflow automation
+
+Automating your organization's monitoring and incident response processes can greatly improve the time it takes to investigate and mitigate security incidents.
+
+We provide three Azure Policy 'DeployIfNotExist' policies that create and configure workflow automation procedures so that you can deploy your automations across your organization:
+
+|Goal  |Policy  |Policy ID  |
+|---------|---------|---------|
+|Workflow automation for security alerts|[Deploy Workflow Automation for Azure Security Center alerts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
+|Workflow automation for security recommendations|[Deploy Workflow Automation for Azure Security Center recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+|Workflow automation for regulatory compliance changes|[Deploy Workflow Automation for Azure Security Center regulatory compliance](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-509122b9-ddd9-47ba-a5f1-d0dac20be63c)|509122b9-ddd9-47ba-a5f1-d0dac20be63c|
+||||
+
+There are two updates to the features of these policies:
+
+- When assigned, they will remain enabled by enforcement.
+- You can now customize these policies and update any of the parameters even after they have already been deployed. For example, if a user wants to add another assessment key, or edit an existing assessment key, they can do so.
+
+Get started with [workflow automation templates](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
+
+Learn more about how to [Automate responses to Security Center triggers](workflow-automation.md).
+
 
 
 ## February 2021
