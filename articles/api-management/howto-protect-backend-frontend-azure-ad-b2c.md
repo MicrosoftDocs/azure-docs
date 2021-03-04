@@ -29,6 +29,16 @@ We're going to see how API Management can be used in a simplified scenario with 
 
 For defense in depth, we then use EasyAuth to validate the token again inside the back-end API and ensure that API management is the only service that can call the Azure Functions backend.
 
+## What will you learn
+
+> [!div class="checklist"]
+> * Setup of a Single Page App and backend API in Azure Active Directory B2C
+> * Creation of an Azure Functions Backend API
+> * Import of an Azure Functions API into Azure API Management
+> * Securing the API in Azure API Management
+> * Calling the Azure Active Directory B2C Authorization Endpoints via the Microsoft Identity Platform Libraries (MSAL.js)
+> * Storing a HTML / Vanilla JS Single Page Application and serving it from an Azure Blob Storage Endpoint
+
 ## Prerequisites
 
 To follow the steps in this article, you must have:
@@ -139,7 +149,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
    
    ```
 
-   > [!NOTE]
+   > [!TIP]
    > The c# script function code you just pasted simply logs a line to the functions logs, and returns the text "Hello World" with some dynamic data (the date and time).
 
 1. Select “Integrations” from the left-hand blade, then click the http (req) link inside the 'Trigger' box.
@@ -166,10 +176,10 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Click 'Show Secret' and paste the Backend application's client secret into the appropriate box.
 1. Select OK, which takes you back to the identity provider selection blade/screen and click 'Save' (at the top left of the blade).
 
-   > [!NOTE]
-   > Now your Function API is deployed and should throw 401 responses if the correct key is not supplied, and should return data when a valid request is presented.
-   > You added additional defence-in-depth security in EasyAuth by configuring the 'Login With Azure AD' option to handle unauthenticated requests. Be aware that this will change the unauthorized request behaviour between the Backend Function App and Frontend SPA as EasyAuth will issue a 302 redirect to AAD instead of a 401 Not Authorized response, we will correct this by using API Management later.
-   > We still have no IP security applied, if you have a valid key and OAuth2 token, anyone can call this from anywhere - ideally we want to force all requests to come via API Management.
+   > [!IMPORTANT]
+   > Now your Function API is deployed and should throw 401 responses if the correct key is not supplied, and should return data when a valid request is presented.  
+   > You added additional defence-in-depth security in EasyAuth by configuring the 'Login With Azure AD' option to handle unauthenticated requests. Be aware that this will change the unauthorized request behavior between the Backend Function App and Frontend SPA as EasyAuth will issue a 302 redirect to AAD instead of a 401 Not Authorized response, we will correct this by using API Management later.  
+   > We still have no IP security applied, if you have a valid key and OAuth2 token, anyone can call this from anywhere - ideally we want to force all requests to come via API Management.  
    > If you're using APIM Consumption tier then [there isn't a dedicated Azure API Management Virtual IP](./api-management-howto-ip-addresses.md#ip-addresses-of-consumption-tier-api-management-service) to allow-list with the functions access-restrictions. In the Azure API Management Standard SKU and above [the VIP is single tenant and for the lifetime of the resource](./api-management-howto-ip-addresses.md#changes-to-the-ip-addresses). For the Azure API Management Consumption tier, you can lock down your API calls via the shared secret function key in the portion of the URI you copied above. Also, for the Consumption tier - steps 12-17 below do not apply.
 
 1. Close the 'Authentication / Authorization' blade 
@@ -190,7 +200,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Give the API a name and description for API Management's internal use and add it to the ‘unlimited’ Product.
 1. Copy and record the API's 'base URL' and click 'create'.
 
-   > [!NOTE]
+   > [!TIP]
    > If using the consumption tier of APIM the unlimited product won't be available as an out of the box. Instead, navigate to "Products" under "APIs" and hit "Add". > Type "Unlimited" as the product name and description and select the API you just added from the "+" APIs callout at the bottom left of the screen. Select the "published" checkbox. Leave the rest as default. Finally, hit the "create" button. This created the "unlimited" product and assigned it to your API. You can customize your new product later.
 
 ## Configure and capture the correct storage endpoint settings
@@ -200,8 +210,8 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Set the static web hosting feature to 'enabled', and set the index document name to 'index.html', then click 'save'.
 1. Note down the contents of the 'Primary Storage Endpoint', as this location is where the frontend site will be hosted.
 
-   > [!NOTE]
-   > You could use either Azure Blob Storage + CDN rewrite, or Azure App Service - but Blob Storage's Static Website hosting feature gives us a default container to serve static web content / html / js / css from Azure Storage and will infer a default page for us for zero work.
+   > [!TIP]
+   > You could use either Azure Blob Storage + CDN rewrite, or Azure App Service to host the SPA - but Blob Storage's Static Website hosting feature gives us a default container to serve static web content / html / js / css from Azure Storage and will infer a default page for us for zero work.
 
 ## Set up the **CORS** and **validate-jwt** policies
 
@@ -251,7 +261,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 
   Congratulations, you now have Azure AD B2C, API Management and Azure Functions working together to publish, secure AND consume an API!
 
-   > [!NOTE]
+   > [!TIP]
    > If you're using the API Management consumption tier then instead of rate limiting by the JWT subject or incoming IP Address (Limit call rate by key policy is not supported today for the "Consumption" tier), you can Limit by call rate quota see [here](./api-management-access-restriction-policies.md#LimitCallRate).
    > As this example is a JavaScript Single Page Application, we use the API Management Key only for rate-limiting and billing calls. The actual Authorization and Authentication is handled by Azure AD B2C, and is encapsulated in the JWT, which gets validated twice, once by API Management, and then by the backend Azure Function.
 
