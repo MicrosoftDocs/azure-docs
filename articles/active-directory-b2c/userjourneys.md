@@ -120,7 +120,7 @@ The **Precondition** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | `Type` | Yes | The type of check or query to perform for this precondition. The value can be **ClaimsExist**, which specifies that the actions should be performed if the specified claims exist in the user's current claim set, or **ClaimEquals**, which specifies that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
-| `ExecuteActionsIf` | Yes | Use a true or false test to decide if the actions in the precondition should be performed. |
+| `ExecuteActionsIf` | Yes | Use a **True** or **False** test to decide if the actions in the precondition should be performed. (Case Sensitive) |
 
 The **Precondition** elements contains the following elements:
 
