@@ -183,7 +183,7 @@ An indicator next to the **Kernel** dropdown shows its status.
 
 Find details about your compute instances on the **Compute** page in [studio](https://ml.azure.com).
 
-## Useful Keyboard Shortcuts
+## Useful keyboard shortcuts
 Similar to Jupyter Notebooks, Azure Machine Learning Studio notebooks have a modal user interface. The keyboard does different things depending on which mode the notebook cell is in. Azure Machine Learning Studio notebooks support the following two modes for a given code cell: command mode and edit mode.
 
 ### Command mode shortcuts
