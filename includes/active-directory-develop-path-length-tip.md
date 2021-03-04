@@ -9,5 +9,6 @@ ms.topic: include
 # Ingested by Microsoft identity platform Windows quickstarts to near the download links
 ---
 
->[!TIP] To avoid errors caused by path length limitations in Windows, we recommend extracting the archive or cloning the repository into a directory near the root of your drive.
+>[!TIP] 
+>To avoid errors caused by path length limitations in Windows, we recommend extracting the archive or cloning the repository into a directory near the root of your drive.
 
