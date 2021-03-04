@@ -1,10 +1,10 @@
 ---
 title: Generate maps
 description: This article describes how to generate maps in Azure FarmBeats.
-author: DCtheGeek
+author: margoc
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: dacoulte
+ms.author: margoc
 ---
 
 # Generate maps

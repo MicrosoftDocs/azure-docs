@@ -1,10 +1,10 @@
 ---
 title: Sensor partner integration
 description: This article describes sensor partner integration.
-author: DCtheGeek
+author: margoc
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: dacoulte
+ms.author: margoc
 ---
 
 # Sensor partner integration

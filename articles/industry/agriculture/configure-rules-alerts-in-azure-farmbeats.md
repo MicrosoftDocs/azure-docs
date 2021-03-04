@@ -1,10 +1,10 @@
 ---
 title: Configure rules and manage alerts
 description: Describes how to configure rules and manage alerts in FarmBeats
-author: DCtheGeek
+author: margoc
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: dacoulte
+ms.author: margoc
 ---
 
 # Configure rules and manage alerts

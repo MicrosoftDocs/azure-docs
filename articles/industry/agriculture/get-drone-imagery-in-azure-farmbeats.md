@@ -1,10 +1,10 @@
 ---
 title: Get drone imagery
 description: This article describes how to get drone imagery from partners.
-author: DCtheGeek
+author: margoc
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: dacoulte
+ms.author: margoc
 ---
 
 # Get drone imagery from drone partners

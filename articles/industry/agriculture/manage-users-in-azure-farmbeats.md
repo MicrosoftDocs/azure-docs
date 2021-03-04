@@ -1,10 +1,10 @@
 ---
 title: Manage users in Azure FarmBeats
 description: This article describes how to manage users in Azure FarmBeats.
-author: DCtheGeek
+author: margoc
 ms.topic: article
 ms.date: 12/02/2019
-ms.author: dacoulte
+ms.author: margoc
 ---
 
 

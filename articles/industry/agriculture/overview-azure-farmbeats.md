@@ -1,10 +1,10 @@
 ---
 title: What is Azure FarmBeats
 description: Provides an overview of Azure FarmBeats
-author: DCtheGeek
+author: margoc
 ms.topic: overview
 ms.date: 11/04/2019
-ms.author: dacoulte
+ms.author: margoc
 ---
 
 
