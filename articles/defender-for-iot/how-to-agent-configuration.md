@@ -84,7 +84,7 @@ To use a default property value, remove the property from the configuration obje
 
 1. Click on **Module Identity Twin**.
 
-1. Edit the properties you wish to change in the security module.
+1. Edit the properties you wish to change in the Defender-IoT-micro-agent.
 
    For example, to configure connection events as high priority and collect high priority events every 7 minutes, use the following configuration.
 
