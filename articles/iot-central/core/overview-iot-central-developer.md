@@ -61,7 +61,7 @@ Using DPS enables:
 - You to use your own device IDs to register devices in IoT Central. Using your own device IDs simplifies integration with existing back-office systems.
 - A single, consistent way to connect devices to IoT Central.
 
-To learn more, see [Get connected to Azure IoT Central](./concepts-get-connected.md).
+To learn more, see [Get connected to Azure IoT Central](./concepts-get-connected.md) and [Best practices](concepts-best-practices.md).
 
 ### Security
 
