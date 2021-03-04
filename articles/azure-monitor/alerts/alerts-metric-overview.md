@@ -3,7 +3,6 @@ title: Understand how metric alerts work in Azure Monitor.
 description: Get an overview of what you can do with metric alerts and how they work in Azure Monitor.
 ms.date: 01/19/2021
 ms.topic: conceptual
-ms.subservice: alerts
 
 ---
 

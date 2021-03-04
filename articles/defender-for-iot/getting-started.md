@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/26/2020
+ms.date: 2/18/2021
 ms.author: shhazam
 ---
 
@@ -64,6 +64,8 @@ To register:
 1. Select **Onboard subscription**.
 1. On the **Pricing** page, select a subscription or create a new one, and add the number of committed devices.
 1. Select the **Download the on-premises management console** tab and save the downloaded activation file. This file contains the aggregate committed devices that you defined. The file will be uploaded to the management console after initial sign-in.
+
+For information on how to offboard a subscription, see [Offboard a subscription](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription).
 
 ## 3. Install and set up the on-premises management console
 

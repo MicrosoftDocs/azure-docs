@@ -1,9 +1,9 @@
 ---
 title: Extend Azure IoT Central with custom analytics | Microsoft Docs
 description: As a solution developer, configure an IoT Central application to do custom analytics and visualizations. This solution uses Azure Databricks.
-author: dominicbetts
-ms.author: dobett
-ms.date: 12/02/2019
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 02/18/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -13,7 +13,7 @@ manager: philmea
 
 # Extend Azure IoT Central with custom analytics using Azure Databricks
 
-This how-to guide shows you, as a solution developer, how to extend your IoT Central application with custom analytics and visualizations. The example uses an [Azure Databricks](/azure/azure-databricks/) workspace to analyze the IoT Central telemetry stream and to generate visualizations such as [box plots](https://wikipedia.org/wiki/Box_plot).
+This how-to guide shows you, as a solution developer, how to extend your IoT Central application with custom analytics and visualizations. The example uses an [Azure Databricks](/azure/azure-databricks/) workspace to analyze the IoT Central telemetry stream and to generate visualizations such as [box plots](https://wikipedia.org/wiki/Box_plot).  
 
 This how-to guide shows you how to extend IoT Central beyond what it can already do with the [built-in analytics tools](./howto-create-custom-analytics.md).
 
@@ -98,7 +98,7 @@ Your Event Hubs namespace looks like the following screenshot:
 
 On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created from the Contoso template. In this section, you configure the application to stream the telemetry from its simulated devices to your event hub. To configure the export:
 
-1. Navigate to the **Data Export** page, select **+ New**, and then **Azure Event Hubs**.
+1. Navigate to the **Data Export (Legacy)** page, select **+ New**, and then **Azure Event Hubs**.
 1. Use the following settings to configure the export, then select **Save**:
 
     | Setting | Value |
@@ -129,7 +129,7 @@ Use the information in the following table to create your cluster:
 | ------- | ----- |
 | Cluster Name | centralanalysis |
 | Cluster Mode | Standard |
-| Databricks Runtime Version | 5.5 LTS (Scala 2.11, Spark 2.4.3) |
+| Databricks Runtime Version | 5.5 LTS (Scala 2.11, Spark 2.4.5) |
 | Python Version | 3 |
 | Enable Autoscaling | No |
 | Terminate after minutes of inactivity | 30 |

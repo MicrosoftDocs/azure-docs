@@ -31,28 +31,9 @@ To use the new **LowLatency** feature, you set the **StreamOptionsFlag** to **Lo
 
 The following .NET example shows how to set **LowLatency** on the **LiveEvent**:
 
-```csharp
-LiveEvent liveEvent = new LiveEvent(
-            location: mediaService.Location, 
-            description: "Sample LiveEvent for testing",
-            vanityUrl: false,
-            encoding: new LiveEventEncoding(
-                        // Set this to Standard to enable a transcoding LiveEvent, and None to enable a pass-through LiveEvent
-                        encodingType:LiveEventEncodingType.None, 
-                        presetName:null
-                    ),
-            input: new LiveEventInput(LiveEventInputProtocol.RTMP,liveEventInputAccess), 
-            preview: liveEventPreview,
-            streamOptions: new List<StreamOptionsFlag?>()
-            {
-                // Set this to Default or Low Latency
-                // To use low latency optimally, you should tune your encoder settings down to 1 second "Group Of Pictures" (GOP) length instead of 2 seconds.
-                StreamOptionsFlag.LowLatency
-            }
-        );
-```                
+[!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#NewLiveEvent)]
 
-See the full example: [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
+See the full example: [Live Event with DVR](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs).
 
 ## Live Events latency
 
