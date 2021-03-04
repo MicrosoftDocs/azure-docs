@@ -49,14 +49,16 @@
     href: how-to-configure-https-custom-domain.md  
   - name: Route Association
     href: how-to-configure-route.md
+  - name: Configure a Rule Set
+    href: how-to-configure-rule-set.md
   - name: Configure security headers with Rule Set
     href: how-to-add-security-headers.md
   - name: Cache purge
     href: how-to-cache-purge.md
   - name: Compression
     href: how-to-compression.md
-  - name: Enable Private Link
-    href: how-to-enable-private-link.md
+  - name: Enable Private Link to Web App
+    href: how-to-enable-private-link-web-app.md
   - name: Logging
     href: how-to-logs.md
   - name: Monitoring and alerts

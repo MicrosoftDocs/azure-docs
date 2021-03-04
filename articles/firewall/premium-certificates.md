@@ -50,7 +50,7 @@ Ensure your CA certificate complies with the following requirements:
 
 - It must be a single certificate, and shouldn’t include the entire chain of certificates.  
 
-- It must be valid for at least one year forward.  
+- It must be valid for one year forward.  
 
 - It must be an RSA private key with minimal size of 4096 bytes.  
 

@@ -171,7 +171,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 Refer to the following list to configure managed identity for Azure Digital Twins (in regions where available):
 
-- [Azure portal](~/articles/digital-twins/how-to-enable-managed-identities.md)
+- [Azure portal](../../digital-twins/how-to-enable-managed-identities-portal.md)
 
 ### Azure Event Grid
 
@@ -229,6 +229,14 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 For more information, see [Use managed identities in Azure Kubernetes Service](../../aks/use-managed-identity.md).
 
+### Azure Log Analytics cluster
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+| User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+
+For more information, see [how identity works in Azure Monitor](../../azure-monitor/logs/customer-managed-keys.md)
 
 ### Azure Logic Apps
 

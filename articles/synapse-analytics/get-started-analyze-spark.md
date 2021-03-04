@@ -28,16 +28,16 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
-    data_df = data.to_spark_dataframe()
+    df = data.to_spark_dataframe()
     # Display 10 rows
-    display(data_df.limit(10))
+    display(df.limit(10))
     ```
 1. In the notebook, in the **Attach to** menu, choose the **Spark1** serverless Spark pool that we created earlier.
 1. Select **Run** on the cell
 1. If you just want to see the schema of the dataframe run a cell with the following code:
     ```
 
-    data_df.printSchema()
+    df.printSchema()
     ```
 
 ## Load the NYC Taxi data into the Spark nyctaxi database

@@ -5,13 +5,12 @@ author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
 ms.date: 01/11/2021
-ms.subservice: alerts
 ---
 # Create, view, and manage metric alerts using Azure Monitor
 
-Metric alerts in Azure Monitor provide a way to get notified when one of your metrics crosses a threshold. Metric alerts work on a range of multi-dimensional platform metrics, custom metrics, Application Insights standard and custom metrics. In this article, we will describe how to create, view, and manage metric alert rules through Azure portal and Azure CLI. You can also create metric alert rules using Azure Resource Manager templates, which are described in [a separate article](../platform/alerts-metric-create-templates.md).
+Metric alerts in Azure Monitor provide a way to get notified when one of your metrics crosses a threshold. Metric alerts work on a range of multi-dimensional platform metrics, custom metrics, Application Insights standard and custom metrics. In this article, we will describe how to create, view, and manage metric alert rules through Azure portal and Azure CLI. You can also create metric alert rules using Azure Resource Manager templates, which are described in [a separate article](./alerts-metric-create-templates.md).
 
-You can learn more about how metric alerts work from [metric alerts overview](../platform/alerts-metric-overview.md).
+You can learn more about how metric alerts work from [metric alerts overview](./alerts-metric-overview.md).
 
 ## Create with Azure portal
 
@@ -26,7 +25,7 @@ The following procedure describes how to create a metric alert rule in Azure por
 
 3. Click **Select target**, in the context pane that loads, select a target resource that you want to alert on. Use **Subscription** and **Resource type** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
 
-4. If the selected resource has metrics you can create alerts on, **Available signals** on the bottom right will include metrics. You can view the full list of resource types supported for metric alerts in this [article](../platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+4. If the selected resource has metrics you can create alerts on, **Available signals** on the bottom right will include metrics. You can view the full list of resource types supported for metric alerts in this [article](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 5. Once you have selected a target resource, click on **Add condition**.
 
@@ -39,7 +38,7 @@ The following procedure describes how to create a metric alert rule in Azure por
     - If the dimension value you're looking for isn't displayed, click "Add custom value" to add a custom dimension value.
     - You can also **Select all current and future values** for any of the dimensions. This will dynamically scale the selection to all current and future values for a dimension.
 
-    The metric alert rule will evaluate the condition for all combinations of values selected. [Learn more about how alerting on multi-dimensional metrics works](../platform/alerts-metric-overview.md).
+    The metric alert rule will evaluate the condition for all combinations of values selected. [Learn more about how alerting on multi-dimensional metrics works](./alerts-metric-overview.md).
 
 9. Select the **Threshold** type, **Operator**, and **Aggregation type**. This will determine the logic that the metric alert rule will evaluate.
     - If you are using a **Static** threshold, continue to define a **Threshold value**. The metric chart can help determine what might be a reasonable threshold.
@@ -148,8 +147,8 @@ Metric alert rules have dedicated PowerShell cmdlets available:
 
 ## Next steps
 
-- [Create metric alerts using Azure Resource Manager Templates](../platform/alerts-metric-create-templates.md)
-- [Understand how metric alerts work](../platform/alerts-metric-overview.md)
+- [Create metric alerts using Azure Resource Manager Templates](./alerts-metric-create-templates.md)
+- [Understand how metric alerts work](./alerts-metric-overview.md)
 - [Understand how metric alerts with Dynamic Thresholds condition work](../alerts/alerts-dynamic-thresholds.md)
-- [Understand the web hook schema for metric alerts](../platform/alerts-metric-near-real-time.md#payload-schema)
-- [Troubleshooting problems in metric alerts](../platform/alerts-troubleshoot-metric.md)
+- [Understand the web hook schema for metric alerts](./alerts-metric-near-real-time.md#payload-schema)
+- [Troubleshooting problems in metric alerts](./alerts-troubleshoot-metric.md)

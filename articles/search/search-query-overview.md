@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 03/03/2021
 ---
 # Querying in Azure Cognitive Search
 
@@ -79,8 +79,8 @@ You might also need filters to invoke a specialized query form, as described in 
 
 | Filter scenario | Description |
 |-----------------|-------------|
-| Range filters | In Azure Cognitive Search, range queries are built using the filter parameter. For more information and examples, see [Range filter example](search-query-simple-examples.md#example-4-range-filters). |
-| Geo-location search | If a searchable field is of [Edm.GeographyPoint type](/rest/api/searchservice/supported-data-types), you can create a filter expression for "find near me" or map-based search controls. Fields that drive geo-search contain coordinates. For more information and an example, see [Geo-search example](search-query-simple-examples.md#example-5-geo-search). |
+| Range filters | In Azure Cognitive Search, range queries are built using the filter parameter. For more information and examples, see [Range filter example](search-query-simple-examples.md#example-5-range-filters). |
+| Geo-location search | If a searchable field is of [Edm.GeographyPoint type](/rest/api/searchservice/supported-data-types), you can create a filter expression for "find near me" or map-based search controls. Fields that drive geo-search contain coordinates. For more information and an example, see [Geo-search example](search-query-simple-examples.md#example-6-geo-search). |
 | Faceted navigation | A facet navigation structure becomes instrumental in user-directed navigation when you invoke a filter in response to an `onclick` event on a facet. As such, facets and filters go hand-in-hand. If you add facet navigation, you will need filters to complete the experience. For more information, see [How to build a facet filter](search-filters-facets.md). |
 
 > [!NOTE]
@@ -96,12 +96,12 @@ An advanced query form depends on the Full Lucene parser and operators that trig
 
 | Query type | Usage | Examples and more information |
 |------------|--------|------------------------------|
-| [Fielded search](query-lucene-syntax.md#bkmk_fields) | **`search`**  parameter, **`queryType=full`**  | Build a composite query expression targeting a single field. <br/>[Fielded search example](search-query-lucene-examples.md#example-2-fielded-search) |
-| [fuzzy search](query-lucene-syntax.md#bkmk_fuzzy) | **`search`** parameter, **`queryType=full`** | Matches on terms having a similar construction or spelling. <br/>[Fuzzy search example](search-query-lucene-examples.md#example-3-fuzzy-search) |
-| [proximity search](query-lucene-syntax.md#bkmk_proximity) | **`search`** parameter, **`queryType=full`** | Finds terms that are near each other in a document. <br/>[Proximity search example](search-query-lucene-examples.md#example-4-proximity-search) |
-| [term boosting](query-lucene-syntax.md#bkmk_termboost) | **`search`** parameter, **`queryType=full`** | Ranks a document higher if it contains the boosted term, relative to others that don't. <br/>[Term boosting example](search-query-lucene-examples.md#example-5-term-boosting) |
-| [regular expression search](query-lucene-syntax.md#bkmk_regex) | **`search`** parameter, **`queryType=full`** | Matches based on the contents of a regular expression. <br/>[Regular expression example](search-query-lucene-examples.md#example-6-regex) |
-|  [wildcard or prefix search](query-lucene-syntax.md#bkmk_wildcard) | **`search`** parameter with ***`~`** or **`?`**, **`queryType=full`**| Matches based on a prefix and tilde (`~`) or single character (`?`). <br/>[Wildcard search example](search-query-lucene-examples.md#example-7-wildcard-search) |
+| [Fielded search](query-lucene-syntax.md#bkmk_fields) | **`search`**  parameter, **`queryType=full`**  | Build a composite query expression targeting a single field. <br/>[Fielded search example](search-query-lucene-examples.md#example-1-fielded-search) |
+| [fuzzy search](query-lucene-syntax.md#bkmk_fuzzy) | **`search`** parameter, **`queryType=full`** | Matches on terms having a similar construction or spelling. <br/>[Fuzzy search example](search-query-lucene-examples.md#example-2-fuzzy-search) |
+| [proximity search](query-lucene-syntax.md#bkmk_proximity) | **`search`** parameter, **`queryType=full`** | Finds terms that are near each other in a document. <br/>[Proximity search example](search-query-lucene-examples.md#example-3-proximity-search) |
+| [term boosting](query-lucene-syntax.md#bkmk_termboost) | **`search`** parameter, **`queryType=full`** | Ranks a document higher if it contains the boosted term, relative to others that don't. <br/>[Term boosting example](search-query-lucene-examples.md#example-4-term-boosting) |
+| [regular expression search](query-lucene-syntax.md#bkmk_regex) | **`search`** parameter, **`queryType=full`** | Matches based on the contents of a regular expression. <br/>[Regular expression example](search-query-lucene-examples.md#example-5-regex) |
+|  [wildcard or prefix search](query-lucene-syntax.md#bkmk_wildcard) | **`search`** parameter with ***`~`** or **`?`**, **`queryType=full`**| Matches based on a prefix and tilde (`~`) or single character (`?`). <br/>[Wildcard search example](search-query-lucene-examples.md#example-6-wildcard-search) |
 
 ## Next steps
 

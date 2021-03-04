@@ -66,7 +66,7 @@ Right-select your project and select _Manage NuGet Packages_ from the list. Then
 * `Azure.DigitalTwins.Core`
 * `Azure.Identity`
 * `System.Net.Http`
-* `Azure.Core`
+* `Azure.Core.Pipeline`
 
 **Option 2. Add packages using `dotnet` command-line tool:**
 
@@ -76,7 +76,7 @@ Alternatively, you can use the following `dotnet add` commands in a command line
 dotnet add package Azure.DigitalTwins.Core
 dotnet add package Azure.Identity
 dotnet add package System.Net.Http
-dotnet add package Azure.Core
+dotnet add package Azure.Core.Pipeline
 ```
 
 Next, in your Visual Studio Solution Explorer, open the _Function1.cs_ file where you have sample code and add the following `using` statements to your function. 
@@ -87,7 +87,7 @@ Next, in your Visual Studio Solution Explorer, open the _Function1.cs_ file wher
 
 You will now declare class level variables and add authentication code that will allow the function to access Azure Digital Twins. You will add the following to your function in the _Function1.cs_ file.
 
-* Code to read the Azure Digital Twins service URL as an environment variable. It is a good practice to read the service URL from an environment variable, rather than hard-coding it in the function.
+* Code to read the Azure Digital Twins service URL as an **environment variable**. It's a good practice to read the service URL from an environment variable, rather than hard-coding it in the function. You'll set the value of this environment variable [later in this article](#set-up-security-access-for-the-function-app). For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
 
@@ -135,7 +135,7 @@ Use the _principalId_ value in the following command to assign the function app'
 ```azurecli-interactive	
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
-Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on setting an environment variables, see [*Environment variables*](/sandbox/functions-recipes/environment-variables). 
+Lastly, make the URL of your Azure Digital Twins instance accessible to your function by setting an **environment variable** for it. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 > [!TIP]
 > The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the hostName, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
@@ -184,7 +184,7 @@ Then, save your details by hitting the _Save_ button.
 
 ### Configure application settings using Azure portal
 
-You can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [*Environment variables*](/sandbox/functions-recipes/environment-variables). Application settings are exposed as environment variables to access the digital twins instance. 
+To make the URL of your Azure Digital Twins instance accessible to your function, you can set an **environment variable** for it. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). Application settings are exposed as environment variables to access the Azure Digital Twins instance. 
 
 To set an environment variable with the URL of your instance, first get the URL by finding your Azure Digital Twins instance's host name. Search for your instance in the [Azure portal](https://portal.azure.com) search bar. Then, select _Overview_ on the left navigation bar to view the _Host name_. Copy this value.
 

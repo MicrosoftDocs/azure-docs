@@ -28,7 +28,7 @@ To start developing a voice assistant for Windows, you will need to mak
 
 Some resources necessary for a completely customized voice agent on Windows will require resources from Microsoft. The [UWP Voice Assistant Sample](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) provides sample versions of these resources for initial development and testing, so this section is unnecessary for initial development.
 
-- **Keyword model:** Voice activation requires a keyword model from Microsoft in the form of a .bin file. The .bin file provided in the UWP Voice Assistant Sample is trained on the keyword "Contoso".
+- **Keyword model:** Voice activation requires a keyword model from Microsoft in the form of a .bin file. The .bin file provided in the UWP Voice Assistant Sample is trained on the keyword *Contoso*.
 - **Limited Access Feature Token:** Since the ConversationalAgent APIs provide access to microphone audio, they are protected under Limited Access Feature restrictions. To use a Limited Access Feature, you will need to obtain a Limited Access Feature token connected to the package identity of your application from Microsoft.
 
 ## Establish a dialog service
