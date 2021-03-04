@@ -135,7 +135,7 @@ To get vTPM and secure boot recommendations for trusted launch VMs, see [Add a c
 
 In some cases, you might need to sign things for UEFI Secure Boot.  For example, you might need to go through [How to sign things for Secure Boot](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) for Ubuntu. In these cases, you need to enter the MOK utility enroll keys for your VM. To do this, you need to use the Azure Serial Console to access the MOK utility.
 
-1. Enable Azure Serial Console for Linux. For more information, see [Serial Console for Linux](serial-console-linux.md).
+1. Enable Azure Serial Console for Linux. For more information, see [Serial Console for Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux).
 1. Log in to the [Azure portal](https://portal.azure.com).
 1. Search for **Virtual machines** and select your VM from the list.
 1. In the left menu, under **Support + troubleshooting**, select **Serial console**. A page will open to the right, with the serial console.
