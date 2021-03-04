@@ -10,8 +10,6 @@ Important updates to Azure VMware Solutions will be applied starting in March 20
 
 ## March 4, 2021
 
-### ESXi updates
-
 - Applied patches to ESXi in existing private clouds to [VMware ESXi 6.7, Patch Release ESXi670-202011002](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/esxi670-202011002.html). 
 
 - Applied the documented workarounds for the vSphere stack as per [VMSA-2021-0002](https://www.vmware.com/security/advisories/VMSA-2021-0002.html).
@@ -20,9 +18,7 @@ Important updates to Azure VMware Solutions will be applied starting in March 20
 >This is non-disruptive and should not impact Azure VMware Services or workloads. During maintenance, various VMware alerts, such as _Lost network connectivity on DVPorts_ and _Lost uplink redundancy on DVPorts_, appear in vCenter and clear automatically as the maintenance progresses.
 
 ## March 15, 2021
-Starting March 15, 2021, all new Azure VMware Solution private clouds get deployed with VMware vCenter version 6.7U3l and NSX-T version 3.1.1. 
-
-Any existing private clouds will be updated and upgraded **through June 2021** to provide the latest features available in these releases. 
+Starting March 15, 2021, all new Azure VMware Solution private clouds get deployed with VMware vCenter version 6.7U3l and NSX-T version 3.1.1.  Any existing private clouds will be updated and upgraded **through June 2021** to provide the latest features available in these releases. 
 
 **Component version post-upgrade**
 - vCenter 6.7U3l
