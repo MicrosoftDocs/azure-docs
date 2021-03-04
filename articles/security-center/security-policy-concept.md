@@ -32,9 +32,6 @@ Like security policies, Security Center initiatives are also created in Azure Po
 
 The default initiative automatically assigned to every subscription in Azure Security Center is Azure Security Benchmark. This benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security. Learn more about [Azure Security Benchmark](../security/benchmarks/introduction.md).
 
-> [!NOTE]
-> If you've assigned 
-
 Security Center offers the following options for working with security initiatives and policies:
 
 - **View and edit the built-in default initiative** - When you enable Security Center, the initiative named 'Azure Security Benchmark' is automatically assigned to all Security Center registered subscriptions. To customize this initiative, you can enable or disable individual policies within it by editing a policy's parameters. See the list of [built-in security policies](./policy-reference.md) to understand the options available out-of-the-box.
