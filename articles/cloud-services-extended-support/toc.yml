@@ -65,6 +65,8 @@
       href: in-place-migration-portal.md
     - name: Migrate using PowerShell
       href: in-place-migration-powershell.md
+    - name: Common errors and known issues
+      href: in-place-migration-common-errors.md
   - name: Apply Remote Desktop extension
     href: enable-rdp.md
   - name: Apply WAD extension
