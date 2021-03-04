@@ -11,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 2/19/2021
-ms.author: gunnarcms
+ms.author: gunnarc
 ---
 
 # Azure Guest OS
