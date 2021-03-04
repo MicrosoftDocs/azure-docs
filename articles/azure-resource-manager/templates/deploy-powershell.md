@@ -2,7 +2,7 @@
 title: Deploy resources with PowerShell and template
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Resource Manager template or a Bicep file.
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 03/04/2021
 ---
 
 # Deploy resources with ARM templates and Azure PowerShell
@@ -110,7 +110,7 @@ The deployment can take several minutes to complete.
 ## Deploy remote template
 
 > [!NOTE]
-> Currently, Azure PowerShell doesn't support deploying remote Bicep files.
+> Currently, Azure PowerShell doesn't support deploying remote Bicep files. To deploy a remote Bicep file, use CLI Bicep to compile the Bicep file to a JSON template first.
 
 Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
 
