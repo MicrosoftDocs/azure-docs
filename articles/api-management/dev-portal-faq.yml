@@ -1,6 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Developer portal self-hosting FAQ
+  titleSuffix: Azure API Management
   description: Learn about questions that are frequently asked by people deploying the self-hosted version of the developer portal.
   author: erikadoyle
   ms.author: apimpm
@@ -19,15 +20,15 @@ summary: |
 sections:
   - name: Ignored
     questions:
-      - question: Local development of my portal is no longer working. What do I do?
+      - question: Local development of my portal is no longer working.
         answer: |
           If the local version of your developer portal can't save or retrieve information from the Storage Account or API Management instance, the SAS tokens may have expired.
           
           You can fix that by generating new tokens. For instructions, refer to the [Configure JSON files, Static website, and CORS settings](dev-portal-self-host-portal.md#configure-json-files-static-website-and-cors-settings) section of the **Self-host the portal** article.
           
-      - question: How can I remove the content provisioned to my API Management service?
+      - question: How can I remove provisioned content?
         answer: |
-          Provide the required parameters in the `scripts/cleanup.bat` script and execute it:
+          If you want to remove the content provisioned to your API management service, provide the required parameters in the `scripts/cleanup.bat` script and execute it:
           
           1. Go to the `scripts` folder, where you will find the cleanup.bat script:
           
