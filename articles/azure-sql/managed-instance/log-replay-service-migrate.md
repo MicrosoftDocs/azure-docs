@@ -197,7 +197,7 @@ Follow these steps to generate the token:
 2. Expand **Blob Containers**.
 3. Right-click the blob container and select **Get Shared Access Signature**.
 
-   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-01.png" alt-text="Screenshot that shows selections for generating an S A S authentication token.:::
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-01.png" alt-text="Screenshot that shows selections for generating an S A S authentication token.":::
 
 4. Select the timeframe for token expiration. Ensure that the token is valid for the duration of your migration.
 5. Select the time zone for the token: UTC or your local time.
@@ -214,13 +214,13 @@ Follow these steps to generate the token:
 
 The SAS authentication is generated with the time validity that you specified. You need the URI version of the token, as shown in the following screenshot.
 
-:::image type="content" source="./media/log-replay-service-migrate/lrs-generated-uri-token.png" alt-text="Screenshot that shows an example of the U R I version of an S A S token.:::
+:::image type="content" source="./media/log-replay-service-migrate/lrs-generated-uri-token.png" alt-text="Screenshot that shows an example of the U R I version of an S A S token.":::
 
 ### Copy parameters from the SAS token
 
 Before you use the SAS token to start LRS, you need to understand its structure. The URI of the generated SAS token consists of two parts separated with a question mark (`?`), as shown in this example:
 
-:::image type="content" source="./media/log-replay-service-migrate/lrs-token-structure.png" alt-text="Example U R I for a generated S A S token for Log Replay Service. border="false":::
+:::image type="content" source="./media/log-replay-service-migrate/lrs-token-structure.png" alt-text="Example U R I for a generated S A S token for Log Replay Service." border="false":::
 
 The first part, starting with `https://` until the question mark (`?`), is used for the `StorageContainerURI` parameter that's fed as in input to LRS. It gives LRS information about the folder where database backup files are stored.
 
