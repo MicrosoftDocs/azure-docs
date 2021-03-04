@@ -5,7 +5,7 @@ author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 02/18/2021
 ---
 
 # Availability options for virtual machines in Azure
@@ -47,6 +47,10 @@ Azure virtual machine scale sets let you create and manage a group of load balan
 **Fault domains and update domains**
 
 Virtual machine scale sets simplify designing for high availability by aligning fault domains and update domains. You will only have to define fault domains count for the scale set. The number of fault domains available to the scale sets may vary by region. See [Manage the availability of virtual machines in Azure](./manage-availability.md).
+
+**Orchestration modes for scale sets**
+
+Virtual machine scale sets orchestration modes allow you to have greater control over how virtual machine instances are managed by the scale set. You can enable a Uniform or Flexible orchestration mode on your scale set. Uniform orchestration is optimized for large-scale stateless workloads with identical instances. Flexible orchestration (preview) is meant for high availability at scale with identical or multiple virtual machine types. Learn more about these [orchestration modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) and how to enable them.
 
 
 ## Availability sets
