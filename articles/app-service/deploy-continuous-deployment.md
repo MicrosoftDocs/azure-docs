@@ -67,6 +67,10 @@ See [Local Git deployment to Azure App Service](deploy-local-git.md).
 
 # [Azure Repos](#tab/repos)
 
+> [!NOTE]
+> Azure Repos as a deployment source is support for Windows apps.
+>
+
 4. App Service Build Service (Kudu) is the default build provider.
 
     > [!NOTE]
