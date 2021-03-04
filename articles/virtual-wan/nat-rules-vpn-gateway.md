@@ -24,7 +24,7 @@ This configuration uses a flow table to route traffic from an external (host) IP
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/diagram.png" alt-text="Diagram showing architecture.":::
 
-## <a name="view"></a>Configure and view rules
+## <a name="rules"></a>Configure and view rules
 
 You can configure and view NAT rules on your VPN gateway settings at any time.
 
@@ -44,12 +44,12 @@ You can configure and view NAT rules on your VPN gateway settings at any time.
    * **ExternalMapping:** An address prefix range of destination IPs on the outside network that source IPs will be mapped to. In other words, your post-NAT address prefix range.
    * **Link Connection:** Connection resource that virtually connects a VPN site to the Azure hub’s Site-to-site VPN gateway.
 
-## Configuration considerations
+## <a name="considerations"></a>Configuration considerations
 
 * The subnet size for both internal and external mapping must be the same for static one-to-one NAT.
 * Be sure to edit the VPN site in the Azure portal to add **ExternalMapping** prefixes in the 'Private Address Space' field. Currently, sites that have BGP enabled need to ensure that the on-premises BGP announcer (device BGP settings) include an entry for the external mapping prefixes.
 
-## Tips and examples
+## <a name="examples"></a>Tips and examples
 
 ### Ingress mode NAT
 
@@ -114,7 +114,7 @@ If an on-premises device wants to reach a spoke virtual network, an example pack
 
 ### Validating a setup
 
-This section discusses 3 checks that you can perform to verify your configuration is set up properly.
+This section discusses checks that you can perform to verify your configuration is set up properly.
 
 #### Check 1
 
@@ -129,29 +129,12 @@ Example:
 #### Check 2
 
 The **Effective Routes** on the Network Interface Cards (NIC) of any virtual machine that is sitting in a Spoke virtual network connected to the Virtual WAN hub should also contain the address prefixes of the NAT rules **ExternalMapping**.
-Note that this is only true for resources in Virtual Networks that are associated to the DefaultRouteTable.
 
 Note that this is only true for resources in virtual networks that are associated to the DefaultRouteTable.
 
 #### Check 3
 
 If you have BGP configured on the VPN site connection, check the on-premises BGP speaker to make sure it is advertising an entry for the external mapping prefixes.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Next steps
 
