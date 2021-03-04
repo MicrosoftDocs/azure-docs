@@ -57,29 +57,14 @@ Once your function app is created, Visual Studio will generate a code sample in 
 
 You can write a function by adding SDK to your function app. The function app interacts with Azure Digital Twins using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 
-In order to use the SDK, you'll need to include the following packages into your project. You can either install the packages using Visual Studio's NuGet package manager, or add the packages using `dotnet` in a command-line tool. Follow the steps below for your preferred method.
-
-**Option 1. Add packages using Visual Studio package manager:**
-    
-Right-select your project and select _Manage NuGet Packages_ from the list. Then, in the window that opens, select the _Browse_ tab and search for the following packages. Select _Install_ and _Accept_ the License agreement to install the packages.
+In order to use the SDK, you'll need to include the following packages into your project. You can either install the packages using Visual Studio's NuGet package manager, or add the packages using `dotnet` in a command-line tool.
 
 * `Azure.DigitalTwins.Core`
 * `Azure.Identity`
 * `System.Net.Http`
 * `Azure.Core.Pipeline`
 
-**Option 2. Add packages using `dotnet` command-line tool:**
-
-Alternatively, you can use the following `dotnet add` commands in a command line tool:
-
-```cmd/sh
-dotnet add package Azure.DigitalTwins.Core
-dotnet add package Azure.Identity
-dotnet add package System.Net.Http
-dotnet add package Azure.Core.Pipeline
-```
-
-Next, in your Visual Studio Solution Explorer, open the _Function1.cs_ file where you have sample code and add the following `using` statements to your function. 
+Next, in your Visual Studio Solution Explorer, open the _Function1.cs_ file where you have sample code and add `using` statements for these packages to your function. 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
