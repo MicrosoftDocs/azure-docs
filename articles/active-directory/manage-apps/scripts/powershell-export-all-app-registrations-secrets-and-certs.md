@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.reviewer: mifarca
 ---
 
-# Export app registrations, secrets, and certificates.
+# Export app registrations, secrets, and certificates
 
 This PowerShell script example exports all app registrations, secrets, and certificates for the specified apps in your directory.
 
