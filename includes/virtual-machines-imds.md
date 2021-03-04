@@ -10,8 +10,6 @@ ms.reviewer: azmetadatadev
 ms.custom: references_regions
 ---
 
-# Azure Instance Metadata Service
-
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances. You can use it to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data available, see the [Endpoint Categories Summary](#endpoint-categories).
 
@@ -267,6 +265,7 @@ The IMDS API contains multiple endpoint categories representing different data s
 | `/metadata/attested` | See [Attested Data](#attested-data) | 2018-10-01
 | `/metadata/identity` | See [Managed Identity via IMDS](#managed-identity) | 2018-02-01
 | `/metadata/instance` | See [Instance Metadata](#instance-metadata) | 2017-04-02
+| `/metadata/loadbalancer` | See [Retrieve Load Balancer metadata via IMDS](#load-balancer-metadata) | 2020-10-01
 | `/metadata/scheduledevents` | See [Scheduled Events via IMDS](#scheduled-events) | 2017-08-01
 | `/metadata/versions` | See [Versions](#versions) | N/A
 
@@ -1098,8 +1097,12 @@ You can then request tokens for managed identities from IMDS. Use these tokens t
 
 For detailed steps to enable this feature, see [Acquire an access token](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
+## Load Balancer Metadata
+When you place virtual machine or virtual machine set instances behind an Azure Standard Load Balancer, you can use IMDS to retrieve metadata related to the load balancer and the instances. For more information, see [Retrieve load balancer information](../articles/load-balancer/instance-metadata-service-load-balancer.md).
+
 ## Scheduled events
 You can obtain the status of the scheduled events by using IMDS. Then the user can specify a set of actions to run upon these events. For more information, see [Scheduled events for Linux](../articles/virtual-machines/linux/scheduled-events.md) or [Scheduled events for Windows](../articles/virtual-machines/windows/scheduled-events.md).
+
 
 ## Sample code in different languages
 
