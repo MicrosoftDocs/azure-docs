@@ -22,7 +22,7 @@ Azure Form Recognizer can analyze and extract information from government IDs us
 
 The prebuilt IDs service extracts the key values from worldwide passports and U.S. Driver's Licenses. Since the service is based on a prebuilt model, the model has a set list of extracted key values. 
 
-![Sample Passport](./media/id-example-uspassport.jpg)
+![Sample Passport](./media/id-example-uspassport.JPG)
 
 ![Sample Driver's License](./media/id-example-driverslicense.JPG)
 
@@ -31,7 +31,7 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 ### Fields Extracted
 
 |Name| Type | Description | Value | 
-|:-----|:----|:----|:----| :----|
+|:-----|:----|:----|:----|
 |  Country | country | Country code compliant with ISO 3166 standard | "USA" | 
 |  DateOfBirth | date | DOB in YYYY-MM-DD format | "1980-01-01" | 
 |  DateOfExpiration | date | Expiration date in YYYY-MM-DD format | "2019-05-05" |  
