@@ -59,7 +59,7 @@ In addition, Security Center helps with security operations by providing you a s
 
 ### Azure Resource Manager
 
-[Azure Resource Manager](../../azure-resource-manager/management/overview.md) enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use an [Azure Resource Manager template](../../azure-resource-manager/templates/overview) for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
+[Azure Resource Manager](../../azure-resource-manager/management/overview.md) enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use an [Azure Resource Manager template](../../azure-resource-manager/templates/overview.md) for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
 
 Azure Resource Manager template-based deployments help improve the security of solutions deployed in Azure because standard security control settings and can be integrated into standardized template-based deployments. This reduces the risk of security configuration errors that might take place during manual deployments.
 
@@ -99,7 +99,7 @@ We don’t perform [penetration testing](./pen-testing.md) of your application f
 
 ### Web Application firewall
 
-The web application firewall (WAF) in [Azure Application Gateway](../../application-gateway/features#web-application-firewall.md) helps protect web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacking. It comes preconfigured with protection from threats identified by the [Open Web Application Security Project (OWASP) as the top 10 common vulnerabilities](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
+The web application firewall (WAF) in [Azure Application Gateway](../../application-gateway/features.md#web-application-firewall) helps protect web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacking. It comes preconfigured with protection from threats identified by the [Open Web Application Security Project (OWASP) as the top 10 common vulnerabilities](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
 
 ### Authentication and authorization in Azure App Service
 
@@ -173,7 +173,7 @@ A [Network Security Group (NSG)](../../virtual-network/virtual-network-vnet-plan
 
 The ability to control routing behavior on your Azure Virtual Networks is a critical network security and access control capability. For example, if you want to make sure that all traffic to and from your Azure Virtual Network goes through that virtual security appliance, you need to be able to control and customize routing behavior. You can do this by configuring User-Defined Routes in Azure.
 
-[User-Defined Routes](../../virtual-network/virtual-networks-udr-overview#custom-routes) allow you to customize inbound and outbound paths for traffic moving into and out of individual virtual machines or subnets to insure the most secure route possible. [Forced tunneling](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) is a mechanism you can use to ensure that your services are not allowed to initiate a connection to devices on the Internet.
+[User-Defined Routes](../../virtual-network/virtual-networks-udr-overview.md#custom-routes) allow you to customize inbound and outbound paths for traffic moving into and out of individual virtual machines or subnets to insure the most secure route possible. [Forced tunneling](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) is a mechanism you can use to ensure that your services are not allowed to initiate a connection to devices on the Internet.
 
 This is different from being able to accept incoming connections and then responding to them. Front-end web servers need to respond to requests from Internet hosts, and so Internet-sourced traffic is allowed inbound to these web servers and the web servers can respond.
 
