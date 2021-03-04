@@ -1103,7 +1103,7 @@ For detailed steps to enable this feature, see [Acquire an access token](../arti
 When you place virtual machine or virtual machine set instances behind an Azure Standard Load Balancer, you can use IMDS to retrieve metadata related to the load balancer and the instances. For more information, see [Retrieve load balancer information](../articles/load-balancer/instance-metadata-service-load-balancer.md).
 
 ## Scheduled events
-You can obtain the status of the scheduled events by using IMDS. Then the user can specify a set of actions to run upon these events. For more information, see [Retrieve load balancer information ](../articles/virtual-machines/linux/scheduled-events.md) or [Scheduled events for Windows](../articles/virtual-machines/windows/scheduled-events.md).
+You can obtain the status of the scheduled events by using IMDS. Then the user can specify a set of actions to run upon these events. For more information, see [Scheduled events for Linux](../articles/virtual-machines/linux/scheduled-events.md) or [Scheduled events for Windows](../articles/virtual-machines/windows/scheduled-events.md).
 
 
 ## Sample code in different languages
