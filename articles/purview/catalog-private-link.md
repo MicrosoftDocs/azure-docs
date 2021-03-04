@@ -130,5 +130,5 @@ There are 2 ways you can add Purview private endpoints after creating your Purvi
 
 ## Next steps
 
-- [Browse the Azure Purview Data Cgit statusatalog](how-to-browse-catalog.md)
+- [Browse the Azure Purview Data Catalog](how-to-browse-catalog.md)
 - [Search the Azure Purview Data Catalog](how-to-search-catalog.md)  
