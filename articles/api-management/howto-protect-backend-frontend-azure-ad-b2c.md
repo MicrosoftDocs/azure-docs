@@ -112,7 +112,8 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 
    > [!NOTE]
    > B2C Policies allow you to expose the Azure AD B2C login endpoints to be able to capture different data components and sign in users in different ways.
-   > In this case we configured a sign up or sign in flow (policy). This also exposed a well-known configuration endpoint, in both cases our created policy was identified in the URL by the "p=" query string parameter.
+   > 
+   > In this case we configured a sign up or sign in flow (policy). This also exposed a well-known configuration endpoint, in both cases our created policy was identified in the URL by the "p=" query string parameter.  
    > Once this is done, you now have a functional Business to Consumer identity platform that will sign users into multiple applications.
 
 ## Build the function API
