@@ -2,10 +2,8 @@
 title: Media Services Python basic encoding quickstart
 description: This quickstart shows you how to do basic encoding with Python and Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 
 ms.service: media-services
 ms.workload: 
