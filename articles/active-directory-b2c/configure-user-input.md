@@ -201,7 +201,7 @@ To collect the city claim after initial sign-in with a federated account, it mus
   <TechnicalProfiles>
     <!--Federated account first-time sign-in page-->
     <TechnicalProfile Id="SelfAsserted-Social">
-     <InputClaims>
+      <InputClaims>
         <InputClaim ClaimTypeReferenceId="city" />
       </InputClaims>
       <OutputClaims>
@@ -213,7 +213,7 @@ To collect the city claim after initial sign-in with a federated account, it mus
     </TechnicalProfile>
     <!--Edit profile page-->
     <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
-     <InputClaims>
+      <InputClaims>
         <InputClaim ClaimTypeReferenceId="city" />
       </InputClaims>
       <OutputClaims>
