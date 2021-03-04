@@ -1,17 +1,20 @@
 ---
-title: Azure Functions C# developer reference
-description: Understand how to develop Azure Functions using C#.
+title: Develop C# functions using Azure Functions
+description: Understand how to use C# to develop and publish code that runs in-process with the Azure Functions runtime.
 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
 
 ---
-# Azure Functions C# developer reference
+# Develop C# functions using Azure Functions
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
 This article is an introduction to developing Azure Functions by using C# in .NET class libraries.
+
+>[!IMPORTANT]
+>This article supports .NET class library functions that run in-process with the runtime. Functions also supports .NET 5.x by running your C# functions out-of-process and isolated from the runtime. To learn more, see [.NET isolated process functions](dotnet-isolated-process-guide.md).
 
 As a C# developer, you may also be interested in one of the following articles:
 
@@ -27,9 +30,11 @@ Versions of the Functions runtime work with specific versions of .NET. The follo
 
 | Functions runtime version | Max .NET version |
 | ---- | ---- |
-| Functions 3.x | .NET Core 3.1 |
+| Functions 3.x | .NET Core 3.1<br/>.NET 5.0<sup>*</sup> |
 | Functions 2.x | .NET Core 2.2 |
 | Functions 1.x | .NET Framework 4.7 |
+
+<sup>*</sup> Must run [out-of-process](dotnet-isolated-process-guide.md).
 
 To learn more, see [Azure Functions runtime versions overview](functions-versions.md)
 
@@ -90,9 +95,11 @@ The method signature may contain parameters other than the one used with the tri
 
 The order of parameters in the function signature does not matter. For example, you can put trigger parameters before or after other bindings, and you can put the logger parameter before or after trigger or binding parameters.
 
-### Output binding example
+### Output bindings
 
-The following example modifies the preceding one by adding an output queue binding. The function writes the queue message that triggers the function to a new queue message in a different queue.
+A function can have zero or one output bindings defined by using output parameters. 
+
+The following example modifies the preceding one by adding an output queue binding named `myQueueItemCopy`. The function writes the contents of the message that triggers the function to a new message in a different queue.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -108,6 +115,8 @@ public static class SimpleExampleWithOutput
     }
 }
 ```
+
+Values assigned to output bindings are written when the function exits. You can use more than one output binding in a function by simply assigning values to multiple output parameters. 
 
 The binding reference articles ([Storage queues](functions-bindings-storage-queue.md), for example) explain which parameter types you can use with trigger, input, or output binding attributes.
 
@@ -357,7 +366,7 @@ Here's a sample JSON representation of `customDimensions` data:
 }
 ```
 
-## Log custom telemetry in C# functions
+### <a name="log-custom-telemetry-in-c-functions"></a>Log custom telemetry
 
 There is a Functions-specific version of the Application Insights SDK that you can use to send custom telemetry data from your functions to Application Insights: [Microsoft.Azure.WebJobs.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights). Use the following command from the command prompt to install this package:
 
