@@ -132,19 +132,6 @@ You can search through the published kb, using `isTest=false`, or in the test kb
 }
 
 ```
-## Common HTTP errors
-
-|Code|Explanation|
-|:--|--|
-|2xx|Success|
-|400|Request's parameters are incorrect meaning the required parameters are missing, malformed, or too large|
-|400|Request's body is incorrect meaning the JSON is missing, malformed, or too large|
-|401|Invalid key|
-|403|Forbidden - you do not have correct permissions|
-|404|KB doesn't exist|
-|410|This API is deprecated and is no longer available|
-
-
 ## Use QnA Maker with a bot in C#
 
 The bot framework provides access to the QnA Maker's properties with the [getAnswer API](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
