@@ -188,7 +188,7 @@ Your .NET application configuration will have the following key-values:
 | Settings:FontSize | 24 |
 | Settings:UseDefaultRouting | false |
 
-You may access the new keys directly or you may choose to [bind configuration values to instances of .NET objects](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/#bind-hierarchical-configuration-data-using-the-options-pattern).
+You may access the new keys directly or you may choose to [bind configuration values to instances of .NET objects](/aspnet/core/fundamentals/configuration/#bind-hierarchical-configuration-data-using-the-options-pattern).
 
 
 > [!Important]
