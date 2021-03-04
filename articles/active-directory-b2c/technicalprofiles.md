@@ -303,7 +303,7 @@ In the following technical profile:
 </TechnicalProfile>
 ```
 
-### Persisted claims
+## Persisted claims
 
 The **PersistedClaims** element contains all of the values that should be persisted by an [Azure AD technical profile](active-directory-technical-profile.md) with possible mapping information between a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy and the Azure AD attribute name.
 
