@@ -1,7 +1,6 @@
 ---
 title: Deploy Azure Monitor
 description: Describes the different steps required for a complete implementation of Azure Monitor to monitor all of the resources in your Azure subscription.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -18,7 +17,7 @@ Enabling Azure Monitor to monitor of all your Azure resources is a combination o
 ## Configuration goals
 The goal of a complete implementation of Azure Monitor is to collect all available data from all of your cloud resources and applications and enable as many features in Azure Monitor as possible based on that data.
 
-Data collected by Azure Monitor is sent to either [Azure Monitor Metrics](essentials/data-platform-metrics.md) or [Azure Monitor Logs](logs/data-platform-logs.md). Each stores different kinds of data and enables different kinds of analysis and alerting. See [Compare Azure Monitor Metrics and Logs](/data-platform.md) for a comparison of the two and [Overview of alerts in Microsoft Azure](alerts/alerts-overview.md) for a description of different alert types. 
+Data collected by Azure Monitor is sent to either [Azure Monitor Metrics](essentials/data-platform-metrics.md) or [Azure Monitor Logs](logs/data-platform-logs.md). Each stores different kinds of data and enables different kinds of analysis and alerting. See [Compare Azure Monitor Metrics and Logs](data-platform.md) for a comparison of the two and [Overview of alerts in Microsoft Azure](alerts/alerts-overview.md) for a description of different alert types. 
 
 Some data can be sent to both Metrics and Logs in order to leverage it using different features. In these cases, you may need to configure each separately. For example, metric data is automatically sent by Azure resources to Metrics, which supports metrics explorer and metric alerts. You have to create a diagnostic setting for each resource to send that same metric data to Logs, which allows you to analyze performance trends with other log data using Log Analytics. The sections below identify where data is sent and includes each step required to send data to all possible locations.
 
@@ -80,32 +79,32 @@ See [What is monitored by Azure Monitor?](monitor-reference.md) for a list of av
 
 Virtual machines generate similar data as other Azure resources, but you need an agent to collect data from the guest operating system. See [Overview of Azure Monitor agents](agents/agents-overview.md) for a comparison of the agents used by Azure Monitor. 
 
-[Azure Monitor for VMs](vm/vminsights-overview.md) uses the Log Analytics agent and Dependency agent to collect data from the guest operating system of virtual machines, so you can deploy these agents as part of the implementation of this insight. This enables the Log Analytics agent for other services that use it such as Azure Security Center.
+[VM insights](vm/vminsights-overview.md) uses the Log Analytics agent and Dependency agent to collect data from the guest operating system of virtual machines, so you can deploy these agents as part of the implementation of this insight. This enables the Log Analytics agent for other services that use it such as Azure Security Center.
 
 
 [ ![Deploy Azure VM](media/deploy/deploy-azure-vm.png) ](media/deploy/deploy-azure-vm.png#lightbox)
 
 
-### Configure workspace for Azure Monitor for VMs
-Azure Monitor for VMs requires a Log Analytics workspace which will typically be the same as the one created to collect data from other Azure resources. Before you enable any virtual machines, you must add the solution required for Azure Monitor for VMs to the workspace.
+### Configure workspace for VM insights
+VM insights requires a Log Analytics workspace which will typically be the same as the one created to collect data from other Azure resources. Before you enable any virtual machines, you must add the solution required for VM insights to the workspace.
 
-See [Configure Log Analytics workspace for Azure Monitor for VMs](vm/vminsights-configure-workspace.md) for details on configuring your Log Analytics workspace for Azure Monitor for VMs.
+See [Configure Log Analytics workspace for VM insights](vm/vminsights-configure-workspace.md) for details on configuring your Log Analytics workspace for VM insights.
 
-### Enable Azure Monitor for VMs on each virtual machine
-Once a workspace has been configured, you can enable each virtual machine by installing the Log Analytics agent and Dependency agent. There are multiple methods for installing these agents including Azure Policy which allows you automatically configure each virtual machine as it's created. Performance data and process details collected by Azure Monitor for VMs is stored in Azure Monitor Logs.
+### Enable VM insights on each virtual machine
+Once a workspace has been configured, you can enable each virtual machine by installing the Log Analytics agent and Dependency agent. There are multiple methods for installing these agents including Azure Policy which allows you automatically configure each virtual machine as it's created. Performance data and process details collected by VM insights is stored in Azure Monitor Logs.
 
-See [Enable Azure Monitor for VMs overview](vm/vminsights-enable-overview.md) for options to deploy the agents to your virtual machines and enable them for monitoring.
+See [Enable VM insights overview](vm/vminsights-enable-overview.md) for options to deploy the agents to your virtual machines and enable them for monitoring.
 
 ### Configure workspace to collect events
-Azure Monitor for VMs will collect performance data and the details and dependencies of processes from the guest operating system of each virtual machine. The Log Analytics agent can also collect logs from the guest including the event log from Windows and syslog from Linux. It retrieves the configuration for these logs from the Log Analytics workspace it's connected to. You only need to configure the workspace once, and each time an agent connects, it will download any configuration changes. 
+VM insights will collect performance data and the details and dependencies of processes from the guest operating system of each virtual machine. The Log Analytics agent can also collect logs from the guest including the event log from Windows and syslog from Linux. It retrieves the configuration for these logs from the Log Analytics workspace it's connected to. You only need to configure the workspace once, and each time an agent connects, it will download any configuration changes. 
 
 See [Agent data sources in Azure Monitor](agents/agent-data-sources.md) for details on configuring your Log Analytics workspace to collect additional data from your agent virtual machines.
 
 > [!NOTE]
-> You can also configure the workspace to collect performance counters, but this will most likely be redundant with performance data collected by Azure Monitor for VMs. Performance data collected by the workspace will be stored in the *Perf* table, while performance data collected by Azure Monitor for VMs is stored in the *InsightsMetrics* table. Configure performance collection in the workspace only if you require counters that aren't already collected by Azure Monitor for VMs.
+> You can also configure the workspace to collect performance counters, but this will most likely be redundant with performance data collected by VM insights. Performance data collected by the workspace will be stored in the *Perf* table, while performance data collected by VM insights is stored in the *InsightsMetrics* table. Configure performance collection in the workspace only if you require counters that aren't already collected by VM insights.
 
 ### Diagnostic extension and Telegraf agent
-Azure Monitor for VMs uses the Log Analytics agent which sends performance data to a Log Analytics workspace but not to Azure Monitor Metrics. Sending this data to Metrics allows it to be analyzed with Metrics Explorer and used with metric alerts. This requires the diagnostic extension on Windows and the Telegraf agent on Linux.
+VM insights uses the Log Analytics agent which sends performance data to a Log Analytics workspace but not to Azure Monitor Metrics. Sending this data to Metrics allows it to be analyzed with Metrics Explorer and used with metric alerts. This requires the diagnostic extension on Windows and the Telegraf agent on Linux.
 
 See [Install and configure Windows Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md) and [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md) for details on installing and configuring these agents.
 

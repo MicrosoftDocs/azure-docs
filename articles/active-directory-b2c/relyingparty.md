@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -149,7 +149,7 @@ The **SingleSignOn** element contains in the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Scope | Yes | The scope of the single sign-on behavior. Possible values: `Suppressed`, `Tenant`, `Application`, or `Policy`. The `Suppressed` value indicates that the behavior is suppressed, and the user is always prompted for an identity provider selection.  The `Tenant` value indicates that the behavior is applied to all policies in the tenant. For example, a user navigating through two policy journeys for a tenant is not prompted for an identity provider selection. The `Application` value indicates that the behavior is applied to all policies for the application making the request. For example, a user navigating through two policy journeys for an application is not prompted for an identity provider selection. The `Policy` value indicates that the behavior only applies to a policy. For example, a user navigating through two policy journeys for a trust framework is prompted for an identity provider selection when switching between policies. |
-| KeepAliveInDays | Yes | Controls how long the user remains signed in. Setting the value to 0 turns off KMSI functionality. For more information, see [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |
+| KeepAliveInDays | No | Controls how long the user remains signed in. Setting the value to 0 turns off KMSI functionality. For more information, see [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |
 |EnforceIdTokenHintOnLogout| No|  Force to pass a previously issued ID token to the logout endpoint as a hint about the end user's current authenticated session with the client. Possible values: `false` (default), or `true`. For more information, see [Web sign-in with OpenID Connect](openid-connect.md).  |
 
 
@@ -214,20 +214,6 @@ The **Protocol** element contains the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Name | Yes | The name of a valid protocol supported by Azure AD B2C that is used as part of the technical profile. Possible values: `OpenIdConnect` or `SAML2`. The `OpenIdConnect` value represents the OpenID Connect 1.0 protocol standard as per OpenID foundation specification. The `SAML2` represents the SAML 2.0 protocol standard as per OASIS specification. |
-
-### Metadata
-
-When the protocol is `SAML`, a metadata element contains the following elements.
-
-| Attribute | Required | Description |
-| --------- | -------- | ----------- |
-| IdpInitiatedProfileEnabled | No | Indicates whether the IDP initiated flow is supported. Possible values: `true` or `false` (default). | 
-| XmlSignatureAlgorithm | No | The method that Azure AD B2C uses to sign the SAML Response. Possible values: `Sha256`, `Sha384`, `Sha512`, or `Sha1`. Make sure you configure the signature algorithm on both sides with same value. Use only the algorithm that your certificate supports. To configure the SAML Assertion, see [SAML issuer technical profile metadata](saml-issuer-technical-profile.md#metadata). |
-| DataEncryptionMethod | No | Indicates the method that Azure AD B2C uses to encrypt the data, using Advanced Encryption Standard (AES) algorithm. The metadata controls the value of the `<EncryptedData>` element in the SAML response. Possible values: `Aes256` (default), `Aes192`, `Sha512`, or ` Aes128`. |
-| KeyEncryptionMethod| No | Indicates the method that Azure AD B2C uses to encrypt the copy of the key that was used to encrypt the data. The metadata controls the value of the  `<EncryptedKey>` element in the SAML response. Possible values: ` Rsa15` (default) - RSA Public Key Cryptography Standard (PKCS) Version 1.5 algorithm, ` RsaOaep` - RSA Optimal Asymmetric Encryption Padding (OAEP) encryption algorithm. |
-| UseDetachedKeys | No |  Possible values: `true`, or `false` (default). When the value is set to `true`, Azure AD B2C changes the format of the encrypted assertions. Using detached keys adds the encrypted assertion as a child of the EncrytedAssertion as opposed to the EncryptedData. |
-| WantsSignedResponses| No | Indicates whether Azure AD B2C signs the `Response` section of the SAML response. Possible values: `true` (default) or `false`.  |
-| RemoveMillisecondsFromDateTime| No | Indicates whether the millisconds will be removed from datetime values within the SAML response (these include IssueInstant, NotBefore, NotOnOrAfter and AuthnInstant). Possible values: `false` (default) or `true`.  |
 
 ### OutputClaims
 

@@ -1,7 +1,6 @@
 ---
-title: View app dependencies with Azure Monitor for VMs
-description: Map is a feature of Azure Monitor for VMs. It automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use the Map feature in various scenarios.
-ms.subservice: 
+title: View app dependencies with VM insights
+description: Map is a feature of VM insights. It automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use the Map feature in various scenarios.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,10 +8,10 @@ ms.date: 03/20/2020
 
 ---
 
-# Use the Map feature of Azure Monitor for VMs to understand application components
-In Azure Monitor for VMs, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. You can observe the VMs in two ways. View a map directly from a VM or view a map from Azure Monitor to see the components across groups of VMs. This article will help you understand these two viewing methods and how to use the Map feature. 
+# Use the Map feature of VM insights to understand application components
+In VM insights, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. You can observe the VMs in two ways. View a map directly from a VM or view a map from Azure Monitor to see the components across groups of VMs. This article will help you understand these two viewing methods and how to use the Map feature. 
 
-For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](./vminsights-enable-overview.md).
+For information about configuring VM insights, see [Enable VM insights](./vminsights-enable-overview.md).
 
 ## Sign in to Azure
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -81,7 +80,7 @@ If the group includes monitored and unmonitored servers, you can select the appr
 
 ## View a map from a VM 
 
-To access Azure Monitor for VMs directly from a VM:
+To access VM insights directly from a VM:
 
 1. In the Azure portal, select **Virtual Machines**. 
 2. From the list, choose a VM. In the **Monitoring** section, choose **Insights**.  
@@ -95,7 +94,7 @@ By default, the map shows the last 30 minutes. If you want to see how dependenci
 
 ## View a map from a virtual machine scale set
 
-To access Azure Monitor for VMs directly from a virtual machine scale set:
+To access VM insights directly from a virtual machine scale set:
 
 1. In the Azure portal, select **Virtual machine scale sets**.
 2. From the list, choose a VM. Then in the **Monitoring** section, choose **Insights**.  
@@ -130,4 +129,4 @@ By default, the map shows the last 30 minutes. If you want to see how dependenci
 
 ## Next steps
 
-To identify bottlenecks, check performance, and understand overall utilization of your VMs, see [View performance status for Azure Monitor for VMs](vminsights-performance.md).
+To identify bottlenecks, check performance, and understand overall utilization of your VMs, see [View performance status for VM insights](vminsights-performance.md).

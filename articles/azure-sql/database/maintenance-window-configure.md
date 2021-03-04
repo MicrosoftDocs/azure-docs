@@ -8,7 +8,7 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ---
 # Configure maintenance window (Preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -20,6 +20,8 @@ The *System default* maintenance window is 5PM to 8AM daily (local time of the A
 
 The ability to change to a different maintenance window is not available for every service level or in every region. For details on availability, see [Maintenance window availability](maintenance-window.md#availability).
 
+> [!Important]
+> Configuring maintenance window is a long running asynchronous operation, similar to changing the service tier of the Azure SQL resource. The resource is available during the operation, except a short failover that happens at the end of the operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of failover you should perform the operation outside of the peak hours.
 
 ## Configure maintenance window during database creation 
 
@@ -271,7 +273,7 @@ The following steps set the maintenance window on an existing database, elastic 
 1. Navigate to the managed instance you want to set the maintenance window for.
 1. In the **Settings** menu select **Maintenance**, then select the desired maintenance window.
 
-   :::image type="content" source="media/maintenance-window-configure/maintenance.png" alt-text="SQL database Maintenance page":::
+   :::image type="content" source="media/maintenance-window-configure/maintenance-mi.png" alt-text="SQL managed instance Maintenance page":::
 
 
 
