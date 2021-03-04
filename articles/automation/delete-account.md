@@ -25,4 +25,7 @@ Removing your Automation account can be done using one of the following methods 
 
 This article tells you how to completely remove your Automation account through the Azure portal, PowerShell, the Azure CLI, or the REST API.
 
+## Delete the dedicated resource group
+
+To delete your Automation account, and also the Log Analytics workspace if linked to the account, created in the same resource group dedicated to the account, follow the steps outlined in the [Azure Resource Manager resource group and resource deletion](../azure-resource-manager/management/delete-resource-group.md) article.
 
