@@ -2,7 +2,7 @@
 title: View Live Data with Container insights | Microsoft Docs
 description: This article describes the real-time view of Kubernetes logs, events, and pod metrics without using kubectl in Container insights.
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 03/04/2021
 ms.custom: references_regions
 ---
 
@@ -14,16 +14,16 @@ This article provides a detailed overview and helps you understand how to use th
 
 For help setting up or troubleshooting the Live Data feature, review our [setup guide](container-insights-livedata-setup.md). This feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-## View deployment live logs
+## View AKS resource live logs
 Use the following procedure to view the live logs for deployments that are part of of AKS clusters that are not monitored by Container insights. If your cluster uses Container insights then use the process below to view the live data for nodes, controllers, containers, and deployments.
 
 1. In the Azure portal, browse to the AKS cluster resource group and select your AKS resource.
 
 2. Select **Workloads** in the **Kubernetes resources** section of the menu.
 
-3. Select a deployment from the **Deployments** tab.
+3. Select a pod, deployment, replica-set from the **Deployments** tab.
 
-4. Select **Live Logs** from the deployment's menu.
+4. Select **Live Logs** from the resource's menu.
 
 5. Select a pod to start collection of the live data.
 
