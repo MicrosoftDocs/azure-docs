@@ -7,6 +7,7 @@ ms.date: 03/05/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: image-builder
+ms.custom: references_regions
 ms.reviewer: cynthn
 ---
 
@@ -72,7 +73,7 @@ When the build finishes all resources will be deleted, except for the staging re
 There are multiple examples and step by step guides in this documentation, which reference configuration templates and solutions in the [Azure Image Builder GitHub repository](https://github.com/azure/azvmimagebuilder).
 
 ### Move Support
-The image template resource is immutable and contains links to resources and the staging resource group, therefore the resource type does not support being moved. If you wish to move the image template resource, ensure you have a copy of the configuration template (extract the existing configuration from the resource if you dont have it), create a new image template resource in the new resource group with a new name and delete the previous image template resource. 
+The image template resource is immutable and contains links to resources and the staging resource group, therefore the resource type does not support being moved. If you wish to move the image template resource, ensure you have a copy of the configuration template (extract the existing configuration from the resource if you don't have it), create a new image template resource in the new resource group with a new name and delete the previous image template resource. 
 
 ## Permissions
 When you register for the (AIB), this grants the AIB Service permission to create, manage and delete a staging resource group (IT_*), and have rights to add resources to it, that are required for the image build. This is done by an AIB Service Principal Name (SPN) being made available in your subscription during a successful registration.
