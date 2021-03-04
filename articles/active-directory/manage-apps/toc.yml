@@ -34,12 +34,12 @@
       href: application-proxy-add-on-premises-application.md
   - name: Samples
     items: 
-    - name: App Management samples
+    - name: Overview of App Management samples
       href: app-management-powershell-samples.md
       items:
       - name: Export all app registrations, secrets, and certs
         href: powershell-export-all-app-registrations-secrets-and-certs.md
-    - name: App Proxy samples
+    - name: Overview of App Proxy samples
       href: application-proxy-powershell-samples.md
   - name: Concepts
     expanded: true
