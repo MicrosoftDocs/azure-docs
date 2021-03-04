@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
-author: faneerde
+author: fvneerden
 
 ---
 # Tutorial: Analyze live video by using Intel OpenVINO™ DL Streamer – Edge AI Extension 
