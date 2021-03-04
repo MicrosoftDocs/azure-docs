@@ -49,7 +49,9 @@ You can configure and view NAT rules on your VPN gateway settings at any time.
 * The subnet size for both internal and external mapping must be the same for static one-to-one NAT.
 * Be sure to edit the VPN site in the Azure portal to add **ExternalMapping** prefixes in the 'Private Address Space' field. Currently, sites that have BGP enabled need to ensure that the on-premises BGP announcer (device BGP settings) include an entry for the external mapping prefixes.
 
-## Ingress mode NAT
+## Tips and examples
+
+### Ingress mode NAT
 
 Ingress mode NAT rules are applied on packets that are entering Azure through the Virtual WAN Site-to-site VPN gateway. In this scenario, you want to connect two Site-to-site VPN branches to Azure. VPN Site 1 connects via Link1, and VPN Site 2 connects via Link 2. Each site has the address space 192.169.1.0/24.
 
@@ -90,7 +92,7 @@ The following diagram shows the projected end result:
    * Ensure that the on-premises BGP speaker located at VPN Site 1 is configured to advertise the 10.1.1.0/24 address space.
    * During this preview, sites that have BGP enabled need to ensure that the on-premises BGP announcer (device BGP settings) include an entry for the external mapping prefixes.
 
-## Packet flow
+### Packet flow
 
 If an on-premises device wants to reach a spoke virtual network, an example packet flow is as follows, with the NAT translations in bold.
 
@@ -107,11 +109,11 @@ If an on-premises device wants to reach a spoke virtual network, an example pack
    * Source IP Address: 30.0.0.1
    * Destination IP Address: **192.168.1.1**
 
-## Verification checks
+### Verification checks
 
 This section discusses checks that you can perform to verify your configuration is set up properly.
 
-### Validate DefaultRouteTable, rules, and routes
+#### Validate DefaultRouteTable, rules, and routes
 
 Branches in Virtual WAN associate to the **DefaultRouteTable**, implying all branch connections learn routes that are populated within the DefaultRouteTable. You will see the NAT rule with the external mapping prefix in the effective routes of the DefaultRouteTable.
 
@@ -121,13 +123,13 @@ Example:
 * **Next Hop Type:** VPN_S2S_Gateway
 * **Next Hop:** VPN_S2S_Gateway Resource
 
-### Validate address prefixes
+#### Validate address prefixes
 
 The **Effective Routes** on the Network Interface Cards (NIC) of any virtual machine that is sitting in a Spoke virtual network connected to the Virtual WAN hub should also contain the address prefixes of the NAT rules **ExternalMapping**.
 
 Note that this is only true for resources in virtual networks that are associated to the DefaultRouteTable.
 
-### Validate BGP advertisements
+#### Validate BGP advertisements
 
 If you have BGP configured on the VPN site connection, check the on-premises BGP speaker to make sure it is advertising an entry for the external mapping prefixes.
 
