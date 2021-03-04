@@ -66,6 +66,8 @@ From the project root directory, run the command:
 
 `$ npm install`
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 ## Configure the application
 
 Provide the parameters in `exports.creds` in config.js as instructed.

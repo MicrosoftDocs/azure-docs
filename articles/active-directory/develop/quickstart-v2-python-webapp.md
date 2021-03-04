@@ -85,6 +85,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > [!div renderon="docs"]
 > [Download the Code Sample](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 > [!div class="sxs-lookup" renderon="portal"]
 > Download the project and extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
 > [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]

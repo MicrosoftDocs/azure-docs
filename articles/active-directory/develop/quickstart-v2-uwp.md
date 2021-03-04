@@ -70,6 +70,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > [!div renderon="docs"]
 > [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project using Visual Studio 2019.
 > [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]

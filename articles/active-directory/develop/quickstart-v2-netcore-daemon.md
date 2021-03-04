@@ -73,6 +73,8 @@ This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/
 
 > [!div renderon="docs"]
 > [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+
+>[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 >
 > You can run the provided project in either Visual Studio or Visual Studio for Mac.
 

@@ -72,6 +72,8 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 > [!div renderon="docs"]
 > To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/master.zip).
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 > [!div renderon="portal" class="sxs-lookup"]
 > Run the project with a web server by using Node.js
 
@@ -121,8 +123,7 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
+> To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run

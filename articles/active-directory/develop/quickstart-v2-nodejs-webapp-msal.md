@@ -51,6 +51,8 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > [!div renderon="docs"]
 > To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/ms-identity-node/archive/main.zip).
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 > [!div renderon="portal" class="sxs-lookup"]
 > Run the project with a web server by using Node.js
 
@@ -96,8 +98,8 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> > [!TIP]
-> > To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal. Go under **Certificates & secrets** to retrieve or generate a new **Client secret**.
+> 
+> To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal. Go under **Certificates & secrets** to retrieve or generate a new **Client secret**.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
