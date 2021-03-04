@@ -48,7 +48,7 @@ You will then be presented a series of questions to initialize your project.  Fo
 
 ![NPM init output](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-Our project is now initialized with a *packages.json* file.  Our project is going to use some Azure libraries contained in NPM packages.  We'll use the Azure Client Runtime for Node.js (@azure/ms-rest-nodeauth) and the Azure CDN Client Library for JavaScript (@azure/arm-cdn).  Let's add those to the project as dependencies.
+Our project is now initialized with a *packages.json* file.  Our project is going to use some Azure libraries contained in NPM packages.  We'll use the library for Azure Active Directory authentication in Node.js (@azure/ms-rest-nodeauth) and the Azure CDN Client Library for JavaScript (@azure/arm-cdn).  Let's add those to the project as dependencies.
 
 ```console
 npm install --save @azure/ms-rest-nodeauth
@@ -367,4 +367,3 @@ To see the reference for the Azure CDN SDK for JavaScript, view the [reference](
 To find additional documentation on the Azure SDK for JavaScript, view the [full reference](https://docs.microsoft.com/javascript/api/@azure/arm-cdn).
 
 Manage your CDN resources with [PowerShell](cdn-manage-powershell.md).
-
