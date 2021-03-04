@@ -31,7 +31,7 @@ The Azure Synapse Analytics integration with Azure Machine Learning (preview) al
 
 * [Create an Azure Machine Learning workspace](how-to-manage-workspace.md?tabs=python).
 
-* [Create a Azure Synapse Analytics workspace in Azure portal](../synapse-analytics/quickstart-create-workspace.md).
+* [Create an Azure Synapse Analytics workspace in Azure portal](../synapse-analytics/quickstart-create-workspace.md).
 
 * [Create Apache Spark pool using Azure portal, web tools, or Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
@@ -137,7 +137,7 @@ You can attach Apache Spark pools via,
 * [Azure Resource Manager (ARM) templates](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)
 * The Python SDK 
 
-Follow these steps to attach a Apache Spark pool using the studio. 
+Follow these steps to attach an Apache Spark pool using the studio. 
 
 1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select **Linked Services** in the **Manage** section of the left pane.
@@ -150,7 +150,7 @@ Follow these steps to attach a Apache Spark pool using the studio.
 1. Select **Attach selected**. 
 
 
-You can also employ the **Python SDK** to attach a Apache Spark pool. 
+You can also employ the **Python SDK** to attach an Apache Spark pool. 
 
 The follow code, 
 1. Configures the SynapseCompute with,
