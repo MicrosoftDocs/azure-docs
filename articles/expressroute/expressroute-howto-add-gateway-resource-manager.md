@@ -49,6 +49,11 @@ The steps for this task use a VNet based on the values in the following configur
 | Type | *ExpressRoute* |
 | Gateway Public IP Name  | *gwpip* |
 
+> [!IMPORTANT]
+> IPv6 support for private peering is currently in **Public Preview**. If you would like to connect your virtual network to an ExpressRoute circuit with IPv6-based private peering configured, please make sure that your virtual network is dual stack and follows the guidelines described [here](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> 
+> 
+
 ## Add a gateway
 
 1. To connect with Azure, run `Connect-AzAccount`.
@@ -72,6 +77,11 @@ The steps for this task use a VNet based on the values in the following configur
 
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
+   ```
+    If you are using a dual stack virtual network and plan to use IPv6-based private peering over ExpressRoute, create a dual stack gateway subnet instead.
+
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix "10.0.0.0/26","ace:daa:daaa:deaa::/64"
    ```
 1. Set the configuration.
 
@@ -98,6 +108,10 @@ The steps for this task use a VNet based on the values in the following configur
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
+> [!IMPORTANT]
+> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **-GatewaySku**.
+> 
+> 
 
 ## Verify the gateway was created
 Use the following commands to verify that the gateway has been created:
