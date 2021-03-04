@@ -6,6 +6,7 @@ ms.service: azure-functions
 ms.topic: conceptual 
 ms.date: 03/01/2021
 ms.custom: template-concept 
+#Customer intent: As a developer, I need to know how to create functions that run in an isolated process so that I can run my function code on current (not LTS) releases of .NET.
 ---
 
 # Guide for running functions on .NET 5.0 in Azure
@@ -34,6 +35,12 @@ When running out-of-process, your .NET functions can take advantage of the follo
 
 The only version of .NET that is currently supported to run out-of-process is .NET 5.0.
 
+## Prerequisites 
+
+* [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
+* [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 3.0.3320, or a later version.
+* [Azure CLI](/cli/azure/install-azure-cli) version 2.20, or a later version
+
 ## .NET isolated project
 
 A .NET isolated function project is basically a .NET console app project that targets .NET 5.0. The following are the basic files required in any .NET isolated project:
@@ -59,6 +66,14 @@ The following packages are required to run your .NET functions in an isolated pr
 Because functions that run in a .NET isolated process use different binding types, they require a unique set of binding extension packages. 
 
 You'll find these extension packages under [Microsoft.Azure.Functions.Worker.Extensions](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions).
+
+## Create local project
+
+
+
+## Create Azure resources 
+
+
  
 ## Start-up and configuration 
 
@@ -80,7 +95,7 @@ The following example shows how to add configuration `args`, which are read as c
  
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="21-24" :::
 
-The `ConfigureAppConfiguration` method is used to configure the rest of the build process and application. This example also uses an [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), which makes it easier to add multiple configuration items. Because `ConfigureAppConfiguration` returns the same instance of [`IConfiguration `](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true), you can also just call it multiple times to add multiple configuration items. You can access the full set of configurations from both [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) and [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true).
+The `ConfigureAppConfiguration` method is used to configure the rest of the build process and application. This example also uses an [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), which makes it easier to add multiple configuration items. Because `ConfigureAppConfiguration` returns the same instance of [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true), you can also just call it multiple times to add multiple configuration items. You can access the full set of configurations from both [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) and [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true).
 
 To learn more about configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true). 
 
