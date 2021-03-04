@@ -29,11 +29,11 @@ To perform this migration, you must be added as a coadministrator for the subscr
 2. On the **Hub** menu, select **Subscription**. If you don't see it, select **All services**.
 3. Find the appropriate subscription entry, and then look at the **MY ROLE** field. For a coadministrator, the value should be *Account admin*.
 
-If you're not able to add a co-administrator, contact a service administrator or co-administrator for the subscription to get yourself added.
+If you're not able to add a co-administrator, contact a service administrator or [co-administrator](../role-based-access-control/classic-administrators.md) for the subscription to get yourself added.
 
 **Sign up for Migration resource provider**
 
-1. Register with the migration resource provider using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). 
+1. Register with the migration resource provider `Microsoft.ClassicInfrastructureMigrate` using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1). 
 1. Wait five minutes for the registration to complete then check the status of the approval. 
 
 ## Migrate your Cloud Service resources
