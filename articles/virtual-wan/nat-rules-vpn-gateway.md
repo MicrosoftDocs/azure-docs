@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 > [!IMPORTANT]
 > NAT rules are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> This preview version is provided without a service level agreement and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can configure your Virtual WAN VPN gateway with static one-to-one NAT rules. A NAT rule provides a mechanism to set up one-to-one translation of IP addresses. NAT can be used to interconnect two IP networks that have incompatible or overlapping IP addresses. A typical scenario is branches with overlapping IPs that want to access Azure VNet resources.
@@ -44,58 +44,56 @@ You can configure and view NAT rules on your VPN gateway settings at any time.
    * **ExternalMapping:** An address prefix range of destination IPs on the outside network that source IPs will be mapped to. In other words, your post-NAT address prefix range.
    * **Link Connection:** Connection resource that virtually connects a VPN site to the Azure hub’s Site-to-site VPN gateway.
 
-## <a name="considerations"></a>Configuration considerations
+### <a name="considerations"></a>Configuration considerations
 
 * The subnet size for both internal and external mapping must be the same for static one-to-one NAT.
 * Be sure to edit the VPN site in the Azure portal to add **ExternalMapping** prefixes in the 'Private Address Space' field. Currently, sites that have BGP enabled need to ensure that the on-premises BGP announcer (device BGP settings) include an entry for the external mapping prefixes.
 
-## <a name="examples"></a>Tips and examples
-
-### Ingress mode NAT
+## Ingress mode NAT
 
 Ingress mode NAT rules are applied on packets that are entering Azure through the Virtual WAN Site-to-site VPN gateway. In this scenario, you want to connect two Site-to-site VPN branches to Azure. VPN Site 1 connects via Link1, and VPN Site 2 connects via Link 2. Each site has the address space 192.169.1.0/24.
 
 The following diagram shows the projected end result:
 
-   :::image type="content" source="./media/nat-rules-vpn-gateway/ingress.png" alt-text="Diagram showing Ingress mode NAT.":::
+:::image type="content" source="./media/nat-rules-vpn-gateway/ingress.png" alt-text="Diagram showing Ingress mode NAT.":::
 
-#### 1. Specify a NAT rule
+1. Specify a NAT rule.
 
-Specify a NAT rule to ensure the Site-to-site VPN gateway is able to distinguish between the two branches with overlapping address spaces (such as 192.168.1.0/24).
+   Specify a NAT rule to ensure the Site-to-site VPN gateway is able to distinguish between the two branches with overlapping address spaces (such as 192.168.1.0/24).
 
-In this example, we focus on Link1 for VPN Site 1.
+   In this example, we focus on Link1 for VPN Site 1.
 
-The following NAT rule can be set up and associated to Link 1 of one of the branches. Because this is a static NAT rule, the address spaces of the InternalMapping and ExternalMapping contain the same number of IP addresses.
+   The following NAT rule can be set up and associated to Link 1 of one of the branches. Because this is a static NAT rule, the address spaces of the InternalMapping and ExternalMapping contain the same number of IP addresses.
 
-* **Name:** IngressRule01
-* **Type:** Static
-* **Mode:** IngressSnat
-* **InternalMapping:** 192.168.1.0/24
-* **ExternalMapping:** 10.1.1.0/24
-* **Link Connection:** Link 1
+   * **Name:** IngressRule01
+   * **Type:** Static
+   * **Mode:** IngressSnat
+   * **InternalMapping:** 192.168.1.0/24
+   * **ExternalMapping:** 10.1.1.0/24
+   * **Link Connection:** Link 1
 
-#### 2. Advertise the correct ExternalMapping
+1. Advertise the correct ExternalMapping
 
-In this step, ensure that your Site-to-site VPN gateway advertises the correct ExternalMapping address space to the rest of your Azure resources. There are two configuration examples:
+   In this step, ensure that your Site-to-site VPN gateway advertises the correct ExternalMapping address space to the rest of your Azure resources. There are two configuration examples:
 
-##### Example 1: BGP is not enabled
+   **Example 1: BGP is not enabled**
 
-In this example, the VPN site does not have BGP enabled
+   In this example, the VPN site does not have BGP enabled.
 
-1. Navigate to the Virtual hub resource that contains the Site-to-site VPN gateway.
-1. On the virtual hub page, under **Connectivity**, select **VPN (Site-to-site)**.
-1. Select the VPN site that is connected to the Virtual WAN hub via Link 1.
-1. Click **Edit Site** and input 10.1.1.0/24 as the private address space for the VPN site.
+   * Navigate to the Virtual hub resource that contains the Site-to-site VPN gateway.
+   * On the virtual hub page, under **Connectivity**, select **VPN (Site-to-site)**.
+   * Select the VPN site that is connected to the Virtual WAN hub via Link 1.
+   * Click **Edit Site** and input 10.1.1.0/24 as the private address space for the VPN site.
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/edit-site.png" alt-text="Screenshot showing Edit VPN site page.":::
 
-##### Example 2: BGP enabled
+   **Example 2: BGP enabled**
 
-In this example, The VPN site has BGP enabled.
+   In this example, The VPN site has BGP enabled.
 
-Ensure that the on-premises BGP speaker located at VPN Site 1 is configured to advertise the 10.1.1.0/24 address space. During this preview, sites that have BGP enabled need to ensure that the on-premises BGP announcer (device BGP settings) include an entry for the external mapping prefixes.
+   Ensure that the on-premises BGP speaker located at VPN Site 1 is configured to advertise the 10.1.1.0/24 address space. During this preview, sites that have BGP enabled need to ensure that the on-premises BGP announcer (device BGP settings) include an entry for the external mapping prefixes.
 
-### Packet flow
+## Packet flow
 
 If an on-premises device wants to reach a spoke virtual network, an example packet flow is as follows, with the NAT translations in bold.
 
@@ -112,11 +110,11 @@ If an on-premises device wants to reach a spoke virtual network, an example pack
    * Source IP Address: 30.0.0.1
    * Destination IP Address: **192.168.1.1**
 
-### Validating a setup
+## Verification checks
 
 This section discusses checks that you can perform to verify your configuration is set up properly.
 
-#### Check 1
+### Validate DefaultRouteTable, rules, and routes
 
 Branches in Virtual WAN associate to the **DefaultRouteTable**, implying all branch connections learn routes that are populated within the DefaultRouteTable. You will see the NAT rule with the external mapping prefix in the effective routes of the DefaultRouteTable.
 
@@ -126,13 +124,13 @@ Example:
 * **Next Hop Type:** VPN_S2S_Gateway
 * **Next Hop:** VPN_S2S_Gateway Resource
 
-#### Check 2
+### Validate address prefixes
 
 The **Effective Routes** on the Network Interface Cards (NIC) of any virtual machine that is sitting in a Spoke virtual network connected to the Virtual WAN hub should also contain the address prefixes of the NAT rules **ExternalMapping**.
 
 Note that this is only true for resources in virtual networks that are associated to the DefaultRouteTable.
 
-#### Check 3
+### Validate BGP advertisements
 
 If you have BGP configured on the VPN site connection, check the on-premises BGP speaker to make sure it is advertising an entry for the external mapping prefixes.
 
