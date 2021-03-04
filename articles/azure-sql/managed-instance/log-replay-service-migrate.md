@@ -43,7 +43,7 @@ The migration consists of making full database backups on SQL Server with `CHECK
 
 LRS monitors Blob Storage for any new differential or log backups added after the full backup has been restored. LRS then automatically restores these new files. You can use the service to monitor the progress of backup files being restored on SQL Managed Instance, and you can stop the process if necessary.
 
-LRS does not require a specific naming convention for backup files. It scans all files placed on Blob Storage and constructs the backup chain from reading the file headers only. Databases are in a "restoring" state during the migration process. Databases are restored in [NORECOVERY](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=sql-server-ver15#comparison-of-recovery-and-norecovery) mode, so they can't be used for reading or writing until the migration process is completed. 
+LRS does not require a specific naming convention for backup files. It scans all files placed on Blob Storage and constructs the backup chain from reading the file headers only. Databases are in a "restoring" state during the migration process. Databases are restored in [NORECOVERY](/sql/t-sql/statements/restore-statements-transact-sql#comparison-of-recovery-and-norecovery) mode, so they can't be used for reading or writing until the migration process is completed. 
 
 If you're migrating several databases, you need to:
  
@@ -70,11 +70,11 @@ After LRS is stopped, either automatically through autocomplete or manually thro
 ## Requirements for getting started
 
 ### SQL Server side
-- Install SQL Server 2008-2019.
-- Do a full backup of databases (one or multiple files).
-- Do a differential backup (one or multiple files).
-- Do a log backup (not split for a transaction log file).
-- Enable `CHECKSUM` for backups (mandatory).
+- SQL Server 2008-2019
+- Full backup of databases (one or multiple files)
+- Differential backup (one or multiple files)
+- Log backup (not split for a transaction log file)
+- `CHECKSUM` enabled for backups (mandatory)
 
 ### Azure side
 - Get PowerShell Az.SQL module version 2.16.0 or later. ([Install](https://www.powershellgallery.com/packages/Az.Sql/) it or use [Azure Cloud Shell](/azure/cloud-shell/).)
@@ -107,7 +107,7 @@ We recommend the following best practices:
 > - LRS doesn't support read-only access to databases during the migration.
 > - After migration finishes, the migration process is finalized because LRS doesn't support resuming the restore process.
 
-## Steps before migration
+## Steps to execute
 
 ### Make backups of SQL Server
 
@@ -210,7 +210,7 @@ Follow these steps to generate the token:
    > Don't select any other permissions. If you do, LRS won't start. This security requirement is by design.
 7. Select **Create**.
 
-   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-02.png" alt-text="Screenshot that shows selections for token expiration, time zone, and permissions, along with the Create button.":::
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-02.png" alt-text="Screenshot that shows selections for S A S token expiration, time zone, and permissions, along with the Create button.":::
 
 The SAS authentication is generated with the time validity that you specified. You need the URI version of the token, as shown in the following screenshot.
 
