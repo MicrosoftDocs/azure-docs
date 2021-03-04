@@ -11,9 +11,11 @@ ms.custom: devx-track-java
 
 # Access the data plane with Azure Active Directory and Role Based Access Control
 
-This article explains how customers can access the Azure Spring Cloud config server and service registry endpoints with Azure Active Directory (AAD) role-based access control (RBAC).
+This article explains how to access the Azure Spring Cloud config server and service registry endpoints using Azure Active Directory (AAD) role-based access control (RBAC).
 
 ## Assign role to AAD user/group, MSI, or service principal
+
+To use AAD and RBAC you must assign the *Azure Spring Cloud Data Reader* role to a user, group, or service principal by the following procedure:
 
 1. Go to the service overview page of your service instance.
 
@@ -29,9 +31,9 @@ This article explains how customers can access the Azure Spring Cloud config ser
 
 ## Access data plane
 
-After an AAD user is assigned the *Azure Spring Cloud Data Reader* role, customers can log in to Azure CLI with user, service principal, or managed identity.  See [Authenticate Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) to get an access token.
+After an AAD user is assigned the *Azure Spring Cloud Data Reader* role, customers can log in to Azure CLI with user, service principal, or managed identity.  See [Authenticate Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) to get an access token.  Then use the following commands.
 
-```
+```azurecli
 az login
 az account get-access-token
 ```
