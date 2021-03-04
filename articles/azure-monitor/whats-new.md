@@ -41,7 +41,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 ### Logs	
 - [Azure Monitor customer-managed key](./logs/customer-managed-keys.md) - Introduce user assigned managed identity.
-- [Azure Monitor Logs Dedicated Clusters](./logs/logs-dedicated-clusters.md) - Updated reponse code.
+- [Azure Monitor Logs Dedicated Clusters](./logs/logs-dedicated-clusters.md) - Updated response code.
 - [Cross service query - Azure Monitor and Azure Data Explorer (Preview)](/azure/azure-monitor/platform/azure-data-explorer-monitor-cross-service-query) - New article.
 
 ### Metrics
@@ -714,7 +714,7 @@ Multiple updates as part of rewrite of diagnostics extension content.
 
 - [Overview of the Azure monitoring agents](agents/agents-overview.md) - Restructured tables to better clarify unique features of each agent.
 - [Azure Diagnostics extension overview](agents/diagnostics-extension-overview.md) - Complete rewrite.
-- [Use blob storage for IIS and table storage for events in Azure Monitor](essentials/diagnostics-extension-logs.md) - General rewrite for update and clarity.
+- [Use blob storage for IIS and table storage for events in Azure Monitor](agents/diagnostics-extension-logs.md) - General rewrite for update and clarity.
 - [Install and configure Windows Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md) - New article. 
 - [Windows diagnostics extension schema](agents/diagnostics-extension-schema-windows.md) - Reorganized.
 - [Send data from Windows Azure diagnostics extension to Azure Event Hubs](agents/diagnostics-extension-stream-event-hubs.md) - Completely rewritten and updated.

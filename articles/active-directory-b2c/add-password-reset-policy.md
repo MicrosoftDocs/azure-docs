@@ -202,7 +202,7 @@ In your user journey, you can represent the Forgot Password sub journey as a **C
 
 ### Set the user journey to be executed
 
-Now that you've modified or created a user journey, in the **Relying Party** section specify the journey that Azure AD B2C will execute for this custom policy. Within the [RelyingParty](../articles/active-directory-b2c/relyingparty.md) element, find the **DefaultUserJourney** element. Update the  **DefaultUserJourney ReferenceId** to match the ID of the user journey in which you added the **ClaimsProviderSelections**.
+Now that you've modified or created a user journey, in the **Relying Party** section specify the journey that Azure AD B2C will execute for this custom policy. Within the [RelyingParty](relyingparty.md) element, find the **DefaultUserJourney** element. Update the  **DefaultUserJourney ReferenceId** to match the ID of the user journey in which you added the **ClaimsProviderSelections**.
 
 ```xml
 <RelyingParty>

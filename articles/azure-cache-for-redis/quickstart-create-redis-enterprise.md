@@ -18,7 +18,7 @@ Azure Cache for Redis' Enterprise tiers provide fully integrated and managed [Re
 
 ## Prerequisites
 
-You'll need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [Enterprise tier requirements](cache-overview.md#enterprise-and-enterprise-flash-tier-requirements).
+You'll need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [special considerations for Enterprise tiers](cache-overview.md#special-considerations-for-enterprise-tiers).
 
 ## Create a cache
 1. To create a cache, sign in to the Azure portal using the link in your preview invitation and select **Create a resource**.
@@ -37,7 +37,7 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
    | **Location** | Drop down and select a location. | Enterprise tiers are available in limited Azure regions during the preview. |
    | **Cache type** | Drop down and select an *Enterprise* or *Enterprise Flash* tier and a size. |  The tier determines the size, performance, and features that are available for the cache. |
    
-   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Enterprise tier basics":::
+   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Enterprise tier Basics tab":::
 
    > [!NOTE] 
    > Be sure to check the box under "Terms" before proceeding.
@@ -53,18 +53,13 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
    
    You can keep the default settings or change them as appropriate. When turning on **Allow access only via TLS**, you must use TLS to access the new cache from your application.
 
-   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Enterprise tier advanced":::
+   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Enterprise tier Advanced tab":::
 
-   > [!NOTE] 
-   > Redis Modules aren't supported in Enterprise Flash tier yet. If you plan to use a Redis Module,
-   > be sure to choose an Enterprise tier cache.
-   >
-   
 1. Select **Next: Tags** and skip.
 
 1. Select **Next: Review + create**.
 
-   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Enterprise tier summary":::
+   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Enterprise tier Review + Create tab":::
 
 1. Review the settings and click **Create**.
    
