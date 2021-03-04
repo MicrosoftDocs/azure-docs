@@ -94,15 +94,15 @@ See [Local Git deployment to Azure App Service](deploy-local-git.md).
 
 ## How the GitHub Actions build provider works
 
-The GitHub Actions build provider does the following to set up CI/CD from your GitHub repository to App Service:
+The GitHub Actions build provider is an option for [CI/CD from GitHub](#configure-deployment-source), and does the following to set up CI/CD:
 
-- Deposits a GitHub Actions workflow file into your GitHub repository to handle build and deploy tasks.
+- Deposits a GitHub Actions workflow file into your GitHub repository to handle build and deploy tasks to App Service.
 - Adds the publishing profile for your app as a GitHub secret. The workflow file uses this secret to authenticate with App Service.
-- Captures information from the [workflow run logs](https://docs.github.com/actions/managing-workflow-runs/using-workflow-run-logs) and displays it in the **Logs** tab in the Deployment Center. 
+- Captures information from the [workflow run logs](https://docs.github.com/actions/managing-workflow-runs/using-workflow-run-logs) and displays it in the **Logs** tab in your app's **Deployment Center**.
 
 You can customize the GitHub Actions build provider in the following ways:
 
-- Customize the workflow file after it's generated in your GitHub repository. For more information, see [Workflow syntax for GitHub Actions(https://docs.github.com/actions/reference/workflow-syntax-for-github-actions). Just make sure that the workflow deploys to App Service with the [azure/webapps-deploy](https://github.com/Azure/webapps-deploy) action.
+- Customize the workflow file after it's generated in your GitHub repository. For more information, see [Workflow syntax for GitHub Actions](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions). Just make sure that the workflow deploys to App Service with the [azure/webapps-deploy](https://github.com/Azure/webapps-deploy) action.
 - If the selected branch is protected, you can still preview the workflow file without saving the configuration, then manually add it into your repository. This method doesn't give you the log integration with the Azure portal.
 - Instead of a publishing profile, deploy using a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) in Azure Active Directory.
 
