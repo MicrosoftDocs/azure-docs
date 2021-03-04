@@ -17,7 +17,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Generate the installation script from the Azure portal
 
-The script to automate the download and installation, and to establish the connection with Azure Arc, is available from the Azure portal. To complete the process, do the following:
+The script to automate the download and installation, and to establish the connection with Azure Arc, is available from the Azure portal. To complete the process, perform the following steps:
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
@@ -33,7 +33,7 @@ The script to automate the download and installation, and to establish the conne
 
     1. In the **Resource group** drop-down list, select the resource group the machine will be managed from.
     1. In the **Region** drop-down list, select the Azure region to store the servers metadata.
-    1. In the **Operating system** drop-down list, select the operating system that the script be configured to run on.
+    1. In the **Operating system** drop-down list, select the operating system that the script is configured to run on.
     1. If the machine is communicating through a proxy server to connect to the internet, specify the proxy server IP address or the name and port number that the machine will use to communicate with the proxy server. Enter the value in the format `http://<proxyURL>:<proxyport>`.
     1. Select **Next: Tags**.
 

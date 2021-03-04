@@ -25,7 +25,7 @@ You can use [Azure PowerShell](/powershell/azure/install-az-ps) to create a serv
 > When you create a service principal, your account must be a member of the **Owner** or **User Access Administrator** role in the subscription that you want to use for onboarding. If you don't have sufficient permissions to configure role assignments, the service principal might be created, but it won't be able to onboard machines.
 >
 
-To create the service principal using PowerShell, perform the following.
+To create the service principal using PowerShell, perform the following steps.
 
 1. Run the following command. You must store the output of the [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) cmdlet in a variable, or you will not be able to retrieve the password needed in a later step.
 
@@ -66,7 +66,7 @@ The **Azure Connected Machine Onboarding** role contains only the permissions re
 
 ## Generate the installation script from the Azure portal
 
-The script to automate the download and installation, and to establish the connection with Azure Arc, is available from the Azure portal. To complete the process, do the following:
+The script to automate the download and installation, and to establish the connection with Azure Arc, is available from the Azure portal. To complete the process, do the following steps:
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
@@ -82,11 +82,11 @@ The script to automate the download and installation, and to establish the conne
 
     1. In the **Resource group** drop-down list, select the resource group the machine will be managed from.
     1. In the **Region** drop-down list, select the Azure region to store the servers metadata.
-    1. In the **Operating system** drop-down list, select the operating system that the script be configured to run on.
+    1. In the **Operating system** drop-down list, select the operating system that the script is configured to run on.
     1. If the machine is communicating through a proxy server to connect to the internet, specify the proxy server IP address or the name and port number that the machine will use to communicate with the proxy server. Enter the value in the format `http://<proxyURL>:<proxyport>`.
     1. Select **Next: Authentication**.
 
-1. On the **Authentication** page, under the **service principal** drop-down list select **Arc-for-servers**.  Then select, **Next: Tags**.
+1. On the **Authentication** page, under the **service principal** drop-down list, select **Arc-for-servers**.  Then select, **Next: Tags**.
 
 1. On the **Tags** page, review the default **Physical location tags** suggested and enter a value, or specify one or more **Custom tags** to support your standards.
 
