@@ -80,9 +80,9 @@ If you want to review a report that will show you some dependencies on older TLS
 **Service category:** Authentications (Logins)  
 **Product capability:** Platform
  
-Currently, applications using dynamic permissions are given all of the permissions they're consented to access. This includes applications that are unrequested and even if they trigger conditional access.  For example, this can cause an app requesting only `user.read` that also has consent for `files.read`, to be forced to pass the Conditional Access assigned for the `files.read` permission. 
+Currently, applications using [dynamic permissions](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent) are given all of the permissions they're consented to access. This includes applications that are unrequested and even if they trigger conditional access. For example, this can cause an app requesting only `user.read` that also has consent for `files.read`, to be forced to pass the Conditional Access assigned for the `files.read` permission. 
 
-To reduce the number of unnecessary Conditional Access prompts, Azure AD is changing the way that unrequested scopes are provided to applications. Apps with only explicitly requested scopes will trigger Conditional Access. For more information, read [What's new in authentication](../develop/reference-breaking-changes.md#conditional-access-will-only-trigger-for-explicitly-requested-scopes).
+To reduce the number of unnecessary Conditional Access prompts, Azure AD is changing the way that unrequested scopes are provided to applications. Apps will only trigger conditional access for permission they explicitly request. For more information, read [What's new in authentication](../develop/reference-breaking-changes.md#conditional-access-will-only-trigger-for-explicitly-requested-scopes).
  
 ---
  
@@ -126,16 +126,6 @@ Customers can now reinvite existing external guest users to reset their redempti
  
 ---
 
-### Public Preview - Authentication Policy Administrator built-in role
-
-**Type:** New feature  
-**Service category:** RBAC  
-**Product capability:** Access Control
- 
-Users with this role can configure the authentication methods policy, tenant-wide MFA settings, and password protection policy. This role grants permission to manage Password Protection settings: smart lockout configurations and updating the custom banned passwords list. [Learn more](../roles/permissions-reference.md#authentication-policy-administrator).
-
----
-
 ### Public Preview - /synchronization (provisioning) APIs now support application permissions
 
 **Type:** New feature  
@@ -144,6 +134,16 @@ Users with this role can configure the authentication methods policy, tenant-wid
  
 Customers can now use application.readwrite.ownedby as an application permission to call the synchronization APIs. Note this is only supported for provisioning from Azure AD out into third-party applications (for example, AWS, Data Bricks, etc.). It is currently not supported for HR-provisioning (Workday / Successfactors) or Cloud Sync (AD to Azure AD). [Learn more](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
  
+---
+
+### General Availability - Authentication Policy Administrator built-in role
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+ 
+Users with this role can configure the authentication methods policy, tenant-wide MFA settings, and password protection policy. This role grants permission to manage Password Protection settings: smart lockout configurations and updating the custom banned passwords list. [Learn more](../roles/permissions-reference.md#authentication-policy-administrator).
+
 ---
 
 ### General availability - User collections on My Apps are available now!
@@ -234,6 +234,8 @@ For more information, read [Automate user provisioning to SaaS applications with
  
 10 Azure AD built-in roles have been renamed so that they're aligned across the [Microsoft 365 admin center](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), [Azure AD portal](https://portal.azure.com/), and [Microsoft Graph](https://developer.microsoft.com/graph/). To learn more about the new roles, refer to [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md#all-roles).
 
+![Table of new role names](media/whats-new/roles-table-rbac.png)
+
 ---
 
 ### New Company Branding in MFA/SSPR Combined Registration
@@ -267,7 +269,7 @@ The refreshed Authentication Methods Activity dashboard gives admins an overview
  
 ---
 
-### Refresh and session token lifetimes configurability in Configurable Token Lifetime (CTL)s are retired
+### Refresh and session token lifetimes configurability in Configurable Token Lifetime (CTL) are retired
 
 **Type:** Deprecated  
 **Service category:** Other  
