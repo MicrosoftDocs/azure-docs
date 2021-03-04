@@ -23,7 +23,7 @@ This PowerShell script example exports all app registrations, secrets, and certi
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ## Sample script
 
@@ -33,10 +33,10 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 
 | Command | Notes |
 |---|---|
-| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Exports all app registrations, secrets, and certificates for the specified apps in your directory. |
+| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0&preserve-view=true) | Exports all app registrations, secrets, and certificates for the specified apps in your directory. |
 
 ## Next steps
 
 For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview](/powershell/azure/active-directory/overview).
 
-For other PowerShell examples for Application Management, see [Azure AD PowerShell examples for Application Management](../application-management-powershell-samples.md).
+For other PowerShell examples for Application Management, see [Azure AD PowerShell examples for Application Management](../app-management-powershell-samples.md).
