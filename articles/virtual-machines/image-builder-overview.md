@@ -76,7 +76,7 @@ When you register for the (AIB), this grants the AIB Service permission to creat
 
 To allow Azure VM Image Builder to distribute images to either the managed images or to a Shared Image Gallery, you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private and public containers.
 
-Permissions are explained in more detail for [PowerShell](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-powershell), and [AZ CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-permissions-cli).
+Permissions are explained in more detail for [PowerShell](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-powershell), and [AZ CLI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-cli).
 
 ## Costs
 You will incur some compute, networking and storage costs when creating, building and storing images with Azure Image Builder. These costs are similar to the costs incurred in manually creating custom images. For the resources, you will be charged at your Azure rates. 
