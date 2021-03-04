@@ -1,10 +1,10 @@
 ---
 title: References for Azure FarmBeats
 description: Explore reference links to Azure FarmBeats articles, such as the FarmBeats REST API and FarmBeats Data hub Swagger.
-author: margoc
+author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: margoc
+ms.author: v-ummehabiba
 ---
 
 # Reference information for FarmBeats

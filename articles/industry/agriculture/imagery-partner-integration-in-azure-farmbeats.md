@@ -1,10 +1,10 @@
 ---
 title: Imagery partner integration
 description: This article describes imagery partner integration.
-author: margoc
+author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: margoc
+ms.author: v-ummehabiba
 ms.custom: has-adal-ref
 ---
 

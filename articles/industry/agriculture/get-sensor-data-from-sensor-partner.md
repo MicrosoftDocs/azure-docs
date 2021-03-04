@@ -1,10 +1,10 @@
 ---
 title: Get sensor data from the partners
 description: This article describes how to get sensor data from partners.
-author: margoc
+author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: margoc
+ms.author: v-ummehabiba
 ---
 
 # Get sensor data from sensor partners
