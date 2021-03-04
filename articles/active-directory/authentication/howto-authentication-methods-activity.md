@@ -126,7 +126,7 @@ The registration details report shows the following information for each user:
 - Status (Success, Failure)
 - Reason for failure (explanation)
 
-  ![Screenshot of Usage page](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
+  ![Screenshot of registration and reset events](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
 
 ## Limitations
 
