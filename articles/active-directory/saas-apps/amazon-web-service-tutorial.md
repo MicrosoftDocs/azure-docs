@@ -389,6 +389,8 @@ You can also use Microsoft Access Panel to test the application in any mode. Whe
 
 ## Known issues
 
+ * The AWS Single-Account Access provisioning integration only supports connecting to AWS public cloud endpoints, and cannot access AWS Government environments.
+ 
  * In the **Provisioning** section, the **Mappings** subsection shows a "Loading..." message, and never displays the attribute mappings. The only provisioning workflow supported today is the import of roles from AWS into Azure AD for selection during a user or group assignment. The attribute mappings for this are predetermined, and aren't configurable.
 
  * The **Provisioning** section only supports entering one set of credentials for one AWS tenant at a time. All imported roles are written to the `appRoles` property of the Azure AD [`servicePrincipal` object](/graph/api/resources/serviceprincipal?view=graph-rest-beta) for the AWS tenant.
