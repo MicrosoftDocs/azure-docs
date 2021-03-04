@@ -228,7 +228,7 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
     - Configure the copy activity sink as usual.
 
 > [!NOTE]
-> Even if an AAD application has `FullControl` right on the SharePoint Online, you can't copy files from document libraries with IRM enabled.
+> Even if an Azure AD application has `FullControl` permissions on SharePoint Online, you can't copy files from document libraries with IRM enabled.
 
 ## Lookup activity properties
 
