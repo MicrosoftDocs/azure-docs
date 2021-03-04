@@ -1,7 +1,6 @@
 ---
 title: Azure Diagnostics extension overview
 description: Use Azure diagnostics for debugging, measuring performance, monitoring, traffic analysis in cloud services, virtual machines and service fabric
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -30,7 +29,7 @@ The key differences to consider are:
 
 - Azure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.
 - Azure Diagnostics extension sends data to Azure Storage, [Azure Monitor Metrics](../essentials/data-platform-metrics.md) (Windows only) and Event Hubs. The Log Analytics agent collects data to [Azure Monitor Logs](../logs/data-platform-logs.md).
-- The Log Analytics agent is required for [solutions](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor for VMs](../vm/vminsights-overview.md), and other services such as [Azure Security Center](../../security-center/index.yml).
+- The Log Analytics agent is required for [solutions](../monitor-reference.md#insights-and-core-solutions), [VM insights](../vm/vminsights-overview.md), and other services such as [Azure Security Center](../../security-center/index.yml).
 
 ## Costs
 There is no cost for Azure Diagnostic Extension, but you may incur charges for the data ingested. Check [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for the destination where you're collecting data.
@@ -75,7 +74,7 @@ Configure one or more *data sinks* to send data to other additional destinations
 | Azure Storage blobs | Write to data to blobs in Azure Storage in addition to tables. |
 | Application Insights | Collect data from applications running in your VM to Application Insights to integrate with other application monitoring. See [Send diagnostic data to Application Insights](diagnostics-extension-to-application-insights.md). |
 
-You can also collect WAD data from storage into a Log Analytics workspace to analyze it with Azure Monitor Logs although the Log Analytics agent is typically used for this functionality. It can send data directly to a Log Analytics workspace and supports solutions and insights that provide additional functionality.  See [Collect Azure diagnostic logs from Azure Storage](../essentials/diagnostics-extension-logs.md). 
+You can also collect WAD data from storage into a Log Analytics workspace to analyze it with Azure Monitor Logs although the Log Analytics agent is typically used for this functionality. It can send data directly to a Log Analytics workspace and supports solutions and insights that provide additional functionality.  See [Collect Azure diagnostic logs from Azure Storage](../agents/diagnostics-extension-logs.md). 
 
 
 ### Linux diagnostics extension (LAD)
