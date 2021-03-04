@@ -168,6 +168,10 @@ items:
       href: sensitivity-insights.md
     - name: View file extension insights
       href: file-extension-insights.md
+  - name: Security & Networking
+    items:
+    - name: Manage Private endpoints
+      href: catalog-private-link.md
 - name: Reference
   items:
     - name: Supported classifications
