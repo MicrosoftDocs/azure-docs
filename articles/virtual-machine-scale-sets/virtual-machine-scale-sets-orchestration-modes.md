@@ -69,7 +69,7 @@ The preferred method is to use Azure Resource Graph to query for all VMs in a Vi
 | order by resourceGroup desc, name desc 
 ```
 
-Querying resources with [Azure Resource Graph](../governance/resource-graph/overview) is a convenient and efficient way to query Azure resources and minimizes API calls to the resource provider. Azure Resource Graph is an eventually consistent cache where new or updated resources may not be reflected for up to 60 seconds. You can:
+Querying resources with [Azure Resource Graph](../governance/resource-graph/overview.md) is a convenient and efficient way to query Azure resources and minimizes API calls to the resource provider. Azure Resource Graph is an eventually consistent cache where new or updated resources may not be reflected for up to 60 seconds. You can:
 - List VMs in a resource group or subscription.
 - Use the expand option to retrieve the instance view (fault domain assignment, power and provisioning states) for all VMs in your subscription.
 - Use the Get VM API and commands to get model and instance view for a single instance.
@@ -210,7 +210,7 @@ vmname="myVM"
 rg="my-resource-group"  
 
 az group create -n "$rg" -l $location  
-az vmss create -n "$vmssflexname" -g "$rg" -l $location --orchestration-mode vm --platform-fault-domain-count 3  
+az vmss create -n "$vmssflexname" -g "$rg" -l $location --orchestration-mode flexible --platform-fault-domain-count 3  
 az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmssflexname --image UbuntuLTS 
 ```
 
