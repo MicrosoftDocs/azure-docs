@@ -115,7 +115,10 @@ Once you extend labeling to assets in Azure Purview, you can select the labels t
 
     :::image type="content" source="media/create-sensitivity-label/create-sensitivity-label-full-small.png" alt-text="Create sensitivity labels in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-sensitivity-label-full.png":::
 
-1. Name the label. Then, under **Define the scope for this label**, select **Files and emails** and **Azure Purview assets**.
+1. Name the label. Then, under **Define the scope for this label**:
+
+    - In all cases, select **Azure Purview assets**.
+    - To label files, also select **Files & emails**. This option is not required to label database assets only. 
     
     :::image type="content" source="media/create-sensitivity-label/create-label-scope-small.png" alt-text="Create your label in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-label-scope.png":::
 

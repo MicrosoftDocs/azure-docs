@@ -1,7 +1,6 @@
 ---
 title: Integrate VM insights Map with Operations Manager | Microsoft Docs
 description: VM insights automatically discovers application components on Windows and Linux systems and maps the communication between services. This article discusses using the Map feature to automatically create distributed application diagrams in Operations Manager.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

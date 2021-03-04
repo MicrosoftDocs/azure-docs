@@ -47,7 +47,7 @@ Apache Spark clusters in HDInsight include the following components that are ava
 * [Jupyter Notebook](https://jupyter.org)
 * [Apache Zeppelin notebook](http://zeppelin-project.org/)
 
-HDInsight Spark clusters an [ODBC driver](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15) for connectivity from BI tools such as Microsoft Power BI.
+HDInsight Spark clusters an [ODBC driver](/sql/connect/odbc/download-odbc-driver-for-sql-server) for connectivity from BI tools such as Microsoft Power BI.
 
 ## Spark cluster architecture
 

@@ -1,7 +1,6 @@
 ---
 title: Enable VM insights overview
 description: Learn how to deploy and configure VM insights. Find out the system requirements.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

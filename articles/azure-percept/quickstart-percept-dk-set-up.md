@@ -20,7 +20,7 @@ If you experience any issues during this Quick Start, refer to the [troubleshoot
 - An Azure Percept DK.
 - A Windows, Linux, or OS X based host computer with wi-fi capability and a web browser.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- The Azure account must have the “owner” or “contributor” role on the subscription. Learn more about Azure role definitions
+- The Azure account must have the “owner” or “contributor” role on the subscription. Learn more about [Azure role definitions](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
 
 ### Prerequisite check
 
@@ -168,7 +168,7 @@ If you wish to create a new subscription, follow [these steps](https://docs.micr
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-19-0-warning.png" alt-text="Setup experience disconnect warning."::: 
 
-1. Continue to the Azure Portal – Go back to the setup experience window and click on the **Continue to the Azure portal** button to begin creating your custom AI models in Azure Percept Studio.
+1. Continue to the Azure portal – Go back to the setup experience window and click on the **Continue to the Azure portal** button to begin creating your custom AI models in Azure Percept Studio.
 
     > [!NOTE]
     > Verify that your host computer is no longer connected to the dev kit access point in your wifi settings and is now reconnected to your local wifi.
@@ -177,7 +177,7 @@ If you wish to create a new subscription, follow [these steps](https://docs.micr
 
 ## View your Device in the Azure Percept Studio and deploy common prebuilt sample apps
 
-1. View your list of Devices from the Azure Percept Overview Page. The Azure Percept Overview page is your launch point for accessing many different workflows for both beginning and advanced AI Edge Model and Solution Development
+1. View your list of Devices from the [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) Overview Page. The Azure Percept Overview page is your launch point for accessing many different workflows for both beginning and advanced AI Edge Model and Solution Development
 
 	:::image type="content" source="./media/quickstart-percept-dk-setup/portal-01-get-device-list.png" alt-text="View your list of devices.":::
 	
@@ -200,8 +200,6 @@ If you wish to create a new subscription, follow [these steps](https://docs.micr
 	
 1. Deploy a new pre-built sample to your connected device. Select a sample from the library and click on “Deploy to Device”
 
-	:::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-1-select-prebuilt.png" alt-text="Select a pre-built.":::
-	
 	:::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-2-select-journey.png" alt-text="See object detection in action.":::
 
 ## Next steps
