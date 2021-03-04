@@ -27,7 +27,7 @@ After you connect your data sources, choose from a gallery of expertly created w
 
 - Active Azure Subscription, if you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Log Analytics workspace. Learn how to [create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](../azure-monitor/platform/design-logs-deployment.md).
+- Log Analytics workspace. Learn how to [create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md).
 
 - To enable Azure Sentinel, you need contributor permissions to the subscription in which the Azure Sentinel workspace resides. 
 - To use Azure Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
@@ -42,7 +42,7 @@ After you connect your data sources, choose from a gallery of expertly created w
 
     | Workspace geography | Azure Sentinel-generated data geography |
     | --- | --- |
-    | United States<br>India<br>Brazil<br>Africa<br>Korea | United States |
+    | United States<br>India<br>Brazil<br>Africa<br>Korea<br>United Arab Emirates | United States |
     | Europe<br>France<br>Switzerland | Europe |
     | Australia | Australia |
     | United Kingdom | United Kingdom |

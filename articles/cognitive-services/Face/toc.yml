@@ -90,10 +90,6 @@
       href: /samples/browse/?products=azure&term=face
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/430315-face-api
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
@@ -101,4 +97,4 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
   - name: Encryption
-    href: face-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md
