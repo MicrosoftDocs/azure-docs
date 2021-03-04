@@ -85,7 +85,7 @@ You can specify the following metadata types in the Get Metadata activity field 
 > When you get metadata from file stores and configure `modifiedDatetimeStart` or `modifiedDatetimeEnd`, the `childItems` in the output includes only files in the specified path that have a last modified time within the specified range. Items in subfolders are not included.
 
 > [!NOTE]
-> For the **Structure** field list to provide the actual data structure for Delimited Text and Excel format datasets, you must enable the `First Row as Header` property, which is supported only for theses data sources.
+> For the **Structure** field list to provide the actual data structure for delimited text and Excel format datasets, you must enable the `First Row as Header` property, which is supported only for these data sources.
 
 ## Syntax
 
