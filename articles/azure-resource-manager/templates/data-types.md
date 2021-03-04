@@ -1,10 +1,10 @@
 ---
 title: Data types in templates
-description: Describes the data types that are available in Azure Resource Manager templates (ARM templates).
+description: Describes the data types that are available in Azure Resource Manager templates.
 ms.topic: conceptual
 ms.author: tomfitz
 author: tfitzmac
-ms.date: 03/03/2021
+ms.date: 03/04/2021
 ---
 
 # Data types in ARM templates
@@ -19,15 +19,15 @@ Within an ARM template, you can use these data types:
 * bool
 * int
 * object
-* secureObject - supported in JSON, requires modifier in Bicep
-* secureString - supported in JSON, requires modifier in Bicep
+* secureObject - indicated by modifier in Bicep
+* secureString - indicated by modifier in Bicep
 * string
 
 ## Arrays
 
-Arrays start with a left bracket (`[`) and end with a right bracket (`]`). 
+Arrays start with a left bracket (`[`) and end with a right bracket (`]`).
 
-In JSON, an array can be declared in a single line or multiple lines. Each element is separated by a comma. 
+In JSON, an array can be declared in a single line or multiple lines. Each element is separated by a comma.
 
 In Bicep, an array must be declared in multiple lines. Don't use commas between values.
 
@@ -58,7 +58,7 @@ param exampleArray array = [
 
 ---
 
-The elements of an array can be all the same type or different types.
+The elements of an array can be the same type or different types.
 
 # [JSON](#tab/json)
 
@@ -88,7 +88,7 @@ var mixedArray = [
 
 ## Booleans
 
-When specifying boolean values, don't surround the value with quotation marks. Use `true` or `false`.
+When specifying boolean values, use `true` or `false`. Don't surround the value with quotation marks.
 
 # [JSON](#tab/json)
 
@@ -111,7 +111,7 @@ param exampleBool bool = true
 
 ## Integers
 
-When specifying integer values, don't surround the value with quotation marks.
+When specifying integer values, don't use quotation marks.
 
 # [JSON](#tab/json)
 
@@ -136,7 +136,11 @@ For integers passed as inline parameters, the range of values may be limited by 
 
 ## Objects
 
-Objects start with a left brace (`{`) and end with a right brace (`}`). The object consists of key/value pairs. The key and value are separated by a colon (`:`). In JSON, the key is enclosed in double quotes. In Bicep, the key isn't enclosed by quotes.
+Objects start with a left brace (`{`) and end with a right brace (`}`). Each property in an object consists of key and value. The key and value are separated by a colon (`:`).
+
+In JSON, the key is enclosed in double quotes. Each property is separated by a comma.
+
+In Bicep, the key isn't enclosed by quotes. Don't use commas to between properties.
 
 # [JSON](#tab/json)
 
@@ -169,7 +173,7 @@ param exampleObject object = {
 
 ## Strings
 
-In JSON, strings start and end with double quotes. In Bicep, the string starts and ends with singled quotes.
+In JSON, strings are marked with double quotes. In Bicep, strings are marked with singled quotes.
 
 # [JSON](#tab/json)
 
