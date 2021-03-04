@@ -17,7 +17,7 @@ ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
-# Defender-IoT-micro-agent for Azure RTOS 
+# Defender-IoT-micro-agent for Azure RTOS (preview)
 
 Use this article to get a better understanding of the Defender-IoT-micro-agent for Azure RTOS, including features and benefits as well as links to relevant configuration and reference resources. 
 
