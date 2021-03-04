@@ -39,6 +39,8 @@
         href: aclp-tutorial.md
       - name: AcquireIO
         href: acquireio-tutorial.md
+      - name: Acunetix 360
+        href: acunetix-360-tutorial.md
       - name: Adaptive Insights
         href: adaptivesuite-tutorial.md
       - name: Adobe Captivate Prime
@@ -261,6 +263,8 @@
         href: brightspace-desire2learn-tutorial.md
       - name: Britive
         href: britive-tutorial.md
+      - name: Broadcom DX SaaS
+        href: broadcom-dx-saas-tutorial.md  
       - name: BrowserStack Single Sign-on
         href: browserstack-single-sign-on-tutorial.md      
       - name: Bugsnag
@@ -593,6 +597,8 @@
         href: euromonitor-passport-tutorial.md
       - name: EverBridge
         href: everbridge-tutorial.md
+      - name: Evergreen
+        href: evergreen-tutorial.md  
       - name: Evernote
         href: evernote-tutorial.md
       - name: Evidence.com
@@ -626,6 +632,8 @@
         href: factset-tutorial.md
       - name: Fastly Edge Cloud
         href: fastly-edge-cloud-tutorial.md
+      - name: FAX.PLUS
+        href: fax.plus-tutorial.md    
       - name: FCM HUB
         href: fcm-hub-tutorial.md
       - name: Field iD
@@ -676,6 +684,8 @@
         href: fortes-change-cloud-tutorial.md
       - name: FortiGate SSL VPN
         href: fortigate-ssl-vpn-tutorial.md
+      - name: FortiSASE SIA
+        href: fortisase-sia-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
@@ -968,6 +978,8 @@
         href: jostle-tutorial.md
       - name: Juno Journey
         href: juno-journey-tutorial.md
+      - name: JuriBlox
+        href: juriblox-tutorial.md  
       - name: Kallidus
         href: kallidus-tutorial.md
       - name: Kanbanize
@@ -1264,6 +1276,8 @@
         href: onetrust-tutorial.md
       - name: Onit
         href: onit-tutorial.md
+      - name: Onshape
+        href: onshape-tutorial.md
       - name: OnTrack
         href: ontrack-tutorial.md
       - name: Opal
@@ -1592,6 +1606,8 @@
         href: securedeliver-tutorial.md
       - name: SecureW2 JoinNow Connector
         href: securejoinnow-tutorial.md
+      - name: SecurityStudio
+        href: securitystudio-tutorial.md  
       - name: Sedgwick CMS
         href: sedgwickcms-tutorial.md
       - name: Segment
@@ -1846,6 +1862,8 @@
         href: topdesk-secure-tutorial.md
       - name: TrackVia
         href: trackvia-tutorial.md
+      - name: Tradeshift
+        href: tradeshift-tutorial.md
       - name: Trakopolis
         href: trakopolis-tutorial.md
       - name: Trakstar
@@ -1890,6 +1908,8 @@
         href: userecho-tutorial.md
       - name: UserVoice
         href: uservoice-tutorial.md
+      - name: ValidSign
+        href: validsign-tutorial.md
       - name: Velpic SAML
         href: velpicsaml-tutorial.md
       - name: Veracode
@@ -2317,6 +2337,8 @@
         href: templafy-openid-connect-provisioning-tutorial.md
       - name: TheOrgWiki
         href: theorgwiki-provisioning-tutorial.md
+      - name: TravelPerk
+        href: travelperk-provisioning-tutorial.md
       - name: Velpic
         href: velpic-provisioning-tutorial.md
       - name: Visibly
