@@ -325,7 +325,8 @@ To use a different model you will need to change the deployment template. To tog
 "PIPELINE_VERSION=vehicle_attributes_recognition"
 ],
 ```
-> [!TIP] Copy the template and store it under a new name for each possible pipeline. This way you can switch between models by creating a new deployment based on one these templates.
+> [!TIP]
+> Copy the template and store it under a new name for each possible pipeline. This way you can switch between models by creating a new deployment based on one these templates.
 
 Once you have changed the variables you can deploy the template again to the device. You can now repeat the steps above to run the sample program again, with the new pipeline. The inference results will be similar (in schema) but show more or less information depending on the pipeline model you chose.
 
