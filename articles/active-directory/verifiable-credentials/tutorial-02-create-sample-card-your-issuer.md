@@ -160,7 +160,7 @@ Now that you have a new credential, copy the credential URL and run it in the br
 
 ![The issue credential URL](media/tutorial-create-samplecard-your-issuer/DdV0c8A.png)
 
-You should see a response formatted as shown below:
+You should see a response formatted like the example shown below:
 
 ![The issue credential URL](media/tutorial-create-sample-card-your-issuer/issue-credential-url.png)
 
@@ -231,26 +231,30 @@ You should see a response formatted as shown below:
 
 ## Update Contract URL in Sample
 
-Open your Issuer Sample code app.js file.
+1. Open your Issuer Sample code app.js file.
+2. Update the constant 'credential' with your new credential URL and save the file.
+    ```
+    /////////// Set the expected values for the Verifiable Credential
+    const credential = 'https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a33457/portableIdentities/contracts/SampleNinja';
+    const credentialType = ['VerifiedCredentialNinja'];
+    ```
+3. Open a command prompt and open the issuer folder where the app.js file we just updated resides. 
+4. Run the updated node app.
 
-Update the constant 'credential' with your new contract URL.
-
-```
-/////////// Set the expected values for the Verifiable Credential
-const credential = 'https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a33457/portableIdentities/contracts/SampleNinja';
-const credentialType = ['VerifiedCredentialNinja'];
-```
-
-In the terminal, run your node app.
+    ```cmd
+    node ./app.js
+    ```
+5. Using a different command prompt run ngrok to setup a URL on 8081
 
 ```cmd
-node ./app.js
+ngrok http 8081
 ```
 
 Open up your url from ngrok and test issuing the VC to yourself.
 
 >[!IMPORTANT]
-> If you haven't done DNS Binding we are experiencing and failure and this is not working. Need to make sure Nithya's fix is in both iOS and Android.
+> If you haven't done DNS Binding we are experiencing and failure and this is not working. Need to make sure Nithya's fix is in both iOS and Android.  IS THIS STILL A PROBLEM? 
+WHAT SHOULD THEY SEE HERE?
 
 ![NGROK forwarding endpoints](media/tutorial-create-samplecard-your-issuer/nL4PleI.png)
 
@@ -268,7 +272,7 @@ Set the constant issuerDid to your issuer identifier. (Tenant identifier right? 
 
 Now run your verifier app and present the VC.
 
-Here are those instructions if you forgot [Run Verifier Sample](https://hackmd.io/px5WVtuDTSuQIRKgvmLjAg)
+ADD INSTRUCTIONS HERE
 
 ## Next steps
 
