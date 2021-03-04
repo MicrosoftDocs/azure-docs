@@ -21,6 +21,13 @@ The migration tool utilizes the same APIs and has the same experience as the [Vi
 > Migrating from Cloud Services (classic) to Cloud Services (extended support) using the migration tool is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+Refer to the following resources if you need assistance with your migration: 
+
+- [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html): Microsoft and community support for migration.
+- [Azure Migration Support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%22pesId%22:%22e79dcabe-5f77-3326-2112-74487e1e5f78%22,%22supportTopicId%22:%22fca528d2-48bd-7c9f-5806-ce5d5b1d226f%22%7D): Dedicated support team for technical assistance during migration. Customers without technical support can use [free support capability](https://aka.ms/cs-migration-errors) provided specifically for this migration.
+- If your company/organization has partnered with Microsoft or works with Microsoft representatives such as cloud solution architects or technical account managers, reach out to them for more resources for migration.
+- Complete [this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR--AgudUMwJKgRGMO84rHQtUQzZYNklWUk4xOTFXVFBPOFdGOE85RUIwVC4u) to provide feedback or raise issues to the Cloud Services (extended support) product team. 
+
 ## Migration benefits
 The platform supported migration provides following key benefits:
 - The migration is fully orchestrated by the platform, moving the entire deployment and associated resources to Azure Resource Manager.
