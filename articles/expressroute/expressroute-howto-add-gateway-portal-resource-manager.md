@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
 
@@ -62,7 +62,7 @@ You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-ex
 
     If you are using a dual stack virtual network and plan to use IPv6-based private peering over ExpressRoute, click **Add IP6 address space** and input **IPv6 address range** values.
 
-Then, select **OK** to save the values and create the gateway subnet.
+    Then, select **OK** to save the values and create the gateway subnet.
 
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adding the subnet":::
 
