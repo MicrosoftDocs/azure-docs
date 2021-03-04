@@ -362,7 +362,7 @@ Limitations and known issues for data drift monitors:
           service_principal_id=app_id,
           service_principal_password=client_secret
           )
-   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group"xxx")
+   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group="xxx")
    compute = ws.compute_targets.get("xxx")
    ```
 

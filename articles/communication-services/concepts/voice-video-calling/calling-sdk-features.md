@@ -30,7 +30,7 @@ The following list presents the set of features which are currently available in
 |                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️            | ✔️ 
 |                   | Join a group call after it has started                                                                              | ✔️   | ✔️            | ✔️ 
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️            | ✔️
-|  Mid call control | Turn your video on/off                                                                                              | ✔️   | ✔️            | ✔️ 
+|                   | Turn your video on/off                                                         | ✔️   | ✔️            | ✔️ 
 |                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️            | ✔️         
 |                   | Switch between cameras                                                                                              | ✔️   | ✔️            | ✔️           
 |                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️            | ✔️           
@@ -51,43 +51,20 @@ The following list presents the set of features which are currently available in
 |                   | Place a group call with PSTN participants                                                                           | ✔️   | ✔️            | ✔️
 |                   | Promote a one-to-one call with a PSTN participant into a group call                                                 | ✔️   | ✔️            | ✔️
 |                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️            | ✔️   
-| General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   | ✔️   | ✔️            | ✔️ 
-| Device Management | Ask for permission to use  audio and/or video                                                                       | ✔️   | ✔️            | ✔️
-|                   | Get camera list                                                                                                     | ✔️   | ✔️            | ✔️ 
-|                   | Set camera                                                                                                          | ✔️   | ✔️            | ✔️
-|                   | Get selected camera                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Get microphone list                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Set microphone                                                                                                      | ✔️   | ✔️            | ✔️
-|                   | Get selected microphone                                                                                             | ✔️   | ✔️            | ✔️
-|                   | Get speakers list                                                                                                   | ✔️   | ✔️            | ✔️
-|                   | Set speaker                                                                                                         | ✔️   | ✔️            | ✔️
-|                   | Get selected speaker                                                                                                | ✔️   | ✔️            | ✔️
-| Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️   | ✔️            | ✔️
-|                   | Set / update scaling mode                                                                                           | ✔️   | ✔️            | ✔️ 
-|                   | Render remote video stream                                                                                          | ✔️   | ✔️            | ✔️
-
-
+| General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   |  ✔️  | ✔️            | ✔️   
 
 ## JavaScript calling client library support by OS and browser
 
-The following table represents the set of supported browsers which are currently available. We support the most recent three versions of the browser unless otherwise indicated.
+The following table represents the set of supported browsers and versions which are currently available.
 
-|                                  | Chrome | Safari*  | Edge (Chromium) | 
-| -------------------------------- | -------| ------  | --------------  |
-| Andriod                          |  ✔️    | ❌     | ❌             |
-| iOS                              |  ❌    | ✔️**** | ❌             |
-| macOS***                         |  ✔️    | ✔️**   | ❌             |
-| Windows***                       |  ✔️    | ❌     | ✔️             |
-| Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
+|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|
+| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
+| **Calling client library** | Chrome*, new Edge | Chrome*, Safari** | Chrome*  | Chrome* | Chrome* | Safari** | Safari** |
 
-*Safari versions 13.1+ are supported. 
 
-**Safari 14+/macOS 11+ needed for outgoing video support. 
+*Note that the latest version of Chrome is supported in addition to the previous two releases.<br/>
 
-***Outgoing screen sharing is supported only on desktop platforms (Windows, macOS, and Linux), regardless of the browser version, and is not supported on any mobile platform (Android, iOS, iPad, and tablets).
-
-****An iOS app on Safari can't enumerate/select mic and speaker devices (for example, Bluetooth); this is a limitation of the OS, and there's always only one device.
-
+**Note that Safari versions 13.1+ are supported. Outgoing video for Safari macOS is not yet supported, but it is supported on iOS. Outgoing screen sharing is only supported on desktop iOS. 1:1 and group calls currently are not available on Safari.
 
 ## Calling client - browser security model
 

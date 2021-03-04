@@ -1,20 +1,22 @@
 ---
-title: 'Reset an Azure VPN gateway to reestablish IPsec tunnel'
-description: Reset your Azure VPN Gateway to reestablish IPsec tunnels for VPN gateways in both the classic and the Resource Manager deployment models.
-services: vpn-gateway
+title: 'Reset VPN gateway or connection to reestablish IPsec tunnel'
+titleSuffix: Azure VPN Gateway
+description: Reset a connection or a VPN gateway to reestablish IPsec tunnels.
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 02/22/2021
 ms.author: cherylmc
 
 ---
-# Reset a VPN Gateway
+# Reset a VPN gateway or a connection
 
-Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more Site-to-Site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but are not able to establish IPsec tunnels with the Azure VPN gateways. This article helps you reset your VPN gateway.
+Resetting an Azure VPN gateway or gateway connection is helpful if you lose cross-premises VPN connectivity on one or more Site-to-Site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but are not able to establish IPsec tunnels with the Azure VPN gateways. This article helps you reset a VPN gateway or gateway connection.
 
-### What happens during a reset?
+## What happens during a reset
+
+### Gateway reset
 
 A VPN gateway is composed of two VM instances running in an active-standby configuration. When you reset the gateway, it reboots the gateway, and then reapplies the cross-premises configurations to it. The gateway keeps the public IP address it already has. This means you won’t need to update the VPN router configuration with a new public IP address for Azure VPN gateway.
 
@@ -24,7 +26,21 @@ If the connection is not restored after the first reboot, issue the same command
 
 After two reboots, if you are still experiencing cross-premises connectivity problems, please open a support request from the Azure portal.
 
-## <a name="before"></a>Before you begin
+### Connection reset
+
+When you select to reset a connection, the gateway does not reboot. Only the selected connection is reset and restored.
+
+## Reset a connection
+
+You can reset a connection easily using the Azure portal.
+
+1. Navigate to the **Connection** that you want to reset. You can find the connection resource either by locating it in **All resources**, or by navigating to the **'Gateway Name' -> Connections -> 'Connection Name'**
+1. On the **Connection** page, select **Reset** from the left menu.
+1. On the **Reset** page, click **Reset** to reset the connection.
+
+   :::image type="content" source="./media/reset-gateway/reset-connection.png" alt-text="Screenshot showing Reset.":::
+
+## Reset a VPN gateway
 
 Before you reset your gateway, verify the key items listed below for each IPsec Site-to-Site (S2S) VPN tunnel. Any mismatch in the items will result in the disconnect of S2S VPN tunnels. Verifying and correcting the configurations for your on-premises and Azure VPN gateways saves you from unnecessary reboots and disruptions for the other working connections on the gateways.
 
@@ -34,17 +50,15 @@ Verify the following items before resetting your gateway:
 * The pre-shared key must be the same on both Azure and on-premises VPN gateways.
 * If you apply specific IPsec/IKE configuration, such as encryption, hashing algorithms, and PFS (Perfect Forward Secrecy), ensure both the Azure and on-premises VPN gateways have the same configurations.
 
-## <a name="portal"></a>Azure portal
+### <a name="portal"></a>Azure portal
 
 You can reset a Resource Manager VPN gateway using the Azure portal. If you want to reset a classic gateway, see the PowerShell steps for the [Classic deployment model](#resetclassic).
 
-### Resource Manager deployment model
-
 [!INCLUDE [portal steps](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
-## <a name="ps"></a>PowerShell
+### <a name="ps"></a>PowerShell
 
-### Resource Manager deployment model
+#### Resource Manager deployment model
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -59,7 +73,7 @@ Result:
 
 When you receive a return result, you can assume the gateway reset was successful. However, there is nothing in the return result that indicates explicitly that the reset was successful. If you want to look closely at the history to see exactly when the gateway reset occurred, you can view that information in the [Azure portal](https://portal.azure.com). In the portal, navigate to **'GatewayName' -> Resource Health**.
 
-### <a name="resetclassic"></a>Classic deployment model
+#### <a name="resetclassic"></a>Classic deployment model
 
 The cmdlet for resetting a gateway is **Reset-AzureVNetGateway**. The Azure PowerShell cmdlets for Service Management must be installed locally on your desktop. You can't use Azure Cloud Shell. Before performing a reset, make sure you have the latest version of the [Service Management (SM) PowerShell cmdlets](/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets). When using this command, make sure you are using the full name of the virtual network. Classic VNets that were created using the portal have a long name that is required for PowerShell. You can view the long name by using 'Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml'.
 
@@ -80,7 +94,7 @@ RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
 StatusCode     : OK
 ```
 
-## <a name="cli"></a>Azure CLI
+### <a name="cli"></a>Azure CLI
 
 To reset the gateway, use the [az network vnet-gateway reset](/cli/azure/network/vnet-gateway) command. The following example resets a virtual network gateway named VNet5GW in the TestRG5 resource group:
 

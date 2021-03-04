@@ -321,11 +321,14 @@
             - name: Create datasets with labels
               displayName: data, labels, torchvision
               href: how-to-use-labeled-dataset.md
-        - name: Get data
+        - name: Get & prepare data
           items: 
             - name: Data ingestion with Azure Data Factory
               displayName: data, ingestion, adf
               href: how-to-data-ingest-adf.md
+            - name: Data preparation with Azure Synapse
+              displayName: data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore
+              href: how-to-data-prep-synapse-spark-pool.md
             - name: DevOps for data ingestion
               displayName: data, ingestion, devops
               href: how-to-cicd-data-ingestion.md
@@ -337,6 +340,9 @@
             - name: Connect to Azure storage (Python)
               displayName: blob, get, fileshare, access, mount, download, data lake, datastore
               href: how-to-access-data.md
+            - name: Identity based data access to storage 
+              displayName: blob, access, data lake, datastore, managed identity
+              href: how-to-identity-based-data-access.md
             - name: Get data from a datastore (Python)
               displayName: data, data set, register, access data
               href: how-to-create-register-datasets.md
@@ -385,8 +391,8 @@
             - name: Enable logs
               displayName: troubleshoot, log, files, tracing
               href: how-to-track-experiments.md
-            - name: View logs
-              displayName: troubleshoot, log, files, tracing
+            - name: View logs and metrics for runs
+              displayName: troubleshoot, log, files, tracing, metrics
               href: how-to-monitor-view-training-logs.md
             - name: Visualize runs with TensorBoard
               displayName: log, monitor, metrics
@@ -531,6 +537,8 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Deploy ML pipelines (Python)
           href: how-to-deploy-pipelines.md
+        - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
+          href: how-to-use-synapsesparkstep.md
         - name: Trigger a pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Designer (drag-n-drop)

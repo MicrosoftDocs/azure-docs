@@ -194,3 +194,4 @@ Yes, you can configure a [firewall](./cache-configure.md#firewall) with geo-repl
 Learn more about Azure Cache for Redis features.
 
 * [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)
+* [High availability for Azure Cache for Redis](cache-high-availability.md)

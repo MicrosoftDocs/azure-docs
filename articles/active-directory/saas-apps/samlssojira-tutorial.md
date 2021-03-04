@@ -305,7 +305,7 @@ To activate SSO redirect, do the following in **your Jira instance**:
 
 1. Press the **Save Settings** button in the top right corner.
 
-After activating the option, you can still reach the username/password prompt if the **Enable nosso** option is ticked by navigating to `https://\<server-base-url>/login.jsp?nosso`. As always, substitute **\<server-base-url>** with your base URL.
+After activating the option, you can still reach the username/password prompt if the **Enable nosso** option is ticked by navigating to `https://<server-base-url>/login.jsp?nosso`. As always, substitute **\<server-base-url>** with your base URL.
 
 
 ## Additional resources
