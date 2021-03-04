@@ -11,7 +11,7 @@ ms.subservice: files
 
 In this step, you're evaluating how many Azure file shares you need. A single Windows Server instance (or cluster) can sync up to 30 Azure file shares.
 
-You might have more folders on your volumes that you currently share out locally as SMB shares to your users and apps. The easiest way to picture this scenario is to envision an on-premises share that maps 1:1 to an Azure file share. If you have a small enough number, below 30 for a single Windows Server instance, a recommend 1:1 mapping is recommended.
+You might have more folders on your volumes that you currently share out locally as SMB shares to your users and apps. The easiest way to picture this scenario is to envision an on-premises share that maps 1:1 to an Azure file share. If you have a small enough number, below 30 for a single Windows Server instance, a 1:1 mapping is recommended.
 
 If you have more shares than 30, it's often unnecessary to map an on-premises share 1:1 to an Azure file share. Consider the following options.
 
@@ -42,7 +42,7 @@ To make the decision about how many Azure file shares you need, review the follo
 * A server with the Azure File Sync agent installed can sync with up to 30 Azure file shares.
 * An Azure file share is deployed inside a storage account. That makes the storage account a scale target for performance numbers such as IOPS and throughput.
 
-  One standard Azure file share (StorageV2 storage account kind) can theoretically saturate the maximum performance that a storage account can deliver. Placing multiple shares in a single storage account means you are creating a pool for IOPS and throughput for all shares in the same account to share. If you plan to only attach Azure File Sync to these file shares, grouping several Azure file shares into the same storage account won't create a problem. Review the Azure file share performance targets for deeper insight into the relevant metrics to consider. These limitations do not apply to premium storage, where performance is explicitly provisioned and guaranteed for each share.
+  One standard Azure file share (StorageV2 storage account kind) can theoretically saturate the maximum performance that a storage account can deliver. Placing multiple shares in a single storage account means you are creating a shared pool of IOPS and throughput for these shares. If you plan to only attach Azure File Sync to these file shares, grouping several Azure file shares into the same storage account won't create a problem. Review the Azure file share performance targets for deeper insight into the relevant metrics to consider. These limitations do not apply to premium storage, where performance is explicitly provisioned and guaranteed for each share.
 
   If you plan on lifting an app to Azure that will use the Azure file share natively, you might need more performance from your Azure file share. If this type of use is a possibility, even in the future, then creating a single standard Azure file share in its own storage account is best.
 * There's a limit of 250 storage accounts per subscription per Azure region.
@@ -55,9 +55,11 @@ To make the decision about how many Azure file shares you need, review the follo
 > [!IMPORTANT]
 > The most important scale vector for Azure File Sync is the number of items (files and folders) that need to be synchronized. Review the [Azure File Sync scale targets](../articles/storage/files/storage-files-scale-targets.md#azure-file-sync-scale-targets) for more details.
 
-It's a best practice to keep the number of items per sync scope low. That's an important factor to consider in your mapping of folders to Azure file shares. While we test Azure file shares and Azure File Sync with 100 million items (files and folders) per share, a best practice is to try to keep the number below 20 million or 30 million in a single share. Split your namespace into multiple shares if you start to exceed these numbers. You can continue to group multiple on-premises shares into the same Azure file share if you stay roughly below these numbers. This practice will provide you with room to grow.
+It's a best practice to keep the number of items per sync scope low. That's an important factor to consider in your mapping of folders to Azure file shares. Azure File Sync is tested with 100 million items per share. However, it's often best to keep the number of items below 20 million or 30 million in a single share. Split your namespace into multiple shares if you start to exceed these numbers. You can continue to group multiple on-premises shares into the same Azure file share if you stay roughly below these numbers. This practice will provide you with room to grow.
 
-In your situation, it's possible that a set of folders can logically sync to the same Azure file share (using the new, common root folder approach mentioned earlier). But it might still be better to regroup folders such that they sync to two instead of one Azure file share. You can use this approach to keep the number of files and folders per file share balanced across the server. You can also split your on-premises shares + sync across additional on-premises servers, adding the ability to sync with 30 more Azure file share per additional server.
+*[items]: files and folders
+
+In your situation, it's possible that a set of folders can logically sync to the same Azure file share (using the new, common root folder approach mentioned earlier). But it might still be better to regroup folders such that they sync to two instead of one Azure file share. You can use this approach to keep the number of files and folders per file share balanced across the server. You can also split your on-premises shares + sync across more on-premises servers, adding the ability to sync with 30 more Azure file share per extra server.
 
 #### Create a mapping table
 
