@@ -35,7 +35,7 @@ Azure Active Directory B2C (Azure AD B2C) supports federation with SAML 2.0 iden
 
 You can configure Azure AD B2C to allow users to sign in to your application with credentials from external social or enterprise SAML identity providers (IdP). When Azure AD B2C federates with a SAML identity provider, it acts as a **service provider** initiating a SAML request to the SAML **identity provider**, and waiting for a SAML response. In the following diagram:
 
-1. The application initiates an authorization request to Azure AD B2C. The application can be an [OAuth 2.0](protocols-overview.md) or [OpenId Connect](openid-connect.md) application, or a [SAML service provider](connect-with-saml-service-providers.md). 
+1. The application initiates an authorization request to Azure AD B2C. The application can be an [OAuth 2.0](protocols-overview.md) or [OpenId Connect](openid-connect.md) application, or a [SAML service provider](saml-service-provider.md). 
 1. In the Azure AD B2C sign-in page, the user chooses to sign-in with a SAML identity provider account (for example, *Contoso*). Azure AD B2C initiates a SAML authorization request and takes the user to the SAML identity provider to complete the sign-in.
 1. The SAML identity provider returns a SAML response.
 1. Azure AD B2C validates the SAML token, extracts claims, issues its own token, and  takes the user back to the application.  

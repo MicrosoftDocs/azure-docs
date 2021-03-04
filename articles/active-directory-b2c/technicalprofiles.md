@@ -37,7 +37,7 @@ A technical profile enables these types of scenarios:
 - [Phone factor](phone-factor-technical-profile.md) - Support for enrolling and verifying phone numbers.
 - [RESTful provider](restful-technical-profile.md) - Call to REST API services, such as validate user input, enrich user data, or integrate with line-of-business applications.
 - [SAML identity provider](identity-provider-generic-saml.md) - Federation with any SAML protocol identity provider.
-- [SAML token issuer](connect-with-saml-service-providers.md) - Emits a SAML token that is returned back to the relying party application.
+- [SAML token issuer](saml-service-provider.md) - Emits a SAML token that is returned back to the relying party application.
 - [Self-Asserted](self-asserted-technical-profile.md) - Interact with the user. For example, collect the user's credential to sign in, render the sign-up page, or password reset.
 - [Session management](custom-policy-reference-sso.md) - Handle different types of sessions.
 
@@ -173,7 +173,7 @@ To establish trust with the services it integrates with, Azure AD B2C stores sec
 
 - Federation with [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys), and [SAML](identity-provider-generic-saml.md) identity providers
 - Secure the connecting with [REST API services](secure-rest-api.md)
-- Signing and encryption the [JWT](jwt-issuer-technical-profile.md#cryptographic-keys) and [SAML](connect-with-saml-service-providers.md) tokens
+- Signing and encryption the [JWT](jwt-issuer-technical-profile.md#cryptographic-keys) and [SAML](saml-service-provider.md) tokens
 
 The **CryptographicKeys** element contains the following element:
 

@@ -104,10 +104,10 @@
     - name: SAML application
       items:
       - name: Configure a SAML application
-        href: connect-with-saml-service-providers.md
+        href: saml-service-provider.md
         displayName: SP, service provider
       - name: Configure SAML application options
-        href: connect-with-saml-service-providers-options.md
+        href: saml-service-provider-options.md
         displayName: SP, service provider 
     - name: Register a Microsoft Graph application
       href: microsoft-graph-get-started.md

@@ -241,7 +241,6 @@ The following SAML authorization request contains the authentication context cla
 </samlp:AuthnRequest>
 ```
 
-
 ## Include custom data in the authorization request
 
 You can optionally include protocol message extension elements that are agreed to by both Azure AD BC and your identity provider. The extension is presented in XML format. You include extension elements by adding XML data inside the CDATA element `<![CDATA[Your IDP metadata]]>`. Check your identity provider’s documentation to see if the extensions element is supported.

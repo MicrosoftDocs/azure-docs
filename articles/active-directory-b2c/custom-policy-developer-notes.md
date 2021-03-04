@@ -66,7 +66,7 @@ Custom policy capabilities are under constant development. The following table i
 | [OAuth2 implicit flow](implicit-flow-single-page-application.md) |  |  | X |  |
 | [OAuth2 resource owner password credentials](ropc-custom.md) |  | X |  |  |
 | [OIDC Connect](openid-connect.md) |  |  | X |  |
-| [SAML2](connect-with-saml-service-providers.md)  |  |  |X  | POST and Redirect bindings. |
+| [SAML2](saml-service-provider.md)  |  |  |X  | POST and Redirect bindings. |
 | OAuth1 |  |  |  | Not supported. |
 | WSFED | X |  |  |  |
 

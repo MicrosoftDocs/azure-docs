@@ -34,7 +34,7 @@ In this article, learn how to connect your Security Assertion Markup Language (S
 
 Organizations that use Azure AD B2C as their customer identity and access management solution might require integration with applications that authenticate using the SAML protocol. The following diagram shows how Azure AD B2C serves as an *identity provider* (IdP) to achieve single-sign-on (SSO) with SAML-based applications.
 
-![Diagram with B2C as identity provider on left and B2C as service provider on right](media/connect-with-saml-service-providers/saml-service-provider-integration.png)
+![Diagram with B2C as identity provider on left and B2C as service provider on right.](media/connect-with-saml-service-providers/saml-service-provider-integration.png)
 
 1. The application creates a SAML AuthN Request that is sent to Azure AD B2C's SAML login endpoint.
 2. The user can use an Azure AD B2C local account or any other federated identity provider (if configured) to authenticate.
@@ -85,8 +85,6 @@ You must create a SAML response signing certificate so that your application can
 [!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
 
 ## Enable your policy to connect with a SAML application
-
-### Create the SAML token issuer
 
 To connect to your SAML application, Azure AD B2C must be able to create SAML responses.
 
@@ -315,8 +313,6 @@ Replace `<tenant-name>` with the name of your Azure AD B2C tenant and `<policy-n
 
 For Azure AD B2C to trust your application, you create an Azure AD B2C application registration, which contains configuration information such as the application's metadata endpoint.
 
-### 4.1 Register your application in Azure AD B2C
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
@@ -411,6 +407,7 @@ Using the SAML test application as an example, you'd, leave `logoutUrl` set to `
 ```json
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",
 ```
+
 > [!NOTE]
 > If you choose to configure the reply URL and logout URL in the application manifest without populating the application's metadata endpoint via the `samlMetadataUrl` property, Azure AD B2C will not validate the SAML request signature, nor will it encrypt the SAML response.
 
@@ -454,7 +451,7 @@ The following SAML application scenarios are supported via your own metadata end
 ## Next steps
 
 - Get the SAML test web app from [Azure AD B2C GitHub community repo](https://github.com/azure-ad-b2c/saml-sp-tester).
-- See the [options for registering a SAML application in Azure AD B2C](connect-with-saml-service-providers-options.md)
+- See the [options for registering a SAML application in Azure AD B2C](saml-service-provider-options.md)
 
 <!-- LINKS - External -->
 [samltest]: https://aka.ms/samltestapp

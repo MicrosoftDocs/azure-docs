@@ -921,6 +921,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/connect-with-saml-service-providers.md",
+      "redirect_url": "/azure/active-directory-b2c/saml-service-provider",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/conditional-access-technical-profile.md",
       "redirect_url": "/azure/active-directory-b2c/conditional-access-user-flow",
       "redirect_document_id": true
