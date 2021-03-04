@@ -26,6 +26,8 @@
   items:
   - name: Layout extraction
     href: concept-layout.md
+  - name: Custom models
+    href: concept-custom.md  
   - name: Receipts
     href: concept-receipts.md
   - name: Business cards
@@ -34,8 +36,6 @@
     href: concept-invoices.md
 - name: How-to guides
   items:
-  - name: How to interpret JSON output responses from Form Recognizer
-    href: json-output.md
   - name: Build a training data set
     href: build-training-data-set.md
   - name: Deploy the sample labeling tool
@@ -90,4 +90,4 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
-    href: form-recognizer-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md
