@@ -3,7 +3,7 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/29/2021
+ms.date: 02/23/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
@@ -32,7 +32,27 @@ Check out these articles to learn about updates for our clients for Windows Virt
 
 ## FSLogix updates
 
-Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new.md).
+Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
+
+## February 2021
+
+Here's what changed in February 2021.
+
+### Portal experience
+
+We've improved the Azure portal experience in the following ways:
+
+- Bulk drain mode on hosts in the session host grid tab. 
+- MSIX app attach is now available for public preview.
+- Fixed host pool overview info for dark mode.
+
+### EU metadata storage now in public preview
+
+We're now hosting a public preview of the Europe (EU) geography as a storage option for service metadata in Windows Virtual Desktop. Customers can choose between West or North Europe when they create their service objects. The service objects and metadata for the host pools will be stored in the Azure geography associated with each region. To learn more, read [our blog post announcing the public preview](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/announcing-public-preview-of-windows-virtual-desktop-service/m-p/2143939).
+
+### Teams on Windows Virtual Desktop plugin updates
+
+We've improved video call quality on the Windows Virtual Desktop plugin by addressing the most commonly reported issues, such as when the screen would suddenly go dark or the video and sound desynchronized. These improvements should increase the performance of single-video view with active speaker switching. We also fixed an issue where hardware devices with special characters weren't available in Teams.
 
 ## January 2021
 
@@ -50,7 +70,7 @@ In the Azure Resource Manager nested template, we changed the default value for 
 
 We’ve released FSLogix, version 2009 HF_01 (2.9.7654.46150) to solve issues in the previous release (2.9.7621.30127). We recommend you stop using the previous version and update FSLogix as soon as possible.
 
-For more information, see the release notes in [What's new in FSLogix](/fslogix/whats-new.md#fslogix-apps-2009-hf_01-29765446150).
+For more information, see the release notes in [What's new in FSLogix](/fslogix/whats-new#fslogix-apps-2009-hf_01-29765446150).
 
 ### Azure portal experience improvements
 

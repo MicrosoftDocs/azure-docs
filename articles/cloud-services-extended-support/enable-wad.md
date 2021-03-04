@@ -19,14 +19,15 @@ Windows Azure Diagnostics extension can be enabled for Cloud Services (extended 
 
 ```powershell
 # Create WAD extension object
-$wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosCS" -StorageAccountName "ContosSA" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
-$extensionProfile = @{extension = @($rdpExtension, $wadExtension)} 
+$storageAccountKey = Get-AzStorageAccountKey -ResourceGroupName "ContosOrg" -Name "contosostorageaccount"
+$configFile = "<WAD public configuration file path>"
+$wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -StorageAccountName "contosostorageaccount" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
 
 # Get existing Cloud Service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
 
 # Add WAD extension to existing Cloud Service extension object
-$cloudService.ExtensionProfileExtension = $cloudService.ExtensionProfileExtension + $wadExtension
+$cloudService.ExtensionProfile.Extension = $cloudService.ExtensionProfile.Extension + $wadExtension
 
 # Update Cloud Service
 $cloudService | Update-AzCloudService

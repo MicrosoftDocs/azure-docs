@@ -208,4 +208,4 @@ If you are not continuing to the next quickstart, delete the QnA Maker and Bot f
 For more information:
 
 * [Markdown format in answers](../reference-markdown-format.md)
-* QnA Maker [data sources](../index.yml).
+* QnA Maker [data sources](../Concepts/data-sources-and-content.md).

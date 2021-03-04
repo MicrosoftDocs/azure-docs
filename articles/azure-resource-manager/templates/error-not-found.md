@@ -99,7 +99,7 @@ In the reference function, use `Full` to get all of the properties including the
 
 The pattern is:
 
-`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>), <API-version>, 'Full').Identity.propertyName]"`
 
 > [!IMPORTANT]
 > Don't use the pattern:

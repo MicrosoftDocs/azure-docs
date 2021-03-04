@@ -11,6 +11,11 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Remove Azure resources
 
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 This tutorial is part five of a series and shows you how to delete the app and its resources so that you don't get charged for them.
 
 In this tutorial you learn how to:

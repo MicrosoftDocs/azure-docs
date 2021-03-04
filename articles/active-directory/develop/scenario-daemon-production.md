@@ -24,7 +24,7 @@ Now that you know how to acquire and use a token for a service-to-service call, 
 
 ## Deployment - multitenant daemon apps
 
-If you're an ISV creating a daemon application that can run in several tenants, you need to make sure that the tenant admin:
+If you're an ISV creating a daemon application that can run in several tenants, make sure that the tenant admin:
 
 - Provisions a service principal for the application.
 - Grants consent to the application.

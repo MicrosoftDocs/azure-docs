@@ -8,26 +8,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/23/2021
+ms.date: 02/15/2021
 ---
 
 # Quickstart: Create an Azure Cognitive Search service in the portal
 
 [Azure Cognitive Search](search-what-is-azure-search.md) is an Azure resource used for adding a full text search experience to custom apps. You can integrate it easily with other Azure services that provide data or additional processing, with apps on network servers, or with software running on other cloud platforms.
 
-In this article, learn how to create a search service in the [Azure portal](https://portal.azure.com/).
+You can create search service using the [Azure portal](https://portal.azure.com/), which is covered in this article. You can also use [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), the [Management REST API](/rest/api/searchmanagement/), or an [Azure Resource Manager service template](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
 [![Animated GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
-
-Prefer PowerShell? Use the Azure Resource Manager [service template](https://azure.microsoft.com/resources/templates/101-azure-search-create/). For help with getting started, see [Manage Azure Cognitive Search with PowerShell](search-manage-powershell.md).
 
 ## Before you start
 
 The following service properties are fixed for the lifetime of the service - changing any of them requires a new service. Because they are fixed, consider the usage implications as you fill in each property:
 
-* Service name becomes part of the URL endpoint ([review tips](#name-the-service) for helpful service names).
-* [Service tier](search-sku-tier.md) affects billing and sets an upward limit on capacity. Some features are not available on the free tier.
-* Service region can determine the availability of certain scenarios. If you need [high security features](search-security-overview.md) or [AI enrichment](cognitive-search-concept-intro.md), you will need to create Azure Cognitive Search in the same region as other services, or in regions that provide the feature in question. 
++ Service name becomes part of the URL endpoint ([review tips](#name-the-service) for helpful service names).
++ [Service tier](search-sku-tier.md) affects billing and sets an upward limit on capacity. Some features are not available on the free tier.
++ Service region can determine the availability of certain scenarios. If you need [high security features](search-security-overview.md) or [AI enrichment](cognitive-search-concept-intro.md), you will need to create Azure Cognitive Search in the same region as other services, or in regions that provide the feature in question. 
 
 ## Subscribe (free or paid)
 
@@ -70,33 +68,30 @@ In Instance Details, provide a service name in the **URL** field. The name is pa
 
 Service name requirements:
 
-* It must be unique within the search.windows.net namespace
-* It must be between 2 and 60 characters in length
-* You must use lowercase letters, digits, or dashes ("-")
-* Do not use dashes ("-") in the first 2 characters or as the last single character
-* You may not use consecutive dashes ("--") anywhere
++ It must be unique within the search.windows.net namespace
++ It must be between 2 and 60 characters in length
++ You must use lowercase letters, digits, or dashes ("-")
++ Do not use dashes ("-") in the first 2 characters or as the last single character
++ You may not use consecutive dashes ("--") anywhere
 
 > [!TIP]
 > If you think you'll be using multiple services, we recommend including the region (or location) in the service name as a naming convention. Services within the same region can exchange data at no charge, so if Azure Cognitive Search is in West US, and you have other services also in West US, a name like `mysearchservice-westus` can save you a trip to the properties page when deciding how to combine or attach resources.
 
 ## Choose a location
 
-Azure Cognitive Search is available in most regions. The list of supported regions can be found in the [pricing page](https://azure.microsoft.com/pricing/details/search/).
+Azure Cognitive Search is available in most regions, as documented in the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Generally, if you're using multiple Azure services, choose a region that is also hosting your data or application service. Doing so minimizes or voids bandwidth charges for outbound data (there are no charges for outbound data when services are in the same region).
 
-> [!Note]
-> Central India and UAE North are currently unavailable for new services. For services already in those regions, you can scale up with no restrictions, and your service is fully supported in that region. The restrictions are temporary and limited to new services only. We will remove this note when the restrictions no longer apply.
->
-> Double encryption is only available in certain regions. For more information, see [double encryption](search-security-overview.md#double-encryption).
++ [AI enrichment](cognitive-search-concept-intro.md) requires Cognitive Services to be in the same physical region as Azure Cognitive Search. There are just a few regions that don't provide both. The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page indicates dual availability by showing two stacked check marks. An unavailable combination has a missing check mark:
 
-### Requirements
+  :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Regional availability" border="true":::
 
- If you are using AI enrichment, create your search service in the same region as Cognitive Services. *Co-location of Azure Cognitive Search and Cognitive Services in the same region is a requirement for AI enrichment*.
++ Business continuity and disaster recovery (BCDR) requirements should be met by creating multiple search services in [regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each search service.
 
- Customers with business continuity and disaster recovery (BCDR) requirements should create their services in [regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each service.
+A few features have limited availability based on regions. Restrictions are outlined in feature documentation:
 
-### Recommendations
++ [Double encryption](search-security-overview.md#double-encryption)
 
-If you are using multiple Azure services, choose a region that is also hosting your data or application service. Doing so minimizes or voids bandwidth charges for outbound data (there are no charges for outbound data when services are in the same region).
++ ["Availability Zones" in Scale for Performance](search-performance-optimization.md#availability-zones).
 
 ## Choose a pricing tier
 
@@ -122,7 +117,7 @@ Unless you are using the portal, programmatic access to your new service require
 
 1. On the **Overview** page, locate and copy the URL endpoint on the right side of the page.
 
-2. On the **Keys** page, copy either one of the admin keys (they are equivalent). Admin api-keys are required for creating, updating, and deleting objects on your service. In contrast, query keys provide read-access to index content.
+1. On the **Keys** page, copy either one of the admin keys (they are equivalent). Admin api-keys are required for creating, updating, and deleting objects on your service. In contrast, query keys provide read-access to index content.
 
    :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Service overview page with URL endpoint" border="false":::
 
@@ -142,8 +137,8 @@ Adding resources increases your monthly bill. The [pricing calculator](https://a
 > A service must have [2 replicas for read-only SLA and 3 replicas for read/write SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Go to your search service page in the Azure portal.
-2. In the left-navigation pane, select **Settings** > **Scale**.
-3. Use the slidebar to add resources of either type.
+1. In the left-navigation pane, select **Settings** > **Scale**.
+1. Use the slidebar to add resources of either type.
 
 :::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Add capacity through replicas and partitions" border="false":::
 

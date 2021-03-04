@@ -268,6 +268,44 @@ You can search through the published kb, using `isTest=false`, or in the test kb
 }
 ```
 
+## Return Precise Answers
+
+### Generate Answer API 
+
+The user can enable [precise answers](../reference-precise-answering.md) when using the QnA Maker managed resource. The answerSpanRequest parameter has to be updated for the same.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3,
+    "answerSpanRequest": {
+        "enable": true,
+        "topAnswersWithSpan": 1
+    }
+}
+```
+
+Similarly, the users can choose to disable precise answers by not setting the answerSpanRequest parameter.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3
+}
+```
+### Bot settings
+
+If you want to configure precise answer settings for your bot service, navigate to the App service resource for you bot. Then you have to update the configurations by adding the following setting.
+
+- EnablePreciseAnswer
+- DisplayPreciseAnswerOnly
+
+|Display configuration|EnablePreciseAnswer|DisplayPreciseAnswerOnly|
+|:--|--|--|
+|Precise Answers Only|true|true|
+|Long Answers Only|false|false|
+|Both Long and Precise Answers|true|false|
+
 ## Common HTTP errors
 
 |Code|Explanation|
@@ -286,3 +324,5 @@ The **Publish** page also provides information to [generate an answer](../Quicks
 
 > [!div class="nextstepaction"]
 > [Get analytics on your knowledge base](../how-to/get-analytics-knowledge-base.md)
+> [!div class="nextstepaction"]
+> [Confidence score](../Concepts/confidence-score.md)

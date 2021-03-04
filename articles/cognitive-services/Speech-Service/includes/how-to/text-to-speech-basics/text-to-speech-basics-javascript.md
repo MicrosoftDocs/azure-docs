@@ -2,7 +2,7 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 02/10/2021
 ms.author: trbye
 ms.custom: devx-track-js
 ---
@@ -20,7 +20,7 @@ If you want to skip straight to sample code, see the [JavaScript quickstart samp
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
+This article assumes that you have an Azure account and Speech service resource. If you don't have an account and resource, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ## Install the Speech SDK
 
@@ -45,7 +45,7 @@ Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" targ
 # [import](#tab/import)
 
 ```javascript
-import * from "microsoft-cognitiveservices-speech-sdk";
+import * as sdk from "microsoft-cognitiveservices-speech-sdk";
 ```
 
 For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">export and import <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
@@ -63,23 +63,23 @@ For more information on `require`, see <a href="https://nodejs.org/en/knowledge/
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig). This class includes information about your resource, like your key and associated region, endpoint, host, or authorization token.
 
 > [!NOTE]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
 
 There are a few ways that you can initialize a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig):
 
-* With a subscription: pass in a key and the associated region.
+* With a resource: pass in a key and the associated region.
 * With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
 * With a host: pass in a host address. A key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
-In this example, you create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) using a subscription key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free). You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
+In this example, you create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) using a resource key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free). You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
 }
 
 synthesizeSpeech();
@@ -93,7 +93,7 @@ To start, create an `AudioConfig` to automatically write the output to a `.wav` 
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
     const audioConfig = AudioConfig.fromAudioFileOutput("path/to/file.wav");
 }
 ```
@@ -109,10 +109,11 @@ function synthesizeSpeech() {
     synthesizer.speakTextAsync(
         "A simple test to write to a file.",
         result => {
-            if (result) {
-                console.log(JSON.stringify(result));
-            }
             synthesizer.close();
+            if (result) {
+                // return result as stream
+                return fs.createReadStream("path-to-file.wav");
+            }
         },
         error => {
             console.log(error);
@@ -137,9 +138,9 @@ function synthesizeSpeech() {
         "Synthesizing directly to speaker output.",
         result => {
             if (result) {
-                console.log(JSON.stringify(result));
+                synthesizer.close();
+                return result.audioData;
             }
-            synthesizer.close();
         },
         error => {
             console.log(error);
@@ -161,7 +162,9 @@ It's simple to make this change from the previous example. First, remove the `Au
 > [!NOTE]
 > Passing `undefined` for the `AudioConfig`, rather than omitting it like in the speaker output example above, will not play the audio by default on the current active output device.
 
-This time, you save the result to a [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) variable. The `SpeechSynthesisResult.audioData` property returns an `ArrayBuffer` of the output data. You can work with this `ArrayBuffer` manually.
+This time, you save the result to a [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) variable. The `SpeechSynthesisResult.audioData` property returns an `ArrayBuffer` of the output data, the default browser stream type. For server-code, convert the arrayBuffer to a buffer stream. 
+
+The following code works for client-side code. 
 
 ```javascript
 function synthesizeSpeech() {
@@ -171,11 +174,8 @@ function synthesizeSpeech() {
     synthesizer.speakTextAsync(
         "Getting the response as an in-memory stream.",
         result => {
-            // Interact with the audio ArrayBuffer data
-            const audioData = result.audioData;
-            console.log(`Audio data byte size: ${audioData.byteLength}.`)
-
             synthesizer.close();
+            return result.audioData;
         },
         error => {
             console.log(error);
@@ -184,7 +184,34 @@ function synthesizeSpeech() {
 }
 ```
 
-From here you can implement any custom behavior using the resulting `ArrayBuffer` object.
+From here you can implement any custom behavior using the resulting `ArrayBuffer` object. The ArrayBuffer is a common type to receive in a browser and play from this format. 
+
+For any server-based code, if you need to work with the data as a stream, instead of an ArrayBuffer, you need to convert the object into a stream. 
+
+```javascript
+function synthesizeSpeech() {
+    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
+
+    synthesizer.speakTextAsync(
+        "Getting the response as an in-memory stream.",
+        result => {
+            const { audioData } = result;
+
+            synthesizer.close();
+
+            // convert arrayBuffer to stream
+            // return stream
+            const bufferStream = new PassThrough();
+            bufferStream.end(Buffer.from(audioData));
+            return bufferStream;
+        },
+        error => {
+            console.log(error);
+            synthesizer.close();
+        });
+}
+```
 
 ## Customize audio format
 

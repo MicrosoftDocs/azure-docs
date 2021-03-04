@@ -1,5 +1,5 @@
 ---
-title: Use .NET to create a user delegation SAS for a container or blob
+title: Use .NET to create a user delegation SAS for a container, directory, or blob
 titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS with Azure Active Directory credentials by using the .NET client library for Azure Storage.
 services: storage
@@ -7,17 +7,17 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 02/03/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ---
 
-# Create a user delegation SAS for a container or blob with .NET
+# Create a user delegation SAS for a container, directory, or blob with .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container or blob with the Azure Storage client library for .NET version 12.
+This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container, directory, or blob with the Azure Storage client library for .NET version 12.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
@@ -95,7 +95,7 @@ The following example tests the user delegation SAS created in the previous exam
 
 ## Get a user delegation SAS for a directory
 
-The following code example shows how to generate a user delegation SAS for a directory when a hierarchical namespace is enabled:
+The following code example shows how to generate a user delegation SAS for a directory when a hierarchical namespace is enabled for the storage account:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasDirectory":::
 

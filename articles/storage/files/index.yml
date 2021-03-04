@@ -41,7 +41,7 @@ landingContent:
           - text: Create/use file shares - Windows
             url: storage-files-quick-create-use-windows.md
           - text: Create premium file shares
-            url: storage-how-to-create-premium-fileshare.md
+            url: ./storage-how-to-create-file-share.md
           - text: Manage your server with Azure File Sync
             url: storage-sync-files-server-registration.md
       - linkListType: tutorial

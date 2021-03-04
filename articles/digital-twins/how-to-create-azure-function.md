@@ -66,7 +66,7 @@ Right-select your project and select _Manage NuGet Packages_ from the list. Then
 * `Azure.DigitalTwins.Core`
 * `Azure.Identity`
 * `System.Net.Http`
-* `Azure.Core`
+* `Azure.Core.Pipeline`
 
 **Option 2. Add packages using `dotnet` command-line tool:**
 
@@ -76,7 +76,7 @@ Alternatively, you can use the following `dotnet add` commands in a command line
 dotnet add package Azure.DigitalTwins.Core
 dotnet add package Azure.Identity
 dotnet add package System.Net.Http
-dotnet add package Azure.Core
+dotnet add package Azure.Core.Pipeline
 ```
 
 Next, in your Visual Studio Solution Explorer, open the _Function1.cs_ file where you have sample code and add the following `using` statements to your function. 
@@ -122,8 +122,6 @@ You can set up security access for the function app using either the Azure CLI o
 The function skeleton from earlier examples requires that a bearer token to be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
 
 You can create system-managed identity and assign the function app's identity to the _**Azure Digital Twins Data Owner**_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Use [Azure Cloud Shell](https://shell.azure.com) to run the commands.
 

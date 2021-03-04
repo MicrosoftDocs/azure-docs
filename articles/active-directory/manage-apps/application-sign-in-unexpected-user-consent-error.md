@@ -4,7 +4,7 @@ description: Discusses errors that can occur during the process of consenting to
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt

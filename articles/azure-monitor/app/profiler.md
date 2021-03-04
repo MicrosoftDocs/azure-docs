@@ -21,8 +21,12 @@ To enable Profiler for an app, follow the instructions below. If you're running 
 
 Application Insights Profiler is pre-installed as part of the App Services runtime. The steps below will show you how to enable it for your App Service. Follow these steps even if you've included the App Insights SDK in your application at build time.
 
+> [!NOTE]
+> Codeless installation of Application Insights Profiler follows the .NET Core support policy.
+> For more information about supported runtimes, see [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+
 1. Navigate to the Azure control panel for your App Service.
-1. Enable "Always On" setting for your app service. You can find this setting under **Settings**, **Configuration** page (see screenshot in the next step), and click the **General settings** tab.
+1. Enable "Always On" setting for your app service. You can find this setting under **Settings**, **Configuration** page (see screenshot in the next step), and select the **General settings** tab.
 1. Navigate to **Settings > Application Insights** page.
 
    ![Enable App Insights on App Services portal](./media/profiler/AppInsights-AppServices.png)
@@ -59,7 +63,7 @@ If you want to enable the profiler for other clouds, you can use the below app s
 
 ## Disable Profiler
 
-To stop or restart Profiler for an individual app's instance, under **WebJobs** and stop the webjob named ApplicationInsightsProfiler3. Even if the profiler is disabled using the switch on the Application Insights page as described above, the profiler process will still run. The profiler will check to see if it's enabled. If it's disabled, it will go to sleep for a period of time before checking again. It doesn't do any profiling if it's disabled. If you disable this webjob, the profiler process won't run at all, even to check to see if it's enabled.
+To stop or restart Profiler for an individual app's instance, on the left sidebar, select **WebJobs** and stop the webjob named `ApplicationInsightsProfiler3`.
 
   ![Disable Profiler for a web job][disable-profiler-webjob]
 

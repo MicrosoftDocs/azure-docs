@@ -8,10 +8,13 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Virtual machines
-    href: automanage-virtual-machines.md
-  - name: Best Practices for VMs
-    href: virtual-machines-best-practices.md
+  - name: Automanage for Linux
+    href: automanage-linux.md
+  - name: Automanage for Windows Server
+    href: automanage-windows-server.md
+    items:
+      - name: Hotpatch for new virtual machines
+        href: automanage-hotpatch.md
 - name: How to
   expanded: true
   items:
@@ -23,6 +26,8 @@
     href: common-errors.md
   - name: Repair a broken Automanage account
     href: repair-automanage-account.md
+  - name: Move an Automanaged virtual machine across regions
+    href: move-automanaged-vms.md
 - name: Resources
   expanded: true
   items:

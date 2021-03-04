@@ -3,7 +3,7 @@ title: Plan Azure Active Directory My Apps configuration
 description: Planning guide to effectively use My Apps in your organization.
 services: active-directory
 author: barbaraselden
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -16,7 +16,7 @@ ms.reviewer: baselden
 # Plan Azure Active Directory My Apps configuration
 
 > [!NOTE]
-> This article is designed for IT professionals who need to plan the configuration of their organization’s My Apps portal. For information for the end user about how to use My Apps and collections, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+> This article is designed for IT professionals who need to plan the configuration of their organization’s My Apps portal. 
 >
 > **For end user documentation, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md)**.
 
@@ -138,7 +138,7 @@ If you must integrate these applications, you should define a mechanism to deplo
 
 * [User-driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](../user-help/my-apps-portal-end-user-access.md)
 
-* [Configuration Manager for Internet Explorer](https://docs.microsoft.com/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Configuration Manager for Internet Explorer](/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 The extension allows users to launch any app from its search bar, finding access to recently used applications, and having a link to the My Apps page.
 
@@ -266,4 +266,3 @@ You can use [Privileged Identity Management](../privileged-identity-management/p
 
 [Plan an Application Proxy deployment](application-proxy-deployment-plan.md)
 
- 
