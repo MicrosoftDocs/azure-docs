@@ -23,12 +23,10 @@
       href: access-api-howto.md
     - name: Set up Azure Cloud Shell
       href: ../../cloud-shell/overview.md
-    - name: Develop with REST
+    - name: Connect to Media Services
       items:
-      - name: Connect with Postman
+      - name: Connect with REST and Postman
         href: media-rest-apis-with-postman.md
-    - name: Develop with SDKs
-      items:
       - name: Connect with Java
         href: configure-connect-java-howto.md
       - name: Connect with .NET 
@@ -37,6 +35,8 @@
         href: configure-connect-nodejs-howto.md
       - name: Connect with Python
         href: configure-connect-python-howto.md
+  - name: Python Basic Encoding Quickstarts
+    href: quickstart-basic-encoding-python.md
   - name: Try Media Services in the Azure portal
     items:
     - name: Live event with portal and Wirecast
