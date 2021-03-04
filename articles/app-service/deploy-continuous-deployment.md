@@ -28,7 +28,7 @@ Choose the tab that corresponds to your selection for the steps.
 
 # [GitHub](#tab/github)
 
-4. [GitHub Actions](#how-github-actions-build-provider-works) is the default build provider. To change it, click **Change provider** > **App Service Build Service** (Kudu) > **OK**.
+4. [GitHub Actions](#how-the-github-actions-build-provider-works) is the default build provider. To change it, click **Change provider** > **App Service Build Service** (Kudu) > **OK**.
 
     > [!NOTE]
     > To use Azure Pipelines as the build provider for your App Service app, don't configure it in App Service. Instead, configure CI/CD directly from Azure Pipelines. The **Azure Pipelines** option just points you in the right direction.
