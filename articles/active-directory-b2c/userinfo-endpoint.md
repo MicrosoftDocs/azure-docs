@@ -128,7 +128,7 @@ The user info UserJourney specifies:
         }
         ```
     
-1.  The OutputClaims element of the **UserInfoAuthorization** technical profile specifies the attributes you want to return to read from the access token. The **ClaimTypeReferenceId** is the reference to a claim type. The optional **PartnerClaimType** is the name of the of the claim defined in the access token.
+1.  The OutputClaims element of the **UserInfoAuthorization** technical profile specifies the attributes you want to read from the access token. The **ClaimTypeReferenceId** is the reference to a claim type. The optional **PartnerClaimType** is the name of the of the claim defined in the access token.
 
 
 
