@@ -4,7 +4,6 @@ description: Learn how to migrate databases from SQL Server to SQL Managed Insta
 services: sql-database
 ms.service: sql-managed-instance
 ms.custom: seo-lt-2019, sqldbrb=1
-ms.devlang: 
 ms.topic: how-to
 author: danimir
 ms.author: danil
@@ -58,8 +57,8 @@ We recommend that you manually cut over after the final log-tail backup has been
 
 After LRS is stopped, either automatically through autocomplete or manually through cutover, you can't resume the restore process for a database that was brought online on SQL Managed Instance. To restore additional backup files after the migration finishes through autocomplete or cutover, you need to delete the database. You also need to restore the entire backup chain from scratch by restarting LRS.
 
-![Diagram that explains the Log Replay Service orchestration steps for SQL Managed Instance.](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
-
+:::image type="content" source="./media/log-replay-service-migrate/log-replay-service-conceptual.png" alt-text="Diagram that explains the Log Replay Service orchestration steps for SQL Managed Instance." border="false":::
+	
 | Operation | Details |
 | :----------------------------- | :------------------------- |
 | **1. Copy database backups from SQL Server to Blob Storage**. | Copy full, differential, and log backups from SQL Server to a Blob Storage container by using [Azcopy](/azure/storage/common/storage-use-azcopy-v10) or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). <br /><br />Use any file names. LRS doesn't require a specific file-naming convention.<br /><br />In migrating several databases, you need a separate folder for each database. |
@@ -81,7 +80,7 @@ After LRS is stopped, either automatically through autocomplete or manually thro
 - Get PowerShell Az.SQL module version 2.16.0 or later. ([Install](https://www.powershellgallery.com/packages/Az.Sql/) it or use [Azure Cloud Shell](/azure/cloud-shell/).)
 - [Install](/cli/azure/install-azure-cli) Azure CLI version 2.19.0 or later.
 - Provision an Azure Blob Storage container.
-- Generate a shared access storage (SAS) security token with read and list permissions generated for the Blob Storage container.
+- Generate a shared access signature (SAS) security token with read and list permissions generated for the Blob Storage container.
 
 ### Migration of multiple databases
 You must place backup files for different databases in separate folders on Blob Storage.
@@ -198,7 +197,7 @@ Follow these steps to generate the token:
 2. Expand **Blob Containers**.
 3. Right-click the blob container and select **Get Shared Access Signature**.
 
-   ![Screenshot that shows selections for generating a Shared Access Signature authentication token.](./media/log-replay-service-migrate/lrs-sas-token-01.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-01.png" alt-text="Screenshot that shows selections for generating an S A S authentication token.:::
 
 4. Select the timeframe for token expiration. Ensure that the token is valid for the duration of your migration.
 5. Select the time zone for the token: UTC or your local time.
@@ -211,17 +210,17 @@ Follow these steps to generate the token:
    > Don't select any other permissions. If you do, LRS won't start. This security requirement is by design.
 7. Select **Create**.
 
-   ![Screenshot that shows selections for token expiration, time zone, and permissions, along with the Create button.](./media/log-replay-service-migrate/lrs-sas-token-02.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-02.png" alt-text="Screenshot that shows selections for token expiration, time zone, and permissions, along with the Create button.":::
 
 The SAS authentication is generated with the time validity that you specified. You need the URI version of the token, as shown in the following screenshot.
 
-![Screenshot that shows an example of the U R I version of a Shared Access Signature token.](./media/log-replay-service-migrate/lrs-generated-uri-token.png)
+:::image type="content" source="./media/log-replay-service-migrate/lrs-generated-uri-token.png" alt-text="Screenshot that shows an example of the U R I version of an S A S token.:::
 
 ### Copy parameters from the SAS token
 
 Before you use the SAS token to start LRS, you need to understand its structure. The URI of the generated SAS token consists of two parts separated with a question mark (`?`), as shown in this example:
 
-![Example U R I for a generated Shared Authentication Service token for Log Replay Service.](./media/log-replay-service-migrate/lrs-token-structure.png)
+:::image type="content" source="./media/log-replay-service-migrate/lrs-token-structure.png" alt-text="Example U R I for a generated S A S token for Log Replay Service. border="false":::
 
 The first part, starting with `https://` until the question mark (`?`), is used for the `StorageContainerURI` parameter that's fed as in input to LRS. It gives LRS information about the folder where database backup files are stored.
 
@@ -231,12 +230,12 @@ Copy the parameters as follows:
 
 1. Copy the first part of the token, starting from `https://` all the way until the question mark (`?`). Use it as the `StorageContainerUri` parameter in PowerShell or the Azure CLI for starting LRS.
 
-   ![Screenshot that shows copying the first part of the token.](./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png" alt-text="Screenshot that shows copying the first part of the token.":::
 
 2. Copy the second part of the token, starting from the question mark (`?`) all the way until the end of the string. Use it as the `StorageContainerSasToken` parameter in PowerShell or the Azure CLI for starting LRS.
 
-   ![Screenshot that shows copying the second part of the token.](./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png)
-
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png" alt-text="Screenshot that shows copying the second part of the token.":::
+   
 > [!NOTE]
 > Don't include the question mark when you copy either part of the token.
 
