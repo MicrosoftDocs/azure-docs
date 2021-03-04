@@ -90,7 +90,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
 
   ```powershell
   $resourceGroupName = "<your new resource group name>"
-  $location = "Azure region supporting DC-series and Microsoft Azure Attestation"
+  $location = "<Azure region supporting DC-series and Microsoft Azure Attestation>"
   New-AzResourceGroup -Name $resourceGroupName -Location $location
   ```
 
@@ -101,7 +101,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
   New-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -Location $location 
   ```
 
-5. Create a server firewall rule that allows access from the specified IP range
+5. Create a server firewall rule that allows access from the specified IP range.
   
   ```powershell
   $startIp = "<start of IP range>"
@@ -176,7 +176,7 @@ In this step, You'll create and configure an attestation provider in Microsoft A
 4. Configure your attestation policy.
   
   ```powershell
-  $policyFile = "<the pathname of the file from step 1 in this section"
+  $policyFile = "<the pathname of the file from step 1 in this section>"
   $teeType = "SgxEnclave"
   $policyFormat = "Text"
   $policy=Get-Content -path $policyFile -Raw
