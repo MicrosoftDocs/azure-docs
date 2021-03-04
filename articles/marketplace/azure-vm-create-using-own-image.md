@@ -178,7 +178,7 @@ The following three sections describe these options.
 > 5. For **Assign access to**, select **User, group, or service principal**.
 > 6. Enter the Azure email of the person who will publish the image.
 > 7. Select **Save**.<br><br>
-> :::image type="content" source="media/create-vm/add-role-assignment.png" alt-text="Shows the add role assignment window.":::
+> :::image type="content" source="media/create-vm/add-role-assignment.png" alt-text="The add role assignment window is shown.":::
 
 ### Option 2: Upload the VHD to a Storage Account
 
