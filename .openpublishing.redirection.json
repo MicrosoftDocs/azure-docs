@@ -2860,6 +2860,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/deploy-github-actions.md",
+      "redirect_url": "/azure/app-service/deploy-continuous-deployment",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/app-service-agile-software-development.md",
       "redirect_url": "/azure/app-service/deploy-continuous-deployment",
       "redirect_document_id": false
