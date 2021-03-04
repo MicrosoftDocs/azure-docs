@@ -1,35 +1,31 @@
 ---
-title: Connect to Office 365 Outlook
-description: Automate tasks and workflows that manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps 
+title: Integrate with Office 365 Outlook
+description: Automate tasks and workflows that manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/13/2020
 tags: connectors
 ---
 
 # Manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Office 365 Outlook connector](/connectors/office365connector/), you can create automated tasks and workflows that manage your work or school account by building logic apps. For example, you automate these tasks:
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Office 365 Outlook connector](/connectors/office365connector/), you can create automated tasks and workflows that manage your work or school account by building logic apps. For example, you can automate these tasks:
 
-* Get, send, and reply to email. 
+* Get, send, and reply to email.
 * Schedule meetings on your calendar.
-* Add and edit contacts. 
+* Add and edit contacts.
 
-You can use any trigger to start your workflow, for example, when a new email arrives, when a calendar item is updated, or when an event happens in a difference service, such as Salesforce. You can use actions that respond to the trigger event, for example, send an email or create a new calendar event. 
-
-> [!NOTE]
-> To automate tasks for an @outlook.com or @hotmail.com account, use the 
-> [Outlook.com connector](../connectors/connectors-create-api-outlook.md).
+You can use any trigger to start your workflow, for example, when a new email arrives, when a calendar item is updated, or when an event happens in a difference service, such as Salesforce. You can use actions that respond to the trigger event, for example, send an email or create a new calendar event.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+* An Outlook account where you sign in with a [work or school account](https://www.office.com/). If you have an @outlook.com or @hotmail.com account, use the [Outlook.com connector](../connectors/connectors-create-api-outlook.md) instead. To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts).
 
-* A [work or school account](https://www.office.com/)
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The logic app where you want to access your work or school account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app needs to already have a trigger.
+* The logic app where you want to access your Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app needs to already have a trigger.
 
 ## Add a trigger
 
@@ -41,7 +37,7 @@ A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an event
    
    ![Select trigger to start your logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. If you're prompted to sign in, provide your work or school credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the trigger's properties.
+1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts). Otherwise, provide the information for the trigger's properties.
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
@@ -75,7 +71,7 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
 
    ![Select the action to run in your logic app](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. If you're prompted to sign in, provide your work or school credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the action's properties.
+1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts). Otherwise, provide the information for the action's properties.
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
@@ -88,6 +84,30 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
    To add other available action properties, select those properties from the **Add new parameter** list.
 
 1. On the designer toolbar, select **Save**.
+
+<a name="connect-using-other-accounts"></a>
+
+## Connect using other accounts
+
+If you try connecting to Outlook by using a different account than the one currently signed in to Azure, you might get [single sign-on (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md) errors. This problem happens when you sign in to the Azure portal with one account, but use a different account to create the connection. The designer expects that you use the account that's signed in to the Azure portal. To resolve this problem, you have these options:
+
+* Set up the other account with the **Contributor** role in your logic app's resource group.
+
+  1. On your logic app's resource group menu, select **Access control (IAM)**. Set up the other account with the **Contributor** role. 
+  
+     For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
+  1. After you set up this role, sign in to the Azure portal with the account that now has Contributor permissions. You can now use this account to create the connection to Outlook.
+
+* Set up the other account so that your work or school account has "send as" permissions.
+
+   If you have admin permissions, on the service account's mailbox, set up your work or school account with either **Send as** or **Send on behalf of** permissions. For more information, see [Give mailbox permissions to another user - Admin Help](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). You can then create the connection by using your work or school account. Now, in triggers or actions where you can specify the sender, you can use the service account's email address.
+
+   For example, the **Send an email** action has an optional parameter, **From (Send as)**, which you can add to the action and use your service account's email address as the sender. To add this parameter, follow these steps:
+
+   1. In the **Send an email** action, open the **Add a parameter** list, and select the **From (Send as)** parameter.
+
+   1. After the parameter appears on the action, enter the service account's email address.
 
 ## Connector reference
 

@@ -91,7 +91,22 @@ To create an integration account that uses an ISE, follow these steps:
 
 ## Add ISE connectors
 
-Microsoft-managed connectors that become available after you create your ISE don't automatically appear in the connector picker on the Logic App Designer. Before you can use these ISE connectors, you have to manually add and deploy these connectors to your ISE so that they appear in the Logic App Designer.
+After you create your ISE, managed ISE connectors don't automatically appear in the connector picker on the Logic App Designer. Before you can use these ISE connectors, you have to manually add and deploy these connectors to your ISE so that they appear in the Logic App Designer.
+
+> [!IMPORTANT]
+> Managed ISE connectors currently don't support [tags](../azure-resource-manager/management/tag-support.md). 
+> If you set up a policy that enforces tagging, trying to add ISE connectors might fail with an error similar to this example:
+> 
+> ```json
+> {
+>    "error": { 
+>       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+>       "message": "The tags are not supported in the managed API 'azureblob'."
+>    }
+> }
+> ```
+> 
+> So, to add ISE connectors, you have to either disable or remove your policy. 
 
 1. On your ISE menu, under **Settings**, select **Managed connectors**. On the toolbar, select **Add**.
 

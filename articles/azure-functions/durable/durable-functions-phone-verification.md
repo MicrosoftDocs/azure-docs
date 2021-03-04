@@ -33,6 +33,9 @@ This article walks through the following functions in the sample app:
 * `E4_SmsPhoneVerification`: An [orchestrator function](durable-functions-bindings.md#orchestration-trigger) that performs the phone verification process, including managing timeouts and retries.
 * `E4_SendSmsChallenge`: An [activity function](durable-functions-bindings.md#activity-trigger) that sends a code via text message.
 
+> [!NOTE]
+> The `HttpStart` function in the [sample app and the quickstart](#prerequisites) acts as [Orchestration client](durable-functions-bindings.md#orchestration-client) which triggers the orchestrator function.
+
 ### E4_SmsPhoneVerification orchestrator function
 
 # [C#](#tab/csharp)
@@ -40,7 +43,7 @@ This article walks through the following functions in the sample app:
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
 
 > [!NOTE]
-> It may not be obvious at first, but this orchestrator function is completely deterministic. It is deterministic because the `CurrentUtcDateTime` property is used to calculate the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `Task.WhenAny`.
+> It may not be obvious at first, but this orchestrator does not violate the [deterministic orchestration constraint](durable-functions-code-constraints.md). It is deterministic because the `CurrentUtcDateTime` property is used to calculate the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `Task.WhenAny`.
 
 # [JavaScript](#tab/javascript)
 
@@ -53,7 +56,20 @@ Here is the code that implements the function:
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 > [!NOTE]
-> It may not be obvious at first, but this orchestrator function is completely deterministic. It is deterministic because the `currentUtcDateTime` property is used to calculate the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `context.df.Task.any`.
+> It may not be obvious at first, but this orchestrator does not violate the [deterministic orchestration constraint](durable-functions-code-constraints.md). It is deterministic because the `currentUtcDateTime` property is used to calculate the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `context.df.Task.any`.
+
+# [Python](#tab/python)
+
+The **E4_SmsPhoneVerification** function uses the standard *function.json* for orchestrator functions.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/function.json)]
+
+Here is the code that implements the function:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/\_\_init\_\_.py)]
+
+> [!NOTE]
+> It may not be obvious at first, but this orchestrator does not violate the [deterministic orchestration constraint](durable-functions-code-constraints.md). It is deterministic because the `currentUtcDateTime` property is used to calculate the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `context.df.Task.any`.
 
 ---
 
@@ -89,6 +105,16 @@ The *function.json* is defined as follows:
 And here is the code that generates the four-digit challenge code and sends the SMS message:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
+
+# [Python](#tab/python)
+
+The *function.json* is defined as follows:
+
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/function.json)]
+
+And here is the code that generates the four-digit challenge code and sends the SMS message:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/\_\_init\_\_.py)]
 
 ---
 

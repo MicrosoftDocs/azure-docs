@@ -131,7 +131,7 @@ To begin, connect to the [Serial Console and open a PowerShell instance](./seria
 3. Reset the permission for the MachineKeys folder.
 
     ```powershell
-    remove-module psreadline icacls
+    remove-module psreadline 
 
     md c:\temp
 

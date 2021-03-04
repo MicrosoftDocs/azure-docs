@@ -128,7 +128,7 @@ You can also view the raw bookmark data for all bookmarks by selecting **Bookmar
 > [!div class="mx-imgBorder"]
 > ![Bookmark Logs](./media/bookmarks/bookmark-logs.png)
 
-This view shows all your bookmarks with associated metadata. You can use [Keyword Query Language](https://docs.microsoft.com/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) (KQL) queries to filter down to the latest version of the specific bookmark you are looking for.
+This view shows all your bookmarks with associated metadata. You can use [Keyword Query Language](/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) (KQL) queries to filter down to the latest version of the specific bookmark you are looking for.
 
 > [!NOTE]
 > There can be a significant delay (measured in minutes) between the time you create a bookmark and when it is displayed in the **Bookmarks** tab.

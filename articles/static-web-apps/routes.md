@@ -72,7 +72,7 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 }
 ```
 
-- You have full control over role names; there's no master list to which your roles must adhere.
+- You have full control over role names; there's no list to which your roles must adhere.
 - Individual users are associated to roles through [invitations](authentication-authorization.md).
 
 ## Wildcards
@@ -205,7 +205,7 @@ Providing a value for a header either adds or modifies the header. Providing an 
 }
 ```
 
-In the above example, a new `content-security-policy` header is added, the `cache-control` modifies the server default value, and the `x-dns-prefectch-control` header is removed.
+In the above example, a new `content-security-policy` header is added, the `cache-control` modifies the server default value, and the `x-dns-prefetch-control` header is removed.
 
 The following considerations are important as you work with headers:
 

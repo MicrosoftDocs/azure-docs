@@ -5,6 +5,7 @@ author: sameeksha91
 ms.author: sakhare
 ms.topic: quickstart
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.devlang: azurepowershell
 ms.date: 09/08/2020
 ms.reviewer: cynthn

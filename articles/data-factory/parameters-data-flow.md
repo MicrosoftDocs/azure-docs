@@ -31,11 +31,11 @@ To add parameters to your data flow, click on the blank portion of the data flow
 
 Parameters can be referenced in any data flow expression. Parameters begin with $ and are immutable. You will find the list of available parameters inside of the Expression Builder under the **Parameters** tab.
 
-![Data flow parameter expression](media/data-flow/parameter-expression.png "Data flow parameter expression")
+![Screenshot shows the available parameters in the Parameters tab.](media/data-flow/parameter-expression.png "Data flow parameter expression")
 
 You can quickly add additional parameters by selecting **New parameter** and specifying the name and type.
 
-![Data flow parameter expression](media/data-flow/new-parameter-expression.png "Data flow parameter expression")
+![Screenshot shows the parameters in the Parameters tab with new parameters added.](media/data-flow/new-parameter-expression.png "Data flow parameter expression")
 
 ## Assign parameter values from a pipeline
 
@@ -43,13 +43,13 @@ Once you've created a data flow with parameters, you can execute it from a pipel
 
 When assigning parameter values, you can use either the [pipeline expression language](control-flow-expression-language-functions.md) or the [data flow expression language](data-flow-expression-functions.md) based on spark types. Each mapping data flow can have any combination of pipeline and data flow expression parameters.
 
-![Setting a Data Flow parameter](media/data-flow/parameter-assign.png "Setting a Data Flow parameter")
+![Screenshot shows the Parameters tab with Data Flow expression selected for the value of myparam.](media/data-flow/parameter-assign.png "Setting a Data Flow parameter")
 
 ### Pipeline expression parameters
 
 Pipeline expression parameters allow you to reference system variables, functions, pipeline parameters, and variables similar to other pipeline activities. When you click **Pipeline expression**, a side-nav will open allowing you to enter an expression using the expression builder.
 
-![Setting a Data Flow parameter](media/data-flow/parameter-pipeline.png "Setting a Data Flow parameter")
+![Screenshot shows the expression builder pane.](media/data-flow/parameter-pipeline.png "Setting a Data Flow parameter")
 
 When referenced, pipeline parameters are evaluated and then their value is used in the data flow expression language. The pipeline expression type doesn't need to match the data flow parameter type. 
 
@@ -57,7 +57,7 @@ When referenced, pipeline parameters are evaluated and then their value is used 
 
 When assigning a pipeline expression parameter of type string, by default quotes will be added and the value will be evaluated as a literal. To read the parameter value as a data flow expression, check the expression box next to the parameter.
 
-![Setting a Data Flow parameter](media/data-flow/string-parameter.png "Setting a Data Flow parameter")
+![Screenshot shows the Data flow parameters pane Expression selected for a parameter.](media/data-flow/string-parameter.png "Setting a Data Flow parameter")
 
 If data flow parameter `stringParam` references a pipeline parameter with value `upper(column1)`. 
 
@@ -68,7 +68,7 @@ If data flow parameter `stringParam` references a pipeline parameter with value 
 
 In the pipeline expression language, System variables such as `pipeline().TriggerTime` and functions like `utcNow()` return timestamps as strings in format 'yyyy-MM-dd\'T\'HH:mm:ss.SSSSSSZ'. To convert these into data flow parameters of type timestamp, use string interpolation to include the desired timestamp in a `toTimestamp()` function. For example, to convert the pipeline trigger time into a data flow parameter, you can use `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')`. 
 
-![Setting a Data Flow parameter](media/data-flow/parameter-timestamp.png "Setting a Data Flow parameter")
+![Screenshot shows the Parameters tab where you can enter a trigger time.](media/data-flow/parameter-timestamp.png "Setting a Data Flow parameter")
 
 > [!NOTE]
 > Data Flows can only support up to 3 millisecond digits. The `left()` function is used trim off additional digits.
@@ -77,15 +77,15 @@ In the pipeline expression language, System variables such as `pipeline().Trigge
 
 Say you have an integer parameter `intParam` that is referencing a pipeline parameter of type String, `@pipeline.parameters.pipelineParam`. 
 
-![Setting a Data Flow parameter](media/data-flow/parameter-pipeline-2.png "Setting a Data Flow parameter")
+![Screenshot shows the Parameters tab with parameters named stringParam and intParam.](media/data-flow/parameter-pipeline-2.png "Setting a Data Flow parameter")
 
 `@pipeline.parameters.pipelineParam` is assigned a value of `abs(1)` at runtime.
 
-![Setting a Data Flow parameter](media/data-flow/parameter-pipeline-4.png "Setting a Data Flow parameter")
+![Screenshot shows the Parameters tab with the value of a b s (1) selected.](media/data-flow/parameter-pipeline-4.png "Setting a Data Flow parameter")
 
 When `$intParam` is referenced in an expression such as a derived column, it will evaluate `abs(1)` return `1`. 
 
-![Setting a Data Flow parameter](media/data-flow/parameter-pipeline-3.png "Setting a Data Flow parameter")
+![Screenshot shows the columns value.](media/data-flow/parameter-pipeline-3.png "Setting a Data Flow parameter")
 
 ### Data flow expression parameters
 

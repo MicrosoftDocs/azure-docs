@@ -41,11 +41,11 @@ If you wish to map many columns at once or pass drifted columns downstream, use 
 
 To add a rule-based mapping, click **Add mapping** and select **Rule-based mapping**.
 
-![rule-based mapping](media/data-flow/rule2.png "Rule-based mapping")
+![Screenshot shows Rule-based mapping selected from Add mapping.](media/data-flow/rule2.png "Rule-based mapping")
 
 Each rule-based mapping requires two inputs: the condition on which to match by and what to name each mapped column. Both values are inputted via the [expression builder](concepts-data-flow-expression-builder.md). In the left expression box, enter your boolean match condition. In the right expression box, specify what the matched column will be mapped to.
 
-![rule-based mapping](media/data-flow/rule-based-mapping.png "Rule-based mapping")
+![Screenshot shows a mapping.](media/data-flow/rule-based-mapping.png "Rule-based mapping")
 
 Use `$$` syntax to reference the input name of a matched column. Using the above image as an example, say a user wants to match on all string columns whose names are shorter than six characters. If one incoming column was named `test`, the expression `$$ + '_short'` will rename the column `test_short`. If that's the only mapping that exists, all columns that don't meet the condition will be dropped from the outputted data.
 
@@ -55,7 +55,7 @@ Patterns match both drifted and defined columns. To see which defined columns ar
 
 If you click the downward chevron icon, you can specify a regex-mapping condition. A regex-mapping condition matches all column names that match the specified regex condition. This can be used in combination with standard rule-based mappings.
 
-![rule-based mapping](media/data-flow/regex-matching.png "Rule-based mapping")
+![Screenshot shows the regex-mapping condition with Hierarchy level and Name matches.](media/data-flow/regex-matching.png "Rule-based mapping")
 
 The above example matches on regex pattern `(r)` or any column name that contains a lower case r. Similar to standard rule-based mapping, all matched columns are altered by the condition on the right using `$$` syntax.
 
@@ -65,7 +65,7 @@ If you have multiple regex matches in your column name, you can refer to specifi
 
 If your defined projection has a hierarchy, you can use rule-based mapping to map the hierarchies subcolumns. Specify a matching condition and the complex column whose subcolumns you wish to map. Every matched subcolumn will be outputted using the 'Name as' rule specified on the right.
 
-![rule-based mapping](media/data-flow/rule-based-hierarchy.png "Rule-based mapping")
+![Screenshot shows a rule-based mapping using for a hierarchy.](media/data-flow/rule-based-hierarchy.png "Rule-based mapping")
 
 The above example matches on all subcolumns of complex column `a`. `a` contains two subcolumns `b` and `c`. The output schema will include two columns `b` and `c` as the 'Name as' condition is `$$`.
 

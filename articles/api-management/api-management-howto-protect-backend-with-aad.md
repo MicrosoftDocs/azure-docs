@@ -8,7 +8,7 @@ ms.service: api-management
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: apimpm
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Protect a web API backend in Azure API Management by using OAuth 2.0 authorization with Azure AD 

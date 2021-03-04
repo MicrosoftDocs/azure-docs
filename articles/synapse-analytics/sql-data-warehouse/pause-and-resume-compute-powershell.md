@@ -130,4 +130,4 @@ Follow these steps to clean up resources as you desire.
 
 ## Next steps
 
-To learn more about SQL pool, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article. For additional information about managing compute capabilities, see the [Manage compute overview](sql-data-warehouse-manage-compute-overview.md) article.
+To learn more about SQL pool, continue to the [Load data into SQL pool](./load-data-from-azure-blob-storage-using-copy.md) article. For additional information about managing compute capabilities, see the [Manage compute overview](sql-data-warehouse-manage-compute-overview.md) article.

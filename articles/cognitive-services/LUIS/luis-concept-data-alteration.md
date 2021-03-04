@@ -93,7 +93,7 @@ Remove 60 minutes:
 
 #### V2 prediction C# code determines correct value of parameter
 
-The following C# code uses the [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) class's [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) method to determine the correct offset value based on system time:
+The following C# code uses the [TimeZoneInfo](/dotnet/api/system.timezoneinfo) class's [FindSystemTimeZoneById](/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) method to determine the correct offset value based on system time:
 
 ```csharp
 // Get CST zone id

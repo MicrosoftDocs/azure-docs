@@ -1,11 +1,12 @@
 ---
 title: Create an Azure VM assessment with Azure Migrate Server Assessment | Microsoft Docs
 description: Describes how to create an Azure VM assessment with the Azure Migrate Server Assessment tool
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 07/15/2019
-ms.author: raynew
+
 ---
 
 
@@ -18,7 +19,7 @@ This article describes how to create an Azure VM assessment for on-premises VMwa
 
 ## Before you start
 
-- Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
+- Make sure you've [created](./create-manage-projects.md) an Azure Migrate project.
 - If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool.
 - To create an assessment, you need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment. [Learn more](migrate-appliance.md).
 
@@ -37,29 +38,81 @@ There are two types of sizing criteria you can use to create an Azure VM assessm
 
 Run an assessment as follows:
 
-1. Review the [best practices](best-practices-assessment.md) for creating assessments.
-2. In the **Servers** tab, in **Azure Migrate: Server Assessment** tile, click **Assess**.
+1. On the **Servers** page > **Windows and Linux servers**, click **Assess and migrate servers**.
 
-    ![Screenshot shows Azure Migrate Servers with Assess selected under Assessment tools.](./media/how-to-create-assessment/assess.png)
+   ![Location of Assess and migrate servers button](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-3. In **Assess servers**, select the assessment type as "Azure VM", select the discovery source and specify the assessment name.
+2. In **Azure Migrate: Server Assessment**, click **Assess**.
 
-    ![Assessment Basics](./media/how-to-create-assessment/assess-servers-azurevm.png)
+    ![Location of the Assess button](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
-4. Click **View all** to review the assessment properties.
+3. In **Assess servers** > **Assessment type**, select **Azure VM**.
+4. In **Discovery source**:
 
-    ![Assessment properties](./media/how-to-create-assessment//view-all.png)
+    - If you discovered machines using the appliance, select **Machines discovered from Azure Migrate appliance**.
+    - If you discovered machines using an imported CSV file, select **Imported machines**. 
+    
+1. Click **Edit** to review the assessment properties.
 
-5. Click **next** to **Select machines to assess**. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
-6. In **Add machines to the group**, select VMs to add to the group.
-7. Click **next** to **Review + create assessment** to review the assessment details.
-8. Click **Create Assessment** to create the group, and run the assessment.
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assessment-name.png" alt-text="Location of the Edit button to review assessment properties":::
 
-    ![Create an assessment](./media/how-to-create-assessment//assessment-create.png)
+1. In **Assessment properties** > **Target Properties**:
+    - In **Target location**, specify the Azure region to which you want to migrate.
+        - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you will be prompted to specify **Reserved Instances** and **VM series**.
+        - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#supported-geographies-azure-government)
+    - In **Storage type**,
+        - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
+        - Alternatively, select the storage type you want to use for VM when you migrate it.
+    - In **Reserved Instances**, specify whether you want to use reserve instances for the VM when you migrate it.
+        - If you select to use a reserved instance, you can't specify  '**Discount (%)**, or **VM uptime**. 
+        - [Learn more](https://aka.ms/azurereservedinstances).
+ 1. In **VM Size**:
+     - In **Sizing criterion**, select if you want to base the assessment on machine configuration data/metadata, or on performance-based data. If you use performance data:
+        - In **Performance history**, indicate the data duration on which you want to base the assessment
+        - In **Percentile utilization**, specify the percentile value you want to use for the performance sample. 
+    - In **VM Series**, specify the Azure VM series you want to consider.
+        - If you're using performance-based assessment, Azure Migrate suggests a value for you.
+        - Tweak settings as needed. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series.
+    - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
+    
+        **Component** | **Effective utilization** | **Add comfort factor (2.0)**
+        --- | --- | ---
+        Cores | 2  | 4
+        Memory | 8 GB | 16 GB
+   
+1. In **Pricing**:
+    - In **Offer**, specify the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) if you're enrolled. Server Assessment estimates the cost for that offer.
+    - In **Currency**, select the billing currency for your account.
+    - In **Discount (%)**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
+    - In **VM Uptime**, specify the duration (days per month/hour per day) that VMs will run.
+        - This is useful for Azure VMs that won't run continuously.
+        - Cost estimates are based on the duration specified.
+        - Default is 31 days per month/24 hours per day.
+    - In **EA Subscription**, specify whether to take an Enterprise Agreement (EA) subscription discount into account for cost estimation. 
+    - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license. If you do and they're covered with active Software Assurance of Windows Server Subscriptions, you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
 
-9. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
-10. Click **Export assessment**, to download it as an Excel file.
+1. Click **Save** if you make changes.
 
+    ![Assessment properties](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
+
+1. In **Assess Servers** > click **Next**.
+
+1. In **Select machines to assess** > **Assessment name** > specify a name for the assessment. 
+
+1. In **Select or create a group** > select **Create New** and specify a group name. 
+
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assess-group.png" alt-text="Add VMs to a group":::
+
+1. Select the appliance, and select the VMs you want to add to the group. Then click **Next**.
+
+
+1. In **Review + create assessment**, review the assessment details, and click **Create Assessment** to create the group and run the assessment.
+
+1. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
+
+1. Click **Export assessment**, to download it as an Excel file.
+    > [!NOTE]
+    > For performance-based assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high-confidence rating.
 
 
 ## Review an Azure VM assessment

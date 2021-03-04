@@ -23,7 +23,7 @@ This article has two major parts:
 
 ## Standalone application per tenant pattern
 
-The standalone app per tenant pattern is one of several patterns for multi-tenant SaaS applications.  In this pattern, a standalone app is provisioned for each tenant. The application comprises application level components and an Azure SQL Database.  Each tenant app can be deployed in the vendor’s subscription.  Alternatively, Azure offers a [managed applications program](https://docs.microsoft.com/azure/managed-applications/overview) in which an app can be deployed in a tenant’s subscription and managed by the vendor on the tenant’s behalf.
+The standalone app per tenant pattern is one of several patterns for multi-tenant SaaS applications.  In this pattern, a standalone app is provisioned for each tenant. The application comprises application level components and an Azure SQL Database.  Each tenant app can be deployed in the vendor’s subscription.  Alternatively, Azure offers a [managed applications program](../../azure-resource-manager/managed-applications/overview.md) in which an app can be deployed in a tenant’s subscription and managed by the vendor on the tenant’s behalf.
 
    ![app-per-tenant pattern](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -66,8 +66,8 @@ At the end of this tutorial, you have a set of standalone tenant applications, w
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* The three sample tenant apps are deployed. To deploy these apps in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Standalone Application pattern](../../sql-database/saas-standaloneapp-get-started-deploy.md).
+* Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps)
+* The three sample tenant apps are deployed. To deploy these apps in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Standalone Application pattern](./saas-standaloneapp-get-started-deploy.md).
 
 ## Provision the catalog
 
@@ -86,7 +86,7 @@ In this task, you learn how to provision the catalog used to register all the te
 1. Run the script by pressing **F5**.
 1.	After script execution stops at the breakpoint, press **F11** to step into the New-Catalog.ps1 script.
 1.	Trace the script's execution using the Debug menu options, F10 and F11, to step over or into called functions.
-    *	For more information about debugging PowerShell scripts, see [Tips on working with and debugging PowerShell scripts](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+    *	For more information about debugging PowerShell scripts, see [Tips on working with and debugging PowerShell scripts](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 Once the script completes, the catalog will exist and all the sample tenants will be registered.
 
@@ -150,4 +150,4 @@ In this tutorial you learned:
 > * About the servers and databases that make up the app.
 > * How to delete sample resources to stop related billing.
 
-You can explore how the catalog is used to support various cross-tenant scenarios using the database-per-tenant version of the [Wingtip Tickets SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md).
+You can explore how the catalog is used to support various cross-tenant scenarios using the database-per-tenant version of the [Wingtip Tickets SaaS application](./saas-dbpertenant-wingtip-app-overview.md).

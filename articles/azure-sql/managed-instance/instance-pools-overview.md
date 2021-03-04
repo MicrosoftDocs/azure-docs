@@ -55,7 +55,7 @@ The following list provides the main use cases where instance pools should be co
 
 Instance pools have a similar architecture to regular (*single*) managed instances. To support [deployments within Azure virtual networks](../../virtual-network/virtual-network-for-azure-services.md) and to provide isolation and security for customers, instance pools also rely on [virtual clusters](connectivity-architecture-overview.md#high-level-connectivity-architecture). Virtual clusters represent a dedicated set of isolated virtual machines deployed inside the customer's virtual network subnet.
 
-The main difference between the two deployment models is that instance pools allow multiple SQL Server process deployments on the same virtual machine node, which are resource governed using [Windows job objects](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), while single instances are always alone on a virtual machine node.
+The main difference between the two deployment models is that instance pools allow multiple SQL Server process deployments on the same virtual machine node, which are resource governed using [Windows job objects](/windows/desktop/ProcThread/job-objects), while single instances are always alone on a virtual machine node.
 
 The following diagram shows an instance pool and two individual instances deployed in the same subnet and illustrates the main architectural details for both deployment models:
 
@@ -72,7 +72,10 @@ There are several resource limitations regarding instance pools and instances in
 - All [instance-level limits](resource-limits.md#service-tier-characteristics) apply to instances created within a pool.
 - In addition to instance-level limits, there are also two limits imposed *at the instance pool level*:
   - Total storage size per pool (8 TB).
-  - Total number of databases per pool (100).
+  - Total number of user databases per pool. This limit depends on the pool vCores value:
+    - 8 vCores pool supports up to 200 databases,
+    - 16 vCores pool supports up to 400 databases,
+    - 24 and larger vCores pool supports up to 500 databases.
 - AAD Admin cannot be set for the instances deployed inside the instance pool therefore AAD Authentication can't be used.
 
 Total storage allocation and number of databases across all instances must be lower than or equal to the limits exposed by instance pools.
@@ -80,8 +83,9 @@ Total storage allocation and number of databases across all instances must be lo
 - Instance pools support 8, 16, 24, 32, 40, 64, and 80 vCores.
 - Managed instances inside pools support 2, 4, 8, 16, 24, 32, 40, 64, and 80 vCores.
 - Managed instances inside pools support storage sizes between 32 GB and 8 TB, except:
-  - 2 vCore instances support sizes between 32 GB and 640 GB
-  - 4 vCore instances support sizes between 32 GB and 2 TB
+  - 2 vCore instances support sizes between 32 GB and 640 GB,
+  - 4 vCore instances support sizes between 32 GB and 2 TB.
+- Managed instances inside pools have limit of up to 100 user databases per instance, except 2 vCore instances that support up to 50 user databases per instance.
 
 The [service tier property](resource-limits.md#service-tier-characteristics) is associated with the instance pool resource, so all instances in a pool must be the same service tier as the service tier of the pool. At this time, only the General Purpose service tier is available (see the following section on limitations in the current preview).
 

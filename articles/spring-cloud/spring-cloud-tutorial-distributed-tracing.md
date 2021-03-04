@@ -23,14 +23,18 @@ To follow these procedures, you need a Steeltoe app that is already [prepared fo
 
 ## Dependencies
 
-Install the following NuGet packages
+For Steeltoe 2.4.4, add the following NuGet packages:
 
 * [Steeltoe.Management.TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
 * [Steeltoe.Management.ExporterCore](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/)
 
+For Steeltoe 3.0.0, add the following NuGet package:
+
+* [Steeltoe.Management.TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
+
 ## Update Startup.cs
 
-1. In the `ConfigureServices` method, call the `AddDistributedTracing` and `AddZipkinExporter` methods.
+1. For Steeltoe 2.4.4, call `AddDistributedTracing` and `AddZipkinExporter` in the `ConfigureServices` method.
 
    ```csharp
    public void ConfigureServices(IServiceCollection services)
@@ -40,14 +44,29 @@ Install the following NuGet packages
    }
    ```
 
-1. In the `Configure` method, call the `UseTracingExporter` method.
+   For Steeltoe 3.0.0, call `AddDistributedTracing` in the `ConfigureServices` method.
+
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddDistributedTracing(Configuration, builder => builder.UseZipkinWithTraceOptions(services));
+   }
+   ```
+
+1. For Steeltoe 2.4.4, call `UseTracingExporter` in the `Configure` method.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
    {
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
         app.UseTracingExporter();
    }
    ```
+
+   For Steeltoe 3.0.0, no changes are required in the `Configure` method.
 
 ## Update configuration
 

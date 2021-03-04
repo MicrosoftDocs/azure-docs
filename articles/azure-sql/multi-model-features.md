@@ -38,7 +38,7 @@ The Azure SQL family of products provide the following multi-model features:
 - [Key-value pairs](#key-value-pairs) are not explicitly supported as special features since key-value pairs can be natively modeled as two-column tables.
 
   > [!Note]
-  > You can use JSON Path expression, XQuery/XPath expressions, spatial functions, and graph-query expressions in the same Transact-SQL query to access any data that you stored in the database. Also, any tool or programming language that can execute Transact-SQL queries, can also use that query interface to access multi-model data. This is the key difference compared to the multi-model databases such as [Azure Cosmos DB](/azure/cosmos-db/) that provides specialized API for different data models.
+  > You can use JSON Path expression, XQuery/XPath expressions, spatial functions, and graph-query expressions in the same Transact-SQL query to access any data that you stored in the database. Also, any tool or programming language that can execute Transact-SQL queries, can also use that query interface to access multi-model data. This is the key difference compared to the multi-model databases such as [Azure Cosmos DB](../cosmos-db/index.yml) that provides specialized API for different data models.
 
 In the following sections, you can learn about the most important multi-model capabilities of the Azure SQL family of products .
 
@@ -137,7 +137,7 @@ CREATE TABLE Collection (
 
 You can customize this key-value structure to fit your needs without any constraints. As an example, the value can be XML document instead of `nvarchar(max)` type, if the value is JSON document, you can put `CHECK` constraint that verifies the validity of JSON content. You can put any number of values related to one key in the additional columns, add computed columns and indexes to simplify and optimize data access, define the table as memory/optimized schema-only table to get better performance, etc.
 
-See [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) for their ASP.NET caching solution that achieved 1.200.000 batches per seconds, as an example how relational model can be effectively used as key-value pair solution in practice.
+See [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](/archive/blogs/sqlcat/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale) for their ASP.NET caching solution that achieved 1.200.000 batches per seconds, as an example how relational model can be effectively used as key-value pair solution in practice.
 
 ## Next steps
 

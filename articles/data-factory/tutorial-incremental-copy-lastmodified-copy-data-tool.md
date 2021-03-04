@@ -1,17 +1,12 @@
 ---
 title: Data tool to copy new and updated files incrementally 
 description: Create an Azure data factory and then use the Copy Data tool to incrementally load new files based on LastModifiedDate.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer:
-manager:
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 6/10/2020
+ms.date: 11/09/2020
 ---
 
 # Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool
@@ -47,7 +42,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
 ## Create a data factory
 
-1. In the left pane, select **Create a resource**. Select **Analytics** > **Data Factory**:
+1. In the left pane, select **Create a resource**. Select **Integration** > **Data Factory**:
 
    ![Select Data Factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 

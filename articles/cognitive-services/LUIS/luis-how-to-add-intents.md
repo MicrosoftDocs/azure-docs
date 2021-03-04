@@ -78,4 +78,4 @@ After you add, edit, or remove intents, [train](luis-how-to-train.md) and [publi
 
 ## Next steps
 
-Learn more about adding [example utterances](luis-how-to-add-example-utterances.md) with entities.
+Learn more about adding [example utterances](./luis-how-to-add-entities.md) with entities.

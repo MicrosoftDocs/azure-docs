@@ -20,6 +20,8 @@ Each GPU in NV instances comes with a GRID license. This license gives you the f
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications |

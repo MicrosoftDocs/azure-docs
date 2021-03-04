@@ -3,7 +3,7 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/22/2020
+ms.date: 02/01/2021
 ms.topic: conceptual
 ---
 
@@ -20,14 +20,26 @@ Azure Automation uses a number of PowerShell modules to enable cmdlets in runboo
 
 When you create an Automation account, Azure Automation imports some modules by default. See [Default modules](#default-modules).
 
+## Sandboxes
+
 When Automation executes runbook and DSC compilation jobs, it loads the modules into sandboxes where the runbooks can run and the DSC configurations can compile. Automation also automatically places any DSC resources in modules on the DSC pull server. Machines can pull the resources when they apply the DSC configurations.
 
 >[!NOTE]
 >Be sure to import only the modules that your runbooks and DSC configurations require. We don’t recommend importing the root Az module. It includes many other modules that you might not need, which can cause performance problems. Import individual modules, such as Az.Compute, instead.
 
+Cloud sandbox supports a maximum of 48 system calls, and restricts all other calls for security reasons. Other functionality such as credential management and some networking is not supported in the cloud sandbox.
+
+Due to the number of modules and cmdlets included, it's difficult to know beforehand which of the cmdlets will make unsupported calls. Generally, we have seen issues with cmdlets which require elevated access, require a credential as a parameter, or cmdlets related to networking. Any cmdlets that perform full stack network operations are not supported in the sandbox, including [Connect-AipService](/powershell/module/aipservice/connect-aipservice) from the AIPService PowerShell module and [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) from the DNSClient module.
+
+These are known limitations with the sandbox. The recommended workaround is to deploy a [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md) or use [Azure Functions](../../azure-functions/functions-overview.md).
+
 ## Default modules
 
-The following table lists modules that Azure Automation imports by default when you create your Automation account. Automation can import newer versions of these modules. However, you can't remove the original version from your Automation account, even if you delete a newer version. Note that these default modules include several AzureRM modules. 
+The following table lists modules that Azure Automation imports by default when you create your Automation account. Automation can import newer versions of these modules. However, you can't remove the original version from your Automation account, even if you delete a newer version. Note that these default modules include several AzureRM modules.
+
+The default modules are also known as global modules. In the Azure portal,  the **Global module** property will be **true** when viewing a module that was imported when the account was created.
+
+![Screenshot of global module property in Azure Portal](../media/modules/automation-global-modules.png)
 
 Automation doesn't import the root Az module automatically into any new or existing Automation accounts. For more about working with these modules, see [Migrating to Az modules](#migrate-to-az-modules).
 

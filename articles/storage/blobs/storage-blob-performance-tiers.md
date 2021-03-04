@@ -61,7 +61,7 @@ Standard performance supports different [access tiers](storage-blob-storage-tier
 
 You can't convert an existing standard performance storage account to a block blob storage account with premium performance. To migrate to a premium performance storage account, you must create a BlockBlobStorage account, and migrate the data to the new account. For more information, see [Create a BlockBlobStorage account](storage-blob-create-account-block-blob.md).
 
-To copy blobs between storage accounts, you can use the latest version of the [AzCopy](../common/storage-use-azcopy-blobs.md) command-line tool. Other tools such as Azure Data Factory are also available for data movement and transformation.
+To copy blobs between storage accounts, you can use the latest version of the [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) command-line tool. Other tools such as Azure Data Factory are also available for data movement and transformation.
 
 ## Blob lifecycle management
 
@@ -79,6 +79,6 @@ You can't move data that's stored in a premium block blob storage account betwee
 Evaluate hot, cool, and archive in GPv2 and Blob storage accounts.
 
 - [Learn about rehydrating blob data from the archive tier](storage-blob-rehydration.md)
-- [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](../common/storage-enable-and-view-metrics.md)
+- [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](./monitor-blob-storage.md)
 - [Check hot, cool, and archive pricing in Blob storage and GPv2 accounts by region](https://azure.microsoft.com/pricing/details/storage/)
 - [Check data transfers pricing](https://azure.microsoft.com/pricing/details/data-transfers/)

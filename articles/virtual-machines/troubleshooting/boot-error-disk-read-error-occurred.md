@@ -35,6 +35,9 @@ This error message indicates that the disk structure is corrupted and unreadable
 
 ### Process overview
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 1. Create and Access a Repair VM.
 1. Select a Solution:
    - [Set Partition Status to Active](#set-partition-status-to-active)

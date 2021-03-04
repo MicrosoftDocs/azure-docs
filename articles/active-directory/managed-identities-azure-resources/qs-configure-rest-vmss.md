@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/25/2018
+ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -29,21 +29,24 @@ In this article, using CURL to make calls to the Azure Resource Manager REST end
 - Enable and disable the system-assigned managed identity on an Azure virtual machine scale set
 - Add and remove a user-assigned managed identity on an Azure virtual machine scale set
 
+If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)**.
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+- If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](overview.md). To learn about system-assigned and user-assigned managed identity types, see [Managed identity types](overview.md#managed-identity-types).
+
 - To perform the management operations in this article, your account needs the following Azure role assignments:
 
-    > [!NOTE]
-    > No additional Azure AD directory role assignments required.
+  - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user-assigned managed identity from an virtual machine scale set.
 
-    - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user-assigned managed identity from an virtual machine scale set.
-    - [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role to create a user-assigned managed identity.
-    - [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role to assign and remove a user-assigned identity from and to a virtual machine scale set.
-- You can run all the commands in this article either in the cloud or locally:
-    - To run in the cloud, use the [Azure Cloud Shell](../../cloud-shell/overview.md).
-    - To run locally, install [curl](https://curl.haxx.se/download.html) and the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login) with an account that is associated with the Azure subscription you would like to manage system or user-assigned managed identities.
+  - [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role to create a user-assigned managed identity.
+
+  - [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role to assign and remove a user-assigned identity from and to a virtual machine scale set.
+
+  > [!NOTE]
+  > No additional Azure AD directory role assignments required.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## System-assigned managed identity
 
@@ -59,7 +62,7 @@ To create a virtual machine scale set with system-assigned managed identity enab
    az group create --name myResourceGroup --location westus
    ```
 
-2. Create a [network interface](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) for your virtual machine scale set:
+2. Create a [network interface](/cli/azure/network/nic#az-network-nic-create) for your virtual machine scale set:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -71,7 +74,7 @@ To create a virtual machine scale set with system-assigned managed identity enab
    az account get-access-token
    ``` 
 
-4. Create a virtual machine scale set using CURL to call the Azure Resource Manager REST endpoint. The following example creates a virtual machine scale set named *myVMSS* in the *myResourceGroup* with a system-assigned managed identity, as identified in the request body by the value `"identity":{"type":"SystemAssigned"}`. Replace `<ACCESS TOKEN>` with the value you received in the previous step when you requested a Bearer access token and the `<SUBSCRIPTION ID>` value as appropriate for your environment.
+4. Using Azure Cloud Shell, create a virtual machine scale set using CURL to call the Azure Resource Manager REST endpoint. The following example creates a virtual machine scale set named *myVMSS* in the *myResourceGroup* with a system-assigned managed identity, as identified in the request body by the value `"identity":{"type":"SystemAssigned"}`. Replace `<ACCESS TOKEN>` with the value you received in the previous step when you requested a Bearer access token and the `<SUBSCRIPTION ID>` value as appropriate for your environment.
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -318,7 +321,7 @@ In this section, you learn how to add and remove user-assigned managed identity 
    az account get-access-token
    ```
 
-2. Create a [network interface](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) for your virtual machine scale set:
+2. Create a [network interface](/cli/azure/network/nic#az-network-nic-create) for your virtual machine scale set:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic

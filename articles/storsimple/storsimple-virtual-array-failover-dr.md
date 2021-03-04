@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 ## Overview
 This article describes the disaster recovery for your Microsoft Azure StorSimple Virtual Array including the detailed steps to fail over to another virtual array. A failover allows you to move your data from a *source* device in the datacenter to a *target* device. The target device may be located in the same or a different geographical location. The device failover is for the entire device. During failover, the cloud data for the source device changes ownership to that of the target device.
 
-This article is applicable to StorSimple Virtual Arrays only. To fail over an 8000 series device, go to [Device failover and disaster recovery of your StorSimple device](storsimple-device-failover-disaster-recovery.md).
+This article is applicable to StorSimple Virtual Arrays only. To fail over an 8000 series device, go to [Device failover and disaster recovery of your StorSimple device](./storsimple-8000-device-failover-disaster-recovery.md).
 
 ## What is disaster recovery and device failover?
 
@@ -151,7 +151,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
     1. Select and click the StorSimple device that was used as the target device for the failover process.
     2. Go to **Settings > Management > Shares** (or **Volumes** if iSCSI server). In the **Shares** blade, you can view all the shares (volumes) from the old device.
         ![Screenshot of the Devices blade. The target device is listed with a status of Online.](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. You will need to [create a DNS alias](https://support.microsoft.com/kb/168322) so that all the applications that are trying to connect can get redirected to the new device.
+14. You will need to [create a DNS alias](https://web.archive.org/web/20150307000707/http://support.microsoft.com:80/kb/168322) so that all the applications that are trying to connect can get redirected to the new device.
 
 ## Errors during DR
 
@@ -176,4 +176,3 @@ If there are StorSimple devices that were registered just before a disaster occu
 ## Next steps
 
 Learn more about how to [administer your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).
-

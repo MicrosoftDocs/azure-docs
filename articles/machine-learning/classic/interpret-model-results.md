@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Interpret model results - Azure'
 description: How to choose the optimal parameter set for an algorithm using and visualizing score model outputs.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -12,8 +12,7 @@ ms.date: 11/29/2017
 ---
 # Interpret model results in Azure Machine Learning Studio (classic)
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
-
+**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article applies to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 This topic explains how to visualize and interpret prediction results in Azure Machine Learning Studio (classic). After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
 
@@ -299,10 +298,10 @@ Running the web service, the returned result looks like Figure 26. The five reco
 Figure 26. Web service result of restaurant recommendation problem
 
 <!-- Module References -->
-[assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
-[train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+[assign-to-clusters]: /azure/machine-learning/studio-module-reference/assign-data-to-clusters
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[score-matchbox-recommender]: /azure/machine-learning/studio-module-reference/score-matchbox-recommender
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[train-clustering-model]: /azure/machine-learning/studio-module-reference/train-clustering-model
+[train-matchbox-recommender]: /azure/machine-learning/studio-module-reference/train-matchbox-recommender

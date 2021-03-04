@@ -58,7 +58,6 @@ Feature engineering and feature selection are two commonly Engineered and select
 It is not always necessarily to perform feature engineering or feature selection. Whether it is needed or not depends on the data collected, the algorithm selected, and the objective of the experiment.
 
 <!-- Module References -->
-[feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
-[filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
-[fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
-
+[feature-hashing]: /azure/machine-learning/studio-module-reference/feature-hashing
+[filter-based-feature-selection]: /previous-versions/azure/dn905854(v=azure.100)
+[fisher-linear-discriminant-analysis]: /azure/machine-learning/studio-module-reference/fisher-linear-discriminant-analysis

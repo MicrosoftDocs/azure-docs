@@ -17,9 +17,9 @@ ms.author: travisw
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Set up your development environment and create an empty project](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
-> * Create a bot connected to the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Create a bot connected to the [Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Make sure that you have access to a microphone for audio capture
 
   > [!NOTE]
@@ -267,4 +267,3 @@ Once the application and its activity have launched, click the button to begin t
 ## Next steps
 
 [!INCLUDE [footer](./footer.md)]
-

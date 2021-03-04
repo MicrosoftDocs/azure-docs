@@ -1,9 +1,6 @@
 ---
 title: High availability components in Azure HDInsight
 description: Overview of the various high availability components used by HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
@@ -130,5 +127,5 @@ HDInsight HBase clusters support HBase Master high availability. Unlike other HA
 
 ## Next steps
 
-- [Availability and reliability of Apache Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md)
+- [Availability and reliability of Apache Hadoop clusters in HDInsight](./hdinsight-business-continuity.md)
 - [Azure HDInsight virtual network architecture](hdinsight-virtual-network-architecture.md)

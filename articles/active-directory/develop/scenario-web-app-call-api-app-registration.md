@@ -1,5 +1,6 @@
 ---
-title: Register a web app that calls web APIs - Microsoft identity platform | Azure
+title: Register a web app that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to register a web app that calls web APIs
 services: active-directory
 author: jmprieur
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # A web app that calls web APIs: App registration
@@ -29,5 +30,5 @@ Web apps call APIs on behalf of the signed-in user. To do that, they must reques
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md)
+Move on to the next article in this scenario,
+[Code configuration](scenario-web-app-call-api-app-configuration.md).

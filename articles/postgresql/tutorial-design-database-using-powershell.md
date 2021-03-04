@@ -125,9 +125,9 @@ New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup 
 ```
 
 > [!NOTE]
-> Connections to Azure Database for PostgreSQL communicate over port 3306. If you try to connect from
-> within a corporate network, outbound traffic over port 3306 might not be allowed. In this
-> scenario, you can only connect to the server if your IT department opens port 3306.
+> Connections to Azure Database for PostgreSQL communicate over port 5432. If you try to connect from
+> within a corporate network, outbound traffic over port 5432 might not be allowed. In this
+> scenario, you can only connect to the server if your IT department opens port 5432.
 
 ## Get the connection information
 
@@ -266,6 +266,10 @@ server's **Overview** page.
 The new server created during a restore does not have the VNet service endpoints that existed on the
 original server. These rules must be set up separately for the new server. Firewall rules from the
 original server are restored.
+
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
 
 ## Next steps
 

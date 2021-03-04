@@ -35,3 +35,5 @@ To get information about your IoT Central application:
 ## Next steps
 
 Now that you know how to find the version of your IoT Central application, a suggested next step is to continue exploring the how-to articles for administrators: [Change IoT Central application settings](howto-administer.md).
+
+If you have a V2 application, see [Migrate your V2 IoT Central application to V3](howto-migrate.md).

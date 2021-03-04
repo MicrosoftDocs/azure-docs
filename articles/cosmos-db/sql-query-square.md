@@ -3,12 +3,15 @@ title: SQUARE in Azure Cosmos DB query language
 description: Learn about SQL system function SQUARE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # SQUARE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the square of the specified numeric value.  
   
 ## Syntax

@@ -29,11 +29,11 @@ In this article, you learn how to:
 
 If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you're running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+ - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -120,7 +120,7 @@ Add listeners that are needed to route traffic using [az network application-gat
 
 >[!NOTE]
 > With Application Gateway or WAF v2 SKU, you can also configure up to 5 host names per listener and you can use wildcard characters in the host name. See [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener-preview) for more information.
->To use multiple host names and wildcard characters in a listener using Azure CLI, you must use `--host-names` instead of `--host-name`. With host-names, you can mention up to 5 host names as comma-separated values. For example, `--host-names "*.contoso.com,*.fabrikam.com"`
+>To use multiple host names and wildcard characters in a listener using Azure CLI, you must use `--host-names` instead of `--host-name`. With host-names, you can mention up to five host names as space-separated values. For example, `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \

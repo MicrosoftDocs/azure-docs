@@ -63,9 +63,9 @@ Follow these steps to create an environment:
 
 ## Next steps
 
-* [Define data access policies](time-series-insights-data-access.md) to secure your environment.
+* [Define data access policies](./concepts-access-policies.md) to secure your environment.
 
-* [Add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md) to your Azure Time Series Insights environment.
+* [Add an Event Hub event source](./how-to-ingest-data-event-hub.md) to your Azure Time Series Insights environment.
 
 * [Send events](time-series-insights-send-events.md) to the event source.
 

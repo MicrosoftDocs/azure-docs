@@ -122,7 +122,7 @@ The interactive console makes a client-side API request from the browser. Resolv
 
 You can check the status of the CORS policy in the **Portal overview** section of your API Management service in the Azure portal. A warning box indicates an absent or misconfigured policy.
 
-![API Management developer portal](media/api-management-howto-developer-portal/cors-azure-portal.png)
+![Screenshot that shows where you can check the status of your CORS policy.](media/api-management-howto-developer-portal/cors-azure-portal.png)
 
 Automatically apply the CORS policy by clicking on the **Enable CORS** button.
 

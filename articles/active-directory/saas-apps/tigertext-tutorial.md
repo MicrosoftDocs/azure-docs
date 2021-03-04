@@ -23,7 +23,7 @@ Integrating TigerConnect Secure Messenger with Azure AD provides you with the fo
 * You can enable your users to be automatically signed in to TigerConnect Secure Messenger (single sign-on) with their Azure AD accounts.
 * You can manage your accounts in one central location: the Azure portal.
 
-For details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+For details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ To configure Azure AD integration with TigerConnect Secure Messenger, you need t
 In this tutorial, you configure and test Azure AD single sign-on in a test environment and integrate TigerConnect Secure Messenger with Azure AD.
 
 * TigerConnect Secure Messenger supports **SP** initiated SSO
-* Once you configure TigerConnect Secure Messenger you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure TigerConnect Secure Messenger you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding TigerConnect Secure Messenger from the gallery
 
@@ -139,16 +139,16 @@ In this section, you create a user called Britta Simon in TigerConnect Secure Me
 
 In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
 
-When you select **TigerConnect Secure Messenger** in the My Apps portal, you should be automatically signed in to the TigerConnect Secure Messenger subscription for which you set up single sign-on. For more information about the My Apps portal, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select **TigerConnect Secure Messenger** in the My Apps portal, you should be automatically signed in to the TigerConnect Secure Messenger subscription for which you set up single sign-on. For more information about the My Apps portal, see [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [List of tutorials for integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of tutorials for integrating SaaS apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try TigerConnect Secure Messenger with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

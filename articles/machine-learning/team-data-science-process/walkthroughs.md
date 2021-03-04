@@ -36,5 +36,4 @@ For a discussion of the key components that comprise the Team Data Science Proce
 
 For a discussion of the Team Data Science Process lifecycle, see [Team Data Science Process lifecycle](lifecycle.md). This lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 
 
-For an overview, see [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
-
+For an overview, see [Data Science Process](./index.yml).

@@ -74,7 +74,7 @@ conceptualContent:
         - url: ../azure-functions/functions-monitoring.md
           itemType: how-to-guide
           text: Azure Functions 
-        - url: ./app/kubernetes.md
+        - url: ./app/kubernetes-codeless.md
           itemType: how-to-guide
           text: Kubernetes applications
         - url: ./app/cloudservices.md
@@ -89,12 +89,6 @@ conceptualContent:
         
     - title: Quickstarts & tutorials
       links: 
-        - url: ./learn/quick-monitor-portal.md
-          itemType: how-to-guide
-          text: ASP.NET
-        - url: ./learn/dotnetcore-quick-start.md
-          itemType: how-to-guide
-          text: ASP.NET Core
         - url: ./learn/nodejs-quick-start.md
           itemType: how-to-guide
           text: Node.js

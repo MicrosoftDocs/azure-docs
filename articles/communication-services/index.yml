@@ -75,7 +75,7 @@ landingContent:
             url: concepts/telephony-sms/sdk-features.md
           - text: Calling overview
             url: concepts/voice-video-calling/calling-sdk-features.md
-          - text: Plan your telephony and SMS solution
+          - text: Phone number types
             url: concepts/telephony-sms/plan-solution.md
   - title: Chat
     linkLists:

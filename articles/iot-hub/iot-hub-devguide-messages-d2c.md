@@ -17,7 +17,7 @@ ms.custom: ['Role: Cloud Development', devx-track-csharp]
 
 Message routing enables you to send messages from your devices to cloud services in an automated, scalable, and reliable manner. Message routing can be used for: 
 
-* **Sending device telemetry messages as well as events** namely, device lifecycle events, and device twin change events to the built-in-endpoint and custom endpoints. Learn about [routing endpoints](#routing-endpoints).
+* **Sending device telemetry messages as well as events** namely, device lifecycle events, device twin change events, and digital twin change events to the built-in-endpoint and custom endpoints. Learn about [routing endpoints](#routing-endpoints). To learn more about the events sent from IoT Plug and Play devices, see [Understand IoT Plug and Play digital twins](../iot-pnp/concepts-digital-twin.md).
 
 * **Filtering data before routing it to various endpoints** by applying rich queries. Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. Learn more about using [queries in message routing](iot-hub-devguide-routing-query-syntax.md).
 
@@ -52,7 +52,7 @@ IoT Hub supports writing data to Azure Storage in the [Apache Avro](https://avro
 
 The encoding format can be only set when the blob storage endpoint is configured; it can't be edited for an existing endpoint. To switch encoding formats for an existing endpoint, you'll need to delete and re-create the custom endpoint with the format you want. One helpful strategy might be to create a new custom endpoint with your desired encoding format and add a parallel route to that endpoint. In this way you can verify your data before deleting the existing endpoint.
 
-You can select the encoding format using the IoT Hub Create or Update REST API, specifically the [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), the Azure portal, [Azure CLI](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest), or the [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). The following image shows how to select the encoding format in the Azure portal.
+You can select the encoding format using the IoT Hub Create or Update REST API, specifically the [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), the Azure portal, [Azure CLI](/cli/azure/iot/hub/routing-endpoint), or the [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). The following image shows how to select the encoding format in the Azure portal.
 
 ![Blob storage endpoint encoding](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -119,7 +119,7 @@ You can enable/disable the fallback route in the Azure portal->Message Routing b
 
 ## Non-telemetry events
 
-In addition to device telemetry, message routing also enables sending device twin change events, device lifecycle events, and digital twin change events. For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub sends a message indicating whether the device was deleted or created. Finally, as part of the [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), a developer can create routes with data source set to **digital twin change events** and IoT Hub sends messages whenever a digital twin [property](../iot-pnp/iot-plug-and-play-glossary.md) is set or changed, a [digital twin](../iot-pnp/iot-plug-and-play-glossary.md) is replaced, or when a change event happens for the underlying device twin.
+In addition to device telemetry, message routing also enables sending device twin change events, device lifecycle events, and digital twin change events. For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub sends a message indicating whether the device was deleted or created. Finally, as part of [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), a developer can create routes with data source set to **digital twin change events** and IoT Hub sends messages whenever a digital twin [property](../iot-pnp/iot-plug-and-play-glossary.md) is set or changed, a [digital twin](../iot-pnp/iot-plug-and-play-glossary.md) is replaced, or when a change event happens for the underlying device twin.
 
 [IoT Hub also integrates with Azure Event Grid](iot-hub-event-grid.md) to publish device events to support real-time integrations and automation of workflows based on these events. See key [differences between message routing and Event Grid](iot-hub-event-grid-routing-comparison.md) to learn which works best for your scenario.
 
@@ -141,7 +141,9 @@ In most cases, the average increase in latency is less than 500 ms. You can moni
 
 ## Monitoring and troubleshooting
 
-IoT Hub provides several metrics related to routing and endpoints to give you an overview of the health of your hub and messages sent. [IoT Hub metrics](iot-hub-metrics.md) lists all metrics that are enabled by default for your IoT Hub. Using the **routes** diagnostic logs in Azure Monitor [diagnostic settings](../iot-hub/iot-hub-monitor-resource-health.md), you can track errors that occur during evaluation of a routing query and endpoint health as perceived by IoT Hub. You can use the REST API [Get Endpoint Health](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get [health status](iot-hub-devguide-endpoints.md#custom-endpoints) of the endpoints. 
+IoT Hub provides several metrics related to routing and endpoints to give you an overview of the health of your hub and messages sent. For a list of all of the IoT Hub metrics broken out by functional category, see [Metrics in the Monitoring data reference](monitor-iot-hub-reference.md#metrics). You can track errors that occur during evaluation of a routing query and endpoint health as perceived by IoT Hub with the [**routes** category in IoT Hub resource logs](monitor-iot-hub-reference.md#routes). To learn more about using metrics and resource logs with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md).
+
+You can use the REST API [Get Endpoint Health](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get [health status](iot-hub-devguide-endpoints.md#custom-endpoints) of the endpoints.
 
 Use the [troubleshooting guide for routing](troubleshoot-message-routing.md) for more details and support for troubleshooting routing.
 

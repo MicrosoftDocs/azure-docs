@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
 # Customer intent: As an application developer, I want to know how to configure my web API's app registration with permissions client applications can use to obtain scoped access to the API.
 ---
@@ -39,7 +39,7 @@ This diagram shows how the two app registrations relate to one another. In this 
 
 Once you've registered both your client app and web API and you've exposed the API by creating scopes, you can configure the client's permissions to the API by following these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
 1. Select **Azure Active Directory** > **App registrations**, and then select your client application (*not* your web API).
 1. Select **API permissions** > **Add a permission** > **My APIs**.
@@ -68,7 +68,7 @@ In addition to accessing your own web API on behalf of the signed-in user, your 
 
 Configure delegated permission to Microsoft Graph to enable your client application to perform operations on behalf of the logged-in user, for example reading their email or modifying their profile. By default, users of your client app are asked when they sign in to consent to the delegated permissions you've configured for it.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
 1. Select **Azure Active Directory** > **App registrations**, and then select your client application.
 1. Select **API permissions** > **Add a permission** > **Microsoft Graph**
@@ -93,7 +93,7 @@ Configure application permissions for an application that needs to authenticate 
 
 In the following steps, you grant permission to Microsoft Graph's *Files.Read.All* permission as an example.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
 1. Select **Azure Active Directory** > **App registrations**, and then select your client application.
 1. Select **API permissions** > **Add a permission** > **Microsoft Graph** > **Application permissions**.
@@ -107,7 +107,7 @@ Some permissions, like Microsoft Graph's *Files.Read.All* permission, require ad
 
 ### Configure client credentials
 
-Apps that use application permissions authenticate as themselves by using their own credentials, without requiring any user interaction. Before your application (or API) can access Microsoft Graph, your own web API, or any another API by using application permissions, you need to configure that client app's credentials.
+Apps that use application permissions authenticate as themselves by using their own credentials, without requiring any user interaction. Before your application (or API) can access Microsoft Graph, your own web API, or another API by using application permissions, you must configure that client app's credentials.
 
 For more information about configuring an app's credentials, see the [Add credentials](quickstart-register-app.md#add-credentials) section of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
 

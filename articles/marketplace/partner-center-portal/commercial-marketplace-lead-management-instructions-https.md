@@ -4,8 +4,8 @@ description: Learn how to use Power Automate and an HTTPS endpoint to manage lea
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
 ---
 
@@ -61,6 +61,10 @@ This article explains how to create a new flow in Power Automate to generate the
         },
         "LeadSource": {
           "id": "/properties/LeadSource",
+          "type": "string"
+        },
+        "Description": {
+          "id": "/properties/Description",
           "type": "string"
         },
         "UserDetails": {

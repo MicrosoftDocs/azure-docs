@@ -184,7 +184,6 @@ az group delete --name myResourceGroup
 
 
 <!-- LINKS - External -->
-[aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

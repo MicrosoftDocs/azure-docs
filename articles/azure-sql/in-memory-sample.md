@@ -43,7 +43,7 @@ For a more simplistic, but more visually appealing performance demo for In-Memor
 
 1. In the [Azure portal](https://portal.azure.com/), create a Premium or Business Critical database on a server. Set the **Source** to the AdventureWorksLT sample database. For detailed instructions, see [Create your first database in Azure SQL Database](database/single-database-create-quickstart.md).
 
-2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
+2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 3. Copy the [In-Memory OLTP Transact-SQL script](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) to your clipboard. The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database that you created in step 1.
 
@@ -154,8 +154,8 @@ On the VM, or on whatever host you choose, install the Replay Markup Language (R
 
 For more information, see:
 
-- The ostress.exe discussion in [Sample Database for In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
-- [Sample Database for In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
+- The ostress.exe discussion in [Sample Database for In-Memory OLTP](/sql/relational-databases/in-memory-oltp/sample-database-for-in-memory-oltp).
+- [Sample Database for In-Memory OLTP](/sql/relational-databases/in-memory-oltp/sample-database-for-in-memory-oltp).
 - The [blog for installing ostress.exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
 
 <!--
@@ -227,7 +227,7 @@ Our In-Memory tests have shown that performance improved by **nine times** for t
 
 In this section, you compare the IO and statistics results when you're using a columnstore index versus a traditional b-tree index.
 
-For real-time analytics on an OLTP workload, it's often best to use a nonclustered columnstore index. For details, see [Columnstore Indexes Described](https://msdn.microsoft.com/library/gg492088.aspx).
+For real-time analytics on an OLTP workload, it's often best to use a nonclustered columnstore index. For details, see [Columnstore Indexes Described](/sql/relational-databases/indexes/columnstore-indexes-overview).
 
 ### Prepare the columnstore analytics test
 
@@ -329,7 +329,7 @@ In a database with the P2 pricing tier, you can expect about nine times the perf
 
 ## Next steps
 
-- [Quickstart 1: In-Memory OLTP Technologies for faster T-SQL Performance](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Quickstart 1: In-Memory OLTP Technologies for faster T-SQL Performance](/sql/relational-databases/in-memory-oltp/survey-of-initial-areas-in-in-memory-oltp)
 
 - [Use In-Memory OLTP in an existing Azure SQL application](in-memory-oltp-configure.md)
 
@@ -343,17 +343,17 @@ In a database with the P2 pricing tier, you can expect about nine times the perf
 
 - [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
-- [Learn about In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
+- [Learn about In-Memory OLTP](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 
-- [Learn about columnstore indexes](https://msdn.microsoft.com/library/gg492088.aspx)
+- [Learn about columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview)
 
-- [Learn about real-time operational analytics](https://msdn.microsoft.com/library/dn817827.aspx)
+- [Learn about real-time operational analytics](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
 
-- See [Common Workload Patterns and Migration Considerations](https://msdn.microsoft.com/library/dn673538.aspx) (which describes workload patterns where In-Memory OLTP commonly provides significant performance gains)
+- See [Common Workload Patterns and Migration Considerations](/previous-versions/dn673538(v=msdn.10)) (which describes workload patterns where In-Memory OLTP commonly provides significant performance gains)
 
 #### Application design
 
-- [In-Memory OLTP (In-Memory Optimization)](https://msdn.microsoft.com/library/dn133186.aspx)
+- [In-Memory OLTP (In-Memory Optimization)](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 
 - [Use In-Memory OLTP in an existing Azure SQL application](in-memory-oltp-configure.md)
 
@@ -361,6 +361,6 @@ In a database with the P2 pricing tier, you can expect about nine times the perf
 
 - [Azure portal](https://portal.azure.com/)
 
-- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
+- [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)
 
-- [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt)

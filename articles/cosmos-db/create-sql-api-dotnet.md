@@ -11,6 +11,7 @@ ms.date: 10/21/2020
 ms.custom: devx-track-dotnet
 ---
 # Quickstart: Build a .NET console app to manage Azure Cosmos DB SQL API resources
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)

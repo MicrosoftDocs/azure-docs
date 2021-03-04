@@ -354,6 +354,6 @@ DnsSettings              : {
 
 ## Next steps
 
-For more information about hardening the security of your web applications with Web Application Firewall through Application Gateway, see the [Web application firewall overview](application-gateway-webapplicationfirewall-overview.md).
+For more information about hardening the security of your web applications with Web Application Firewall through Application Gateway, see the [Web application firewall overview](../web-application-firewall/ag/ag-overview.md).
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png

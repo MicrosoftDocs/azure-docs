@@ -10,6 +10,8 @@
       href: what-is-b2b.md
     - name: What is Azure AD B2C?
       href: ../../active-directory-b2c/overview.md
+    - name: What's new in docs?
+      href: whats-new-docs.md
   - name: Quickstarts
     items:
     - name: Add guest users in the portal
@@ -114,6 +116,8 @@
         href: use-dynamic-groups.md
       - name: Understand the B2B user
         href: user-properties.md
+      - name: Reset redemption status
+        href: reset-redemption-status.md
       - name: B2B for Azure AD integrated apps
         href: configure-saas-apps.md
     - name: Manage guest access in a hybrid organization

@@ -29,7 +29,7 @@ Use `sudo pip install` instead of `pip install` when installing packages.
 
 ### Disk encryption fails on the Ubuntu DSVM
 
-Azure Disk Encryption (ADE) isn't currently supported on the Ubuntu DSVM. As a workaround, consider configuring [Server Side Encryption of Azure managed disks](../../virtual-machines/windows/disk-encryption.md).
+Azure Disk Encryption (ADE) isn't currently supported on the Ubuntu DSVM. As a workaround, consider configuring [Server Side Encryption of Azure managed disks](../../virtual-machines/disk-encryption.md).
 
 ## Tool appears disabled
 
@@ -45,4 +45,3 @@ That Hyper-V initially doesn't work on Windows is expected behavior. For boot pe
 Your final screen should look like this:
 
    ![Enable Hyper-V](./media/workaround/hyperv-enable-dsvm.png)
-

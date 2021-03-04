@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension using Azure Resource Manager template
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments using an Azure Resource Manager template.
-ms.date: 10/22/2020
+ms.date: 02/10/2021
 ms.topic: conceptual
 ---
 
@@ -540,7 +540,7 @@ To use the PowerShell DSC extension, the following sample is provided to run on 
 
 ## Deploy the Dependency agent extension
 
-To use the Azure Monitor Dependency agent extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Dependency agent, see [Overview of Azure Monitor agents](../../azure-monitor/platform/agents-overview.md#dependency-agent).
+To use the Azure Monitor Dependency agent extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Dependency agent, see [Overview of Azure Monitor agents](../../azure-monitor/agents/agents-overview.md#dependency-agent).
 
 ### Template file for Linux
 
@@ -618,8 +618,250 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
 }
 ```
 
+## Deploy Azure Key Vault VM extension (preview)
+
+The following JSON shows the schema for the Key Vault VM extension (preview). The extension does not require protected settings - all its settings are considered public information. The extension requires a list of monitored certificates, polling frequency, and the destination certificate store. Specifically:
+
+### Template file for Linux
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "autoUpgradeMinorVersion":{
+            "type": "bool"
+        },
+        "pollingIntervalInS":{
+          "type": "int"
+        },
+        "certificateStoreName":{
+          "type": "string"
+        },
+        "certificateStoreLocation":{
+          "type": "string"
+        },
+        "observedCertificates":{
+          "type": "string"
+        },
+        "msiEndpoint":{
+          "type": "string"
+        },
+        "msiClientId":{
+          "type": "string"
+        }
+},
+"resources": [
+   {
+      "type": "Microsoft.HybridCompute/machines/extensions",
+      "name": "[concat(parameters('vmName'),'/KVVMExtensionForLinux')]",
+      "apiVersion": "2019-12-12",
+      "location": "[parameters('location')]",
+      "properties": {
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForLinux",
+      "typeHandlerVersion": "1.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+          "secretsManagementSettings": {
+          "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
+          "certificateStoreName": <ignored on linux>,
+          "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+          },
+          "authenticationSettings": {
+                "msiEndpoint":  <MSI endpoint e.g.: "http://localhost:40342/metadata/identity">,
+                "msiClientId":  <MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+        }
+      }
+    }
+  }
+ ]
+}
+```
+
+### Template file for Windows
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "autoUpgradeMinorVersion":{
+            "type": "bool"
+        },
+        "pollingIntervalInS":{
+          "type": "int"
+        },
+        "certificateStoreName":{
+          "type": "string"
+        },
+        "linkOnRenewal":{
+          "type": "bool"
+        },
+        "certificateStoreLocation":{
+          "type": "string"
+        },
+        "requireInitialSync":{
+          "type": "bool"
+        },
+        "observedCertificates":{
+          "type": "string"
+        },
+        "msiEndpoint":{
+          "type": "string"
+        },
+        "msiClientId":{
+          "type": "string"
+        }
+},
+"resources": [
+   {
+      "type": "Microsoft.HybridCompute/machines/extensions",
+      "name": "[concat(parameters('vmName'),'/KVVMExtensionForWindows')]",
+      "apiVersion": "2019-12-12",
+      "location": "[parameters('location')]",
+      "properties": {
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForWindows",
+      "typeHandlerVersion": "1.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+        "secretsManagementSettings": {
+          "pollingIntervalInS": "3600",
+          "certificateStoreName": <certificate store name, e.g.: "MY">,
+          "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
+          "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
+          "requireInitialSync": <initial synchronization of certificates e..g: true>,
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net"
+        },
+        "authenticationSettings": {
+                "msiEndpoint": <MSI endpoint e.g.: "http://localhost:40342/metadata/identity">,
+                "msiClientId": <MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+        }
+      }
+    }
+  }
+ ]
+}
+```
+
+> [!NOTE]
+> Your observed certificates URLs should be of the form `https://myVaultName.vault.azure.net/secrets/myCertName`.
+>
+> This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path does not. More information about certificates can be found here: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
+
+### Template deployment
+
+Save the template file to disk. You can then deploy the extension to the connected machine with the following command.
+
+> [!NOTE]
+> The VM extension would require a system-assigned identity to be assigned to authenticate to Key vault. See [How to authenticate to Key Vault using managed identity](managed-identity-authentication.md) for Windows and Linux Arc enabled servers.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
+```
+
+## Deploy the Azure Defender integrated scanner
+
+To use the Azure Defender integrated scanner extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the integrated scanner, see [Overview of Azure Defender's vulnerability assessment solution](../../security-center/deploy-vulnerability-assessment-vm.md) for hybrid machines.
+
+### Template file for Windows
+
+```json
+{
+  "properties": {
+    "mode": "Incremental",
+    "template": {
+      "contentVersion": "1.0.0.0",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "parameters": {
+        "vmName": {
+          "type": "string"
+        },
+        "apiVersionByEnv": {
+          "type": "string"
+        }
+      },
+      "resources": [
+        {
+          "type": "resourceType/providers/WindowsAgent.AzureSecurityCenter",
+          "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
+          "apiVersion": "[parameters('apiVersionByEnv')]"
+        }
+      ]
+    },
+    "parameters": {
+      "vmName": {
+        "value": "resourceName"
+      },
+      "apiVersionByEnv": {
+        "value": "2015-06-01-preview"
+      }
+    }
+  }
+}
+```
+
+### Template file for Linux
+
+```json
+{
+  "properties": {
+    "mode": "Incremental",
+    "template": {
+      "contentVersion": "1.0.0.0",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "parameters": {
+        "vmName": {
+          "type": "string"
+        },
+        "apiVersionByEnv": {
+          "type": "string"
+        }
+      },
+      "resources": [
+        {
+          "type": "resourceType/providers/LinuxAgent.AzureSecurityCenter",
+          "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
+          "apiVersion": "[parameters('apiVersionByEnv')]"
+        }
+      ]
+    },
+    "parameters": {
+      "vmName": {
+        "value": "resourceName"
+      },
+      "apiVersionByEnv": {
+        "value": "2015-06-01-preview"
+      }
+    }
+  }
+}
+```
+
+### Template deployment
+
+Save the template file to disk. You can then deploy the extension to the connected machine with the following command.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\AzureDefenderScanner.json"
+```
+
 ## Next steps
 
-* You can deploy and remove an extension using Azure CLI or PowerShell.
+* You can deploy, manage, and remove VM extensions using the [Azure PowerShell](manage-vm-extensions-powershell.md), from the [Azure portal](manage-vm-extensions-portal.md), or the [Azure CLI](manage-vm-extensions-cli.md).
 
 * Troubleshooting information can be found in the [Troubleshoot VM extensions guide](troubleshoot-vm-extensions.md).

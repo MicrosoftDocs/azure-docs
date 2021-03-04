@@ -29,9 +29,9 @@ Azure Policy uses the term _Ownership_ in place of _Responsibility_. For details
 
 **Guidance**: Azure Policy uses activity logs, which are automatically enabled, to include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-* [How to collect platform logs and metrics with Azure Monitor](../../../azure-monitor/platform/diagnostic-settings.md)
+* [How to collect platform logs and metrics with Azure Monitor](../../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Understand logging and different log types in Azure](../../../azure-monitor/platform/platform-logs-overview.md)
+* [Understand logging and different log types in Azure](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 
 **Azure Security Center monitoring**: Currently not available
@@ -57,7 +57,7 @@ You can also enable a Just-In-Time / Just-Enough-Access solution by using [Azure
 
 **Guidance**: Use PAWs (privileged access workstations) with MFA configured to log into and configure Azure resources.
 
-* [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [How to enable MFA in Azure](../../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -87,7 +87,7 @@ You can also enable a Just-In-Time / Just-Enough-Access solution by using [Azure
 
 **Guidance**: Use Azure Monitor with activity logs to create alerts for when changes take place in Azure Policy.
 
-* [How to create alerts for Azure activity log events](../../../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure activity log events](../../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 **Azure Security Center monitoring**: Currently not available

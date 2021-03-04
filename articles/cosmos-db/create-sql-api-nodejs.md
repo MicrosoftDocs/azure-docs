@@ -11,6 +11,7 @@ ms.author: anfeldma
 ms.custom: devx-track-js
 ---
 # Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > - [.NET V3](create-sql-api-dotnet.md)

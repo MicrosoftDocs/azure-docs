@@ -17,7 +17,7 @@ ms.date: 10/02/2020
 
     Your app will be listed here after you register it.
 
-1. Give the application a name and select **Accounts in this organizational directory only** to specify the **Supported account types** that may access the API. If you're creating a [public client app](https://docs.microsoft.com/azure/active-directory/develop/msal-client-application-configuration#redirect-uri), add a valid redirect URI, then **Register**.
+1. Give the application a name and select **Accounts in this organizational directory only** to specify the **Supported account types** that may access the API. If you're creating a [public client app](../articles/active-directory/develop/msal-client-application-configuration.md#redirect-uri), add a valid redirect URI, then **Register**.
 
    [![Create the application in Azure Active Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
 

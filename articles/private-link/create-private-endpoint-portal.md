@@ -48,7 +48,7 @@ The bastion host will be used to connect securely to the virtual machine for tes
     | Resource Group   | Select **CreatePrivateEndpointQS-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **\<your-web-app-region>**. </br> Select the region where your web app is deployed.|
+    | Region           | Select **West Europe**.|
 
 3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -99,7 +99,7 @@ In this section, you'll create a virtual machine that will be used to test the p
     | Resource Group | Select **CreatePrivateEndpointQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM** |
-    | Region | Select **\<your-web-app-region>**. </br> Select the region where your web app is deployed. |
+    | Region | Select **West Europe**. |
     | Availability Options | Select **No infrastructure redundancy required** |
     | Image | Select **Windows Server 2019 Datacenter - Gen1** |
     | Azure Spot instance | Select **No** |
@@ -147,7 +147,7 @@ In this section, you'll create a Private Endpoint for the web app you created in
     | Resource group | Select **CreatePrivateEndpointQS-rg**. You created this resource group in the previous section.|
     | **Instance details** |  |
     | Name  | Enter **myPrivateEndpoint**. |
-    | Region | Select **\<your-web-app-region>**. </br> Select the region where your web app is deployed. |
+    | Region | Select **West Europe**. |
 
 6. Select the **Resource** tab or the **Next: Resource** button at the bottom of the page.
     

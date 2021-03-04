@@ -186,7 +186,7 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
-[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
+[azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
 [client-source-ip]: concepts-network.md#ingress-controllers
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [windows-rdp]: rdp.md

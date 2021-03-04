@@ -4,8 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn about the data ingestion tools and utilities that are preinstalled on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
 author: lobrien
 ms.author: laobri
@@ -28,7 +27,7 @@ Here are some data movement tools that are available in the DSVM.
 | Supported DSVM versions      | Windows      |
 | Typical uses      | Importing multiple blobs from Azure Blob storage into Azure Data Lake Store.      |
 |  How to use / run it?    |   Open a command prompt and type `adlcopy` to get help.    |
-| Links to samples      | [Using AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Links to samples      | [Using AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)      |
 | Related tools on the DSVM      | AzCopy, Azure CLI     |
 
 ## Azure CLI
@@ -39,7 +38,7 @@ Here are some data movement tools that are available in the DSVM.
 | Supported DSVM versions      | Windows, Linux     |
 | Typical uses      | Importing and exporting data to and from Azure Storage and Azure Data Lake Store.      |
 |  How to use / run it?    |   Open a command prompt and type `az` to get help.    |
-| Links to samples      | [Using Azure CLI](https://docs.microsoft.com/cli/azure)     |
+| Links to samples      | [Using Azure CLI](/cli/azure)     |
 | Related tools on the DSVM      | AzCopy, AdlCopy      |
 
 
@@ -51,7 +50,7 @@ Here are some data movement tools that are available in the DSVM.
 | Supported DSVM versions      | Windows      |
 | Typical uses      | Copying files to Azure Blob storage and copying blobs between accounts.      |
 |  How to use / run it?    |   Open a command prompt and type `azcopy` to get help.    |
-| Links to samples      | [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
+| Links to samples      | [AzCopy on Windows](../../storage/common/storage-use-azcopy-v10.md)      |
 | Related tools on the DSVM      | AdlCopy     |
 
 
@@ -63,7 +62,7 @@ Here are some data movement tools that are available in the DSVM.
 | Supported DSVM versions      | Windows      |
 | Typical uses      | Importing files from a VM to CosmosDB, importing data from Azure table storage to CosmosDB, and importing data from a Microsoft SQL Server database to CosmosDB.     |
 |  How to use / run it?    |   To use the command-line version, open a command prompt and type `dt`. To use the GUI tool, open a command prompt and type `dtui`.    |
-| Links to samples      | [CosmosDB Import data](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
+| Links to samples      | [CosmosDB Import data](../../cosmos-db/import-data.md)      |
 | Related tools on the DSVM      | AzCopy, AdlCopy      |
 
 ## Azure Storage Explorer
@@ -85,7 +84,7 @@ Here are some data movement tools that are available in the DSVM.
 | Supported DSVM versions      | Windows      |
 | Typical uses      | Importing a CSV file into a SQL Server table and exporting a SQL Server table to a file.      |
 |  How to use / run it?    |   Open a command prompt and type `bcp` to get help.    |
-| Links to samples      | [bcp utility](https://docs.microsoft.com/sql/tools/bcp-utility)      |
+| Links to samples      | [bcp utility](/sql/tools/bcp-utility)      |
 | Related tools on the DSVM      | SQL Server, sqlcmd      |
 
 ## blobfuse

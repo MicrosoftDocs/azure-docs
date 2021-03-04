@@ -88,4 +88,4 @@ Don't remove the resource group and firewall if you plan to continue on to the f
 Next, you can monitor the Azure Firewall logs.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](tutorial-diagnostics.md)
+> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)

@@ -25,9 +25,11 @@ This article describes how to debug API Management policies using the [Azure API
 
 ## Prerequisites
 
-Create an API Management Developer-tier instance by following this [tutorial](get-started-create-service-instance.md) first.
+* Create an API Management Developer-tier instance by following this [quickstart](get-started-create-service-instance.md) first.
 
-Install [Visual Studio Code](https://code.visualstudio.com/) and the latest version of [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+* Install [Visual Studio Code](https://code.visualstudio.com/) and the latest version of [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+
+* Import an API to your API Management instance. For example steps, see [Tutorial: Use the API Management Extension for Visual Studio Code to import and manage APIs](visual-studio-code-tutorial.md).
 
 ## Restrictions and limitations
 

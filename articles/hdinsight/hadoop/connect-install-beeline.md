@@ -1,12 +1,9 @@
 ---
 title: Connect to or install Apache Beeline - Azure HDInsight 
 description: Learn how to connect to the Apache Beeline client to run Hive queries with Hadoop on HDInsight. Beeline is a utility for working with HiveServer2 over JDBC.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 05/27/2020
 ---
 # Connect to Apache Beeline on HDInsight or install it locally
@@ -98,7 +95,7 @@ When connecting directly from the cluster head node, or from a resource inside t
 
 ## Install Beeline client
 
-Although Beeline is included on the head nodes, you may want to install it locally.  The install steps for a local machine are based on a [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Although Beeline is included on the head nodes, you may want to install it locally.  The install steps for a local machine are based on a [Windows Subsystem for Linux](/windows/wsl/install-win10).
 
 1. Update package lists. Enter the following command in your bash shell:
 
@@ -138,7 +135,7 @@ Although Beeline is included on the head nodes, you may want to install it local
     tar -xvzf apache-hive-1.2.1-bin.tar.gz
     ```
 
-1. Further amend the bashrc file. You'll need to identify the path to where the archives were unpacked. If using the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10), and you followed the steps exactly, your path would be `/mnt/c/Users/user/`, where `user` is your user name.
+1. Further amend the bashrc file. You'll need to identify the path to where the archives were unpacked. If using the [Windows Subsystem for Linux](/windows/wsl/install-win10), and you followed the steps exactly, your path would be `/mnt/c/Users/user/`, where `user` is your user name.
 
     1. Open the file: `nano ~/.bashrc`
 

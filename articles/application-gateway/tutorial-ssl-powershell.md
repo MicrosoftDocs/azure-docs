@@ -13,7 +13,7 @@ ms.custom: mvc, devx-track-azurepowershell
 
 # Create an application gateway with TLS termination using Azure PowerShell
 
-You can use Azure PowerShell to create an [application gateway](overview.md) with a certificate for [TLS/SSL termination](ssl-overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. 
+You can use Azure PowerShell to create an [application gateway](overview.md) with a certificate for [TLS/SSL termination](ssl-overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. 
 
 In this article, you learn how to:
 
@@ -30,7 +30,7 @@ This article requires the Azure PowerShell module version 1.0.0 or later. Run `G
 
 ## Create a self-signed certificate
 
-For production use, you should import a valid certificate signed by trusted provider. For this article, you create a self-signed certificate using [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). You can use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
+For production use, you should import a valid certificate signed by trusted provider. For this article, you create a self-signed certificate using [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). You can use [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
 
 ```powershell
 New-SelfSignedCertificate `

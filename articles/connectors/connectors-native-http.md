@@ -244,7 +244,7 @@ If an HTTP trigger or action includes these headers, Logic Apps removes these he
 
 * `Accept-*` headers except for `Accept-version`
 * `Allow`
-* `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
+* `Content-*` headers except for `Content-Disposition`, `Content-Encoding`, and `Content-Type` when you use POST and PUT operations, but are not included for GET operations
 * `Cookie`
 * `Expires`
 * `Host`

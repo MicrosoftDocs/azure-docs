@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Scenario: Desktop app that calls web APIs
@@ -58,5 +58,5 @@ Desktop applications have a number of specificities. They depend mainly on wheth
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Desktop app: App registration](scenario-desktop-app-registration.md)
+Move on to the next article in this scenario, 
+[App registration](scenario-desktop-app-registration.md).

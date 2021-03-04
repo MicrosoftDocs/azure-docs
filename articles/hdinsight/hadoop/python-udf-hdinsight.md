@@ -1,9 +1,6 @@
 ---
 title: Python UDF with Apache Hive and Apache Pig - Azure HDInsight 
 description: Learn how to use Python User Defined Functions (UDF) from Apache Hive and Apache Pig in HDInsight, the Apache Hadoop technology stack on Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
@@ -26,7 +23,7 @@ HDInsight also includes Jython, which is a Python implementation written in Java
 * **An SSH client**. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be wasbs://.  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 * **Possible change to storage configuration.**  See [Storage configuration](#storage-configuration) if using storage account kind `BlobStorage`.
-* Optional.  If Planning to use PowerShell, you'll need the [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) installed.
+* Optional.  If Planning to use PowerShell, you'll need the [AZ module](/powershell/azure/new-azureps-module-az) installed.
 
 > [!NOTE]  
 > The storage account used in this article was Azure Storage with [secure transfer](../../storage/common/storage-require-secure-transfer.md) enabled and thus `wasbs` is used throughout the article.
@@ -41,7 +38,7 @@ No action is required if the storage account used is of kind `Storage (general p
 > * You create the Python scripts on your local development environment.
 > * You upload the scripts to HDInsight using either the `scp` command or the provided PowerShell script.
 >
-> If you want to use the [Azure Cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) to work with HDInsight, then you must:
+> If you want to use the [Azure Cloud Shell (bash)](../../cloud-shell/overview.md) to work with HDInsight, then you must:
 >
 > * Create the scripts inside the cloud shell environment.
 > * Use `scp` to upload the files from the cloud shell to HDInsight.
@@ -589,7 +586,7 @@ The error information (STDERR) and the result of the job (STDOUT) are also logge
 
 ## <a name="next"></a>Next steps
 
-If you need to load Python modules that aren't provided by default, see [How to deploy a module to Azure HDInsight](https://docs.microsoft.com/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
+If you need to load Python modules that aren't provided by default, see [How to deploy a module to Azure HDInsight](/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
 
 For other ways to use Pig, Hive, and to learn about using MapReduce, see the following documents:
 

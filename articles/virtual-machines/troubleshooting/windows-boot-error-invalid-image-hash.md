@@ -62,6 +62,9 @@ You are not able to extend the expiration date of a preview image. Once the prev
 
 ## Solution
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 If your image is a preview image, there is no way to extend the expiration date for the image used, you will need to [deploy a new VM](../windows/quick-create-portal.md) using a non-preview image. The steps below will assist you in identifying if you have used a preview image, as well as provide resources to assist you in transferring data from this VM into a new VM. If you have positively identified the image as a preview image, the image isn’t recoverable, as it is now expired.
 
 Depending upon your preference, you can use either Azure PowerShell or Azure CLI to query your image to determine if it is a preview image. You can use these commands to confirm that the image is a preview image.

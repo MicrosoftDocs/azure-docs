@@ -1,7 +1,7 @@
 ---
 title: Azure Performance Diagnostics VM Extension for Windows| Microsoft Docs
 description: Introduces Azure Performance Diagnostics VM Extension for Windows.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
 manager: dcscontentpm
@@ -51,16 +51,16 @@ The following JSON shows the schema for Azure Performance Diagnostics VM Extensi
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
-            "performanceScenario": "[parameters('performanceScenario')]",
-            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-            "perfCounterTrace": "[parameters('perfCounterTrace')]",
-            "networkTrace": "[parameters('networkTrace')]",
-            "xperfTrace": "[parameters('xperfTrace')]",
-            "storPortTrace": "[parameters('storPortTrace')]",
-            "srNumber": "[parameters('srNumber')]",
-            "requestTimeUtc":  "[parameters('requestTimeUtc')]",
-            "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+          "storageAccountName": "[parameters('storageAccountName')]",
+          "performanceScenario": "[parameters('performanceScenario')]",
+          "traceDurationInSeconds": "[parameter('traceDurationInSeconds')]",
+          "perfCounterTrace": "[parameters('perfCounterTrace')]",
+          "networkTrace": "[parameters('networkTrace')]",
+          "xperfTrace": "[parameters('xperfTrace')]",
+          "storPortTrace": "[parameters('storPortTrace')]",
+          "srNumber": "[parameters('srNumber')]",
+          "requestTimeUtc":  "[parameters('requestTimeUtc')]",
+          "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
         },
         "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"		
@@ -71,23 +71,23 @@ The following JSON shows the schema for Azure Performance Diagnostics VM Extensi
 
 ### Property values
 
-|   **Name**   |**Value / Example**|       **Description**      |
-|--------------|-------------------|----------------------------|
-|apiVersion|2015-06-15|The version of the API.
-|publisher|Microsoft.Azure.Performance.Diagnostics|The publisher namespace for the extension.
-|type|AzurePerformanceDiagnostics|The type of the VM extension.
-|typeHandlerVersion|1.0|The version of the extension handler.
-|performanceScenario|basic|The performance scenario for which to capture data. Valid values are: **basic**, **vmslow**, **azurefiles**, and **custom**.
-|traceDurationInSeconds|300|The duration of the traces, if any of the trace options are selected.
-|perfCounterTrace|p|Option to enable Performance Counter Trace. Valid values are **p** or empty value. If you do not want to capture this trace, leave the value as empty.
-|networkTrace|n|Option to enable Network Trace. Valid values are **n** or empty value. If you do not want to capture this trace, leave the value as empty.
-|xperfTrace|x|Option to enable XPerf Trace. Valid values are **x** or empty value. If you do not want to capture this trace, leave the value as empty.
-|storPortTrace|s|Option to enable StorPort Trace. Valid values are **s** or empty value. If you do not want to capture this trace, leave the value as empty.
-|srNumber|123452016365929|The support ticket number, if available. Leave the value as empty if you don’t have it.
-|requestTimeUtc|2017-09-28T22:08:53.736Z|Current Date Time in Utc. If you are using the portal to install this extension, you do not need to provide this value.
-|resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|The unique identifier of a VM.
-|storageAccountName|mystorageaccount|The name of the storage account to store the diagnostics logs and results.
-|storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|The key for the storage account.
+| Name | Value / Example | Description |
+|--|--|--|
+| apiVersion | 2015-06-15 | The version of the API. |
+| publisher | Microsoft.Azure.Performance.Diagnostics | The publisher namespace for the extension. |
+| type | AzurePerformanceDiagnostics | The type of the VM extension. |
+| typeHandlerVersion | 1.0 | The version of the extension handler. |
+| performanceScenario | basic | The performance scenario for which to capture data. Valid values are: **basic**, **vmslow**, **azurefiles**, and **custom**. |
+| traceDurationInSeconds | 300 | The duration of the traces, if any of the trace options are selected. |
+| perfCounterTrace | p | Option to enable Performance Counter Trace. Valid values are **p** or empty value. If you do not want to capture this trace, leave the value as empty. |
+| networkTrace | n | Option to enable Network Trace. Valid values are **n** or empty value. If you do not want to capture this trace, leave the value as empty. |
+| xperfTrace | x | Option to enable XPerf Trace. Valid values are **x** or empty value. If you do not want to capture this trace, leave the value as empty. |
+| storPortTrace | s | Option to enable StorPort Trace. Valid values are **s** or empty value. If you do not want to capture this trace, leave the value as empty. |
+| srNumber | 123452016365929 | The support ticket number, if available. Leave the value as empty if you don’t have it. |
+| requestTimeUtc | 2017-09-28T22:08:53.736Z | Current Date Time in Utc. If you are using the portal to install this extension, you do not need to provide this value. |
+| resourceId | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName} | The unique identifier of a VM. |
+| storageAccountName | mystorageaccount | The name of the storage account to store the diagnostics logs and results. |
+| storageAccountKey | lDuVvxuZB28NNP…hAiRF3voADxLBTcc== | The key for the storage account. |
 
 ## Install the extension
 
@@ -114,6 +114,7 @@ Follow these instructions to install the extension on Windows virtual machines:
     > The extension runs when the provisioning has succeeded. It takes two minutes or less to complete for the basic scenario. For other scenarios, it runs through the duration specified during the installation.
 
 ## Remove the extension
+
 To remove the extension from a virtual machine, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), select the virtual machine from which you want to remove this extension, and then select the **Extensions** blade. 
@@ -125,59 +126,60 @@ To remove the extension from a virtual machine, follow these steps:
     > You can also select the extension entry, and select the **Uninstall** option.
 
 ## Template deployment
+
 Azure virtual machine extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template. This runs the Azure Performance Diagnostics VM extension during an Azure Resource Manager template deployment. Here is a sample template:
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
       "type": "string",
-	  "defaultValue": "yourVMName"
+      "defaultValue": "yourVMName"
     },
     "location": {
       "type": "string",
-	  "defaultValue": "southcentralus"
+      "defaultValue": "southcentralus"
     },
     "storageAccountName": {
-      "type": "securestring"
-	  "defaultValue": "yourStorageAccount"
+      "type": "securestring",
+      "defaultValue": "yourStorageAccount"
     },
     "storageAccountKey": {
-      "type": "securestring"
-	  "defaultValue": "yourStorageAccountKey"
+      "type": "securestring",
+      "defaultValue": "yourStorageAccountKey"
     },
     "performanceScenario": {
       "type": "string",
-	  "defaultValue": "basic"
+      "defaultValue": "basic"
     },
     "srNumber": {
       "type": "string",
-	  "defaultValue": ""
+      "defaultValue": ""
     },
-	"traceDurationInSeconds": {
-	  "type": "int",
+  "traceDurationInSeconds": {
+    "type": "int",
     "defaultValue": 300
-	},
+  },
     "perfCounterTrace": {
       "type": "string",
-	  "defaultValue": "p"
+      "defaultValue": "p"
     },
     "networkTrace": {
       "type": "string",
-	  "defaultValue": ""
+      "defaultValue": ""
     },
     "xperfTrace": {
       "type": "string",
-	  "defaultValue": ""
+      "defaultValue": ""
     },
     "storPortTrace": {
       "type": "string",
-	  "defaultValue": ""
+      "defaultValue": ""
     },
     "requestTimeUtc": {
-	  "type": "string",
+      "type": "string",
       "defaultValue": "10/2/2017 11:06:00 PM"
     }		
   },
@@ -193,16 +195,16 @@ Azure virtual machine extensions can be deployed with Azure Resource Manager tem
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
-            "performanceScenario": "[parameters('performanceScenario')]",
-            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-            "perfCounterTrace": "[parameters('perfCounterTrace')]",
-            "networkTrace": "[parameters('networkTrace')]",
-            "xperfTrace": "[parameters('xperfTrace')]",
-            "storPortTrace": "[parameters('storPortTrace')]",
-            "srNumber": "[parameters('srNumber')]",
-            "requestTimeUtc":  "[parameters('requestTimeUtc')]",
-            "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+          "storageAccountName": "[parameters('storageAccountName')]",
+          "performanceScenario": "[parameters('performanceScenario')]",
+          "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+          "perfCounterTrace": "[parameters('perfCounterTrace')]",
+          "networkTrace": "[parameters('networkTrace')]",
+          "xperfTrace": "[parameters('xperfTrace')]",
+          "storPortTrace": "[parameters('storPortTrace')]",
+          "srNumber": "[parameters('srNumber')]",
+          "requestTimeUtc":  "[parameters('requestTimeUtc')]",
+          "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
         },
         "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"
@@ -214,6 +216,7 @@ Azure virtual machine extensions can be deployed with Azure Resource Manager tem
 ```
 
 ## PowerShell deployment
+
 The `Set-AzVMExtension` command can be used to deploy Azure Performance Diagnostics VM Extension to an existing virtual machine.
 
 PowerShell

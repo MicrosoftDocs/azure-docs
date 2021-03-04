@@ -23,13 +23,13 @@ This change will affect all Smart Detection rules, excluding the following ones:
 
 * Smart Detection rules marked as preview. These Smart Detection rules don’t support email notifications today.
 
-* Failure Anomalies rule. This rule will start targeting the new default roles once it’s migrated from a classic alert to the unified alerts platform (more information is available [here](../platform/monitoring-classic-retirement.md).)
+* Failure Anomalies rule. This rule will start targeting the new default roles once it’s migrated from a classic alert to the unified alerts platform (more information is available [here](../alerts/monitoring-classic-retirement.md).)
 
 ## How to prepare for this change?
 
 To ensure that email notifications from Smart Detection are sent to relevant users, those users must be assigned to the [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) or [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) roles of the subscription.
 
-To assign users to the Monitoring Reader or Monitoring Contributor roles via the Azure portal, follow the steps described in the [Add a role assignment](../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) article. Make sure to select the _Monitoring Reader_ or _Monitoring Contributor_ as the role to which users are assigned.
+To assign users to the Monitoring Reader or Monitoring Contributor roles via the Azure portal, follow the steps described in the [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md) article. Make sure to select the _Monitoring Reader_ or _Monitoring Contributor_ as the role to which users are assigned.
 
 > [!NOTE]
 > Specific recipients of Smart Detection notifications, configured using the _Additional email recipients_ option in the rule settings, will not be affected by this change. These recipients will continue receiving the email notifications.

@@ -200,7 +200,7 @@
   - name: Case Studies
     href: data-factory-customer-case-studies.md
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-data-factory.html
+    href: /answers/topics/azure-data-factory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Pricing calculator

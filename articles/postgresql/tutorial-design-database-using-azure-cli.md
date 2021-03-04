@@ -23,6 +23,9 @@ In this tutorial, you use Azure CLI (command-line interface) and other utilities
 
 You may use the Azure Cloud Shell in the browser, or [install Azure CLI]( /cli/azure/install-azure-cli) on your own computer to run the commands in this tutorial.
 
+## Prerequisites
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
@@ -205,16 +208,21 @@ Restoring a server to a point-in-time creates a new server, copied as the origin
 
 The command is synchronous, and will return after the server is restored. Once the restore finishes, locate the new server that was created. Verify the data was restored as expected.
 
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+
 
 ## Next steps
 In this tutorial, you learned how to use Azure CLI (command-line interface) and other utilities to:
 > [!div class="checklist"]
 > * Create an Azure Database for PostgreSQL server
 > * Configure the server firewall
-> * Use [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility to create a database
+> * Use the **psql** utility to create a database
 > * Load sample data
 > * Query data
 > * Update data
 > * Restore data
 
-Next, learn how to use the Azure portal to do similar tasks, review this tutorial: [Design your first Azure Database for PostgreSQL using the Azure portal](tutorial-design-database-using-azure-portal.md)
+> [!div class="nextstepaction"]
+> [Design your first Azure Database for PostgreSQL using the Azure portal](tutorial-design-database-using-azure-portal.md)

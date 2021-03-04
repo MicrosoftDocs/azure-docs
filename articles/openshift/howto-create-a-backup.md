@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Red Hat OpenShift 4 cluster application backup using Velero
 description: Learn how to create a backup of your Azure Red Hat OpenShift cluster applications using Velero
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 06/22/2020
 author: troy0820
@@ -56,7 +56,7 @@ az storage container create -n $BLOB_CONTAINER --public-access off --account-nam
 Velero needs permissions to do backups and restores. When you create a service principal, you're giving Velero permission to access the resource group you define in the previous step. This step will get the cluster's resource group:
 
 ```bash
-export AZURE_RESOURCE_GROUP=aro-$(az aro show --name <name of cluster> --resource-group <name of resource group> | jq -r '.clusterProfile.domain')
+export AZURE_RESOURCE_GROUP=$(az aro show --name <name of cluster> --resource-group <name of resource group> | jq -r .clusterProfile.resourceGroupId | cut -d '/' -f 5,5)
 ```
 
 

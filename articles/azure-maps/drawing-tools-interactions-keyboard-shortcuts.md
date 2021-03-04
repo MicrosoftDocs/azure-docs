@@ -141,7 +141,7 @@ The drawing tools support keyboard shortcuts. These keyboard shortcuts are funct
 Learn more about the classes in the drawing tools module:
 
 > [!div class="nextstepaction"]
-> [Drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [Drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Drawing toolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [Drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

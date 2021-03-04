@@ -4,8 +4,8 @@ description: Create Azure SQL managed instance using Azure Data Studio
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: vin-yu
+ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to

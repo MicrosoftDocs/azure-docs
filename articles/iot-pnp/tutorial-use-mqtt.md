@@ -1,6 +1,6 @@
 ---
-title: Use MQTT to create an IoT Plug and Play device client | Microsoft Docs
-description: Use the MQTT protocol directly to create an IoT Plug and Play device client without using the Azure IoT Device SDKs
+title: Tutorial - Use MQTT to create an Azure IoT Plug and Play device client | Microsoft Docs
+description: Tutorial - Use the MQTT protocol directly to create an IoT Plug and Play device client without using the Azure IoT Device SDKs
 author: ericmitt
 ms.author: ericmitt
 ms.date: 05/13/2020
@@ -11,7 +11,7 @@ services: iot-pnp
 # As a device builder, I want to see how I can use the MQTT protocol to create an IoT Plug and Play device client without using the Azure IoT Device SDKs.
 ---
 
-# Use MQTT to develop an IoT Plug and Play device client
+# Tutorial - Use MQTT to develop an IoT Plug and Play device client
 
 You should use one of the Azure IoT Device SDKs to build your IoT Plug and Play device clients if at all possible. However, in scenarios such as using a memory constrained device, you may need to use an MQTT library to communicate with your IoT hub.
 
@@ -134,15 +134,14 @@ The following definitions are for the MQTT topics the device uses to send inform
 * The `DEVICE_TELEMETRY_MESSAGE` defines the topic the device uses to send telemetry to your IoT hub.
 
 For more information about MQTT, visit the [MQTT Samples for Azure IoT](https://github.com/Azure-Samples/IoTMQTTSample/) GitHub repository.
-  
+
+## Clean up resources
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
+
 ## Next steps
 
-In this tutorial, you learned how to modify an MQTT device client to follow the IoT Plug and Play conventions. To learn more about IoT Plug and Play, see:
-
-> [!div class="nextstepaction"]
-> [Architecture](concepts-architecture.md)
-
-To learn more about IoT Hub support for the MQTT protocol, see:
+In this tutorial, you learned how to modify an MQTT device client to follow the IoT Plug and Play conventions. To learn more about IoT Hub support for the MQTT protocol, see:
 
 > [!div class="nextstepaction"]
 > [Communicate with your IoT hub using the MQTT protocol](../iot-hub/iot-hub-mqtt-support.md)

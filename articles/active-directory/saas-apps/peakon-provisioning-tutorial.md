@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: zhchia
 ---
@@ -41,7 +41,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 * It is recommended that a single Azure AD user is assigned to Peakon  to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
-* When assigning a user to Peakon , you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* When assigning a user to Peakon, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
 ## Set up Peakon for provisioning
 

@@ -2,7 +2,7 @@
 title: Tutorial - Use Docker Compose to deploy multi-container group
 description: Use Docker Compose to build and run a multi-container application and then bring up the application in to Azure Container Instances
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 10/28/2020
 ms.custom: 
 ---
 
@@ -62,14 +62,16 @@ Open docker-compose.yaml in a text editor. The file configures the `azure-vote-b
 version: '3'
 services:
   azure-vote-back:
-    image: redis
+    image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
     container_name: azure-vote-back
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
     ports:
         - "6379:6379"
 
   azure-vote-front:
     build: ./azure-vote
-    image: azure-vote-front
+    image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
     container_name: azure-vote-front
     environment:
       REDIS: azure-vote-back
@@ -88,8 +90,10 @@ The updated file should look similar to the following:
 version: '3'
 services:
   azure-vote-back:
-    image: redis
+    image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
     container_name: azure-vote-back
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
     ports:
         - "6379:6379"
 
@@ -123,7 +127,7 @@ $ docker images
 
 REPOSITORY                                TAG        IMAGE ID            CREATED             SIZE
 myregistry.azurecr.io/azure-vote-front    latest     9cc914e25834        40 seconds ago      944MB
-redis                                     latest     a1b99da73d05        7 days ago          104MB
+mcr.microsoft.com/oss/bitnami/redis       6.0.8      3a54a920bb6c        4 weeks ago          103MB
 tiangolo/uwsgi-nginx-flask                python3.6  788ca94b2313        9 months ago        9444MB
 ```
 
@@ -132,9 +136,9 @@ Run the [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) co
 ```
 $ docker ps
 
-CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                           NAMES
-82411933e8f9        myregistry.azurecr.io/azure-vote-front  "/entrypoint.sh /sta…"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:80->80/tcp   azure-vote-front
-b68fed4b66b6        redis                                   "docker-entrypoint.s…"   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
+CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS              PORTS                           NAMES
+82411933e8f9        myregistry.azurecr.io/azure-vote-front     "/entrypoint.sh /sta…"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:80->80/tcp   azure-vote-front
+b62b47a7d313        mcr.microsoft.com/oss/bitnami/redis:6.0.8  "/opt/bitnami/script…"   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
 ```
 
 To see the running application, enter `http://localhost:80` in a local web browser. The sample application loads, as shown in the following example:
@@ -200,9 +204,9 @@ docker ps
 Sample output:
 
 ```
-CONTAINER ID                           IMAGE                                    COMMAND             STATUS              PORTS
-azurevotingappredis_azure-vote-back    redis                                                        Running             52.179.23.131:6379->6379/tcp
-azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front                       Running             52.179.23.131:80->80/tcp
+CONTAINER ID                           IMAGE                                         COMMAND             STATUS              PORTS
+azurevotingappredis_azure-vote-back    mcr.microsoft.com/oss/bitnami/redis:6.0.8                         Running             52.179.23.131:6379->6379/tcp
+azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front                            Running             52.179.23.131:80->80/tcp
 ```
 
 To see the running application in the cloud, enter the displayed IP address in a local web browser. In this example, enter `52.179.23.131`. The sample application loads, as shown in the following example:

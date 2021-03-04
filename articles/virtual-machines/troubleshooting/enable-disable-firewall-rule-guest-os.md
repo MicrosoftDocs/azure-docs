@@ -92,7 +92,7 @@ If the VM is online and can be accessed on another VM on the same virtual networ
 
 #### Mitigation 4: Remote Registry
 
-If the VM is online and can be accessed on another VM on the same virtual network, you can use [Remote Registry](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) on the other VM.
+If the VM is online and can be accessed on another VM on the same virtual network, you can use [Remote Registry](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837) on the other VM.
 
 1.	On the troubleshooting VM, start Registry Editor (regedit.exe), and then select **File** > **Connect Network Registry**.
 

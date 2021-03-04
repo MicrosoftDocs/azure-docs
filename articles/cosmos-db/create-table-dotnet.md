@@ -13,6 +13,7 @@ ms.custom: devx-track-csharp
 
 ---
 # Quickstart: Build a Table API app with .NET SDK and Azure Cosmos DB 
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)

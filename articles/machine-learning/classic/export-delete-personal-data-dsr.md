@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Export & delete your data - Azure'
 description: In-product data stored by Azure Machine Learning Studio (classic) is available for export and deletion through the Azure portal and also through authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy Portal. This article shows you how.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -14,7 +14,7 @@ ms.date: 05/25/2018
 
 # Export and delete in-product user data from Azure Machine Learning Studio (classic)
 
-**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -74,4 +74,4 @@ Use PowerShell to export all your information to a portable format from Azure Ma
 
 ## Next steps
 
-For documentation covering web services and commitment plan billing, see [Azure Machine Learning Studio (classic) REST API reference](https://docs.microsoft.com/rest/api/machinelearning/). 
+For documentation covering web services and commitment plan billing, see [Azure Machine Learning Studio (classic) REST API reference](/rest/api/machinelearning/).

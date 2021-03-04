@@ -1,9 +1,6 @@
 ---
 title: Manage ML Services cluster on HDInsight - Azure 
 description: Learn how to manage various tasks on ML Services cluster in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
@@ -101,7 +98,7 @@ mySparkCluster <- RxSpark(
 )
 ```
 
-For more information, see the "Using Microsoft Machine Learning Server as an Apache Hadoop Client" section in [How to use RevoScaleR in an Apache Spark compute context](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
+For more information, see the "Using Microsoft Machine Learning Server as an Apache Hadoop Client" section in [How to use RevoScaleR in an Apache Spark compute context](/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
 
 ## Use a compute context
 

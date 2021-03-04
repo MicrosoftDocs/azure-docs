@@ -14,7 +14,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Load data into storage environments for analytics
 
-The Team Data Science Process requires that data be ingested or loaded into the most appropriate way in each stage. Data destinations can include Azure Blob Storage, SQL Azure databases, SQL Server on Azure VM, HDInsight (Hadoop), Synapse Analytics, and Azure Machine Learning. 
+The Team Data Science Process requires that data be ingested or loaded into the most appropriate way in each stage. Data destinations can include Azure Blob Storage, SQL Azure databases, SQL Server on Azure VM, HDInsight (Hadoop), Azure Synapse Analytics, and Azure Machine Learning. 
 
 The following articles describe how to ingest data into various target environments where the data is stored and processed.
 

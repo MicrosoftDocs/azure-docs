@@ -20,6 +20,9 @@ ROBOTS: NOINDEX
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
+> [!NOTE]
+> For the Microsoft identity platform version of this article, see [Developer guidance for Azure Active Directory Conditional Access](../develop/v2-conditional-access-dev-guide.md).
+
 The Conditional Access feature in Azure Active Directory (Azure AD) offers one of several ways that you can use to secure your app and protect a service. Conditional Access enables developers and enterprise customers to protect services in a multitude of ways including:
 
 * Multi-factor authentication

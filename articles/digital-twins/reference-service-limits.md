@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Public preview service limits
+title: Service limits
 titleSuffix: Azure Digital Twins
-description: Chart showing the limits of the Azure Digital Twins service during public preview.
+description: Chart showing the limits of the Azure Digital Twins service.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 05/05/2020
@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Service limits in public preview
+# Azure Digital Twins service limits
 
-These are the service limits of Azure Digital Twins during public preview.
+These are the service limits of Azure Digital Twins.
 
 > [!NOTE]
 > Some areas of this service have adjustable limits. This is represented in the tables below with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
@@ -30,5 +30,5 @@ These are the service limits of Azure Digital Twins during public preview.
 
 ## Next steps
 
-Learn more about the current preview release of Azure Digital Twins in the service overview:
+Learn more about the current release of Azure Digital Twins in the service overview:
 * [*Overview: What is Azure Digital Twins?*](overview.md)

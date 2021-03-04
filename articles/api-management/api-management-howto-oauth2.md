@@ -59,7 +59,7 @@ This guide shows you how to configure your API Management service instance to us
 
 5. Then, **Token endpoint URL**, **Client authentication methods**, **Access token sending method** and **Default scope** need to be specified.
 
-    ![OAuth 2.0 new server](./media/api-management-howto-oauth2/oauth-03.png)
+    ![Screenshot that shows the Add OAuth2 service screen.](./media/api-management-howto-oauth2/oauth-03.png)
 
     For an Azure Active Directory OAuth 2.0 server, the **Token endpoint URL** will have the following format, where `<TenantID>`  has the format of `yourapp.onmicrosoft.com`.
 
@@ -74,7 +74,7 @@ This guide shows you how to configure your API Management service instance to us
     - `/signin-oauth/code/callback/{authServerName}` for authorization code grant flow
     - `/signin-oauth/implicit/callback` for implicit grant flow
 
-    ![OAuth 2.0 new server](./media/api-management-howto-oauth2/oauth-04.png)
+    ![Screenshot that shows where to add the client credentials for the new OAuth2 service.](./media/api-management-howto-oauth2/oauth-04.png)
 
     If **Authorization grant types** is set to **Resource owner password**, the **Resource owner password credentials** section is used to specify those credentials; otherwise you can leave it blank.
 
@@ -92,7 +92,7 @@ This guide shows you how to configure your API Management service instance to us
 
 3. Select the desired **Authorization server** from the drop-down list, and click **Save**.
 
-    ![OAuth 2.0 settings](./media/api-management-howto-oauth2/oauth-07.png)
+    ![Screenshot that highlights the selected authorization server and the Save button.](./media/api-management-howto-oauth2/oauth-07.png)
 
 ## <a name="step3"> </a>Legacy developer portal - test the OAuth 2.0 user authorization
 

@@ -28,7 +28,7 @@ While conceptually similar to the older Classic Similarity algorithm, BM25 takes
 
 When you create a new index, you can set a **similarity** property to specify the algorithm. You can use the `api-version=2019-05-06-Preview`, as shown below, or `api-version=2020-06-30`.
 
-```
+```http
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview
 ```
 

@@ -56,7 +56,7 @@ To explore the C++ samples, get the [Azure Storage Client Library for C++](https
 To explore the Azure CLI samples, first [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 * [Get started with the Azure CLI](/cli/azure/get-started-with-azure-cli)
-* [Azure Storage samples using the Azure CLI](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Azure Storage samples using the Azure CLI](../blobs/storage-samples-blobs-cli.md)
 * [Popular articles on using the Azure CLI with Azure Storage](/cli/azure/popular-articles-using-the-azure-cli#storage)
 
 ## API reference and source code
@@ -79,4 +79,4 @@ The following articles index each of the samples by service (blob, file, queue, 
 * [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 * [Azure Storage samples using Python](storage-samples-python.md)
 * [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
-* [Azure Storage samples using the Azure CLI](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Azure Storage samples using the Azure CLI](../blobs/storage-samples-blobs-cli.md)

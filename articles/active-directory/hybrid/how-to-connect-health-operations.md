@@ -3,7 +3,7 @@ title: Azure Active Directory Connect Health operations
 description: This article describes additional operations that can be performed after you have deployed Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: daveba
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
@@ -132,7 +132,7 @@ To allow a user access at the *all service instances* level within Azure AD Conn
 3. In the **Select a role** pane, select a role (for example, **Owner**).<br>
    ![Screenshot of Azure AD Connect Health and Azure RBAC configure menu](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Type the name or identifier of the targeted user or group. You can select one or more users or groups at the same time. Click **Select**.
-   ![Screenshot of Azure AD Connect Health and Azure RBAC role list](./media/how-to-connect-health-operations/RBAC_select_users.png)
+   ![Screenshot of Azure AD Connect Health and Azure role list](./media/how-to-connect-health-operations/RBAC_select_users.png)
 5. Select **OK**.<br>
 6. After the role assignment is complete, the users and groups appear in the list.<br>
    ![Screenshot of Azure AD Connect Health and Azure RBAC and new users highlighted](./media/how-to-connect-health-operations/RBAC_user_list.png)

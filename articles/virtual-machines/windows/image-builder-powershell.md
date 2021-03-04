@@ -253,13 +253,25 @@ $disSharedImg = New-AzImageBuilderDistributorObject @disObjParams
 Create an Azure image builder customization object.
 
 ```azurepowershell-interactive
-$ImgCustomParams = @{
+$ImgCustomParams01 = @{
   PowerShellCustomizer = $true
   CustomizerName = 'settingUpMgmtAgtPath'
   RunElevated = $false
-  Inline = @("mkdir c:\\buildActions", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
+  Inline = @("mkdir c:\\buildActions", "mkdir c:\\buildArtifacts", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
 }
-$Customizer = New-AzImageBuilderCustomizerObject @ImgCustomParams
+$Customizer01 = New-AzImageBuilderCustomizerObject @ImgCustomParams01
+```
+
+Create a second Azure image builder customization object.
+
+```azurepowershell-interactive
+$ImgCustomParams02 = @{
+  FileCustomizer = $true
+  CustomizerName = 'downloadBuildArtifacts'
+  Destination = 'c:\\buildArtifacts\\index.html'
+  SourceUri = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html'
+}
+$Customizer02 = New-AzImageBuilderCustomizerObject @ImgCustomParams02
 ```
 
 Create an Azure image builder template.
@@ -270,7 +282,7 @@ $ImgTemplateParams = @{
   ResourceGroupName = $imageResourceGroup
   Source = $srcPlatform
   Distribute = $disSharedImg
-  Customize = $Customizer
+  Customize = $Customizer01, $Customizer02
   Location = $location
   UserAssignedIdentityId = $identityNameResourceId
 }
@@ -332,7 +344,7 @@ $ArtifactId = (Get-AzImageBuilderRunOutput -ImageTemplateName $imageTemplateName
 New-AzVM -ResourceGroupName $imageResourceGroup -Image $ArtifactId -Name myWinVM01 -Credential $Cred
 ```
 
-## Verify the customization
+## Verify the customizations
 
 Create a Remote Desktop connection to the VM using the username and password you set when you
 created the VM. Inside the VM, open PowerShell and run `Get-Content` as shown in the following example:
@@ -347,6 +359,25 @@ process.
 ```Output
 Azure-Image-Builder-Was-Here
 ```
+
+From the same PowerShell session, verify that the second customization completed successfully by checking
+for the presence of the file `c:\buildArtifacts\index.html` as shown in the following example:
+
+```azurepowershell-interactive
+Get-ChildItem c:\buildArtifacts\
+```
+
+The result should be a directory listing showing the file downloaded during the image customization
+process.
+
+```Output
+    Directory: C:\buildArtifacts
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          29/01/2021    10:04            276 index.html
+```
+
 
 ## Clean up resources
 
@@ -373,4 +404,4 @@ Remove-AzResourceGroup -Name $imageResourceGroup
 ## Next steps
 
 To learn more about the components of the .json file used in this article, see
-[Image builder template reference](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+[Image builder template reference](../linux/image-builder-json.md).

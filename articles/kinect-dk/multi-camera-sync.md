@@ -84,6 +84,9 @@ When you use an offset of 160&mu;s, you can configure up to nine additional dept
 
 In your software, use ```depth_delay_off_color_usec``` or ```subordinate_delay_off_master_usec``` to make sure that each IR laser fires in its own 160&mu;s window or has a different field of view.
 
+> [!NOTE]  
+> The actual pulse width is 125us however we state 160us to provide for some leeway. Taking NFOV UNBINNED as an example, each 125us pulse is followed by 1450us idle. Totaling these up - (9 x 125) + (8 x 1450) - yields the exposure time of 12.8ms. The closet you can interleave the exposure of 2 devices is to have the first pulse of the second camera to fall in the first idle period of the first camera. The delay between the first and second cameras could be as little as 125us (the width of a pulse) however we recommend some leeway hence the 160us. Given 160us you can interleave the exposure periods of a maximum of 10 cameras.
+
 ## Prepare your devices and other hardware
 
 In addition to multiple Azure Kinect DK devices, you may have to get additional host computers and other hardware in order to support the configuration that you want to build. Use the information in this section to make sure that all devices and hardware are ready before you start to set up.

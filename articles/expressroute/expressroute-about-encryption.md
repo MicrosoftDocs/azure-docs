@@ -27,7 +27,7 @@ No. If MACsec is configured and a key mismatch occurs, you lose connectivity to 
 ### Will enabling MACsec on ExpressRoute Direct degrade network performance?
 MACsec encryption and decryption occurs in hardware on the routers we use. There's no performance impact on our side. However, you should check with the network vendor for the devices you use and see if MACsec has any performance implication.
 ### Which cipher suites are supported for encryption?
-We support the [Extended Packet Numbering](https://1.ieee802.org/security/802-1aebw/) version of AES128 and AES256 only. In addition, please disable [Secure Channel Identifier(SCI)](https://en.wikipedia.org/wiki/IEEE_802.1AE) in MACsec configuration on your device. 
+We support only the [Extended Packet Numbering](https://1.ieee802.org/security/802-1aebw/) version of AES-128 and AES-256. Also, you must disable [Secure Channel Identifier (SCI)](https://wikipedia.org/wiki/IEEE_802.1AE) in the MACsec configuration on your device. 
 
 ## End-to-end encryption by IPsec FAQ
 IPsec is an [IETF standard](https://tools.ietf.org/html/rfc6071). It encrypts data at the Internet Protocol (IP) level or Network Layer 3. You can use IPsec to encrypt an end-to-end connection between your on-premises network and your virtual network (VNET) on Azure. See other FAQs below.

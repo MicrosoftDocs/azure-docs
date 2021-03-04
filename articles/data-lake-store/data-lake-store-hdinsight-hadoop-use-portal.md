@@ -81,7 +81,7 @@ In this section, you configure Data Lake Storage Gen1 access from HDInsight clus
 From the Azure portal, you can either use an existing service principal or create a new one.
 
 To create a service principal from the Azure portal:
-1. See [Create Service Principal and Certificates](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) using Azure Active Directory.
+1. See [Create Service Principal and Certificates](../active-directory/develop/howto-create-service-principal-portal.md) using Azure Active Directory.
 
 To use an existing service principal from the Azure portal:
 
@@ -91,7 +91,7 @@ To use an existing service principal from the Azure portal:
 1. Select **Service principal**, and then select a service principal.
 1. Upload the certificate (.pfx file) that's associated with your selected service principal, and then enter the certificate password.
 
-[Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
+    ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
 
 1. Select **Access** to configure the folder access.  See [Configure file permissions](#configure-file-permissions).
 
@@ -196,4 +196,4 @@ You can use the storage account with Data Lake Storage Gen1 to write data from a
 * [PowerShell: Create an HDInsight cluster to use Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: /windows-hardware/drivers/devtest/makecert
-[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
+[pvk2pfx]: /windows-hardware/drivers/devtest/pvk2pfx

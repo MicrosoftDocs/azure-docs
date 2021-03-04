@@ -3,12 +3,14 @@ title: Migrate your application from Amazon DynamoDB to Azure Cosmos DB
 description: Learn how to migrate your .NET application from Amazon's DynamoDB to Azure Cosmos DB  
 author: manishmsfte
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: mansha
 ---
 
 # Migrate your application from Amazon DynamoDB to Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB is a scalable, globally distributed, fully managed database. It provides guaranteed low latency access to your data. To learn more about Azure Cosmos DB, see the [overview](introduction.md) article. This article describes how to migrate your .NET application from DynamoDB to Azure Cosmos DB with minimal code changes.
 

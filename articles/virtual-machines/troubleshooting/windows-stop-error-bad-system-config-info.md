@@ -30,7 +30,7 @@ When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of
 *If you call a support person, give them this info:*
 *Stop code: BAD_SYSTEM_CONFIG_INFO*
 
-  ![The Windows stop code 0x00000074, which is also shown as “BAD_SYSTEM_CONFIG_INFO”. Windows informs the user that their PC has ran into a problem and needs to restart.](./media/windows-stop-error-bad-system-config-info/1.png)
+  ![The Windows stop code 0x00000074, which is also shown as “BAD_SYSTEM_CONFIG_INFO”. Windows informs the user that their PC has ran into a problem and needs to restart.](./media/windows-stop-error-bad-system-config-info/stop-code-0x00000074.png)
 
 ## Cause
 
@@ -44,13 +44,16 @@ The **BAD_SYSTEM_CONFIG_INFO** stop code occurs if the **SYSTEM** registry hive 
 
 ### Process overview:
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 1. Create and Access a Repair VM.
 1. Check for hive corruption.
 1. Enable serial console and memory dump collection.
 1. Rebuild the VM.
 
-> [!NOTE]
-> When encountering this error, the Guest operating system (OS) is not operational. You'll troubleshoot in offline mode to resolve this issue.
+   > [!NOTE]
+   > When encountering this error, the Guest operating system (OS) is not operational. You'll troubleshoot in offline mode to resolve this issue.
 
 ### Create and access a Repair VM
 
@@ -59,8 +62,8 @@ The **BAD_SYSTEM_CONFIG_INFO** stop code occurs if the **SYSTEM** registry hive 
 1. Use Remote Desktop Connection to connect to the Repair VM.
 1. Copy the `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` folder and save it in either your healthy disk partition, or in another safe location. Back up this folder as a precaution, since you will edit critical registry files. 
 
-> [!NOTE]
-> Make a copy of the `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` folder as a backup in case you need to roll back any changes you make to the registry.
+   > [!NOTE]
+   > Make a copy of the `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` folder as a backup in case you need to roll back any changes you make to the registry.
 
 ### Check for hive corruption
 
@@ -73,7 +76,7 @@ The instructions below will help you determine if the cause was due to hive corr
 
    1. If the hive fails to open, or if it is empty, then the hive is corrupted. If the hive has been corrupted, [open a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-     ![An error occurs stating that Registry Editor cannot load the hive.](./media/windows-stop-error-bad-system-config-info/2.png)
+      ![An error occurs stating that Registry Editor cannot load the hive.](./media/windows-stop-error-bad-system-config-info/cannot-load-hive-error.png)
 
    1. If the hive opens normally, then the hive wasn’t closed properly. Continue to step 5.
 
@@ -88,7 +91,7 @@ The instructions below will help you determine if the cause was due to hive corr
 
    **Enable the Serial Console**:
    
-   ```
+   ```ps
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
    ```
@@ -101,13 +104,13 @@ The instructions below will help you determine if the cause was due to hive corr
 
    **Load Registry Hive from the broken OS Disk:**
 
-   ```
+   ```ps
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
    ```
 
    **Enable on ControlSet001:**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -115,7 +118,7 @@ The instructions below will help you determine if the cause was due to hive corr
 
    **Enable on ControlSet002:**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -123,7 +126,7 @@ The instructions below will help you determine if the cause was due to hive corr
 
    **Unload Broken OS Disk:**
 
-   ```
+   ```ps
    REG UNLOAD HKLM\BROKENSYSTEM
    ```
    

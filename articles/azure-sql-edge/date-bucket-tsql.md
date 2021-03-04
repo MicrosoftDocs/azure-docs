@@ -37,7 +37,10 @@ The part of *date* that is used with the ‘number’ parameter. Ex. Year, month
 |*datePart*|Abbreviations|  
 |---|---|
 |**day**|**dd**, **d**|  
-|**week**|**wk**, **ww**|  
+|**week**|**wk**, **ww**| 
+|**month**|**mm**, **m**|
+|**quarter**|**qq**, **q**|  
+|**year**|**yy**, **yyyy**|  
 |**hour**|**hh**|  
 |**minute**|**mi**, **n**|  
 |**second**|**ss**, **s**|  

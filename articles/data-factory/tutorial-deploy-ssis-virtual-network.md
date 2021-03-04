@@ -1,15 +1,9 @@
 ---
 title: Tutorial to configure an Azure-SSIS integration runtime to join a virtual network
 description: Learn how to join an Azure-SSIS integration runtime to join an Azure virtual network. 
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: 
-manager: 
 ms.service: data-factory
-ms.workload: data-services
-
 ms.topic: conceptual
 ms.date: 1/10/2020
 ---
@@ -28,14 +22,14 @@ The steps include:
 
 - **Azure-SSIS integration runtime**. If you do not have an Azure-SSIS integration runtime, [provision an Azure-SSIS integration runtime in Azure Data Factory](tutorial-deploy-ssis-packages-azure.md) before begin.
 
-- **User permission**. The user who creates the Azure-SSIS IR must have the [role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-at-a-scope) at least on Azure Data Factory resource with one of the options below:
+- **User permission**. The user who creates the Azure-SSIS IR must have the [role assignment](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) at least on Azure Data Factory resource with one of the options below:
 
     - Use the built-in Network Contributor role. This role comes with the _Microsoft.Network/\*_ permission, which has a much larger scope than necessary.
     - Create a custom role that includes only the necessary _Microsoft.Network/virtualNetworks/\*/join/action_ permission. If you also want to bring your own public IP addresses for Azure-SSIS IR while joining it to an Azure Resource Manager virtual network, please also include _Microsoft.Network/publicIPAddresses/*/join/action_ permission in the role.
 
 - **Virtual network**.
 
-    - If you do not have a virtual network, [create a virtual network using the Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
+    - If you do not have a virtual network, [create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
     - Make sure that the virtual network's resource group can create and delete certain Azure network resources.
     
@@ -46,7 +40,7 @@ The steps include:
     
         Those resources will be created when your Azure-SSIS IR starts. They'll be deleted when your Azure-SSIS IR stops. To avoid blocking your Azure-SSIS IR from stopping, don't reuse these network resources in your other resources.
 
-    - Make sure that you have no [resource lock](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on the resource group/subscription to which the virtual network belongs. If you configure a read-only/delete lock, starting and stopping your Azure-SSIS IR will fail, or it will stop responding.
+    - Make sure that you have no [resource lock](../azure-resource-manager/management/lock-resources.md) on the resource group/subscription to which the virtual network belongs. If you configure a read-only/delete lock, starting and stopping your Azure-SSIS IR will fail, or it will stop responding.
 
     - Make sure that you don't have an Azure Policy assignment that prevents the following resources from being created under the resource group/subscription to which the virtual network belongs:
         - Microsoft.Network/LoadBalancers

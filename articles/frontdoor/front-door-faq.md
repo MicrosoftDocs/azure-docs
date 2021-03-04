@@ -98,24 +98,24 @@ To lock down your application to accept traffic only from your specific Front Do
 
   Here's an example for [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
 
-	``` xml
-	<?xml version="1.0" encoding="UTF-8"?>
-	<configuration>
-		<system.webServer>
-			<rewrite>
-				<rules>
-					<rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
-						<match url="*" />
-						<conditions>
-							<add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
-						</conditions>
-						<action type="AbortRequest" />
-					</rule>
-				</rules>
-			</rewrite>
-		</system.webServer>
-	</configuration>
-	```
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+        <system.webServer>
+            <rewrite>
+                <rules>
+                    <rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
+                        <match url="*" />
+                        <conditions>
+                            <add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
+                        </conditions>
+                        <action type="AbortRequest" />
+                    </rule>
+                </rules>
+            </rewrite>
+        </system.webServer>
+    </configuration>
+    ```
 
 
 
@@ -230,7 +230,7 @@ Yes, OCSP stapling is supported by default by Front Door and no configuration is
 
 ### Does Azure Front Door also support re-encryption of traffic to the backend?
 
-Yes, Azure Front Door supports TLS/SSL offload, and end to end TLS, which re-encrypts the traffic to the backend. In fact, since the connections to the backend happen over it's public IP, it is recommended that you configure your Front Door to use HTTPS as the forwarding protocol.
+Yes, Azure Front Door supports TLS/SSL offload, and end to end TLS, which re-encrypts the traffic to the backend. In fact, since the connections to the backend happen over its public IP, it is recommended that you configure your Front Door to use HTTPS as the forwarding protocol.
 
 ### Does Front Door support self-signed certificates on the backend for HTTPS connection?
 

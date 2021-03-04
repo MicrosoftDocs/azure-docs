@@ -1,7 +1,10 @@
 ---
 title: Set up an Azure Migrate appliance with a script
 description: Learn how to set up an Azure Migrate appliance with a script
-ms.topic: article
+ms.topic: how-to
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.date: 04/16/2020
 ---
 

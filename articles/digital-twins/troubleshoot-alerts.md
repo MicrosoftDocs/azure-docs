@@ -6,7 +6,7 @@ description: See how to enable alerts on Azure Digital Twins metrics.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 7/28/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
 ---
 
@@ -14,7 +14,7 @@ ms.service: digital-twins
 
 Azure Digital Twins collects [metrics](troubleshoot-metrics.md) for your service instance that give information about the state of your resources. You can use these metrics to assess the overall health of Azure Digital Twins service and the resources connected to it.
 
-**Alerts** proactively notify you when important conditions are found in your metrics data. They allow you to identify and address issues before the users of your system notice them. You can read more about alerts in [*Overview of alerts in Microsoft Azure*](../azure-monitor/platform/alerts-overview.md).
+**Alerts** proactively notify you when important conditions are found in your metrics data. They allow you to identify and address issues before the users of your system notice them. You can read more about alerts in [*Overview of alerts in Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md).
 
 ## Turn on alerts
 
@@ -34,7 +34,7 @@ Here is how to enable alerts for your Azure Digital Twins instance:
 
 :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Screenshot showing the Create Alert Rule page with sections for scope, condition, action group, and alert rule details" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
-For a guided walkthrough of filling out these fields, see [*Overview of alerts in Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Below are some examples of what the steps will look like for Azure Digital Twins.
+For a guided walkthrough of filling out these fields, see [*Overview of alerts in Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md). Below are some examples of what the steps will look like for Azure Digital Twins.
 
 ### Select conditions
 
@@ -54,6 +54,6 @@ After setting up alerts, they'll show up back on the *Alerts* page for your inst
 
 ## Next steps
 
-* For more information about alerts with Azure Monitor, see [*Overview of alerts in Microsoft Azure*](../azure-monitor/platform/alerts-overview.md).
+* For more information about alerts with Azure Monitor, see [*Overview of alerts in Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md).
 * For information about the Azure Digital Twins metrics, see [*Troubleshooting: View metrics with Azure Monitor*](troubleshoot-metrics.md).
 * To see how to enable diagnostics logging for your metrics, see [*Troubleshooting: Set up diagnostics*](troubleshoot-diagnostics.md).

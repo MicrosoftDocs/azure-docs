@@ -235,7 +235,7 @@ This issue is caused by security policies. When older versions of TLS (such as 1
 
 RDP uses TLS 1.0 as the default protocol. However, the protocol might be changed to TLS 1.1, which is the new standard.
 
-To troubleshoot this issue, see [Troubleshoot authentication errors when you use RDP to connect to Azure VM](troubleshoot-authentication-error-rdp-vm.md#tls-version).
+To troubleshoot this issue, see [Troubleshoot authentication errors when you use RDP to connect to Azure VM](/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm#tls-version).
 
 ## Scenario 3
 

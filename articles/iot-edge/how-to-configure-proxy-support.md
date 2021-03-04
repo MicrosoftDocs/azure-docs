@@ -7,7 +7,7 @@ ms.date: 09/03/2020
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
-ms.custom: [amqp, contperfq1]
+ms.custom: [amqp, contperf-fy21q1]
 ---
 
 # Configure an IoT Edge device to communicate through a proxy server
@@ -240,7 +240,7 @@ With the environment variables included, your module definition should look like
 "edgeHub": {
     "type": "docker",
     "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+        "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
         "createOptions": ""
     },
     "env": {
@@ -265,6 +265,12 @@ If you included the **UpstreamProtocol** environment variable in the confige.yam
     }
 }
 ```
+
+## Working with traffic-inspecting proxies
+
+If the proxy you're attempting to use performs traffic inspection on TLS-secured connections, it's important to note that authentication with X.509 certificates doesn't work. IoT Edge establishes a TLS channel that's encrypted end to end with the provided certificate and key. If that channel is broken for traffic inspection, the proxy can't reestablish the channel with the proper credentials, and IoT Hub and the IoT Hub device provisioning service return an `Unauthorized` error.
+
+To use a proxy that performs traffic inspection, you must use either shared access signature authentication or have IoT Hub and the IoT Hub device provisioning service added to an allow list to avoid inspection.
 
 ## Next steps
 

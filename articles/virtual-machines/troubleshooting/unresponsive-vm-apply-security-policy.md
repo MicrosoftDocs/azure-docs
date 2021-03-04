@@ -38,6 +38,9 @@ There is a plethora of potential causes of this issue. You will not be able to k
 
 ### Process Overview
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 1. [Create and Access a Repair VM](#create-and-access-a-repair-vm)
 2. [Enable Serial Console and Memory Dump Collection](#enable-serial-console-and-memory-dump-collection)
 3. [Rebuild the VM](#rebuild-the-vm)

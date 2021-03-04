@@ -199,7 +199,7 @@ SELECT create_distributed_table('A', 'foo', colocate_with => 'none');
 ```
 
 Splitting unrelated tables into their own colocation groups will improve [shard
-rebalancing](howto-hyperscale-scaling.md#rebalance-shards) performance, because
+rebalancing](howto-hyperscale-scale-rebalance.md) performance, because
 shards in the same group have to be moved together.
 
 When tables are indeed related (for instance when they will be joined), it can

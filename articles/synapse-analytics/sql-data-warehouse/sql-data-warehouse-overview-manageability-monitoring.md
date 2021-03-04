@@ -1,6 +1,6 @@
 ---
 title: Manageability and monitoring - overview 
-description: Monitoring and manageability overview for resource utilization, log and query activity, recommendations, and data protection (backup and restore) with Synapse SQL pool.
+description: Monitoring and manageability overview for resource utilization, log and query activity, recommendations, and data protection (backup and restore) with dedicated SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Manageability and monitoring with Synapse SQL pool
+# Manageability and monitoring with dedicated SQL pool in Azure Synapse Analytics
 
-Synapse SQL allows you to provision a data warehouse via SQL pool. The articles that follow will help you to manage and monitor your data warehouse. You'll also learn ways to optimize the data warehouse's usage and performance.
+Synapse SQL allows you to provision a data warehouse via dedicated SQL pool. The articles that follow will help you to manage and monitor your data warehouse. You'll also learn ways to optimize the data warehouse's usage and performance.
 
 ## Overview
 
@@ -28,4 +28,4 @@ Synapse SQL allows you to provision a data warehouse via SQL pool. The articles 
 
 
 ## Next steps
-For How-to guides, see [Monitor and tune your SQL pool](sql-data-warehouse-manage-monitor.md).
+For How-to guides, see [Monitor and tune your dedicated SQL pool](sql-data-warehouse-manage-monitor.md).

@@ -1,13 +1,10 @@
 ---
 title: Plan a virtual network for Azure HDInsight
 description: Learn how to plan an Azure Virtual Network deployment to connect HDInsight to other cloud resources, or resources in your datacenter.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 05/04/2020
+ms.date: 01/12/2021
 ---
 
 # Plan a virtual network for Azure HDInsight
@@ -46,7 +43,8 @@ The following are the questions that you must answer when planning to install HD
 Use the steps in this section to discover how to add a new HDInsight to an existing Azure Virtual Network.
 
 > [!NOTE]  
-> You cannot add an existing HDInsight cluster into a virtual network.
+> - You cannot add an existing HDInsight cluster into a virtual network.
+> - The VNET and the cluster being created must be in the same subscription.
 
 1. Are you using a classic or Resource Manager deployment model for the virtual network?
 
@@ -79,7 +77,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
         For more information, see the [Troubleshoot network security groups](../virtual-network/diagnose-network-traffic-filter-problem.md) document.
 
         > [!IMPORTANT]  
-        > Network security group rules are applied in order based on rule priority. The first rule that matches the traffic pattern is applied, and no others are applied for that traffic. Order rules from most permissive to least permissive. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
+        > Network security group rules are applied in order based on rule priority. The first rule that matches the traffic pattern is applied, and no others are applied for that traffic. Order rules from most permissive to least permissive. For more information, see the [Filter network traffic with network security groups](../virtual-network/network-security-groups-overview.md) document.
 
     * User-defined routes
 
@@ -205,6 +203,6 @@ When you create an HDInsight cluster, a load balancer is created as well. The ty
 * For code samples and examples of creating Azure Virtual Networks, see [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md).
 * For an end-to-end example of configuring HDInsight to connect to an on-premises network, see [Connect HDInsight to an on-premises network](./connect-on-premises-network.md).
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
-* For more information on network security groups, see [Network security groups](../virtual-network/security-overview.md).
+* For more information on network security groups, see [Network security groups](../virtual-network/network-security-groups-overview.md).
 * For more information on user-defined routes, see [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
-* For more information on controlling traffic, see [Control network traffic](./control-network-traffic.md).
+* For more information on controlling traffic including Firewall integration, see [Control network traffic](./control-network-traffic.md).

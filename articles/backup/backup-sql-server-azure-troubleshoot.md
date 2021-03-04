@@ -52,13 +52,47 @@ At times, either random failures may happen in backup and restore operations or 
 
 1. SQL also offers some guidelines about to work with antivirus programs. See [this article](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) for details.
 
+## Faulty instance in a VM with multiple SQL Server instances
+
+You can restore to a SQL VM only if all the SQL instances running within the VM are reported healthy. If one or more instances are "faulty", the VM won't appear as a restore target. So this could be a possible reason why a multi-instance VM may not appear in the "server" dropdown during the restore operation.
+
+You can validate the "Backup Readiness" of all the SQL instances in the VM, under **Configure backup**:
+
+![Validate backup readiness](./media/backup-sql-server-azure-troubleshoot/backup-readiness.png)
+
+If you'd like to trigger a restore on the healthy SQL instances, do the following steps:
+
+1. Sign in to the SQL VM and go to `C:\Program Files\Azure Workload Backup\bin`.
+1. Create a JSON file named `ExtensionSettingsOverrides.json` (if it's not already present). If this file is already present on the VM, continue using it.
+1. Add the following content in the JSON file and save the file:
+
+    ```json
+    {
+                  "<ExistingKey1>":"<ExistingValue1>",
+                    …………………………………………………… ,
+              "whitelistedInstancesForInquiry": "FaultyInstance_1,FaultyInstance_2"
+            }
+            
+            Sample content:        
+            { 
+              "whitelistedInstancesForInquiry": "CRPPA,CRPPB "
+            }
+
+    ```
+
+1. Trigger the **Rediscover DBs** operation on the impacted server from the Azure portal (the same place where backup readiness can be seen). The VM will start appearing as target for restore operations.
+
+    ![Rediscover DBs](./media/backup-sql-server-azure-troubleshoot/rediscover-dbs.png)
+
+1. Remove the *whitelistedInstancesForInquiry* entry from the ExtensionSettingsOverrides.json file once the restore operation is complete.
+
 ## Error messages
 
 ### Backup type unsupported
 
 | Severity | Description | Possible causes | Recommended action |
 |---|---|---|---|
-| Warning | Current settings for this database don't support certain backup types present in the associated policy. | <li>Only a full database backup operation can be performed on the master database. Differential backup and transaction log backup aren't possible. </li> <li>Any database in the simple recovery model doesn't allow for the backup of transaction logs.</li> | Modify the database settings sp all the backup types in the policy are supported. Or change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for on-demand backup.
+| Warning | Current settings for this database don't support certain backup types present in the associated policy. | <li>Only a full database backup operation can be performed on the master database. Differential backup and transaction log backup aren't possible. </li> <li>Any database in the simple recovery model doesn't allow for the backup of transaction logs.</li> | Modify the database settings so all the backup types in the policy are supported. Or change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for on-demand backup.
 
 ### UserErrorSQLPODoesNotSupportBackupType
 
@@ -164,22 +198,29 @@ Operation is blocked as you have reached the limit on number of operations permi
 |---|---|---|
 Operation is blocked as the vault has reached its maximum limit for such operations permitted in a span of 24 hours. | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. This error usually appears when there are at-scale operations such as modify policy or auto-protection. Unlike the case of CloudDosAbsoluteLimitReached, there isn't much you can do to resolve this state. In fact, Azure Backup service will retry the operations internally for all the items in question.<br> For example: If you have a large number of datasources protected with a policy and you try to modify that policy, it will trigger configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.| Azure Backup service will automatically retry this operation after 24 hours.
 
+### WorkloadExtensionNotReachable
+
+| Error message | Possible causes | Recommended action |
+|---|---|---|
+AzureBackup workload extension operation failed. | The VM is shut down, or the VM can't contact the Azure Backup service because of internet connectivity issues.| <li> Ensure the VM is up and running and has internet connectivity.<li> [Re-register extension on the SQL Server VM](manage-monitor-sql-database-backup.md#re-register-extension-on-the-sql-server-vm).
+
+
 ### UserErrorVMInternetConnectivityIssue
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Azure Active Directory services.| - If you use NSG to restrict connectivity, then you should use the *AzureBackup* service tag to allows outbound access to Azure Backup Service, and similarly for the Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*) services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access.<br>- Ensure DNS is resolving Azure endpoints.<br>- Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work.<br>- Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services.
+The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Azure Active Directory services.| <li> If you use NSG to restrict connectivity, then you should use the *AzureBackup* service tag to allows outbound access to Azure Backup Service, and similarly for the Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*) services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access. <li> Ensure DNS is resolving Azure endpoints. <li> Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work. <li> Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services.
 
 ## Re-registration failures
 
 Check for one or more of the following symptoms before you trigger the re-register operation:
 
-- All operations (such as backup, restore, and configure backup) are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+- All operations (such as backup, restore, and configure backup) are failing on the VM with one of the following error codes: **[WorkloadExtensionNotReachable](#workloadextensionnotreachable)**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
 - If the **Backup Status** area for the backup item is showing **Not reachable**, rule out all the other causes that might result in the same status:
 
   - Lack of permission to perform backup-related operations on the VM.
   - Shutdown of the VM, so backups can't take place.
-  - Network issues.
+  - [Network issues](#usererrorvminternetconnectivityissue)
 
    ![re-registering VM](./media/backup-azure-sql-database/re-register-vm.png)
 

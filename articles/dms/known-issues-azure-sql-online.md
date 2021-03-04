@@ -49,7 +49,7 @@ Use the following steps.
 
 **Resources**
 
-For more information, see the article [Temporal Tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
+For more information, see the article [Temporal Tables](/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
 
 ### Migration of tables includes one or more columns with the hierarchyid data type
 
@@ -85,7 +85,7 @@ Use the following steps.
      select * from sys.triggers where is_disabled =0
      ```
 
-2. Disable the triggers on your source database using the steps provided in the article [DISABLE TRIGGER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
+2. Disable the triggers on your source database using the steps provided in the article [DISABLE TRIGGER (Transact-SQL)](/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
 
 3. Rerun the migration activity.
 

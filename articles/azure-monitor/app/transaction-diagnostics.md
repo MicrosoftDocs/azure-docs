@@ -76,8 +76,7 @@ Potential reasons:
 
 * Are the other components instrumented with Application Insights?
 * Are they using the latest stable Application Insights SDK?
-* If these components are separate Application Insights resources, do you have required access to their telemetry?
-
+* If these components are separate Application Insights resources, do you have required [access](resources-roles-access-control.md)
 If you do have access and the components are instrumented with the latest Application Insights SDKs, let us know via the top right feedback channel.
 
 *I see duplicate rows for the dependencies. Is this expected?*

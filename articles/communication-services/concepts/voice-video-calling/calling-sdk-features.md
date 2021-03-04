@@ -30,7 +30,7 @@ The following list presents the set of features which are currently available in
 |                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️            | ✔️ 
 |                   | Join a group call after it has started                                                                              | ✔️   | ✔️            | ✔️ 
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️            | ✔️
-|                   | Turn your video on/off                                                         | ✔️   | ✔️            | ✔️ 
+|  Mid call control | Turn your video on/off                                                                                              | ✔️   | ✔️            | ✔️ 
 |                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️            | ✔️         
 |                   | Switch between cameras                                                                                              | ✔️   | ✔️            | ✔️           
 |                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️            | ✔️           
@@ -51,20 +51,73 @@ The following list presents the set of features which are currently available in
 |                   | Place a group call with PSTN participants                                                                           | ✔️   | ✔️            | ✔️
 |                   | Promote a one-to-one call with a PSTN participant into a group call                                                 | ✔️   | ✔️            | ✔️
 |                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️            | ✔️   
-| General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   |  ✔️  | ✔️            | ✔️   
+| General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   | ✔️   | ✔️            | ✔️ 
+| Device Management | Ask for permission to use  audio and/or video                                                                       | ✔️   | ✔️            | ✔️
+|                   | Get camera list                                                                                                     | ✔️   | ✔️            | ✔️ 
+|                   | Set camera                                                                                                          | ✔️   | ✔️            | ✔️
+|                   | Get selected camera                                                                                                 | ✔️   | ✔️            | ✔️
+|                   | Get microphone list                                                                                                 | ✔️   | ✔️            | ✔️
+|                   | Set microphone                                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Get selected microphone                                                                                             | ✔️   | ✔️            | ✔️
+|                   | Get speakers list                                                                                                   | ✔️   | ✔️            | ✔️
+|                   | Set speaker                                                                                                         | ✔️   | ✔️            | ✔️
+|                   | Get selected speaker                                                                                                | ✔️   | ✔️            | ✔️
+| Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️   | ✔️            | ✔️
+|                   | Set / update scaling mode                                                                                           | ✔️   | ✔️            | ✔️ 
+|                   | Render remote video stream                                                                                          | ✔️   | ✔️            | ✔️
 
-## Calling client library browser support
-
-The following table represents the set of supported browsers and versions which are currently available.
-
-|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    |
-| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
-| **Calling client library** | Chrome*, new Edge | Chrome*, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
 
 
-*Note that the latest version of Chrome is supported in addition to the previous two releases.<br/>
+## JavaScript calling client library support by OS and browser
 
-**Note that Safari versions 13.1+ are supported. Outgoing video for Safari macOS is not yet supported, but it is supported on iOS. Outgoing screen sharing is only supported on desktop iOS.
+The following table represents the set of supported browsers which are currently available. We support the most recent three versions of the browser unless otherwise indicated.
+
+|                                  | Chrome | Safari*  | Edge (Chromium) | 
+| -------------------------------- | -------| ------  | --------------  |
+| Andriod                          |  ✔️    | ❌     | ❌             |
+| iOS                              |  ❌    | ✔️**** | ❌             |
+| macOS***                         |  ✔️    | ✔️**   | ❌             |
+| Windows***                       |  ✔️    | ❌     | ✔️             |
+| Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
+
+*Safari versions 13.1+ are supported. 
+
+**Safari 14+/macOS 11+ needed for outgoing video support. 
+
+***Outgoing screen sharing is supported only on desktop platforms (Windows, macOS, and Linux), regardless of the browser version, and is not supported on any mobile platform (Android, iOS, iPad, and tablets).
+
+****An iOS app on Safari can't enumerate/select mic and speaker devices (for example, Bluetooth); this is a limitation of the OS, and there's always only one device.
+
+
+## Calling client - browser security model
+
+### User WebRTC over HTTPS
+
+WebRTC APIs like `getUserMedia` require that the app that calls these APIs is served over HTTPS.
+
+For local development, you can use `http://localhost`.
+
+### Embed the Communication Services Calling SDK in an iframe
+
+A new [permissions policy (also called a feature policy)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) is being adopted by various browsers. This policy affects calling scenarios by controlling how applications can access a device's camera and microphone through a cross-origin iframe element.
+
+If you want to use an iframe to host part of the app from a different domain, you must add the `allow` attribute with the correct value to your iframe.
+
+For example, this iframe allows both camera and microphone access:
+
+```html
+<iframe allow="camera *; microphone *">
+```
+
+## Calling client library streaming support
+The Communication Services calling client library supports the following streaming configurations:
+
+|           |Web | Android/iOS|
+|-----------|----|------------|
+|**# of outgoing streams that can be sent simultaneously** |1 audio/video or 1 audio/screen sharing | 1 audio/video | 
+|**# of incoming streams that can be rendered simultaneously** |1 audio/video or 1 audio/screen sharing| 6 audio/video or 1 screen sharing |
+
+Note that in group scenarios, one mixed audio stream is used to support all audio participants.
 
 ## Next steps
 
@@ -72,6 +125,6 @@ The following table represents the set of supported browsers and versions which 
 > [Get started with calling](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 For more information, see the following articles:
-- Familiarize yourself with general [call flows](../call-flows.md)
+- Familiarize yourself with general [call flows](../call-flows.md) 
 - Learn about [call types](../voice-video-calling/about-call-types.md)
-- [Plan your PSTN solution](../telephony-sms/plan-solution.md)
+- Learn about [phone number types](../telephony-sms/plan-solution.md)

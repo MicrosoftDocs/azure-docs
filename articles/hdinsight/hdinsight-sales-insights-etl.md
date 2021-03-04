@@ -1,12 +1,9 @@
 ---
 title: 'Tutorial: Create an end-to-end ETL pipeline to derive sales insights in Azure HDInsight'
 description: Learn how to use create ETL pipelines with Azure HDInsight to derive insights from sales data by using Spark on-demand clusters and Power BI.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
 ---
 
@@ -28,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * A member of the [Azure built-in role - owner](../role-based-access-control/built-in-roles.md).
 
-* If using PowerShell to trigger the Data Factory pipeline, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/).
+* If using PowerShell to trigger the Data Factory pipeline, you'll need the [Az Module](/powershell/azure/).
 
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller) to visualize business insights at the end of this tutorial.
 

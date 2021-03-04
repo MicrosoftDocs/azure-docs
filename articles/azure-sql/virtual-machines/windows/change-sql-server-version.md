@@ -7,6 +7,7 @@ author: ramakoni1
 manager: ramakoni1
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -28,7 +29,7 @@ This article describes how to change the version of Microsoft SQL Server on a Wi
 To do an in-place upgrade of SQL Server, the following conditions apply:
 
 - The setup media of the desired version of SQL Server is required. Customers who have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers who don't have Software Assurance can use the setup media from an Azure Marketplace SQL Server VM image that has a later version of SQL Server (typically located in C:\SQLServerFull).
-- Edition upgrades should follow the [support upgrade paths](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15).
+- Edition upgrades should follow the [support upgrade paths](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15).
 
 ## Planning for version change
 
@@ -36,25 +37,25 @@ We recommend that you review the following items before you do the version chang
 
 1. Check what's new in the version that you are planning to upgrade to:
 
-   - What's new in [SQL 2019](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-ver15?view=sql-server-ver15)
-   - What's new in [SQL 2017](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-2017?view=sql-server-ver15)
-   - What's new in [SQL 2016](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-ver15)
-   - What's new in [SQL 2014](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-2014)
+   - What's new in [SQL 2019](/sql/sql-server/what-s-new-in-sql-server-ver15)
+   - What's new in [SQL 2017](/sql/sql-server/what-s-new-in-sql-server-2017)
+   - What's new in [SQL 2016](/sql/sql-server/what-s-new-in-sql-server-2016)
 
-1. We recommend that you check the [compatibility certification](https://docs.microsoft.com/sql/database-engine/install-windows/compatibility-certification?view=sql-server-ver15) for the version that you are going to change to so that you can use the database compatibility modes to minimize the effect of the upgrade.
+
+1. We recommend that you check the [compatibility certification](/sql/database-engine/install-windows/compatibility-certification) for the version that you are going to change to so that you can use the database compatibility modes to minimize the effect of the upgrade.
 1. You can review to the following articles to help ensure a successful outcome:
 
    - [Video: Modernizing SQL Server | Pam Lahoud & Pedro Lopes | 20 Years of PASS](https://www.youtube.com/watch?v=5RPkuQHcxxs&feature=youtu.be)
-   - [Database Experimentation Assistant for AB testing](https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15)
-   - [Upgrading Databases by using the Query Tuning Assistant](https://docs.microsoft.com/sql/relational-databases/performance/upgrade-dbcompat-using-qta?view=sql-server-ver15)
-   - [Change the Database Compatibility Level and use the Query Store](https://docs.microsoft.com/sql/database-engine/install-windows/change-the-database-compatibility-mode-and-use-the-query-store?view=sql-server-ver15)
+   - [Database Experimentation Assistant for AB testing](/sql/dea/database-experimentation-assistant-overview)
+   - [Upgrading Databases by using the Query Tuning Assistant](/sql/relational-databases/performance/upgrade-dbcompat-using-qta)
+   - [Change the Database Compatibility Level and use the Query Store](/sql/database-engine/install-windows/change-the-database-compatibility-mode-and-use-the-query-store)
 
 ## Upgrade SQL Version
 
 > [!WARNING]
 > Upgrading the version of SQL Server will restart the service for SQL Server in addition to any associated services, such as Analysis Services and R Services.
 
-To upgrade the version of SQL Server, obtain the SQL Server setup media for the later version that would [support the upgrade path](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15) of SQL Server, and do the following steps:
+To upgrade the version of SQL Server, obtain the SQL Server setup media for the later version that would [support the upgrade path](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15) of SQL Server, and do the following steps:
 
 1. Back up the databases, including system (except tempdb) and user databases, before you start the process. You can also create an application-consistent VM-level backup by using Azure Backup Services.
 1. Start Setup.exe from the SQL Server installation media.
@@ -62,8 +63,8 @@ To upgrade the version of SQL Server, obtain the SQL Server setup media for the 
 
    :::image type="content" source="./media/change-sql-server-version/upgrade.png" alt-text="Selection for upgrading the version of SQL Server":::
 
-1. On the **Product Key** page, select an option to indicate whether you are upgrading to a free edition of SQL Server or you have a PID key for a production version of the product. For more information, see [Editions and supported features of SQL Server 2019 (15.x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) and [Supported version and edition Upgrades (SQL Server 2016)](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15).
-1. Select **Next** until you reach the **Ready to upgrade** page, and then select **Upgrade**. The setup window might stop responding for several minutes while the change is taking effect. A **Complete** page will confirm that your upgrade is completed. For a step-by-step procedure to upgrade, see [the complete procedure](https://docs.microsoft.com/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure).
+1. On the **Product Key** page, select an option to indicate whether you are upgrading to a free edition of SQL Server or you have a PID key for a production version of the product. For more information, see [Editions and supported features of SQL Server 2019 (15.x)](/sql/sql-server/editions-and-components-of-sql-server-version-15) and [Supported version and edition Upgrades (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades).
+1. Select **Next** until you reach the **Ready to upgrade** page, and then select **Upgrade**. The setup window might stop responding for several minutes while the change is taking effect. A **Complete** page will confirm that your upgrade is completed. For a step-by-step procedure to upgrade, see [the complete procedure](/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup#procedure).
 
    :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Complete page":::
 
@@ -98,18 +99,18 @@ You can downgrade the version of SQL Server by following these steps:
 
 ## Verify the version and edition in the portal
 
-After you change the version of SQL Server, register your SQL Server VM with the [SQL VM resource provider](sql-vm-resource-provider-register.md) again so that you can use the Azure portal to view the version of SQL Server. The listed version number should now reflect the newly upgraded version and edition of your SQL Server installation.
+After you change the version of SQL Server, register your SQL Server VM with the [SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md) again so that you can use the Azure portal to view the version of SQL Server. The listed version number should now reflect the newly upgraded version and edition of your SQL Server installation.
 
 :::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Verify version":::
 
 > [!NOTE]
-> If you have already registered with the SQL VM resource provider, [unregister from the RP](sql-vm-resource-provider-register.md#unregister-from-rp) and then [Register the SQL VM resource](sql-vm-resource-provider-register.md#register-with-rp) again so that it detects the correct version and edition of SQL Server that is installed on the VM. This updates the metadata and billing information that is associated with this VM.
+> If you have already registered with the SQL IaaS Agent extension, [unregister from the RP](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) and then [Register the SQL VM resource](sql-agent-extension-manually-register-single-vm.md#register-with-extension) again so that it detects the correct version and edition of SQL Server that is installed on the VM. This updates the metadata and billing information that is associated with this VM.
 
 ## Remarks
 
 - We recommend that you initiate backups/update statistics/rebuild indexes/check consistency after the upgrade is finished. You can also check the individual database compatibility levels to make sure that they reflect your desired level.
 - After SQL Server is updated on the VM, make sure that the **Edition** property of SQL Server in the Azure portal matches the installed edition number for billing.
-- The ability to [change the edition](change-sql-server-edition.md#change-edition-in-portal) is a feature of the SQL VM resource provider. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will have to manually [register their SQL Server VM](sql-vm-resource-provider-register.md).
+- The ability to [change the edition](change-sql-server-edition.md#change-edition-in-portal) is a feature of the SQL IaaS Agent extension. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the extension. However, customers who are self-installing SQL Server will have to manually [register their SQL Server VM](sql-agent-extension-manually-register-single-vm.md).
 - If you drop your SQL Server VM resource, the hard-coded edition setting of the image is restored.
 
 ## Next steps

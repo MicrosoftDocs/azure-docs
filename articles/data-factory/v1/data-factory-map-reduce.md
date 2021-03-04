@@ -1,15 +1,10 @@
 ---
 title: Invoke MapReduce Program from Azure Data Factory
 description: Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
-ms.assetid: c34db93f-570a-44f1-a7d6-00390f4dc0fa
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ---
@@ -230,14 +225,14 @@ The pipeline in this example has only one activity that is of type: HDInsightMap
 ## Run Spark programs
 You can use MapReduce activity to run Spark programs on your HDInsight Spark cluster. See [Invoke Spark programs from Azure Data Factory](data-factory-spark.md) for details.  
 
-[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
 [cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
 
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [adfgetstartedmonitoring]:data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines 
 
-[Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[Developer Reference]: /previous-versions/azure/dn834987(v=azure.100)
 [Azure Portal]: https://portal.azure.com
 
 ## See Also
@@ -246,4 +241,3 @@ You can use MapReduce activity to run Spark programs on your HDInsight Spark clu
 * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
 * [Invoke Spark programs](data-factory-spark.md)
 * [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
-

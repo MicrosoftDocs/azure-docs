@@ -9,7 +9,7 @@ ms.author: jroth
 In order to access SQL Server from the internet, the virtual machine must have an endpoint to listen for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
 
 > [!NOTE]
-> If you are connecting within the same cloud service or virtual network, you do not have to create a publicly accessible endpoint. In that case, you could continue to the next step. For more information, see [Connection Scenarios](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
+> If you are connecting within the same cloud service or virtual network, you do not have to create a publicly accessible endpoint. In that case, you could continue to the next step. For more information, see [Connection Scenarios](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect#connection-scenarios).
 > 
 > 
 
@@ -23,4 +23,3 @@ In order to access SQL Server from the internet, the virtual machine must have a
 6. For **Public port**, specify a port number such as **57500**.
 7. For **Private port**, specify SQL Server's listening port, which defaults to **1433**.
 8. Click **Ok** to create the endpoint.
-

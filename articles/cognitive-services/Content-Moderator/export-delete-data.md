@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Export or delete user data in Content Moderator
 
-Content Moderator collects user data to operate the service, but customers have full control to view, export, and delete their data using the [Review tool](https://contentmoderator.cognitive.microsoft.com/) and the [Moderation and Review APIs](https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference).
+Content Moderator collects user data to operate the service, but customers have full control to view, export, and delete their data using the [Review tool](https://contentmoderator.cognitive.microsoft.com/) and the [Moderation and Review APIs](./api-reference.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -29,4 +29,3 @@ For more information on how to export and delete user data in Content Moderator,
 | Tags | N/A | Use the **Delete** icon available for each tag in the Review UI Tag settings page. Or use the **Delete Team** button in the [Review UI](https://contentmoderator.cognitive.microsoft.com/) Team settings page. |
 | Reviews | Call the [Get review API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2) | Use the **Delete Team** button in the [Review UI](https://contentmoderator.cognitive.microsoft.com/) Team settings page.
 | Users | N/A | Use the **Delete** icon available for each user in the [Review UI](https://contentmoderator.cognitive.microsoft.com/) Team settings page. Or use the **Delete Team** button in the [Review UI](https://contentmoderator.cognitive.microsoft.com/) Team settings page. |
-

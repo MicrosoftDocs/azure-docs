@@ -1,16 +1,18 @@
 ---
 title: Slow query logs - Azure Database for MySQL
 description: Describes the slow query logs available in Azure Database for MySQL, and the available parameters for enabling different logging levels.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/13/2020
+ms.date: 11/6/2020
 ---
 # Slow query logs in Azure Database for MySQL
 In Azure Database for MySQL, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting.
 
 For more information about the MySQL slow query log, see the MySQL reference manual's [slow query log section](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
+
+When [Query Store](concepts-query-store.md) is enabled on your server, you may see the queries like "`CALL mysql.az_procedure_collect_wait_stats (900, 30);`" logged in your slow query logs. This behavior is expected as the Query Store feature collects statistics about your queries. 
 
 ## Configure slow query logging 
 By default the slow query log is disabled. To enable it, set `slow_query_log` to ON. This can be enabled using the Azure portal or Azure CLI. 
@@ -45,7 +47,7 @@ Logs are rotated every 24 hours or 7 GB, whichever comes first.
 > The above log retention does not apply to logs that are piped using Azure Monitor Diagnostic Logs. You can change the retention period for the data sinks being emitted to (ex. Azure Storage).
 
 ## Diagnostic logs
-Azure Database for MySQL is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MySQL server, you can choose to have them emitted to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../azure-monitor/platform/platform-logs-overview.md).
+Azure Database for MySQL is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MySQL server, you can choose to have them emitted to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../azure-monitor/essentials/platform-logs-overview.md).
 
 The following table describes what's in each log. Depending on the output method, the fields included and the order in which they appear may vary.
 
@@ -137,4 +139,4 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     
 ## Next Steps
 - [How to configure slow query logs from the Azure portal](howto-configure-server-logs-in-portal.md)
-- [How to configure slow query logs from the Azure CLI](howto-configure-server-logs-in-cli.md).
+- [How to configure slow query logs from the Azure CLI](howto-configure-server-logs-in-cli.md)

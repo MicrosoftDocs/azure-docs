@@ -1,9 +1,6 @@
 ---
 title: 'Azure Toolkit for IntelliJ: Spark app - HDInsight'
 description: Use the Azure Toolkit for IntelliJ to develop Spark applications written in Scala, and submit them to an HDInsight Spark cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -234,7 +231,7 @@ After creating a Scala application, you can submit it to the cluster.
     |Main class name|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**)  and choosing another class.|
     |Job configurations|You can change the default keys and, or values. For more information, see [Apache Livy REST API](https://livy.incubator.apache.org/docs/latest/rest-api.html).|
     |Command-line arguments|You can enter arguments separated by space for the main class if needed.|
-    |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system, which currently only supports ADLS Gen 2 cluster. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  See also, [How to upload resources to cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
+    |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system, which currently only supports ADLS Gen 2 cluster. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  See also, [How to upload resources to cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md).|
     |Job Upload Storage|Expand to reveal additional options.|
     |Storage Type|Select **Use Azure Blob to upload** from the drop-down list.|
     |Storage Account|Enter your storage account.|

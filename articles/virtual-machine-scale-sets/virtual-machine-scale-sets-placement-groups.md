@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Working with large virtual machine scale sets

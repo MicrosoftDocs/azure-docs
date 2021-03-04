@@ -27,7 +27,7 @@ Azure File Sync is a Microsoft cloud service, based on two main components:
 
 This article focuses on the migration steps. If before migrating you'd like to learn more about Azure File Sync, we recommend the following articles:
 
-* [Azure File Sync - overview](https://aka.ms/AFS "Overview")
+* [Azure File Sync - overview](./storage-sync-files-planning.md "Overview")
 * [Azure File Sync - deployment guide](storage-sync-files-deployment-guide.md)
 
 ## Migration goals
@@ -228,6 +228,6 @@ Migration content:
 
 Azure File Sync content:
 
-* [AFS overview](https://aka.ms/AFS)
-* [AFS deployment guide](storage-files-deployment-guide.md)
+* [AFS overview](./storage-sync-files-planning.md)
+* [AFS deployment guide](./storage-how-to-create-file-share.md)
 * [AFS troubleshooting](storage-sync-files-troubleshoot.md)

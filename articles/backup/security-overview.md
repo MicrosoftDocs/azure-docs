@@ -21,7 +21,7 @@ Azure Backup provides three [built-in roles](../role-based-access-control/built-
 
 Learn more about [Azure role-based access control to manage Azure Backup](./backup-rbac-rs-vault.md).
 
-Azure Backup has several security controls built into the service to prevent, detect, and respond to security vulnerabilities. Learn more about [security controls for Azure Backup](./backup-security-controls.md).
+Azure Backup has several security controls built into the service to prevent, detect, and respond to security vulnerabilities. Learn more about [security controls for Azure Backup](./security-baseline.md).
 
 ## Separation between guest and Azure storage
 

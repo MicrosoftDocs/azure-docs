@@ -31,8 +31,8 @@ In this tutorial, you learn two data recovery patterns:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](../../sql-database/saas-dbpertenant-get-started-deploy.md).
-* Azure PowerShell is installed. For details, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](./saas-dbpertenant-get-started-deploy.md).
+* Azure PowerShell is installed. For details, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## Introduction to the SaaS tenant restore patterns
 

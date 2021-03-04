@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -142,7 +142,13 @@ Azure AD can automatically assign users access to a SharePoint Online site or Sh
 
 1. On the **Add resource roles to access package** page, click **SharePoint sites** to open the Select SharePoint Online sites pane.
 
-1. Select the SharePoint Online sites you want to include in the access package.
+    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-portal.png" alt-text="Access package - Add resource roles - Select SharePoint sites - Portal view":::
+
+1. If you have [Multi-Geo](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365?view=o365-worldwide) enabled for SharePoint, select the environment you would like to select sites from.
+    
+    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-select.png" alt-text="Access package - Add resource roles - Select SharePoint Multi-geo sites":::
+
+1. If multi-geo is not enabled, you do not need to select an environment. Select the SharePoint Online sites you want to include in the access package.
 
     ![Access package - Add resource roles - Select SharePoint Online sites](./media/entitlement-management-access-package-resources/sharepoint-site-select.png)
 

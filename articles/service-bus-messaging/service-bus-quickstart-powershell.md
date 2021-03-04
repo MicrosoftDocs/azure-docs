@@ -59,7 +59,7 @@ In this article, you created a Service Bus namespace and a queue in the namespac
 
 - [.NET](service-bus-dotnet-get-started-with-queues.md)
 - [Java](service-bus-java-how-to-use-queues.md)
-- [JavaScript](service-bus-nodejs-how-to-use-queues-new-package.md)
+- [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 - [Python](service-bus-python-how-to-use-queues.md)
 - [PHP](service-bus-php-how-to-use-queues.md)
 - [Ruby](service-bus-ruby-how-to-use-queues.md)

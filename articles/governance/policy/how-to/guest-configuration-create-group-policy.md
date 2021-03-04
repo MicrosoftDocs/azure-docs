@@ -22,12 +22,12 @@ be in. If the evaluation of the configuration is **non-compliant**, the policy e
 machines.
 
 > [!IMPORTANT]
-> Custom policy definitions with Guest Configuration is a Preview feature.
->
 > The Guest Configuration extension is required to perform audits in Azure virtual machines. To
 > deploy the extension at scale across all Windows machines, assign the following policy
 > definitions:
 > - [Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> 
+> Don't use secrets or confidential information in custom content packages.
 
 The DSC community has published the
 [BaselineManagement module](https://github.com/microsoft/BaselineManagement) to convert exported
@@ -103,80 +103,13 @@ Guest Configuration and Baseline Management modules.
 
 ## Create Azure Policy Guest Configuration
 
-The next step is to publish the file to Azure Blob Storage. 
-
-1. The script below contains a function you can use to automate this task. Note, the commands used
-   in the `publish` function require the `Az.Storage` module.
+1. The next step is to publish the file to Azure Blob Storage. The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
+module.
 
    ```azurepowershell-interactive
-    function Publish-Configuration {
-        param(
-        [Parameter(Mandatory=$true)]
-        $resourceGroup,
-        [Parameter(Mandatory=$true)]
-        $storageAccountName,
-        [Parameter(Mandatory=$true)]
-        $storageContainerName,
-        [Parameter(Mandatory=$true)]
-        $filePath,
-        [Parameter(Mandatory=$true)]
-        $blobName
-        )
-
-        # Get Storage Context
-        $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-            -Name $storageAccountName | `
-            ForEach-Object { $_.Context }
-
-        # Upload file
-        $Blob = Set-AzStorageBlobContent -Context $Context `
-            -Container $storageContainerName `
-            -File $filePath `
-            -Blob $blobName `
-            -Force
-
-        # Get url with SAS token
-        $StartTime = (Get-Date)
-        $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-        $SAS = New-AzStorageBlobSASToken -Context $Context `
-            -Container $storageContainerName `
-            -Blob $blobName `
-            -StartTime $StartTime `
-            -ExpiryTime $ExpiryTime `
-            -Permission rl `
-            -FullUri
-
-        # Output
-        return $SAS
-    }
+   Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName  myResourceGroupName -StorageAccountName myStorageAccountName
    ```
 
-1. Create parameters to define the unique resource group, storage account, and container. 
-   
-   ```azurepowershell-interactive
-    # Replace the $resourceGroup, $storageAccount, and $storageContainer values below.
-    $resourceGroup = 'rfc_customguestconfig'
-    $storageAccount = 'guestconfiguration'
-    $storageContainer = 'content'
-    $path = 'c:\git\policyfiles\Server2019Baseline\Server2019Baseline.zip'
-    $blob = 'Server2019Baseline.zip' 
-    ```
-
-1. Use the publish function with the assigned parameters to publish the Guest Configuration package
-   to public Blob Storage.
-
-
-   ```azurepowershell-interactive
-   $PublishConfigurationSplat = @{
-       resourceGroup = $resourceGroup
-       storageAccountName = $storageAccount
-       storageContainerName = $storageContainer
-       filePath = $path
-       blobName = $blob
-       FullUri = $true
-   }
-   $uri = Publish-Configuration @PublishConfigurationSplat
-    ```
 1. Once a Guest Configuration custom policy package has been created and uploaded, create the Guest
    Configuration policy definition. Use the `New-GuestConfigurationPolicy` cmdlet to create the
    Guest Configuration.

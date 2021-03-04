@@ -80,7 +80,7 @@ To download the list of activity events in a comma-separated values (CSV) file, 
 
 ## Get audit logs with the Azure AD reporting API
 
-Audit logs are published to the same pipeline as other activities for Azure Active Directory, so they can be accessed through the [Azure Active Directory reporting API](https://docs.microsoft.com/graph/api/directoryaudit-list). For more information, see [Get started with the Azure Active Directory reporting API](../active-directory/reports-monitoring/concept-reporting-api.md).
+Audit logs are published to the same pipeline as other activities for Azure Active Directory, so they can be accessed through the [Azure Active Directory reporting API](/graph/api/directoryaudit-list). For more information, see [Get started with the Azure Active Directory reporting API](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 ### Enable reporting API access
 
@@ -219,4 +219,4 @@ Here's the JSON representation of the example activity event shown earlier in th
 
 ## Next steps
 
-You can automate other administration tasks, for example, [manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md).
+You can automate other administration tasks, for example, [manage Azure AD B2C user accounts with Microsoft Graph](microsoft-graph-operations.md).

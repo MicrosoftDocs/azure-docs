@@ -68,7 +68,7 @@ If the VM is not created within a Virtual Network, the default cases for cloud s
 To learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), see this sample.
 
 ### Version and Region Availability
-The Scheduled Events service is versioned. Versions are mandatory; the current version is `2019-01-01`.
+The Scheduled Events service is versioned. Versions are mandatory; the current version is `2019-08-01`.
 
 | Version | Release Type | Regions | Release Notes | 
 | - | - | - | - | 
@@ -151,6 +151,10 @@ Each event is scheduled a minimum amount of time in the future based on the even
 
 > [!NOTE] 
 > In some cases, Azure is able to predict host failure due to degraded hardware and will attempt to mitigate disruption to your service by scheduling a migration. Affected virtual machines will receive a scheduled event with a `NotBefore` that is typically a few days in the future. The actual time varies depending on the predicted failure risk assessment. Azure tries to give 7 days' advance notice when possible, but the actual time varies and might be smaller if the prediction is that there is a high chance of the hardware failing imminently. To minimize risk to your service in case the hardware fails before the system-initiated migration, we recommend that you self-redeploy your virtual machine as soon as possible.
+
+### Polling frequency
+
+You can poll the endpoint for updates as frequently or infrequently as you like. However, the longer the time between requests, the more time you potentially lose to react to an upcoming event. Most events have 5 to 15 minutes of advance notice, although in some cases advance notice might be as little as 30 seconds. To ensure that you have as much time as possible to take mitigating actions, we recommend that you poll the service once per second.
 
 ### Start an event 
 

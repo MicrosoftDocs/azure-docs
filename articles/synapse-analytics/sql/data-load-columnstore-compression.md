@@ -1,5 +1,5 @@
 ---
-title: Improve columnstore index performance (workspaces preview)
+title: Improve columnstore index performance 
 description: Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.
 services: synapse-analytics
 author: kevinvngo 
@@ -138,6 +138,5 @@ DWU size and the user resource class together determine how much memory is avail
 
 ## Next steps
 
-To find more ways to improve performance in Synapse SQL, see the [Performance overview](../overview-cheat-sheet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+To find more ways to improve performance in Synapse SQL, see the [Performance overview](../overview-terminology.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
- 

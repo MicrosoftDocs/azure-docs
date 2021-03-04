@@ -137,7 +137,7 @@
         - name: Install custom apps
           href: hdinsight-apps-install-custom-applications.md
         - name: Use REST to install apps
-          href: https://msdn.microsoft.com/library/mt706515.aspx
+          href: /rest/api/hdinsight/hdinsight-application
         - name: Publish HDInsight apps to Azure Marketplace
           href: hdinsight-apps-publish-applications.md
     - name: Secure
@@ -278,6 +278,8 @@
       href: /rest/api/hdinsightspark/
     - name: Resource Manager template
       href: /azure/templates/microsoft.hdinsight/allversions
+    - name: Azure Policy built-ins
+      href: ./policy-reference.md
   - name: Resources
     items:
     - name: Releases
@@ -301,7 +303,7 @@
     - name: Enable heap dumps for Apache Hadoop services
       href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
     - name: Get help on the Microsoft Q&A question page
-      href: https://docs.microsoft.com/answers/topics/azure-hdinsight.html
+      href: /answers/topics/azure-hdinsight.html
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Windows tools for HDInsight
@@ -355,6 +357,8 @@
           href: ./spark/optimize-cluster-configuration.md
       - name: Migrate to Spark 2.3 or 2.4
         href: ./spark/migrate-versions.md
+      - name: Update .NET for Apache Spark to 1.0
+        href: ./spark/spark-dotnet-version-update.md
   - name: How-to guides
     items:
     - name: Use tools
@@ -419,9 +423,9 @@
         href: ./spark/apache-spark-improve-performance-iocache.md
       - name: Use notebooks with Apache Spark
         items: 
-        - name: Use a local Jupyter notebook
+        - name: Use a local Jupyter Notebook
           href: ./spark/apache-spark-jupyter-notebook-install-locally.md
-        - name: Jupyter notebook kernels
+        - name: Jupyter Notebook kernels
           href: ./spark/apache-spark-jupyter-notebook-kernels.md
         - name: Use external packages with Jupyter using cell magic
           href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
@@ -433,13 +437,11 @@
           href: ./spark/apache-spark-use-with-data-lake-store.md
         - name: Connect to Azure SQL Database
           href: ./spark/apache-spark-connect-to-sql-database.md
-        - name: Implement a lambda architecture using Apache Spark and Cosmos DB
-          href: ../cosmos-db/lambda-architecture.md
         - name: Run Azure ML workloads with AutoML
           href: ./spark/apache-spark-run-machine-learning-automl.md
     - name: Troubleshoot
       items:
-      - name: Can't create Jupyter notebook
+      - name: Can't create Jupyter Notebook
         href: ./spark/troubleshoot-jupyter-notebook-convert.md
       - name: OutOfMemoryError exception
         href: ./spark/apache-spark-troubleshoot-outofmemory.md
@@ -502,7 +504,7 @@
       items:
       - name: Use MapReduce with Apache Hadoop
         items:
-        - name: MapReduce overview
+        - name: Use MapReduce
           href: ./hadoop/hdinsight-use-mapreduce.md
         - name: Use SSH
           href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md
@@ -690,6 +692,10 @@
     items:
     - name: Use Apache HBase in HDInsight
       href: ./hbase/apache-hbase-tutorial-get-started-linux.md
+  - name: Concepts
+    items:
+      - name: Optimize for advisor recommendations
+        href: ./hbase/apache-hbase-advisor.md
   - name: How-to guides
     items:
     - name: Develop

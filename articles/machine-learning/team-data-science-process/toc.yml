@@ -64,10 +64,6 @@
     href: walkthroughs-sql-server.md
   - name: T-SQL and Python with Azure Synapse Analytics
     href: walkthroughs-sql-data-warehouse.md
-- name: Utilities & tools
-  items:
-  - name: Data exploration & modeling utils (GitHub)
-    href: https://github.com/Azure/Azure-TDSP-Utilities
 - name: Training
   items:
   - name: For data scientists
@@ -80,23 +76,23 @@
     href: environment-setup.md
     items:
     - name: Azure storage accounts
-      href: /azure/storage/common/storage-create-storage-account?context=azure/machine-learning/team-data-science-process/context/ml-context
+      href: ../../storage/common/storage-account-create.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
     - name: Platforms and tools
       href: platforms-and-tools.md
     - name: R and Python on HDInsight clusters
       items:
       - name: Introduction to Spark on HDInsight
-        href: /azure/hdinsight/spark/apache-spark-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
+        href: ../../hdinsight/spark/apache-spark-overview.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
       - name: Create an Apache Spark cluster in Azure HDInsight
-        href: /azure/hdinsight/spark/apache-spark-jupyter-spark-sql?context=azure/machine-learning/team-data-science-process/context/ml-context
+        href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
       - name: PySpark kernels for Jupyter Notebook
-        href: /azure/hdinsight/spark/apache-spark-jupyter-notebook-kernels?context=azure/machine-learning/team-data-science-process/context/ml-context
+        href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
       - name: R Server on HDInsight
-        href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
+        href: ../../hdinsight/r-server/r-server-overview.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
       - name: Get started using R Server on HDInsight
-        href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
+        href: ../../hdinsight/r-server/r-server-overview.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
     - name: Machine Learning Studio (classic) workspace
-      href: /azure/machine-learning/studio/create-workspace?context=azure/machine-learning/team-data-science-process/context/ml-context
+      href: ../classic/create-workspace.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
   - name: Analyze business needs
     items:
     - name: Identify your scenario
@@ -115,9 +111,9 @@
         - name: Use Storage Explorer
           href: move-data-to-azure-blob-using-azure-storage-explorer.md
         - name: Use AzCopy
-          href: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10
+          href: ../../storage/common/storage-use-azcopy-v10.md
         - name: Use Python
-          href: /azure/storage/blobs/storage-python-how-to-use-blob-storage?context=azure/machine-learning/team-data-science-process/context/ml-context
+          href: ../../storage/blobs/storage-quickstart-blobs-python.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
         - name: Use SSIS
           href: move-data-to-azure-blob-using-ssis.md
       - name: Move to SQL on a VM
@@ -138,7 +134,7 @@
         items:
         - name: Overview
           href: explore-data.md
-        - name: Explore Azure Blob storage
+        - name: Explore Azure Blob Storage
           href: explore-data-blob.md
         - name: Explore SQL on a VM
           href: explore-data-sql-server.md
@@ -148,7 +144,7 @@
         items:
         - name: Overview
           href: sample-data.md
-        - name: Use blob storage
+        - name: Use Blob Storage
           href: sample-data-blob.md
         - name: Use SQL Server
           href: sample-data-sql-server.md
@@ -185,15 +181,15 @@
     - name: Create and train models
       items:
       - name: Choose algorithms
-        href: /azure/machine-learning/how-to-select-algorithms?context=azure/machine-learning/team-data-science-process/context/ml-context
+        href: ../how-to-select-algorithms.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
       - name: Algorithm cheat sheet
-        href: /azure/machine-learning/algorithm-cheat-sheet?context=azure/machine-learning/team-data-science-process/context/ml-context
+        href: ../algorithm-cheat-sheet.md?context=%2fazure%2fmachine-learning%2fteam-data-science-process%2fcontext%2fml-context
   - name: Deploy models in production
     href: deploy-models-in-production.md
 - name: Related
   items:
   - name: Cognitive Services
-    href: https://docs.microsoft.com/azure/cognitive-services/
+    href: ../../cognitive-services/index.yml
   - name: Anomaly detection
     href: apps-anomaly-detection-api.md
   - name: Predictive maintenance
@@ -215,7 +211,7 @@
   - name: Related Microsoft resources
     items:
     - name: Microsoft Q&A question page
-      href: https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html
+      href: /answers/topics/azure-machine-learning-studio-classic.html
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning
     - name: Videos

@@ -3,12 +3,14 @@ title: GROUP BY clause in Azure Cosmos DB
 description: Learn about the GROUP BY clause for Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
 
 ---
 # GROUP BY clause in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The GROUP BY clause divides the query's results according to the values of one or more specified properties.
 
@@ -34,7 +36,7 @@ The GROUP BY clause divides the query's results according to the values of one o
 
 ## Remarks
   
-  When a query uses a GROUP BY clause, the SELECT clause can only contain the subset of properties and system functions included in the GROUP BY clause. One exception is [aggregate system functions](sql-query-aggregates.md), which can appear in the SELECT clause without being included in the GROUP BY clause. You can also always include literal values in the SELECT clause.
+  When a query uses a GROUP BY clause, the SELECT clause can only contain the subset of properties and system functions included in the GROUP BY clause. One exception is [aggregate functions](sql-query-aggregate-functions.md), which can appear in the SELECT clause without being included in the GROUP BY clause. You can also always include literal values in the SELECT clause.
 
   The GROUP BY clause must be after the SELECT, FROM, and WHERE clause and before the OFFSET LIMIT clause. You currently cannot use GROUP BY with an ORDER BY clause but this is planned.
 
@@ -185,4 +187,4 @@ The results are:
 
 - [Getting started](sql-query-getting-started.md)
 - [SELECT clause](sql-query-select.md)
-- [Aggregate functions](sql-query-aggregates.md)
+- [Aggregate functions](sql-query-aggregate-functions.md)

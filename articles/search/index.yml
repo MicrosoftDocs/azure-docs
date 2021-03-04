@@ -118,7 +118,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a simple query
-            url: search-query-simple-examples.md
+            url: search-query-create.md
           - text: Use full syntax
             url: search-query-lucene-examples.md
       - linkListType: reference

@@ -7,8 +7,9 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 10/26/2020
 ms.author: banders
+ms.custom: contperf-fy21q2
 ---
 
 # Account Administrator tasks in the Azure portal
@@ -22,7 +23,7 @@ You must be the Account Administrator to perform any of these tasks.
 
 ## Navigate to your subscription's payment methods
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Sign in to the Azure portal as the Account Administrator.
 
 1. Search for **Cost Management + Billing**.
 
@@ -110,9 +111,9 @@ To edit the address of your invoice payment method, click on **Invoice** in the 
 
 The spending limit in Azure prevents spending over your credit amount. You can remove the spending limit at any time as long as there's a valid payment method associated with your Azure subscription. For subscription types that have credit over multiple months such as Visual Studio Enterprise and Visual Studio Professional, you can choose to re-enable the spending limit at the beginning of your next billing period.
 
-The spending limit isn’t available for subscriptions with commitment plans or with pay-as-you-go pricing. See the [full list of Azure subscription types and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
+The spending limit isn’t available for subscriptions with commitment plans or with pay-as-you-go pricing.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Sign in to the Azure portal as the Account Administrator.
 1. Search for **Cost Management + Billing**.
 
     ![Screenshot that shows search for cost management + billing ](./media/account-admin-tasks/search-bar.png)
@@ -140,7 +141,7 @@ The spending limit isn’t available for subscriptions with commitment plans or 
 
 If you have an Azure in Open Licensing subscription, you can add credits to your subscription in the Azure portal by redeeming a product key or purchasing credits with a credit card.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Sign in to the Azure portal as the Account Administrator.
 1. Search for **Cost Management + Billing**.
 
     ![Screenshot that shows search for cost management + billing ](./media/account-admin-tasks/search-bar.png)

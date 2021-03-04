@@ -11,6 +11,7 @@ ms.custom: devx-track-csharp
 
 ---
 # Get SQL query execution metrics and analyze query performance using .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article presents how to profile SQL query performance on Azure Cosmos DB. This profiling can be done using `QueryMetrics` retrieved from the .NET SDK and is detailed here. [QueryMetrics](/dotnet/api/microsoft.azure.documents.querymetrics) is a strongly typed object with information about the backend query execution. These metrics are documented in more detail in the [Tune Query Performance](./sql-api-query-metrics.md) article.
 

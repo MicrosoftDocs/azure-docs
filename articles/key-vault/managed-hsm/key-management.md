@@ -87,7 +87,7 @@ az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decr
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops encrypt decrypt  --tags ‘usage=signing] appname=myapp’ --kty oct-HSM --size 256
 ```
 
 ## View key attributes and tags

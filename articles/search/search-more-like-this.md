@@ -68,4 +68,4 @@ GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$
 You can use any web testing tool to experiment with this feature.  We recommend using Postman for this exercise.
 
 > [!div class="nextstepaction"]
-> [Explore Azure Cognitive Search REST APIs using Postman](search-get-started-postman.md)
+> [Explore Azure Cognitive Search REST APIs](search-get-started-rest.md)

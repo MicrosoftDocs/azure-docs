@@ -34,7 +34,7 @@ There are several common reasons why your data might not appear in the [Azure Ti
 
 - Your event source data isn't in JSON format.
 
-    Time Series Insights supports only JSON data. For JSON samples, read [Supported JSON shapes](./how-to-shape-query-json.md).
+    Time Series Insights supports only JSON data. For JSON samples, read [Supported JSON shapes](./concepts-json-flattening-escaping-rules.md).
 
 - Your event source key is missing a required permission.
 
@@ -56,17 +56,17 @@ There are several common reasons why your data might not appear in the [Azure Ti
 
 - Your Time Series ID property specified at the time of provisioning is incorrect, missing, or null.
 
-    This problem might occur if the Time Series ID property is configured incorrectly at the time of provisioning the environment. For more information, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). At this time, you can't update an existing Time Series Insights environment to use a different Time Series ID.
+    This problem might occur if the Time Series ID property is configured incorrectly at the time of provisioning the environment. For more information, read [Best practices for choosing a Time Series ID](./how-to-select-tsid.md). At this time, you can't update an existing Time Series Insights environment to use a different Time Series ID.
 
 ## Problem: Some data shows, but some is missing
 
 You might be sending data without the Time Series ID.
 
-- This problem might occur when you send events without the Time Series ID field in the payload. For more information, read [Supported JSON shapes](./how-to-shape-query-json.md).
+- This problem might occur when you send events without the Time Series ID field in the payload. For more information, read [Supported JSON shapes](./concepts-json-flattening-escaping-rules.md).
 - This problem might occur because your environment is being throttled.
 
     > [!NOTE]
-    > At this time, Time Series Insights supports a maximum ingestion rate of 6 Mbps.
+    > At this time, Time Series Insights supports a maximum ingestion rate of 1 Mbps.
 
 ## Problem: Data was showing, but now ingestion has stopped
 
@@ -106,7 +106,7 @@ If the Timestamp property isn't explicitly specified, an event's IoT hub or even
 
 - You might be accessing a Time Series Insights S1 or S2 environment.
 
-   Time Series Models are supported only in pay-as-you-go environments. For more information on how to access your S1 or S2 environment from the Time Series Insights Gen2 Explorer, read [Visualize data in the Explorer](./time-series-insights-update-explorer.md).
+   Time Series Models are supported only in pay-as-you-go environments. For more information on how to access your S1 or S2 environment from the Time Series Insights Gen2 Explorer, read [Visualize data in the Explorer](./concepts-ux-panels.md).
 
    [![No events in environment.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
@@ -116,22 +116,14 @@ If the Timestamp property isn't explicitly specified, an event's IoT hub or even
 
 ## Problem: All my instances in the Gen2 Explorer lack a parent
 
-This problem might occur if your environment doesn't have a Time Series Model hierarchy defined. For more information, read about how to [work with Time Series Models](/azure/time-series-insights/time-series-insights-overview).
+This problem might occur if your environment doesn't have a Time Series Model hierarchy defined. For more information, read about how to [work with Time Series Models](./time-series-insights-overview.md).
 
   [![Unparented instances will display a warning.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
-## Problem: Power BI Connector shows "Unable to Connect"
-
-This problem might occur if you are not using the latest version of the Power BI Connector in Power BI Desktop.
-
-[![Screenshot shows the Unable to connect dialog box.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
-
-- Check the version of your Power BI Desktop and make sure that you're using the July 2020 Version. If not, update your Power BI Desktop and run the connector again.
-
 ## Next steps
 
-- Read about how to [work with Time Series Models](/azure/time-series-insights/time-series-insights-overview).
+- Read about how to [work with Time Series Models](./time-series-insights-overview.md).
 
-- Learn about [supported JSON shapes](./how-to-shape-query-json.md).
+- Learn about [supported JSON shapes](./concepts-json-flattening-escaping-rules.md).
 
-- Review [planning and limits](./time-series-insights-update-plan.md) in Azure Time Series Insights Gen2.
+- Review [planning and limits](./how-to-plan-your-environment.md) in Azure Time Series Insights Gen2.

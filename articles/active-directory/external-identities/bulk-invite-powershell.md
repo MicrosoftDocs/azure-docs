@@ -117,7 +117,7 @@ foreach ($email in $invitations)
 
 The script sends an invitation to the email addresses in the Invitations.csv file. You should see output similar to the following for each user:
 
-![PowerShell output showing pending user acceptance](media/tutorial-bulk-invite/B2BBulkImport.png)
+![Screenshot that shows PowerShell output that includes pending user acceptance.](media/tutorial-bulk-invite/B2BBulkImport.png)
 
 ## Verify users exist in the directory
 
