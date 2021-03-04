@@ -112,7 +112,7 @@ For the automatic failover test, you can go ahead and bring down the primary rep
 1. Expand the virtual host for the availability group
 1. Right-click on the target node/secondary replica and select **Start Hosting on Member** to initiate the failover 
 
-For more information on more operations within DxEnterprise, access the [DxEnterprise Admin Guide](https://dh2i.com/wp-content/uploads/DxEnterprise-v20-Admin-Guide.pdf).
+For more information on more operations within DxEnterprise, access the [DxEnterprise Admin Guide](https://dh2i.com/wp-content/uploads/DxEnterprise-v20-Admin-Guide.pdf) and [DxEnterprise DxCLI Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-software-dxcli-guide/)
 
 ## Next Steps
  
