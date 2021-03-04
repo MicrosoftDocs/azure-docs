@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 02/24/2021
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
@@ -25,7 +25,7 @@ The best time to plan for data protection is before an incident that requires da
 
 The following table summarizes the data protection options available in Azure Storage. Note that not all features are available at this time for storage accounts with a hierarchical namespace enabled.
 
-| Scenario | Action | Available for Azure Data Lake Storage | Protection benefit | Recommendation |
+| Scenario | Action | Available for Data Lake Storage | Protection benefit | Recommendation |
 |--|--|--|--|--|
 | Prevent a storage account from being deleted or modified. | [Configure an Azure Resource Manager lock on the storage account](#configure-an-azure-resource-manager-lock-on-the-storage-account) | Yes | Protects the storage account against accidental or malicious deletes or configuration changes. Does not protect blob data in the account from being deleted or overwritten. | Recommended for scenarios where you need to prevent deletion of a storage accounts. |
 | Prevent a container and its blobs from being deleted or modified for an interval that you control. | [Set a time-based retention policy or a legal hold on a container](#set-a-time-based-retention-policy-or-a-legal-hold-on-a-container) | Yes, in preview | Protects blob data from accidental or malicious deletes or updates. | Recommended when your scenario requires preventing all updates and deletes to the blobs in a container for a period of time, for example for legal documents or regulatory compliance purposes. |
@@ -34,7 +34,7 @@ The following table summarizes the data protection options available in Azure St
 | A blob can be deleted or updated, or a blob version can be deleted, but a copy of the blob or version is maintained for a specified interval. | [Configure blob soft delete for the storage account](#configure-blob-soft-delete-for-the-storage-account) | No | Protects blob data from accidental deletes and updates. | Recommended for scenarios where you may need to restore a deleted blob or version. The minimum recommended retention period of 7 days. |
 | Blobs can be deleted or updated, but all updates and deletes are tracked so that data can be restored to a previous point in time. | [Configure point-in-time restore for the storage account](#configure-point-in-time-restore-for-the-storage-account) | No | Protects blob data from accidental deletes and updates with best-effort restore. Does not protect against malicious deletion or corruption of data. | Recommended when your scenario requires recovering data within a certain range of time. |
 | A blob can be updated, but the state of a blob is saved manually at a given point in time. | [Take a manual snapshot of a blob](#take-a-manual-snapshot-of-a-blob) | Yes, in preview | Preserves the state of a blob at a particular time. A blob snapshot can be read or referenced. | Recommended when blob versioning is not appropriate for your scenario, due to cost or other considerations. |
-| A blob can be updated or deleted, but the data is regularly copied to a second storage account by using object replication or a tool like AzCopy or Azure Data Factory. | [Get started with AzCopy](../common/storage-use-azcopy-v10.md)???<br />[Object replication for block blobs](object-replication-overview.md)<br />[Introduction to Azure Data Factory](../../data-factory/introduction.md) | Yes | Protects blob data from accidental or malicious deletes or updates. | Recommended for peace-of-mind protection against malicious actions or unpredictable scenarios. |
+| A blob can be updated or deleted, but the data is regularly copied to a second storage account by using object replication or a tool like AzCopy or Azure Data Factory. | [Object replication for block blobs](object-replication-overview.md)<br />[Get started with AzCopy](../common/storage-use-azcopy-v10.md)<br />[Introduction to Azure Data Factory](../../data-factory/introduction.md) | Yes | Protects blob data from accidental or malicious deletes or updates. | Recommended for peace-of-mind protection against malicious actions or unpredictable scenarios. |
 
 ### Configure an Azure Resource Manager lock on the storage account
 
