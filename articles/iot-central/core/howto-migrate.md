@@ -99,7 +99,7 @@ After the move is complete, restart all your devices to ensure they connect to t
 After you've validated that everything works as expected in your new V3 application, delete your old V2 application. This step ensures you don't get billed for an application you no longer use.
 
 > [!Note]
-> To delete an application, you must have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](../../active-directory/role-based-access-control-configure.md).
+> To delete an application, you must have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
 1. In your V2 application, select the **Administration** tab in the menu
 2. Select **Delete** to permanently delete your IoT Central application. This option permanently deletes all data associated with that application.

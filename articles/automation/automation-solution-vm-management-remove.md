@@ -89,7 +89,7 @@ While the information is verified and the account is deleted, you can track the 
 
 ## Delete the feature
 
-To delete Start/Stop VMs during off-hours from your Automation account, perform the following steps. The Automation account and Log Analytics workspace aren't deleted as part of this process. If you don't want to keep the Log Analytics workspace, you must manually delete it. For more information about deleting your workspace, see [Delete and recover Azure Log Analytics workspace](../azure-monitor/platform/delete-workspace.md).
+To delete Start/Stop VMs during off-hours from your Automation account, perform the following steps. The Automation account and Log Analytics workspace aren't deleted as part of this process. If you don't want to keep the Log Analytics workspace, you must manually delete it. For more information about deleting your workspace, see [Delete and recover Azure Log Analytics workspace](../azure-monitor/logs/delete-workspace.md).
 
 1. Navigate to your Automation account, and select **Linked workspace** under **Related resources**.
 
