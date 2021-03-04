@@ -187,31 +187,31 @@ To set an environment variable with the URL of your instance, first get the URL 
 
 :::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Screenshot of the Azure portal: From the Overview page for the Azure Digital Twins instance, the Host name value is highlighted.":::
 
-You can now create an application setting following the steps below:
+You can now create an application setting with these steps:
 
-1. Search for your function app in the portal search bar, and select it from the results
-1. Select _Configuration_ on the navigation bar on the left to create a new application setting
-1. In the _Application settings_ tab, select _+ New application setting_
+1. Search for your function app in the portal search bar, and select it from the results.
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal: The function app's name is being searched in the portal search bar and the search result is highlighted.":::
+    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal: The function app's name is being searched in the portal search bar and the search result is highlighted.":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Screenshot of the Azure portal: In the Configuration page for the function app, the button to create a New application setting is highlighted.":::
+1. Select _Configuration_ on the navigation bar on the left. In the _Application settings_ tab, select _+ New application setting_.
 
-In the window that opens up, use the host name value copied above to create an application setting.
-* **Name**: ADT_SERVICE_URL
-* **Value**: https://{your-azure-digital-twins-host-name}
+    :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Screenshot of the Azure portal: In the Configuration page for the function app, the button to create a New application setting is highlighted.":::
 
-Select _OK_ to create an application setting.
+1. In the window that opens up, use the host name value copied above to create an application setting.
+    * **Name**: ADT_SERVICE_URL
+    * **Value**: https://{your-azure-digital-twins-host-name}
+    
+    Select _OK_ to create an application setting.
+    
+    :::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Screenshot of the Azure portal: The OK button is highlighted after filling out the Name and Value fields in the Add/Edit application setting page.":::
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Screenshot of the Azure portal: The OK button is highlighted after filling out the Name and Value fields in the Add/Edit application setting page.":::
+1. After creating the setting, you should see it appear back in the _Application settings_ tab. Verify *ADT_SERVICE_URL* appears in the list, then save the new application setting by selecting the _Save_ button.
 
-You can view your application settings with application name under the _Name_ field. Then, save your application settings by selecting the _Save_ button.
+    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Screenshot of the Azure portal: The application settings page, with the new ADT_SERVICE_URL setting highlighted. The Save button is also highlighted.":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Screenshot of the Azure portal: The application settings page, with the new ADT_SERVICE_URL setting highlighted. The Save button is also highlighted.":::
+1. Any changes to the application settings require an application restart to take effect, so select _Continue_ to restart your application when prompted.
 
-Any changes to the application settings will require an application restart to take effect. Select _Continue_ to restart your application.
-
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Screenshot of the Azure portal: There is a notice that any changes to application settings with restart your application. The Continue button is highlighted.":::
+    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Screenshot of the Azure portal: There is a notice that any changes to application settings with restart your application. The Continue button is highlighted.":::
 
 ---
 
