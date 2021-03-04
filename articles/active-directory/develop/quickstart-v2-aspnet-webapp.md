@@ -59,7 +59,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
 > For the code sample in this quickstart to work, enter **https://localhost:44368/** for **Redirect URI**.
-
+>
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
