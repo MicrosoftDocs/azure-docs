@@ -132,4 +132,4 @@ kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo 8080:8080
 
 ## Next steps
 
-- Apply cluster configurations at scale using [Azure Policy](./use-azure-policy.md).
+Apply cluster configurations at scale using [Azure Policy](./use-azure-policy.md).

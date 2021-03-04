@@ -63,4 +63,4 @@ For existing clusters, you'll need to manually run a remediation task. This task
 
 ## Next steps
 
-* [Set up Azure Monitor for Containers with Arc enabled Kubernetes clusters](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md)
+[Set up Azure Monitor for Containers with Azure Arc enabled Kubernetes clusters](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md).
