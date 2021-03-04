@@ -78,7 +78,7 @@ After LRS is stopped, either automatically through autocomplete or manually thro
 
 ### Azure side
 - PowerShell Az.SQL module version 2.16.0 or later ([installed](https://www.powershellgallery.com/packages/Az.Sql/) or accessed through [Azure Cloud Shell](/azure/cloud-shell/))
-- Azure CLI version 2.19.0 or later ([installed](/cli/azure/install-azure-cli)
+- Azure CLI version 2.19.0 or later ([installed](/cli/azure/install-azure-cli))
 - Azure Blob Storage container provisioned
 - Shared access signature (SAS) security token with read and list permissions generated for the Blob Storage container
 
