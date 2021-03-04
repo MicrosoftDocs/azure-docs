@@ -20,6 +20,7 @@ An Azure policy definition, created in Azure Policy, is a rule about specific se
 
 To implement these policy definitions (whether built-in or custom), you'll need to assign them. You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.
 
+There are different types of policies in Azuer Policy. Security Center mainly uses 'Audit' policies that check specific conditions and configurations then report on compliance. There are also "Enforce' policies that can be used to apply secure settings.
 
 ## What is a security initiative?
 
