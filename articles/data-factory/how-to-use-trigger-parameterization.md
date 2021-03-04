@@ -32,7 +32,7 @@ This section shows you how to pass meta data information from trigger to pipelin
 
 1. Select **Parameters** section and select **+ New** to add parameters
 
-    :::image type="content" source="media/how-to-use-trigger-parameterization/01-create-parameter.png" alt-text="Define parameters in pipeline.":::
+    :::image type="content" source="media/how-to-use-trigger-parameterization/01-create-parameter.png" alt-text="Screen shot of pipeline setting showing how to define parameters in pipeline.":::
 
 1. Add triggers to pipeline, by clicking on **+ Trigger**.
 
@@ -40,7 +40,7 @@ This section shows you how to pass meta data information from trigger to pipelin
 
 1. In the following page, fill in trigger meta data for each parameter. Use format defined in [System Variable](control-flow-system-variables.md) to retrieve trigger information. You don't need to fill in the information for all parameters, just the ones that will assume trigger metadata values. For instance, here we assign trigger run start time to *parameter_1*.
 
-    :::image type="content" source="media/how-to-use-trigger-parameterization/02-pass-in-system-variable.png" alt-text="Reference Trigger Information.":::
+    :::image type="content" source="media/how-to-use-trigger-parameterization/02-pass-in-system-variable.png" alt-text="Screenshot of trigger definition page showing how to pass trigger information to pipeline parameters.":::
 
 1. To use the values in pipeline, utilize parameters _@pipeline().parameters.parameterName_, __not__ system variable, in pipeline definitions. For instance, in our case, to read trigger start time, we'll reference @pipeline().parameters.parameter_1.
 
@@ -102,7 +102,7 @@ Under **properties** section, add parameter definitions to **parameters** sectio
 }
 ```
 
-### Trigger Definition
+### Trigger definition
 
 Under **pipelines** section, assign parameter values in **parameters** section. You don't need to fill in the information for all parameters, just the ones that will assume trigger metadata values.
 
