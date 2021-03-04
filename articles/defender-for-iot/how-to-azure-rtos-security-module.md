@@ -16,7 +16,7 @@ ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
-# Configure and customize Security Module for Azure RTOS 
+# Configure and customize Security Module for Azure RTOS (preview)
 
 Use this following file to configure your device behavior.
 

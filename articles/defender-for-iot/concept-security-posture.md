@@ -24,4 +24,4 @@ Azure Defender for IoT micro agent enables you to quickly improve your organizat
 
 ## Next steps 
 
-Review your [Event aggregation ](concept-event-aggregation.md).
+Review your [Event aggregation (Preview)](concept-event-aggregation.md).

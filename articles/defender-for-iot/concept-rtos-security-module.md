@@ -17,7 +17,7 @@ ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
-# Security Module for Azure RTOS 
+# Security Module for Azure RTOS (preview)
 
 Use this article to get a better understanding of the Security Module for Azure RTOS, including features and benefits as well as links to relevant configuration and reference resources. 
 
