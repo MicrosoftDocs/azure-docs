@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -263,11 +263,13 @@ Tracking IDs for Azure apps in the commercial marketplace are managed automatica
 
 #### Can I track templates deployed from a non-Microsoft repository like GitHub?
 
-Yes, as long as the tracking ID is present when the template is deployed, usage is tracked.
+Yes, as long as the tracking ID is present when the template is deployed, usage is tracked. To maintain the association between you as a publisher and your template deployed from a non-Microsoft repository, first download a copy of your published template (which will contain the tracking ID) from your offer's commercial marketplace listing in the Azure portal. Publish that version to GitHub or another non-Microsoft repository.
+
+If your template is not listed in commercial marketplace and includes a registered GUID, make sure the GUID is present in the version you publish to GitHub or another non-Microsoft repository.
 
 #### Does the customer receive reporting as well?
 
-Customers can track their usage of individual resources or customer-defined resource groups within the Azure portal. Customers do not see usage broken out by GUID.
+No. Customers can track their usage of all resources or resource groups within the Azure portal. Customers do not see usage broken out by CUA tracking ID.
 
 #### Is customer usage attribution similar to the digital partner of record (DPOR) or partner admin link (PAL)?
 
