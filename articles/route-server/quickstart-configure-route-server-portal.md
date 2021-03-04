@@ -52,7 +52,8 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 1. Select **Review + create**, review the summary, and then select **Create**. 
 
-    *** *The deployment of the Route Server will take about 20 minutes.*
+    > [!NOTE]
+    > The deployment of the Route Server will take about 20 minutes.
 
 ## Set up peering with NVA
 
