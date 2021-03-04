@@ -1,6 +1,6 @@
 ---
 title: Planning for an Azure File Sync deployment | Microsoft Docs
-description: Plan for a deployment with Azure File Sync, a service that allows you to cache a number of Azure file shares on an on-premises Windows Server or cloud VM.
+description: Plan for a deployment with Azure File Sync, a service that allows you to cache several Azure file shares on an on-premises Windows Server or cloud VM.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -17,7 +17,7 @@ ms.custom: references_regions
         [![Interview and demo introducing Azure File Sync - click to play!](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
     :::column-end:::
     :::column:::
-        Azure File Sync is a service that allows you to cache a number of Azure file shares on an on-premises Windows Server or cloud VM. 
+        Azure File Sync is a service that allows you to cache several Azure file shares on an on-premises Windows Server or cloud VM. 
         
         This article introduces you to Azure File Sync concepts and features. Once you are familiar with Azure File Sync, consider following the [Azure File Sync deployment guide](storage-sync-files-deployment-guide.md) to try out this service.        
     :::column-end:::
@@ -53,11 +53,11 @@ A sync group contains one cloud endpoint, or Azure file share, and at least one 
 A previous section discusses the core resource to configure for Azure File Sync: a *Storage Sync Service*. A Windows Server can only be registered to one Storage Sync Service. So it is often best to only deploy a single Storage Sync Service and register all servers that it. 
 
 Create multiple Storage Sync Services only if you have:
-* distinct sets of servers that must never exchange data with one another. In this case you want to design the system to exclude certain sets of servers to sync with an Azure file share that is already in use as a cloud endpoint in a sync group in a different Storage Sync Service. Another way to look at this is that Windows Servers registered to different storage sync service cannot sync with the same Azure file share.
+* distinct sets of servers that must never exchange data with one another. In this case, you want to design the system to exclude certain sets of servers to sync with an Azure file share that is already in use as a cloud endpoint in a sync group in a different Storage Sync Service. Another way to look at this is that Windows Servers registered to different storage sync service cannot sync with the same Azure file share.
 * a need to have more registered servers or sync groups than a single Storage Sync Service can support. Review the [Azure File Sync scale targets](storage-files-scale-targets.md#azure-file-sync-scale-targets) for more details.
 
 ## Plan for balanced sync topologies
-Before you deploy any resources, it is important to plan out what you will sync on a local server, with which Azure file share. This will help you determine how many storage accounts, Azure file shares and sync resources you will need. These considerations are still relevant, even if your data doesn't currently reside on a Windows Server or the server you want to use long-term. The [migration section](#migration) can help determine appropriate migration paths for your situation.
+Before you deploy any resources, it is important to plan out what you will sync on a local server, with which Azure file share. Making a plan will help you determine how many storage accounts, Azure file shares, and sync resources you will need. These considerations are still relevant, even if your data doesn't currently reside on a Windows Server or the server you want to use long term. The [migration section](#migration) can help determine appropriate migration paths for your situation.
 
 [!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
@@ -318,7 +318,7 @@ To request access for these regions, follow the process in [this document](https
 > Geo-redundant and Geo-zone redundant storage have the capability to manually failover storage to the secondary region. We recommend that you do not do this outside of a disaster when you are using Azure File Sync because of the increased likelihood of data loss. In the event of a disaster where you would like to initiate a manual failover of storage, you will need to open up a support case with Microsoft to get Azure File Sync to resume sync with the secondary endpoint.
 
 ## Migration
-If you have an existing Windows file server 2012Rs or newer, Azure File Sync can be directly installed in place, without the need to move data over to a new server. If you are planning to migrate to a new Windows file server as a part of adopting Azure File Sync, or if your data is currently located on Network Attached Storage (NAS)  there are several possible migration approaches to use Azure FIle Sync with this data. Which migration approach you should choose, depends on where your data currently resides. 
+If you have an existing Windows file server 2012R2 or newer, Azure File Sync can be directly installed in place, without the need to move data over to a new server. If you are planning to migrate to a new Windows file server as a part of adopting Azure File Sync, or if your data is currently located on Network Attached Storage (NAS)  there are several possible migration approaches to use Azure File Sync with this data. Which migration approach you should choose, depends on where your data currently resides. 
 
 Check out the [Azure File Sync and Azure file share migration overview](storage-files-migration-overview.md) article where you can find detailed guidance for your scenario.
 
