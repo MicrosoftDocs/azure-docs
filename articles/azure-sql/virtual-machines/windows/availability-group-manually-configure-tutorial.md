@@ -541,3 +541,4 @@ The SQLCMD connection automatically connects to whichever instance of SQL Server
 ## Next steps
 
 - [Add an IP address to a load balancer for a second availability group](availability-group-listener-powershell-configure.md#Add-IP).
+- [Optimize cluster settings for availability groups](availability-group-recommended-cluster-settings.md). 

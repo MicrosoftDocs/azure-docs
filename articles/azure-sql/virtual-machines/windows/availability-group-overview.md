@@ -44,7 +44,19 @@ Availability Zones protect against the failure of an entire datacenter, with eac
 When creating Azure VMs, you must choose between configuring Availability Sets vs Availability Zones.  An Azure Vm cannot participate in both.
 
 
+
 ## Connectivity
+
+You can configure a virtual network name, or a distributed network name for an availability group. [Review the differences between the two](hadr-compare-virtual-distributed-network-name.md) and then deploy either a [distributed network name](availability-group-distributed-network-name-dnn-listener-configure.md) or a [virtual network name](availability-group-vnn-azure-load-balancer-configure) for your availability group. 
+
+If you are using DNN or if your AG spans across multiple subnets like multiple Azure regions and you are using client libraries that support the MultiSubnetFailover connection option in the connection string, you can optimize availability group failover to a different subnet by setting MultiSubnetFailover to "True" or "Yes. The MultiSubnetFailover connection option only works with the TCP network protocol.
+
+### Basic availability group
+
+As basic AG does not allow to have more than one secondary replica and there is no read access to the secondary replica, you can use Database mirroring connection strings for Basic AG. This eliminates the need to have listeners. This is more helpful for AG on Azure VM as this eliminates the need of load balancer or adding additional IPs to the load balancer, for multiple listeners for additional databases. 
+
+For example, to explicitly connect using TCP/IP to the AG database AdventureWorks on either Replica_A or Replica_B of a Basic AG (or any AG that that has only one secondary replica and the read access is not allowed in the secondary replica), a client application could supply the following database mirroring connection string to successfully connect to the AG:
+"Server=Replica_A; Failover_Partner=Replica_B; Database=AdventureWorks; Network=dbmssocn
 
 
 
@@ -72,6 +84,15 @@ The following table provides a comparison of the options available:
 |**Distributed AG with no cluster** |No|No|No|Yes|
 
 For more information, see [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md), and [Manual](availability-group-manually-configure-prerequisites-tutorial.md).
+
+## Lease mechanism 
+
+For SQL Server, the AG resource DLL determines the health of the AG based on the AG lease mechanism and Always On health detection. The AG resource DLL exposes the resource health through the IsAlive operation. The resource monitor polls IsAlive at the cluster heartbeat interval, which is set by the CrossSubnetDelay and SameSubnetDelay cluster-wide values. On a primary node, the cluster service initiates failovers whenever the IsAlive call to the resource DLL returns that the AG is not healthy.
+
+The Always On resource DLL monitors the status of internal SQL Server components. sp_server_diagnostics reports the health of these components SQL Server on an interval controlled by HealthCheckTimeout.
+
+Unlike other failover mechanisms, the SQL Server instance plays an active role in the lease mechanism. The lease mechanism is used as a Looks-Alive validation between the Cluster resource host and the SQL Server process. The mechanism is used to ensure that the two sides (the Cluster Service and SQL Server service) are in frequent contact, checking each other's state and ultimately preventing a split-brain scenario.
+
 
 ## Considerations 
 

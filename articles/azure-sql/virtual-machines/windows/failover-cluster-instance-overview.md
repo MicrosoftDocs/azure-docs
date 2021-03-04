@@ -141,6 +141,10 @@ For shared storage and data replication solutions from Microsoft partners, conta
 
 ## Connectivity
 
+You can configure a virtual network name, or a distributed network name for a failover cluster instance. [Review the differences between the two](hadr-compare-virtual-distributed-network-name.md) and then deploy either a [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configurep-distributed-network-name-dnn-listener-configure.md) or a [virtual network name](failover-cluster-instance-vnn-azure-load-balancer-configure.md) for your availability group. 
+
+
+
 ## Limitations
 
 Consider the following limitations for failover cluster instances with SQL Server on Azure Virtual Machines. 
