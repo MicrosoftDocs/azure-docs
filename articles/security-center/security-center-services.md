@@ -112,7 +112,7 @@ For information about when recommendations are generated for each of these prote
 |[Microsoft Defender for Endpoint](harden-docker-hosts.md) (1)|✔|-|
 |[Connect AWS account](quickstart-onboard-aws.md) (1)|-|-|
 |[Connect GCP account](quickstart-onboard-gcp.md) (1)|-|-|
-|[Continuous export](continuous-export.md)|✔|✔ (2)|
+|[Continuous export](continuous-export.md)|✔|✔|
 |[Workflow automation](workflow-automation.md)|✔|✔|
 |[Recommendation exemption rules](exempt-resource.md)|-|-|
 |[Alert suppression rules](alerts-suppression-rules.md)|✔|✔|

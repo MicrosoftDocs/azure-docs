@@ -1,6 +1,6 @@
 - name: Azure Synapse Analytics
   href: index.yml
-- name: Switch to dedicated SQL pool (formerly SQL DW)
+- name: Switch to dedicated SQL pool (formerly SQL DW) >
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Overview
   items:
@@ -50,17 +50,19 @@
   #   items:
   - name: Quickstarts
     items:
-    - name: Create a workspace using Azure portal
-      href: quickstart-create-workspace.md
-      displayName: quickstart
-    - name: Create a workspace using Azure CLI
-      href: quickstart-create-workspace-cli.md
-      displayName: quickstart
-    - name: Create a workspace using Azure PowerShell
-      href: quickstart-create-workspace-powershell.md
-      displayName: quickstart
-    - name: Deploy with a template
-      href: quickstart-deployment-template-workspaces.md
+    - name: Create a workspace
+      items:
+      - name: Azure portal
+        href: quickstart-create-workspace.md
+        displayName: quickstart
+      - name: Azure CLI
+        href: quickstart-create-workspace-cli.md
+        displayName: quickstart
+      - name: Azure PowerShell
+        href: quickstart-create-workspace-powershell.md
+        displayName: quickstart
+      - name: ARM template
+        href: quickstart-deployment-template-workspaces.md
       displayName: quickstart
     - name: Link a Power BI workspace
       href: quickstart-power-bi.md
@@ -439,7 +441,7 @@
       items:
       - name: Create restore points
         href: ./backuprestore/sqlpool-create-restore-point.md
-      - name: Restore a Synapse SQL pool
+      - name: Restore a dedicated SQL pool
         href: ./backuprestore/restore-sql-pool.md
     - name: Manage and monitor
       items:
@@ -572,6 +574,10 @@
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md
     - name: Submit Spark job definitions
       href: ./spark/apache-spark-job-definitions.md
+    - name: Connect and monitor Azure Synapse Spark Application level metrics
+      href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
+    - name: Monitor Apache Spark Application-level metrics with Prometheus and Grafana
+      href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
   - name: Concepts
     items:
     - name: Apache Spark 
@@ -586,18 +592,24 @@
       href: ./spark/apache-spark-machine-learning-concept.md
     - name: Notebooks
       href: ./spark/apache-spark-notebook-concept.md
+    - name: Package management
+      href: ./spark/apache-spark-azure-portal-add-libraries.md
     - name: Monitoring tools
       href: monitoring/how-to-monitor-spark-applications.md
   - name: How-to guides
     items:
     - name: Work with Delta Lake 
       href: ./spark/apache-spark-delta-lake-overview.md
-    - name: Manage libraries
+    - name: Manage packages
       items:
-      - name: Add and manage libraries
-        href: ./spark/apache-spark-azure-portal-add-libraries.md
-      - name: Troubleshoot library installation errors 
+      - name: Manage Python packages
+        href: ./spark/apache-spark-manage-python-packages.md
+      - name: Manage Scala packages
+        href: ./spark/apache-spark-manage-scala-packages.md
+      - name: Troubleshoot Python package installation errors 
         href: ./spark/apache-spark-troubleshoot-library-errors.md
+      - name: Create a Conda private channel
+        href: ./spark/apache-spark-custom-conda-channel.md
     - name: Use notebooks and IDE tools
       items:
       - name: Manage notebooks

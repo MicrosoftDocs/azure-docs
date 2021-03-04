@@ -40,6 +40,13 @@ productDirectory:
   title: Browse Azure products
   items:
     # Card
+    - title: Azure Percept
+      summary: Edge intelligence from silicon to service
+      imageSrc: ./media/index/azure-percept.svg
+      azureCategories:
+        - iot
+      url: azure-percept/index.yml
+    # Card
     - title: Anomaly Detector
       summary: Easily add anomaly detection capabilities to your apps
       imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
@@ -199,7 +206,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/custom-vision.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/Custom-Vision-Service/index.yml
+      url: cognitive-services/custom-vision-service/index.yml
     # Card
     - title: Data Science Virtual Machines
       summary: Rich pre-configured environment for AI development
@@ -234,7 +241,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/ink-recognizer/index.yml
+      url: /previous-versions/azure/cognitive-services/Ink-Recognizer/
     # Card
     - title: Kinect DK
       summary: Build computer vision and speech models using a developer kit with advanced AI sensors
@@ -471,6 +478,13 @@ productDirectory:
         - iot
       url: cosmos-db/index.yml
     # Card
+    - title: Azure Managed Instance for Apache Cassandra
+      summary: Automate deployment and scaling for managed open-source Apache Cassandra datacenters
+      imageSrc: ./media/index/managed-instance-apache-cassandra.svg
+      azureCategories:
+        - databases
+      url: managed-instance-apache-cassandra/index.yml
+    # Card
     - title: Logic Apps
       summary: Automate the access and use of data across clouds without writing code
       imageSrc: https://static.docs.com/ui/media/product/azure/logic-apps.svg
@@ -583,7 +597,7 @@ productDirectory:
       azureCategories:
         - featured
         - compute
-      url: virtual-machines/linux/index.yml
+      url: ./virtual-machines/index.yml
     # Card
     - title: Service Fabric
       summary: Develop microservices and orchestrate containers on Windows or Linux
@@ -639,7 +653,7 @@ productDirectory:
       azureCategories:
         - featured
         - compute
-      url: virtual-machines/windows/index.yml
+      url: ./virtual-machines/index.yml
     # Card
     - title: Azure Dev Spaces
       summary: Test and iteratively develop your microservices app in Azure AKS
@@ -1372,6 +1386,13 @@ productDirectory:
       azureCategories:
         - networking
       url: load-balancer/index.yml
+    # Card
+    - title: Azure Route Server (Preview)
+      summary: Simplify operations management of your network appliances
+      imageSrc: ./media/index/azure-route-server.svg
+      azureCategories:
+        - networking
+      url: route-server/index.yml
     # Card
     - title: Virtual Network
       summary: Provision private networks, optionally connect to on-premises datacenters

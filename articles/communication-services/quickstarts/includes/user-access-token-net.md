@@ -38,10 +38,10 @@ dotnet build
 
 ### Install the package
 
-While still in the application directory, install the Azure Communication Services Administration library for .NET package by using the `dotnet add package` command.
+While still in the application directory, install the Azure Communication Services Identity library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Administration --version 1.0.0-beta.3
+dotnet add package Azure.Communication.Identity
 ```
 
 ### Set up the app framework
@@ -49,7 +49,7 @@ dotnet add package Azure.Communication.Administration --version 1.0.0-beta.3
 From the project directory:
 
 1. Open **Program.cs** file in a text editor
-1. Add a `using` directive to include the `Azure.Communication.Administration` namespace
+1. Add a `using` directive to include the `Azure.Communication.Identity` namespace
 1. Update the `Main` method declaration to support async code
 
 Use the following code to begin:
@@ -57,7 +57,7 @@ Use the following code to begin:
 ```csharp
 using System;
 using Azure.Communication;
-using Azure.Communication.Administration;
+using Azure.Communication.Identity;
 
 namespace AccessTokensQuickstart
 {
@@ -109,6 +109,18 @@ Console.WriteLine(token);
 ```
 
 Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expiresOn` response property indicates the lifetime of the access token. 
+
+## Create an identity and issue an access token within the same request
+
+Use the `createUserWithToken` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
+
+```csharp  
+// Issue an identity and an access token with the "voip" scope for the new identity
+var identityWithTokenResponse = await client.CreateUserWithTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
+var identity = identityWithTokenResponse.Value.user.Id;
+var token = identityWithTokenResponse.Value.token.Token;
+var expiresOn = identityWithTokenResponse.Value.token.ExpiresOn;
+```
 
 ## Refresh access tokens
 

@@ -25,7 +25,7 @@ ms.custom: references_regions
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Front Door Premium SKU can connect to your origin using the Private Link service. Your applications can be hosted in your private virtual network or behind a PaaS service, not accessible from public Internet.
+Azure Front Door Premium SKU can connect to your origin behind Web App and Storage Account using the Private Link service, removing the need for your origin to be publically accessible.
 
 :::image type="content" source="../media/concept-private-link/front-door-private-endpoint-architecture.png" alt-text="Front Door Private Endpoints architecture":::
 
@@ -33,7 +33,8 @@ When you enable Private Link to your origin in Azure Front Door Premium configur
 
 :::image type="content" source="../media/concept-private-link/enable-private-endpoint.png" alt-text="Enable Private Endpoint":::
 
-Azure Front Door Premium supports various origin types. If your origin is hosted on a set of virtual machines in your private network, you need to first create an internal standard load balancer, enable private link service to the standard load balancer, and then select Custom origin type. For private link configuration, select "Microsoft.Network/PrivateLinkServices as resource Type. For PaaS services such as Azure Web App and Storage Account, you can enable Private Link Service from the corresponding services first and select Microsoft.Web/Sites for Web App and Microsoft.Storage/StorageAccounts for storage account private link service types.
+> [!NOTE]
+> Once you enable a Private Link origin and approve the private endpoint conenction, it takes a few minutes for the connection to be established. During this time, requests to the origin will receive a Front Door error message. The error message will go away once the connection is established.
 
 ## Limitations
 
@@ -45,6 +46,5 @@ Azure Front Door private endpoints get managed by the platform and under the sub
 
 ## Next steps
 
-* To connect Azure Front Door Premium to Virtual Machines using Private Link service, see [Create a Private Endpoint](../../private-link/create-private-endpoint-portal.md).
 * To connect Azure Front Door Premium to your Web App via Private Link service, see [Connect to a web app using a Private endpoint](../../private-link/tutorial-private-endpoint-webapp-portal.md).
 * To connect Azure Front Door Premium to your Storage Account via private link service, see [Connect to a storage account using Private endpoint](../../private-link/tutorial-private-endpoint-storage-portal.md).

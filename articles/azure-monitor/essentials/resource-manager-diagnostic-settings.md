@@ -1,7 +1,6 @@
 ---
 title: Resource Manager template samples for diagnostic settings
 description: Sample Azure Resource Manager templates to apply Azure Monitor diagnostic settings to an Azure resource.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
@@ -345,7 +344,7 @@ The following sample creates a diagnostic setting for an Azure SQL database by a
 ```
 
 ## Diagnostic setting for Recovery Services vault
-The following sample creates a diagnostic setting for an Azure Recovery Services vault by adding a resource of type `microsoft.recoveryservices/vaults/providers/diagnosticSettings` to the template. This example specifies the collection mode as described in [Azure resource logs](../platform/resource-logs.md#send-to-log-analytics-workspace). Specify `Dedicated` or `AzureDiagnostics` for the `logAnalyticsDestinationType` property.
+The following sample creates a diagnostic setting for an Azure Recovery Services vault by adding a resource of type `microsoft.recoveryservices/vaults/providers/diagnosticSettings` to the template. This example specifies the collection mode as described in [Azure resource logs](./resource-logs.md#send-to-log-analytics-workspace). Specify `Dedicated` or `AzureDiagnostics` for the `logAnalyticsDestinationType` property.
 
 ### Template file
 
@@ -808,5 +807,5 @@ The following sample creates a diagnostic setting for each storage service endpo
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](../samples/resource-manager-samples.md).
+* [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
 * [Learn more about diagnostic settings](../essentials/diagnostic-settings.md).
