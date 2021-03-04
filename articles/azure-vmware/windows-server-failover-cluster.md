@@ -2,7 +2,7 @@
 title: Windows Server Failover Cluster on Azure VMware Solution vSAN with native shared disks
 description: Set up Windows Server Failover Cluster (WSFC) on Azure VMware Solution and take advantage of solutions requiring WSFC capability.
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/05/2021
 ---
 
 # Windows Server Failover Cluster on Azure VMware Solution vSAN with native shared disks
@@ -23,7 +23,7 @@ You can host the WSFC cluster on different Azure VMware Solution instances, know
 
 It's important to deploy a supported WSFC configuration. You'll want your solution to be supported on vSphere and with Azure VMware Solution. VMware provides a detailed document about WSFC on vSphere 6.7, [Setup for Failover
 Clustering and Microsoft
-Cluster Service](https://docs.vmware.com/en/VMware-vSphere/6.7/vsphere-esxi-vcenter-server-67-setup-mscs.pdf). New deployed Azure VMware Solution clusters are based on vSphere version 6.7 Update 3.
+Cluster Service](https://docs.vmware.com/en/VMware-vSphere/6.7/vsphere-esxi-vcenter-server-67-setup-mscs.pdf).
 
 This article focuses on WSFC on Windows Server 2016 and Windows Server 2019. Older Windows Server versions are out of [mainstream support](https://support.microsoft.com/en-us/lifecycle/search?alpha=windows%20server) and so we don't consider them here.
 
@@ -36,9 +36,9 @@ You'll need to first [create a WSFC](https://docs.microsoft.com/windows-server/f
 
 ## Reference Architecture
 
-Azure VMware Solution, which is based on vSAN 6.7 Update 3, provides native support for virtualized WSFC. It supports SCSI-3 Persistent Reservations (SCSI3PR) on a virtual disk level. This support is required by WSFC to arbitrate access to a shared disk between nodes. Support of SCSI3PRs enables configuration of WSFC with a disk resource shared between VMs natively on vSAN datastores.
+Azure VMware Solution provides native support for virtualized WSFC. It supports SCSI-3 Persistent Reservations (SCSI3PR) on a virtual disk level. This support is required by WSFC to arbitrate access to a shared disk between nodes. Support of SCSI3PRs enables configuration of WSFC with a disk resource shared between VMs natively on vSAN datastores.
 
-The following diagram illustrates the architecture of WSFC virtual nodes on an Azure VMware Solution private cloud.
+The following diagram illustrates the architecture of WSFC virtual nodes on an Azure VMware Solution private cloud. It shows where Azure VMware Solution resides, including the WSFC virtual servers (red box), in relation to the broader Azure platform. This diagram illustrates a typical hub-spoke architecture, but a similar setup is possible with the use of Azure Virtual WAN. Both offer all the value other Azure services can bring you.
 
 ![Diagram showing the architecture of WSFC virtual nodes on an Azure VMware Solution private cloud.](media/windows-server-failover-cluster/windows-server-failover-architecture.png)
 
@@ -140,7 +140,7 @@ It's important to keep the following specific items from the Cluster Validation 
 
 2. **Validate Network Communication**. The Cluster Validation test will throw a warning that only one network interface per cluster node is available. You may ignore this warning. Azure VMware Solution provides the required availability and performance needed, since the nodes are connected to one of the NSX-T segments. However, keep this item as part of the Cluster Validation test, as it will validate other aspects of network communication.
 
-3. Create a DRS anti-affinity rule to separate the WSFC Virtual Machines cross Azure VMware Solution nodes.
+3. Create a DRS rule to separate the WSFC VMs cross Azure VMware Solution nodes. Use the following rules: one host-to-VM affinity and one VM-to-VM anti-affinity rule. This way cluster nodes will not run on the same Azure VMware Solution host.
 
 >[!NOTE]
 > For this you need to create a Support Request ticket. Our Azure support organization will be able to help you with this.
@@ -151,6 +151,7 @@ It's important to keep the following specific items from the Cluster Validation 
 - [Guidelines for Microsoft Clustering on vSphere (1037959) (vmware.com)](https://kb.vmware.com/s/article/1037959)
 - [About Setup for Failover Clustering and Microsoft Cluster Service (vmware.com)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.mscs.doc/GUID-1A2476C0-CA66-4B80-B6F9-8421B6983808.html)
 - [vSAN 6.7 U3 - WSFC with Shared Disks &amp; SCSI-3 Persistent Reservations (vmware.com)](https://blogs.vmware.com/virtualblocks/2019/08/23/vsan67-u3-wsfc-shared-disksupport/)
+- [Azure VMware Solution limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-vmware-solution-limits)
 
 ## Next steps
 
