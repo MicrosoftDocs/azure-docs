@@ -17,7 +17,7 @@ ms.date: 09/07/2020
 ms.author: mlottner
 ---
 
-# Security Module for Azure RTOS security alerts and recommendations (preview)
+# Security Module for Azure RTOS security alerts and recommendations 
 
 Security Module for Azure RTOS continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to potential malicious activity and suspicious system modifications. You can also create custom alerts based on your knowledge of expected device behavior and baselines.
 

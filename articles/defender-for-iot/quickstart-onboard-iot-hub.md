@@ -76,4 +76,4 @@ The **Secure your IoT solution** button will only appear if the IoT Hub has not 
 Advance to the next article to configure your solution...
 
 > [!div class="nextstepaction"]
-> [Create a Defender Iot micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md)
+> [Create a Defender Iot micro agent module twin ](quickstart-create-micro-agent-module-twin.md)
