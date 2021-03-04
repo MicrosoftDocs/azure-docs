@@ -71,7 +71,7 @@ The PowerShell script includes support for several configurations.
 
 2. Start PowerShell with elevated user rights and navigate to the folder that contains the script.
 
-3. Run one of the the following commands to create a Run As and/or Classic Run As account based on your requirements.
+3. Run one of the following commands to create a Run As and/or Classic Run As account based on your requirements.
 
     * Create a Run As account using a self-signed certificate.
 
