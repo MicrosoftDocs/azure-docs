@@ -1,12 +1,12 @@
 ---
-title: Incrementally copy data by
+title: Incrementally copy data from a source data store to a destination data store
 description: These tutorials show you how to incrementally copy data from a source data store to a destination data store. The first one copies data from one table.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/22/2018
+ms.date: 02/18/2021
 ---
 
 # Incrementally load data from a source data store to a destination data store

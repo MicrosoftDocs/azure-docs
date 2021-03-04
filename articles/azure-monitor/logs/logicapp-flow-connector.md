@@ -2,7 +2,6 @@
 title: Use Azure Monitor Logs with Azure Logic Apps and Power Automate
 description: Learn how you can use Azure Logic Apps and Power Automate to quickly automate repeatable processes by using the Azure Monitor connector.
 ms.service:  azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -121,6 +120,6 @@ When the logic app completes, check the mail of the recipient that you specified
 
 ## Next steps
 
-- Learn more about [log queries in Azure Monitor](../log-query/log-query-overview.md).
+- Learn more about [log queries in Azure Monitor](./log-query-overview.md).
 - Learn more about [Logic Apps](../../logic-apps/index.yml)
 - Learn more about [Power Automate](https://flow.microsoft.com).

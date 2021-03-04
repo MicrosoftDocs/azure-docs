@@ -518,6 +518,8 @@ groups:
     title: C#
   - id: programming-language-go
     title: Go
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
   - id: programming-language-rest-api
@@ -995,6 +997,14 @@ groups:
     title: Azure Arc
   - id: azure-portal
     title: Security Center's portal pages
+- id: manage-asc-initiatives
+  title: Manage Security Center initiatives
+  prompt: How will you manage your Security Center initiatives?
+  pivots:
+  - id: azure-portal
+    title: In the Azure portal
+  - id: rest-api
+    title: With the REST APIs
 # Owner: mikeray
 - id: client-operating-system-macos-and-linux-windows-powershell
   title: Operating system / Console
@@ -1049,6 +1059,17 @@ groups:
     title: Python
   - id: rest-api
     title: REST
+# Owner: diberry
+- id: app-service-webjob
+  title: WebJob types
+  prompt: Choose a type of WebJob
+  pivots:
+  - id: webjob-type-continuous
+    title: Continuous
+  - id: webjob-type-scheduled
+    title: Scheduled
+  - id: webjob-type-manual
+    title: Manual
 # Owner: mbullwin
 - id: qnamaker-quickstart
   title: Programming languages
@@ -1068,3 +1089,12 @@ groups:
     title: Ruby
   - id: rest
     title: Rest
+- id: azure-maps-android
+# Owner: richbrun
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-kotlin
+    title: Kotlin (Android)
