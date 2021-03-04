@@ -375,8 +375,6 @@ Create a virtual machine in the spoke virtual network, running IIS, with no publ
 5. Accept the defaults and select **Next: Networking**.
 6. Select **VNet-Spoke** for the virtual network and the subnet is **SN-Workload**.
 8. For **Public inbound ports**, select **Allow selected ports**, and then select **HTTP (80)**, and **RDP (3389)**
-1. Select **Next : Disks**.
-1. Select **Next : Networking**.
 1. Select **Next:Management**.
 1. For **Boot diagnostics**, Select **Disable**.
 1. Select **Review + Create**, review the settings on the summary page, and then select **Create**.
