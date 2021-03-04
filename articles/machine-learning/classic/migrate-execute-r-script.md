@@ -108,7 +108,7 @@ In this article, you learned how to migrate Execute R Script modules to Azure Ma
 See the other articles in the Studio (classic) migration series:
 
 1. [Migration overview](migrate-overview.md).
-1. [Migrate dataset](migrate-register-datasets.md).
+1. [Migrate dataset](migrate-register-dataset.md).
 1. [Rebuild a Studio (classic) training pipeline](migrate-rebuild-experiment.md).
 1. [Rebuild a Studio (classic) web service](migrate-rebuild-web-service.md).
 1. [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).

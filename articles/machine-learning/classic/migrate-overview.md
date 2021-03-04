@@ -52,7 +52,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 ## Step 3: Rebuild experiments and web services
 
-1. [Migrate datasets to Azure Machine Learning](mirate-register-datasets.md).
+1. [Migrate datasets to Azure Machine Learning](migrate-register-dataset.md).
 1. Use the designer to [rebuild experiments](migrate-rebuild-experiment.md).
 1. Use the designer to [redeploy web services](migrate-rebuild-web-service.md).
 
@@ -155,7 +155,7 @@ In this article, you learned the high-level requirements for migrating to Azure 
 1. [Rebuild a Studio (classic) training pipeline](migrate-rebuild-experiment.md).
 1. [Rebuild a Studio (classic) web service](migrate-rebuild-web-service.md).
 1. [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).
-1. [Migration reference](migrate-execute-r-script.md).
+1. [Migrate Execute R Script](migrate-execute-r-script.md).
 
 
 

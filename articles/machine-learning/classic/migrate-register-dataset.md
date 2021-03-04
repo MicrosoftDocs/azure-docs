@@ -1,6 +1,6 @@
 ---
-title: 'ML Studio (classic): Migrate to Azure Machine Learning - Rebuild experiment'
-description: Rebuild Studio (classic) experiments in Azure Machine Learning designer
+title: 'ML Studio (classic): Migrate to Azure Machine Learning - Rebuild dataset'
+description: Rebuild Studio (classic) datasets in Azure Machine Learning designer
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -149,4 +149,4 @@ See the other articles in the Studio (classic) migration series:
 1. [Rebuild a Studio (classic) training pipeline](migrate-rebuild-experiment.md).
 1. [Rebuild a Studio (classic) web service](migrate-rebuild-web-service.md).
 1. [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).
-1. [Migration reference](migrate-execute-r-script.md).
+1. [Migrate Execute R Script](migrate-execute-r-script.md).

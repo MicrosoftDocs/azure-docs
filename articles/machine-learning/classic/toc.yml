@@ -149,9 +149,9 @@
     - name: Migrate/rebuild experiments
       href: migrate-rebuild-experiment.md
     - name: Migrate/rebuild web services
-      href: migrate-rebuild-web-services.md
-    - name: Migration reference
-      href: migrate-reference.md      
+      href: migrate-rebuild-web-service.md
+    - name: Migrate Execute R Script
+      href: migrate-execute-r-script.md      
 - name: Reference
   items:
   - name: Algorithm & module reference
