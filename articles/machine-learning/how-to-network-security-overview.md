@@ -171,9 +171,9 @@ For more information on the required domain names and IP addresses, see [how to 
 
 ## Next steps
 
-This article is part one of a four-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+This article is part one of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
 
 * [Part 2: Virtual network overview](how-to-secure-workspace-vnet.md)
 * [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
 * [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
-* [Part 5:Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Part 5: Enable studio functionality](how-to-enable-studio-virtual-network.md)
