@@ -166,7 +166,7 @@ If you want to analyze Azure Security Center data inside a Log Analytics workspa
 
 ### Log Analytics tables and schemas
 
-Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. 
+Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendation* tables respectively. 
 
 The name of the Log Analytics solution containing these tables depends on whether you have Azure Defender enabled: Security ('Security and Audit') or SecurityCenterFree. 
 

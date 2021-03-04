@@ -270,7 +270,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-containerhost"></a>Alerts for containers - host level
 
-Azure Defender alerts for cluster hosts aren't limited to the alerts below. Many of the alerts listed in the [alerts for Azure network layer](#alerts-azurenetlayer), [alerts for Windows machines](#alerts-windows), and [alerts for Linux machines](#alerts-linux) tables may also may be triggered on your container hosts. Microsoft's global threat intelligence team continuously measures and tunes many types of alerts against Kubernetes clusters to optimize detection and reduce false positives.
+Azure Defender alerts for container hosts aren't limited to the alerts below. Many of the alerts listed in the [alerts for Azure network layer](#alerts-azurenetlayer), [alerts for Windows machines](#alerts-windows), and [alerts for Linux machines](#alerts-linux) tables may also may be triggered on your container hosts. Microsoft's global threat intelligence team continuously measures and tunes many types of alerts against Kubernetes clusters to optimize detection and reduce false positives.
 
 
 [Further details and notes](defender-for-kubernetes-introduction.md)
