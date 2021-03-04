@@ -7,42 +7,43 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 02/16/2021
+ms.date: 03/04/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using verifiable credentials in my own Azure AD
 
 ---
 
-# Tutorial - Hook up your IDP to a new Verifiable Credential, create node app to talk with Azure Key Vault
+# Tutorial - Configure your identity provider (IDP) to use a new Verifiable Credential (INSTANCE?)
 
-Now that you have your Azure tenant set up with the Verifiable Credential service, we will walk you through changing the configuration in your local sample code to your own Verifiable Credential service we set up in the previous section. 
+Now that you have your Azure tenant set up with the Verifiable Credential service, we will walk through the steps needed to get the sample code in your local system to use your Verifiable Credential service set up in the previous section.
 
 In this article you learn how to:
 
-- Connect your identity provider
-- Create the Ninja Credential Rules and Display File
-- Upload Rules and Display files
-- Set up Issuer service to Azure Key Vault
-- Update Sample Code with your tenant.
+> [!div class="checklist"]
+> * Connect your identity provider
+> * Create the Ninja Credential Rules and Display File
+> * Upload Rules and Display files
+> * Set up Issuer service to Azure Key Vault
+> * Update Sample Code with your tenant.
 
 ## Connect your IDP 
 
-In the sample, in order to get issued the Ninja Verifiable Credential the user needed to log into their IDP. All Verifiable Credentials are not required to have an IDP login, we will cover creating other types of requirements for Verifiable Credentials in the How To section.
+The sample code we have been using in the tutorials requires that we authenticate to an IDP before Ninja Verifiable Credential can be issued. All Verifiable Credentials are not required to have an IDP login. 
 
-The Authenticating of an ID Token allows users to prove who they are before receiving their credential. When a user successfully logs in, your identity provider will returns a security token that contains claims about the user. The issuer service then transforms these security tokens and their claims into Verifiable Credentials.
+Authenticating ID Tokens allows users to prove who they are before receiving their credential. When users successfully log in, the identity provider returns a security token containing claims about the user. The issuer service then transforms these security tokens and their claims into Verifiable Credentials.
 
-Any identity provider that supports the OpenID Connect protocol is supported. Examples of supported identity providers include Azure Active Directory, and Azure AD B2C. This article contains the details of the OpenID Connect protocol used during the credential issuing process.
+Any identity provider that supports the OpenID Connect protocol is supported. Examples of supported identity providers include [Azure Active Directory](../fundamentals/active-directory-whatis.md), and [Azure AD B2C](../../active-directory-b2c/overview.md). This article contains the details of the OpenID Connect protocol used during the credential issuing process.
 
 ![credential issuance process](/media/tutorial-sample-app-your-idp/slqftc9.png)
 
-To issue the Ninja Verifiable Credential, you need to provide the issuer service with the configuration details of your OpenID compliant identity provider. 
+To issue the Ninja Verifiable Credential, you need to provide the issuer service with the configuration details of your OpenID compliant identity provider.
 
 ### Register the Verifiable Credential Issuer service 
 
-To issue a Verifiable Credential, you need to provide the issuer service with the [configuration](https://didproject.azurewebsites.net/docs/issuer-openid.html) details of your OpenID compliant identity provider.
+To issue a Verifiable Credential, you need to provide the issuer service with the [configuration](issuer-openid.md) details of your OpenID compliant identity provider.
 
-Register the Verifiable Credential issuer service as an application in your identity provider and obtain a client ID. Instructions are available for registering an application with [Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) or [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications). When registering, use the values below.
+Register the Verifiable Credential issuer service as an application in your identity provider and obtain a client ID. Instructions are available for registering an application with [Azure AD](../develop/quickstart-register-app.md) or [Azure AD B2C](../../active-directory-b2c/tutorial-register-applications.md). When registering, use the values below.
 
 - Name: "Tenant VC Issuer"
 - Supported account types: Accounts in this organizational directory only
