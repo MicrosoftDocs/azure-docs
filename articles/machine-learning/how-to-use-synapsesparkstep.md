@@ -226,7 +226,7 @@ The code above creates the new compute resource if necessary. Then, the `step1_o
 
 Once you've defined all of your steps, you can create and run your pipeline. 
 
-```
+```python
 from azureml.pipeline.core import Pipeline
 
 pipeline = Pipeline(workspace=ws, steps=[step_1, step_2])
