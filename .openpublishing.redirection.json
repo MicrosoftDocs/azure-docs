@@ -1,5 +1,15 @@
 {
   "redirections": [
+    {
+      "source_path": "articles/azure-percept/advanced-development-cloud.md",
+      "redirect_url": "/azure/azure-percept/overview-advanced-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-percept/advanced-development-local.md",
+      "redirect_url": "/azure/azure-percept/overview-advanced-code",
+      "redirect_document_id": false
+    },
   {
       "source_path": "articles/cosmos-db/create-mongodb-flask.md",
       "redirect_url": "/azure/cosmos-db/mongodb-introduction",
@@ -921,6 +931,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/connect-with-saml-service-providers.md",
+      "redirect_url": "/azure/active-directory-b2c/saml-service-provider",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/conditional-access-technical-profile.md",
       "redirect_url": "/azure/active-directory-b2c/conditional-access-user-flow",
       "redirect_document_id": true
@@ -934,11 +949,6 @@
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-custom-setup-goog-idp.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-google-custom",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-custom-setup-li-idp.md",
-      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
@@ -5312,6 +5322,11 @@
     {
       "source_path_from_root": "/articles/partner-solutions/index.md",
       "redirect_url": "/azure/partner-solutions/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-solutions/apache-kafka-confluent-cloud/index.md",
+      "redirect_url": "/azure/partner-solutions/apache-kafka-confluent-cloud/overview",
       "redirect_document_id": false
     },
     {
@@ -14465,6 +14480,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/restorable-database-accounts-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-database-accounts-list-by-location.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/listbylocation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-sql-resources-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlresources/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-sql-databases-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqldatabases/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-sql-containers-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlcontainers/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-resources-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbresources/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-collections-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbcollections/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-databases-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbdatabases/list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/create-documentdb-nodejs.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-nodejs",
       "redirect_document_id": true
@@ -23371,8 +23426,8 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/healthcare/howto-health-data-triage.md",
-      "redirect_url": "/azure/iot-central/healthcare/tutorial-health-data-triage",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-central/healthcare/tutorial-health-data-triage/",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/core/index.yml",
@@ -32572,6 +32627,26 @@
     {
       "source_path_from_root": "/articles/security-center/security-center-app-services.md",
       "redirect_url": "/azure/security-center/defender-for-app-service-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-monitoring.md",
+      "redirect_url": "/azure/security-center/security-center-remediate-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-using-recommendations.md",
+      "redirect_url": "/azure/security-center/security-center-remediate-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/configure-security-policy-azure-policy.md",
+      "redirect_url": "/azure/security-center/custom-security-policies?pivot=rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-alerts-cloud-smart.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-overview.md#cloud-smart-alert-correlation-in-azure-security-center-incidents",
       "redirect_document_id": false
     },
     {
@@ -64233,6 +64308,11 @@
       "source_path": "articles/azure-monitor/app/usage-send-user-context.md",
       "redirect_url": "/azure/azure-monitor/app/usage-overview",
       "redirect_document_id": false
-  }
+    },
+    {
+      "source_path": "articles/virtual-network/quickstart-create-nat-gateway-portal.md",
+      "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-portal",
+      "redirect_document_id": false
+    }
   ]
 }

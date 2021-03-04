@@ -248,7 +248,7 @@ Upon a sign-out request, Azure AD B2C:
 3. Attempts to sign out from federated identity providers:
    - OpenId Connect - If the identity provider well-known configuration endpoint specifies an `end_session_endpoint` location.
    - OAuth2 - If the [identity provider metadata](oauth2-technical-profile.md#metadata) contains the `end_session_endpoint` location.
-   - SAML - If the [identity provider metadata](saml-identity-provider-technical-profile.md#metadata) contains the `SingleLogoutService` location.
+   - SAML - If the [identity provider metadata](identity-provider-generic-saml.md) contains the `SingleLogoutService` location.
 4. Optionally, signs-out from other applications. For more information, see the [Single sign-out](#single-sign-out) section.
 
 > [!NOTE]
