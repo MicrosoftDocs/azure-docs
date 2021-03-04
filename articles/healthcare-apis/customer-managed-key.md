@@ -21,7 +21,7 @@ In Azure, this is typically accomplished using an encryption key in the customer
 - [Add an access policy to your Azure Key Vault instance](../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance)
 - [Generate a key in Azure Key Vault](../cosmos-db/how-to-setup-cmk.md#generate-a-key-in-azure-key-vault)
 
-## Using Azure Portal
+## Using Azure portal
 
 When creating your Azure API for FHIR account on Azure portal, you can see a "Data Encryption" configuration option under the "Database Settings" on the "Additional Settings" tab. By default, the service-managed key option will be chosen. 
 
@@ -132,7 +132,7 @@ New-AzResourceGroupDeployment `
 
 ## Next steps
 
-In this article, you learned how to configure customer-managed keys at rest using Azure Portal, PowerShell, CLI, and Resource Manager Template. You can check out the Azure Cosmos DB FAQ section for additional questions you might have: 
+In this article, you learned how to configure customer-managed keys at rest using Azure portal, PowerShell, CLI, and Resource Manager Template. You can check out the Azure Cosmos DB FAQ section for additional questions you might have: 
  
 >[!div class="nextstepaction"]
 >[Cosmos DB: how to setup CMK](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#frequently-asked-questions)
