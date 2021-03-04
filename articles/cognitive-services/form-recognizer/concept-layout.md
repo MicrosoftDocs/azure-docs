@@ -46,6 +46,16 @@ The [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.com/docs/serv
 |:-----|:----|
 |Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
 
+### Natural reading order output (Latin only)
+Specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
+
+:::image border type="content" source="./Images/layout-reading-order-example.png" alt-text="Layout Reading order example":::
+
+### Select page(s) or page ranges for text extraction
+For large multi-page documents, use the `pages` query parameter to specify page numbers or page ranges to extract text from only those pages. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
+
+:::image border type="content" source="./Images/layout-select-pages.png" alt-text="Layout selected pages output":::
+
 ## The Get Analyze Layout Result operation
 
 The second step is to call the [Get Analyze Layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeLayoutResult) operation. This operation takes as input the Result ID that was created by the Analyze Layout operation. It returns a JSON response that contains a **status** field with the following possible values. 
@@ -57,6 +67,11 @@ The second step is to call the [Get Analyze Layout Result](https://westcentralus
 You call this operation iteratively until it returns with the `succeeded` value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
 
 When the **status** field has the `succeeded` value, the JSON response will include the layout extraction results, text, tables, and selection marks extracted. The extracted data contains the extracted text lines and words, bounding box, text appearance handwritten indication, tables, and selection marks with an indication of selected/unselected. 
+
+### Handwritten classification for text lines (Latin only)
+The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows the handwritten classification for the text in the image.
+
+:::image border type="content" source="./Images/layout-handwriting-classification.png" alt-text="handwriting classification example":::
 
 ### Sample JSON output
 
