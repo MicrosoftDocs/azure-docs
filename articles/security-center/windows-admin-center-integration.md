@@ -16,7 +16,7 @@ Windows Admin Center is a management tool for your Windows servers. It's a singl
 
 > [!NOTE]
 > Your Azure subscription and the associated Log Analytics workspace both need to have Azure Defender enabled in order to enable the Windows Admin Center integration.
-> Azure Defender is free for the first 30 days if you haven't previously used it on the subscription and workspace. For more information​, see [the pricing information page](security-center-pricing.md).
+> Azure Defender is free for the first 30 days if you haven't previously used it on the subscription and workspace. For pricing details in your currency of choice and according to your region, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 >
 
 When you've successfully onboarded a server from Windows Admin Center to Azure Security Center, you can:

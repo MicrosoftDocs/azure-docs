@@ -15,7 +15,7 @@ This article describes how to configure your voice assistant application using I
 
 ## Update your voice assistant configuration
 
-1. Open the [Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home) and type **IoT Hub** into the search bar. Click on the icon to open the IoT Hub page.
+1. Open the [Azure portal](https://portal.azure.com) and type **IoT Hub** into the search bar. Click on the icon to open the IoT Hub page.
 
 1. On the IoT Hub page, select the IoT Hub to which your device was provisioned.
 
@@ -39,26 +39,13 @@ This article describes how to configure your voice assistant application using I
 
 1. Click on the **Module Settings** tab. Verify the following configuration:
 
-    |Image URI|Restart Policy|Desired Status|
-    |---------|--------------|--------------|
-    |azureedgedevices.azurecr.io/azureearspeechclientmodule:preload-devkit |always|running|
+    Image URI|Restart Policy|Desired Status
+    ---------|--------------|--------------
+    mcr.microsoft.com/azureedgedevices/azureearspeechclientmodule:preload-devkit|always|running
 
     If your settings do not match, edit them and click **Update**.
 
 1. Click on the **Environment Variables** tab. Verify that there are no environment variables defined.
-
-1. Click on the **Container Create Options** tab. Verify your **HostConfig** settings match those shown below. If not they do not match, update your settings.
-
-    ```
-    {
-        "HostConfig": {
-            "Privileged": true,
-            "Binds": [
-                "/dev:/dev"
-            ]
-        }
-    }
-    ```
 
 1. Click on the **Module Twin Settings** tab. Update the **speechConfigs** section as follows:
 
@@ -67,7 +54,7 @@ This article describes how to configure your voice assistant application using I
         "appId": "<Application id for custom command project>",
         "key": "<Speech Resource key for custom command project>",
         "region": "<Region for the speech service>",
-        "keywordModelUrl": "https://aedspeechscenarios.blob.core.windows.net/keyword-tables/computer.table",
+        "keywordModelUrl": "https://aedsamples.blob.core.windows.net/speech/keyword-tables/computer.table",
         "keyword": "computer"
     }
     ```
@@ -108,6 +95,8 @@ To locate your **appID**, **key**, and **region**, go to [Speech Studio](https:/
 
 1. Click **Create**.
 
+
 ## Next steps
 
 After updating your voice assistant configuration, return to the demo in Azure Percept Studio to interact with the application.
+

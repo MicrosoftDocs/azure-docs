@@ -85,7 +85,13 @@ Navigate to the new folder and create a file called *ComputerVisionQuickstarts.j
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java), which contains the code examples in this quickstart.
 
-In the application's **ComputerVisionQuickstarts** class, create variables for your resource's key and endpoint.
+Define the class **ComputerVisionQuickstarts**.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_classdef_1)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_classdef_2)]
+
+Within the **ComputerVisionQuickstarts** class, create variables for your resource's key and endpoint.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_creds)]
 
@@ -149,7 +155,7 @@ Next, specify which visual features you'd like to extract in your analysis. See 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
 
 ### Analyze
-This method prints detailed results to the console for each scope of image analysis. We recommend you surround this method call in a Try/Catch block. The **analyzeImageInStream** method returns an **ImageAnalysis** object that contains all of extracted information.
+This block prints detailed results to the console for each scope of image analysis. The **analyzeImageInStream** method returns an **ImageAnalysis** object that contains all of extracted information.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
 
@@ -178,6 +184,21 @@ The following code gets the set of detected tags in the image. For more informat
 The following code returns the detected faces in the image with their rectangle coordinates and selects face attributes. For more information, see [Face detection](../../concept-detecting-faces.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
+
+### Detect objects
+
+The following code returns the detected objects in the image with their coordinates. For more information, see [Object detection](../../concept-object-detection.md).
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_objects)]
+
+
+### Detect brands
+
+The following code returns the detected brand logos in the image with their coordinates. For more information, see [Brand detection](../../concept-brand-detection.md).
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_brands)]
+
+
 
 ### Detect adult, racy, or gory content
 
@@ -211,6 +232,13 @@ The following code prints information about the type of image&mdash;whether it i
 
 > [!div class="nextstepaction"]
 > [I analyzed an image](?success=analyze-image#read-printed-and-handwritten-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=analyze-image)
+
+### Close out the method
+
+Complete the try/catch block and close the method.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyze_catch)]
+
 
 ## Read printed and handwritten text
 
