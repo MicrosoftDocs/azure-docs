@@ -1,4 +1,4 @@
-## Add managed identity to your Communication Services solution (.Net)
+## Add managed identity to your Communication Services solution (.NET)
 
 ### Install the client library packages
 

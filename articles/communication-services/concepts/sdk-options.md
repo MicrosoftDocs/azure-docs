@@ -82,7 +82,7 @@ The following timeouts apply to the Communication Services calling client librar
 | Action           | Timeout in seconds |
 | -------------- | ---------- |
 | Reconnect/removal participant | 120 |
-| Add or remove new modality from a call (Start/stop video or screensharing) | 40 |
+| Add or remove new modality from a call (Start/stop video or screen sharing) | 40 |
 | Call Transfer operation timeout | 60 |
 | 1:1 call establishment timeout | 85 |
 | Group call establishment timeout | 85 |
