@@ -61,7 +61,7 @@ As you think about governing external access to your content, determine the foll
 
 * What defaults should be in place for HBI data, sites, or Microsoft 365 Groups?
 
-* Where will you use sensitivity labels to [label and monitor](/microsoft-365/compliance/label-analytics?view=o365-worldwide), versus to [enforce encryption](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) or to [enforce container access restrictions](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)?
+* Where will you use sensitivity labels to [label and monitor](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide), versus to [enforce encryption](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) or to [enforce container access restrictions](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)?
 
 **For email and content**
 

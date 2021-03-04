@@ -106,6 +106,8 @@ This procedure creates the Azure resources needed to manage the knowledge base c
       * Select the IPs of "CognitiveServicesManagement".
       * Navigate to the networking section of your App Service resource, and click on "Configure Access Restriction" option to add the IPs to an allowlist.
 
+    ![inbound port exceptions](../media/inbound-ports.png)    
+
     We also have an automated script to do the same for your App Service. You can find the [PowerShell script to configure an allowlist](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) on GitHub. You need to input subscription id, resource group and actual App    Service name as script parameters. Running the script will automatically add the IPs to App Service allowlist.
 
     ##### Configure App Service Environment to host QnA Maker App Service

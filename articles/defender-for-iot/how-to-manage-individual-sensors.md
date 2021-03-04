@@ -4,7 +4,7 @@ description: Learn how to manage individual sensors, including managing activati
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/12/2021
+ms.date: 02/02/2021
 ms.topic: how-to
 ms.service: azure
 ---
@@ -81,7 +81,7 @@ You'll receive an error message if the activation file could not be uploaded. Th
 
 - **For cloud-connected sensors**: The sensor can't connect to the internet. Check the sensor's network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly on the **Sensor Network Configuration** screen. Verify that \*.azure-devices.net:443 is allowed in the firewall and/or proxy. If wildcards are not supported or you want more control, the FQDN for your specific Defender for IoT hub should be opened in your firewall and/or proxy. For details, see [Reference - IoT Hub endpoints](../iot-hub/iot-hub-devguide-endpoints.md).  
 
-- **For cloud-connected sensors**: The activation file is valid but Defender for IoT rejected it. If you can't resolve this problem, you can download another activation from the **Sensor Management** page of the Defender for IoT portal. If this doesn't work, contact Microsoft Support.
+- **For cloud-connected sensors**: The activation file is valid but Defender for IoT rejected it. If you can't resolve this problem, you can download another activation from the Sites and  Sensors page of the Defender for IoT portal. If this doesn't work, contact Microsoft Support.
 
 ## Manage certificates
 
@@ -109,7 +109,7 @@ The Defender for IoT sensor, and on-premises management console use SSL, and TLS
  
  - Secure communications between the sensors and an on-premises management console. 
 
-Once installed, the appliance generates a local self-signed certificate to allow preliminary access to the web console. Enterprise SSL, and TLS certificates may be installed using the [`cyberx-xsense-certificate-import`](#cli-commands) command line tool. 
+Once installed, the appliance generates a local self-signed certificate to allow preliminary access to the web console. Enterprise SSL, and TLS certificates may be installed using the [`cyberx-xsense-certificate-import`](#cli-commands) command line tool.
 
  > [!NOTE]
  > For integrations and forwarding rules where the appliance is the client and initiator of the session, specific certificates are used and are not related to the system certificates.  
@@ -358,15 +358,23 @@ If your sensor was registered as a cloud-connected sensor, the sensor name is de
 
 To change the name:
 
-1. In the Azure Defender for IoT portal, go to the **Sensor Management** page.
+1. In the Azure Defender for IoT portal, go to the Sites and Sensors page.
 
-1. Delete the sensor from the **Sensor Management** window.
+1. Delete the sensor from the Sites and Sensors page.
 
-1. Re-register with the new name.
+1. Register with the new name by selecting **Onboard sensor** from the Getting Started page.
 
 1. Download the new activation file.
 
-1. Sign in to the sensor and upload the new activation file.
+1. Sign in to the Defender for IoT sensor console.
+
+1. In the sensor console, select **System Settings** and then select **Reactivation**.
+
+   :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/reactivate.png" alt-text="Upload your activation file to reactivate the sensor.":::
+
+1. Select **Upload** and select the file you saved.
+
+1. Select **Activate**.
 
 ## Update the sensor network configuration
 
@@ -382,7 +390,7 @@ To change the configuration:
 
     :::image type="content" source="media/how-to-manage-individual-sensors/edit-network-configuration-screen.png" alt-text="Configure your network settings.":::
 
-3. Set the parameters as follows:
+3. Set the parameters:
 
     | Parameter | Description |
     |--|--|
@@ -453,7 +461,7 @@ To save the backup to an external SMB server:
 
     - `sudo chmod 777 /<backup_folder_name_on_cyberx_server>/`
 
-3. Edit `fstab`: 
+3. Edit `fstab`:
 
     - `sudo nano /etc/fstab`
 
@@ -521,7 +529,7 @@ The following procedure describes how to update a standalone sensor by using the
 
     :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after you sign in.":::
 
-## Forward sensor failure alerts 
+## Forward sensor failure alerts
 
 You can forward alerts to third parties to provide details about:
 

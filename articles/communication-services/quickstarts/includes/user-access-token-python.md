@@ -32,7 +32,7 @@ ms.author: tchladek
 
    ```python
    import os
-   from azure.communication.administration import CommunicationIdentityClient
+   from azure.communication.identity import CommunicationIdentityClient
 
    try:
       print('Azure Communication Services - Access Tokens Quickstart')
@@ -44,10 +44,10 @@ ms.author: tchladek
 
 ### Install the package
 
-While still in the application directory, install the Azure Communication Services Administration client library for Python package by using the `pip install` command.
+While still in the application directory, install the Azure Communication Services Identity client library for Python package by using the `pip install` command.
 
 ```console
-pip install azure-communication-administration
+pip install azure-communication-identity
 ```
 
 ## Authenticate the client
@@ -71,7 +71,7 @@ Azure Communication Services maintains a lightweight identity directory. Use the
 
 ```python
 identity = client.create_user()
-print("\nCreated an identity with ID: " + identity.identifier + ":")
+print("\nCreated an identity with ID: " + identity.identifier)
 ```
 
 ## Issue access tokens
@@ -87,6 +87,21 @@ print(token_result.token)
 ```
 
 Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expires_on` response property indicates the lifetime of the access token.
+
+## Create an identity and issue an access token within the same request
+
+Use the `create_user_with_token` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
+
+```python
+# Issue an identity and an access token with the "voip" scope for the new identity
+identity_token_result = client.create_user_with_token(["voip"])
+identity = identity_token_result[0].identifier
+token = identity_token_result[1].token
+expires_on = identity_token_result[1].expires_on.strftime('%d/%m/%y %I:%M %S %p')
+print("\nCreated an identity with ID: " + identity)
+print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
+print(token)
+```
 
 ## Refresh access tokens
 
@@ -118,8 +133,8 @@ print("\nDeleted the identity with ID: " + identity.identifier)
 
 ## Run the code
 
-From a console prompt, navigate to the directory containing the *issue-access-token.py* file, then execute the following `python` command to run the app.
+From a console prompt, navigate to the directory containing the *issue-access-tokens.py* file, then execute the following `python` command to run the app.
 
 ```console
-python ./issue-access-token.py
+python ./issue-access-tokens.py
 ```
