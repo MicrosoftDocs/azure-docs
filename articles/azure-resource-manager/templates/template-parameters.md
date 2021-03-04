@@ -2,7 +2,7 @@
 title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template) and Bicep file.
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 03/03/2021
 ---
 
 # Parameters in ARM templates
@@ -211,6 +211,8 @@ param siteName string = 'site${uniqueString(resourceGroup().id)}'
 param hostingPlanName string = '${siteName}-plan'
 ```
 
+---
+
 ## Length constraints
 
 You can specify minimum and maximum lengths for string and array parameters. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
@@ -295,9 +297,7 @@ You can add a description to a parameter to help users of your template understa
 # [Bicep](#tab/bicep)
 
 ```bicep
-@metadata({
-    description: 'Must be at least Standard_A3 to support 2 NICs.'
-})
+@description('Must be at least Standard_A3 to support 2 NICs.')
 param virtualMachineSize string = 'Standard_DS1_v2'
 ```
 

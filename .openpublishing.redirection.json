@@ -1,5 +1,15 @@
 {
   "redirections": [
+    {
+      "source_path": "articles/azure-percept/advanced-development-cloud.md",
+      "redirect_url": "/azure/azure-percept/overview-advanced-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-percept/advanced-development-local.md",
+      "redirect_url": "/azure/azure-percept/overview-advanced-code",
+      "redirect_document_id": false
+    },
   {
       "source_path": "articles/cosmos-db/create-mongodb-flask.md",
       "redirect_url": "/azure/cosmos-db/mongodb-introduction",
@@ -17,7 +27,7 @@
     },
     {
       "source_path": "articles/azure-arc/kubernetes/use-gitops-connected-cluster.md",
-      "redirect_url": "/azure/azure-arc/kubernetes/tutorial-use-gitops-connect-cluster",
+      "redirect_url": "/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster",
       "redirect_document_id": false
     },
     {
@@ -916,6 +926,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/conditional-access-identity-protection-setup.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-protection-investigate-risk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/conditional-access-technical-profile.md",
+      "redirect_url": "/azure/active-directory-b2c/conditional-access-user-flow",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/identity-provider-google-custom.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-google",
       "redirect_document_id": false
@@ -923,11 +943,6 @@
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-custom-setup-goog-idp.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-google-custom",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-custom-setup-li-idp.md",
-      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
       "redirect_document_id": true
     },
     {
@@ -3967,11 +3982,6 @@
     {
       "source_path_from_root": "/articles/azure-relay/service-bus-relay-security-controls.md",
       "redirect_url": "/azure/service-bus-messaging/security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-resource-manager/management/azure-resource-manager-security-controls.md",
-      "redirect_url": "/azure/azure-resource-manager/management/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -14460,6 +14470,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/restorable-database-accounts-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-database-accounts-list-by-location.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/listbylocation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-sql-resources-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlresources/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-sql-databases-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqldatabases/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-sql-containers-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlcontainers/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-resources-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbresources/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-collections-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbcollections/list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-databases-list.md",
+      "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbdatabases/list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/create-documentdb-nodejs.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-nodejs",
       "redirect_document_id": true
@@ -23367,7 +23417,7 @@
     {
       "source_path_from_root": "/articles/iot-central/healthcare/howto-health-data-triage.md",
       "redirect_url": "/azure/iot-central/healthcare/tutorial-health-data-triage/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/core/index.yml",
@@ -31382,11 +31432,6 @@
     {
       "source_path_from_root": "/articles/private-link/create-private-endpoint-webapp-portal.md",
       "redirect_url": "/azure/private-link/tutorial-private-endpoint-webapp-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/purview/register-scan-teradata-source.md",
-      "redirect_url": "/azure/purview/manage-data-sources",
       "redirect_document_id": false
     },
     {
@@ -40451,6 +40496,11 @@
     },
     {
       "source_path_from_root": "/articles/vmware-cloudsimple/enable-cloudsimple-service.md",
+      "redirect_url": "/azure/vmware-cloudsimple/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vmware-cloudsimple/migration-using-azure-data-box.md",
       "redirect_url": "/azure/vmware-cloudsimple/",
       "redirect_document_id": false
     },
@@ -63355,6 +63405,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-logs.md",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-logs",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/platform/powerbi.md",
       "redirect_url": "/azure/azure-monitor/visualize/powerbi",
       "redirect_document_id": false
@@ -64223,6 +64278,11 @@
       "source_path": "articles/azure-monitor/app/usage-send-user-context.md",
       "redirect_url": "/azure/azure-monitor/app/usage-overview",
       "redirect_document_id": false
-  }
+    },
+    {
+      "source_path": "articles/virtual-network/quickstart-create-nat-gateway-portal.md",
+      "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-portal",
+      "redirect_document_id": false
+    }
   ]
 }

@@ -1,15 +1,12 @@
 ---
- title: include file
- description: include file
- services: virtual-wan
- author: cherylmc
- ms.service: virtual-wan
- ms.topic: include
- ms.date: 02/23/2021
- ms.author: cherylmc
- ms.custom: include file
+author: cherylmc
+ms.author: cherylmc
+ms.date: 03/03/2021
+ms.service: virtual-wan
+ms.topic: include
+ms.date: 02/23/2021
 ---
- 
->[!NOTE]
-> Some features and settings are still rolling out in the Azure portal.
+
+> [!NOTE]
+> Some features and settings are in the process of rolling out to the Azure portal.
 >

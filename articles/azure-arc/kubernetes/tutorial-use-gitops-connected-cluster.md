@@ -21,8 +21,7 @@ In this tutorial, you will apply configurations using GitOps on an Azure Arc ena
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An existing Azure Arc enabled Kubernetes connected cluster.
     - If you haven't connected a cluster yet, walk through our [Connect an Azure Arc enabled Kubernetes cluster quickstart](quickstart-connect-cluster.md).
 - An understanding of the benefits and architecture of this feature. Read more in [Configurations and GitOps - Azure Arc enabled Kubernetes article](conceptual-configurations.md).
@@ -148,7 +147,7 @@ Customize the configuration with the following optional parameters:
 | ------------- | ------------- |
 | `--enable-helm-operator`| Switch to enable support for Helm chart deployments. |
 | `--helm-operator-params` | Chart values for Helm operator (if enabled). For example, `--set helm.versions=v3`. |
-| `--helm-operator-version` | Chart version for Helm operator (if enabled). Use version 1.2.0+. Default: '1.2.0'. |
+| `--helm-operator-chart-version` | Chart version for Helm operator (if enabled). Use version 1.2.0+. Default: '1.2.0'. |
 | `--operator-namespace` | Name for the operator namespace. Default: 'default'. Max: 23 characters. |
 | `--operator-params` | Parameters for operator. Must be given within single quotes. For example, ```--operator-params='--git-readonly --sync-garbage-collection --git-branch=main'``` 
 

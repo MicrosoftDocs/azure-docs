@@ -11,16 +11,16 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Azure Percept security overview
 
-Azure Percept DK devices are designed with a hardware root of trust—built-in security on every device. It helps protect privacy-sensitive sensors like cameras and microphones, inference data, and enables device authentication and authorization for Azure Percept Studio services.
+Azure Percept DK devices are designed with a hardware root of trust: additional built-in security on every device. It helps protect privacy-sensitive sensors like cameras and microphones, inference data, and enables device authentication and authorization for Azure Percept Studio services.
 
 > [!NOTE]
-> The Azure Percept DK is intended for use in development and test environments and for proof-of-concept scenarios.
+> The Azure Percept DK is licensed for use in development and test environments only.
 
 ## Devices
 
 ### Azure Percept DK
 
-Azure Percept DK includes a Trusted Platform Module (TPM) version 2.0 which can be utilized to connect the device securely to Azure Device Provisioning Services. TPM is an industry-wide, ISO standard from the Trusted Computing Group, and you can read more about TPM at the [complete TPM 2.0 spec](https://trustedcomputinggroup.org/resource/tpm-library-specification/) or the ISO/IEC 11889 spec. For more information on how DPS can provision devices in a secure manner see [Azure IoT Hub Device Provisioning Service - TPM Attestation](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation).
+Azure Percept DK includes a Trusted Platform Module (TPM) version 2.0 which can be utilized to connect the device to Azure Device Provisioning Services with additional security. TPM is an industry-wide, ISO standard from the Trusted Computing Group, and you can read more about TPM at the [complete TPM 2.0 spec](https://trustedcomputinggroup.org/resource/tpm-library-specification/) or the ISO/IEC 11889 spec. For more information on how DPS can provision devices in a secure manner see [Azure IoT Hub Device Provisioning Service - TPM Attestation](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation).
 
 ### Azure Percept system on module (SOM)
 
@@ -32,11 +32,11 @@ Azure Percept devices use the hardware root trust to secure firmware. The boot R
 
 ### IoT Edge
 
-Azure Percept DK connects securely to Azure Percept Studio and other Azure services utilizing Transport Layer Security (TLS) protocol. Azure Percept DK is an Azure IoT Edge enabled device. IoT Edge runtime is a collection of programs that turn a device into an IoT Edge device. Collectively, the IoT Edge runtime components enable IoT Edge devices to receive code to run at the edge and communicate the results. Azure Percept DK utilizes Docker containers for isolating IoT Edge workloads from the host operating system and edge enabled applications. For more information about the Azure IoT Edge security framework, read about the [IoT Edge security manager](https://docs.microsoft.com/azure/iot-edge/iot-edge-security-manager?view=iotedge-2018-06).
+Azure Percept DK connects to Azure Percept Studio with additional security and other Azure services utilizing Transport Layer Security (TLS) protocol. Azure Percept DK is an Azure IoT Edge enabled device. IoT Edge runtime is a collection of programs that turn a device into an IoT Edge device. Collectively, the IoT Edge runtime components enable IoT Edge devices to receive code to run at the edge and communicate the results. Azure Percept DK utilizes Docker containers for isolating IoT Edge workloads from the host operating system and edge enabled applications. For more information about the Azure IoT Edge security framework, read about the [IoT Edge security manager](https://docs.microsoft.com/azure/iot-edge/iot-edge-security-manager?view=iotedge-2018-06).
 
 ### Device Update for IoT Hub
 
-Device Update for IoT Hub enables secure, scalable, and reliable over-the-air updating that brings renewable security to Azure Percept devices. It provides rich management controls and update compliance through insights. Azure Percept DK includes a pre-integrated device update solution providing resilient update (A/B) from firmware to OS layers.
+Device Update for IoT Hub enables more secure, scalable, and reliable over-the-air updating that brings renewable security to Azure Percept devices. It provides rich management controls and update compliance through insights. Azure Percept DK includes a pre-integrated device update solution providing resilient update (A/B) from firmware to OS layers.
 
 <!---I think the below topics need to be somewhere else, (i.e. not on the main page)
 --->
@@ -52,8 +52,9 @@ This checklist is a starting point for firewall rules:
 |*.auth.azureperceptdk.azure.net|	443|	Azure DK SOM Authentication and Authorization|
 |*.auth.projectsantacruz.azure.net|	443|	Azure DK SOM Authentication and Authorization|
 
-Additionally, review the list of [connections used by Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/production-checklist?view=iotedge-2018-06#allow-connections-from-iot-edge-devices).
+Additionally, review the list of [connections used by Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/production-checklist?view=iotedge-2018-06#allow-connections-from-iot-edge-devices).
 
+<!---
 ## Additional Recommendations for Deployment to Production
 
 Azure Percept DK offers a great variety of security capabilities out of the box. In addition to those powerful security features included in the current release, Microsoft also suggests the following guidelines when considering production deployments:
@@ -62,6 +63,8 @@ Azure Percept DK offers a great variety of security capabilities out of the box.
 - Ensuring data at rest encryption is enabled
 - Continuously monitoring the device posture and quickly responding to alerts
 - Limiting the number of administrators who have access to the device
+--->
+
 
 ## Next steps
 
