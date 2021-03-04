@@ -33,7 +33,7 @@ You might consider using LRS in the following cases:
 - You need to use differential backups.
 
 > [!NOTE]
-> We recommended automating the migration of databases from SQL Server to SQL Managed Instance by using Database Migration Service. This service uses the same LRS cloud service at the back end, with log shipping in `NORECOVERY` mode. Consider manually using LRS to orchestrate migrations when Database Migration Service doesn't fully support your scenarios.
+> We recommend automating the migration of databases from SQL Server to SQL Managed Instance by using Database Migration Service. This service uses the same LRS cloud service at the back end, with log shipping in `NORECOVERY` mode. Consider manually using LRS to orchestrate migrations when Database Migration Service doesn't fully support your scenarios.
 
 ## How it works
 
