@@ -54,9 +54,11 @@ Replace the following with your information:
 - `vmName`
 
 
-```http
+```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
 ```
+
+`Response Code: 204` means the simulated eviction was successful. 
 
 ## Next steps
 

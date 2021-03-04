@@ -29,7 +29,7 @@ Before you begin, you must have the following:
 
 + An Azure account with an active <abbr title="The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.">subscription</abbr>. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x..
++ The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
 
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 

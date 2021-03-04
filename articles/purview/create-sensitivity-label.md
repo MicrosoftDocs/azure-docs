@@ -97,7 +97,10 @@ By extending MIP’s sensitivity labels with Azure Purview, organizations can no
 
 **To extend sensitivity labels to Purview:**
 
-In Microsoft 365, navigate to the **Information Protection** page. In the **Extend labeling to assets in Azure Purview**, select the **Turn on** button, and then select **Yes** in the confirmation dialog that appears.
+The following steps allow your sensitivity labels to be available for use in Azure Purview, where you can apply your sensitivity labels to assets such as SQL columns, files in Azure Blob Storage, and more.
+
+1. In Microsoft 365, navigate to the **Information Protection** page. 
+1. In the **Extend labeling to assets in Azure Purview**, select the **Turn on** button, and then select **Yes** in the confirmation dialog that appears.
 
 For example:
 
@@ -112,7 +115,10 @@ Once you extend labeling to assets in Azure Purview, you can select the labels t
 
     :::image type="content" source="media/create-sensitivity-label/create-sensitivity-label-full-small.png" alt-text="Create sensitivity labels in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-sensitivity-label-full.png":::
 
-1. Name the label. Then, under **Define the scope for this label**, select **Files and emails** and **Azure Purview assets**.
+1. Name the label. Then, under **Define the scope for this label**:
+
+    - In all cases, select **Azure Purview assets**.
+    - To label files, also select **Files & emails**. This option is not required to label database assets only. 
     
     :::image type="content" source="media/create-sensitivity-label/create-label-scope-small.png" alt-text="Create your label in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-label-scope.png":::
 
@@ -213,5 +219,3 @@ Find insights on your classified and labeled data in Azure Purview using the **C
 
 > [!div class="nextstepaction"]
 > [Sensitivity label insights](sensitivity-insights.md)
-
-
