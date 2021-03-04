@@ -125,7 +125,7 @@ The first step is to verify that your device is running required GPU driver and 
 
 
 
-## Example job without context-sharing
+## Job without context-sharing
 
 You'll run the first job to deploy an application on your device in the namespace `mynamesp1` when the Multi-Process Service is not running and context-sharing is not enabled. 
 
