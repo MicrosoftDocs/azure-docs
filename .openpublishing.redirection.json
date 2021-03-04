@@ -62271,7 +62271,7 @@
     },
     {
       "source_path": "articles/aks/use-pod-security-on-azure-policy.md",
-      "redirect_url": "/azure/aks/use-azure-policy.md",
+      "redirect_url": "/azure/aks/use-azure-policy",
       "redirect_document_id": false
     },
     {
