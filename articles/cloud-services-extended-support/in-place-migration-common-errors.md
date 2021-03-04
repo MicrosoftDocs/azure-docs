@@ -24,14 +24,13 @@ Following issues are known and being addressed.
 | Role Instances restarting UD by UD after successful commit. | Restart operation follows the same method as monthly guest OS rollouts. Do not commit migration of cloud services with single role instance or impacted by restart.| 
 | Portal cannot read migration state after browser refresh. | Rerun validate and prepare operation to get back to the original migration state. | 
 | Certificate displayed as secret resource in key vault. | After migration, reupload the certificate as a certificate resource to simplify update operation on Cloud Services (extended support). | 
-| Resource names are not following a standard naming scheme after migration. | Non-impacting. Solution not yet available. | 
 | Deployment labels not getting saved as tags as part of migration. | Manually create the tags after migration to maintain this information.
-| Commit operation taking long time to succeed. Waiting until role instance is in available state. | Non-impacting. Solution not yet available. | 
-| Resource Group name is in all caps. | Non-impacting. Solution not yet available. |
-| Name of the lock on Cloud Services (extended support) lock is incorrect. | Non-impacting. Solution not yet available. | 
+| Commit operation taking long time to succeed. Waiting until role instance is in available state. | Non-impacting. Will be fixed as part of the GA release. | 
+| Resource Group name is in all caps. | Non-impacting. Will be fixed as part of the GA release. |
+| Name of the lock on Cloud Services (extended support) lock is incorrect. | Non-impacting. Will be fixed as part of the GA release. | 
 | IP address name is incorrect on Cloud Services (extended support) portal blade. | Non-impacting. Solution not yet available. | 
 | Invalid DNS name shown for virtual IP address after on update operation on a migrated cloud service. | Non-impacting. Solution not yet available. | 
-| After successful prepare, linking a new Cloud Services (extended support) deployment as swappable is allowed. | Do not link a new cloud service as swappable to a prepared cloud service. | 
+| After successful prepare, linking a new Cloud Services (extended support) deployment as swappable is not allowed. | Do not link a new cloud service as swappable to a prepared cloud service. | 
 | Error messages need to be updated. | Non-impacting. Submit feedback using available channels for improvement. | 
 
 ## Common Migration Errors
