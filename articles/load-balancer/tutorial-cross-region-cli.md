@@ -143,7 +143,7 @@ Use [az network cross-region-lb address-pool address add](/cli/azure/network/cro
   az network cross-region-lb address-pool address add \
     --frontend-ip-address $region2id \
     --lb-name myLoadBalancer-CR \
-    --name myFrontEnd-R1 \
+    --name myFrontEnd-R2 \
     --pool-name myBackEndPool-CR \
     --resource-group myResourceGroupLB-CR
 ```
