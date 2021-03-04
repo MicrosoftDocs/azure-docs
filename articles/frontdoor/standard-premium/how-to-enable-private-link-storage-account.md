@@ -37,7 +37,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
     | Region | Select the region that is the same or closest to your origin. |
     | Resource type | Select **Microsoft.Storage/storageAccounts**. |
     | Resource | Select your storage account. |
-    | Target sub resource | blob |
+    | Target sub resource | You can select *blob* or *web*. |
     | Request message | Customize message or choose the default. |
 
 1. Then select **Add** to save your configuration.
