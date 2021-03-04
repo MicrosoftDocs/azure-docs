@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/29/2021
+ms.date: 3/4/2021
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -44,33 +44,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
  
 
 Starting October 31, 2021, Microsoft Azure Active Directory [email one-time passcode authentication](../external-identities/one-time-passcode.md) will become the default method for inviting accounts and tenants for B2B collaboration scenarios. At this time, Microsoft will no longer allow the redemption of invitations using unmanaged Azure Active Directory accounts. 
- 
----
-
-### Guidance on how to enable support for TLS 1.2 in your environment, in preparation for upcoming Azure AD TLS 1.0/1.1 deprecation
-
-**Type:** Plan for change  
-**Service category:** N/A  
-**Product capability:** Standards
- 
-Starting June 30, 2021, Azure Active Directory will remove support for:
-
-- TLS 1.0
-- TLS 1.1
-- 3DES cipher suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA )SHA)
-
-For guidance on how to enable support for TLS 1.2 in your environment, in preparation for the upcoming Azure AD TLS 1.0/1.1 deprecation, use the following resources:
-
-- [How to enable TLS 1.2 on clients](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2-client)
-- [Preparing for TLS 1.2 in Office 365 and Office 365 GCC](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365?view=o365-worldwide)
-- [Enforce TLS 1.2 for the Azure AD Registration Service](../devices/reference-device-registration-tls-1-2.md)
-- [TLS 1.2 enforcement for Azure AD Connect](../hybrid/reference-connect-tls-enforcement.md)
-- [Understand Azure AD Application Proxy connectors](../manage-apps/application-proxy-connectors.md#requirements-and-deployment)
-
-If you want to review a report that will show you some dependencies on older TLS protocols refer to the [TLS Deprecation report](https://servicetrust.microsoft.com/AdminPage/TlsDeprecationReport/Download). 
-
-> [!NOTE] 
-> The report may show you partial dependencies related to M365 and not all Azure AD related communication happening using older TLS protocols.
 
 ---
 
@@ -581,7 +554,7 @@ For more information, go to [Change approval settings for an access package in A
 **Service category:** All Azure AD applications  
 **Product capability:** Standards
 
-Azure Active Directory will deprecate the following protocols in Azure Active Directory worldwide regions by March 31, 2021:
+Azure Active Directory will deprecate the following protocols in Azure Active Directory worldwide regions by June 30, 2021:
 
 - TLS 1.0
 - TLS 1.1
@@ -810,7 +783,7 @@ If you have an environment with firewall rules set to allow outbound calls to on
 **Service category:** All Azure AD applications  
 **Product capability:** Standards
  
-Azure Active Directory will deprecate the following protocols by June 30, 2021:
+Azure Active Directory will deprecate the following protocols by March 31, 2021:
 - TLS 1.0
 - TLS 1.1
 - 3DES cipher suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA)
