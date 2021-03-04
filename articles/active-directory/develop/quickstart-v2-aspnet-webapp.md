@@ -99,11 +99,12 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >    ```
 >    In that code:
 >
->    - `Enter_the_Application_Id_here` is the application ID for the application that you registered.
+>    - `Enter_the_Application_Id_here` is the Application (client) ID of the app registration you created earlier. Find the Application (client) ID on the app's **Overview** page in **App registrations** in the Azure portal.
 >    - `Enter_the_Tenant_Info_Here` is one of the following options:
->      - If your application supports **My organization only**, replace this value with the tenant ID or tenant name (for example, `contoso.onmicrosoft.com`).
+>      - If your application supports **My organization only**, replace this value with the Directory (tenant) ID or tenant name (for example, `contoso.onmicrosoft.com`). Find the Directory (tenant) ID on the app's **Overview** page in **App registrations** in the Azure portal.
 >      - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`.
 >      - If your application supports **All Microsoft account users**, replace this value with `common`.
+>    - `redirectUri` is the **Redirect URI** you entered earlier in **App registrations** in the Azure portal.
 >
 
 > [!div class="sxs-lookup" renderon="portal"]
