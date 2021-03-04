@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
 author: zxue
-ms.date: 02/24/2021
+ms.date: 03/03/2021
 ---
 
 # Enable Diagnostic Logging in Azure API for FHIR
@@ -45,7 +45,7 @@ You can view the metrics under Monitoring | Metrics from the portal. The metrics
 
 
 > [!Note] 
-> It might take up to 15 minutes for the first Logs to show in Log Analytics.  
+> It might take up to 15 minutes for the first Logs to show in Log Analytics. Also, if Azure API for FHIR is moved from one resource group or subscription to another, update the setting once the move is complete. 
  
 For more information on how to work with diagnostic logs, please refer to the [Azure Resource Log documentation](../azure-monitor/essentials/platform-logs-overview.md)
 
