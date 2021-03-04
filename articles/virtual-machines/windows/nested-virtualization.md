@@ -7,9 +7,8 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-
-
 ---
+
 # How to enable nested virtualization in an Azure VM
 
 Nested virtualization is supported in several Azure virtual machine families. This capability provides great flexibility in supporting scenarios such as development, testing, training, and demonstration environments.   
@@ -18,11 +17,9 @@ This article steps through enabling Hyper-V on an Azure VM and configuring Inter
 
 ## Create a nesting capable Azure VM
 
-Create a new Windows Server 2016 Azure VM. For a complete list of virtual machine sizes that support nesting, check out the [Azure Compute Unit article](../acu.md).
+Create a new Windows Server 2016 or Windows Server 2019 Azure VM for your host. Make sure you choose a size for your VM that supports nesting, and is large enough to meet the demands of the guest VMs. For a list of virtual machine sizes that support nesting, see the [Azure Compute Unit](../acu.md) article.
 
-Remember to choose a VM size large enough to support the demands of a guest virtual machine. In this example, we are using a D4_v3 size Azure VM. 
-
-You can view the regional availability of Dv3 or Ev3 series virtual machines [here](https://azure.microsoft.com/regions/services/).
+You can view the regional availability of VM sizes on the [Products available by region](https://azure.microsoft.com/regions/services/) page.
 
 >[!NOTE]
 >
@@ -91,7 +88,7 @@ Create a new virtual network adapter for the guest virtual machine and configure
 4. Create an IP address for the NAT Gateway.
     
 In order to configure the gateway, you need some information about your network:    
-  * IPAddress - The NAT Gateway IP specifies the IPv4 or IPv6 address to use as the default gateway address for the virtual network subnet. The generic form is a.b.c.1 (for example, "192.168.0.1"). While the final position doesn't have to be .1, it usually is (based on prefix length). Typically you should use an RFC 1918 private network address space. 
+  * IP Address - The NAT Gateway IP specifies the IPv4 or IPv6 address to use as the default gateway address for the virtual network subnet. The generic form is a.b.c.1 (for example, "192.168.0.1"). While the final position doesn't have to be .1, it usually is (based on prefix length). Typically you should use an RFC 1918 private network address space. 
   * PrefixLength - The subnet prefix length defines the local subnet size (subnet mask). The subnet prefix length will be an integer value between 0 and 32. 0 would map the entire internet, 32 would only allow one mapped IP. Common values range from 24 to 12 depending on how many IPs need to be attached to the NAT. A common PrefixLength is 24 -- this is a subnet mask of 255.255.255.0.
   * InterfaceIndex - **ifIndex** is the interface index of the virtual switch created in the previous step. 
 

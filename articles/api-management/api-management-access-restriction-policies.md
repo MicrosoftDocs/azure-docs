@@ -8,7 +8,7 @@ author: vladvino
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 02/09/2021
+ms.date: 02/26/2021
 ms.author: apimpm
 ---
 
@@ -133,8 +133,8 @@ In the following example, the per subscription rate limit is 20 calls per 90 sec
 | Name           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | The name of the API for which to apply the rate limit.                                                | Yes      | N/A     |
-| calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. | Yes      | N/A     |
-| renewal-period | The time period in seconds after which the rate resets.                                              | Yes      | N/A     |
+| calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. | Yes      | N/A     |
+| renewal-period | The length in seconds of the sliding window during which the number of allowed requests should nor exceed the value specified in `calls`.                                              | Yes      | N/A     |
 | retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -210,7 +210,7 @@ In the following example, the rate limit of 10 calls per 60 seconds is keyed by 
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. | Yes      | N/A     |
 | counter-key         | The key to use for the rate limit policy.                                                             | Yes      | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the rate (`true`).        | No       | N/A     |
-| renewal-period      | The time period in seconds after which the rate resets.                                              | Yes      | N/A     |
+| renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should nor exceed the value specified in `calls`.                                           | Yes      | N/A     |
 | retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -313,7 +313,7 @@ The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | Root element.                                                                                                                                                                                                                                                                                | Yes      |
 | api       | Add one or more of these elements to impose call quota on APIs within the product. Product and API call quotas are applied independently. API can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.                    | No       |
-| operation | Add one or more of these elements to impose call quota on operations within an API. Product, API, and operation call quotas are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored. | No       |
+| operation | Add one or more of these elements to impose call quota on operations within an API. Product, API, and operation call quotas are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored. | No      |
 
 ### Attributes
 
@@ -322,7 +322,7 @@ The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth
 | name           | The name of the API or operation for which the quota applies.                                             | Yes                                                              | N/A     |
 | bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| renewal-period | The time period in seconds after which the quota resets.                                                  | Yes                                                              | N/A     |
+| renewal-period | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite. | Yes                                                              | N/A     |
 
 ### Usage
 
@@ -386,7 +386,7 @@ In the following example, the quota is keyed by the caller IP address.
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | counter-key         | The key to use for the quota policy.                                                                      | Yes                                                              | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`)             | No                                                               | N/A     |
-| renewal-period      | The time period in seconds after which the quota resets.                                                  | Yes                                                              | N/A     |
+| renewal-period      | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.                                                   | Yes                                                              | N/A     |
 
 ### Usage
 
