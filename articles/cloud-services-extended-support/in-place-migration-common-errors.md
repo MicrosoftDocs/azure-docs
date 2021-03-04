@@ -57,7 +57,7 @@ Common migration errors and mitigations.
 | The Subnet Name cannot be null or empty. | Provide subnet name in the REST request body. | 
 | DestinationVirtualNetwork must be set to one of the following values: Default, New, or Existing. | Provide DestinationVirtualNetwork property in the REST request body. | 
 | Default VNet destination option not implemented. | “Default” value is not supported for DestinationVirtualNetwork property in the REST request body. | 
-| The deployment {0} cannot be migrated because the CSPKG is not available. Upgrade the deployment and try again. | | 
+| The deployment {0} cannot be migrated because the CSPKG is not available. | Upgrade the deployment and try again. | 
 | The subnet with ID '{0}' is in a different location than deployment '{1}' in hosted service '{2}'. The location for the subnet is '{3}' and the location for the hosted service is '{4}'.  Specify a subnet in the same location as the deployment. | Update the cloud service to have both subnet and cloud service in the same location before migration. | 
 | Migration of Deployment {0} in HostedService {1} is in the process of being aborted and cannot be changed until it completes successfully. | Wait for abort to complete or retry abort. Use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) or Contact support otherwise. | 
 | Deployment {0} in HostedService {1} has not been prepared for Migration. | Run prepare on the cloud service before running the commit operation. | 
