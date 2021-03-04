@@ -157,32 +157,32 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot shows the Webex Administration page with the information described in this step.](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
 
-    a. select **SAML 2.0** as **Federation Protocol**.
+    1. select **SAML 2.0** as **Federation Protocol**.
 
-    b. Click on **Import SAML Metadata** link to upload the metadata file, which you have downloaded from Azure portal.
+    1. Click on **Import SAML Metadata** link to upload the metadata file, which you have downloaded from Azure portal.
 
-    c. Select **SSO Profile** as **IDP initiated**  and click on **Export** button to download the Service Provider Metadata file and upload it in the **Basic SAML Configuration** section on Azure portal.
+    1. Select **SSO Profile** as **IDP initiated**  and click on **Export** button to download the Service Provider Metadata file and upload it in the **Basic SAML Configuration** section on Azure portal.
 
-    d. In the **AuthContextClassRef** textbox, type one of the following values:
+    1. In the **AuthContextClassRef** textbox, type one of the following values:
     
-    * `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified`
+      * `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified`
     
-    * `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`
+      * `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`
     
-     and if you want to enable the MFA using Azure AD type the two values like `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`
+      To enable the MFA by using Azure AD, enter the two values like this:
+      `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`
 
-    e. Select **Auto Account Creation**.
+    1. Select **Auto Account Creation**.
 
-    >[!NOTE]
-    >For enabling **just-in-time** user provisioning you need to check the **Auto Account Creation**. In addition to that SAML token attributes need to be passed in the SAML response.
+      > [!NOTE]
+      > For enabling **just-in-time** user provisioning you need to check the **Auto Account Creation**. In addition to that SAML token attributes need to be passed in the SAML response.
 
-    f. Click **Save**.
+    1. Click **Save**.
 
-    >[!NOTE]
-    >This configuration is only for the customers that use Webex UserID in email format.
-
-> [!NOTE]
-> To know more about how to configure the Cisco Webex meetings, please refer to [this](https://help.webex.com/WBX000022701/How-Do-I-Configure-Microsoft-Azure-Active-Directory-Integration-with-Cisco-Webex-Through-Site-Administration#:~:text=In%20the%20Azure%20portal%2C%20select,in%20the%20Add%20Assignment%20dialog) page.
+      > [!NOTE]
+      > This configuration is only for the customers that use Webex UserID in email format.
+      > 
+      > To learn more about how to configure the Cisco Webex meetings, see the [Webex documentation](https://help.webex.com/WBX000022701/How-Do-I-Configure-Microsoft-Azure-Active-Directory-Integration-with-Cisco-Webex-Through-Site-Administration#:~:text=In%20the%20Azure%20portal%2C%20select,in%20the%20Add%20Assignment%20dialog) page.
 
 ### Create Cisco Webex Meetings test user
 
@@ -192,7 +192,7 @@ The objective of this section is to create a user called B.Simon in Cisco Webex 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-#### SP initiated:
+#### SP initiated
 
 * Click on **Test this application** in Azure portal. This will redirect to Cisco Webex Meetings Sign on URL where you can initiate the login flow.  
 
@@ -200,7 +200,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Cisco Webex Meetings for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Cisco Webex Meetings for which you set up the SSO.
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Cisco Webex Meetings tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Cisco Webex Meetings for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
