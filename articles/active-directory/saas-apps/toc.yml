@@ -595,6 +595,8 @@
         href: euromonitor-passport-tutorial.md
       - name: EverBridge
         href: everbridge-tutorial.md
+      - name: Evergreen
+        href: evergreen-tutorial.md  
       - name: Evernote
         href: evernote-tutorial.md
       - name: Evidence.com
@@ -628,6 +630,8 @@
         href: factset-tutorial.md
       - name: Fastly Edge Cloud
         href: fastly-edge-cloud-tutorial.md
+      - name: FAX.PLUS
+        href: fax.plus-tutorial.md    
       - name: FCM HUB
         href: fcm-hub-tutorial.md
       - name: Field iD
