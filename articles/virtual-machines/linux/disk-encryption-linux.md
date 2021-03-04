@@ -13,7 +13,6 @@ ms.custom: seodec18, devx-track-azurecli
 
 # Azure Disk Encryption scenarios on Linux VMs
 
-
 Azure Disk Encryption for Linux virtual machines (VMs) uses the DM-Crypt feature of Linux to provide full disk encryption of the OS disk and data disks. Additionally, it provides encryption of the temporary disk when using the EncryptFormatAll feature.
 
 Azure Disk Encryption is [integrated with Azure Key Vault](disk-encryption-key-vault.md) to help you control and manage the disk encryption keys and secrets. For an overview of the service, see [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md).
@@ -412,7 +411,6 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
 - Kernel Crash Dump (kdump).
 - Oracle ACFS (ASM Cluster File System).
-- Gen2 VMs (see: [Support for generation 2 VMs on Azure](../generation-2.md#generation-1-vs-generation-2-capabilities)).
 - The NVMe disks of Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md)).
 - A VM with "nested mount points"; that is, multiple mount points in a single path (such as "/1stmountpoint/data/2stmountpoint").
 - A VM with a data drive mounted on top of an OS folder.
@@ -420,7 +418,6 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - M-series VMs with Write Accelerator disks.
 - Applying ADE to a VM that has disks encrypted with [server-side encryption with customer-managed keys](../disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk on a VM encrypted with ADE is an unsupported scenario as well.
 - Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [server-side encryption with customer-managed keys](../disk-encryption.md).
-- [Azure VM sizes with no local temporary disk](../azure-vms-no-temp-disk.md); specifically, Dv4, Dsv4, Ev4, and Esv4.
 - Encrypting VMs in failover clusters.
 
 ## Next steps

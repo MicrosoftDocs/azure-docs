@@ -5,7 +5,6 @@ author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 01/21/2021
-ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
 

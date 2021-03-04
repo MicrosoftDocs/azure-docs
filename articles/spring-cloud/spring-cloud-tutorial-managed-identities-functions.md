@@ -114,7 +114,7 @@ az spring-cloud create --name mymsispringcloud --resource-group myResourceGroup 
 The following example creates an app named `msiapp` with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
 
 ```azurecli
-az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --is-public true --assign-identity
+az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --assign-endpoint true --assign-identity
 ```
 
 ## Build sample Spring Boot app to invoke the Function
