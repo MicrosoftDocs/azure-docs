@@ -74,4 +74,4 @@ az k8s-configuration delete -g AzureArcTest --cluster-name AzureArcIotEdge --nam
 
 ## Next steps
 
-Learn how to [use Azure Policy to govern cluster configuration](./use-azure-policy.md)
+Learn how to [use Azure Policy to govern cluster configuration](./use-azure-policy.md).

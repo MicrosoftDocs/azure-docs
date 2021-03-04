@@ -85,4 +85,4 @@ az connectedk8s connect -n myConnectedClusterName -g myResoureGroupName
 
 ## Next steps
 
-Govern your cluster configuration [using Azure Policy](./use-azure-policy.md)
+Govern your cluster configuration [using Azure Policy](./use-azure-policy.md).
