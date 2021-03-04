@@ -21,7 +21,7 @@ Some of the resources available via the Community Hub are:
 
 - **Feature Requests**: You can navigate to UserVoice and file feature requests.
 
-- **Samples for automated deployments**: Using the Community Hub, you can discover sample Azure Resource Manager(ARM) templates and Azure Policies that you can use out of the box. You can also find sample PowerShell Scripts, CLI commands, and MSDB scripts.
+- **Samples for automated deployments**: Using the Community Hub, you can discover sample Azure Resource Manager(ARM) templates and Azure Policies that you can use out of the box. You can also find sample PowerShell Scripts, CLI commands, and Microsoft Database Backup scripts.
 
 ## Next Steps
 
