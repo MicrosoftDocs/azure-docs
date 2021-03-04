@@ -56,6 +56,6 @@ The conformance tests run as part of the Azure Arc enabled Kubernetes validation
 
 ## Next steps
 
-* [Connect a cluster to Azure Arc](./connect-cluster.md)
-* [Create configurations on your Arc enabled Kubernetes cluster](./use-gitops-connected-cluster.md)
-* [Use Azure Policy to apply configurations at scale](./use-azure-policy.md)
+Learn how to connect a cluster to Azure Arc.
+> [!div class="nextstepaction"]
+> [Connect a cluster to Azure Arc](./quickstart-connect-cluster.md)

@@ -2,14 +2,14 @@
 title: "CI/CD Workflow using GitOps - Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/26/2021
+ms.date: 03/03/2021
 ms.topic: conceptual
 author: tcare
 ms.author: tcare
 description: "This article provides a conceptual overview of a CI/CD workflow using GitOps"
 keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers, CI, CD, Azure DevOps"
 ---
-# Overview
+# CI/CD workflow using GitOps - Azure Arc enabled Kubernetes
 
 Modern Kubernetes deployments house multiple applications, clusters, and environments. With GitOps, you can manage these complex setups more easily, tracking the desired state of the Kubernetes environments declaratively with Git. Using common Git tooling to track cluster state, you can increase accountability, facilitate fault investigation, and enable automation to manage environments.
 
@@ -67,4 +67,4 @@ Suppose Alice wants to make an application change that alters the Docker image u
 8.  Once all the environments have received successful deployments, the pipeline completes.
 
 ## Next steps
-[Configurations and GitOps with Azure Arc enabled Kubernetes](./conceptual-configurations.md)
+Learn more about the creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc enabled Kubernetes](./conceptual-configurations.md)
