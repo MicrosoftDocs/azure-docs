@@ -104,7 +104,7 @@
   - name: Mainframe rehosting
     href: ./workloads/mainframe-rehosting/overview.md
   - name: SQL on Virtual Machines
-    href: https://docs.microsoft.com/azure/azure-sql/virtual-machines/
+    href: ../azure-sql/virtual-machines/index.yml
   - name: High Performance Computing (HPC)
     href: /azure/architecture/topics/high-performance-computing/
 - name: Instances
@@ -164,6 +164,8 @@
         href: ev4-esv4-series.md
       - name: M-series
         href: m-series.md
+      - name: Msv2 and Mdsv2 Medium Memory series
+        href: msv2-mdsv2-series.md
       - name: Mv2-series
         href: mv2-series.md
       - name: Constrained vCPUs
@@ -255,7 +257,7 @@
   - name: Dedicated hosts
     items:
     - name: Overview
-      href: ./linux/dedicated-hosts.md
+      href: dedicated-hosts.md
     - name: CLI
       href: ./linux/dedicated-hosts-cli.md
     - name: Portal
@@ -293,7 +295,7 @@
     - name: Reserved instances
       items:
       - name: Prepay for VMs
-        href: ./linux/prepay-reserved-vm-instances.md
+        href: ./prepay-reserved-vm-instances.md
       - name: Prepay for Dedicated Hosts
         href: prepay-dedicated-hosts-reserved-instances.md
       - name: What are Azure reservations?
@@ -363,7 +365,7 @@
     - name: Use Java
       href: ./windows/java.md
     - name: Python
-      href: https://docs.microsoft.com/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=/azure/virtual-machines/context/context
+      href: /samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Use ARM template
       displayName: Azure Resource Manager template
       href: ./windows/ps-template.md
@@ -447,7 +449,7 @@
       - name: Azure Monitor agent
         href: ../azure-monitor/agents/azure-monitor-agent-install.md?context=/azure/virtual-machines/context/context
       - name: Diagnostics extension
-        href: ../azure-monitor/platform/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/agents/diagnostics-extension-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Log Analytics
         items:
         - name: Linux
@@ -642,7 +644,7 @@
   - name: Shared Image Galleries
     items:
     - name: Overview
-      href: ./linux/shared-image-galleries.md
+      href: ./shared-image-galleries.md
     - name: CLI
       items:
       - name: Create a gallery
@@ -786,13 +788,13 @@
   - name: Availability
     href: availability.md
   - name: Co-location
-    href: ./linux/co-location.md
+    href: co-location.md
   - name: Network performance
     href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
   - name: States and lifecycle
     href: states-lifecycle.md
   - name: Autoscale
-    href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+    href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
   - name: High availability
     href: manage-availability.md
   - name: Availability sets
@@ -822,6 +824,8 @@
     href: managed-disks-overview.md
   - name: Select a disk type for IaaS VMs
     href: disks-types.md
+  - name: Disk redundancy options
+    href: disks-redundancy.md
   - name: Shared disks
     href: disks-shared.md
   - name: Enable shared disks
@@ -856,87 +860,71 @@
           href: windows/disks-enable-double-encryption-at-rest-powershell.md
         - name: CLI
           href: linux/disks-enable-double-encryption-at-rest-cli.md
-    - name: Azure Disk Encryption scenarios
+    - name: Azure Disk Encryption
       items:
-      - name: Azure Disk Encryption overviews
-        items:
-        - name: Windows
-        - name: Linux
       - name: Linux
-        href: ./linux/disk-encryption-linux.md
-      - name: Windows
-        href: ./windows/disk-encryption-windows.md
-      - name: CLI
-        items:
-        - name: Linux
-          href: ./linux/disk-encryption-cli-quickstart.md
-        - name: Windows
-          href: ./windows/disk-encryption-cli-quickstart.md
-      - name: PowerShell
-        items:
-        - name: Linux
-          href: ./linux/disk-encryption-powershell-quickstart.md
-        - name: Windows
-          href: ./windows/disk-encryption-powershell-quickstart.md
-      - name: Portal
-        items:
-        - name: Linux
-          href: ./linux/disk-encryption-portal-quickstart.md
-        - name: Windows
-          href: ./windows/disk-encryption-portal-quickstart.md
-      - name: Key vault for Azure Disk Encryption
-        items:
-        - name: Linux
-          href: ./linux/disk-encryption-key-vault.md
-        - name: Windows
-          href: ./windows/disk-encryption-key-vault.md
-      - name: Sample scripts
-        items:
-        - name: Linux
-          href: ./linux/disk-encryption-sample-scripts.md
-        - name: Windows
-          href: ./windows/disk-encryption-sample-scripts.md
-      - name: Azure Disk encryption on an isolated network
-        href: ./linux/disk-encryption-isolated-network.md
-      - name: How to verify encryption status
-        href: ./linux/how-to-verify-encryption-status.md
-      - name: How to configure LVM RAID on crypt
-        href: ./linux/how-to-configure-lvm-raid-on-crypt.md
-      - name: How to resize encrypted LVM volumes
-        href: ./linux/how-to-resize-encrypted-lvm.md
-      - name: Resize Linux GPT OS partitions
-        href: linux/resize-os-disk-gpt-partition.md
-      - name: troubleshooting
-        items:
-        - name: Linux
-          href: ./linux/disk-encryption-troubleshooting.md
-        - name: Windows
-          href: ./windows/disk-encryption-troubleshooting.md
-      - name: FAQ
-        items:
-        - name: Linux
-          href: ./linux/disk-encryption-faq.md
-        - name: Windows
-          href: ./windows/disk-encryption-faq.md
-      - name: Azure Disk Encryption - previous version
         items:
         - name: Overview
+          href: ./linux/disk-encryption-overview.md
+        - name: Quickstarts
           items:
-          - name: Linux
-            href: ./linux/disk-encryption-overview-aad.md
-          - name: Windows
-            href: ./windows/disk-encryption-overview-aad.md
+          - name: Azure CLI
+            href: ./linux/disk-encryption-cli-quickstart.md
+          - name: Azure PowerShell
+            href: ./linux/disk-encryption-powershell-quickstart.md
+          - name: Azure portal
+            href: ./linux/disk-encryption-portal-quickstart.md     
         - name: Key vault for Azure Disk Encryption
+          href: ./linux/disk-encryption-key-vault.md
+        - name: Disk encryption sample scripts
+          href: ./linux/disk-encryption-sample-scripts.md
+        - name: Disk encryption on an isolated network
+          href: ./linux/disk-encryption-isolated-network.md
+        - name: How to verify encryption status
+          href: ./linux/how-to-verify-encryption-status.md
+        - name: How to configure LVM RAID on crypt
+          href: ./linux/how-to-configure-lvm-raid-on-crypt.md
+        - name: How to resize encrypted lvm volumes
+          href: ./linux/how-to-resize-encrypted-lvm.md
+        - name: Disk encryption troubleshooting
+          href: ./linux/disk-encryption-troubleshooting.md
+        - name: Disk encryption FAQ
+          href: ./linux/disk-encryption-faq.md
+        - name: Disk encryption - previous version
           items:
-          - name: Linux
+          - name: Overview
+            href: ./linux/disk-encryption-overview-aad.md
+          - name: Key vault for Azure Disk Encryption
             href: ./linux/disk-encryption-key-vault-aad.md
-          - name: Windows
-            href: ./windows/disk-encryption-key-vault-aad.md
-        - name: Disk encryption scenarios
-          items:
-          - name: Linux
+          - name: Disk encryption scenarios for Linux
             href: ./linux/disk-encryption-linux-aad.md
-          - name: Windows
+      - name: Windows
+        items:
+        - name: Disk encryption scenarios for Windows
+          href: ./windows/disk-encryption-windows.md
+        - name: Quickstarts
+          items:
+          - name: Azure CLI
+            href: ./windows/disk-encryption-cli-quickstart.md
+          - name: Azure PowerShell
+            href: ./windows/disk-encryption-powershell-quickstart.md
+          - name: Azure portal
+            href: ./windows/disk-encryption-portal-quickstart.md
+        - name: Key vault for Azure Disk Encryption
+          href: ./windows/disk-encryption-key-vault.md
+        - name: Disk encryption sample scripts
+          href: ./windows/disk-encryption-sample-scripts.md
+        - name: Disk encryption troubleshooting
+          href: ./windows/disk-encryption-troubleshooting.md
+        - name: Disk encryption FAQ
+          href: ./windows/disk-encryption-faq.md
+        - name: Disk encryption - previous version
+          items:
+          - name: Overview
+            href: ./windows/disk-encryption-overview-aad.md
+          - name: Key vault for Azure Disk Encryption
+            href: ./windows/disk-encryption-key-vault-aad.md
+          - name: Disk encryption scenarios for Windows
             href: ./windows/disk-encryption-windows-aad.md
   - name: Performance and cost optimization
     items:
@@ -952,8 +940,10 @@
       href: premium-storage-performance.md
     - name: Disk related metrics
       href: disks-metrics.md
-    - name: Disk bursting
+    - name: Disk bursting models
       href: disk-bursting.md
+    - name: Enable on-demand bursting
+      href: disks-enable-bursting.md
     - name: Disk performance tiers
       href: disks-change-performance.md
     - name: Change disk performance tier
@@ -1157,6 +1147,12 @@
       href: ./windows/security-baseline.md
   - name: Recommendations
     href: security-recommendations.md
+  - name: Trusted launch 
+    items:
+    - name: Overview
+      href: trusted-launch.md
+    - name: Deploy using the portal
+      href: trusted-launch-portal.md
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
   - name: Policy
@@ -1181,7 +1177,7 @@
     - name: Create a Bastion host
       items:
       - name: Portal
-        href: ../bastion/bastion-create-host-portal.md
+        href: ../bastion/tutorial-create-host-portal.md
       - name: PowerShell
         href: ../bastion/bastion-create-host-powershell.md
       - name: CLI
@@ -1231,9 +1227,9 @@
   - name: Overview
     href: maintenance-and-updates.md
   - name: Automatic VM guest patching (preview)
-    href: ./windows/automatic-vm-guest-patching.md
+    href: automatic-vm-guest-patching.md
   - name: Automatic extension upgrade (preview)
-    href: ./automatic-extension-upgrade.md
+    href: automatic-extension-upgrade.md
   - name: Maintenance control
     items:
     - name: Maintenance notifications
@@ -1281,7 +1277,7 @@
 - name: Monitoring
   items:
   - name: Overview
-    href: ../azure-monitor/insights/monitor-vm-azure.md?context=/azure/virtual-machines/context/context
+    href: ../azure-monitor/vm/monitor-vm-azure.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Monitoring VMs
     items:
     - name: Windows
@@ -1295,7 +1291,7 @@
     - name: Azure Diagnostics extension
       items:
       - name: Overview
-        href: ../azure-monitor/platform/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/agents/diagnostics-extension-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Linux diagnostics extension
         items:
         - name: Version 4.0
@@ -1303,16 +1299,16 @@
         - name: Version 3.0
           href: ../virtual-machines/extensions/diagnostics-linux-v3.md?context=/azure/virtual-machines/context/context
         - name: Collect metrics with Telegraf
-          href: ../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md?context=/azure/virtual-machines/context/context
+          href: ../azure-monitor/essentials/collect-custom-metrics-linux-telegraf.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
           displayname: diagnostics extension
     - name: Log Analytics agent
       items:
       - name: Overview
-        href: ../azure-monitor/platform/log-analytics-agent.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/agents/log-analytics-agent.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Linux agents
         href: ../azure-monitor/agents/agent-linux.md?context=/azure/virtual-machines/context/context
       - name: Log Analytics gateway
-        href: ../azure-monitor/platform/gateway.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/agents/gateway.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Agent management
         href: ../azure-monitor/agents/agent-manage.md?context=/azure/virtual-machines/context/context
       - name: Agent Health
@@ -1334,11 +1330,11 @@
         - name: Custom logs
           href: ../azure-monitor/agents/data-sources-custom-logs.md?context=/azure/virtual-machines/context/context
         - name: Custom fields
-          href: ../azure-monitor/platform/custom-fields.md?context=/azure/virtual-machines/context/context
+          href: ../azure-monitor/logs/custom-fields.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Troubleshoot
       items:
       - name: Log Analytics VM Extension
-        href: ../azure-monitor/platform/vmext-troubleshoot.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/visualize/vmext-troubleshoot.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         displayname: troubleshoot, troubleshooting
       - name: Log Analytics Linux agent
         href: ../azure-monitor/agents/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
@@ -1346,37 +1342,37 @@
     - name: Azure Monitor for VMs
       items:
       - name: Overview
-        href: ../azure-monitor/insights/vminsights-overview.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/vm/vminsights-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: General Availability FAQ
-        href: ../azure-monitor/insights/vminsights-ga-release-faq.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/vm/vminsights-ga-release-faq.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: FAQ
-        href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#azure-monitor-for-vms
+        href: ../azure-monitor/faq.md
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview
-          href: ../azure-monitor/insights/vminsights-enable-overview.md?context=/azure/virtual-machines/context/context
+          href: ../azure-monitor/vm/vminsights-enable-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Enable for single Azure VM
-          href: ../azure-monitor/insights/vminsights-enable-portal.md?context=/azure/virtual-machines/context/context
+          href: ../azure-monitor/vm/vminsights-enable-portal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Enable using Azure Policy
-          href: ../azure-monitor/insights/vminsights-enable-policy.md?context=/azure/virtual-machines/context/context
+          href: ../azure-monitor/vm/vminsights-enable-policy.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Enable using Azure PowerShell
-          href: ../azure-monitor/insights/vminsights-enable-powershell.md?context=/azure/virtual-machines/context/context
+          href: ../azure-monitor/vm/vminsights-enable-powershell.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Enable for Hybrid environment
-          href: ../azure-monitor/insights/vminsights-enable-hybrid.md?context=/azure/virtual-machines/context/context
+          href: ../azure-monitor/vm/vminsights-enable-hybrid.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Map dependencies
-        href: ../azure-monitor/insights/vminsights-maps.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/vm/vminsights-maps.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Monitor performance
-        href: ../azure-monitor/insights/vminsights-performance.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/vm/vminsights-performance.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Analyze data with log queries
-        href: ../azure-monitor/insights/vminsights-log-search.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/vm/vminsights-log-search.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Visualize data with workbooks
-        href: ../azure-monitor/insights/vminsights-workbooks.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/vm/vminsights-workbooks.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Create alert rules
-        href: ../azure-monitor/insights/vminsights-alerts.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/vm/vminsights-alerts.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Upgrade Dependency agent
-        href: ../azure-monitor/insights/vminsights-dependency-agent-maintenance.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/vm/vminsights-dependency-agent-maintenance.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Disable monitoring
-        href: ../azure-monitor/insights/vminsights-optout.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/vm/vminsights-optout.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: VM usage
     href: vm-usage.md
   - name: Tag a VM
@@ -1422,7 +1418,7 @@
     - name: Back up multiple VMs
       href: ../backup/tutorial-backup-vm-at-scale.md
     - name: Restore options
-      href: /azure/backup/backup-azure-arm-restore-vms
+      href: ../backup/backup-azure-arm-restore-vms.md
     - name: Support matrix
       href: ../backup/backup-support-matrix-iaas.md
     - name: Pricing
@@ -1479,15 +1475,15 @@
   - name: Custom data
     href: custom-data.md
   - name: Ansible
-    href: https://docs.microsoft.com/azure/developer/ansible/
+    href: /azure/developer/ansible/
   - name: Terraform
-    href: https://docs.microsoft.com/azure/developer/terraform/
+    href: /azure/developer/terraform/
   - name: Jenkins
-    href: https://docs.microsoft.com/en-us/azure/developer/jenkins/
+    href: /azure/developer/jenkins/
   - name: Azure DevOps
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
 - name: Troubleshoot
-  href: https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines
+  href: /troubleshoot/azure/virtual-machines/welcome-virtual-machines
 - name: Resources
   items:
   - name: Cloud adoption framework

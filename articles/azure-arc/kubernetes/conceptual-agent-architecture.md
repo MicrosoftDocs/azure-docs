@@ -2,7 +2,7 @@
 title: "Azure Arc enabled Kubernetes Agent Architecture"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 03/03/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
@@ -37,7 +37,7 @@ Most on-prem datacenters enforce strict network rules that prevent inbound commu
 
         | Agent | Description |
         | ----- | ----------- |
-        | `deployment.apps/clusteridentityoperator` | Azure Arc enabled Kubernetes currently supports only [system assigned identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). `clusteridentityoperator` initiates the first outbound communication. This first communication fetches the Managed Service Identity (MSI) certificate used by other agents for communication with Azure. |
+        | `deployment.apps/clusteridentityoperator` | Azure Arc enabled Kubernetes currently supports only [system assigned identities](../../active-directory/managed-identities-azure-resources/overview.md). `clusteridentityoperator` initiates the first outbound communication. This first communication fetches the Managed Service Identity (MSI) certificate used by other agents for communication with Azure. |
         | `deployment.apps/config-agent` | Watches the connected cluster for source control configuration resources applied on the cluster. Updates the compliance state. |
         | `deployment.apps/controller-manager` | An operator of operators that orchestrates interactions between Azure Arc components. |    
         | `deployment.apps/metrics-agent` | Collects metrics of other Arc agents to verify optimal performance. |
@@ -88,5 +88,5 @@ Most on-prem datacenters enforce strict network rules that prevent inbound commu
 
 ## Next steps
 
-* [Connect a cluster to Azure Arc](./connect-cluster.md)
-* [Conceptual overview of configurations](./conceptual-configurations.md)
+* Walk through our quickstart to [connect a Kubernetes cluster to Azure Arc](./connect-cluster.md).
+* Learn more about the creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc enabled Kubernetes](./conceptual-configurations.md).

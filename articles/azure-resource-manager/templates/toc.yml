@@ -4,12 +4,16 @@
   items:
   - name: What are ARM templates?
     href: overview.md
+  - name: Bicep overview
+    href: bicep-overview.md 
 - name: Quickstarts
   items:
   - name: Create templates - portal
     href: quickstart-create-templates-use-the-portal.md
   - name: Create templates - VS Code
     href: quickstart-create-templates-use-visual-studio-code.md
+  - name: Create Bicep - VS Code
+    href: quickstart-create-bicep-use-visual-studio-code.md
   - name: Create & deploy template specs
     href: quickstart-create-template-specs.md
   - name: Azure services
@@ -141,7 +145,7 @@
       - name: Managed Applications
         href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Monitor
-        href: ../../azure-monitor/learn/quick-collect-activity-log-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+        href: ../../azure-monitor/essentials/quick-collect-activity-log-arm.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
       - name: Policy
         href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Portal
@@ -220,7 +224,7 @@
         href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutorials
   items:
-  - name: Beginner templates
+  - name: Beginner JSON templates
     items:
     - name: 1 - Create first template
       href: template-tutorial-create-first-template.md
@@ -242,6 +246,28 @@
       href: template-tutorial-add-tags.md
     - name: 10 - Use parameter file
       href: template-tutorial-use-parameter-file.md
+  - name: Beginner Bicep
+    items:
+    - name: 1 - Create first template
+      href: bicep-tutorial-create-first-bicep.md
+    - name: 2 - Add parameters
+      href: bicep-tutorial-add-parameters.md
+    - name: 3 - Add template functions
+      href: bicep-tutorial-add-functions.md
+    - name: 4 - Add variables
+      href: bicep-tutorial-add-variables.md
+    - name: 5 - Add outputs
+      href: bicep-tutorial-add-outputs.md
+    - name: 6 - Use exported template
+      href: bicep-tutorial-export-template.md
+    - name: 7 - Use Quickstart template
+      href: bicep-tutorial-quickstart-template.md
+    - name: 8 - Add tags
+      href: bicep-tutorial-add-tags.md
+    - name: 9 - Use parameter file
+      href: bicep-tutorial-use-parameter-file.md
+    - name: 10 - Add modules
+      href: bicep-tutorial-add-modules.md
   - name: Deployment
     items:
     - name: 1 - Deploy a local template
@@ -298,6 +324,12 @@
   items:
   - name: Template best practices
     href: template-best-practices.md
+  - name: Bicep
+    items:
+    - name: Comparing JSON to Bicep
+      href: compare-template-syntax.md
+  - name: Data types
+    href: data-types.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
   - name: Templates for cloud consistency
@@ -333,6 +365,8 @@
       href: template-user-defined-functions.md
     - name: Resources
       items:
+      - name: Resource declaration
+        href: resource-declaration.md
       - name: Child resource name and type
         href: child-resource-name-type.md
       - name: Conditional deployment
@@ -491,6 +525,8 @@
     items:
     - name: All functions
       href: template-functions.md
+    - name: Any function (Bicep)
+      href: template-functions-any.md
     - name: Array functions
       href: template-functions-array.md
     - name: Comparison functions
