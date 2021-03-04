@@ -108,7 +108,7 @@ You can run these commands in [Azure Cloud Shell](https://shell.azure.com) or a 
 
 ### Assign access role
 
-The function skeleton from earlier examples requires that a bearer token to be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
+The function skeleton from earlier examples requires that a bearer token to be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) permissions for the function app to access Azure Digital Twins. This only needs to be done once for each function app.
 
 You can use the function app's system-managed identity to give it the _**Azure Digital Twins Data Owner**_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
 
@@ -150,28 +150,30 @@ Complete the following steps in the [Azure portal](https://portal.azure.com/).
 
 ### Assign access role
 
-A system assigned managed identity enables Azure resources to authenticate to cloud services (for example, Azure Key Vault) without storing credentials in code. Once enabled, all necessary permissions can be granted via Azure role-based-access-control. The lifecycle of this type of managed identity is tied to the lifecycle of this resource. Additionally, each resource (for example, Virtual Machine) can only have one system assigned managed identity.
+A system assigned managed identity enables Azure resources to authenticate to cloud services (for example, Azure Key Vault) without storing credentials in code. Once enabled, all necessary permissions can be granted via Azure role-based access control. The lifecycle of this type of managed identity is tied to the lifecycle of this resource. Additionally, each resource can only have one system assigned managed identity.
 
 1. In the [Azure portal](https://portal.azure.com/), search for your function app by typing its name into the search bar. Select your app from the results. 
 
     :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal: The function app's name is being searched in the portal search bar and the search result is highlighted.":::
 
-1. On the function app page, select _Identity_ in the navigation bar on the left to deal with a managed identity for the function. On the _System assigned_ page, verify that the _Status_ is set to to **On** (if it's not, set it now and *Save* the change).
+1. On the function app page, select _Identity_ in the navigation bar on the left to work with a managed identity for the function. On the _System assigned_ page, verify that the _Status_ is set to to **On** (if it's not, set it now and *Save* the change).
 
-    :::image type="content" source="media/how-to-create-azure-function/verify-system-managed-identity.png" alt-text="Screenshot of the Azure portal: In the Identity page for the function app, the Status option is set to On.":::
+    :::image type="content" source="media/how-to-create-azure-function/verify-system-managed-identity.png" alt-text="Screenshot of the Azure portal: In the Identity page for the function app, the Status option is set to On." lightbox="media/how-to-create-azure-function/verify-system-managed-identity.png":::
 
-1. Select the _Azure role assignments_ button, which will open up the *Azure role assignments* page. Then, select _+ Add role assignment (Preview)_.
+1. Select the _Azure role assignments_ button, which will open up the *Azure role assignments* page.
 
-    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal: A highlight around the Azure role assignments button under Permissions in the Azure Function's Identity page.":::
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal: A highlight around the Azure role assignments button under Permissions in the Azure Function's Identity page." lightbox="media/how-to-create-azure-function/add-role-assignment-1.png":::
 
-    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-2.png" alt-text="Screenshot of the Azure portal: A highlight around + Add role assignment (Preview) in the Azure role assignments page.":::
+    Select _+ Add role assignment (Preview)_.
+
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-2.png" alt-text="Screenshot of the Azure portal: A highlight around + Add role assignment (Preview) in the Azure role assignments page." lightbox="media/how-to-create-azure-function/add-role-assignment-2.png":::
 
 1. On the _Add role assignment (Preview)_ page that opens up, select the following values:
 
-    * _Scope_: Resource group
-    * _Subscription_: select your Azure subscription
-    * _Resource group_: select your resource group from the dropdown
-    * _Role_: select _Azure Digital Twins Data Owner_ from the dropdown
+    * **Scope**: Resource group
+    * **Subscription**: Select your Azure subscription
+    * **Resource group**: Select your resource group from the dropdown
+    * **Role**: Select _Azure Digital Twins Data Owner_ from the dropdown
 
     Then, save your details by hitting the _Save_ button.
 
