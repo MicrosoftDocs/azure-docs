@@ -23,7 +23,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 - **New prebuilt ID model** The new prebuilt ID model enables customers to take IDs and return structured data to automate processing. It combines our powerful Optical Character Recognition (OCR) capabilities with ID understanding models to extract key information from passports and U.S. driver licenses, such as name, date of birth, issue date, expiration date, and more.
 
- > [Learn more about the prebuilt ID model](concept-id.md)
+ > [Learn more about the prebuilt ID model](concept-identification-cards.md)
 
  :::image type="content" source="./media/id-canpassport-example.png" alt-text="passport example" lightbox="./media/id-canpassport-example.png":::
 
