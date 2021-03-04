@@ -174,11 +174,11 @@ o	Use features like resource governor to limit certain loads such as backup. Ple
 Relaxed monitoring of SQL AlwaysOn AG/FCI 
 If above actions do not result in improved performance such in the scenario where you are unable to move to a VM or disks with higher limit due to financial or other constraints, you can opt for relaxed monitoring of the SQL Always On AG/FCI. Please note that this will mask the underlying problem only and these are only temporary solution and reduces (not eliminates) the likelihood of a failure. You might need to do trial and error to find the optimum values for your environment.
 
-## Connectivity 
+## Connectivity
 
 It's possible to configure a virtual network name, or a distributed network name for both failover cluster instances and availability groups. [Review the differences between the two](hadr-compare-virtual-distributed-network-name.md).
 
-
+The distributed network name is the recommended connectivity option, when available. 
 
 ## Limitations
 

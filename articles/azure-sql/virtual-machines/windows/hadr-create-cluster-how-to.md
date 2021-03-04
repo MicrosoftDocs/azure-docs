@@ -1,6 +1,6 @@
 ---
 title: Create Windows Server Failover Cluster
-description: "Learn about the supported cluster configurations when you configure high availability and disaster recovery (HADR) for SQL Server on Azure Virtual Machines, such as supported quorums or connection routing options." 
+description: "Learn to create a Windows Server Failover Cluster for SQL Server on Azure VMs" 
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -16,7 +16,7 @@ ms.author: mathoma
 
 ---
 
-# Create Windows Server Failover Cluster
+# Create Windows Server Failover Cluster - SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 In this article, learn to configure a Windows Server Failover for SQL Server on Azure VMs.
@@ -45,7 +45,7 @@ In this article, learn to configure a Windows Server Failover for SQL Server on 
 
 ## Set cluster parameters
 
-for more info, see [cluster parameters](hadr-cluster-best-practices.md#cluster-parameters)
+for more info, see [cluster parameters](hadr-cluster-best-practices.md)
 
 
 For Windows Server 2012 or later
