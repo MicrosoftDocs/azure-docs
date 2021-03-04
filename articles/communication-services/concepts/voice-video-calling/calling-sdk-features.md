@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 03/04/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -67,6 +67,7 @@ The following list presents the set of features which are currently available in
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️            | ✔️
 
 
+
 ## JavaScript calling client library support by OS and browser
 
 The following table represents the set of supported browsers which are currently available. We support the most recent three versions of the browser unless otherwise indicated.
@@ -86,6 +87,7 @@ The following table represents the set of supported browsers which are currently
 ***Outgoing screen sharing is supported only on desktop platforms (Windows, macOS, and Linux), regardless of the browser version, and is not supported on any mobile platform (Android, iOS, iPad, and tablets).
 
 ****An iOS app on Safari can't enumerate/select mic and speaker devices (for example, Bluetooth); this is a limitation of the OS, and there's always only one device.
+
 
 ## Calling client - browser security model
 
