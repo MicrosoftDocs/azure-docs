@@ -108,20 +108,30 @@ You can run these commands in [Azure Cloud Shell](https://shell.azure.com) or a 
 
 ### Assign access role
 
-The function skeleton from earlier examples requires that a bearer token to be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
+The function skeleton from earlier examples requires that a bearer token to be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) permissions for the function app to access Azure Digital Twins. This only needs to be done once for each function app.
 
-You can create system-managed identity and assign the function app's identity to the _**Azure Digital Twins Data Owner**_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
+You can use the function app's system-managed identity to give it the _**Azure Digital Twins Data Owner**_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
 
-Use the following command to create the system-managed identity. Take note of the _principalId_ field in the output.
+1. Use the following command to see the details of the system-managed identity for the function. Take note of the _principalId_ field in the output.
 
-```azurecli-interactive	
-az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
-```
-Use the _principalId_ value in the following command to assign the function app's identity to the _Azure Digital Twins Data Owner_ role for your Azure Digital Twins instance.
+    ```azurecli-interactive	
+    az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
+    ```
 
-```azurecli-interactive	
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
-```
+    >[!NOTE]
+    > If the result is empty instead of showing details of an identity, create a new system-managed identity for the function using this command:
+    > 
+    >```azurecli-interactive	
+    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
+    >```
+    >
+    > The output will then display details of the identity, including the _principalId_ value required for the next step. 
+
+1. Use the _principalId_ value in the following command to assign the function app's identity to the _Azure Digital Twins Data Owner_ role for your Azure Digital Twins instance.
+
+    ```azurecli-interactive	
+    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    ```
 
 ### Configure application settings
 
@@ -140,40 +150,34 @@ Complete the following steps in the [Azure portal](https://portal.azure.com/).
 
 ### Assign access role
 
-A system assigned managed identity enables Azure resources to authenticate to cloud services (for example, Azure Key Vault) without storing credentials in code. Once enabled, all necessary permissions can be granted via Azure role-based-access-control. The lifecycle of this type of managed identity is tied to the lifecycle of this resource. Additionally, each resource (for example, Virtual Machine) can only have one system assigned managed identity.
+A system assigned managed identity enables Azure resources to authenticate to cloud services (for example, Azure Key Vault) without storing credentials in code. Once enabled, all necessary permissions can be granted via Azure role-based access control. The lifecycle of this type of managed identity is tied to the lifecycle of this resource. Additionally, each resource can only have one system assigned managed identity.
 
-In the [Azure portal](https://portal.azure.com/), search for _function app_ in the search bar with the function app name that you created earlier. Select the *Function App* from the list. 
+1. In the [Azure portal](https://portal.azure.com/), search for your function app by typing its name into the search bar. Select your app from the results. 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal: The function app's name is being searched in the portal search bar and the search result is highlighted.":::
+    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal: The function app's name is being searched in the portal search bar and the search result is highlighted.":::
 
-On the function app window, select _Identity_ in the navigation bar on the left to enable managed identity.
-Under _System assigned_ tab, toggle the _Status_ to On and _save_ it. You will see a pop-up to _Enable system assigned managed identity_.
-Select _Yes_ button. 
+1. On the function app page, select _Identity_ in the navigation bar on the left to work with a managed identity for the function. On the _System assigned_ page, verify that the _Status_ is set to to **On** (if it's not, set it now and *Save* the change).
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Screenshot of the Azure portal: In the Identity page for the function app, the option to enable system assigned managed identity is being set to Yes. The Status option is set to On.":::
+    :::image type="content" source="media/how-to-create-azure-function/verify-system-managed-identity.png" alt-text="Screenshot of the Azure portal: In the Identity page for the function app, the Status option is set to On." lightbox="media/how-to-create-azure-function/verify-system-managed-identity.png":::
 
-You can verify in the notifications that your function is successfully registered with Azure Active Directory.
+1. Select the _Azure role assignments_ button, which will open up the *Azure role assignments* page.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Screenshot of the Azure portal: the notifications list from selecting the bell-shaped icon in the portal's top bar. There is a notification that the user has enabled system assigned managed identity.":::
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal: A highlight around the Azure role assignments button under Permissions in the Azure Function's Identity page." lightbox="media/how-to-create-azure-function/add-role-assignment-1.png":::
 
-Also note the **object ID** shown on the _Identity_ page, as it will be used in the next section.
+    Select _+ Add role assignment (Preview)_.
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Screenshot of the Azure portal: A highlight around the Object ID field from the Azure Function's Identity page.":::
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-2.png" alt-text="Screenshot of the Azure portal: A highlight around + Add role assignment (Preview) in the Azure role assignments page." lightbox="media/how-to-create-azure-function/add-role-assignment-2.png":::
 
-Select the _Azure role assignments_ button, which will open up the *Azure role assignments* page. Then, select _+ Add role assignment (Preview)_.
+1. On the _Add role assignment (Preview)_ page that opens up, select the following values:
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Screenshot of the Azure portal: A highlight around the Azure role assignments button under Permissions in the Azure Function's Identity page.":::
+    * **Scope**: Resource group
+    * **Subscription**: Select your Azure subscription
+    * **Resource group**: Select your resource group from the dropdown
+    * **Role**: Select _Azure Digital Twins Data Owner_ from the dropdown
 
-On the _Add role assignment (Preview)_ page that opens up, select:
+    Then, save your details by hitting the _Save_ button.
 
-* _Scope_: Resource group
-* _Subscription_: select your Azure subscription
-* _Resource group_: select your resource group from the dropdown
-* _Role_: select _Azure Digital Twins Data Owner_ from the dropdown
-
-Then, save your details by hitting the _Save_ button.
-
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Screenshot of the Azure portal: Dialog to add a new role assignment (Preview). There are fields for the Scope, Subscription, Resource group, and Role.":::
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Screenshot of the Azure portal: Dialog to add a new role assignment (Preview). There are fields for the Scope, Subscription, Resource group, and Role.":::
 
 ### Configure application settings
 
@@ -208,10 +212,6 @@ You can view your application settings with application name under the _Name_ fi
 Any changes to the application settings will require an application restart to take effect. Select _Continue_ to restart your application.
 
 :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Screenshot of the Azure portal: There is a notice that any changes to application settings with restart your application. The Continue button is highlighted.":::
-
-You can view that application settings are updated by selecting _Notifications_ icon. If your application setting is not created, you can retry adding an application setting by following the above process.
-
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Screenshot of the Azure portal: the notifications list from selecting the bell-shaped icon in the portal's top bar. There is a notification that the web app settings were successfully updated.":::
 
 ---
 
