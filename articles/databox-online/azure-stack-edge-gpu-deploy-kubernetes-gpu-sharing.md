@@ -298,7 +298,7 @@ You'll run the first job to deploy an application on your device in the namespac
     cuda-sample2-db9vx   0/1     Completed   0          2m53s
     PS C:\WINDOWS\system32>
     ```
-1. There should be 2 container n-body simulation workloads running on the GPU 0 of your device. Here is the  Nvidia smi output:
+1. There should be two container n-body simulation workloads running on the GPU 0 of your device. Here is the  Nvidia smi output:
 
     ```powershell
     [10.57.51.94]: PS>Get-HcsGpuNvidiaSmi
@@ -368,7 +368,7 @@ You'll run the first job to deploy an application on your device in the namespac
     = 1969.517 single-precision GFLOP/s at 20 flops per interaction
     PS C:\WINDOWS\system32>    
     ```
-  1. There should be no processes running on the GPU at this time. You can verify this by viewing the GPU utilization using the Nvidia smi out.
+1. There should be no processes running on the GPU at this time. You can verify this by viewing the GPU utilization using the Nvidia smi output.
 
     ```powershell
     [10.57.51.94]: PS>Get-HcsGpuNvidiaSmi
@@ -397,7 +397,7 @@ You'll run the first job to deploy an application on your device in the namespac
     [10.57.51.94]: PS>
     ```
 
-## Example job with context-sharing
+## Job with context-sharing
 
 You'll run the second job to deploy the n-body simulation on two CUDA containers when MPS is running on your device and context-sharing is enabled. First, you'll enable MPS on the device.
 
@@ -498,7 +498,7 @@ You'll run the second job to deploy the n-body simulation on two CUDA containers
       Normal  SuccessfulCreate  47s   job-controller  Created pod: cuda-sample2-zkx4w
     PS C:\WINDOWS\system32>
     ```
-1. 1. After the simulation is complete, you can view the logs and the total time for the completion of the simulation. Run the following command:
+1. After the simulation is complete, you can view the logs and the total time for the completion of the simulation. Run the following command:
 
     ```powershell
         PS C:\WINDOWS\system32> kubectl get pods -n mynamesp1
