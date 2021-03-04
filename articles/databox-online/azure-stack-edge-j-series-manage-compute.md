@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ---
 # Manage compute on your Azure Stack Edge Pro GPU
@@ -32,7 +32,7 @@ Take the following steps in the Azure portal to create a trigger.
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **IoT Edge**. Go to **Triggers** and select **+ Add trigger** on the command bar.
 
-    ![Select add trigger](media/azure-stack-edge-j-series-manage-compute/add-trigger-1m.png)
+    ![Select add trigger](media/azure-stack-edge-j-series-manage-compute/add-trigger-1-m.png)
 
 2. In **Add trigger** blade, provide a unique name for your trigger.
     
