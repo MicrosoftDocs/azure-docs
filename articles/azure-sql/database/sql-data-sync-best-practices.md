@@ -46,6 +46,10 @@ Azure SQL Database supports only a single set of credentials. To accomplish thes
 -   Change the credentials for different phases (for example, *credentials1* for setup and *credentials2* for ongoing).  
 -   Change the permission of the credentials (that is, change the permission after sync is set up).
 
+### Auditing
+
+It is recommended to enable auditing at the level of the databases in the sync groups. 
+
 ## Setup
 
 ### <a name="database-considerations-and-constraints"></a> Database considerations and constraints
