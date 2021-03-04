@@ -97,9 +97,9 @@
       href: logs/resource-manager-log-queries.md
     - name: Workbooks
       href: visualize/resource-manager-workbooks.md
-    - name: Azure Monitor for containers
+    - name: Container insights
       href: containers/resource-manager-container-insights.md
-    - name: Azure Monitor for VMs
+    - name: VM insights
       href: vm/resource-manager-vminsights.md
   - name: Azure CLI
     href: cli-samples.md
@@ -416,7 +416,7 @@
         - name: Send to Event Hubs
           href: agents/diagnostics-extension-stream-event-hubs.md
         - name: Send to Logs
-          href: essentials/diagnostics-extension-logs.md
+          href: agents/diagnostics-extension-logs.md
         - name: Send to Application Insights
           href: agents/diagnostics-extension-to-application-insights.md
         - name: Version history
@@ -986,14 +986,14 @@
       href: app/change-analysis-visualizations.md
     - name: Troubleshoot
       href: app/change-analysis-troubleshoot.md
-  - name: Azure Monitor for VMs
+  - name: VM insights
     items:
     - name: Overview
       href: vm/vminsights-overview.md
     - name: General Availability FAQ
       href: vm/vminsights-ga-release-faq.md  
     - name: FAQ
-      href: faq.md#azure-monitor-for-vms
+      href: faq.md#vm-insights
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
     - name: Install agents
@@ -1040,12 +1040,12 @@
       href: vm/vminsights-workbooks.md
     - name: Disable monitoring
       href: vm/vminsights-optout.md
-  - name: Azure Monitor for containers 
+  - name: Container insights 
     items:
     - name: Overview
       href: containers/container-insights-overview.md
     - name: FAQ
-      href: faq.md#azure-monitor-for-containers
+      href: faq.md#container-insights
     - name: Enable monitoring
       items:
       - name: Enable monitoring overview 

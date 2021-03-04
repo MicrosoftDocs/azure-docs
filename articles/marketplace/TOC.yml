@@ -46,13 +46,20 @@
   - name: Go-to-market options
     items:
     - name: Your marketplace benefits
-      href: gtm-your-marketplace-benefits.md 
-    - name: Co-sell partner engagement
-      href: marketplace-co-sell.md 
-    - name: Co-sell option in Partner Center
-      href: commercial-marketplace-co-sell.md 
-    - name: Migrate co-sell solutions from OCP GTM
-      href: co-sell-solution-migration.md 
+      href: gtm-your-marketplace-benefits.md
+      items: 
+    - name: Co-sell with Microsoft
+      items:
+      - name: Co-sell overview
+        href: marketplace-co-sell.md
+      - name: Co-sell requirements
+        href: co-sell-requirements.md 
+      - name: Configure co-sell
+        href: commercial-marketplace-co-sell.md
+      - name: Verify co-sell status
+        href: co-sell-status.md   
+      - name: Migrate co-sell solutions from OCP GTM
+        href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
       href: cloud-solution-providers.md  
     - name: Connect Program onboarding guide  
@@ -203,6 +210,8 @@
       href: partner-center-portal/azure-iot-edge-module-creation.md
     - name: Prepare IoT Edge module technical assets
       href: partner-center-portal/create-iot-edge-module-asset.md
+    - name: Pre-certification checklist
+      href: iot-edge-checklist.md
   - name: Managed Service offers
     items:
     - name: Plan a Managed Service offer
@@ -395,6 +404,8 @@
     href: commercial-marketplace-co-sell-countries.md 
   - name: Co-sell state codes
     href: commercial-marketplace-co-sell-states.md
+  - name: Reference Architecture Diagram
+    href: reference-architecture-diagram.md  
   - name: Categories and subcategories
     href: categories.md  
   - name: Supported HTML tags
