@@ -103,8 +103,10 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: REST API
-            url: https://docs.microsoft.com/rest/api/custom-vision/
+          - text: Training API
+            url: https://go.microsoft.com/fwlink/?linkid=865446
+          - text: Prediction API
+            url: https://go.microsoft.com/fwlink/?linkid=865445
           - text: .NET SDK
             url: /dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
           - text: Python SDK
@@ -118,7 +120,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: /cli/azure/cognitiveservices?view=azure-cli-latest
+            url: /cli/azure/cognitiveservices
 
   - title: Help and feedback
     linkLists:

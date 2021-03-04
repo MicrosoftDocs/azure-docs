@@ -161,7 +161,7 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *ra
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-You can create patches using a `JsonPatchDocument` in the [SDK](how-to-use-apis-sdks.md). Here is an example.
+You can create patches using the Azure .NET SDK's [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true). Here is an example.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 

@@ -6,7 +6,6 @@ author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon

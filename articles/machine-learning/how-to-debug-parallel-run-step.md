@@ -116,7 +116,7 @@ Create the ParallelRunStep by using the script, environment configuration, and p
 - `parallel_run_config`: A `ParallelRunConfig` object, as defined earlier.
 - `inputs`: One or more single-typed Azure Machine Learning datasets to be partitioned for parallel processing.
 - `side_inputs`: One or more reference data or datasets used as side inputs without need to be partitioned.
-- `output`: A `PipelineData` object that corresponds to the output directory.
+- `output`: An `OutputFileDatasetConfig` object that represents the directory path at which the output data will be stored.
 - `arguments`: A list of arguments passed to the user script. Use unknown_args to retrieve them in your entry script (optional).
 - `allow_reuse`: Whether the step should reuse previous results when run with the same settings/inputs. If this parameter is `False`, a new run will always be generated for this step during pipeline execution. (optional; the default value is `True`.)
 

@@ -4,7 +4,7 @@ titleSuffix: Azure VMware Solution by CloudSimple
 description: Describes the CloudSimple service process for scheduled maintenance and updates
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 08/20/2019
+ms.date: 03/04/2021
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
@@ -94,7 +94,7 @@ Software updates include:
 * **Updates**. Minor version change of a VMware stack component.
 * **Upgrades**. Major version change of a VMware stack component.
 
-CloudSimple tests a critical security patch as soon as it becomes available from VMware. Per SLA, CloudSimple rolls out the security patch to Private Cloud environments within a week.
+CloudSimple tests a critical security patch as soon as it becomes available from VMware. 
 
 CloudSimple provides quarterly maintenance updates to VMware software components. When a new major version of VMware software is available, CloudSimple works with customers to coordinate a suitable maintenance window for upgrade.
 

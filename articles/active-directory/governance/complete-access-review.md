@@ -54,7 +54,7 @@ You can track the progress as the reviewers complete their reviews.
     ![Review guest access across Microsoft 365 groups](./media/complete-access-review/all-company-group-results.png)
 
 
-    If you are viewing an access review that reviews guest access across Microsoft 365 groups (Preview), the Overview blade lists each group in the review. 
+    If you are viewing an access review that reviews guest access across Microsoft 365 groups, the Overview blade lists each group in the review. 
    
     ![review guest access across Microsoft 365 groups](./media/complete-access-review/review-guest-access-across-365-groups.png)
 

@@ -36,7 +36,7 @@ func startCall() {
         if granted {
             let startCallOptions = ACSStartCallOptions()
             startCallOptions!.alternateCallerID = PhoneNumber(phoneNumber: "+12223334444")
-            self.call = self.callAgent!.call([PhoneNumber(phoneNumber: self.callee)], options: startCallOptions)
+            self.call = self.callAgent!.startCall([PhoneNumber(phoneNumber: self.callee)], options: startCallOptions)
             self.callDelegate = CallDelegate(self)
             self.call!.delegate = self.callDelegate
         }

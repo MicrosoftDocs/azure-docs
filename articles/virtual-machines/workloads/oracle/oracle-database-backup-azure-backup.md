@@ -2,8 +2,9 @@
 title: Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Backup
 description: Learn how to back up and recover an Oracle Database 19c database using the Azure Backup service.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
@@ -195,13 +196,13 @@ This step assumes that you have an Oracle instance (*test*) that is running on a
      RMAN> backup as compressed backupset database plus archivelog;
      ```
 
-## Using Azure Backup
+## Using Azure Backup (Preview)
 
 The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud. Azure Backup provides independent and isolated backups to guard against accidental destruction of original data. Backups are stored in a Recovery Services vault with built-in management of recovery points. Configuration and scalability are simple, backups are optimized, and you can easily restore as needed.
 
-Azure Backup service provides a [framework](../../../backup/backup-azure-linux-app-consistent.md) to achieve application consistency during backups of Windows and Linux VMs for various applications like Oracle, MySQL, Mongo DB, SAP HANA, and PostGreSQL. This involves invoking a pre-script (to quiesce the applications) before taking a snapshot of disks and calling post-script (commands to unfreeze the applications) after the snapshot is completed, to return the applications to the normal mode. While sample pre-scripts and post-scripts are provided on GitHub, the creation and maintenance of these scripts is your responsibility. 
+Azure Backup service provides a [framework](../../../backup/backup-azure-linux-app-consistent.md) to achieve application consistency during backups of Windows and Linux VMs for various applications like Oracle, MySQL, Mongo DB and PostGreSQL. This involves invoking a pre-script (to quiesce the applications) before taking a snapshot of disks and calling post-script (commands to unfreeze the applications) after the snapshot is completed, to return the applications to the normal mode. While sample pre-scripts and post-scripts are provided on GitHub, the creation and maintenance of these scripts is your responsibility.
 
-Now Azure Backup is providing an enhanced pre-scripts and post-script framework, where the Azure Backup service will provide packaged pre-scripts and post-scripts for selected applications. Azure Backup users just need to name the application and then Azure VM backup will automatically invoke the relevant pre-post scripts. The packaged pre-scripts and post-scripts will be maintained by the Azure Backup team and so users can be assured of the support, ownership, and validity of these scripts. Currently, the supported applications for the enhanced framework are *Oracle* and *MySQL*.
+Now Azure Backup is providing an enhanced pre-scripts and post-script framework (**which is currently in preview**), where the Azure Backup service will provide packaged pre-scripts and post-scripts for selected applications. Azure Backup users just need to name the application and then Azure VM backup will automatically invoke the relevant pre-post scripts. The packaged pre-scripts and post-scripts will be maintained by the Azure Backup team and so users can be assured of the support, ownership, and validity of these scripts. Currently, the supported applications for the enhanced framework are *Oracle* and *MySQL*.
 
 In this section, you will use Azure Backup enhanced framework to take application-consistent snapshots of your running VM and Oracle database. The database will be placed into backup mode allowing a transactionally consistent online backup to occur while Azure Backup takes a snapshot of the VM disks. The snapshot will be a full copy of the storage and not an incremental or Copy on Write snapshot, so it is an effective medium to restore your database from. The advantage of using Azure Backup application-consistent snapshots is that they are extremely fast to take no matter how large your database is, and a snapshot can be used for restore operations as soon as it is taken, without having to wait for it to be transferred to the Recovery Services vault.
 
@@ -310,7 +311,7 @@ To use Azure Backup to back up the database, complete these steps:
    sudo su -
    ```
 
-2. Create the application-consistent backup working directory:
+2. Check for "etc/azure" folder. If that is not present, create the application-consistent backup working directory:
 
    ```bash
    if [ ! -d "/etc/azure" ]; then
@@ -318,7 +319,7 @@ To use Azure Backup to back up the database, complete these steps:
    fi
    ```
 
-3. Create a file in the */etc/azure* directory called *workload.conf* with the following contents, which must begin with `[workload]`. The following command will create the file and populate the contents:
+3. Check for "workload.conf" within the folder. If that is not present, create a file in the */etc/azure* directory called *workload.conf* with the following contents, which must begin with `[workload]`. If the file is already present, then just edit the fields such that it matches the following content. Otherwise, the following command will create the file and populate the contents:
 
    ```bash
    echo "[workload]
@@ -326,14 +327,6 @@ To use Azure Backup to back up the database, complete these steps:
    command_path = /u01/app/oracle/product/19.0.0/dbhome_1/bin/
    timeout = 90
    linux_user = azbackup" > /etc/azure/workload.conf
-   ```
-
-4. Download the preOracleMaster.sql and postOracleMaster.sql scripts from the [GitHub Repository](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) and copy them to the */etc/azure* directory.
-
-5. Change the file permissions
-
-```bash
-   chmod 744 workload.conf preOracleMaster.sql postOracleMaster.sql 
    ```
 
 ### Trigger an application-consistent backup of the VM
@@ -966,4 +959,4 @@ az group delete --name rg-oracle
 
 [Tutorial: Create highly available VMs](../../linux/create-cli-complete.md)
 
-[Explore VM deployment Azure CLI samples](../../linux/cli-samples.md)
+[Explore VM deployment Azure CLI samples](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

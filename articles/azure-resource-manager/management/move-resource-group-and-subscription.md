@@ -32,7 +32,7 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. If you move a resource that has an Azure role assigned directly to the resource (or a child resource), the role assignment is not moved and becomes orphaned. After the move, you must re-create the role assignment. Eventually, the orphaned role assignment will be automatically removed, but it is a best practice to remove the role assignment before moving the resource.
 
-    For information about how to manage role assignments, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) and [Add or remove Azure role assignments](../../role-based-access-control/role-assignments-portal.md).
+    For information about how to manage role assignments, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) and [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md).
 
 1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
