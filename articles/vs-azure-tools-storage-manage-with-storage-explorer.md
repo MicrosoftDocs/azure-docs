@@ -78,7 +78,7 @@ Storage Explorer provides several ways to connect to Azure resources:
 ### Sign in to Azure
 
 > [!NOTE]
-> To fully access resources after you sign in, Storage Explorer requires both management (Azure Resource Manager) and data layer permissions. This means that you need Azure Active Directory (Azure AD) permissions to access your storage account, the containers in the account, and the data in the containers. If you have permissions only at the data layer, consider [adding a resource through Azure AD](#add-a-resource-via-azure-ad). For more information about the specific permissions Storage Explorer requires, see the [Azure Storage Explorer troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md#azure-rbac-permissions-issues).
+> To fully access resources after you sign in, Storage Explorer requires both management (Azure Resource Manager) and data layer permissions. This means that you need Azure Active Directory (Azure AD) permissions to access your storage account, the containers in the account, and the data in the containers. If you have permissions only at the data layer, consider choosing the **Sign in using Azure Active Directory (Azure AD)** option when attaching to a resource. For more information about the specific permissions Storage Explorer requires, see the [Azure Storage Explorer troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md#azure-rbac-permissions-issues).
 
 1. In Storage Explorer, select **View** > **Account Management** or select the **Manage Accounts** button.
 
@@ -107,7 +107,7 @@ Storage Explorer provides several ways to connect to Azure resources:
 
     ![Selected Azure subscriptions][4]
 
-### Attach an individual resource
+### Attach to an individual resource
 
 Storage Explorer lets you connect to individual resources, such as an Azure Data Lake (ADLS) Gen2 container, using various authentication methods. Some authentication methods are only supported for certain resource types.
 
