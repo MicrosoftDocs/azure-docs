@@ -55,9 +55,7 @@ To make the decision about how many Azure file shares you need, review the follo
 > [!IMPORTANT]
 > The most important scale vector for Azure File Sync is the number of items (files and folders) that need to be synchronized. Review the [Azure File Sync scale targets](../articles/storage/files/storage-files-scale-targets.md#azure-file-sync-scale-targets) for more details.
 
-It's a best practice to keep the number of items per sync scope low. That's an important factor to consider in your mapping of folders to Azure file shares. Azure File Sync is tested with 100 million items per share. However, it's often best to keep the number of items below 20 million or 30 million in a single share. Split your namespace into multiple shares if you start to exceed these numbers. You can continue to group multiple on-premises shares into the same Azure file share if you stay roughly below these numbers. This practice will provide you with room to grow.
-
-*[items]: files and folders
+It's a best practice to keep the number of items per sync scope low. That's an important factor to consider in your mapping of folders to Azure file shares. Azure File Sync is tested with 100 million items (files and folders) per share. However, it's often best to keep the number of items below 20 million or 30 million in a single share. Split your namespace into multiple shares if you start to exceed these numbers. You can continue to group multiple on-premises shares into the same Azure file share if you stay roughly below these numbers. This practice will provide you with room to grow.
 
 In your situation, it's possible that a set of folders can logically sync to the same Azure file share (using the new, common root folder approach mentioned earlier). But it might still be better to regroup folders such that they sync to two instead of one Azure file share. You can use this approach to keep the number of files and folders per file share balanced across the server. You can also split your on-premises shares + sync across more on-premises servers, adding the ability to sync with 30 more Azure file share per extra server.
 
