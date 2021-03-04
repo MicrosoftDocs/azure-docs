@@ -110,8 +110,6 @@ To create a compatible storage account, use these settings:
 
 It's a good practice to use a storage account in the same location as your cache.
 
-*???* **Is this \\/ part needed for NFS blob** *???* <!--xxx -->
-
 You also must give the cache application access to your Azure storage account as mentioned in [Permissions](#permissions), above. Follow the procedure in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the required access roles. If you are not the storage account owner, have the owner do this step.
 
 ### NFS storage requirements
@@ -184,21 +182,21 @@ The storage account requirements are different for an ADLS-NFS blob storage targ
 
 This is a general overview of the steps:
 
-1. Plan for region ... 
+1. Make sure that the features you need are available in the regions where you plan to work.
 
-1. Before you create a storage account to use, enable the NFS protocol feature for your subscription.
+1. Enable the NFS protocol feature for your subscription. Do this before you create the storage account.
 
-1. Create a secure virtual network (VNet) for the storage account. 
-   To make sure the Azure HPC Cache can access the storage target, follow these guidelines: 
+1. Create a secure virtual network (VNet) for the storage account. You should use the same virtual network for your NFS-enabled storage account and for your Azure HPC Cache.
 
-1. Create the storage account in the secure VNet.
+1. Create the storage account.
 
-   * Instead of the account type for a standard blob storage target, follow the instructions in the [how-to document](../storage/blobs/network-file-system-protocol-support-how-to).
-   * Choose hot also 
+   * Instead of the using the storage account settings for a standard blob storage account, follow the instructions in the [how-to document](../storage/blobs/network-file-system-protocol-support-how-to). The type of storage account supported might vary by Azure region.
 
-1. Create a container (???)
+   * In the **Networking** section, choose a private endpoint in the secure virtual network you created (recommended), or choose a public endpoint with restricted access from the secure VNet. <!-- private endpoint might not be possible actually -->
 
+   * Do not forget to complete the **Advanced** section, where you enable NFS access.
 
+   * Give the cache application access to your Azure storage account as mentioned in [Permissions](#permissions), above. You can do this the first time you create a storage target. Follow the procedure in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the required access roles. If you are not the storage account owner, have the owner do this step.
 
 ## Set up Azure CLI access (optional)
 
