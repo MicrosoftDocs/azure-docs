@@ -22,15 +22,21 @@ To complete this tutorial's steps, you need to have access to a resource group f
 
 ## Create a Synapse workspace in the Azure portal
 
-1. Open the [Azure portal](https://portal.azure.com), and at the top search for **Synapse**.
+1. Open the [Azure portal](https://portal.azure.com), in the search bar enter **Synapse** without hitting enter.
 1. In the search results, under **Services**, select **Azure Synapse Analytics**.
 1. Select **Add** to create a workspace.
-1. In the **Basics** tab, under Project Details, enter your preferred **Subscription**, **Resource group**, **Region**, and then choose a workspace name. In this tutorial, we'll use **myworkspace**.
-1. By **Select Data Lake Storage Gen 2**, click the button for **From subscription**.
-1. By **Account name**, click **Create New** and name the new storage account **contosolake** or similar as this name must be unique.
-1. By **File system name**, click **Create New** and name it **users**. This will create a storage container called **users**
-1. The workspace will use this storage account as the "primary" storage account to Spark tables and Spark application logs.
-1. Check the "Assign myself the Storage Blob Data Contributor role on the Data Lake Storage Gen2 account" box. 
+1. **Basics** tab, under **Project Details**, fill in the following fields:
+      1. **Subscription** - Pick any subscription.
+      2. **Resource group** - Use any resource group.
+      3. **Resource group** - Leave this blank.
+1. In the **Basics** tab, under **Workspace details**, fill in the following fields:
+      1. **Workspace name** - Pick any globally unique name. In this tutorial, we'll use **myworkspace**.
+      1. **Region** - Pick any region.
+      1. **Select Data Lake Storage Gen 2**
+        1. Click the button for **From subscription**.
+        1. By **Account name**, click **Create New** and name the new storage account **contosolake** or similar as this name must be unique.
+        1. By **File system name**, click **Create New** and name it **users**. This will create a storage container called **users**. The workspace will use this storage account as the "primary" storage account to Spark tables and Spark application logs.
+        1. Check the "Assign myself the Storage Blob Data Contributor role on the Data Lake Storage Gen2 account" box. 
 1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
 
 > [!NOTE]

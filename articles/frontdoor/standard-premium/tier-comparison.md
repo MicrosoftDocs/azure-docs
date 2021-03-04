@@ -54,10 +54,10 @@ Azure Front Door is offered for 3 different SKUs, [Azure Front Door](../front-do
 | URL rewrite | Yes | Yes |
 | Rules Engine | Yes | Yes |
 | Private Origin (Private Link) | No | Yes |
-| WAF | No | Yes |
+| WAF | Custom Rules only | Yes |
 | Bot Protection | No | Yes |
 | Enhanced Metrics and diagnostics | Yes | Yes |
-| Traffic reports | Yes | Yes |
+| Traffic report | Yes | Yes |
 | Security Report | No | Yes | 
 
 ## Next steps

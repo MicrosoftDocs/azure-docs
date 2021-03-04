@@ -596,7 +596,7 @@ This feature enables the ability to assign an application (SPN) to an administra
  
 Disable and delete is an advanced control in Azure AD Access Reviews to help organizations better manage external guests in Groups and Apps. If guests are denied in an access review, **disable and delete** will automatically block them from signing in for 30 days. After 30 days, then they'll be removed from the tenant altogether.
 
-For more information about this feature, see [Disable and delete external identities with Azure AD Access Reviews (Preview)](../governance/access-reviews-external-users.md#disable-and-delete-external-identities-with-azure-ad-access-reviews-preview).
+For more information about this feature, see [Disable and delete external identities with Azure AD Access Reviews (Preview)](../governance/access-reviews-external-users.md#disable-and-delete-external-identities-with-azure-ad-access-reviews).
  
 ---
 
