@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Add joining a meeting to an iOS app using Azure Communication Services
-description: In this quickstart, you learn how to use the Azure Communication Services Meeting Client library for iOS.
+title: Quickstart - Add joining a teams meeting to an iOS app using Azure Communication Services
+description: In this quickstart, you learn how to use the Azure Communication Services Teams Embed library for iOS.
 author: palatter
 ms.author: palatter
 ms.date: 01/25/2021
@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to join a meeting using the Azure Communication Services Meeting Client library for iOS.
+In this quickstart, you'll learn how to join a teams meeting using the Azure Communication Services Teams Embed library for iOS.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ In Xcode, create a new iOS project and select the **App** template. We will be u
     platform :ios, '12.0'
     use_frameworks!
     
-    target 'MeetingCompositeGettingStarted' do
+    target 'TeamsEmbedGettingStarted' do
         pod 'AzureCommunication', '~> 1.0.0-beta.8'
     end
     ```
@@ -56,7 +56,7 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 <string>Need microphone access for VOIP calling.</string>
 ```
 
-### Add the meeting composite framework
+### Add the Teams Embed framework
 
 Download the framework from the latest release. Add the framework to the project target under the general tab.
 
@@ -107,11 +107,11 @@ class ViewController: UIViewController {
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Meeting Composite library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services Teams Embed library:
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| MeetingClient | The MeetingClient is the main entry point to the Meeting library. |
+| MeetingClient | The MeetingClient is the main entry point to the Teams Embed library. |
 | MeetingClientDelegate | The meeting client delegate is used to receive events, such as changes in call state. |
 | MeetingJoinOptions | MeetingJoinOptions are used for configurable options such as display name. | 
 | CallState | The CallState is used to for reporting call state changes. The options are as follows: connecting, waitingInLobby, connected, and ended. |
@@ -168,4 +168,4 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 
 ## Sample Code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/meeting-sdk-ios-getting-started)
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/teams-embed-ios-getting-started)

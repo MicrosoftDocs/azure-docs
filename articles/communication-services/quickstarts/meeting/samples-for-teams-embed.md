@@ -1,7 +1,7 @@
 ---
-title: Use the Azure Communication Services Meeting Composite Library
+title: Use the Azure Communication Services Teams Embed Library
 titleSuffix: An Azure Communication Services quickstart
-description: Learn about the Communication Services meeting composite library capabilities.
+description: Learn about the Communication Services Teams Embed library capabilities.
 author: palatter
 ms.author: palatter
 ms.date: 02/24/2021
@@ -12,11 +12,11 @@ zone_pivot_groups: acs-plat-ios-android
 
 ---
 
-# Use the Communication Services meeting composite library
+# Use the Communication Services Teams Embed library
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Get started with Azure Communication Services by using the Communication Services meeting composite library to add meetings to your app. 
+Get started with Azure Communication Services by using the Communication Services Teams Embed library to add teams meetings to your app. 
 
 ::: zone pivot="platform-android"
 [!INCLUDE [Meetings with Android](./includes/samples-android.md)]
@@ -34,4 +34,4 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
-- Check out our [Getting started with meeting composite sample](./getting-started-with-meeting-composite.md)
+- Check out our [Getting started with Teams Embed samples](./getting-started-with-teams-embed.md)

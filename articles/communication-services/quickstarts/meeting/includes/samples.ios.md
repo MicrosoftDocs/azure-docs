@@ -11,9 +11,9 @@ ms.author: palatter
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
-- Complete the quickstart for [getting started with adding meeting composite to your application](../getting-started-with-meeting-composite.md)
+- Complete the quickstart for [getting started with adding Teams Embed to your application](../getting-started-with-teams-embed.md)
 
-## Meeting Composite Events
+## Teams Embed Events
 
 Add the `MeetingUIClientDelegate` to your class.
 

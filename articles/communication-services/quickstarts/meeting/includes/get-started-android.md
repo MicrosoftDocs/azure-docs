@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Add joining a meeting to an Android app using Azure Communication Services
-description: In this quickstart, you learn how to use the Azure Communication Services Meeting Composite library for Android.
+title: Quickstart - Add joining a teams meeting to an Android app using Azure Communication Services
+description: In this quickstart, you learn how to use the Azure Communication Services Teams Embed library for Android.
 author: palatter
 ms.author: palatter
 ms.date: 01/25/2021
@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to join a meeting using the Azure Communication Services Meeting Composite library for Android.
+In this quickstart, you'll learn how to join a teams meeting using the Azure Communication Services Teams Embed library for Android.
 
 ## Prerequisites
 
@@ -77,11 +77,11 @@ dependencies {
 }
 ```
 
-### Install the Meeting package
+### Install the Teams Embed package
 
 Download the `MicrosoftTeamsSDK` package here 'Insert link once posted'.
 
-Then unzip the MicrosoftTeamsSDK folder into your projects app folder. Ex. `MeetingSDKAndroidGettingStarted/app/MicrosoftTeamsSDK`.
+Then unzip the MicrosoftTeamsSDK folder into your projects app folder. Ex. `TeamsEmbedAndroidGettingStarted/app/MicrosoftTeamsSDK`.
 
 ### Add permissions to application manifest
 
@@ -91,10 +91,10 @@ In order to request permissions required to join a meeting, they must first be d
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.microsoft.MeetingSDKAndroidGettingStarted">
+    package="com.microsoft.TeamsEmbedAndroidGettingStarted">
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <application
-        android:name=".MeetingSDKAndroidGettingStarted"
+        android:name=".TeamsEmbedAndroidGettingStarted"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -102,7 +102,7 @@ In order to request permissions required to join a meeting, they must first be d
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:name">
-        <activity android:name="com.microsoft.MeetingSDKAndroidGettingStarted.MainActivity">
+        <activity android:name="com.microsoft.TeamsEmbedAndroidGettingStarted.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -149,16 +149,16 @@ Create a button with an ID of `join_meeting`. Navigate to (`app/src/main/res/lay
 
 ### Create application class
 
-Create new java class file named `MeetingSDKAndroidGettingStarted`. This will be the application class which must extend `TeamsSDKApplication`.
+Create new java class file named `TeamsEmbedAndroidGettingStarted`. This will be the application class which must extend `TeamsSDKApplication`.
 
 :::image type="content" source="../media/android/application-class-location.png" alt-text="Screenshot showing where to create application class in Android Studio":::
 
 ```java
-package com.microsoft.MeetingSDKAndroidGettingStarted;
+package com.microsoft.TeamsEmbedAndroidGettingStarted;
 
 import com.microsoft.teamssdk.app.TeamsSDKApplication;
 
-public class MeetingSDKAndroidGettingStarted extends TeamsSDKApplication {
+public class TeamsEmbedAndroidGettingStarted extends TeamsSDKApplication {
 }
 ```
 
@@ -169,7 +169,7 @@ With the layout created the bindings can be added as well as the basic scaffoldi
 Navigate to **MainActivity.java** and replace the content with the following code:
 
 ```java
-package com.microsoft.MeetingSDKAndroidGettingStarted;
+package com.microsoft.TeamsEmbedAndroidGettingStarted;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -248,11 +248,11 @@ private void getAllPermissions() {
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Meeting Composite library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services Teams Embed library:
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| MeetingClient| The MeetingClient is the main entry point to the Meeting library. |
+| MeetingClient| The MeetingClient is the main entry point to the Teams Embed library. |
 | MeetingJoinOptions | MeetingJoinOptions are used for configurable options such as display name. |
 | CallState | The CallState is used to for reporting call state changes. The options are as follows: connecting, waitingInLobby, connected, and ended. |
 
@@ -302,7 +302,7 @@ Joining a meeting can be done via the MeetingClient, and just requires a meeting
  */
 private void joinMeeting() {
     try {
-        meetingUIClient.joinMeeting("<MEETING_URL>", meetingJoinOptions);
+        meetingUIClient.join("<MEETING_URL>", meetingJoinOptions);
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
@@ -319,4 +319,4 @@ The app can now be launched using the "Run App" button on the toolbar (Shift+F10
 
 ## Sample Code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/meeting-sdk-android-getting-started)
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/teams-embed-android-getting-started)
