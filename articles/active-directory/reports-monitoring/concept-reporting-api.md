@@ -48,7 +48,7 @@ The Microsoft Graph API endpoint for audit logs is `https://graph.microsoft.com/
 
 You can use the [Identity Protection risk detections API](/graph/api/resources/identityriskevent?view=graph-rest-beta) to gain programmatic access to security detections using Microsoft Graph. For more information, see [Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   
-You can also use the [provisioning logs API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) to get programmatic access to provisioning events in your tenant. 
+You can also use the [provisioning logs API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) to get programmatic access to provisioning events in your tenant. 
 
 ## APIs with Microsoft Graph Explorer
 

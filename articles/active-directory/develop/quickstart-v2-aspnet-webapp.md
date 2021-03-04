@@ -150,8 +150,8 @@ public void Configuration(IAppBuilder app)
             // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it's using the home page
             PostLogoutRedirectUri = redirectUri,
             Scope = OpenIdConnectScope.OpenIdProfile,
-            // ResponseType is set to request the ID token, which contains basic information about the signed-in user
-            ResponseType = OpenIdConnectResponseType.IdToken,
+            // ResponseType is set to request the code id_token, which contains basic information about the signed-in user
+            ResponseType = OpenIdConnectResponseType.CodeIdToken,
             // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
             // To only allow users from a single organization, set ValidateIssuer to true and the 'tenant' setting in Web.config to the tenant name
             // To allow users from only a list of specific organizations, set ValidateIssuer to true and use the ValidIssuers parameter
@@ -176,7 +176,7 @@ public void Configuration(IAppBuilder app)
 > | `RedirectUri`  | The URL where users are sent after authentication against the Microsoft identity platform. |
 > | `PostLogoutRedirectUri`     | The URL where users are sent after signing off. |
 > | `Scope`     | The list of scopes being requested, separated by spaces. |
-> | `ResponseType`     | The request that the response from authentication contains an ID token. |
+> | `ResponseType`     | The request that the response from authentication contains an authorization code and an ID token. |
 > | `TokenValidationParameters`     | A list of parameters for token validation. In this case, `ValidateIssuer` is set to `false` to indicate that it can accept sign-ins from any personal, work, or school account type. |
 > | `Notifications`     | A list of delegates that can be run on `OpenIdConnect` messages. |
 

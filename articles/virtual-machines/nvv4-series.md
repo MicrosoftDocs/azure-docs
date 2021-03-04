@@ -1,10 +1,9 @@
 ---
 title: NVv4-series 
 description: Specifications for the NVv4-series VMs.
-services: virtual-machines
-ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha

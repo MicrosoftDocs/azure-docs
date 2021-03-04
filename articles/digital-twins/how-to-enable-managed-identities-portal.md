@@ -90,8 +90,7 @@ For more about endpoints, routes, and the types of destinations supported for ro
 
 ### Assign the role
 
->[!NOTE]
-> This section must be completed by an Azure user with permissions to manage user access to Azure resources (including granting and delegating permissions). Common roles that meet this requirement are *Owner*, *Account admin*, or the combination of *User Access Administrator* and *Contributor*. For more information about permission requirements for Azure Digital Twins roles, see [*How-to: Set up instance and authentication*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 To assign a role to the identity, start by opening the [Azure portal](https://portal.azure.com).
 
@@ -102,9 +101,10 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
     :::image type="content" source="media/how-to-enable-managed-identities/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal showing the Access control (IAM) page for an event hub. The + Add button is highlighted." lightbox="media/how-to-enable-managed-identities/add-role-assignment-1.png":::
 
 1. On the following **Add role assignment** page, fill in the values:
-    * **Role**: Select the desired role from the dropdown menu
-    * **Assign access to**: Choose **User, group or service principal**
-    * **Select**: Here, you'll select the managed identity of your Azure Digital Twins instance that's being assigned the role. The name of the managed identity matches the name of the instance, so search for the name of your Azure Digital Twins instance. When you select the result, the identity for the instance will show up in the **Selected members** section.
+    * **Role**: Select the desired role from the dropdown menu.
+    * **Assign access to**: Under **System assigned managed identity**, select **Digital Twins**.
+    * **Subscription**: Select your subscription. This will display all the Azure Digital Twins managed identities within the selected subscription.
+    * **Select**: Here, you'll select the managed identity of your Azure Digital Twins instance that's being assigned the role. The name of the managed identity matches the name of the instance, so choose the name of your Azure Digital Twins instance. When you select it, the identity for the instance will show up in the **Selected members** section at the bottom of the pane.
 
     :::row:::
         :::column:::
@@ -116,7 +116,7 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
 
 When you're finished entering the details, select **Save**.
 
-## Create an endpoint with identity-based authorization
+## Create an endpoint with identity-based authentication
 
 After setting up a system-managed identity for your Azure Digital Twins instance and assigning it the appropriate role(s), you can create Azure Digital Twins [endpoints](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) that are capable of using the identity for authentication. This option is only available for Event Hub and Service Bus-type endpoints (it's not supported for Event Grid).
 

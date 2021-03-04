@@ -43,7 +43,7 @@ A Key Vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 For example, a complete reference would look like the following:
 
 ```
-@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret)
+@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
 ```
 
 Alternatively:

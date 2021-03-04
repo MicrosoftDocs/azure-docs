@@ -113,7 +113,7 @@ To monitor the database state, and to enable alerting for the loss of transparen
 * [Azure Resource Health](../service-health/resource-health-overview.md): An inaccessible database that has lost access to the customer key shows as "Inaccessible" after the first connection to the database has been denied.
 * [Activity log](../service-health/alerts-activity-log-service-notifications-portal.md): When access to the customer key in the customer-managed Key Vault fails, entries are added to the activity log. You can reinstate access as soon as possible, if you create alerts for these events.
 
-* [Action groups](../azure-monitor/platform/action-groups.md): Define these groups to send you notifications and alerts based on your preferences.
+* [Action groups](../azure-monitor/alerts/action-groups.md): Define these groups to send you notifications and alerts based on your preferences.
 
 ## Restore and replicate with a customer's managed key in Key Vault
 
