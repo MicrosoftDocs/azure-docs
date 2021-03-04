@@ -1387,7 +1387,7 @@
               href: continuous-backup-restore-powershell.md
             - name: Continuous backup - CLI
               href: continuous-backup-restore-command-line.md
-            - name: Continuous backup - ARM
+            - name: Continuous backup - Resource Manager
               href: continuous-backup-restore-template.md
         - name: Manage periodic backup
           href: configure-periodic-backup-restore.md 
