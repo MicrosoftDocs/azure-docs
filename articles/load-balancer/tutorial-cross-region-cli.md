@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 03/04/2021
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 
@@ -31,8 +31,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
     - For information on creating a regional standard load balancer and virtual machines for backend pools, see [Quickstart: Create a public load balancer to load balance VMs using Azure CLI](quickstart-load-balancer-standard-public-cli.md).
         - Append the name of the load balancers and virtual machines in each region with a **-R1** and **-R2**. 
 - Azure CLI installed locally or Azure Cloud Shell.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
