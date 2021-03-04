@@ -91,10 +91,11 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 4. Open the Package Manager Console by selecting **View** > **Other Windows** > **Package Manager Console**. Then run `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`.
 
 > [!div renderon="docs"]
-> 5. Edit *Web.config* and replace the parameters `ClientId` and `Tenant` with:
+> 5. Edit *Web.config* and replace the parameters `ClientId`, `Tenant`, and `redirectUri` with:
 >    ```xml
 >    <add key="ClientId" value="Enter_the_Application_Id_here" />
 >    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
+>    <add key="redirectUri" value="https://localhost:44368/" />
 >    ```
 >    In that code:
 >
@@ -104,9 +105,6 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >      - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`.
 >      - If your application supports **All Microsoft account users**, replace this value with `common`.
 >
-> > [!TIP]
-> > - To find the values of application ID, directory (tenant) ID, and supported account types, go to the **Overview** page.
-> > - Ensure that the value for `redirectUri` in *Web.config* corresponds with the redirect URI defined for the app registration in Azure AD. If not, go to the **Authentication** menu for the app registration and update the **REDIRECT URI** value to match.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
