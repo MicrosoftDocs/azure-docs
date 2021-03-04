@@ -290,7 +290,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
     						<div class="card-text"id="message">Please sign in to continue</div>
     					</div>
     					<div class="card-body">
-    						<button class="btn btn-warning" id="callapibtn" onClick="GetAPIData()">Call API</a>
+    						<button class="btn btn-warning" id="callapibtn" onClick="getAPIData()">Call API</a>
     						<div id="progress" class="spinner-border" role="status">
     							<span class="visually-hidden">Loading...</span>
     						</div>
@@ -300,74 +300,78 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
              </div>
          </div>
          <script lang="javascript">
-    		// Just change the values in this config object ONLY.
-    		var config = {
-    			msal: {
-    				auth: {
-    					clientId: "{CLIENTID}", // This is the client ID of your FRONTEND application that you registered with the SPA type in AAD B2C
-    					authority:  "{YOURAUTHORITYB2C}", // Formatted as https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantguid or full tenant name including onmicrosoft.com}/{signuporinpolicyname}
-    					redirectUri: "{SPAHOSTINGADDRESS}", // The storage hosting address of the SPA, a web-enabled v2 storage account
-    					knownAuthorities: ["{B2CTENANTDOMAIN}"] // {b2ctenantname}.b2clogin.com
-    				},
-    				cache: {
-    					cacheLocation: "sessionStorage",
-    					storeAuthStateInCookie: false 
-    				}
-    			},
-    			api: {
-    				scopes: ["{APISCOPEWITHFULLURI}"], // The scope that we request for the API from B2C, this should be the API scope you created on the BACKEND API.
-    				backend: "{APIBASEURL}" // The location that we will call for the backend api, this should be hosted in API Management
-    			},
-    			runtime: {
-    				account: "" // This is used at runtime, leave it blank.
-    			}
-    		}
-    		document.getElementById("callapibtn").hidden = true;
-    		document.getElementById("progress").hidden = true;
-    		const myMSALObj = new msal.PublicClientApplication(config.msal);
-    		myMSALObj.handleRedirectPromise().then((tokenResponse) => {
-    			if(tokenResponse !== null){
-    				console.log(tokenResponse.account);
-    				config.runtime.account = tokenResponse.account.homeAccountId;
-    				document.getElementById("message").innerHTML = "Welcome, " + tokenResponse.account.name;
-    				document.getElementById("signinbtn").hidden = true;
-    				document.getElementById("callapibtn").hidden = false;
-    			}}).catch((error) => {console.log("Error Signing in:" + error);
-    		});
-    		function login() {
-    			try {
-    				myMSALObj.loginRedirect({scopes: config.api.scopes});
-    			} catch (err) {console.log(err);}
-    		}
-    		function GetAPIData() {
-    			document.getElementById("progress").hidden = false; 
-    			document.getElementById("message").innerHTML = "Calling backend ... "
-    			document.getElementById("cardheader").classList.remove('bg-success','bg-warning','bg-danger');
-    			myMSALObj.acquireTokenSilent({scopes: config.api.scopes, account: config.runtime.account}).then(tokenResponse => {
-    				const headers = new Headers();
-    				headers.append("Authorization", `Bearer ${tokenResponse.accessToken}`);
-    				fetch(config.api.backend, {method: "GET", headers: headers})
-    					.then(async (response)  => {
-    						if (!response.ok)
-    						{
-    							document.getElementById("message").innerHTML = "Error: " + response.status + " " + JSON.parse(await response.text()).message;
-    							document.getElementById("cardheader").classList.add('bg-warning');
-    						}
-    						else
-    						{
-    							document.getElementById("cardheader").classList.add('bg-success');
-    							document.getElementById("message").innerHTML = await response.text();
-    						}
-    						}).catch(async (error) => {
-    							document.getElementById("cardheader").classList.add('bg-danger');
-    							document.getElementById("message").innerHTML = "Error: " + error;
-    						});
-    			}).catch(error => {console.log("Error Acquiring Token Silently: " + error);
-    			return myMSALObj.acquireTokenRedirect(tokenRequest)
-    			});
-    			document.getElementById("progress").hidden = true;
+        		// Just change the values in this config object ONLY.
+        		var config = {
+        			msal: {
+        				auth: {
+        					clientId: "{CLIENTID}", // This is the client ID of your FRONTEND application that you registered with the SPA type in AAD B2C
+        					authority:  "{YOURAUTHORITYB2C}", // Formatted as https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantguid or full tenant name including onmicrosoft.com}/{signuporinpolicyname}
+        					redirectUri: "{SPAHOSTINGADDRESS}", // The storage hosting address of the SPA, a web-enabled v2 storage account
+        					knownAuthorities: ["{B2CTENANTDOMAIN}"] // {b2ctenantname}.b2clogin.com
+        				},
+        				cache: {
+        					cacheLocation: "sessionStorage",
+        					storeAuthStateInCookie: false 
+        				}
+        			},
+        			api: {
+        				scopes: ["{APISCOPEWITHFULLURI}"], // The scope that we request for the API from B2C, this should be the API scope you created on the BACKEND API.
+        				backend: "{APIBASEURL}" // The location that we will call for the backend api, this should be hosted in API Management
+        			}
+        		}
+        		document.getElementById("callapibtn").hidden = true;
+        		document.getElementById("progress").hidden = true;
+        		const myMSALObj = new msal.PublicClientApplication(config.msal);
+        		myMSALObj.handleRedirectPromise().then((tokenResponse) => {
+        			if(tokenResponse !== null){
+        				console.log(tokenResponse.account);
+        				document.getElementById("message").innerHTML = "Welcome, " + tokenResponse.account.name;
+        				document.getElementById("signinbtn").hidden = true;
+        				document.getElementById("callapibtn").hidden = false;
+        			}}).catch((error) => {console.log("Error Signing in:" + error);
+        		});
+        		function login() {
+        			try {
+        				myMSALObj.loginRedirect({scopes: config.api.scopes});
+        			} catch (err) {console.log(err);}
+        		}
+        		function getAPIData() {
+        			document.getElementById("progress").hidden = false; 
+        			document.getElementById("message").innerHTML = "Calling backend ... "
+        			document.getElementById("cardheader").classList.remove('bg-success','bg-warning','bg-danger');
+        			myMSALObj.acquireTokenSilent({scopes: config.api.scopes, account: getAccount()}).then(tokenResponse => {
+        				const headers = new Headers();
+        				headers.append("Authorization", `Bearer ${tokenResponse.accessToken}`);
+        				fetch(config.api.backend, {method: "GET", headers: headers})
+        					.then(async (response)  => {
+        						if (!response.ok)
+        						{
+        							document.getElementById("message").innerHTML = "Error: " + response.status + " " + JSON.parse(await response.text()).message;
+        							document.getElementById("cardheader").classList.add('bg-warning');
+        						}
+        						else
+        						{
+        							document.getElementById("cardheader").classList.add('bg-success');
+        							document.getElementById("message").innerHTML = await response.text();
+        						}
+        						}).catch(async (error) => {
+        							document.getElementById("cardheader").classList.add('bg-danger');
+        							document.getElementById("message").innerHTML = "Error: " + error;
+        						});
+        			}).catch(error => {console.log("Error Acquiring Token Silently: " + error);
+        			    return myMSALObj.acquireTokenRedirect({scopes: config.api.scopes, forceRefresh: false})
+        			});
+        			document.getElementById("progress").hidden = true;
              }
-         </script>
+            function getAccount() {
+                var accounts = myMSALObj.getAllAccounts();
+                if (!accounts || accounts.length === 0) {
+                    return null;
+                } else {
+                    return accounts[0];
+                }
+            }
+        </script>
      </body>
     </html>
    ```
