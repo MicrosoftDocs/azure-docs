@@ -1,7 +1,6 @@
 ---
 title: Log queries in Azure Monitor
 description: Reference information for Kusto query language used by Azure Monitor. Includes additional elements specific to Azure Monitor and elements not supported in Azure Monitor log queries.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
