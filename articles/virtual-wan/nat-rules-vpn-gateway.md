@@ -76,25 +76,21 @@ The following diagram shows the projected end result:
 
    In this step, ensure that your Site-to-site VPN gateway advertises the correct ExternalMapping address space to the rest of your Azure resources. There are different instructions, depending on whether BGP is enabled, or not.
 
-   **Example 1: BGP is not enabled**
+   **Example 1: BGP is enabled**
 
-   In this example, the VPN site does not have BGP enabled.
+   * Ensure that the on-premises BGP speaker located at VPN Site 1 is configured to advertise the 10.1.1.0/24 address space.
+   * During this preview, sites that have BGP enabled need to ensure that the on-premises BGP announcer (device BGP settings) include an entry for the external mapping prefixes.
+
+   **Example 2: BGP is not enabled**
 
    * Navigate to the Virtual hub resource that contains the Site-to-site VPN gateway. On the virtual hub page, under **Connectivity**, select **VPN (Site-to-site)**.
    * Select the VPN site that is connected to the Virtual WAN hub via Link 1. Click **Edit Site** and input 10.1.1.0/24 as the private address space for the VPN site.
 
      :::image type="content" source="./media/nat-rules-vpn-gateway/edit-site.png" alt-text="Screenshot showing Edit VPN site page.":::
 
-   **Example 2: BGP is enabled**
-
-   In this example, The VPN site has BGP enabled.
-
-   * Ensure that the on-premises BGP speaker located at VPN Site 1 is configured to advertise the 10.1.1.0/24 address space.
-   * During this preview, sites that have BGP enabled need to ensure that the on-premises BGP announcer (device BGP settings) include an entry for the external mapping prefixes.
-
 ### Packet flow
 
-If an on-premises device wants to reach a spoke virtual network, an example packet flow is as follows, with the NAT translations in bold.
+In this example, an on-premises device wants to reach a spoke virtual network. The packet flow is as follows, with the NAT translations in bold.
 
 1. Traffic from on-premises is initiated.
    * Source IP Address: **192.168.1.1**
@@ -111,7 +107,7 @@ If an on-premises device wants to reach a spoke virtual network, an example pack
 
 ### Verification checks
 
-This section discusses checks that you can perform to verify your configuration is set up properly.
+This section shows checks to verify that your configuration is set up properly.
 
 #### Validate DefaultRouteTable, rules, and routes
 
