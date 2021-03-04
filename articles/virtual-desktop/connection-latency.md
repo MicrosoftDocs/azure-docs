@@ -20,7 +20,7 @@ In Windows Virtual Desktop, latency up to 150 ms shouldn’t impact user experie
 In addition, the Windows Virtual Desktop connection depends on the internet connection of the machine the user is using the service from. Users may lose connection or experience input delay in one of the following situations:
 
  - The user doesn't have a stable local internet connection and the latency is over 200 ms.
- - The circuit is saturated or rate-limited.
+ - The network is saturated or rate-limited.
 
 We recommend you choose VMs locations that are as close to your users as possible. For example, if the user is located in India but the VM is in the United States, there will be latency that will affect the overall user experience. 
 
