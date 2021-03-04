@@ -63,7 +63,7 @@ linked_service = LinkedService.get(ws, 'synapselink1')
 
 First, `Workspace.from_config()` accesses your Azure Machine Learning workspace using the configuration in `config.json` (see [Tutorial: Get started with Azure Machine Learning in your development environment](tutorial-1st-experiment-sdk-setup-local.md)). Then, the code prints all of the linked services available in the Workspace. Finally, `LinkedService.get()` retrieves a linked service named `'synapselink1'`. 
 
-## Attach your Apahce spark pool as a compute target for Azure Machine Learning
+## Attach your Apache spark pool as a compute target for Azure Machine Learning
 
 To use your Apache spark pool to power a step in your machine learning pipeline, you must attach it as a `ComputeTarget` for the pipeline step, as shown in the following code.
 
@@ -233,7 +233,7 @@ pipeline = Pipeline(workspace=ws, steps=[step_1, step_2])
 pipeline_run = pipeline.submit('synapse-pipeline', regenerate_outputs=True)
 ```
 
-The above code creates a pipeline consisting of the data preparation step on Apahce Spark pools powered by Azure Synapse Analytics (`step_1`) and the training step (`step_2`). Azure calculates the execution graph by examining the data dependencies between the steps. In this case, there's only a straightforward dependency that `step2_input` necessarily requires `step1_output`.
+The above code creates a pipeline consisting of the data preparation step on Apache Spark pools powered by Azure Synapse Analytics (`step_1`) and the training step (`step_2`). Azure calculates the execution graph by examining the data dependencies between the steps. In this case, there's only a straightforward dependency that `step2_input` necessarily requires `step1_output`.
 
 The call to `pipeline.submit` creates, if necessary, an Experiment called `synapse-pipeline` and asynchronously begins a Run within it. Individual steps within the pipeline are run as Child Runs of this main run and can be monitored and reviewed in the Experiments page of Studio.
 
