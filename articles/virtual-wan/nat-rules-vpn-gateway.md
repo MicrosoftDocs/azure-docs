@@ -24,7 +24,7 @@ This configuration uses a flow table to route traffic from an external (host) IP
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/diagram.png" alt-text="Diagram showing architecture.":::
 
-## <a name="rules"></a>Configure and view rules
+## <a name="rules"></a>Configure NAT rules
 
 You can configure and view NAT rules on your VPN gateway settings at any time.
 
