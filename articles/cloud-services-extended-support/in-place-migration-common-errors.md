@@ -20,9 +20,9 @@ Following issues are known and being addressed.
 
 | Known Issue | Mitigation | 
 |---|---|
-| Portal - View resource group link giving 404 error after successful prepare operation. | View resource group content via resource group portal blade. | 
+| Azure portal - View resource group link giving 404 error after successful prepare operation. | View resource group content via resource group portal blade. | 
 | Role Instances restarting UD by UD after successful commit. | Restart operation follows the same method as monthly guest OS rollouts. Do not commit migration of cloud services with single role instance or impacted by restart.| 
-| Portal cannot read migration state after browser refresh. | Rerun validate and prepare operation to get back to the original migration state. | 
+| Azure portal cannot read migration state after browser refresh. | Rerun validate and prepare operation to get back to the original migration state. | 
 | Certificate displayed as secret resource in key vault. | After migration, reupload the certificate as a certificate resource to simplify update operation on Cloud Services (extended support). | 
 | Deployment labels not getting saved as tags as part of migration. | Manually create the tags after migration to maintain this information.
 | Commit operation taking long time to succeed. Waiting until role instance is in available state. | Non-impacting. Will be fixed as part of the GA release. | 
@@ -53,15 +53,15 @@ Common migration errors and mitigations.
 | Migration of Deployment {0} in HostedService {1} is in the process of being aborted and cannot be changed until it completes successfully. | Wait or retry operation. |
 | One or more VMs in Deployment {0} in HostedService {1} is undergoing an update operation. It can't be migrated until the previous operation completes successfully. Retry after sometime. | Wait for operation to complete. | 
 | Migration is not supported for Deployment {0} in HostedService {1} because it uses following features not yet supported for migration: Non-vnet deployment.| Deployment is not located in a virtual network. Refer [this](in-place-migration-technical-details.md#migration-of-deployments-not-in-a-virtual-network) document for more details. | 
-| The virtual network name cannot be null or empty.	Provide virtual network name in the REST request body
-The Subnet Name cannot be null or empty. | Provide subnet name in the REST request body. | 
+| The virtual network name cannot be null or empty.	| Provide virtual network name in the REST request body | 
+| The Subnet Name cannot be null or empty. | Provide subnet name in the REST request body. | 
 | DestinationVirtualNetwork must be set to one of the following values: Default, New, or Existing. | Provide DestinationVirtualNetwork property in the REST request body. | 
 | Default VNet destination option not implemented. | “Default” value is not supported for DestinationVirtualNetwork property in the REST request body. | 
 | The deployment {0} cannot be migrated because the CSPKG is not available. Upgrade the deployment and try again. | | 
 | The subnet with ID '{0}' is in a different location than deployment '{1}' in hosted service '{2}'. The location for the subnet is '{3}' and the location for the hosted service is '{4}'.  Specify a subnet in the same location as the deployment. | Update the cloud service to have both subnet and cloud service in the same location before migration. | 
 | Migration of Deployment {0} in HostedService {1} is in the process of being aborted and cannot be changed until it completes successfully. | Wait for abort to complete or retry abort. Use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) or Contact support otherwise. | 
-| Deployment {0} in HostedService {1} has not been prepared for Migration.	Run prepare on the cloud service before running the commit operation. 
-UnknownExceptionInEndExecute: Contract.Assert failed: rgName is null or empty: Exception received in EndExecute that is not an RdfeException. |	Use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) or Contact support. | 
+| Deployment {0} in HostedService {1} has not been prepared for Migration. | Run prepare on the cloud service before running the commit operation. | 
+| UnknownExceptionInEndExecute: Contract.Assert failed: rgName is null or empty: Exception received in EndExecute that is not an RdfeException. |	Use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) or Contact support. | 
 | UnknownExceptionInEndExecute: A task was canceled: Exception received in EndExecute that is not an RdfeException. | Use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) or Contact support. | 
 | XrpVirtualNetworkMigrationError: Virtual network migration failure. | Use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) or Contact support. | 
 | Deployment {0} in HostedService {1}  belongs to Virtual Network {2}. Migrate Virtual Network {2} to migrate this HostedService {1}. | Refer to [Virtual Network migration](in-place-migration-technical-details.md#virtual-network-migration). | 
