@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot mapping data flows
-description: Learn how to troubleshoot data flow issues in Azure Data Factory.
+description: Learn how to troubleshoot data flow problems in Azure Data Factory.
 ms.author: makromer
 author: kromerm
 ms.reviewer: daperlov
@@ -18,76 +18,76 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Error code: DF-Executor-SourceInvalidPayload
 - **Message**: Data preview, debug, and pipeline data flow execution failed because container does not exist
-- **Causes**: When dataset contains a container that does not exist in the storage
-- **Recommendation**: Make sure that the container referenced in your dataset exists or accessible.
+- **Cause**: A dataset contains a container that doesn't exist in storage.
+- **Recommendation**: Make sure that the container referenced in your dataset exists and can be accessed.
 
 ### Error code: DF-Executor-SystemImplicitCartesian
 
 - **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
-- **Causes**: Implicit cartesian product for INNER join between logical plans is not supported. If the columns are used in the join, then the unique key with at least one column from both sides of the relationship is required.
-- **Recommendation**: For non-equality based joins you have to opt for CUSTOM CROSS JOIN.
+- **Cause**: Implicit cartesian products for INNER joins between logical plans aren't supported. If columns are used in the join, a unique key with at least one column from both sides of the relationship is required.
+- **Recommendation**: For non-equality based joins, use CUSTOM CROSS join.
 
 ### Error code: DF-Executor-SystemInvalidJson
 
 - **Message**: JSON parsing error, unsupported encoding or multiline
-- **Causes**: Possible issues with the JSON file: unsupported encoding, corrupt bytes, or using JSON source as single document on many nested lines
-- **Recommendation**: Verify the JSON file's encoding is supported. On the Source transformation that is using a JSON dataset, expand 'JSON Settings' and turn on 'Single Document'.
+- **Cause**: Possible problems with the JSON file: unsupported encoding, corrupt bytes, or using JSON source as a single document on many nested lines.
+- **Recommendation**: Verify that the JSON file's encoding is supported. On the source transformation that's using a JSON dataset, expand **JSON Settings** and turn on **Single Document**.
  
 ### Error code: DF-Executor-BroadcastTimeout
 
 - **Message**: Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs
-- **Causes**: Broadcast has a default timeout of 60 secs in debug runs and 300 seconds in job runs. Stream chosen for broadcast seems too large to produce data within this limit.
-- **Recommendation**: Check the Optimize tab on your data flow transformations for Join, Exists, and Lookup. The default option for Broadcast is "Auto". If "Auto" is set, or if you are manually setting the left or right side to broadcast under "Fixed", then you can either set a larger Azure Integration Runtime configuration, or switch off broadcast. The recommended approach for best performance in data flows is to allow Spark to broadcast using "Auto" and use a Memory Optimized Azure IR. If you are executing the data flow in a debug test execution from a debug pipeline run, you may run into this condition more frequently. This is because ADF throttles the broadcast timeout to 60 secs in order to maintain a faster debug experience. If you would like to extend that to the 300-seconds timeout from a triggered run, you can use the Debug > Use Activity Runtime option to utilize the Azure IR defined in your Execute Data Flow pipeline activity.
+- **Cause**: Broadcast has a default timeout of 60 seconds on debug runs and 300 seconds on job runs. The stream chosen for broadcast is too large to produce data within this limit.
+- **Recommendation**: Check the **Optimize** tab on your data flow transformations for join, exists, and lookup. The default option for broadcast is **Auto**. If **Auto** is set, or if you're manually setting the left or right side to broadcast under **Fixed**, you can either set a larger Azure integration runtime configuration or turn off broadcast. For the best performance in data flows, we recommend that you allow Spark to broadcast by using **Auto** and use a memory-optimized Azure IR. If you're running the data flow in a debug test execution from a debug pipeline run, you might run into this condition more frequently. That's because Azure Data Factory throttles the broadcast timeout to 60 seconds to maintain a faster debugging experience. You can extend the timeout to the 300-second timeout of a triggered run. To do so, you can use the **Debug** > **Use Activity Runtime** option to use the Azure IR defined in your Execute Data Flow pipeline activity.
 
 - **Message**: Broadcast join timeout error, you can choose 'Off' of broadcast option in join/exists/lookup transformation to avoid this issue. If you intend to broadcast join option to improve performance then make sure broadcast stream can produce data within 60 secs in debug runs and 300 secs in job runs.
-- **Causes**: Broadcast has a default timeout of 60 secs in debug runs and 300 secs in job runs. On broadcast join, the stream chosen for broadcast seems too large to produce data within this limit. If a broadcast join is not used, the default broadcast done by dataflow can reach the same limit
-- **Recommendation**: Turn off the broadcast option or avoid broadcasting large data streams where the processing can take more than 60 secs. Choose a smaller stream to broadcast instead. Large SQL/DW tables and source files are typically bad candidates. In the absence of a broadcast join, use a larger cluster if the error occurs.
+- **Cause**: Broadcast has a default timeout of 60 seconds in debug runs and 300 seconds in job runs. On the broadcast join, the stream chosen for broadcast is too large to produce data within this limit. If a broadcast join isn't used, the default broadcast by dataflow can reach the same limit.
+- **Recommendation**: Turn off the broadcast option or avoid broadcasting large data streams for which the processing can take more than 60 seconds. Choose a smaller stream to broadcast. Large Azure SQL Data Warehouse tables and source files are typically bad choices. In the absence of a broadcast join, use a larger cluster if this error occurs.
 
 ### Error code: DF-Executor-Conversion
 
 - **Message**: Converting to a date or time failed due to an invalid character
-- **Causes**: Data is not in the expected format
-- **Recommendation**: Use the correct data type
+- **Cause**: Data isn't in the expected format.
+- **Recommendation**: Use the correct data type.
 
 ### Error code: DF-Executor-InvalidColumn
 - **Message**: Column name needs to be specified in the query, set an alias if using a SQL function
-- **Causes**: No column name was specified
-- **Recommendation**: Set an alias if using a SQL function such as min()/max(), etc.
+- **Cause**: No column name was specified.
+- **Recommendation**: Set an alias if you're using a SQL function like min() or max().
 
 ### Error code: DF-Executor-DriverError
 - **Message**: INT96 is legacy timestamp type which is not supported by ADF Dataflow. Please consider upgrading the column type to the latest types.
-- **Causes**: Driver error
-- **Recommendation**: INT96 is legacy timestamp type, which is not supported by ADF Dataflow. Consider upgrading the column type to the latest types.
+- **Cause**: Driver error.
+- **Recommendation**: INT96 is legacy timestamp type that's not supported by Azure Data Factory data flow. Consider upgrading the column type to the latest type.
 
 ### Error code: DF-Executor-BlockCountExceedsLimitError
 - **Message**: The uncommitted block count cannot exceed the maximum limit of 100,000 blocks. Check blob configuration.
-- **Causes**: There can be a maximum of 100,000 uncommitted blocks in a blob.
-- **Recommendation**: Contact Microsoft product team regarding this issue for more details
+- **Cause**: The maximum number of uncommitted blocks in a blob is 100,000.
+- **Recommendation**: Contact the Microsoft product team for more details about this problem.
 
 ### Error code: DF-Executor-PartitionDirectoryError
 - **Message**: The specified source path has either multiple partitioned directories (for e.g. <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/<Partition Root Directory 2>/c=10/d=30) or partitioned directory with other file or non-partitioned directory (for example <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/Directory 2/file1), remove partition root directory from source path and read it through separate source transformation.
-- **Causes**: Source path has either multiple partitioned directories or partitioned directory with other file or non-partitioned directory.
-- **Recommendation**: Remove partitioned root directory from source path and read it through separate source transformation.
+- **Cause**: The source path has either multiple partitioned directories or a partitioned directory that has another file or non-partitioned directory.
+- **Recommendation**: Remove the partitioned root directory from the source path and read it through separate source transformation.
 
 ### Error code: DF-Executor-OutOfMemoryError
 - **Message**: Cluster ran into out of memory issue during execution, please retry using an integration runtime with bigger core count and/or memory optimized compute type
-- **Causes**: Cluster is running out of memory
-- **Recommendation**: Debug clusters are meant for development purposes. Leverage data sampling, appropriate compute type, and size to run the payload. Refer to the [mapping data flow performance guide](concepts-data-flow-performance.md) for tuning to achieve best performance.
+- **Cause**: The cluster is running out of memory.
+- **Recommendation**: Debug clusters are meant for development. Use data sampling and an appropriate compute type and size to run the payload. For performance tips, see the [mapping data flow performance guide](concepts-data-flow-performance.md).
 
 ### Error code: DF-Executor-InvalidType
 - **Message**: Please make sure that the type of parameter matches with type of value passed in. Passing float parameters from pipelines isn't currently supported.
-- **Causes**: Incompatible data types between declared type and actual parameter value
-- **Recommendation**: Please check that your parameter values passed into a data flow match the declared type.
+- **Cause**: The data type for the declared type isn't compatible with the actual parameter value.
+- **Recommendation**: Check that the parameter values passed into the data flow match the declared type.
 
 ### Error code: DF-Executor-ColumnUnavailable
 - **Message**: Column name used in expression is unavailable or invalid
-- **Causes**: Invalid or unavailable column name used in expressions
-- **Recommendation**: Please check column name(s) used in expressions
+- **Cause**: An invalid or unavailable column name used in an expression.
+- **Recommendation**: Check column names in expressions.
 
 ### Error code: DF-Executor-ParseError
 - **Message**: Expression cannot be parsed
-- **Causes**: Expression has parsing errors due to formatting
-- **Recommendation**: Please check formatting in expression.
+- **Cause**: An expression generated parsing errors because of incorrect formatting.
+- **Recommendation**: Check the formatting in the expression.
 
 ### Error code: DF-Executor-SystemImplicitCartesian
 - **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
