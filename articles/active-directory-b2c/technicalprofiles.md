@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -36,8 +36,8 @@ A technical profile enables these types of scenarios:
 - [OpenID Connect](openid-connect-technical-profile.md) - Federation with any OpenID Connect protocol identity provider.
 - [Phone factor](phone-factor-technical-profile.md) - Support for enrolling and verifying phone numbers.
 - [RESTful provider](restful-technical-profile.md) - Call to REST API services, such as validate user input, enrich user data, or integrate with line-of-business applications.
-- [SAML identity provider](saml-identity-provider-technical-profile.md) - Federation with any SAML protocol identity provider.
-- [SAML token issuer](saml-issuer-technical-profile.md) - Emits a SAML token that is returned back to the relying party application.
+- [SAML identity provider](identity-provider-generic-saml.md) - Federation with any SAML protocol identity provider.
+- [SAML token issuer](saml-service-provider.md) - Emits a SAML token that is returned back to the relying party application.
 - [Self-Asserted](self-asserted-technical-profile.md) - Interact with the user. For example, collect the user's credential to sign in, render the sign-up page, or password reset.
 - [Session management](custom-policy-reference-sso.md) - Handle different types of sessions.
 
@@ -171,9 +171,9 @@ The following example illustrates the use of metadata relevant to [REST API tech
 
 To establish trust with the services it integrates with, Azure AD B2C stores secrets and certificates in the form of [policy keys](policy-keys-overview.md). During the technical profile executing, Azure AD B2C retrieves the cryptographic keys from Azure AD B2C policy keys. Then uses the keys establish trust, encrypt or sign a token. These trusts consist of:
 
-- Federation with [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys), and [SAML](saml-identity-provider-technical-profile.md#cryptographic-keys) identity providers
+- Federation with [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys), and [SAML](identity-provider-generic-saml.md) identity providers
 - Secure the connecting with [REST API services](secure-rest-api.md)
-- Signing and encryption the [JWT](jwt-issuer-technical-profile.md#cryptographic-keys) and [SAML](saml-issuer-technical-profile.md#cryptographic-keys) tokens
+- Signing and encryption the [JWT](jwt-issuer-technical-profile.md#cryptographic-keys) and [SAML](saml-service-provider.md) tokens
 
 The **CryptographicKeys** element contains the following element:
 
@@ -551,7 +551,7 @@ The **UseTechnicalProfileForSessionManagement** element reference to [Single sig
 
 ## Enabled for user journeys
 
-The [ClaimsProviderSelections](userjourneys.md#claimsproviderselection) in a user journey defines the list of claims provider selection options and their order. With the **EnabledForUserJourneys** element  you filter, which claims provider is available to the user. The **EnabledForUserJourneys** element contains one of the following values:
+The [ClaimsProviderSelections](userjourneys.md#identity-provider-selection) in a user journey defines the list of claims provider selection options and their order. With the **EnabledForUserJourneys** element  you filter, which claims provider is available to the user. The **EnabledForUserJourneys** element contains one of the following values:
 
 - **Always**, execute the technical profile.
 - **Never**, skip the technical profile.

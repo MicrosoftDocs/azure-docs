@@ -4,9 +4,9 @@ description: Learn how to migrate databases from SQL Server to SQL Managed Insta
 services: sql-database
 ms.service: sql-managed-instance
 ms.custom: seo-lt-2019, sqldbrb=1
-ms.devlang: 
 ms.topic: how-to
 author: danimir
+ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/01/2021
 ---
@@ -51,7 +51,7 @@ LRS can be started in autocomplete, or continuous mode. When started in autocomp
 
 Once LRS is stopped, either automatically on autocomplete, or manually on cutover, the restore process cannot be resumed for a database that was brought online on SQL Managed Instance. To restore additional backup files once the migration was completed through autocomplete, or manually on cutover, the database needs to be deleted and the entire backup chain needs to be restored from scratch by restarting the LRS.
 
-![Log Replay Service orchestration steps explained for SQL Managed Instance](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
+   :::image type="content" source="./media/log-replay-service-migrate/log-replay-service-conceptual.png" alt-text="Log Replay Service orchestration steps explained for SQL Managed Instance" border="false":::
 	
 | Operation | Details |
 | :----------------------------- | :------------------------- |
@@ -188,20 +188,30 @@ WITH COMPRESSION, CHECKSUM
 Azure Blob Storage is used as an intermediary storage for backup files between SQL Server and SQL Managed Instance. SAS authentication token with List and Read only permissions needs to be generated for use by LRS service. This will enable LRS service to access the Azure Blob Storage and use the backup files to restore them on SQL Managed Instance. Follow these steps to generate SAS authentication for LRS use:
 
 1. Access the Storage Explorer from Azure portal
+
 2. Expand Blob Containers
+
 3. Right click on the blob container and select Get Shared Access Signature
-	![Log Replay Service generate SAS authentication token](./media/log-replay-service-migrate/lrs-sas-token-01.png)
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-01.png" alt-text="Log Replay Service - Get Shared Access Signature":::
+
 4. Select the token expiry timeframe. Ensure the token is valid for duration of your migration.
+
 5. Select the time zone for the token - UTC or your local time
-	- Time zone of the token and your SQL Managed Instance might mismatch. Ensure that SAS token has the appropriate time validity taking time zones into consideration. If possible, set the time zone to an earlier and later time of your planned migration window.
+
+   - Time zone of the token and your SQL Managed Instance might mismatch. Ensure that SAS token has the appropriate time validity taking time zones into consideration. If possible, set the time zone to an earlier and later time of your planned migration window.
+
 6. Select Read and List only permissions only
-	- No other permissions must be selected, or otherwise LRS will not be able to start. This security requirement is by design.
+
+   - No other permissions must be selected, or otherwise LRS will not be able to start. This security requirement is by design.
+
 7. Click in Create button
-	![Log Replay Service generate SAS authentication token](./media/log-replay-service-migrate/lrs-sas-token-02.png)
 
-SAS authentication will be generated with the time validity that you have specified earlier. You will need the URI version of the token generated - as shown in the screenshot below.
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-02.png" alt-text="Log Replay Service - generate SAS authentication token":::
 
-![Log Replay Service generated SAS authentication URI example](./media/log-replay-service-migrate/lrs-generated-uri-token.png)
+   SAS authentication will be generated with the time validity that you have specified earlier. You will need the URI version of the token generated - as shown in the screenshot below.
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-generated-uri-token.png" alt-text="Log Replay Service - copy the URI shared access signature":::
 
 ### Copy parameters from SAS token generated
 
@@ -209,7 +219,7 @@ To be able to properly use the SAS token to start LRS, we need to understand its
 - StorageContainerUri, and 
 - StorageContainerSasToken, separated with a question mark (?), as shown in the image below.
 
-	![Log Replay Service generated SAS authentication URI example](./media/log-replay-service-migrate/lrs-token-structure.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-structure.png" alt-text="Log Replay Service generated SAS authentication URI example" border="false":::
 
 - The first part starting with "https://" until the question mark (?) is used for the StorageContainerURI parameter that is fed as in input to LRS. This gives LRS information about the folder where database backup files are stored.
 - The second part, starting after the question mark (?), in the example "sp=" and all the way until the end of the string is StorageContainerSasToken parameter. This is the actual signed authentication token, valid for the duration of the time specified. This part does not necessarily need to start with "sp=" as shown, and that your case might differ.
@@ -218,11 +228,11 @@ Copy parameters as follows:
 
 1. Copy the first part of the token starting from https:// all the way until the question mark (?) and use it as StorageContainerUri parameter in PowerShell or CLI for starting LRS, as shown in the screenshot below.
 
-	![Log Replay Service copy StorageContainerUri parameter](./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png" alt-text="Log Replay Service copy StorageContainerUri parameter":::
 
 2. Copy the second part of the token starting from question mark (?), all the way until the end of the string, and use it as StorageContainerSasToken parameter in PowerShell or CLI for starting LRS, as shown in the screenshot below.
 
-	![Log Replay Service copy StorageContainerSasToken parameter](./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png" alt-text="Log Replay Service copy StorageContainerSasToken parameter":::
 
 > [!IMPORTANT]
 > - Permissions for the SAS token for Azure Blob Storage need to be Read and List only. If any other permissions are granted for the SAS authentication token, starting LRS service will fail. These security requirements are by design.
