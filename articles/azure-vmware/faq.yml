@@ -3,7 +3,7 @@ metadata:
   title: Microsoft Azure VMware Solution FAQ
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: conceptual
-  ms.date:  02/09/2021
+  ms.date:  03/03/2021
     
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -198,7 +198,28 @@ sections:
           
           > [!NOTE]
           > A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
+
+      - question: How can I change my credentials?
+        answer: |
+          Your vCenter CloudAdmin and NSX-T admin credentials don’t expire; however, if you wish to update your passwords, you can follow the steps below to generate new passwords for these accounts.
+
+          > [!NOTE]
+          > If you use your CloudAdmin credentials for connected services like HCX, vCenter Orchestrator, vCloud Director, or vRealize, your connections will stop working once you update your password.  These services should be stopped before initiating the password rotation.  Failure to do so may result in temporary locks on your vCenter CloudAdmin and NSX-T admin accounts, as these services will continuously call using your old credentials.  For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](https://docs.microsoft.com/azure/azure-vmware/concepts-identity).
+
+          1. In your Azure VMware Solutions portal, open up a command line.
+
+          2. Run the following command to update your vCenter CloudAdmin password.  You will need to replace {SubscriptionID}, {ResourceGroup}, and {PrivateCloudName} with the actual values of the private cloud that the CloudAdmin account belongs to.
+
+            ```
+            az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
+            ```
           
+          3. Run the following command to update your NSX-T admin password. You will need to replace {SubscriptionID}, {ResourceGroup}, and {PrivateCloudName} with the actual values of the private cloud that the NSX-T admin account belongs to.
+
+            ```
+            az resource invoke-action --action rotateNSXTPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
+            ```
+
   - name: Billing and Support
     questions:
       - question: How will pricing be structured for Azure VMware Solution?

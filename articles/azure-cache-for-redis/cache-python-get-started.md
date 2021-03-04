@@ -14,6 +14,10 @@ ms.date: 11/05/2019
 
 In this article, you incorporate Azure Cache for Redis into a Python app to have access to a secure, dedicated cache that is accessible from any application within Azure.
 
+## Skip to the code on GitHub
+
+If you want to skip straight to the code, see the [Python quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/python) on GitHub.
+
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
