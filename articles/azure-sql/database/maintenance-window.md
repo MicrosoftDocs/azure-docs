@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ---
 
 # Maintenance window (Preview)
@@ -57,6 +57,7 @@ Maintenance notifications can be configured to alert customers on upcoming plann
 
 Choosing a maintenance window other than the default is available on all SLOs **except for**:
 * Hyperscale 
+* Instance pools
 * Legacy Gen4 vCore
 * Basic, S0 and S1 
 * DC, Fsv2, M-series
@@ -88,7 +89,7 @@ To get the maximum benefit from maintenance windows, make sure your client appli
 
 * In Azure SQL Database, any connections using the proxy connection policy could be affected by both the chosen maintenance window and a gateway node maintenance window. However, client connections using the recommended redirect connection policy are unaffected by a gateway node maintenance failover. 
 
-* In Azure SQL managed instance, the gateway nodes are [within the virtual cluster](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) and have the same maintenance window as the managed instance, so using the proxy connection policy does not potentially expose connections to an additional maintenance window.
+* In Azure SQL managed instance, the gateway nodes are hosted [within the virtual cluster](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) and have the same maintenance window as the managed instance, but using the redirect connection is still recommended to minimize number of disruptions during the maintenance event.
 
 For more on the client connection policy in Azure SQL Database see [Azure SQL Database Connection policy](../database/connectivity-architecture.md#connection-policy). 
 
