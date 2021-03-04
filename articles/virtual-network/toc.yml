@@ -26,7 +26,13 @@
   - name: Connect virtual networks
     href: tutorial-connect-virtual-networks-portal.md
   - name: Create NAT gateway
+<<<<<<< HEAD
     href: quickstart-create-nat-gateway-portal.md
+=======
+    href: tutorial-create-nat-gateway-portal.md
+  - name: Create and validate NAT gateway
+    href: tutorial-create-validate-nat-gateway-portal.md
+>>>>>>> 5f9f9126b62561124d60101f9a2a45cb472ddfde
 - name: Samples
   items:
   - name: Azure CLI

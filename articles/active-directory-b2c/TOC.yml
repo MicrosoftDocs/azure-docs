@@ -150,6 +150,8 @@
       displayName: AD-FS, ADFS
     - name: Amazon
       href: identity-provider-amazon.md
+    - name: Apple (Preview)
+      href: identity-provider-apple-id.md 
     - name: Azure AD (Single-tenant)
       href: identity-provider-azure-ad-single-tenant.md
     - name: Azure AD (Multi-tenant)
@@ -217,11 +219,11 @@
       href: configure-tokens.md
   - name: Define custom attributes
     href: user-flow-custom-attributes.md
-  - name: Identity Protection and Conditional Access
+  - name: Risk-based authentication
     items:
-    - name: Set up Identity Protection and Conditional Access
-      href: conditional-access-identity-protection-setup.md
-    - name: Add Conditional Access
+    - name: Investigate risk with Identity Protection
+      href: identity-protection-investigate-risk.md
+    - name: Configure Conditional Access
       href: conditional-access-user-flow.md
   - name: Configure age gating
     href: basic-age-gating.md
@@ -327,9 +329,6 @@
             href: aad-sspr-technical-profile.md
           - name: Claims transformation
             href: claims-transformation-technical-profile.md
-          - name: Conditional Access 
-            href: conditional-access-technical-profile.md
-            displayName: ca
           - name: ID token hint
             href: id-token-hint.md
           - name: JWT token issuer
