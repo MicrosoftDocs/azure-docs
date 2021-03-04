@@ -170,7 +170,8 @@ The Private Endpoint you created should now have an four DNS zones configured:
 * privatelink-ods-opinsights-azure-com
 * privatelink-agentsvc-azure-automation-net
 
-Each of these zones maps specific Azure Monitor endpoints to private IPs from the pool of IPs of the Private Endpoint's VNet.
+> [!NOTE]
+> Each of these zones maps specific Azure Monitor endpoints to private IPs from the VNet's pool of IPs. The IP addresses showns in the below images are only examples. Your configuration should instead show private IPs from your own network.
 
 #### Privatelink-monitor-azure-com
 This zone covers the global endpoints used by Azure Monitor, meaning these endpoints serve requests considering all resources, not a specific one. This zone should have endpoints mapped for:
