@@ -34,7 +34,8 @@ sections:
           No, you can choose between pre-scheduled weekday or weekend windows. The maintenance can happen any time or day within the window.  
 
       - question: What happens once I choose a maintenance window? 
-        answer: | Configuring maintenance window is a long running asynchronous operation, similar to changing the service tier of your Azure SQL resource. The resource is available during the process, except a short failover that happens at the end of the operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of failover you should perform the operation outside of the peak hours. 
+        answer: | 
+        Configuring maintenance window is a long running asynchronous operation, similar to changing the service tier of your Azure SQL resource. The resource is available during the process, except a short failover that happens at the end of the operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of failover you should perform the operation outside of the peak hours. 
 
       - question: What maintenance updates are typically performed during a maintenance window? 
         answer: |
