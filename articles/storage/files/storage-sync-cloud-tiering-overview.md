@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure File Sync Cloud Tiering | Microsoft Docs
+title: Understand Azure File Sync cloud tiering | Microsoft Docs
 description: Understand cloud tiering, an optional Azure File Sync feature. Frequently accessed files are cached locally on the server; others are tiered to Azure Files.
 author: roygara
 ms.service: storage
@@ -31,7 +31,7 @@ To learn how the volume free space policy affects files initially downloaded whe
 #### Date policy
 With the **date policy**, cool files are tiered to the cloud if they haven't been accessed (that is, read or written to) for x number of days. For example, if you noticed that files that have gone more than 15 days without being accessed are typically archival files, you should set your date policy to 15 days. 
 
-For more examples on how the date policy and volume free space policy work together, see [Choosing a cloud tiering policy](storage-sync-choosing-cloud-tiering-policies.md).
+For more examples on how the date policy and volume free space policy work together, see [Choose Azure File Sync cloud tiering policies](storage-sync-choose-cloud-tiering-policies.md).
 
 ### Windows Server data deduplication
 Data deduplication is supported on volumes that have cloud tiering enabled beginning with Windows Server 2016. For more details, please see [Planning for an Azure File Sync deployment](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication).
@@ -88,20 +88,20 @@ Cloud tiering is the separation between namespace (the file and folder hierarchy
 
 For tiered files, the size on disk is zero since the file content itself isn't being stored locally. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer (reparse point). The reparse point represents a URL to the file in the Azure file share. A tiered file has both the "offline" attribute and the FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS attribute set in NTFS so that third-party applications can securely identify tiered files.   
 
-![A screenshot of a file's properties when it is tiered - namespace only](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-2.png)    
+![A screenshot of a file's properties when it is tiered - namespace only.](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-2.png)    
 
 #### Locally cached file
 
 On the other hand, for a file stored in an on-premises file server, the size on disk is about equal to the logical size of the file since the entire file (file attributes + file content) is stored locally.     
 
-![A screenshot of a file's properties when it is not tiered - namespace + file content](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-1.png) 
+![A screenshot of a file's properties when it is not tiered - namespace + file content.](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-1.png) 
 
 It's also possible for a file to be partially tiered (or partially recalled). In a partially tiered file, part of the file is on disk. This might occur when files are partially read by applications like multimedia players or zip utilities that support streaming access to files. Azure File Sync is smart and recalls only the requested information from the connected Azure file share.
 
 > [!NOTE]
 > Size represents the logical size of the file. Size on disk represents the physical size of the file stream that's stored on the disk.
 
-## Next Steps
-* [Choosing cloud tiering policies](storage-sync-choosing-cloud-tiering-policies.md)
+## Next steps
+* [Choose Azure File Sync cloud tiering policies](storage-sync-choose-cloud-tiering-policies.md)
 * [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
 

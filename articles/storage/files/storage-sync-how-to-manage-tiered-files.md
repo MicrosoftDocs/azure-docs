@@ -1,5 +1,5 @@
 ---
-title: How to manage tiered files | Microsoft Docs
+title: How to manage Azure File Sync tiered files | Microsoft Docs
 description: Tips and PowerShell commandlets to help you manage tiered files
 author: roygara
 ms.service: storage
@@ -10,6 +10,8 @@ ms.subservice: files
 ---
 
 # How to manage tiered files
+
+This article provides guidance for users who have questions related to managing tiered files. For conceptual questions regarding cloud tiering, please see [Azure Files FAQ](storage-files-faq.md).
 
 ## How to check if your files are being tiered
 
@@ -34,7 +36,7 @@ There are several ways to check whether a file has been tiered to your Azure fil
 
         ![The Properties dialog box for a file, with the Details tab selected](media/storage-files-faq/azure-file-sync-file-attributes.png)
         
-        You can see the attributes for all the files in a folder by adding the **Attributes** field to the table display of File Explorer. To do this, right-click on an existing column (for example, **Size**), select **More**, and then select **Attributes** from the drop-down list.
+    You can see the attributes for all the files in a folder by adding the **Attributes** field to the table display of File Explorer. To do this, right-click on an existing column (for example, **Size**), select **More**, and then select **Attributes** from the drop-down list.
 
 > [!NOTE]
 > All of these attributes will be visible for partially recalled files as well.
@@ -46,7 +48,7 @@ There are several ways to check whether a file has been tiered to your Azure fil
         fsutil reparsepoint query <your-file-name>
         ```
 
-        If the file has a reparse point, you can expect to see **Reparse Tag Value: 0x8000001e**. This hexadecimal value is the reparse point value that is owned by Azure File Sync. The output also contains the reparse data that represents the path to your file on your Azure file share.
+    If the file has a reparse point, you can expect to see **Reparse Tag Value: 0x8000001e**. This hexadecimal value is the reparse point value that is owned by Azure File Sync. The output also contains the reparse data that represents the path to your file on your Azure file share.
 
 > [!WARNING]
 > The `fsutil reparsepoint` utility command also has the ability to delete a reparse point. Do not execute this command unless the Azure File Sync engineering team asks you to. Running this command might result in data loss. 
@@ -128,4 +130,5 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCoun
 > [!Note]
 > To recall files that have been tiered, the network bandwidth should be at least 1 Mbps. If network bandwidth is less than 1 Mbps, files may fail to recall with a timeout error.
 
-For conceptual questions regarding cloud tiering, please see [Azure Files FAQ](storage-files-faq.md).
+## Next steps
+* [Azure Files FAQ](storage-files-faq.md)

@@ -1,5 +1,5 @@
 ---
-title: Monitor Cloud Tiering | Microsoft Docs
+title: Monitor Azure File Sync cloud tiering | Microsoft Docs
 description: Details on metrics to use to monitor your cloud tiering policies.
 author: roygara
 ms.service: storage
@@ -54,5 +54,5 @@ For details on how to use metrics, see [Getting started with Azure Metrics Explo
 
 If you would like to change your cloud tiering policy, see [Choosing cloud tiering policies](storage-sync-choosing-cloud-tiering-policies.md).
 
-## Next Steps
+## Next steps
 * [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)

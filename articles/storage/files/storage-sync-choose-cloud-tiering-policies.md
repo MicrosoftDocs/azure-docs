@@ -1,6 +1,6 @@
 ---
-title: Choosing Cloud Tiering Policies | Microsoft Docs
-description: Details on what to keep in mind when choosing your policies.
+title: Choose Azure File Sync cloud tiering policies | Microsoft Docs
+description: Details on what to keep in mind when choosing Azure File Sync cloud tiering policies.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -9,9 +9,9 @@ ms.author: rogarana
 ms.subservice: files
 ---
 
-# Choosing cloud tiering policies
+# Choose cloud tiering policies
 
-This article provides guidance for users who are selecting and adjusting their cloud tiering policies. Before reading through this article, ensure that you understand how cloud tiering works. For cloud tiering fundamentals, see [Cloud tiering overview](storage-sync-cloud-tiering-overview.md). For an in-depth explanation of cloud tiering policies with examples, see [Cloud tiering policies](storage-sync-cloud-tiering-policy.md).
+This article provides guidance for users who are selecting and adjusting their cloud tiering policies. Before reading through this article, ensure that you understand how cloud tiering works. For cloud tiering fundamentals, see [Understand Azure File Sync cloud tiering](storage-sync-cloud-tiering-overview.md). For an in-depth explanation of cloud tiering policies with examples, see [Azure File Sync cloud tiering policies](storage-sync-cloud-tiering-policy.md).
 
 ## Limitations
 - Cloud tiering is not supported on the Windows system volume.
@@ -60,11 +60,11 @@ Generally, when you enable cloud tiering on a server endpoint, you should create
 
 For simplicity and to have a clear understanding of how items will be tiered, we recommend you primarily adjust your volume free space policy and keep your date policy disabled unless needed. We recommend this because most customers find it valuable to fill the local cache with as many hot files as possible and tier the rest to the cloud. However, the date policy may be beneficial if you want to proactively free up local disk space and you know files in that server endpoint accessed after the number of days specified in your date policy don't need to be kept locally. Setting the date policy frees up valuable local disk capacity for other endpoints on the same volume to cache more of their files.
 
-After setting your policies, monitor egress and adjust both policies accordingly. We recommend specifically looking at the **cloud tiering recall size** and **cloud tiering recall size by application** metrics in Azure Monitor. To learn how to monitor egress, see [Monitoring cloud tiering](storage-sync-monitoring-cloud-tiering.md).
+After setting your policies, monitor egress and adjust both policies accordingly. We recommend specifically looking at the **cloud tiering recall size** and **cloud tiering recall size by application** metrics in Azure Monitor. To learn how to monitor egress, see [Monitor cloud tiering](storage-sync-monitor-cloud-tiering.md).
 
 ## Adjusting your policies
 
-If the amount of files constantly recalled from Azure is larger than you want, you may have more hot files than you have space to save them on the local server volume. Increase your local volume size if possible, and/or decrease your volume free space policy percentage in small increments. Decresing the volume free space percentage too much can also have negative consequences. Higher churn in your dataset requires more free space - for new files and recall of "cold" files. Tiering kicks in with a delay of up to one hour and then needs processing time, which is why you should always have ample free space on your volume.
+If the amount of files constantly recalled from Azure is larger than you want, you may have more hot files than you have space to save them on the local server volume. Increase your local volume size if possible, and/or decrease your volume free space policy percentage in small increments. Decreasing the volume free space percentage too much can also have negative consequences. Higher churn in your dataset requires more free space - for new files and recall of "cold" files. Tiering kicks in with a delay of up to one hour and then needs processing time, which is why you should always have ample free space on your volume.
 
 Keeping more data local means lower egress costs as fewer files will be recalled from Azure, but also requires a larger amount of on-premises storage which comes at its own cost. 
 
@@ -77,5 +77,5 @@ When adjusting your volume free space policy, the amount of data you should keep
 - Using the /LFSM switch on Robocopy when migrating files will allow files to sync and cloud tiering to make space during initial upload 
 - If tiering occurs before a heatmap is formed, files will be tiered by last modified timestamp
 
-## Next Steps
+## Next steps
 * [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)

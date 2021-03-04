@@ -114,22 +114,22 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="sizeondisk-versus-size"></a>
   **Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync?**  
-  See [Cloud tiering overview](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior).
+  See [Understand Azure File Sync cloud tiering](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior).
 
 * <a id="is-my-file-tiered"></a>
   **How can I tell whether a file has been tiered?**  
-  See [Choosing cloud tiering policies](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
+  See [How to manage Azure File Sync tiered files](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
 
 * <a id="afs-recall-file"></a>**A file I want to use has been tiered. How can I recall the file to disk to use it locally?**  
-  See [Cloud tiering FAQ](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
+  See [How to manage Azure File Sync tiered files](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
 * <a id="afs-force-tiering"></a>
   **How do I force a file or directory to be tiered?**  
-  See [Cloud tiering FAQ](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
+  See [How to manage Azure File Sync tiered files](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
 
 * <a id="afs-effective-vfs"></a>
   **How is *volume free space* interpreted when I have multiple server endpoints on a volume?**  
-  See [Choosing cloud tiering policies](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume).
+  See [Choose Azure File Sync cloud tiering policies](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume).
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **I have cloud tiering disabled, why are there tiered files in the server endpoint location?**  
@@ -281,7 +281,7 @@ This article answers common questions about Azure Files features and functionali
     2.	Open up "Active Directory Domains and Trusts" console
     3.	Right-click on the domain that you want to access the file share, then click on the "Trusts" tab and select forest B domain from outgoing trusts. If you haven't configure trust between the two forests, you need to setup the trust first
     4.	Click on "Properties…" then "Name Suffix Routing"
-    5.	Check if the "*.file.core.windows.net" surffix shows up. If not, click on 'Refresh'
+    5.	Check if the "*.file.core.windows.net" suffix shows up. If not, click on 'Refresh'
     6.	Select "*.file.core.windows.net", then click on "Enable" and "Apply"
 
 * <a id=""></a>
