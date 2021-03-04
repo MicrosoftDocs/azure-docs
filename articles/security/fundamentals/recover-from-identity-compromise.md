@@ -46,11 +46,9 @@ The response to such an advanced attack should include the following objectives:
 
 ## Establish secure communications and productivity
 
-Before you start responding, you must be sure that you can communicate safely without the attacker eavesdropping. Until you have ensured that your current infrastructure provides privacy, use completely isolated identities and resources to communicate and coordinate a response within your team.
+Before you start responding, you must be sure that you can communicate safely without the attacker eavesdropping. Make sure to isolate any communications related to the incident so that the attacker is not tipped-off to your investigation and is taken by surprise at your response actions.
 
-Make sure to isolate any communications related to the incident so that the attacker is not tipped-off to your investigation and is taken by surprise at your response actions.
-
-For initial one-on-one and group communications, you may want to use use (PSTN) calls, conference bridges that are not connected to the corporate infrastructure, and end-to-end encrypted messaging solutions.
+For example, for initial one-on-one and group communications, you may want to use use (PSTN) calls, conference bridges that are not connected to the corporate infrastructure, and end-to-end encrypted messaging solutions.
 
 After those initial conversations, you may want to create an entirely new Office 365 tenant, isolated from the organization's production tenant. Create accounts only for key personnel who need to be part of the response.
 
@@ -143,19 +141,29 @@ The following table describes additional methods for using Azure Active director
 
 ## Remediate and retain administrative control
 
-### Regaining and retaining administrative control of your environment
-If your investigation has identified that the attacker has administrative control in the organization’s cloud environment and/or on-prem, it’s critical to regain control in such a way as to ensure that the attacker isn’t persistent. Exactly which steps you will take depend both on what persistence you discovered in your investigation, and your level of confidence in the completeness of that investigation and discovery of all possible methods of entry and persistence. While it is possible to regain control with high confidence, even in the face of an incomplete investigation, doing so requires significant impact to business operations, so most organizations choose to remediate based on the results of the investigation in our experience.
+If your investigation has identified that the attacker has administrative control in the organization’s cloud or on-premises environment, you must regain control in such a way that you ensure that the attacker isn't persistent.
 
-We recommend you consider the following steps when building your administrative control recovery plan, but the exact order and timing should be planned based on the results of your investigation and understanding of adversary owned administrative assets and methods of persistence.
+The following sections describe recommended steps to consider when building your administrative control recovery plan.
 
-Ensure that any actions described here are performed from a trusted device built from a clean source, such as a privileged access workstation.
-If the organization has lost control of its token signing certificates or federated trust the highest assurance approach is to remove trust and switch to cloud mastered identity while remediating on-prem. A detailed plan for doing so is beyond the scope of this document and requires careful planning and understanding of the business operations impacts of isolating identity. Review the Azure Active Directory guidance or key considerations.
-Should your organization choose not to break trust while recovering administrative control on-prem, you’ll need to rotate your SAML token signing certificate once you have regained administrative control on-prem and blocked the attacker’s ability to access the signing certificate again. It’s critical that your organization follow the certificate rotation instructions below to ensure that the attacker doesn’t maintain the ability to forge tokens for your domain.
+> [!IMPORTANT]
+> The exact steps required in your organization will depend on what persistence you've discovered in your investigation, and how confident you are that your investigation was complete and has discovered all possible entry and persistence methods.
+>
+> - Ensure that any actions taken are performed from a trusted device, built from a [clean source](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). For example, use a fresh, privileged access workstation.
+>
 
-### Rotation of ADFS token signing certificate
+If your organization has lost control of the token-signing certificates or federated trust, the most assured approach is to remove trust, and switch to cloud-mastered identity while remediating on-premises. This requires careful planning and an in-depth understanding of the business operation effects of isolating identity. For more information, see [Protecting Microsoft 365 from on-premises attacks](/azure/active-directory/fundamentals/protect-m365-from-on-premises-attacks).
 
-For a compromised or potentially compromised ADFS Token Signing certificate, rotating the Token Signing certificate a single time would still allow the previous Token Signing certificate to work. The rationale for this is to permit a grace period to update your Relying Party Trusts prior to expiration of the certificate during normal rotation of the signing certificate.
+### Rotate your SAML token-signing certificate
 
+If your organization decides *not* to break trust while recovering administrative control on-premises, you'll have to rotate your SAML token-signing certificate after having regained administrative control on-premises, and blocked the attackers ability to access the signing certificate again.
+
+Rotating the token-signing certificate a single time still allows the previous token-signing certificate to work. This is a built-in functionality for normal certificate rotations, which permits a grace period for organizations to update any relying party trusts before the certificate expires.
+
+However, in case of an attack, you don't want the attacker to retain access at all. Make sure to use the following steps to ensure that the attacker doesn't maintain the ability to forge tokens for your domain:
+
+1. Delete the Azure AD Cloud Provisioning agent configuration
+
+    1. Check 
 NOTE: Conducting the below steps in the ADFS environment will create both a primary and secondary certificate and will automatically promote the secondary certificate to primary after a default period of five days. If you have Relying Party trusts, this could cause impacts five days after the initial ADFS environment change and should be accounted for within your process. You can resolve this by replacing the primary certificate a third time with “-Urgent” and removing the secondary certificate or turning off automatic certificate rotation.
 
 If instead of rolling the Token Signing Certificate your organization feels the need to replace the ADFS servers with known clean systems, you can follow steps to remove the existing ADFS from your environment and build a new one.
