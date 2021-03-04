@@ -17,6 +17,13 @@ You should use one of the Azure IoT Device SDKs to build your IoT Plug and Play 
 
 The sample in this tutorial uses the [Eclipse Mosquitto](http://mosquitto.org/) MQTT library and Visual Studio. The steps in this tutorial assume you're using Windows on your development machine.
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Download and build the Eclipse Mosquitto library.
+> * Modify the C-based MQTT sample code to make the device an IoT Plug and Play device.
+> * Identify the MQTT topics that an IoT Plug and Play device uses.
+
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]

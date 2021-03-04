@@ -10,7 +10,7 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp-java-python-swift
+zone_pivot_groups: acs-js-csharp-java-python-swift-android
 ---
 # Quickstart: Add Chat to your App
 
@@ -28,6 +28,10 @@ Get started with Azure Communication Services by using the Communication Service
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Chat with Java client library](./includes/chat-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-android"
+[!INCLUDE [Chat with Android client library](./includes/chat-android.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

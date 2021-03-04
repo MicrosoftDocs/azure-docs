@@ -67,4 +67,4 @@ To change the name of a step in your saved workbook, select edit under the step 
 
 ## Next steps
 
-Learn more about the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).
+Learn more about the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../visualize/workbooks-overview.md).

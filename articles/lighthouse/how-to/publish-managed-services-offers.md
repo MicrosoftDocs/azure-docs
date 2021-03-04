@@ -1,7 +1,7 @@
 ---
 title: Publish a Managed Service offer to Azure Marketplace
 description: Learn how to publish a Managed Service offer that onboards customers to Azure Lighthouse.
-ms.date: 02/10/2021
+ms.date: 02/17/2021
 ms.topic: how-to
 ---
 
@@ -29,6 +29,9 @@ The following table can help determine whether to onboard customers by publishin
 |Can use automation to onboard multiple subscriptions, resource groups, or customers |No     |Yes    |
 |Immediate access to new built-in roles and Azure Lighthouse features     |Not always (generally available after some delay)         |Yes         |
 
+> [!NOTE]
+> Managed Service offers may not be available in Azure Government and other national clouds.
+
 ## Create your offer
 
 For detailed instructions about how to create your offer, including all of the information and assets you'll need to provide, see [Create a Managed Service offer](../../marketplace/create-managed-service-offer.md).
@@ -51,7 +54,7 @@ You can [publish an updated version of your offer](../..//marketplace/partner-ce
 After a customer adds your offer, they'll be able to [delegate one or more specific subscriptions or resource groups](view-manage-service-providers.md#delegate-resources), which will then be onboarded to Azure Lighthouse. If a customer has accepted an offer but has not yet delegated any resources, they'll see a note at the top of the **Provider offers** section of the [**Service providers**](view-manage-service-providers.md) page in the Azure portal.
 
 > [!IMPORTANT]
-> Delegation must be done by a non-guest account in the customer's tenant which has the [Owner built-in role](../../role-based-access-control/built-in-roles.md#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> Delegation must be done by a non-guest account in the customer's tenant who has a role with the `Microsoft.Authorization/roleAssignments/write` permission, such as [Owner](../../role-based-access-control/built-in-roles.md#owner), for the subscription being onboarded (or which contains the resource groups that are being onboarded). To find users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Once the customer delegates a subscription (or one or more resource groups within a subscription), the **Microsoft.ManagedServices** resource provider will be registered for that subscription, and users in your tenant will be able to access the delegated resources according to the authorizations in your offer.
 

@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to:
 > [!NOTE]
 > While multiple options for **Aggregation** are displayed on Azure portal, only the aggregation types listed in the table below are supported for each metric. We apologize for this confusion and we are working to resolve it.
 
-The following [metrics](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses) are available for Azure DDoS Protection Standard. These metrics are also exportable via diagnostic settings (see [View and configure DDoS diagnostic logging](diagnostic-logging.md)).
+The following [metrics](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkpublicipaddresses) are available for Azure DDoS Protection Standard. These metrics are also exportable via diagnostic settings (see [View and configure DDoS diagnostic logging](diagnostic-logging.md)).
 
 
 | Metric | Metric Display Name | Unit | Aggregation Type | Description |

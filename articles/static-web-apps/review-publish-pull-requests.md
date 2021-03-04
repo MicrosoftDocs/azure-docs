@@ -28,7 +28,7 @@ There are many benefits of using pre-production environments. For example, you c
 - Perform sanity checks before deploying to production.
 
 > [!NOTE]
-> During preview, a [maximum of only one staging environment](quotas.md) is allowed at a time.
+> During preview, a [maximum of three staging environments](quotas.md) are allowed at a time.
 
 ## Prerequisites
 
