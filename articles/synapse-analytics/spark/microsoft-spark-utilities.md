@@ -1,7 +1,7 @@
 ---
 title: Introduction to Microsoft Spark utilities
 description: "Tutorial: MSSparkutils in Azure Synapse Analytics notebooks"
-author: ruxu 
+author: ruixinxu 
 services: synapse-analytics 
 ms.service: synapse-analytics 
 ms.topic: reference
@@ -20,9 +20,9 @@ Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you easily
 
 ### Configure access to Azure Data Lake Storage Gen2 
 
-Synapse notebooks use Azure active directory (Azure AD) pass-through to access the ADLS Gen2 accounts. You need to be a **Blob Storage Contributor** to access the ADLS Gen2 account (or folder). 
+Synapse notebooks use Azure active directory (Azure AD) pass-through to access the ADLS Gen2 accounts. You need to be a **Blob Storage Data Contributor** to access the ADLS Gen2 account (or folder). 
 
-Synapse pipelines use workspace identity (MSI) to access the storage accounts. To use MSSparkUtils in your pipeline activities, your workspace identity needs to be **Blob Storage Contributor** to access the ADLS Gen2 account (or folder).
+Synapse pipelines use workspace identity (MSI) to access the storage accounts. To use MSSparkUtils in your pipeline activities, your workspace identity needs to be **Blob Storage Data Contributor** to access the ADLS Gen2 account (or folder).
 
 Follow these steps to make sure your Azure AD and workspace MSI have access to the ADLS Gen2 account:
 1. Open the [Azure portal](https://portal.azure.com/) and the storage account you want to access. You can navigate to the specific container you want to access.

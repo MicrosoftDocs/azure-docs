@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 12/01/2020
+ms.date: 02/17/2021
 tags: azure-synapse
 ---
 # Data Discovery & Classification
@@ -178,7 +178,15 @@ You can use the REST API to programmatically manage classifications and recommen
 - [List Current By Database](/rest/api/sql/sensitivitylabels/listcurrentbydatabase): Gets the current sensitivity labels of the specified database.
 - [List Recommended By Database](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Gets the recommended sensitivity labels of the specified database.
 
+
+## FAQ - Advanced classification capabilities
+
+**Question**: Will [Azure Purview](../../purview/overview.md) replace SQL Data Discovery & Classification or will SQL Data Discovery & Classification be retired soon?
+**Answer**: We continue to support SQL Data Discovery & Classification and encourage you to adopt [Azure Purview](../../purview/overview.md) which has richer capabilities to drive advanced classification capabilities and data governance. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies here.
+
+
 ## <a id="next-steps"></a>Next steps
 
 - Consider configuring [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md) for monitoring and auditing access to your classified sensitive data.
 - For a presentation that includes data Discovery & Classification, see [Discovering, classifying, labeling & protecting SQL data | Data Exposed](https://www.youtube.com/watch?v=itVi9bkJUNc).
+- To classify your Azure SQL Databases and Azure Synapse Analytics with Azure Purview labels using T-SQL commands, see [Classify your Azure SQL data using Azure Purview labels](../../sql-database/scripts/sql-database-import-purview-labels.md).

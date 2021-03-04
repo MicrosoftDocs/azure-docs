@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
+ms.date: 01/29/2021
 ---
 
 # Mapping data flows performance and tuning guide
@@ -240,11 +240,11 @@ If a column corresponds to how you wish to output the data, you can select **As 
 
 When writing to CosmosDB, altering throughput and batch size during data flow execution can improve performance. These changes only take effect during the data flow activity run and will return to the original collection settings after conclusion. 
 
-**Batch size:** Calculate the rough row size of your data, and make sure that row size * batch size is less than two million. If it is, increase the batch size to get better throughput
+**Batch size:** Usually, starting with the default batch size is sufficient. To further tune this value, calculate the rough object size of your data, and make sure that object size * batch size is less than 2MB. If it is, you can increase the batch size to get better throughput.
 
 **Throughput:** Set a higher throughput setting here to allow documents to write faster to CosmosDB. Keep in mind the higher RU costs based upon a high throughput setting.
 
-**Write Throughput Budget:** Use a value which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitions, setting a budget throughput will allow more balance across those partitions.
+**Write throughput budget:** Use a value which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitions, setting a budget throughput will allow more balance across those partitions.
 
 ## Optimizing transformations
 

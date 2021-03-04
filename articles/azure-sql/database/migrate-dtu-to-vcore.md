@@ -9,7 +9,7 @@ ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 05/28/2020
+ms.date: 02/09/2021
 ---
 # Migrate Azure SQL Database from the DTU-based model to the vCore-based model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -46,24 +46,33 @@ Execute this query in the context of the database to be migrated, rather than in
 ```SQL
 WITH dtu_vcore_map AS
 (
-SELECT TOP (1) rg.slo_name,
-               CASE WHEN rg.slo_name LIKE '%SQLG4%' THEN 'Gen4'
-                    WHEN rg.slo_name LIKE '%SQLGZ%' THEN 'Gen4'
-                    WHEN rg.slo_name LIKE '%SQLG5%' THEN 'Gen5'
-                    WHEN rg.slo_name LIKE '%SQLG6%' THEN 'Gen5'
-               END AS dtu_hardware_gen,
-               s.scheduler_count * CAST(rg.instance_cap_cpu/100. AS decimal(3,2)) AS dtu_logical_cpus,
-               CAST((jo.process_memory_limit_mb / s.scheduler_count) / 1024. AS decimal(4,2)) AS dtu_memory_per_core_gb
+SELECT rg.slo_name,
+       DATABASEPROPERTYEX(DB_NAME(), 'Edition') AS dtu_service_tier,
+       CASE WHEN rg.slo_name LIKE '%SQLG4%' THEN 'Gen4'
+            WHEN rg.slo_name LIKE '%SQLGZ%' THEN 'Gen4'
+            WHEN rg.slo_name LIKE '%SQLG5%' THEN 'Gen5'
+            WHEN rg.slo_name LIKE '%SQLG6%' THEN 'Gen5'
+            WHEN rg.slo_name LIKE '%SQLG7%' THEN 'Gen5'
+       END AS dtu_hardware_gen,
+       s.scheduler_count * CAST(rg.instance_cap_cpu/100. AS decimal(3,2)) AS dtu_logical_cpus,
+       CAST((jo.process_memory_limit_mb / s.scheduler_count) / 1024. AS decimal(4,2)) AS dtu_memory_per_core_gb
 FROM sys.dm_user_db_resource_governance AS rg
 CROSS JOIN (SELECT COUNT(1) AS scheduler_count FROM sys.dm_os_schedulers WHERE status = 'VISIBLE ONLINE') AS s
 CROSS JOIN sys.dm_os_job_object AS jo
 WHERE dtu_limit > 0
       AND
       DB_NAME() <> 'master'
+      AND
+      rg.database_id = DB_ID()
 )
 SELECT dtu_logical_cpus,
        dtu_hardware_gen,
        dtu_memory_per_core_gb,
+       dtu_service_tier,
+       CASE WHEN dtu_service_tier = 'Basic' THEN 'General Purpose'
+            WHEN dtu_service_tier = 'Standard' THEN 'General Purpose or Hyperscale'
+            WHEN dtu_service_tier = 'Premium' THEN 'Business Critical or Hyperscale'
+       END AS vcore_service_tier,
        CASE WHEN dtu_hardware_gen = 'Gen4' THEN dtu_logical_cpus
             WHEN dtu_hardware_gen = 'Gen5' THEN dtu_logical_cpus * 0.7
        END AS Gen4_vcores,
@@ -91,7 +100,7 @@ Besides the number of vCores (logical CPUs) and the hardware generation, several
 - For the same hardware generation and the same number of vCores, IOPS and transaction log throughput resource limits for vCore databases are often higher than for DTU databases. For IO-bound workloads, it may be possible to lower the number of vCores in the vCore model to achieve the same level of performance. Resource limits for DTU and vCore databases in absolute values are exposed in the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) view. Comparing these values between the DTU database to be migrated and a vCore database using an approximately matching service objective will help you select the vCore service objective more precisely.
 - The mapping query also returns the amount of memory per core for the DTU database or elastic pool to be migrated, and for each hardware generation in the vCore model. Ensuring similar or higher total memory after migration to vCore is important for workloads that require a large memory data cache to achieve sufficient performance, or workloads that require large memory grants for query processing. For such workloads, depending on actual performance, it may be necessary to increase the number of vCores to get sufficient total memory.
 - The [historical resource utilization](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) of the DTU database should be considered when choosing the vCore service objective. DTU databases with consistently under-utilized CPU resources may need fewer vCores than the number returned by the mapping query. Conversely, DTU databases where consistently high CPU utilization causes inadequate workload performance may require more vCores than returned by the query.
-- If migrating databases with intermittent or unpredictable usage patterns, consider the use of [Serverless](serverless-tier-overview.md) compute tier.  Note that the max number of concurrent workers (requests) in serverless is 75% the limit in provisioned compute for the same number of max vcores configured.  Also, the max memory available in serverless is 3 GB times the maximum number of vcores configured; for example, max memory is 120 GB when 40 max vcores are configured.   
+- If migrating databases with intermittent or unpredictable usage patterns, consider the use of [Serverless](serverless-tier-overview.md) compute tier. Note that the max number of concurrent workers (requests) in serverless is 75% the limit in provisioned compute for the same number of max vcores configured. Also, the max memory available in serverless is 3 GB times the maximum number of vcores configured; for example, max memory is 120 GB when 40 max vcores are configured.   
 - In the vCore model, the supported maximum database size may differ depending on hardware generation. For large databases, check supported maximum sizes in the vCore model for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).
 - For elastic pools, the [DTU](resource-limits-dtu-elastic-pools.md) and [vCore](resource-limits-vcore-elastic-pools.md) models have differences in the maximum supported number of databases per pool. This should be considered when migrating elastic pools with many databases.
 - Some hardware generations may not be available in every region. Check availability under [Hardware Generations](service-tiers-vcore.md#hardware-generations).

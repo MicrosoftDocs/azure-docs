@@ -253,7 +253,7 @@ Azure Container Instances are dynamically created when deploying a model. To ena
 > * In the same resource group as your Azure Machine Learning workspace.
 > * If your workspace has a __private endpoint__, the virtual network used for Azure Container Instances must be the same as the one used by the workspace private endpoint.
 >
-> When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace cannot also be in the virtual network.
+> When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace cannot be in the virtual network.
 
 To use ACI in a virtual network to your workspace, use the following steps:
 

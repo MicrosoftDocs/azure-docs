@@ -203,7 +203,7 @@ def main(req: func.HttpRequest, outputMessage: func.Out[str]) -> func.HttpRespon
 
 # [Java](#tab/java)
 
-The following example shows a Java function that sends a message to RabbitMQ queue when triggered by a TimerTrigger every 5 minutes.
+The following Java function uses the `@RabbitMQOutput` annotation from the [Java RabbitMQ types](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq) to describe the configuration for a RabbitMQ queue output binding. The function sends a message to the RabbitMQ queue when triggered by a TimerTrigger every 5 minutes.
 
 ```java
 @FunctionName("RabbitMQOutputExample")

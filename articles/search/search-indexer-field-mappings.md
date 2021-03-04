@@ -39,7 +39,7 @@ A field mapping consists of three parts:
 Field mappings are added to the `fieldMappings` array of the indexer definition.
 
 > [!NOTE]
-> If no field mappings are added, indexers assume data source fields should be mapped to index fields with the same name. Adding a field mapping removes these default field mappings for the source and target field. Some indexers, such as [the blob storage indexer](search-howto-indexing-azure-blob-storage.md), add default field mappings for the index key field.
+> If no field mappings are added, indexers assume data source fields should be mapped to index fields with the same name. Adding a field mapping removes these default field mappings for the source and target field. Some indexers, such as the [blob storage indexer](search-howto-indexing-azure-blob-storage.md), add default field mappings for the index key field.
 
 ## Map fields using REST
 
@@ -48,7 +48,6 @@ You can add field mappings when creating a new indexer using the [Create Indexer
 For example, here's how to map a source field to a target field with a different name:
 
 ```JSON
-
 PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
 Content-Type: application/json
 api-key: [admin key]

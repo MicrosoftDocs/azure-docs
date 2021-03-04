@@ -96,7 +96,7 @@ Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?it
 
      ![Install extension](media/install-extension.png)
 
-1. Make sure Azure DevOps pipeline’s service principle has been granted the permission of subscription and also assigned as workspace admin for target workspace. 
+1. Make sure Azure DevOps pipeline’s service principal has been granted the permission of subscription and also assigned as workspace admin for target workspace. 
 
 1. Create a new task. Search for **Synapse workspace deployment**, and then select **Add**.
 
@@ -134,8 +134,8 @@ If you're using Git integration with your Synapse workspace and have a CI/CD pip
 
 ### Use the Synapse workspace deployment task
 
-In Synapse, all kinds of artifacts are not ARM resources, which are different with ADF. You cannot use ARM template deployment task to deploy Synapse artifacts
+In Synapse, there are a number of artifacts that are not ARM resources. This differs from Azure Data Factory. The ARM template deployment task will not work properly to deploy Synapse artifacts
  
 ### Unexpected token error in release
 
-When your parameter file has parameter values which are not escaped, the release pipeline would fail to parse the file with the error of unexpected token. We suggest you to override parameters or KeyVault to get parameters. You could also double escape as a workaround.
+When your parameter file has parameter values which are not escaped, the release pipeline will fail to parse the file, and will generate the error, "unexpected token". We suggest you to override parameters or use Azure KeyVault to retrieve parameter values. You could also use double escape characters as a workaround.

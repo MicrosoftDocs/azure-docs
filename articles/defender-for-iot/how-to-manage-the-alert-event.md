@@ -18,7 +18,8 @@ The following options are available for managing alert events:
  | **Learn** | Authorize the detected event. For more information, see [About learning and unlearning events](#about-learning-and-unlearning-events). |
  | **Acknowledge** | Hide the alert once for the detected event. The alert will be triggered again if the event is detected again. For more information, see [About acknowledging and unacknowledging events](#about-acknowledging-and-unacknowledging-events). |
  | **Mute** | Continuously ignore activity with identical devices and comparable traffic. For more information, see [About muting and unmuting events](#about-muting-and-unmuting-events). |
-
+ 
+You can also export alert information.
 ## About learning and unlearning events
 
 Events that indicate deviations of the learned network might reflect valid network changes. Examples might include a new authorized device that joined the network or an authorized firmware update.
@@ -40,7 +41,7 @@ In certain situations, you might not want a sensor to learn a detected event, or
 
 After you carry out mitigation or investigation, you can instruct the sensor to hide the alert by selecting **Acknowledge**. If the event is detected again, the alert will be retriggered.
 
-To hide the alert:
+To clear the alert:
 
   - Select **Acknowledge**.
 
@@ -63,11 +64,11 @@ In these situations, learning is not available. When learning can't be carried o
 > [!NOTE] 
 > You can't mute events in which an internet device is defined as the source or destination.
 
-### What traffic is muted?
+### What alert activity is muted?
 
-A muted scenario includes the network devices and traffic detected for an event. The alert title describes the traffic that's being muted.
+A muted scenario includes the network devices and traffic detected for an event. The alert title describes the traffic that is being muted.
 
-The device or devices being muted will be displayed as an image in the alert. If two devices are shown, the traffic between them will be muted.
+The device or devices being muted will be displayed as an image in the alert. If two devices are shown, the specific alerted traffic between them will be muted.
 
 **Example 1**
 
@@ -83,7 +84,7 @@ When an event is muted, it's ignored any time the source sends an HTTP header wi
 
 **After an event is muted:**
 
-- The alert will be accessible in the **Acknowledged** alert view until it's unmuted.
+- The alert will be accessible in the **Acknowledged** alert view until it is unmuted.
 
 - The mute action will appear in the **Event Timeline**.
 
@@ -100,6 +101,25 @@ When an event is muted, it's ignored any time the source sends an HTTP header wi
 1. Select the **Acknowledged** option form the **Alerts** main screen.
 
 2. Hover over an alert to see if it's muted.  
+
+## Export alert information
+
+Export alert information to a .csv file. You can export information of all alerts detected or export information based on the filtered view.The following information is exported:
+
+- Source address
+- Destination address
+- Alert title
+- Alert severity
+- Alert message
+- Additional information
+- Acknowledged status
+- PCAP availability
+
+To export:
+
+1. Select Alerts from the side menu.
+1. Select Export.
+1. Select Export Extended Alerts to export alert information in separate rows for each alert that covers multiple devices. When Export Extended Alerts is selected, the .csv file will create a duplicate row of the alert event with the unique items in each row. Using this option makes it easier to investigate exported alert events.
 
 ## See also
 

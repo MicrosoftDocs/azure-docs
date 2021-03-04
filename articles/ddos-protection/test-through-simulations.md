@@ -25,6 +25,9 @@ We have partnered with [BreakingPoint Cloud](https://www.ixiacom.com/products/br
 - Document DDoS compliance.
 - Train your network security teams.
 
+> [!NOTE]
+> BreakingPoint Cloud is only available for the Public cloud.
+
 ## Prerequisites
 
 - Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection.md) with protected public IP addresses.
@@ -59,7 +62,7 @@ Once the resource is under attack, you should see that the value changes from **
 
 ### BreakingPoint Cloud API Script
 
-This [API script](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Breaking%20Point%20SDK) can be used to automate DDoS testing by running once or using cron to schedule regular tests. This is useful to validate that your logging is configured properly and that detection and response procedures are effective. The scripts require a Linux OS (tested with Ubuntu 18.04 LTS) and Python 3. Install prerequisites and API client using the included script or by using the documentation on the [BreakingPoint Cloud](http://breakingpoint.cloud/) website.
+This [API script](https://aka.ms/ddosbreakingpoint) can be used to automate DDoS testing by running once or using cron to schedule regular tests. This is useful to validate that your logging is configured properly and that detection and response procedures are effective. The scripts require a Linux OS (tested with Ubuntu 18.04 LTS) and Python 3. Install prerequisites and API client using the included script or by using the documentation on the [BreakingPoint Cloud](http://breakingpoint.cloud/) website.
 
 ## Next steps
 

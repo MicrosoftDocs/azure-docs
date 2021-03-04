@@ -4,7 +4,7 @@ description: Deploy Azure Spring Cloud in a virtual network (VNet injection).
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java
 ---
@@ -45,7 +45,7 @@ The virtual network to which you deploy your Azure Spring Cloud instance must me
     * One for your Spring Boot microservice applications.
     * There's a one-to-one relationship between these subnets and an Azure Spring Cloud instance. Use a new subnet for each service instance you deploy. Each subnet can only include a single service instance.
 * **Address space**: CIDR blocks up to */28* for both the service runtime subnet and the Spring Boot microservice applications subnet.
-* **Route table**: The subnets must not have an existing route table associated.
+* **Route table**: By default the subnets do not need existing route tables associated. You can [bring your own route table](#bring-your-own-route-table).
 
 The following procedures describe setup of the virtual network to contain the instance of Azure Spring Cloud.
 
@@ -174,6 +174,26 @@ This table shows the maximum number of app instances Azure Spring Cloud supports
 For subnets, five IP addresses are reserved by Azure, and at least four addresses are required by Azure Spring Cloud. At least nine IP addresses are required, so /29 and /30 are nonoperational.
 
 For a service runtime subnet, the minimum size is /28. This size has no bearing on the number of app instances.
+
+## Bring your own route table
+
+Azure Spring Cloud supports using existing subnets and route tables.
+
+If your custom subnets do not contain route tables, Azure Spring Cloud creates them for each of the subnets and adds rules to them throughout the instance lifecycle. If your custom subnets contain route tables, Azure Spring Cloud acknowledges the existing route tables during instance operations and adds/updates and/or rules accordingly for operations.
+
+> [!Warning] 
+> Custom rules can be added to the custom route tables and updated. However, rules are added by Azure Spring Cloud and these must not be updated or removed. Rules such as 0.0.0.0/0 must always exist on a given route table and map to the target of your internet gateway, such as an NVA or other egress gateway. Use caution when updating rules when only your custom rules are being modified.
+
+
+### Route table requirements
+
+The route tables to which your custom vnet is associated must meet the following requirements:
+
+* You can associate your Azure route tables with your vnet only when you create a new Azure Spring Cloud service instance. You cannot change to use another route table after Azure Spring Cloud has been created.
+* Both the microservice application subnet and the service runtime subnet must associate with different route tables or neither of them.
+* Permissions must be assigned before instance creation. Be sure to grant Azure *Spring Cloud Owner* permission to your route tables.
+* The associated route table resource cannot be updated after cluster creation. While the route table resource cannot be updated, custom rules can be modified on the route table.
+* You cannot reuse a route table with multiple instances due to potential conflicting routing rules.
 
 ## Next steps
 

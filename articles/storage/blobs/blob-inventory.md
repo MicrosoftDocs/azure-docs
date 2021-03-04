@@ -28,6 +28,8 @@ The blob inventory preview is available on storage accounts in the following reg
 - France Central
 - Canada Central
 - Canada East
+- East US
+- East US2
 
 ### Pricing and billing
 

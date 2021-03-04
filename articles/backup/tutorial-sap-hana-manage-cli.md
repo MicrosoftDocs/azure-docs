@@ -73,6 +73,226 @@ Name                                  Resource Group
 cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 ```
 
+## Create incremental backup policy
+
+To create an incremental backup policy, execute the [az backup policy create](/cli/azure/backup/policy#az_backup_policy_create) command with the following parameters:
+
+* **--backup-management-type** – Azure Workload
+* **--workload-type** - SAPHana
+* **--name** – Name of the policy
+* **--policy** - JSON file with appropriate details for schedule and retention
+* **--resource-group** - Resource group of the vault
+* **--vault-name** – Name of the vault
+
+Example:
+
+```azurecli
+az backup policy create --resource-group saphanaResourceGroup --vault-name saphanaVault --name sappolicy --backup-management-type AzureWorkload --policy sappolicy.json --workload-type SAPHana
+```
+
+Sample JSON (sappolicy.json):
+
+```json
+  "eTag": null,
+  "id": "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/saphanaResourceGroup/providers/Microsoft.RecoveryServices/vaults/saphanaVault/backupPolicies/sappolicy",
+  "location": null,
+  "name": "sappolicy",
+  "properties": {
+    "backupManagementType": "AzureWorkload",
+    "makePolicyConsistent": null,
+    "protectedItemsCount": 0,
+    "settings": {
+      "isCompression": false,
+      "issqlcompression": false,
+      "timeZone": "UTC"
+    },
+    "subProtectionPolicy": [
+      {
+        "policyType": "Full",
+        "retentionPolicy": {
+          "dailySchedule": null,
+          "monthlySchedule": {
+            "retentionDuration": {
+              "count": 60,
+              "durationType": "Months"
+            },
+            "retentionScheduleDaily": null,
+            "retentionScheduleFormatType": "Weekly",
+            "retentionScheduleWeekly": {
+              "daysOfTheWeek": [
+                "Sunday"
+              ],
+              "weeksOfTheMonth": [
+                "First"
+              ]
+            },
+            "retentionTimes": [
+              "2021-01-19T00:30:00+00:00"
+            ]
+          },
+          "retentionPolicyType": "LongTermRetentionPolicy",
+          "weeklySchedule": {
+            "daysOfTheWeek": [
+              "Sunday"
+            ],
+            "retentionDuration": {
+              "count": 104,
+              "durationType": "Weeks"
+            },
+            "retentionTimes": [
+              "2021-01-19T00:30:00+00:00"
+            ]
+          },
+          "yearlySchedule": {
+            "monthsOfYear": [
+              "January"
+            ],
+            "retentionDuration": {
+              "count": 10,
+              "durationType": "Years"
+            },
+            "retentionScheduleDaily": null,
+            "retentionScheduleFormatType": "Weekly",
+            "retentionScheduleWeekly": {
+              "daysOfTheWeek": [
+                "Sunday"
+              ],
+              "weeksOfTheMonth": [
+                "First"
+              ]
+            },
+            "retentionTimes": [
+              "2021-01-19T00:30:00+00:00"
+            ]
+          }
+        },
+        "schedulePolicy": {
+          "schedulePolicyType": "SimpleSchedulePolicy",
+          "scheduleRunDays": [
+            "Sunday"
+          ],
+          "scheduleRunFrequency": "Weekly",
+          "scheduleRunTimes": [
+            "2021-01-19T00:30:00+00:00"
+          ],
+          "scheduleWeeklyFrequency": 0
+        }
+      },
+      {
+        "policyType": "Incremental",
+        "retentionPolicy": {
+          "retentionDuration": {
+            "count": 30,
+            "durationType": "Days"
+          },
+          "retentionPolicyType": "SimpleRetentionPolicy"
+        },
+        "schedulePolicy": {
+          "schedulePolicyType": "SimpleSchedulePolicy",
+          "scheduleRunDays": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "scheduleRunFrequency": "Weekly",
+          "scheduleRunTimes": [
+            "2017-03-07T02:00:00+00:00"
+          ],
+          "scheduleWeeklyFrequency": 0
+        }
+      },
+      {
+        "policyType": "Log",
+        "retentionPolicy": {
+          "retentionDuration": {
+            "count": 15,
+            "durationType": "Days"
+          },
+          "retentionPolicyType": "SimpleRetentionPolicy"
+        },
+        "schedulePolicy": {
+          "scheduleFrequencyInMins": 120,
+          "schedulePolicyType": "LogSchedulePolicy"
+        }
+      }
+    ],
+    "workLoadType": "SAPHanaDatabase"
+  },
+  "resourceGroup": "saphanaResourceGroup",
+  "tags": null,
+  "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
+} 
+```
+
+Once the policy is created successfully, the output of the command will display the policy JSON that you passed as a parameter while executing the command.
+
+You can modify the following section of the policy to specify the desired backup frequency and retention for incremental backups.
+
+For example:
+
+```json
+{
+  "policyType": "Incremental",
+  "retentionPolicy": {
+    "retentionDuration": {
+      "count": 30,
+      "durationType": "Days"
+    },
+    "retentionPolicyType": "SimpleRetentionPolicy"
+  },
+  "schedulePolicy": {
+    "schedulePolicyType": "SimpleSchedulePolicy",
+    "scheduleRunDays": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "scheduleRunFrequency": "Weekly",
+    "scheduleRunTimes": [
+      "2017-03-07T02:00:00+00:00"
+    ],
+    "scheduleWeeklyFrequency": 0
+  }
+}
+```
+
+Example:
+
+If you want to have incremental backups only on Saturday and retain them for 60 days, make the following changes in the policy:
+
+* Update **retentionDuration** count to 60 days
+* Specify only Saturday as **ScheduleRunDays**
+
+```json
+ {
+  "policyType": "Incremental",
+  "retentionPolicy": {
+    "retentionDuration": {
+      "count": 60,
+      "durationType": "Days"
+    },
+    "retentionPolicyType": "SimpleRetentionPolicy"
+  },
+  "schedulePolicy": {
+    "schedulePolicyType": "SimpleSchedulePolicy",
+    "scheduleRunDays": [
+      "Saturday"
+    ],
+    "scheduleRunFrequency": "Weekly",
+    "scheduleRunTimes": [
+      "2017-03-07T02:00:00+00:00"
+    ],
+    "scheduleWeeklyFrequency": 0
+  }
+}
+```
+
 ## Protect new databases added to an SAP HANA instance
 
 [Registering an SAP HANA instance with a Recovery Services vault](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) automatically discovers all the databases on this instance.

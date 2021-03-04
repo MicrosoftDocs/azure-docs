@@ -42,8 +42,6 @@
     href: access-control.md
   - name: Local RBAC built-in roles
     href: built-in-roles.md
-- name: How-to guides 
-  items:
 
 - name: Reference
   items:

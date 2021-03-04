@@ -129,7 +129,7 @@
       - name: Understand limits
         href: storsimple-8000-limits.md
       - name: Best practices
-        href: https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68
+        href: https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_BestPractices_V1.1.pdf
     - name: Install
       items:
       - name: Review safety
@@ -262,13 +262,14 @@
       - name: Automate file server DR to Azure
         href: storsimple-disaster-recovery-using-azure-site-recovery.md
       - name: StorSimple with Express Route
-        href: https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content
+        href: https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_ExpressRoute.pdf
+      - name: StoSimple with Hyper-V
+        href: https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_HyperVDeployment_v1.0.pdf
       - name: StorSimple with VMware
-        href: https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463
-      - name: StorSimple with Hyper-V
-        href: https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6
+        href: https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_VMware_v10.pdf
       - name: Distributed global namespace
         href: https://www.microsoft.com/download/details.aspx?id=45507
+
     - name: Monitor
       items:
       - name: Using service summary

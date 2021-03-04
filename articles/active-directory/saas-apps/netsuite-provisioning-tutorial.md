@@ -16,7 +16,7 @@ ms.author: jeedes
 The objective of this tutorial is to show you the steps you need to perform in NetSuite OneWorld and Azure AD to automatically provision and de-provision user accounts from Azure AD to NetSuite.
 
 > [!WARNING]
-> This provisioning integration will stop working in February 2020 due to a change to the NetSuite APIs that are used by Microsoft to provision users into NetSuite. As a result of this, the provisioning functionality of the NetSuite application in the Azure Active Directory Enterprise App Gallery will be removed soon. The application's SSO functionality will remain intact. Microsoft is working with NetSuite to build a new modernized provisioning integration, but there is currently no ETA on when this will be completed.
+> This provisioning integration will stop working with the release of NetSuite's Spring 2021 update due to a change to the NetSuite APIs that are used by Microsoft to provision users into NetSuite.  This update will reach NetSuite customers between February and April of 2021. As a result of this, the provisioning functionality of the NetSuite application in the Azure Active Directory Enterprise App Gallery will be removed soon. The application's SSO functionality will remain intact. Microsoft is working with NetSuite to build a new modernized provisioning integration, but there is currently no ETA on when this will be completed.
 
 ## Prerequisites
 

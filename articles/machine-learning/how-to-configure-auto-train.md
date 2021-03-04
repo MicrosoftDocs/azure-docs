@@ -419,7 +419,7 @@ For general information on how model explanations and feature importance can be 
   * Attribute errors: Ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
   
   To work around this issue, take either of the following two steps depending on your `AutoML` SDK training version:
-    * If your `AutoML` SDK training version is greater than 1.13.0, you need `pandas == 0.25.1` and `sckit-learn==0.22.1`. If there is a version mismatch, upgrade scikit-learn and/or pandas to correct version as shown below:
+    * If your `AutoML` SDK training version is greater than 1.13.0, you need `pandas == 0.25.1` and `scikit-learn==0.22.1`. If there is a version mismatch, upgrade scikit-learn and/or pandas to correct version as shown below:
       
       ```bash
          pip install --upgrade pandas==0.25.1

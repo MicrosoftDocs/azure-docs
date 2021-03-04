@@ -414,9 +414,9 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your managed application resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
-- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -431,7 +431,7 @@ In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.
 
 Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
-- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
 - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
@@ -444,9 +444,9 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing logs created by your managed application resources has the log retention period set according to your organization's compliance regulations.
 In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake or Log Analytics workspace accounts for long-term and archival storage.
 
-- [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/platform/manage-cost-storage.md)
+- [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/logs/manage-cost-storage.md)
 
-- [Storing resource logs in an Azure Storage Account](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Storing resource logs in an Azure Storage Account](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center monitoring**: Yes
 

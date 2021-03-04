@@ -164,8 +164,8 @@ Version 11.1 adds the following:
 
 The following version 10 features are not yet available in version 11. If you require these features, hold off on migration until they are supported.
 
-+ geospatial types
 + [Knowledge store](knowledge-store-concept-intro.md)
++ Geospatial types - first class support for geospatial types is still in progress. For now, the [Microsoft.Spatial](https://www.nuget.org/packages/Microsoft.Spatial/) package can be used to support geographic operations. Examples are available for [System.Text.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/README.md) and [Newtonsoft.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md).
 
 <a name="UpgradeSteps"></a>
 

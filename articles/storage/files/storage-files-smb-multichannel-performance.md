@@ -114,7 +114,7 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 
 - On a single NIC with larger average IO size (> ~16k), there were significant improvements in both reads and writes.
 - For smaller IO sizes, there was a slight impact of ~10% on performance when SMB Multichannel was enabled. This could be mitigated by spreading the load over multiple files, or disabling the feature.
-- Performance is still bound by  [single file limits](storage-files-scale-targets.md#file-level-limits).
+- Performance is still bound by [single file limits](storage-files-scale-targets.md#file-scale-targets).
 
 ## Optimizing performance
 

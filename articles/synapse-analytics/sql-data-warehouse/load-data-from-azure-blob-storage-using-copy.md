@@ -388,7 +388,7 @@ Follow these steps to clean up resources as you desire.
 
 ## Next steps
 
-In this tutorial, you learned how to create a data warehouse and create a user for loading data. You used the simple [COPY statement](/sql/t-sql/statements/copy-into-transact-sql&preserve-view=true?view=azure-sqldw-latest&preserve-view=true#examples) to load data into your data warehouse.
+In this tutorial, you learned how to create a data warehouse and create a user for loading data. You used the simple [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples) to load data into your data warehouse.
 
 You did these things:
 > [!div class="checklist"]
