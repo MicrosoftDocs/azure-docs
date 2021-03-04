@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor CLI samples
 description: Sample CLI commands for Azure Monitor features. Azure Monitor is a Microsoft Azure service, which allows you to send alert notifications, call web URLs based on values of configured telemetry data, and autoScale Cloud Services, Virtual Machines, and Web Apps.
-ms.subservice: ""
 ms.topic: sample
 author: bwren
 ms.author: bwren
