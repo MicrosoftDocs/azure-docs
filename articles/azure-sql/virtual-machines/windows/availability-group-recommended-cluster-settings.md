@@ -26,49 +26,49 @@ If above actions do not result in improved performance such in the scenario wher
 
 ## Always On Parameters for relaxed monitoring    
 Here are Always on AG/FCI parameters that can modified to achieve relaxed monitoring:  
-•	Lease timeout 
-o	Prevents split-brain 
-o	Default: 20000
-•	HealthCheck timeout 
-o	determines health of the Primary replica 
-o	Default: 30000
-•	Failure-Condition Level 
-o	conditions that trigger an automatic failover
+• Lease timeout 
+o Prevents split-brain 
+o Default: 20000
+• HealthCheck timeout 
+o determines health of the Primary replica 
+o Default: 30000
+• Failure-Condition Level 
+o conditions that trigger an automatic failover
 Additionally, if you are concerned about primary and secondary replica connectivity timeout, you can review following parameter:
-•	Session timeout
-o	Check communication issue between Primary and Secondary
-o	Default 10 seconds
+• Session timeout
+o Check communication issue between Primary and Secondary
+o Default 10 seconds
 Constraints to follow  
 Few things to consider before making any changes.
-•	It is not advised to lower any timeout values below their default values
-•	SameSubnetThreshold <= CrossSubnetThreshold
-•	SameSubnetDelay <= CrossSubnetDelay
-•	The lease interval (½ * LeaseTimeout) must be shorter than SameSubnetThreshold * SameSubnetDelay
+• It is not advised to lower any timeout values below their default values
+• SameSubnetThreshold <= CrossSubnetThreshold
+• SameSubnetDelay <= CrossSubnetDelay
+• The lease interval (½ * LeaseTimeout) must be shorter than SameSubnetThreshold * SameSubnetDelay
 
 
 ## Lease timeout
 Lease timeout prevents split brain scenario. On an Azure VM this can happen if there is resource contention like slow IO, high CPU or low memory. Here are some guidelines to relax the health timeout, if the underlying conditions cannot be avoided easily.  
-Parameter	Recommended values for SQL Always on HA on Azure VM
+Parameter Recommended values for SQL Always on HA on Azure VM
  
- 	Windows Sever 2012 or later 	Windows Server 2008/R2
-SameSubnetDelay	1 second	2 second
-SameSubnetThreshold	40 heartbeats	10 heartbeats
-CrossSubnetDelay	1 second	2 second
-CrossSubnetThreshold	40 heartbeats	20 heartbeats
+Windows Sever 2012 or later  Windows Server 2008/R2
+SameSubnetDelay 1 second 2 second
+SameSubnetThreshold 40 heartbeats 10 heartbeats
+CrossSubnetDelay 1 second 2 second
+CrossSubnetThreshold 40 heartbeats 20 heartbeats
 AG LeaseTimeout 
 <
-2* SameSubnetThreshold * SameSubnetDelay	Should be <120 seconds, recommended to start with 40 seconds	Should be <40 seconds, recommended to start with 30 seconds
+2* SameSubnetThreshold * SameSubnetDelay Should be <120 seconds, recommended to start with 40 seconds Should be <40 seconds, recommended to start with 30 seconds
  
  
 ## How to Relax lease timeout   
 
 The lease mechanism is controlled by a single value specific to each AG in a WSFC cluster. To navigate to this value in Failover Cluster Manager:
-1.	In the roles tab, find the target AG role. Click on the target AG role.
-2.	Right-click the AG resource at the bottom of the window and select Properties.
+1. In the roles tab, find the target AG role. Click on the target AG role.
+2. Right-click the AG resource at the bottom of the window and select Properties.
 
  
 
-3.	In the popup window, navigate to the properties tab and there will be a list of values specific to this AG. Click the LeaseTimeout value to change it.
+3. In the popup window, navigate to the properties tab and there will be a list of values specific to this AG. Click the LeaseTimeout value to change it.
    
 ## Health-Check Timeout Threshold
 
@@ -96,24 +96,24 @@ Cluster node 'Node1' was removed from the active failover cluster membership. Th
 
 If the SQL AG/FCI monitoring process is too aggressive, you may see frequent AG/FCI restarts, failures or failovers. For AG, additionally you can see following messages following messages in the SQL Server: 
 
-19407 		The lease between availability group ‘PRODAG’ and the Windows Server Failover Cluster has expired. A connectivity issue occurred between the instance of SQL Server and the Windows Server Failover Cluster. To determine whether the availability group is failing over correctly, check the corresponding availability group resource in the Windows Server Failover Cluster
+19407   The lease between availability group ‘PRODAG’ and the Windows Server Failover Cluster has expired. A connectivity issue occurred between the instance of SQL Server and the Windows Server Failover Cluster. To determine whether the availability group is failing over correctly, check the corresponding availability group resource in the Windows Server Failover Cluster
 
-19419		The renewal of the lease between availability group ‘%.*ls’ and the Windows Server Failover Cluster failed because the existing lease is no longer valid.
+19419  The renewal of the lease between availability group ‘%.*ls’ and the Windows Server Failover Cluster failed because the existing lease is no longer valid.
 If the session timeout is too aggressive for your environment, you may see following messages frequently:
 Message 35201: A connection timeout has occurred while attempting to establish a connection to availability replica 'replicaname' with id [availability_group_id]. Either a networking or firewall issue exists, or the endpoint address provided for the replica is not the database mirroring endpoint of the host server instance. 
 Message 35206: A connection timeout has occurred on a previously established connection to availability replica 'replicaname' with id [availability_group_id]. Either a networking or a firewall issue exists, or the availability replica has transitioned to the resolving role.
 
 ## Relax monitoring on certain periods of time
 In some scenario, it might be beneficial to opt for more relaxed monitoring on certain period of time of in certain environments. One example can be an environment might see cluster or AG/FCI failures only during maintenance hours due to increased IO loads resulting in Azure VM or disk IO throttling. Some examples of increased IOs can be: 
-•	Database backup 
-•	Index maintenances  
-•	Update statistics  
-•	DBCC CHECKDB  
-•	VM backup 
+• Database backup 
+• Index maintenances  
+• Update statistics  
+• DBCC CHECKDB  
+• VM backup 
 Ideal solution to avoid these IO would be going for lager VM or disk size, if the IO load cannot be spread out or reduced. But if higher size is not an acceptance solution, having an even more relaxed environment might be considered. Here are the steps can be followed to achieve this:
-•	Just before high resource consuming activity set the monitoring for Windows cluster (and if needed Always On AG/FCI) to more relaxed so that possibility of a failure is minimized. 
-•	Complete the activity. 
-•	Change the monitoring setting back to what is needed during normal business operation. 
+• Just before high resource consuming activity set the monitoring for Windows cluster (and if needed Always On AG/FCI) to more relaxed so that possibility of a failure is minimized. 
+• Complete the activity. 
+• Change the monitoring setting back to what is needed during normal business operation. 
 Yous use SQL agent jobs to achieve this.  Please note that a hard failure during a more relaxed environment will of course take longer to detect. 
 
 Note

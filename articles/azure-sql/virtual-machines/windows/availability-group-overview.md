@@ -47,7 +47,7 @@ When creating Azure VMs, you must choose between configuring Availability Sets v
 
 ## Connectivity
 
-You can configure a virtual network name, or a distributed network name for an availability group. [Review the differences between the two](hadr-compare-virtual-distributed-network-name.md) and then deploy either a [distributed network name](availability-group-distributed-network-name-dnn-listener-configure.md) or a [virtual network name](availability-group-vnn-azure-load-balancer-configure) for your availability group. 
+You can configure a virtual network name, or a distributed network name for an availability group. [Review the differences between the two](hadr-compare-virtual-distributed-network-name.md) and then deploy either a [distributed network name](availability-group-distributed-network-name-dnn-listener-configure.md) or a [virtual network name](availability-group-vnn-azure-load-balancer-configure.md) for your availability group. 
 
 If you are using DNN or if your AG spans across multiple subnets like multiple Azure regions and you are using client libraries that support the MultiSubnetFailover connection option in the connection string, you can optimize availability group failover to a different subnet by setting MultiSubnetFailover to "True" or "Yes. The MultiSubnetFailover connection option only works with the TCP network protocol.
 
