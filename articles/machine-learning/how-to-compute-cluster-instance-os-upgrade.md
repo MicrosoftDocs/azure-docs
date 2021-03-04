@@ -52,7 +52,7 @@ See the following links for information on stopping and restarting compute clust
 For information on checking the host OS version, see the Ubuntu community wiki page on [checking your Ubuntu version](https://help.ubuntu.com/community/CheckingYourUbuntuVersion).
 
 > [!TIP]
-> To use the `lsb_release -a` command from the wiki, you can [use a terminal session on a compute instance](how-to-access-terminal.md)
+> To use the `lsb_release -a` command from the wiki, you can [use a terminal session on a compute instance](how-to-access-terminal.md).
 ## Next steps
 
 If you have any further questions or concerns, contact us at [ubuntu18azureml@service.microsoft.com](mailto:ubuntu18azureml@service.microsoft.com).
