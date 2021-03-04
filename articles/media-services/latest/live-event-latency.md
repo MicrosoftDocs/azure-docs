@@ -33,8 +33,6 @@ The following .NET example shows how to set **LowLatency** on the **LiveEvent**:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#NewLiveEvent)]
 
-        
-
 See the full example: [Live Event with DVR](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs).
 
 ## Live Events latency
