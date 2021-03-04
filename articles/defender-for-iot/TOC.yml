@@ -249,9 +249,6 @@
       displayName: data, collection, geolocation, log analytics, raw events
       href: how-to-configure-agent-based-solution.md
     - name: Investigate CIS benchmark recommendation
-      displayName: investigation, queries, investigate
-      href: how-to-configure-agent-based-solution.md
-    - name: Investigate CIS benchmark recommendation
       href: how-to-investigate-cis-benchmark.md
     - name: Create custom alerts
       displayName: security group
