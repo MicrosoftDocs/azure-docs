@@ -34,11 +34,11 @@ In the following table, details of records collected by Container insights are p
 
 Azure Monitor Logs can help you look for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally. Pre-defined log searches are provided for you to immediately start using or to customize to return the information the way you want.
 
-You can perform interactive analysis of data in the workspace by selecting the **View Kubernetes event logs** or **View container logs** option in the preview pane from the **View in analytics** drop-down list. The **Log Search** page appears to the right of the Azure portal page that you were on.
+You can interactively analyze data in the workspace by selecting the **View Kubernetes event logs** or **View container logs** option in the preview pane from the **View in analytics** drop-down list. The **Log Search** page appears to the right of the Azure portal page that you were on.
 
 ![Analyze data in Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)
 
-The container logs output that's forwarded to your workspace are STDOUT and STDERR. Because Azure Monitor is monitoring Azure-managed Kubernetes (AKS), Kube-system is not collected today because of the large volume of generated data. 
+The container logs output that's forwarded to your workspace are STDOUT and STDERR. Because Azure Monitor is monitoring Azure-managed Kubernetes (AKS), Kube-system isn't collected today because of the large volume of generated data. 
 
 ### Example log search queries
 
@@ -120,7 +120,7 @@ InsightsMetrics
 
 ```
 
-To view Prometheus metrics scraped by Azure Monitor filtered by Namespace, specify "prometheus". Here is a sample query to view Prometheus metrics from the `default` kubernetes namespace.
+To view Prometheus metrics scraped by Azure Monitor filtered by Namespace, specify "prometheus". Here's a sample query to view Prometheus metrics from the `default` kubernetes namespace.
 
 ```
 InsightsMetrics 
