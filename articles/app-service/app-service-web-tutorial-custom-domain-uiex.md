@@ -249,8 +249,6 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
     If you missed a step or made a typo somewhere earlier, a verification error appears at the bottom of the page.
     
     ![Screenshot showing a verification error.](./media/app-service-web-tutorial-custom-domain/verification-error.png)
-    
-<a name="wildcard" aria-hidden="true"></a>
 
 # [Wildcard (CNAME)](#tab/wildcard)
 
