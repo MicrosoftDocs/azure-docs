@@ -16,7 +16,7 @@ ms.date: 03/11/2020
 ms.author: memildin
 ---
 
-# Adaptive network hardening in Azure Security Center
+# Improve your network security posture with adaptive network hardening
 Learn how to configure adaptive network hardening in Security Center.
 
 ## Availability

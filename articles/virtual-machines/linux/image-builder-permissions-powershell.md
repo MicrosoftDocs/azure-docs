@@ -3,10 +3,11 @@ title: Configure Azure Image Builder Service permissions using PowerShell
 description: Configure requirements for Azure VM Image Builder Service including permissions and privileges using PowerShell
 author: danielsollondon
 ms.author: danis
-ms.date: 05/06/2020
+ms.date: 03/02/2021
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ---
 
 # Configure Azure Image Builder Service permissions using PowerShell
@@ -129,7 +130,7 @@ $imageResourceGroup = "<Resource group>"
 $identityName = "aibIdentity"
 
 # Use a web request to download the sample JSON description
-$sample_uri="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$sample_uri="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $role_definition="aibRoleImageCreation.json"
 
 Invoke-WebRequest -Uri $sample_uri -Outfile $role_definition -UseBasicParsing
@@ -177,7 +178,7 @@ $res_group = "<Resource group>"
 $identityName = "aibIdentity"
 
 # Use a web request to download the sample JSON description
-$sample_uri="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
+$sample_uri="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
 $role_definition="aibRoleNetworking.json"
 
 Invoke-WebRequest -Uri $sample_uri -Outfile $role_definition -UseBasicParsing

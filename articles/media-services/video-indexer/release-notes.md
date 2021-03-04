@@ -43,7 +43,7 @@ The newly added audio affects feature is available when indexing your file by ch
 
 The **clapping** event type that was included in the previous audio effects model, is now extracted a part of the **crowd reaction** event type.
 
-When you choose to see **Insites** of your video on the [Video Indexer](https://www.videoindexer.ai/) website, the Audio Effects show up on the page.
+When you choose to see **Insights** of your video on the [Video Indexer](https://www.videoindexer.ai/) website, the Audio Effects show up on the page.
 
 :::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Audio event detection":::
 

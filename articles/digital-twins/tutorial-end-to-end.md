@@ -108,7 +108,7 @@ Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, 
 
 Before publishing the app, it's a good idea to make sure your dependencies are up to date, making sure you have the latest version of all the included packages.
 
-In the *Solution Explorer* pane, expand *SampleFunctionsApp > Dependencies*. Right-select *Packages* and choose *Manage NuGet Packages...*.
+In the *Solution Explorer* pane, expand _**SampleFunctionsApp** > Dependencies_. Right-select *Packages* and choose *Manage NuGet Packages...*.
 
 :::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Manage NuGet Packages for the SampleFunctionsApp project" border="false":::
 
@@ -132,15 +132,17 @@ In Azure Cloud Shell, use the following command to set an application setting wh
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
-The output is the list of settings for the Azure Function, which should now contain an entry called *ADT_SERVICE_URL*.
+The output is the list of settings for the Azure Function, which should now contain an entry called **ADT_SERVICE_URL**.
 
-Use the following command to create the system-managed identity. Take note of the *principalId* field in the output.
+Use the following command to create the system-managed identity. Look for the **principalId** field in the output.
 
 ```azurecli-interactive
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Use the *principalId* value from the output in the following command, to assign the function app's identity to the *Azure Digital Twins Data Owner* role for your Azure Digital Twins instance:
+Use the **principalId** value from the output in the following command, to assign the function app's identity to the *Azure Digital Twins Data Owner* role for your Azure Digital Twins instance.
+
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
@@ -177,7 +179,7 @@ az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku 
 
 The output of this command is information about the IoT hub that was created.
 
-Save the name that you gave to your IoT hub. You will use it later.
+Save the **name** that you gave to your IoT hub. You will use it later.
 
 ### Connect the IoT hub to the Azure function
 
@@ -271,7 +273,10 @@ In the project console window that opens, run the following command to get the t
 ObserveProperties thermostat67 Temperature
 ```
 
-You should see the live updated temperatures *from your Azure Digital Twins instance* being logged to the console every 10 seconds.
+You should see the live updated temperatures *from your Azure Digital Twins instance* being logged to the console every two seconds.
+
+>[!NOTE]
+> It may take a few seconds for the data from the device to propagate through to the twin. The first few temperature readings may show as 0 before data begins to arrive.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Console output showing log of temperature messages from digital twin thermostat67":::
 
@@ -329,7 +334,7 @@ Look for the `provisioningState` field in the output, and check that the value i
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Result of the endpoint query, showing the endpoint with a provisioningState of Succeeded":::
 
-Save the names that you gave to your event grid topic and your Event Grid endpoint in Azure Digital Twins. You will use them later.
+Save the names that you gave to your **event grid topic** and your Event Grid **endpoint** in Azure Digital Twins. You will use them later.
 
 ### Set up route
 
@@ -348,7 +353,7 @@ The output from this command is some information about the route you've created.
 
 Next, subscribe the *ProcessDTRoutedData* Azure function to the event grid topic you created earlier, so that telemetry data can flow from the *thermostat67* twin through the event grid topic to the function, which goes back into Azure Digital Twins and updates the *room21* twin accordingly.
 
-To do this, you'll create an **Event Grid subscription** from your event grid topic to your *ProcessDTRoutedData* Azure function as an endpoint.
+To do this, you'll create an **Event Grid subscription** that sends data from the **event grid topic** that you created earlier to your *ProcessDTRoutedData* Azure function.
 
 In the [Azure portal](https://portal.azure.com/), navigate to your event grid topic by searching for its name in the top search bar. Select *+ Event Subscription*.
 
@@ -383,7 +388,7 @@ In the project console window that opens, run the following command to get the t
 ObserveProperties thermostat67 Temperature room21 Temperature
 ```
 
-You should see the live updated temperatures *from your Azure Digital Twins instance* being logged to the console every 10 seconds. Notice that the temperature for *room21* is being updated to match the updates to *thermostat67*.
+You should see the live updated temperatures *from your Azure Digital Twins instance* being logged to the console every two seconds. Notice that the temperature for *room21* is being updated to match the updates to *thermostat67*.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Console output showing log of temperature messages, from a thermostat and a room":::
 

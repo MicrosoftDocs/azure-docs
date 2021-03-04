@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 03/03/2021
 ms.author: duau
 ---
 
@@ -444,7 +444,18 @@ If no custom host header setting is provided, the host header used by Traffic Ma
 
 ### What are the IP addresses from which the health checks originate?
 
-Click [here](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) to view the JSON file that lists the IP addresses from which Traffic Manager health checks can originate. Review the IPs listed in the JSON file to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
+Click [here](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) to learn how to retrieve the lists of IP addresses from which Traffic Manager health checks can originate. You can use REST API, Azure CLI, or Azure PowerShell to retrieve the latest list. Review the IPs listed to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
+
+Example using Azure PowerShell:
+
+```azurepowershell-interactive
+$serviceTags = Get-AzNetworkServiceTag -Location eastus
+$result = $serviceTags.Values | Where-Object { $_.Name -eq "AzureTrafficManager" }
+$result.Properties.AddressPrefixes
+```
+
+> [!NOTE]
+> Public IP addresses may change without notice. Ensure to retrieve the latest information using the Service Tag Discovery API or downloadable JSON file.
 
 ### How many health checks to my endpoint can I expect from Traffic Manager?
 

@@ -29,6 +29,11 @@ To configure FastPath, the virtual network gateway must be either:
 * Ultra Performance
 * ErGw3AZ
 
+> [!IMPORTANT]
+> If you plan to use FastPath with IPv6-based private peering over ExpressRoute, make sure to select ErGw3AZ for **SKU**. Note that this is only available for circuits using ExpressRoute Direct.
+> 
+>
+
 ## Limitations
 
 While FastPath supports most configurations, it does not support the following features:
