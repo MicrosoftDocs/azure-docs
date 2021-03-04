@@ -76,7 +76,7 @@ The following example shows a user journey element with authorization technical 
 
 A user journey is represented as an orchestration sequence that must be followed through for a successful transaction. If any step fails, the transaction fails. These orchestration steps reference both the building blocks and the claims providers allowed in the policy file. Any orchestration step that is responsible to show or render a user experience also has a reference to the corresponding content definition identifier.
 
-Orchestration steps can be conditionally executed based on preconditions defined in the orchestration step element. For example, you can check to perform an orchestration step only if a specific claims exists, or if a claim is equal or not to the specified value.
+Orchestration steps can be conditionally executed based on preconditions defined in the orchestration step element. For example, you can check to perform an orchestration step only if a specific claim exists, or if a claim is equal or not to the specified value.
 
 To specify the ordered list of orchestration steps, an **OrchestrationSteps** element is added as part of the policy. This element is required.
 
@@ -190,7 +190,7 @@ Preconditions can check multiple preconditions. The following example checks whe
 Identity provider selection lets users select an action from a list of options. The identity provider selection consists of a pair of two orchestration  steps:
 
 1. **Buttons** - It starts with type of `ClaimsProviderSelection`, or `CombinedSignInAndSignUp` that contains a list of options a user can choose from. The order of the options inside the `ClaimsProviderSelections` element controls the order of the buttons presented to the user.
-2. **Actions** - Followed by type of type of `ClaimsExchange`. The ClaimsExchange contains list of actions. The action is a reference to a technical profile, such as [OAuth2](oauth2-technical-profile.md), [OpenID Connect](openid-connect-technical-profile.md), [claims transformation](claims-transformation-technical-profile.md), or [self-asserted](self-asserted-technical-profile.md). The When a user clicks on one of the buttons, the corresponding action is executed.
+2. **Actions** - Followed by type of `ClaimsExchange`. The ClaimsExchange contains list of actions. The action is a reference to a technical profile, such as [OAuth2](oauth2-technical-profile.md), [OpenID Connect](openid-connect-technical-profile.md), [claims transformation](claims-transformation-technical-profile.md), or [self-asserted](self-asserted-technical-profile.md). The When a user clicks on one of the buttons, the corresponding action is executed.
 
 The **ClaimsProviderSelections** element contains the following element:
 
