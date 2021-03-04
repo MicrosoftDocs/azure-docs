@@ -128,7 +128,7 @@ Now, create the virtual network to which the function app integrates.
 
 1. On the **IP Addresses** tab, select **Add subnet**. Use the settings as specified below when adding a subnet:
 
-    :::image type="content" source="./media/functions-create-vnet/1.create-vnet-ip-address.png" alt-text="Create VNET Configuration":::
+    :::image type="content" source="./media/functions-create-vnet/1-create-vnet-ip-address.png" alt-text="Screenshot of the create virtual network configuration view.":::
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -145,7 +145,7 @@ Azure Private Endpoints are used to connect to specific Azure resources using a 
 
 1. Select the **Private endpoint connections** tab, and select **Private endpoint**.
 
-    :::image type="content" source="./media/functions-create-vnet/2.nav-private-endpoint-store.png" alt-text="Navigate to create private endpoints":::
+    :::image type="content" source="./media/functions-create-vnet/2-navigate-private-endpoint-store.png" alt-text="Screenshot of how to navigate to create private endpoints for the storage account.":::
 
 1. On the **Basics** tab, use the private endpoint settings as specified below:
 
@@ -167,7 +167,6 @@ Azure Private Endpoints are used to connect to specific Azure resources using a 
 
 1. On the **Configuration** tab, choose **default** for the Subnet setting.
 
-
 1. Select **Review + create**. After validation completes, select **Create**. Resources in the virtual network can now talk to storage files.
 
 1. Create another private endpoint for blobs. For the **Resources** tab, use the below settings. For all other settings, use the same settings from the file private endpoint creation steps you just followed.
@@ -187,7 +186,7 @@ Now, create the private endpoint for your Azure Service Bus.
 
 1. Select the **Private endpoint connections** tab, and select **Private endpoint**.
 
-    :::image type="content" source="./media/functions-create-vnet/3.nav-private-endpoint-sb.png" alt-text="Navigate to private endpoints for service bus":::
+    :::image type="content" source="./media/functions-create-vnet/3-navigate-private-endpoint-sb.png" alt-text="Screenshot of how to navigate to private endpoints for service bus.":::
 
 1. On the **Basics** tab, use the private endpoint settings as specified below:
 
@@ -217,7 +216,7 @@ Now, create the private endpoint for your Azure Service Bus.
 
 1. Select **+ File shares**. Provide **files** as the name for the file share for the purposes of this tutorial.
 
-    :::image type="content" source="./media/functions-create-vnet/4.create-file-share.png" alt-text="Create file share":::
+    :::image type="content" source="./media/functions-create-vnet/4-create-file-share.png" alt-text="Screenshot of how to create a file share in the storage account.":::
 
 ## Get storage account connection string
 
@@ -225,7 +224,7 @@ Now, create the private endpoint for your Azure Service Bus.
 
 1. Select **Show keys**. Copy the connection string of key1, and save it. We'll need this connection string later when configuring the app settings.
 
-    :::image type="content" source="./media/functions-create-vnet/5.get-store-connectionstring.png" alt-text="Get storage connection string":::
+    :::image type="content" source="./media/functions-create-vnet/5-get-store-connectionstring.png" alt-text="Screenshot of how to get a storage account connection string.":::
 
 ## Create a queue
 
@@ -235,7 +234,7 @@ This will be the queue for which your Azure Functions Service Bus Trigger will g
 
 1. Select **Shared access policies**. Provide **queue** as the name for the queue for the purposes of this tutorial.
 
-    :::image type="content" source="./media/functions-create-vnet/6.create-queue.png" alt-text="Create sb queue":::
+    :::image type="content" source="./media/functions-create-vnet/6-create-queue.png" alt-text="Screenshot of how to create a service bus queue.":::
 
 ## Get service bus connection string
 
@@ -243,7 +242,7 @@ This will be the queue for which your Azure Functions Service Bus Trigger will g
 
 1. Select **RootManageSharedAccessKey**. Copy the **Primary Connection String**, and save it. We'll need this connection string later when configuring the app settings.
 
-    :::image type="content" source="./media/functions-create-vnet/7.get-sb-connectionstring.png" alt-text="Get service bus connection string":::
+    :::image type="content" source="./media/functions-create-vnet/7-get-servicebus-connectionstring.png" alt-text="Screenshot of how to get a service bus connection string.":::
 
 ## Integrate function app with your virtual network
 
@@ -253,7 +252,7 @@ To use your function app with virtual networks, you'll need to join it to a subn
 
 1. Select **Click here to configure** under VNet Integration.
 
-    :::image type="content" source="./media/functions-create-vnet/8.connect-app-vnet.png" alt-text="Navigate to VNet Integration":::
+    :::image type="content" source="./media/functions-create-vnet/8-connect-app-vnet.png" alt-text="Screenshot of how to navigate to virtual network integration.":::
 
 1. Select **Add VNet**
 
@@ -261,7 +260,7 @@ To use your function app with virtual networks, you'll need to join it to a subn
 
 1. Select the **Subnet** we created earlier called **functions**. Your function app is now integrated with your virtual network!
 
-    :::image type="content" source="./media/functions-create-vnet/9.connect-app-subnet.png" alt-text="Add Subnet":::
+    :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="Screenshot of how to connect a function app to a subnet.":::
 
 ## Configure your function app settings for private endpoints
 
@@ -269,7 +268,7 @@ To use your function app with virtual networks, you'll need to join it to a subn
 
 1. To use your function app with virtual networks, the following app settings will need to be updated. Select **+ New application setting** or the pencil by **Edit** in the rightmost column of the app settings table as appropriate. When done, select **Save**.
 
-    :::image type="content" source="./media/functions-create-vnet/10.configure-app-settings.png" alt-text="Configure App Settings":::
+    :::image type="content" source="./media/functions-create-vnet/10-configure-app-settings.png" alt-text="Screenshot of how to configure function app settings for private endpoints.":::
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -285,7 +284,7 @@ To use your function app with virtual networks, you'll need to join it to a subn
 
 1. Set **Runtime Scale Monitoring** to **On**, and select **Save**. Runtime driven scaling allows you to connect non-HTTP trigger functions to services running inside your virtual network.
 
-    :::image type="content" source="./media/functions-create-vnet/11.enable-runtime-scaling.png" alt-text="Enable Runtime Driven Scaling":::
+    :::image type="content" source="./media/functions-create-vnet/11-enable-runtime-scaling.png" alt-text="Screenshot of how to enable Runtime Driven Scaling for Azure Functions.":::
 
 ## Deploy a service bus trigger and http trigger to your function app
 
@@ -309,7 +308,7 @@ To use your function app with virtual networks, you'll need to join it to a subn
 
 1. Select **Save**. 
 
-    :::image type="content" source="./media/functions-create-vnet/12.deploy-portal.png" alt-text="Deploy Portal":::
+    :::image type="content" source="./media/functions-create-vnet/12-deploy-portal.png" alt-text="Screenshot of how to deploy Azure Functions code through the portal.":::
 
 1. Your initial deployment may take a few minutes. You will see a **Success (Active)** Status message in the **Logs** tab when your app is successfully deployed. If needed, refresh the page. 
 
@@ -323,13 +322,13 @@ Now, create the private endpoint for your function app. This private endpoint wi
 
 1. Select **Click here to configure** under Private Endpoint Connections.
 
-    :::image type="content" source="./media/functions-create-vnet/14.nav-app-private-endpoint.png" alt-text="Navigate to Function App Private Endpoint":::
+    :::image type="content" source="./media/functions-create-vnet/14-navigate-app-private-endpoint.png" alt-text="Screenshot of how to navigate to a Function App Private Endpoint.":::
 
 1. Select **Add**.
 
 1. On the menu that opens up, use the private endpoint settings as specified below:
 
-    :::image type="content" source="./media/functions-create-vnet/15.create-app-private-endpoint.png" alt-text="Create Function App Private Endpoint":::
+    :::image type="content" source="./media/functions-create-vnet/15-create-app-private-endpoint.png" alt-text="Screenshot of how to create a Function App private endpoint.":::
 
 1. Select **Ok** to add the private endpoint. Congratulations! You've successfully secured your function app, service bus, and storage account with private endpoints!
 
@@ -343,7 +342,7 @@ Now, create the private endpoint for your function app. This private endpoint wi
 
 1. In your function app, select **Application Insights** from the left menu and select **View Application Insights data**.
 
-    :::image type="content" source="./media/functions-create-vnet/16.appinsights.png" alt-text="View Application Insights":::
+    :::image type="content" source="./media/functions-create-vnet/16-appinsights.png" alt-text="Screenshot of how to view application insights for a Function App.":::
 
 1. Select **Live metrics** from the left menu.
 
@@ -355,11 +354,11 @@ Now, create the private endpoint for your function app. This private endpoint wi
 
 1. Select **Send** to send the message.
 
-    :::image type="content" source="./media/functions-create-vnet/17.send-sb-message.png" alt-text="Send Service Bus Message":::
+    :::image type="content" source="./media/functions-create-vnet/17-send-servicebus-message.png" alt-text="Screenshot of how to send Service Bus messages using portal.":::
 
 1. On the tab with **Live metrics** open, you should see that your Service Bus queue trigger has triggered. If it hasn't, resend the message from **Service Bus Explorer**
 
-    :::image type="content" source="./media/functions-create-vnet/18.hello-world.png" alt-text="View Message":::
+    :::image type="content" source="./media/functions-create-vnet/18-hello-world.png" alt-text="Screenshot of how to view messages using live metrics for function apps.":::
 
 1. Congratulations! You've successfully tested your function app set up with private endpoints!
 
