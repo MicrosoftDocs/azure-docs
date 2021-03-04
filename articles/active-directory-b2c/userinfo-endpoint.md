@@ -107,26 +107,26 @@ The user info UserJourney specifies:
     1. **issuer** - This value must be identical to the `iss` claim within the access token claim. Tokens issued by Azure AD B2C use an issuer in the format `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/`. Learn more about [token customization](configure-tokens.md).
     1. **IdTokenAudience** - Must be identical to the `aud` claim within the access token claim. In Azure AD B2C the `aud` claim is the ID of your relying party application. This value is a collection and supports multiple values using a comma delimiter.
 
-    In the following access token, the `iss` claim value is `https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/`. The `aud` claim value is `22222222-2222-2222-2222-222222222222`.
+        In the following access token, the `iss` claim value is `https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/`. The `aud` claim value is `22222222-2222-2222-2222-222222222222`.
 
-    ```json
-    {
-      "exp": 1605549468,
-      "nbf": 1605545868,
-      "ver": "1.0",
-      "iss": "https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/",
-      "sub": "44444444-4444-4444-4444-444444444444",
-      "aud": "22222222-2222-2222-2222-222222222222",
-      "acr": "b2c_1a_signup_signin",
-      "nonce": "defaultNonce",
-      "iat": 1605545868,
-      "auth_time": 1605545868,
-      "name": "John Smith",
-      "given_name": "John",
-      "family_name": "Smith",
-      "tid": "11111111-1111-1111-1111-111111111111"
-    }
-    ```
+        ```json
+        {
+          "exp": 1605549468,
+          "nbf": 1605545868,
+          "ver": "1.0",
+          "iss": "https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/",
+          "sub": "44444444-4444-4444-4444-444444444444",
+          "aud": "22222222-2222-2222-2222-222222222222",
+          "acr": "b2c_1a_signup_signin",
+          "nonce": "defaultNonce",
+          "iat": 1605545868,
+          "auth_time": 1605545868,
+          "name": "John Smith",
+          "given_name": "John",
+          "family_name": "Smith",
+          "tid": "11111111-1111-1111-1111-111111111111"
+        }
+        ```
     
 1.  The OutputClaims element of the **UserInfoAuthorization** technical profile specifies the attributes you want to return to read from the access token. The **ClaimTypeReferenceId** is the reference to a claim type. The optional **PartnerClaimType** is the name of the of the claim defined in the access token.
 
