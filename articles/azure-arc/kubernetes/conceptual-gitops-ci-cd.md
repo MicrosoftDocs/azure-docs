@@ -13,7 +13,7 @@ keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Serv
 
 Modern Kubernetes deployments house multiple applications, clusters, and environments. With GitOps, you can manage these complex setups more easily, tracking the desired state of the Kubernetes environments declaratively with Git. Using common Git tooling to track cluster state, you can increase accountability, facilitate fault investigation, and enable automation to manage environments.
 
-This conceptual overview explains GitOps as a reality in the full application change lifecycle using Azure Arc, Azure Repos, and Azure Pipelines. [Jump to an example](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#example-workflow) of a single application change to GitOps-controlled Kubernetes environments.
+This conceptual overview explains GitOps as a reality in the full application change lifecycle using Azure Arc, Azure Repos, and Azure Pipelines. [Jump to an example](#example-workflow) of a single application change to GitOps-controlled Kubernetes environments.
 
 ## Architecture
 
