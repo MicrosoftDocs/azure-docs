@@ -87,7 +87,7 @@ When you click the **Roles** tab, you will see the list of built-in and custom r
 
 ![Built-in roles in the Azure portal](./media/rbac-and-directory-admin-roles/roles-list.png)
 
-For more information, see [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md).
+For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
 
 ## Azure AD roles
 
@@ -95,7 +95,7 @@ Azure AD roles are used to manage Azure AD resources in a directory such as crea
 
 | Azure AD role | Permissions | Notes |
 | --- | --- | --- |
-| [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator-permissions) | <ul><li>Manage access to all administrative features in Azure Active Directory, as well as services that federate to Azure Active Directory</li><li>Assign administrator roles to others</li><li>Reset the password for any user and all other administrators</li></ul> | The person who signs up for the Azure Active Directory tenant becomes a Global Administrator. |
+| [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) | <ul><li>Manage access to all administrative features in Azure Active Directory, as well as services that federate to Azure Active Directory</li><li>Assign administrator roles to others</li><li>Reset the password for any user and all other administrators</li></ul> | The person who signs up for the Azure Active Directory tenant becomes a Global Administrator. |
 | [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator) | <ul><li>Create and manage all aspects of users and groups</li><li>Manage support tickets</li><li>Monitor service health</li><li>Change passwords for users, Helpdesk administrators, and other User Administrators</li></ul> |  |
 | [Billing Administrator](../active-directory/roles/permissions-reference.md#billing-administrator) | <ul><li>Make purchases</li><li>Manage subscriptions</li><li>Manage support tickets</li><li>Monitors service health</li></ul> |  |
 

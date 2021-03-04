@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2021
+ms.date: 02/16/2021
 ms.author: memildin
 ---
 
@@ -112,7 +112,7 @@ For information about when recommendations are generated for each of these prote
 |[Microsoft Defender for Endpoint](harden-docker-hosts.md) (1)|✔|-|
 |[Connect AWS account](quickstart-onboard-aws.md) (1)|-|-|
 |[Connect GCP account](quickstart-onboard-gcp.md) (1)|-|-|
-|[Continuous export](continuous-export.md)|✔|✔ (2)|
+|[Continuous export](continuous-export.md)|✔|✔|
 |[Workflow automation](workflow-automation.md)|✔|✔|
 |[Recommendation exemption rules](exempt-resource.md)|-|-|
 |[Alert suppression rules](alerts-suppression-rules.md)|✔|✔|
@@ -126,7 +126,7 @@ For information about when recommendations are generated for each of these prote
 |[Azure Defender for DNS](defender-for-dns-introduction.md)|-|-|
 |[Azure Defender for container registries](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
 |[Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
-|[Kubernetes workload protection](kubernetes-workload-protections.md)|-|-|
+|[Kubernetes workload protection](kubernetes-workload-protections.md)|✔|✔|
 |||
 
 (1) Requires **Azure Defender for servers**

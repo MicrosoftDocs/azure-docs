@@ -27,7 +27,7 @@ The classification mechanism is based on the following two elements:
 The information protection policy options within Security Center provide a predefined set of labels and information types which serve as the defaults for the classification engine. You can customize the policy, according to your organization's needs, as described below.
 
 > [!IMPORTANT]
-> To customize the information protection policy for your Azure tenant, you'll need administrative privileges on the tenant's root management group. Learn more in [Gain tenant-wide visibility for Azure Security Center](security-center-management-groups.md).
+> To customize the information protection policy for your Azure tenant, you'll need administrative privileges on the tenant's root management group. Learn more in [Grant and request tenant-wide visibility](tenant-wide-permissions-management.md).
 
 :::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="The page showing your SQL information protection policy":::
  
@@ -53,7 +53,7 @@ Each of these is shown in the relevant tab below.
 From Security Center's **pricing and settings** page, select **SQL information protection**.
 
 > [!NOTE]
-> This option only appears for users with tenant-level permissions. [Grant tenant-wide permissions to yourself](https://docs.microsoft.com/azure/security-center/security-center-management-groups#grant-tenant-wide-permissions-to-yourself).
+> This option only appears for users with tenant-level permissions. [Grant tenant-wide permissions to yourself](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accessing the SQL Information Protection policy from the pricing and settings page of Azure Security Center":::
 

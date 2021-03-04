@@ -38,6 +38,7 @@ The following permissions are used by the AKS cluster identity, which is created
 
 | Permission | Reason |
 |---|---|
+| Microsoft.ContainerService/managedClusters/*  <br/> | Required for creating users and operating the cluster
 | Microsoft.Network/loadBalancers/delete <br/> Microsoft.Network/loadBalancers/read <br/> Microsoft.Network/loadBalancers/write | Required to configure the load balancer for a LoadBalancer service. |
 | Microsoft.Network/publicIPAddresses/delete <br/> Microsoft.Network/publicIPAddresses/read <br/> Microsoft.Network/publicIPAddresses/write | Required to find and configure public IPs for a LoadBalancer service. |
 | Microsoft.Network/publicIPAddresses/join/action | Required for configuring public IPs for a LoadBalancer service. |
@@ -232,4 +233,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [operator-best-practices-identity]: operator-best-practices-identity.md
-[upgrade-per-cluster]: ../azure-monitor/insights/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli
+[upgrade-per-cluster]: ../azure-monitor/containers/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli

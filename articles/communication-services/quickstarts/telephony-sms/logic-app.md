@@ -35,6 +35,8 @@ Although this quickstart focuses on using the connector to respond to a trigger,
 
 - An SMS enabled phone number, or [get a phone number](./get-phone-number.md).
 
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
 ## Add an SMS action
 
 To add the **Send SMS** action as a new step in your workflow by using the Azure Communication Services SMS connector, follow these steps in the [Azure portal](https://portal.azure.com) with your logic app workflow open in the Logic App Designer:
@@ -89,5 +91,5 @@ In this quickstart, you learned how to send SMS messages by using Azure Logic Ap
 For more information about SMS in Azure Communication Services, see these articles:
 
 - [SMS concepts](../../concepts/telephony-sms/concepts.md)
-- [Plan your telephony and SMS solution](../../concepts/telephony-sms/plan-solution.md)
+- [Phone number types](../../concepts/telephony-sms/plan-solution.md)
 - [SMS SDK](../../concepts/telephony-sms/sdk-features.md)
