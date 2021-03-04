@@ -68,4 +68,4 @@ Common migration errors and mitigations.
 | The current quota for Resource name in Azure Resource Manager is insufficient to complete migration. Current quota is {0}, additional needed is {1}. File a support request to raise the quota and retry migration once the quota has been raised.	| Follow appropriate channels to request quota increase: <br>[Quota increase for networking resources](../azure-portal/supportability/networking-quota-requests.md) <br>[Quota increase for compute resources](../azure-portal/supportability/per-vm-quota-requests.md) | 
 
 ## Next Steps
-Review [Technical details of migrating to Azure Cloud Services (extended support)](in-place-migration-technical-details.md)
+For more information on the requirements of migration, see [Technical details of migrating to Azure Cloud Services (extended support)](in-place-migration-technical-details.md)
