@@ -166,10 +166,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    1. Click **Save**.
 
-     > [!NOTE]
-     > This configuration is only for the customers that use Webex UserID in email format.
-     > 
-     > To learn more about how to configure the Cisco Webex meetings, see the [Webex documentation](https://help.webex.com/WBX000022701/How-Do-I-Configure-Microsoft-Azure-Active-Directory-Integration-with-Cisco-Webex-Through-Site-Administration#:~:text=In%20the%20Azure%20portal%2C%20select,in%20the%20Add%20Assignment%20dialog) page.
+      > [!NOTE]
+      > This configuration is only for the customers that use Webex UserID in email format.
+      > 
+      > To learn more about how to configure the Cisco Webex meetings, see the [Webex documentation](https://help.webex.com/WBX000022701/How-Do-I-Configure-Microsoft-Azure-Active-Directory-Integration-with-Cisco-Webex-Through-Site-Administration#:~:text=In%20the%20Azure%20portal%2C%20select,in%20the%20Add%20Assignment%20dialog) page.
 
 ### Create Cisco Webex Meetings test user
 
