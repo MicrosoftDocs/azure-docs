@@ -143,7 +143,7 @@ public void Configuration(IAppBuilder app)
     app.UseOpenIdConnectAuthentication(
         new OpenIdConnectAuthenticationOptions
         {
-            // Sets the client ID, authority, and redirect URI, as obtained from Web.config
+            // Sets the client ID, authority, and redirect URI as obtained from Web.config
             ClientId = clientId,
             Authority = authority,
             RedirectUri = redirectUri,
