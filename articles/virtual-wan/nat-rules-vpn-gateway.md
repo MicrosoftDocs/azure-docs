@@ -49,7 +49,7 @@ You can configure and view NAT rules on your VPN gateway settings at any time.
 * The subnet size for both internal and external mapping must be the same for static one-to-one NAT.
 * Be sure to edit the VPN site in the Azure portal to add **ExternalMapping** prefixes in the 'Private Address Space' field. Currently, sites that have BGP enabled need to ensure that the on-premises BGP announcer (device BGP settings) include an entry for the external mapping prefixes.
 
-## Tips and examples
+## <a name="troubleshooting"></a>Troubleshooting tips and examples
 
 ### Ingress mode NAT
 
@@ -84,7 +84,7 @@ The following diagram shows the projected end result:
    **Example 2: BGP is not enabled**
 
    * Navigate to the Virtual hub resource that contains the Site-to-site VPN gateway. On the virtual hub page, under **Connectivity**, select **VPN (Site-to-site)**.
-   * Select the VPN site that is connected to the Virtual WAN hub via Link 1. Click **Edit Site** and input 10.1.1.0/24 as the private address space for the VPN site.
+   * Select the VPN site that is connected to the Virtual WAN hub via Link 1. Select **Edit Site** and input 10.1.1.0/24 as the private address space for the VPN site.
 
      :::image type="content" source="./media/nat-rules-vpn-gateway/edit-site.png" alt-text="Screenshot showing Edit VPN site page.":::
 
@@ -121,9 +121,9 @@ Example:
 
 #### Validate address prefixes
 
-The **Effective Routes** on the Network Interface Cards (NIC) of any virtual machine that is sitting in a Spoke virtual network connected to the Virtual WAN hub should also contain the address prefixes of the NAT rules **ExternalMapping**.
+This example applies to resources in virtual networks that are associated to the DefaultRouteTable.
 
-Note that this is only true for resources in virtual networks that are associated to the DefaultRouteTable.
+The **Effective Routes** on the Network Interface Cards (NIC) of any virtual machine that is sitting in a Spoke virtual network connected to the Virtual WAN hub should also contain the address prefixes of the NAT rules **ExternalMapping**.
 
 #### Validate BGP advertisements
 
