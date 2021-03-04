@@ -3,7 +3,7 @@ title: Back up your data to Azure with Veeam
 titleSuffix: Azure Blob Storage Docs
 description: Web page provides an overview of factors to consider and steps to follow to leverage Azure as a storage target and recovery location for Veeam Backup and Recovery 
 keywords: Veeam,, Backup to Cloud, Backup, Backup to Azure, Disaster Recovery, Business Continuity
-author: Karl Rautenstrauch
+author: karauten
 ms.author: karauten
 ms.date: 11/11/2020
 ms.topic: article
