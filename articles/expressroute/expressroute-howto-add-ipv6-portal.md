@@ -96,6 +96,7 @@ While IPv6 support is available for connections to deployments in regions with A
 * Global Reach connections between ExpressRoute circuits
 * Use of ExpressRoute with virtual WAN
 * FastPath with non-ExpressRoute Direct circuits
+* Coexistence with VPN Gateway
 
 ## Next steps
 
