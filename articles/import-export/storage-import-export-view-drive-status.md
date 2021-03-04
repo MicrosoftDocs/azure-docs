@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy21q3
@@ -23,11 +23,11 @@ You can track the status of your import or export jobs on the **Import/Export** 
 
  3. A list of your Import/Export jobs appears on the page.
 
-    ![View Job State](./media/storage-import-export-view-drive-status/jobstate.png)
+    ![View Job State](./media/storage-import-export-view-drive-status/job-state.png)
 
 4. Select and click a job to view job details.
 
-   ![View detailed job status](./media/storage-import-export-view-drive-status/jobdetail.png)
+   ![View detailed job status](./media/storage-import-export-view-drive-status/job-detail.png)
   
 ## View job status
 
@@ -61,7 +61,7 @@ The following table describes each state that each drive in a job may pass throu
 
 This image from the Azure portal displays the drive state of an example job:
 
-![View Drive State](./media/storage-import-export-view-drive-status/drivestate.png)
+![View Drive State](./media/storage-import-export-view-drive-status/drive-state.png)
 
 The following table describes the drive failure states and the actions taken for each state.
 
