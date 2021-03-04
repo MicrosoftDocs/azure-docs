@@ -35,8 +35,6 @@
         href: configure-connect-nodejs-howto.md
       - name: Connect with Python
         href: configure-connect-python-howto.md
-  - name: Python Basic Encoding Quickstarts
-    href: quickstart-basic-encoding-python.md
   - name: Try Media Services in the Azure portal
     items:
     - name: Live event with portal and Wirecast
@@ -50,7 +48,9 @@
   - name: Use an ARM template
     items:
     - name: Create an account with ARM
-      href: quickstart-arm-template-account.md     
+      href: quickstart-arm-template-account.md
+  - name: Python Basic Encoding Quickstart
+    href: quickstart-basic-encoding-python.md    
 - name: Tutorials
   items:
   - name: .NET
