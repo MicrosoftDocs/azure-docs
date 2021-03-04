@@ -25,7 +25,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 This quickstart uses MSAL Angular v2 with the authorization code flow. For a similar quickstart that uses MSAL Angular 1.x with the implicit flow, see [Quickstart: Sign in users in JavaScript single-page apps](./quickstart-v2-angular.md).
 
 > [!IMPORTANT]
-> MSAL Angular 2.0 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+> MSAL Angular v2 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## Prerequisites
 
