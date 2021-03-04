@@ -33,6 +33,7 @@ Guest users can now sign in to your multi-tenant or Microsoft first-party apps t
 ![Common endpoint sign-in](media/redemption-experience/common-endpoint-flow-small.png)
 
 The user is then redirected to your tenanted endpoint, where they can either sign in with their email address or select an identity provider you've configured.
+
 ## Redemption through a direct link
 
 As an alternative to the invitation email or an application's common URL, you can give a guest a direct link to your app or portal. You first need to add the guest user to your directory via the [Azure portal](./b2b-quickstart-add-guest-users-portal.md) or [PowerShell](./b2b-quickstart-invite-powershell.md). Then you can use any of the [customizable ways to deploy applications to users](../manage-apps/end-user-experiences.md), including direct sign-on links. When a guest uses a direct link instead of the invitation email, they’ll still be guided through the first-time consent experience.
