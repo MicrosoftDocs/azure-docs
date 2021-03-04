@@ -86,7 +86,7 @@ This is due to an integration runtime with the same name in the target factory b
 
 #### Issue
 
-When trying to publish changes to a Data Factory,you get following error message:
+When trying to publish changes to a Data Factory, you get following error message:
 
 `
 "error": {
@@ -163,7 +163,7 @@ CI/CD process has been enhanced. The **Automated publish** feature takes, valida
 
 #### Issue
 
-You can not deploy because you hit Azure Resource Manager limit of 4mb total template size. You need a solution to deploy after crossing the limit. 
+You cannot deploy because you hit Azure Resource Manager limit of 4mb total template size. You need a solution to deploy after crossing the limit. 
 
 #### Cause
 
@@ -177,7 +177,7 @@ For small to medium solutions, a single template is easier to understand and mai
 
 ##### Issue
 
-You can not connect to GIT Enterprise because of permission issues. You can see error like **422 - Unprocessable Entity.**
+You cannot connect to GIT Enterprise because of permission issues. You can see error like **422 - Unprocessable Entity.**
 
 #### Cause
 
@@ -185,7 +185,7 @@ You have not configured Oauth for ADF. Your URL is misconfigured.
 
 ##### Resolution
 
-You  grant  Oauth access to ADF at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s) because the ADF service will first try https://hostname/api/v3/search/repositories?q=user%3<customer credential>.... and fail. Then, it will try https://hostname/api/v3/orgs/<vaorg>/<repo> and succeed. 
+You  grant  Oauth access to ADF at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, ADF will first try *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* and fail. Then, it will try *https://hostname/api/v3/orgs/<org>/<repo>...*, and succeed. 
  
 ### Recover from a deleted data factory
 
@@ -198,7 +198,8 @@ It is possible to recover the Data Factory only if the customer has Source contr
 
 If there is no Source control, recovering a Deleted Data Factory from backend is not possible because once the service receives deleted command, the instance is deleted and no backup has been stored.
 
-#### Resoloution
+#### Resolution
+
 To recover the Deleted Data Factory which has Source Control refer the steps below:
 
  * Create a new Azure Data Factory.
@@ -207,7 +208,7 @@ To recover the Deleted Data Factory which has Source Control refer the steps bel
 
  * Create a pull request to merge the changes to the collaboration branch and publish.
 
- * If customer had a Self-hosted Integration Runtime in deleted ADF, they will have to create a new instance in new ADF, also uninstall and reinstall the instance on their On-Prem machine/VM with the new key obtained. After setup of IR is completed, customer will have to change the Linked Service to point to new IR and test the connection or it will fail with error **invalid reference.**
+ * If customer had a Self-hosted Integration Runtime in deleted ADF, they will have to create a new instance in new ADF, also uninstall and reinstall the instance on their On-prem machine/VM with the new key obtained. After setup of IR is completed, customer will have to change the Linked Service to point to new IR and test the connection or it will fail with error **invalid reference.**
 
 
 
