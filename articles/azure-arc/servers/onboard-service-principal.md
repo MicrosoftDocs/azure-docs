@@ -7,7 +7,9 @@ ms.topic: conceptual
 
 # Connect hybrid machines to Azure at scale
 
-You can enable Azure Arc enabled servers for multiple Windows or Linux machines in your environment with several flexible options depending on your requirements. Using the template script we provide, you can automate every step of the installation, including establishing the connection to Azure Arc. However, you are required to interactively execute this script with an account that has elevated permissions on the target machine and in Azure. To connect the machines to Azure Arc enabled servers, you can use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md) instead of using your privileged identity to [interactively connect the machine](onboard-portal.md). A service principal is a special limited management identity that is granted only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This is safer than using a higher privileged account like a Tenant Administrator, and follows our access control security best practices. The service principal is used only during onboarding, it is not used for any other purpose.  
+You can enable Azure Arc enabled servers for multiple Windows or Linux machines in your environment with several flexible options depending on your requirements. Using the template script we provide, you can automate every step of the installation, including establishing the connection to Azure Arc. However, you are required to interactively execute this script with an account that has elevated permissions on the target machine and in Azure.
+
+To connect the machines to Azure Arc enabled servers, you can use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md) instead of using your privileged identity to [interactively connect the machine](onboard-portal.md). A service principal is a special limited management identity that is granted only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This is safer than using a higher privileged account like a Tenant Administrator, and follows our access control security best practices. The service principal is used only during onboarding, it is not used for any other purpose.  
 
 The installation methods to install and configure the Connected Machine agent requires that the automated method you use has  administrator permissions on the machines. On Linux, by using the root account and on Windows, as a member of the Local Administrators group.
 
@@ -15,14 +17,12 @@ Before you get started, be sure to review the [prerequisites](agent-overview.md#
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-At the end of this process, you will have successfully connected your hybrid machines to Azure Arc enabled servers.
-
 ## Create a Service Principal for onboarding at scale
 
 You can use [Azure PowerShell](/powershell/azure/install-az-ps) to create a service principal with the [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal) cmdlet. Or you can follow the steps listed under [Create a Service Principal using the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) to complete this task.
 
 > [!NOTE]
-> When you create a service principal, your account must be a member of the **Owner** or **User Access Administrator** role in the subscription that you want to use for onboarding. If you don't have sufficient permissions to configure role assignments, the service principal might be created, but it won't be able to onboard machines.
+> Before you create a service principal, your account must be a member of the **Owner** or **User Access Administrator** role in the subscription that you want to use for onboarding. If you don't have sufficient permissions to configure role assignments, the service principal might be created, but it won't be able to onboard machines.
 >
 
 To create the service principal using PowerShell, perform the following steps.
@@ -94,7 +94,7 @@ The script to automate the download and installation, and to establish the conne
 
 1. On the **Download and run script** page, review the summary information, and then select **Download**. If you still need to make changes, select **Previous**.
 
-For Windows, you are prompted to save `OnboardingScript.ps1` and for Linux, `OnboardingScript.sh`.
+For Windows, you are prompted to save `OnboardingScript.ps1`, and for Linux `OnboardingScript.sh` to your computer.
 
 ## Install the agent and connect to Azure
 
