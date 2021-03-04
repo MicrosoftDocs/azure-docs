@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
@@ -316,7 +316,7 @@ This command:
 #### Diarization on the speech-to-text output
 Diarization is enabled by default. to get diarization in your response, use `diarize_speech_config.set_service_property`.
 
-1. Set the the phrase output format to `Detailed`.
+1. Set the phrase output format to `Detailed`.
 2. Set the mode of diarization. The supported modes are `Identity` and `Anonymous`.
 ```python
 diarize_speech_config.set_service_property(
@@ -451,7 +451,7 @@ This command:
 * Runs a *Custom Speech-to-text* container from the container image.
 * Check and return the available base models of the target locale.
 
-The output gives you a list of base models with the information locale, model id, and creation date time. You can use the model id to download and use the specific base model you prefer. For example:
+The output gives you a list of base models with the information locale, model ID, and creation date time. You can use the model ID to download and use the specific base model you prefer. For example:
 ```
 Checking available base model for en-us
 2020/10/30 21:54:20 [Info] Searching available base models for en-us
