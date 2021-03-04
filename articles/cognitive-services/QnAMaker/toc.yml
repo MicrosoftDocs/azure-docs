@@ -50,6 +50,8 @@
   - name: Manage Azure resources
     href: How-To/set-up-qnamaker-service-azure.md
     displayName: azure, resource, key, upgrade, pricing, tier,
+  - name: Network Isolation for Azure resources
+    href: How-To/network-isolation.md
   - name: Manage QnA Maker resource access
     href: How-To/manage-qna-maker-app.md
   - name: Manage knowledge base
