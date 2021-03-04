@@ -14,15 +14,19 @@ ms.date: 02/25/2021
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-The following table includes links to Azure Resource Manager templates for Azure Front Door.
+The following table includes links to Azure Resource Manager templates for Azure Front Door, with reference architectures including other Azure services.
 
-| Example | Description |
+| App Service | Description |
 |-|-|
-| [App Service](https://azure.microsoft.com/resources/templates/201-front-door-standard-premium-app-service-public/) | Creates an App Service app with a public endpoint, and a Front Door profile.  |
-| [App Service - Private Link](https://azure.microsoft.com/resources/templates/201-front-door-premium-app-service-private-link/) | Creates an App Service app with a private endpoint, and a Front Door profile.  |
-| [Azure Functions](https://azure.microsoft.com/resources/templates/201-front-door-standard-premium-function-public/) | Creates an Azure Functions app with a public endpoint, and a Front Door profile.  |
-| [Azure Functions - Private Link](https://azure.microsoft.com/resources/templates/201-front-door-premium-function-private-link/) | Creates an Azure Functions app with a private endpoint, and a Front Door profile.  |
-| [API Management](https://azure.microsoft.com/resources/templates/201-front-door-standard0premium-api-management-external/) | Creates an API Management instance with external VNet integration, and a Front Door profile.  |
-| [Storage static website](https://azure.microsoft.com/resources/templates/201-front-door-standard-premium-storage-static-website/) | Creates an Azure Storage account and static website with a public endpoint, and a Front Door profile.  |
-| [Storage blobs - Private Link](https://azure.microsoft.com/resources/templates/201-front-door-premium-storage-blobs-private-link/) | Creates an Azure Storage account and blob container with a private endpoint, and a Front Door profile.  |
+| [App Service](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | Creates an App Service app with a public endpoint, and a Front Door profile.  |
+| [App Service with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-private-link) | Creates an App Service app with a private endpoint, and a Front Door profile.  |
+| [App Service environment with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-environment-internal-private-link) | Creates an App Service environment, an app with a private endpoint, and a Front Door profile.  |
+|**Azure Functions**| **Description** |
+| [Azure Functions](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-function-public/) | Creates an Azure Functions app with a public endpoint, and a Front Door profile.  |
+| [Azure Functions with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-function-private-link) | Creates an Azure Functions app with a private endpoint, and a Front Door profile.  |
+|**API Management**| **Description** |
+| [API Management (external)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-api-management-external) | Creates an API Management instance with external VNet integration, and a Front Door profile.  |
+|**Storage**| **Description** |
+| [Storage static website](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-storage-static-website) | Creates an Azure Storage account and static website with a public endpoint, and a Front Door profile.  |
+| [Storage blobs with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-storage-blobs-private-link) | Creates an Azure Storage account and blob container with a private endpoint, and a Front Door profile.  |
 | | |
