@@ -32,13 +32,9 @@ When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines
 
 To help you setup Azure Files AD authentication for some common use cases, we published two videos with step by step guidance for the following scenarios:
 
-### Replacing on-premises file servers with Azure Files (including setup on private link for files and AD authentication)
-
-> [!VIDEO https://www.youtube.com/embed/jd49W33DxkQ]
-
-### Using Azure Files as the profile container for Windows Virtual Desktop (including setup on AD authentication and FsLogix configuration)
-
-> [!VIDEO https://www.youtube.com/embed/9S5A1IJqfOQ]
+| Replacing on-premises file servers with Azure Files (including setup on private link for files and AD authentication) | Using Azure Files as the profile container for Windows Virtual Desktop (including setup on AD authentication and FsLogix configuration)  |
+|-|-|
+| [![Screencast of the replacing on-premises file servers video - click to play.](./media/storage-files-identity-auth-active-directory-enable/replace-on-prem-server-thumbnail.png)](https://www.youtube.com/watch?v=jd49W33DxkQ) | [![Screencast of the Using Azure Files as the profile container video - click to play.](./media/storage-files-identity-auth-active-directory-enable/files-ad-ds-fslogix-thumbnail.png)](https://www.youtube.com/watch?v=9S5A1IJqfOQ) |
 
 
 ## Prerequisites 
