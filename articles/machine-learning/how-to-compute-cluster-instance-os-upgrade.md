@@ -18,18 +18,18 @@ ms.custom: how-to
 
 Azure Machine Learning compute cluster and compute instance are managed compute infrastructure. As a managed service, Microsoft manages the host OS and the packages and software versions that are installed.
 
-The host OS for compute cluster and compute instance has been Ubuntu 16.04 LTS. On April 30, 2021, Ubuntu is ending support for 16.04. Microsoft will automatically update the base OS image to Ubuntu 18.04 LTS. Updating to 18.04 will ensure continued security updates and support from the Ubuntu community.
+The host OS for compute cluster and compute instance has been Ubuntu 16.04 LTS. On **April 30, 2021**, Ubuntu is ending support for 16.04. Microsoft will automatically update the host OS to Ubuntu 18.04 LTS. Updating to 18.04 will ensure continued security updates and support from the Ubuntu community.
 
 > [!TIP]
-> The host OS is not the OS version you might specify for the [environment](how-to-use-environments.md) when training or deploying a model. Environments run inside Docker. Docker runs on the host OS.
+> The host OS is not the OS version you might specify for an [environment](how-to-use-environments.md) when training or deploying a model. Environments run inside Docker. Docker runs on the host OS.
 
 ## Creating new resources
 
-When creating a new compute cluster or compute instance after TBD date, it will automatically be created with Ubuntu 18.04 as the host OS.
+When creating a new compute cluster or compute instance after __March 15, 2021__, the host OS will be Ubuntu 18.04 LTS.
 
 ## Upgrade existing resources
 
-If you have existing compute clusters or compute instances created before __TBD__ date, __stop those resources completely, and then start them again__ to upgrade them to Ubuntu 18.04.
+If you have existing compute clusters or compute instances created before __March 15, 2021__, __stop those resources completely, and then start them again__ to upgrade them to Ubuntu 18.04.
 
 See the following links for information on stopping and restarting compute clusters and compute instances:
 
@@ -47,6 +47,12 @@ See the following links for information on stopping and restarting compute clust
 
     For more information on creating and managing a compute instance, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
+#### Check host OS version
+
+For information on checking the host OS version, see the Ubuntu community wiki page on [checking your Ubuntu version](https://help.ubuntu.com/community/CheckingYourUbuntuVersion).
+
+> [!TIP]
+> To use the `lsb_release -a` command from the wiki, you can [use a terminal session on a compute instance](how-to-access-terminal.md)
 ## Next steps
 
 If you have any further questions or concerns, contact us at [ubuntu18azureml@service.microsoft.com](mailto:ubuntu18azureml@service.microsoft.com).
