@@ -69,10 +69,10 @@
         href: storage-sync-cloud-tiering-overview.md
       - name: Cloud tiering policies overview
         href: storage-sync-cloud-tiering-policy.md
-      - name: Choosing your cloud tiering policies
-        href: storage-sync-choosing-cloud-tiering-policies.md
+      - name: Choose your cloud tiering policies
+        href: storage-sync-choose-cloud-tiering-policies.md
       - name: Monitor cloud tiering
-        href: storage-sync-monitoring-cloud-tiering.md
+        href: storage-sync-monitor-cloud-tiering.md
   - name: Performance and scale
     items:
     - name: SMB Multichannel performance

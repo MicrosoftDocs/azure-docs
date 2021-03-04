@@ -36,19 +36,23 @@ There are several ways to check whether a file has been tiered to your Azure fil
 
         ![The Properties dialog box for a file, with the Details tab selected](media/storage-files-faq/azure-file-sync-file-attributes.png)
         
-    You can see the attributes for all the files in a folder by adding the **Attributes** field to the table display of File Explorer. To do this, right-click on an existing column (for example, **Size**), select **More**, and then select **Attributes** from the drop-down list.
+    
+> [!NOTE]
+> You can see the attributes for all the files in a folder by adding the **Attributes** field to the table display of File Explorer. To do this, right-click on an existing column (for example, **Size**), select **More**, and then select **Attributes** from the drop-down list.
 
 > [!NOTE]
 > All of these attributes will be visible for partially recalled files as well.
         
    * **Use `fsutil` to check for reparse points on a file.**
-       As described in the preceding option, a tiered file always has a reparse point set. A reparse point allows the Azure File Sync file system filter driver (StorageSync.sys) to retrieve content from Azure file shares that is not stored locally on the server. To check whether a file has a reparse point, in an elevated Command Prompt or PowerShell window, run the `fsutil` utility:
-    
-        ```powershell
-        fsutil reparsepoint query <your-file-name>
-        ```
+       As described in the preceding option, a tiered file always has a reparse point set. A reparse point allows the Azure File Sync file system filter driver (StorageSync.sys) to retrieve content from Azure file shares that is not stored locally on the server. 
+       
+       If the file has a reparse point, you can expect to see **Reparse Tag Value: 0x8000001e**. This hexadecimal value is the reparse point value that is owned by Azure File Sync. The output also contains the reparse data that represents the path to your file on your Azure file share.
 
-    If the file has a reparse point, you can expect to see **Reparse Tag Value: 0x8000001e**. This hexadecimal value is the reparse point value that is owned by Azure File Sync. The output also contains the reparse data that represents the path to your file on your Azure file share.
+       To check whether a file has a reparse point, in an elevated Command Prompt or PowerShell window, run the `fsutil` utility:
+    
+```powershell
+fsutil reparsepoint query <your-file-name>
+```
 
 > [!WARNING]
 > The `fsutil reparsepoint` utility command also has the ability to delete a reparse point. Do not execute this command unless the Azure File Sync engineering team asks you to. Running this command might result in data loss. 
