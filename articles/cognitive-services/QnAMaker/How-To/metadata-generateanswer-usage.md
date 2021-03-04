@@ -238,53 +238,6 @@ Learn more about metadata in the QnA Maker portal quickstart for metadata:
 * [Authoring - add metadata to QnA pair](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
 * [Query prediction - filter answers by metadata](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
-<a name="keep-context"></a>
-
-## Use question and answer results to keep conversation context
-
-The response to the GenerateAnswer contains the corresponding metadata information of the matched question and answer pair. You can use this information in your client application to store the context of the previous conversation for use in later conversations.
-
-```json
-{
-    "answers": [
-        {
-            "questions": [
-                "What is the closing time?"
-            ],
-            "answer": "10.30 PM",
-            "score": 100,
-            "id": 1,
-            "source": "Editorial",
-            "metadata": [
-                {
-                    "name": "restaurant",
-                    "value": "paradise"
-                },
-                {
-                    "name": "location",
-                    "value": "secunderabad"
-                }
-            ]
-        }
-    ]
-}
-```
-
-## Match questions only, by text
-
-By default, QnA Maker searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the GenerateAnswer request.
-
-You can search through the published kb, using `isTest=false`, or in the test kb using `isTest=true`.
-
-```json
-{
-  "question": "Hi",
-  "top": 30,
-  "isTest": true,
-  "RankerType":"QuestionOnly"
-}
-```
-
 ## Return Precise Answers
 
 ### Generate Answer API 
