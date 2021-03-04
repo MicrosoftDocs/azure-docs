@@ -14,7 +14,7 @@ The monitor pattern refers to a flexible recurring process in a workflow - for e
 ## Prerequisites
 
 * [Complete the quickstart article](quickstart-python-vscode.md)
-* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-python/tree/master/samples/)
+* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-python/tree/main/samples/)
 
 
 ## Scenario overview
