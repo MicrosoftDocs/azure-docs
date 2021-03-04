@@ -1,7 +1,7 @@
 ---
 title: "Setup Always On availability group with DH2i DxEnterprise running on Linux-based Azure Virtual Machines"
 description: Use DH2i DxEnterprise as the cluster manager to achieve high availability with an availability group on SQL Server on Linux Azure Virtual Machines
-ms.date: 03/29/2021
+ms.date: 03/04/2021
 ms.service: virtual-machines-linux
 ms.topic: tutorial
 author: amvin87
