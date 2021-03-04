@@ -5,7 +5,6 @@ author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.subservice: alerts
 ---
 # How to trigger complex actions with Azure Monitor alerts
 
@@ -13,7 +12,7 @@ This article shows you how to set up and trigger a logic app to create a convers
 
 ## Overview
 
-When an Azure Monitor alert triggers, it calls an [action group](../platform/action-groups.md). Action groups allow you to trigger one or more actions to notify others about an alert and also remediate it.
+When an Azure Monitor alert triggers, it calls an [action group](./action-groups.md). Action groups allow you to trigger one or more actions to notify others about an alert and also remediate it.
 
 The general process is:
 
@@ -108,7 +107,7 @@ The process is similar if you want the logic app to perform a different action.
 
 14. At the top of the **Logic Apps Designer**, select **Save** to save your logic app.
 
-15. Open your existing action group and add an action to reference the logic app. If you don't have an existing action group, see [Create and manage action groups in the Azure portal](../platform/action-groups.md) to create one. Don’t forget to save your changes.
+15. Open your existing action group and add an action to reference the logic app. If you don't have an existing action group, see [Create and manage action groups in the Azure portal](./action-groups.md) to create one. Don’t forget to save your changes.
 
     ![Update the action group](media/action-groups-logic-app/update-action-group.png "Update the action group")
 
@@ -274,7 +273,6 @@ The process for creating a metric alert is similar to [creating an activity log 
 Logic Apps has a number of different connectors that allow you to trigger actions in a wide range of applications and databases. Slack, SQL Server, Oracle, Salesforce, are just some examples. For more information about connectors, see [Logic App connectors](../../connectors/apis-list.md).  
 
 ## Next steps
-* Get an [overview of Azure activity log alerts](../platform/alerts-overview.md) and learn how to receive alerts.  
+* Get an [overview of Azure activity log alerts](./alerts-overview.md) and learn how to receive alerts.  
 * Learn how to [configure alerts when an Azure Service Health notification is posted](../../service-health/alerts-activity-log-service-notifications-portal.md).
-* Learn more about [action groups](../platform/action-groups.md).
-
+* Learn more about [action groups](./action-groups.md).

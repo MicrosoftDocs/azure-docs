@@ -25,6 +25,16 @@ DevOps Starter creates a CI/CD pipeline in Azure DevOps. You can create a new Az
 
 1. Select **Create**.
 
+1. By default, the DevOps Starter is set up with GitHub. To utilize the features in this how-to, switch the DevOps Starter to set up using Azure DevOps. Follow the **change settings here** link.
+
+   ![Select change settings here to switch from GitHub to Azure DevOps](./media/how-to-devops-starter/create-with-github-change-settings.png)
+
+1. In the right pane, choose the **Azure DevOps** tile, and select **Done**.
+
+   ![Select Azure DevOps to set up your DevOps Starter](./media/how-to-devops-starter/select-azure-devops.png)
+
+   You should now see that the DevOps Starter is setting up with Azure DevOps.
+
 ## Create a new application pipeline
 
 1. Your Azure IoT Edge module(s) can be written in [C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) and [Java](tutorial-java-module.md). Select your preferred language to start a new application: **.NET**, **Node.js**, **Python**, **C**, or **Java**. Select **Next** to continue.

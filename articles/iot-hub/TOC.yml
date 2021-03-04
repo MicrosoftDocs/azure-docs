@@ -349,6 +349,16 @@
           href: iot-hub-azure-service-health-integration.md
         - name: Order device connection state events from Event Grid
           href: iot-hub-how-to-order-connection-state-events.md
+    - name: Deploy updates
+      items:
+        - name: Create a device update account
+          href: ../iot-hub-device-update/create-device-update-account.md
+        - name: Import an update
+          href: ../iot-hub-device-update/import-update.md
+        - name: Create an update group
+          href: ../iot-hub-device-update/create-update-group.md
+        - name: Deploy an update
+          href: ../iot-hub-device-update/deploy-update.md
     - name: Use real devices
       items:
         - name: Use an online simulator
