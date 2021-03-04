@@ -22,7 +22,7 @@ Some of the key benefits of Backup Center include:
 
 ## Get started
 
-To get started with using Backup Center, search for **Backup Center** in the Azure portal and navigate to the **Backup Center (Preview)** dashboard.
+To get started with using Backup Center, search for **Backup Center** in the Azure portal and navigate to the **Backup Center** dashboard.
 
 ![Backup Center Search](./media/backup-center-overview/backup-center-search.png)
 
@@ -32,7 +32,7 @@ The first screen that you see is the **Overview**. It contains two tiles – **J
 
 In the **Jobs** tile, you get a summarized view of all backup and restore related jobs that were triggered across your backup estate in the last 24 hours. You can view information on the number of jobs that have completed, failed, and are in-progress. Selecting any of the numbers in this tile allows you to view more information on jobs for a particular datasource type, operation type, and status.
 
-In the **Backup Instances** tile, you get a summarized view of all backup instances across your backup estate. For example, you can see the number of backup instances that are in soft-deleted state compared to the number of instances that are still configured for protection. Selecting any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection state.
+In the **Backup Instances** tile, you get a summarized view of all backup instances across your backup estate. For example, you can see the number of backup instances that are in soft-deleted state compared to the number of instances that are still configured for protection. Selecting any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection state. You can also view all backup instances whose underlying datasource is not found (the datasource might be deleted, or you may not have access to the datasource).
 
 Watch the following video to understand the capabilities of Backup Center:
 

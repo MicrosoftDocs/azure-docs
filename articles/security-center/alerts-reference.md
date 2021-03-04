@@ -1,20 +1,16 @@
 ---
 title: Reference table for all security alerts in Azure Security Center
-description: This article lists the security alerts visible in Azure Security Center's Azure Defender dashboard.
+description: This article lists the security alerts visible in Azure Security Center's Azure Defender dashboard
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/21/2021
+ms.date: 03/03/2021
 ms.author: memildin
 
 ---
-
 # Security alerts - a reference guide
 
 This article lists the security alerts you might get from Azure Security Center and any Azure Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
@@ -274,6 +270,9 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-containerhost"></a>Alerts for containers - host level
 
+Azure Defender alerts for container hosts aren't limited to the alerts below. Many of the alerts listed in the [alerts for Azure network layer](#alerts-azurenetlayer), [alerts for Windows machines](#alerts-windows), and [alerts for Linux machines](#alerts-linux) tables may also may be triggered on your container hosts. Microsoft's global threat intelligence team continuously measures and tunes many types of alerts against Kubernetes clusters to optimize detection and reduce false positives.
+
+
 [Further details and notes](defender-for-kubernetes-introduction.md)
 
 | Alert                                                                          | Description                                                                                                                                                                                                                                                                                                | MITRE tactics<br>([Learn more](#intentions)) | Severity |
@@ -290,9 +289,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-sql-db-and-warehouse"></a>Alerts for SQL Database and Azure Synapse Analytics
 
-[Further details and notes](defender-for-sql-introduction.md)
-
-| Alert                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                               | MITRE tactics<br>([Learn more](#intentions)) | Severity |
+[Further details and notes](defender-for-sql-introduction.md)| Alert                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                               | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
 | **A possible vulnerability to SQL Injection**            | An application has generated a faulty SQL statement in the database. This can indicate a possible vulnerability to SQL injection attacks. There are two possible reasons for a faulty statement. A defect in application code might have constructed the faulty SQL statement. Or, application code or stored procedures didn't sanitize user input when constructing the faulty SQL statement, which can be exploited for SQL injection. | -                                            | Medium   |
 | **Attempted logon by a potentially harmful application** | A potentially harmful application attempted to access  SQL server '{name}'.                                                                                                                                                                                                                                                                                                                                                               | PreAttack                                    | High     |
@@ -473,8 +470,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 ## <a name="alerts-fusion"></a>Security incident alerts
 
-[Further details and notes](security-center-alerts-cloud-smart.md)
-
+[Further details and notes](security-center-alerts-overview.md#cloud-smart-alert-correlation-in-azure-security-center-incidents)
 
 | Alert                                   | Description                                                          | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|

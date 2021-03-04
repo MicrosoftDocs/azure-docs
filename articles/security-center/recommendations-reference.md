@@ -57,7 +57,7 @@ impact on your secure score.
 |Recommendation|Description & related policy|Severity|Quick fix enabled?([Learn more](security-center-remediate-recommendations.md#quick-fix-remediation))|Resource type|
 |----|----|----|----|----|
 |**Access to App Services should be restricted**|Restrict access to your App Services by changing the networking configuration, to deny inbound traffic from ranges that are too broad.<br>(Related policy: [Preview]: Access to App Services should be restricted)|High|N|App service|
-|**The rules for web applications on IaaS NSGs should be hardened**|Harden the network security group (NSG) of your virtual machines that are running web applications, with NSG rules that are overly permissive with regards to web application ports.<br>(Related policy: The NSGs rules for web applications on IaaS should be hardened)|High|N|Virtual machine|
+|**The rules for web applications on IaaS NSGs should be hardened**|Harden the network security group (NSG) of your virtual machines that are running web applications, with NSG rules that are overly permissive with regard to web application ports.<br>(Related policy: The NSGs rules for web applications on IaaS should be hardened)|High|N|Virtual machine|
 |**Pod Security Policies should be defined to reduce the attack vector by removing unnecessary application privileges (Preview)**|Define Pod Security Policies to reduce the attack vector by removing unnecessary application privileges. It is recommended to configure pod security policies so pods can only access resources which they are allowed to access.<br>(Related policy: [Preview]: Pod Security Policies should be defined on Kubernetes Services)|Medium|N|Compute resources (Containers)|
 |**Install Azure Security Center for IoT security module to get more visibility into your IoT devices**|Install Azure Security Center for IoT security module to get more visibility into your IoT devices.|Low|N|IoT device|
 
@@ -65,5 +65,5 @@ impact on your secure score.
 
 To learn more about recommendations, see the following:
 
-- [Security recommendations in Azure Security Center](security-center-recommendations.md)
-- [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
+- [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
+- [Review your security recommendations](security-center-recommendations.md)
