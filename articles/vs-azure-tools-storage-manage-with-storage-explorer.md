@@ -72,7 +72,7 @@ To download and install Storage Explorer, see [Azure Storage Explorer](https://w
 Storage Explorer provides several ways to connect to Azure resources:
 
 * [Sign in to Azure to access your subscriptions and their resources](#sign-in-to-azure)
-* [Attach to an individual Azure Storage resource](#attach-an-individual-resource)
+* [Attach to an individual Azure Storage resource](#attach-to-an-individual-resource)
 * [Attach to a CosmosDB resource](#connect-to-azure-cosmos-db)
 
 ### Sign in to Azure
