@@ -234,8 +234,8 @@ You can give TPM access to the IoT Edge runtime by overriding the systemd settin
 4. Copy the following access information into the rules file.
 
    ```input
-   # allow aziottpm access to tpm0
-   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0600"
+   # allow iotedge access to tpm0
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="iotedge", MODE="0600"
    ```
 
 5. Save and exit the file.

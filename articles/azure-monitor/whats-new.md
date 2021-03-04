@@ -33,8 +33,6 @@ Welcome to what's new in the Azure Monitor docs from February 1, 2021 through Fe
 
 ## Change analysis
 
-- [Use Application Change Analysis (preview) in Azure Monitor](./app/change-analysis.md)
-
 ### New articles
 
 - [Troubleshoot Application Change Analysis](./app/change-analysis-troubleshoot.md)
@@ -72,5 +70,4 @@ Welcome to what's new in the Azure Monitor docs from February 1, 2021 through Fe
 
 - [Use Azure Private Link to securely connect networks to Azure Monitor](./logs/private-link-security.md)
 - [Azure Monitor Logs overview](./logs/data-platform-logs.md)
-
 
