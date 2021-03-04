@@ -87,7 +87,7 @@ If you plan on using one of the DPS methods to provision your device or devices,
 
 Create your deployment of Azure IoT Edge for Linux on Windows on your target device.
 
-## [Windows Admin Center](##tab/windowsadmincenter)
+# [Windows Admin Center](#tab/windowsadmincenter)
 
 On the Windows Admin Center start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. Any additional servers, PCs, or clusters that you manage will also show up here.
 
@@ -127,7 +127,7 @@ If you want to deploy to a remote target device instead of your local device and
 
 Once your deployment is complete, you are ready to provision your device. Select **Next: Connect** to proceed to the **3. Connect** tab, which handles Azure IoT Edge device provisioning.
 
-## [PowerShell](##tab/powershell)
+# [PowerShell](#tab/powershell)
 
 Install IoT Edge for Linux on Windows onto your target device if you have not already.
 
@@ -196,7 +196,7 @@ Choose a method for provisioning your device and follow the instructions in the 
 
 This section covers provisioning your device manually using your Azure IoT Edge device's connection string.
 
-## [Windows Admin Center](##tab/windowsadmincenter)
+# [Windows Admin Center](#tab/windowsadmincenter)
 
 1. On the **Azure IoT Edge device provisioning** pane, select **Connection String (Manual)** from the provisioning method dropdown.
 
@@ -210,7 +210,7 @@ This section covers provisioning your device manually using your Azure IoT Edge 
 
 1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
 
-## [PowerShell](##tab/powershell)
+# [PowerShell](#tab/powershell)
 
 1. In the [Azure portal](https://ms.portal.azure.com/), navigate to the **IoT Edge** tab of your IoT Hub.
 
@@ -228,7 +228,7 @@ This section covers provisioning your device manually using your Azure IoT Edge 
 
 This section covers provisioning your device automatically using DPS and symmetric keys.
 
-## [Windows Admin Center](##tab/windowsadmincenter)
+# [Windows Admin Center](#tab/windowsadmincenter)
 
 1. On the **Azure IoT Edge device provisioning** pane, select **Symmetric Key (DPS)** from the provisioning method dropdown.
 
@@ -246,7 +246,7 @@ This section covers provisioning your device automatically using DPS and symmetr
 
 1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
 
-## [PowerShell](##tab/powershell)
+# [PowerShell](#tab/powershell)
 
 1. Copy the following command into a text editor. Replace the placeholder text with your information as detailed.
 
@@ -270,7 +270,7 @@ This section covers provisioning your device automatically using DPS and symmetr
 
 This section covers provisioning your device automatically using DPS and X.509 certificates.
 
-## [Windows Admin Center](##tab/windowsadmincenter)
+# [Windows Admin Center](#tab/windowsadmincenter)
 
 1. On the **Azure IoT Edge device provisioning** pane, select **X.509 Certificate (DPS)** from the provisioning method dropdown.
 
@@ -288,7 +288,7 @@ This section covers provisioning your device automatically using DPS and X.509 c
 
 1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
 
-## [PowerShell](##tab/powershell)
+# [PowerShell](#tab/powershell)
 
 1. Copy the following command into a text editor. Replace the placeholder text with your information as detailed.
 
@@ -314,7 +314,7 @@ This section covers provisioning your device automatically using DPS and X.509 c
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
 
-## [Windows Admin Center](##tab/windowsadmincenter)
+# [Windows Admin Center](#tab/windowsadmincenter)
 
 1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
 
@@ -339,7 +339,7 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
 
 ---
 
-## [PowerShell](##tab/powershell)
+# [PowerShell](#tab/powershell)
 
 1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
 

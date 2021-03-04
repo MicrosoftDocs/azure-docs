@@ -51,7 +51,7 @@ You'll need the following items:
 
 * Start a run and its logging process
 
-    ## [Python](##tab/python)
+    # [Python](#tab/python)
     
     1. Set up your experiment by importing the [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py), [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py), [Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py), and [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) classes from the [azureml.core](/python/api/azureml-core/azureml.core?preserve-view=true&view=azure-ml-py) package.
     
@@ -112,7 +112,7 @@ You'll need the following items:
 
 * Monitor the status of a run
 
-    ## [Python](##tab/python)
+    # [Python](#tab/python)
     
     * Get the status of a run with the [`get_status()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-status--) method.
     
@@ -199,7 +199,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
 * Add properties and tags
 
-    ## [Python](##tab/python)
+    # [Python](#tab/python)
     
     To add searchable metadata to your runs, use the [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-properties-properties-) method. For example, the following code adds the `"author"` property to the run:
     
@@ -259,7 +259,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
     You can query runs within an experiment to return a list of runs that match specific properties and tags.
 
-    ## [Python](##tab/python)
+    # [Python](#tab/python)
     
     ```Python
     list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
@@ -294,7 +294,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
 If you notice a mistake or if your run is taking too long to finish, you can cancel the run.
 
-## [Python](##tab/python)
+# [Python](#tab/python)
 
 To cancel a run using the SDK, use the [`cancel()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecancel--) method:
 
