@@ -17,7 +17,7 @@ ms.date: 09/07/2020
 ms.author: mlottner
 ---
 
-# Defender-IoT-micro-agent for Azure RTOS security alerts and recommendations (preview)
+# Defender-IoT-micro-agent for Azure RTOS security alerts and recommendations 
 
 Defender-IoT-micro-agent for Azure RTOS continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to potential malicious activity and suspicious system modifications. You can also create custom alerts based on your knowledge of expected device behavior and baselines.
 
