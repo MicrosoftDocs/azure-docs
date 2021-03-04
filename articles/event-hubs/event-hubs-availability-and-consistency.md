@@ -16,9 +16,10 @@ If an Event Hubs namespace has been created with [availability zones](../availab
 
 When a client application sends events to an event hub without specifying a partition, events are automatically distributed among partitions in your event hub. If a partition isn't available for some reason, events are distributed among the remaining partitions. This behavior allows for the greatest amount of up time. For use cases that require the maximum up time, this model is preferred instead of sending events to a specific partition. 
 
-### Considerations when using a partition ID or key
-Using a partition ID/key is optional. You should consider carefully whether or not to use one. If you don't specify a partition ID/key when publishing an event, Event Hubs balances the load among partitions. In many cases, using a partition ID/key is a good choice if event ordering is important. When you use a partition ID/key, these partitions require availability on a single node, and outages can occur over time. For example, compute nodes may need to be rebooted or patched. As such, if you set a partition ID/key and that partition becomes unavailable for some reason, an attempt to access the data in that partition will fail. If high availability is most important, don't specify a partition key. In that case, events are sent to partitions using an internal load-balancing algorithm. In this scenario, you are making an explicit choice between availability (no partition ID) and consistency (pinning events to a partition ID).
+### Availability considerations when using a partition ID or key
+Using a partition ID is optional. You should consider carefully whether or not to use one. If you don't specify a partition ID, when publishing an event, Event Hubs balances the load among partitions. In many cases, using a partition ID is a good choice if event ordering is important. When you use a partition ID, these partitions require availability on a single node, and outages can occur over time. For example, compute nodes may need to be rebooted or patched. As such, if you set a partition ID and that partition becomes unavailable for some reason, an attempt to access the data in that partition will fail. If high availability is most important, don't specify a partition ID. In that case, events are sent to partitions using an internal load-balancing algorithm. In this scenario, you are making an explicit choice between availability (no partition ID) and consistency (pinning events to a partition ID).
 
+#### Availability considerations when handling delays in processing events
 Another consideration is handling delays in processing events. In some cases, it might be better to drop data and retry than to try to keep up with processing, which can potentially cause further downstream processing delays. For example, with a stock ticker it's better to wait for complete up-to-date data, but in a live chat or VOIP scenario you'd rather have the data quickly, even if it isn't complete.
 
 Given these availability considerations, in these scenarios you might choose one of the following error handling strategies:
@@ -37,7 +38,7 @@ With this configuration, keep in mind that if the particular partition to which 
 
 ## Appendix
 
-## Send events to a specific partition
+### Send events to a specific partition
 This section shows you how to send events to a specific partition using C#, Java, Python, and JavaScript. 
 
 ### [.NET](#tab/dotnet)
