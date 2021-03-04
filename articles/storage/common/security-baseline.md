@@ -187,7 +187,7 @@ Storage Accounts should use a virtual network service endpoint
 
 **Guidance**: Azure Storage Analytics provides logs for blobs, queues, and tables. You can use the Azure portal to configure which logs are recorded for your account. 
 
-- [How to configure monitoring for your Azure Storage account](./storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account)
+- [How to configure monitoring for your Azure Storage account](./manage-storage-analytics-logs.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -205,7 +205,7 @@ Storage Accounts should use a virtual network service endpoint
 
 **Guidance**: When storing Security event logs in the Azure Storage account or Log Analytics workspace, you may set the retention policy according to your organization's requirements. 
 
-- [How to configure retention policy for Azure Storage account logs](./storage-monitor-storage-account.md#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](./manage-storage-analytics-logs.md#configure-logging)
 
 - [Change the data retention period in Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -411,7 +411,7 @@ One effective way to reduce the risk of unsuspected user account access is to li
 
 - [Manage anonymous read access to containers and blobs](../blobs/anonymous-read-access-configure.md)
 
-- [Monitor a storage account in the Azure portal](./storage-monitor-storage-account.md)
+- [Monitor a storage account in the Azure portal](./manage-storage-analytics-logs.md)
 
 - [Manage storage account access keys](./storage-account-keys-manage.md)
 
@@ -429,7 +429,7 @@ Create Diagnostic Settings for Azure Active Directory user accounts, sending the
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [How to configure metrics alerts for Azure Storage Accounts](./storage-monitor-storage-account.md)
+- [How to configure metrics alerts for Azure Storage Accounts](./manage-storage-analytics-logs.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -573,7 +573,7 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 - [Azure Storage analytics logging](./storage-analytics-logging.md)
 
-- [How to configure metrics alerts for Azure Storage Accounts](./storage-monitor-storage-account.md)
+- [How to configure metrics alerts for Azure Storage Accounts](./manage-storage-analytics-logs.md)
 
 **Azure Security Center monitoring**: Currently not available
 

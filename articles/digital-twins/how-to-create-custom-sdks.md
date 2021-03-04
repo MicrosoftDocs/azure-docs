@@ -45,10 +45,10 @@ To run AutoRest against the Azure Digital Twins Swagger file, follow these steps
 3. Run AutoRest with the following command. Replace the `<language>` placeholder with your language of choice: `python`, `java`, `go`, and so on. (You can find the full list of options in the [AutoRest README](https://github.com/Azure/autorest).)
 
 ```cmd/sh
-autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=digitaltwins.json --<language> --output-folder=DigitalTwinsApi --add-credentials --azure-arm --namespace=DigitalTwinsApi
 ```
 
-As a result, you'll see a new folder named *ADTApi* in your working directory. The generated SDK files will have the namespace *ADTApi*. You'll continue to use that namespace through the rest of the usage examples in this article.
+As a result, you'll see a new folder named *DigitalTwinsApi* in your working directory. The generated SDK files will have the namespace *DigitalTwinsApi*. You'll continue to use that namespace through the rest of the usage examples in this article.
 
 AutoRest supports a wide range of language code generators.
 
@@ -61,8 +61,8 @@ This section gives instructions on how to build the SDK as a class library, whic
 Here are the steps:
 
 1. Create a new Visual Studio solution for a class library
-2. Use *ADTApi* as the project name
-3. In Solutions Explorer, right-select the *ADTApi* project of the generated solution and choose *Add > Existing Item...*
+2. Use *DigitalTwinsApi* as the project name
+3. In Solutions Explorer, right-select the *DigitalTwinsApi* project of the generated solution and choose *Add > Existing Item...*
 4. Find the folder where you generated the SDK, and select the files at the root level
 5. Press "Ok"
 6. Add a folder to the project (right-select the project in Solution Explorer, and choose *Add > New Folder*)

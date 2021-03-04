@@ -24,7 +24,9 @@ ms.author: yelevin
 > This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can stream logs from [Microsoft Defender for Identity](/azure-advanced-threat-protection/what-is-atp) into Azure Sentinel with a single click.
+This article describes how to stream security alerts from [Microsoft Defender for Identity](/azure-advanced-threat-protection/what-is-atp) into Azure Sentinel. 
+
+To forward health alerts in addition to security alerts, integrate Microsoft Defender for Identity with a Syslog server. For more information, see the [Microsoft Defender for Identity documentation](/defender-for-identity/setting-syslog). 
 
 ## Prerequisites
 

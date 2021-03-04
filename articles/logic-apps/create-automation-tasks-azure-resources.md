@@ -3,9 +3,9 @@ title: Create automation tasks to manage and monitor Azure resources
 description: Set up automated tasks that help you manage Azure resources and monitor costs by creating workflows that run on Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, jonfan, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/19/2021
 ---
 
 # Manage Azure resources and monitor costs by creating automation tasks (preview)
@@ -69,13 +69,15 @@ By comparison, Azure Automation is a cloud-based automation and configuration se
 
    ![Screenshot that shows the storage account "Tasks" pane where the toolbar has "Add" selected](./media/create-automation-tasks-azure-resources/add-automation-task.png)
 
-1. On the **Add a Task** pane, under **Select a template**, select the template for the task that you want to create, and select **Next: Authentication**.
+1. On the **Add a Task** pane, under **Select a template**, select the template for the task that you want to create. If the next page doesn't appear, select **Next: Authentication**.
 
    This example continues by selecting the **Send monthly cost for resource** task template.
 
    ![Screenshot that shows the selections, "Send monthly cost for resource" and "Next: Authentication"](./media/create-automation-tasks-azure-resources/select-task-template.png)
 
-1. Under **Authentication**, in the **Connections** section, select **Create** for each connection so that you can provide authentication credentials for that connection. The types of connections in each task vary based on the task.
+1. Under **Authentication**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections. The types of connections in each task vary based on the task.
+
+   This example shows only one of the connections that's required by this task.
 
    ![Screenshot that shows the selected "Create" option for the Azure Resource Manager connection](./media/create-automation-tasks-azure-resources/create-authenticate-connections.png)
 
@@ -87,7 +89,7 @@ By comparison, Azure Automation is a cloud-based automation and configuration se
 
    ![Screenshot that shows successfully created connection](./media/create-automation-tasks-azure-resources/create-connection-success.png)
 
-1. After you authenticate all the required connections, select **Next: Configuration**.
+1. After you authenticate all the connections, select **Next: Configuration** if the next page doesn't appear.
 
 1. Under **Configuration**, provide a name for the task and any other information required for the task. When you're done, select **Create**.
 
@@ -270,7 +272,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
 ## Provide feedback
 
-We'd like to hear from you! To report bugs, provide feedback, or ask questions about this preview capability, [contact the Azure Logic Apps team](mailto:logicapps@microsoft.com).
+We'd like to hear from you! To report bugs, provide feedback, or ask questions about this preview capability, [contact the Azure Logic Apps team](mailto:logicappspm@microsoft.com).
 
 ## Next steps
 
