@@ -51,7 +51,7 @@ Assign the proper App Configuration role to the service connection being used wi
 ![Screenshot shows the Add role assignments button.](./media/add-role-assignment-button.png).
 1. Under **Role**, select **App Configuration Data Reader**. This role allows the task to read from the App Configuration store. 
 1. Select the service principal associated with the service connection that you created in the previous section.
-![Screenshot shows the Add role assignment dialog.](./media/add-role-assignment.png)
+![Screenshot shows the Add role assignment dialog.](./media/add-role-assignment-reader.png)
 
 > [!NOTE]
 > To resolve Azure Key Vault references within App Configuration, the service connection must also be granted permission to read secrets in the referenced Azure Key Vaults.
@@ -85,6 +85,8 @@ This section will cover how to use the Azure App Configuration task in an Azure 
 ![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
 1. Click **+** next to the Job to which you want to add a new task.
 ![Screenshot shows the plus button next to the job.](./media/add-task-to-job.png)
+1. Search for the **Azure App Configuration** Task.
+![Screenshot shows the Add Task dialog with Azure App Configuration in the search box.](./media/add-azure-app-configuration-task.png)
 1. Configure the necessary parameters within the task to pull your key-values from your App Configuration store. Descriptions of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
       - Set the **Azure subscription** parameter to the name of the service connection you created in a previous step.
       - Set the **App Configuration name** to the resource name of your App Configuration store.
