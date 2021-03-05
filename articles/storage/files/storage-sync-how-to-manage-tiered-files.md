@@ -37,11 +37,11 @@ There are several ways to check whether a file has been tiered to your Azure fil
         ![The Properties dialog box for a file, with the Details tab selected](media/storage-files-faq/azure-file-sync-file-attributes.png)
         
     
-> [!NOTE]
-> You can see the attributes for all the files in a folder by adding the **Attributes** field to the table display of File Explorer. To do this, right-click on an existing column (for example, **Size**), select **More**, and then select **Attributes** from the drop-down list.
-
-> [!NOTE]
-> All of these attributes will be visible for partially recalled files as well.
+        > [!NOTE]
+        > You can see the attributes for all the files in a folder by adding the **Attributes** field to the table display of File Explorer. To do this, right-click on an existing column (for example, **Size**), select **More**, and then select **Attributes** from the drop-down list.
+        
+        > [!NOTE]
+        > All of these attributes will be visible for partially recalled files as well.
         
    * **Use `fsutil` to check for reparse points on a file.**
        As described in the preceding option, a tiered file always has a reparse point set. A reparse point allows the Azure File Sync file system filter driver (StorageSync.sys) to retrieve content from Azure file shares that is not stored locally on the server. 
@@ -53,9 +53,8 @@ There are several ways to check whether a file has been tiered to your Azure fil
 ```powershell
 fsutil reparsepoint query <your-file-name>
 ```
-
-> [!WARNING]
-> The `fsutil reparsepoint` utility command also has the ability to delete a reparse point. Do not execute this command unless the Azure File Sync engineering team asks you to. Running this command might result in data loss. 
+        > [!WARNING]
+        > The `fsutil reparsepoint` utility command also has the ability to delete a reparse point. Do not execute this command unless the Azure File Sync engineering team asks you to. Running this command might result in data loss. 
 
 ## How to exclude applications from cloud tiering last access time tracking
 

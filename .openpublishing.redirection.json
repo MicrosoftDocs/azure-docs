@@ -64330,7 +64330,7 @@
         "redirect_document_id": false
     },
     {   "source_path": "articles/storage/files/storage-sync-cloud-tiering.md",
-        "redirect_url": "articles/storage/files/storage-sync-cloud-tiering-overview.md",
+        "redirect_url": "/azure/storage/files/storage-sync-cloud-tiering-overview",
         "redirect_document_id": false
     },
     {
