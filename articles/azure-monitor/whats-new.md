@@ -58,7 +58,7 @@ Welcome to what's new in the Azure Monitor docs from February 1, 2021 through Fe
 
 ## Logs
 
-### Updated articles
+**Updated articles**
 
 - [Use Azure Private Link to securely connect networks to Azure Monitor](./logs/private-link-security.md)
 
