@@ -5,7 +5,7 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/11/2021
+ms.date: 03/05/2021
 ---
 
 # Get started with Document Translation (Preview)
@@ -18,9 +18,9 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) service resource (**not** a Cognitive Services resource). 
+* A [**Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) service resource (**not** a Cognitive Services resource).
 
-* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Within your storage account, you will create containers to store and organize your blob data.
+* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You will create containers to store and organize your blob data within your storage account.
 
 * A completed [**Document Translation (Preview) form**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) to enable your Azure subscription to use the new Document Translation feature.
 
