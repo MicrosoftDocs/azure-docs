@@ -36,11 +36,7 @@ Take a few minutes to look at the flowcharts below for a visual comparison of th
 
 Click on the image below to see a larger version.
 
-<!--[![Encoding workflow for V2](./media/migration-guide/V2-pretty.svg) ](./media/migration-guide/V2-pretty.svg#lightbox)-->
-
-<Token>
-<object data="./media/migration-guide/V2-pretty.svg"></object>
-</Token>
+[![Encoding workflow for V2](./media/migration-guide/V2-pretty.svg) ](./media/migration-guide/V2-pretty.svg#lightbox)
 
 1. Setup
     1. Create an asset or use and existing asset. If using a new asset, upload content to that asset. If using an existing asset, you should be encoding files that already exist in the asset.
@@ -57,7 +53,11 @@ Click on the image below to see a larger version.
 
 ### V3 encoding workflow
 
-[ ![Encoding workflow for V3](./media/migration-guide/V3-pretty.svg) ](./media/migration-guide/V3-pretty.svg#lightbox)
+<Token>
+<object data="./media/migration-guide/v3-pretty.svg"></object>
+</Token>
+
+<!--[ ![Encoding workflow for V3](./media/migration-guide/V3-pretty.svg) ](./media/migration-guide/V3-pretty.svg#lightbox)-->
 
 1. Set up
     1. Create an asset or use and existing asset. If using a new asset, upload content to that asset. If using an existing asset, you should be encoding files that already exist in the asset. You *shouldn't upload more content to that asset.*
