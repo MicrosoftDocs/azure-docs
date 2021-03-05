@@ -92,29 +92,31 @@ Take note of the two properties listed below:
 
 ## Set up Verifiable Credentials Preview
 
+There are two ways to get to the Verifible Credentials blade in the Azure Portal. 
 
-WE ARE MISSING STEPS HERE... HOW ARE CUSTOMERS SUPPOSED TO ONBOARD DURING PREVIEW?
+1. Search for Verifiable Credentials 
+1. Navigate to AAD>Security, then you will see Verifible Credentials in the left menu.
 
-- Browse to https://aka.ms/vcpreviewportal
-- Provide:
-    -  **organization name**: This is how you will reference your business within the Verifiable Credential service. This will not be customer facing.
-    - Domain (DOES THIS NEED TO RESOLVE OR IS IT JUST AN IDENTIFIER?) The domain entered is added to a service endpoint in your DID document. Microsoft Authenticator and other VC Wallets validate that your DID is linked to your domain and display to the user a Verified symbol or tell the user this is an untrusted session. The domain is what binds your DID to something tangible that the user may know about your business. See the example Presentation screen below. 
+>[!IMPORTANT]
+> During Private Preview use the link https://aka.ms/vcpreviewportal
 
-- Provide the name of the Key Vault that we created earlier.
+To get started with the AAD Verifiable Credentials service, you need to set up your organization and provide your organization name, domain and keyvault. Let's look at each one. 
+
+-  **organization name**: This is how you will reference your business within the Verifiable Credential service. This will not be customer facing.
+
+- **Domain:** (DOES THIS NEED TO RESOLVE OR IS IT JUST AN IDENTIFIER?) The domain entered is added to a service endpoint in your DID document. Microsoft Authenticator and other VC Wallets validate that your DID is linked to your domain and display to the user a Verified symbol or tell the user this is an untrusted session. The domain is what binds your DID to something tangible that the user may know about your business. See the example Presentation screen below. 
+
+>[!IMPORTANT]
+> The domain can not be a redirect, otherwise the DID and domain cannot be linked. Make sure to use https://www.domain.com format. 
+
+![new permission request](media/tutorial-verifiable-credentials-issuer/e5EKExG.png)
+
+- **Key vault:** Provide the name of the Key Vault that we created earlier.
 - Choose **Save and create credential**
 
     ![set up your organizational identity](media/tutorial-verifiable-credentials-issuer/save-create.png)
 
 At this point, your tenant has been successfully enabled for the Verifiable Credentials preview. Continue onto the next section to set up your credential issuer service.
-
-Search for Verifiable Credentials and you see the blade. (I DO NOT. AFTER SAVING AND CREATING CREDENTIAL I GOT DROPPED INTO A 'CREATE A NEW CREDENTIAL SCREEN)
-
-![create a new credential](media/tutorial-verifiable-credentials-issuer/create-new-credential.png)
-
- See the example Presentation screen below. 
-
-![new permission request](media/tutorial-verifiable-credentials-issuer/e5EKExG.png)
-
 
 ## Next Steps
 

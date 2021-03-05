@@ -20,7 +20,7 @@ Now that we have our Verifiable Credentials service set up in Azure Active Direc
 
 ## Create the Rules and Display Files
 
-Open up Visual Studio Code and create the Rules JSON file with the following modifications. Save it as SampleNinjaRules.json so we can differentiate it in the future.
+Open up Visual Studio Code and create the Rules JSON file with the following configuration. Save it as SampleNinjaRules.json so we can differentiate it in the future.
 
 ### Rules File
 
@@ -47,6 +47,8 @@ Open up Visual Studio Code and create the Rules JSON file with the following mod
 ```
 
 Create another file for the Display file and save it as 'display-example.json'. You don't need to change anything. For more information on display file customization options follow the how-to article [custom Verifiable Credential design](credential-design.md).
+
+### Display File
 
 ```json
 {
@@ -128,7 +130,7 @@ Before creating the credential, we need to first give the signed in user the rig
   >[!IMPORTANT]
     >Even if you created the container with the account you are using the **Owner** role is not enough on its own. For more information review [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md) Your account needs  the **Storage Blob Data Reader** role.
 
-Now that you have completed this, wait 5 minutes to go to the next section and create your Verifiable Credential. 
+Now that you have completed this, go to the next section and create your Verifiable Credential. 
 
 ## Create the Ninja Credential VC
 
@@ -152,7 +154,7 @@ Now that you have completed this, wait 5 minutes to go to the next section and c
 - From the **Create a new credential** screen choose **Create**.
 
 >[!NOTE]
-> If you just created a new blob storage you will see an error. Wait 10 minutes and try again.
+> If you just created a new blob storage you will see an error. Wait 5 minutes and try again. Since the files are being stored in your own tenants container, the Verifiable Credential service needs to get permissions to read those files to create the Verifiable Credentials contract. 
 
 ## Credential URL
 
@@ -235,7 +237,9 @@ You should see a response formatted like the example shown below:
 2. Update the constant 'credential' with your new credential URL and save the file.
     ```
     /////////// Set the expected values for the Verifiable Credential
+
     const credential = 'https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a33457/portableIdentities/contracts/SampleNinja';
+
     const credentialType = ['VerifiedCredentialNinja'];
     ```
 3. Open a command prompt and open the issuer folder where the app.js file we just updated resides. 
@@ -252,13 +256,14 @@ ngrok http 8081
 
 Open up your url from ngrok and test issuing the VC to yourself.
 
->[!IMPORTANT]
-> If you haven't done DNS Binding we are experiencing and failure and this is not working. Need to make sure Nithya's fix is in both iOS and Android.  IS THIS STILL A PROBLEM? 
-WHAT SHOULD THEY SEE HERE?
-
 ![NGROK forwarding endpoints](media/tutorial-create-samplecard-your-issuer/nL4PleI.png)
 
+>[!Note]
+> Delete or Archive the Verifiable Credential from the Getting Started guide in order to issue the credential again to yourself. 
+
 ## Test Verifying the VC with Sample Code
+
+Now that we've issued the Verifible Credential via our own tenant, let's verify it with our Sample app. 
 
 Open up Settings in the Verifiable Credentials blade in Azure portal. Copy the Issuer identifier.
 
@@ -272,7 +277,22 @@ Set the constant issuerDid to your issuer identifier. (Tenant identifier right? 
 
 Now run your verifier app and present the VC.
 
-ADD INSTRUCTIONS HERE
+Stop running your issuer ngrok service.
+```bash
+control-c
+```
+Now run ngrok with the verifier port 8082.
+```bash
+$.\ngrok http 8082
+```
+
+In another terminal window, we will navigate to the Verifer app and run it similarly to how we ran the issuer app.
+
+```bash
+cd ..
+cd ./verifier
+node ./app.js
+```
 
 ## Next steps
 
