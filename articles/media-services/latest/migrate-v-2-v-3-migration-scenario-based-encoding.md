@@ -60,7 +60,7 @@ Click on the image below to see a larger version.
 <!--[ ![Encoding workflow for V3](./media/migration-guide/V3-pretty.svg) ](./media/migration-guide/V3-pretty.svg#lightbox)-->
 
 1. Set up
-    1. Create an asset or use and existing asset. If using a new asset, upload content to that asset. If using an existing asset, you should be encoding files that already exist in the asset. You *shouldn't upload more content to that asset.*
+    1. Create an asset or use an existing asset. If using a new asset, upload content to that asset. If using an existing asset, you should be encoding files that already exist in the asset. You *shouldn't upload more content to that asset.*
     1. Create an output asset.  The output asset is where the encoded files and input and output metadata will be stored.
     1. Get values for the transform:
         - Standard Encoder preset
