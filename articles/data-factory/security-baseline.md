@@ -21,7 +21,6 @@ provides recommendations on how you can secure your cloud solutions on Azure.
 The content is grouped by the **security controls** defined by the Azure
 Security Benchmark and the related guidance applicable to Azure Data Factory. **Controls** not applicable to Azure Data Factory have been excluded.
 
- 
 To see how Azure Data Factory completely maps to the Azure
 Security Benchmark, see [full Azure Data Factory security baseline mapping
 file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
@@ -46,7 +45,7 @@ Where Private Link is available, use private endpoints to secure any resources b
 
 - [How to create an NSG with a security configuration](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network#virtual-network-configuration)
+- [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md#virtual-network-configuration)
 
 - [Understand Azure Private Link](../private-link/private-link-overview.md)
 
