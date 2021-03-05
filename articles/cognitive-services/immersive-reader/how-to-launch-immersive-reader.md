@@ -1,7 +1,7 @@
 ---
 title: "Launch the Immersive Reader with HTML content"
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to launch the Immersive Reader with HTML content.
+description: Learn how to launch the Immersive reader using HTML, JavaScript, Python, Android, or iOS. Immersive Reader uses proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences.
 author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
@@ -25,7 +25,7 @@ In the [overview](./overview.md), you learned about what the Immersive Reader is
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [How to launch with JavaScript](includes/how-to/how-to-launch-immersive-reader-javascript.md)]
+[!INCLUDE [How to launch with JavaScript](includes/how-to/how-to-launch-immersive-reader-nodesjs.md)]
 
 ::: zone-end
 

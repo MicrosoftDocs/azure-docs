@@ -52,15 +52,15 @@ Install [Python](https://www.python.org/downloads/).
 
 Select the **Add Python to PATH** check box.
 
-![Python Windows Install dialog step 1](./media/pythoninstallone.jpg)
+![Python Windows Install dialog step 1](../../media/pythoninstallone.jpg)
 
 Add **Optional Features** by selecting check boxes, and then select **Next**.
 
-![Python Windows Install dialog step 2](./media/pythoninstalltwo.jpg)
+![Python Windows Install dialog step 2](../../media/pythoninstalltwo.jpg)
 
 Select **Custom installation**, and set the installation path as your root folder, for example, `C:\Python37-32\`. Then select **Install**.
 
-![Python Windows Install dialog step 3](./media/pythoninstallthree.jpg)
+![Python Windows Install dialog step 3](../../media/pythoninstallthree.jpg)
 
 After the Python installation is finished, open a command prompt and use `cd` to go to the Python Scripts folder.
 
@@ -293,5 +293,5 @@ Open your browser, and go to http://localhost:5000.
 
 ## Next steps
 
-* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK reference](./reference.md).
+* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK reference](../../reference.md).
 * View code samples on [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/).
