@@ -46,23 +46,15 @@ After you create your Azure Synapse workspace, do the following steps.
     For the `bulk` parameter, use the URL of the inventory report CSV file that you want to analyze.
 
     ```sql
-    SELECT LEFT(Name, CHARINDEX('/', Name) - 1) AS Container, SUM(Content_Length) As TotalBlobSize, COUNT(*) As TotalBlobCount
-    FROM openrowset(
+    SELECT LEFT([Name], CHARINDEX('/', [Name]) - 1) AS Container, 
+            COUNT(*) As TotalBlobCount,
+            SUM([Content-Length]) As TotalBlobSize
+    FROM OPENROWSET(
         bulk '<URL to your inventory CSV file>',
-        format = 'csv', parser_version = '2.0', firstrow = 2
-        )
-    WITH (
-        [Name] VARCHAR (1024) COLLATE Latin1_General_100_CI_AI_SC_UTF8,
-        [Creation_Time] VARCHAR (100) COLLATE Latin1_General_100_CI_AI_SC_UTF8,
-        [Last_Modified] VARCHAR (100) COLLATE Latin1_General_100_CI_AI_SC_UTF8,
-        [Content_Length] bigint,
-        [Content_MD5] VARCHAR(100) COLLATE Latin1_General_100_CI_AI_SC_UTF8,
-        [BlobType] VARCHAR(100) COLLATE Latin1_General_100_CI_AI_SC_UTF8,
-        [AccessTier] VARCHAR(100) COLLATE Latin1_General_100_CI_AI_SC_UTF8,
-        [AccessTierChangeTime] VARCHAR(100) COLLATE Latin1_General_100_CI_AI_SC_UTF8
+        format='csv', parser_version='2.0', header_row=true
     ) AS Source
-    GROUP BY LEFT(Name, CHARINDEX('/', Name) - 1)
-    ```
+    GROUP BY LEFT([Name], CHARINDEX('/', [Name]) - 1)
+        ```
 
 1. Name your SQL query in the properties pane on the right.
 
@@ -70,7 +62,7 @@ After you create your Azure Synapse workspace, do the following steps.
 
 1. Select the **Run** button to execute the SQL query. The blob count and total size per container are reported in the **Results** pane.
 
-    :::image type="content" source="media/calc-blob-count-size/output.jpg" alt-text="Output from running the script to calculate blob count and total size.":::
+    :::image type="content" source="media/calc-blob-count-size/output.png" alt-text="Output from running the script to calculate blob count and total size.":::
 
 ## Next steps
 
