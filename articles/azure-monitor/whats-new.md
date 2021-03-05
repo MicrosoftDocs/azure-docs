@@ -7,23 +7,23 @@ ms.date: 03/04/2021
 
 # Azure Monitor docs: What's new for February 1, 2021 - February 28, 2021
 
-Welcome to what's new in the Azure Monitor docs from February 1, 2021 through February 28, 2021. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Azure Monitor docs from February 1, 2021 through February 28, 2021. This article lists some of the significant changes to docs during this period.
 
 ## Alerts
 
-### Updated articles
+**Updated articles**
 
 - [Create an action group with a Resource Manager template](./alerts/action-groups-create-resource-manager-template.md)
 - [How to trigger complex actions with Azure Monitor alerts](./alerts/action-groups-logic-app.md)
 
 ## Application Insights
 
-### New articles
+**New articles**
 
 - [Downtime, SLA, and outages workbook](./app/sla-report.md)
 - [Work Item Integration (preview)](./app/work-item-integration.md)
 
-### Updated articles
+**Updated articles**
 
 - [Export telemetry from Application Insights](./app/export-telemetry.md)
 - [Telemetry processor examples - Azure Monitor Application Insights for Java](./app/java-standalone-telemetry-processors-examples.md)
@@ -34,41 +34,32 @@ Welcome to what's new in the Azure Monitor docs from February 1, 2021 through Fe
 
 ## Change analysis
 
-### New articles
+**New articles**
 
 - [Troubleshoot Application Change Analysis](./app/change-analysis-troubleshoot.md)
 - [Visualizations for Application Change Analysis](./app/change-analysis-visualizations.md)
 
-### Updated articles
+**Updated articles**
 
 - [Use Application Change Analysis (preview) in Azure Monitor](./app/change-analysis.md)
 
 ## Containers
 
-### New articles
+**New articles**
 
 - [Enable AKS monitoring addon using Azure Policy](./containers/container-insights-enable-aks-policy.md)
 
 ## Essentials
 
-### Updated articles
+**Updated articles**
 
-- [Azure Monitor Metrics overview](./essentials/data-platform-metrics.md)
-- [Create diagnostic settings to send platform logs and metrics to different destinations](./essentials/diagnostic-settings.md)
-- [Monitoring Azure resources with Azure Monitor](./essentials/monitor-azure-resource.md)
 - [Supported metrics with Azure Monitor](./essentials/metrics-supported.md)
 
-
-## Insights
-
-### Updated articles
-
-- [Explore Azure Monitor for Azure Cosmos DB](./insights/cosmosdb-insights-overview.md)
 
 ## Logs
 
 ### Updated articles
 
 - [Use Azure Private Link to securely connect networks to Azure Monitor](./logs/private-link-security.md)
-- [Azure Monitor Logs overview](./logs/data-platform-logs.md)
+
 
