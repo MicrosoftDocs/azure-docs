@@ -27,7 +27,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-contrib-automl-dnn-vision**
     + Exposed object detection yolo model.
   + **azureml-contrib-dataset**
-    + Added functionality to filter Datasets.
+    + Added functionality to filter Tabular Datasets by column values and File Datasets by metadata.
   + **azureml-contrib-fairness**
     + Include JSON schema in wheel for `azureml-contrib-fairness`
   + **azureml-contrib-k8s**
@@ -35,7 +35,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-contrib-mir**
     + With setting show_output to True when deploy models, inference configuration and deployment configuration will be replayed before sending the request to server.
   + **azureml-core**
-    + Added functionality to filter Datasets.
+    + Added functionality to filter Tabular Datasets by column values and File Datasets by metadata.
     + Previously, it was possibly for users to create provisioning configurations for ComputeTarget's that did not satisfy the password strength requirements for the `admin_user_password` field (i.e., that they must contain at least 3 of the following: 1 lowercase letter, 1 uppercase letter, 1 digit, and 1 special character from the following set: ``\`~!@#$%^&*()=+_[]{}|;:./'",<>?``). If the user created a configuration with a weak password and ran a job using that configuration, the job would fail at runtime. Now, the call to `AmlCompute.provisioning_configuration` will throw a `ComputeTargetException` with an accompanying error message explaining the password strength requirements. 
     + Additionally, it was also possible in some cases to specify a configuration with a negative number of maximum nodes. It is no longer possible to do this. Now, `AmlCompute.provisioning_configuration` will throw a `ComputeTargetException` if the `max_nodes` argument is a negative integer.
     + With setting show_output to True when deploy models, inference configuration and deployment configuration will be displayed.
