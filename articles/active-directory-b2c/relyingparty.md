@@ -105,7 +105,7 @@ The following example shows a relying party with [UserInfo endpoint](userinfo-en
 
 ## DefaultUserJourney
 
-The `DefaultUserJourney` element specifies a reference to the identifier of the user journey that is usually defined in the Base or Extensions policy. The following examples show the sign-up or sign-in user journey specified in the **RelyingParty** element:
+The `DefaultUserJourney` element specifies a reference to the identifier of the user journey that is defined in the Base or Extensions policy. The following examples show the sign-up or sign-in user journey specified in the **RelyingParty** element:
 
 *B2C_1A_signup_signin* policy:
 
@@ -251,7 +251,7 @@ The **OutputClaim** element contains the following attributes:
 With the **SubjectNameingInfo** element, you control the value of the token subject:
 
 - **JWT token** - the `sub` claim. This is a principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform safe authorization checks, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. For more information, see [Token, session and single sign-on configuration](session-behavior.md).
-- **SAML token** - the `<Subject><NameID>` element which identifies the subject element. The NameId format can be modified.
+- **SAML token** - the `<Subject><NameID>` element, which identifies the subject element. The NameId format can be modified.
 
 The **SubjectNamingInfo** element contains the following attribute:
 

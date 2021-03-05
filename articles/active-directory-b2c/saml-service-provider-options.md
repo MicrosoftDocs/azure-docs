@@ -32,7 +32,7 @@ This article describes the configuration options that are available when connect
 
 ## Encrypted SAML assertions
 
-When your application expects SAML assertions to be in an encrypted format, need to make sure that encryption is enabled in the Azure AD B2C policy.
+When your application expects SAML assertions to be in an encrypted format, you need to make sure that encryption is enabled in the Azure AD B2C policy.
 
 Azure AD B2C uses the service provider's public key certificate to encrypt the SAML assertion. The public key must exist in the SAML application's metadata endpoint with the KeyDescriptor 'use' set to 'Encryption', as shown in the following example:
 
@@ -176,7 +176,7 @@ Configure the signature algorithm using the `XmlSignatureAlgorithm` metadata key
 
 ## SAML response lifetime
 
-You can configure the length of time the SAML response remains valid. Set the lifetime using the `TokenLifeTimeInSeconds` metadata item within the SAML Token Issuer technical profile. This value is the number of seconds that can elapse from the `NotBefore` timestamp calculated at the token issuance time. Automatically, the time picked for this is your current time. The default lifetime is 300 seconds (5 minutes).
+You can configure the length of time the SAML response remains valid. Set the lifetime using the `TokenLifeTimeInSeconds` metadata item within the SAML Token Issuer technical profile. This value is the number of seconds that can elapse from the `NotBefore` timestamp calculated at the token issuance time. The default lifetime is 300 seconds (5 minutes).
 
 ```xml
 <ClaimsProvider>
