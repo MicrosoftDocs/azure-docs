@@ -42,7 +42,7 @@ When deciding which redundancy option is best for your scenario, consider the tr
 - Whether your data is replicated to a second region that is geographically distant to the primary region, to protect against regional disasters
 - Whether your application requires read access to the replicated data in the secondary region if the primary region becomes unavailable for any reason
 
-For more information, see [Azure Storage redundancy](./storage/common/storage-redundancy.md)
+For more information, see [Azure Storage redundancy](../storage/common/storage-redundancy.md)
 
 ## Azure Site Recovery
 As an organization you need to adopt a business continuity and disaster recovery (BCDR) strategy that keeps your data safe, and your apps and workloads online, when planned and unplanned outages occur.
@@ -53,7 +53,7 @@ Site Recovery can manage replication for:
 - Azure VMs replicating between Azure regions.
 - On-premises VMs, Azure Stack VMs, and physical servers.
 
-For more information, see [Azure Site Recovery Overview](./site-recovery/site-recovery-overview.md)
+For more information, see [Azure Site Recovery Overview](../site-recovery/site-recovery-overview.md)
 
 ## Next steps
 - [Create a virtual machine in an availability zone](linux/create-cli-availability-zone.md)

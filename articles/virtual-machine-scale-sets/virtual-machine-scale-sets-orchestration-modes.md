@@ -318,7 +318,7 @@ InvalidParameter. The specified fault domain count 2 must fall in the range 1 to
 
 **Cause:** The `platformFaultDomainCount` parameter is invalid for the region or zone selected. 
 
-**Solution:** You must select a valid `platformFaultDomainCount` value. For zonal deployments, the maximum `platformFaultDomainCount` value is 1. For regional deployments where no zone is specified, the maximum `platformFaultDomainCount` varies depending on the region. See [Manage the availability of VMs for scripts](../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) to determine the maximum fault domain count per region. 
+**Solution:** You must select a valid `platformFaultDomainCount` value. For zonal deployments, the maximum `platformFaultDomainCount` value is 1. For regional deployments where no zone is specified, the maximum `platformFaultDomainCount` varies depending on the region. See [Manage the availability of VMs for scripts](../virtual-machines/availability.md#use-managed-disks-for-vms-in-an-availability-set) to determine the maximum fault domain count per region. 
 
 ```
 OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it contains one or more VMs. Please delete or detach the VM(s) before deleting the Virtual Machine Scale Set.
