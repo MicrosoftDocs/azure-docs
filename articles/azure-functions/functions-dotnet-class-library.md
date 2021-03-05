@@ -46,7 +46,7 @@ For the latest news about Azure Functions releases, including the removal of spe
 Function apps that target the latest 2.x version (`~2`) are automatically upgraded to run on .NET Core 3.1. Because of breaking changes between .NET Core versions, not all apps developed and compiled against .NET Core 2.2 can be safely upgraded to .NET Core 3.1. You can opt out of this upgrade by pinning your function app to `~2.0`. Functions also detects incompatible APIs and may pin your app to `~2.0` to prevent incorrect execution on .NET Core 3.1. 
 
 >[!NOTE]
->If your function app is pinned to `~2.0` and you change this version target to `~2`, your function app may break. If you deploy using ARM, check the version in your templates. If this occurs, change your version back to target `~2.0` and fix compatibility issues. 
+>If your function app is pinned to `~2.0` and you change this version target to `~2`, your function app may break. If you deploy using ARM templates, check the version in your templates. If this occurs, change your version back to target `~2.0` and fix compatibility issues. 
 
 Function apps that target `~2.0` continue to run on .NET Core 2.2. This version of .NET Core no longer receives security and other maintenance updates. To learn more, see [this announcement page](https://github.com/Azure/app-service-announcements/issues/266). 
 
