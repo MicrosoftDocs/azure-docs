@@ -125,6 +125,8 @@
       href: ../cloud-services-extended-support/in-place-migration-portal.md?toc=/azure/cloud-services/toc.json
     - name: Migrate using PowerShell
       href: ../cloud-services-extended-support/in-place-migration-powershell.md?toc=/azure/cloud-services/toc.json
+    - name: Common errors and known issues
+      href: ../cloud-services-extended-support/in-place-migration-common-errors.md?toc=/azure/cloud-services/toc.json
   - name: Troubleshoot
     items:
     - name: Debug
