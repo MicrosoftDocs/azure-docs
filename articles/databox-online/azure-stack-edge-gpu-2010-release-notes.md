@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 03/05/2021
 ms.author: alkohli
 ---
 
 # Azure Stack Edge Pro with GPU General Availability (GA) release notes
 
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+[!INCLUDE [applies-to-Pro-GPU-sku](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
 
 The following release notes identify the critical open issues and the resolved issues for general availability (GA) release for your Azure Stack Edge Pro devices with GPU.
 
