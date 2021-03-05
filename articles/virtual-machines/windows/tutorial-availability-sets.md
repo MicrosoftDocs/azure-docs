@@ -10,10 +10,9 @@ ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
 
-#Customer intent: As an IT administrator, I want to learn about high availability in Azure so that I can deploy a highly-available and redundant infrastructure.
 ---
 
-# Create and deploy highly available virtual machines with Azure PowerShell
+# Create and deploy virtual machines in an availability set using Azure PowerShell
 
 In this tutorial, you learn how to increase the availability and reliability of your Virtual Machines (VMs) using Availability Sets. Availability Sets make sure the VMs you deploy on Azure are distributed across multiple, isolated hardware nodes, in a cluster. 
 

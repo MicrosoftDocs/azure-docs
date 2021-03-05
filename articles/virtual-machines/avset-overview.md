@@ -25,7 +25,6 @@ Fault domains define the group of virtual machines that share a common power sou
 ![Availability sets](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 
-
 For VMs using [Azure Managed Disks](./faq-for-disks.md), VMs are aligned with managed disk fault domains when using a managed availability set. This alignment ensures that all the managed disks attached to a VM are within the same managed disk fault domain. 
 
 Only VMs with managed disks can be created in a managed availability set. The number of managed disk fault domains varies by region - either two or three managed disk fault domains per region. You can read more about these managed disk fault domains for [Linux VMs](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) or [Windows VMs](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
@@ -33,4 +32,5 @@ Only VMs with managed disks can be created in a managed availability set. The nu
 ![Managed availability set](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 ## Next steps
-To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](../load-balancer/load-balancer-overview.md).
+You can now start to use these availability and redundancy features to build your Azure environment. For best practices information, see [Azure availability best practices](/azure/architecture/checklist/resiliency-per-service).
+
