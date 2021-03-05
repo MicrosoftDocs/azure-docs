@@ -112,7 +112,7 @@ Depending on the Speech SDK language, you'll set the `"SpeechServiceResponse_Syn
 
 # [C#](#tab/csharp)
 
-For more information, see <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` </a>.
+For more information, see <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>.
 
 ```csharp
 speechConfig.SetProperty(

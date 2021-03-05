@@ -322,7 +322,7 @@
     - name: REST API
       href: /rest/api/databoxedgegateway
     - name: .NET SDK
-      href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
+      href: /dotnet/api/overview/azure/databoxedge/databoxgateway
 
 - name: Azure Stack Edge Pro - FPGA
   items:
@@ -416,7 +416,7 @@
     - name: REST API
       href: /rest/api/databoxedgegateway
     - name: .NET SDK
-      href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet  
+      href: /dotnet/api/overview/azure/databoxedge/databoxgateway  
 
 - name: Security
   items:

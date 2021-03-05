@@ -86,8 +86,8 @@ These SDKs can run on any device that can support a higher-order language runtim
 * [GitHub Repository](https://github.com/Azure/azure-iot-sdk-csharp)
 * [Samples](https://github.com/Azure/azure-iot-sdk-csharp#samples)
 * [Package](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/)
-* [Reference Documentation](/dotnet/api/microsoft.azure.devices?view=azure-dotnet&preserve-view=true)
-* [Edge Module Reference Documentation](/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet&preserve-view=true)
+* [Reference Documentation](/dotnet/api/microsoft.azure.devices)
+* [Edge Module Reference Documentation](/dotnet/api/microsoft.azure.devices.client.moduleclient)
 
 #### Java Device SDK
 
@@ -136,7 +136,7 @@ Azure Digital Twins is a platform as a service (PaaS) offering that enables the 
 
 [**Learn more about Azure Digital Twins**](https://azure.microsoft.com/services/digital-twins/) | [**Code an ADT application**](../digital-twins/tutorial-code.md)
 
-**C# ADT Service SDK**: [GitHub Repository](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) | [Package](https://www.nuget.org/packages/Azure.DigitalTwins.Core) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples) | [Reference Documentation](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)
+**C# ADT Service SDK**: [GitHub Repository](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) | [Package](https://www.nuget.org/packages/Azure.DigitalTwins.Core) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples) | [Reference Documentation](/dotnet/api/overview/azure/digitaltwins/client)
 
 **Java ADT Service SDK**: [GitHub Repository](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core) | [Package](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core/src/samples) | [Reference Documentation](/java/api/overview/azure/digitaltwins/client)
 
@@ -150,7 +150,7 @@ The IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub th
 
 [**Learn more about the Device Provisioning Service**](../iot-dps/index.yml) | [**Try creating a group enrollment for X.509 Devices**](../iot-dps/quick-enroll-device-x509-csharp.md)
 
-**C# Device Provisioning Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service) | [Package](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) | [Samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples) | [Reference Documentation](/dotnet/api/microsoft.azure.devices.provisioning.service?view=azure-dotnet&preserve-view=true)
+**C# Device Provisioning Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service) | [Package](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) | [Samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples) | [Reference Documentation](/dotnet/api/microsoft.azure.devices.provisioning.service)
 
 **Java Device Provisioning Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-service-client/src) | [Package](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples#provisioning-service-client) | [Reference Documentation](/java/api/com.microsoft.azure.sdk.iot.provisioning.service)
 

@@ -74,7 +74,7 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/bing-web-search-api-readme?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/bing-web-search-api-readme
     - name: Java
       href: /java/api/overview/azure/cognitiveservices/client/bingwebsearchapi
     - name: Python
