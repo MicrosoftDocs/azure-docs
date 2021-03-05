@@ -450,7 +450,7 @@ Deploy IoT Edge modules via the Azure portal. You'll deploy publicly available N
 
     1. Repeat the steps to stop the second module deployed on the device. Select **Review + create** and then select **Create**. This should update the deployment.
 
-    ![Review and create deployment](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-6.png)
+    ![Review and create updated deployment](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-6.png)
  
     1. Refresh Set modules page multiple time. until the module **Runtime status** shows as **Stopped**.
 
