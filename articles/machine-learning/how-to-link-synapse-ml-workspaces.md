@@ -38,10 +38,7 @@ You can also link workspaces and attach a Synapse Spark pool with a single [Azur
 * [Create Apache Spark pool using Azure portal, web tools or Synapse Studio](/synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
 * Install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
-    * Install the azureml-synapse package (public preview)
-        ```python
-        pip install azureml-synapse
-        ```
+
 * Access to the [Azure Machine Learning studio](https://ml.azure.com/).
 
 <a name="link-sdk"></a>
