@@ -73,7 +73,7 @@ This template defines an Azure storage account, which is required in order to de
 }
 ```
 
-The next template defines an [Azure Batch account](accounts.md). The Batch account acts as a platform to run numerous applications across [pools](nodes-and-pools.md#pools). For detailed information, see the [Resource Manager template reference guide for Microsoft.Batch resource types].
+The next template defines an [Azure Batch account](accounts.md). The Batch account acts as a platform to run numerous applications across [pools](nodes-and-pools.md#pools). For detailed information, see the [Resource Manager template reference guide for Microsoft.Batch resource types](/azure/templates/microsoft.batch/allversions).
 
 ```json
 {
@@ -441,7 +441,7 @@ The following example demonstrates how to deploy an infrastructure with template
 
     ![Screenshot showing status of the release.](media/batch-ci-cd/Release-5.jpg)
 
-### Testing the environment
+## Test the environment
 
 Once the environment is set up, confirm the following tests can be completed successfully.
 
