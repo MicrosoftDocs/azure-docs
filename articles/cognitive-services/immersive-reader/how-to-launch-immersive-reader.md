@@ -25,7 +25,7 @@ In the [overview](./overview.md), you learned about what the Immersive Reader is
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [How to launch with JavaScript](includes/how-to/how-to-launch-immersive-reader-nodesjs.md)]
+[!INCLUDE [How to launch with JavaScript](includes/how-to/how-to-launch-immersive-reader-nodejs.md)]
 
 ::: zone-end
 
