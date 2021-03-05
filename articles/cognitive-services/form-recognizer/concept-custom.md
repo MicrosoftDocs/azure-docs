@@ -19,7 +19,7 @@ Form Recognizer uses advanced machine learning technology to analyze and extract
 
 * **Custom models**. Form Recognizer custom models represent extracted data from _forms_ specific to your business. Custom models must be trained to analyze your distinct form data.
 
-* **Prebuilt models**. Form Recognizer currently supports prebuilt models for _receipts, business cards, and invoices_. Prebuilt models detect and extract information from document images and return the extracted data in a structured JSON output.
+* **Prebuilt models**. Form Recognizer currently supports prebuilt models for _receipts, business cards,identification cards, and invoices_. Prebuilt models detect and extract information from document images and return the extracted data in a structured JSON output.
 
 ## What does a custom model do?
 
