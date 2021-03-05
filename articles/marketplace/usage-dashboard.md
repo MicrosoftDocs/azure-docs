@@ -149,9 +149,9 @@ _**Table 1: Dictionary of data terms**_
 | NormalizedUsage | Normalized Usage | The total normalized usage units consumed by the asset which is deployed by the customer.<br>Normalized usage hours are defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM cores] multiplier. |
 | MeteredUsage | Metered Usage | The total usage units consumed by the meters that are configured with the offer which is deployed by the customer. |
 | RawUsage | Raw Usage | The total raw usage units consumed by the asset which is deployed by the customer.<br>Raw usage hours are defined as the amount of time VMs have been running in terms of usage units. |
-| Estimated Extended Charge (CC) | Estimated Extended Charge in Customer Currency | Signifies the charges associated with the usage. The column is the product of Price (CC) and Usage Quantity. |
-| Estimated Extended Charge (PC) | Estimated Extended Charge in Payout Currency | Signifies the charges associated with the usage. The column is the product of Estimated Price (PC) and Usage Quantity. |
-||||
+| Estimated Extended Charge (CC) | Estimated Extended Charge in Customer Currency | Signifies the charges associated with the usage. The column is the product of Price (CC) and Raw usage. |
+| Estimated Extended Charge (PC) | Estimated Extended Charge in Payout Currency | Signifies the charges associated with the usage. The column is the product of Estimated Price (PC) and Raw usage. |
+|
 
 ### Usage page filters
 
