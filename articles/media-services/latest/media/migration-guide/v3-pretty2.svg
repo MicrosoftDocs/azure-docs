@@ -52,7 +52,7 @@
 				<title>Process.201</title>
 				<rect x="0" y="0.499976" width="684" height="1044" class="st1"/>
 			</g>
-			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/manage-assets-quickstart">
+			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/manage-assets-quickstart" target="__blank">
 				<g id="shape129-4" transform="translate(268.144,-720)">
 					<title>See uploading content documentation</title>
 					<desc>Upload content</desc>
@@ -66,7 +66,7 @@
 				<path d="M13.5 1044.5 L90.9 1044.5 A13.5 13.5 -180 0 0 90.9 1017.5 L13.5 1017.5 A13.5 13.5 -180 1 0 13.5 1044.5 Z"
 						class="st2"/>
 				<text x="23.52" y="1034.6" class="st3">Get values</text>			</g>
-			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/how-to-create-transform">
+			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/how-to-create-transform" target="__blank">
 				<g id="shape131-10" transform="translate(260.044,-553.5)">
 					<title>See the documentation for creating a transform</title>
 					<desc>Create transform</desc>
@@ -74,7 +74,7 @@
 								 Z" class="st2"/>
 					<text x="15.29" y="1034.6" class="st3">Create transform</text>				</g>
 			</a>
-			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/how-to-create-asset">
+			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/how-to-create-asset" target="__blank">
 				<g id="shape160-13" transform="translate(253.688,-973.238)">
 					<title>See the documentation for creating a new Asset</title>
 					<desc>Create new asset</desc>
@@ -103,7 +103,7 @@
 				<path d="M13.5 1044.5 L90.9 1044.5 A13.5 13.5 -180 0 0 90.9 1017.5 L13.5 1017.5 A13.5 13.5 -180 1 0 13.5 1044.5 Z"
 						class="st2"/>
 				<text x="23.52" y="1034.6" class="st3">Get values</text>			</g>
-			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/monitor-events-portal-how-to">
+			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/monitor-events-portal-how-to" target="__blank">
 				<g id="shape268-31" transform="translate(268.144,-175.5)">
 					<title>See the documentation for setting up Event Grid</title>
 					<desc>Set up monitoring</desc>
@@ -375,7 +375,7 @@
 				<title>Dynamic connector.1023</title>
 				<path d="M0 1044.5 L-18 1044.5 L-18 898.25 L-63.1 898.25" class="st6"/>
 			</g>
-			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/cli-create-jobs">
+			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/cli-create-jobs" target="__blank">
 				<g id="shape132-192" transform="translate(268.144,-317.25)">
 					<title>See the documentation for creating a job</title>
 					<desc>Create job and output asset</desc>
