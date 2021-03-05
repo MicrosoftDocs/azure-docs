@@ -154,13 +154,13 @@
       - name: Control plane
         items:
         - name: .NET (C#) SDK
-          href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
+          href: /dotnet/api/overview/azure/digitaltwins/management
         - name: Java SDK
           href: /java/api/overview/azure/digitaltwins/resourcemanagement
       - name: Data plane
         items:
         - name: .NET (C#) SDK
-          href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet
+          href: /dotnet/api/overview/azure/digitaltwins/client
         - name: Java SDK
           href: /java/api/overview/azure/digitaltwins/client
         - name: JavaScript SDK

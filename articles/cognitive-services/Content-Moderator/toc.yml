@@ -87,7 +87,7 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
     - name: Java
       href: /java/api/overview/azure/cognitiveservices/client/contentmoderator
     - name: Node.js
