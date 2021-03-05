@@ -48,9 +48,13 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: You've tried to delete a gallery that contains at least one existing image definition. A gallery must be empty before it can be deleted.  
 **Workaround**: Delete all image definitions inside the gallery and then proceed to delete the gallery. If the image definition contains image versions, you must delete the image versions before you delete the image definitions.
 
+*The gallery name '<galleryName\>' is not unique within the subscription '<subscriptionId>'. Please pick another gallery name.*  
+**Cause**: You have an existing gallery with the same name and have tried to create another gallery with the same name.  
+**Workaround**: Choose a different name for the gallery.
+
 *The resource <galleryName\> already exists in location <region\_1\> in resource group <resourceGroup\>. A resource with the same name cannot be created in location <region\_2\>. Please select a new resource name.*  
-**Cause**: You have an existing gallery in the resource group with the same name and have tried to create another gallery with the same name but in a different region.  
-**Workaround**: Either use a different gallery or use a different resource group.
+**Cause**: You have an existing gallery with the same name and have tried to create another gallery with the same name.  
+**Workaround**: Choose a different name for the gallery.
 
 ## Creating or modifying image definitions ##
 

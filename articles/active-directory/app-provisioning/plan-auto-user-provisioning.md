@@ -318,7 +318,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Keep up to date on what's new with Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Microsoft Q&A Azure AD forum](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Microsoft Q&A Azure AD forum](/answers/topics/azure-active-directory.html)
 
 ## Next steps
 * [Configure Automatic User Provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)

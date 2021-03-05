@@ -156,7 +156,7 @@
         - name: .NET (C#) SDK
           href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
         - name: Java SDK
-          href: /azure/developer/java/sdk/
+          href: /java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable
       - name: Data plane
         items:
         - name: .NET (C#) SDK
@@ -168,7 +168,7 @@
         - name: Python SDK
           href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python
   - name: Digital Twins CLI
-    href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
+    href: /cli/azure/ext/azure-iot/dt
 - name: Resources
   items:
   - name: Digital Twins service limits
