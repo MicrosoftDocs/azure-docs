@@ -785,9 +785,9 @@
     href: availability.md
   - name: Availability sets
     items:
-    - name: Create a VM in an availability set - CLI
+    - name: Create an availability set - CLI
       href: ./linux/tutorial-availability-sets.md
-    - name: Create a VM in an availability set - PowerShell
+    - name: Create an availability set - PowerShell
       href: ./windows/tutorial-availability-sets.md
     - name: Change availability set
       href: ./windows/change-availability-set.md
@@ -795,21 +795,21 @@
     items: 
     - name: Overview
       href: ../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context
-    - name: Create VM in an availability zone - CLI
+    - name: Create an availability zone - CLI
       href: ./linux/create-cli-availability-zone.md
-    - name: Create a VM in an availability zone - PowerShell
+    - name: Create an availability zone - PowerShell
       href: ./windows/create-powershell-availability-zone.md
-    - name: Create a VM in an availability zone - Portal
+    - name: Create an availability zone - Portal
       href: ./windows/create-portal-availability-zone.md
   - name: Proximity Placement Groups
     items: 
     - name: Overview
       href: co-location.md
-    - name: Create a proximity placement group - CLI
+    - name: Create a group - CLI
       href: ./linux/proximity-placement-groups.md
-    - name: Create a proximity placement group - Portal
+    - name: Create a group - Portal
       href: ./windows/proximity-placement-groups-portal.md
-    - name: Create a proximity placement group - PowerShell
+    - name: Create a group - PowerShell
       href: ./windows/proximity-placement-groups.md
   - name: Virtual Machine Scale Sets
     items: 
