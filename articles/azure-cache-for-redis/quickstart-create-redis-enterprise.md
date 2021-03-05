@@ -45,13 +45,7 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
 1. Select **Next: Networking** and skip.
 
-   > [!NOTE] 
-   > Private link option is getting rolled out and may not be available immediately in your region.
-   >
-
-1. Select **Next: Advanced** and set **Clustering policy** to **Enterprise**.
-   
-   You can keep the default settings or change them as appropriate. When turning on **Allow access only via TLS**, you must use TLS to access the new cache from your application.
+1. Select **Next: Advanced** and set **Clustering policy** to **Enterprise**. Enable **Non-TLS access only** if you plan to connect to the new cache without using TLS. This is not recommended, however.
 
    :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Enterprise tier Advanced tab":::
 

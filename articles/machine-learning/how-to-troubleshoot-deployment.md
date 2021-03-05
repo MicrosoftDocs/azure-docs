@@ -29,7 +29,7 @@ Learn how to troubleshoot and solve, or work around, common errors you may encou
 
 * An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-* The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* The [Azure CLI](/cli/azure/install-azure-cli).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
 ## Steps for Docker deployment of machine learning models

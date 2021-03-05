@@ -1,7 +1,7 @@
 ---
 title: Replicate data over ExpressRoute with Azure Migrate Server Migration
 description: How to use Azure ExpressRoute for replication with Azure Migrate Server Migration
-author: ms-deseelam
+author: DeSeelam
 ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to

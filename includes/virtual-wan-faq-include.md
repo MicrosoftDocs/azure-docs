@@ -296,3 +296,8 @@ No. Virtual WAN does not store any customer data.
 ### Are there any Managed Service Providers that can manage Virtual WAN for users as a service?
 
 Yes. For a list of Managed Service Provider (MSP) solutions enabled via Azure Marketplace, see [Azure Marketplace offers by Azure Networking MSP partners](../articles/networking/networking-partners-msp.md#msp).
+
+### How does Virtual WAN Hub Routing Differ from Azure Route Server in a VNet?
+
+Azure Route Server provides a Border Gateway Protocol (BGP) peering service which can be used by NVA (Network Virtual Appliance) to learn routes from the route server in a DIY hub VNet. Virtual WAN Routing provides multiples capabilities including VNET to VNET transit routing, Custom routing , Custom Route Association and Propagation and a zero-touch fully meshed hub service along with connectivity services of ExpressRoute, Site VPN, Remote User/Large Scale P2S VPN and Secure hub (Azure Firewall) capabilities . When you establish a Border Gateway Protocol (BGP) peering between your NVA and Azure Router Server, you can advertise IP addresses from your NVA to your virtual network. For all advanced routing capabilities such as transit routing, custom routing etc., you can use Virtual WAN routing.
+
