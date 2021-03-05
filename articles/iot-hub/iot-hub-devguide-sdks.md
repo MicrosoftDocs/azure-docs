@@ -43,8 +43,8 @@ Azure IoT Hub device SDK for .NET:
 
 * Download from [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/).  The namespace is Microsoft.Azure.Devices.Clients, which contains IoT Hub Device Clients (DeviceClient, ModuleClient).
 * [Source code](https://github.com/Azure/azure-iot-sdk-csharp)
-* [API reference](/dotnet/api/microsoft.azure.devices?view=azure-dotnet&preserve-view=true)
-* [Module reference](/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet&preserve-view=true)
+* [API reference](/dotnet/api/microsoft.azure.devices)
+* [Module reference](/dotnet/api/microsoft.azure.devices.client.moduleclient)
 
 
 Azure IoT Hub device SDK for Embedded C (ANSI C - C99):
@@ -145,7 +145,7 @@ Azure Provisioning device and service SDKs for C#:
 
 * Download from [Device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Client/) and [Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) from NuGet.
 * [Source code](https://github.com/Azure/azure-iot-sdk-csharp/)
-* [API reference](/dotnet/api/microsoft.azure.devices.provisioning.client?view=azure-dotnet&preserve-view=true)
+* [API reference](/dotnet/api/microsoft.azure.devices.provisioning.client)
 
 Azure Provisioning device and service SDKs for C:
 

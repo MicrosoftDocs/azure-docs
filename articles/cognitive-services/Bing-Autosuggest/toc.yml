@@ -51,7 +51,7 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme
     - name: Java
       href: /java/api/overview/azure/cognitiveservices/client/bingautosuggest
     - name: Go
