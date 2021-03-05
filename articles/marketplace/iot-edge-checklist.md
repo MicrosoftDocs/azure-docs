@@ -69,6 +69,7 @@ Verify the following:
 - Lead Management connection string is present.
 - Privacy policy present
 - Terms of use present
+- Add supported IoT Edge Device Link from [Azure IoT Device Catalog](https://devicecatalog.azure.com/devices?certificationBadgeTypes=IoTEdgeCompatible) 
 
 ## Next steps
 
