@@ -29,7 +29,7 @@ This article assumes that:
 
 Additionally:
 - If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-az-ps).
-- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
 ## Create the private endpoints
 When you creating a private endpoint for an Azure resource, the following resources are deployed:

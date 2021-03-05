@@ -300,23 +300,23 @@ additionalContent:
       - title: Java SDK
         links:
           - text: Bing Web Search
-            url: /java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingwebsearchapi
           - text: Bing Custom Search
-            url: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch
           - text: Bing Entity Search
-            url: /java/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingentitysearchapi
           - text: Bing Image Search
-            url: /java/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingimagesearch
           - text: Bing News Search
-            url: /java/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingnewssearch
           - text: Bing Video Search
-            url: /java/api/overview/azure/cognitiveservices/client/bingvideosearch?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingvideosearch
           - text: Bing Visual Search
-            url: /java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingvisualsearch
           - text: Bing Spell Check
-            url: /java/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingspellcheck
           - text: Bing Autosuggest
-            url: /java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingautosuggest
       - title: Python SDK
         links:
           - text: Bing Web Search
