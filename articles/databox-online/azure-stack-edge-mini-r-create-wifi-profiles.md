@@ -63,7 +63,7 @@ On a Wi-Fi Protected Access 2 (WPA2) - Personal network, such as a home network 
 
 For example, a Windows 10 client can generate a runtime profile for you. When you sign in to the wireless network, you're prompted for the Wi-Fi password and, once you provide that password, you're connected. No certificate is needed in this environment.
 
-On this type of network, you may be able to export a Wi-Fi profile from your laptop, and then add it to your Azure Stack Edge Mini R device. See [Export Wi-Fi profile](#export-a-wi-fi-profile), below.
+On this type of network, you may be able to export a Wi-Fi profile from your laptop, and then add it to your Azure Stack Edge Mini R device. See [Export a Wi-Fi profile](#export-a-wi-fi-profile), below.
 
 > [!IMPORTANT]
 > Before you create a Wi-Fi profile for your Azure Stack Edge Mini R device, contact your network administrator to find out the organization's security requirements for wireless networking. You shouldn't test or use any Wi-Fi profile on your device until you know the wireless network meets requirements.
