@@ -229,9 +229,9 @@ In the cloud environment, you need rich visibility, control over data travel, an
 
 - **APIs** - For apps connected to cloud infrastructure, you can use the APIs and tools on those systems to begin to take an inventory of hosted apps. In the Azure environment:
 
-  - Use the [Get-AzureWebsite](/powershell/module/servicemanagement/azure/get-azurewebsite)cmdlet to get information about Azure websites.
+  - Use the [Get-AzureWebsite](/powershell/module/servicemanagement/azure/get-azurewebsite) cmdlet to get information about Azure websites.
 
-  - Use the [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp)cmdlet to get information about your Azure Web Apps.
+  - Use the [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp) cmdlet to get information about your Azure Web Apps.
 D
   - You can find all the apps running on Microsoft IIS from the Windows command line using [AppCmd.exe](/iis/get-started/getting-started-with-iis/getting-started-with-appcmdexe#working-with-sites-applications-virtual-directories-and-application-pools).
 
