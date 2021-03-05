@@ -69,11 +69,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Cause**: The source path has either multiple partitioned directories or a partitioned directory that has another file or non-partitioned directory.
 - **Recommendation**: Remove the partitioned root directory from the source path and read it through separate source transformation.
 
-### Error code: DF-Executor-OutOfMemoryError
-- **Message**: Cluster ran into out of memory issue during execution, please retry using an integration runtime with bigger core count and/or memory optimized compute type
-- **Cause**: The cluster is running out of memory.
-- **Recommendation**: Debug clusters are meant for development. Use data sampling and an appropriate compute type and size to run the payload. For performance tips, see [Mapping data flow performance guide](concepts-data-flow-performance.md).
-
 ### Error code: DF-Executor-InvalidType
 - **Message**: Please make sure that the type of parameter matches with type of value passed in. Passing float parameters from pipelines isn't currently supported.
 - **Cause**: The data type for the declared type isn't compatible with the actual parameter value.
