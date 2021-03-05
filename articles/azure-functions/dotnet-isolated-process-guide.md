@@ -67,21 +67,13 @@ Because functions that run in a .NET isolated process use different binding type
 
 You'll find these extension packages under [Microsoft.Azure.Functions.Worker.Extensions](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions).
 
-## Create local project
-
-
-
-## Create Azure resources 
-
-
- 
 ## Start-up and configuration 
 
 When using .NET isolated functions, you have access to the start-up of your function app, which is usually in Program.cs. You're responsible for creating and starting your own host instance. As such, you also have direct access to the configuration pipeline for your app. You can much more easily inject dependencies and run middleware when running out-of-process. 
 
 The following code shows an example of a `HostBuilder` pipeline:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="20-33":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker-test/samples/FunctionApp/Program.cs" id="startup":::
 
 A `HostBuilder` is used to build and return a fully initialized `IHost` instance, which you run asynchronously to start your function app. 
 
