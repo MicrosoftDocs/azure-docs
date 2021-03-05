@@ -783,8 +783,6 @@
   items:
   - name: Overview
     href: availability.md
-  - name: Understand VM reboots
-    href: understand-vm-reboots.md
   - name: Availability sets
     items:
     - name: Overview
@@ -823,6 +821,8 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
     - name: Orchestration modes
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
+  - name: Understand VM reboots
+    href: understand-vm-reboots.md
   - name: States and lifecycle
     href: states-lifecycle.md
 - name: Disks
