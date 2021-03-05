@@ -1,6 +1,6 @@
 ---
 title: Create a zoned Linux VM with the Azure CLI 
-description: Create a Linux VM in an availability zone with the Azure CLI
+description: Create a virtual machine in an availability zone with the Azure CLI
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.date: 04/05/2018
 ms.author: cynthn
 ---
 
-# Create a Linux virtual machine in an availability zone with the Azure CLI
+# Create a virtual machine in an availability zone with the Azure CLI
 
 This article steps through using the Azure CLI to create a Linux VM in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 

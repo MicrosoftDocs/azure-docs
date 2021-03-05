@@ -1,5 +1,5 @@
 ---
-title: Tutorial - High availability for Linux VMs in Azure 
+title: High availability for Linux VMs in Azure 
 description: In this tutorial, you learn how to use the Azure CLI to deploy highly available virtual machines in Availability Sets
 documentationcenter: ''
 services: virtual-machines-linux
@@ -20,7 +20,7 @@ ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an IT administrator, I want to learn about high availability in Azure so that I can deploy a highly-available and redundant infrastructure.
 ---
 
-# Tutorial: Create and deploy highly available virtual machines with the Azure CLI
+# Create and deploy highly available virtual machines with the Azure CLI
 
 In this tutorial, you learn how to increase the availability and reliability of your Virtual Machine solutions on Azure using a capability called Availability Sets. Availability sets ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware clusters. Doing this ensures that if a hardware or software failure within Azure happens, only a subset of your VMs is impacted and that your overall solution remains available and operational.
 
