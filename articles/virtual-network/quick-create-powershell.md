@@ -13,7 +13,9 @@ ms.custom: devx-track-azurepowershell
 
 # Quickstart: Create a virtual network using PowerShell
 
-A virtual network lets Azure resources, like virtual machines (VMs), communicate privately with each other, and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to the VMs from the internet, and communicate privately over the virtual network.
+A virtual network lets Azure resources, like virtual machines (VMs), communicate privately with each other, and with the internet. 
+
+In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to the VMs from the internet, and communicate privately over the virtual network.
 
 ## Prerequisites
 
@@ -124,7 +126,9 @@ You'll have to create another user and password. Azure takes a few minutes to cr
 
 ## Connect to a VM from the internet
 
-Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to return the public IP address of a VM. This example returns the public IP address of the **myVm1** VM:
+To get the public IP address of the VM, use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress).
+
+This example returns the public IP address of the **myVm1** VM:
 
 ```azurepowershell-interactive
 $ip = @{
@@ -221,7 +225,13 @@ Remove-AzResourceGroup -Name 'CreateVNetQS-rg' -Force
 
 ## Next steps
 
-In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and communicated privately between the two VMs.
-Azure lets unrestricted private communication between VMs. By default, Azure only lets inbound remote desktop connections to Windows VMs from the internet. Advance to the next article to learn more about configuring different types of VM network communications:
+In this quickstart: 
+
+* You created a default virtual network and two VMs. 
+* You connected to one VM from the internet and communicated privately between the two VMs.
+
+Private communication between VMs is unrestricted in a virtual network. 
+
+Advance to the next article to learn more about configuring different types of VM network communications:
 > [!div class="nextstepaction"]
 > [Filter network traffic](tutorial-filter-network-traffic.md)
