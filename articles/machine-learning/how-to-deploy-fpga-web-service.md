@@ -63,7 +63,7 @@ In this example, you create a TensorFlow graph to preprocess the input image, ma
  
 - The hardware-accelerated models package:  `pip install --upgrade azureml-accel-models[cpu]`    
     
-- The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+- The [Azure CLI](/cli/azure/install-azure-cli)
 
 - FPGA quota. Submit a [request for quota](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2nac9-PZhBDnNSV2ITz0LNUN0U5S0hXRkNITk85QURTWk9ZUUFUWkkyTC4u), or run this CLI command to check quota: 
 
