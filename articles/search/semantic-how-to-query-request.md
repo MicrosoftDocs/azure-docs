@@ -111,6 +111,8 @@ When specifying searchFields, follow these guidelines:
 
 + If your index has a URL field that is textual (human readable such as `www.domain.com/name-of-the-document-and-other-details` and not machine focused such as `www.domain.com/?id=23463&param=eis`), put it second in the list (put it first if there is no concise title field).
 
++ Include verbose or content-rich fields, like Description or Content, for best results in producing captions and answers. Content from the fields you specify are used to create these representations.
+
 If there is only one field specified, use a descriptive field where the answer to a semantic query can be found, such as the main content of the search document itself.  
 
 If there are no fields specified, then all searchable fields will be considered for semantic ranking. Processing will take a long time and you are likely to get suboptimal results.
@@ -121,11 +123,15 @@ Remove any orderBy clauses, if they exist in an existing request. The semantic s
 
 #### Step 4: add answers
 
-Optionally, add "answers" if you want to include additional processing that provides an answer. There are explicit and implicit conditions that produce answers. 
+Optionally, add "answers" if you want to include additional processing that provides an answer. Answers (and captions) are formulated from passages found in fields listed in searchFields. Be sure to include content-rich fields in searchFields to get the best answers and captions in a response.
 
-+ Explicit conditions include adding "answers=extractive". To specify the number of answers returned in the overall response, add "count" followed by a number: `"answers=extractive|count=3"`.  The default is one. Maximum is five.
+There are explicit and implicit conditions that produce answers. 
 
-+ Implicit conditions include a query string construction that lends itself to an answer. A query composed of "what hotel has the green room" is more likely to be answered than a query composed of a statement like "hotel with fancy interiors". The takeaway is that if the query doesn't look like a question, answer processing is skipped, even if the "answers" parameter is set.
++ Explicit conditions include adding "answers=extractive". Additionally, to specify the number of answers returned in the overall response, add "count" followed by a number: `"answers=extractive|count=3"`.  The default is one. Maximum is five.
+
++ Implicit conditions include a query string construction that lends itself to an answer. A query composed of 'what hotel has the green room' is more likely to be "answered" than a query composed of a statement like 'hotel with fancy interior'. 
+
+The takeaway is that if the query doesn't look like a question, answer processing is skipped, even if the "answers" parameter is set.
 
 #### Step 5: Add other parameters
 
