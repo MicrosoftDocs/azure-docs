@@ -108,13 +108,13 @@ To create and run a new scan, do the following:
     SysAdmin) and objects are ignored by default. When the list is
     empty, all available schemas are imported.
 
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
-        - start with A or    
-        - end with B or    
-        - contain C or    
-        - equal D
+    Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
+    - start with A or    
+    - end with B or    
+    - contain C or    
+    - equal D
 
-        Usage of NOT and special characters are not acceptable
+    Usage of NOT and special characters are not acceptable
 
 7.  **Driver location**: Specify the path to the JDBC driver location in
     your VM where self-host integration runtime is running. This should

@@ -177,7 +177,7 @@ If you wish to create a new subscription, follow [these steps](https://docs.micr
 
 ## View your Device in the Azure Percept Studio and deploy common prebuilt sample apps
 
-1. View your list of Devices from the Azure Percept Overview Page. The Azure Percept Overview page is your launch point for accessing many different workflows for both beginning and advanced AI Edge Model and Solution Development
+1. View your list of Devices from the [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) Overview Page. The Azure Percept Overview page is your launch point for accessing many different workflows for both beginning and advanced AI Edge Model and Solution Development
 
 	:::image type="content" source="./media/quickstart-percept-dk-setup/portal-01-get-device-list.png" alt-text="View your list of devices.":::
 	
