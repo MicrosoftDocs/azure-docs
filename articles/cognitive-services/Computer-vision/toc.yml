@@ -107,7 +107,7 @@
 - name: Reference
   items: 
   - name: Azure CLI
-    href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+    href: /cli/azure/cognitiveservices#az_cognitiveservices_list
   - name: Azure PowerShell
     href: /powershell/module/azurerm.cognitiveservices/
   - name: Computer Vision API v3.2 preview
