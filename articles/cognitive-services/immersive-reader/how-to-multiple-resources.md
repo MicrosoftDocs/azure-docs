@@ -7,7 +7,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 01/14/2020
 ms.author: skamal
 ms.custom: devx-track-js

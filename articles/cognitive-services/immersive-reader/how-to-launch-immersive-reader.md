@@ -6,7 +6,7 @@ author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: metang
 ms.custom: devx-track-js
