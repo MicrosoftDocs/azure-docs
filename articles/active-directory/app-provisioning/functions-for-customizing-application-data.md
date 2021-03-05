@@ -52,9 +52,9 @@ Takes a source string value and appends the suffix to the end of it.
 | **source** |Required |String |Usually name of the attribute from the source object. |
 | **suffix** |Required |String |The string that you want to append to the end of the source value. |
 
-**Example:**
+
 ### Append constant suffix to user name
-If you are using a Salesforce Sandbox, you might need to append an additional suffix to all your user names before synchronizing them.
+Example: If you are using a Salesforce Sandbox, you might need to append an additional suffix to all your user names before synchronizing them.
 
 **Expression:** 
 `Append([userPrincipalName], ".test")`
@@ -123,10 +123,8 @@ Returns the first source value that is not NULL. If all arguments are NULL and d
 | **source1  … sourceN** | Required | String |Required, variable-number of times. Usually name of the attribute from the source object. |
 | **defaultValue** | Optional | String | Default value to be used when all source values are NULL. Can be empty string ("").
 
-**Example**
-
 ### Flow mail value if not NULL, otherwise flow userPrincipalName
-You wish to flow the mail attribute if it is present. If it is not, you wish to flow the value of userPrincipalName instead.
+Example: You wish to flow the mail attribute if it is present. If it is not, you wish to flow the value of userPrincipalName instead.
 
 **Expression:** 
 `Coalesce([mail],[userPrincipalName])`
@@ -247,11 +245,10 @@ Takes a date string from one format and converts it into a different format.
 | **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 | **outputFormat** |Required |String |Format of the output date. |
 
-**Example:**
+
 
 ### Output date as a string in a certain format
-You want to send dates to a SaaS application in a certain format. 
-For example, you want to format dates for ServiceNow.
+Example: You want to send dates to a SaaS application like ServiceNow in a certain format. You can consider using the following expression. 
 
 **Expression:** 
 
@@ -475,10 +472,9 @@ Requires one string argument. Returns the string, but with any diacritical chara
 | --- | --- | --- | --- |
 | **source** |Required |String | Usually a first name or last name attribute. |
 
-**Example:**
 
 ### Remove diacritics from a string
-You need to replace characters containing accent marks with equivalent characters that don't contain accent marks.
+Example: You need to replace characters containing accent marks with equivalent characters that don't contain accent marks.
 
 **Expression:** 
 NormalizeDiacritics([givenName])
@@ -582,10 +578,8 @@ Replaces values within a string in a case-sensitive manner. The function behaves
 | **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value |
 | **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
 
-**Example:**
-
 ### Replace characters using a regular expression
-You need to find characters that match a regular expression value and remove them.
+Example: You need to find characters that match a regular expression value and remove them.
 
 **Expression:** 
 
@@ -618,10 +612,8 @@ Requires a minimum of two arguments, which are unique value generation rules def
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate. |
 
-**Example:**
-
 ### Generate unique value for userPrincipalName (UPN) attribute
-Based on the user's first name, middle name and last name, you need to generate a value for the UPN attribute and check for its uniqueness in the target AD directory before assigning the value to the UPN attribute.
+Example: Based on the user's first name, middle name and last name, you need to generate a value for the UPN attribute and check for its uniqueness in the target AD directory before assigning the value to the UPN attribute.
 
 **Expression:** 
 
@@ -672,10 +664,8 @@ Splits a string into a multi-valued array, using the specified delimiter charact
 | **source** |Required |String |**source** value to update. |
 | **delimiter** |Required |String |Specifies the character that will be used to split the string (example: ",") |
 
-**Example:**
-
 ### Split a string into a multi-valued array
-You need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Azure AD.
+Example: You need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Azure AD.
 
 **Expression:** 
 Split([extensionAttribute5], ",")
@@ -717,9 +707,8 @@ When **source** value matches a **key**, returns **value** for that **key**. If 
 | **key** |Required |String |**Key** to compare **source** value with. |
 | **value** |Required |String |Replacement value for the **source** matching the key. |
 
-**Example:**
 ### Replace a value based on predefined set of options
-You need to define the time zone of the user based on the state code stored in Azure AD. 
+Example: You need to define the time zone of the user based on the state code stored in Azure AD. 
 If the state code doesn't match any of the predefined options, use default value of "Australia/Sydney".
 
 **Expression:** 
@@ -746,10 +735,8 @@ Takes a *source* string value and converts it to lower case using the culture ru
 | **source** |Required |String |Usually name of the attribute from the source object |
 | **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
 
-**Example:**
-
 ### Convert generated userPrincipalName (UPN) value to lower case
-In the example below, the UPN value is generated by concatenating the PreferredFirstName and PreferredLastName source fields and the ToLower function operates on the generated string to convert all characters to lower case. 
+Example: You would like to generate the UPN value by concatenating the PreferredFirstName and PreferredLastName source fields and converting all characters to lower case. 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
 
