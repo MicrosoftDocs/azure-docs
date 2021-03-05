@@ -34,25 +34,25 @@ At a high level, the steps for building, training, and using your custom model a
 > [!div class="nextstepaction"]
 > [1. Assemble your training dataset](build-training-data-set.md#custom-model-input-requirements)
 
-Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types and contain both text and handwriting. Your forms must be of the same type of document and follow the input requirements for Form Recognizer.
+Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types and contain both text and handwriting. Your forms must be of the same type of document and follow the input requirements for Form Recognizer.  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 
 > [!div class="nextstepaction"]
 > [2. Upload your training dataset](build-training-data-set.md#upload-your-training-data)
 
-You'll need to upload your training data to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, *see* [Azure Storage quickstart for Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+You'll need to upload your training data to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, *see* [Azure Storage quickstart for Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 
 > [!div class="nextstepaction"]
 > [3. Train your custom model](quickstarts/client-library.md#train-a-custom-model)
 
-You can train your model [without](quickstarts/client-library.md#train-a-model-without-labels) or [with](quickstarts/client-library.md#train-a-model-with-labels) or labeled data sets. Unlabeled datasets rely solely on the Layout API to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled and unlabeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.
+You can train your model [without](quickstarts/client-library.md#train-a-model-without-labels) or [with](quickstarts/client-library.md#train-a-model-with-labels) or labeled data sets. Unlabeled datasets rely solely on the Layout API to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled and unlabeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 
 >[!div class="nextstepaction"]
 > [4. Analyze documents with your custom model](quickstarts/client-library.md#analyze-forms-with-a-custom-model).
 
-Test your newly trained model by using a form that wasn't part of the training dataset. You can continue to do further training to improve the performance of your custom model. 
+Test your newly trained model by using a form that wasn't part of the training dataset. You can continue to do further training to improve the performance of your custom model.  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 
 > [!div class="nextstepaction"]
