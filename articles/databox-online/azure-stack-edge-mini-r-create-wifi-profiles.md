@@ -7,7 +7,7 @@ author: v-dalc@microsoft.com
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/04/2021
+ms.date: 03/05/2021
 ms.author: alkohli
 ---
 
@@ -50,7 +50,7 @@ The following code example shows basic settings for a profile to use with a typi
 	<autoSwitch>false</autoSwitch>
 ```
 
-For more information about Wi-Fi profile settings, see **Enterprise profile** in [Add settings for Windows 10 and later Wi-Fi](/mem/intune/configuration/wifi-settings-windows#enterprise-profile) and [Configure a Cisco wireless controller and access point on your device](azure-stack-edge-mini-r-manage-wifi.md#configure-cisco-wifi-profile).
+For more information about Wi-Fi profile settings, see **Enterprise profile** in [Add settings for Windows 10 and later Wi-Fi](/mem/intune/configuration/wifi-settings-windows#enterprise-profile) and [Configure a Cisco wireless controller and access point on your device](azure-stack-edge-mini-r-manage-wifi.md#configure-cisco-wi-fi-profile).
 
 To enable wireless connections on an Azure Stack Edge Mini R device, you configure the Wi-Fi port on your device, and then add the Wi-Fi profile(s) to the device. On an enterprise network,  you'll also upload certificates to the device. You can then connect to a wireless network from the local web UI for the device. For more information, see [Manage wireless connectivity on your Azure Stack Edge Mini R](./azure-stack-edge-mini-r-manage-wifi.md).
 
