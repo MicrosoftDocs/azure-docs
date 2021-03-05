@@ -1,4 +1,4 @@
----
+--- 
 title: Manage the availability of VMs 
 description: Learn how to use multiple virtual machines to ensure high availability for your applications in Azure
 author: cynthn
