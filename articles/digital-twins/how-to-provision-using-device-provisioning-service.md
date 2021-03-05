@@ -77,9 +77,15 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### Create an Azure function
 
-Next, you'll create an **HTTP request-triggered** function inside a function app. You can use the function app created in the article [*How to: Ingest iot hub data*](how-to-ingest-iot-hub-data.md), or your own.
+In this section, you are going to create a new function that will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device. You can do this by using an existing project or a new project in your Visual Studio or any other code editor.
 
-This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device. For more information about using HTTP requests with Azure functions, see [*Azure Http request trigger for Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
+#### Use an existing project
+
+    You can open your existing project with your function that you created in the prerequisites section, and add a new function inside your function app will be used by the Device Provisioning Service.
+
+#### Create a new project
+
+    You can create a new project in your code editor of your choice and create a new function app that will be used by the Device Provisioning Service.
 
 Inside your function app project, do the following steps:
 
@@ -89,15 +95,17 @@ Inside your function app project, do the following steps:
 :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
 4. Publish your function app. For instructions on publishing the function app, see the [*Publish the app*](tutorial-end-to-end.md#publish-the-app) section of the Azure Digital Twins *Tutorial: Connect an end-to-end solution.*
 
+For more information about using HTTP requests with Azure functions, see [*Azure Http request trigger for Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
+
 #### Verify function publish
 
 [!INCLUDE [digital-twins-verify-function-app-publish.md](../../includes/digital-twins-verify-function-app-publish.md)]
 
-:::image type="content" source="media/how-to-provision-using-dps/azure-functions-app.png" alt-text="The Azure portal function app view to verify that your  function is successfully published":::
+:::image type="content" source="media/how-to-provision-using-dps/azure-functions-app.png" alt-text="The Azure portal function app view to verify that your function is successfully published-1":::
 
 ### Configure your function
 
-
+[!INCLUDE [digital-twins-configure-azure-function.md](../../includes/digital-twins-configure-azure-function.md)]
 
 ### Create Device Provisioning enrollment
 
@@ -234,7 +242,7 @@ Inside your published function app,
 
 [!INCLUDE [digital-twins-verify-function-app-publish.md](../../includes/digital-twins-verify-function-app-publish.md)]
 
-:::image type="content" source="media/how-to-provision-using-dps/delete-device-twin-function.png" alt-text="The Azure portal function app view to verify that your function is successfully published":::
+:::image type="content" source="media/how-to-provision-using-dps/delete-device-twin-function.png" alt-text="The Azure portal function app view to verify that your function is successfully published-2":::
 
 ### Configure your function
 
