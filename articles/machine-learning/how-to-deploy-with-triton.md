@@ -31,7 +31,7 @@ Triton is a framework that is *optimized for inference*. It provides better util
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 * Familiarity with [how and where to deploy a model](how-to-deploy-and-where.md) with Azure Machine Learning.
-* The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py) **or** the [Azure CLI](/cli/azure/?view=azure-cli-latest) and [machine learning extension](reference-azure-machine-learning-cli.md).
+* The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py) **or** the [Azure CLI](/cli/azure/) and [machine learning extension](reference-azure-machine-learning-cli.md).
 * A working installation of Docker for local testing. For information on installing and validating Docker, see [Orientation and setup](https://docs.docker.com/get-started/) in the docker documentation.
 
 ## Architectural overview
@@ -326,7 +326,7 @@ print(local_service.scoring_uri)
 
 ---
 
-After deployment completes, the scoring URI is displayed. For this local deployment, it will be `http://localhost:6789/score`. If you deploy to the cloud, you can use the [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI command to get the scoring URI.
+After deployment completes, the scoring URI is displayed. For this local deployment, it will be `http://localhost:6789/score`. If you deploy to the cloud, you can use the [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) CLI command to get the scoring URI.
 
 For information on how to create a client that sends inference requests to the scoring URI, see [consume a model deployed as a web service](how-to-consume-web-service.md).
 

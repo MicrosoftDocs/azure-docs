@@ -413,7 +413,7 @@ Alternatively you can use a `CloudTable` method parameter to write to the table 
 
 # [Java](#tab/java)
 
-There are two options for outputting a Table storage row from a function by using the [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet&preserve-view=true) annotation:
+There are two options for outputting a Table storage row from a function by using the [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput) annotation:
 
 - **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as a Table storage row.
 
