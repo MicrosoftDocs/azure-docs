@@ -24,7 +24,7 @@ With tenant restrictions, organizations can specify the list of tenants that the
 
 This article focuses on tenant restrictions for Microsoft 365, but the feature protects all apps that send the user to Azure AD for single sign-on. If you use SaaS apps with a different Azure AD tenant from the tenant used by your Microsoft 365, make sure that all required tenants are permitted (e.g. in B2B collaboration scenarios). For more information about SaaS cloud apps, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-Additionally, the tenant restrictions feature now supports [blocking the use of all Microsoft consumer applications](#blocking-consumer-applications) (MSA apps) such as OneDrive, Hotmail, and Xbox.com.  This uses a separate header to the `login.live.com` endpoint, and is detailed at the end of the document.
+Additionally, the tenant restrictions feature now supports [blocking the use of all Microsoft consumer applications](#blocking-consumer-applications-public-preview) (MSA apps) such as OneDrive, Hotmail, and Xbox.com.  This uses a separate header to the `login.live.com` endpoint, and is detailed at the end of the document.
 
 ## How it works
 
@@ -173,9 +173,9 @@ Fiddler is a free web debugging proxy that can be used to capture and modify HTT
       }
    ```
 
-If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
+   If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
 
-      `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
+   `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 
 4. Save and close the CustomRules file.
 

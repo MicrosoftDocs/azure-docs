@@ -144,4 +144,4 @@ Learn how to use these commands in the following article:
 
 * [Install Azure IoT Edge for Linux on Windows](how-to-install-iot-edge-windows.md)
 
-* Refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#Deploy-Eflow) for all the commands available through PowerShell.
+* Refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) for all the commands available through PowerShell.
