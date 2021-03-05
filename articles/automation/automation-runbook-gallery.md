@@ -45,12 +45,12 @@ The list below contains a few runbooks that support common scenarios. For a full
 3. Select **Source: PowerShell Gallery**.
 4. Locate the gallery item you want and select it to view its details. On the left, you can enter additional search parameters for the publisher and type.
 
-   ![Browse gallery](media/automation-runbook-gallery/browse-gallery.png)
+   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-sm.png" alt-text="Browsing the runbook gallery" lightbox="media/automation-runbook-gallery/browse-gallery-lg.png":::
 
 5. Click on **View source project** to view the item in the [Azure Automation GitHub Organization](https://github.com/azureautomation).
 6. To import an item, click on it to view its details and then click **Import**.
 
-   ![Import button](media/automation-runbook-gallery/gallery-item-detail.png)
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-detail-sm.png" alt-text="Show a runbook gallery item detail" lightbox="media/automation-runbook-gallery/gallery-item-detail-lg.png":::
 
 7. Optionally, change the name of the runbook and then click **OK** to import the runbook.
 8. The runbook appears on the **Runbooks** tab for the Automation account.
@@ -75,7 +75,7 @@ The list below contains a few runbooks that support common scenarios. For a full
 
    When you drill into a specific module, you can view more information. This information includes a link back to the PowerShell Gallery, any required dependencies, and all of the cmdlets or DSC resources that the module contains.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Browsing the GitHub gallery" lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Detailed view of the GitHub gallery" lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
 
 1. To install the module directly into Azure Automation, click **Import**.
 1. On the Import pane, you can see the name of the module to import. If all the dependencies are installed, the **OK** button is activated. If you're missing dependencies, you need to import those dependencies before you can import this module.
