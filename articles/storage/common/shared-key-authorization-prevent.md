@@ -129,11 +129,23 @@ To disallow Shared Key authorization for a storage account in the Azure portal, 
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot showing how to disallow Shared Key access for account":::
 
+# [PowerShell](#tab/azure-powershell)
+
+To disallow Shared Key authorization for a storage account with PowerShell, install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 3.4.0 or later. Next, configure the **AllowSharedKeyAccess** property for a new or existing storage account.
+
+The following example shows how to disallow access with Shared Key for an existing storage account with PowerShell. Remember to replace the placeholder values in brackets with your own values:
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group> `
+    -AccountName <storage-account> `
+    -AllowSharedKeyAccess $false
+```
+
 # [Azure CLI](#tab/azure-cli)
 
 To disallow Shared Key authorization for a storage account with Azure CLI, install Azure CLI version 2.9.1 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **allowSharedKeyAccess** property for a new or existing storage account.
 
-The following example shows how to set the **allowSharedKeyAccess** property with Azure CLI. Remember to replace the placeholder values in brackets with your own values:
+The following example shows how to disallow access with Shared Key for an existing storage account with Azure CLI. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli-interactive
 $storage_account_id=$(az resource show \

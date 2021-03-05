@@ -1078,7 +1078,7 @@
       href: insights/container-insights-reports.md
     - name: View live data
       items:
-      - name: Live Data (preview) overview
+      - name: Live Data overview
         href: containers/container-insights-livedata-overview.md
       - name: Setup
         href: containers/container-insights-livedata-setup.md

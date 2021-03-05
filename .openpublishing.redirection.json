@@ -25625,6 +25625,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/dms/known-issues-azure-sql-online.md",
+      "redirect_url": "/azure/dms/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md",
+      "redirect_url": "/azure/dms/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-logic/index.md",
       "redirect_url": "/azure/logic-apps/",
       "redirect_document_id": false
@@ -62270,6 +62280,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/aks/use-pod-security-on-azure-policy.md",
+      "redirect_url": "/azure/aks/use-azure-policy",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/key-vault/secrets/quick-create-github-secret.md",
       "redirect_url": "/azure/developer/github/deploy-to-azure",
       "redirect_document_id": false
@@ -64312,6 +64327,10 @@
     {
         "source_path": "articles/virtual-machines/troubleshooting/windows-update-installation-capacity.md",
         "redirect_url": "/troubleshoot/azure/virtual-machines/windows-update-installation-capacity",
+        "redirect_document_id": false
+    },
+    {   "source_path": "articles/storage/files/storage-sync-cloud-tiering.md",
+        "redirect_url": "/azure/storage/files/storage-sync-cloud-tiering-overview",
         "redirect_document_id": false
     },
     {
