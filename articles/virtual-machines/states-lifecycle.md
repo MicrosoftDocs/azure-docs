@@ -24,7 +24,7 @@ Provisioning states are visible on VM properties and instance view. Power states
 To retrieve the power state of all the VMs in your subscription, use the [Virtual Machines - List All API](/rest/api/compute/virtualmachines/listall) with parameter **statusOnly** set to *true*.
 
 > [!NOTE]
-> [Virtual Machines - List All API](/rest/api/compute/virtualmachines/listall) with parameter statusOnly set to true will retrieve the power states of all VMs in a subscription. However, in some rare situations, the power state may not be able to be retrieved due to reliability issues in the implementation. In such situations, we recommend retrying using the same API. If the issue persists, [open a support ticket](https://azure.microsoft.com/support/create-ticket/). 
+> [Virtual Machines - List All API](/rest/api/compute/virtualmachines/listall) with parameter **statusOnly** set to true will retrieve the power states of all VMs in a subscription. However, in some rare situations, the power state may not available due to intermittent issues in the retrieval process. In such situations, we recommend retrying using the same API or using [Azure Resource Health](../service-health/resource-health-overview.md) or [Azure Resource Graph](..//governance/resource-graph/overview.md) to check the power state of your VMs.
  
 ## Power states and billing
 
@@ -54,9 +54,9 @@ A provisioning state is the status of a user-initiated, control-plane operation 
 
 | State | Description | Power state | Billing | 
 |---|---|---|---|
-| Create | Virtual machine creation | Starting | Not billed* | 
-| Update | Updates the model for an existing virtual machine. Some non=model changes to a virtual machine such as start and restart fall under the update state | Running | Billed | 
-| Delete | Virtual machine deletion | Deallocating | Not billed* |
+| Create | Virtual machine creation. | Starting | Not billed* | 
+| Update | Updates the model for an existing virtual machine. Some non-model changes to a virtual machine such as start and restart fall under the update state. | Running | Billed | 
+| Delete | Virtual machine deletion. | Deallocating | Not billed* |
 | Deallocate | Virtual machine is fully stopped and removed from the underlying host. Deallocating a virtual machine is considered an update and will display provisioning states similar to updating. | Deallocating | Not billed* | 
 
 &#42; Some Azure resources, such as [Disks](https://azure.microsoft.com/pricing/details/managed-disks) and [Networking](https://azure.microsoft.com/pricing/details/bandwidth/) will continue to incur charges.
@@ -68,10 +68,10 @@ OS Provisioning states only apply to virtual machines created with an OS image. 
 
 | State | Description | Power state | Billing | 
 |---|---|---|---|
-| OSProvisioningInProgress | The VM is running and the installation of the Guest OS is in progress | Running | Billed | 
+| OSProvisioningInProgress | The VM is running and the installation of the Guest OS is in progress. | Running | Billed | 
 | OSProvisioningComplete | This is a short-lived state. The virtual machine quickly transitions from this state to **Success**. If extensions are still being installed you will continue to see this state until they are complete. | Running | Billed | 
 | Succeeded | The user-initiated actions have completed. | Running | Billed | 
-| Failed | Represents a failed operation. Refer to the error codes to get more information and possible solutions. | Running  | Billed | 
+| Failed | Represents a failed operation. Refer to the error code for more information and possible solutions. | Running  | Billed | 
 
 
 ## Next steps
