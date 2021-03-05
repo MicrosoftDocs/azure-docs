@@ -173,13 +173,13 @@ In this section, you'll test the cross-region load balancer. You'll connect to t
 
 1. To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
 
-```azurecli-interactive
-  az network public-ip show \
-    --resource-group myResourceGroupLB-CR \
-    --name PublicIPmyLoadBalancer-CR \
-    --query ipAddress \
-    --output tsv
-```
+    ```azurecli-interactive
+      az network public-ip show \
+        --resource-group myResourceGroupLB-CR \
+        --name PublicIPmyLoadBalancer-CR \
+        --query ipAddress \
+        --output tsv
+    ```
 2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
 3. Stop the virtual machines in the backend pool of one of the regional load balancers.
