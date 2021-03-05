@@ -13,4 +13,4 @@ ms.author: qixwang
 
 When you enable the HTTPS feature using your own certificate for an Azure Front Door Standard/Premium custom domain. You need an allowed certificate authority (CA) to create your TLS/SSL certificate. Otherwise, if you use a non-allowed CA or a self-signed certificate, your request will be rejected.
 
-[!INCLUDE [cdn-front-door-allowed-ca](../../includes/cdn-front-door-allowed-ca.md)]
+[!INCLUDE [cdn-front-door-allowed-ca](../../../includes/cdn-front-door-allowed-ca.md)]
