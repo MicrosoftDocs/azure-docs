@@ -71,18 +71,17 @@ Here's a quick overview of the steps:
 1. Test the Client Application
 
    > [!TIP]
-   > We're going to capture quite a few pieces of information and keys etc as we walk this document, you might find it handy to have a text editor open to store the following items of configuration temporarily. 
-   > B2C BACKEND CLIENT ID: 
-   > B2C BACKEND CLIENT SECRET KEY:
-   > B2C BACKEND API SCOPE: 
-   > B2C FRONTEND CLIENT ID: 
-   > B2C USER FLOW ENDPOINT:
-   > B2C WELL KNOWN OPEN ID ENDPOINT:  
-   > FUNCTION URL: 
-   > APIM API BASE URL:
-   > STORAGE PRIMARY ENDPOINT: 
-   > B2C TOKEN ENDPOINT:
-   > B2C AUTHORIZATION ENDPOINT:
+   > We're going to capture quite a few pieces of information and keys etc as we walk this document, you might find it handy to have a text editor open to store the following items of configuration temporarily.  
+   >
+   > B2C BACKEND CLIENT ID:  
+   > B2C BACKEND CLIENT SECRET KEY:  
+   > B2C BACKEND API SCOPE URI:  
+   > B2C FRONTEND CLIENT ID:  
+   > B2C USER FLOW ENDPOINT URI:  
+   > B2C WELL-KNOWN OPENID ENDPOINT:    
+   > FUNCTION URL:  
+   > APIM API BASE URL:  
+   > STORAGE PRIMARY ENDPOINT URL:  
 
 ## Configure the backend application
 
@@ -432,6 +431,8 @@ The *authority* value needs to be in the format:- https://{b2ctenantname}.b2clog
 ## Set the redirect URIs for the Azure AD B2C frontend app
 
 1. Open the Azure AD B2C blade and navigate to the application registration for the JavaScript Frontend Application.
+1. Click 'Redirect URIs' and delete the placeholder 'https://jwt.ms' we entered earlier.
+1. Add a new URI for the primary (storage) endpoint (minus the trailing forward slash).
 1. Set the redirect URL to the one you noted down when you previously set up the static website primary endpoint above.
 
    > [!NOTE]
