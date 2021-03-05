@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/05/2021
 ms.author: alkohli
 ---
 
@@ -42,8 +42,15 @@ If you are deploying containerized workloads, a GPU can be shared and can be map
     Consider the following caveats when using this approach:
     
     - MPS allows you to specify more flags in GPU deployment.
-    - You can specify fractional usage via MPS. (TBD)
+    - You can specify fractional usage via MPS thereby limiting the usage of each application deployed on the device. You can specify the GPU percentage to use for each app under the `env` section of the `deployment.yaml` by adding the following parameter: 
 
+    ```yml
+    // Example: application wants to limit gpu percentage to 20%
+    
+    	env:
+              - name: CUDA_MPS_ACTIVE_THREAD_PERCENTAGE 
+                value: "20"    
+    ```
 
 ## GPU utilization
  
@@ -54,5 +61,5 @@ To view GPU usage, first connect to the PowerShell interface of the device. Run 
 
 ## Next steps
 
-- [Enable GPU sharing for Kubernetes deployments on your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md).
-- [Enable GPU sharing for IoT deployments on your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md).
+- [GPU sharing for Kubernetes deployments on your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md).
+- [GPU sharing for IoT deployments on your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md).
