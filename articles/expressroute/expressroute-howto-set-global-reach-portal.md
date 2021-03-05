@@ -3,12 +3,10 @@ title: 'Azure ExpressRoute: Configure Global Reach using the Azure portal'
 description: This article helps you link ExpressRoute circuits together to make a private network between your on-premises networks and enable Global Reach using the Azure portal.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 03/05/2021
 ms.author: duau
-
 ---
 
 # Configure ExpressRoute Global Reach using the Azure portal
@@ -45,7 +43,7 @@ Enable connectivity between your on-premises networks. There are separate sets o
 
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/expressroute-circuit-private-peering.png" alt-text="ExpressRoute peering overview":::
 
-1. Select the **Enable Global Reach** checkbox and then select **Add Global Reach** to open the *Add Global Reach* configuration page.
+1. Select **Add Global Reach** to open the *Add Global Reach* configuration page.
 
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/private-peering-enable-global-reach.png" alt-text="Enable global reach from private peering":::
 
@@ -71,7 +69,7 @@ If the two circuits aren't in the same Azure subscription, you'll need authoriza
 
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/expressroute-circuit-private-peering.png" alt-text="Circuit 1 peering overview":::
 
-1. Select the **Enable Global Reach** checkbox and then select **Add Global Reach** to open the *Add Global Reach* configuration page.
+1. Select **Add Global Reach** to open the *Add Global Reach* configuration page.
 
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/private-peering-enable-global-reach.png" alt-text="Enable global reach from circuit 1":::
 
@@ -91,13 +89,13 @@ Verify the Global Reach configuration by selecting *Private peering* under the E
 
 ## Disable connectivity
 
-You have two options when it comes to disabling Global Reach. To disable connectivity between all circuits, uncheck **Enable Global Reach** to disable connectivity between all circuits. To disable connectivity between an individual circuit, select the delete button next to the *Global Reach name* to remove connectivity between them. Then select **Save** to complete the operation.
+To disable connectivity between an individual circuit, select the delete button next to the *Global Reach name* to remove connectivity between them. Then select **Save** to complete the operation.
 
 :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/disable-global-reach-configuration.png" alt-text="Disable Global Reach configuration":::
 
 After the operation is complete, you no longer have connectivity between your on-premises network through your ExpressRoute circuits.
 
 ## Next steps
-1. [Learn more about ExpressRoute Global Reach](expressroute-global-reach.md)
-2. [Verify ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
-3. [Link an ExpressRoute circuit to an Azure virtual network](expressroute-howto-linkvnet-arm.md)
+- [Learn more about ExpressRoute Global Reach](expressroute-global-reach.md)
+- [Verify ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
+- [Link an ExpressRoute circuit to an Azure virtual network](expressroute-howto-linkvnet-arm.md)
