@@ -100,25 +100,23 @@ While content in a search index can be composed in multiple languages, the query
 
 #### Step 2: Set searchFields
 
-This parameter is optional, but an ordered list of fields is strongly recommended for both captions and answers. 
+This parameter is optional in that there is no error if you leave it out, but providing an ordered list of fields is strongly recommended for both captions and answers.
 
-In simple or full Lucene queries, the searchFields parameter scopes the query to specific fields, which can be listed in arbitrary order. In a semantic query, the searchFields parameter determines which fields are evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank, as the model requires a hint as to which fields are the most important to process.
+The searchFields parameter is used to identify passages to be evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank as the model requires a hint as to what fields are the most important to process.
 
-The field order is important. If you already use searchFields in existing simple or full Lucene queries, be sure that you revisit this parameter to ensure appropriate semantic rankings.
+The order of the searchFields is critical. If you already use searchFields in existing simple or full Lucene queries, be sure that you revisit this parameter when switching to a semantic query type.
 
-When specifying searchFields, follow these guidelines:
+Follow these guidelines to ensure optimum results when two or more searchFields are specified:
 
 + Include only string fields and top-level string fields in collections. If you happen to include non-string fields or lower-level fields in a collection, there is no error, but those fields won't be used in semantic ranking.
 
-+ Concise fields, such as HotelName or a title, should precede verbose fields like Description.
++ First field should always be concise (such as a title or name), ideally under 25 words.
 
-+ If your index has a URL field that is textual (human readable such as `www.domain.com/name-of-the-document-and-other-details` and not machine focused such as `www.domain.com/?id=23463&param=eis`), put it second in the list (put it first if there is no concise title field).
++ If the index has a URL field that is textual (human readable such as `www.domain.com/name-of-the-document-and-other-details` and not machine focused such as `www.domain.com/?id=23463&param=eis`), place it second in the list (or first if there is no concise title field).
 
-+ Include verbose or content-rich fields, like Description or Content, for best results in producing answers. Content from the fields you specify are used to create these representations. To facilitate answers in a response, choose fields that contain at least 70 words or 420 characters.
++ Follow those fields by descriptive fields where the answer to semantic queries may be found, such as the main content of a document.
 
-If there is only one field specified, use a descriptive field where the answer to a semantic query can be found, such as the main content of the search document itself.  
-
-If there are no fields specified, then all searchable fields will be considered for semantic ranking. Processing will take a long time and you are likely to get suboptimal results.
+If only one field specified, use a descriptive fields where the answer to semantic queries may be found, such as the main content of a document. Choose a field that provides sufficient content.
 
 #### Step 3: Remove orderBy clauses
 
@@ -132,9 +130,9 @@ There are explicit and implicit conditions that produce answers.
 
 + Explicit conditions include adding "answers=extractive". Additionally, to specify the number of answers returned in the overall response, add "count" followed by a number: `"answers=extractive|count=3"`.  The default is one. Maximum is five.
 
-+ Implicit conditions include a query string construction that lends itself to an answer. A query composed of 'what hotel has the green room' is more likely to be "answered" than a query composed of a statement like 'hotel with fancy interior'. 
++ Implicit conditions include a query string construction that lends itself to an answer. A query composed of 'what hotel has the green room' is more likely to be "answered" than a query composed of a statement like 'hotel with fancy interior'. As you might expect, the query cannot be unspecified or null.
 
-The takeaway is that if the query doesn't look like a question, answer processing is skipped, even if the "answers" parameter is set.
+The important point to take away is that if the query doesn't look like a question, answer processing is skipped, even if the "answers" parameter is set.
 
 #### Step 5: Add other parameters
 
