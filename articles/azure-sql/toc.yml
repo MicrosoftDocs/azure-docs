@@ -1171,14 +1171,14 @@
           href: virtual-machines/windows/move-sql-vm-different-region.md
       - name: Business continuity
         items:
+        - name: Create cluster
+          href: virtual-machines/windows/hadr-create-cluster-how-to.md
         - name: Backup and restore
           items:
           - name: Automated backup (SQL 2016+)
             href: virtual-machines/windows/automated-backup.md
           - name: Automated backup (SQL 2014)
             href: virtual-machines/windows/automated-backup-sql-2014.md
-        - name: Create cluster
-          href: virtual-machines/windows/hadr-create-cluster-how-to.md
         - name: Availability group (AG)
           items:
           - name: Create AG 
@@ -1203,8 +1203,6 @@
                 href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
               - name: Load balancer - Azure PowerShell
                 href: virtual-machines/windows/availability-group-listener-powershell-configure.md
-          - name: Configure cluster 
-            href: virtual-machines/windows/availability-group-recommended-cluster-settings.md
           - name: Configure connectivity
             items:  
             - name: VNN listener
@@ -1215,6 +1213,8 @@
               href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
             - name: DNN interoperability
               href: virtual-machines/windows/availability-group-dnn-interoperability.md
+          - name: Cluster settings for AG 
+            href: virtual-machines/windows/availability-group-recommended-cluster-settings.md
 
         - name: Failover cluster instance (FCI)
           items:
