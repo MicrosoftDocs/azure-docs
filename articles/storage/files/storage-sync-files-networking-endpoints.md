@@ -606,7 +606,11 @@ Azure CLI does not support setting the `incomingTrafficPolicy` property on the S
 ## Azure Policy
 Azure Policy helps to enforce organization standards and assess compliance against those standards at scale. With respect to the networking policy, Azure Files and Azure File Sync expose several useful audit and remediation policies that help you monitor and automate your deployment.
 
-| Action | Service | Logical condition | Policy name |
+Policies that audit your environment alert you know if your storage accounts or Storage Sync Services diverge from the defined behavior, for example, if a public endpoint is enabled when the policy was set to have the public endpoints disabled. Modify/deploy policies take things a step further and proactively modify a resource (such as the Storage Sync Service) or deploy resources (such as private endpoints), to align with the policies.
+
+The following pre-defined policies are available for Azure Files and Azure File Sync:
+
+| Action | Service | Condition | Policy name |
 |-|-|-|-|
 | Audit | Azure Files | The storage account's public endpoint is enabled. See [Disable access to the storage account public endpoint](#disable-access-to-the-storage-account-public-endpoint) for more information. | Storage accounts should restrict network access |
 | Audit | Azure File Sync | The Storage Sync Service's public endpoint is enabled. See [Disable access to the Storage Sync Service public endpoint](#disable-access-to-the-storage-sync-service-public-endpoint) for more information. | Public network access should be disabled for Azure File Sync |
@@ -615,8 +619,6 @@ Azure Policy helps to enforce organization standards and assess compliance again
 | Modify | Azure File Sync | Disable the Storage Sync Service's public endpoint. | Modify - Configure Azure File Sync to disable public network access |
 | Deploy | Azure File Sync | Deploy a private endpoint for the Storage Sync Service. | Configure Azure File Sync with private endpoints |
 | Deploy | Azure File Sync | Deploy an A record to privatelink.afs.azure.net DNS zone. | Configure Azure File Sync to use private DNS zones |
-
-Policies that audit your environment alert you know if your storage accounts or Storage Sync Services diverge from the defined behavior, for example, if a public endpoint is enabled when the policy was set to have the public endpoints disabled. Modify/deploy policies take things a step further and proactively modify a resource (such as the Storage Sync Service) or deploy resources (such as private endpoints), to align with the policies.
 
 ### Set up a private endpoint deployment policy
 To set up a private endpoint deployment policy, go to the Azure portal, and search for **Policy**. The Azure Policy center is a top result. Navigate to **Authoring** > **Definitions** in the Policy center's table of contents. The resulting **Definitions** pane contains the pre-defined policies across all Azure services. To find the specific policy, select the **Storage** category in the category filter, or search for **Configure Azure File Sync with private endpoints**. Click **...** and **Assign** to create a new policy from the definition.
