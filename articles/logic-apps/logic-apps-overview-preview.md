@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ---
 
 # Overview: Azure Logic Apps Preview
@@ -199,7 +199,7 @@ In Azure Logic Apps Preview, these capabilities have changed, or they are curren
 
     * [On-premises data gateway *triggers*](../connectors/apis-list.md#on-premises-connectors) are unavailable, but gateway actions *are* available.
 
-    * [Custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) are unavailable.
+    * By default, [custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) aren't enabled in Visual Studio Code. To use custom connectors, [switch your project from extension bundle-based (Node.js) to NuGet package-based (.NET)](create-stateful-stateless-workflows-visual-studio-code.md#enable-custom-connectors).
 
     * The built-in action, [Azure Functions - Choose an Azure function](logic-apps-azure-functions.md) is now **Azure Function Operations - Call an Azure function**. This action currently works only for functions that are created from the **HTTP Trigger** template.
 

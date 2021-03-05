@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ---
 
 # Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -289,6 +289,7 @@ Before you can create your logic app, create a local project so that you can man
    1. Replace the `AzureWebJobsStorage` property value with the storage account's connection string that you saved earlier, for example:
 
       Before:
+
       ```json
       {
          "IsEncrypted": false,
@@ -300,6 +301,7 @@ Before you can create your logic app, create a local project so that you can man
       ```
 
       After:
+
       ```json
       {
          "IsEncrypted": false,
@@ -311,6 +313,18 @@ Before you can create your logic app, create a local project so that you can man
       ```
 
    1. When you're done, make sure that you save your changes.
+
+<a name="enable-custom-connectors"></a>
+
+## Enable custom connectors
+
+By default, custom connectors aren't enabled in Visual Studio Code. To use custom connectors, you have to convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET).
+
+1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to Nuget-based Logic App project**.
+
+   ![Screenshot that shows that shows Explorer pane with the project's shortcut menu opened from a blank area in the project window.](./media/create-stateful-stateless-workflows-visual-studio-code/convert-logic-app-project.png)
+
+1. When the prompt appears, confirm the project conversion.
 
 <a name="open-workflow-definition-designer"></a>
 
@@ -1385,6 +1399,7 @@ When you try to start a debugging session, you get the error, **"Error exists af
 1. In the following task, delete the line, `"dependsOn: "generateDebugSymbols"`, along with the comma that ends the preceding line, for example:
 
    Before:
+
    ```json
     {
       "type": "func",
@@ -1396,6 +1411,7 @@ When you try to start a debugging session, you get the error, **"Error exists af
    ```
 
    After:
+
    ```json
     {
       "type": "func",
