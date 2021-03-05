@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
 ---
 
-# Submit, monitor and track runs 
+# Start, monitor and track runs 
 
 The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py), [Machine Learning CLI](reference-azure-machine-learning-cli.md), and [Azure Machine Learning studio](https://ml.azure.com) provide various methods to monitor, organize, and manage your runs for training and experimentation.
 
