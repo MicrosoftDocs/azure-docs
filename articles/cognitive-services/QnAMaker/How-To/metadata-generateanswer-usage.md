@@ -151,7 +151,6 @@ var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnCont
 
 The previous JSON requested only answers that are at 30% or above the threshold score.
 
-
 ## Use QnA Maker with a bot in Node.js
 
 The bot framework provides access to the QnA Maker's properties with the [getAnswer API](/javascript/api/botbuilder-ai/qnamaker?preserve-view=true&view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
