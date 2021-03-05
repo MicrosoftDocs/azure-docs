@@ -89,8 +89,6 @@ Once the configuration is created, you create a machine learning `ComputeTarget`
 
 ## Create a `SynapseSparkStep` that uses the linked Apache Spark pool
 
-The sample notebook [Spark job on Apache spark pool](https://github.com/azure/machinelearningnotebooks) defines a simple machine learning pipeline. First, the notebook defines a data preparation step powered by the `synapse_compute` defined in the previous step. Then,  the notebook defines a training step powered by a compute target better suited for training. The sample notebook uses the Titanic survival database to demonstrate data input and output; it doesn't actually clean the data or make a predictive model. Since there's no real training in this sample, the training step uses an inexpensive, CPU-based compute resource.
-
 Data flows into a machine learning pipeline by way of `DatasetConsumptionConfig` objects, which can hold tabular data or sets of files. The data often comes from files in blob storage in a workspace's datastore. The following code shows some typical code for creating input for a machine learning pipeline:
 
 ```python
@@ -226,7 +224,7 @@ The code above creates the new compute resource if necessary. Then, the `step1_o
 
 Once you've defined all of your steps, you can create and run your pipeline. 
 
-```
+```python
 from azureml.pipeline.core import Pipeline
 
 pipeline = Pipeline(workspace=ws, steps=[step_1, step_2])
