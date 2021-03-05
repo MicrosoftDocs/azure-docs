@@ -6,7 +6,6 @@ ms.author: dukek
 services: monitoring
 ms.topic: conceptual
 ms.date: 02/16/2018
-ms.subservice: alerts
 ---
 
 # SMS Alert Behavior in Action Groups

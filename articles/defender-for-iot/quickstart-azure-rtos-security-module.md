@@ -16,7 +16,7 @@ ms.date: 01/24/2021
 ms.author: shhazam
 ---
 
-# Quickstart: Security Module for Azure RTOS (preview)
+# Quickstart: Security Module for Azure RTOS 
 
 This article provides an explanation of the prerequisites before getting started and explains how to enable the Security Module for Azure RTOS service on an IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT Hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md) to get started.
 
