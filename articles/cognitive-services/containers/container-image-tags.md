@@ -711,7 +711,7 @@ This container image has the following tags available. You can also find a full 
 Release note for `1.12.0-amd64-<locale-and-voice>`:
 
 **Feature**
-* Upgrade to latet models.
+* Upgrade to latest models.
 
 | Image Tags                                  | Notes                                                                                                         |
 |---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
