@@ -27,9 +27,9 @@ For more information about the _provision_ and _retire_ stages, and to better un
 
 Before you can set up the provisioning, you'll need to set up the following:
 
-[!INCLUDE [digital-twins-prereq-provisioning-and-time-series-insights-integration.md](../../includes/digital-twins-prereq-provisioning-and-time-series-insights-integration.md)]
+[!INCLUDE [digital-twins-prereq-instance-and-iot-hub.md](../../includes/digital-twins-prereq-instance-and-iot-hub.md)]
 
-* an [Azure function](../articles/azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Follow [*How to: Ingest IoT hub data*](how-to-ingest-iot-hub-data.md) to create an Azure function. Gather the function **_name_** to use it in this article.
+* an [Azure function](../../articles/azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Follow [*How to: Ingest IoT hub data*](how-to-ingest-iot-hub-data.md) to create an Azure function. Gather the function **_name_** to use it in this article.
 
 This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
 
@@ -81,11 +81,11 @@ In this section, you are going to create a new function that will be used by the
 
 #### Use an existing project
 
-    You can open your existing project with your function that you created in the prerequisites section, and add a new function inside your function app will be used by the Device Provisioning Service.
+You can open your existing project with your function that you created in the prerequisites section, and add a new function inside your function app will be used by the Device Provisioning Service.
 
 #### Create a new project
 
-    You can create a new project in your code editor of your choice and create a new function app that will be used by the Device Provisioning Service.
+You can create a new project in your code editor of your choice and create a new function app that will be used by the Device Provisioning Service.
 
 Inside your function app project, do the following steps:
 
