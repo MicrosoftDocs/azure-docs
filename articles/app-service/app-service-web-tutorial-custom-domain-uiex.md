@@ -23,6 +23,8 @@ In this tutorial, you'll learn how to:
 > * Map a wildcard domain by using a CNAME record.
 > * Redirect the default URL to a custom directory.
 
+<hr/> 
+
 ## 1. Prepare your environment
 
 * [Create an App Service app](./index.yml), or use an app that you created for another tutorial.
@@ -33,15 +35,17 @@ In this tutorial, you'll learn how to:
         Requires access to the DNS registry for your domain provider, such as GoDaddy. For example, to add DNS entries for <code>contoso.com</code> and <code>www.contoso.com</code>, you must be able to configure the DNS settings for the <code>contoso.com</code> root domain.
     </details>
 
+<hr/> 
+
 ## 2. Prepare the app
 
 To map a custom DNS name to an app, the app's <abbr title="Specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr> must be a paid tier (not <abbr title="An Azure App Service tier in which your app runs on the same VMs as other apps, including other customers’ apps. This tier is intended for development and testing.">**Free (F1)**</abbr>). For more information, see [Azure App Service plan overview](overview-hosting-plans.md).
 
-### Sign in to Azure
+#### Sign in to Azure
 
 Open the [Azure portal](https://portal.azure.com), and sign in with your Azure account.
 
-### Select the app in the Azure portal
+#### Select the app in the Azure portal
 
 1. Search for and select **App Services**.
 
@@ -55,7 +59,7 @@ Open the [Azure portal](https://portal.azure.com), and sign in with your Azure a
 
 <a name="checkpricing" aria-hidden="true"></a>
 
-### Check the pricing tier
+#### Check the pricing tier
 
 1. In the left pane of the app page, scroll to the **Settings** section and select **Scale up (App Service plan)**.
 
@@ -69,7 +73,7 @@ Open the [Azure portal](https://portal.azure.com), and sign in with your Azure a
 
 <a name="scaleup" aria-hidden="true"></a>
 
-### Scale up the App Service plan
+#### Scale up the App Service plan
 
 1. Select any of the non-free tiers (**D1**, **B1**, **B2**, **B3**, or any tier in the **Production** category). For additional options, select **See additional options**.
 
@@ -80,6 +84,8 @@ Open the [Azure portal](https://portal.azure.com), and sign in with your Azure a
    When you see the following notification, the scale operation is complete.
 
    ![Screenshot that shows the scale operation confirmation.](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
+
+<hr/> 
 
 <a name="cname" aria-hidden="true"></a>
 
@@ -102,6 +108,8 @@ To add a custom domain to your app, you need to verify your ownership of the dom
 3. **(A record only)** To map an <abbr title="An address record in DNS maps a hostname to an IP address.">A record</abbr>, you need the app's external IP address. In the **Custom domains** page, copy the value of **IP address**.
 
    ![Screenshot that shows portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+
+<hr/> 
 
 ## 4. Create the DNS records
 
@@ -203,10 +211,12 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 -----
 
 <details>
-    <summary>My changes are erased after I leave the page.</summary>
-    <p>For certain providers, such as GoDaddy, changes to DNS records don't become effective until you select a separate <strong>Save Changes</strong> link.</p>
+<summary>My changes are erased after I leave the page.</summary>
+<p>For certain providers, such as GoDaddy, changes to DNS records don't become effective until you select a separate <strong>Save Changes</strong> link.</p>
 </details>
-    
+
+<hr/> 
+
 ## 5. Enable the mapping in your app
 
 1. In the left pane of the app page in the Azure portal, select **Custom domains**.
@@ -287,7 +297,9 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
     </details>
 
 -----
-    
+
+<hr/> 
+
 ## 6. Test in a browser
 
 Browse to the DNS names that you configured earlier.
@@ -303,9 +315,13 @@ Browse to the DNS names that you configured earlier.
 </ul>
 </details>
 
+<hr/> 
+
 ## Migrate an active domain
 
 To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure App Service](manage-custom-dns-migrate-domain.md).
+
+<hr/> 
 
 <a name="virtualdir" aria-hidden="true"></a>
 
@@ -326,11 +342,13 @@ While this is a common scenario, it doesn't actually involve custom domain mappi
 
 1. After the operation finishes, verify by navigating to your app's root path in the browser (for example, `http://contoso.com` or `http://<app-name>.azurewebsites.net`).
 
+<hr/> 
+
 ## Automate with scripts
 
 You can automate management of custom domains with scripts by using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 
-### Azure CLI
+#### Azure CLI
 
 The following command adds a configured custom DNS name to an App Service app.
 
@@ -343,7 +361,7 @@ az webapp config hostname add \
 
 For more information, see [Map a custom domain to a web app](scripts/cli-configure-custom-domain.md).
 
-### Azure PowerShell
+#### Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -357,6 +375,8 @@ Set-AzWebApp `
 ```
 
 For more information, see [Assign a custom domain to a web app](scripts/powershell-configure-custom-domain.md).
+
+<hr/> 
 
 ## Next steps
 
