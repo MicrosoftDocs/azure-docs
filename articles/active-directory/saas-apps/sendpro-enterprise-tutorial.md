@@ -76,7 +76,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<TENANT_NAME>.sendproenterprise.com`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [SendPro Enterprise Client support team](mailto:wayne.jacoby@pb.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [SendPro Enterprise Client support team](https://www.pitneybowes.com/us/support.html) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -111,11 +111,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure SendPro Enterprise SSO
 
-To configure single sign-on on **SendPro Enterprise** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [SendPro Enterprise support team](mailto:wayne.jacoby@pb.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **SendPro Enterprise** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [SendPro Enterprise support team](https://www.pitneybowes.com/us/support.html). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create SendPro Enterprise test user
 
-In this section, you create a user called Britta Simon in SendPro Enterprise. Work with [SendPro Enterprise support team](mailto:wayne.jacoby@pb.com) to add the users in the SendPro Enterprise platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in SendPro Enterprise. Work with [SendPro Enterprise support team](https://www.pitneybowes.com/us/support.html) to add the users in the SendPro Enterprise platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
