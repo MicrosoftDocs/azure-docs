@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2021
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -68,7 +68,7 @@ The application session can be a cookie-based session stored under the applicati
 
 You can configure the Azure AD B2C session behavior, including:
 
-- **Web app session lifetime (minutes)** - The amount of time the Azure AD B2C session cookie is stored on the user's browser after successful authentication. You can set the session lifetime to a value from 15 to 720 minutes.
+- **Web app session lifetime (minutes)** - The amount of time the Azure AD B2C session cookie is stored on the user's browser after successful authentication. You can set the session lifetime up to 24 hours.
 
 - **Web app session timeout** - Indicates how a session is extended by the session lifetime setting or the Keep me signed in (KMSI) setting.
   - **Rolling** - Indicates that the session is extended every time the user performs a cookie-based authentication (default).
@@ -191,7 +191,7 @@ To add the KMSI checkbox to the sign-up and sign-in page, set the `setting.enabl
 
 ### Configure a relying party file
 
-Update the relying party (RP) file that initiates the user journey that you created.
+Update the relying party (RP) file that initiates the user journey that you created. The keepAliveInDays parameter allows you to configure how the long the keep me signed in (KMSI) session cookie should persist. For example, if you set the value to 30, then KMSI session cookie will persist for 30 days. The range for the value is from 1 to 90 days.
 
 1. Open your custom policy file. For example, *SignUpOrSignin.xml*.
 1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="User journey Id" />`, for example: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.

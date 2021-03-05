@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -551,7 +551,7 @@ The **UseTechnicalProfileForSessionManagement** element reference to [Single sig
 
 ## Enabled for user journeys
 
-The [ClaimsProviderSelections](userjourneys.md#claimsproviderselection) in a user journey defines the list of claims provider selection options and their order. With the **EnabledForUserJourneys** element  you filter, which claims provider is available to the user. The **EnabledForUserJourneys** element contains one of the following values:
+The [ClaimsProviderSelections](userjourneys.md#claims-provider-selection) in a user journey defines the list of claims provider selection options and their order. With the **EnabledForUserJourneys** element  you filter, which claims provider is available to the user. The **EnabledForUserJourneys** element contains one of the following values:
 
 - **Always**, execute the technical profile.
 - **Never**, skip the technical profile.
