@@ -122,7 +122,7 @@ Azure Logic Apps Preview includes many current and additional capabilities, for 
 
 * Create logic apps and their workflows from [400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
-  * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to the built-in triggers and actions that are native to the Azure Logic Apps Preview runtime, for example, the Request trigger and HTTP action.
+  * Some managed connectors, such as Azure Service Bus, Azure Event Hubs, SQL Server, and MQ, run similarly to the built-in triggers and actions that are native to the Azure Logic Apps Preview runtime, for example, the Request trigger and HTTP action.
 
   * Create your own built-in connectors for any service you need by using the [preview release's extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, but unlike [custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) that aren't currently supported for preview, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the preview runtime.
 
