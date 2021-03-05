@@ -54,21 +54,21 @@
 			</g>
 			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/manage-assets-quickstart">
 				<g id="shape129-4" transform="translate(268.144,-720)">
-					<title>Start/End.129</title>
+					<title>See uploading content documentation</title>
 					<desc>Upload content</desc>
 					<path d="M13.5 1044.5 L90.9 1044.5 A13.5 13.5 -180 0 0 90.9 1017.5 L13.5 1017.5 A13.5 13.5 -180 1 0 13.5 1044.5
 								 Z" class="st2"/>
 					<text x="11.84" y="1034.6" class="st3">Upload content</text>				</g>
 			</a>
 			<g id="shape130-7" transform="translate(268.144,-661.5)">
-				<title>Start/End.130</title>
+				<title>Get values</title>
 				<desc>Get values</desc>
 				<path d="M13.5 1044.5 L90.9 1044.5 A13.5 13.5 -180 0 0 90.9 1017.5 L13.5 1017.5 A13.5 13.5 -180 1 0 13.5 1044.5 Z"
 						class="st2"/>
 				<text x="23.52" y="1034.6" class="st3">Get values</text>			</g>
 			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/how-to-create-transform">
 				<g id="shape131-10" transform="translate(260.044,-553.5)">
-					<title>Start/End.131</title>
+					<title>See the documentation for creating a transform</title>
 					<desc>Create transform</desc>
 					<path d="M13.5 1044.5 L107.1 1044.5 A13.5 13.5 -180 1 0 107.1 1017.5 L13.5 1017.5 A13.5 13.5 -180 1 0 13.5 1044.5
 								 Z" class="st2"/>
@@ -76,14 +76,14 @@
 			</a>
 			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/how-to-create-asset">
 				<g id="shape160-13" transform="translate(253.688,-973.238)">
-					<title>Start/End.160</title>
+					<title>See the documentation for creating a new Asset</title>
 					<desc>Create new asset</desc>
 					<path d="M13.5 1044.5 L119.81 1044.5 A13.5 13.5 -180 0 0 119.81 1017.5 L13.5 1017.5 A13.5 13.5 -180 1 0 13.5
 								 1044.5 Z" class="st2"/>
 					<text x="19.97" y="1034.6" class="st3">Create new asset</text>				</g>
 			</a>
 			<g id="shape161-16" transform="translate(253.688,-868.5)">
-				<title>Start/End.161</title>
+				<title>Existing asset</title>
 				<desc>Use existing asset</desc>
 				<path d="M13.5 1044.5 L119.81 1044.5 A13.5 13.5 -180 0 0 119.81 1017.5 L13.5 1017.5 A13.5 13.5 -180 1 0 13.5 1044.5
 							 Z" class="st2"/>
@@ -98,14 +98,14 @@
 				<path d="M9 1044.5 L9 1118.46" class="st6"/>
 			</g>
 			<g id="shape244-28" transform="translate(268.144,-463.5)">
-				<title>Start/End.244</title>
+				<title>Get values</title>
 				<desc>Get values</desc>
 				<path d="M13.5 1044.5 L90.9 1044.5 A13.5 13.5 -180 0 0 90.9 1017.5 L13.5 1017.5 A13.5 13.5 -180 1 0 13.5 1044.5 Z"
 						class="st2"/>
 				<text x="23.52" y="1034.6" class="st3">Get values</text>			</g>
 			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/monitor-events-portal-how-to">
 				<g id="shape268-31" transform="translate(268.144,-175.5)">
-					<title>Start/End.268</title>
+					<title>See the documentation for setting up Event Grid</title>
 					<desc>Set up monitoring</desc>
 					<path d="M13.5 1044.5 L90.9 1044.5 A13.5 13.5 -180 0 0 90.9 1017.5 L13.5 1017.5 A13.5 13.5 -180 1 0 13.5 1044.5
 								 Z" class="st2"/>
@@ -377,7 +377,7 @@
 			</g>
 			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/cli-create-jobs">
 				<g id="shape132-192" transform="translate(268.144,-317.25)">
-					<title>Start/End.132</title>
+					<title>See the documentation for creating a job</title>
 					<desc>Create job and output asset</desc>
 					<path d="M20.25 1044.5 L84.15 1044.5 A20.25 20.25 -180 0 0 84.15 1004 L20.25 1004 A20.25 20.25 -180 1 0 20.25
 								 1044.5 Z" class="st2"/>
@@ -389,7 +389,7 @@
 				<rect x="0" y="1032.5" width="100" height="12" class="st4"/>
 				<text x="44" y="1041.7" class="st5">OR</text>			</g>
 			<g id="shape1026-199" transform="translate(253.688,-783)">
-				<title>Start/End.1026</title>
+				<title>other storage</title>
 				<desc>Use other storage</desc>
 				<path d="M13.5 1044.5 L119.81 1044.5 A13.5 13.5 -180 0 0 119.81 1017.5 L13.5 1017.5 A13.5 13.5 -180 1 0 13.5 1044.5
 							 Z" class="st2"/>
@@ -447,7 +447,7 @@
 				<path d="M9 1044.5 L9 1152.21" class="st22"/>
 			</g>
 			<g id="shape1042-265" transform="translate(268.144,-22.0781)">
-				<title>Start/End.1042</title>
+				<title>Monitor</title>
 				<desc>Monitor</desc>
 				<path d="M13.5 1044.5 L90.9 1044.5 A13.5 13.5 -180 0 0 90.9 1017.5 L13.5 1017.5 A13.5 13.5 -180 1 0 13.5 1044.5 Z"
 						class="st2"/>
