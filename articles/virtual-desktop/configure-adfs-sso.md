@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/01/2021
+ms.date: 03/04/2021
 ms.author: helohr
 ---
 # Configure AD FS single sign-on for Windows Virtual Desktop
@@ -133,35 +133,23 @@ This script only has one required parameter:
 
 - If using shared key in Key Vault, run the following PowerShell cmdlet on the AD FS server with ADFSServiceUrl replaced with the full URL to reach your AD FS service:
 
-  Public Cloud
-  
   ```powershell
   Install-Script ConfigureWVDSSO
-  $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>"
+  $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" [-WvdWebAppAppIDUri "<WVD Web App URI>"] [-RdWebURL "<RDWeb URL>"]
   ```
 
-  Sovereign Cloud
-  
-  ```powershell
-  Install-Script ConfigureWVDSSO
-  $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -WvdWebAppAppIDUri "https://www.wvd.microsoft.com" -RdWebURL "https://rdweb.wvd.azure.us" 
-  ```
+  > [!Note]
+  > The WvdWebAppAppIDUri and RdWebURL properties are needed when configuring an environment in a sovereign cloud like Azure Government. In the Azure Commercial Cloud, these are automatically set to `https://www.wvd.microsoft.com` and `https://rdweb.wvd.microsoft.com` respectively.
 
 - If using certificate in Key Vault, run the following PowerShell cmdlet on the AD FS server with ADFSServiceUrl replaced with the full URL to reach your AD FS service:
 
-  Public Cloud:
- 
-   ```powershell
-    Install-Script ConfigureWVDSSO
-    $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -UseCert -CertPath "<Path to the pfx file>" -CertPassword <Password to the pfx file>
-    ```
+  ```powershell
+  Install-Script ConfigureWVDSSO
+  $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -UseCert -CertPath "<Path to the pfx file>" -CertPassword <Password to the pfx file> [-WvdWebAppAppIDUri "<WVD Web App URI>"] [-RdWebURL "<RDWeb URL>"]
+  ```
 
-  Sovereign Cloud
- 
-   ```powershell
-    Install-Script ConfigureWVDSSO
-      $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -WvdWebAppAppIDUri "https://www.wvd.microsoft.com" -RdWebURL "https://rdweb.wvd.azure.us" -UseCert -CertPath "<Path to the pfx file>" -CertPassword <Password to the pfx file>
-    ```
+  > [!Note]
+  > The WvdWebAppAppIDUri and RdWebURL properties are needed when configuring an environment in a sovereign cloud like Azure Government. In the Azure Commercial Cloud, these are automatically set to `https://www.wvd.microsoft.com` and `https://rdweb.wvd.microsoft.com` respectively.
 
 ### Set the access policy on the Azure Key Vault
 
@@ -195,31 +183,21 @@ After that, update the SSO information for your Host Pool by running the followi
 
 - If using shared key in Key Vault, run the following in PowerShell:
 
-  Public Cloud:
-
   ```powershell
-  Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority "<ADFSServiceUrl>" -SsoClientId "https://www.wvd.microsoft.com" -SsoSecretType SharedKeyInKeyVault -SsoClientSecretKeyVaultPath $secret.Id
+  Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority "<ADFSServiceUrl>" -SsoClientId "<WVD Web App URI>" -SsoSecretType SharedKeyInKeyVault -SsoClientSecretKeyVaultPath $secret.Id
   ```
 
-  Sovereign Cloud
-
-  ```powershell
-  Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority "<ADFSServiceUrl>" -SsoClientId "https://www.wvd.microsoft.us" -SsoSecretType SharedKeyInKeyVault -SsoClientSecretKeyVaultPath $secret.Id
-  ```
+  > [!Note]
+  > The SsoClientId property needs to be set to match the Azure cloud you are deploying in. In the Azure Commercial Cloud, it should be set to `https://www.wvd.microsoft.com`. It will be different for other clouds like Azure Government.
 
 - If using certificate in Key Vault, run the following in PowerShell:
 
-  Public Cloud:
-
   ```powershell
-  Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority "<ADFSServiceUrl>" -SsoClientId "https://www.wvd.microsoft.com" -SsoSecretType CertificateInKeyVault -SsoClientSecretKeyVaultPath $secret.Id
+  Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority "<ADFSServiceUrl>" -SsoClientId "<WVD Web App URI>" -SsoSecretType CertificateInKeyVault -SsoClientSecretKeyVaultPath $secret.Id
   ```
 
-  Sovereign Cloud
-
-  ```powershell
-  Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority "<ADFSServiceUrl>" -SsoClientId "https://www.wvd.microsoft.us" -SsoSecretType CertificateInKeyVault -SsoClientSecretKeyVaultPath $secret.Id
-  ```
+  > [!Note]
+  > The SsoClientId property needs to be set to match the Azure cloud you are deploying in. In the Azure Commercial Cloud, it should be set to `https://www.wvd.microsoft.com`. It will be different for other clouds like Azure Government.
 
 ### Configure additional host pool
 
@@ -245,8 +223,11 @@ Follow the steps to Configure a host pool above using the same SsoClientId, SsoC
 
   ```powershell
   Install-Script UnConfigureWVDSSO
-  UnConfigureSSOClient.ps1 -WvdWebAppAppIDUri "https://www.wvd.microsoft.com" -WvdClientAppApplicationID "a85cf173-4192-42f8-81fa-777a763e6e2c"
+  UnConfigureSSOClient.ps1 -WvdWebAppAppIDUri "<WVD Web App URI>" -WvdClientAppApplicationID "a85cf173-4192-42f8-81fa-777a763e6e2c"
   ```
+
+  > [!Note]
+  > The WvdWebAppAppIDUri property needs to be set to match the Azure cloud you are deploying in. In the Azure Commercial Cloud, it should be set to `https://www.wvd.microsoft.com`. It will be different for other clouds like Azure Government.
 
 ## Next steps
 
