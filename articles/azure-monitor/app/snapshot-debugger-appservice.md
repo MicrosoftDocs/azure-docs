@@ -13,7 +13,8 @@ ms.reviewer: mbullwin
 
 Snapshot Debugger currently supports ASP.NET and ASP.NET Core apps that are running on Azure App Service on Windows service plans.
 
-We recommend you run your application on the Basic service tier or higher when using snapshot debugger.
+We recommend you run your application on the Basic service tier, or higher, when using snapshot debugger.
+
 For most applications, the Free and Shared service tiers don't have enough memory or disk space to save snapshots.
 
 ## <a id="installation"></a> Enable Snapshot Debugger
@@ -48,6 +49,16 @@ Once you've deployed an app, follow the steps below to enable the snapshot debug
 4. Snapshot Debugger is now enabled using an App Services App Setting.
 
     ![App Setting for Snapshot Debugger][snapshot-debugger-app-setting]
+
+## Enable Snapshot Debugger for other clouds
+
+Currently the only regions that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide) through the Application Insights Connection String.
+
+|Connection String Property    | US Government Cloud | China Cloud |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+For more information about other connection overrides, see [Application Insights documentation](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 ## Disable Snapshot Debugger
 
