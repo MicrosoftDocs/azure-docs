@@ -604,9 +604,9 @@ Azure CLI does not support setting the `incomingTrafficPolicy` property on the S
 ---
 
 ## Azure Policy
-Azure Policy helps to enforce organization standards and assess compliance against those standards at scale. With respect to the networking policy, Azure Files and Azure File Sync expose several useful audit and remediation policies that help you monitor and automate your deployment.
+Azure Policy helps enforce organization standards and assess compliance against those standards at scale. Azure Files and Azure File Sync expose several useful audit and remediation network policies that help you monitor and automate your deployment.
 
-Policies that audit your environment alert you know if your storage accounts or Storage Sync Services diverge from the defined behavior, for example, if a public endpoint is enabled when the policy was set to have the public endpoints disabled. Modify/deploy policies take things a step further and proactively modify a resource (such as the Storage Sync Service) or deploy resources (such as private endpoints), to align with the policies.
+Policies audit your environment and alert you if your storage accounts or Storage Sync Services diverge from the defined behavior. For example, if a public endpoint is enabled when your policy was set to have the public endpoints disabled. Modify/deploy policies take things a step further and proactively modify a resource (such as the Storage Sync Service) or deploy resources (such as private endpoints), to align with the policies.
 
 The following pre-defined policies are available for Azure Files and Azure File Sync:
 
@@ -621,13 +621,13 @@ The following pre-defined policies are available for Azure Files and Azure File 
 | Deploy | Azure File Sync | Deploy an A record to privatelink.afs.azure.net DNS zone. | Configure Azure File Sync to use private DNS zones |
 
 ### Set up a private endpoint deployment policy
-To set up a private endpoint deployment policy, go to the Azure portal, and search for **Policy**. The Azure Policy center is a top result. Navigate to **Authoring** > **Definitions** in the Policy center's table of contents. The resulting **Definitions** pane contains the pre-defined policies across all Azure services. To find the specific policy, select the **Storage** category in the category filter, or search for **Configure Azure File Sync with private endpoints**. Click **...** and **Assign** to create a new policy from the definition.
+To set up a private endpoint deployment policy, go to the [Azure portal](https://portal.azure.com/), and search for **Policy**. The Azure Policy center should be a top result. Navigate to **Authoring** > **Definitions** in the Policy center's table of contents. The resulting **Definitions** pane contains the pre-defined policies across all Azure services. To find the specific policy, select the **Storage** category in the category filter, or search for **Configure Azure File Sync with private endpoints**. Select **...** and **Assign** to create a new policy from the definition.
 
-The **Basics** page of the **Assign policy** wizard enables you to set a scope, resource/resource group exclusion list, and to give your policy a friendly name to help you distinguish it. Although you may wish to toggle these settings to narrow the policy's scope, you don't need to edit these for the policy to work. Click **Next** to advance to the **Parameters** page. 
+The **Basics** blade of the **Assign policy** wizard enables you to set a scope, resource or resource group exclusion list, and to give your policy a friendly name to help you distinguish it. You don't need to modify these for the policy to work, but you can if you want to make modifications. Select **Next** to advance to the **Parameters** page. 
 
-On the **Parameters** page, select the **...** next to the **privateEndpointSubnetId** drop down list to select the virtual network and subnet where the private endpoints for your Storage Sync Service resources should be deployed. The resulting wizard may take several seconds to load the virtual networks that are available in your subscription. Select the appropriate virtual network/subnet for your environment and click **Select**. Click **Next** to advance to the **Remediation** page.
+On the **Parameters** blade, select the **...** next to the **privateEndpointSubnetId** drop down list to select the virtual network and subnet where the private endpoints for your Storage Sync Service resources should be deployed. The resulting wizard may take several seconds to load the available virtual networks in your subscription. Select the appropriate virtual network/subnet for your environment and click **Select**. Select **Next** to advance to the **Remediation** blade.
 
-In order for the private endpoint to be deployed when a Storage Sync Service without a private endpoint is identified, you must select the **Create a remediation task** on the **Remediation** page. After this has been completed, you may click **Review + create** to review the policy assignment and **Create** to create it.
+In order for the private endpoint to be deployed when a Storage Sync Service without a private endpoint is identified, you must select the **Create a remediation task** on the **Remediation** page. Finally, select **Review + create** to review the policy assignment and **Create** to create it.
 
 The resulting policy assignment will be executed on a periodic basis and may not run immediately after being created.
 
