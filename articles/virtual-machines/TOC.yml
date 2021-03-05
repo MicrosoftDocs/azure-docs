@@ -822,7 +822,7 @@
     - name: Autoscale
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
     - name: Orchestration modes
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes?context=/azure/virtual-machines/context/context
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
   - name: States and lifecycle
     href: states-lifecycle.md
 - name: Disks

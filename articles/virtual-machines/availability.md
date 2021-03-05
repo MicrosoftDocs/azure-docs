@@ -58,4 +58,4 @@ For more information, see [Azure Site Recovery Overview](../site-recovery/site-r
 ## Next steps
 - [Create a virtual machine in an availability zone](/linux/create-cli-availability-zone.md)
 - [Create a virtual machine in an availability set](/linux/tutorial-availability.md)
-- [Create a virtual machine scale set](./virtual-machine-scale-sets/quick-create-portal.md)
+- [Create a virtual machine scale set](../virtual-machine-scale-sets/quick-create-portal.md)
