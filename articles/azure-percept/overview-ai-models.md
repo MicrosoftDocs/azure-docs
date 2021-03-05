@@ -24,9 +24,9 @@ Azure Percept Studio contains sample models for the following applications:
 
 With pre-trained models, no coding or training data collection is required. Simply deploy your desired model to your Azure Percept DK from the portal and open your devkit’s video stream to see the model inferencing in action. Model inferencing telemetry can also be accessed through the [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) tool.
 
-## Pre-built solutions
+## Reference solutions
 
-A [spatial analytics pre-built solution for people detection](https://github.com/george-moore/Santa-Cruz-AI-App) is also available. The pre-built solution is an open-source AI application providing edge-based people counting with user-defined zone entry/exit events. Video and AI output from the on-premise edge device is egressed to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), with the user interface running as an Azure Website. AI inferencing is provided by an open-source AI model for people detection.
+A [people counting reference solution](https://github.com/microsoft/Azure-Percept-Reference-Solutions/tree/main/people-detection-app) is also available. This reference solution is an open-source AI application providing edge-based people counting with user-defined zone entry/exit events. Video and AI output from the on-premise edge device is egressed to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), with the user interface running as an Azure website. AI inferencing is provided by an open-source AI model for people detection.
 
 :::image type="content" source="./media/overview-ai-models/people-detector.gif" alt-text="Spatial analytics pre-built solution gif.":::
 

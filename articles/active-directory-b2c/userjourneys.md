@@ -115,18 +115,23 @@ The **Preconditions** element contains the following element:
 
 #### Precondition
 
+Orchestration steps can be conditionally executed based on preconditions defined in the orchestration step. There are two types of preconditions:
+ 
+- **Claims exist** - Specifies that the actions should be performed if the specified claims exist in the user's current claim bag.
+- **Claim equals** - Specifies that the actions should be performed if the specified claim exists, and its value is equal to the specified value. The check performs a case-sensitive ordinal comparison. When checking Boolean claim type, use `True`, or `False`.
+
 The **Precondition** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | `Type` | Yes | The type of check or query to perform for this precondition. The value can be **ClaimsExist**, which specifies that the actions should be performed if the specified claims exist in the user's current claim set, or **ClaimEquals**, which specifies that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
-| `ExecuteActionsIf` | Yes | Use a true or false test to decide if the actions in the precondition should be performed. |
+| `ExecuteActionsIf` | Yes | Use a `true` or `false` test to decide if the actions in the precondition should be performed. |
 
 The **Precondition** elements contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Value | 1:n | A ClaimTypeReferenceId to be queried for. Another value element contains the value to be checked.</li></ul>|
+| Value | 1:2 | The identifier of a claim type. The claim is already defined in the claims schema section in the policy file, or parent policy file. When the precondition is type of `ClaimEquals`, a second `Value` element contains the value to be checked. |
 | Action | 1:1 | The action that should be performed if the precondition check within an orchestration step is true. If the value of the `Action` is set to `SkipThisOrchestrationStep`, the associated `OrchestrationStep` should not be executed. |
 
 #### Preconditions examples
@@ -185,7 +190,7 @@ Preconditions can check multiple preconditions. The following example checks whe
 </OrchestrationStep>
 ```
 
-## Identity provider selection
+## Claims provider selection
 
 Identity provider selection lets users select an action from a list of options. The identity provider selection consists of a pair of two orchestration  steps: 
 
@@ -211,7 +216,7 @@ The **ClaimsProviderSelection** element contains the following attributes:
 | TargetClaimsExchangeId | No | The identifier of the claims exchange, which is executed in the next orchestration step of the claims provider selection. This attribute or the ValidationClaimsExchangeId attribute must be specified, but not both. |
 | ValidationClaimsExchangeId | No | The identifier of the claims exchange, which is executed in the current orchestration step to validate the claims provider selection. This attribute or the TargetClaimsExchangeId attribute must be specified, but not both. |
 
-### ClaimsProviderSelection example
+### Claims provider selection example
 
 In the following orchestration step, the user can choose to sign in with Facebook, LinkedIn, Twitter, Google, or a local account. If the user selects one of the social identity providers, the second orchestration step executes with the selected claim exchange specified in the `TargetClaimsExchangeId` attribute. The second orchestration step redirects the user to the social identity provider to complete the sign-in process. If the user chooses to sign in with the local account, Azure AD B2C stays on the same orchestration step (the same sign-up page or sign-in page) and skips the second orchestration step.
 
