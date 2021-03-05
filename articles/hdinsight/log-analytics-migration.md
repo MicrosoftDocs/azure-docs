@@ -198,6 +198,30 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
 
 **Old table**: metrics\_cpu\_nice\_clmetrics\_cpu\_system\_clmetrics\_cpu\_user\_cl metrics\_memory\_cache\_CLmetrics\_memory\_swap\_CLmetrics\_memory\_total\_CLmetrics\_memory\_buffer\_CLmetrics\_load\_1min\_CLmetrics\_load\_cpu\_CL metrics\_load\_nodes\_CLmetrics\_load\_procs\_CLmetrics\_network\_in\_CLmetrics\_network\_out\_CL
 
+### HDInsightAmbariClusterAlerts
+
+**Description**: This table contains Ambari Cluster Alerts from each node in the cluster (except for edgenodes). Each alert is a record in this table.
+
+**Old table**: metrics\_cluster\_alerts\_CL
+
+###  HDInsightSecurityLogs 
+
+**Description**: This table contains records from the Ambari Audit and Auth Logs.
+
+**Old table**: log\_ambari\_audit\_CLlog\_auth\_CL
+
+### HDInsightRangerAuditLogs
+
+**Description**: This table contains all records from the Ranger Audit log for ESP clusters.
+
+**Old table**: ranger\_audit\_logs\_CL\
+
+### HDInsightGatewayAuditLogs\_CL 
+
+**Description**: This table contains the Gateway nodes audit information. It is the same format as the table in Old Tables column. **It is still located in the Custom Logs section.**
+
+**Old table**: log\_gateway\_Audit\_CL
+
 | New Table | Details |
 | --- | --- |
 | HDInsightAmbariSystemMetrics | <ul><li>**Description**: This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edgebones) instead of just the two headnodes. Each metric is now a column and each metric is reported once per record.</li><li>**Old table**: metrics\_cpu\_nice\_clmetrics\_cpu\_system\_clmetrics\_cpu\_user\_cl metrics\_memory\_cache\_CLmetrics\_memory\_swap\_CLmetrics\_memory\_total\_CLmetrics\_memory\_buffer\_CLmetrics\_load\_1min\_CLmetrics\_load\_cpu\_CL metrics\_load\_nodes\_CLmetrics\_load\_procs\_CLmetrics\_network\_in\_CLmetrics\_network\_out\_CL</li></ul>|
