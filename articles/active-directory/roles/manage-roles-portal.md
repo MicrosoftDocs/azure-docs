@@ -68,6 +68,8 @@ To download all assignments for a specific role, on the **Roles and administrato
 
     ![Screenshot that shows the "User administrator - Assignments" page with the "Manage in PIM" action selected.](./media/manage-roles-portal/member-list.png)
 
+    To help you find the role you need out of a list of many roles, Azure AD can show you subsets of the roles based on role categories. Check out the **Type** filter for [Azure AD Roles and administrators](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) to show you only the roles in the selected type.
+
 1. Select **Add assignments** and select the roles you want to assign. You can select **Manage in PIM** for additional management capabilities. If you see something different from the following picture, read the Note in [View assignments for privileged roles](#view-assignments-for-privileged-roles) to verify whether you're in PIM.
 
     ![list of permissions for an admin role](./media/manage-roles-portal/directory-role-select-role.png)

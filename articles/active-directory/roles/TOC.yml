@@ -18,6 +18,8 @@
 - name: Concepts
   expanded: true
   items:
+  - name: Best practices
+    href: best-practices.md
   - name: Delegate Azure AD admin roles
     href: concept-delegation.md
   - name: Compare default user permissions    
