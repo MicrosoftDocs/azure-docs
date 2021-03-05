@@ -70,6 +70,20 @@ Here's a quick overview of the steps:
 1. Configure the Sample JS Client App with the new Azure AD B2C Client ID’s and keys 
 1. Test the Client Application
 
+   > [!TIP]
+   > We're going to capture quite a few pieces of information and keys etc as we walk this document, you might find it handy to have a text editor open to store the following items of configuration temporarily. 
+   > B2C BACKEND CLIENT ID: 
+   > B2C BACKEND CLIENT SECRET KEY:
+   > B2C BACKEND API SCOPE: 
+   > B2C FRONTEND CLIENT ID: 
+   > B2C USER FLOW ENDPOINT:
+   > B2C WELL KNOWN OPEN ID ENDPOINT:  
+   > FUNCTION URL: 
+   > APIM API BASE URL:
+   > STORAGE PRIMARY ENDPOINT: 
+   > B2C TOKEN ENDPOINT:
+   > B2C AUTHORIZATION ENDPOINT:
+
 ## Configure the backend application
 
 Open the Azure AD B2C blade in the portal and do the following steps.
