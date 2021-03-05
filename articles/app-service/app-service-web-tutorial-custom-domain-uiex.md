@@ -183,7 +183,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
 ![Screenshot that shows the navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
     
----
+-----
 
 <details>
     <summary>My changes are erased after I leave the page.</summary>
@@ -269,7 +269,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
         A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate. Any HTTPS request from a browser to your custom domain will receive an error or warning, depending on the browser. To add a TLS binding, see <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Secure a custom DNS name with a TLS/SSL binding in Azure App Service</a>.
     </details>
 
----
+-----
     
 ## 6. Test in a browser
 
