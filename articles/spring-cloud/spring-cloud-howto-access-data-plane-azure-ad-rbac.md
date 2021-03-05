@@ -1,5 +1,5 @@
 ---
-title:  "Access data plane with AAD, RBAC"
+title:  "Access data plane with Azure AD, RBAC"
 description: How to access data plane with Azure Active Directory role-based access control.
 author:  MikeDodaro
 ms.author: brendm
