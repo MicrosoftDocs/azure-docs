@@ -5,7 +5,7 @@ author: stevevi
 ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
-ms.date: 02/18/2021
+ms.date: 03/04/2021
 ---
 
 # Azure guidance for secure isolation
@@ -176,7 +176,7 @@ When a managed HSM is created, the requestor also provides a list of data plane 
 > [!IMPORTANT]
 > Unlike with key vaults, granting users management plane access to managed HSMs does not grant them any data plane access to keys or data plane role assignments managed HSM local RBAC. This isolation is by design to prevent inadvertent expansion of privileges affecting access to keys stored in managed HSMs.
 
-As mentioned previously, managed HSM supports [importing keys generated](../key-vault/managed-hsm/hsm-protected-keys-byok.md) in customer’s on-premises HSMs, ensuring the keys never leave the HSM protection boundary, also known as bring your own key (BYOK) scenario. Managed HSM supports integration with Azure services such as [Azure Storage](../storage/common/customer-managed-keys-overview.md), [Azure SQL Database](../azure-sql/database/transparent-data-encryption-byok-overview.md), [Azure Information Protection](azure/information-protection/byok-price-restrictions), and others.
+As mentioned previously, managed HSM supports [importing keys generated](../key-vault/managed-hsm/hsm-protected-keys-byok.md) in customer’s on-premises HSMs, ensuring the keys never leave the HSM protection boundary, also known as bring your own key (BYOK) scenario. Managed HSM supports integration with Azure services such as [Azure Storage](../storage/common/customer-managed-keys-overview.md), [Azure SQL Database](../azure-sql/database/transparent-data-encryption-byok-overview.md), [Azure Information Protection](/azure/information-protection/byok-price-restrictions), and others.
 
 Managed HSM enables customers to use the established Azure Key Vault API and management interfaces. Customers can use the same application development and deployment patterns for all their applications irrespective of the key management solution: multi-tenant vault or single-tenant managed HSM.
 
