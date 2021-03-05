@@ -55,6 +55,34 @@ The list below contains a few runbooks that support common scenarios. For a full
 7. Optionally, change the name of the runbook and then click **OK** to import the runbook.
 8. The runbook appears on the **Runbooks** tab for the Automation account.
 
+## Import a  PowerShell runbook from GitHub with the Azure portal
+
+1. In the Azure portal, open your Automation account.
+1. Select **Runbooks gallery** under **Process Automation**.
+1. Select **Source: PowerShell Gallery**.
+1. Locate the gallery item you want and select it to view its details. On the left, you can enter additional search parameters for the publisher and type.
+
+   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Browsing the GitHub gallery" lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
+
+1. On the Browse gallery page, you can search by the following fields:
+
+   * Module Name
+   * Tags
+   * Author
+   * Cmdlet/DSC resource name
+
+1. Locate a module that you're interested in and select it to view its details.
+
+   When you drill into a specific module, you can view more information. This information includes a link back to the PowerShell Gallery, any required dependencies, and all of the cmdlets or DSC resources that the module contains.
+
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Browsing the GitHub gallery" lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
+
+1. To install the module directly into Azure Automation, click **Import**.
+1. On the Import pane, you can see the name of the module to import. If all the dependencies are installed, the **OK** button is activated. If you're missing dependencies, you need to import those dependencies before you can import this module.
+1. On the Import pane, click **OK** to import the module. While Azure Automation imports a module to your account, it extracts metadata about the module and the cmdlets. This action might take a couple of minutes since each activity needs to be extracted.
+1. You receive an initial notification that the module is being deployed and another notification when it has completed.
+1. After the module is imported, you can see the available activities. You can use module resources in your runbooks and DSC resources.
+
 ## Add a PowerShell runbook to the gallery
 
 Microsoft encourages you to add runbooks to the PowerShell Gallery that you think would be useful to other customers. The PowerShell Gallery accepts PowerShell modules and PowerShell scripts. You can add a runbook by [uploading it to the PowerShell Gallery](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package).
@@ -88,33 +116,6 @@ Microsoft encourages you to add runbooks to the PowerShell Gallery that you thin
 
 > [!NOTE]
 > Modules that only support PowerShell core are not supported in Azure Automation and are unable to be imported in the Azure portal, or deployed directly from the PowerShell Gallery.
-
-## Import a module from GitHub with the Azure portal
-
-1. In the Azure portal, open your Automation account.
-2. Select **Modules** under **Shared Resources** to open the list of modules.
-3. Click **Browse gallery** from the top of the page.
-
-:::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Browsing the GitHub gallery" lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
-
-4. On the Browse gallery page, you can search by the following fields:
-
-   * Module Name
-   * Tags
-   * Author
-   * Cmdlet/DSC resource name
-
-5. Locate a module that you're interested in and select it to view its details.
-
-   When you drill into a specific module, you can view more information. This information includes a link back to the PowerShell Gallery, any required dependencies, and all of the cmdlets or DSC resources that the module contains.
-
-   ![PowerShell module details](media/automation-runbook-gallery/gallery-item-details-blade.png)
-
-6. To install the module directly into Azure Automation, click **Import**.
-7. On the Import pane, you can see the name of the module to import. If all the dependencies are installed, the **OK** button is activated. If you're missing dependencies, you need to import those dependencies before you can import this module.
-8. On the Import pane, click **OK** to import the module. While Azure Automation imports a module to your account, it extracts metadata about the module and the cmdlets. This action might take a couple of minutes since each activity needs to be extracted.
-9. You receive an initial notification that the module is being deployed and another notification when it has completed.
-10. After the module is imported, you can see the available activities. You can use module resources in your runbooks and DSC resources.
 
 ## Use Python runbooks
 
