@@ -32,4 +32,4 @@ Windows Virtual Desktop uses [Azure Front Door](https://azure.microsoft.com/serv
 
 - To check the best location for optimal latency, see the [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 - For pricing plans, see [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
-- To get started with your Windows Virtual Desktop deployment, check out [our tutorial](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+- To get started with your Windows Virtual Desktop deployment, check out [our tutorial](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-azure-marketplace).
