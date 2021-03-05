@@ -50,7 +50,7 @@ landingContent:
           - text: Create an Immersive Reader Resource
             url: how-to-create-immersive-reader.md
           - text: Use multiple Immersive Reader resources
-            url: tutorial-multiple-resources.md
+            url: how-to-multiple-resources.md
           - text: Launch the Immersive Reader
             url: how-to-launch-immersive-reader.md
           - text: Set the cookie policy

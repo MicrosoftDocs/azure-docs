@@ -59695,6 +59695,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/immersive-reader/tutorial-multiple-resources.md",
+      "redirect_url": "/azure/cognitive-services/immersive-reader/how-to-multiple-resources",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/KES/index.md",
       "redirect_url": "/azure/cognitive-services/KES/overview",
       "redirect_document_id": false
