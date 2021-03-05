@@ -48,4 +48,4 @@ The portal components can be logically divided into two categories: **Code** and
 
 ## Next steps
 
-- Review the [FAQs](dev-portal-faq.md).
+- Review the [FAQs](dev-portal-faq.yml).
