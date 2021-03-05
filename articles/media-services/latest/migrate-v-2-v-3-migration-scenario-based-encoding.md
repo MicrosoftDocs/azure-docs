@@ -52,16 +52,10 @@ Click on the image below to see a larger version.
 4. Monitor the job.
 
 ### V3 encoding workflow
-:::row:::
-:::column:::
-    <Token>
-<object data="./media/migration-guide/v3-pretty2.svg" width="50%"></object>
+
+<Token>
+<object data="./media/migration-guide/v3-pretty2.svg" width="80%"></object>
 </Token>
-:::column-end:::
-:::column:::
-    This is other content
-:::column-end:::
-:::row-end:::
 
 <!--[ ![Encoding workflow for V3](./media/migration-guide/V3-pretty.svg) ](./media/migration-guide/V3-pretty.svg#lightbox)-->
 
