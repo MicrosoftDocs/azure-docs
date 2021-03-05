@@ -33,7 +33,7 @@ az group create \
     --location eastus
 ```
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). This example creates a default virtual network named *myVNet* with one subnet named *default*:
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). This example creates a default virtual network named **myVNet** with one subnet named **default**:
 
 ```azurecli-interactive
 az network vnet create \
@@ -48,7 +48,9 @@ Create two VMs in the virtual network.
 
 ### Create the first VM
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). If SSH keys don't already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. 
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create). 
+
+If SSH keys don't already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. 
 
 The `--no-wait` option creates the VM in the background. You can continue to the next step. 
 
@@ -60,6 +62,7 @@ az vm create \
   --name myVm1 \
   --image UbuntuLTS \
   --generate-ssh-keys \
+  --public-ip-address myPublicIP-myVM1 \
   --no-wait
 ```
 
@@ -72,6 +75,7 @@ az vm create \
   --resource-group CreateVNetQS-rg \
   --name myVm2 \
   --image UbuntuLTS \
+  --public-ip-address myPublicIP-myVM2 \
   --generate-ssh-keys
 ```
 
@@ -93,7 +97,17 @@ The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI
 }
 ```
 
-Take note of the **publicIpAddress**. You'll use this address to connect to the VM from the internet in the next step.
+## VM public IP
+
+To get the public IP address **myVM2**, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
+
+```azurecli-interactive
+az network public-ip show \
+  --resource-group CreateVNetQS-rg  \
+  --name myPublicIP-myVM2 \
+  --query ipAddress \
+  --output tsv
+```
 
 ## Connect to a VM from the internet
 
