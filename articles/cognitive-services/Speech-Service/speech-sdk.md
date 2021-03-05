@@ -53,7 +53,7 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 ### Voice assistants
 
-[Voice assistants](voice-assistants.md) using the Speech SDK enable you to create natural, human-like conversational interfaces your applications and experiences. The Speech SDK provides fast, reliable interaction that includes speech-to-text, text-to-speech, and conversational data on a single connection. Your implementation can use the Bot Framework's Direct Line Speech channel or the integrated Custom Commands service for task completion. Additionally, voice assistants can use custom voices created in the [Custom Voice Portal](https://aka.ms/customvoice) to add a unique voice output experience.
+[Voice assistants](voice-assistants.md) using the Speech SDK enable you to create natural, human-like conversational interfaces for your applications and experiences. The Speech SDK provides fast, reliable interaction that includes speech-to-text, text-to-speech, and conversational data on a single connection. Your implementation can use the Bot Framework's Direct Line Speech channel or the integrated Custom Commands service for task completion. Additionally, voice assistants can use custom voices created in the [Custom Voice Portal](https://aka.ms/customvoice) to add a unique voice output experience.
 
 **Voice assistant** support is available on the following platforms:
 
