@@ -236,3 +236,12 @@
   items:
   - name: Mapping between ASB and CIS Benchmark
     href: v2-cis-benchmark.md
+  - name: Azure Security Fundamentals
+    href: ../fundamentals/index.yml
+  - name: Shared responsibility in the cloud
+    href: ../fundamentals/shared-responsibility.md
+  - name: Azure Security Center
+    href: ../../security-center/index.yml
+  - name: Azure Security Benchmark Foundation blueprint sample
+    href: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md
+

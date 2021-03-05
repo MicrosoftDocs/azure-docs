@@ -1,7 +1,6 @@
 ---
-title: How to upgrade the Azure Monitor for VMs Dependency agent
-description: This article describes how to upgrade the Azure Monitor for VMs Dependency agent using command-line, setup wizard, and other methods.
-ms.subservice: 
+title: How to upgrade the VM insights Dependency agent
+description: This article describes how to upgrade the VM insights Dependency agent using command-line, setup wizard, and other methods.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,9 +8,9 @@ ms.date: 04/16/2020
 
 ---
 
-# How to upgrade the Azure Monitor for VMs Dependency agent
+# How to upgrade the VM insights Dependency agent
 
-After initial deployment of the Azure Monitor for VMs Dependency agent, updates are released that include bug fixes or support of new features or functionality.  This article helps you understand the methods available and how to perform the upgrade manually or through automation.
+After initial deployment of the VM insights Dependency agent, updates are released that include bug fixes or support of new features or functionality.  This article helps you understand the methods available and how to perform the upgrade manually or through automation.
 
 ## Upgrade options 
 
@@ -66,4 +65,4 @@ If the Dependency agent fails to start, check the logs for detailed error inform
 
 ## Next steps
 
-If you want to stop monitoring your VMs for a period of time or remove Azure Monitor for VMs entirely, see [Disable monitoring of your VMs in Azure Monitor for VMs](../vm/vminsights-optout.md).
+If you want to stop monitoring your VMs for a period of time or remove VM insights entirely, see [Disable monitoring of your VMs in VM insights](../vm/vminsights-optout.md).

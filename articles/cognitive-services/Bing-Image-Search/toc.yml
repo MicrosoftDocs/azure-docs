@@ -69,7 +69,7 @@
   - name: Azure PowerShell reference
     href: /powershell/module/azurerm.cognitiveservices/
   - name: Azure CLI reference
-    href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+    href: /cli/azure/cognitiveservices#az_cognitiveservices_list
   - name: SDKs
     items:
       - name: .NET
