@@ -55,7 +55,7 @@ Configuring and using maintenance window is free of charge for all eligible [off
 
 Maintenance notifications can be configured to alert you on upcoming planned maintenance events for your Azure SQL Database 24 hours in advance, at the time of maintenance, and when the maintenance is complete. For more information, see [Advance Notifications](advance-notifications.md).
 
-## Feature availability
+## Availability
 
 ### Supported service level objectives
 
