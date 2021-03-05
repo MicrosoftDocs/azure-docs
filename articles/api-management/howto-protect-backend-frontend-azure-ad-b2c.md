@@ -96,7 +96,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Ensure you have selected the "Accounts in any identity provider or organizational directory (for authenticating users with user flows)" option
 1. For this sample, uncheck the "Grant admin consent" box, as we won't require offline_access permissions today.
 1. Click 'Register'.
-1. Record the Backend Application Client Id for later use (shown under 'Application (client) ID').
+1. Record the Backend Application Client ID for later use (shown under 'Application (client) ID').
 1. Select the *Certificates and Secrets* tab (under Manage) then click 'New Client Secret' to generate an auth key (Accept the default settings and click 'Add').
 1. Upon clicking 'Add', copy the key (under 'value') somewhere safe for later use as the 'Backend client secret' - note that this dialog is the ONLY chance you'll have to copy this key.
 1. Now select the *Expose an API* Tab (Under Manage).
@@ -117,7 +117,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Use placeholders for the reply urls, like 'https://jwt.ms' (A Microsoft owned token decoding site), we’ll update those urls later.
 1. Leave the grant admin consent box ticked
 1. Click 'Register'.
-1. Record the Frontend Application Client Id for later use (shown under 'Application (client) ID').
+1. Record the Frontend Application Client ID for later use (shown under 'Application (client) ID').
 1. Switch to the *API Permissions* tab.
 1. Grant access to the backend application by clicking 'Add a permission', then 'My APIs', select the 'Backend Application', select 'Permissions', select the scope you created in the previous section, and click 'Add permissions'
 1. Click 'Grant admin consent for {tenant} and click 'Yes' from the popup dialog. This popup consents the "Frontend Application" to use the permission "hello" defined in the "Backend Application" created earlier.
@@ -130,7 +130,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Click "New user flow"
 1. Choose the 'Sign up and sign in' user flow type, and select 'Recommended' and then 'Create'
 1. Give the policy a name and record it for later. For this example, you can use "Frontendapp_signupandsignin"
-1. Under 'Identity providers' and "Local accounts", check 'Email sign up' (or 'User Id sign up' depending on the config of your B2C tenant) and click OK. This configuration is because we'll be registering local B2C accounts, not deferring to another identity provider (like a social identity provider) to utilize a user's existing social media account.
+1. Under 'Identity providers' and "Local accounts", check 'Email sign up' (or 'User ID sign up' depending on the config of your B2C tenant) and click OK. This configuration is because we'll be registering local B2C accounts, not deferring to another identity provider (like a social identity provider) to use an user's existing social media account.
 1. Leave the MFA and conditional access settings at their defaults.
 1. Under 'User Attributes and claims', click 'Show More...' then choose the claim options that you want your users to enter and have returned in the token. Check at least 'Display Name' and 'Email Address' to collect, with 'Display Name' and 'Email Addresses' to return (pay careful attention to the fact that you are collecting emailaddress, singular, and asking to return email addresses, multiple), and click 'OK', then click 'Create'.
 1. Click on the user flow that you created in the list, then click the 'Run user flow' button.
@@ -223,6 +223,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Click Browse, choose the function app you're hosting the API inside, and click select. Next, click select again.
 1. Give the API a name and description for API Management's internal use and add it to the ‘unlimited’ Product.
 1. Copy and record the API's 'base URL' and click 'create'.
+1. Click the 'settings' tab, then under subscription - switch off the 'Subscription Required' checkbox as we will use the Oauth JWT token in this case to rate limit. Note that if you are using the consumption tier, this would still be required in a production environment. 
 
    > [!TIP]
    > If using the consumption tier of APIM the unlimited product won't be available as an out of the box. Instead, navigate to "Products" under "APIs" and hit "Add".  
@@ -243,7 +244,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 > The following sections should be followed regardless of the APIM tier being used. The storage account URL is from the storage account you will have made available from the prerequisites at the top of this article.
 1. Switch to the API management blade of the portal and open your instance.
 1. Select APIs, then select “All APIs”.
-1. Under "Inbound processing" click the code view button "</>" to show the policy editor.
+1. Under "Inbound processing", click the code view button "</>" to show the policy editor.
 1. Edit the inbound section and paste the below xml so it reads like the following.
 1. Replace the following parameters in the Policy
 1. {PrimaryStorageEndpoint} (The 'Primary Storage Endpoint' you copied in the previous section), {b2cpolicy-well-known-openid} (The 'well-known openid configuration endpoint' you copied earlier) and {backend-api-application-client-id} (The B2C Application / Client ID for the **backend API**) with the correct values saved earlier.
@@ -339,7 +340,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
         				auth: {
         					clientId: "{CLIENTID}", // This is the client ID of your FRONTEND application that you registered with the SPA type in AAD B2C
         					authority:  "{YOURAUTHORITYB2C}", // Formatted as https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantguid or full tenant name including onmicrosoft.com}/{signuporinpolicyname}
-        					redirectUri: "{SPAHOSTINGADDRESS}", // The storage hosting address of the SPA, a web-enabled v2 storage account
+        					redirectUri: "{SPAHOSTINGADDRESS}", // The storage hosting address of the SPA, a web-enabled v2 storage account - recorded earlier as the Primary Endpoint.
         					knownAuthorities: ["{B2CTENANTDOMAIN}"] // {b2ctenantname}.b2clogin.com
         				},
         				cache: {
@@ -348,8 +349,8 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
         				}
         			},
         			api: {
-        				scopes: ["{APISCOPEWITHFULLURI}"], // The scope that we request for the API from B2C, this should be the API scope you created on the BACKEND API.
-        				backend: "{APIBASEURL}" // The location that we will call for the backend api, this should be hosted in API Management
+        				scopes: ["{BACKENDAPISCOPE}"], // The scope that we request for the API from B2C, this should be the backend API scope, with the full URI.
+        				backend: "{APIBASEURL}/hello" // The location that we will call for the backend api, this should be hosted in API Management, suffixed with the API name.
         			}
         		}
         		document.getElementById("callapibtn").hidden = true;
