@@ -36,13 +36,9 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 
 	10.20.251.151 sollabdsm35-st
 
-	
-
 	10.20.252.151 sollabdsm36-back
 
 	10.20.252.150 sollabdsm35-back
-
-	
 
 	10.20.253.151 sollabdsm36-node
 
@@ -74,8 +70,6 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 
 	SELINUX=disabled
 
-	
-
 	[root@sollabdsm36 ~]# vi /etc/selinux/config
 
 	...
@@ -89,8 +83,6 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	[root@sollabdsm35 ~]# sestatus
 
 	SELinux status: disabled
-
-	
 
 	[root@sollabdsm36 ~]# sestatus
 
@@ -685,7 +677,7 @@ There are two options for integrating HANA. The first option is a cost optimized
    
 	   * su - hr2adm
    
-	   * hdbsql -u system -p SAPhana10 -i 00 "select value from
+	   * hdbsql -u system -p $YourPass -i 00 "select value from
 	   "SYS"."M_INIFILE_CONTENTS" where key='log_mode'"
    
 	   
@@ -696,7 +688,7 @@ There are two options for integrating HANA. The first option is a cost optimized
        ```
     2. SAP HANA system replication will only work after initial backup has been performed. The following command creates an initial backup in the `/tmp/` directory. Select a proper backup filesystem for the database. 
        ```
-	   * hdbsql -i 00 -u system -p SAPhana10 "BACKUP DATA USING FILE
+	   * hdbsql -i 00 -u system -p $YourPass "BACKUP DATA USING FILE
 	   ('/tmp/backup')"
    
    
@@ -719,12 +711,12 @@ There are two options for integrating HANA. The first option is a cost optimized
 	3. Backup all database containers of this database.
        ```
    
-	   * hdbsql -i 00 -u system -p SAPhana10 -d SYSTEMDB "BACKUP DATA USING
+	   * hdbsql -i 00 -u system -p $YourPass -d SYSTEMDB "BACKUP DATA USING
 	   FILE ('/tmp/sydb')"
    
 	   
    
-	   * hdbsql -i 00 -u system -p SAPhana10 -d SYSTEMDB "BACKUP DATA FOR HR2
+	   * hdbsql -i 00 -u system -p $YourPass -d SYSTEMDB "BACKUP DATA FOR HR2
 	   USING FILE ('/tmp/rh2')"
    
 	   ```
@@ -1120,25 +1112,20 @@ Ensure you have met the following prerequisites:
 
 3.  Create Primary/Secondary SAPHana resource.
 
-	```
-	SAPHana resource is responsible for starting, stopping and relocating the SAP HANA database. This resource must be run as a Primary/	Secondary cluster resource. The resource has the following attributes.
-
 	
+	* SAPHana resource is responsible for starting, stopping and relocating the SAP HANA database. This resource must be run as a Primary/	Secondary cluster resource. The resource has the following attributes.
+	* Attribute Name Required? Default value Description
 
-	Attribute Name Required? Default value Description
+	* SID Yes None SAP System Identifier (SID) of SAP HANA installation. Must be same for all nodes.
 
-	SID Yes None SAP System Identifier (SID) of SAP HANA installation. Must be same for all nodes.
+	* InstanceNumber :  2-digit SAP Instance identifier.
 
-	InstanceNumber Yes none 2-digit SAP Instance identifier.
+	* PREFER_SITE_TAKEOVER : Should cluster prefer to switchover to secondary instance instead of restarting primary locally? ("no": Do prefer restart locally; 	"yes": Do prefer takeover to remote site)
 
-	PREFER_SITE_TAKEOVER
+	* AUTOMATED_REGISTER : Should the former SAP HANA primary be registered as secondary after takeover and DUPLICATE_PRIMARY_TIMEOUT? 	("false": no, manual intervention will be needed; "true": yes, the former primary will be registered by resource agent as secondary)
 
-	no yes Should cluster prefer to switchover to secondary instance instead of restarting primary locally? ("no": Do prefer restart locally; 	"yes": Do prefer takeover to remote site)
-
-	AUTOMATED_REGISTER no false Should the former SAP HANA primary be registered as secondary after takeover and DUPLICATE_PRIMARY_TIMEOUT? 	("false": no, manual intervention will be needed; "true": yes, the former primary will be registered by resource agent as secondary)
-
-	DUPLICATE_PRIMARY_TIMEOUT no 7200 Time difference (in seconds) needed between primary time stamps, if a dual-primary situation occurs. If 	the time difference is less than the time gap, then the cluster holds one or both instances in a "WAITING" status. This is to give an 	admin a chance to react on a failover. A failed former primary will be registered after the time difference is passed. After this 	registration to the new primary all data will be overwritten by the system replication.
-	```
+	* DUPLICATE_PRIMARY_TIMEOUT no 7200 Time difference (in seconds) needed between primary time stamps, if a dual-primary situation occurs. If 	the time difference is less than the time gap, then the cluster holds one or both instances in a "WAITING" status. This is to give an 	admin a chance to react on a failover. A failed former primary will be registered after the time difference is passed. After this 	registration to the new primary all data will be overwritten by the system replication.
+	
   
 
 5.  Create the HANA resource.
@@ -1146,7 +1133,6 @@ Ensure you have met the following prerequisites:
 	pcs resource create SAPHana_HR2_00 SAPHana SID=HR2 InstanceNumber=00 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 	AUTOMATED_REGISTER=true primary notify=true clone-max=2 clone-node-max=1 interleave=true
 
 	pcs resource show SAPHana_HR2_00-primary
-
 
 
 	Primary: SAPHana_HR2_00-primary
@@ -1264,13 +1250,11 @@ Ensure you have met the following prerequisites:
 	```
 
 7.  Create constraints.
-
-	```
-	For correct operation we need to ensure that SAPHanaTopology resources are started before starting the SAPHana resources and also that 	the virtual IP address is present on the node where the Primary resource of SAPHana is running. To achieve this, the following 2 	constraints need to be created.
-
-	pcs constraint order SAPHanaTopology_HR2_00-clone then SAPHana_HR2_00-primary symmetrical=false
-	pcs constraint colocation add vip_HR2_00 with primary SAPHana_HR2_00-primary 2000
-	```
+    * For correct operation we need to ensure that SAPHanaTopology resources are started before starting the SAPHana resources and also that 	the virtual IP address is present on the node where the Primary resource of SAPHana is running. To achieve this, the following 2 	constraints need to be created.
+	   ```
+	   pcs constraint order SAPHanaTopology_HR2_00-clone then SAPHana_HR2_00-primary symmetrical=false
+	   pcs constraint colocation add vip_HR2_00 with primary SAPHana_HR2_00-primary 2000
+	   ```
 
 ###  Testing the manual move of SAPHana resource to another node
 
@@ -1317,7 +1301,7 @@ Node Attributes:
   * demoted host:
 
 	```
-	hdbsql -i 00 -u system -p SAPhana10 -n 10.7.0.82
+	hdbsql -i 00 -u system -p $YourPass -n 10.7.0.82
 
 	result:
 
@@ -1328,7 +1312,7 @@ Node Attributes:
   * Promoted host:
 
 	```
-	hdbsql -i 00 -u system -p SAPhana10 -n 10.7.0.84
+	hdbsql -i 00 -u system -p $YourPass -n 10.7.0.84
 	
 	Welcome to the SAP HANA Database interactive terminal.
 	
