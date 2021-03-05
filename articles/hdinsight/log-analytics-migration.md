@@ -214,13 +214,15 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
 
 **Description**: This table contains all records from the Ranger Audit log for ESP clusters.
 
-**Old table**: ranger\_audit\_logs\_CL\
+**Old table**: ranger\_audit\_logs\_CL
 
 ### HDInsightGatewayAuditLogs\_CL 
 
 **Description**: This table contains the Gateway nodes audit information. It is the same format as the table in Old Tables column. **It is still located in the Custom Logs section.**
 
 **Old table**: log\_gateway\_Audit\_CL
+
+******************************************
 
 | New Table | Details |
 | --- | --- |
