@@ -19,30 +19,30 @@ In the [overview](./overview.md), you learned about what the Immersive Reader is
 
 ::: zone pivot="programming-language-html"
 
-[!INCLUDE [How to launch with HTML](../includes/how-to/how-to-launch-immersive-reader-html.md)]
+[!INCLUDE [How to launch with HTML](includes/how-to/how-to-launch-immersive-reader-html.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [How to launch with JavaScript](../includes/how-to/how-to-launch-immersive-reader-javascript.md)]
+[!INCLUDE [How to launch with JavaScript](includes/how-to/how-to-launch-immersive-reader-javascript.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [How to launch with Python](../includes/how-to/how-to-launch-immersive-reader-python.md)]
+[!INCLUDE [How to launch with Python](includes/how-to/how-to-launch-immersive-reader-python.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-android"
 
-[!INCLUDE [How to launch with Android](../includes/how-to/how-to-launch-immersive-reader-android.md)]
+[!INCLUDE [How to launch with Android](includes/how-to/how-to-launch-immersive-reader-android.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-ios"
 
-[!INCLUDE [How to launch with iOS](../includes/how-to/how-to-launch-immersive-reader-iOS.md)]
+[!INCLUDE [How to launch with iOS](includes/how-to/how-to-launch-immersive-reader-ios.md)]
 
 ::: zone-end
