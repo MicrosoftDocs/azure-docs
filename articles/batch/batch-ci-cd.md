@@ -3,61 +3,37 @@ title: Use Azure Pipelines to build & deploy HPC solutions
 description: Learn how to deploy a build/release pipeline for an HPC application running on Azure Batch.
 author: chrisreddington
 ms.author: chredd
-ms.date: 03/28/2019
+ms.date: 03/04/2021
 ms.topic: how-to
 ---
 
 # Use Azure Pipelines to build and deploy HPC solutions
 
-Azure DevOps Services provide a range of tools used by development teams when building a custom application. Tools provided by Azure DevOps can translate into automated building and testing of high performance compute solutions. This article demonstrates how to set up a continuous integration (CI) and continuous deployment (CD) using Azure Pipelines for a high performance compute solution deployed on Azure Batch.
+Tools provided by Azure DevOps can translate into automated building and testing of high performance computing (HPC) solutions. [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) provides a range of modern continuous integration (CI) and continuous deployment (CD) processes for building, deploying, testing, and monitoring software. These processes accelerate your software delivery, allowing you to focus on your code rather than support infrastructure and operations.
 
-Azure Pipelines provides a range of modern CI/CD processes for building, deploying, testing, and monitoring software. These processes accelerate your software delivery, allowing you to focus on your code rather than support infrastructure and operations.
+This article explains how to set up CI/CD processes using [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) for HPC solutions deployed on Azure Batch.
+
+## Prerequisites
+
+To follow the steps in this article, you need an [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization). You'll also need to [create a project in Azure DevOps](/azure/devops/organizations/projects/create-project).
+
+You should also have a basic understanding of [Source control](/azure/devops/user-guide/source-control) and [Azure Resource Manager template syntax](../azure-resource-manager/templates/template-syntax.md). 
 
 ## Create an Azure Pipeline
 
-In this example, we will create a build and release pipeline to deploy an Azure Batch infrastructure and release an application package. Assuming that the code is developed locally, this is the general deployment flow:
+In this example, we'll create a build and release pipeline to deploy an Azure Batch infrastructure and release an application package. Assuming that the code is developed locally, this is the general deployment flow:
 
-![Diagram showing the flow of deployment in our Pipeline](media/batch-ci-cd/DeploymentFlow.png)
+![Diagram showing the flow of deployment in our Pipeline,](media/batch-ci-cd/DeploymentFlow.png)
 
-### Setup
+This sample uses several Azure Resource Manager templates and existing binaries. You can copy these examples into your repository and push them to Azure DevOps.
 
-To follow the steps in this article, you need an Azure DevOps organization and a team project.
+### Understand the Azure Resource Manager templates
 
-* [Create an Azure DevOps Organization](/azure/devops/organizations/accounts/create-organization)
-* [Create a project in Azure DevOps](/azure/devops/organizations/projects/create-project)
+This example leverages multiple Resource Manager templates to deploy our solution. To do this, we use a number of capability templates (similar to units or modules) that implement a specific piece of functionality. We also use an end-to-end solution template (deployment.json) which is responsible for deploying three underlying capability templates. This [linked template structure ](../azure-resource-manager/templates/deployment-tutorial-linked-template.md) allows the underlying capability templates to be individually tested and reused across solutions.
 
-### Source control for your environment
+![Diagram showing a linked template structure using Azure Resource Manager templates.](media/batch-ci-cd/ARMTemplateHierarchy.png)
 
-Source control allows teams to track changes made to the codebase and inspect previous versions of the code.
-
-Typically, source control is thought of hand-in-hand with software code. How about the underlying infrastructure? This brings us to Infrastructure as Code, where we will use Azure Resource Manager templates or other open-source alternatives to declaratively define our underlying infrastructure.
-
-This sample heavily relies on a number of Resource Manager Templates (JSON Documents) and existing binaries. You can copy these examples into your repository and push them to Azure DevOps.
-
-The codebase structure used in this sample resembles the following;
-
-* An **arm-templates** folder, containing a number of Azure Resource Manager templates. The templates are explained in this article.
-* A **client-application** folder, which is a copy of the [Azure Batch .NET File Processing with ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) sample. This is not needed for this article.
-* An **hpc-application** folder, which is the Windows 64-bit version of [ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08).
-* A **pipelines** folder. This contains a YAML file outlining our build process. This is discussed in the article.
-
-This section assumes you are familiar with version control and designing Resource Manager templates. If you aren't familiar with these concepts, see the following pages for more information.
-
-* [What is source control?](/azure/devops/user-guide/source-control)
-* [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
-
-#### Azure Resource Manager templates
-
-This example leverages multiple Resource Manager templates to deploy our solution. To do this, we use a number of capability templates (similar to units or modules) that implement a specific piece of functionality. We also use an end-to-end solution template which is responsible for bringing those underlying capabilities together. There are a couple of benefits to this approach:
-
-* The underlying capability templates can be individually unit tested.
-* The underlying capability templates can be defined as a standard inside of an organization, and be reused in multiple solutions.
-
-For this example, there is an end-to-end solution template (deployment.json) that deploys three templates. The underlying templates are capability templates, responsible for deploying a specific aspect of the solution.
-
-![Example of Linked Template Structure using Azure Resource Manager templates](media/batch-ci-cd/ARMTemplateHierarchy.png)
-
-The first template that we will look at is for an Azure Storage Account. Our solution requires a storage account to deploy the application to our Batch Account. It is worth being aware of the [Resource Manager template reference guide for Microsoft.Storage resource types](/azure/templates/microsoft.storage/allversions) when building Resource Manager templates for Storage Accounts.
+This template defines an Azure storage account, which our solution requires in order to deploy the application to the Batch account. For detailed information, see the [Resource Manager template reference guide for Microsoft.Storage resource types](/azure/templates/microsoft.storage/allversions).
 
 ```json
 {
@@ -97,7 +73,7 @@ The first template that we will look at is for an Azure Storage Account. Our sol
 }
 ```
 
-Next, we will look at the Azure Batch Account template. The Azure Batch Account acts as a platform to run numerous applications across pools (groupings of machines). It is worth being aware of the [Resource Manager template reference guide for Microsoft.Batch resource types](/azure/templates/microsoft.batch/allversions) when building Resource Manager templates for Batch Accounts.
+Next, we will look at the Azure Batch account template. The Batch account acts as a platform to run numerous applications across [pools](nodes-and-pools.md#pools). For detailed information, see the [Resource Manager template reference guide for Microsoft.Batch resource types].
 
 ```json
 {
@@ -136,7 +112,7 @@ Next, we will look at the Azure Batch Account template. The Azure Batch Account 
 }
 ```
 
-The next template shows an example creating an Azure Batch Pool (the backend machines to process our applications). It is worth being aware of the [Resource Manager template reference guide for Microsoft.Batch resource types](/azure/templates/microsoft.batch/allversions) when building Resource Manager templates for Batch Account Pools.
+The next template creates a Batch pool in the Batch account. For detailed information, see the [Resource Manager template reference guide for Microsoft.Batch resource types](/azure/templates/microsoft.batch/allversions).
 
 ```json
 {
@@ -182,9 +158,7 @@ The next template shows an example creating an Azure Batch Pool (the backend mac
 }
 ```
 
-Finally, we have a template that acts similar to an orchestrator. This template is responsible for deploying the capability templates.
-
-You can also find out more about [creating linked Azure Resource Manager templates](../azure-resource-manager/templates/deployment-tutorial-linked-template.md) in a separate article.
+Finally, we have a template that acts similar to an orchestrator. This template is responsible for deploying the three underlying capability templates.
 
 ```json
 {
@@ -194,13 +168,13 @@ You can also find out more about [creating linked Azure Resource Manager templat
         "templateContainerUri": {
            "type": "string",
            "metadata": {
-                "description": "URI of the Blob Storage Container containing the Azure Resouce Manager templates"
+                "description": "URI of the Blob Storage Container containing the Azure Resource Manager templates"
             }
         },
         "templateContainerSasToken": {
            "type": "string",
            "metadata": {
-                "description": "The SAS token of the container containing the Azure Resouce Manager templates"
+                "description": "The SAS token of the container containing the Azure Resource Manager templates"
             }
         },
         "applicationStorageAccountName": {
@@ -282,20 +256,21 @@ You can also find out more about [creating linked Azure Resource Manager templat
 }
 ```
 
-#### The HPC Solution
+### Understand the HPC solution
 
-The infrastructure and software can be defined as code and colocated in the same repository.
+This sample heavily relies on a number of Resource Manager Templates (JSON Documents) and existing binaries. You can copy these examples into your repository and push them to Azure DevOps. The infrastructure and software can be defined as code and colocated in the same repository.
 
-For this solution, the ffmpeg is used as the application package. The ffmpeg package can be downloaded [here](https://www.videohelp.com/software?d=ffmpeg-3.3.4-win64-static.zip).
+For this solution, ffmpeg is used as the application package. You can [download the ffmpeg package](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08) if you don't have it already.
 
-![Example Git Repository Structure](media/batch-ci-cd/git-repository.jpg)
+![Screenshot of the repository structure.](media/batch-ci-cd/git-repository.jpg)
 
 There are four main sections to this repository:
 
-* The **arm-templates** folder that stores our Infrastructure as Code
-* The **hpc-application** folder that contains the binaries for ffmpeg
-* The **pipelines** folder that contains the definition for our build pipeline.
-* **Optional**: The **client-application** folder that would store code for .NET application. We do not use this in the sample, but in your own project, you may wish to execute runs of the HPC Batch Application via a client application.
+- An **arm-templates** folder, containing a number of Azure Resource Manager templates
+- An **hpc-application** folder, which is the Windows 64-bit version of [ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08).
+- A **pipelines** folder. This contains a YAML file defining our build pipeline process.
+- Optional: A **client-application** folder, which is a copy of the [Azure Batch .NET File Processing with ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) sample. This application is not needed for this article.
+
 
 > [!NOTE]
 > This is just one example of a structure to a codebase. This approach is used for the purposes of demonstrating that application, infrastructure, and pipeline code are stored in the same repository.
@@ -308,19 +283,19 @@ Now that the source code is set up, we can begin the first build.
 
 In this stage of your pipeline, tests are typically run to validate code and build the appropriate pieces of the software. The number and types of tests, and any additional tasks that you run will depend on your wider build and release strategy.
 
-## Preparing the HPC application
+## Prepare the HPC application
 
-In this example, we will focus on the **hpc-application** folder. The **hpc-application** folder is the ffmpeg software that will run from within the Azure Batch account.
+In this example, we will focus on the **hpc-application** folder, which contain the software (ffmpeg) that will run from within the Azure Batch account.
 
 1. Navigate to the Builds section of Azure Pipelines in your Azure DevOps organization. Create a **New pipeline**.
 
-    ![Create a New Build Pipeline](media/batch-ci-cd/new-build-pipeline.jpg)
+    ![Screenshot of the New pipeline screen.](media/batch-ci-cd/new-build-pipeline.jpg)
 
 1. You have two options to create a Build pipeline:
 
-    a. [Using the Visual Designer](/azure/devops/pipelines/get-started-designer). To use this, click "Use the visual designer" on the **New pipeline** page.
+    a. [Use the Visual Designer](/azure/devops/pipelines/get-started-designer). To do so, select "Use the visual designer" on the **New pipeline** page.
 
-    b. [Using YAML Builds](/azure/devops/pipelines/get-started-yaml). You can create a new YAML pipeline by clicking the Azure Repos or GitHub option on the New pipeline page. Alternatively, you can store the example below in your source control and reference an existing YAML file by clicking on Visual Designer, and then using the YAML template.
+    b. [Use YAML Builds](/azure/devops/pipelines/get-started-yaml). You can create a new YAML pipeline by clicking the Azure Repos or GitHub option on the **New pipeline** page. Alternatively, you can store the example below in your source control and reference an existing YAML file by selecting Visual Designer, then using the YAML template.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -345,58 +320,60 @@ In this example, we will focus on the **hpc-application** folder. The **hpc-appl
 
 1. Once the build is configured as needed, select **Save & Queue**. If you have continuous integration enabled (in the **Triggers** section), the build will automatically trigger when a new commit to the repository is made, meeting the conditions set in the build.
 
-    ![Example of an existing Build Pipeline](media/batch-ci-cd/existing-build-pipeline.jpg)
+    ![Screenshot of an existing Build Pipeline.](media/batch-ci-cd/existing-build-pipeline.jpg)
 
 1. View live updates on the progress of your build in Azure DevOps by navigating to the **Build** section of Azure Pipelines. Select the appropriate build from your build definition.
 
-    ![View live outputs from your build](media/batch-ci-cd/Build-1.jpg)
+    ![Screenshot of live outputs from build in Azure DevOps.](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> If you use a client application to execute your HPC Batch Application, you need to create a separate build definition for that application. You can find a number of how-to guides in the [Azure Pipelines](/azure/devops/pipelines/get-started/index) documentation.
+> If you use a client application to execute your HPC solution, you need to create a separate build definition for that application. You can find a number of how-to guides in the [Azure Pipelines](/azure/devops/pipelines/get-started/index) documentation.
 
 ## Continuous deployment
 
-Azure Pipelines also used to deploy your application and underlying infrastructure. [Release pipelines](/azure/devops/pipelines/release) is the component that enables continuous deployment and automates your release process.
+Azure Pipelines is also used to deploy your application and underlying infrastructure. [Release pipelines](/azure/devops/pipelines/release) enable continuous deployment and automates your release process.
 
-### Deploying your application and underlying infrastructure
+### Deploy your application and underlying infrastructure
 
-There are a number of steps involved in deploying the infrastructure. As we have used [linked templates](../azure-resource-manager/templates/linked-templates.md), those templates will need to be accessible from a public endpoint (HTTP or HTTPS). This could be a repository on GitHub, or an Azure Blob Storage Account, or another storage location. The uploaded template artifacts can remain secure, as they can be held in a private mode but accessed using some form of shared access signature (SAS) token. The following example demonstrates how to deploy an infrastructure with templates from an Azure Storage blob.
+There are a number of steps involved in deploying the infrastructure. As we have used [linked templates](../azure-resource-manager/templates/linked-templates.md), those templates will need to be accessible from a public endpoint (HTTP or HTTPS). This could be a repository on GitHub, or an Azure Blob Storage Account, or another storage location. The uploaded template artifacts can remain secure, as they can be held in a private mode but accessed using some form of shared access signature (SAS) token.
 
-1. Create a **New Release Definition**, and select an empty definition. We then need to rename the newly created environment to something relevant for our pipeline.
+The following example demonstrates how to deploy an infrastructure with templates from an Azure Storage blob.
 
-    ![Initial Release Pipeline](media/batch-ci-cd/Release-0.jpg)
+1. Create a **New Release Definition**, then select an empty definition. Rename the newly created environment to something relevant for your pipeline.
 
-1. Create a dependency on the Build Pipeline to get the output for our HPC application.
+    ![Screenshot of the initial release pipeline.](media/batch-ci-cd/Release-0.jpg)
+
+1. Create a dependency on the Build Pipeline to get the output for the HPC application.
 
     > [!NOTE]
-    > Once again, note the **Source Alias**, as this will be needed when tasks are created inside of the Release Definition.
+    > Take note of the **Source Alias**, as this will be needed when tasks are created inside of the Release Definition.
 
-    ![Create an artifact link to the HPCApplicationPackage in the appropriate build pipeline](media/batch-ci-cd/Release-1.jpg)
+    ![Screenshot showing an artifact link to the HPCApplicationPackage in the appropriate build pipeline.](media/batch-ci-cd/Release-1.jpg)
 
 1. Create a link to another artifact, this time, an Azure Repo. This is required to access the Resource Manager templates stored in your repository. As Resource Manager templates do not require compilation, you don't need to push them through a build pipeline.
 
     > [!NOTE]
-    > Once again, note the **Source Alias**, as this will be needed when tasks are created inside of the Release Definition.
+    > Once again, note the **Source Alias**, as this will be needed later.
 
-    ![Create an artifact link to the Azure Repos](media/batch-ci-cd/Release-2.jpg)
+    ![Screenshot showing an artifact link to the Azure Repos.](media/batch-ci-cd/Release-2.jpg)
 
-1. Navigate to the **variables** section. It's recommended to create a number of variables in your pipeline, so you aren't inputting the same information into multiple tasks. These are the variables used in this example, and how they impact the deployment.
+1. Navigate to the **variables** section. You'll want to create a number of variables in your pipeline so that you don't have to re-enter the same information into multiple tasks. This example uses the following variables:
 
-    * **applicationStorageAccountName**: Name of the Storage Account to hold HPC application binaries
-    * **batchAccountApplicationName**: Name of the application in the Azure Batch Account
-    * **batchAccountName**: Name of the Azure Batch Account
-    * **batchAccountPoolName**: Name of the pool of VMs doing the processing
-    * **batchApplicationId**: Unique ID for the Azure Batch application
-    * **batchApplicationVersion**: Semantic version of your batch application (that is, the ffmpeg binaries)
-    * **location**: Location for the Azure Resources to be deployed
-    * **resourceGroupName**: Name of the Resource Group to be created, and where your resources will be deployed
-    * **storageAccountName**: Name of the Storage Account to hold linked Resource Manager templates
+- **applicationStorageAccountName**: Name of the storage account that holds the HPC application binaries
+- **batchAccountApplicationName**: Name of the application in the Batch account
+- **batchAccountName**: Name of the Batch account
+- **batchAccountPoolName**: Name of the pool of VMs doing the processing
+- **batchApplicationId**: Unique ID for the Batch application
+- **batchApplicationVersion**: Semantic version of your Batch application (that is, the ffmpeg binaries)
+- **location**: Location for the Azure resources to be deployed
+- **resourceGroupName**: Name of the resource group to be created, and where your resources will be deployed
+- **storageAccountName**: Name of the storage account that holds the linked Resource Manager templates
 
-    ![Example of variables set for the Azure Pipelines release](media/batch-ci-cd/Release-4.jpg)
+    ![Screenshot showing variables set for the Azure Pipelines release.](media/batch-ci-cd/Release-4.jpg)
 
 1. Navigate to the tasks for the Dev environment. In the below snapshot, you can see six tasks. These tasks will: download the zipped ffmpeg files, deploy a storage account to host the nested Resource Manager templates, copy those Resource Manager templates to the storage account, deploy the batch account and required dependencies, create an application in the Azure Batch Account and upload the application package to the Azure Batch Account.
 
-    ![Example of the tasks used to release the HPC Application to Azure Batch](media/batch-ci-cd/Release-3.jpg)
+    ![Screenshot showing the tasks used to release the HPC Application to Azure Batch.](media/batch-ci-cd/Release-3.jpg)
 
 1. Add the **Download Pipeline Artifact (Preview)** task and set the following properties:
     * **Display Name:** Download ApplicationPackage to Agent
@@ -497,7 +474,7 @@ az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
 
 ## Next steps
 
-In addition to this article, there are two tutorials that utilize ffmpeg, using .NET and Python. See these tutorials for more information on how to interact with a Batch account via a simple application.
+See these tutorials to learn how to interact with a Batch account via a simple application.
 
-* [Run a parallel workload with Azure Batch using the Python API](tutorial-parallel-python.md)
-* [Run a parallel workload with Azure Batch using the .NET API](tutorial-parallel-dotnet.md)
+- [Run a parallel workload with Azure Batch using the Python API](tutorial-parallel-python.md)
+- [Run a parallel workload with Azure Batch using the .NET API](tutorial-parallel-dotnet.md)
