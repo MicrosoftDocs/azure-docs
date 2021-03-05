@@ -54,12 +54,12 @@ If SSH keys don't already exist in a default key location, the command creates t
 
 The `--no-wait` option creates the VM in the background. You can continue to the next step. 
 
-This example creates a VM named **myVm1**:
+This example creates a VM named **myVM1**:
 
 ```azurecli-interactive
 az vm create \
   --resource-group CreateVNetQS-rg \
-  --name myVm1 \
+  --name myVM1 \
   --image UbuntuLTS \
   --generate-ssh-keys \
   --public-ip-address myPublicIP-myVM1 \
@@ -68,12 +68,12 @@ az vm create \
 
 ### Create the second VM
 
-You used the `--no-wait` option in the previous step. You can go ahead and create the second VM named **myVm2**.
+You used the `--no-wait` option in the previous step. You can go ahead and create the second VM named **myVM2**.
 
 ```azurecli-interactive
 az vm create \
   --resource-group CreateVNetQS-rg \
-  --name myVm2 \
+  --name myVM2 \
   --image UbuntuLTS \
   --public-ip-address myPublicIP-myVM2 \
   --generate-ssh-keys
@@ -86,7 +86,7 @@ The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI
 ```output
 {
   "fqdns": "",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/CreateVNetQS-rg/providers/Microsoft.Compute/virtualMachines/myVm2",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/CreateVNetQS-rg/providers/Microsoft.Compute/virtualMachines/myVM2",
   "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
@@ -111,7 +111,7 @@ az network public-ip show \
 
 ## Connect to a VM from the internet
 
-In this command, replace `<publicIpAddress>` with the public IP address of your **myVm2** VM:
+In this command, replace `<publicIpAddress>` with the public IP address of your **myVM2** VM:
 
 ```bash
 ssh <publicIpAddress>
@@ -119,15 +119,15 @@ ssh <publicIpAddress>
 
 ## Communicate between VMs
 
-To confirm private communication between the **myVm2** and **myVm1** VMs, enter this command:
+To confirm private communication between the **myVM2** and **myVM1** VMs, enter this command:
 
 ```bash
-ping myVm1 -c 4
+ping myVM1 -c 4
 ```
 
 You'll receive four replies from *10.0.0.4*.
 
-Exit the SSH session with the **myVm2** VM.
+Exit the SSH session with the **myVM2** VM.
 
 ## Clean up resources
 
