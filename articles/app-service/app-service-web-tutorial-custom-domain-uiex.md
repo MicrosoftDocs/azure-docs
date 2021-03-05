@@ -215,7 +215,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 <p>For certain providers, such as GoDaddy, changes to DNS records don't become effective until you select a separate <strong>Save Changes</strong> link.</p>
 </details>
 
-<hr/> 
+<hr/>
 
 ## 5. Enable the mapping in your app
 
