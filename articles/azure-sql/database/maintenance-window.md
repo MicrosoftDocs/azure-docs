@@ -24,7 +24,7 @@ The maintenance window feature allows you to configure maintenance schedule for 
 
 Azure periodically performs [planned maintenance](planned-maintenance.md) of SQL Database and SQL Managed Instance resources. During Azure SQL maintenance event, databases are fully available but can be subject to short failovers within respective availability SLAs for [SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database) and [SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance), as resource reconfiguration is required in some cases.
 
-Maintenance window is intended for production workloads that are not resilient to database or instance failovers and cannot absorb short connection interruptions caused by planned maintenance events. By choosing preferred maintenance window you can minimize the impact of planned maintenance as it will be occuring outside of your peak bussines hours. Resilient workloads and non-production workloads may rely on Azure SQL's default maintenance policy.
+Maintenance window is intended for production workloads that are not resilient to database or instance failovers and cannot absorb short connection interruptions caused by planned maintenance events. By choosing preferred maintenance window you can minimize the impact of planned maintenance as it will be occurring outside of your peak business hours. Resilient workloads and non-production workloads may rely on Azure SQL's default maintenance policy.
 
 The maintenance window can be configured on creation or for existing Azure SQL resources. It can be configured using the Azure portal, PowerShell, CLI, or Azure API.
 
