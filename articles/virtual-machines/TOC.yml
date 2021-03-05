@@ -787,32 +787,38 @@
     items:
     - name: Overview
       href: avset-overview.md
-    - name: Create an availability set - CLI
-      href: ./linux/tutorial-availability-sets.md
-    - name: Create an availability set - PowerShell
-      href: ./windows/tutorial-availability-sets.md
+    - name: Create an availability set
+      items: 
+      - name: CLI
+        href: ./linux/tutorial-availability-sets.md
+      - name: PowerShell
+        href: ./windows/tutorial-availability-sets.md
     - name: Change availability set
       href: ./windows/change-availability-set.md
   - name: Availability zones
     items: 
     - name: Overview
       href: ../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context
-    - name: Create an availability zone - CLI
-      href: ./linux/create-cli-availability-zone.md
-    - name: Create an availability zone - PowerShell
-      href: ./windows/create-powershell-availability-zone.md
-    - name: Create an availability zone - Portal
-      href: ./windows/create-portal-availability-zone.md
+    - name: Create an availability zone
+      items: 
+      - name: CLI
+        href: ./linux/create-cli-availability-zone.md
+      - name: PowerShell
+        href: ./windows/create-powershell-availability-zone.md
+      - name: Portal
+        href: ./windows/create-portal-availability-zone.md
   - name: Proximity Placement Groups
     items: 
     - name: Overview
       href: co-location.md
-    - name: Create using CLI
-      href: ./linux/proximity-placement-groups.md
-    - name: Create using PowerShell
-      href: ./windows/proximity-placement-groups.md
-    - name: Create using the Azure portal
-      href: ./windows/proximity-placement-groups-portal.md
+    - name: Create a proximity placement group
+      items:
+      - name: CLI
+        href: ./linux/proximity-placement-groups.md
+      - name: PowerShell
+        href: ./windows/proximity-placement-groups.md
+      - name: Portal
+        href: ./windows/proximity-placement-groups-portal.md
   - name: Virtual Machine Scale Sets
     items: 
     - name: Overview
