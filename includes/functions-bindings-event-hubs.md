@@ -41,7 +41,7 @@ A new version of the Event Hubs bindings extension is available as a [preview Nu
 
 Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
 
-## host.json properties
+## host.json settings
 <a name="host-json"></a>
 
 The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) file contains settings that control Event Hubs trigger behavior. The configuration is different depending on the Azure Functions version.
