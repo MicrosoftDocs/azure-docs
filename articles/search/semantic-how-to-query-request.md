@@ -113,7 +113,7 @@ When specifying searchFields, follow these guidelines:
 
 + If your index has a URL field that is textual (human readable such as `www.domain.com/name-of-the-document-and-other-details` and not machine focused such as `www.domain.com/?id=23463&param=eis`), put it second in the list (put it first if there is no concise title field).
 
-+ Include verbose or content-rich fields, like Description or Content, for best results in producing captions and answers. Content from the fields you specify are used to create these representations. Choose fields that contain at least 420 characters.
++ Include verbose or content-rich fields, like Description or Content, for best results in producing captions and answers. Content from the fields you specify are used to create these representations. To facilitate answers in a response, choose fields that contain at least 420 characters.
 
 If there is only one field specified, use a descriptive field where the answer to a semantic query can be found, such as the main content of the search document itself.  
 
