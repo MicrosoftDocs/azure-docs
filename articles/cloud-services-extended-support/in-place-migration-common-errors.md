@@ -15,10 +15,10 @@ ms.custom:
 
 This article covers known issues and common errors you might encounter when migration from Cloud Services (classic) to Cloud Services (extended support). 
 
-## Known Issues
+## Known issues
 Following issues are known and being addressed.
 
-| Known Issue | Mitigation | 
+| Known issues | Mitigation | 
 |---|---|
 | Azure portal - View resource group link giving 404 error after successful prepare operation. | View resource group content via resource group portal blade. | 
 | Role Instances restarting UD by UD after successful commit. | Restart operation follows the same method as monthly guest OS rollouts. Do not commit migration of cloud services with single role instance or impacted by restart.| 
@@ -33,10 +33,10 @@ Following issues are known and being addressed.
 | After successful prepare, linking a new Cloud Services (extended support) deployment as swappable is not allowed. | Do not link a new cloud service as swappable to a prepared cloud service. | 
 | Error messages need to be updated. | Non-impacting. Submit feedback using available channels for improvement. | 
 
-## Common Migration Errors
-Common migration errors and mitigations. 
+## Common migration errors
+Common migration errors and mitigation steps. 
 
-| Error Message	| Additional Details | 
+| Error message	| Details | 
 |---|---|
 | The resource type could not be found in the namespace `Microsoft.Compute` for api version '2020-10-01-preview'. | [Register the subscription](in-place-migration-overview.md#access-in-place-public-preview) for CloudServices feature flag to access public preview. | 
 | The server encountered an internal error. Retry the request. | Retry the operation, use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) or contact support. | 
@@ -44,7 +44,7 @@ Common migration errors and mitigations.
 | Deployment deployment-name in cloud service cloud-service-name must be within a virtual network to be migrated. | Deployment is not located in a virtual network. Refer [this](in-place-migration-technical-details.md#migration-of-deployments-not-in-a-virtual-network) document for more details. | 
 | Migration of deployment deployment-name in cloud service cloud-service-name is not supported because it is in region region-name. Allowed regions: [list of available regions]. | Region is not yet supported for migration. | 
 | The Deployment deployment-name in cloud service cloud-service-name cannot be migrated because there are no subnets associated with the role(s) role-name. Associate all roles with a subnet, then retry the migration of the cloud service. | Update the cloud service (classic) deployment by placing it in a subnet before migration. |  
-| The deployment deployment-name in cloud service cloud-service-name cannot be migrated because the deployment requires at least one feature that not registered on the subscription in ARM. Register all required features to migrate this deployment. Missing feature(s): [list of missing features]. | Contact support to get the feature flags registered. | 
+| The deployment deployment-name in cloud service cloud-service-name cannot be migrated because the deployment requires at least one feature that not registered on the subscription in Azure Resource Manager. Register all required features to migrate this deployment. Missing feature(s): [list of missing features]. | Contact support to get the feature flags registered. | 
 | The deployment cannot be migrated because the deployment's cloud service has two occupied slots. Migration of cloud services is only supported for deployments that are the only deployment in their cloud service. Delete the other deployment in the cloud service to proceed with the migration of this deployment. | Refer to the [unsupported scenario](in-place-migration-overview.md#unsupported-configurations--migration-scenarios) list for more details. | 
 | Deployment deployment-name in HostedService cloud-service-name is in intermediate state: state. Migration not allowed. | Deployment is either being created, deleted or updated. Wait for the operation to complete and retry. | 
 | The deployment deployment-name in hosted service cloud-service-name has reserved IP(s) but no reserved IP name. To resolve this issue, update reserved IP name or contact the Microsoft Azure service desk. | Update cloud service deployment. | 
@@ -67,5 +67,5 @@ Common migration errors and mitigations.
 | Deployment {0} in HostedService {1}  belongs to Virtual Network {2}. Migrate Virtual Network {2} to migrate this HostedService {1}. | Refer to [Virtual Network migration](in-place-migration-technical-details.md#virtual-network-migration). | 
 | The current quota for Resource name in Azure Resource Manager is insufficient to complete migration. Current quota is {0}, additional needed is {1}. File a support request to raise the quota and retry migration once the quota has been raised.	| Follow appropriate channels to request quota increase: <br>[Quota increase for networking resources](../azure-portal/supportability/networking-quota-requests.md) <br>[Quota increase for compute resources](../azure-portal/supportability/per-vm-quota-requests.md) | 
 
-## Next Steps
+## Next steps
 For more information on the requirements of migration, see [Technical details of migrating to Azure Cloud Services (extended support)](in-place-migration-technical-details.md)
