@@ -47,9 +47,10 @@
 	<g>
 		<title>Page-1</title>
 		<g id="group1045-1" transform="translate(0.25,-0.25)">
-			<title>Background</title>
+			<title>Sheet.1045</title>
 			<g id="shape201-2">
-				<rect x="0" y="0" width="700" height="1044" class="st1"/>
+				<title>Process.201</title>
+				<rect x="0" y="0.499976" width="684" height="1044" class="st1"/>
 			</g>
 			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/manage-assets-quickstart" target="__blank">
 				<g id="shape129-4" transform="translate(268.144,-720)">
@@ -382,6 +383,7 @@
 								 1044.5 Z" class="st2"/>
 					<text x="12.84" y="1020.65" class="st3">Create job and <tspan x="19.51" dy="1.2em" class="st10">output asset</tspan></text>				
 					</g>
+			</a>
 			<g id="shape1025-196" transform="translate(270.344,-831.431)">
 				<title>Sheet.1025</title>
 				<desc>OR</desc>
