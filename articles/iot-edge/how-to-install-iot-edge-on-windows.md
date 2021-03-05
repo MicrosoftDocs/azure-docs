@@ -170,7 +170,7 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    ```
 
    > [!NOTE]
-   > You can run this command without parameters or optionally customize deployment with parameters. You can refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#Deploy-Eflow) to see their meaning​s.
+   > You can run this command without parameters or optionally customize deployment with parameters. You can refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) to see their meaning​s.
 
 1. Enter 'Y' to accept the license terms.
 
@@ -336,8 +336,6 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
        ```bash
        sudo iotedge check
        ```
-
----
 
 # [PowerShell](#tab/powershell)
 

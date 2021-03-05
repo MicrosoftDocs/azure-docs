@@ -196,6 +196,6 @@ additionalContent:
         - title: Tools
           links:
             - text: Azure CLI
-              url: /cli/azure/cognitiveservices?view=azure-cli-latest
+              url: /cli/azure/cognitiveservices
             - text: PowerShell
               url: /powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services

@@ -353,6 +353,6 @@ az k8s-configuration delete --name cluster-config --cluster-name AzureArcTest1 -
 
 ## Next steps
 
-Advance to the next article to learn how to use Helm with configurations.
+Advance to the next tutorial to learn how to implement CI/CD with GitOps.
 > [!div class="nextstepaction"]
-> [Use Helm with configurations](./use-gitops-with-helm.md)
+> [Implement CI/CD with GitOps](./tutorial-gitops-ci-cd.md)

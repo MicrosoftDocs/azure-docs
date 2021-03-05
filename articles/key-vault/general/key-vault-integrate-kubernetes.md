@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+* Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure-cli-windows).
 
 This tutorial assumes you running Azure Kubernetes Service on Linux nodes.
 
