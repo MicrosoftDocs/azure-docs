@@ -11,6 +11,18 @@ ms.date: 02/19/2020
 
 # Test a virtual machine image
 
+## Deploy an Azure VM
+
+To deploy a VM from the Shared Image Gallery image:
+
+1. Navigate to the Shared Image Gallery image version
+1. Click Create VM
+1. Provide a Virtual Machine Name and select a VM Size
+1. Click Review + create. Once validation is passed, click Create
+
+> [!NOTE]
+> If you need to create a VM from a vhd file, follow the instructions in the following articles, [Prepare an Azure Resource Manager template](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#prepare-an-azure-resource-manager-template) or [Deploy an Azure VM using PowerShell](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#deploy-an-azure-vm-using-powershell).
+
 This article describes how to test and submit a virtual machine (VM) image in the commercial marketplace to ensure it meets the latest Azure Marketplace publishing requirements.
 
 Complete these steps before submitting your VM offer:
@@ -57,7 +69,7 @@ After the automated test completes, provide additional information about your VM
 
 The last screen lets you provide more information, such as SSH access information for a Linux VM image, and an explanation for any failed assessments if you’re looking for exceptions.
 
-Finally, select Generate Report to download the test results and log files for the executed test cases along with your answers to the questionnaire. 
+Finally, select Generate Report to download the test results and log files for the executed test cases along with your answers to the questionnaire.
 > [!Note]
 > Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here and submit the report at Partner Center [support](https://aka.ms/marketplacepublishersupport).
 
