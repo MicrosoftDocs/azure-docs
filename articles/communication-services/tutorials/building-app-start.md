@@ -14,47 +14,47 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-You can use Azure Communication Services to add real-time communications to your applications. In this tutorial, you'll learn how to set up a web application that supports Azure Communication Services. This is an introductory tutorial for new developers who want to get started with real-time communications.
+You can use Azure Communication Services to add real-time communications to your applications. In this tutorial, you'll learn how to set up a web application that supports Communication Services. This is an introductory tutorial for new developers who want to get started with real-time communications.
 
-By the end of this tutorial, you'll have a baseline web application configured with Azure Communication Services client libraries that you can use to begin building your real-time communications solution.
+By the end of this tutorial, you'll have a baseline web application configured with Communication Services client libraries. You can then use that application to begin building your real-time communications solution.
 
-Feel free to visit the [Azure Communication Services GitHub](https://github.com/Azure/communication) page to provide feedback.
+Feel free to visit the [Azure Communication Services GitHub page](https://github.com/Azure/communication) to provide feedback.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Configure your development environment
-> * Set up a local webserver
-> * Add the Azure Communication Services packages to your website
-> * Publish your website to Azure Static Websites
+> * Configure your development environment.
+> * Set up a local web server.
+> * Add the Azure Communication Services packages to your website.
+> * Publish your website to Azure static websites.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Note that the free account gives you $200 in Azure credits to try out any combination of services.
-- [Visual Studio Code](https://code.visualstudio.com/): We'll use this to edit code in your local development environment.
-- [webpack](https://webpack.js.org/): This will be used to bundle and locally host your code.
-- [Node.js](https://nodejs.org/en/): This will be used to install and manage dependencies like Azure Communication Services client libraries and webpack.
+- An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). The free account gives you $200 in Azure credits to try out any combination of services.
+- [Visual Studio Code](https://code.visualstudio.com/) for editing code in your local development environment.
+- [webpack](https://webpack.js.org/) to bundle and locally host your code.
+- [Node.js](https://nodejs.org/en/) to install and manage dependencies like Azure Communication Services client libraries and webpack.
 - [nvm and npm](/windows/nodejs/setup-on-windows) to handle version control.
-- The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. [Read more about hosting static web sites in Azure Storage](../../storage/blobs/storage-blob-static-website.md)
-- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The extension allows deploying websites (similar to the previous) but with the option to configure the fully managed  continuous integration and continuous delivery (CI/CD).
-- The [Azure Function extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to build your own serverless applications. For example, you can host your authentication application in Azure functions.
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
-- A user access token. See the [access tokens quickstart](../quickstarts/access-tokens.md?pivots=programming-language-javascript) or the [trusted service tutorial](./trusted-service-tutorial.md) for instructions.
+- The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. This extension is needed to publish your application in Azure Storage. [Read more about hosting static websites in Azure Storage](../../storage/blobs/storage-blob-static-website.md).
+- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The extension allows deploying websites with the option to configure the fully managed  continuous integration and continuous delivery (CI/CD).
+- The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to build your own serverless applications. For example, you can host your authentication application in Azure functions.
+- An active Communication Services resource and connection string. [Learn how to create a Communication Services resource](../quickstarts/create-communication-resource.md).
+- A user access token. For instructions, see the [quickstart for creating and managing access tokens](../quickstarts/access-tokens.md?pivots=programming-language-javascript) or the [tutorial for building a trusted authentication service](./trusted-service-tutorial.md).
 
 
 ## Configure your development environment
 
 Your local development environment will be configured like this:
 
-:::image type="content" source="./media/step-one-pic-one.png" alt-text="Developer environment architecture":::
+:::image type="content" source="./media/step-one-pic-one.png" alt-text="Diagram that illustrates the architecture of the development environment.":::
 
 
-### Install Node.js, nvm and npm
+### Install Node.js, nvm, and npm
 
 We'll use Node.js to download and install various dependencies we need for our client-side application. We'll use it to generate static files that we'll then host in Azure, so you don't need to worry about configuring it on your server.
 
 Windows developers can follow [this NodeJS tutorial](/windows/nodejs/setup-on-windows) to configure Node, nvm, and npm. 
 
-We tested this tutorial using the LTS 12.20.0 version. After you install nvm, use the following PowerShell command to deploy the version that you want to use:
+We tested this tutorial by using the LTS 12.20.0 version. After you install nvm, use the following PowerShell command to deploy the version that you want to use:
 
 ```PowerShell
 nvm list available
@@ -62,7 +62,7 @@ nvm install 12.20.0
 nvm use 12.20.0
 ```
 
-:::image type="content" source="./media/step-one-pic-two.png" alt-text="Working with nvm to deploy Node.js":::
+:::image type="content" source="./media/step-one-pic-two.png" alt-text="Screenshot that shows the commands for deploying a Node.js version.":::
 
 ### Configure Visual Studio Code
 
@@ -70,40 +70,40 @@ You can download [Visual Studio Code](https://code.visualstudio.com/) on one of 
 
 ### Create a workspace for your Azure Communication Services projects
 
-Create a new folder to store your project files, like this: `C:\Users\Documents\ACS\CallingApp`. In Visual Studio Code, click "File", "Add Folder to Workspace" and add the folder to your workspace.
+Create a folder to store your project files, like this: `C:\Users\Documents\ACS\CallingApp`. In Visual Studio Code, select **File** > **Add Folder to Workspace** and add the folder to your workspace.
 
-:::image type="content" source="./media/step-one-pic-three.png" alt-text="Creating new workplace":::
+:::image type="content" source="./media/step-one-pic-three.png" alt-text="Screenshot that shows selections for adding a file to a workspace.":::
 
-Go to "Explorer" in Visual Studio Code on the left pane, and you'll see your "CallingApp" folder in the "Untitled" workspace.
+Go to **EXPLORER** on the left pane, and you'll see your **CallingApp** folder in the **UNTITLED** workspace.
 
-:::image type="content" source="./media/step-one-pic-four.png" alt-text="Explorer":::
+:::image type="content" source="./media/step-one-pic-four.png" alt-text="Screenshot that shows Explorer and the untitled workspace.":::
 
-Feel free to update the name of your workspace. You can validate your Node.js version by right-clicking on your "CallingApp" folder and selecting "Open in Integrated Terminal".
+Feel free to update the name of your workspace. You can validate your Node.js version by right-clicking your **CallingApp** folder and selecting **Open in Integrated Terminal**.
 
-:::image type="content" source="./media/step-one-pic-five.png" alt-text="Opening a terminal":::
+:::image type="content" source="./media/step-one-pic-five.png" alt-text="Screenshot that shows the selection for opening a folder in an integrated terminal.":::
 
-In the terminal, type the following command to validate the node.js version installed on the previous step:
+In the terminal, enter the following command to validate the Node.js version installed in the previous step:
 
 ```JavaScript
 node --version
 ```
 
-:::image type="content" source="./media/step-one-pic-six.png" alt-text="Validating Node.js version":::
+:::image type="content" source="./media/step-one-pic-six.png" alt-text="Screenshot that shows validating the Node version.":::
 
 ### Install Azure Extensions for Visual Studio Code
 
-Install the [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) either through the Visual Studio marketplace or with Visual Studio Code (View > Extensions > Azure Storage).
+Install the [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) either through the Visual Studio marketplace or through Visual Studio Code (**View** > **Extensions** > **Azure Storage**).
 
-:::image type="content" source="./media/step-one-pic-seven.png" alt-text="Installing Azure Storage Extension 1":::
+:::image type="content" source="./media/step-one-pic-seven.png" alt-text="Screenshot that shows the button to install the Azure Storage extension.":::
 
 Follow the same steps for the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extensions.
 
 
-## Set up a local webserver
+## Set up a local web server
 
-### Create a new npm package
+### Create an npm package
 
-In your terminal, from the path of your workspace folder, type:
+In your terminal, from the path of your workspace folder, enter:
 
 ``` console
 npm init -y
@@ -111,15 +111,15 @@ npm init -y
 
 This command initializes a new npm package and adds `package.json` into the root folder of your project.
 
-:::image type="content" source="./media/step-one-pic-eight.png" alt-text="Package JSON":::
+:::image type="content" source="./media/step-one-pic-eight.png" alt-text="Screenshot that shows the package J S O N.":::
 
-Additional documentation on the npm init command can be found [here](https://docs.npmjs.com/cli/v6/commands/npm-init)
+For more documentation on the `npm init`, see the [npm Docs page for that command](https://docs.npmjs.com/cli/v6/commands/npm-init).
 
 ### Install webpack
 
-[webpack](https://webpack.js.org/) lets you bundle code into static files that you can deploy to Azure. It also has a development server, which we'll configure to use with the calling sample.
+You can use [webpack](https://webpack.js.org/) to bundle code into static files that you can deploy to Azure. It also has a development server, which we'll configure to use with the calling sample.
 
-In your terminal type the following to install webpack:
+In your terminal, enter the following command to install webpack:
 
 ``` Console
 npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
@@ -147,7 +147,7 @@ npm install --save-dev webpack-merge
 
 In your `package.json` file, you can see one more dependency added to the "devDependencies."
 
-In the next step, we need to create a new file `webpack.common.js` and add the following code:
+In the next step, we need to create a file called `webpack.common.js` and add the following code:
 
 ```JavaScript
 const path = require('path');
@@ -217,15 +217,15 @@ You added the command that can be used from npm.
 
 :::image type="content" source="./media/step-one-pic-12.png" alt-text="Modifying package.json":::
 
-### Testing the development server
+### Test the development server
 
  In Visual Studio Code, create three files under your project:
 
 * `index.html`
 * `app.js`
-* `app.css` (optional, this lets you style your app)
+* `app.css` (optional; this lets you style your app)
 
-Paste this into `index.html`:
+Paste this code into `index.html`:
 
 ```html
 <!DOCTYPE html>
@@ -302,7 +302,7 @@ This action will add the Azure Communication Services common and calling package
 These packages are provided by the Azure Communication Services team and include the authentication and calling libraries. The "--save" command signals that our application depends on these packages for production use and will be included in the `dependencies` of our `package.json` file. When we build the application for production, the packages will be included in our production code.
 
 
-## Publish your website to Azure Static Websites
+## Publish your website to Azure static websites
 
 ### Create a configuration for production deployment
 
@@ -372,7 +372,7 @@ The command will create a `dist` folder and production-ready `app.js` static fil
  
 Copy `index.html` and `app.css` to the `dist` folder.
 
-In the `dist` folder, create a new file and name it `404.html`. Copy the following markup into that file:
+In the `dist` folder, create a file and name it `404.html`. Copy the following markup into that file:
 
 ```html
 <!DOCTYPE html>
