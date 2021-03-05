@@ -39,6 +39,8 @@
         href: aclp-tutorial.md
       - name: AcquireIO
         href: acquireio-tutorial.md
+      - name: Acunetix 360
+        href: acunetix-360-tutorial.md
       - name: Adaptive Insights
         href: adaptivesuite-tutorial.md
       - name: Adobe Captivate Prime
@@ -1274,6 +1276,8 @@
         href: onetrust-tutorial.md
       - name: Onit
         href: onit-tutorial.md
+      - name: Onshape
+        href: onshape-tutorial.md
       - name: OnTrack
         href: ontrack-tutorial.md
       - name: Opal
@@ -1858,6 +1862,8 @@
         href: topdesk-secure-tutorial.md
       - name: TrackVia
         href: trackvia-tutorial.md
+      - name: Tradeshift
+        href: tradeshift-tutorial.md
       - name: Trakopolis
         href: trakopolis-tutorial.md
       - name: Trakstar
