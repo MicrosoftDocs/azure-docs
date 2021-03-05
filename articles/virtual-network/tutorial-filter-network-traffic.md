@@ -3,23 +3,20 @@ title: Filter network traffic - tutorial - Azure Portal
 titlesuffix: Azure Virtual Network
 description: In this tutorial, you learn how to filter network traffic to a subnet, with a network security group, using the Azure portal.
 services: virtual-network
-documentationcenter: virtual-network
 author: KumudD
-tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.service: virtual-network
-ms.devlang: 
 ms.topic: tutorial
-ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure
-ms.date: 12/13/2018
+ms.date: 03/06/2021
 ms.author: kumud
 
 ---
 
 # Tutorial: Filter network traffic with a network security group using the Azure portal
 
-You can filter network traffic inbound to and outbound from a virtual network subnet with a network security group. Network security groups contain security rules that filter network traffic by IP address, port, and protocol. Security rules are applied to resources deployed in a subnet. In this tutorial, you learn how to:
+You can filter network traffic inbound to and outbound from a virtual network subnet with a network security group. Network security groups contain security rules that filter network traffic by IP address, port, and protocol. Security rules are applied to resources deployed in a subnet. 
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a network security group and security rules
@@ -27,9 +24,11 @@ You can filter network traffic inbound to and outbound from a virtual network su
 > * Deploy virtual machines (VM) into a subnet
 > * Test traffic filters
 
-If you prefer, you can complete this tutorial using the [Azure CLI](tutorial-filter-network-traffic-cli.md) or [PowerShell](tutorial-filter-network-traffic-powershell.md).
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+- An Azure subscription.
 
 ## Sign in to Azure
 
@@ -37,43 +36,66 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a virtual network
 
-1. On the Azure portal menu or from the **Home** page, select **Create a resource**. 
-2. Select **Networking**, and then select **Virtual network**.
-3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **Create**:
+1. Select **Create a resource**. 
 
-    | Setting                 | Value                                              |
-    | ---                     | ---                                                |
-    | Name                    | myVirtualNetwork                                   |
-    | Address space           | 10.0.0.0/16                                        |
-    | Subscription            | Select your subscription.                          |
-    | Resource group          | Select **Create new** and enter *myResourceGroup*. |
-    | Location                | Select **East US**.                                |
-    | Subnet- Name            | mySubnet                                           |
-    | Subnet - Address range  | 10.0.0.0/24                                        |
+2. In the search box, enter **Virtual Network**. Select **Virtual Network** in the search results.
+
+3. In the **Virtual Network** page, select **Create**.
+
+4. In **Create virtual network**, enter or select this information in the **Basics** tab:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **Create new**.  </br> Enter **myResourceGroup**. </br> Select **OK**. |
+    | **Instance details** |   |
+    | Name | Enter **myVNet**. |
+    | Region | Select **(US) East US**. |
+
+5. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+
+6. Select **Create**.
 
 ## Create application security groups
 
 An application security group enables you to group together servers with similar functions, such as web servers.
 
-1. On the Azure portal menu or from the **Home** page, select **Create a resource**. 
-2. In the **Search the Marketplace** box, enter *Application security group*. When **Application security group** appears in the search results, select it, select **Application security group** again under **Everything**, and then select **Create**.
-3. Enter, or select, the following information, and then select **Create**:
+1. Select **Create a resource**. 
 
-    | Setting        | Value                                                         |
-    | ---            | ---                                                           |
-    | Name           | myAsgWebServers                                               |
-    | Subscription   | Select your subscription.                                     |
-    | Resource group | Select **Use existing** and then select  **myResourceGroup**. |
-    | Location       | East US                                                       |
+2. In the search box, enter **Application security group**. Select **Application security group** in the search results.
 
-4. Complete step 3 again, specifying the following values:
+3. In the **Application security group** page, select **Create**.
 
-    | Setting        | Value                                                         |
-    | ---            | ---                                                           |
-    | Name           | myAsgMgmtServers                                              |
-    | Subscription   | Select your subscription.                                     |
-    | Resource group | Select **Use existing** and then select  **myResourceGroup**. |
-    | Location       | East US                                                       |
+4. In **Create an application security group**, enter or select this information in the **Basics** tab:
+
+    | Setting | Value |
+    | ------- | ----- |
+    |**Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **myResourceGroup**. |
+    | **Instance details** |  |
+    | Name | Enter **myAsgWebServers**. |
+    | Region | Select **(US) East US**. | 
+
+5. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+
+6. Select **Create**.
+
+7. Repeat step 4 again, specifying the following values:
+
+    | Setting | Value |
+    | ------- | ----- |
+    |**Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **myResourceGroup**. |
+    | **Instance details** |  |
+    | Name | Enter **myAsgMgmtServers**. |
+    | Region | Select **(US) East US**. |
+
+8. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+
+9. Select **Create**.
 
 ## Create a network security group
 
