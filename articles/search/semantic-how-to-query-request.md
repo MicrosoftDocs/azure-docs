@@ -33,7 +33,7 @@ In this article, learn how to formulate a search request that uses semantic rank
 
 ## What's a semantic query?
 
-In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* adds parameters that invoke the semantic reranking algorithm that can assess the context and meaning of matching results, promote more relevant matches to the top, and return semantic answers and captions.
+In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* adds parameters that invoke the semantic reranking model that can assess the context and meaning of matching results, promote more relevant matches to the top, and return semantic answers and captions.
 
 The following request is representative of a basic semantic query (without answers).
 
