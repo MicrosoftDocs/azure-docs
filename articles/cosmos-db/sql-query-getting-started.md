@@ -18,7 +18,7 @@ In Azure Cosmos DB SQL API accounts, there are two ways to read data:
 
 Here are some examples of how to do **Point reads** with each SDK:
 
-- [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
+- [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.readitemasync)
 - [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
 - [Node.js SDK](/javascript/api/@azure/cosmos/item#read-requestoptions-)
 - [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
