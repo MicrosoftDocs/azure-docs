@@ -17,23 +17,23 @@ This article explains how to set up CI/CD processes using [Azure Pipelines](/azu
 
 To follow the steps in this article, you need an [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization). You'll also need to [create a project in Azure DevOps](/azure/devops/organizations/projects/create-project).
 
-You should also have a basic understanding of [Source control](/azure/devops/user-guide/source-control) and [Azure Resource Manager template syntax](../azure-resource-manager/templates/template-syntax.md). 
+It's helpful to have a basic understanding of [Source control](/azure/devops/user-guide/source-control) and [Azure Resource Manager template syntax](../azure-resource-manager/templates/template-syntax.md) before you start.
 
 ## Create an Azure Pipeline
 
-In this example, we'll create a build and release pipeline to deploy an Azure Batch infrastructure and release an application package. Assuming that the code is developed locally, this is the general deployment flow:
+In this example, you'll create a build and release pipeline to deploy an Azure Batch infrastructure and release an application package. Assuming that the code is developed locally, this is the general deployment flow:
 
-![Diagram showing the flow of deployment in our Pipeline,](media/batch-ci-cd/DeploymentFlow.png)
+![Diagram showing the flow of deployment in the Pipeline,](media/batch-ci-cd/DeploymentFlow.png)
 
 This sample uses several Azure Resource Manager templates and existing binaries. You can copy these examples into your repository and push them to Azure DevOps.
 
 ### Understand the Azure Resource Manager templates
 
-This example leverages multiple Resource Manager templates to deploy our solution. To do this, we use a number of capability templates (similar to units or modules) that implement a specific piece of functionality. We also use an end-to-end solution template (deployment.json) which is responsible for deploying three underlying capability templates. This [linked template structure ](../azure-resource-manager/templates/deployment-tutorial-linked-template.md) allows the underlying capability templates to be individually tested and reused across solutions.
+This example uses several Azure Resource Manager templates to deploy the solution. Three capability templates (similar to units or modules) are used to implement a specific piece of functionality. An end-to-end solution template (deployment.json) is then used to deploy those underlying capability templates. This [linked template structure ](../azure-resource-manager/templates/deployment-tutorial-linked-template.md) allows each capability template to be individually tested and reused across solutions.
 
 ![Diagram showing a linked template structure using Azure Resource Manager templates.](media/batch-ci-cd/ARMTemplateHierarchy.png)
 
-This template defines an Azure storage account, which our solution requires in order to deploy the application to the Batch account. For detailed information, see the [Resource Manager template reference guide for Microsoft.Storage resource types](/azure/templates/microsoft.storage/allversions).
+This template defines an Azure storage account, which is required in order to deploy the application to the Batch account. For detailed information, see the [Resource Manager template reference guide for Microsoft.Storage resource types](/azure/templates/microsoft.storage/allversions).
 
 ```json
 {
@@ -73,7 +73,7 @@ This template defines an Azure storage account, which our solution requires in o
 }
 ```
 
-Next, we will look at the Azure Batch account template. The Batch account acts as a platform to run numerous applications across [pools](nodes-and-pools.md#pools). For detailed information, see the [Resource Manager template reference guide for Microsoft.Batch resource types].
+The next template defines an [Azure Batch account](accounts.md). The Batch account acts as a platform to run numerous applications across [pools](nodes-and-pools.md#pools). For detailed information, see the [Resource Manager template reference guide for Microsoft.Batch resource types].
 
 ```json
 {
@@ -158,7 +158,7 @@ The next template creates a Batch pool in the Batch account. For detailed inform
 }
 ```
 
-Finally, we have a template that acts similar to an orchestrator. This template is responsible for deploying the three underlying capability templates.
+The final template acts as an orchestrator, deploying the three underlying capability templates.
 
 ```json
 {
@@ -258,7 +258,7 @@ Finally, we have a template that acts similar to an orchestrator. This template 
 
 ### Understand the HPC solution
 
-This sample heavily relies on a number of Resource Manager Templates (JSON Documents) and existing binaries. You can copy these examples into your repository and push them to Azure DevOps. The infrastructure and software can be defined as code and colocated in the same repository.
+As noted earlier, this sample uses several Azure Resource Manager templates and existing binaries. You can copy these examples into your repository and push them to Azure DevOps.
 
 For this solution, ffmpeg is used as the application package. You can [download the ffmpeg package](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08) if you don't have it already.
 
@@ -266,16 +266,16 @@ For this solution, ffmpeg is used as the application package. You can [download 
 
 There are four main sections to this repository:
 
-- An **arm-templates** folder, containing a number of Azure Resource Manager templates
-- An **hpc-application** folder, which is the Windows 64-bit version of [ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08).
-- A **pipelines** folder. This contains a YAML file defining our build pipeline process.
+- An **arm-templates** folder, containing the Azure Resource Manager templates
+- An **hpc-application** folder, containing the Windows 64-bit version of [ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08).
+- A **pipelines** folder, containing a YAML file that defines the build pipeline process.
 - Optional: A **client-application** folder, which is a copy of the [Azure Batch .NET File Processing with ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) sample. This application is not needed for this article.
 
 
 > [!NOTE]
 > This is just one example of a structure to a codebase. This approach is used for the purposes of demonstrating that application, infrastructure, and pipeline code are stored in the same repository.
 
-Now that the source code is set up, we can begin the first build.
+Now that the source code is set up, you can begin the first build.
 
 ## Continuous integration
 
@@ -285,7 +285,7 @@ In this stage of your pipeline, tests are typically run to validate code and bui
 
 ## Prepare the HPC application
 
-In this example, we will focus on the **hpc-application** folder, which contain the software (ffmpeg) that will run from within the Azure Batch account.
+In this section, you'll work with the **hpc-application** folder. This folder contains the software (ffmpeg) that will run within the Azure Batch account.
 
 1. Navigate to the Builds section of Azure Pipelines in your Azure DevOps organization. Create a **New pipeline**.
 
@@ -335,7 +335,7 @@ Azure Pipelines is also used to deploy your application and underlying infrastru
 
 ### Deploy your application and underlying infrastructure
 
-There are a number of steps involved in deploying the infrastructure. As we have used [linked templates](../azure-resource-manager/templates/linked-templates.md), those templates will need to be accessible from a public endpoint (HTTP or HTTPS). This could be a repository on GitHub, or an Azure Blob Storage Account, or another storage location. The uploaded template artifacts can remain secure, as they can be held in a private mode but accessed using some form of shared access signature (SAS) token.
+There are a number of steps involved in deploying the infrastructure. Because this solution uses [linked templates](../azure-resource-manager/templates/linked-templates.md), those templates will need to be accessible from a public endpoint (HTTP or HTTPS). This could be a repository on GitHub, or an Azure Blob Storage Account, or another storage location. The uploaded template artifacts can remain secure, as they can be held in a private mode but accessed using some form of shared access signature (SAS) token.
 
 The following example demonstrates how to deploy an infrastructure with templates from an Azure Storage blob.
 
@@ -359,17 +359,17 @@ The following example demonstrates how to deploy an infrastructure with template
 
 1. Navigate to the **variables** section. You'll want to create a number of variables in your pipeline so that you don't have to re-enter the same information into multiple tasks. This example uses the following variables:
 
-- **applicationStorageAccountName**: Name of the storage account that holds the HPC application binaries
-- **batchAccountApplicationName**: Name of the application in the Batch account
-- **batchAccountName**: Name of the Batch account
-- **batchAccountPoolName**: Name of the pool of VMs doing the processing
-- **batchApplicationId**: Unique ID for the Batch application
-- **batchApplicationVersion**: Semantic version of your Batch application (that is, the ffmpeg binaries)
-- **location**: Location for the Azure resources to be deployed
-- **resourceGroupName**: Name of the resource group to be created, and where your resources will be deployed
-- **storageAccountName**: Name of the storage account that holds the linked Resource Manager templates
+   - **applicationStorageAccountName**: Name of the storage account that holds the HPC application binaries
+   - **batchAccountApplicationName**: Name of the application in the Batch account
+   - **batchAccountName**: Name of the Batch account
+   - **batchAccountPoolName**: Name of the pool of VMs doing the processing
+   - **batchApplicationId**: Unique ID for the Batch application
+   - **batchApplicationVersion**: Semantic version of your Batch application (that is, the ffmpeg binaries)
+   - **location**: Location for the Azure resources to be deployed
+   - **resourceGroupName**: Name of the resource group to be created, and where your resources will be deployed
+   - **storageAccountName**: Name of the storage account that holds the linked Resource Manager templates
 
-    ![Screenshot showing variables set for the Azure Pipelines release.](media/batch-ci-cd/Release-4.jpg)
+   ![Screenshot showing variables set for the Azure Pipelines release.](media/batch-ci-cd/Release-4.jpg)
 
 1. Navigate to the tasks for the Dev environment. In the below snapshot, you can see six tasks. These tasks will: download the zipped ffmpeg files, deploy a storage account to host the nested Resource Manager templates, copy those Resource Manager templates to the storage account, deploy the batch account and required dependencies, create an application in the Azure Batch Account and upload the application package to the Azure Batch Account.
 
@@ -378,9 +378,9 @@ The following example demonstrates how to deploy an infrastructure with template
 1. Add the **Download Pipeline Artifact (Preview)** task and set the following properties:
     - **Display Name:** Download ApplicationPackage to Agent
     - **The name of the artifact to download:** hpc-application
-    * **Path to download to**: $(System.DefaultWorkingDirectory)
+    - **Path to download to**: $(System.DefaultWorkingDirectory)
 
-1. Create a Storage Account to store your artifacts. An existing storage account from the solution could be used, but for the self-contained sample and isolation of content, we are making a dedicated storage account for our artifacts (specifically the Resource Manager templates).
+1. Create a Storage Account to store your Azure Resource Manager templates. An existing storage account from the solution could be used, but to support this self-contained sample and isolation of content, you'll make a dedicated storage account.
 
     Add the **Azure Resource Group Deployment** task and set the following properties:
     - **Display Name:** Deploy storage account for Resource Manager templates
@@ -412,7 +412,7 @@ The following example demonstrates how to deploy an infrastructure with template
     - **Resource Group**: $(resourceGroupName)
     - **Location**: $(location)
     - **Template**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/deployment.json
-    - **Override template parameters**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
+    - **Override template parameters**: `-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)`
 
    A common practice is to use Azure Key Vault tasks. If the service principal connected to your Azure subscription has an appropriate access policies set, it can download secrets from an Azure Key Vault and be used as variables in your pipeline. The name of the secret will be set with the associated value. For example, a secret of sshPassword could be referenced with $(sshPassword) in the release definition.
 
@@ -422,7 +422,7 @@ The following example demonstrates how to deploy an infrastructure with template
     - **Display Name:** Create application in Azure Batch account
     - **Azure Subscription:** Select the appropriate Azure subscription
     - **Script Location**: Inline Script
-    - **Inline Script**: ```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
+    - **Inline Script**: `az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)`
 
 1. The second step is used to upload associated packages to the application (in this case, the ffmpeg files).
 
@@ -430,7 +430,7 @@ The following example demonstrates how to deploy an infrastructure with template
     - **Display Name:** Upload package to Azure Batch account
     - **Azure Subscription:** Select the appropriate Azure subscription
     - **Script Location**: Inline Script
-    - **Inline Script**: ```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
+    - **Inline Script**: `az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip`
 
     > [!NOTE]
     > The version number of the application package is set to a variable. This allows overwriting previous versions of the package and lets you manually control the version number of the package pushed to Azure Batch.
