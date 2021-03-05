@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/08/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, automl
+ms.custom: how-to, devx-track-python, automl, references_regions
 ---
 
 # Troubleshoot automated ML experiments in Python
@@ -173,10 +173,10 @@ If this pattern is expected in your time series, you can switch your primary met
 
 * To ensure the notebook is for the SDK version that you are using,
   * Check the SDK version by executing `azureml.core.VERSION` in a Jupyter Notebook cell.
-  * You can download previous version of the sample notebooks from GitHub by
-    * Select the `Branch` button
-    * Navigate to the `Tags` tab
-    * Select the version
+  * You can download previous version of the sample notebooks from GitHub with these steps:
+    1. Select the `Branch` button
+    1. Navigate to the `Tags` tab
+    1. Select the version
 
 ## Next steps
 
