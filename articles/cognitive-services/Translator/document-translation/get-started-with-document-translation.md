@@ -20,7 +20,7 @@ To get started, you'll need:
 
 * A [**Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) service resource (**not** a Cognitive Services resource). 
 
-* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account.
+* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Within your storage account, you will create containers to store and organize your blob data.
 
 * A completed [**Document Translation (Preview) form**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) to enable your Azure subscription to use the new Document Translation feature.
 
@@ -281,7 +281,7 @@ The following headers are included with each Document Translator API request:
 
 #### Locating  the `id` value
 
-* You'll find the job `id`  in the The POST method's  response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**.  
+* You'll find the job `id`  in the POST method response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**.  
 
 |**Response header**|**Result URL**|
 |-----------------------|----------------|
