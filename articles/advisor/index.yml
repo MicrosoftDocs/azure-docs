@@ -41,7 +41,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Common Language Interface (CLI)
-            url: /cli/azure/advisor?view=azure-cli-latest
+            url: /cli/azure/advisor
           - text: PowerShell
             url: /powershell/module/az.advisor/?view=azps-1.2.0
           - text: REST API

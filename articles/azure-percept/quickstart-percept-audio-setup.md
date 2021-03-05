@@ -37,4 +37,4 @@ Azure Percept Audio works out of the box with Azure Percept DK. No unique setup 
 
 ## Next steps
 
-Create a [no-code speech solution](./tutorial-no-code-speech.md).
+Create a [no-code speech solution](./tutorial-no-code-speech.md) in [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
