@@ -1,5 +1,5 @@
 ---
-title: UI Framework Meetings
+title: UI Framework Teams Embed
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to join an Teams meeting with the Azure Communication Calling SDK
 author: tophpalmer
@@ -10,17 +10,17 @@ ms.service: azure-communication-services
 
 ---
 
-# Meetings
+# Teams Embed
 
-Meetings is an Azure Communication Services capability focused on common business-to-consumer and business-to-business calling interactions. The core of the meeting system is [video and voice calling](../voice-video-calling/calling-sdk-features.md), but the meetings system builds on Azure's calling primitives to deliver a complete user experience based on Microsoft Team's meetings.
+Teams Embed is an Azure Communication Services capability focused on common business-to-consumer and business-to-business calling interactions. The core of the Teams Embed system is [video and voice calling](../voice-video-calling/calling-sdk-features.md), but the Teams Embed system builds on Azure's calling primitives to deliver a complete user experience based on Microsoft Team's meetings.
 
-Meeting SDKs are closed source and make these capabilities available to you in a turn-key, composite format. You drop meetings into your app's canvas and the SDK generates a complete user experience. Because this user experience is very similar to Microsoft Team's meetings you can take advantage of:
+Teams Embed SDKs are closed source and make these capabilities available to you in a turn-key, composite format. You drop Teams Embed into your app's canvas and the SDK generates a complete user experience. Because this user experience is very similar to Microsoft Team's meetings you can take advantage of:
 
 1. Reduced development time and engineering complexity
 1. End-user familiarity with Teams
 1. Ability to re-use [Teams end-user training content](https://support.microsoft.com/office/meetings-in-teams-e0b0ae21-53ee-4462-a50d-ca9b9e217b67)
 
-The Meeting Composite provides most features supported in Teams meetings, including:
+The Teams Embed provides most features supported in Teams meetings, including:
 
 1. Pre-meeting experience where a user configures their audio and video devices
 1. In-meeting experience for configuring audio and video devices

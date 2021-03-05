@@ -1,6 +1,5 @@
 ---
-title: Use the Azure Communication Services Teams Embed Library
-titleSuffix: An Azure Communication Services quickstart
+title: Using the Azure Communication Services Teams Embed Library
 description: Learn about the Communication Services Teams Embed library capabilities.
 author: palatter
 ms.author: palatter
