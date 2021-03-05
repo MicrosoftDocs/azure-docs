@@ -74,7 +74,7 @@ The following table represents the set of supported browsers which are currently
 
 |                                  | Chrome | Safari*  | Edge (Chromium) | 
 | -------------------------------- | -------| ------  | --------------  |
-| Andriod                          |  ✔️    | ❌     | ❌             |
+| Android                          |  ✔️    | ❌     | ❌             |
 | iOS                              |  ❌    | ✔️**** | ❌             |
 | macOS***                         |  ✔️    | ✔️**   | ❌             |
 | Windows***                       |  ✔️    | ❌     | ✔️             |
