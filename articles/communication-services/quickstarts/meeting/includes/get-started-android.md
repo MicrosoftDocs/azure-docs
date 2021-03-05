@@ -181,8 +181,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.azure.android.communication.common.CommunicationTokenCredential;
+import com.azure.android.communication.common.CommunicationTokenRefreshOptions;
+import com.azure.android.communication.ui.meetings.CallState;
+import com.azure.android.communication.ui.meetings.MeetingJoinOptions;
 import com.azure.android.communication.ui.meetings.MeetingUIClient;
-import com.azure.android.communication.ui.meetings.JoinOptions;
 
 import java.util.ArrayList;
 
@@ -263,7 +265,8 @@ With the user token an authenticated meeting client can be instantiated. General
 ```java
 private void createMeetingClient() {
     try {
-        CommunicationTokenCredential credential = new CommunicationTokenCredential(tokenRefresher, true, "<USER_ACCESS_TOKEN>");
+        CommunicationTokenRefreshOptions refreshOptions = new CommunicationTokenRefreshOptions(tokenRefresher, true, "<USER_ACCESS_TOKEN>");
+        CommunicationTokenCredential credential = new CommunicationTokenCredential(refreshOptions);
         meetingUIClient = new MeetingUIClient(credential);
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to create meeting client: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
