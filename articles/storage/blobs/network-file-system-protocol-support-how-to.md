@@ -102,9 +102,7 @@ Create a container in your storage account by using any of these tools or SDKs:
 
 ## Step 7: Mount the container
 
-Create a directory on your Windows or Linux system, and then mount a container in the storage account.
-
-### [Linux]
+Create a directory on your Linux system, and then mount a container in the storage account.
 
 1. On a Linux system, create a directory.
 
