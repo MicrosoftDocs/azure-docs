@@ -73,11 +73,11 @@ When using .NET isolated functions, you have access to the start-up of your func
 
 The following code shows an example of a `HostBuilder` pipeline:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker-test/samples/FunctionApp/Program.cs" id="startup":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker-test/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
 
 A `HostBuilder` is used to build and return a fully initialized `IHost` instance, which you run asynchronously to start your function app. 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="35":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker-test/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
 ### Configuration
 
