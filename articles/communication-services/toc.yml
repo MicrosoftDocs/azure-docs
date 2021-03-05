@@ -38,6 +38,8 @@
     items:
     - name: Add voice calling to your app
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
+    - name: Add video calling to your app (JavaScript)
+      href: quickstarts/voice-video-calling/get-started-with-video-calling.md
     - name: Use the calling client library
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling app to a Teams meeting
