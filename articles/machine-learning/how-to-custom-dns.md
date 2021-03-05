@@ -97,12 +97,23 @@ $workspaceDns.CustomDnsConfigs | format-table
 
 ---
 
-The information returned from all methods is the same; a list of the FQDN and private IP address for the resources. The following table shows an example of IPs from public cloud regions:
+The information returned from all methods is the same; a list of the FQDN and private IP address for the resources. The following example is from the a public Azure region:
 
 | FQDN | IP Address |
 | ----- | ----- |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
+
+> [!IMPORTANT]
+> Some FQDNs are not shown in listed by the private endpoint, but are required by the workspace in eastus, southcentralus and westus2. These FQDNs are listed in the following table, and must also be added to your DNS server and/or an Azure Private DNS Zone:
+>
+> * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
+> * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
+> * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
+> * `<workspace-GUID>.workspace.<region>.aether.ms`
+> * If you have a compute instance, use `<instance-name>.<region>.instances.azureml.ms`, where `<instance-name>` is the name of your compute instance. Please use private IP address of workspace private endpoint. Please note compute instance can be accessed only from within the virtual network.
+>
+> For all of these IP address, use the same address as the `*.api.azureml.ms` entries returned from the previous steps.
 
 The following table shows example IPs from Azure China 21Vianet regions:
 
@@ -110,7 +121,6 @@ The following table shows example IPs from Azure China 21Vianet regions:
 | ----- | ----- |
 | `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.cn` | `10.1.0.5` |
 | `ml-mype-pltest-chinaeast2-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.chinacloudapi.cn` | `10.1.0.6` |
-
 ## Next steps
 
 For more information on using Azure Machine Learning with a virtual network, see the [virtual network overview](how-to-network-security-overview.md).
