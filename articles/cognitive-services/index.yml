@@ -184,7 +184,7 @@ additionalContent:
             - text: Java
               url: /java/api/overview/azure/cognitiveservices/client
             - text: JavaScript
-              url: /javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+              url: /javascript/api/overview/azure/cognitive-services
             - text: Python
               url: /python/api/overview/azure/cognitive-services?view=azure-python
             - text: R 
