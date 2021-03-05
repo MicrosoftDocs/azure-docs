@@ -20,7 +20,7 @@ Semantic search is a collection of query-related features that support a higher-
 
 The underlying technology is from Bing and Microsoft Research, and integrated into the Cognitive Search infrastructure. For more information about the research and AI investments backing semantic search, see [How AI from Bing is powering Azure Cognitive Search (Microsoft Research Blog)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 
-To use semantic search in queries, you'll need small modifications to the search request, but no extra configuration or reindexing is required.
+To use semantic search in queries, you'll need to make small modifications to the search request, but no extra configuration or reindexing is required.
 
 Public preview features include:
 
@@ -38,7 +38,7 @@ Between preview launch on March 2 through April 1, spell correction and semantic
 
 ## Semantic search architecture
 
-Components of semantic search are layered on top of the existing query execution pipeline. Spell correction (not shown in the diagram) improves recall by correcting typos in individual query terms. After all parsing and analysis are complete, the search engine retrieves the documents that matched the query and scores them using the [default scoring algorithm](index-similarity-and-scoring.md#similarity-ranking-algorithms), either BM25 or classic, depending on when the service was created. Scoring profiles are also applied at this stage.
+Components of semantic search are layered on top of the existing query execution pipeline. Spell correction (not shown in the diagram) improves recall by correcting typos in individual query terms. After parsing and analysis are completed, the search engine retrieves the documents that matched the query and scores them using the [default scoring algorithm](index-similarity-and-scoring.md#similarity-ranking-algorithms), either BM25 or classic, depending on when the service was created. Scoring profiles are also applied at this stage.
 
 Having received the top 50 matches, the [semantic ranking model](semantic-how-to-query-response.md) re-evaluates the document corpus. Results can include more than 50 matches, but only the first 50 will be reranked. For ranking, the model uses both machine learning and transfer learning to re-score the documents based on how well each one matches the intent of the query.
 

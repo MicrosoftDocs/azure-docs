@@ -89,6 +89,7 @@ Add the following parameters to the rest. Both parameters are required.
 "queryType": "semantic",
 "queryLanguage": "en-us",
 ```
+
 The queryLanguage must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. If queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"). Any language-agnostic analyzers, such as keyword or simple, have no conflict with queryLanguage values.
 
 In a query request, if you are also using [spelling correction](speller-how-to-add.md), the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts. 
@@ -99,9 +100,9 @@ While content in a search index can be composed in multiple languages, the query
 
 #### Step 2: Set searchFields
 
-This parameter is optional, but strongly recommended for both captions and answers. In simple or full Lucene queries, the searchFields parameter scopes the query to specific fields, which can be listed in arbitrary order.
+This parameter is optional, but an ordered list of fields is strongly recommended for both captions and answers. 
 
-In a semantic query, the searchFields parameter determines which fields are evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank, as the model requires a hint as to which fields are the most important to process.
+In simple or full Lucene queries, the searchFields parameter scopes the query to specific fields, which can be listed in arbitrary order. In a semantic query, the searchFields parameter determines which fields are evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank, as the model requires a hint as to which fields are the most important to process.
 
 The field order is important. If you already use searchFields in existing simple or full Lucene queries, be sure that you revisit this parameter to ensure appropriate semantic rankings.
 
@@ -113,7 +114,7 @@ When specifying searchFields, follow these guidelines:
 
 + If your index has a URL field that is textual (human readable such as `www.domain.com/name-of-the-document-and-other-details` and not machine focused such as `www.domain.com/?id=23463&param=eis`), put it second in the list (put it first if there is no concise title field).
 
-+ Include verbose or content-rich fields, like Description or Content, for best results in producing captions and answers. Content from the fields you specify are used to create these representations. To facilitate answers in a response, choose fields that contain at least 420 characters.
++ Include verbose or content-rich fields, like Description or Content, for best results in producing answers. Content from the fields you specify are used to create these representations. To facilitate answers in a response, choose fields that contain at least 70 words or 420 characters.
 
 If there is only one field specified, use a descriptive field where the answer to a semantic query can be found, such as the main content of the search document itself.  
 
