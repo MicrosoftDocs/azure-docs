@@ -20,6 +20,9 @@ ms.date: 03/01/2021
 > 
 > The [REST API version 2020-06-30-Preview](search-api-preview.md) provides this feature. There is currently no portal or SDK support.
 
+> [!NOTE]
+> SharePoint Online provides customers with the ability to let the right people access the data they need while restricting others. The SharePoint Online indexer does **not** pull these permissions into the search index and as a result does not enforce these document access permissions. When a document is indexed from SharePoint Online into your Azure Cognitive Search service, the document will then be subject to the security trimming you have in place for your search service.
+
 This article describes how to use Azure Cognitive Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in SharePoint Online document libraries into an Azure Cognitive Search index. First, it explains the basics of setting up and configuring the indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
 
 ## Functionality
