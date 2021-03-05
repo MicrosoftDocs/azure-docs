@@ -49,6 +49,8 @@
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
   - name: How to configure virtual networks
     href: https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-virtual-networks?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+  - name: Upgrade from Read 2.x to Read 3.x
+    href: upgrade-api-versions.md
   - name: How to configure AAD Authentication
     href: https://docs.microsoft.com/en-us/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
   - name: How to use customer managed keys
@@ -94,9 +96,6 @@
         href: spatial-analysis-camera-placement.md
 - name: Concepts
   items:
-  - name: Development options
-  - name: Input types
-  - name: Input formats
   - name: Modes
     items:
     - name: Optical Character Recognition (OCR)
@@ -109,6 +108,8 @@
       href: concept-tagging-images.md
     - name: Image categorization
       href: concept-categorizing-images.md
+    - name: Category taxonomy
+      href: Category-Taxonomy.md
     - name: Image descriptions
       href: concept-describing-images.md
     - name: Face detection
@@ -129,41 +130,39 @@
     href: Tutorials/storage-lab-tutorial.md
 - name: Reference
   items: 
+  - name: Computer Vision REST API v3.2 preview
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005
+  - name: Computer Vision REST API v3.1
+    href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
+  - name: Computer Vision REST API v2.1
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
+  - name: Computer Vision REST API v1.0
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
+  - name: .NET
+    href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
+  - name: Node.js
+    href: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
+  - name: Python
+    href: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
+  - name: Go
+    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
+  - name: Java
+    href: /java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
   - name: Azure CLI
     href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: Azure PowerShell
     href: /powershell/module/azurerm.cognitiveservices/
-  - name: Computer Vision API v3.2 preview
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005
-  - name: Computer Vision API v3.1
-    href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
-  - name: Computer Vision API v2.1
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
-  - name: Computer Vision API v1.0
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
-  - name: SDKs
-    items:
-    - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
-    - name: Node.js
-      href: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
-    - name: Python
-      href: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
-    - name: Go
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
-    - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
 - name: Resources
   items: 
-  - name: Support & help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
-  - name: Category taxonomy
-    href: Category-Taxonomy.md
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Regional availability
+  - name: Region support
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: LEARN modules
+    href: https://docs.microsoft.com/en-us/learn/paths/explore-computer-vision-microsoft-azure/
+  - name: Support
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Upgrade from Read 2.x to Read 3.x
-    href: upgrade-api-versions.md
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
+
+
