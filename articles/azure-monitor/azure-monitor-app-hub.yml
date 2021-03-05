@@ -438,7 +438,7 @@ conceptualContent:
         - url: /java/api/overview/azure/appinsights
           itemType: reference
           text: .Java
-        - url: /javascript/api/overview/azure/applicationinsights?view=azure-node-latest
+        - url: /javascript/api/overview/azure/applicationinsights
           itemType: reference
           text: Node.js
         - url: /rest/api/application-insights/

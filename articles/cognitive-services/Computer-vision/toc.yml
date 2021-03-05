@@ -123,7 +123,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
     - name: Node.js
-      href: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
+      href: /javascript/api/@azure/cognitiveservices-computervision/
     - name: Python
       href: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
     - name: Go

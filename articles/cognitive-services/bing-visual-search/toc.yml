@@ -74,7 +74,7 @@
       - name: Python
         href: /python/api/azure-cognitiveservices-search-visualsearch/?view=azure-python
       - name: Node.js
-        href: /javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest
+        href: /javascript/api/@azure/cognitiveservices-visualsearch/
   - name: Use and display requirements
     href: ../Bing-Web-Search/use-display-requirements.md
     maintainContext: true
