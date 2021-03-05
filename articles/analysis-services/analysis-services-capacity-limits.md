@@ -19,7 +19,7 @@ For QPU and Memory limits for developer, basic, and standard tiers, see the [Azu
 
 ## Object limits
 
-These limits are theoretical. Performance will be diminished at lower numbers.
+These limits are theoretical. Performance will be diminished at higher numbers.
 
 |Object|Maximum sizes/numbers|  
 |------------|----------------------------|  
