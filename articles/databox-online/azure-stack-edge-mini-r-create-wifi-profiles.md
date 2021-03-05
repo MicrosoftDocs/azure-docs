@@ -34,7 +34,7 @@ The following code example shows basic settings for a profile to use with a typi
 
 * `SSID` is the network name.
 
-* `name` is the user-friendly name for the Wi-Fi connection. This is the name users will see when they browse the available connections on their device.
+* `name` is the user-friendly name for the Wi-Fi connection. This parameter gives the name users will see when they browse the available connections on their device.
 
 * The profile is configured to automatically connect the computer to the wireless network when it's within range of the network (`connectionMode` = `auto`).
 
@@ -82,7 +82,7 @@ The network administrator will generate a unique Wi-Fi profile and a client cert
 
 If you work in more than one physical location at the workplace, the network administrator may need to provide more than one site-specific Wi-Fi profile and certificate for your wireless connections.
 
-On an enterprise network, we recommend that you not change settings in the Wi-Fi profiles that your network administrator provides. The only adjustment you may want to make is to the auto-connect settings. For more information, see [Basic profile](/mem/intune/configuration/wi-fi-settings-windows#basic-profile) in Wi-Fi settings for Windows 10 and newer devices.
+On an enterprise network, we recommend that you do not change settings in the Wi-Fi profiles that your network administrator provides. The only adjustment you may want to make is to the automatic connection settings. For more information, see [Basic profile](/mem/intune/configuration/wi-fi-settings-windows#basic-profile) in Wi-Fi settings for Windows 10 and newer devices.
 
 In a high-security enterprise environment, you may be able to use an existing wireless network profile as a template:
 
