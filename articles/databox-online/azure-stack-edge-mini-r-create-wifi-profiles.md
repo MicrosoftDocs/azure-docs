@@ -63,7 +63,7 @@ On a Wi-Fi Protected Access 2 (WPA2) - Personal network, such as a home network 
 
 For example, a Windows 10 client can generate a runtime profile for you. When you sign in to the wireless network, you're prompted for the Wi-Fi password and, once you provide that password, you're connected. No certificate is needed in this environment.
 
-On this type of network, you may be able to export a Wi-Fi profile from your laptop, and then add it to your Azure Stack Edge Mini R device. See (Export Wi-Fi profile)[#export-wifi-profile], below.
+On this type of network, you may be able to export a Wi-Fi profile from your laptop, and then add it to your Azure Stack Edge Mini R device. See [Export Wi-Fi profile](#export-wifi-profile), below.
 
 > [!IMPORTANT]
 > Before you create a Wi-Fi profile for your Azure Stack Edge Mini R device, contact your network administrator to find out the organization's security requirements for wireless networking. You shouldn't test or use any Wi-Fi profile on your device until you know the wireless network meets requirements.
@@ -86,9 +86,9 @@ On an enterprise network, we recommend that you not change settings in the Wi-Fi
 
 In a high-security enterprise environment, you may be able to use an existing wireless network profile as a template:
 
-* You can download the corporate wireless network profile from your work computer. For instructions, see [Download a Wi-Fi profile](#download-a-wi-fi-profile), below.
+* You can download the corporate wireless network profile from your work computer. For instructions, see [Export a Wi-Fi profile](#export-wi-fi-profile), below.
 
-* If others in your organization are already connecting to their Azure Stack Edge Mini R devices over a wireless network, they can download the Wi-Fi profile from their device. For instructions, see **Download Wi-Fi profile** in [Manage Wi-Fi](./azure-stack-edge-mini-r-manage-wifi.md#download-wi-fi-profile).
+* If others in your organization are already connecting to their Azure Stack Edge Mini R devices over a wireless network, they can download the Wi-Fi profile from their device. For instructions, see [Download Wi-Fi profile](azure-stack-edge-mini-r-manage-wifi.md#download-wi-fi-profile).
 
 ## Export a Wi-Fi profile
 
