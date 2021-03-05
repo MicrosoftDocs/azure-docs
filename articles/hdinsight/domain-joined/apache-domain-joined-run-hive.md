@@ -1,11 +1,8 @@
 ---
 title: Apache Hive policies in Apache Ranger - Azure HDInsight
 description: Learn how to configure Apache Ranger policies for Hive in an Azure HDInsight service with Enterprise Security Package.
-author: omidm1
-ms.author: omidm
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ---
 

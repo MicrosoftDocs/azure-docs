@@ -34,8 +34,8 @@ To proceed, you will need a client app project in which you write your code. If 
 `Azure.Identity` is a client library that provides several credential-obtaining methods that you can use to get a bearer token and authenticate with your SDK. Although this article gives examples in C#, you can view `Azure.Identity` for several languages, including...
 
 * [.NET (C#)](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet)
-* [Java](/java/api/overview/azure/identity-readme?preserve-view=true&view=azure-java-stable)
-* [JavaScript](/javascript/api/overview/azure/identity-readme?preserve-view=true&view=azure-node-latest)
+* [Java](/java/api/overview/azure/identity-readme)
+* [JavaScript](/javascript/api/overview/azure/identity-readme)
 * [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
 
 Three common credential-obtaining methods in `Azure.Identity` are:
@@ -118,5 +118,5 @@ If the highlighted authentication scenarios above do not cover the needs of your
 Read more about how security works in Azure Digital Twins:
 * [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md)
 
-Or, now that authentication is set up, move on to creating models in your instance:
-* [*How-to: Manage custom models*](how-to-manage-model.md)
+Or, now that authentication is set up, move on to creating and managing models in your instance:
+* [*How-to: Manage DTDL models*](how-to-manage-model.md)

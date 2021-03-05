@@ -6,6 +6,8 @@
       href: overview.md
     - name: Release notes
       href: release-notes.md
+    - name: Known issues
+      href: known-issues.md
 - name: Quickstarts
   items:
     - name: Create data controller
@@ -180,6 +182,8 @@
               href: configure-managed-instance.md
             - name: Monitoring, log analytics, billing information, Azure portal
               href: monitoring-log-analytics-azure-portal-managed-instance.md
+            - name: High availability
+              href: managed-instance-high-availability.md
             - name: Delete
               href: delete-managed-instance.md
         - name: Migrate
@@ -230,6 +234,8 @@
       href: /sql/azdata/reference/reference-azdata-arc-resource-kind?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: arc-sql
       href: /sql/azdata/reference/reference-azdata-arc-sql?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-sql-endpoint
+      href: /sql/azdata/reference/reference-azdata-arc-sql-endpoint?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: arc-sql-mi
       href: /sql/azdata/reference/reference-azdata-arc-sql-mi?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: arc-sql-mi-config

@@ -1,8 +1,8 @@
 ---
 title: Device connectivity in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating to device connectivity in Azure IoT Central
-author: TheJasonAndrew
-ms.author: v-anjaso
+author: dominicbetts
+ms.author: dobett
 ms.date: 1/15/2020
 ms.topic: conceptual
 ms.service: iot-central
@@ -208,10 +208,6 @@ When a real device connects to your IoT Central application, its device status c
 
     The Operator can associate a device to a device template from the **Devices** page using the **Migrate** button.
 
-## Best practices
-
-Don't persist or cache the device connection string that DPS returns when you first connect the device. To reconnect a device, go through the standard device registration flow to get the correct device connection string. If the device caches the connection string, the device software runs into the risk of having a stale connection string. If IoT Central updates the underlying Azure IoT hub it uses, a device with a stale connection string can't connect.
-
 ## SDK support
 
 The Azure Device SDKs offer the easiest way for you implement your device code. The following device SDKs are available:
@@ -227,11 +223,8 @@ The Azure Device SDKs offer the easiest way for you implement your device code. 
 All device communication with IoT Hub uses the following IoT Hub connectivity options:
 
 - [Device-to-cloud messaging](../../iot-hub/iot-hub-devguide-messages-d2c.md)
-- [Cloud-to-Device messaging](../../iot-hub/iot-hub-csharp-csharp-c2d.md)
+- [Cloud-to-device messaging](../../iot-hub/iot-hub-devguide-messages-c2d.md)
 - [Device twins](../../iot-hub/iot-hub-devguide-device-twins.md)
-
-> [!NOTE]
-> Azure now supports
 
 The following table summarizes how Azure IoT Central device features map on to IoT Hub features:
 
@@ -263,8 +256,8 @@ All data exchanged between devices and your Azure IoT Central is encrypted. IoT 
 
 If you're a device developer, some suggested next steps are to:
 
+- Review [best practices](concepts-best-practices.md) for developing devices.
 - Review some sample code that shows how to use SAS tokens in [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)
 - Learn how to [How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application](how-to-connect-devices-x509.md)
 - Learn how to [Monitor device connectivity using Azure CLI](./howto-monitor-devices-azure-cli.md)
-- Learn how to [Define a new IoT device type in your Azure IoT Central application](./howto-set-up-template.md)
 - Read about [Azure IoT Edge devices and Azure IoT Central](./concepts-iot-edge.md)

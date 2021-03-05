@@ -4,7 +4,7 @@ description: Troubleshoot common problems faced when signing in to first-party M
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt

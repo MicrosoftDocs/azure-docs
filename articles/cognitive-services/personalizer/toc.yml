@@ -98,7 +98,7 @@
     - name: Node.js
       items:
       - name: Reference
-        href: /javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest
+        href: /javascript/api/@azure/cognitiveservices-personalizer/
       - name: NPM
         href: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
     - name: Python
@@ -118,7 +118,7 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
-    href: personalizer-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md
   - name: Azure Roadmap
     href: https://go.microsoft.com/fwlink/?linkid=2092153
   - name: Pricing

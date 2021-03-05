@@ -71,5 +71,5 @@ This tutorial walks you through purging assets from all edge nodes of an endpoin
 
 ## See also
 * [Pre-load assets on an Azure CDN endpoint](cdn-preload-endpoint.md)
-* [Azure CDN REST API reference - Purge or Pre-Load an Endpoint](/rest/api/cdn/endpoints)
+* [Azure CDN REST API reference - Purge or Pre-Load an Endpoint](/rest/api/cdn/cdn/endpoints)
 

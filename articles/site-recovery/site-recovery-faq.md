@@ -183,7 +183,7 @@ Yes, [ExpressRoute can be used](concepts-expressroute-with-site-recovery.md) to 
 
 ### If I replicate to Azure, what kind of storage account or managed disk do I need?
 
-You need an LRS or GRS storage. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. The account must be in the same region as the Recovery Services vault. Premium storage is supported for VMware VM, Hyper-V VM, and physical server replication, when you deploy Site Recovery in the Azure portal. Managed disks only support LRS.
+Using storage accounts as target storage is not supported by Azure Site Recovery. It is recommended to rather use managed disks as the target storage for your machines. Managed disks only support LRS type for data resiliency.
 
 ### How often can I replicate data?
 * **Hyper-V:** Hyper-V VMs can be replicated every 30 seconds (except for premium storage), five minutes or 15 minutes.

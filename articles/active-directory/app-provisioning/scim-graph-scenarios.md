@@ -3,7 +3,7 @@ title: Use SCIM, Microsoft Graph, and Azure AD to provision users and enrich app
 description: Using SCIM and the Microsoft Graph together to provision users and enrich your application with the data it needs.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity

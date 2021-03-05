@@ -160,7 +160,7 @@ If the application requests application permissions and an administrator grants 
 
 After you use the admin consent endpoint to grant admin consent, you're finished. Users don't need to take any further action. After admin consent is granted, users can get an access token through a typical auth flow. The resulting access token has the consented permissions.
 
-When a company administrator uses your application and is directed to the authorize endpoint, the Microsoft identity platform detects the user's role. It asks if the company administrator wants to consent on behalf of the entire tenant for the permissions you requested. You could instead use a dedicated admin consent endpoint to proactively request an administrator to grant permission on behalf of the entire tenant. This endpoint is also necessary for requesting application permissions. Application permissions can't be requested by using the authorize endpoint.
+When a Global Administrator uses your application and is directed to the authorize endpoint, the Microsoft identity platform detects the user's role. It asks if the Global Administrator wants to consent on behalf of the entire tenant for the permissions you requested. You could instead use a dedicated admin consent endpoint to proactively request an administrator to grant permission on behalf of the entire tenant. This endpoint is also necessary for requesting application permissions. Application permissions can't be requested by using the authorize endpoint.
 
 If you follow these steps, your app can request permissions for all users in a tenant, including admin-restricted scopes. This operation is high privilege. Use the operation only if necessary for your scenario.
 
@@ -177,7 +177,7 @@ In general, the permissions should be statically defined for a given application
 
 To configure the list of statically requested permissions for an application:
 
-1. Go to your application in the <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
+1. Go to your application in the <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure portal - App registrations</a> quickstart experience.
 1. Select an application, or [create an app](quickstart-register-app.md) if you haven't already.
 1. On the application's **Overview** page, under **Manage**, select **API Permissions** > **Add a permission**.
 1. Select **Microsoft Graph** from the list of available APIs. Then add the permissions that your app requires.
