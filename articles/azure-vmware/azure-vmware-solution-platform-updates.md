@@ -17,7 +17,7 @@ Starting March 15, 2021, all new Azure VMware Solution private clouds get deploy
 - vCenter 6.7U3l
 - vSAN 6.7
 - NSX Data Center 3.1.1
-- HCX 3.5.2
+- HCX 3.5.2 R146
 
 You'll receive an email with the planned maintenance date and time.  You'll have the flexibility to reschedule an upgrade. The email will also have details on the upgraded component, its impact on workloads, private cloud access, and other Azure services.  You'll receive a notification an hour before the upgrade and again when it finishes. 
 
