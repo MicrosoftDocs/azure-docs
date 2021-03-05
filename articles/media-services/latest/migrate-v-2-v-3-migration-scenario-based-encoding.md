@@ -54,7 +54,7 @@ Click on the image below to see a larger version.
 ### V3 encoding workflow
 
 <Token>
-<object data="./media/migration-guide/v3-pretty2.svg" type="image/svg" width="90%"></object>
+<object data="./media/migration-guide/v3-pretty2.svg" width="90%"></object>
 </Token>
 
 <!--[ ![Encoding workflow for V3](./media/migration-guide/V3-pretty.svg) ](./media/migration-guide/V3-pretty.svg#lightbox)-->
