@@ -49,7 +49,7 @@ This section explains how to create these endpoints using the Azure CLI. You can
 
 ### Create the endpoint
 
-Once you have created the endpoint resources, you can use them for an Azure Digital Twins endpoint. The following examples show how to create endpoints using the [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) command for the [Azure Digital Twins CLI](how-to-use-cli.md). Replace the placeholders in the commands with the details of your own resources.
+Once you have created the endpoint resources, you can use them for an Azure Digital Twins endpoint. The following examples show how to create endpoints using the [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) command for the [Azure Digital Twins CLI](how-to-use-cli.md). Replace the placeholders in the commands with the details of your own resources.
 
 To create an Event Grid endpoint:
 
@@ -120,7 +120,7 @@ Follow the steps below to set up these storage resources in your Azure account, 
     
 #### Create the dead-letter endpoint
 
-To create an endpoint that has dead-lettering enabled, add the following dead letter parameter to the [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) command for the [Azure Digital Twins CLI](how-to-use-cli.md).
+To create an endpoint that has dead-lettering enabled, add the following dead letter parameter to the [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) command for the [Azure Digital Twins CLI](how-to-use-cli.md).
 
 The value for the parameter is the **dead letter SAS URI** made up of the storage account name, container name, and SAS token that you gathered in the [previous section](#set-up-storage-resources). This parameter creates the endpoint with key-based authentication.
 
@@ -207,7 +207,7 @@ If there is a route name and a different filter is added, messages will be filte
 
 One route should allow multiple notifications and event types to be selected. 
 
-Event routes can be created with the Azure Digital Twins [**EventRoutes** data plane APIs](/rest/api/digital-twins/dataplane/eventroutes) or [**az dt route** CLI commands](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true). The rest of this section walks through the creation process.
+Event routes can be created with the Azure Digital Twins [**EventRoutes** data plane APIs](/rest/api/digital-twins/dataplane/eventroutes) or [**az dt route** CLI commands](/cli/azure/ext/azure-iot/dt/route). The rest of this section walks through the creation process.
 
 ### Create routes with the APIs and C# SDK
 
@@ -228,7 +228,7 @@ The following sample method shows how to create, list, and delete an event route
 
 ### Create routes with the CLI
 
-Routes can also be managed using the [az dt route](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true) commands for the Azure Digital Twins CLI. 
+Routes can also be managed using the [az dt route](/cli/azure/ext/azure-iot/dt/route) commands for the Azure Digital Twins CLI. 
 
 For more information about using the CLI and what commands are available, see [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
 

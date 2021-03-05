@@ -102,5 +102,5 @@ A system-assigned identity can be removed by disabling the feature by using the 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET Core app with Azure App Configuration](quickstart-aspnet-core-app.md)
 
-[az appconfig identity assign]: /cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-assign
+[az appconfig identity assign]: /cli/azure/appconfig/identity#az-appconfig-identity-assign
 [az login]: /cli/azure/reference-index#az-login

@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/18/2021
 ---
-
+    
 # Availability options for virtual machines in Azure
 
 This article provides you with an overview of the availability features of Azure virtual machines (VMs).
