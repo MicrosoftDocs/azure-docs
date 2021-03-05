@@ -61,12 +61,12 @@ Key is the field in the event data that you're using for filtering. It can be on
 - Array. You need to set the `enableAdvancedFilteringOnArrays` property to true to use this feature. Currently, the Azure portal doesn't support enabling this feature. 
 
     ```json
+    "filter":
     {
-        Properties:
-             Filter:
-                subjectBeginsWith: “”,
-                enableAdvancedFilteringOnArrays: true
-    }    
+        "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
+        "subjectEndsWith": ".jpg",
+        "enableAdvancedFilteringOnArrays": true
+    }
     ```
 
 For events in the **Event Grid schema**, use the following values for the key: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion`, or event data (like `data.key1`).
