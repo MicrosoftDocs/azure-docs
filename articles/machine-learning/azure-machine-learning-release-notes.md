@@ -24,11 +24,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 + **New features**
   + **azureml-automl-core**
     + Removed backwards compatible imports from `azureml.automl.core.shared`. Module not found errors in the `azureml.automl.core.shared` namespace can be resolved by importing from `azureml.automl.runtime.shared`.
-  + **azureml-automl-runtime**
-    +  Re-enabled enable_local_managed flag allowing AutoML runs to run against a local docker or conda environment.
-    + Removed backwards compatible imports from `azureml.automl.core.shared`. Module not found errors in the `azureml.automl.core.shared` namespace can be resolved by importing from `azureml.automl.runtime.shared`.
-  + **azureml-contrib-automl-dnn-forecasting**
-    + Removed backwards compatible imports from `azureml.automl.core.shared`. Module not found errors in the `azureml.automl.core.shared` namespace can be resolved by importing from `azureml.automl.runtime.shared`.
   + **azureml-contrib-automl-dnn-vision**
     + Exposed object detection yolo model.
   + **azureml-contrib-dataset**
@@ -52,10 +47,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + optimized memory usage of ExplanationClient in azureml-interpret package
   + **azureml-train-automl-client**
     +  Fixed show_output=False to return control to the user when running using spark.
-    +  Re-enabled enable_local_managed flag allowing AutoML runs to run against a local docker or conda environment.
-  + **azureml-train-automl-runtime**
-    +  Fixed show_output=False to return control to the user when running using spark.
-    +  Re-enabled enable_local_managed flag allowing AutoML runs to run against a local docker or conda environment.
+    +  Re-enabled enable_local_managed flag allowing AutoML runs to run against a local docker.
 
 ## 2021-02-16
 
