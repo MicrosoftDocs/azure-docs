@@ -8,7 +8,7 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/02/2020
+ms.date: 03/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl
 ---
@@ -19,7 +19,7 @@ In this guide, learn how to identify and resolve known issues in your automated 
 
 ## Version dependencies
 
-**`AutoML` dependencies to newer package versions will break compatibility**. As of SDK version 1.13.0, models won't be loaded in older SDKs due to incompatibility between the older versions pinned in previous `AutoML` packages, and the newer versions pinned today.
+**`AutoML` dependencies to newer package versions break compatibility**. After SDK version 1.13.0, models aren't loaded in older SDKs due to incompatibility between the older versions pinned in previous `AutoML` packages, and the newer versions pinned today.
 
 Expect errors such as:
 
@@ -55,9 +55,9 @@ Resolutions depend on your `AutoML` SDK training version:
 
 ## Setup
 
-* **`ImportError: cannot import name AutoMLConfig`**
+`AutoML` package changes since version 1.0.76 require the previous version to be uninstalled before updating to the new version.
 
-    `AutoML` package changes in version 1.0.76 require the previous version to be uninstalled before updating to the new version.
+* **`ImportError: cannot import name AutoMLConfig`**
 
     If you encounter this error after upgrading from an SDK version before v1.0.76 to v1.0.76 or later, resolve the error by running: `pip uninstall azureml-train automl` and then `pip install azureml-train-automl`. The automl_setup.cmd script does this automatically.
 
@@ -65,15 +65,15 @@ Resolutions depend on your `AutoML` SDK training version:
 
   * On Windows, run automl_setup from an Anaconda Prompt. [Install Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 
-  * Ensure that conda 64-bit is installed, rather than 32-bit by running the `conda info` command. The `platform` should be `win-64` for Windows or `osx-64` for Mac.
+  * Ensure that conda 64-bit version  4.4.10 or later is installed. You can check the bit with the `conda info` command. The `platform` should be `win-64` for Windows or `osx-64` for Mac. To check the version use the command `conda -V`. If you have a previous version installed, you can update it by using the command: `conda update conda`. To check  32-bit by running 
 
-  * Ensure that conda 4.4.10 or later is installed. You can check the version with the command `conda -V`. If you have a previous version installed, you can update it by using the command: `conda update conda`.
+  * Ensure that conda  is installed. 
 
   * Linux - `gcc: error trying to exec 'cc1plus'`
 
-    * If the `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` error is encountered, install build essentials using the command `sudo apt-get install build-essential`.
+    1. If the `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` error is encountered, install the GCC build tools for your Linux distribution. For example, on Ubuntu, use the command `sudo apt-get install build-essential`.
 
-    * Pass a new name as the first parameter to automl_setup to create a new conda environment. View existing conda environments using `conda env list` and remove them with `conda env remove -n <environmentname>`.
+    1. Pass a new name as the first parameter to automl_setup to create a new conda environment. View existing conda environments using `conda env list` and remove them with `conda env remove -n <environmentname>`.
 
 * **automl_setup_linux.sh fails**: If automl_setup_linus.sh fails on Ubuntu Linux with the error: `unable to execute 'gcc': No such file or directory`
 
@@ -93,6 +93,7 @@ Resolutions depend on your `AutoML` SDK training version:
 * **workspace.from_config fails**:
 
   If the call `ws = Workspace.from_config()` fails:
+
   1. Ensure that the configuration.ipynb notebook has run successfully.
   1. If the notebook is being run from a folder that is not under the folder where the `configuration.ipynb` was run, copy the folder aml_config and the file config.json that it contains to the new folder. Workspace.from_config reads the config.json for the notebook folder or its parent folder.
   1. If a new subscription, resource group, workspace, or region, is being used, make sure that you run the `configuration.ipynb` notebook again. Changing config.json directly will only work if the workspace already exists in the specified resource group under the specified subscription.
@@ -100,16 +101,7 @@ Resolutions depend on your `AutoML` SDK training version:
 
 ## TensorFlow
 
-As of version 1.5.0 of the SDK, automated machine learning does not install TensorFlow models by default. To install TensorFlow and use it with your automated ML experiments, install tensorflow==1.12.0 via CondaDependecies.
-
-```python
-  from azureml.core.runconfig import RunConfiguration
-  from azureml.core.conda_dependencies import CondaDependencies
-  run_config = RunConfiguration()
-  run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
-```## TensorFlow
-
-As of version 1.5.0 of the SDK, automated machine learning does not install TensorFlow models by default. To install TensorFlow and use it with your automated ML experiments, install tensorflow==1.12.0 via CondaDependecies.
+As of version 1.5.0 of the SDK, automated machine learning does not install TensorFlow models by default. To install TensorFlow and use it with your automated ML experiments, install `tensorflow==1.12.0` via `CondaDependencies`.
 
 ```python
   from azureml.core.runconfig import RunConfiguration
@@ -138,7 +130,8 @@ For SDK versions <= 1.17.0, installation might result in an unsupported version 
 
 You may check the version of PyJWT as follows:
 
-1. Start a command shell and activate conda environment where automated ml packages are installed
+1. Start a command shell and activate conda environment where automated ML packages are installed.
+
 1. Enter `pip freeze` and look for `PyJWT`, if found, the version listed should be < 2.0.0
 
 If the listed version is not a supported version:
@@ -151,16 +144,7 @@ If the listed version is not a supported version:
     1. Install using `pip install 'PyJWT<2.0.0'`.
   
 ## Databricks
-
-* **Databricks cancel an automated machine learning run**: When you use automated machine learning capabilities on Azure Databricks, to cancel a run and start a new experiment run, restart your Azure Databricks cluster.
-
-* **Databricks >10 iterations for automated machine learning**: In automated machine learning settings, if you have more than 10 iterations, set `show_output` to `False` when you submit the run.
-
-* **Databricks widget for the Azure Machine Learning SDK and automated machine learning**: The Azure Machine Learning SDK widget isn't supported in a Databricks notebook because the notebooks can't parse HTML widgets. You can view the widget in the portal by using this Python code in your Azure Databricks notebook cell:
-
-    ```
-    displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
-    ```
+See [How to configure an automated ML experiment with Databricks](how-to-configure-databricks-automl-environment.md#troubleshooting).
 
 ## Forecasting R2 score is always zero
 
