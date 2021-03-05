@@ -78,9 +78,10 @@ Here's a quick overview of the steps:
    > B2C BACKEND API SCOPE URI:  
    > B2C FRONTEND CLIENT ID:  
    > B2C USER FLOW ENDPOINT URI:  
-   > B2C WELL-KNOWN OPENID ENDPOINT:    
+   > B2C WELL-KNOWN OPENID ENDPOINT:   
+   > B2C POLICY NAME: Frontendapp_signupandsignin 
    > FUNCTION URL:  
-   > APIM API BASE URL:  
+   > APIM API BASE URL: 
    > STORAGE PRIMARY ENDPOINT URL:  
 
 ## Configure the backend application
@@ -134,7 +135,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Under 'User Attributes and claims', click 'Show More...' then choose the claim options that you want your users to enter and have returned in the token. Check at least 'Display Name' and 'Email Address' to collect, with 'Display Name' and 'Email Addresses' to return (pay careful attention to the fact that you are collecting emailaddress, singular, and asking to return email addresses, multiple), and click 'OK', then click 'Create'.
 1. Click on the user flow that you created in the list, then click the 'Run user flow' button.
 1. This action will open the run user flow blade, select the frontend application, copy the user flow endpoint and save it for later.
-1. Click on the link at the top to open the 'well-known openid configuration endpoint' - this link should open a new browser tab. From the new browser tab, record the authorization_endpoint and token_endpoint values (as well of the value of the link itself as the 'well-known openid configuration endpoint' for later use).
+1. Copy and store the link at the top, recording as the 'well-known openid configuration endpoint' for later use.
 
    > [!NOTE]
    > B2C Policies allow you to expose the Azure AD B2C login endpoints to be able to capture different data components and sign in users in different ways.
@@ -339,7 +340,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
         				auth: {
         					clientId: "{CLIENTID}", // This is the client ID of your FRONTEND application that you registered with the SPA type in AAD B2C
         					authority:  "{YOURAUTHORITYB2C}", // Formatted as https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantguid or full tenant name including onmicrosoft.com}/{signuporinpolicyname}
-        					redirectUri: "{SPAHOSTINGADDRESS}", // The storage hosting address of the SPA, a web-enabled v2 storage account - recorded earlier as the Primary Endpoint.
+        					redirectUri: "{StoragePrimaryEndpoint}", // The storage hosting address of the SPA, a web-enabled v2 storage account - recorded earlier as the Primary Endpoint.
         					knownAuthorities: ["{B2CTENANTDOMAIN}"] // {b2ctenantname}.b2clogin.com
         				},
         				cache: {
