@@ -100,7 +100,7 @@ The backups (log and non-log) in SAP HANA Azure VMs provided via Backint are str
 
 The Backint component of HANA provides the 'pipes' (a pipe to read from and a pipe to write into), connected to underlying disks where database files reside, which are then read by the Azure Backup service and transported to Azure Recovery Services vault. The Azure Backup service also performs a checksum to validate the streams, in addition to the backint native validation checks. These validations will make sure that the data present in Azure Recovery Services vault is indeed reliable and recoverable.
 
-Since the streams primarily deal with disks, you need to understand the disk performance to gauge the backup and restore performance. Refer to [this article](https://docs.microsoft.com/azure/virtual-machines/disks-performance) for an in-depth understanding of disk throughput and performance in Azure VMs. These are also applicable to backup and restore performance.
+Since the streams primarily deal with disks, you need to understand the disk performance to gauge the backup and restore performance. Refer to [this article](../virtual-machines/disks-performance.md) for an in-depth understanding of disk throughput and performance in Azure VMs. These are also applicable to backup and restore performance.
 
 **The Azure Backup service attempts to achieve upto ~420 MBps for non-log backups (such as full, differential and incremental) and upto 100 MBps for log backups for HANA**. As mentioned above, these are not guaranteed speeds and depend on following factors:
 
@@ -262,8 +262,8 @@ Specify the policy settings as follows:
    ![Differential backup policy](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >Incremental backups are now available in public preview. You can choose either a differential or an incremental as a daily backup but not both.
-   >
+   >You can choose either a differential or an incremental as a daily backup but not both.
+
 7. In **Incremental Backup policy**, select **Enable** to open the frequency and retention controls.
     * At most, you can trigger one incremental backup per day.
     * Incremental backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.

@@ -119,7 +119,7 @@ Follow these steps to configure your storage account firewall and add an excepti
     Connect-AzAccount
     ```
 4. Define variables in PowerShell: 
-    - Resource group name - you can find this in Azure portal in overview of Synapse workspace.
+    - Resource group name - you can find this in Azure portal in overview of Storage account.
     - Account Name - name of storage account that is protected by firewall rules.
     - Tenant ID - you can find this in Azure portal in Azure Active Directory in tenant information.
     - Workspace Name - Name of the Synapse workspace.
@@ -189,8 +189,6 @@ To use the credential, a user must have `REFERENCES` permission on a specific cr
 ```sql
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
-
-To ensure a smooth Azure AD pass-through experience, all users will, by default, have a right to use the `UserIdentity` credential.
 
 ## Server-scoped credential
 

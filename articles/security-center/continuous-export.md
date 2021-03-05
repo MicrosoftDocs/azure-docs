@@ -39,7 +39,7 @@ This article describes how to configure continuous export to Log Analytics works
 |Release state:|General Availability (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies</li></ul>|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov, Other Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (to Event Hub)|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov, Other Gov<br>![Yes](./media/icons/yes-icon.png) China Gov|
 |||
 
 
@@ -166,7 +166,7 @@ If you want to analyze Azure Security Center data inside a Log Analytics workspa
 
 ### Log Analytics tables and schemas
 
-Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. 
+Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendation* tables respectively. 
 
 The name of the Log Analytics solution containing these tables depends on whether you have Azure Defender enabled: Security ('Security and Audit') or SecurityCenterFree. 
 

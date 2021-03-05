@@ -24,31 +24,31 @@ Welcome to what's new in the Cognitive Services docs from January 1, 2021 throug
 
 **New articles**
 
-- [Tutorial: Extract form data in bulk using Azure Data Factory](/azure/cognitive-services/form-recognizer/tutorial-bulk-processing.md)
+- [Tutorial: Extract form data in bulk using Azure Data Factory](./form-recognizer/tutorial-bulk-processing.md)
 
 **Updated articles**
 
-- [What is Form Recognizer?](/azure/cognitive-services/form-recognizer/overview.md)
+- [What is Form Recognizer?](./form-recognizer/overview.md)
 
 ## Immersive Reader
 
 **Updated articles**
 
-- [Create an Immersive Reader resource and configure Azure Active Directory authentication](/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader.md)
+- [Create an Immersive Reader resource and configure Azure Active Directory authentication](./immersive-reader/how-to-create-immersive-reader.md)
 
 ## Personalizer
 
 **Updated articles**
 
-- [Features are information about actions and context](/azure/cognitive-services/personalizer/concepts-features.md)
+- [Features are information about actions and context](./personalizer/concepts-features.md)
 
 ## Text Analytics
 
 **Updated articles**
 
-- [Text Analytics API v3 language support](/azure/cognitive-services/text-analytics/language-support.md)
-- [Migrate to version 3.x of the Text Analytics API](/azure/cognitive-services/text-analytics/migration-guide.md)
-- [What's new in the Text Analytics API?](/azure/cognitive-services/text-analytics/whats-new.md)
+- [Text Analytics API v3 language support](./text-analytics/language-support.md)
+- [Migrate to version 3.x of the Text Analytics API](./text-analytics/migration-guide.md)
+- [What's new in the Text Analytics API?](./text-analytics/whats-new.md)
 
 ## Community contributors
 
