@@ -21,6 +21,7 @@ The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?
 This article shows examples of the following tasks:
 
 * Monitor run performance.
+* Monitor the run status by email notification.
 * Tag and find runs.
 * Add a run description. 
 * Run search. 
@@ -50,26 +51,6 @@ You'll need the following items:
 
 * The [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
-## Monitor the run status by email notification
-
-1. In the Azure Portal, in the left navigation bar, select the **Monitor** tab. 
-
-3. Select **Diagnostic settings** and then select **+ Add diagnostic setting**.
-![Screenshot of monitoring by email notification](./media/how-to-manage-runs/monitor1.png)
-
-3. In the Diagnostic Setting, under the **Category details**, select the **AmlRunStatusChangedEvent**. In the **Destination details**, select the 
-**Send to Log Analytics workspace** and specify the **Subscription** and **Log Analytics workspace**. Note that the 
-**Azure Log Analytics Workspace** is a different type of Azure Resource than the **Azure Machine Learning service Workspace**. If there are no options in that list, 
-you can [create a Log Analytics Workspace](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace). 
-![Screenshot of monitoring by email notification](./media/how-to-manage-runs/monitor2.png)
-
-4. In the **Logs** tab, add a **New alert rule**. 
-![Screenshot of monitoring by email notification](./media/how-to-manage-runs/monitor3.png)
-
-5. This [article](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log) shows how to create and manage log alerts using Azure Monitor.
-
-
-[Azure Machine Learning studio](https://ml.azure.com)
 
 ## Monitor run performance
 
@@ -211,6 +192,24 @@ you can [create a Log Analytics Workspace](https://docs.microsoft.com/en-us/azur
     1. To view the run logs, select a specific run and in the **Outputs + logs** tab, you can find diagnostic and error logs for your run.
     
     ---
+
+## Monitor the run status by email notification
+
+1. In the Azure Portal, in the left navigation bar, select the **Monitor** tab. 
+
+3. Select **Diagnostic settings** and then select **+ Add diagnostic setting**.
+![Screenshot of monitoring by email notification](./media/how-to-manage-runs/monitor1.png)
+
+3. In the Diagnostic Setting, under the **Category details**, select the **AmlRunStatusChangedEvent**. In the **Destination details**, select the 
+**Send to Log Analytics workspace** and specify the **Subscription** and **Log Analytics workspace**. Note that the 
+**Azure Log Analytics Workspace** is a different type of Azure Resource than the **Azure Machine Learning service Workspace**. If there are no options in that list, 
+you can [create a Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace). 
+![Screenshot of monitoring by email notification](./media/how-to-manage-runs/monitor2.png)
+
+4. In the **Logs** tab, add a **New alert rule**. 
+![Screenshot of monitoring by email notification](./media/how-to-manage-runs/monitor3.png)
+
+5. This [article](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log) shows how to create and manage log alerts using Azure Monitor.
 
 ## Run description 
 
