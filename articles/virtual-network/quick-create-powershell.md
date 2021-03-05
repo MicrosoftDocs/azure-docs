@@ -28,7 +28,7 @@ There are a handful of steps you have to walk through to get your resource group
 
 ### Create the resource group
 
-Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a resource group named **CreateVNetQS-rg** in the **eastus** location:
+Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a resource group named **CreateVNetQS-rg** in the **Eastus** location:
 
 ```azurepowershell-interactive
 $rg = @{
@@ -40,7 +40,7 @@ New-AzResourceGroup @rg
 
 ### Create the virtual network
 
-Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a default virtual network named *myVNet* in the *EastUS* location:
+Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a default virtual network named **myVNet** in the **EastUS** location:
 
 ```azurepowershell-interactive
 $vnet = @{
@@ -54,7 +54,7 @@ $virtualNetwork = New-AzVirtualNetwork @vnet
 
 ### Add a subnet
 
-Azure deploys resources to a subnet within a virtual network, so you need to create a subnet. Create a subnet configuration named *default* with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
+Azure deploys resources to a subnet within a virtual network, so you need to create a subnet. Create a subnet configuration named **default** with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $subnet = @{
@@ -124,7 +124,7 @@ You'll have to create another user and password. Azure takes a few minutes to cr
 
 ## Connect to a VM from the internet
 
-Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to return the public IP address of a VM. This example returns the public IP address of the *myVm1* VM:
+Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to return the public IP address of a VM. This example returns the public IP address of the **myVm1** VM:
 
 ```azurepowershell-interactive
 $ip = @{
@@ -155,7 +155,7 @@ mstsc /v:<publicIpAddress>
 
 ## Communicate between VMs
 
-1. In the Remote Desktop of *myVm1*, open PowerShell.
+1. In the Remote Desktop of **myVm1**, open PowerShell.
 
 1. Enter `ping myVm2`.
 
@@ -176,7 +176,7 @@ mstsc /v:<publicIpAddress>
 
     The ping fails, because it uses the Internet Control Message Protocol (ICMP). By default, ICMP isn't allowed through your Windows firewall.
 
-1. To allow *myVm2* to ping *myVm1* in a later step, enter this command:
+1. To allow **myVm2** to ping **myVm1** in a later step, enter this command:
 
     ```powershell
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
@@ -184,11 +184,11 @@ mstsc /v:<publicIpAddress>
 
     That command lets ICMP inbound through the Windows firewall.
 
-1. Close the remote desktop connection to *myVm1*.
+1. Close the remote desktop connection to **myVm1**.
 
-1. Repeat the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet). This time, connect to *myVm2*.
+1. Repeat the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet). This time, connect to **myVm2**.
 
-1. From a command prompt on the *myVm2* VM, enter `ping myvm1`.
+1. From a command prompt on the **myVm2** VM, enter `ping myvm1`.
 
     You'll get something like this back:
 
@@ -207,9 +207,9 @@ mstsc /v:<publicIpAddress>
         Minimum = 0ms, Maximum = 2ms, Average = 0ms
     ```
 
-    You receive replies from *myVm1*, because you allowed ICMP through the Windows firewall on the *myVm1* VM in a previous step.
+    You receive replies from **myVm1**, because you allowed ICMP through the Windows firewall on the **myVm1** VM in a previous step.
 
-1. Close the remote desktop connection to *myVm2*.
+1. Close the remote desktop connection to **myVm2**.
 
 ## Clean up resources
 
