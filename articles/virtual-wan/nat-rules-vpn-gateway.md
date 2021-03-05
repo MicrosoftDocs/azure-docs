@@ -6,7 +6,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/05/2021
 ms.author: cherylmc
 
 ---
@@ -49,7 +49,7 @@ You can configure and view NAT rules on your VPN gateway settings at any time.
 * The subnet size for both internal and external mapping must be the same for static one-to-one NAT.
 * Be sure to edit the VPN site in the Azure portal to add **ExternalMapping** prefixes in the 'Private Address Space' field. Currently, sites that have BGP enabled need to ensure that the on-premises BGP announcer (device BGP settings) include an entry for the external mapping prefixes.
 
-## <a name="troubleshooting"></a>Troubleshooting tips and examples
+## <a name="examples"></a>Examples and verification
 
 ### Ingress mode NAT
 
