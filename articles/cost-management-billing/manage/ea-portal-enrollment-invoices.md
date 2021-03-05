@@ -119,6 +119,8 @@ To prevent automatic generation of PO numbers every month, you can lock the PO n
 
 ### Lock PO number to prevent automatic update in upcoming billing cycles
 
+After you lock the PO number, it remains locked for all new invoices and you don't have to update the PO number.
+
 1.	In the Azure Enterprise portal, select **Report** > **Usage Summary**.
 2.	Select **Edit PO Numbers** in the upper-right corner.
 3.	Type a new PO number in the **PO Number** field.
