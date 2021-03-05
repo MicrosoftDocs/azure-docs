@@ -54,6 +54,8 @@ For additional discovery tools, see [Services and tools](../../../dms/dms-tools-
 
 ### Assess
 
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
+
 After you've discovered all of the data sources, use the [Data Migration Assistant (DMA)](/sql/dma/dma-overview) to assess on-premises SQL Server instance(s) migrating to an instance of SQL Server on Azure VM to understand the gaps between the source and target instances. 
 
 
