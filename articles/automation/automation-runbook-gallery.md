@@ -75,7 +75,7 @@ The list below contains a few runbooks that support common scenarios. For a full
 
    When you drill into a specific module, you can view more information. This information includes a link back to the PowerShell Gallery, any required dependencies, and all of the cmdlets or DSC resources that the module contains.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Detailed view of the GitHub gallery" lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Detailed view of a runbook from the GitHub gallery" lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
 
 1. To install the module directly into Azure Automation, click **Import**.
 1. On the Import pane, you can see the name of the module to import. If all the dependencies are installed, the **OK** button is activated. If you're missing dependencies, you need to import those dependencies before you can import this module.
@@ -93,7 +93,7 @@ Microsoft encourages you to add runbooks to the PowerShell Gallery that you thin
 2. Select **Modules** under **Shared Resources** to open the list of modules.
 3. Click **Browse gallery** from the top of the page.
 
-   ![Module gallery](media/automation-runbook-gallery/modules-blade.png)
+      :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="Detailed view of a module from the gallery" lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
 
 4. On the Browse gallery page, you can search by the following fields:
 
@@ -106,7 +106,8 @@ Microsoft encourages you to add runbooks to the PowerShell Gallery that you thin
 
    When you drill into a specific module, you can view more information. This information includes a link back to the PowerShell Gallery, any required dependencies, and all of the cmdlets or DSC resources that the module contains.
 
-   ![PowerShell module details](media/automation-runbook-gallery/gallery-item-details-blade.png)
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-sm.png" alt-text="Detailed view of a module from the gallery" lightbox="media/automation-runbook-gallery/gallery-item-details-blade-lg.png":::
+
 
 6. To install the module directly into Azure Automation, click **Import**.
 7. On the Import pane, you can see the name of the module to import. If all the dependencies are installed, the **OK** button is activated. If you're missing dependencies, you need to import those dependencies before you can import this module.
