@@ -45,7 +45,7 @@ This document walks you through the changes to the Azure Monitor integration and
 
 ## Customer scenarios
 
-The following sections describe how customers can use the new Azure Monitor integration in different scenarios. The [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section outlines how to activate and use the new Azure Monitor integration. The [Activate an existing Azure Monitor integration](#activate-an-existing-azure-monitor-integration) section includes additional information for users that depend on the old Azure Monitor integration.
+The following sections describe how customers can use the new Azure Monitor integration in different scenarios. The [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section outlines how to activate and use the new Azure Monitor integration. The [Migrating from Azure Monitor Classic to the new Azure Monitor Integration](#migrating-from-azure-monitor-classic-to-the-new-azure-monitor-integration) section includes additional information for users that depend on the old Azure Monitor integration.
 
 > [!NOTE]
 > Only clusters created in late-September 2020 and after are eligible for the new Azure Monitoring integration.
@@ -120,7 +120,7 @@ You can add custom alerts to your clusters and workspaces in the Log query edito
 
 <![alt-text-description]()>
 
-## Activate an existing Azure Monitor integration
+## Migrating from Azure Monitor Classic to the new Azure Monitor Integration
 
 If you're using the classic Azure Monitor integration, you need to make some adjustments to the new table formats after you switch to the new Azure Monitor integration.
 
