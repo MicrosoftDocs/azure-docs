@@ -70,7 +70,7 @@
       - name: .NET
         href: /dotnet/api/overview/azure/cognitiveservices/bing-visual-search-readme?view=azure-dotnet
       - name: Java
-        href:  /java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable
+        href:  /java/api/overview/azure/cognitiveservices/client/bingvisualsearch
       - name: Python
         href: /python/api/azure-cognitiveservices-search-visualsearch/?view=azure-python
       - name: Node.js

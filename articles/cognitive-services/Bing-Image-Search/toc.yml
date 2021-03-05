@@ -75,7 +75,7 @@
       - name: .NET
         href: /dotnet/api/overview/azure/cognitiveservices/bing-image-search-readme?view=azure-dotnet
       - name: Java
-        href: /java/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-java-stable
+        href: /java/api/overview/azure/cognitiveservices/client/bingimagesearch
       - name: Python
         href: /python/api/azure-cognitiveservices-search-imagesearch/?view=azure-python
       - name: Node.js

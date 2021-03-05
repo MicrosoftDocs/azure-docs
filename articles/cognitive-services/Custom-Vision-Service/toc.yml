@@ -68,7 +68,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/customvision
     - name: Node.js - Training
       href: /javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest
     - name: Node.js - Prediction

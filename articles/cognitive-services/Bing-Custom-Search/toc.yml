@@ -77,9 +77,9 @@
       - name: .NET
         href: /dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme?view=azure-dotnet
       - name: Java - Custom Search
-        href: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable
+        href: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch
       - name: Java - Custom Image Search
-        href: /java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable
+        href: /java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch
       - name: Python
         href: /python/api/azure-cognitiveservices-search-customsearch/?view=azure-python
       - name: Node.js
