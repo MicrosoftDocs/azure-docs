@@ -116,9 +116,9 @@ $vnet = Get-AzvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork $vnet
 ```
 
-## Create app services
+## Create web apps
 
-Two app services will be configured in the backend pool.
+Configure two web apps for the backend pool.
 
 1. Select **Create a resource** and type **web app** in the search bar.
 1. Select **Web App**, and then select **Create**.
