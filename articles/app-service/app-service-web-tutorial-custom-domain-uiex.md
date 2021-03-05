@@ -81,8 +81,6 @@ Open the [Azure portal](https://portal.azure.com), and sign in with your Azure a
 
    ![Screenshot that shows the scale operation confirmation.](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-<a name="cname" aria-hidden="true"></a>
-
 ## 3. Get a domain verification ID
 
 To add a custom domain to your app, you need to verify your ownership of the domain by adding a verification ID as a TXT record with your domain provider. 
@@ -222,10 +220,6 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
     If you missed a step or made a typo somewhere earlier, a verification error appears at the bottom of the page.
 
     ![Screenshot that shows a verification error.](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
-
-<a name="a" aria-hidden="true"></a>
-
-<a name="enable-a" aria-hidden="true"></a>
 
 # [A](#tab/a)
 
