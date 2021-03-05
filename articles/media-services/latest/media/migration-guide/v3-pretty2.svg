@@ -375,14 +375,13 @@
 				<title>Dynamic connector.1023</title>
 				<path d="M0 1044.5 L-18 1044.5 L-18 898.25 L-63.1 898.25" class="st6"/>
 			</g>
-			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/cli-create-jobs" target="__blank">
-				<g id="shape132-192" transform="translate(268.144,-317.25)">
+				<g id="shape132-192" transform="translate(268.144,-317.25)" onclick="window.location('https://docs.microsoft.com/azure/media-services/latest/cli-create-jobs')">
 					<title>See the documentation for creating a job</title>
 					<desc>Create job and output asset</desc>
 					<path d="M20.25 1044.5 L84.15 1044.5 A20.25 20.25 -180 0 0 84.15 1004 L20.25 1004 A20.25 20.25 -180 1 0 20.25
 								 1044.5 Z" class="st2"/>
-					<text x="12.84" y="1020.65" class="st3">Create job and <tspan x="19.51" dy="1.2em" class="st10">output asset</tspan></text>				</g>
-			</a>
+					<text x="12.84" y="1020.65" class="st3">Create job and <tspan x="19.51" dy="1.2em" class="st10">output asset</tspan></text>				
+					</g>
 			<g id="shape1025-196" transform="translate(270.344,-831.431)">
 				<title>Sheet.1025</title>
 				<desc>OR</desc>
