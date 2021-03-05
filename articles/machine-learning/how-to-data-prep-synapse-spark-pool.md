@@ -1,7 +1,7 @@
 ---
-title: Data prep with Apache Spark pools (preview)
+title: Data wrangling with Apache Spark pools (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to attach Apache Spark pools for data preparation with Azure Synapse Analytics and Azure Machine Learning
+description: Learn how to attach and launch Apache Spark pools for data wrangling with Azure Synapse Analytics and Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
-ms.custom: how-to, devx-track-python, data4ml
+ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
 
 
 # Customer intent: As a data scientist, I want to prepare my data at scale and to train my machine learning models from a single notebook.
 ---
 
-# Attach Apache Spark pools (powered by Azure Synapse Analytics) for data preparation (preview)
+# Attach Apache Spark pools (powered by Azure Synapse Analytics) for data wrangling (preview)
 
-In this article, you learn how to attach and launch an Apache Spark pool powered by [Azure Synapse Analytics](/synapse-analytics/overview-what-is.md) for data preparation. 
+In this article, you learn how to attach and launch an Apache Spark pool powered by [Azure Synapse Analytics](/synapse-analytics/overview-what-is.md) for data wrangling at scale. 
 
 >[!IMPORTANT]
 > The Azure Machine Learning and Azure Synapse Analytics integration is in preview. The capabilities presented in this article employ the `azureml-synapse` package which contains [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview features that may change at any time.
@@ -41,103 +41,35 @@ The Azure Synapse Analytics integration with Azure Machine Learning (preview) al
         pip install azureml-synapse
         ```
 
-## Link machine learning workspace and Synapse Analytics assets
-
-Before you can attach an Apache Synapse Spark pool for data preparation, your Azure Machine Learning workspace must be linked with your Azure Synapse Analytics workspace. 
-
-You can link your Machine Learning workspace and Synapse Analytics workspace via the [Python SDK](#link-sdk) or the [Azure Machine Learning studio](#link-studio). 
-
-> [!IMPORTANT]
-> To link to the Azure Synapse Analytics workspace successfully, you must be granted the **Owner** role of the Azure Synapse Analytics workspace. Check your access in the [Azure portal](https://ms.portal.azure.com/).
->
-> If you are not an **Owner** of the Azure Synapse Analytics workspace, but want to use an existing linked service, see [Get an existing linked service](#get-an-existing-linked-service).
-
-
-<a name="link-sdk"></a>
-### Link workspaces with the Python SDK
-
-The following code employs the [`LinkedService`](/python/api/azureml-core/azureml.core.linked_service.linkedservice?preserve-view=true&view=azure-ml-py) and [`SynapseWorkspaceLinkedServiceConfiguration`](/python/api/azureml-core/azureml.core.linked_service.synapseworkspacelinkedserviceconfiguration?preserve-view=true&view=azure-ml-py) classes to, 
-
-* Link your Azure Machine Learning workspace, `ws` with your Azure Synapse Analytics workspace. 
-* Register your Azure Synapse Analytics workspace with Azure Machine Learning as a linked service.
-
-``` python
-import datetime  
-from azureml.core import Workspace, LinkedService, SynapseWorkspaceLinkedServiceConfiguration
-
-# Azure Machine Learning workspace
-ws = Workspace.from_config()
-
-#link configuration 
-synapse_link_config = SynapseWorkspaceLinkedServiceConfiguration(
-    subscription_id=ws.subscription_id,
-    resource_group= 'your resource group',
-    name='mySynapseWorkspaceName')
-
-# Link workspaces and register Synapse workspace in Azure Machine Learning
-linked_service = LinkedService.register(workspace = ws,              
-                                            name = 'synapselink1',    
-                                            linked_service_config = synapse_link_config)
-```
-> [!IMPORTANT] 
-> A managed identity, `system_assigned_identity_principal_id`, is created for each linked service. This managed identity must be granted the **Synapse Apache Spark Administrator** role of the Azure Synapse Analytics workspace before you start your Apache Spark session. [Assign the Synapse Apache Spark Administrator role to the managed identity in the Synapse Studio](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md).
->
-> To find the `system_assigned_identity_principal_id` of a specific linked service, use `LinkedService.get('<your-mlworkspace-name>', '<linked-service-name>')`.
-
-<a name="link-studio"></a>
-### Link workspaces via studio
-
-Link your Azure Machine Learning workspace and Azure Synapse Analytics workspace via the Azure Machine Learning studio with the following steps: 
-
-1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com/).
-1. Select **Linked Services** in the **Manage** section of the left pane.
-1. Select **Add integration**.
-1. On the **Link workspace** form, populate the fields
-
-   |Field| Description    
-   |---|---
-   |Name| Provide a name for your linked service. This name is what will be used to reference to this particular linked service.
-   |Subscription name | Select the name of your subscription that's associated with your machine learning workspace. 
-   |Synapse workspace | Select the Synapse workspace you want to link to. 
-   
-1. Select **Next** to open the **Select Spark pools (optional)** form. On this form, you select which Synapse Apache Spark pool to attach to your workspace
-
-1. Select **Next** to open the **Review** form and check your selections. 
-1. Select **Create** to complete the linked service creation process.
+* [Link Azure Machine Learning workspace and Azure Synapse Analytics workspace](how-to-link-synapse-ml-workspaces.md).
 
 ## Get an existing linked service
+Before you can attach a dedicated compute for data wrangling, you must have an ML workspace that's linked to an Azure Synapse Analytics workspace, this is referred to as a linked service. 
 
 To retrieve and use an existing linked service requires **User or Contributor** permissions to the Azure Synapse Analytics workspace.
-
-This example retrieves an existing linked service, `synapselink1`, from the workspace, `ws`, with the [`get()`](/python/api/azureml-core/azureml.core.linkedservice?preserve-view=true&view=azure-ml-py#get-workspace--name-) method.
-```python
-linked_service = LinkedService.get(ws, 'synapselink1')
-```
-
-### Manage linked services
-
-To unlink your workspaces, use the `unregister()` method
-
-``` python
-linked_service.unregister()
-```
 
 View all the linked services associated with your machine learning workspace. 
 
 ```python
 LinkedService.list(ws)
 ```
+
+This example retrieves an existing linked service, `synapselink1`, from the workspace, `ws`, with the [`get()`](/python/api/azureml-core/azureml.core.linkedservice?preserve-view=true&view=azure-ml-py#get-workspace--name-) method.
+```python
+linked_service = LinkedService.get(ws, 'synapselink1')
+```
  
 ## Attach Synapse Spark pool as a compute
 
-Once your workspaces are linked, attach a Synapse Apache Spark pool as a dedicated compute resource for your data preparation tasks. 
+Once you retrieve the linked service, attach a Synapse Apache Spark pool as a dedicated compute resource for your data preparation tasks. 
 
 You can attach Apache Spark pools via,
 * Azure Machine Learning studio
 * [Azure Resource Manager (ARM) templates](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)
 * The Python SDK 
 
-Follow these steps to attach an Apache Spark pool using the studio. 
+### Attach a pool via the studio
+Follow these steps: 
 
 1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select **Linked Services** in the **Manage** section of the left pane.
@@ -149,6 +81,7 @@ Follow these steps to attach an Apache Spark pool using the studio.
     1. To create a new Synapse Spark pool, see [Create Apache Spark pool with the Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 1. Select **Attach selected**. 
 
+### Attach a pool with the Python SDK
 
 You can also employ the **Python SDK** to attach an Apache Spark pool. 
 
