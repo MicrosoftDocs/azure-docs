@@ -46,6 +46,16 @@ Once you create these certificate templates, you must enable them on the certifi
 
 ### Configure the enrollment agent certificate template
 
+Depending on your environment, you may already have configured an enrollment agent certificate template for other purposes like Windows Hello for Business, Logon certificates or VPN certificates. If so, you will need to modify it to support SSO. If not, you can create a new template.
+
+To determine if you are already using an enrollment agent certificate template, run the following PowerShell command on the AD FS server and see if a value is returned. If it's empty, [create a new enrollment agent certificate template](#create-a-new-enrollment-agent-certificate-template). Otherwise, remember the name and [update an existing enrollment agent certificate template](#update-an-existing-enrollment-agent-certificate-template).
+
+```powershell
+  (Get-AdfsCertificateAuthority).EnrollmentAgentCertificateTemplateName
+  ```
+
+#### Create a new enrollment agent certificate template
+
 1. On the certificate authority, run **mmc.exe** from the Start menu to launch the **Microsoft Management Console**.
 2. Select **File...** > **Add/Remote Snap-in...** > **Certificate Templates** > **Add >** > **OK** to view the list of certificate templates.
 3. Expand the **Certificate Templates**, right-click **Exchange Enrollment Agent (Offline Request)** and select **Duplicate Template**.
@@ -55,9 +65,21 @@ Once you create these certificate templates, you must enable them on the certifi
 7. Enter the service account name for AD FS and select **OK**.
      * In an isolated AD FS setup, the service account will be named `adfssvc$`.
      * If you setup AD FS via Azure AD Connect, the service account will be named `aadcsvc$`.
-8. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll", then select **OK** to save.
+8. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll" in the **Permissions for Authenticated Users** pane, then select **OK** to save.
 
     ![A screenshot showing the security tab of the Enrollment Agent certificate template after it is properly configured](media/adfs-enrollment-properties-security.png)
+
+#### Update an existing enrollment agent certificate template
+
+1. On the certificate authority, run **mmc.exe** from the Start menu to launch the **Microsoft Management Console**.
+2. Select **File...** > **Add/Remote Snap-in...** > **Certificate Templates** > **Add >** > **OK** to view the list of certificate templates.
+3. Expand the **Certificate Templates**, double-click the template that corresponds to the one configured on the AD FS server. On the **General** tab, the template name should match the name you found above.
+5. Select the **Security** tab, then select **Add...**.
+6. Next, select **Object Types...**, then **Service Accounts**, and then **OK**.
+7. Enter the service account name for AD FS and select **OK**.
+     * In an isolated AD FS setup, the service account will be named `adfssvc$`.
+     * If you setup AD FS via Azure AD Connect, the service account will be named `aadcsvc$`.
+8. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll" in the **Permissions for Authenticated Users** pane, then select **OK** to save.
 
 ### Configure the smart card logon certificate template for interactive logon
 
@@ -97,6 +119,9 @@ Once you create these certificate templates, you must enable them on the certifi
 5. Select both **ADFS Enrollment Agent** and **ADFS SSO**, then select **OK**. You should see both templates in the middle-pane.
     ![A screenshot showing list of certificate templates that can be issued, including the new "ADFS Enrollment Agent" and "ADFS SSO".](media/adfs-certificate-templates.png)
 
+   > [!NOTE]
+   > If you already have an enrollment agent certificate template configured, you may only need to add the ADFS SSO template.
+
 ## Configure the AD FS Servers
 
 You must configure the AD FS servers to leverage the new certificate templates and set the relying-party trust to support SSO.
@@ -106,8 +131,10 @@ You must configure the AD FS servers to leverage the new certificate templates a
 On the AD FS VMs, run the following PowerShell command to configure AD FS to use the certificate templates defined above:
   
 ```powershell
-  Set-AdfsCertificateAuthority -EnrollmentAgentCertificateTemplate "ADFSEnrollmentAgent" -LogonCertificateTemplate "ADFSSSO" -EnrollmentAgent
-  ```
+Set-AdfsCertificateAuthority -EnrollmentAgentCertificateTemplate "ADFSEnrollmentAgent" -LogonCertificateTemplate "ADFSSSO" -EnrollmentAgent
+```
+ > [!NOTE]
+ > If you already have an EnrollmentAgentCertificateTemplate configured, ensure you use the existing template name instead of ADFSEnrollmentAgent.
 
 ### Configure a relying-party trust on your AD FS
 
