@@ -30,7 +30,7 @@ highlightedContent:
     # Card
     - title: Start building with Azure CLI for Azure IoT
       itemType: reference
-      url: /cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest
+      url: /cli/azure/azure-cli-reference-for-IoT
     # Card
     - title: Browse Azure IoT code samples
       itemType: overview
