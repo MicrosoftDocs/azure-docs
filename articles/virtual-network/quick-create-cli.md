@@ -93,7 +93,7 @@ The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI
 }
 ```
 
-Take note of the **publicIpAddress**. You will use this address to connect to the VM from the internet in the next step.
+Take note of the **publicIpAddress**. You'll use this address to connect to the VM from the internet in the next step.
 
 ## Connect to a VM from the internet
 
