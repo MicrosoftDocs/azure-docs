@@ -10,7 +10,7 @@ metadata:
   ms.author: wiassaf
   ms.reviewer: sstein
   ms.custom: 
-  ms.date: 03/04/2021
+  ms.date: 03/05/2021
 
 title: Maintenance window FAQ
 summary: This article answers frequently asked questions about the maintenance window for [Azure SQL database](sql-database-paas-overview.md) and [SQL managed instance](../managed-instance/sql-managed-instance-paas-overview.md).
@@ -35,11 +35,11 @@ sections:
 
       - question: What happens once I choose a maintenance window? 
         answer: | 
-          Configuring maintenance window is a long running asynchronous operation, similar to changing the service tier of your Azure SQL resource. The resource is available during the process, except a short failover that happens at the end of the operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of failover you should perform the operation outside of the peak hours. 
+          Configuring maintenance window is a long running asynchronous operation, similar to changing the service tier of your Azure SQL resource. The resource is available during the process, except a short failover that happens at the end of the operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of failover you should perform the operation outside of the peak hours. In case of managed instance, IP address of the instance will change.
 
-      - question: What maintenance updates are typically performed during a maintenance window? 
+      - question: What types of updates are typically performed during a maintenance window? 
         answer: |
-          The maintenance window batches all hardware, operating system software and SQL engine updates into one update event to minimize impact to customers.
+          The maintenance event may contain updates for hardware, firmware, operating system, satelite software components, and SQL engine. They are typically combined into a single batch to minimize the incidence of maintenance events.
 
       - question: What can I expect during a maintenance event?
         answer: |
