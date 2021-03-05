@@ -15,7 +15,7 @@ ms.author: lajanuar
 
 # Form Recognizer custom models
 
-Form Recognizer uses model-based machine learning technology to analyze and extract data from your forms and documents. A Form Recognizer model is a representation of extracted data that is used as a reference for analyzing your specific content. There are two types of Form recognizer models:
+Form Recognizer uses advanced machine learning technology to analyze and extract data from your forms and documents. A Form Recognizer model is a representation of extracted data that is used as a reference for analyzing your specific content. There are two types of Form recognizer models:
 
 * **Custom models**. Form Recognizer custom models represent extracted data from _forms_ specific to your business. Custom models must be trained to analyze your distinct form data.
 
@@ -23,7 +23,7 @@ Form Recognizer uses model-based machine learning technology to analyze and extr
 
 ## What does a custom model do?
 
-Custom models apply the [Layout API]((concept-layout#try-it-out) ) to analyze all fields and values found in your custom forms. Layout API uses [Optical Character Recognition (OCR)](../computer-vision/concept-recognizing-text) to extract information from varied documents and return a structured data representation.
+With Form Recognizer, you can train a model that will extract information from forms that are relevant for your use case. You only need five examples of the same form type to get started.
 
 Your custom model can be trained with or without labeled datasets.
 
