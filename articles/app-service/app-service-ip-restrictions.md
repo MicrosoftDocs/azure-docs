@@ -162,7 +162,7 @@ Traffic from Azure Front Door to your application originates from a well known s
 
 You can add access restrictions programmatically by doing either of the following: 
 
-* Use [the Azure CLI](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest&preserve-view=true). For example:
+* Use [the Azure CLI](/cli/azure/webapp/config/access-restriction). For example:
    
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
