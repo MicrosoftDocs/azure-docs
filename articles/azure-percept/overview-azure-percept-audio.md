@@ -60,7 +60,7 @@ Azure Percept Audio passes the audio input to the Azure Percept DK carrier board
 
 ## Build a no-code prototype
 
-Build a [no-code speech solution](./tutorial-no-code-speech.md) using Azure Percept voice assistant templates for hospitality, healthcare, inventory, and automotive scenarios.
+Build a [no-code speech solution](./tutorial-no-code-speech.md) in [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) using Azure Percept voice assistant templates for hospitality, healthcare, inventory, and automotive scenarios.
 
 ### Manage your no-code speech solution
 

@@ -85,7 +85,7 @@ This article showed you how to automatically rotate your cluster's certificates,
 
 
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md

@@ -18,7 +18,6 @@ ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
 
 In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in a virtual network.
 
-
 This article is part two of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
 
 See the other articles in this series:
@@ -292,9 +291,9 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
 
 ## Next steps
 
-This article is part one of a four-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+This article is part two of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
 
 * [Part 1: Virtual network overview](how-to-network-security-overview.md)
 * [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
 * [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
-* [Part 5:Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Part 5: Enable studio functionality](how-to-enable-studio-virtual-network.md)
