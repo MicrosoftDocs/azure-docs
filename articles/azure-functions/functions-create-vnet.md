@@ -186,7 +186,7 @@ Now, create the private endpoint for your Azure Service Bus.
 
 1. Select the **Private endpoint connections** tab, and select **Private endpoint**.
 
-    :::image type="content" source="./media/functions-create-vnet/3-navigate-private-endpoint-sb.png" alt-text="Screenshot of how to navigate to private endpoints for service bus.":::
+    :::image type="content" source="./media/functions-create-vnet/3-navigate-private-endpoint-service-bus.png" alt-text="Screenshot of how to navigate to private endpoints for service bus.":::
 
 1. On the **Basics** tab, use the private endpoint settings as specified below:
 
@@ -224,7 +224,7 @@ Now, create the private endpoint for your Azure Service Bus.
 
 1. Select **Show keys**. Copy the connection string of key1, and save it. We'll need this connection string later when configuring the app settings.
 
-    :::image type="content" source="./media/functions-create-vnet/5-get-store-connectionstring.png" alt-text="Screenshot of how to get a storage account connection string.":::
+    :::image type="content" source="./media/functions-create-vnet/5-get-store-connection-string.png" alt-text="Screenshot of how to get a storage account connection string.":::
 
 ## Create a queue
 
@@ -242,7 +242,7 @@ This will be the queue for which your Azure Functions Service Bus Trigger will g
 
 1. Select **RootManageSharedAccessKey**. Copy the **Primary Connection String**, and save it. We'll need this connection string later when configuring the app settings.
 
-    :::image type="content" source="./media/functions-create-vnet/7-get-servicebus-connectionstring.png" alt-text="Screenshot of how to get a service bus connection string.":::
+    :::image type="content" source="./media/functions-create-vnet/7-get-service-bus-connection-string.png" alt-text="Screenshot of how to get a service bus connection string.":::
 
 ## Integrate function app with your virtual network
 
@@ -342,7 +342,7 @@ Now, create the private endpoint for your function app. This private endpoint wi
 
 1. In your function app, select **Application Insights** from the left menu and select **View Application Insights data**.
 
-    :::image type="content" source="./media/functions-create-vnet/16-appinsights.png" alt-text="Screenshot of how to view application insights for a Function App.":::
+    :::image type="content" source="./media/functions-create-vnet/16-app-insights.png" alt-text="Screenshot of how to view application insights for a Function App.":::
 
 1. Select **Live metrics** from the left menu.
 
@@ -354,7 +354,7 @@ Now, create the private endpoint for your function app. This private endpoint wi
 
 1. Select **Send** to send the message.
 
-    :::image type="content" source="./media/functions-create-vnet/17-send-servicebus-message.png" alt-text="Screenshot of how to send Service Bus messages using portal.":::
+    :::image type="content" source="./media/functions-create-vnet/17-send-service-bus-message.png" alt-text="Screenshot of how to send Service Bus messages using portal.":::
 
 1. On the tab with **Live metrics** open, you should see that your Service Bus queue trigger has triggered. If it hasn't, resend the message from **Service Bus Explorer**
 
