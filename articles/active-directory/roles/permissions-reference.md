@@ -18,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 # Azure AD built-in roles
 
-In Azure Active Directory (Azure AD), if another administrator or non-administrator needs to manage Azure AD resources, you must assign them a role that provides the permissions they need. For example, you can assign roles that allow administrators or non-administrators to add or change users, reset user passwords, manage user licenses, or manage domain names. 
+In Azure Active Directory (Azure AD), if another administrator or non-administrator needs to manage Azure AD resources, you assign a role to them that provides the permissions they need. For example, you can assign roles to allow adding or changing users, resetting user passwords, managing user licenses, or managing domain names. 
 
-This article lists the Azure AD built-in roles you can assign to administrators and non-administrators that allow them to manage Azure AD resources. For information about how to assign roles, see [View and assign administrator roles in Azure Active Directory](manage-roles-portal.md).
+This article lists the Azure AD built-in roles you can assign to allow management of Azure AD resources. For information about how to assign roles, see [View and assign administrator roles in Azure Active Directory](manage-roles-portal.md).
 
 ## All roles
 
