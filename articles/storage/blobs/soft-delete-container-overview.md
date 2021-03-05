@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
@@ -47,9 +47,10 @@ Disabling container soft delete does not result in permanent deletion of contain
 Container soft delete is available in preview in all Azure regions.
 
 > [!IMPORTANT]
-> The container soft delete preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
+>
+> Container soft delete is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Version 2019-12-12 and higher of the Azure Storage REST API supports container soft delete.
+Version 2019-12-12 or higher of the Azure Storage REST API supports container soft delete.
 
 ### Storage account support
 
