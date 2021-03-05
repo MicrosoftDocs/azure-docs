@@ -783,6 +783,8 @@
   items:
   - name: Overview
     href: availability.md
+  - name: Understand VM reboots
+    href: understand-vm-reboots.md
   - name: Availability sets
     items:
     - name: Overview
