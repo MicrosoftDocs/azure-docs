@@ -29,6 +29,8 @@ Before you can set up the provisioning, you'll need to set up the following:
 
 [!INCLUDE [digital-twins-prereq-provisioning-and-time-series-insights-integration.md](../../includes/digital-twins-prereq-provisioning-and-time-series-insights-integration.md)]
 
+* an [Azure function](../articles/azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Follow [*How to: Ingest IoT hub data*](how-to-ingest-iot-hub-data.md) to create an Azure function. Gather the function **_name_** to use it in this article.
+
 This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
 
 You'll need [**Node.js**](https://nodejs.org/download) installed on your machine. The device simulator is based on **Node.js**, version 10.0.x or later.
@@ -75,36 +77,27 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### Create an Azure function
 
-Next, you'll create an **HTTP request-triggered** function inside a function app. You can use the function app created in the article [*how to ingest iot hub data*](how-to-ingest-iot-hub-data.md), or your own.
+Next, you'll create an **HTTP request-triggered** function inside a function app. You can use the function app created in the article [*How to: Ingest iot hub data*](how-to-ingest-iot-hub-data.md), or your own.
 
 This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device. For more information about using HTTP requests with Azure functions, see [*Azure Http request trigger for Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
-Inside your function app project, 
+Inside your function app project, do the following steps:
 
-1. Add a new function. 
+1. Add a new function of type *HTTP request-triggered* and rename the function to *DpsAdtAllocationFunc*.
 2. Add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add additional packages to your project as well, if the packages used in the code aren't part of the project already.
-
 3. In the newly created function code file, paste in the following code and save the file
 :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
-
 4. Publish your function app. For instructions on publishing the function app, see the [*Publish the app*](tutorial-end-to-end.md#publish-the-app) section of the Azure Digital Twins *Tutorial: Connect an end-to-end solution.*
 
 #### Verify function publish
 
 [!INCLUDE [digital-twins-verify-function-app-publish.md](../../includes/digital-twins-verify-function-app-publish.md)]
 
-:::image type="content" source="media/how-to-provision-using-dps/azure-functions-app.png" alt-text="The Azure portal function app view to verify that your function is successfully published":::
+:::image type="content" source="media/how-to-provision-using-dps/azure-functions-app.png" alt-text="The Azure portal function app view to verify that your  function is successfully published":::
 
 ### Configure your function
 
-Next, you'll need to set environment variables in your function app from earlier, containing the reference to the Azure Digital Twins instance you've created. 
 
-Add the setting with this Azure CLI command. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
-```
-Ensure that the permissions and Managed Identity role assignment are configured correctly for the function app, as described in the section [*Assign permissions to the function app*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) in the end-to-end tutorial.
 
 ### Create Device Provisioning enrollment
 
@@ -245,21 +238,7 @@ Inside your published function app,
 
 ### Configure your function
 
-Next, you'll need to set environment variables in your function app from earlier, containing the reference to the Azure Digital Twins instance you've created and the event hub.
-
-Add the setting with this Azure CLI command. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli).
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
-```
-
-Next, you will need to configure the function environment variable for connecting to the newly created event hub.
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
-```
-
-Ensure that the permissions and Managed Identity role assignment are configured correctly for the function app, as described in the section [*Assign permissions to the function app*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) in the end-to-end tutorial.
+[!INCLUDE [digital-twins-configure-azure-function.md](../../includes/digital-twins-configure-azure-function.md)]
 
 ### Create an IoT Hub route for lifecycle events
 

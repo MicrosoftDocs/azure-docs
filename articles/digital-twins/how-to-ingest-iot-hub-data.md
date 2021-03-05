@@ -127,6 +127,10 @@ You can also verify your status of the publish process in the [Azure portal](htt
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Screenshot of the Azure portal that shows status of the publish process.":::
 
+### Configure your function
+
+[!INCLUDE [digital-twins-configure-azure-function.md](../../includes/digital-twins-configure-azure-function.md)]
+
 ## Connect your function to IoT Hub
 
 Set up an event destination for hub data.
