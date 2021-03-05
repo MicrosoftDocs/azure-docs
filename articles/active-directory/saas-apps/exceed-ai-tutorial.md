@@ -35,6 +35,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Exceed.ai supports **SP** initiated SSO
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Adding Exceed.ai from the gallery
 
 To configure the integration of Exceed.ai into Azure AD, you need to add Exceed.ai from the gallery to your list of managed SaaS apps.
@@ -78,6 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
