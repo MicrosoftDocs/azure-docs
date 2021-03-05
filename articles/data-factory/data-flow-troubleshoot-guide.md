@@ -41,7 +41,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 - **Message**: Broadcast join timeout error, you can choose 'Off' of broadcast option in join/exists/lookup transformation to avoid this issue. If you intend to broadcast join option to improve performance then make sure broadcast stream can produce data within 60 secs in debug runs and 300 secs in job runs.
 - **Cause**: Broadcast has a default timeout of 60 seconds in debug runs and 300 seconds in job runs. On the broadcast join, the stream chosen for broadcast is too large to produce data within this limit. If a broadcast join isn't used, the default broadcast by dataflow can reach the same limit.
-- **Recommendation**: Turn off the broadcast option or avoid broadcasting large data streams for which the processing can take more than 60 seconds. Choose a smaller stream to broadcast. Large Azure SQL Data Warehouse tables and source files are typically bad choices. In the absence of a broadcast join, use a larger cluster if this error occurs.
+- **Recommendation**: Turn off the broadcast option or avoid broadcasting large data streams for which the processing can take more than 60 seconds. Choose a smaller stream to broadcast. Large Azure SQL Data Warehouse tables and source files aren't typically good choices. In the absence of a broadcast join, use a larger cluster if this error occurs.
 
 ### Error code: DF-Executor-Conversion
 
@@ -51,7 +51,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Error code: DF-Executor-InvalidColumn
 - **Message**: Column name needs to be specified in the query, set an alias if using a SQL function
-- **Cause**: No column name was specified.
+- **Cause**: No column name is specified.
 - **Recommendation**: Set an alias if you're using a SQL function like min() or max().
 
 ### Error code: DF-Executor-DriverError
