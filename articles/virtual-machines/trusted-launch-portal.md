@@ -7,7 +7,7 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to 
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.custom: template-how-to 
 ---
 
@@ -32,7 +32,7 @@ Create a virtual machine with trusted launch enabled.
 1. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
 1. Under **Project details**, make sure the correct subscription is selected.
 1. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
-1. Under **Instance details**, type a name for the virtual machine name and choose a region that supports trusted launch.
+1. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#public-preview-limitations).
 1. Under **Image**, select an [image that supports trusted launch](trusted-launch.md#public-preview-limitations). You might only see the Gen 1 version of the image, that is okay, go on to the next step.
 1. Switch over to the **Advanced** tab by selecting it at the top of the page.
 1. Scroll down to the **VM generation** section, and then select **Gen 2**.
@@ -135,7 +135,7 @@ To get vTPM and secure boot recommendations for trusted launch VMs, see [Add a c
 
 In some cases, you might need to sign things for UEFI Secure Boot.  For example, you might need to go through [How to sign things for Secure Boot](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) for Ubuntu. In these cases, you need to enter the MOK utility enroll keys for your VM. To do this, you need to use the Azure Serial Console to access the MOK utility.
 
-1. Enable Azure Serial Console for Linux.
+1. Enable Azure Serial Console for Linux. For more information, see [Serial Console for Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux).
 1. Log in to the [Azure portal](https://portal.azure.com).
 1. Search for **Virtual machines** and select your VM from the list.
 1. In the left menu, under **Support + troubleshooting**, select **Serial console**. A page will open to the right, with the serial console.

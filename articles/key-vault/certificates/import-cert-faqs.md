@@ -39,7 +39,7 @@ No, it isn't possible to perform certificate operations by using an Azure Resour
 
 ### When I import a certificate via the Azure portal, I get a "Something went wrong" error. How can I investigate further?
  	
-To view a more descriptive error, import the certificate file by using [the Azure CLI](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) or [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+To view a more descriptive error, import the certificate file by using [the Azure CLI](/cli/azure/keyvault/certificate#az-keyvault-certificate-import) or [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
 
 ### How can I resolve "Error type: Access denied or user is unauthorized to import certificate"?
 	
