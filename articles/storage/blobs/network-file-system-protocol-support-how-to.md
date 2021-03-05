@@ -104,7 +104,7 @@ Create a container in your storage account by using any of these tools or SDKs:
 
 Create a directory on your Windows or Linux system, and then mount a container in the storage account.
 
-### [Linux](#tab/linux)
+### [Linux]
 
 1. On a Linux system, create a directory.
 
@@ -121,32 +121,6 @@ Create a directory on your Windows or Linux system, and then mount a container i
    - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
 
    - Replace the `<container-name>` placeholder with the name of your container.
-
-
-### [Windows](#tab/windows)
-
-1. Open the **Windows Features** dialog box, and then turn on the **Client for NFS** feature. 
-
-   ![Client for Network File System feature](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
-
-2. Open a **Command Prompt** window (cmd.exe). Then, mount a container by using the [mount](/windows-server/administration/windows-commands/mount) command.
-
-   ```
-   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
-   ```
-
-   - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
-
-   - Replace the `<container-name>` placeholder with the name of your container.
-
-3. If you need write permissions, you may need to change the default UID and GID that Windows uses to connect to the share. To do this, run the following PowerShell commands as an administrator:
-
-   ```
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
-   ```
-   
-   - Restart the NFS client service or reboot the server after making this change.
 
 ---
 
