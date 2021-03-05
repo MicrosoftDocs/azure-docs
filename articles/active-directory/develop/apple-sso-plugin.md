@@ -154,9 +154,9 @@ Enabling `browser_sso_interaction_enabled` flag enables app that do not use a Mi
 - **Type**: `Integer`
 - **Value**: 1 or 0
 
-For macOS this setting is required to get a more consistent experience across all apps. For iOS and iPadOS this setting isn't required as most apps use the Microsoft Authenticator application for sign-in. However, if you have some applicaitions that do not use the Microsoft Authenticator on iOS or iPadOS this flag will improve the experience so we recommend you enable the setting. It is disabled by default.
+For macOS this setting is required to get a more consistent experience across all apps. For iOS and iPadOS this setting isn't required as most apps use the Microsoft Authenticator application for sign-in. However, if you have some applications that do not use the Microsoft Authenticator on iOS or iPadOS this flag will improve the experience so we recommend you enable the setting. It is disabled by default.
 
-#### Disable asking for MFA on inital bootstrapping
+#### Disable asking for MFA on initial bootstrapping
 
 By default the Microsoft Enterprise SSO plug-in always prompts the user for Multi-factor authentication (MFA) when doing the initial bootstrapping and getting a shared credential, even if it's not required for the current application the user has launched. This is so the shared credential can be easily used across all additional applications without prompting the user if MFA becomes required later. This reduces the times the user needs to be prompted on the device and is generally a good decision.
 
