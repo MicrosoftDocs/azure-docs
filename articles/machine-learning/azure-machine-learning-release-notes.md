@@ -47,7 +47,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + optimized memory usage of ExplanationClient in azureml-interpret package
   + **azureml-train-automl-client**
     +  Fixed show_output=False to return control to the user when running using spark.
-    +  Re-enabled enable_local_managed flag allowing AutoML runs to run against a local docker.
 
 ## 2021-02-16
 
