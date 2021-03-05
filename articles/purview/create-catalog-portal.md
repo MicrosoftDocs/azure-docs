@@ -112,6 +112,9 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 
    :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
 
+    > [!Note] 
+    > Azure Purview does not support moving its account across regions. You can find out more information about this in [Azure supported services page](../azure-resource-manager/management/region-move-support.md).
+
 1. On the **Basics** tab, do the following:
     1. Select a **Resource group**.
     1. Enter a **Purview account name** for your catalog. Spaces and symbols aren't allowed.

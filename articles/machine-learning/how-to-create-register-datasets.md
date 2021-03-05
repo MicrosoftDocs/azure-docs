@@ -23,13 +23,13 @@ In this article, you learn how to create Azure Machine Learning datasets to acce
 
 By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. Also datasets are lazily evaluated, which aids in workflow performance speeds. You can create datasets from datastores, public URLs, and [Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 
-For a low-code experience, [Create Azure Machine Learning datasets with the Azure Machine Learning studio.](how-to-connect-data-ui.md#create-datasets).
+For a low-code experience, [Create Azure Machine Learning datasets with the Azure Machine Learning studio.](how-to-connect-data-ui.md#create-datasets)
 
 With Azure Machine Learning datasets, you can:
 
 * Keep a single copy of data in your storage, referenced by datasets.
 
-* Seamlessly access data during model training without worrying about connection strings or data paths.[Learn more about how to train with datasets](how-to-train-with-datasets.md).
+* Seamlessly access data during model training without worrying about connection strings or data paths. [Learn more about how to train with datasets](how-to-train-with-datasets.md).
 
 * Share data and collaborate with other users.
 
@@ -82,7 +82,7 @@ With TabularDatasets, you can specify a time stamp from a column in the data or 
 Create a TabularDataset with [the Python SDK](#create-a-tabulardataset) or [Azure Machine Learning studio](how-to-connect-data-ui.md#create-datasets).
 
 >[!NOTE]
-> AutoML workflows generated via the Azure Machine Learning studio currently only support TabularDatasets. 
+> [Automated ML](concept-automated-ml.md) workflows generated via the Azure Machine Learning studio currently only support TabularDatasets. 
 
 ## Access datasets in a virtual network
 
@@ -90,15 +90,20 @@ If your workspace is in a virtual network, you must configure the dataset to ski
 
 <a name="datasets-sdk"></a>
 
-## Create datasets
+## Create datasets from datastores
 
-For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web URLs. 
+For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure Machine Learning datastores](how-to-access-data.md) or web URLs. 
 
-To create datasets from an [Azure datastore](how-to-access-data.md) with the Python SDK:
+> [!TIP] 
+> You can create datasets directly from storage urls with identity-based data access. Learn more at [Connect to storage with identity-based data access (preview)](how-to-identity-based-data-access.md)<br><br>
+This capability is an [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time. 
 
-1. Verify that you have `contributor` or `owner` access to the registered Azure datastore.
+ 
+To create datasets from a datastore with the Python SDK:
 
-2. Create the dataset by referencing paths in the datastore. You can create a dataset from multiple paths in multiple datastores. There is no hard limit on the number of files or data size that you can create a dataset from. 
+1. Verify that you have `contributor` or `owner` access to the underlying storage service of your registered Azure Machine Learning datastore. [Check your storage account permissions in the Azure portal](../role-based-access-control/check-access.md).
+
+1. Create the dataset by referencing paths in the datastore. You can create a dataset from multiple paths in multiple datastores. There is no hard limit on the number of files or data size that you can create a dataset from. 
 
 > [!NOTE]
 > For each data path, a few requests will be sent to the storage service to check whether it points to a file or a folder. This overhead may lead to degraded performance or failure. A dataset referencing one folder with 1000 files inside is considered referencing one data path. We recommend creating dataset referencing less than 100 paths in datastores for optimal performance.
@@ -261,7 +266,7 @@ There are a number of templates at [https://github.com/Azure/azure-quickstart-te
 For information on using these templates, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
 
 
-## Create datasets with Azure Open Datasets
+## Create datasets from Azure Open Datasets
 
 [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. Open Datasets are in the cloud on Microsoft Azure and are included in both the SDK and the studio.
 
@@ -269,7 +274,7 @@ Learn how to create [Azure Machine Learning Datasets from Azure Open Datasets](.
 
 ## Train with datasets
 
-Use your datasets in your machine learning experiments for training ML models. [Learn more about how to train with datasets](how-to-train-with-datasets.md)
+Use your datasets in your machine learning experiments for training ML models. [Learn more about how to train with datasets](how-to-train-with-datasets.md).
 
 ## Version datasets
 

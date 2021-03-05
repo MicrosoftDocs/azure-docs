@@ -1,21 +1,11 @@
 ---
 title: Move data from Salesforce by using Data Factory 
 description: Learn about how to move data from Salesforce by using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from Salesforce by using Azure Data Factory
@@ -43,7 +33,7 @@ Salesforce has limits for both total API requests and concurrent API requests. N
 - If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures.
 - If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours.
 
-You might also receive the “REQUEST_LIMIT_EXCEEDED“ error in both scenarios. See the "API Request Limits" section in the [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
+You might also receive the "REQUEST_LIMIT_EXCEEDED" error in both scenarios. See the "API Request Limits" section in the [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from Salesforce by using different tools/APIs.

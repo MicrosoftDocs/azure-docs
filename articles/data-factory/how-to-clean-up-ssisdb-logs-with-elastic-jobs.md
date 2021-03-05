@@ -1,15 +1,11 @@
 ---
 title: Clean up SSISDB logs with Azure Elastic Database Jobs
 description: "This article describes how to clean up SSISDB logs by using Azure Elastic Database jobs to trigger the stored procedure that exists for this purpose"
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
-manager: mflasko
-ms.reviewer: douglasl 
 ms.custom: devx-track-azurepowershell
 ---
 

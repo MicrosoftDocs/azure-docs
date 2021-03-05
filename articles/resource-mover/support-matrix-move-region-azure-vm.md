@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 10/11/2020
+ms.date: 02/08/2021
 ms.author: raynew
 
 ---
@@ -112,7 +112,7 @@ Extensions | Not supported | Extensions aren't copied over to the  VM in target 
 This table summarized support for the Azure VM OS disk, data disk, and temporary disk. It's important to observe the VM disk limits and targets for [managed disks](../virtual-machines/disks-scalability-targets.md) to avoid any performance issues.
 
 > [!NOTE]
-> The target VM size should be equal to or larger than the source VM. The parameters used for validation are: Data Disks Count, NICs count, Available CPUs, Memory in GB. If it isn't a error is issued.
+> The target VM size should be equal to or larger than the source VM. The parameters used for validation are: Data Disks Count, NICs count, Available CPUs, Memory in GB. If it sn't a error is issued.
 
 
 **Component** | **Support** | **Details**
@@ -130,6 +130,8 @@ Managed disk (Premium) | Supported |
 Standard SSD | Supported |
 Generation 2 (UEFI boot) | Supported
 Boot diagnostics storage account | Not supported | Reenable it after moving the VM to the target region.
+VMs with Azure disk encryption enabled | Supported | [Learn more](tutorial-move-region-encrypted-virtual-machines.md)
+VMs using server-side encryption with customer-managed key | Supported | [Learn more](tutorial-move-region-encrypted-virtual-machines.md)
 
 ### Limits and data change rates
 

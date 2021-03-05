@@ -1,14 +1,10 @@
 ---
 title: Copy and transform data in Azure SQL Managed Instance
 description: Learn how to copy and transform data in Azure SQL Managed Instance by using Azure Data Factory.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 12/18/2020
 ---

@@ -40,9 +40,9 @@ az cosmosdb show --name accountname --resource-group resourcegroupname
 ```bash
 az cosmosdb update --name accountname --resource-group resourcegroupname --capabilities EnableMongo DisableRateLimitingResponses
 ```
-The following command will **Disable** SSR for all collections in your database account. It may take up to 15min for this change to take effect.
+The following command will **Disable** SSR for all collections in your database account by removing "DisableRateLimitingResponses" from the capabilities list. It may take up to 15min for this change to take effect.
 ```bash
-az cosmosdb update --name accountname --resource-group resourcegroupname --capabilities EnableMongo DisableRateLimitingResponses
+az cosmosdb update --name accountname --resource-group resourcegroupname --capabilities EnableMongo
 ```
 
 ## Frequently Asked Questions

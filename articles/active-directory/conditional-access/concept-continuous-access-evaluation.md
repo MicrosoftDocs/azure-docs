@@ -45,7 +45,7 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 - Password for a user is changed or reset
 - Multi-factor authentication is enabled for the user
 - Administrator explicitly revokes all refresh tokens for a user
-- Elevated user risk detected by Azure AD Identity Protection
+- High user risk detected by Azure AD Identity Protection
 
 This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within mins after one of these critical events. 
 

@@ -99,10 +99,10 @@ The **Key Metrics** tab shows a unified view of some of the cluster's metrics, g
 
 The **Usage** tab allows users to deep dive into the performance of the cluster's commands and queries. On this page, you can:
  
- - See which users and applications are sending the most queries or consuming the most CPU and memory (so you can understand which users are submitting the heaviest queries for the cluster to process).
- - Identify top users and applications by failed queries.
- - Identify recent changes in the number of queries, compared to the historical daily average (over the past 16 days), by user and application.
- - Identify trends and peaks in the number of queries, memory, and CPU consumption by user, application and command type.
+ - See which workload groups, users and applications are sending the most queries or consuming the most CPU and memory (so you can understand which workloads are submitting the heaviest queries for the cluster to process).
+ - Identify top workload groups, users and applications by failed queries.
+ - Identify recent changes in the number of queries, compared to the historical daily average (over the past 16 days), by workload group, user and application.
+ - Identify trends and peaks in the number of queries, memory, and CPU consumption by workload group, user, application and command type.
 
 [![Screenshot of operations view with donut charts of top application by command and query count, top principals by command and query count, and top commands by command types](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
 
@@ -158,4 +158,4 @@ Currently, diagnostic logs do not work retroactively, so the data will only star
 
 ## Next steps
 
-Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).
+Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../visualize/workbooks-overview.md).

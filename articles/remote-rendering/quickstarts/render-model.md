@@ -47,6 +47,7 @@ Run the following commands:
 mkdir ARR
 cd ARR
 git clone https://github.com/Azure/azure-remote-rendering
+powershell azure-remote-rendering\Scripts\DownloadUnityPackages.ps1
 ```
 
 The last command creates a subdirectory in the ARR directory containing the various sample projects for Azure Remote Rendering.
@@ -69,8 +70,8 @@ The default model we render is a [built-in sample model](../samples/sample-model
 ![ARR Account Info](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
-> Set **AccountDomain** to `<region>.mixedreality.azure.com`, where `<region>` is [one of the available regions near you](../reference/regions.md).\
-> Set **AccountAuthenticationDomain** to [account domain](../how-tos/create-an-account.md#retrieve-the-account-information) as displayed in Azure Portal.
+> Set **RemoteRenderingDomain** to `<region>.mixedreality.azure.com`, where `<region>` is [one of the available regions near you](../reference/regions.md).\
+> Set **AccountDomain** to [account domain](../how-tos/create-an-account.md#retrieve-the-account-information) as displayed in Azure Portal.
 
 Later we want to deploy this project to a HoloLens and connect to the Remote Rendering service from that device. Since we have no easy way to enter the credentials on the device, the quickstart sample will **save the credentials in the Unity scene**.
 

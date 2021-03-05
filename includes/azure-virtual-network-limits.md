@@ -64,7 +64,7 @@ The following limits apply only for networking resources managed through Azure R
 | Resource                                | Limit         |
 |-----------------------------------------|-------------------------------|
 | Load balancers                          | 1,000                         |
-| Rules per resource                      | 1,500                         |
+| Rules (Load Balancer + Inbound NAT) per resource                      | 1,500                         |
 | Rules per NIC (across all IPs on a NIC) | 300                           |
 | Frontend IP configurations              | 600                           |
 | Backend pool size                       | 1,000 IP configurations, single virtual network |
@@ -73,7 +73,7 @@ The following limits apply only for networking resources managed through Azure R
 | Outbound rules per Load Balancer        | 600                           |
 | Load Balancers per VM                   | 2 (1 Public and 1 internal)   |
 
-<sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set placement groups.
+<sup>1</sup> The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set placement groups.
 
 **Basic Load Balancer**
 
@@ -82,10 +82,12 @@ The following limits apply only for networking resources managed through Azure R
 | Load balancers                          | 1,000                        |
 | Rules per resource                      | 250                          |
 | Rules per NIC (across all IPs on a NIC) | 300                          |
-| Frontend IP configurations              | 200                          |
+| Frontend IP configurations <sup>2<sup>  | 200                          |
 | Backend pool size                       | 300 IP configurations, single availability set |
 | Availability sets per Load Balancer     | 1                            |
 | Load Balancers per VM                   | 2 (1 Public and 1 internal)  |
+
+<sup>2</sup> The limit for a single discrete resource in a backend pool (standalone virtual machine, availability set, or virtual machine scale-set placement group) is to have up to 250 Frontend IP configurations across a single Basic Public Load Balancer and Basic Internal Load Balancer.
 
 <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
