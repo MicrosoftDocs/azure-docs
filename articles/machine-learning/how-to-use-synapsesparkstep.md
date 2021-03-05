@@ -1,23 +1,23 @@
 ---
 title: Use Apache Spark in a machine learning pipeline (preview)
 titleSuffix: Azure Machine Learning
-description: Link your Synapse workspace to your Azure machine learning pipeline to use Spark for data manipulation.
+description: Link your Azure Synapse Analytics workspace to your Azure machine learning pipeline to use Apache Spark for data manipulation.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 02/25/2021
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to
 
-# Customer intent: As a user of both Azure Machine Learning pipelines and Azure Synapse, I'd like to use Apache Spark for the data preparation of my pipeline
+# Customer intent: As a user of both Azure Machine Learning pipelines and Azure Synapse Analytics, I'd like to use Apache Spark for the data preparation of my pipeline
 
 ---
 
-# How to use Apache Spark in your machine learning pipeline with Azure Synapse (preview)
+# How to use Apache Spark (powered by Azure Synapse Analytics) in your machine learning pipeline (preview)
 
-In this article, you'll learn how to use Apache Spark pools backed by Synapse as the compute target for a data preparation step in a Azure Machine Learning pipeline. You'll learn how a single pipeline can use compute resources suited for the specific step, such as data preparation or training. You'll see how data is prepared for the Spark step and how it's passed to the next step. 
+In this article, you'll learn how to use Apache Spark pools powered by Azure Synapse Analytics as the compute target for a data preparation step in an Azure Machine Learning pipeline. You'll learn how a single pipeline can use compute resources suited for the specific step, such as data preparation or training. You'll see how data is prepared for the Spark step and how it's passed to the next step. 
 
 ## Prerequisites
 
@@ -25,27 +25,27 @@ In this article, you'll learn how to use Apache Spark pools backed by Synapse as
 
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed.
 
-* Create a Synapse workspace and Apache Spark pool (see [Quickstart: Create a serverless Apache Spark pool using Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)). 
+* Create an Azure Synapse Analytics workspace and Apache Spark pool (see [Quickstart: Create a serverless Apache Spark pool using Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)). 
 
-## Link your machine learning workspace and Synapse workspace 
+## Link your Azure Machine Learning workspace and Azure Synapse Analytics workspace 
 
-You create and administer your Apache Spark pools in a Synapse workspace. To integrate a Spark pool with an Azure Machine Learning workspace, you must link to the Synapse workspace. 
+You create and administer your Apache Spark pools in an Azure Synapse Analytics workspace. To integrate an Apache Spark pool with an Azure Machine Learning workspace, you must link to the Azure Synapse Analytics workspace. 
 
-You can attach a Synapse Spark pool via Azure Machine Learning studio UI by using the **Linked Services** page. You may also do it via the **Compute** page with the **Attach compute** option.
+You can attach an Apache Spark pool via Azure Machine Learning studio UI by using the **Linked Services** page. You may also do it via the **Compute** page with the **Attach compute** option.
 
-You may also attach a Synapse Spark pool via SDK (as elaborated below) or via an ARM template (see this [Example ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)). 
+You may also attach an Apache Spark pool via SDK (as elaborated below) or via an ARM template (see this [Example ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)). 
 
-You can use the command line to follow the ARM template, add the linked service, and attach the synapse pool with the following code:
+You can use the command line to follow the ARM template, add the linked service, and attach the Apache Spark pool with the following code:
 
 ```bash
 az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"
 ```
 
 > [!Important]
-> To link to the Synapse workspace successfully, you must have the Owner role in the Synapse workspace resource. Check your access in the Azure portal.
+> To link to the Azure Synapse Analytics workspace successfully, you must have the Owner role in the Azure Synapse Analytics workspace resource. Check your access in the Azure portal.
 > The linked service will get a System Assigned Identity (SAI) when you create it. You must assign this link service SAI the "Synapse Apache Spark administrator" role from Synapse Studio so that it can submit the Spark job (see [How to manage Synapse RBAC role assignments in Synapse Studio](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md)). You must also give the user of the Azure Machine Learning workspace the role "Contributor" from Azure portal of resource mangement.
 
-## Create or retrieve the link between your Synapse workspace and your Azure Machine Learning workspace
+## Create or retrieve the link between your Azure Synapse Analytics workspace and your Azure Machine Learning workspace
 
 You can retrieve linked services in your workspace with code such as:
 
@@ -63,9 +63,9 @@ linked_service = LinkedService.get(ws, 'synapselink1')
 
 First, `Workspace.from_config()` accesses your Azure Machine Learning workspace using the configuration in `config.json` (see [Tutorial: Get started with Azure Machine Learning in your development environment](tutorial-1st-experiment-sdk-setup-local.md)). Then, the code prints all of the linked services available in the Workspace. Finally, `LinkedService.get()` retrieves a linked service named `'synapselink1'`. 
 
-## Attach your Synapse spark pool as a compute target for Azure Machine Learning
+## Attach your Apache spark pool as a compute target for Azure Machine Learning
 
-To use your Synapse spark pool to power a step in your machine learning pipeline, you must attach it as a `ComputeTarget` for the pipeline step, as shown in the following code.
+To use your Apache spark pool to power a step in your machine learning pipeline, you must attach it as a `ComputeTarget` for the pipeline step, as shown in the following code.
 
 ```python
 from azureml.core.compute import SynapseCompute, ComputeTarget
@@ -83,13 +83,11 @@ synapse_compute=ComputeTarget.attach(
 synapse_compute.wait_for_completion()
 ```
 
-The first step is to configure the `SynapseCompute`. The `linked_service` argument is the `LinkedService` object you created or retrieved in the previous step. The `type` argument must be `SynapseSpark`. The `pool_name` argument in `SynapseCompute.attach_configuration()` must match that of an existing pool in your Synapse workspace. For more information on creating an Apache spark pool in the Synapse workspace, see [Quickstart: Create a serverless Apache Spark pool using Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md). The type of `attach_config` is `ComputeTargetAttachConfiguration`.
+The first step is to configure the `SynapseCompute`. The `linked_service` argument is the `LinkedService` object you created or retrieved in the previous step. The `type` argument must be `SynapseSpark`. The `pool_name` argument in `SynapseCompute.attach_configuration()` must match that of an existing pool in your Azure Synapse Analytics workspace. For more information on creating an Apache spark pool in the Azure Synapse Analytics workspace, see [Quickstart: Create a serverless Apache Spark pool using Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md). The type of `attach_config` is `ComputeTargetAttachConfiguration`.
 
 Once the configuration is created, you create a machine learning `ComputeTarget` by passing in the `Workspace`, `ComputeTargetAttachConfiguration`, and the name by which you'd like to refer to the compute within the machine learning workspace. The call to `ComputeTarget.attach()` is asynchronous, so the sample blocks until the call completes.
 
-## Create a `SynapseSparkStep` that uses the linked Apache spark pool
-
-The sample notebook [Spark job on Synapse spark pool](https://github.com/azure/machinelearningnotebooks) defines a simple machine learning pipeline. First, the notebook defines a data preparation step powered by the `synapse_compute` defined in the previous step. Then,  the notebook defines a training step powered by a compute target better suited for training. The sample notebook uses the Titanic survival database to demonstrate data input and output; it doesn't actually clean the data or make a predictive model. Since there's no real training in this sample, the training step uses an inexpensive, CPU-based compute resource.
+## Create a `SynapseSparkStep` that uses the linked Apache Spark pool
 
 Data flows into a machine learning pipeline by way of `DatasetConsumptionConfig` objects, which can hold tabular data or sets of files. The data often comes from files in blob storage in a workspace's datastore. The following code shows some typical code for creating input for a machine learning pipeline:
 
@@ -121,7 +119,7 @@ step1_output = HDFSOutputDatasetConfig(destination=(datastore,"test")).register_
 
 In this case, the data would be stored in the `datastore` in a file called `test` and would be available within the machine learning workspace as a `Dataset` with the name `registered_dataset`.
 
-In addition to data, a pipeline step may have per-step Python dependencies. Individual `SynapseSparkStep` objects can specify their precise Synapse configuration, as well. This is shown in the following code, which specifies that the `azureml-core` package version must be at least `1.20.0`. (As mentioned previously, this requirement for `azureml-core` is needed to use a `FileDataset` as an input.)
+In addition to data, a pipeline step may have per-step Python dependencies. Individual `SynapseSparkStep` objects can specify their precise Azure Synapse Apache Spark configuration, as well. This is shown in the following code, which specifies that the `azureml-core` package version must be at least `1.20.0`. (As mentioned previously, this requirement for `azureml-core` is needed to use a `FileDataset` as an input.)
 
 ```python
 from azureml.core.environment import Environment
@@ -151,7 +149,7 @@ The above code specifies a single step in the Azure machine learning pipeline. T
 
 The `SynapseSparkStep` will zip and upload from the local computer the subdirectory `./code`. That directory will be recreated on the compute server and the step will run the file `dataprep.py` from that directory. The `inputs` and `outputs` of that step are the `step1_input1`, `step1_input2`, and `step1_output` objects previously discussed. The easiest way to access those values within the `dataprep.py` script is to associate them with named `arguments`.
 
-The next set of arguments to the `SynapseSparkStep` constructor control Apache spark. The `compute_target` is the `'link1-spark01'` that we attached as a compute target previously. The other parameters specify the memory and cores we'd like to use.
+The next set of arguments to the `SynapseSparkStep` constructor control Apache Spark. The `compute_target` is the `'link1-spark01'` that we attached as a compute target previously. The other parameters specify the memory and cores we'd like to use.
 
 The sample notebook uses the following code for `dataprep.py`:
 
@@ -189,7 +187,7 @@ sdf.coalesce(1).write\
 .csv(args.output_dir)
 ```
 
-This "data preparation" script doesn't do any real data transformation, but illustrates how to retrieve data, convert it to a spark dataframe, and how to do some basic spark manipulation. You can find the output in Azure Machine Learning Studio by opening the child run, choosing the **Outputs + logs** tab, and opening the `logs/azureml/driver/stdout` file, as shown in the following figure.
+This "data preparation" script doesn't do any real data transformation, but illustrates how to retrieve data, convert it to a spark dataframe, and how to do some basic Apache Spark manipulation. You can find the output in Azure Machine Learning Studio by opening the child run, choosing the **Outputs + logs** tab, and opening the `logs/azureml/driver/stdout` file, as shown in the following figure.
 
 :::image type="content" source="media/how-to-use-synapsesparkstep/synapsesparkstep-stdout.png" alt-text="Screenshot of Studio showing stdout tab of child run":::
 
@@ -226,14 +224,14 @@ The code above creates the new compute resource if necessary. Then, the `step1_o
 
 Once you've defined all of your steps, you can create and run your pipeline. 
 
-```
+```python
 from azureml.pipeline.core import Pipeline
 
 pipeline = Pipeline(workspace=ws, steps=[step_1, step_2])
 pipeline_run = pipeline.submit('synapse-pipeline', regenerate_outputs=True)
 ```
 
-The above code creates a pipeline consisting of the data preparation step powered by Synapse (`step_1`) and the training step (`step_2`). Azure calculates the execution graph by examining the data dependencies between the steps. In this case, there's only a straightforward dependency that `step2_input` necessarily requires `step1_output`.
+The above code creates a pipeline consisting of the data preparation step on Apache Spark pools powered by Azure Synapse Analytics (`step_1`) and the training step (`step_2`). Azure calculates the execution graph by examining the data dependencies between the steps. In this case, there's only a straightforward dependency that `step2_input` necessarily requires `step1_output`.
 
 The call to `pipeline.submit` creates, if necessary, an Experiment called `synapse-pipeline` and asynchronously begins a Run within it. Individual steps within the pipeline are run as Child Runs of this main run and can be monitored and reviewed in the Experiments page of Studio.
 

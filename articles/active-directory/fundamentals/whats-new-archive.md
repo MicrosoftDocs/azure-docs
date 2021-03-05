@@ -29,6 +29,192 @@ The What's new in Azure Active Directory? release notes provide information abou
 - Plans for changes
 
 ---
+## August 2020 
+ 
+### Updates to Azure Multi-Factor Authentication Server firewall requirements
+
+**Type:** Plan for change  
+**Service category:** MFA  
+**Product capability:** Identity Security & Protection
+ 
+Starting 1 October 2020, Azure MFA Server firewall requirements will require additional IP ranges.
+
+If you have outbound firewall rules in your organization, update the rules so that your MFA servers can communicate with all the necessary IP ranges. The IP ranges are documented in [Azure Multi-Factor Authentication Server firewall requirements](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements).
+
+---
+
+### Upcoming changes to user experience in Identity Secure Score
+
+**Type:** Plan for change  
+**Service category:** Identity Protection 
+**Product capability:** Identity Security & Protection
+
+We're updating the Identity Secure Score portal to align with the changes introduced in Microsoft Secure Score’s [new release](/microsoft-365/security/mtp/microsoft-secure-score-whats-new). 
+
+The preview version with the changes will be available at the beginning of September. The changes in the preview version include:
+- “Identity Secure Score” renamed to “Secure Score for Identity” for brand alignment with Microsoft Secure Score
+- Points normalized to standard scale and reported in percentages instead of points
+
+In this preview, customers can toggle between the existing experience and the new experience. This preview will last until the end of November 2020. After the preview, the customers will automatically be directed to the new UX experience.
+
+---
+
+### New Restricted Guest Access Permissions in Azure AD - Public Preview
+
+**Type:** New feature  
+**Service category:** Access Control   
+**Product capability:** User Management
+
+We've updated directory level permissions for guest users. These permissions allow administrators to require additional restrictions and controls on external guest user access. Admins can now add additional restrictions for external guests' access to user and groups' profile and membership information. With this public preview feature, customers can manage external user access at scale by obfuscating group memberships, including restricting guest users from seeing memberships of the group(s) they are in.
+
+To learn more, see [Restricted Guest Access Permissions](../enterprise-users/users-restrict-guest-permissions.md) and [Users Default Permissions](./users-default-permissions.md).
+ 
+---
+
+### General availability of delta queries for service principals
+
+**Type:** New feature  
+**Service category:** MS Graph  
+**Product capability:** Developer Experience
+ 
+Microsoft Graph Delta Query now supports the resource type in v1.0:
+- Service Principal
+
+Now clients can track changes to those resources efficiently and provides the best solution to synchronize changes to those resources with a local data store. To learn how to configure these resources in a query, see [Use delta query to track changes in Microsoft Graph data](/graph/delta-query-overview).
+ 
+---
+
+### General availability of delta queries for oAuth2PermissionGrant
+
+**Type:** New feature  
+**Service category:** MS Graph  
+**Product capability:** Developer Experience
+
+Microsoft Graph Delta Query now supports the resource type in v1.0:
+- OAuth2PermissionGrant
+
+Clients can now track changes to those resources efficiently and provides the best solution to synchronize changes to those resources with a local data store. To learn how to configure these resources in a query, see [Use delta query to track changes in Microsoft Graph data](/graph/delta-query-overview).
+
+---
+
+### New Federated Apps available in Azure AD Application gallery - August 2020
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+
+In August 2020 we have added following 25 new applications in our App gallery with Federation support:
+
+[Backup365](https://portal.backup365.io/login), [Soapbox](https://app.soapboxhq.com/create?step=auth&provider=azure-ad2-oauth2), [Alma SIS](https://almau.getalma.com/), [Enlyft Dynamics 365 Connector](http://enlyft.com/), [Serraview Space Utilization Software Solutions](../saas-apps/serraview-space-utilization-software-solutions-tutorial.md), [Uniq](https://web.uniq.app/), [Visibly](../saas-apps/visibly-tutorial.md), [Zylo](../saas-apps/zylo-tutorial.md), [Edmentum - Courseware Assessments Exact Path](https://auth.edmentum.com/elf/login), [CyberLAB](https://cyberlab.evolvesecurity.com/#/welcome), [Altamira HRM](../saas-apps/altamira-hrm-tutorial.md), [WireWheel](../saas-apps/wirewheel-tutorial.md), [Zix Compliance and Capture](https://sminstall.zixcorp.com/teams/teams.php?install_request=true&tenant_id=common), [Greenlight Enterprise Business Controls Platform](../saas-apps/greenlight-enterprise-business-controls-platform-tutorial.md), [Genetec Clearance](https://www.clearance.network/), [iSAMS](../saas-apps/isams-tutorial.md), [VeraSMART](../saas-apps/verasmart-tutorial.md), [Amiko](https://amiko.web.rivero.app/), [Twingate](https://auth.twingate.com/signup), [Funnel Leasing](https://nestiolistings.com/sso/oidc/azure/authorize/), [Scalefusion](https://scalefusion.com/users/sign_in/), [Bpanda](https://goto.bpanda.com/login), [Vivun Calendar Connect](https://app.vivun.com/dashboard/calendar/connect), [FortiGate SSL VPN](../saas-apps/fortigate-ssl-vpn-tutorial.md), [Wandera End User](https://www.wandera.com/)
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
+
+---
+
+### Resource Forests now available for Azure AD DS 
+
+**Type:** New feature 
+**Service category:** Azure AD Domain Services   
+**Product capability:** Azure AD Domain Services
+ 
+The capability of resource forests in Azure AD Domain Services is now generally available. You can now enable authorization without password hash synchronization to use Azure AD Domain Services, including smart-card authorization. To learn more, see [Replica sets concepts and features for Azure Active Directory Domain Services (preview)](../../active-directory-domain-services/concepts-replica-sets.md).
+ 
+---
+
+### Regional replica support for Azure AD DS managed domains now available
+
+**Type:** New feature   
+**Service category:** Azure AD Domain Services  
+**Product capability:** Azure AD Domain Services
+ 
+You can expand a managed domain to have more than one replica set per Azure AD tenant. Replica sets can be added to any peered virtual network in any Azure region that supports Azure AD Domain Services. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline. To learn more, see [Replica sets concepts and features for Azure Active Directory Domain Services (preview)](../../active-directory-domain-services/concepts-replica-sets.md).
+
+---
+
+### General Availability of Azure AD My Sign-Ins
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** End User Experiences
+ 
+Azure AD My Sign-Ins is a new feature that allows enterprise users to review their sign-in history to check for any unusual activity. Additionally, this feature allows end users to report “This wasn’t me” or “This was me” on suspicious activities. To learn more about using this feature, see [View and search your recent sign-in activity from the My Sign-Ins page](../user-help/my-account-portal-sign-ins-page.md#confirm-unusual-activity).
+ 
+---
+
+### SAP SuccessFactors HR driven user provisioning to Azure AD is now generally available
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** Identity Lifecycle Management
+ 
+You can now integrate SAP SuccessFactors as the authoritative identity source with Azure AD and automate the end-to-end identity lifecycle using HR events like new hires and terminations to drive provisioning and de-provisioning of accounts in Azure AD. 
+
+To learn more about how to configure SAP SuccessFactors inbound provisioning to Azure AD, refer to the tutorial [Configure SAP SuccessFactors to Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md).
+ 
+---
+
+### Custom Open ID Connect MS Graph API support for Azure AD B2C
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+Previously, Custom Open ID Connect providers could only be added or managed through the Azure portal. Now the Azure AD B2C customers can add and manage them through Microsoft Graph APIs beta version as well. To learn how to configure this resource with APIs, see [identityProvider resource type](/graph/api/resources/identityprovider?view=graph-rest-beta).
+ 
+---
+
+### Assign Azure AD built-in roles to cloud groups
+
+**Type:** New feature  
+**Service category:** Azure AD roles  
+**Product capability:** Access Control
+
+You can now assign Azure AD built-in roles to cloud groups with this new feature. For example, you can assign the SharePoint Administrator role to Contoso_SharePoint_Admins group. You can also use PIM to make the group an eligible member of the role, instead of granting standing access. To learn how to configure this feature, see [Use cloud groups to manage role assignments in Azure Active Directory (preview)](../roles/groups-concept.md).
+ 
+---
+
+### Insights Business Leader built-in role now available
+
+**Type:** New feature  
+**Service category:** Azure AD roles  
+**Product capability:** Access Control
+ 
+Users in the Insights Business Leader role can access a set of dashboards and insights via the [M365 Insights application](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). This includes full access to all dashboards and presented insights and data exploration functionality. However, users in this role don't have access to product configuration settings, which is the responsibility of the Insights Administrator role. To learn more about this role, see [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md#insights-business-leader)
+ 
+---
+
+### Insights Administrator built-in role now available
+
+**Type:** New feature  
+**Service category:** Azure AD roles  
+**Product capability:** Access Control
+ 
+Users in the Insights Administrator role can access the full set of administrative capabilities in the [M365 Insights application](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). A user in this role can read directory information, monitor service health, file support tickets, and access the Insights administrator settings aspects. To learn more about this role, see [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md#insights-administrator)
+ 
+--- 
+
+### Application Admin and Cloud Application Admin can manage extension properties of applications
+
+**Type:** Changed feature  
+**Service category:** Azure AD roles  
+**Product capability:** Access Control
+ 
+Previously, only the Global Administrator could manage the [extension property](/graph/api/application-post-extensionproperty?view=graph-rest-beta&tabs=http). We're now enabling this capability for the Application Administrator and Cloud Application Administrator as well.
+ 
+---
+
+### MIM 2016 SP2 hotfix 4.6.263.0 and connectors 1.1.1301.0
+
+**Type:** Changed feature  
+**Service category:** Microsoft Identity Manager  
+**Product capability:** Identity Lifecycle Management
+
+A [hotfix rollup package (build 4.6.263.0)](https://support.microsoft.com/help/4576473/hotfix-rollup-package-build-4-6-263-0-is-available-for-microsoft-ident) is available for Microsoft Identity Manager (MIM) 2016 Service Pack 2 (SP2). This rollup package contains updates for the MIM CM, MIM Synchronization Manager, and PAM components. In addition, the MIM generic connectors build 1.1.1301.0 includes updates for the Graph connector.
+
+---
+
 ## July 2020
 
 ### As an IT Admin, I want to target client apps using Conditional Access

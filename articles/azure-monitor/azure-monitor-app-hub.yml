@@ -435,7 +435,7 @@ conceptualContent:
         - url: /dotnet/api/overview/azure/insights?view=azure-dotnet
           itemType: reference
           text: .NET SDK 
-        - url: /java/api/overview/azure/appinsights?view=azure-java-stable
+        - url: /java/api/overview/azure/appinsights
           itemType: reference
           text: .Java
         - url: /javascript/api/overview/azure/applicationinsights?view=azure-node-latest
@@ -460,4 +460,4 @@ additionalContent:
         url: /powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.7.0&viewFallbackFrom=azps-2.5.0
       - title: Azure CLI commands for Application Insights
         summary: Application Insights CLI extension commands (az extension add -n application-insights).
-        url: /cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest
+        url: /cli/azure/ext/application-insights/monitor/app-insights/component

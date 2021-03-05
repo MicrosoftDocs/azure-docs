@@ -67,7 +67,7 @@
       - name: .NET
         href: /dotnet/api/overview/azure/cognitiveservices/bing-news-search-readme?view=azure-dotnet
       - name: Java
-        href: /java/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-java-stable
+        href: /java/api/overview/azure/cognitiveservices/client/bingnewssearch
       - name: Python
         href: /python/api/azure-cognitiveservices-search-newssearch/?view=azure-python
       - name: Node.js
