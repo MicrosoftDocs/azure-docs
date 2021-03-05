@@ -17,7 +17,7 @@ ms.date: 03/05/2021
 
 In this article, learn how to formulate a search request that uses semantic ranking, and produces semantic captions and answers.
 
-Semantic queries tend to work best on search indexes that are built off of text-heavy content, such as PDFs or other document types.
+Semantic queries tend to work best on search indexes that are built off of text-heavy content, such as PDFs or documents with large chunks of text.
 
 ## Prerequisites
 
