@@ -36,7 +36,7 @@ If your data isn't displaying properly, check your configuration, permissions, a
     - Read-access to the subscription's resource groups that hold your Windows Virtual Desktop session hosts 
     - Read-access to the Log Analytics workspace
 
-- You may need to open outgoing ports in your server's firewall to allow Azure Monitor to send data to the portal, see [Outgoing ports](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses). 
+- You may need to open outgoing ports in your server's firewall to allow Azure Monitor to send data to the portal, see [Outgoing ports](../azure-monitor/app/ip-addresses.md). 
 
 - Not seeing data from recent activity? You may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15-minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
@@ -56,8 +56,8 @@ Learn more about data terms at the [Azure Monitor for Window Virtual Desktop glo
 
 If you want to monitor more Performance Counters or Events, you can enable them to send to your Log Analytics workspace and monitor them in Host Diagnostics: Host browser. 
 
-- To add Performance counters, see [Configuring Performance counters](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#configuring-performance-counters)
-- To add Windows Events, see [Configuring Windows Event logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events#configuring-windows-event-logs)
+- To add Performance counters, see [Configuring Performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters)
+- To add Windows Events, see [Configuring Windows Event logs](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs)
 
 Can't find a data point to help diagnose an issue? Send us feedback!
 

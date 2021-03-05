@@ -1,7 +1,6 @@
 ---
-title: How to chart performance with Azure Monitor for VMs
-description: Performance is a feature of the Azure Monitor for VMs that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use it in a variety of scenarios.
-ms.subservice: 
+title: How to chart performance with VM insights
+description: Performance is a feature of the VM insights that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use it in a variety of scenarios.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,12 +8,12 @@ ms.date: 05/31/2020
 
 ---
 
-# How to chart performance with Azure Monitor for VMs
+# How to chart performance with VM insights
 
-Azure Monitor for VMs includes a set of performance charts that target several key performance indicators (KPIs) to help you determine how well a virtual machine is performing. The charts show resource utilization over a period of time so you can identify bottlenecks, anomalies, or switch to a perspective listing each machine to view resource utilization based on the metric selected. While there are numerous elements to consider when dealing with performance, Azure Monitor for VMs monitors key operating system performance indicators related to processor, memory, network adapter, and disk utilization. Performance complements the health monitoring feature and helps expose issues that indicate a possible system component failure, support tuning and optimization to achieve efficiency, or support capacity planning.  
+VM insights includes a set of performance charts that target several key performance indicators (KPIs) to help you determine how well a virtual machine is performing. The charts show resource utilization over a period of time so you can identify bottlenecks, anomalies, or switch to a perspective listing each machine to view resource utilization based on the metric selected. While there are numerous elements to consider when dealing with performance, VM insights monitors key operating system performance indicators related to processor, memory, network adapter, and disk utilization. Performance complements the health monitoring feature and helps expose issues that indicate a possible system component failure, support tuning and optimization to achieve efficiency, or support capacity planning.  
 
 ## Limitations
-Following are limitations in performance collection with Azure Monitor for VMs.
+Following are limitations in performance collection with VM insights.
 
 - **Available memory** is not available for virtual machines running Red Hat Linux (RHEL) 6. This metric is calculated from **MemAvailable** which was introduced in [kernel version 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html).
 - Metrics are only available for data disks on Linux virtual machines using XFS filesystem or EXT filesystem family (EXT2, EXT3, EXT4).
@@ -29,7 +28,7 @@ From Azure Monitor, the Performance feature provides a view of all monitored VMs
 
 ![VM insights Performance Top N List view](media/vminsights-performance/vminsights-performance-aggview-01.png)
 
-On the **Top N Charts** tab, if you have more than one Log Analytics workspace, choose the workspace enabled with the solution from the **Workspace** selector at the top of the page. The **Group** selector will return subscriptions, resource groups, [computer groups](../platform/computer-groups.md), and virtual machine scale sets of computers related to the selected workspace that you can use to further filter results presented in the charts on this page and across the other pages. Your selection only applies to the Performance feature and does not carry over to Health or Map.  
+On the **Top N Charts** tab, if you have more than one Log Analytics workspace, choose the workspace enabled with the solution from the **Workspace** selector at the top of the page. The **Group** selector will return subscriptions, resource groups, [computer groups](../logs/computer-groups.md), and virtual machine scale sets of computers related to the selected workspace that you can use to further filter results presented in the charts on this page and across the other pages. Your selection only applies to the Performance feature and does not carry over to Health or Map.  
 
 By default, the charts show the last 24 hours. Using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.
 
@@ -41,7 +40,7 @@ The five capacity utilization charts shown on the page are:
 * Bytes Sent Rate - shows the top five machines with highest average of bytes sent 
 * Bytes Receive Rate - shows the top five machines with highest average of bytes received 
 
-Clicking on the pin icon at the upper right-hand corner of any one of the five charts will pin the selected chart to the last Azure dashboard you last viewed.  From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard will redirect you to Azure Monitor for VMs and load the correct scope and view.  
+Clicking on the pin icon at the upper right-hand corner of any one of the five charts will pin the selected chart to the last Azure dashboard you last viewed.  From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard will redirect you to VM insights and load the correct scope and view.  
 
 Clicking on the icon located to the left of the pin icon on any one of the five charts opens the **Top N List** view.  Here you see the resource utilization for that performance metric by individual VM in a list view and which machine is trending highest.  
 
@@ -100,7 +99,7 @@ The following capacity utilization charts are provided:
 * Bytes Sent Rate - defaults showing average bytes sent 
 * Bytes Receive Rate - defaults showing average bytes received
 
-Clicking on the pin icon at the upper right-hand corner of any one of the charts pins the selected chart to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to Azure Monitor for VMs and loads the performance detail view for the VM.  
+Clicking on the pin icon at the upper right-hand corner of any one of the charts pins the selected chart to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to VM insights and loads the performance detail view for the VM.  
 
 ![VM insights Performance directly from VM view](./media/vminsights-performance/vminsights-performance-directvm-01.png)
 
@@ -113,7 +112,7 @@ To access directly from an Azure virtual machine scale set, perform the followin
 
 This page loads the Azure Monitor performance view, scoped to the selected scale set. This enables you to see the Top N Instances in the scale set across the set of monitored metrics, view the aggregate performance across the scale set, and see the trends for selected metrics across the individual instances n the scale set. Selecting an instance from the list view lets you load it's map or navigate into a detailed performance view for that instance.
 
-Clicking on the pin icon at the upper right-hand corner of any one of the charts pins the selected chart to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to Azure Monitor for VMs and loads the performance detail view for the VM.  
+Clicking on the pin icon at the upper right-hand corner of any one of the charts pins the selected chart to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to VM insights and loads the performance detail view for the VM.  
 
 ![VM insights Performance directly from virtual machine scale set view](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
 
@@ -124,6 +123,6 @@ Clicking on the pin icon at the upper right-hand corner of any one of the charts
 
 ## Next steps
 
-- Learn how to use [Workbooks](vminsights-workbooks.md) that are included with Azure Monitor for VMs to further analyze performance and network metrics.  
+- Learn how to use [Workbooks](vminsights-workbooks.md) that are included with VM insights to further analyze performance and network metrics.  
 
-- To learn about discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+- To learn about discovered application dependencies, see [View VM insights Map](vminsights-maps.md).

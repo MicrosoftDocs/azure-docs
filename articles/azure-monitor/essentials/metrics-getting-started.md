@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
-ms.subservice: metrics
 ---
 
 # Getting started with Azure Metrics Explorer
@@ -25,7 +24,7 @@ Azure Monitor metrics explorer is a component of the Microsoft Azure portal that
 
 To create a metric chart, from your resource, resource group, subscription, or Azure Monitor view, open the **Metrics** tab and follow these steps:
 
-1. Click on the "Select a scope" button to open the resource scope picker. This will allow you to select the resource(s) you want to see metrics for. The resource should already be populated if you opened metrics explorer from the resource's menu. To learn how to view metrics across multiple resources, [read this article](../platform/metrics-dynamic-scope.md).
+1. Click on the "Select a scope" button to open the resource scope picker. This will allow you to select the resource(s) you want to see metrics for. The resource should already be populated if you opened metrics explorer from the resource's menu. To learn how to view metrics across multiple resources, [read this article](./metrics-dynamic-scope.md).
     > ![Select a resource](./media/metrics-getting-started/scope-picker.png)
 
 2. For some resources, you must pick a namespace. The namespace is just a way to organize metrics so that you can easily find them. For example, storage accounts have separate namespaces for storing Files, Tables, Blobs, and Queues metrics. Many resource types only have one namespace.
@@ -68,7 +67,7 @@ You can customize chart style, title, and modify advanced chart settings. When d
 ## Next steps
 
 * [Learn about advanced features of Metrics Explorer](../essentials/metrics-charts.md)
-* [Viewing multiple resources in Metrics Explorer](../platform/metrics-dynamic-scope.md)
+* [Viewing multiple resources in Metrics Explorer](./metrics-dynamic-scope.md)
 * [Troubleshooting Metrics Explorer](metrics-troubleshoot.md)
-* [See a list of available metrics for Azure services](../platform/metrics-supported.md)
+* [See a list of available metrics for Azure services](./metrics-supported.md)
 * [See examples of configured charts](../essentials/metric-chart-samples.md)
