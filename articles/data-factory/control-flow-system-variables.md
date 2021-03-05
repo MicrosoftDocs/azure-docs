@@ -10,6 +10,7 @@ ms.date: 06/12/2018
 ---
 
 # System variables supported by Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes system variables supported by Azure Data Factory. You can use these variables in expressions when defining Data Factory entities.
@@ -63,4 +64,5 @@ These system variables can be referenced anywhere in the trigger JSON for trigge
 
 ## Next steps
 
-For information about how these variables are used in expressions, see [Expression language & functions](control-flow-expression-language-functions.md).
+* For information about how these variables are used in expressions, see [Expression language & functions](control-flow-expression-language-functions.md).
+* To use trigger scope system variables in pipeline, see [Reference trigger metadata in pipeline](how-to-use-trigger-parameterization.md)
