@@ -57,7 +57,7 @@
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
     - name: Node.js
-      href: /javascript/api/@azure/cognitiveservices-autosuggest/?view=azure-node-latest
+      href: /javascript/api/@azure/cognitiveservices-autosuggest/
   - name: Use and display requirements
     href: ../Bing-Web-Search/use-display-requirements.md
     maintainContext: true
