@@ -75,7 +75,7 @@
     - name: Python
       href: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/faceapi
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-face
     - name: Go
