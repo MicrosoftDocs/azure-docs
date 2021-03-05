@@ -785,6 +785,8 @@
     href: availability.md
   - name: Availability sets
     items:
+    - name: Overview
+      href: avset-overview.md
     - name: Create an availability set - CLI
       href: ./linux/tutorial-availability-sets.md
     - name: Create an availability set - PowerShell
@@ -805,12 +807,12 @@
     items: 
     - name: Overview
       href: co-location.md
-    - name: Create a group - CLI
+    - name: Create a PPG - CLI
       href: ./linux/proximity-placement-groups.md
-    - name: Create a group - Portal
-      href: ./windows/proximity-placement-groups-portal.md
-    - name: Create a group - PowerShell
+    - name: Create a PPG - PowerShell
       href: ./windows/proximity-placement-groups.md
+    - name: Create a PPG - Portal
+      href: ./windows/proximity-placement-groups-portal.md
   - name: Virtual Machine Scale Sets
     items: 
     - name: Overview
