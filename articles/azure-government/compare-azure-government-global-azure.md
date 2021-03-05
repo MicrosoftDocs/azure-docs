@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/02/2021
+ms.date: 02/17/2021
 ---
 
 # Compare Azure Government and global Azure
