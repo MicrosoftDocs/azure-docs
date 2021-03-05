@@ -1,9 +1,6 @@
 ---
 title: Manage Apache Hadoop clusters in HDInsight using Azure portal 
 description: Learn how to create and manage Azure HDInsight clusters using the Azure portal.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
@@ -52,7 +49,7 @@ Select your cluster name from the [**HDInsight clusters**](#showClusters) page. 
     |---|---|
     |Overview|Provides general information for your cluster.|
     |Activity log|Show and query activity logs.|
-    |Access control (IAM)|Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).|
+    |Access control (IAM)|Use role assignments.  See [Assign Azure roles to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).|
     |Tags|Allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.|
     |Diagnose and solve problems|Display troubleshooting information.|
     |Quickstart|Displays information that helps you get started using HDInsight.|

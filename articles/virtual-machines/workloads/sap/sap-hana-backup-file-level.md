@@ -6,8 +6,7 @@ documentationcenter:
 author: hermanndms
 manager: juergent
 editor: 
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -24,7 +23,7 @@ This article is a related article to [Backup guide for SAP HANA on Azure Virtual
 
 Different VM types in Azure allow a different number of VHDs attached. The exact details are documented in [Sizes for Linux virtual machines in Azure](../../sizes.md). For the tests referred to in this documentation we used a GS5 Azure VM, which allows 64 attached data disks. For larger SAP HANA systems, a significant number of disks might already be taken for data and log files, possibly in combination with software striping for optimal disk IO throughput. For more details on suggested disk configurations for SAP HANA deployments on Azure VMs, read the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md). The recommendations made are including disk space recommendations for local backups as well.
 
-The standard way to manage backup/restore at the file level is with a file-based backup via SAP HANA Studio or via SAP HANA SQL statements. For more information, read the article [SAP HANA SQL and System Views Reference](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf).
+The standard way to manage backup/restore at the file level is with a file-based backup via SAP HANA Studio or via SAP HANA SQL statements. For more information, read the article [SAP HANA SQL and System Views Reference](https://help.sap.com/viewer/4fe29514fd584807ac9f2a04f6754767/2.0.05/en-US/3859e48180bb4cf8a207e15cf25a7e57.html).
 
 ![This figure shows the dialog of the backup menu item in SAP HANA Studio](media/sap-hana-backup-file-level/backup-menue-dialog.png)
 

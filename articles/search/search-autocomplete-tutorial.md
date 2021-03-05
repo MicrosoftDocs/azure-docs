@@ -1,5 +1,5 @@
 ---
-title: Add autocomplete and suggestions in a search box
+title: Add autocomplete to a search box
 titleSuffix: Azure Cognitive Search
 description: Enable search-as-you-type query actions in Azure Cognitive Search by creating suggesters and formulating requests that autocomplete a search box with finished terms or phrases. You can also return suggested matches.
 
@@ -8,17 +8,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/24/2020
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
-# Add autocomplete and suggestions to client apps
+# Add autocomplete and suggestions to client apps using Azure Cognitive Search
 
-Search-as-you-type is a common technique for improving the productivity of user-initiated queries. In Azure Cognitive Search, this experience is supported through *autocomplete*, which finishes a term or phrase based on partial input (completing "micro" with "microsoft"). Another form is *suggestions*: a short list of matching documents (returning book titles with an ID so that you can link to a detail page). Both autocomplete and suggestions are predicated on a match in the index. The service won't offer queries that return zero results.
+Search-as-you-type is a common technique for improving the productivity of user-initiated queries. In Azure Cognitive Search, this experience is supported through *autocomplete*, which finishes a term or phrase based on partial input (completing "micro" with "microsoft"). A second user experience is *suggestions*, or a short list of matching documents (returning book titles with an ID so that you can link to a detail page about that book). Both autocomplete and suggestions are predicated on a match in the index. The service won't offer queries that return zero results.
 
 To implement these experiences in Azure Cognitive Search, you will need:
 
-+ A *suggester* on the back end.
++ A *suggester* definition that's embedded in the index schema.
 + A *query* specifying [Autocomplete](/rest/api/searchservice/autocomplete) or [Suggestions](/rest/api/searchservice/suggestions) API on the request.
 + A *UI control* to handle search-as-you-type interactions in your client app. We recommend using an existing JavaScript library for this purpose.
 

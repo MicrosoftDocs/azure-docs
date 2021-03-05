@@ -19,7 +19,7 @@ ms.author: mlottner
 
 # Azure Defender for IoT Edge security module
 
-[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) provides powerful capabilities to manage and perform business workflows at the edge.
+[Azure IoT Edge](../iot-edge/index.yml) provides powerful capabilities to manage and perform business workflows at the edge.
 The key part that IoT Edge plays in IoT environments make it particularly attractive for malicious actors.
 
 Defender for IoT security module provides a comprehensive security solution for your IoT Edge devices.
@@ -36,11 +36,11 @@ Defender for IoT security module for IoT Edge offers the following features:
 
 - Analysis of IoT Edge deployment manifests.
 
-- Aggregates raw security events into messages sent through [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
+- Aggregates raw security events into messages sent through [IoT Edge Hub](../iot-edge/iot-edge-runtime.md#iot-edge-hub).
 
 - Remove configuration through use of the security module twin.
 
-  See [Configure an Defender for IoT agent](how-to-agent-configuration.md) to learn more.
+  See [Configure a Defender for IoT agent](how-to-agent-configuration.md) to learn more.
 
 Defender for IoT security module for IoT Edge runs in a privileged mode under IoT Edge.
 Privileged mode is required to allow the module to monitor the Operating System, and other IoT Edge modules.
@@ -57,6 +57,6 @@ To continue getting started with Defender for IoT deployment, use the following 
 
 - Deploy [security module for IoT Edge](how-to-deploy-edge.md)
 - Learn how to [configure your security module](how-to-agent-configuration.md)
-- Review the Defender for IoT [Service prerequisites](service-prerequisites.md)
+- Review the Defender for IoT [Defender for IoT Horizon](resources-manage-proprietary-protocols.md)
 - Learn how to [Enable Defender for IoT service in your IoT Hub](quickstart-onboard-iot-hub.md)
 - Learn more about the service from the [Defender for IoT FAQ](resources-frequently-asked-questions.md)

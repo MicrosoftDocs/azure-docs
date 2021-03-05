@@ -1,27 +1,27 @@
 ---
-title: "Create an Azure Arc-enabled onboarding Service Principal (Preview)"
+title: "Create an onboarding service principal for Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 05/19/2020
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: "Create an Azure Arc-enabled onboarding Service Principal "
+description: "Create an Azure Arc enabled onboarding service principal "
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
-# Create an Azure Arc-enabled onboarding Service Principal (Preview)
+# Create an onboarding service principal for Azure Arc enabled Kubernetes
 
 ## Overview
 
-It is possible to use service principals having a role assignment with limited privileges for onboarding Kubernetes clusters to Azure Arc. This is useful in continuous integration and continuous deployment (CI/CD) pipelines like Azure Pipelines and GitHub Actions.
+You can connect Kubernetes clusters to Azure Arc using service principals with limited-privilege role assignments. This capability is useful in continuous integration and continuous deployment (CI/CD) pipelines, like Azure Pipelines and GitHub Actions.
 
-The following steps provide a walkthrough on using service principals for onboarding Kubernetes clusters to Azure Arc.
+Walk through the following steps to learn how to use service principals for connecting Kubernetes clusters to Azure Arc.
 
-## Create a new Service Principal
+## Create a new service principal
 
-Create a new Service Principal with an informative name. Note that this name must be unique for your Azure Active Directory tenant:
+Create a new service principal with an informative name that is unique for your Azure Active Directory tenant.
 
 ```console
 az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onboarding"
@@ -41,16 +41,16 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## Assign permissions
 
-After creating the new Service Principal, assign the "Kubernetes Cluster - Azure Arc Onboarding" role to the newly created principal. This is a built-in Azure role with limited permissions, which only allows the principal to register clusters to Azure. The principal cannot update, delete, or modify any other clusters or resources within the subscription.
+Assign the "Kubernetes Cluster - Azure Arc Onboarding" role to the newly created service principal. This built-in Azure role with limited permissions only allows the principal to register clusters to Azure. The principal with this assigned role cannot update, delete, or modify any other clusters or resources within the subscription.
 
 Given the limited abilities, customers can easily re-use this principal to onboard multiple clusters.
 
-Permissions may be further limited by passing in the appropriate `--scope` argument when assigning the role. This allows customers to restrict cluster registration. The following scenarios are supported by various `--scope` parameters:
+You can limit permissions further by passing in the appropriate `--scope` argument when assigning the role. This allows admins to restrict cluster registration to subscription or resource group scope. The following scenarios are supported by various `--scope` parameters:
 
 | Resource  | `scope` argument| Effect |
 | ------------- | ------------- | ------------- |
-| Subscription | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | Service principal can register any cluster in an existing Resource Group in the given subscription |
-| Resource Group | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | Service principal can __only__ register clusters in the Resource Group `myGroup` |
+| Subscription | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | Service principal can register cluster in  any resource group under that subscription. |
+| Resource Group | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | Service principal can __only__ register clusters in the resource group `myGroup`. |
 
 ```console
 az role assignment create \
@@ -74,15 +74,15 @@ az role assignment create \
 }
 ```
 
-## Use Service Principal with the Azure CLI
+## Use service principal with the Azure CLI
 
-Reference the newly created Service Principal:
+Reference the newly created service principal with the following commands:
 
-```console
+```azurecli
 az login --service-principal -u mySpnClientId -p mySpnClientSecret --tenant myTenantID
 az connectedk8s connect -n myConnectedClusterName -g myResoureGroupName
 ```
 
 ## Next steps
 
-* [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)
+Govern your cluster configuration [using Azure Policy](./use-azure-policy.md).

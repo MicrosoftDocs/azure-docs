@@ -10,7 +10,7 @@ ms.author: laobri
 author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq1
+ms.custom: how-to, contperf-fy21q1
 
 ---
 
@@ -28,7 +28,7 @@ Machine learning pipelines are reusable workflows for machine learning tasks. On
 
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed
 
-* Create and run a machine learning pipeline, such as by following [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](tutorial-pipeline-batch-scoring-classification.md). For other options, see [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md)
+* Create and run a machine learning pipeline, such as by following [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](tutorial-pipeline-batch-scoring-classification.md). For other options, see [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)
 
 ## Publish a pipeline
 

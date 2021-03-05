@@ -22,7 +22,7 @@ If you are looking for conceptual information on managed disks that have shared 
 
 ## Supported operating systems
 
-Shared disks support several operating systems. See the [Windows](windows/disks-shared.md#windows) and [Linux](linux/disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
+Shared disks support several operating systems. See the [Windows](./disks-shared.md#windows) and [Linux](./disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
 
 ## Disk sizes
 

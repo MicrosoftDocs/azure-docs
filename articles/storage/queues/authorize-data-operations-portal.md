@@ -2,16 +2,15 @@
 title: Choose how to authorize access to queue data in the Azure portal
 titleSuffix: Azure Storage
 description: When you access queue data using the Azure portal, the portal makes requests to Azure Storage under the covers. These requests to Azure Storage can be authenticated and authorized using either your Azure AD account or the storage account access key.
-services: storage
 author: tamram
-
-ms.service: storage
-ms.topic: how-to
-ms.date: 09/08/2020
+services: storage
 ms.author: tamram
 ms.reviewer: ozguns
+ms.date: 02/10/2021
+ms.topic: how-to
+ms.service: storage
 ms.subservice: queues
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Choose how to authorize access to queue data in the Azure portal
@@ -26,20 +25,23 @@ Depending on how you want to authorize access to queue data in the Azure portal,
 
 To access queue data with the account access key, you must have an Azure role assigned to you that includes the Azure RBAC action **Microsoft.Storage/storageAccounts/listkeys/action**. This Azure role may be a built-in or a custom role. Built-in roles that support **Microsoft.Storage/storageAccounts/listkeys/action** include:
 
-- The Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role
-- The Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role
-- The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role
+- The Azure Resource Manager [Owner role](../../role-based-access-control/built-in-roles.md#owner)
+- The Azure Resource Manager [Contributor role](../../role-based-access-control/built-in-roles.md#contributor)
+- The [Storage Account Contributor role](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 When you attempt to access queue data in the Azure portal, the portal first checks whether you have been assigned a role with **Microsoft.Storage/storageAccounts/listkeys/action**. If you have been assigned a role with this action, then the portal uses the account key for accessing queue data. If you have not been assigned a role with this action, then the portal attempts to access data using your Azure AD account.
 
+> [!IMPORTANT]
+> When a storage account is locked with an Azure Resource Manager **ReadOnly** lock, the [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is not permitted for that storage account. **List Keys** is a POST operation, and all POST operations are prevented when a **ReadOnly** lock is configured for the account. For this reason, when the account is locked with a **ReadOnly** lock, users must use Azure AD credentials to access queue data in the portal. For information about accessing queue data in the portal with Azure AD, see [Use your Azure AD account](#use-your-azure-ad-account).
+
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, including the **Microsoft.Storage/storageAccounts/listkeys/action**, so a user with one of these administrative roles can also access queue data with the account key. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles **Service Administrator** and **Co-Administrator** include the equivalent of the Azure Resource Manager [`Owner`](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, including the **Microsoft.Storage/storageAccounts/listkeys/action**, so a user with one of these administrative roles can also access queue data with the account key. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### Use your Azure AD account
 
 To access queue data from the Azure portal using your Azure AD account, both of the following statements must be true for you:
 
-- You have been assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
+- You have been assigned the Azure Resource Manager [`Reader`](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
 - You have been assigned either a built-in or custom role that provides access to queue data.
 
 The **Reader** role assignment or another Azure Resource Manager role assignment is necessary so that the user can view and navigate storage account management resources in the Azure portal. The Azure roles that grant access to queue data do not grant access to storage account management resources. To access queue data in the portal, the user needs permissions to navigate storage account resources. For more information about this requirement, see [Assign the Reader role for portal access](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
@@ -58,7 +60,7 @@ Listing queues with a classic subscription administrator role is not supported. 
 
 ## Navigate to queues in the Azure portal
 
-To view queue data in the portal, navigate to the **Overview** for your storage account, and click on the links for **Queues**. Alternatively you can navigate to the **Queue service** sections in the menu.
+To view queue data in the portal, navigate to the **Overview** for your storage account, and click on the links for **Queues**. Alternatively you can navigate to the **Queue service** section in the menu.
 
 :::image type="content" source="media/authorize-data-operations-portal/queue-access-portal.png" alt-text="Screenshot showing how to navigate to queue data in the Azure portal":::
 

@@ -17,9 +17,9 @@ Azure API for FHIR enables rapid exchange of data through Fast Healthcare Intero
 - Managed FHIR service, provisioned in the cloud in minutes 
 - Enterprise-grade, FHIR®-based endpoint in Azure for data access, and storage in FHIR® format
 - High performance, low latency
-- Secure management of Protected Health Data (PHI) in a compliant cloud environment
+- Secure management of Protected Health Information (PHI) in a compliant cloud environment
 - SMART on FHIR for mobile and web implementations
-- Control your own data at scale with Role-Based Access Control (RBAC)
+- Control your own data at scale with role-based access control (RBAC)
 - Audit log tracking for access, creation, modification, and reads within each data store
 
 Azure API for FHIR allows you to create and deploy a FHIR service in just minutes to leverage the elastic scale of the cloud.  You pay only for the throughput and storage you need. The Azure services that power Azure API for FHIR are designed for rapid performance no matter what size datasets you’re managing.
@@ -48,7 +48,7 @@ Using the Azure API for FHIR enables to you connect with any system that leverag
 
 ### Control Data Access at Scale
 
-You control your data. Role-Based Access Control (RBAC) enables you to manage how your data is stored and accessed.  Providing increased security and reducing administrative workload, you determine who has access to the datasets you create, based on role definitions you create for your environment.  
+You control your data. Role-based access control (RBAC) enables you to manage how your data is stored and accessed.  Providing increased security and reducing administrative workload, you determine who has access to the datasets you create, based on role definitions you create for your environment.  
 
 ### Audit logs and tracking 
 

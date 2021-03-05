@@ -202,7 +202,7 @@ Download the [dashboard file](https://aka.ms/networkwatchernsgflowlogdashboard),
 
 Under the **Management** tab of Kibana, navigate to **Saved Objects** and import all three files. Then from the **Dashboard** tab you can open and load the sample dashboard.
 
-You can also create your own visualizations and dashboards tailored towards metrics of your own interest. Read more about creating Kibana visualizations from Kibana's [official documentation](https://www.elastic.co/guide/en/kibana/current/visualize.html).
+You can also create your own visualizations and dashboards tailored towards metrics of your own interest. Read more about creating Kibana visualizations from Kibana's [official documentation](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm).
 
 ### Visualize NSG flow logs
 

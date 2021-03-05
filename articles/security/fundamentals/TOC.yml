@@ -12,8 +12,6 @@
   items:
   - name: Security technical capabilities
     href: technical-capabilities.md
-  - name: Built-in security controls
-    href: security-controls.md
 
 - name: Azure platform and infrastructure
   items:
@@ -79,13 +77,13 @@
   - name: Best practices
     href: network-best-practices.md
   - name: DDoS Protection best practices
-    href: https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices
+    href: ../../ddos-protection/fundamental-best-practices.md
   - name: DDoS Protection security baseline
     href: ddos-protection-security-baseline.md
   - name: Dangling DNS and subdomain takeover
     href: subdomain-takeover.md
   - name: Secure hybrid network architecture
-    href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
+    href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
 
 - name: IaaS security
   items:
@@ -127,7 +125,7 @@
     - name: Security checklist
       href: database-security-checklist.md
   - name: Storage security guide
-    href: ../../storage/blobs/security-recommendations.md?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
+    href: ../../storage/blobs/security-recommendations.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
   - name: Customer Lockbox
     href: customer-lockbox-overview.md
   - name: Security baseline for Customer Lockbox
@@ -149,7 +147,7 @@
 
 - name: Monitoring, auditing, and operations
   items:
-  - name: Advanced threat protection
+  - name: Threat protection
     href: threat-detection.md
   - name: Azure logging and auditing
     href: log-audit.md

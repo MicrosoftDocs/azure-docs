@@ -184,9 +184,9 @@ To publish your application, you need to first import your publish settings by u
 For more information, see the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [install ps and emulators]: https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[service definition (.csdef)]: https://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[service configuration (.cscfg)]: https://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[service definition (.csdef)]: /previous-versions/azure/reference/ee758711(v=azure.100)
+[service configuration (.cscfg)]: /previous-versions/azure/reference/ee758710(v=azure.100)
 [iis.net]: https://www.iis.net/
-[sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
+[sql native client]: /sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: https://php.net/sqlsrv
 [sqlncli.msi x64 installer]: https://go.microsoft.com/fwlink/?LinkID=239648

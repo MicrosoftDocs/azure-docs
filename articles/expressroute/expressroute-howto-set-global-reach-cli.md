@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/12/2018
+ms.date: 01/07/2021
 ms.author: duau 
 ms.custom: devx-track-azurecli
 
@@ -46,7 +46,7 @@ az account set --subscription <your subscription ID>
 
 ### Identify your ExpressRoute circuits for configuration
 
-You can enable ExpressRoute Global Reach between any two ExpressRoute circuits, as long as they're located in supported countries/regions and were created at different peering locations. If your subscription owns both circuits, you can choose either circuit to run the configuration as explained later in this article. If the two circuits are in different Azure subscriptions, you must have authorization from one Azure subscription and must pass in its authorization key when you run the configuration command in the other Azure subscription.
+You can enable ExpressRoute Global Reach between any two ExpressRoute circuits. The circuits are required to be in supported countries/regions and were created at different peering locations. If your subscription owns both circuits, you may select either circuit to run the configuration. However, if the two circuits are in different Azure subscriptions you must create an authorization key from one of the circuits. Using the authorization key generated from the first circuit you can enable Global Reach on the second circuit.
 
 ## Enable connectivity between your on-premises networks
 
@@ -54,9 +54,9 @@ When running the command to enable connectivity, note the following requirements
 
 * *peer-circuit* should be the full resource ID. For example:
 
-  > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
+  > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
 
-* *address-prefix* must be a "/29" IPv4 subnet (for example, "10.0.0.0/29"). We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You must not use addresses in this subnet in your Azure virtual networks or in your on-premises networks.
+* *address-prefix* must be a "/29" IPv4 subnet (for example, "10.0.0.0/29"). We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You can't use addresses in this subnet in your Azure virtual networks or in your on-premises networks.
 
 Run the following CLI command to connect two ExpressRoute circuits:
 
@@ -92,7 +92,7 @@ When this operation is complete, you'll have connectivity between your on-premis
 
 ## Enable connectivity between ExpressRoute circuits in different Azure subscriptions
 
-If the two circuits aren't in the same Azure subscription, you need authorization. In the following configuration, you generate authorization in circuit 2's subscription and pass the authorization key to circuit 1.
+If the two circuits aren't in the same Azure subscription, you need authorization. In the following configuration, you generate authorization in circuit 2's subscription. Then you pass the authorization key to circuit 1.
 
 1. Generate an authorization key:
 

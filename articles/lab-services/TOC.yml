@@ -20,11 +20,11 @@
     href: tutorial-track-usage.md            
 - name: Concepts
   items:
-  - name: Classroom Labs overview
+  - name: Labs overview
     href: classroom-labs-overview.md 
-  - name: Classroom Labs concepts
+  - name: Labs concepts
     href: classroom-labs-concepts.md    
-  - name: Classroom Labs architecture fundamentals
+  - name: Labs architecture fundamentals
     href: classroom-labs-fundamentals.md
   - name: Capacity limits
     href: capacity-limits.md  
@@ -36,7 +36,7 @@
       href: classroom-labs-scenarios.md
     - name: Use Lab Services for hackathon
       href: hackathon-labs.md
-    - name: Classroom labs - class types
+    - name: Lab class types
       items:
       - name: Class types overview
         href: class-types.md
@@ -46,9 +46,11 @@
         href: class-type-shell-scripting-linux.md
       - name: Ethical hacking
         href: class-type-ethical-hacking.md
+      - name: Networking with GNS3
+        href: class-type-networking-gns3.md
       - name: Database management
         href: class-type-database-management.md
-      - name: Azure Sql Database management and development
+      - name: Sql database management and development
         href: class-type-sql-server.md
       - name: Python and Jupyter Notebooks
         href: class-type-jupyter-notebook.md
@@ -58,24 +60,15 @@
         href: class-type-matlab.md
       - name: SolidWorks computer-aided design (CAD)
         href: class-type-solidworks.md
+      - name: ArcGIS
+        href: class-type-arcgis.md
       - name: Project Lead the Way
         href: class-type-pltw.md
     - name: Use Azure Lab Services within Teams
       items:
         - name: Overview 
+          displayName: labs within Teams
           href: lab-services-within-teams-overview.md
-        - name: Create a lab from Teams
-          href: how-to-get-started-create-lab-within-teams.md
-        - name: Manage user lists
-          href: how-to-manage-user-lists-within-teams.md
-        - name: Manage VM pool
-          href: how-to-manage-vm-pool-within-teams.md
-        - name: Delete labs
-          href: how-to-delete-lab-within-teams.md
-        - name: Schedules and settings
-          href: how-to-create-schedules-within-teams.md
-        - name: Access a VM (student view)
-          href: how-to-access-vm-for-students-within-teams.md
 - name: How-to guides
   items:
   - name: Administrator guide
@@ -112,9 +105,9 @@
       href: lab-account-owner-support-information.md
     - name: Upload a custom image to Shared Image Gallery
       href: upload-custom-image-shared-image-gallery.md
-  - name: Create and configure classroom labs (educator)
+  - name: Create and configure labs (educator)
     items:        
-    - name: Create and manage classroom labs
+    - name: Create and manage labs
       href: how-to-manage-classroom-labs.md
     - name: Use dashboard
       href: use-dashboard.md
@@ -150,9 +143,9 @@
       href: lab-creator-support-information.md
     - name: Access student VMs from educator view
       href: instructor-access-virtual-machines.md      
-  - name: Connect to VMs in classroom labs (student)
+  - name: Connect to VMs in labs (student)
     items:        
-    - name: Access classroom labs
+    - name: Access labs
       href: how-to-use-classroom-lab.md
     - name: Connect to Linux VMs
       href: how-to-use-remote-desktop-linux-student.md                
@@ -163,7 +156,22 @@
     - name: Set or reset passwords for virtual machines 
       href: how-to-set-virtual-machine-passwords-student.md 
     - name: View support information (student)
-      href: lab-user-support-information.md             
+      href: lab-user-support-information.md        
+  - name: Use labs within Teams
+    items:
+      - name: Create a lab from Teams
+        href: how-to-get-started-create-lab-within-teams.md
+      - name: Manage user lists
+        href: how-to-manage-user-lists-within-teams.md
+      - name: Manage VM pool
+        href: how-to-manage-vm-pool-within-teams.md
+      - name: Delete labs
+        href: how-to-delete-lab-within-teams.md
+      - name: Schedules and settings
+        href: how-to-create-schedules-within-teams.md
+      - name: Access a VM (student view)
+        href: how-to-access-vm-for-students-within-teams.md
+      
 - name: Reference
   items:
   - name: REST API

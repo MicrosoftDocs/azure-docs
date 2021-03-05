@@ -227,6 +227,7 @@ module.exports = async function(context, instanceId) {
 
     const status = await client.getStatus(instanceId);
     // do something based on the current status.
+    // example: if status.runtimeStatus === df.OrchestrationRuntimeStatus.Running: ...
 }
 ```
 
@@ -243,6 +244,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
     status = await client.get_status(instance_id)
     # do something based on the current status
+    # example: if (existing_instance.runtime_status is df.OrchestrationRuntimeStatus.Running) { ...
 ```
 
 ---
@@ -296,6 +298,10 @@ public static async Task Run(
     {
         log.LogInformation(JsonConvert.SerializeObject(instance));
     }
+    
+    // Note: ListInstancesAsync only returns the first page of results.
+    // To request additional pages provide the result.ContinuationToken
+    // to the OrchestrationStatusQueryCondition's ContinuationToken property.
 }
 ```
 
@@ -984,8 +990,8 @@ from datetime import datetime, timedelta
 
 async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
     client = df.DurableOrchestrationClient(starter)
-    created_time_from = datetime.datetime()
-    created_time_to = datetime.datetime.today + timedelta(days = -30)
+    created_time_from = datetime.min
+    created_time_to = datetime.today() + timedelta(days = -30)
     runtime_statuses = [OrchestrationRuntimeStatus.Completed]
 
     return client.purge_instance_history_by(created_time_from, created_time_to, runtime_statuses)

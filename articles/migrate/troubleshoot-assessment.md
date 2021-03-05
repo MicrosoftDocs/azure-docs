@@ -1,11 +1,10 @@
 ---
 title: Troubleshoot assessment and dependency visualization in Azure Migrate
-description: Get help with troubleshooting assessment and dependency visualization in Azure Migrate.
-ms.service: azure-migrate
-ms.topic: troubleshooting
-author: musa-57
+description: Get help with assessment and dependency visualization in Azure Migrate.
+author: rashi-ms
+ms.author: rajosh
 ms.manager: abhemraj
-ms.author: hamusa
+ms.topic: troubleshooting
 ms.date: 01/02/2020
 ---
 
@@ -156,12 +155,12 @@ For Windows VMs:
 
     ![MMA status](./media/troubleshoot-assessment/mma-properties.png)
 
-For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded. Refer to more troubleshooting guidance [here](../azure-monitor/insights/service-map.md#post-installation-issues).
+For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded. Refer to more troubleshooting guidance [here](../azure-monitor/vm/service-map.md#post-installation-issues).
 
 ## Supported operating systems
 
-- **MMS agent**: Review the supported [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems), and [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) operating systems.
-- **Dependency agent**: the supported [Windows and Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) operating systems.
+- **MMS agent**: Review the supported [Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems), and [Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems) operating systems.
+- **Dependency agent**: the supported [Windows and Linux](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) operating systems.
 
 ## Visualize dependencies for > hour
 

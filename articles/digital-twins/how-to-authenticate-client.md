@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 After you [set up an Azure Digital Twins instance and authentication](how-to-set-up-instance-portal.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, you'll need to **write code in that client app to authenticate it** against the Azure Digital Twins instance.
 
-Azure Digital Twins performs authentication using [Azure AD Security Tokens based on OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-jwts-and-claims). To authenticate your SDK, you'll need to get a bearer token with the right permissions to Azure Digital Twins, and pass it along with your API calls. 
+Azure Digital Twins performs authentication using [Azure AD Security Tokens based on OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). To authenticate your SDK, you'll need to get a bearer token with the right permissions to Azure Digital Twins, and pass it along with your API calls. 
 
 This article describes how to obtain credentials using the `Azure.Identity` client library. While this article shows code examples in C#, such as what you'd write for the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), you can use a version of `Azure.Identity` regardless of what SDK you're using (for more on the SDKs available for Azure Digital Twins, see [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md)).
 
@@ -54,10 +54,7 @@ First, include the SDK package `Azure.DigitalTwins.Core` and the `Azure.Identity
 
 You'll also need to add the following using statements to your project code:
 
-```csharp
-using Azure.Identity;
-using Azure.DigitalTwins.Core;
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="Azure_Digital_Twins_dependencies":::
 
 Then, add code to obtain credentials using one of the methods in `Azure.Identity`.
 
@@ -69,23 +66,7 @@ To use the default Azure credentials, you'll need the Azure Digital Twins instan
 
 Here is a code sample to add a `DefaultAzureCredential` to your project:
 
-```csharp
-// The URL of your instance, starting with the protocol (https://)
-private static string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-URL>";
-
-//...
-
-DigitalTwinsClient client;
-try
-{
-    var credential = new DefaultAzureCredential();
-    client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
-} catch(Exception e)
-{
-    Console.WriteLine($"Authentication or client creation error: {e.Message}");
-    Environment.Exit(0);
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_full":::
 
 #### Set up local Azure credentials
 
@@ -101,12 +82,7 @@ To use the default Azure credentials, you'll need the Azure Digital Twins instan
 
 In an Azure function, you can use the managed identity credentials like this:
 
-```csharp
-ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
-DigitalTwinsClientOptions opts = 
-    new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="ManagedIdentityCredential":::
 
 ### InteractiveBrowserCredential method
 
@@ -119,27 +95,7 @@ To use the interactive browser credentials, you will need an **app registration*
 
 Here is an example of the code to create an authenticated SDK client using `InteractiveBrowserCredential`.
 
-```csharp
-// Your client / app registration ID
-private static string clientId = "<your-client-ID>"; 
-// Your tenant / directory ID
-private static string tenantId = "<your-tenant-ID>";
-// The URL of your instance, starting with the protocol (https://)
-private static string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-URL>";
-
-//...
-
-DigitalTwinsClient client;
-try
-{
-    var credential = new InteractiveBrowserCredential(tenantId, clientId);
-    client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
-} catch(Exception e)
-{
-    Console.WriteLine($"Authentication or client creation error: {e.Message}");
-    Environment.Exit(0);
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="InteractiveBrowserCredential":::
 
 >[!NOTE]
 > While you can place the client ID, tenant ID and instance URL directly into the code as shown above, it's a good idea to have your code get these values from a configuration file or environment variable instead.
@@ -162,5 +118,5 @@ If the highlighted authentication scenarios above do not cover the needs of your
 Read more about how security works in Azure Digital Twins:
 * [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md)
 
-Or, now that authentication is set up, move on to creating models in your instance:
-* [*How-to: Manage custom models*](how-to-manage-model.md)
+Or, now that authentication is set up, move on to creating and managing models in your instance:
+* [*How-to: Manage DTDL models*](how-to-manage-model.md)

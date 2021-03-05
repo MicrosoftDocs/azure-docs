@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
-ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
 
 ---
 
@@ -30,7 +30,6 @@ In this article you learn how to secure the following inferencing resources in a
 > - Private AKS cluster
 > - AKS cluster with private link
 > - Azure Container Instances (ACI)
-
 
 ## Prerequisites
 
@@ -54,7 +53,6 @@ To use an AKS cluster in a virtual network, the following network requirements m
 > [!div class="checklist"]
 > * Follow the prerequisites in [Configure advanced networking in Azure Kubernetes Service (AKS)](../aks/configure-azure-cni.md#prerequisites).
 > * The AKS instance and the virtual network must be in the same region. If you secure the Azure Storage Account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance too.
-
 
 To add AKS in a virtual network to your workspace, use the following steps:
 
@@ -201,6 +199,7 @@ except:
     prov_config.service_cidr = "10.0.0.0/16"
     prov_config.dns_service_ip = "10.0.0.10"
     prov_config.subnet_name = subnet_name
+    prov_config.load_balancer_subnet = subnet_name
     prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
     # Create compute target
@@ -248,9 +247,11 @@ aks_target.wait_for_completion(show_output = True)
 Azure Container Instances are dynamically created when deploying a model. To enable Azure Machine Learning to create ACI inside the virtual network, you must enable __subnet delegation__ for the subnet used by the deployment.
 
 > [!WARNING]
-> When using Azure Container Instances in a virtual network, the virtual network must be in the same resource group as your Azure Machine Learning workspace.
+> When using Azure Container Instances in a virtual network, the virtual network must be:
+> * In the same resource group as your Azure Machine Learning workspace.
+> * If your workspace has a __private endpoint__, the virtual network used for Azure Container Instances must be the same as the one used by the workspace private endpoint.
 >
-> When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace cannot also be in the virtual network.
+> When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace cannot be in the virtual network.
 
 To use ACI in a virtual network to your workspace, use the following steps:
 
@@ -267,9 +268,9 @@ If you don't want to use the default outbound rules and you do want to limit the
 
 ## Next steps
 
-This article is part three in a four-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+This article is part four of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
 
 * [Part 1: Virtual network overview](how-to-network-security-overview.md)
 * [Part 2: Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
-* [Part 5:Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Part 5: Enable studio functionality](how-to-enable-studio-virtual-network.md)

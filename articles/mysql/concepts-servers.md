@@ -40,7 +40,7 @@ The following elements help ensure safe access to your database.
 | **Firewall** | To help protect your data, a firewall rule prevents all access to your database server, until you specify which computers have permission. See [Azure Database for MySQL Server firewall rules](./concepts-firewall-rules.md). |
 | **SSL** | The service supports enforcing SSL connections between your applications and your database server.  See [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md). |
 
-## Stop/Start an Azure Database for MySQL (Preview)
+## Stop/Start an Azure Database for MySQL
 
 Azure Database for MySQL gives you the ability to **Stop** the server when not in use and **Start** the server when you resume activity. This is essentially done to save costs on the database servers and only pay for the resource when in use. This becomes even more important for dev-test workloads and when you are only using the server for part of the day. When you stop the server, all active connections will be dropped. Later, when you want to bring the server back online, you can either use the [Azure portal](how-to-stop-start-server.md) or [CLI](how-to-stop-start-server.md).
 

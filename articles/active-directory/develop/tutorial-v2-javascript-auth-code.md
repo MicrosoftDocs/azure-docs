@@ -23,7 +23,7 @@ In this tutorial:
 > * Perform the OAuth 2.0 authorization code flow with PKCE
 > * Sign in personal Microsoft accounts as well as work and school accounts
 > * Acquire an access token
-> * Call Microsoft Graph or your own API that requires access tokens obtained from the Microsoft identity platform endpoint
+> * Call Microsoft Graph or your own API that requires access tokens obtained from the Microsoft identity platform
 
 MSAL.js 2.0 improves on MSAL.js 1.0 by supporting the authorization code flow in the browser instead of the implicit grant flow. MSAL.js 2.0 does **NOT** support the implicit flow.
 
@@ -36,11 +36,11 @@ MSAL.js 2.0 improves on MSAL.js 1.0 by supporting the authorization code flow in
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagram showing the authorization code flow in a single-page application":::
 
-The application you create in this tutorial enables a JavaScript SPA to query the Microsoft Graph API by acquiring security tokens from the the Microsoft identity platform endpoint. In this scenario, after a user signs in, an access token is requested and added to HTTP requests in the authorization header. Token acquisition and renewal are handled by the Microsoft Authentication Library for JavaScript (MSAL.js).
+The application you create in this tutorial enables a JavaScript SPA to query the Microsoft Graph API by acquiring security tokens from the the Microsoft identity platform. In this scenario, after a user signs in, an access token is requested and added to HTTP requests in the authorization header. Token acquisition and renewal are handled by the Microsoft Authentication Library for JavaScript (MSAL.js).
 
 This tutorial uses the following library:
 
-[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) Microsoft Authentication Library for JavaScript v2.0 browser package
+[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) the Microsoft Authentication Library for JavaScript v2.0 browser package
 
 ## Get the completed code sample
 
@@ -346,7 +346,7 @@ Modify the values in the `graphConfig` section as described here:
 
 - `Enter_the_Graph_Endpoint_Here` is the instance of the Microsoft Graph API the application should communicate with.
   - For the **global** Microsoft Graph API endpoint, replace both instances of this string with `https://graph.microsoft.com`.
-  - For endpoints in **national** cloud deployments, see [National cloud deployments](https://docs.microsoft.com/graph/deployments) in the Microsoft Graph documentation.
+  - For endpoints in **national** cloud deployments, see [National cloud deployments](/graph/deployments) in the Microsoft Graph documentation.
 
 The `graphMeEndpoint` and `graphMailEndpoint` values in your *graphConfig.js* should be similar to the following if you're using the global endpoint:
 
@@ -355,7 +355,7 @@ graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
 graphMailEndpoint: "https://graph.microsoft.com/v1.0/me/messages"
 ```
 
-## Use Microsoft Authentication Library (MSAL) to sign in user
+## Use the Microsoft Authentication Library (MSAL) to sign in user
 
 ### Pop-up
 
@@ -553,13 +553,13 @@ The SPA you've created in this tutorial calls `acquireTokenSilent` and/or `acqui
 
 #### Get a user token interactively
 
-After their initial sign-in, your app shouldn't ask users to reauthenticate every time they need to access a protected resource (that is, to request a token). To prevent such reauthentication requests, call `acquireTokenSilent`. There are some situations, however, where you might need to force users to interact with the Microsoft identity platform endpoint. For example:
+After their initial sign-in, your app shouldn't ask users to reauthenticate every time they need to access a protected resource (that is, to request a token). To prevent such reauthentication requests, call `acquireTokenSilent`. There are some situations, however, where you might need to force users to interact with the Microsoft identity platform. For example:
 
 - Users need to re-enter their credentials because the password has expired.
 - Your application is requesting access to a resource and you need the user's consent.
 - Two-factor authentication is required.
 
-Calling `acquireTokenPopup` opens a pop-up window (or `acquireTokenRedirect` redirects users to the Microsoft identity platform endpoint). In that window, users need to interact by confirming their credentials, giving consent to the required resource, or completing the two-factor authentication.
+Calling `acquireTokenPopup` opens a pop-up window (or `acquireTokenRedirect` redirects users to the Microsoft identity platform). In that window, users need to interact by confirming their credentials, giving consent to the required resource, or completing the two-factor authentication.
 
 #### Get a user token silently
 
@@ -614,7 +614,7 @@ You've completed creation of the application and are now ready to launch the Nod
 
 ### Sign in to the application
 
-After the browser loads your *index.html* file, select **Sign In**. You're prompted to sign in with the Microsoft identity platform endpoint:
+After the browser loads your *index.html* file, select **Sign In**. You're prompted to sign in with the Microsoft identity platform:
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Web browser displaying sign-in dialog":::
 

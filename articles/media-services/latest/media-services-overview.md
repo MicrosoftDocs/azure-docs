@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3 overview
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: A high-level overview of Azure Media Services v3 with links to quickstarts, tutorials, and code samples.
 services: media-services
 documentationcenter: na

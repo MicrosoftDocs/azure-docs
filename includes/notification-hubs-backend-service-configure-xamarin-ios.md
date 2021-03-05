@@ -91,7 +91,7 @@
     ```
 
     > [!NOTE]
-    > This class provides a unique ID (using the [UIDevice.IdentifierForVendor](https://docs.microsoft.com/dotnet/api/uikit.uidevice.identifierforvendor?view=xamarin-ios-sdk-12) value) and the notification hub registration payload.
+    > This class provides a unique ID (using the [UIDevice.IdentifierForVendor](/dotnet/api/uikit.uidevice.identifierforvendor?view=xamarin-ios-sdk-12) value) and the notification hub registration payload.
 
 1. Add a new folder to the **PushDemo.iOS** project called *Extensions* then add an **Empty Class** to that folder called *NSDataExtensions.cs* with the following implementation.
 

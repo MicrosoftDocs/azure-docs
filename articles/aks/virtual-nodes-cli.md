@@ -12,12 +12,13 @@ ms.custom: references_regions, devx-track-azurecli
 
 This article shows you how to use the Azure CLI to create and configure the virtual network resources and AKS cluster, then enable virtual nodes.
 
-> [!NOTE]
-> [This article](virtual-nodes.md) gives you an overview of the region availability and limitations using virtual nodes.
 
 ## Before you begin
 
 Virtual nodes enable network communication between pods that run in Azure Container Instances (ACI) and the AKS cluster. To provide this communication, a virtual network subnet is created and delegated permissions are assigned. Virtual nodes only work with AKS clusters created using *advanced* networking (Azure CNI). By default, AKS clusters are created with *basic* networking (kubenet). This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
+
+> [!IMPORTANT]
+> Before using virtual nodes with AKS, review both the [limitations of AKS virtual nodes][virtual-nodes-aks] and the [virtual networking limitations of ACI][virtual-nodes-networking-aci]. These limitations affect the location, networking configuration, and other configuration details of both your AKS cluster and the virtual nodes.
 
 If you have not previously used ACI, register the service provider with your subscription. You can check the status of the ACI provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
 
@@ -347,3 +348,5 @@ Virtual nodes are often one component of a scaling solution in AKS. For more inf
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[virtual-nodes-aks]: virtual-nodes.md
+[virtual-nodes-networking-aci]: ../container-instances/container-instances-virtual-network-concepts.md

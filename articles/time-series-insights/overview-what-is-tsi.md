@@ -8,7 +8,7 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/02/2020
+ms.date: 12/16/2020
 ms.custom: seodec18
 ---
 
@@ -78,7 +78,7 @@ With the introduction of these key industrial IoT capabilities, Azure Time Serie
 | Multilayered storage for IoT-scale time series data | With a shared data processing pipeline for ingesting data, you can ingest data into both warm and cold stores. Use warm store for interactive queries and cold store for storing large volumes of data. To learn more about how to take advantage of high-performing asset-based queries, see [queries](./concepts-query-overview.md). |
 | Time Series Model to contextualize raw telemetry and derive asset-based insights | You can use the time series model to create instances, hierarchies, types, and variables for your time series data. To learn more about Time Series Model, see [Time Series Model](./concepts-model-overview.md).  |
 | Smooth and continuous integration with other data solutions | Data in Azure Time Series Insights Gen2 cold store is [stored](./concepts-storage.md) in open-source Apache Parquet files. This enables data integration with other data solutions, 1st or 3rd party, for scenarios that include business intelligence, advanced machine learning, and predictive analytics. |
-| Near real-time data exploration | The [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md) user experience provides visualization for all data streaming through the ingestion pipeline. After you connect an event source, you can view, explore, and query event data. In this way, you can validate whether a device emits data as expected. You also can monitor an IoT asset for health, productivity, and overall effectiveness. |
+| Near real-time data exploration | The [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md) user experience provides visualization for all data streaming through the ingestion pipeline. After you connect an event source, you can view, explore, and query event data. In this way, you can validate whether a device emits data as expected. You also can monitor an IoT asset for health, productivity, and overall effectiveness. |
 | Extensibility and integration | The Power BI Connector integration is available directly in the Time Series Explorer user experience through the **Export** option, allowing customers to export the time series queries they create in our user experience directly into the Power BI desktop and view their time series charts alongside other BI analytics. This opens the door to a new class of scenarios for industrial IoT enterprises who have invested in Power BI by providing a single pane of glass over analytics from various data sources including IoT time series. |
 | Custom applications built on the Azure Time Series Insights Gen2 platform | Azure Time Series Insights Gen2 supports the [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). The SDK provides rich controls and simplified access to queries. Use the SDK to build custom IoT applications on top of Azure Time Series Insights Gen2 to suit your business needs. You also can use the Azure Time Series Insights Gen2 [Query APIs](./concepts-query-overview.md) directly to drive data into custom IoT applications. |
 
@@ -87,9 +87,9 @@ With the introduction of these key industrial IoT capabilities, Azure Time Serie
 Get started with Azure Time Series Insights Gen2:
 
 > [!div class="nextstepaction"]
-> [Quickstart guide](./time-series-insights-update-quickstart.md)
+> [Quickstart guide](./quickstart-explore-tsi.md)
 
 Learn about use cases:
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights Gen2 use cases](./time-series-insights-update-use-cases.md)
+> [Azure Time Series Insights Gen2 use cases](./overview-use-cases.md)

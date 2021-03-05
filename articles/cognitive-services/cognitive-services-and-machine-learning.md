@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 08/22/2019    
 ---
 # Cognitive Services and machine learning
 
@@ -38,7 +38,7 @@ Machine learning is a concept where you bring together data and an algorithm to 
 
 The process of building a machine learning system requires some knowledge of machine learning or data science.
 
-Machine learning is provided using [Azure Machine Learning (AML) products and services](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context).
+Machine learning is provided using [Azure Machine Learning (AML) products and services](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%2fmachine-learning%2fstudio%2fcontext%2fml-context).
 
 ## What is a Cognitive Service?
 
@@ -91,7 +91,7 @@ The following data categorizes each service by which kind of data it allows or r
 |[Face](./Face/Overview.md)|x|x||
 |[Form Recognizer](./form-recognizer/overview.md)||x||
 |[Immersive Reader](./immersive-reader/overview.md)|x|||
-|[Ink Recognizer](./Ink-recognizer/overview.md)|x|x||
+|[Ink Recognizer](/previous-versions/azure/cognitive-services/Ink-Recognizer/overview)|x|x||
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
@@ -121,7 +121,7 @@ Cognitive Services that provide exported models for other machine learning tools
 
 |Cognitive Service|Model information|
 |--|--|
-|[Custom Vision](./custom-vision-service/overview.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
+|[Custom Vision](./custom-vision-service/overview.md)|[Export](./custom-vision-service/export-model-python.md) for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
 
 ## Learn more
 

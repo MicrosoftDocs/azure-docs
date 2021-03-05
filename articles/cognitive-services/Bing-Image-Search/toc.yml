@@ -69,11 +69,11 @@
   - name: Azure PowerShell reference
     href: /powershell/module/azurerm.cognitiveservices/
   - name: Azure CLI reference
-    href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+    href: /cli/azure/cognitiveservices#az_cognitiveservices_list
   - name: SDKs
     items:
       - name: .NET
-        href: /dotnet/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-dotnet
+        href: /dotnet/api/overview/azure/cognitiveservices/bing-image-search-readme?view=azure-dotnet
       - name: Java
         href: /java/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-java-stable
       - name: Python

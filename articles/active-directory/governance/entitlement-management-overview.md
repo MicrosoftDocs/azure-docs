@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 
 
 #Customer intent: As a administrator, I want learn about entitlement management so that see how I can use it to manage access to resources in my organization.
@@ -142,10 +142,10 @@ Specialized clouds, such as Azure Germany, and Azure China 21Vianet, are not cur
 Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have:
 
 - Member users who **can** request an access package.
-- Member and guest users who <u>request</u> an access package.
-- Member and guest users who <u>approve requests</u> for an access package.
+- Member users who <u>request</u> an access package.
+- Member users who <u>approve requests</u> for an access package.
 - Member users who <u>review assignments</u> for an access package. 
-- Member and guest users who have a <u>direct assignment</u> to an access package.
+- Member users who have a <u>direct assignment</u> to an access package.
 
 For guest users, licensing needs will depend on the [licensing model](../external-identities/external-identities-pricing.md) you’re using. However, the below guest users’ activities are considered Azure AD Premium P2 usage:
 - Guest users who <u>request</u> an access package. 
@@ -172,5 +172,6 @@ Here are some example license scenarios to help you determine the number of lice
 
 ## Next steps
 
-- [Tutorial: Create your first access package](entitlement-management-access-package-first.md)
+- If you are interested in using the Azure portal to manage access to resources, see [Tutorial: Manage access to resources - Azure portal](entitlement-management-access-package-first.md).
+- if you are interested in using Microsoft Graph to manage access to resources, see [Tutorial: manage access to resources - Microsoft Graph](/graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json)
 - [Common scenarios](entitlement-management-scenarios.md)

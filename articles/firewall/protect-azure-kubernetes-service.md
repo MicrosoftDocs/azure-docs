@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 01/11/2021
 ms.author: victorh
 ---
 
@@ -42,7 +42,7 @@ Azure Firewall provides an AKS FQDN Tag to simplify the configuration. Use the f
    - TCP [*IPAddrOfYourAPIServer*]:443 is required if you have an app that needs to talk to the API server. This change can be set after the cluster is created.
    - TCP port 9000,  and UDP port 1194 for the tunnel front pod to communicate with the tunnel end on the API server.
 
-      To be more specific, see the **.hcp.<location>.azmk8s.io* and addresses in the following table:
+      To be more specific, see the addresses in the following table:
 
    | Destination Endpoint                                                             | Protocol | Port    | Use  |
    |----------------------------------------------------------------------------------|----------|---------|------|

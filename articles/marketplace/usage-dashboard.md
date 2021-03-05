@@ -16,7 +16,7 @@ This article provides information on the Usage dashboard in Partner Center. This
 To access the Usage dashboard in Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Usage**.
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./partner-center-portal/faq-terminology.md).
+> For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).
 
 ## Usage dashboard
 
@@ -130,7 +130,7 @@ _**Table 1: Dictionary of data terms**_
 | Offer Name | Offer Name | The name of the commercial marketplace offering. |
 | DeploymentMethod | Deprecated | Deprecated (Same definition as Offer type)
  |
-| Customer Company Name | Customer Company Name | The company name provided by the customer. The name could be different than the city in a customer's Azure subscription. |
+| Customer Company Name | Customer Company Name | The company name provided by the customer. The name could be different than the name in a customer's Azure subscription. |
 | Usage Date | Usage Date | The date of usage event generation for usage-based assets. |
 | IsMultisolution | Is Multisolution | Signifies whether the offer is a Multisolution offer type. |
 | Is New Customer | Deprecated | Deprecated |
@@ -189,4 +189,4 @@ If you have multiple offers that use custom meters, the metered billing usage re
 - For virtual machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](usage-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](./partner-center-portal/downloads-dashboard.md).
 - To see a consolidated view of customer feedback for offers on Azure Marketplace and Microsoft AppSource, see [Ratings & Reviews analytics dashboard in Partner Center](./partner-center-portal/ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./partner-center-portal/faq-terminology.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).

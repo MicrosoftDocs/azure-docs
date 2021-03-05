@@ -60,7 +60,7 @@ colocation. [Colocation](concepts-hyperscale-colocation.md)
 can be a great thing when tables are related or will be joined.  However when
 two tables are unrelated but happen to use the same datatype for their
 distribution columns, accidentally colocating them can decrease performance
-during [shard rebalancing](howto-hyperscale-scaling.md#rebalance-shards).  The
+during [shard rebalancing](howto-hyperscale-scale-rebalance.md).  The
 table shards will be moved together unnecessarily in a \"cascade.\"
 
 If a new distributed table is not related to other tables, it's best to

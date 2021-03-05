@@ -28,7 +28,7 @@ To see how Azure Public IP completely maps to the Azure Security Benchmark, see 
 
 Azure PowerShell or Azure CLI can be used to look up or perform actions on resources based on their tags. 
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags) 
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md) 
 
 - [How to create an Azure Virtual Network](quick-create-portal.md) 
 
@@ -50,7 +50,7 @@ Public IP provides tools to monitor, diagnose, view metrics, and enable or disab
 
 Instead, you can enable and on-board data to Azure Sentinel or a third-party SIEM.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -62,7 +62,7 @@ Instead, you can enable and on-board data to Azure Sentinel or a third-party SIE
 
 **Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Public IP instances. Other than at the control plane (for example, Azure portal), Public IP itself does not generate audit logs. Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Azure Security Center monitoring**: Yes
 
@@ -72,7 +72,7 @@ Instead, you can enable and on-board data to Azure Sentinel or a third-party SIE
 
 **Guidance**: Use Azure Monitor to set log retention period for the Log Analytics workspaces associated with Public IP instances per your organization's compliance obligations.
 
-- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -86,7 +86,7 @@ Use Azure Activity Log to monitor configurations and detect changes for your Pub
 
 Public IP itself does not generate logs related to network traffic other than at the control plane (for example, Azure portal).
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -113,9 +113,9 @@ Use Azure role-based access control (Azure RBAC) to manage access to Azure resou
 
 Inventoried or query pre-defined Azure built-in roles exist for certain resources through tools such as Azure CLI, Azure PowerShell, or the Azure portal.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Yes
 
@@ -127,7 +127,7 @@ Inventoried or query pre-defined Azure built-in roles exist for certain resource
 
 Enabled Just-In-Time access by using Azure Active Directory (Azure AD) Privileged Identity Management (PIM) and Azure Resource Manager. 
 
-- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management)
+- [Learn more about Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Azure Security Center monitoring**: Yes
 
@@ -149,7 +149,7 @@ Enabled Just-In-Time access by using Azure Active Directory (Azure AD) Privilege
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Azure AD Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Sentinel-related resources.
 
-- [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -163,9 +163,9 @@ Enabled Just-In-Time access by using Azure Active Directory (Azure AD) Privilege
 
 Review and action Azure AD risk detections for alerts and reports on risky user behavior.
 
-- [How to deploy Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Understand Azure AD risk detections](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Understand Azure AD risk detections](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -197,7 +197,7 @@ Review and action Azure AD risk detections for alerts and reports on risky user 
 
 Use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure users have approved and continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -210,7 +210,7 @@ Use Azure Identity Access Reviews to efficiently manage group memberships, acces
 **Guidance**: Implement integration with any SIEM/monitoring tool based on your access to Azure Active Directory (Azure AD) sign-in activity, audit, and risk event log sources.
 Streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. Configure desired alerts within the Log Analytics workspace. 
 
-- [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure activity logs with Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -219,7 +219,7 @@ Streamline this process by creating diagnostic settings for Azure AD user accoun
 ### 3.12: Alert on account login behavior deviation
 
 **Guidance**: Use Azure Active Directory (Azure AD) Identity Protection features to configure automated responses to detected suspicious actions related to user identities. Ingest data into Azure Sentinel for further investigation as desired and based on business requirements.
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -241,7 +241,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -253,7 +253,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -268,11 +268,11 @@ In addition, use Azure Policy to put restrictions on the type of resources that 
 - Not allowed resource types
 - Allowed resource types
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create management groups](/azure/governance/management-groups/create)
+- [How to create management groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -301,7 +301,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -349,9 +349,9 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -407,7 +407,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md) 
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -435,7 +435,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+**Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
 - [How to configure continuous export](../security-center/continuous-export.md)
 
@@ -473,5 +473,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

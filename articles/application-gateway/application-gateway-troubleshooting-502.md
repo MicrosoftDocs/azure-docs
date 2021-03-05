@@ -90,7 +90,7 @@ The following table lists the values associated with the default health probe:
 * If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port.
 * The call to `http://127.0.0.1:port` should return an HTTP result code of 200. This should be returned within the 30-second timeout period.
 * Ensure that the port configured is open and that there are no firewall rules or Azure Network Security Groups, which block incoming or outgoing traffic on the port configured.
-* If Azure classic VMs or Cloud Service is used with a FQDN or a public IP, ensure that the corresponding [endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%252fazure%252fapplication-gateway%252ftoc.json) is opened.
+* If Azure classic VMs or Cloud Service is used with a FQDN or a public IP, ensure that the corresponding [endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
 * If the VM is configured via Azure Resource Manager and is outside the VNet where the application gateway is deployed, a [Network Security Group](../virtual-network/network-security-groups-overview.md) must be configured to allow access on the desired port.
 
 ## Problems with custom health probe

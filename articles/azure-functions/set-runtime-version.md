@@ -10,9 +10,13 @@ ms.date: 07/22/2020
 
 A function app runs on a specific version of the Azure Functions runtime. There are three major versions: [1.x, 2.x, and 3.x](functions-versions.md). By default, function apps are created in version 3.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
 
+The way that you manually target a specific version depends on whether you are running Windows or Linux.
+
 ## Automatic and manual version updates
 
-Azure Functions lets you target a specific version of the runtime by using the `FUNCTIONS_EXTENSION_VERSION` application setting in a function app. The function app is kept on the specified major version until you explicitly choose to move to a new version. If you specify only the major version, the function app is automatically updated to new minor versions of the runtime when they become available. New minor versions shouldn't introduce breaking changes. 
+_This section doesn't apply when running your function app [on Linux](#manual-version-updates-on-linux)._
+
+Azure Functions lets you target a specific version of the runtime on Windows by using the `FUNCTIONS_EXTENSION_VERSION` application setting in a function app. The function app is kept on the specified major version until you explicitly choose to move to a new version. If you specify only the major version, the function app is automatically updated to new minor versions of the runtime when they become available. New minor versions shouldn't introduce breaking changes. 
 
 If you specify a minor version (for example, "2.0.12345"), the function app is pinned to that specific version until you explicitly change it. Older minor versions are regularly removed from the production environment. After this occurs, your function app runs on the latest version instead of the version set in `FUNCTIONS_EXTENSION_VERSION`. Because of this, you should quickly resolve any issues with your function app that require a specific minor version, so that you can instead target the major version. Minor version removals are announced in [App Service announcements](https://github.com/Azure/app-service-announcements/issues).
 
@@ -32,6 +36,8 @@ The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each majo
 A change to the runtime version causes a function app to restart.
 
 ## View and update the current runtime version
+
+_This section doesn't apply when running your function app [on Linux](#manual-version-updates-on-linux)._
 
 You can change the runtime version used by your function app. Because of the potential of breaking changes, you can only change the runtime version before you have created any functions in your function app. 
 
@@ -116,6 +122,67 @@ As before, replace `<FUNCTION_APP>` with the name of your function app and `<RES
 ---
 
 The function app restarts after the change is made to the application setting.
+
+## Manual version updates on Linux
+
+To pin a Linux function app to a specific host version, you specify the image URL in the 'LinuxFxVersion' field in site config. For example: if we want to pin a node 10 function app to say host version 3.0.13142 -
+
+For **linux app service/elastic premium apps** -
+Set `LinuxFxVersion` to `DOCKER|mcr.microsoft.com/azure-functions/node:3.0.13142-node10-appservice`.
+
+For **linux consumption apps** -
+Set `LinuxFxVersion` to `DOCKER|mcr.microsoft.com/azure-functions/mesh:3.0.13142-node10`.
+
+
+# [Azure CLI](#tab/azurecli-linux)
+
+You can view and set the `LinuxFxVersion` from the Azure CLI.  
+
+Using the Azure CLI, view the current runtime version with the [az functionapp config show](/cli/azure/functionapp/config) command.
+
+```azurecli-interactive
+az functionapp config show --name <function_app> \
+--resource-group <my_resource_group>
+```
+
+In this code, replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. 
+
+You see the `linuxFxVersion` in the following output, which has been truncated for clarity:
+
+```output
+{
+  ...
+
+  "kind": null,
+  "limits": null,
+  "linuxFxVersion": <LINUX_FX_VERSION>,
+  "loadBalancing": "LeastRequests",
+  "localMySqlEnabled": false,
+  "location": "West US",
+  "logsDirectorySizeLimit": 35,
+   ...
+}
+```
+
+You can update the `linuxFxVersion` setting in the function app with the [az functionapp config set](/cli/azure/functionapp/config) command.
+
+```azurecli-interactive
+az functionapp config set --name <FUNCTION_APP> \
+--resource-group <RESOURCE_GROUP> \
+--linux-fx-version <LINUX_FX_VERSION>
+```
+
+Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<LINUX_FX_VERSION>` with the values explained above.
+
+You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
+
+
+Similarly, the function app restarts after the change is made to the site config.
+
+> [!NOTE]
+> Note that setting `LinuxFxVersion` to image url directly for consumption apps will opt them out of placeholders and other cold start optimizations.
+
+---
 
 ## Next steps
 

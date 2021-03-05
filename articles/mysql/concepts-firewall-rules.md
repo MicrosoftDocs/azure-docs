@@ -66,6 +66,8 @@ Consider the following points when access to the Microsoft Azure Database for My
    For example, you may see the following error if you are connecting from an Azure VM in a subnet that has **Microsoft.Sql** enabled but has no corresponding VNet rule:
    `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
+* **Firewall rule is not available for IPv6 format:** The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, it will show the validation error.
+
 ## Next steps
 
 * [Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)

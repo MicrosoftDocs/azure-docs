@@ -8,6 +8,7 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: allensu
+ms.custom: fasttrack-edit
 ---
 # Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - Azure PowerShell
 
@@ -290,7 +291,7 @@ In this section, you'll use the virtual machine you created in the previous step
     A private IP address of **10.0.0.5** is returned for the SQL server name.  This address is in the subnet of the virtual network you created previously.
 
 
-10. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) on **myVM**.
+10. Install [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) on **myVM**.
 
 11. Open **SQL Server Management Studio**.
 
@@ -331,6 +332,8 @@ In this tutorial, you created a:
 * Azure SQL server with private endpoint.
 
 You used the virtual machine to test connectivity securely to the SQL server across the private endpoint.
+
+As a next step, you may also be interested in the [Web app with private connectivity to Azure SQL database](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
 
 Learn how to create a Private Link service:
 > [!div class="nextstepaction"]

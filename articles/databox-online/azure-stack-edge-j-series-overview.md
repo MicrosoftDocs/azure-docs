@@ -43,7 +43,7 @@ Azure Stack Edge Pro R has the following capabilities:
 Here are the various scenarios where Azure Stack Edge Pro R can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
 
 - **Inference with Azure Machine Learning** - With Azure Stack Edge Pro R, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Azure Stack Edge Pro R device, see 
-[Deploy Azure ML hardware accelerated models on Azure Stack Edge Pro R](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+[Deploy Azure ML hardware accelerated models on Azure Stack Edge Pro R](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Preprocess data** - Transform data before sending it to Azure to create a more actionable dataset. Preprocessing can be used to:
 
@@ -81,4 +81,3 @@ Azure Stack Edge Pro R physical device, Azure resource, and target storage accou
 
 - Review the [Azure Stack Edge Pro R system requirements](azure-stack-edge-gpu-system-requirements.md).
 <!--- Understand the [Azure Stack Edge Pro R limits](azure-stack-edge-limits.md).-->
-

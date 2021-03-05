@@ -66,6 +66,13 @@ Insert this code below your `IntentRecognizer`. Make sure that you replace `"You
 
 This example uses the `add_intents()` function to add a list of explicitly-defined intents. If you want to add all intents from a model, use `add_all_intents(model)` and pass the model.
 
+> [!NOTE]
+> Speech SDK only supports LUIS v2.0 endpoints.
+> You must manually modify the v3.0 endpoint URL found in the example query field to use a v2.0 URL pattern.
+> LUIS v2.0 endpoints always follow one of these two patterns:
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+
 ## Recognize an intent
 
 From the `IntentRecognizer` object, you're going to call the `recognize_once()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.

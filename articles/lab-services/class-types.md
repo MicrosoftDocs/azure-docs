@@ -7,7 +7,12 @@ ms.date: 06/26/2020
 
 # Class types overview - Azure Lab Services
 
-Azure Lab Services enables you to quickly set up classroom lab environments in the cloud. Articles in this section provide guidance on how to set up several types of classroom labs using Azure Lab Services.
+Azure Lab Services enables you to quickly set up classroom lab environments in the cloud. Articles in this section provide guidance on how to set up several types of labs using Azure Lab Services.
+
+## ArcGIS
+[ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) is a type of geographic information system (GIS).  You can set up a lab that uses ArcGIS Desktop's various applications, such as [ArcMap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm) to make, edit, and analyze 2D maps.
+
+For detailed information on how to set up this type of lab, see [Setup a lab for ArcMap\ArcGIS Desktop](class-type-arcgis.md).
 
 ## Big data analytics
 You can set up a GPU lab to teach a big data analytics class. With this type of class, students learn how to handle large volumes of data, and apply machine and statistical learning algorithms to derive data insights. A key objective for students is to learn to use data analytics tools, such as Apache Hadoop's open-source software package which provides tools for storing, managing, and processing big data. 
@@ -36,6 +41,11 @@ For detailed information on how to set up this type of lab, see [Set up a lab to
 
 For detailed information on how to set up this type of lab, see [Setup a lab to teach MATLAB](class-type-matlab.md).
 
+## Networking with GNS3
+You can set up a lab for a class that focuses on allowing students to emulate, configure, test, and troubleshoot virtual and real networks using [GNS3](https://www.gns3.com/) software. 
+
+For detailed information on how to set up this type of lab, see [Setup a lab to teach a networking class](class-type-networking-gns3.md).
+
 ## Project Lead the Way (PLTW)
 [Project Lead the Way (PLTW)](https://www.pltw.org/) is a nonprofit organization that provides PreK-12 curriculum across the United States in computer science, engineering, and biomedical science.  In each PLTW class, students use a variety of software applications as part of their hands-on learning experience.
 
@@ -56,7 +66,12 @@ For detailed information on how to set up this type of lab, see [Shell scripting
 ## SolidWorks computer-aided design (CAD)
 You can set up a GPU lab that gives engineering students access to [SolidWorks](https://www.solidworks.com/).  SolidWorks provides a 3D CAD environment for modeling solid objects.  With SolidWorks, engineers can easily create, visualize, simulate and document their designs.
 
-For detailed information on how to set up this type of lab, see [Set up a lab for engineering classes using SolidWorks](class-type-solidworks.md)
+For detailed information on how to set up this type of lab, see [Set up a lab for engineering classes using SolidWorks](class-type-solidworks.md).
+
+## SQL database and management
+Structured Query Language (SQL) is the standard language for relational database management including adding, accessing, and managing content in a database.  You can set up a lab to teach database concepts using both [MySQL](https://www.mysql.com/) Database server and [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) server.
+
+For detailed information on how to set up this type of lab, see [Set up a lab to teach database management for relational databases](class-type-database-management.md).
 
 ## Next steps
 See the following articles:

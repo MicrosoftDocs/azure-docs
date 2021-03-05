@@ -1,7 +1,7 @@
 ---
 title: FedRAMP Moderate blueprint sample controls
 description: Control mapping of the FedRAMP Moderate blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 10/26/2020
+ms.date: 01/08/2021
 ms.topic: sample
 ---
 # Control mapping of the FedRAMP Moderate blueprint sample
@@ -439,7 +439,7 @@ articles to learn about the blueprint and how to deploy this sample:
 
 > [!div class="nextstepaction"]
 > [FedRAMP Moderate blueprint - Overview](./index.md)
-> [FodRAMP Moderate blueprint - Deploy steps](./deploy.md)
+> [FedRAMP Moderate blueprint - Deploy steps](./deploy.md)
 
 Additional articles about blueprints and how to use them:
 

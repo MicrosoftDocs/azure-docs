@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ---
 
@@ -35,12 +35,20 @@ Follow the steps below to create an Azure Arc data controller using the Azure po
 6. Click on the **Data controller details** button.
 7. Choose a subscription, resource group and Azure location just like you would for any other resource that you would create in the Azure portal. In this case the Azure location that you select will be where the metadata about the resource will be stored.  The resource itself will be created on whatever infrastructure you choose. It doesn't need to be on Azure infrastructure.
 8. Enter a name for your data controller.
-9. Only the Indirectly Connected mode is supported currently in the preview.
-10. Select a deployment configuration profile.
-11. Click the **Open in Azure Studio** button.
-12. On the next screen, you will see a summary of your selections and a notebook that is generated.  You can click the **Download provisioning notebook** button to download the notebook.
-13. Open the notebook in Azure Data Studio and click the **Run All** button at the top.
-14. Follow the prompts and instructions in the notebook to complete the data controller creation.
+9. Select the connectivity mode for the data controller. Learn more about [Connectivity modes and requirements](./connectivity.md). 
+
+   > [!NOTE] 
+   > If you select **direct** connectivity mode,  ensure the Service Principal credentials are set via environment variables as described in [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal). 
+
+1. Select a deployment configuration profile.
+1. Click the **Open in Azure Studio** button.
+1. On the next screen, you will see a summary of your selections and a notebook that is generated.  You can click the **Download provisioning notebook** button to download the notebook.
+
+   > [!IMPORTANT]
+   > On Azure Red Hat OpenShift or Red Hat OpenShift container platform, you must apply the security context constraint before you create the data controller. Follow the instructions at [Apply a security context constraint for Azure Arc enabled data services on OpenShift](how-to-apply-security-context-constraint.md).
+
+1. Open the notebook in Azure Data Studio and click the **Run All** button at the top.
+1. Follow the prompts and instructions in the notebook to complete the data controller creation.
 
 ## Monitoring the creation status
 

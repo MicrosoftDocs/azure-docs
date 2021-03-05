@@ -44,7 +44,7 @@ Once the application is downloaded, you can deploy it to a cluster directly from
 
 4. Right-click on the `Voting` application project in the Solution Explorer and choose **Publish**
 
-5. Select the dropdown for the **Connection Endpoint** and enter the public DNS Name of one of the nodes in your cluster.  For example, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. In Azure, a fully qualified domain name (FQDN) is not given automatically, but can easily [be set in VM Overview page.](../virtual-machines/linux/portal-create-fqdn.md)
+5. Select the dropdown for the **Connection Endpoint** and enter the public DNS Name of one of the nodes in your cluster.  For example, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. In Azure, a fully qualified domain name (FQDN) is not given automatically, but can easily [be set in VM Overview page.](../virtual-machines/create-fqdn.md)
 
 6. Open you preferred browser and type in the cluster address (the connection endpoint, this app deploys on port 8080 - for example, ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080).
 

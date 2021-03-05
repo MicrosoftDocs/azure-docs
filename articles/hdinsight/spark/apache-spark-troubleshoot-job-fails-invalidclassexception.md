@@ -3,9 +3,6 @@ title: InvalidClassException error from Apache Spark - Azure HDInsight
 description: Apache Spark job fails with InvalidClassException, class version mismatch, in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/29/2019
 ---
 

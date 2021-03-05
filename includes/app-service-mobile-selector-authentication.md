@@ -12,6 +12,7 @@ ms.author: crdun
 > * [Microsoft account](../articles/app-service/configure-authentication-provider-microsoft.md)
 > * [Twitter](../articles/app-service/configure-authentication-provider-twitter.md)
 > * [An OpenID Connect provider (Preview)](../articles/app-service/configure-authentication-provider-openid-connect.md)
+> * [Sign in with Apple (Preview)](../articles/app-service/configure-authentication-provider-apple.md)
 > 
 > 
 

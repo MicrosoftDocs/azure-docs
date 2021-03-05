@@ -36,7 +36,7 @@ Encryption does not impact the performance of managed disks. There is no additio
 
 You can rely on platform-managed keys for the encryption of your managed disk, or you can manage encryption using your own keys. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all data in managed disks. 
 
-To learn more about server-side encryption, refer to either the articles for [Windows](windows/disk-encryption.md) or [Linux](linux/disk-encryption.md).
+To learn more about server-side encryption, refer to either the articles for [Windows](./disk-encryption.md) or [Linux](./disk-encryption.md).
 
 ### Azure Disk Encryption
 
@@ -68,4 +68,4 @@ Using [Azure role-based access control (Azure RBAC)](../role-based-access-contro
 
 
 ## Next steps
-- Walk through the steps to monitor virtual machine security by using Azure Security Center for [Linux](../security/fundamentals/overview.md) or [Windows](windows/tutorial-azure-security.md).
+- Walk through the steps to monitor virtual machine security by using Azure Security Center for [Linux](../security/fundamentals/overview.md) or [Windows](/previous-versions/azure/virtual-machines/tutorial-azure-security).

@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -95,9 +96,6 @@ To do so, follow these steps:
 
 1. Review the settings for your cluster. 
 1. Select **Apply** to onboard your cluster and then select **Yes** at the prompt to proceed.
-
-
-
 
 ## Create availability group
 
@@ -203,7 +201,7 @@ Next, remove the cluster metadata from the SQL IaaS Agent extension:
 # Remove the cluster from the SQL VM RP metadata
 # example: az sql vm group delete --name Cluster --resource-group SQLVM-RG
 
-az sql vm group delete --name <cluster name> Cluster --resource-group <resource group name>
+az sql vm group delete --name <cluster name> --resource-group <resource group name>
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -231,7 +229,7 @@ Next, remove the cluster metadata from the SQL IaaS Agent extension:
 # Remove the cluster metadata
 # example: Remove-AzSqlVMGroup -ResourceGroupName "SQLVM-RG" -Name "Cluster"
 
-Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name> "
+Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name>"
 ```
 
 ---

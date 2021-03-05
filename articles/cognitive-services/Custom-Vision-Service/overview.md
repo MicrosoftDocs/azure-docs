@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 09/14/2020
+ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image identifier, image recognition app, custom vision
@@ -48,4 +48,4 @@ As with all of the Cognitive Services, developers using the Custom Vision servic
 
 ## Next steps
 
-Follow the [Build a classifier](getting-started-build-a-classifier.md) guide to get started using Custom Vision on the web portal, or complete a [client library quickstart](quickstarts/image-classification.md) to implement the basic scenarios in code.
+Follow the [Build a classifier](getting-started-build-a-classifier.md) guide to get started using Custom Vision on the web portal, or complete a [quickstart](quickstarts/image-classification.md) to implement the basic scenarios in code.

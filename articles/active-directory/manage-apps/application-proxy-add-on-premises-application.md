@@ -1,21 +1,30 @@
 ---
-title: Tutorial - Add an on-premises app - Application Proxy in Azure AD
+title: Tutorial - Add an on-premises app - Application Proxy in Azure Active Directory
 description:  Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial shows you how to prepare your environment for use with Application Proxy. Then, it uses the Azure portal to add an on-premises application to your Azure AD tenant.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 02/09/2021
 ms.author: kenwith
 ms.reviewer: japere
+ms.custom: contperf-fy21q3-portal
 ---
 
 # Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory
 
-Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial prepares your environment for use with Application Proxy. Once your environment is ready, you'll use the Azure portal to add an on-premises application to your Azure AD tenant.
+Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. To learn more about Application Proxy, see [What is App Proxy?](what-is-application-proxy.md). This tutorial prepares your environment for use with Application Proxy. Once your environment is ready, you'll use the Azure portal to add an on-premises application to your Azure AD tenant. 
+
+:::image type="content" source="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png" alt-text="Application Proxy Overview Diagram" lightbox="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png":::
+
+Before you get started, make sure you are familiar with app management and **Single Sign-On (SSO)** concepts. Check out the following links:
+- [Quickstart Series on App Management in Azure AD](view-applications-portal.md)
+- [What is Single Sign-On (SSO)?](what-is-single-sign-on.md)
+
+Connectors are a key part of Application Proxy. To learn more about connectors, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).
 
 This tutorial:
 
@@ -46,8 +55,13 @@ For high availability in your production environment, we recommend having more t
 > ```
 > Windows Registry Editor Version 5.00
 > 
-> [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp] "EnableDefaultHttp2"=dword:00000000
+> [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp]
+> "EnableDefaultHTTP2"=dword:00000000
 > ```
+>
+> The key can be set via PowerShell with the following command.
+> ```
+> Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\' -Name EnableDefaultHTTP2 -Value 0
 >
 
 #### Recommendations for the connector server
@@ -65,7 +79,7 @@ The Windows connector server needs to have TLS 1.2 enabled before you install th
 To enable TLS 1.2:
 
 1. Set the following registry keys:
-	
+
    ```
    Windows Registry Editor Version 5.00
 
@@ -81,6 +95,9 @@ To enable TLS 1.2:
    ```
 
 1. Restart the server.
+
+> [!Note]
+> Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements. See [Azure TLS certificate changes](../../security/fundamentals/tls-certificate-changes.md) for more information.
 
 ## Prepare your on-premises environment
 
@@ -108,10 +125,14 @@ Allow access to the following URLs:
 | --- | --- | --- |
 | &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Communication between the connector and the Application Proxy cloud service |
 | crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP |The connector uses these URLs to verify certificates. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS |The connector uses these URLs during the registration process. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |The connector uses these URLs during the registration process. |
 | ctldl.windowsupdate.com | 80/HTTP |The connector uses this URL during the registration process. |
 
-You can allow connections to &ast;.msappproxy.net, &ast;.servicebus.windows.net, and other URLs above if your firewall or proxy lets you configure DNS allow lists. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
+You can allow connections to &ast;.msappproxy.net, &ast;.servicebus.windows.net, and other URLs above if your firewall or proxy lets you configure access rules based on domain suffixes. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
+
+### DNS name resolution for Azure AD Application Proxy endpoints
+
+Public DNS records for Azure AD Application Proxy endpoints are chained CNAME records pointing to an A record. This ensures fault tolerance and flexibility. It’s guaranteed that the Azure AD Application Proxy Connector always accesses hostnames with the domain suffixes _*.msappproxy.net_ or _*.servicebus.windows.net_. However, during the name resolution the CNAME records might contain DNS records with different hostnames and suffixes.  Due to this, you must ensure that the device (depending on your setup - connector server, firewall, outbound proxy) can resolve all the records in the chain and allows connection to the resolved IP addresses. Since the DNS records in the chain might be changed from time to time, we cannot provide you with any list DNS records.
 
 ## Install and register a connector
 
@@ -179,7 +200,7 @@ Now that you've prepared your environment and installed a connector, you're read
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).
 2. In the left navigation panel, select **Azure Active Directory**.
 3. Select **Enterprise applications**, and then select **New application**.
-4. In the **On-premises applications** section, select **Add an on-premises application**.
+4. Select **Add an on-premises application** button which appears about halfway down the page in the **On-premises applications** section. Alternatively, you can select **Create your own application** at the top of the page and then select **Configure Application Proxy for secure remote access to an on-premise application**.
 5. In the **Add your own on-premises application** section, provide the following information about your application:
 
     | Field | Description |

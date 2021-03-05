@@ -97,7 +97,7 @@ Connect-AzAccount `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `
     -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
 
-$AzureContext = Get-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+$AzureContext = Set-AzContext -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 

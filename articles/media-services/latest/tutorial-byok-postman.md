@@ -38,8 +38,8 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 ### Register a service principal with the needed permissions
 
-1. [Create a service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-1. Go to [Option 2: Create a new application secret](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#authentication-two-options) to get the service principal secret.
+1. [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
+1. Go to [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) to get the service principal secret.
 
    > [!IMPORTANT]
    >Copy and save the secret for later use. You can't access the secret after you leave the secret page in the portal.

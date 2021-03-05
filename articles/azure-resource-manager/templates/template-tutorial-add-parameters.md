@@ -1,16 +1,16 @@
 ---
 title: Tutorial - add parameters to template
-description: Add parameters to your Azure Resource Manager template to make it reusable.
+description: Add parameters to your Azure Resource Manager template (ARM template) to make it reusable.
 author: mumian
 ms.date: 03/31/2020
 ms.topic: tutorial
-ms.author: jgao 
+ms.author: jgao
 ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Add parameters to your ARM template
 
-In the [previous tutorial](template-tutorial-add-resource.md), you learned how to add a storage account to the template and deploy it. In this tutorial, you learn how to improve the Azure Resource Manager (ARM) template by adding parameters. This tutorial takes about **14 minutes** to complete.
+In the [previous tutorial](template-tutorial-add-resource.md), you learned how to add a storage account to the template and deploy it. In this tutorial, you learn how to improve the Azure Resource Manager template (ARM template) by adding parameters. This tutorial takes about **14 minutes** to complete.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ You may have noticed that there's a problem with this template. The storage acco
 
 ## Make template reusable
 
-To make your template reusable, let's add a parameter that you can use to pass in a storage account name. The highlighted JSON in the following example shows what changed in your template. The **storageName** parameter is identified as a string. The max length is set to 24 characters to prevent any names that are too long.
+To make your template reusable, let's add a parameter that you can use to pass in a storage account name. The highlighted JSON in the following example shows what changed in your template. The `storageName` parameter is identified as a string. The maximum length is set to 24 characters to prevent any names that are too long.
 
 Copy the whole file and replace your template with its contents.
 
@@ -38,7 +38,7 @@ Copy the whole file and replace your template with its contents.
 
 Let's deploy the template. The following example deploys the template with Azure CLI or PowerShell. Notice that you provide the storage account name as one of the values in the deployment command. For the storage account name, provide the same name you used in the previous tutorial.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -76,11 +76,11 @@ This way of handling updates means your template can include all of the resource
 
 Parameters enable you to customize the deployment by providing values that are tailored for a particular environment. For example, you can pass different values based on whether you're deploying to an environment for development, test, and production.
 
-The previous template always deployed a Standard_LRS storage account. You might want the flexibility to deploy different SKUs depending on the environment. The following example shows the changes to add a parameter for SKU. Copy the whole file and paste over your template.
+The previous template always deployed a **Standard_LRS** storage account. You might want the flexibility to deploy different SKUs depending on the environment. The following example shows the changes to add a parameter for SKU. Copy the whole file and paste over your template.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
-The **storageSKU** parameter has a default value. This value is used when a value isn't specified during the deployment. It also has a list of allowed values. These values match the values that are needed to create a storage account. You don't want users of your template to pass in SKUs that don't work.
+The `storageSKU` parameter has a default value. This value is used when a value isn't specified during the deployment. It also has a list of allowed values. These values match the values that are needed to create a storage account. You don't want users of your template to pass in SKUs that don't work.
 
 ## Redeploy template
 
@@ -109,7 +109,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
+> If the deployment failed, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
 
 To see the flexibility of your template, let's deploy again. This time set the SKU parameter to **Standard_GRS**. You can either pass in a new name to create a different storage account, or use the same name to update your existing storage account. Both options work.
 

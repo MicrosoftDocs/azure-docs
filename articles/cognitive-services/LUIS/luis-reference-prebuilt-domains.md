@@ -16,7 +16,7 @@ ms.date: 09/27/2019
 ---
 
 # Prebuilt domain reference for your LUIS app
-This reference provides information about the [prebuilt domains](luis-how-to-use-prebuilt-domains.md), which are prebuilt collections of intents and entities that LUIS offers.
+This reference provides information about the [prebuilt domains](./howto-add-prebuilt-models.md), which are prebuilt collections of intents and entities that LUIS offers.
 
 [Custom domains](luis-how-to-start-new-app.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
 

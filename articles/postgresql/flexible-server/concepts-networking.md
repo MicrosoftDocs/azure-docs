@@ -5,7 +5,7 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/21/2021
 ---
 
 # Networking overview - Azure Database for PostgreSQL - Flexible Server
@@ -59,6 +59,8 @@ Here are some concepts to be familiar with when using virtual networks with Post
 
    Your PostgreSQL flexible server must be in a subnet that is **delegated** for PostgreSQL flexible server use only. This delegation means that only Azure Database for PostgreSQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as Microsoft.DBforPostgreSQL/flexibleServers.
 
+   Add `Microsoft.Storage` to the service end point for the subnet delegated to Flexible servers. 
+
 * **Network security groups (NSG)**
    Security rules in network security groups enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. Review the [network security group overview](../../virtual-network/network-security-groups-overview.md) for more information.
 
@@ -72,7 +74,7 @@ Here are some concepts to be familiar with when using virtual networks with Post
 Learn how to create a flexible server with private access (VNet integration) in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
 
 > [!NOTE]
-> If you are using the custom DNS server then you must use a DNS forwarder to resolve the FQDN of Azure Database for MySQL - Flexible Server. Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
+> If you are using the custom DNS server then you must use a DNS forwarder to resolve the FQDN of Azure Database for PostgreSQL - Flexible Server. Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
 
 ## Public access (allowed IP addresses)
 Characteristics of the public access method include:
@@ -105,6 +107,7 @@ Consider the following points when access to the Microsoft Azure Database for Po
    * Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the Azure Database for PostgreSQL Server, and then add the IP address range as a firewall rule.
    * Get static IP addressing instead for your client computers, and then add the static IP address as a firewall rule.
 
+* **Firewall rule is not available for IPv6 format:** The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, it will show the validation error.
 
 ## Hostname
 Regardless of the networking option you choose, we recommend you always use a fully qualified domain name (FQDN) as hostname when connecting to your flexible server. The server’s IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string. 

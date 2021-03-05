@@ -92,7 +92,7 @@ You should see a message that says, "Updating certificates in /etc/ssl/certs... 
 
 The following steps are an example of how to install a CA certificate on a Windows host. This example assumes that you're using the **azure-iot-test-only.root.ca.cert.pem** certificate from the prerequisites articles, and that you've copied the certificate into a location on the downstream device.
 
-You can install certificates using PowerShell's [Import-Certificate](/powershell/module/pkiclient/import-certificate?view=win10-ps) as an administrator:
+You can install certificates using PowerShell's [Import-Certificate](/powershell/module/pkiclient/import-certificate) as an administrator:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
@@ -206,7 +206,7 @@ The output of this command may be long, including information about all the cert
 
 If your leaf device has intermittent connection to its gateway device, try the following steps for resolution.
 
-1. Is the gateway hostname in the connection string the same as the hostname value in the IoT Edge config.yaml file on the gateway device?
+1. Is the gateway hostname in the connection string the same as the hostname value in the IoT Edge config file on the gateway device?
 2. Is the gateway hostname resolvable to an IP Address? You can resolve intermittent connections either by using DNS or by adding a host file entry on the leaf device.
 3. Are communication ports open in your firewall? Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparent IoT Edge.
 

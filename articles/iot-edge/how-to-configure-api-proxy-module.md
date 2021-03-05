@@ -256,7 +256,7 @@ When the API proxy module parses a proxy configuration, it first replaces all en
 
 To update the proxy configuration dynamically, use the following steps:
 
-1. Write your configuration file. You can use this default template as a reference: [nginx_default_config.conf](hhttps://github.com/Azure/iotedge/blob/master/edge-modules/api-proxy-module/templates/nginx_default_config.conf)
+1. Write your configuration file. You can use this default template as a reference: [nginx_default_config.conf](https://github.com/Azure/iotedge/blob/master/edge-modules/api-proxy-module/templates/nginx_default_config.conf)
 1. Copy the text of the configuration file and convert it to base64.
 1. Paste the encoded configuration file as the value of the `proxy_config` desired property in the module twin.
 

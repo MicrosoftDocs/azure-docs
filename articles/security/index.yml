@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 08/29/2019
+  ms.date: 02/05/2021
 
 highlightedContent:
   items:
@@ -52,9 +52,9 @@ conceptualContent:
         - url: ./develop/secure-dev-overview.md
           itemType: overview
           text: Secure development best practices
-        - url: /previous-versions/azure/security/develop/secure-web-app
+        - url: ./develop/secure-develop.md
           itemType: tutorial
-          text: Develop a secure web app
+          text: Develop secure applications
         - url: ./develop/threat-modeling-tool.md
           itemType: concept
           text: Microsoft Threat Modeling tool
@@ -171,10 +171,10 @@ conceptualContent:
           text:  Security alerts in Azure Security Center
         - url: ../storage/common/azure-defender-storage-configure.md
           itemType: concept
-          text:  Advanced Threat Protection for Azure Storage
+          text:  Azure Defender for Storage
         - url: ../azure-sql/database/threat-detection-overview.md
           itemType: concept
-          text:  Advanced Threat Protection for Azure SQL Database
+          text:  Azure Defender for SQL
       footerLink:
         url: ./fundamentals/threat-detection.md
         text: See more
@@ -199,7 +199,7 @@ conceptualContent:
         - url: ./fundamentals/network-best-practices.md
           itemType: concept
           text:  Security best practices
-        - url: /azure/ddos-protection/fundamental-best-practices
+        - url: ../ddos-protection/fundamental-best-practices.md
           itemType: concept
           text:  DDoS Protection
 

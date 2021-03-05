@@ -23,8 +23,6 @@ The following table indicates which programming languages are currently supporte
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-For more information, see [Supported languages](supported-languages.md).
-
 ## <a name="creating-1x-apps"></a>Run on a specific version
 
 By default, function apps created in the Azure portal and by the Azure CLI are set to version 3.x. You can modify this version as needed. You can only change the runtime version to 1.x after you create your function app but before you add any functions.  Moving between 2.x and 3.x is allowed even with apps that have functions, but it is still recommended to test in a new app first.
@@ -113,7 +111,7 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 ##### Version 1.x
 
 ```xml
-<TargetFramework>net461</TargetFramework>
+<TargetFramework>net472</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 

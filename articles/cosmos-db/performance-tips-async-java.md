@@ -8,7 +8,7 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-java, contperfq2
+ms.custom: devx-track-java, contperf-fy21q2
 ---
 
 # Performance tips for Azure Cosmos DB Async Java SDK v2
@@ -23,7 +23,7 @@ ms.custom: devx-track-java, contperfq2
 
 
 > [!IMPORTANT]  
-> This is *not* the latest Java SDK for Azure Cosmos DB! You should upgrade your project to [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) and then read the Azure Cosmos DB Java SDK v4 [performance tips guide](performance-tips-java-sdk-v4-sql.md). Follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guide to upgrade. 
+> This is *not* the latest Java SDK for Azure Cosmos DB! You should upgrade your project to [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) and then read the Azure Cosmos DB Java SDK v4 [performance tips guide](performance-tips-java-sdk-v4-sql.md). Follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide to upgrade. 
 > 
 > The performance tips in this article are for Azure Cosmos DB Async Java SDK v2 only. See the Azure Cosmos DB Async Java SDK v2 [Release notes](sql-api-sdk-async-java.md), [Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb), and Azure Cosmos DB Async Java SDK v2 [troubleshooting guide](troubleshoot-java-async-sdk.md) for more information.
 >
@@ -256,7 +256,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    For more information, see [Azure Cosmos DB indexing policies](/azure/cosmos-db/index-policy).
+    For more information, see [Azure Cosmos DB indexing policies](./index-policy.md).
 
 ## <a id="measure-rus"></a>Throughput
 

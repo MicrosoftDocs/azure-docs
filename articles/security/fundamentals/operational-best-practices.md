@@ -193,7 +193,7 @@ Using [service endpoints](../../virtual-network/virtual-network-service-endpoint
 
 We often see customers' on-premises resources getting attacked along with their resources in Azure. If you're connecting an on-premises environment to Azure, minimize exposure of on-premises resources to the public internet.
 
-Azure has two DDoS [service offerings](../../virtual-network/ddos-protection-overview.md) that provide protection from network attacks:
+Azure has two DDoS [service offerings](../../ddos-protection/ddos-protection-overview.md) that provide protection from network attacks:
 
 - Basic protection is integrated into Azure by default at no additional cost. The scale and capacity of the globally deployed Azure network provides defense against common network-layer attacks through always-on traffic monitoring and real-time mitigation. Basic requires no user configuration or application changes and helps protect all Azure services, including PaaS services like Azure DNS.
 - Standard protection provides advanced DDoS mitigation capabilities against network attacks. It's automatically tuned to protect your specific Azure resources. Protection is simple to enable during the creation of virtual networks. It can also be done after creation and requires no application or resource changes.

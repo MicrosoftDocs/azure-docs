@@ -86,6 +86,8 @@ landingContent:
           url: anomaly-detector-container-configuration.md
         - text: Deploy a container instance to Azure
           url: how-to/deploy-anomaly-detection-on-container-instances.md
+        - text: Deploy to IoT Edge
+          url: how-to/deploy-anomaly-detection-on-iot-edge.md
     - linkListType: video
       links:
         - text: Bring Anomaly Detector on-premises with containers support

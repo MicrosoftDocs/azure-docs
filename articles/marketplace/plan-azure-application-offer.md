@@ -28,18 +28,18 @@ Designing, building, and testing Azure application offers requires technical kno
 
 Review the following resources as you plan your Azure application offer for the commercial marketplace.
 
-- [Understand Azure Resource Manager Templates](/azure/azure-resource-manager/templates/template-syntax)
+- [Understand Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
 - Quickstarts:
     - [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
     - [Azure templates best practices guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
-    - [Publish application definition](/azure/managed-applications/publish-service-catalog-app)
-    - [Deploy service catalog app](/azure/managed-applications/deploy-service-catalog-quickstart)
+    - [Publish application definition](../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
+    - [Deploy service catalog app](../azure-resource-manager/managed-applications/deploy-service-catalog-quickstart.md)
 - Tutorials:
-    - [Create definition files](/azure/managed-applications/publish-service-catalog-app)
+    - [Create definition files](../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
 - Samples:
-    - [Azure CLI](/azure/managed-applications/cli-samples)
-    - [Azure PowerShell](/azure/managed-applications/powershell-samples)
-    - [Managed application solutions](/azure/managed-applications/sample-projects)
+    - [Azure CLI](../azure-resource-manager/managed-applications/cli-samples.md)
+    - [Azure PowerShell](../azure-resource-manager/managed-applications/powershell-samples.md)
+    - [Managed application solutions](../azure-resource-manager/managed-applications/sample-projects.md)
 
 The video [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) gives a comprehensive introduction to the Azure application offer type:
 
@@ -54,12 +54,12 @@ The video [Building Solution Templates, and Managed Applications for the Azure M
 
 Choose one or both of the following scripting environments to help manage your Azure application:
 
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure PowerShell](/powershell/azure/)
+- [Azure CLI](/cli/azure)
 
 We recommend adding the following tools to your development environment:
 
-- [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+- [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 - [Visual Studio Code](https://code.visualstudio.com/) with the following extensions:
     - Extension: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     - Extension: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -192,10 +192,10 @@ You define the preview audience using Azure subscription IDs, along with an opti
 
 For managed applications that emit metering events using the [Marketplace metering service APIs](partner-center-portal/marketplace-metering-service-apis.md), you must provide the identity that your service will use when emitting metering events.
 
-This configuration is required if you want to use [Batch usage event](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). In case you want to submit [usage event](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event), you can also use the [instance metadata service](/azure/active-directory/managed-identities-azure-resources/overview) to get the [JSON web token (JWT) bearer token](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)).
+This configuration is required if you want to use [Batch usage event](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). In case you want to submit [usage event](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event), you can also use the [instance metadata service](../active-directory/managed-identities-azure-resources/overview.md) to get the [JSON web token (JWT) bearer token](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)).
 
-- **Azure Active Directory tenant ID** (required): Inside the Azure portal, you must [create an Azure Active Directory (AD) app](/azure/active-directory/develop/howto-create-service-principal-portal) so we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in) for your Azure Active Directory (Azure AD) app, to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in your Azure Active Directory. In the **Display name** column, select the app. Then look for **Properties**, and then for the **Directory (tenant) ID** (for example `50c464d3-4930-494c-963c-1e951d15360e`).
-- **Azure Active Directory application ID** (required): You also need your [application ID](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in.md) and an authentication key. To find your application ID, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in your your Azure Active Directory. In the **Display name** column, select the app and then look for the **Application (client) ID** (for example `50c464d3-4930-494c-963c-1e951d15360e`). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
+- **Azure Active Directory tenant ID** (required): Inside the Azure portal, you must [create an Azure Active Directory (AD) app](../active-directory/develop/howto-create-service-principal-portal.md) so we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) for your Azure Active Directory (Azure AD) app, to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in your Azure Active Directory. In the **Display name** column, select the app. Then look for **Properties**, and then for the **Directory (tenant) ID** (for example `50c464d3-4930-494c-963c-1e951d15360e`).
+- **Azure Active Directory application ID** (required): You also need your [application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) and an authentication key. To find your application ID, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in your your Azure Active Directory. In the **Display name** column, select the app and then look for the **Application (client) ID** (for example `50c464d3-4930-494c-963c-1e951d15360e`). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
 
 > [!NOTE]
 > The Azure application ID will be associated to your publisher ID and can only be re-used within this publisher account.
@@ -204,8 +204,8 @@ This configuration is required if you want to use [Batch usage event](partner-ce
 
 You can choose to opt into Microsoft-supported marketing and sales channels. When creating your offer in Partner Center, you will see two tabs toward the end of the process:
 
-- **Resell through CSPs**: Use this option to allow Microsoft Cloud Solution Providers (CSP) partners to resell your solution as part of a bundled offer. See [Cloud Solution Provider program](/azure/marketplace/cloud-solution-providers) for more information.
-- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. See [Co-sell option in Partner Center](partner-center-portal/commercial-marketplace-co-sell.md) for detailed information on how to prepare your offer for evaluation. For more information about marketing your offer through the Microsoft CSP partner channels, see [Cloud Solution Providers](cloud-solution-providers.md).
+- **Resell through CSPs**: Use this option to allow Microsoft Cloud Solution Providers (CSP) partners to resell your solution as part of a bundled offer. See [Cloud Solution Provider program](./cloud-solution-providers.md) for more information.
+- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. For detailed information on how to prepare your offer for evaluation, see [Co-sell option in the commercial marketplace](commercial-marketplace-co-sell.md). For details about IP co-sell requirements, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). For more information about marketing your offer through the Microsoft CSP partner channels, see [Cloud Solution Providers](cloud-solution-providers.md).
 
 To learn more, see [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 
@@ -219,12 +219,12 @@ For general guidance about plans, including pricing models, and private plans, s
 
 There are two kinds of Azure application plans: _solution template_ and _managed application_. Both plan types support automating the deployment and configuration of a solution beyond a single virtual machine (VM). You can automate the process of providing multiple resources, including VMs, networking, and storage resources to provide complex solutions, such as IaaS solutions. Both plan types can employ many different kinds of Azure resources, including but not limited to VMs.
 
-- **Solution template** plans are one of the main ways to publish a solution in the commercial marketplace. Solution template plans are not transactable in the commercial marketplace, but they can be used to deploy paid VM offers that are billed through the commercial marketplace. Use the solution template plan type when the customer will manage the solution and the transactions are billed through another plan. For more information about building solution templates, see [What is Azure Resource Manager?](/azure/azure-resource-manager/resource-group-overview)
+- **Solution template** plans are one of the main ways to publish a solution in the commercial marketplace. Solution template plans are not transactable in the commercial marketplace, but they can be used to deploy paid VM offers that are billed through the commercial marketplace. Use the solution template plan type when the customer will manage the solution and the transactions are billed through another plan. For more information about building solution templates, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md)
 - **Managed application** plans enable you to easily build and deliver fully managed, turnkey applications for your customers. They have the same capabilities as solution template plans, with some key differences:
     - The resources are deployed to a resource group and are managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group. 
     - As the publisher, you specify the cost for ongoing support of the solution and transactions are supported through the commercial marketplace.
  
-    Use the managed application plan type when you or your customer requires that the solution is managed by a partner or you will deploy a subscription-based solution. For more information about the advantages and types of managed applications, see [Azure managed applications overview](/azure/managed-applications/overview).
+    Use the managed application plan type when you or your customer requires that the solution is managed by a partner or you will deploy a subscription-based solution. For more information about the advantages and types of managed applications, see [Azure managed applications overview](../azure-resource-manager/managed-applications/overview.md).
 
 ## Next steps
 

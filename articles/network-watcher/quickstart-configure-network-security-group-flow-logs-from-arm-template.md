@@ -7,7 +7,7 @@ Customer intent: I need to enable the network security group flow logs by using 
 
 ms.service: network-watcher
 ms.topic: quickstart
-ms.date: 07/22/2020
+ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: subject-armqs
 

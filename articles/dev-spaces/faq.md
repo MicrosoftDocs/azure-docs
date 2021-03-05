@@ -15,7 +15,7 @@ This addresses frequently asked questions about Azure Dev Spaces.
 
 ## What versions of Kubernetes are supported for Azure Dev Spaces?
 
-Azure Dev Spaces supports all [currently supported general availability (GA) versions of Kubernetes in AKS][aks-supported-k8s].
+Azure Dev Spaces supports [currently supported general availability (GA) versions of Kubernetes in AKS up to 1.18][aks-supported-k8s]. Kubernetes 1.19 and above on AKS uses ContainerD as the container runtime, which does not work with Azure Dev Spaces.
 
 ## Which Azure regions currently provide Azure Dev Spaces?
 

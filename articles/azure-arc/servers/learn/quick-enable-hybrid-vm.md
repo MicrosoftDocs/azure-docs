@@ -2,10 +2,10 @@
 title: Connect hybrid machine with Azure Arc enabled servers
 description: Learn how to connect and register your hybrid machine with Azure Arc enabled servers.
 ms.topic: quickstart
-ms.date: 11/12/2020
+ms.date: 12/15/2020
 ---
 
-# Quickstart: Connect hybrid machine with Azure Arc enabled servers
+# Quickstart: Connect hybrid machines with Azure Arc enabled servers
 
 [Azure Arc enabled servers](../overview.md) enables you to manage and govern your Windows and Linux machines hosted across on-premises, edge, and multicloud environments. In this quickstart, you'll deploy and configure the Connected Machine agent on your Windows or Linux machine hosted outside of Azure for management by Arc enabled servers.
 
@@ -24,6 +24,9 @@ ms.date: 11/12/2020
     * If the machine connects through a firewall or proxy server to communicate over the Internet, make sure the URLs [listed](../agent-overview.md#networking-configuration) are not blocked.
 
     * Azure Arc enabled servers supports only the regions specified [here](../overview.md#supported-regions).
+
+> [!WARNING]
+> The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. See [Resolve reserved resource name errors](../../../azure-resource-manager/templates/error-reserved-resource-name.md) for a list of the reserved words.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 

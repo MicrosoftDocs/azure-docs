@@ -193,7 +193,7 @@ Access tokens expire every hour, so you need to generate a new access token ever
 
 ### What are the login options to Video Indexer Developer portal?
 
-You can login using Azure AD, Microsoft account, Google account or Facebook account. 
+See a release note regarding [login information](release-notes.md#october-2020).
 
 Once you register your email account using an identity provider, you cannot use this email account with another identity provider.
 

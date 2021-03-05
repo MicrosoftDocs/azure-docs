@@ -55,8 +55,8 @@ Some of the recommendations included in this article can be automatically monito
 | Recommendation | Comments | Supported by ASC |
 |-|----|--|
 | Monitor unauthorized access to your devices |  Use your device operating system's logging feature to monitor any security breaches or physical tampering of the device or its ports. | - |
-| Monitor your IoT solution from the cloud | Monitor the overall health of your IoT Hub solution using the [metrics in Azure Monitor](../iot-hub/iot-hub-metrics.md). | - |
-| Set up diagnostics | Closely watch your operations by logging events in your solution, and then sending the diagnostic logs to Azure Monitor to get visibility into the performance. Read [Monitor and diagnose problems in your IoT hub](../iot-hub/iot-hub-monitor-resource-health.md) for more information. | - |
+| Monitor your IoT solution from the cloud | Monitor the overall health of your IoT Hub solution using the [metrics in Azure Monitor](../iot-hub/monitor-iot-hub.md). | - |
+| Set up diagnostics | Closely watch your operations by logging events in your solution, and then sending the diagnostic logs to Azure Monitor to get visibility into the performance. Read [Monitor and diagnose problems in your IoT hub](../iot-hub/monitor-iot-hub.md) for more information. | - |
 
 ## Next steps
 

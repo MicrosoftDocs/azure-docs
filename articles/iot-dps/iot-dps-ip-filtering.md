@@ -6,7 +6,7 @@ ms.author: wesmc
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 12/14/2020
 ---
 
 # Use Azure IoT DPS IP connection filters
@@ -53,7 +53,7 @@ After filling in the fields, select **Save** to save the rule. You see an alert 
 
 ![Notification about saving an IP filter rule](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
 
-The **Add** option is disabled when you reach the maximum of 10 IP filter rules.
+The **Add** option is disabled when you reach the maximum of 100 IP filter rules.
 
 To edit an existing rule, select the data you want to change, make the change, then select **Save** to save your edit.
 
@@ -130,7 +130,7 @@ Update the IP filter rule attributes of the template based on your requirements.
 
 | Attribute                | Description |
 | ------------------------ | ----------- |
-| **FilterName**           | Provide a name for the IP Filter rule. This must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus {'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''} are accepted. |
+| **FilterName**           | Provide a name for the IP Filter rule. This must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted. |
 | **Action**               | Accepted values are **Accept** or **Reject** as the action for the IP filter rule. |
 | **ipMask**               | Provide a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255. |
 
@@ -253,5 +253,5 @@ To save your new IP filter rule order, click **Save**.
 To further explore the managing DPS, see:
 
 * [Understanding IoT DPS IP addresses](iot-dps-understand-ip-address.md)
-* [Configure DPS using the Azure CLI](how-to-manage-dps-with-cli.md)
+* [Set up DPS using the Azure CLI](quick-setup-auto-provision-cli.md)
 * [Control access to DPS](how-to-control-access.md)

@@ -2,9 +2,6 @@
 title: 'Tutorial: HDInsight Apache Storm to Storage - Azure/Data Lake'
 description: Tutorial - Learn how to use Apache Storm to write to the HDFS-compatible storage for Azure HDInsight.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019

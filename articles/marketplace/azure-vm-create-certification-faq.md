@@ -4,9 +4,9 @@ description: Troubleshoot common issues related to testing and certifying virtua
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: iqshahmicrosoft
-ms.author: iqshah
-ms.date: 10/19/2020
+author: mathapli
+ms.author: mathapli
+ms.date: 01/18/2021
 ---
 
 # Troubleshoot virtual machine certification
@@ -17,20 +17,6 @@ This article explains common error messages during VM image publishing, along wi
 
 > [!NOTE]
 > If you have questions about this article or suggestions for improvement, contact [Partner Center support](https://aka.ms/marketplacepublishersupport).
-
-## Approved base image
-
-When you submit a request to republish your image with updates, the part-number verification test case might fail. If it fails, your image won't be approved.
-
-This failure occurs when you use a base image that belongs to another publisher and you've updated the image. In this situation, you won't be allowed to publish your image.
-
-To fix this issue, retrieve the image from Azure Marketplace and make changes to it. For more information, see the following articles:
-
-- [Linux images](../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
-- [Windows images](azure-vm-create-using-approved-base.md)
-
-> [!Note]
-> If you are using a Linux base image not taken from Azure Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and lets Azure proceed with publishing your VM to Azure Marketplace.  
 
 ## VM extension failure
 
@@ -68,18 +54,18 @@ Provisioning issues can include the following failure scenarios:
 |1|Invalid virtual hard disk (VHD)|If the specified cookie value in the VHD footer is incorrect, the VHD will be considered invalid.|Re-create the image and submit the request.|
 |2|Invalid blob type|VM provisioning failed because the used block is a blob type instead of a page type.|Re-create the image and submit the request.|
 |3|Provisioning timeout or not properly generalized|There's an issue with VM generalization.|Re-create the image with generalization and submit the request.|
+|
 
 > [!NOTE]
 > For more information about VM generalization, see:
 > - [Linux documentation](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Windows documentation](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
 
-
 ## VHD specifications
 
 ### Conectix cookie and other VHD specifications
 
-The 'conectix' string is part of the VHD specification. It's defined as the 8-byte cookie in the VHD footer that identifies the file creator. All VHD files created by Microsoft have this cookie. 
+The 'conectix' string is part of the VHD specification. It's defined as the 8-byte cookie in the VHD footer that identifies the file creator. All VHD files created by Microsoft have this cookie.
 
 A VHD formatted blob should have a 512-byte footer in this format:
 
@@ -101,7 +87,7 @@ Checksum|4
 Unique ID|16
 Saved State|1
 Reserved|427
-
+|
 
 ### VHD specifications
 
@@ -147,6 +133,7 @@ The following table lists the Linux test cases that the toolkit will run. Test v
 |8|Client Alive Interval|Set ClientAliveInterval to 180. On the application need, it can be set from 30 to 235. If you're enabling the SSH for your end users, this value must be set as explained.|
 |9|OS architecture|Only 64-bit operating systems are supported.|
 |10|Auto Update|Identifies whether Linux Agent Auto Update is enabled.|
+|
 
 ### Common test-case errors
 
@@ -158,14 +145,14 @@ Refer to the following table for the common errors you might see when running te
 | 2 | Bash history test case | An error occurs if the size of the Bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that your Bash history file doesn't contain any potentially sensitive information. | Resolve by mounting the VHD to another working VM and make changes to reduce the size to 1 KB or less. For example, delete the `.bash` history files. |
 | 3 | Required kernel parameter test case | You'll receive this error when the value for `console` isn't set to `ttyS0`. Check by running the following command: <br /> `cat /proc/cmdline` | Set the value for `console` to `ttyS0`, and resubmit the request. |
 | 4 | ClientAlive interval test case | If the toolkit gives you a failed result for this test case, there's an inappropriate value for `ClientAliveInterval`. | Set the value for `ClientAliveInterval` to less than or equal to 235, and then resubmit the request. |
-
+|
 
 ### Windows test cases
 
 The following table lists the Windows test cases that the toolkit will run, along with a description of the test validation:
 
 |Scenario |Test cases|Description|
-|---|---|---|---|
+|---|---|---|
 |1|OS architecture|Azure supports only 64-bit operating systems.|
 |2|User account dependency|Application execution shouldn't be dependent on the administrator account.|
 |3|Failover cluster|The Windows Server failover clustering feature isn't yet supported. The application shouldn't be dependent on this feature.|
@@ -183,8 +170,9 @@ The following table lists the Windows test cases that the toolkit will run, alon
 |15|SNMP Services|The Simple Network Management Protocol (SNMP) Services feature isn't yet supported. The application shouldn't be dependent on this feature.|
 |16|Windows Internet Name Service|Windows Internet Name Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
 |17|Wireless LAN Service|Wireless LAN Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
+|
 
-If you come across any failures with the preceding test cases, refer to the **Description** column in the table for the solution. For more information, contact the Support team. 
+If you come across any failures with the preceding test cases, refer to the **Description** column in the table for the solution. For more information, contact the Support team.
 
 ## Data disk size verification
 
@@ -198,8 +186,9 @@ Refer to the following rules for limitations on OS disk size. When you submit an
 
 |OS|Recommended VHD size|
 |---|---|
-|Linux|30 GB to 1023 GB|
+|Linux|1 GB to 1023 GB|
 |Windows|30 GB to 250 GB|
+|
 
 Because VMs allow access to the underlying operating system, ensure that the VHD size is sufficiently large for the VHD. Disks aren't expandable without downtime. Use a disk size from 30 GB to 50 GB.
 
@@ -207,6 +196,7 @@ Because VMs allow access to the underlying operating system, ensure that the VHD
 |---|---|---|
 |>500 tebibytes (TiB)|n/a|Contact the Support team for an exception approval.|
 |250-500 TiB|>200 gibibytes (GiB) difference from blob size|Contact the Support team for an exception approval.|
+|
 
 > [!NOTE]
 > Larger disk sizes incur higher costs and will result in a delay during the setup and replication process. Because of this delay and cost, the Support team might seek justification for the exception approval.
@@ -217,7 +207,7 @@ To prevent a potential attack related to the WannaCry virus, ensure that all Win
 
 You can verify the image file version from `C:\windows\system32\drivers\srv.sys` or `srv2.sys`.
 
-The following table shows the minimum patched version of Windows Server: 
+The following table shows the minimum patched version of Windows Server:
 
 |OS|Version|
 |---|---|
@@ -226,6 +216,7 @@ The following table shows the minimum patched version of Windows Server:
 |Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|NA|
+|
 
 > [!NOTE]
 > Windows Server 2019 doesn't have any mandatory version requirements.
@@ -238,14 +229,14 @@ Update the kernel with an approved version, and resubmit the request. You can fi
 
 If your image isn't installed with one of the following kernel versions, update it with the correct patches. Request the necessary approval from the Support team after the image is updated with these required patches:
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |OS family|Version|Kernel|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0-151| 
-||14.04 LTS|4.15.0-1049-*-azure|
+||14.04 LTS|4.15.0-1049-\*-azure|
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
 ||18.04 LTS|5.0.0-1025|
@@ -278,14 +269,15 @@ If your image isn't installed with one of the following kernel versions, update 
 |Oracle|6.10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3 
 ||7.0-7.5|UEK3 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK follows RHEL above|
 ||7.6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
-|CoreOS Stable 2079.6.0|4.19.43*|
-||Beta 2135.3.1|4.19.50*|
-||Alpha 2163.2.1|4.19.50*|
+|CoreOS Stable 2079.6.0|4.19.43\*|
+||Beta 2135.3.1|4.19.50\*|
+||Alpha 2163.2.1|4.19.50\*|
 |Debian|jessie (security)|3.16.68-2|
 ||jessie backports|4.9.168-1+deb9u3|
 ||stretch (security)|4.9.168-1+deb9u3|
 ||Debian GNU/Linux 10 (buster)|Debian 6.3.0-18+deb9u1|
 ||buster, sid (stretch backports)|4.19.37-5|
+|
 
 ## Image size should be in multiples of megabytes
 
@@ -311,26 +303,24 @@ To submit your request with SSH disabled image for certification process:
 3. Resubmit your certification request.
 
 ## Download failure
-    
+
 Refer to the following table for any issues that arise when you download the VM image with a shared access signature (SAS) URL.
 
-|Scenario|Error|Reason|Solution|
-|---|---|---|---|
-|1|Blob not found|The VHD might either be deleted or moved from the specified location.|| 
-|2|Blob in use|The VHD is used by another internal process.|The VHD should be in a used state when you download it with an SAS URL.|
-|3|Invalid SAS URL|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
-|4|Invalid signature|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
-|6|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
-|7|Invalid VHD name|Check to see whether any special characters, such as a percent sign `%` or quotation marks `"`, exist in the VHD name.|Rename the VHD file by removing the special characters.|
+|Error|Reason|Solution|
+|---|---|---|
+|Blob not found|The VHD might either be deleted or moved from the specified location.|| 
+|Blob in use|The VHD is used by another internal process.|The VHD should be in a used state when you download it with an SAS URL.|
+|Invalid SAS URL|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
+|Invalid signature|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
+|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
+|Invalid VHD name|Check to see whether any special characters, such as a percent sign `%` or quotation marks `"`, exist in the VHD name.|Rename the VHD file by removing the special characters.|
+|
 
-## First MB (2048 KB) partition (Linux only)
+## First partition starts at 1 MB (2048 Sectors)
 
-When you submit the VHD, ensure that the first 2048 KB of the VHD is empty. Otherwise, your request will fail.
+If you are [building your own image](azure-vm-create-using-own-image.md), ensure the first 2048 sectors (1 MB) of the OS disk is empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). If you are building your image [from an approved base](azure-vm-create-using-approved-base.md), you can skip this requirement.
 
->[!NOTE]
->For certain special images, such as those built on top of Azure Windows base images taken from Azure Marketplace, we check for a billing tag and ignore the MB partition if the billing tag is present and matches our internal available values.
-
-### Create a first MB (2048 KB) partition on an empty VHD
+### Create a 1 MB (2048 sectors, each sector of 512 bytes) partition on an empty VHD
 
 These steps apply to Linux only.
 
@@ -381,21 +371,21 @@ These steps apply to Linux only.
    1. Enter 2048 as _first sector_ value. You can leave _last sector_ as the default value.
 
       >[!IMPORTANT]
-      >Any existing data will be erased till 2048 KB. Backup of the VHD before you create a new partition.
+      >Any existing data will be erased till 2048 sectors (each sector of 512 bytes). Backup of the VHD before you create a new partition.
 
       ![Putty client command line screenshot showing the commands and output for erased data.](./media/create-vm/vm-certification-issues-solutions-22.png)
 
-   1. Type `w` to confirm the creation of partition. 
+   1. Type `w` to confirm the creation of partition.
 
       ![Putty client command line screenshot showing the commands for creating a partition.](./media/create-vm/vm-certification-issues-solutions-23.png)
 
-   1. You can verify the partition table by running the command `n fdisk /dev/sdb` and typing `p`. You'll see that partition is created with 2048 offset value. 
+   1. You can verify the partition table by running the command `n fdisk /dev/sdb` and typing `p`. You'll see that partition is created with 2048 offset value.
 
       ![Putty client command line screenshot showing the commands for creating the 2048 offset.](./media/create-vm/vm-certification-issues-solutions-24.png)
 
 1. Detach the VHD from VM and delete the VM.
 
-### Create a First MB (2048 KB) partition by moving existing data on VHD
+### Create a 1 MB (2048 sectors, each sector of 512 bytes) partition by moving existing data on VHD
 
 These steps apply to Linux only.
 
@@ -463,13 +453,13 @@ When an image is created, it might be mapped to or assigned the wrong OS label. 
 
 If all images that are taken from Azure Marketplace are to be reused, the operating system VHD must be generalized.
 
-* For **Linux**, the following process generalizes a Linux VM and redeploys it as a separate VM.
+- For **Linux**, the following process generalizes a Linux VM and redeploys it as a separate VM.
 
   In the SSH window, enter the following command: `sudo waagent -deprovision+user`.
 
-* For **Windows**, you generalize Windows images by using `sysreptool`.
+- For **Windows**, you generalize Windows images by using `sysreptool`.
 
-  For more information about the `sysreptool` tool, see [System preparation (Sysprep) overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+  For more information about the `sysreptool` tool, see [System preparation (Sysprep) overview](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 ## DataDisk errors
 
@@ -563,7 +553,7 @@ To provide a fixed VM image to replace a VM image that has a vulnerability or ex
 
 #### Provide a new VM image to address the security vulnerability or exploit
 
-To complete these steps, prepare the technical assets for the VM image you want to add. For more information, see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md)or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md) and [Generate a SAS URI for your VM image](azure-vm-get-sas-uri.md).
+To complete these steps, prepare the technical assets for the VM image you want to add. For more information, see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md) and [Generate a SAS URI for your VM image](azure-vm-get-sas-uri.md).
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left pane, select **Commercial Marketplace** > **Overview**.
@@ -599,8 +589,38 @@ Next, republish the offer.
 
 To complete the publishing process, see [Review and publish offers](review-publish-offer.md).
 
+### VM images with limited access or requiring custom templates
+
+#### Locked down (or) SSH disabled offer
+
+  Images which are published with either SSH disabled(for Linux) or RDP disabled (for Windows) are treated as Locked down VMs. There are special business scenarios due to which Publishers only allow restricted access to no/a few users. 
+  During validation checks, Locked down VMs might not allow execution of certain certification commands.
+
+
+#### Custom templates
+
+   In general, all the images which are published under single VM offers will follow standard ARM template for deployment. However, there are scenarios where publisher might requires customization while deploying VMs (e.g. multiple NIC(s) to be configured).
+    
+   Depending on the below scenarios (non-exhaustive), publishers will use custom templates for deploying the VM:
+
+   * VM requires additional network subnets.
+   * Additional metadata to be inserted in ARM template.
+   * Commands that are prerequisite to the execution of ARM template.
+
+### VM extensions   
+
+   Azure virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used. 
+
+   Linux VM extension validations require the following to be part of the image:
+* Azure Linux Agent greater 2.2.41
+* Python version above 2.8 
+
+
+For more information, please visit [VM Extension](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+     
 ## Next steps
 
 - [Configure VM offer properties](azure-vm-create-properties.md)
 - [Active marketplace rewards](partner-center-portal/marketplace-rewards.md)
 - If you have questions or feedback for improvement, contact [Partner Center support](https://aka.ms/marketplacepublishersupport).
+ 

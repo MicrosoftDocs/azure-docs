@@ -9,7 +9,7 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contentperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Tutorial: Review your individual Azure subscription bill
