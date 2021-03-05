@@ -44,7 +44,7 @@ With decoupled storage and compute, when using Synapse SQL one can benefit from 
 
 Synapse SQL leverages Azure Storage to keep your user data safe. Since your data is stored and managed by Azure Storage, there is a separate charge for your storage consumption. 
 
-Serverless SQL pool lets you query files in your data lake in read-only manner, while SQL pool lets you ingest data also. When data is ingested into dedicated SQL pool, the data is sharded into **distributions** to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. These sharding patterns are supported:
+Serverless SQL pool lets you query files in your data lake in read-only manner, while dedicated SQL pool lets you ingest data also. When data is ingested into dedicated SQL pool, the data is sharded into **distributions** to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. These sharding patterns are supported:
 
 * Hash
 * Round Robin
