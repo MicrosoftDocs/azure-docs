@@ -375,7 +375,8 @@
 				<title>Dynamic connector.1023</title>
 				<path d="M0 1044.5 L-18 1044.5 L-18 898.25 L-63.1 898.25" class="st6"/>
 			</g>
-				<g id="shape132-192" transform="translate(268.144,-317.25)" onclick="window.location('https://docs.microsoft.com/azure/media-services/latest/cli-create-jobs')">
+			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/cli-create-jobs" target="__blank">
+				<g id="shape132-192" transform="translate(268.144,-317.25)">
 					<title>See the documentation for creating a job</title>
 					<desc>Create job and output asset</desc>
 					<path d="M20.25 1044.5 L84.15 1044.5 A20.25 20.25 -180 0 0 84.15 1004 L20.25 1004 A20.25 20.25 -180 1 0 20.25
