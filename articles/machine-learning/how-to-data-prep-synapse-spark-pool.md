@@ -25,7 +25,7 @@ In this article, you learn how to attach and launch an Apache Spark pool powered
 
 ## Azure Machine Learning and Azure Synapse Analytics integration (preview)
 
-The Azure Synapse Analytics integration with Azure Machine Learning (preview) allows you to attach an Apache Spark pool backed by Azure Synapse for interactive data exploration and preparation. With this integration, you can have a dedicated compute for data preparation at scale, all within the same Python notebook you use for training your machine learning models.
+The Azure Synapse Analytics integration with Azure Machine Learning (preview) allows you to attach an Apache Spark pool backed by Azure Synapse for interactive data exploration and preparation. With this integration, you can have a dedicated compute for data wrangling at scale, all within the same Python notebook you use for training your machine learning models.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ The Azure Synapse Analytics integration with Azure Machine Learning (preview) al
 
 * [Create Apache Spark pool using Azure portal, web tools, or Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
-* [Install the Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) which includes the `azureml-synapse` package (preview). 
+* [Install the Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), which includes the `azureml-synapse` package (preview). 
     * You can also install it yourself, but it's only compatible with SDK versions 1.20 or higher. 
         ```python
         pip install azureml-synapse
@@ -61,7 +61,7 @@ linked_service = LinkedService.get(ws, 'synapselink1')
  
 ## Attach Synapse Spark pool as a compute
 
-Once you retrieve the linked service, attach a Synapse Apache Spark pool as a dedicated compute resource for your data preparation tasks. 
+Once you retrieve the linked service, attach a Synapse Apache Spark pool as a dedicated compute resource for your data wrangling tasks. 
 
 You can attach Apache Spark pools via,
 * Azure Machine Learning studio
@@ -141,10 +141,10 @@ env.python.conda_dependencies.add_conda_package("numpy==1.17.0")
 env.register(workspace=ws)
 ```
 
-To begin data preparation with the Apache Spark  Spark pool, specify the Apache Spark pool name and provide your subscription ID, the machine learning workspace resource group, the name of the machine learning workspace, and which environment to use during the Apache Spark session. 
+To begin data preparation with the Apache Spark pool, specify the Apache Spark pool name and provide your subscription ID, the machine learning workspace resource group, the name of the machine learning workspace, and which environment to use during the Apache Spark session. 
 
 > [!IMPORTANT]
-> To continue use of the Apache Spark pool you must indicate which compute resource to use throughout your data preparation tasks with `%synapse` for single lines of code and `%%synapse` for multiple lines. 
+> To continue use of the Apache Spark pool you must indicate which compute resource to use throughout your data wrangling tasks with `%synapse` for single lines of code and `%%synapse` for multiple lines. 
 
 ```python
 %synapse start -c SynapseSparkPoolAlias -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName -e myenv
@@ -234,9 +234,9 @@ dset = Dataset.get_by_name(ws, "blob_dset")
 spark_df = dset.to_spark_dataframe()
 ```
 
-## Perform data preparation tasks
+## Perform data wrangling tasks
 
-After you've retrieved and explored your data, you can perform data preparation tasks.
+After you've retrieved and explored your data, you can perform data wrangling tasks.
 
 The following code, expands upon the HDFS example in the previous section and filters the data in spark dataframe, `df`, based on the **Survivor** column and groups that list by **Age**
 
