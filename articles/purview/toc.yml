@@ -104,8 +104,16 @@ items:
         href: register-scan-azure-synapse-analytics.md
       - name: On-premises SQL server
         href: register-scan-on-premises-sql-server.md
+      - name: Oracle
+        href: register-scan-oracle-source.md
       - name: Power BI tenant - Portal
         href: register-scan-power-bi-tenant.md
+      - name: SAP ECC 
+        href: register-scan-sapecc-source.md
+      - name: SAP S/4HANA 
+        href: register-scan-saps4hana-source.md
+      - name: Teradata 
+        href: register-scan-teradata-source.md
       - name: Amazon S3
         href: register-scan-amazon-s3.md
       # - name: Power BI tenant - PowerShell
@@ -115,9 +123,7 @@ items:
     - name: Create, import, & export glossary terms
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
-      href: how-to-manage-term-templates.md
-    - name: Bulk edit assets to assign glossary terms 
-      href: how-to-bulk-edit-assets.md
+      href: how-to-manage-term-templates.md  
   - name: Bulk edit
     items:
     - name: Bulk edit assets to tag annotations and contacts 
@@ -162,8 +168,14 @@ items:
       href: sensitivity-insights.md
     - name: View file extension insights
       href: file-extension-insights.md
+  - name: Security & Networking
+    items:
+    - name: Manage Private endpoints
+      href: catalog-private-link.md
 - name: Reference
   items:
     - name: Supported classifications
       href: supported-classifications.md
+    - name: ABAP function deployment guide
+      href: abap-functions-deployment-guide.md
 #- name: Resources
