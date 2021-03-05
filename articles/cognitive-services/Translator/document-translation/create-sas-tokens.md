@@ -60,7 +60,7 @@ In this article, you'll learn how to create shared access signature (SAS) tokens
 ## Create SAS tokens for blobs in the Azure portal
 
 > [!NOTE]
-> Creating SAS tokens for containers directly in the Azure portal is currently not supported. However, you can create an SAS token with [**Azure Storage Explorer**](#create-sas-tokens-with-azure-storage-explorer) or complete the task [programmatically](../../../storage/blobs/sas-service-create.md).
+> Creating SAS tokens for containers directly in the Azure portal is currently not supported. However, you can create an SAS token with [**Azure Storage Explorer**](/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures) or complete the task [programmatically](../../../storage/blobs/sas-service-create.md).
 
 <!-- markdownlint-disable MD024 -->
 ### Prerequisites
