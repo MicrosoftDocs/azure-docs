@@ -1,21 +1,18 @@
 ---
-title: "Launch the Immersive Reader with HTML content"
-titleSuffix: Azure Cognitive Services
-description: This article will show you how to launch the Immersive Reader with HTML content.
-author: metanMSFT
-manager: guillasi
-
+author: erhopf
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
-ms.date: 01/14/2020
-ms.author: metang
-ms.custom: devx-track-js
+ms.topic: include
+ms.date: 03/04/2021
+ms.author: erhopf
 ---
 
-# How to launch the Immersive Reader with HTML content
 
-This article demonstrates how to launch the Immersive Reader with HTML content.
+## Prerequisites
+
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up.  You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
 
 ## Prepare the HTML content
 
