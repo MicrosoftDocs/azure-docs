@@ -62,7 +62,7 @@ AIB will support Azure Marketplace base OS images:
 
 The Azure VM Image Builder is a fully managed Azure service that is accessible by an Azure resource provider. Provide a configuration to the service that specifies the source image, customization to perform and where the new image is to be distributed to, the diagram below shows a high level workflow:
 
-<img width="1055" alt="image" src="https://user-images.githubusercontent.com/12171344/110013170-2a552200-7cd6-11eb-85a3-5ae6cb998a00.png">
+![Conceptual drawing of the Azure Image Builder process showing the sources (Windows/Linux), customizations (Shell, PowerShell, Windows Restart & Update, adding files) and global distribution with the Azure Shared Image Gallery](./media/image-builder-overview/image-builder-flow.png)
 
 Template configurations can be passed using PowerShell, Az CLI, ARM templates and using the Azure VM Image Builder DevOps task, when you submit it to the service we will create an Image Template Resource. When the Image Template Resource is created you will see a staging resource group created in your subscription, in the format: IT_\<DestinationResourceGroup>_\<TemplateName>_\(GUID). The staging resource group contains files and scripts referenced in the File, Shell, PowerShell customization in the ScriptURI property.
 
