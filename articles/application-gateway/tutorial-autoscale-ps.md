@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/13/2019
+ms.date: 03/05/2021
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an IT administrator new to Application Gateway, I want to configure the service in a way that automatically scales based on customer demand and is highly available across availability zones to ensure my customers can access their web applications when they need them.
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This tutorial requires that you run Azure PowerShell locally. You must have Azure PowerShell module version 1.0.0 or later installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Connect-AzAccount` to create a connection with Azure.
+This tutorial requires that you run an administrative Azure PowerShell session locally. You must have Azure PowerShell module version 1.0.0 or later installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Connect-AzAccount` to create a connection with Azure.
 
 ## Sign in to Azure
 
@@ -71,16 +71,17 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Use the thumbprint to create the pfx file:
+Use the thumbprint to create the pfx file. Replace *\<password>* with a password of your choice:
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String "<password>" -Force -AsPlainText
 
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
   -Password $pwd
 ```
+
 
 ## Create a virtual network
 
@@ -101,7 +102,7 @@ Specify the allocation method of PublicIPAddress as **Static**. An autoscaling a
 ```azurepowershell
 #Create static public IP
 $pip = New-AzPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP" `
-       -location $location -AllocationMethod Static -Sku Standard
+       -location $location -AllocationMethod Static -Sku Standard -Zone 1,2,3
 ```
 
 ## Retrieve details
@@ -115,15 +116,32 @@ $vnet = Get-AzvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork $vnet
 ```
 
+## Create app services
+
+Two app services will be configured in the backend pool.
+
+1. Select **Create a resource** and type **web app** in the search bar.
+1. Select **Web App**, and then select **Create**.
+1. For **Resource Group**, select **AppGW-rg**.
+1. For **Name**, type a unique name for your web app. It must be a unique name in the `azurewebsites.net` domain.
+1. For **Runtime stack**, select **.NETCore 3.1 (LTS)**
+1. For **Region**, select **East US 2**.
+1. Accept the remaining defaults, and **Review + create**.
+1. Select **Create**.
+
+Repeat this procedure to create a second web app.
+
 ## Configure the infrastructure
 
 Configure the IP config, front-end IP config, back-end pool, HTTP settings, certificate, port, listener, and rule in an identical format to the existing Standard application gateway. The new SKU follows the same object model as the Standard SKU.
+
+Replace your two web app FQDNs (for example: `mywebapp.azurewebsites.net`) in the $pool variable definition.
 
 ```azurepowershell
 $ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
 $fip = New-AzApplicationGatewayFrontendIPConfig -Name "FrontendIPCOnfig" -PublicIPAddress $publicip
 $pool = New-AzApplicationGatewayBackendAddressPool -Name "Pool1" `
-       -BackendIPAddresses testbackend1.westus.cloudapp.azure.com, testbackend2.westus.cloudapp.azure.com
+       -BackendIPAddresses <your first web app FQDN>, <your second web app FQDN>
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "SSLPort" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "HTTPPort" -Port 80
 
@@ -136,7 +154,7 @@ $listener02 = New-AzApplicationGatewayHttpListener -Name "HTTPListener" `
              -Protocol Http -FrontendIPConfiguration $fip -FrontendPort $fp02
 
 $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting1" `
-          -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+          -Port 80 -Protocol Http -CookieBasedAffinity Disabled -PickHostNameFromBackendAddress
 $rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule1" -RuleType basic `
          -BackendHttpSettings $setting -HttpListener $listener01 -BackendAddressPool $pool
 $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleType basic `
@@ -145,20 +163,13 @@ $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleType bas
 
 ## Specify autoscale
 
-Now you can specify the autoscale configuration for the application gateway. Two autoscaling configuration types are supported:
-
-* **Fixed capacity mode**. In this mode, the application gateway does not autoscale and operates at a fixed Scale Unit capacity.
-
-   ```azurepowershell
-   $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
-   ```
-
-* **Autoscaling mode**. In this mode, the application gateway autoscales based on the application traffic pattern.
+Now you can specify the autoscale configuration for the application gateway. 
 
    ```azurepowershell
    $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 2
    $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
    ```
+In this mode, the application gateway autoscales based on the application traffic pattern.
 
 ## Create the application gateway
 
