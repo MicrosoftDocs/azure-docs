@@ -130,7 +130,7 @@ The result of calling `object result = await client.GetDigitalTwinAsync("my-moon
 
 The defined properties of the digital twin are returned as top-level properties on the digital twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix. Metadata properties include:
 * The ID of the digital twin in this Azure Digital Twins instance, as `$dtId`.
-* `$etag`, a standard HTTP field assigned by the web server.
+* `$etag`, a standard HTTP field assigned by the web server. This is updated to a new value every time the twin is updated, which can be useful to determine whether or not the twin's data has been updated on the server since a previous check.
 * Other properties in a `$metadata` section. These include:
     - The DTMI of the model of the digital twin.
     - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see [this IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
