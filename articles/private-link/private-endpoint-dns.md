@@ -2,7 +2,7 @@
 title: Azure Private Endpoint DNS configuration
 description: Learn Azure Private Endpoint DNS configuration
 services: private-link
-author: allensu
+author: asudbring
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
@@ -72,8 +72,8 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
 | Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 | Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.afs.azure.net  |  afs.azure.net  |
-| Azure Data Factory (Microsoft.DataFactory/factories ) / dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
-| Azure Data Factory (Microsoft.DataFactory/factories ) / portal |  privatelink.adf.azure.com  |  adf.azure.com  |
+| Azure Data Factory (Microsoft.DataFactory/factories) / dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
+| Azure Data Factory (Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.com  |  adf.azure.com  |
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
