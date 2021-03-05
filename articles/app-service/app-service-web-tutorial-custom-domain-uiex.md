@@ -99,7 +99,7 @@ To add a custom domain to your app, you need to verify your ownership of the dom
     
 <a name="info"></a>
 
-3. **(A record only)    ** To map an <abbr title="An address record in DNS maps a hostname to an IP address.">A record</abbr>, you need the app's external IP address. In the **Custom domains** page, copy the value of **IP address**.
+3. **(A record only)** To map an <abbr title="An address record in DNS maps a hostname to an IP address.">A record</abbr>, you need the app's external IP address. In the **Custom domains** page, copy the value of **IP address**.
 
    ![Screenshot that shows portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
@@ -171,7 +171,9 @@ To map a subdomain like `www.contoso.com` with an A record instead of a recommen
 | A | `<subdomain>` (for example, `www`) | IP address from [Copy the app's IP address](#info) |
 | TXT | `asuid.<subdomain>` (for example, `asuid.www`) | [The verification ID you got earlier](#3-get-a-domain-verification-id) |
 </details>
-    
+
+.
+
 # [Wildcard (CNAME)](#tab/wildcard)
 
 For a wildcard name like `*` in `*.contoso.com`, create two records according to the following table:
