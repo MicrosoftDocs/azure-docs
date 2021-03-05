@@ -97,7 +97,7 @@ Dependency injection is simplified, compared to .NET class libraries. Rather tha
 
 The following example injects a singleton service dependency:  
  
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_dependency_injection" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker-test/samples/FunctionApp/Program.cs" id="docsnippet_dependency_injection" :::
 
 To learn more, see [Dependency injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
 
@@ -107,7 +107,7 @@ To learn more, see [Dependency injection in ASP.NET Core](/aspnet/core/fundament
 
 While the full middleware registration set of APIs is not yet exposed, middleware registration is supported and we've added an example to the sample application under the Middleware folder.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_middleware" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker-test/samples/FunctionApp/Program.cs" id="docsnippet_middleware" :::
 
 ## Execution context
 
