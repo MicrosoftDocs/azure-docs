@@ -47,10 +47,9 @@
 	<g>
 		<title>Page-1</title>
 		<g id="group1045-1" transform="translate(0.25,-0.25)">
-			<title>Sheet.1045</title>
+			<title>Background</title>
 			<g id="shape201-2">
-				<title>Process.201</title>
-				<rect x="0" y="0.499976" width="684" height="1044" class="st1"/>
+				<rect x="0" y="0" width="700" height="1044" class="st1"/>
 			</g>
 			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/manage-assets-quickstart" target="__blank">
 				<g id="shape129-4" transform="translate(268.144,-720)">
