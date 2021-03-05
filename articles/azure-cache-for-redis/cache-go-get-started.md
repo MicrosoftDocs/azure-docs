@@ -15,6 +15,10 @@ ms.date: 01/08/2021
 
 In this article, you will learn how to build a REST API in Go that will store and retrieve user information backed by a [HASH](https://redis.io/topics/data-types-intro#redis-hashes) data structure in [Azure Cache for Redis](./cache-overview.md). 
 
+## Skip to the code on GitHub
+
+If you want to skip straight to the code, see the [Go quickstart](https://github.com/Azure-Samples/azure-redis-cache-go-quickstart/) on GitHub.
+
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)

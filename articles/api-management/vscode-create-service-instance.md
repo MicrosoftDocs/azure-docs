@@ -13,7 +13,7 @@ ms.date: 09/14/2020
 
 Azure API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM  enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md) topic.
 
-This quickstart describes the steps for creating a new API Management instance using the *Azure API Management Extension Preview* for Visual Studio Code. You can also use the extension to perform common management operations on your API Management instance.
+This quickstart describes the steps for creating a new API Management instance using the *Azure API Management Extension* for Visual Studio Code. You can also use the extension to perform common management operations on your API Management instance.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Additionally, ensure you have installed the following:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Azure API Management Extension for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
+- [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
 
 ## Sign in to Azure
 

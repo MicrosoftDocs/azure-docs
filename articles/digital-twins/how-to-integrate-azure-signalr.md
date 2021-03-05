@@ -52,7 +52,7 @@ First, download the required sample apps. You will need both of the following:
 
     This will download a copy of the sample repo to your machine, as **digital-twins-samples-master.zip**. Unzip the folder.
 * [**SignalR integration web app sample**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): This is a sample React web app that will consume Azure Digital Twins telemetry data from an Azure SignalR Service.
-    -  Navigate to the sample link and hit the *Download ZIP* button to download a copy of the sample to your machine, as _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Unzip the folder.
+    -  Navigate to the sample link and use the same download process to download a copy of the sample to your machine, as _**digitaltwins-signalr-webapp-sample-main.zip**_. Unzip the folder.
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
 
@@ -89,7 +89,7 @@ Next, configure the functions to communicate with your Azure SignalR instance. Y
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Screenshot of the Azure portal that shows the Keys page for the SignalR instance. The 'Copy to clipboard' icon next to the Primary CONNECTION STRING is highlighted." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-1. Finally, add your Azure SignalR **connection string** to the function's app settings, using the following Azure CLI command. Also, replace the placeholders with your resource group and app service/function app name from the [tutorial prerequisite](how-to-integrate-azure-signalr.md#prerequisites). The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
+1. Finally, add your Azure SignalR **connection string** to the function's app settings, using the following Azure CLI command. Also, replace the placeholders with your resource group and app service/function app name from the [tutorial prerequisite](how-to-integrate-azure-signalr.md#prerequisites). The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli):
  
     ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
@@ -140,7 +140,7 @@ Next, you'll configure the sample client web app. Start by gathering the **HTTP 
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure portal view of the 'negotiate' function. The 'Get function URL' button is highlighted, and the portion of the URL from the beginning through '/api'":::
 
-1. Using Visual Studio or any code editor of your choice, open the unzipped _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ folder that you downloaded in the [*Download the sample applications*](#download-the-sample-applications) section.
+1. Using Visual Studio or any code editor of your choice, open the unzipped _**digitaltwins-signalr-webapp-sample-main**_ folder that you downloaded in the [*Download the sample applications*](#download-the-sample-applications) section.
 
 1. Open the *src/App.js* file, and replace the function URL in `HubConnectionBuilder` with the HTTP endpoint URL of the **negotiate** function that you saved in the previous step:
 
@@ -149,7 +149,7 @@ Next, you'll configure the sample client web app. Start by gathering the **HTTP 
             .withUrl('<Function URL>')
             .build();
     ```
-1. In Visual Studio's *Developer command prompt* or any command window on your machine, navigate to the *Azure_Digital_Twins_SignalR_integration_web_app_sample\src* folder. Run the following command to install the dependent node packages:
+1. In Visual Studio's *Developer command prompt* or any command window on your machine, navigate to the *digitaltwins-signalr-webapp-sample-main\src* folder. Run the following command to install the dependent node packages:
 
     ```cmd
     npm install
@@ -176,7 +176,7 @@ You don't need to do anything else in this console, but leave it running while y
 
 ### See the results
 
-To see the results in action, start the **SignalR integration web app sample**. You can do this from any console window at the *Azure_Digital_Twins_SignalR_integration_web_app_sample\src* location, by running this command:
+To see the results in action, start the **SignalR integration web app sample**. You can do this from any console window at the *digitaltwins-signalr-webapp-sample-main\src* location, by running this command:
 
 ```cmd
 npm start
@@ -190,7 +190,7 @@ This will open a browser window running the sample app, which displays a visual 
 
 If you no longer need the resources created in this article, follow these steps to delete them. 
 
-Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) command. Removing the resource group will also remove...
+Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group#az-group-delete) command. Removing the resource group will also remove...
 * the Azure Digital Twins instance (from the end-to-end tutorial)
 * the IoT hub and the hub device registration  (from the end-to-end tutorial)
 * the event grid topic and associated subscriptions
@@ -204,7 +204,7 @@ Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resourc
 az group delete --name <your-resource-group>
 ```
 
-Finally, delete the project sample folders that you downloaded to your local machine (*digital-twins-samples-master.zip* and *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
+Finally, delete the project sample folders that you downloaded to your local machine (*digital-twins-samples-master.zip*, *digitaltwins-signalr-webapp-sample-main.zip*, and their unzipped counterparts).
 
 ## Next steps
 

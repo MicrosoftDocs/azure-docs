@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: IoT Device and Application Development Documentation
-summary: Explore the Azure IoT documentation for developing embedded devices and building device-enabled cloud applications. 
+title: IoT Device Development Documentation
+summary: Explore the Azure IoT documentation for developing cloud-connected embedded devices and device applications. 
 
 metadata:
-  title: IoT device and application development
-  description: Learn how to use Azure IoT to do embedded device development and build device-enabled cloud applications.
+  title: IoT device development
+  description: Learn how to use Azure IoT for developing cloud-connected embedded devices and device applications. 
   services: iot-develop
   ms.service: iot-develop
   ms.topic: landing-page
@@ -14,11 +14,11 @@ metadata:
   ms.date: 01/11/2021
 
 landingContent:
-  - title: About IoT device and application development
+  - title: About IoT device development
     linkLists:
     - linkListType: overview
       links:
-        - text: What is Azure IoT device and application development?
+        - text: What is Azure IoT device development?
           url: about-iot-develop.md
         - text: Which SDK should I use? 
           url: about-iot-sdks.md
