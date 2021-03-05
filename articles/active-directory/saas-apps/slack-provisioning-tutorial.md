@@ -31,7 +31,7 @@ The objective of this tutorial is to show you the steps you need to perform in S
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * A Slack tenant with the [Plus plan](https://aadsyncfabric.slack.com/pricing) or better enabled.
 * A user account in Slack with Team Admin permissions.
 

@@ -32,13 +32,13 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 6. Provide the **Endpoint URL** for the API call.
 7. Provide the authentication information for the API.
 
-   - Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, simply enter a 'dummy' **Username** and **Password** that your API can ignore. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** (for example, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
+   - Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, simply enter a 'dummy' **Username** and **Password** that your API can ignore. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** (for example, `https://contoso.azurewebsites.net/api/endpoint?code=0123456789`).
 
    ![Configure a new API connector](./media/add-api-connector/api-connector-config.png)
 8. Select **Save**.
 
 ## The request sent to your API
-An API connector materializes as an **HTTP POST** request, sending user attributes ('claims') as key-value pairs in a JSON body. Attributes are serialized similarly to [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) user properties. 
+An API connector materializes as an **HTTP POST** request, sending user attributes ('claims') as key-value pairs in a JSON body. Attributes are serialized similarly to [Microsoft Graph](/graph/api/resources/user#properties) user properties. 
 
 **Example request**
 ```http
@@ -79,7 +79,7 @@ Additionally, the **UI Locales ('ui_locales')** claim is sent by default in all 
 > If a claim does not have a value at the time the API endpoint is called, the claim will not be sent to the API. Your API should be designed to explicitly check and handle the case in which a claim is not in the request.
 
 > [!TIP] 
-> [**identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity) and the **Email Address ('email')** claims can be used by your API to identify a user before they have an account in your tenant. 
+> [**identities ('identities')**](/graph/api/resources/objectidentity) and the **Email Address ('email')** claims can be used by your API to identify a user before they have an account in your tenant. 
 
 ## Enable the API connector in a user flow
 
@@ -213,7 +213,7 @@ A blocking response exits the user flow. It can be purposely issued by the API t
 See an example of a [blocking response](#example-of-a-blocking-response).
 
 ### Validation-error response
- When the API responds with a validation-error response , the user flow stays on the attribute collection page and a `userMessage` is displayed to the user. The user can then edit and resubmit the form. This type of response can be used for input validation.
+ When the API responds with a validation-error response, the user flow stays on the attribute collection page and a `userMessage` is displayed to the user. The user can then edit and resubmit the form. This type of response can be used for input validation.
 
 See an example of a [validation-error response](#example-of-a-validation-error-response).
 

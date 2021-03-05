@@ -4,7 +4,7 @@ description: Covers how to enable native client apps to communicate with Azure A
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -26,7 +26,7 @@ To support native client applications, Application Proxy accepts Azure AD-issued
 
 ![Relationship between end users, Azure AD, and published applications](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-To publish native applications, use the Microsoft Authentication Library, which takes care of authentication and supports many client environments. Application Proxy fits into the [Desktop app that calls a web API on behalf of a signed-in user](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user) scenario.
+To publish native applications, use the Microsoft Authentication Library, which takes care of authentication and supports many client environments. Application Proxy fits into the [Desktop app that calls a web API on behalf of a signed-in user](../develop/authentication-flows-app-scenarios.md#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user) scenario.
 
 This article walks you through the four steps to publish a native application with Application Proxy and the Azure AD Authentication Library.
 
@@ -63,7 +63,7 @@ Now that you've registered your native application, you can give it access to ot
 1. In the sidebar of the new application registration page, select **API permissions**. The **API permissions** page for the new application registration appears.
 1. Select **Add a permission**. The **Request API permissions** page appears.
 1. Under the **Select an API** setting, select **APIs my organization uses**. A list appears, containing the applications in your directory that expose APIs.
-1. Type in the search box or scroll to find the proxy application that you published in [Step 1: Publish your proxy application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-native-client-application#step-1-publish-your-proxy-application), and then select the proxy application.
+1. Type in the search box or scroll to find the proxy application that you published in [Step 1: Publish your proxy application](#step-1-publish-your-proxy-application), and then select the proxy application.
 1. In the **What type of permissions does your application require?** heading, select the permission type. If your native application needs to access the proxy application API as the signed-in user, choose **Delegated permissions**.
 1. In the **Select permissions** heading, select the desired permission, and select **Add permissions**. The **API permissions** page for your native application now shows the proxy application and permission API that you added.
 

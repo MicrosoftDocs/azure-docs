@@ -1,21 +1,20 @@
 ---
 title: Troubleshoot roles that fail to start | Microsoft Docs
 description: Here are some common reasons why a Cloud Service role may fail to start. Solutions to these problems are also provided.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Troubleshoot Cloud Service roles that fail to start
+
+# Troubleshoot Azure Cloud Service (classic) roles that fail to start
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 Here are some common problems and solutions related to Azure Cloud Services roles that fail to start.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -76,7 +75,7 @@ For example:
 ![Explicit Server Error in '/' Application](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
 ## Diagnose issues by using the compute emulator
-You can use the Microsoft Azure compute emulator to diagnose and troubleshoot issues of missing dependencies and web.config errors.
+You can use the Microsoft Azure Compute Emulator to diagnose and troubleshoot issues of missing dependencies and web.config errors.
 
 For best results in using this method of diagnosis, you should use a computer or virtual machine that has a clean installation of Windows. To best simulate the Azure environment, use Windows Server 2008 R2 x64.
 

@@ -25,12 +25,16 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **IDE**: Visual Studio, VS Code, or command line.
 
 > [!NOTE]
-> ASP.NET Core 3.X requires [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) or later.
+> ASP.NET Core 3.1 requires [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) or later.
 
 ## Prerequisites
 
 - A functioning ASP.NET Core application. If you need to create an ASP.NET Core application, follow this [ASP.NET Core tutorial](/aspnet/core/getting-started/).
 - A valid Application Insights instrumentation key. This key is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get an instrumentation key, see [Create an Application Insights resource](./create-new-resource.md).
+
+> [!IMPORTANT]
+> New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./sdk-connection-string.md?tabs=net) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+
 
 ## Enable Application Insights server-side telemetry (Visual Studio)
 
@@ -61,7 +65,7 @@ For Visual Studio for Mac use the [manual guidance](#enable-application-insights
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.13.1" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.16.0" />
         </ItemGroup>
     ```
 
@@ -138,7 +142,7 @@ Dependency collection is enabled by default. [This](asp-net-dependencies.md#auto
 
 ### Performance counters
 
-Support for [performance counters](./web-monitor-performance.md) in ASP.NET Core is limited:
+Support for [performance counters](./performance-counters.md) in ASP.NET Core is limited:
 
 * SDK versions 2.4.1 and later collect performance counters if the application is running in Azure Web Apps (Windows).
 * SDK versions 2.7.1 and later collect performance counters if the application is running in Windows and targets `NETSTANDARD2.0` or later.
@@ -224,7 +228,7 @@ See the [configurable settings in `ApplicationInsightsServiceOptions`](https://g
 
 ### Configuration Recommendation for Microsoft.ApplicationInsights.AspNetCore SDK 2.15.0 & above
 
-Starting from Microsoft.ApplicationInsights.AspNetCore SDK version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) the recommendation is to configure every setting available in `ApplicationInsightsServiceOptions`, including instrumentationkey using applications `IConfiguration` instance. The settings must be under the section "ApplicationInsights", as shown in the below example. The following section from appsettings.json configures instrumentation key, and also disable adaptive sampling and performance counter collection.
+Starting from Microsoft.ApplicationInsights.AspNetCore SDK version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0), the recommendation is to configure every setting available in `ApplicationInsightsServiceOptions`, including instrumentationkey using applications `IConfiguration` instance. The settings must be under the section "ApplicationInsights", as shown in the following example. The following section from appsettings.json configures instrumentation key, and also disable adaptive sampling and performance counter collection.
 
 ```json
 {
@@ -257,6 +261,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+> [!NOTE]
+> `services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` works for simple initializers. For others, the following is required: `services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });`
+    
 ### Removing TelemetryInitializers
 
 Telemetry initializers are present by default. To remove all or specific telemetry initializers, use the following sample code *after* you call `AddApplicationInsightsTelemetry()`.

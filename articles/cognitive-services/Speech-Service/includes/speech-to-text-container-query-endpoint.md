@@ -24,7 +24,7 @@ Change from using this Azure-cloud initialization call:
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-To using this call with the container [host](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet&preserve-view=true):
+To using this call with the container [host](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost):
 
 ```csharp
 var config = SpeechConfig.FromHost(
@@ -40,7 +40,7 @@ speech_config = speechsdk.SpeechConfig(
     subscription=speech_key, region=service_region)
 ```
 
-To using this call with the container [endpoint](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python&preserve-view=true):
+To using this call with the container [endpoint](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig):
 
 ```python
 speech_config = speechsdk.SpeechConfig(

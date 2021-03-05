@@ -110,5 +110,5 @@ ms.author: alkohli
    
 9. Go to the next step: [Configure garbage collection](#configure-garbage-collection).
 
-[6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
-[7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
+[6]: /SharePoint/administration/migrate-content-into-or-out-of-rbs
+[7]: /previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)

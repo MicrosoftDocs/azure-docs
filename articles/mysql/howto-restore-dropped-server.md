@@ -40,15 +40,15 @@ To restore a dropped Azure Database for MySQL server, you need following:
  6. Scroll below on Request Body section and paste the following replacing the "Dropped server Location", "submissionTimestamp", and "resourceId". For "restorePointInTime", specify a value of "submissionTimestamp" minus **15 minutes** to ensure the command does not error out.
  
     ```json
-        {
-          "location": "Dropped Server Location",  
-          "properties": 
-	          {
-    		      "restorePointInTime": "submissionTimestamp - 15 minutes",
-    		      "createMode": "PointInTimeRestore",
-    		      "sourceServerId": "resourceId"
-  	        }
-        }
+    {
+        "location": "Dropped Server Location",  
+        "properties": 
+            {
+                "restorePointInTime": "submissionTimestamp - 15 minutes",
+                "createMode": "PointInTimeRestore",
+                "sourceServerId": "resourceId"
+            }
+    }
     ```
 
 7. If you see Response Code 201 or 202, the restore request is successfully submitted. 

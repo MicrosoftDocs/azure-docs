@@ -10,6 +10,11 @@ ms.topic: conceptual
 
 # Containerize an existing .NET app for Service Fabric Mesh
 
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 This article shows you how to add Service Fabric Mesh container orchestration support to an existing .NET app.
 
 In Visual Studio 2017, you can add containerization support to ASP.NET and Console projects that use the full .NET framework.
@@ -50,7 +55,7 @@ Choose **Service Fabric Mesh** from the drop-down, and then click **OK**.
 
 
 >[!NOTE]
-> Effective November 2, 2020, [download rate limits apply](https://docs.docker.com/docker-hub/download-rate-limit/) to anonymous and authenticated requests to Docker Hub from Docker Free plan accounts and are enforced by IP address. For more details, see [Authenticate with Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+> Effective November 2, 2020, [download rate limits apply](https://docs.docker.com/docker-hub/download-rate-limit/) to anonymous and authenticated requests to Docker Hub from Docker Free plan accounts and are enforced by IP address. For more details, see [Authenticate with Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
 >
 > To avoid being rate limited, make sure the default `FROM microsoft/aspnet:4.7.2-windowsservercore-1803 AS base` in your Dockerfile is replaced with `FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-1803 AS base`
 

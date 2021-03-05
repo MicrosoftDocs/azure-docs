@@ -35,14 +35,17 @@ The motivation behind backing up App Configuration stores is to use multiple con
 
 In this tutorial, you'll create a secondary store in the `centralus` region and all other resources in the `westus` region.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-- Azure subscription. [Create one for free](https://azure.microsoft.com/free/). 
+## Prerequisites 
+
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the Azure development workload.
-- [.NET Core SDK](https://dotnet.microsoft.com/download).
-- Latest version of the Azure CLI (2.3.1 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you're using the Azure CLI, you must first sign in by using `az login`. You can optionally use Azure Cloud Shell.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- [.NET Core SDK](https://dotnet.microsoft.com/download).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- This tutorial requires version 2.3.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -172,7 +175,7 @@ az functionapp identity assign --name $functionAppName --resource-group $resourc
 ```
 
 > [!NOTE]
-> To perform the required resource creation and role management, your account needs `Owner` permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, learn [how to add or remove Azure role assignments by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+> To perform the required resource creation and role management, your account needs `Owner` permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, learn [how to assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 Use the following commands or the [Azure portal](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) to grant the managed identity of your function app access to your App Configuration stores. Use these roles:
 - Assign the `App Configuration Data Reader` role in the primary App Configuration store.

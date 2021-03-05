@@ -11,7 +11,7 @@ ms.author: vkukke
 This article describes how to use the following security features with Azure Event Grid: 
 
 - Service tags for egress
-- IP Firewall rules for ingress (preview)
+- IP Firewall rules for ingress
 - Private endpoints for ingress
 
 
@@ -40,7 +40,7 @@ You can use [private endpoints](../private-link/private-endpoint-overview.md) to
 Using private endpoints for your Event Grid resource enables you to:
 
 - Secure access to your topic or domain from a VNet over Microsoft backbone network as opposed to the public internet.
-- Securely connect from on-premises networks that connect to the VNet using VPN or ExpressRoutes with private-peering.
+- Securely connect from on-premises networks that connect to the VNet using VPN or Express Routes with private-peering.
 
 When you create a private endpoint for a topic or domain in your VNet, a consent request is sent for approval to the resource owner. If the user requesting the creation of the private endpoint is also an owner of the resource, this consent request is automatically approved. Otherwise, the connection is in **pending** state until approved. Applications in the VNet can connect to the Event Grid service over the private endpoint seamlessly, using the same connection strings and authorization mechanisms that they would use otherwise. Resource owners can manage consent requests and the private endpoints, through the **Private endpoints** tab for the resource in the Azure portal.
 

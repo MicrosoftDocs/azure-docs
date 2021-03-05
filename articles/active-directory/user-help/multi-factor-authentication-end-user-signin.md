@@ -19,7 +19,7 @@ ms.custom: "end-user, seo-update-azuread-jan"
 # Sign in to your work or school account using your two-factor verification method
 
 > [!NOTE]
-> The purpose of this article is to walk through a typical sign-in experience. For help with signing in, or to troubleshoot problems, see [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+> The purpose of this article is to walk through a typical sign-in experience. For help with signing in, or to troubleshoot problems, see [Having trouble with Azure AD Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 ## What will your sign-in experience be?
 Your sign-in experience differs depending on what you choose to use as your second factor: a phone call, an authentication app, or texts. Choose the option that best describes what you are doing:
@@ -79,7 +79,7 @@ Sometimes you don't have the phone or device that you set up as your preferred v
    ![Use alternate method](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## Next steps
-- If you have problems signing in with two-step verification, get more information at [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+- If you have problems signing in with two-step verification, get more information at [Having trouble with Azure AD Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 - Learn how to [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md).
 

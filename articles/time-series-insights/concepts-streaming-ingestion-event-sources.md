@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 01/19/2021
 ---
 
 # Azure Time Series Insights Gen2 Event Sources
@@ -22,7 +22,7 @@ Events must be sent as UTF-8 encoded JSON.
 
 ## Create or edit event sources
 
-Your event source resource(s) can live in the same Azure subscription as your Azure Time Series Insights Gen2 environment or a different subscription.You can use the [Azure portal](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM Templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md), and the [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) to create, edit, or remove your environment's event sources.
+Your event source resource(s) can live in the same Azure subscription as your Azure Time Series Insights Gen2 environment or a different subscription.You can use the [Azure portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM Templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md), and the [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) to create, edit, or remove your environment's event sources.
 
 When you connect an event source, your Azure Time Series Insights Gen2 environment will read all of the events currently stored in your Iot or Event Hub, starting with the oldest event.
 
@@ -40,13 +40,25 @@ When you connect an event source, your Azure Time Series Insights Gen2 environme
 
 - Do not go beyond your environment's [throughput rate limit](./concepts-streaming-ingress-throughput-limits.md) or per partition limit.
 
-- Configure a lag [alert](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data.
+- Configure a lag [alert](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data. See [Production workloads](./concepts-streaming-ingestion-event-sources.md#production-workloads) below for suggested alert conditions.
 
 - Use streaming ingestion for near real-time and recent data only, streaming historical data is not supported.
 
 - Understand how properties will be escaped and JSON [data flattened and stored.](./concepts-json-flattening-escaping-rules.md)
 
 - Follow the principle of least privilege when providing event source connection strings. For Event Hubs, configure a shared access policy with the *send* claim only, and for IoT Hub use the *service connect* permission only.
+
+## Production workloads
+
+In addition to the best practices above, we recommend that you implement the following for business critical workloads.
+
+- Increase your IoT Hub or Event Hub data retention time to the maximum of 7 days.
+
+- Create environment alerts in the Azure portal. Alerts based on platform [metrics](./how-to-monitor-tsi-reference.md#metrics) allow you to validate end-to-end pipeline behavior. The instructions for creating and managing alerts are [here](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts). Suggested alert conditions:
+
+  - IngressReceivedMessagesTimeLag is greater than 5 minutes
+  - IngressReceivedBytes is 0
+- Keep your ingestion load balanced between your IoT Hub or Event Hub partitions.
 
 ### Historical Data Ingestion
 
@@ -59,7 +71,7 @@ Using the streaming pipeline to import historical data is not currently supporte
 
 ## Event source timestamp
 
-When configuring an event source you'll be asked to provide a timestamp ID property. The timestamp property is used to track events over time, this is the time that will be used as the $event.$ts in the [Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) and for plotting series in the Azure Time Series Insights Explorer. If no property is provided at creation time, or if the timestamp property is missing from an event, then the event's IoT Hub or Events Hubs enqueued time will be used as the default. Timestamp property values are stored in UTC.
+When configuring an event source you'll be asked to provide a timestamp ID property. The timestamp property is used to track events over time, this is the time that will be used as the $event.$ts in the [Query APIs](/rest/api/time-series-insights/dataaccessgen2/query/execute) and for plotting series in the Azure Time Series Insights Explorer. If no property is provided at creation time, or if the timestamp property is missing from an event, then the event's IoT Hub or Events Hubs enqueued time will be used as the default. Timestamp property values are stored in UTC.
 
 In general, users will opt to customize the timestamp property and use the time when the sensor or tag generated the reading rather than using the default hub enqueued time. This is particularly necessary when devices have intermittent connectivity loss and a batch of delayed messages are forwarded to Azure Time Series Insights Gen2.
 

@@ -13,7 +13,7 @@ ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv, marsma
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to understand about the Microsoft identity platform so I can decide which endpoint and platform best meets my needs.
+ROBOTS: NOINDEX
 ---
 
 # Evolution of Microsoft identity platform

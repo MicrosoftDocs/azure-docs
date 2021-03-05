@@ -16,13 +16,15 @@ Azure Backup creates recovery points that are stored in geo-redundant recovery v
 > * Connect a recovery point to a VM
 > * Restore files from a recovery point
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.0.18 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
 ## Prerequisites
 
 This tutorial requires a Linux VM that has been protected with Azure Backup. To simulate an accidental file deletion and recovery process, you delete a page from a web server. If you need a Linux VM that runs a webserver and has been protected with Azure Backup, see [Back up a virtual machine in Azure with the CLI](quick-backup-vm-cli.md).
+
+Prepare your environment:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- This article requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Backup overview
 
@@ -114,7 +116,7 @@ To restore your files, Azure Backup provides a script to run on your VM that con
 With the recovery script copied to your VM, you can now connect the recovery point and restore files.
 
 >[!NOTE]
-> Check [here](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script) to see if you can run the script on your VM before continuing.
+> Check [here](backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) to see if you can run the script on your VM before continuing.
 
 1. Connect to your VM with SSH. Replace *publicIpAddress* with the public IP address of your VM as follows:
 

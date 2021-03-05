@@ -20,13 +20,7 @@ ms.author: yelevin
 ---
 # Connect your F5 BIG-IP appliance 
 
-> [!IMPORTANT]
-> The F5 BIG-IP data connector in Azure Sentinel is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 The F5 BIG-IP connector allows you to easily connect all your F5 BIG-IP logs with Azure Sentinel, to view workbooks, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities. Integration between F5 BIG-IP and Azure Sentinel makes use of REST API.
-
 
 > [!NOTE]
 > Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
@@ -44,7 +38,7 @@ F5 BIG-IP can integrate and export logs directly to Azure Sentinel.
 
 ## Validate connectivity
 
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
+It may take up to 20 minutes until your logs start to appear in Log Analytics. 
 
 
 

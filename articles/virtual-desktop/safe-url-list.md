@@ -1,16 +1,19 @@
 ---
-title: Windows Virtual Desktop safe URL list - Azure
-description: A list of URLs you should unblock to ensure your Windows Virtual Desktop deployment works as intended.
+title: Windows Virtual Desktop required URL list - Azure
+description: A list of URLs you must unblock to ensure your Windows Virtual Desktop deployment works as intended.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
 ---
 
-# Safe URL list
+# Required URL list
 
-You'll need to unblock certain URLs so your Windows Virtual Desktop deployment works properly. This article lists these URLs so you know which ones are safe.
+In order to deploy and use Windows Virtual Desktop, you must unblock certain URLs so your virtual machines (VMs) can access them anytime. This article lists the required URLs you need to unblock in order for Windows Virtual Desktop to function properly. 
+
+>[!IMPORTANT]
+>Windows Virtual Desktop doesn't support deployments that block the URLs listed in this article.
 
 ## Virtual machines
 
@@ -24,12 +27,13 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |*xt.blob.core.windows.net|443|Agent traffic|AzureCloud|
 |*eh.servicebus.windows.net|443|Agent traffic|AzureCloud|
 |*xt.table.core.windows.net|443|Agent traffic|AzureCloud|
+|*xt.queue.core.windows.net|443|Agent traffic|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows activation|Internet|
 |mrsglobalsteus2prod.blob.core.windows.net|443|Agent and SXS stack updates|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Azure portal support|AzureCloud|
 | 169.254.169.254 | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
-| 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/security-overview.md#azure-platform-considerations) | N/A |
+| 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
 
 >[!IMPORTANT]
 >Windows Virtual Desktop now supports the FQDN tag. For more information, see [Use Azure Firewall to protect Window Virtual Desktop deployments](../firewall/protect-windows-virtual-desktop.md).
@@ -48,10 +52,10 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |*.servicebus.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |*xt.table.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |Kms.core.usgovcloudapi.net|1688|Windows activation|Internet|
-|mrsglobalstugviffx.core.usgovcloudapi.net|443|Agent and SXS stack updates|AzureCloud|
+|mrsglobalstugviffx.blob.core.usgovcloudapi.net|443|Agent and SXS stack updates|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Azure portal support|AzureCloud|
 | 169.254.169.254 | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
-| 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/security-overview.md#azure-platform-considerations) | N/A |
+| 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
 
 The following table lists optional URLs that your Azure virtual machines can have access to:
 
@@ -64,9 +68,13 @@ The following table lists optional URLs that your Azure virtual machines can hav
 |login.windows.net|443|Sign in to Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
 |*.sfx.ms|443|Updates for OneDrive client software|oneclient.sfx.ms|
 |*.digicert.com|443|Certificate revocation check|None|
+|*.azure-dns.com|443|Azure DNS resolution|None|
+|*.azure-dns.net|443|Azure DNS resolution|None|
 
 >[!NOTE]
 >Windows Virtual Desktop currently doesn't have a list of IP address ranges that you can unblock to allow network traffic. We only support unblocking specific URLs at this time.
+>
+>If you're using a Next Generation Firewall (NGFW), you'll need to use a dynamic list specifically made for Azure IPs to make sure you can connect.
 >
 >For a list of safe Office-related URLs, including required Azure Active Directory-related URLs, see [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges).
 >

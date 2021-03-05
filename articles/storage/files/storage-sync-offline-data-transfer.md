@@ -20,7 +20,7 @@ This article explains how to migrate files offline in a way that's compatible wi
 ## Migration tools
 The process we describe in this article works not only for Data Box but also for other offline migration tools. It also works for tools such as AzCopy, Robocopy, or partner tools and services that work straight over the internet. However to overcome the initial upload challenge, follow the steps in this article to use these tools in a way that's compatible with Azure File Sync.
 
-In some cases, you need to move from one Windows Server to another Windows Server before adopting Azure File Sync. [Storage Migration Service](https://aka.ms/storagemigrationservice) (SMS) can help with that. Whether you need to migrate to a Server OS version that is supported by Azure File Sync (Windows Server 2012R2 and up) or you simply need to migrate because you are buying a new system for Azure File Sync, SMS has numerous features and advantages that will help get your migration done smoothly.
+In some cases, you need to move from one Windows Server to another Windows Server before adopting Azure File Sync. [Storage Migration Service](/windows-server/storage/storage-migration-service/overview) (SMS) can help with that. Whether you need to migrate to a Server OS version that is supported by Azure File Sync (Windows Server 2012R2 and up) or you simply need to migrate because you are buying a new system for Azure File Sync, SMS has numerous features and advantages that will help get your migration done smoothly.
 
 ## Benefits of using a tool to transfer data offline
 Here are the main benefits of using a transfer tool like Data Box for offline migration:

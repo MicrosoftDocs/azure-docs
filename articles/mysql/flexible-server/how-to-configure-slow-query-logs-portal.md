@@ -1,8 +1,8 @@
 ---
 title: Configure slow query logs - Azure portal - Azure Database for MySQL - Flexible Server
 description: This article describes how to configure and access the slow query logs in Azure Database for MySQL Flexible Server from the Azure portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020

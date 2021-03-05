@@ -1,7 +1,7 @@
 ---
-title: Plan your Azure Communication Services telephony and SMS solution
+title: Phone number types in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Learn how to effectively plan your use of phone numbers and telephony.
+description: Learn how to effectively use different types of phone numbers for SMS and telephony.
 author: prakulka
 manager: nmurav
 services: azure-communication-services
@@ -12,18 +12,16 @@ ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
 ---
-# Plan your telephony and SMS solution
+# Phone number types in Azure Communication Services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
+> [!IMPORTANT]
+> Phone number availability is currently restricted to Azure subscriptions that have a billing address in the United States. For more information, visit the [subscription eligibility](#azure-subscriptions-eligibility) section of this document.
 
 Azure Communication Services allows you to use phone numbers to make voice calls and send SMS messages with the public-switched telephone network (PSTN). In this document, we'll review the phone number types, configuration options, and region availability for planning your telephony and SMS solution using Communication Services.
 
-[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
-
-
-## Phone number types in Azure Communication Services
- 
+## Number types and features
 Communication Services offers two types of phone numbers: **local** and **toll-free**. 
 
 ### Local numbers
@@ -46,7 +44,9 @@ The table below summarizes these phone number types:
 | Toll-Free         | +1 (toll-free area *code*) XXX XX XX | US                      | Calling (Outbound), SMS (Inbound/Outbound)| Assigning phone numbers to Interactive Voice Response (IVR) systems/Bots, SMS applications                                        |
 
 
-## Phone number features in Azure Communication Services 
+### Phone number features in Azure Communication Services 
+
+[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 For most phone numbers, we allow you to configure an "a la carte" set of features. These features can be selected as you lease your telephone numbers within Azure Communication Services.
 
@@ -84,5 +84,6 @@ Currently, phone number availability is restricted to Azure subscriptions that h
 ### Conceptual documentation
 
 - [Voice and video concepts](../voice-video-calling/about-call-types.md)
+- [Telephony concepts](./telephony-concept.md)
 - [Call Flows](../call-flows.md)
 - [Pricing](../pricing.md)

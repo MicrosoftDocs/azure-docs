@@ -9,11 +9,11 @@ ms.author: msmbaldwin
 
 ---
 
-The simplest way to authenticate a cloud-based application is with a managed identity; see [Authenticate to Key Vault](/azure/key-vault/general/authentication) for details.
+The simplest way to authenticate a cloud-based application is with a managed identity; see [Authenticate to Key Vault](../articles/key-vault/general/authentication.md) for details.
 
 For the sake of simplicity however, this quickstart creates a desktop application, which requires the use of a service principal and an access control policy. Your service principal requires a unique name in the format "http://&lt;my-unique-service-principal-name&gt;".
 
-Create a service principal using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
+Create a service principal using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command:
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment -n "http://<my-unique-service-principal-name>" --sdk-auth

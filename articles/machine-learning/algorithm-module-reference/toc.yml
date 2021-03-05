@@ -27,9 +27,7 @@
   - name: Convert to Dataset
     href: convert-to-dataset.md
   - name: Convert to Indicator Values
-    href: convert-to-indicator-values.md  
-  - name: Clean Missing Data
-    href: clean-missing-data.md
+    href: convert-to-indicator-values.md
   - name: Edit Metadata
     href: edit-metadata.md
   - name: Group Data into Bins
@@ -92,6 +90,8 @@
       href: multiclass-neural-network.md
     - name: One vs. All Multiclass
       href: one-vs-all-multiclass.md
+    - name: One vs. One Multiclass
+      href: one-vs-one-multiclass.md
     - name: Two-Class Averaged Perceptron
       href: two-class-averaged-perceptron.md
     - name: Two-Class Boosted Decision Tree

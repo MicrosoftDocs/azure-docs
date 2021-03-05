@@ -16,9 +16,9 @@ ms.author: alkohli
  
 This document provides an overview of options for on-premises data transfer to Azure, comparing: Data Box Edge vs. Azure File Sync vs. StorSimple 8000 series.
 
-- **[Data Box Edge](/azure/databox-online/data-box-edge-overview)** – Data Box Edge is an on-premises network device that moves data into and out of Azure and has AI-enabled Edge compute to pre-process data during upload. Data Box Gateway is a virtual version of the device with the same data transfer capabilities.
-- **[Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)** – Azure File Sync can be used to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. General availability of Azure File Sync was announced earlier in 2018.
-- **[StorSimple](/azure/storsimple/storsimple-overview)** – StorSimple is a hybrid device that helps enterprises consolidate their storage infrastructure for primary storage, data protection, archiving, and disaster recovery on a single solution by tightly integrating with Azure storage. The product lifecycle for StorSimple can be found [here](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
+- **[Data Box Edge](../databox-online/azure-stack-edge-overview.md)** – Data Box Edge is an on-premises network device that moves data into and out of Azure and has AI-enabled Edge compute to pre-process data during upload. Data Box Gateway is a virtual version of the device with the same data transfer capabilities.
+- **[Azure File Sync](../storage/files/storage-sync-files-deployment-guide.md)** – Azure File Sync can be used to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. General availability of Azure File Sync was announced earlier in 2018.
+- **[StorSimple](./storsimple-overview.md)** – StorSimple is a hybrid device that helps enterprises consolidate their storage infrastructure for primary storage, data protection, archiving, and disaster recovery on a single solution by tightly integrating with Azure storage. The product lifecycle for StorSimple can be found [here](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
 
 ## Comparison summary
 
@@ -35,5 +35,5 @@ This document provides an overview of options for on-premises data transfer to A
 
 ## Next steps
 
-- Learn about [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview) and [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview)
-- Learn about [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)
+- Learn about [Azure Data Box Edge](../databox-online/azure-stack-edge-overview.md) and [Azure Data Box Gateway](../databox-gateway/data-box-gateway-overview.md)
+- Learn about [Azure File Sync](../storage/files/storage-sync-files-deployment-guide.md)

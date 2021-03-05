@@ -5,14 +5,10 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 11/05/2020
+ ms.date: 02/05/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
-
-### <a name="regions"></a>Which regions are available?
-
-[!INCLUDE [Azure Bastion region availability](bastion-regions-include.md)]
 
 ### <a name="publicip"></a>Do I need a public IP on my virtual machine to connect via Azure Bastion?
 
@@ -84,7 +80,7 @@ A session should be initiated only from the Azure portal. Sign in to the Azure p
 
 ### <a name="udr"></a>How do I handle deployment failures?
 
-Review any error messages and [raise a support request in the Azure portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) as needed. Deployment failures may result from [Azure subscription limits, quotas, and constraints](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers may encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
+Review any error messages and [raise a support request in the Azure portal](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) as needed. Deployment failures may result from [Azure subscription limits, quotas, and constraints](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers may encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
 
 ### <a name="dr"></a>How do I incorporate Azure Bastion in my Disaster Recovery plan?
 

@@ -33,7 +33,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Node.js using GitHub actions
-            url: /azure/devops-project/devops-starter-gh-nodejs
+            url: ./devops-starter-gh-nodejs.md
           - text: .NET
             url: ./azure-devops-project-aspnet-core.md
           - text: Node.js

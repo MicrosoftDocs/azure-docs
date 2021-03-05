@@ -26,7 +26,7 @@ Before you get started, make sure to:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription.
+1. Replace the string `YourServiceRegion` with the **Region identifier** from [region](../../../../regions.md) associated with your subscription.
 
 1. Replace the string `whatstheweatherlike.wav` with your own filename.
 

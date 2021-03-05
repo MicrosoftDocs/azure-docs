@@ -104,36 +104,36 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click the **person icon** in the top right corner of any page in Way We Do, then click **Account** in the dropdown menu.
 
-	![Way We Do account](./media/waywedo-tutorial/tutorial_waywedo_account.png)
+    ![Way We Do account](./media/waywedo-tutorial/tutorial_waywedo_account.png)
 
 1. Click the **menu icon** to open the push navigation menu and Click **Single Sign On**.
 
-	![Way We Do single](./media/waywedo-tutorial/tutorial_waywedo_single.png)
+    ![Way We Do single](./media/waywedo-tutorial/tutorial_waywedo_single.png)
 
 1. On the **Single sign-on setup** page, perform the following steps:
 
-	![Way We Do save](./media/waywedo-tutorial/tutorial_waywedo_save.png)
+    ![Way We Do save](./media/waywedo-tutorial/tutorial_waywedo_save.png)
 
-	a. Click the **Turn on single sign-on** toggle to **Yes** to enable Single Sign-On.
+    1. Click the **Turn on single sign-on** toggle to **Yes** to enable Single Sign-On.
 
-	b. In the **Single sign-on name** textbox, enter your name.
+	1. In the **Single sign-on name** textbox, enter your name.
 
-	c. In the **Entity ID** textbox, paste the value of **Azure AD Identifier**, which you have copied from the Azure portal.
+	1. In the **Entity ID** textbox, paste the value of **Azure AD Identifier**, which you have copied from the Azure portal.
 
-	d. In the **SAML SSO URL** textbox, paste the value of **Login URL**, which you have copied from the Azure portal.
+	1. In the **SAML SSO URL** textbox, paste the value of **Login URL**, which you have copied from the Azure portal.
 
-	e. Upload the certificate by clicking the **select** button next to **Certificate**.
+	1. Upload the certificate by clicking the **select** button next to **Certificate**.
 
-	f. **Optional Settings** -
-	
-	* Enable Passwords - When this option is disabled, the regular password functions for Way We Do so that users can only use single sign-on.
+	1. **Optional Settings** -
 
-	* Enable Auto-provisioning - When this is enabled, the email address used to sign-on will be automatically compared to the list of users in Way We Do. If the email address does not match an active user in Way We Do, it automatically adds a new user account for the person signing in, requesting any missing information.
+	    * Enable Passwords - When this option is disabled, the regular password functions for Way We Do so that users can only use single sign-on.
 
-	  > [!NOTE]
-	  > Users added through single sign-on are added as general users and are not assigned a role in the system. An Administrator is able to go in and modify their security role as an editor or administrator and can also assign one or several Org Chart roles.
+        * Enable Auto-provisioning - When this is enabled, the email address used to sign-on will be automatically compared to the list of users in Way We Do. If the email address does not match an active user in Way We Do, it automatically adds a new user account for the person signing in, requesting any missing information.
 
-	g. Click **Save** to persist your settings.
+          > [!NOTE]
+          > Users added through single sign-on are added as general users and are not assigned a role in the system. An Administrator is able to go in and modify their security role as an editor or administrator and can also assign one or several Org Chart roles.
+
+    1. Click **Save** to persist your settings.
 
 ### Create an Azure AD test user
 

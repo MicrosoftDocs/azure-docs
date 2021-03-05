@@ -21,7 +21,7 @@ Working with the trigger and bindings requires that you reference the appropriat
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs
 [core tools]: ../articles/azure-functions/functions-run-local.md
 [extension bundle]: ../articles/azure-functions/functions-bindings-register.md#extension-bundles
-[Update your extensions]: ../articles/azure-functions/install-update-binding-extensions-manual.md
+[Update your extensions]: ../articles/azure-functions/functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### Functions 1.x

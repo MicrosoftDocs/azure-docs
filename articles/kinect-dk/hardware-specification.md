@@ -81,7 +81,7 @@ Azure Kinect DK includes an OV12A10 12MP CMOS sensor rolling shutter sensor. The
 |       4096x3072                          |          4:3           |          MJPEG             |          0, 5, 15           |          90°x74.3°                            |
 |       2048x1536                          |          4:3           |          MJPEG             |          0, 5, 15, 30       |          90°x74.3°                            |
 
-The RGB camera is USB Video class-compatible and can be used without the Sensor SDK. The RGB camera color space: BT.601 full range [0..255]. 
+The RGB camera is USB Video class-compatible and can be used without the Sensor SDK. The RGB camera color space: BT.601 full range [0..255]. The MJPEG [chroma sub-sampling](https://en.wikipedia.org/wiki/Chroma_subsampling) is 4:2:2.
 
 > [!NOTE]
 > The Sensor SDK can provide color images in the BGRA pixel format. This is not a native mode supported by the device and causes additional CPU load when used. The host CPU is used to convert from MJPEG images received from the device.

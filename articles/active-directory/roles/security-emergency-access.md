@@ -1,11 +1,10 @@
 ---
-
-title: Manage emergency access admin accounts - Azure AD | Microsoft Docs
+title: Manage emergency access admin accounts - Azure AD 
 description: This article describes how to use emergency access accounts to help prevent being inadvertently locked out of your Azure Active Directory (Azure AD) organization. 
 services: active-directory 
 author: markwahl-msft
 manager: daveba
-ms.author: curtand
+ms.author: rolyon
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
@@ -29,7 +28,7 @@ This article provides guidelines for managing emergency access accounts in Azure
 An organization might need to use an emergency access account in the following situations:
 
 - The user accounts are federated, and federation is currently unavailable because of a cell-network break or an identity-provider outage. For example, if the identity provider host in your environment has gone down, users might be unable to sign in when Azure AD redirects to their identity provider.
-- The administrators are registered through Azure Multi-Factor Authentication, and all their individual devices are unavailable or the service is unavailable. Users might be unable to complete Multi-Factor Authentication to activate a role. For example, a cell network outage is preventing them from answering phone calls or receiving text messages, the only two authentication mechanisms that they registered for their device.
+- The administrators are registered through Azure AD Multi-Factor Authentication, and all their individual devices are unavailable or the service is unavailable. Users might be unable to complete Multi-Factor Authentication to activate a role. For example, a cell network outage is preventing them from answering phone calls or receiving text messages, the only two authentication mechanisms that they registered for their device.
 - The person with the most recent Global Administrator access has left the organization. Azure AD prevents the last Global Administrator account from being deleted, but it does not prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
 - Unforeseen circumstances such as a natural disaster emergency, during which a mobile phone or other networks might be unavailable. 
 
@@ -40,7 +39,7 @@ Create two or more emergency access accounts. These accounts should be cloud-onl
 When configuring these accounts, the following requirements must be met:
 
 - The emergency access accounts should not be associated with any individual user in the organization. Make sure that your accounts are not connected with any employee-supplied mobile phones, hardware tokens that travel with individual employees, or other employee-specific credentials. This precaution covers instances where an individual employee is unreachable when the credential is needed. It is important to ensure that any registered devices are kept in a known, secure location that has multiple means of communicating with Azure AD.
-- The authentication mechanism used for an emergency access account should be distinct from that used by your other administrative accounts, including other emergency access accounts.  For example, if your normal administrator sign-in is via on-premises MFA, then Azure MFA would be a different mechanism.  However if Azure MFA is your primary part of authentication for your administrative accounts, then consider a different approach for these, such as using Conditional Access with a third-party MFA provider via Custom controls.
+- The authentication mechanism used for an emergency access account should be distinct from that used by your other administrative accounts, including other emergency access accounts.  For example, if your normal administrator sign-in is via on-premises MFA, then Azure AD MFA would be a different mechanism.  However if Azure AD MFA is your primary part of authentication for your administrative accounts, then consider a different approach for these, such as using Conditional Access with a third-party MFA provider via Custom controls.
 - The device or credential must not expire or be in scope of automated cleanup due to lack of use.  
 - You should make the Global Administrator role assignment permanent for your emergency access accounts. 
 
@@ -56,7 +55,7 @@ During an emergency, you do not want a policy to potentially block your access t
 
 ## Federation guidance
 
-An additional option for organizations that use AD Domain Services and ADFS or similar identity provider to federate to Azure AD, is to configure an emergency access account whose MFA claim could be supplied by that identity provider.  For example, the emergency access account could be backed by a certificate and key pair such as one stored on a smartcard.  When that user is authenticated to AD, ADFS can supply a claim to Azure AD indicating that the user has met MFA requirements.  Even with this approach, organizations must still have cloud-based emergency access accounts in case federation cannot be established. 
+Some organizations use AD Domain Services and ADFS or similar identity provider to federate to Azure AD. [There should be no on-premises accounts with administrative privileges](../fundamentals/protect-m365-from-on-premises-attacks.md). Mastering and or sourcing authentication for  accounts with administrative privilege outside Azure AD adds unnecessary risk in the event of an outage or compromise of those system(s).
 
 ## Store account credentials safely
 

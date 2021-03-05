@@ -106,6 +106,10 @@ The name of the custom configuration must be consistent everywhere. The name of 
 the content package, the configuration name in the MOF file, and the guest assignment name in the
 Azure Resource Manager template (ARM template), must be the same.
 
+PowerShell cmdlets assist in creating the package.
+No root level folder or version folder is required.
+The package format must be a .zip file. and cannot exceed a total size of 100MB when uncompressed.
+
 ### Custom Guest Configuration configuration on Linux
 
 Guest Configuration on Linux uses the `ChefInSpecResource` resource to provide the engine with the
@@ -234,11 +238,21 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-The next step is to publish the file to Azure Blob Storage.  The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
+The next step is to publish the file to Azure Blob Storage. The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
 module.
 
+Parameters of the `Publish-GuestConfigurationPackage` cmdlet:
+
+- **Path**: Location of the package to be published
+- **ResourceGroupName**: Name of the resource group where the storage account is located
+- **StorageAccountName**: Name of the storage account where the package should be published
+- **StorageContainerName**: (default: *guestconfiguration*) Name of the storage container in the storage account
+- **Force**: Overwrite existing package in the storage account with the same name
+
+The example below publishes the package to a storage container name 'guestconfiguration'.
+
 ```azurepowershell-interactive
-Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
+Publish-GuestConfigurationPackage -Path ./AuditFilePathExists/AuditFilePathExists.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
 ```
 
 Once a Guest Configuration custom policy package has been created and uploaded, create the Guest
@@ -331,6 +345,28 @@ describe file(attr_path) do
 end
 ```
 
+Add the property **AttributesYmlContent** in your configuration with any string as the value.
+The Guest Configuration agent automatically creates the YAML file
+used by InSpec to store attributes. See the example below.
+
+```powershell
+Configuration AuditFilePathExists
+{
+    Import-DscResource -ModuleName 'GuestConfiguration'
+
+    Node AuditFilePathExists
+    {
+        ChefInSpecResource 'Audit Linux path exists'
+        {
+            Name = 'linux-path'
+            AttributesYmlContent = "fromParameter"
+        }
+    }
+}
+```
+
+Recompile the MOF file using the examples given in this document.
+
 The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a
 parameter named **Parameter**. This parameter takes a hashtable including all details about each
 parameter and automatically creates all the required sections of the files used to create each Azure
@@ -344,53 +380,45 @@ $PolicyParameterInfo = @(
     @{
         Name = 'FilePath'                             # Policy parameter name (mandatory)
         DisplayName = 'File path.'                    # Policy parameter display name (mandatory)
-        Description = "File path to be audited."      # Policy parameter description (optional)
-        ResourceType = "ChefInSpecResource"           # Configuration resource type (mandatory)
+        Description = 'File path to be audited.'      # Policy parameter description (optional)
+        ResourceType = 'ChefInSpecResource'           # Configuration resource type (mandatory)
         ResourceId = 'Audit Linux path exists'        # Configuration resource property name (mandatory)
-        ResourcePropertyName = "AttributesYmlContent" # Configuration resource property name (mandatory)
+        ResourcePropertyName = 'AttributesYmlContent' # Configuration resource property name (mandatory)
         DefaultValue = '/tmp'                         # Policy parameter default value (optional)
     }
 )
 
 # The hashtable also supports a property named 'AllowedValues' with an array of strings to limit input to a list
 
-New-GuestConfigurationPolicy
-    -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
+$uri = 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D'
+
+New-GuestConfigurationPolicy -ContentUri $uri `
     -DisplayName 'Audit Linux file path.' `
     -Description 'Audit that a file path exists on a Linux machine.' `
     -Path './policies' `
     -Parameter $PolicyParameterInfo `
+    -Platform 'Linux' `
     -Version 1.0.0
 ```
 
-For Linux policies, include the property **AttributesYmlContent** in your configuration and
-overwrite the values as needed. The Guest Configuration agent automatically creates the YAML file
-used by InSpec to store attributes. See the example below.
-
-```powershell
-Configuration AuditFilePathExists
-{
-    Import-DscResource -ModuleName 'GuestConfiguration'
-
-    Node AuditFilePathExists
-    {
-        ChefInSpecResource 'Audit Linux path exists'
-        {
-            Name = 'linux-path'
-            AttributesYmlContent = "path: /tmp"
-        }
-    }
-}
-```
 
 ## Policy lifecycle
 
-To release an update to the policy definition, there are three fields that require attention.
+If you would like to release an update to the policy, make the change for both the Guest Configuration
+package and the Azure Policy definition details.
 
 > [!NOTE]
 > The `version` property of the Guest Configuration assignment only effects packages that
 > are hosted by Microsoft. The best practice for versioning custom content is to include
 > the version in the file name.
+
+First, when running `New-GuestConfigurationPackage`, specify a name for the package that makes it
+unique from previous versions. You can include a version number in the name such as `PackageName_1.0.0`.
+The number in this example is only used to make the package unique, not to specify that the package
+should be considered newer or older than other packages.
+
+Second, update the parameters used with the `New-GuestConfigurationPolicy` cmdlet following each of
+the explanations below.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
   number greater than what is currently published.
@@ -473,16 +501,6 @@ value `enabled` to all virtual machines where code signing should be required. S
 Azure Policy. Once this tag is in place, the policy definition generated using the
 `New-GuestConfigurationPolicy` cmdlet enables the requirement through the Guest Configuration
 extension.
-
-## Troubleshooting Guest Configuration policy assignments (Preview)
-
-A tool is available in preview to assist in troubleshooting Azure Policy Guest Configuration
-assignments. The tool is in preview and has been published to the PowerShell Gallery as module name
-[Guest Configuration Troubleshooter](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
-
-For more information about the cmdlets in this tool, use the Get-Help command in PowerShell to show
-the built-in guidance. As the tool is getting frequent updates, that is the best way to get most
-recent information.
 
 ## Next steps
 

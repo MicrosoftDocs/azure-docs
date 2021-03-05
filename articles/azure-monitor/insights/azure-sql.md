@@ -2,7 +2,6 @@
 title: Azure SQL Analytics solution in Azure Monitor | Microsoft Docs
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
 
-ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
@@ -30,11 +29,11 @@ Azure SQL Analytics is a cloud only monitoring solution supporting streaming of 
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Diagnostics settings](../platform/diagnostic-settings.md) | **Yes** | Azure metric and log data are sent to Azure Monitor Logs directly by Azure. |
-| [Azure storage account](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Monitor doesn't read the data from a storage account. |
-| [Windows agents](../platform/agent-windows.md) | No | Direct Windows agents aren't used by Azure SQL Analytics. |
-| [Linux agents](../learn/quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by Azure SQL Analytics. |
-| [System Center Operations Manager management group](../platform/om-agents.md) | No | A direct connection from the Operations Manager agent to Azure Monitor is not used by Azure SQL Analytics. |
+| [Diagnostics settings](../essentials/diagnostic-settings.md) | **Yes** | Azure metric and log data are sent to Azure Monitor Logs directly by Azure. |
+| [Azure storage account](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Monitor doesn't read the data from a storage account. |
+| [Windows agents](../agents/agent-windows.md) | No | Direct Windows agents aren't used by Azure SQL Analytics. |
+| [Linux agents](../vm/quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by Azure SQL Analytics. |
+| [System Center Operations Manager management group](../agents/om-agents.md) | No | A direct connection from the Operations Manager agent to Azure Monitor is not used by Azure SQL Analytics. |
 
 ## Azure SQL Analytics options
 
@@ -167,13 +166,13 @@ Once the new role is created, assign this role to each user that you need to gra
 
 ## Analyze data and create alerts
 
-Data analysis in Azure SQL Analytics is based on [Log Analytics language](../log-query/get-started-queries.md) for your custom querying and reporting. Find description of the available data collected from database resource for custom querying in [metrics and logs available](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available).
+Data analysis in Azure SQL Analytics is based on [Log Analytics language](../logs/get-started-queries.md) for your custom querying and reporting. Find description of the available data collected from database resource for custom querying in [metrics and logs available](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available).
 
 Automated alerting in Azure SQL Analytics is based on writing a Log Analytics query that triggers an alert upon a condition met. Find below several examples on Log Analytics queries upon which alerting can be set up in Azure SQL Analytics.
 
 ### Creating alerts for Azure SQL Database
 
-You can easily [create alerts](../platform/alerts-metric.md) with the data coming from Azure SQL Database resources. Here are some useful [log queries](../log-query/log-query-overview.md) that you can use with a log alert:
+You can easily [create alerts](../alerts/alerts-metric.md) with the data coming from Azure SQL Database resources. Here are some useful [log queries](../logs/log-query-overview.md) that you can use with a log alert:
 
 #### High CPU
 
@@ -294,7 +293,7 @@ While Azure SQL Analytics is free to use, consumption of diagnostics telemetry a
 
 ## Next steps
 
-- Use [log queries](../log-query/log-query-overview.md) in Azure Monitor to view detailed Azure SQL data.
-- [Create your own dashboards](../learn/tutorial-logs-dashboards.md) showing Azure SQL data.
-- [Create alerts](../platform/alerts-overview.md) when specific Azure SQL events occur.
+- Use [log queries](../logs/log-query-overview.md) in Azure Monitor to view detailed Azure SQL data.
+- [Create your own dashboards](../visualize/tutorial-logs-dashboards.md) showing Azure SQL data.
+- [Create alerts](../alerts/alerts-overview.md) when specific Azure SQL events occur.
 

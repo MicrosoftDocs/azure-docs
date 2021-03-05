@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: vin-yu
 ms.author: vinsonyu
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 02/11/2021
 ms.topic: how-to
 ---
 
@@ -29,7 +29,7 @@ To create a SQL managed instance, you need to create a Kubernetes secret to stor
 
 ## Create a yaml file
 
-You can use the [template yaml](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/sqlmi.yaml) file as a starting point to create your own custom SQL managed instance yaml file.  Download this file to your local computer and open it in a text editor.  It is useful to use a text editor such as [VS Code](https://code.visualstudio.com/download) that support syntax highlighting and linting for yaml files.
+You can use the [template yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/sqlmi.yaml) file as a starting point to create your own custom SQL managed instance yaml file.  Download this file to your local computer and open it in a text editor.  It is useful to use a text editor such as [VS Code](https://code.visualstudio.com/download) that support syntax highlighting and linting for yaml files.
 
 This is an example yaml file:
 
@@ -40,13 +40,13 @@ data:
   username: <your base64 encoded user name. 'sa' is not allowed>
 kind: Secret
 metadata:
-  name: example-login-secret
+  name: sql1-login-secret
 type: Opaque
 ---
 apiVersion: sql.arcdata.microsoft.com/v1alpha1
 kind: sqlmanagedinstance
 metadata:
-  name: example
+  name: sql1
 spec:
   limits:
     memory: 4Gi
@@ -57,13 +57,7 @@ spec:
   service:
     type: LoadBalancer
   storage:
-    backups:
-      className: default
-      size: 5Gi
     data:
-      className: default
-      size: 5Gi
-    datalogs:
       className: default
       size: 5Gi
     logs:
@@ -94,15 +88,15 @@ PowerShell
 Linux/macOS
 
 ```console
-echo '<your string to encode here>' | base64
+echo -n '<your string to encode here>' | base64
 
 #Example
-# echo 'example' | base64
+# echo -n 'example' | base64
 ```
 
 ### Customizing the name
 
-The template has a value of 'example' for the name attribute.  You can change this but it must be characters that follow the DNS naming standards.  You must also change the name of the secret to match.  For example, if you change the name of the SQL managed instance to 'sql1', you must change the name of the secret from 'example-login-secret' to 'sql1-login-secret'
+The template has a value of 'sql1' for the name attribute.  You can change this but it must be characters that follow the DNS naming standards.  You must also change the name of the secret to match.  For example, if you change the name of the SQL managed instance to 'sql2', you must change the name of the secret from 'sql1-login-secret' to 'sql2-login-secret'
 
 ### Customizing the resource requirements
 

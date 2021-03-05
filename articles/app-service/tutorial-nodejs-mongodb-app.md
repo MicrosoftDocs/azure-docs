@@ -43,11 +43,12 @@ What you'll learn:
 
 To complete this tutorial:
 
-1. [Install Git](https://git-scm.com/)
-2. [Install Node.js and NPM](https://nodejs.org/)
-3. [Install Bower](https://bower.io/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-4. [Install Gulp.js](https://gulpjs.com/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-5. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
+- [Install Git](https://git-scm.com/)
+- [Install Node.js and NPM](https://nodejs.org/)
+- [Install Bower](https://bower.io/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+- [Install Gulp.js](https://gulpjs.com/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+- [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)] 
 
 ## Test local MongoDB
 
@@ -113,8 +114,6 @@ Select **Admin > Manage Articles** to add some articles.
 
 To stop Node.js at any time, press `Ctrl+C` in the terminal. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## Create production MongoDB
 
 In this step, you create a MongoDB database in Azure. When your app is deployed to Azure, it uses this cloud database.
@@ -131,7 +130,7 @@ For MongoDB, this tutorial uses [Azure Cosmos DB](/azure/documentdb/). Cosmos DB
 > There is a cost to creating the Azure Cosmos DB databases in this tutorial in your own Azure subscription. To use a free Azure Cosmos DB account for seven days, you can use the [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) experience. Just click the **Create** button in the MongoDB tile to create a free MongoDB database on Azure. Once the database is created, navigate to **Connection String** in the portal and retrieve your Azure Cosmos DB connection string for use later in the tutorial.
 >
 
-In the Cloud Shell, create a Cosmos DB account with the [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) command.
+In the Cloud Shell, create a Cosmos DB account with the [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create) command.
 
 In the following command, substitute a unique Cosmos DB name for the *\<cosmosdb-name>* placeholder. This name is used as the part of the Cosmos DB endpoint, `https://<cosmosdb-name>.documents.azure.com/`, so the name needs to be unique across all Cosmos DB accounts in Azure. The name must contain only lowercase letters, numbers, and the hyphen (-) character, and must be between 3 and 50 characters long.
 
@@ -165,7 +164,7 @@ In this step, you connect your MEAN.js sample application to the Cosmos DB datab
 
 ### Retrieve the database key
 
-To connect to the Cosmos DB database, you need the database key. In the Cloud Shell, use the [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) command to retrieve the primary key.
+To connect to the Cosmos DB database, you need the database key. In the Cloud Shell, use the [`az cosmosdb list-keys`](/cli/azure/cosmosdb#az-cosmosdb-list-keys) command to retrieve the primary key.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup
@@ -282,7 +281,7 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 By default, the MEAN.js project keeps _config/env/local-production.js_ out of the Git repository. So for your Azure app, you use app settings to define your MongoDB connection string.
 
-To set app settings, use the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. 
+To set app settings, use the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command in the Cloud Shell. 
 
 The following example configures a `MONGODB_URI` app setting in your Azure app. Replace the *\<app-name>*, *\<cosmosdb-name>*, and *\<primary-master-key>* placeholders.
 
@@ -311,7 +310,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (5/5), done.
 Writing objects: 100% (5/5), 489 bytes | 0 bytes/s, done.
 Total 5 (delta 3), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '6c7c716eee'.
 remote: Running custom deployment command...
@@ -322,7 +321,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      main -> main
 </pre>
 
 You may notice that the deployment process runs [Gulp](https://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable it: 
@@ -473,7 +472,7 @@ In the local terminal window, commit your changes in Git, then push the code cha
 
 ```bash
 git commit -am "added article comment"
-git push azure master
+git push azure main
 ```
 
 Once the `git push` is complete, navigate to your Azure app and try out the new functionality.
@@ -488,7 +487,7 @@ If you added any articles earlier, you still can see them. Existing data in your
 
 While your Node.js application runs in Azure App Service, you can get the console logs piped to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
-To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) command in the Cloud Shell.
+To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log#az-webapp-log-tail) command in the Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app-name> --resource-group myResourceGroup

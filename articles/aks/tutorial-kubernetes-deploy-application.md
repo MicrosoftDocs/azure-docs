@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial  - Deploy an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy a multi-container application to your cluster using a custom image stored in Azure Container Registry.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 
 ms.custom: mvc
 
@@ -19,7 +19,7 @@ Kubernetes provides a distributed platform for containerized applications. You b
 > * Run an application in Kubernetes
 > * Test the application
 
-In additional tutorials, this application is scaled out and updated.
+In later tutorials, this application is scaled out and updated.
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
@@ -47,7 +47,7 @@ The sample manifest file from the git repo cloned in the first tutorial uses the
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Replace *microsoft* with your ACR login server name. The image name is found on line 51 of the manifest file. The following example shows the default image name:
+Replace *microsoft* with your ACR login server name. The image name is found on line 60 of the manifest file. The following example shows the default image name:
 
 ```yaml
 containers:
@@ -75,7 +75,7 @@ kubectl apply -f azure-vote-all-in-one-redis.yaml
 
 The following example output shows the resources successfully created in the AKS cluster:
 
-```
+```console
 $ kubectl apply -f azure-vote-all-in-one-redis.yaml
 
 deployment "azure-vote-back" created
@@ -96,19 +96,19 @@ kubectl get service azure-vote-front --watch
 
 Initially the *EXTERNAL-IP* for the *azure-vote-front* service is shown as *pending*:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
 ```
 
 When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
 ```
 
 To see the application in action, open a web browser to the external IP address of your service:
 
-![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
+:::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote.png" alt-text="Screenshot showing the container image Azure Voting App running in an AKS cluster opened in a local web browser" lightbox="./media/container-service-kubernetes-tutorials/azure-vote.png":::
 
 If the application didn't load, it might be due to an authorization problem with your image registry. To view the status of your containers, use the `kubectl get pods` command. If the container images can't be pulled, see [Authenticate with Azure Container Registry from Azure Kubernetes Service](cluster-container-registry-integration.md).
 

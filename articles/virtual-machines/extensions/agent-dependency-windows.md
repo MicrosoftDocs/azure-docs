@@ -7,9 +7,9 @@ author: mgoedtel
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
-
 ms.assetid: 
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -23,7 +23,7 @@ The Azure Monitor for VMs Map feature gets its data from the Microsoft Dependenc
 
 ## Operating system
 
-The Azure VM Dependency agent extension for Windows can be run against the supported operating systems listed in the [Supported operating systems](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) section of the Azure Monitor for VMs deployment article.
+The Azure VM Dependency agent extension for Windows can be run against the supported operating systems listed in the [Supported operating systems](../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) section of the Azure Monitor for VMs deployment article.
 
 ## Extension schema
 

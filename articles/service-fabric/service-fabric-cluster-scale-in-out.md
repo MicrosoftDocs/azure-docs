@@ -49,7 +49,6 @@ Follow these instructions [to set up auto-scale for each virtual machine scale s
 > [!NOTE]
 > In a scale in scenario, unless your node type has a [durability level][durability] of Gold or Silver you need to call the [Remove-ServiceFabricNodeState cmdlet](/powershell/module/servicefabric/remove-servicefabricnodestate) with the appropriate node name. For the Bronze durability, it’s not recommended to scale in more than one node at a time.
 > 
-> 
 
 ## Manually add VMs to a node type/virtual machine scale set
 
@@ -92,6 +91,9 @@ For a stateful service, you need a certain number of nodes to be always up to ma
 ### Remove the Service Fabric node
 
 The steps for manually removing node state apply only to node types with a *Bronze* durability tier.  For *Silver* and *Gold* durability tier, these steps are done automatically by the platform. For more information about durability, see [Service Fabric cluster capacity planning][durability].
+
+>[!NOTE]
+> Maintain a minimum count of five nodes for any virtual machine scale set that has durability level of Gold or Silver enabled. Your cluster will enter error state if you scale in below this threshold, and you'll need to manually clean up the removed nodes.
 
 To keep the nodes of the cluster evenly distributed across upgrade and fault domains, and hence enable their even utilization, the most recently created node should be removed first. In other words, the nodes should be removed in the reverse order of their creation. The most recently created node is the one with the greatest `virtual machine scale set InstanceId` property value. The code examples below return the most recently created node.
 
@@ -234,6 +236,9 @@ In order to make sure that a node is removed when a VM is removed, you have two 
 
 1. Choose a durability level of Gold or Silver for the node types in your cluster, which gives you the infrastructure integration. Which will then automatically remove the nodes from our system services (FM) state when you scale in.
 Refer to [the details on durability levels here](service-fabric-cluster-capacity.md)
+
+> [!NOTE]
+> Maintain a minimum count of five nodes for any virtual machine scale set that has durability level of Gold or Silver enabled. Your cluster will enter error state if you scale in below this threshold, and you'll need to manually clean up the removed nodes.
 
 2. Once the VM instance has been scaled in, you need to call the [Remove-ServiceFabricNodeState cmdlet](/powershell/module/servicefabric/remove-servicefabricnodestate).
 

@@ -9,7 +9,7 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 01/09/2020
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
 ---
@@ -24,6 +24,10 @@ This article shows examples of the following tasks:
 * Cancel or fail runs.
 * Create child runs.
 * Tag and find runs.
+
+> [!TIP]
+> If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
+> If you're looking for information on monitoring models deployed as web services or IoT Edge modules, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
 
 ## Prerequisites
 
@@ -41,7 +45,7 @@ You'll need the following items:
     print(azureml.core.VERSION)
     ```
 
-* The [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* The [Azure CLI](/cli/azure/) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
 ## Monitor run performance
 
@@ -87,7 +91,7 @@ You'll need the following items:
     
         This command creates a `.azureml` subdirectory that contains example runconfig and conda environment files. It also contains a `config.json` file that is used to communicate with your Azure Machine Learning workspace.
     
-        For more information, see [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
+        For more information, see [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder#ext-azure-cli-ml-az-ml-folder-attach).
     
     2. To start the run, use the following command. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you are looking at your file system) against the -c parameter.
     
@@ -102,18 +106,12 @@ You'll need the following items:
         >
         > For more example runconfig files, see [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/).
     
-        For more information, see [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
-    
+        For more information, see [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-submit-script).
+
     # [Studio](#tab/azure-studio)
-    
-    To start a submit a pipeline run in the designer, use the following steps:
-    
-    1. Set a default compute target for your pipeline.
-    
-    1. Select **Run** at the top of the pipeline canvas.
-    
-    1. Select an Experiment to group your pipeline runs.
-    
+
+    For an example of training a model in the Azure Machine Learning designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).
+
     ---
 
 * Monitor the status of a run
@@ -159,7 +157,7 @@ You'll need the following items:
     
         This command returns a JSON document that lists information about runs for this experiment.
     
-        For more information, see [az ml experiment list](/cli/azure/ext/azure-cli-ml/ml/experiment?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+        For more information, see [az ml experiment list](/cli/azure/ext/azure-cli-ml/ml/experiment#ext-azure-cli-ml-az-ml-experiment-list).
     
     * To view information on a specific run, use the following command. Replace `runid` with the ID of the run:
     
@@ -169,157 +167,34 @@ You'll need the following items:
     
         This command returns a JSON document that lists information about the run.
     
-        For more information, see [az ml run show](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
+        For more information, see [az ml run show](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-show).
     
     
     # [Studio](#tab/azure-studio)
     
-    To view the number of active runs for your experiment in the studio.
+    To view your runs in the studio: 
     
-    1. Navigate to the **Experiments** section.
+    1. Navigate to the **Experiments** tab.
     
-    1. Select an experiment.
+    1. Select either **All experiments** to view all the runs in an experiment or select **All runs** to view all the runs submitted in the Workspace.
     
-        In the experiment page, you can see the number of active compute targets and the duration for each run. 
+        In the **All runs'** page, you can filter the runs list by tags, experiments, compute target and more to better organize and scope your work.  
     
-    1. Make customizations to the Experiment by selecting runs to compare, adding charts or applying filters. These changes can be saved as a **Custom View** so you can easily return to your work. Users with workspace permissions can edit or view the custom view. Also, share the custom view with others by copying and pasting the URL in the browser.  
+    1. Make customizations to the page by selecting runs to compare, adding charts or applying filters. These changes can be saved as a **Custom View** so you can easily return to your work. Users with workspace permissions can edit or view the custom view. Also, share the custom view with team members for enhanced collaboration by selecting **Share view**.   
     
         :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="Screenshot: create a custom view":::
     
-    1. Select a specific run number.
-    
-    1. In the **Logs** tab, you can find diagnostic and error logs for your pipeline run.
+    1. To view the run logs, select a specific run and in the **Outputs + logs** tab, you can find diagnostic and error logs for your run.
     
     ---
-    
-## Cancel or fail runs
 
-If you notice a mistake or if your run is taking too long to finish, you can cancel the run.
+## Run description 
 
-# [Python](#tab/python)
+A run description can be added to a run to provide more context and information to the run. You can also search on these descriptions from the runs list and add the run description as a column in the runs list. 
 
-To cancel a run using the SDK, use the [`cancel()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecancel--) method:
+Navigate to the **Run Details** page for your run and select the edit or pencil icon to add, edit or delete descriptions for your run. To persist the changes to the runs list, save the changes to your existing Custom View or a new Custom View. Markdown format is supported for run descriptions which allows images to be embedded and deep linking as shown below.
 
-```python
-src = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
-local_run = exp.submit(src)
-print(local_run.get_status())
-
-local_run.cancel()
-print(local_run.get_status())
-```
-
-If your run finishes, but it contains an error (for example, the incorrect training script was used), you can use the [`fail()`](/python/api/azureml-core/azureml.core.run%28class%29#fail-error-details-none--error-code-none---set-status-true-) method to mark it as failed.
-
-```python
-local_run = exp.submit(src)
-local_run.fail()
-print(local_run.get_status())
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To cancel a run using the CLI, use the following command. Replace `runid` with the ID of the run
-
-```azurecli-interactive
-az ml run cancel -r runid -w workspace_name -e experiment_name
-```
-
-For more information, see [az ml run cancel](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
-
-# [Studio](#tab/azure-studio)
-
-To cancel a run in the studio, using the following steps:
-
-1. Go to the running pipeline in either the **Experiments** or **Pipelines** section. 
-
-1. Select the pipeline run number you want to cancel.
-
-1. In the toolbar, select **Cancel**
-
----
-
-## Create child runs
-
-Create child runs to group together related runs, such as for different hyperparameter-tuning iterations.
-
-> [!NOTE]
-> Child runs can only be created using the SDK.
-
-This code example uses the `hello_with_children.py` script to create a batch of five child runs from within a submitted run by using the [`child_run()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truechild-run-name-none--run-id-none--outputs-none-) method:
-
-```python
-!more hello_with_children.py
-src = ScriptRunConfig(source_directory='.', script='hello_with_children.py')
-
-local_run = exp.submit(src)
-local_run.wait_for_completion(show_output=True)
-print(local_run.get_status())
-
-with exp.start_logging() as parent_run:
-    for c,count in enumerate(range(5)):
-        with parent_run.child_run() as child:
-            child.log(name="Hello from child run", value=c)
-```
-
-> [!NOTE]
-> As they move out of scope, child runs are automatically marked as completed.
-
-To create many child runs efficiently, use the [`create_children()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-children-count-none--tag-key-none--tag-values-none-) method. Because each creation results in a network call, 
-creating a batch of runs is more efficient than creating them one by one.
-
-### Submit child runs
-
-Child runs can also be submitted from a parent run. This allows you to create hierarchies of parent and child runs. 
-
-You may wish your child runs to use a different run configuration than the parent run. For instance, you might use a less-powerful, CPU-based configuration for the parent, while using GPU-based configurations for your children. Another common desire is to pass each child different arguments and data. To customize a child run, create a `ScriptRunConfig` object for the child run. The below code does the following:
-
-- Retrieve a compute resource named `"gpu-cluster"` from the workspace `ws`
-- Iterates over different argument values to be passed to the children `ScriptRunConfig` objects
-- Creates and submits a new child run, using the custom compute resource and argument
-- Blocks until all of the child runs complete
-
-```python
-# parent.py
-# This script controls the launching of child scripts
-from azureml.core import Run, ScriptRunConfig
-
-compute_target = ws.compute_targets["gpu-cluster"]
-
-run = Run.get_context()
-
-child_args = ['Apple', 'Banana', 'Orange']
-for arg in child_args: 
-    run.log('Status', f'Launching {arg}')
-    child_config = ScriptRunConfig(source_directory=".", script='child.py', arguments=['--fruit', arg], compute_target=compute_target)
-    # Starts the run asynchronously
-    run.submit_child(child_config)
-
-# Experiment will "complete" successfully at this point. 
-# Instead of returning immediately, block until child runs complete
-
-for child in run.get_children():
-    child.wait_for_completion()
-```
-
-To create many child runs with identical configurations, arguments, and inputs efficiently, use the [`create_children()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-children-count-none--tag-key-none--tag-values-none-) method. Because each creation results in a network call, creating a batch of runs is more efficient than creating them one by one.
-
-Within a child run, you can view the parent run ID:
-
-```python
-## In child run script
-child_run = Run.get_context()
-child_run.parent.id
-```
-
-### Query child runs
-
-To query the child runs of a specific parent, use the [`get_children()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) method. 
-The ``recursive = True`` argument allows you to query a nested tree of children and grandchildren.
-
-```python
-print(parent_run.get_children())
-```
+:::image type="content" source="media/how-to-manage-runs/run-description.gif" alt-text="Screenshot: create a run description"::: 
 
 ## Tag and find runs
 
@@ -373,11 +248,13 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     az ml run update -r runid --add-tag quality='fantastic run'
     ```
     
-    For more information, see [az ml run update](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
+    For more information, see [az ml run update](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-update).
     
     # [Studio](#tab/azure-studio)
     
-    You can view the properties and tags in studio but cannot modify them there.
+    You can add, edit or delete run tags from the studio. Navigate to the **Run Details** page for your run and select the edit or pencil icon to add, edit or delete tags for your runs. You can also search and filter on these tags from the runs list page.
+    
+    :::image type="content" source="media/how-to-manage-runs/run-tags.gif" alt-text="Screenshot: Add, edit or delete run tags":::
     
     ---
 
@@ -405,15 +282,162 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
     ```
     
-    For more information on querying Azure CLI results, see [Query Azure CLI command output](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest).
+    For more information on querying Azure CLI results, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
     
     # [Studio](#tab/azure-studio)
     
-    1. Navigate to the **Pipelines** section.
+    1. Navigate to the  **All runs** list.
     
-    1. Use the search bar to filter pipelines using tags, descriptions, experiment names, and submitter name.
+    1. Use the search bar to filter on the run metadata like the tags, descriptions, experiment names, and submitter name. The tags filter can also be used to filter on the tags. 
     
     ---
+
+
+## Cancel or fail runs
+
+If you notice a mistake or if your run is taking too long to finish, you can cancel the run.
+
+# [Python](#tab/python)
+
+To cancel a run using the SDK, use the [`cancel()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecancel--) method:
+
+```python
+src = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
+local_run = exp.submit(src)
+print(local_run.get_status())
+
+local_run.cancel()
+print(local_run.get_status())
+```
+
+If your run finishes, but it contains an error (for example, the incorrect training script was used), you can use the [`fail()`](/python/api/azureml-core/azureml.core.run%28class%29#fail-error-details-none--error-code-none---set-status-true-) method to mark it as failed.
+
+```python
+local_run = exp.submit(src)
+local_run.fail()
+print(local_run.get_status())
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To cancel a run using the CLI, use the following command. Replace `runid` with the ID of the run
+
+```azurecli-interactive
+az ml run cancel -r runid -w workspace_name -e experiment_name
+```
+
+For more information, see [az ml run cancel](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-cancel).
+
+# [Studio](#tab/azure-studio)
+
+To cancel a run in the studio, using the following steps:
+
+1. Go to the running pipeline in either the **Experiments** or **Pipelines** section. 
+
+1. Select the pipeline run number you want to cancel.
+
+1. In the toolbar, select **Cancel**
+
+---
+
+## Create child runs
+
+Create child runs to group together related runs, such as for different hyperparameter-tuning iterations.
+
+> [!NOTE]
+> Child runs can only be created using the SDK.
+
+This code example uses the `hello_with_children.py` script to create a batch of five child runs from within a submitted run by using the [`child_run()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truechild-run-name-none--run-id-none--outputs-none-) method:
+
+```python
+!more hello_with_children.py
+src = ScriptRunConfig(source_directory='.', script='hello_with_children.py')
+
+local_run = exp.submit(src)
+local_run.wait_for_completion(show_output=True)
+print(local_run.get_status())
+
+with exp.start_logging() as parent_run:
+    for c,count in enumerate(range(5)):
+        with parent_run.child_run() as child:
+            child.log(name="Hello from child run", value=c)
+```
+
+> [!NOTE]
+> As they move out of scope, child runs are automatically marked as completed.
+
+To create many child runs efficiently, use the [`create_children()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-children-count-none--tag-key-none--tag-values-none-) method. Because each creation results in a network call, 
+creating a batch of runs is more efficient than creating them one by one.
+
+### Submit child runs
+
+Child runs can also be submitted from a parent run. This allows you to create hierarchies of parent and child runs. You cannot create a parentless child run: even if the parent run does nothing but launch child runs, it's still necessary to create the hierarchy. The status of all runs are independent: a parent can be in the `"Completed"` successful state even if one or more child runs were canceled or failed.  
+
+You may wish your child runs to use a different run configuration than the parent run. For instance, you might use a less-powerful, CPU-based configuration for the parent, while using GPU-based configurations for your children. Another common desire is to pass each child different arguments and data. To customize a child run, create a `ScriptRunConfig` object for the child run. The below code does the following:
+
+- Retrieve a compute resource named `"gpu-cluster"` from the workspace `ws`
+- Iterates over different argument values to be passed to the children `ScriptRunConfig` objects
+- Creates and submits a new child run, using the custom compute resource and argument
+- Blocks until all of the child runs complete
+
+```python
+# parent.py
+# This script controls the launching of child scripts
+from azureml.core import Run, ScriptRunConfig
+
+compute_target = ws.compute_targets["gpu-cluster"]
+
+run = Run.get_context()
+
+child_args = ['Apple', 'Banana', 'Orange']
+for arg in child_args: 
+    run.log('Status', f'Launching {arg}')
+    child_config = ScriptRunConfig(source_directory=".", script='child.py', arguments=['--fruit', arg], compute_target=compute_target)
+    # Starts the run asynchronously
+    run.submit_child(child_config)
+
+# Experiment will "complete" successfully at this point. 
+# Instead of returning immediately, block until child runs complete
+
+for child in run.get_children():
+    child.wait_for_completion()
+```
+
+To create many child runs with identical configurations, arguments, and inputs efficiently, use the [`create_children()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-children-count-none--tag-key-none--tag-values-none-) method. Because each creation results in a network call, creating a batch of runs is more efficient than creating them one by one.
+
+Within a child run, you can view the parent run ID:
+
+```python
+## In child run script
+child_run = Run.get_context()
+child_run.parent.id
+```
+
+### Query child runs
+
+To query the child runs of a specific parent, use the [`get_children()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) method. 
+The ``recursive = True`` argument allows you to query a nested tree of children and grandchildren.
+
+```python
+print(parent_run.get_children())
+```
+
+### Log to parent or root run
+
+You can use the `Run.parent` field to access the run that launched the current child run. A common use-case for this is when you wish to consolidate log results in a single place. Note that child runs execute asynchronously and there is no guarantee of ordering or synchronization beyond the ability of the parent to wait for its child runs to complete.
+
+```python
+# in child (or even grandchild) run
+
+def root_run(self : Run) -> Run :
+    if self.parent is None : 
+        return self
+    return root_run(self.parent)
+
+current_child_run = Run.get_context()
+root_run(current_child_run).log("MyMetric", f"Data from child run {current_child_run.id}")
+
+```
 
 ## Example notebooks
 

@@ -117,9 +117,9 @@ To learn about connecting virtual networks from different deployment models, see
 If you're ready to migrate your resources from classic deployment to Resource Manager deployment, see:
 
 1. [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-deep-dive.md)
-2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
-3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../../virtual-machines/windows/migration-classic-resource-manager-ps.md)
-4. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI](../../virtual-machines/linux/migration-classic-resource-manager-cli.md)
+2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md)
+3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md)
+4. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI](../../virtual-machines/migration-classic-resource-manager-cli.md)
 
 ## Frequently asked questions
 

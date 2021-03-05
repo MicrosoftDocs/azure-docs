@@ -5,14 +5,10 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
+ms.custom: references_regions
 ---
 
 # System requirements
-
-> [!IMPORTANT]
-> **Azure Remote Rendering** is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This chapter lists the minimum system requirements to work with *Azure Remote Rendering* (ARR).
 
@@ -60,7 +56,32 @@ See dedicated chapter for [network requirements](../reference/network-requiremen
 
 For troubleshooting network issues, refer to the [Troubleshooting Guide](../resources/troubleshoot.md#unstable-holograms).
 
-### Network ports
+### Network firewall
+
+### SDK version >= 0.1.76
+
+Remote Rendering virtual machines use shared IP addresses from the following IP ranges:
+
+| Name             | Region         | IP prefix         |
+|------------------|:---------------|:------------------|
+| Australia East   | australiaeast  | 20.53.44.240/28   |
+| East US          | eastus         | 20.62.129.224/28  |
+| East US 2        | eastus2        | 20.49.103.240/28  |
+| Japan East       | japaneast      | 20.191.165.112/28 |
+| North Europe     | northeurope    | 52.146.133.64/28  |
+| South Central US | southcentralus | 20.65.132.80/28   |
+| Southeast Asia   | southeastasia  | 20.195.64.224/28  |
+| UK South         | uksouth        | 51.143.209.144/28 |
+| West Europe      | westeurope     | 20.61.99.112/28   |
+| West US 2        | westus2        | 20.51.9.64/28     |
+
+Make sure that your firewalls (on device, inside routers, etc.) don't block these IP ranges and the following port ranges:
+
+| Port              | Protocol  | Allow    |
+|-------------------|---------- |----------|
+| 49152-65534       | TCP / UDP | Outgoing |
+
+#### SDK version < 0.1.76
 
 Make sure that your firewalls (on device, inside routers, etc.) don't block the following ports:
 

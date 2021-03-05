@@ -28,7 +28,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Auto-provisioning concepts for Azure IoT
-            url: concepts-auto-provisioning.md
+            url: ./concepts-roles-operations.md
       - linkListType: video
         links:
           - text: IoT Hub DPS Demo

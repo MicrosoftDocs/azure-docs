@@ -16,9 +16,14 @@
     href: quick-create-powershell.md
   - name: Portal
     href: quick-create-portal.md
+  - name: .NET
+    href: quick-create-net.md
+  - name: Node.js
+    href: quick-create-node.md
   - name: Python
     href: quick-create-python.md
-
+  - name: Java
+    href: quick-create-java.md
 - name: Samples
   items:
   - name: Key Vault Code Samples
@@ -61,9 +66,9 @@
   - name: .NET
     href: /dotnet/api/overview/azure/security.keyvault.certificates-readme?view=azure-dotnet
   - name: Java
-    href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    href: /java/api/overview/azure/keyvault
   - name: Node.js
-    href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+    href: /javascript/api/overview/azure/key-vault-index
   - name: Python
     href: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
   - name: REST

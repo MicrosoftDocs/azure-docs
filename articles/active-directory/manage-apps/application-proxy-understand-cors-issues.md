@@ -3,7 +3,7 @@ title: Understand and solve Azure AD Application Proxy CORS issues
 description: Provides an understanding of CORS in Azure AD Application Proxy, and how to identify and solve CORS issues. 
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -61,7 +61,7 @@ You can resolve the preceding CORS issue in any one of several ways.
 
 ### Option 1: Set up a custom domain
 
-Use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) to publish from the same origin, without having to make any changes to app origins, code, or headers. 
+Use an Azure AD Application Proxy [custom domain](./application-proxy-configure-custom-domain.md) to publish from the same origin, without having to make any changes to app origins, code, or headers. 
 
 ### Option 2: Publish the parent directory
 
@@ -112,4 +112,4 @@ Some CORS issues can't be resolved, such as when your app redirects to *login.mi
 ## See also
 - [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md) 
 - [Plan an Azure AD Application Proxy deployment](application-proxy-deployment-plan.md) 
-- [Remote access to on-premises applications through Azure Active Directory Application Proxy](application-proxy.md) 
+- [Remote access to on-premises applications through Azure Active Directory Application Proxy](application-proxy.md)

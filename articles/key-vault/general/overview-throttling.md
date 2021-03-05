@@ -21,7 +21,7 @@ Throttling limits vary based on the scenario. For example, if you are performing
 
 ## How does Key Vault handle its limits?
 
-Service limits in Key Vault prevent misuse of resources and ensure quality of service for all of Key Vault's clients. When a service threshold is exceeded, Key Vault limits any further requests from that client for a period of time, returns HTTP status code 429 (Too many requests), and the request fails. Failed requests that return a 429 count towards the throttle limits tracked by Key Vault. 
+Service limits in Key Vault prevent misuse of resources and ensure quality of service for all of Key Vault's clients. When a service threshold is exceeded, Key Vault limits any further requests from that client for a period of time, returns HTTP status code 429 (Too many requests), and the request fails. Failed requests that return a 429 do not count towards the throttle limits tracked by Key Vault. 
 
 Key Vault was originally designed to be used to store and retrieve your secrets at deployment time.  The world has evolved, and Key Vault is being used at run-time to store and retrieve secrets, and often apps and services want to use Key Vault like a database.  Current limits do not support high throughput rates.
 

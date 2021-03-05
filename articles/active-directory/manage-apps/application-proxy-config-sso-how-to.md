@@ -1,21 +1,16 @@
 ---
-title: How to configure single sign-on to an Application Proxy app
-description: How you can configure single sign-on to your application proxy application quickly
+title: Understand single sign-on with an on-premises app using Application Proxy
+description: Understand single sign-on with an on-premises app using Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
-manager: celestedg
-ms.assetid: 
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 10/07/2020
 ms.author: kenwith
 ms.reviewer: japere, asteen
-ms.collection: M365-identity-device-management
 ---
 
 # How to configure single sign-on to an Application Proxy application
@@ -36,7 +31,7 @@ Configure the specific type of single sign-on. The sign-on methods are classifie
 
 -   **Integrated Windows Authentication**: For applications using Integrated Windows Authentication (IWA), single sign-on is enabled through Kerberos Constrained Delegation (KCD). This method gives Application Proxy Connectors permission in Active Directory to impersonate users, and to send and receive tokens on their behalf. Details on configuring KCD can be found in the [Single Sign-On with KCD documentation](application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Header-based Sign-On**: Header-based sign-on is enabled through a partnership and does require some additional configuration. For details on the partnership and step-by-step instructions for configuring single sign-on to an application that uses headers for authentication, see the [PingAccess for Azure AD documentation](application-proxy-configure-single-sign-on-with-ping-access.md).
+-   **Header-based Sign-On**: Header-based sign-on is used to provide single sign-on capabilities using HTTP headers. To learn more, see [Header-based single sign-on](application-proxy-configure-single-sign-on-with-headers.md).
 
 -   **SAML single sign-on**: With SAML single sign-on, Azure AD authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. With SAML-based single sign-on, you can map users to specific application roles based on rules you define in your SAML claims. For information about setting up SAML single sign-on, see [SAML for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -49,5 +44,5 @@ This option allows an admin to create a link to an application that users first 
 ## Next steps
 - [Password vaulting for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Kerberos Constrained Delegation for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Header-based authentication for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [Header-based authentication for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-headers.md) 
 - [SAML for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).

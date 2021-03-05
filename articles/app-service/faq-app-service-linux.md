@@ -105,7 +105,7 @@ Yes, during a Git deployment, Kudu should detect that you're deploying a PHP app
 
 **I'm using my own custom container. I want the platform to mount an SMB share to the `/home/` directory.**
 
-If `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is **unspecified** or set to *true*, the `/home/` directory **will be shared** across scale instances, and files written **will persist** across restarts. Explicitly setting `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to *false* will disable the mount.
+If `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is **unspecified** or set to *false*, the `/home/` directory **will not be shared** across scale instances, and files written **will not persist** across restarts. Explicitly setting `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to *true* will enable the mount.
 
 **My custom container takes a long time to start, and the platform restarts the container before it finishes starting up.**
 
@@ -117,7 +117,7 @@ Provide the full registry URL, including `http://` or `https://`.
 
 **What is the format for the image name in the private registry option?**
 
-Add the full image name, including the private registry URL (for example, myacr.azurecr.io/dotnet:latest). Image names that use a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). To set `docker-custom-image-name`, use the [`az` command-line tool](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Add the full image name, including the private registry URL (for example, myacr.azurecr.io/dotnet:latest). Image names that use a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). To set `docker-custom-image-name`, use the [`az` command-line tool](/cli/azure/webapp/config/container#az-webapp-config-container-set).
 
 **Can I expose more than one port on my custom container image?**
 

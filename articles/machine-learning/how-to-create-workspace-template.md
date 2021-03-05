@@ -28,14 +28,18 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-* To use a template from a CLI, you need either [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) or the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* To use a template from a CLI, you need either [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) or the [Azure CLI](/cli/azure/install-azure-cli).
 
 * Some scenarios require you to open a support ticket. These scenarios are:
 
-    * __Private Link enabled workspace with a customer-managed key (CMK)__
+    * __Private Link enabled workspace with a customer-managed key__
     * __Azure Container Registry for the workspace behind your virtual network__
 
     For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+
+## Limitations
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## Workspace Resource Manager template
 
@@ -67,7 +71,7 @@ The example template has two **required** parameters:
 > [!TIP]
 > While the template associated with this document creates a new Azure Container Registry, you can also create a new workspace without creating a container registry. One will be created when you perform an operation that requires a container registry. For example, training or deploying a model.
 >
-> You can also reference an existing container registry or storage account in the Azure Resource Manager template, instead of creating a new one. However, the container registry you use must have the __admin account__ enabled. For information on enabling the admin account, see [Admin account](../container-registry/container-registry-authentication.md#admin-account).
+> You can also reference an existing container registry or storage account in the Azure Resource Manager template, instead of creating a new one. When doing so, you must either [use a managed identity](how-to-use-managed-identities.md) (preview), or [enable the admin account](../container-registry/container-registry-authentication.md#admin-account) for the container registry.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -168,7 +172,7 @@ The following example template demonstrates how to create a workspace with three
 > [!IMPORTANT]
 > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
-For more information, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
+For more information, see [Encryption at rest](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]
 > There are some specific requirements your subscription must meet before using this template:
@@ -250,7 +254,7 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-When using a customer-managed key, Azure Machine Learning creates a secondary resource group which contains the Cosmos DB instance. For more information, see [encryption at rest - Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
+When using a customer-managed key, Azure Machine Learning creates a secondary resource group which contains the Cosmos DB instance. For more information, see [encryption at rest - Cosmos DB](concept-data-encryption.md#encryption-at-rest).
 
 An additional configuration you can provide for your data is to set the **confidential_data** parameter to **true**. Doing so, does the following:
 
@@ -262,7 +266,7 @@ An additional configuration you can provide for your data is to set the **confid
     > [!IMPORTANT]
     > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
-  For more information, see [encryption at rest](concept-enterprise-security.md#encryption-at-rest).
+  For more information, see [encryption at rest](concept-data-encryption.md#encryption-at-rest).
 
 ## Deploy workspace behind a virtual network
 

@@ -2,8 +2,8 @@
 title: Troubleshoot replication issues in agentless VMware VM migration
 description: Get help with replication cycle failures
 author: anvar-ms
-ms.manager: bsiva
 ms.author: anvar
+ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
 ---
@@ -237,7 +237,7 @@ This error can be resolved in the following two ways:
 
 One such known issue that may cause a CBT reset of virtual machine on VMware vSphere 5.5 is described in [VMware KB 2048201: Changed Block Tracking](https://go.microsoft.com/fwlink/?linkid=2138888) is reset after a storage vMotion operation in vSphere 5.x . If you are on VMware vSphere 5.5 ensure that you apply the updates described in this KB.
 
-Alternatively, you can [reset VMware changed block tracking on a virtual machine using VMware PowerCLI.
+Alternatively, you can reset VMware changed block tracking on a virtual machine using VMware PowerCLI.
 
 ## An internal error occurred
 
@@ -292,6 +292,24 @@ This is a known VMware issue in which the disk size indicated by snapshot become
 ### Error Message: An internal error occurred. [Memory allocation failed. Out of memory.]
 
 This happens when the NFC host buffer is out of memory. To resolve this issue, you need to move the VM (compute vMotion) to a different host, which has free resources.
+
+## Replication cycle failed
+
+**Error ID:** 181008
+
+**Error Message:** VM: 'VMName'. Error: No disksnapshots were found for the snapshot replication with snapshot Id : 'SnapshotID'.
+
+**Possible Causes:**
+
+Possible reasons are:
+1. Path of one or more included disks changed due to Storage VMotion.
+2. One or more included disks is no longer attached to the VM.
+      
+**Recommendation:**
+
+Following recommendations are provided
+1. Restore the included disks to original path using storage vMotion and then disable storage vmotion.
+2. Disable Storage VMotion, if enabled, stop replication on the virtual machine, and replicate the virtual machine again. If the issue persists, contact support.
 
 ## Next Steps
 

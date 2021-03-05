@@ -50,7 +50,7 @@ Use the following procedure to set up this scenario.
 
 1. For each slot, create a new app setting, for example, `DurableManagementStorage`. Set its value to the connection string of different storage accounts. These storage accounts are used by the Durable Functions extension for [reliable execution](./durable-functions-orchestrations.md). Use a separate storage account for each slot. Don't mark this setting as a deployment slot setting.
 
-1. In your function app's [host.json file's durableTask section](durable-functions-bindings.md#hostjson-settings), specify `azureStorageConnectionStringName` as the name of the app setting you created in step 3.
+1. In your function app's [host.json file's durableTask section](durable-functions-bindings.md#hostjson-settings), specify `connectionStringName` (Durable 2.x) or `azureStorageConnectionStringName` (Durable 1.x) as the name of the app setting you created in step 3.
 
 The following diagram shows the described configuration of deployment slots and storage accounts. In this potential predeployment scenario, version 2 of a function app is running in the production slot, while version 1 remains in the staging slot.
 
@@ -67,7 +67,10 @@ The following JSON fragments are examples of the connection string setting in th
   "version": 2.0,
   "extensions": {
     "durableTask": {
-      "azureStorageConnectionStringName": "DurableManagementStorage"
+      "hubName": "MyTaskHub",
+      "storageProvider": {
+        "connectionStringName": "DurableManagementStorage"
+      }
     }
   }
 }

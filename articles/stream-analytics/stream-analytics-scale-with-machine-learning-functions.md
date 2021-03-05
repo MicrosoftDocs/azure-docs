@@ -3,7 +3,7 @@ title: Scale Machine Learning Studio (classic) functions in Azure Stream Analyti
 description: This article describes how to scale Stream Analytics jobs that use Machine Learning Studio (classic) functions, by configuring partitioning and stream units.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020

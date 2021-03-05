@@ -37,7 +37,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a vault
 
-Create a key vault or select your existing vault to  perform operations (see [Steps to create a key vault](../secrets/quick-create-portal.md)). In the example, the key vault name is **Example-Vault**.
+Create an Azure Key Vault using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md). In the example, the key vault name is **Example-Vault**.
 
 ![Output after key vault creation finishes](../media/certificates/tutorial-import-cert/vault-properties.png)
 
@@ -131,7 +131,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-To learn more about the parameters, see [az keyvault certificate](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes).
+To learn more about the parameters, see [az keyvault certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-set-attributes).
 
 ## Clean up resources
 

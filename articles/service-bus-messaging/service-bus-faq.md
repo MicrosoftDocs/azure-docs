@@ -2,7 +2,7 @@
 title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
 description: This article provides answers to some of the frequently asked questions (FAQ) about Azure Service Bus.
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 01/20/2021
 ---
 
 # Azure Service Bus - Frequently asked questions (FAQ)
@@ -30,8 +30,11 @@ Ordering isn't ensured when using partitioned entities. In the event that a part
 
  Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
 
-### <a name="in-region-data-residency"></a>Where does Azure Service Bus store customer data?
-Azure Service Bus stores customer data. This data is automatically stored by Service Bus in a single region, so this service automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+### <a name="in-region-data-residency"></a>Where does Azure Service Bus store data?
+Azure Service Bus standard tier utilizes Azure SQL Database for its backend storage layer. For all regions except Brazil South and Southeast Asia, the database backup is hosted in a different region (usually the Azure paired region). For the Brazil south and Southeast Asia regions, database backups are stored in the same region to accommodate data-residency requirements for these regions.
+
+Azure Service Bus premium tier stores metadata and data in regions that you select. When geo-disaster recovery is set up for an Azure Service Bus premium namespace, the metadata is copied over to the secondary region that you select.
+
 
 ### What ports do I need to open on the firewall? 
 You can use the following protocols with Azure Service Bus to send and receive messages:
@@ -48,16 +51,11 @@ See the following table for the outbound TCP ports you need to open to use these
 
 The HTTPS port is generally required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Azure Active Directory (when used) run over HTTPS. 
 
-The official Azure SDKs generally use the AMQP protocol for sending and receiving messages from Service Bus. The AMQP-over-WebSockets protocol option runs over port TCP 443 just like the HTTP API, but is otherwise functionally identical with plain AMQP. This option has higher initial connection latency because of extra handshake roundtrips and slightly more overhead as tradeoff for sharing the HTTPS port. If this mode is selected, TCP port 443 is sufficient for communication. The following options allow selecting the plain AMQP or AMQP WebSockets mode:
+The official Azure SDKs generally use the AMQP protocol for sending and receiving messages from Service Bus. 
 
-| Language | Option   |
-| -------- | ----- |
-| .NET     | [ServiceBusConnection.TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype?view=azure-dotnet) property with [TransportType.Amqp](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) or [TransportType.AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) |
-| Java     | [com.microsoft.azure.servicebus.ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings?view=azure-java-stable) with [com.microsoft.azure.servicebus.primitives.TransportType.AMQP](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) or [com.microsoft.azure.servicebus.primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) |
-| Node  | [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions?view=azure-node-latest) has a `webSocket` constructor argument. |
-| Python | [ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) with [TransportType.Amqp](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) or [TransportType.AmqpOverWebSocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) |
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 
-The older WindowsAzure.ServiceBus package for the .NET Framework has an option to use the legacy "Service Bus Messaging Protocol" (SBMP), also referred to as "NetMessaging". This protocol uses TCP ports 9350-9354. The default mode for this package is to automatically detect whether those ports are available for communication and will switch to WebSockets with TLS over port 443 if that is not the case. You can override this setting and force this mode by setting the `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) on the [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) setting, which applies globally to the application.
+The older WindowsAzure.ServiceBus package for the .NET Framework has an option to use the legacy "Service Bus Messaging Protocol" (SBMP), also referred to as "NetMessaging". This protocol uses TCP ports 9350-9354. The default mode for this package is to automatically detect whether those ports are available for communication and will switch to WebSockets with TLS over port 443 if that is not the case. You can override this setting and force this mode by setting the `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode) on the [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity) setting, which applies globally to the application.
 
 ### What IP addresses do I need to add to allow list?
 To find the right IP addresses to add to allow list for your connections, follow these steps:
@@ -168,6 +166,8 @@ Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
 $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
+## Is it possible to disable TLS 1.0 or 1.1 on Service Bus namespaces?
+No. It's not possible to disable TLS 1.0 or 1.1 on Service Bus namespaces. In your client applications connecting to Service Bus, use TLS 1.2 or above. For more information, see [Enforcing TLS 1.2 use with Azure Service Bus - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/messaging-on-azure/enforcing-tls-1-2-use-with-azure-service-bus/ba-p/370912).
 
 ## Next steps
 To learn more about Service Bus, see the following articles:

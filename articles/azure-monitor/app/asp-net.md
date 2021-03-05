@@ -3,7 +3,7 @@ title: Configure monitoring for ASP.NET with Azure Application Insights | Micros
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website, hosted on-premises or in Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 
 ---
 
@@ -21,6 +21,10 @@ To add Application Insights to your ASP.NET website, you need to:
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 - Create an [Application Insights workspace-based resource](create-workspace-resource.md).
+
+> [!IMPORTANT]
+> New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./sdk-connection-string.md?tabs=net) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+
 
 ## Create a basic ASP.NET web app
 

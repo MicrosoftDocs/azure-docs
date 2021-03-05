@@ -3,7 +3,7 @@ title: End-user experiences for applications - Azure Active Directory
 description: Azure Active Directory (Azure AD) provides several customizable ways to deploy applications to end users in your organization.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -32,13 +32,13 @@ By default, all applications are listed together on a single page. But you can u
 
 My Apps is separate from the Azure portal and does not require users to have an Azure subscription or Microsoft 365 subscription.
 
-For more information on Azure AD My Apps, see the [introduction to My Apps](../user-help/active-directory-saas-access-panel-introduction.md).
+For more information on Azure AD My Apps, see the [introduction to My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Microsoft 365 application launcher
 
 For organizations that have deployed Microsoft 365, applications assigned to users through Azure AD will also appear in the Office 365 portal at [https://portal.office.com/myapps](https://portal.office.com/myapps). This makes it easy and convenient for users in an organization to launch their apps without having to use a second portal, and is the recommended app launching solution for organizations using Microsoft 365.
 
-For more information about the Office 365 application launcher, see [Have your app appear in the Office 365 app launcher](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+For more information about the Office 365 application launcher, see [Have your app appear in the Office 365 app launcher](/previous-versions/office/office-365-api/).
 
 ## Direct sign-on to federated apps
 

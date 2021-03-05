@@ -42,10 +42,10 @@ If you're creating a Recovery Services vault, you can use all the security featu
     ![Screenshot of Recovery Services vault properties](./media/backup-azure-security-feature/security-settings-update.png)
 
     The update link opens the **Security Settings** pane, which provides a summary of the features and lets you enable them.
-5. From the drop-down list **Have you configured Azure Multi-Factor Authentication?**, select a value to confirm if you've enabled [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). If it's enabled, you're asked to authenticate from another device (for example, a mobile phone) while signing in to the Azure portal.
+5. From the drop-down list **Have you configured Azure AD Multi-Factor Authentication?**, select a value to confirm if you've enabled [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). If it's enabled, you're asked to authenticate from another device (for example, a mobile phone) while signing in to the Azure portal.
 
-   When you perform critical operations in Backup, you have to enter a security PIN, available on the Azure portal. Enabling Azure Multi-Factor Authentication adds a layer of security. Only authorized users with valid Azure credentials, and authenticated from a second device, can access the Azure portal.
-6. To save security settings, select **Enable** and select **Save**. You can select **Enable** only after you select a value from the **Have you configured Azure Multi-Factor Authentication?** list in the previous step.
+   When you perform critical operations in Backup, you have to enter a security PIN, available on the Azure portal. Enabling Azure AD Multi-Factor Authentication adds a layer of security. Only authorized users with valid Azure credentials, and authenticated from a second device, can access the Azure portal.
+6. To save security settings, select **Enable** and select **Save**. You can select **Enable** only after you select a value from the **Have you configured Azure AD Multi-Factor Authentication?** list in the previous step.
 
     ![Screenshot of security settings](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 

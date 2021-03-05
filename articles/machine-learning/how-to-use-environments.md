@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, devx-track-azurecli
+ms.custom: how-to, devx-track-python
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
@@ -93,7 +93,7 @@ myenv = Environment.from_conda_specification(name = "myenv",
                                              file_path = "path-to-conda-specification-file")
 
 # From a pip requirements file
-myenv = Environment.from_pip_requirements(name = "myenv"
+myenv = Environment.from_pip_requirements(name = "myenv",
                                           file_path = "path-to-pip-requirements-file")                                          
 ```
 
@@ -112,7 +112,7 @@ By default, the newly built Docker image appears in the container registry that'
 
 #### Use a prebuilt Docker image
 
-By default, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), specifically the one defined by `azureml.core.environment.DEFAULT_CPU_IMAGE`. It then installs any specified Python packages defined by the provided Azure ML environment. It is also possible to use a [custom Docker base image](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image).
+By default, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), specifically the one defined by `azureml.core.environment.DEFAULT_CPU_IMAGE`. It then installs any specified Python packages defined by the provided Azure ML environment. Other Azure ML CPU and GPU base images are available in the container [repository](https://github.com/Azure/AzureML-Containers). It is also possible to use a [custom Docker base image](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -129,6 +129,8 @@ myenv.docker.base_image_registry="your_registry_location"
 #### Use your own Dockerfile 
 
 You can also specify a custom Dockerfile. It's simplest to start from one of Azure Machine Learning base images using Docker ```FROM``` command, and then add your own custom steps. Use this approach if you need to install non-Python packages as dependencies. Remember to set the base image to None.
+
+Please note that Python is an implicit dependency in Azure Machine Learning so a custom dockerfile must have Python installed.
 
 ```python
 # Specify docker steps as a string. 
@@ -201,7 +203,8 @@ myenv = Environment.from_existing_conda_environment(name="myenv",
 An environment definition can be saved to a directory in an easily editable format with the [`save_to_directory()`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=truesave-to-directory-path--overwrite-false-) method. Once modified, a new environment can be instantiated by loading files from the directory.
 
 ```python
-myenv = Environment.save_to_directory(path="path-to-destination-directory", overwrite=False)
+# save the enviroment
+myenv.save_to_directory(path="path-to-destination-directory", overwrite=False)
 # modify the environment definition
 newenv = Environment.load_from_directory(path="path-to-source-directory")
 ```
@@ -394,7 +397,7 @@ service = Model.deploy(
 
 ## Notebooks
 
-This [article](./how-to-run-jupyter-notebooks.md#add-new-kernels) provides information about how to install a Conda environment as a kernel in a notebook.
+This [article](./how-to-access-terminal.md#add-new-kernels) provides information about how to install a Conda environment as a kernel in a notebook.
 
 [Deploy a model using a custom Docker base image](how-to-deploy-custom-docker-image.md) demonstrates how to deploy a model using a custom Docker base image.
 

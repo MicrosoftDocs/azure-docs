@@ -10,6 +10,11 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
 ---
+
+## Download Code
+
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/Trusted%20Authentication%20Service)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -32,7 +37,7 @@ For more information, see the [client-server architecture](../../concepts/client
 
 ### Azure Functions set up
 
-Let's first set up the basic structure for our Azure function. Step by step instructions on the set up can be found here: [Create a function using Visual Studio Code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript)
+Let's first set up the basic structure for our Azure function. Step by step instructions on the set up can be found here: [Create a function using Visual Studio Code](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript)
 
 Our Azure Function requires the following configuration:
 
@@ -41,7 +46,7 @@ Our Azure Function requires the following configuration:
 - Authorization Level: Anonymous (This can be switched later if you prefer a different authorization model)
 - Function Name: User defined
 
-After following the [Azure Functions instructions](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript) with the above configuration, you should have a project in Visual Studio Code for the Azure Function with an `index.js` file that contains the function itself. The code inside of this file should be as follows:
+After following the [Azure Functions instructions](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript) with the above configuration, you should have a project in Visual Studio Code for the Azure Function with an `index.js` file that contains the function itself. The code inside of this file should be as follows:
 
 ```javascript
 
@@ -65,13 +70,13 @@ We'll now proceed to install Azure Communication Services libraries.
 
 ### Install communication services libraries
 
-We'll use the `Administration` library to generate `User Access Tokens`.
+We'll use the `Identity` library to generate `User Access Tokens`.
 
 Use the `npm install` command to install the Azure Communication Services Administration client library for JavaScript.
 
 ```console
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 ```
 
@@ -80,7 +85,7 @@ The `--save` option lists the library as a dependency in your **package.json** f
 At the top of the `index.js` file, import the interface for the `CommunicationIdentityClient`
 
 ```javascript
-const { CommunicationIdentityClient } = require('@azure/communication-administration');
+const { CommunicationIdentityClient } = require('@azure/communication-identity');
 ```
 
 ## Access token generation
@@ -107,14 +112,8 @@ module.exports = async function (context, req) {
 
     const userToken = await tokenClient.issueToken(user, ["voip"]);
 
-    const response = {
-        "User" : userToken.user,
-        "Token": userToken.token,
-        "ExpiresOn": userToken.expiresOn
-    }
-
     context.res = {
-        body: response
+        body: userToken
     };
 }
 ```
@@ -123,17 +122,17 @@ For existing Communication Services `CommunicationUser`, you can skip the creati
 
 ## Test the Azure Function
 
-Run the Azure Function locally using `F5`. This will initialize the Azure Function locally and make it accessible through: `http://localhost:7071/api/FUNCTION_NAME`. Check out additional documentation on [running locally](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#run-the-function-locally)
+Run the Azure Function locally using `F5`. This will initialize the Azure Function locally and make it accessible through: `http://localhost:7071/api/FUNCTION_NAME`. Check out additional documentation on [running locally](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-locally)
 
-Open the URL on your browser and you should see a response body with the Communication User Id, token and expiration for the token.
+Open the URL on your browser and you should see a response body with the Communication User ID, token and expiration for the token.
 
 :::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Screenshot showing a Response example for the created Azure Function.":::
 
 ## Deploy the Function to Azure
 
-To deploy your Azure Function, you can follow [step by step instructions](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#sign-in-to-azure)
+To deploy your Azure Function, you can follow [step by step instructions](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#sign-in-to-azure)
 
-Generally, you will need to:
+In summary, you will need to:
 1. Sign in to Azure from Visual Studio
 2. Publish your project to your Azure account. Here you will need to choose an existing subscription.
 3. Create a new Azure Function resource using the Visual Studio wizard or use an existing resource. For a new resource, you will need to configure it to your desired region, runtime and unique identifier.
@@ -146,4 +145,4 @@ Run the Azure function using the url `http://<function-appn-ame>.azurewebsites.n
 
 You can find the URL by right clicking the function on Visual Studio Code and copying the Function URL.
 
-For more information on [running your Azure function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#run-the-function-in-azure)
+For more information on [running your Azure function](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-in-azure)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - SAP HANA DB backup on Azure using CLI 
+title: Tutorial - SAP HANA DB backup on Azure using Azure CLI 
 description: In this tutorial, learn how to back up SAP HANA databases running on an Azure VM to an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
 ms.date: 12/4/2019 
@@ -21,9 +21,9 @@ This document assumes that you already have an SAP HANA database installed on an
 
 Check out the [scenarios that we currently support](./sap-hana-backup-support-matrix.md#scenario-support) for SAP HANA.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-To install and use the CLI locally, you must run Azure CLI version xx.xxx.x or later. To find the CLI version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+ - This tutorial requires version 2.0.30 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a Recovery Services vault
 
@@ -121,8 +121,8 @@ To protect and configure backup on a database, one at a time, we use the [az bac
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
     --policy-name saphanaPolicy \
-    --protectable-item-name saphanadatabase;hxe;hxe  \
-    --protectable-item-type SAPHANADatabse \
+    --protectable-item-name "saphanadatabase;hxe;hxe"  \
+    --protectable-item-type SAPHANADatabase \
     --server-name hxehost \
     --workload-type SAPHANA \
     --output table
@@ -171,9 +171,7 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 The response will give you the job name. This job name can be used to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 >[!NOTE]
->In addition to scheduling a full or differential backup, they can also be currently triggered manually. Log backups are automatically triggered and managed by SAP HANA internally.
->
-> Incremental backups aren't currently supported by Azure Backup.
+>Log backups are automatically triggered and managed by SAP HANA internally.
 
 ## Next steps
 

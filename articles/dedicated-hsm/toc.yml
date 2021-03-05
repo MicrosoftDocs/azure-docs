@@ -10,6 +10,12 @@
     href: tutorial-deploy-hsm-cli.md
   - name: Deploying HSMs into an existing virtual network using PowerShell
     href: tutorial-deploy-hsm-powershell.md
+- name: Quickstarts
+  items:
+  - name: Create an Azure Dedicated HSM with Azure PowerShell
+    href: quickstart-create-hsm-powershell.md
+  - name: Create an Azure Dedicated HSM with the Azure CLI
+    href: quickstart-hsm-azure-cli.md
 - name: Concepts
   items:
   - name: High availability

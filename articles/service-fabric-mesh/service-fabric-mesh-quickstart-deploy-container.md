@@ -10,6 +10,11 @@ ms.topic: quickstart
 ---
 # Quickstart: Deploy Hello World to Service Fabric Mesh
 
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 [Service Fabric Mesh](service-fabric-mesh-overview.md) makes it easy to create and manage microservices applications in Azure, without having to provision virtual machines. In this quickstart, you will create a Hello World application in Azure and expose it to the internet. This operation is completed in a single command. Within just a couple minutes, you'll see this view in your browser:
 
 ![Hello world app in the browser][sfm-app-browser]
@@ -41,7 +46,7 @@ az group create --name myResourceGroup --location eastus
 >[!NOTE]
 > Effective November 2, 2020, [download rate limits apply](https://docs.docker.com/docker-hub/download-rate-limit/) to anonymous and authenticated requests to Docker Hub from Docker Free plan accounts and are enforced by IP address. 
 > 
-> These templates makes use of public images from Docker Hub. Please note that you may be rate limited. For more details, see [Authenticate with Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+> These templates makes use of public images from Docker Hub. Please note that you may be rate limited. For more details, see [Authenticate with Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
 
 Create your application in the resource group using the `az mesh deployment create` command.  Run the following:
 
@@ -112,4 +117,4 @@ To learn more about creating and deploying Service Fabric Mesh applications, con
 
 <!-- Links / Internal -->
 [az-group-delete]: /cli/azure/group
-[azure-cli-install]: /cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: /cli/azure/install-azure-cli

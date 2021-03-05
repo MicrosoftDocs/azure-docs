@@ -22,7 +22,7 @@ Key scenarios that are improved with support for wildcard domains include:
 - You're no longer required to change your production Azure Front Door configuration if an application adds a new subdomain. Previously, you had to add the subdomain, bind a certificate to it, attach a web application firewall (WAF) policy, and then add the domain to different routing rules.
 
 > [!NOTE]
-> Currently, wildcard domains are only supported via API, PowerShell, and the Azure CLI. Support for adding and managing wildcard domains in the Azure portal isn't available.
+> Currently, adding wildcard domains through Azure DNS is only supported via API, PowerShell, and the Azure CLI. Support for adding and managing wildcard domains in the Azure portal isn't available.
 
 ## Adding wildcard domains
 

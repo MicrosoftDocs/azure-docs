@@ -73,7 +73,7 @@ ssh-keygen \
 ### Example of ssh-keygen
 
 ```bash
-ssh-keygen -t -m PEM rsa -b 4096 -C "azureuser@myserver"
+ssh-keygen -t rsa -m PEM -b 4096 -C "azureuser@myserver"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
@@ -228,6 +228,6 @@ The first time you sign in to a server using an SSH key, the command prompts you
 
 Next up is to create Azure Linux VMs using the new SSH public key. Azure VMs that are created with an SSH public key as the sign-in are better secured than VMs created with the default sign-in method, passwords.
 
-* [Create a Linux virtual machine with the Azure portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create a Linux virtual machine with the Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create a Linux VM using an Azure template](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a Linux virtual machine with the Azure portal](quick-create-portal.md)
+* [Create a Linux virtual machine with the Azure CLI](quick-create-cli.md)
+* [Create a Linux VM using an Azure template](create-ssh-secured-vm-from-template.md)

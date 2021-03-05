@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/16/2020
+ms.date: 02/16/2021
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ---
@@ -96,7 +96,7 @@ For more information about creating administrative units, see [Add and remove ad
 
 ## Update or remove an existing role assignment
 
-Follow these steps to update or remove an existing role assignment.
+Follow these steps to update or remove an existing role assignment. **Azure AD P2 licensed customers only**: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
 
 1. Open **Azure AD Privileged Identity Management**.
 
@@ -142,7 +142,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. Now that the user is eligible for the role, let them know that they can activate it according to the instructions in [Activate my Azure AD roles in Privileged Identity Management](pim-how-to-activate-role.md).
 
-    Eligible administrators are asked to register for Azure Multi-Factor Authentication during activation. If a user cannot register for MFA, or is using a Microsoft account (such as @outlook.com), you need to make them permanent in all their roles.
+    Eligible administrators are asked to register for Azure AD Multi-Factor Authentication during activation. If a user cannot register for MFA, or is using a Microsoft account (such as @outlook.com), you need to make them permanent in all their roles.
 
 ## Make a role assignment permanent
 
@@ -168,7 +168,7 @@ By default, new users are only *eligible* for an Azure AD admin role. Follow the
 
 ## Remove a user from a role
 
-You can remove users from role assignments, but make sure there is always at least one user who is a permanent Global administrator. If you're not sure which users still need their role assignments, you can [start an access review for the role](pim-how-to-start-security-review.md).
+You can remove users from role assignments, but make sure there is always at least one user who is a permanent Global Administrator. If you're not sure which users still need their role assignments, you can [start an access review for the role](pim-how-to-start-security-review.md).
 
 Follow these steps to remove a specific user from an Azure AD admin role.
 

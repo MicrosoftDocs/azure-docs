@@ -11,7 +11,7 @@ ms.reviewer: jrasnick
 ---
 
 
-# Grant permissions to workspace managed identity (preview)
+# Grant permissions to workspace managed identity
 
 This article teaches you how to grant permissions to the managed identity in Azure synapse workspace. Permissions, in turn, allow access to dedicated SQL pools in the workspace and ADLS Gen2 storage account through the Azure portal.
 

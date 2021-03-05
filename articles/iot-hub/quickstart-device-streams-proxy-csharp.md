@@ -1,12 +1,12 @@
 ---
-title: Azure IoT Hub device streams C# quickstart for SSH and RDP
+title: Quickstart - Azure IoT Hub device streams C# quickstart for SSH and RDP
 description: In this quickstart, you run two sample C# applications that enable SSH and RDP scenarios over an IoT Hub device stream.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
 ---
@@ -20,6 +20,33 @@ Microsoft Azure IoT Hub currently supports device streams as a [preview feature]
 [IoT Hub device streams](iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart guide involves two C# applications that enable client-server application traffic (such as Secure Shell [SSH] and Remote Desktop Protocol [RDP] to be sent over a device stream that's established through an IoT hub. For an overview of the setup, see [Local proxy application sample for SSH or RDP](iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 This article first describes the setup for SSH (using port 22) and then describes how to modify the setup's port for RDP. Because device streams are application- and protocol-agnostic, the same sample can be modified to accommodate other types of application traffic. This modification usually involves only changing the communication port to the one that's used by the intended application.
+
+## Prerequisites
+
+* The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
+
+  * Central US
+  * Central US EUAP
+  * Southeast Asia
+  * North Europe
+
+* The two sample applications that you run in this quickstart are written in C#. You need the .NET Core SDK 2.1.0 or later on your development machine.
+
+    You can download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
+
+    Verify the current version of C# on your development machine by using the following command:
+
+    ```
+    dotnet --version
+    ```
+
+* [Download the Azure IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip), and extract the ZIP archive.
+
+* A valid user account and credential on the device (Windows or Linux) used to authenticate the user.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## How it works
 
@@ -38,43 +65,7 @@ The following figure illustrates how the device-local and service-local proxy ap
 > [!NOTE]
 > SSH traffic that's sent over a device stream is tunneled through the IoT hub's streaming endpoint rather than sent directly between service and device. For more information, see the [benefits of using Iot Hub device streams](iot-hub-device-streams-overview.md#benefits).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Prerequisites
-
-* The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
-
-  * Central US
-  * Central US EUAP
-  * Southeast Asia
-  * North Europe
-
-* The two sample applications that you run in this quickstart are written in C#. You need the .NET Core SDK 2.1.0 or later on your development machine.
-
-  You can download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
-
-* Verify the current version of C# on your development machine by using the following command:
-
-    ```
-    dotnet --version
-    ```
-
-* Run the following command to add the Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS)-specific commands to the Azure CLI.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
-* [Download the Azure IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip), and extract the ZIP archive.
-
-* A valid user account and credential on the device (Windows or Linux) used to authenticate the user.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create an IoT hub
 
@@ -100,7 +91,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
    > Replace the *YourIoTHubName* placeholder with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Note the returned device connection string for later use in this quickstart. It looks like the following example:

@@ -1,7 +1,7 @@
 ---
 title: Collect data on your production models 
 titleSuffix: Azure Machine Learning
-description: Learn how to collect data from a deployed Azure Machine Learning model 
+description: Learn how to collect data from an Azure Machine Learning model deployed on an Azure Kubernetes Service (AKS) cluster.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,8 +14,6 @@ ms.custom: how-to, data4ml
 
 ---
 # Collect data from models in production
-
-
 
 This article shows how to collect data from an Azure Machine Learning model deployed on an Azure Kubernetes Service (AKS) cluster. The collected data is then stored in Azure Blob storage.
 
@@ -113,6 +111,12 @@ To enable data collection, you need to:
     ```
 
 1. To create a new image and deploy the machine learning model, see [How to deploy and where](how-to-deploy-and-where.md).
+
+1. Add the 'Azure-Monitoring' pip package to the conda-dependencies of the web service environment:
+  ```Python
+    env = Environment('webserviceenv')
+    env.python.conda_dependencies = CondaDependencies.create(conda_packages=['numpy'],pip_packages=['azureml-defaults','azureml-monitoring','inference-schema[numpy-support]'])
+  ```
 
 
 ## Disable data collection

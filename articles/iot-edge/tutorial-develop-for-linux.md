@@ -28,6 +28,26 @@ In this tutorial, you learn how to:
 > * Build your project as a container and store it in an Azure container registry.
 > * Deploy your code to an IoT Edge device.
 
+## Prerequisites
+
+A development machine:
+
+* You can use your own computer or a virtual machine, depending on your development preferences.
+  * Make sure that your development machine supports nested virtualization. This capability is necessary for running a container engine, which you install in the next section.
+* Most operating systems that can run a container engine can be used to develop IoT Edge modules for Linux devices. This tutorial uses a Windows computer, but points out known differences on macOS or Linux.
+* Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.  
+* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
+* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+
+An Azure IoT Edge device on Linux:
+
+* We recommend that you don't run IoT Edge on your development machine, but instead use a separate device. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
+* If you don't have a second device available, use the quickstart article to create an IoT Edge device in Azure with a [Linux virtual machine](quickstart-linux.md).
+
+Cloud resources:
+
+* A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Key concepts
@@ -51,27 +71,6 @@ The following table lists the supported development scenarios for **Linux contai
 >Support for Linux ARM64 devices is available in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 This tutorial teaches the development steps for Visual Studio Code. If you would rather use Visual Studio, refer to the instructions in [Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md).
-
-## Prerequisites
-
-A development machine:
-
-* You can use your own computer or a virtual machine, depending on your development preferences.
-  * Make sure that your development machine supports nested virtualization. This capability is necessary for running a container engine, which you install in the next section.
-* Most operating systems that can run a container engine can be used to develop IoT Edge modules for Linux devices. This tutorial uses a Windows computer, but points out known differences on macOS or Linux.
-* Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.  
-* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
-
-An Azure IoT Edge device on Linux:
-
-* We recommend that you don't run IoT Edge on your development machine, but instead use a separate device. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
-* If you don't have a second device available, use the quickstart article to create an IoT Edge device in Azure with a [Linux virtual machine](quickstart-linux.md).
-
-Cloud resources:
-
-* A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-
 ## Install container engine
 
 IoT Edge modules are packaged as containers, so you need a container engine on your development machine to build and manage them. We recommend Docker Desktop for development because of its feature support and popularity. Docker Desktop on Windows lets you switch between Linux containers and Windows containers so that you can easily develop modules for different types of IoT Edge devices.

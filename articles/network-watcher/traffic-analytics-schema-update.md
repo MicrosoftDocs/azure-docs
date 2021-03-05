@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 03/06/2020
+ms.date: 01/07/2021
 ms.author: vinigam
 
 ---
 # Sample queries with new fields in the Traffic Analytics schema (August 2019 schema update)
 
-The [Traffic Analytics log schema](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) includes the following new fields: **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**. The new fields provide information about source and destination IPs, and they simplify queries.
+The [Traffic Analytics log schema](./traffic-analytics-schema.md) includes the following new fields: **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**. The new fields provide information about source and destination IPs, and they simplify queries.
 
 In the next few months, the following older fields will be deprecated: **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s**, **FlowCount_d**.
 

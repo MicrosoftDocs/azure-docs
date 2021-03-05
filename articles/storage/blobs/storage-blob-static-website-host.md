@@ -72,14 +72,24 @@ Next, create a Hello World web page with Visual Studio Code and deploy it to the
 1. Open *index.html* in the editor, paste the following text into the file, and save it:
 
     ```
-    <h1>Hello World!</h1>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>Hello World!</h1>
+      </body>
+    </html>
     ```
 
 1. Create the default error file and name it *404.html*.
 1. Open *404.html* in the editor, paste the following text into the file, and save it:
 
     ```
-    <h1>404</h1>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>404</h1>
+      </body>
+    </html>
     ```
 
 1. Right-click under the *mywebsite* folder in the **Explorer** panel and select **Deploy to Static Website...** to deploy your website. You will be prompted to log in to Azure to retrieve a list of subscriptions.

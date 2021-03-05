@@ -14,7 +14,7 @@ ms.author: erhopf
 
 
 > [!NOTE]
-> The Speech SDK for Unity supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) and iOS (x64 simulator, ARM32 and ARM64)
+> The Speech SDK for Unity supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) and iOS (x64 simulator and ARM64)
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ To add the sample script code for the Unity project, follow these steps:
 
 1. Find and replace the string `YourSubscriptionKey` with your Speech service subscription key.
 
-1. Find and replace the string `YourServiceRegion` with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription.
+1. Find and replace the string `YourServiceRegion` with the **Region identifier** from [region](../../../../regions.md) associated with your subscription.
 
 1. Save the changes to the script.
 
@@ -132,4 +132,3 @@ For more information, see our [sample repository](https://aka.ms/csspeech/sample
 ## Next steps
 
 [!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
-

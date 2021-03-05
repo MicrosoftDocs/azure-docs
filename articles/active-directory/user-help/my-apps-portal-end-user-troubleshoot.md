@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 03/21/2019
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
@@ -27,9 +27,9 @@ If you're having problems installing the My Apps Secure Sign-in Extension:
 
     - **Microsoft Edge.** Running on Windows 10 Anniversary Edition or later.
 
-    - **Google Chrome.** Running on Windows 7 or later, and on Mac OS X or later.
+    - **Google Chrome.** Running on Windows 7 or later, and on macOS X or later.
 
-    - **Mozilla Firefox 26.0 or later.** Running on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
+    - **Mozilla Firefox 26.0 or later.** Running on Windows XP SP2 or later, and on macOS X 10.6 or later.
 
     - **Internet Explorer 11.** Running on Windows 7 or later (limited support).
 
@@ -43,11 +43,16 @@ If you're having problems installing the My Apps Secure Sign-in Extension:
 
 If you're having trouble signing into the **My Apps** portal, you can try the following:
 
+- If you see an error signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+
+   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
+
 - Make sure you're using the right URL. It should be https://myapps.microsoft.com or a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
 
 - Make sure your password is correct and hasn't expired. For more info, see [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
 
-- Make sure your verification info is current and accurate. For more information, see [What does Azure Multi-Factor Authentication mean for me?](./multi-factor-authentication-end-user-first-time.md) or [Changing your security info methods and information](./security-info-setup-auth-app.md).
+- Make sure your verification info is current and accurate. For more information, see [What does Azure AD Multi-Factor Authentication mean for me?](./multi-factor-authentication-end-user-first-time.md) or [Changing your security info methods and information](./security-info-setup-auth-app.md).
 
 - Add the **My App** portal URL to the **Internet Properties > Security > Trusted sites** setting.
 
@@ -71,7 +76,7 @@ If you're getting an **Access Denied** message after you start an app from the *
 
 - Make sure your password is correct and hasn't expired. For more info, see [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
 
-- Make sure your verification info is current and accurate. For more information, see [What does Azure Multi-Factor Authentication mean for me?](./multi-factor-authentication-end-user-first-time.md) or [Changing your security info methods and information](./security-info-setup-auth-app.md).
+- Make sure your verification info is current and accurate. For more information, see [What does Azure AD Multi-Factor Authentication mean for me?](./multi-factor-authentication-end-user-first-time.md) or [Changing your security info methods and information](./security-info-setup-auth-app.md).
 
 - Clear your browser's cache and try to sign in again.
 

@@ -10,7 +10,7 @@ ms.author: irenehua
 ---
 
 # Upgrade Azure Internal Load Balancer - Outbound Connection Required
-[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/skus#skus). Since Standard Internal Load Balancer does not provide outbound connection, we provide a solution to create a Standard Public Load Balancer instead.
+[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](./skus.md#skus). Since Standard Internal Load Balancer does not provide outbound connection, we provide a solution to create a Standard Public Load Balancer instead.
 
 There are four stages in a upgrade:
 
@@ -104,16 +104,16 @@ Here are a few scenarios of how you add VMs to backend pools of the newly create
     >For VMs which have Public IPs, you will need to create Standard IP addresses first where same IP address is not guaranteed. Disassociate VMs from Basic IPs and associate them with the newly created Standard IP addresses. Then, you will be able to follow instructions to add VMs into backend pool of Standard Load Balancer. 
 
 * **Creating new VMs to add to the backend pools of the newly created Standard Public Load Balancer**.
-    * More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+    * More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
 
 ### Create an outbound rule for outbound connection
 
-Follow the [instructions](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) to create an outbound rule so you can
+Follow the [instructions](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) to create an outbound rule so you can
 * Define outbound NAT from scratch.
 * Scale and tune the behavior of existing outbound NAT.
 
 ### Create NSG rules for VMs which to refrain communication from or to the Internet
-If you would like to refrain Internet traffic from reaching to your VMs, you can create an [NSG rule](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) on the Network Interface of the VMs.
+If you would like to refrain Internet traffic from reaching to your VMs, you can create an [NSG rule](../virtual-network/manage-network-security-group.md) on the Network Interface of the VMs.
 
 ## Common questions
 
@@ -124,10 +124,6 @@ Yes. See [Caveats/Limitations](#caveatslimitations).
 ### Does the Azure PowerShell script also switch over the traffic from my Basic Load Balancer to the newly created Standard Load Balancer?
 
 No. The Azure PowerShell script only migrates the configuration. Actual traffic migration is your responsibility and in your control.
-
-### I ran into some issues with using this script. How can I get help?
-  
-You can send an email to slbupgradesupport@microsoft.com, open a support case with Azure Support, or do both.
 
 ## Next steps
 

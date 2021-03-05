@@ -57,7 +57,7 @@ You can find the Power BI Template App **Azure Cognitive Search: Analyze Logs an
 
 1. Once the data refresh has completed, select **Azure Cognitive Search Report** to view the report.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-report.png" alt-text="Screenshot showing how to select the Azure Cognitive Search Report on the data refresh page.":::![]()
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-report.png" alt-text="Screenshot showing how to select the Azure Cognitive Search Report on the data refresh page.":::
 
 1. Make sure to refresh the page after opening the report so that it opens with your data.
 

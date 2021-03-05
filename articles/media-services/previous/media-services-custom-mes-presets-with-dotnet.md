@@ -30,7 +30,7 @@ This article shows how to perform advanced encoding with Media Encoder Standard 
 This article shows you how to customize a preset by taking the [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) preset and reducing the number of layers. The [Customizing Media Encoder Standard presets](media-services-advanced-encoding-with-mes.md) article demonstrates custom presets that can be used to perform advanced encoding tasks.
 
 > [!NOTE]
-> The custom presets described in this article cannot be used in [Media Services V3](../latest/index.yml) transforms or the CLI commands. See the [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md) for more details.
+> The custom presets described in this article cannot be used in [Media Services V3](../latest/index.yml) transforms or the CLI commands. See the [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md) for more details.
 
 ## <a id="customizing_presets"></a> Customizing a MES preset
 
@@ -43,74 +43,74 @@ Save the JSON defined in the [H264 Multiple Bitrate 720p](media-services-mes-pre
 Open the **CustomPreset_JSON.json** file and remove first three layers from **H264Layers** so your file looks like this.
 
 ```json	
-	{  
-	  "Version": 1.0,  
-	  "Codecs": [  
-	    {  
-	      "KeyFrameInterval": "00:00:02",  
-	      "H264Layers": [  
-	        {  
-	          "Profile": "Auto",  
-	          "Level": "auto",  
-	          "Bitrate": 1000,  
-	          "MaxBitrate": 1000,  
-	          "BufferWindow": "00:00:05",  
-	          "Width": 640,  
-	          "Height": 360,  
-	          "BFrames": 3,  
-	          "ReferenceFrames": 3,  
-	          "AdaptiveBFrame": true,  
-	          "Type": "H264Layer",  
-	          "FrameRate": "0/1"  
-	        },  
-	        {  
-	          "Profile": "Auto",  
-	          "Level": "auto",  
-	          "Bitrate": 650,  
-	          "MaxBitrate": 650,  
-	          "BufferWindow": "00:00:05",  
-	          "Width": 640,  
-	          "Height": 360,  
-	          "BFrames": 3,  
-	          "ReferenceFrames": 3,  
-	          "AdaptiveBFrame": true,  
-	          "Type": "H264Layer",  
-	          "FrameRate": "0/1"  
-	        },  
-	        {  
-	          "Profile": "Auto",  
-	          "Level": "auto",  
-	          "Bitrate": 400,  
-	          "MaxBitrate": 400,  
-	          "BufferWindow": "00:00:05",  
-	          "Width": 320,  
-	          "Height": 180,  
-	          "BFrames": 3,  
-	          "ReferenceFrames": 3,  
-	          "AdaptiveBFrame": true,  
-	          "Type": "H264Layer",  
-	          "FrameRate": "0/1"  
-	        }  
-	      ],  
-	      "Type": "H264Video"  
-	    },  
-	    {  
-	      "Profile": "AACLC",  
-	      "Channels": 2,  
-	      "SamplingRate": 48000,  
-	      "Bitrate": 128,  
-	      "Type": "AACAudio"  
-	    }  
-	  ],  
-	  "Outputs": [  
-	    {  
-	      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",  
-	      "Format": {  
-	        "Type": "MP4Format"  
-	      }  
-	    }  
-	  ]  
-	}  
+  {  
+    "Version": 1.0,  
+    "Codecs": [  
+      {  
+        "KeyFrameInterval": "00:00:02",  
+        "H264Layers": [  
+          {  
+            "Profile": "Auto",  
+            "Level": "auto",  
+            "Bitrate": 1000,  
+            "MaxBitrate": 1000,  
+            "BufferWindow": "00:00:05",  
+            "Width": 640,  
+            "Height": 360,  
+            "BFrames": 3,  
+            "ReferenceFrames": 3,  
+            "AdaptiveBFrame": true,  
+            "Type": "H264Layer",  
+            "FrameRate": "0/1"  
+          },  
+          {  
+            "Profile": "Auto",  
+            "Level": "auto",  
+            "Bitrate": 650,  
+            "MaxBitrate": 650,  
+            "BufferWindow": "00:00:05",  
+            "Width": 640,  
+            "Height": 360,  
+            "BFrames": 3,  
+            "ReferenceFrames": 3,  
+            "AdaptiveBFrame": true,  
+            "Type": "H264Layer",  
+            "FrameRate": "0/1"  
+          },  
+          {  
+            "Profile": "Auto",  
+            "Level": "auto",  
+            "Bitrate": 400,  
+            "MaxBitrate": 400,  
+            "BufferWindow": "00:00:05",  
+            "Width": 320,  
+            "Height": 180,  
+            "BFrames": 3,  
+            "ReferenceFrames": 3,  
+            "AdaptiveBFrame": true,  
+            "Type": "H264Layer",  
+            "FrameRate": "0/1"  
+          }  
+        ],  
+        "Type": "H264Video"  
+      },  
+      {  
+        "Profile": "AACLC",  
+        "Channels": 2,  
+        "SamplingRate": 48000,  
+        "Bitrate": 128,  
+        "Type": "AACAudio"  
+      }  
+    ],  
+    "Outputs": [  
+      {  
+        "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",  
+        "Format": {  
+          "Type": "MP4Format"  
+        }  
+      }  
+    ]  
+  }  
 ```
 
 ## <a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
