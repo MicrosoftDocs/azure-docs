@@ -47,7 +47,7 @@ There are several things related to memory usage within your Redis server instan
 ## Client library specific guidance
  * [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java - Which client should I use?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
- * [Lettuce (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
+ * [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
@@ -69,6 +69,8 @@ If you would like to test how your code works under error conditions, consider u
  * The client VM used for testing should be **in the same region** as your Redis cache instance.
  * **We recommend using Dv2 VM Series** for your client as they have better hardware and will give the best results.
  * Make sure the client VM you use has **at least as much compute and bandwidth* as the cache being tested. 
+ * **Test under failover conditions** on your cache. It's important to ensure that you don't performance test your cache only under steady state conditions. Also test under failover conditions and measure the CPU / Server Load on your cache during that time. You can initiate a failover by [rebooting the primary node](cache-administration.md#reboot). This will allow you to see how your application behaves in terms of throughput and latency during failover conditions (happens during updates and can happen during an unplanned event). Ideally you dont't want to see CPU / Server Load peak to more than say 80% even during a failover as that can affect performance.
+ * **Premium P2 and above** are hosted on VMs with 4 or more cores. This is useful to distribute the TLS encryption / decryption workload across multiple cores to bring down overall CPU usage.  [See here for details around VM sizes and cores](cache-planning-faq.md#azure-cache-for-redis-performance)
  * **Enable VRSS** on the client machine if you are on Windows.  [See here for details](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).  Example PowerShell script:
      >PowerShell -ExecutionPolicy Unrestricted Enable-NetAdapterRSS -Name (    Get-NetAdapter).Name 
 

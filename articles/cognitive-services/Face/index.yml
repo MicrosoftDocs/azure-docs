@@ -114,7 +114,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: /cli/azure/cognitiveservices?view=azure-cli-latest
+            url: /cli/azure/cognitiveservices
   
   - title: Help and feedback
     linkLists:
