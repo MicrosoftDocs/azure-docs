@@ -57,7 +57,7 @@ If you want to manage your on-premises AD from a Windows device, install the [Re
 
 You can use:
 
-- The Active Directory Users and Computers (ADUC) snap-in to administer all AD objects. However, you have to  specify the domain that you want to connect to manually.
+- The Active Directory Administrative Center (DSAC) snap-in to administer all AD objects. However, you have to  specify the domain that you want to connect to manually.
 - The DHCP snap-in to administer an AD-joined DHCP server. However, you may need to specify the DHCP server name or address.
  
 ## What you should know
