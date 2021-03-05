@@ -1,9 +1,6 @@
 ---
 title: What is Apache Hadoop and MapReduce - Azure HDInsight
 description: An introduction to HDInsight, and the Apache Hadoop technology stack and components.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18

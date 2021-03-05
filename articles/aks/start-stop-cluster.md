@@ -25,7 +25,6 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 When using the cluster start/stop feature, the following restrictions apply:
 
 - This feature is only supported for Virtual Machine Scale Sets backed clusters.
-- During preview, this feature is not supported for Private clusters.
 - The cluster state of a stopped AKS cluster is preserved for up to 12 months. If your cluster is stopped for more than 12 months, the cluster state cannot be recovered. For more information, see the [AKS Support Policies](support-policies.md).
 - During preview, you need to stop the cluster autoscaler (CA) before attempting to stop the cluster.
 - You can only start or delete a stopped AKS cluster. To perform any operation like scale or upgrade, start your cluster first.
@@ -133,10 +132,10 @@ If the `provisioningState` shows `Starting` that means your cluster hasn't fully
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: /cli/azure/install-azure-cli&preserve-view=true
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
-[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az_aks_show
+[install-azure-cli]: /cli/azure/install-azure-cli
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-aks-show]: /cli/azure/aks#az_aks_show

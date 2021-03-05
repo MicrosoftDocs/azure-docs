@@ -49,6 +49,10 @@ landingContent:
             url: quickstarts/client-library.md?pivots=programming-language-javascript
           - text: Using the REST API (cURL)
             url: quickstarts/client-library.md?pivots=programming-language-rest-api
+      - linkListType: tutorial
+        links:
+          - text: Extract form data in bulk
+            url: tutorial-bulk-processing.md
 
   - title: Build a training data set
     linkLists:
@@ -140,7 +144,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Use container instances
-            url: deploy-form-recognizer-on-container-instances.md
+            url: ../containers/azure-container-instance-recipe.md
 
   - title: Reference
     linkLists:

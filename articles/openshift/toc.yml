@@ -16,6 +16,10 @@
       href: tutorial-delete-cluster.md
 - name: How-to guides
   items:
+    - name: Cluster operations
+      items:
+        - name: Upgrade an ARO cluster
+          href: howto-upgrade.md 
     - name: Networking
       items:
         - name: Create a private ARO cluster
@@ -24,10 +28,14 @@
           href: dns-forwarding.md
     - name: Storage
       items:
+        - name: Encrypt PVCs with customer-managed key (preview)
+          href: howto-encrypt-data-disks.md
         - name: Create an Azure Files Storageclass
           href: howto-create-a-storageclass.md
         - name: Use the built-in container registry
           href: built-in-container-registry.md
+        - name: Use Azure Container registry
+          href: howto-use-acr-with-aro.md
     - name: Security and authentication
       items:
         - name: Configure Azure Active Directory authentication (CLI)
@@ -49,7 +57,7 @@
             - name: Configure Azure Monitor for containers for ARO 4 (preview)
               href : ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
             - name: Disable Azure Monitor for containers in ARO 4 (preview)
-              href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
+              href: ../azure-monitor/containers/container-insights-optout-openshift-v4.md
     - name: Develop and run applications
       items:
         - name: Deploy an Open Liberty/WebSphere Liberty app
@@ -74,10 +82,10 @@
             - name: Azure Monitor for containers in Azure Red Hat OpenShift 3.11 (preview)
               items:
                 - name: Configure Azure Monitor for containers in Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+                  href: ../azure-monitor/containers/container-insights-azure-redhat-setup.md
                   maintainContext: true
                 - name: Disable Azure Monitor for containers in Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-optout-openshift-v3.md
+                  href: ../azure-monitor/containers/container-insights-optout-openshift-v3.md
                   maintainContext: true
         - name: Run privileged containers in Azure Red Hat OpenShift 3.11
           href: howto-run-privileged-containers.md
@@ -117,4 +125,3 @@
       href: https://azure.microsoft.com/roadmap/
     - name: ARO Roadmap
       href: https://github.com/Azure/OpenShift/projects/1
-

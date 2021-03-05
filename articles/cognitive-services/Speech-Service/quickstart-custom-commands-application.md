@@ -17,7 +17,7 @@ ms.custom: references_regions
 
 # Create a voice assistant using Custom Commands
 
-In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app. **Custom Commands** makes it easy to build rich voice commanding apps optimized for voice-first interaction experiences. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity, helping you focus on building the best solution for your voice commanding scenarios.
+In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app.
 
 ## Region Availability
 At this time, Custom Commands supports speech subscriptions created in these regions:
@@ -134,4 +134,4 @@ In the scope of this article, we will be using the Windows Voice Assistant clien
 
 ## Next steps
 
-In this article, you used an existing application. Next, in the [how-to sections](how-to-custom-commands-create-application-with-simple-commands.md), you learn how to design, develop, debug, test and integrate a Custom Commands application from scratch.
+In this article, you used an existing application. Next, in the [how-to sections](./how-to-develop-custom-commands-application.md), you learn how to design, develop, debug, test and integrate a Custom Commands application from scratch.

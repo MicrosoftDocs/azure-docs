@@ -8,10 +8,10 @@ ms.custom: references_regions
 
 # Add a managed identity to a Service Fabric managed cluster node type (preview)
 
-Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. To allow managed identities to be used with a managed cluster node type, a property `vmManagedIdentity` has been added to node type definitions containing a list of identities that may be used, `userAssignedIdentities`. Functionality mirrors how managed identities can be used in non-managed clusters, such as using a managed identity with the [Azure Key Vault virtual machine scale set extension](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. To allow managed identities to be used with a managed cluster node type, a property `vmManagedIdentity` has been added to node type definitions containing a list of identities that may be used, `userAssignedIdentities`. Functionality mirrors how managed identities can be used in non-managed clusters, such as using a managed identity with the [Azure Key Vault virtual machine scale set extension](../virtual-machines/extensions/key-vault-windows.md).
 
 
-For an example of a Service Fabric managed cluster deployment that makes use of managed identity on a node type, see [this template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). For a list of supported regions, see the [managed cluster FAQ](https://docs.microsoft.com/azure/service-fabric/faq-managed-cluster#what-regions-are-supported-in-the-preview).
+For an example of a Service Fabric managed cluster deployment that makes use of managed identity on a node type, see [this template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). For a list of supported regions, see the [managed cluster FAQ](./faq-managed-cluster.md#what-regions-are-supported-in-the-preview).
 
 > [!NOTE]
 > Only user-assigned identities are currently supported for this feature.
@@ -21,7 +21,7 @@ For an example of a Service Fabric managed cluster deployment that makes use of 
 Before you begin:
 
 * If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-* If you plan to use PowerShell, [install](https://docs.microsoft.com/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
+* If you plan to use PowerShell, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
 
 ## Create a user-assigned managed identity 
 
@@ -94,23 +94,28 @@ New-AzRoleAssignment -PrincipalId fbc587f2-66f5-4459-a027-bcd908b9d278 -RoleD
 
 ## Add managed identity properties to node type definition
 
-Finally, add the `vmManagedIdentity` and `userAssignedIdentities` properties to the managed cluster's node type definition:
+Finally, add the `vmManagedIdentity` and `userAssignedIdentities` properties to the managed cluster's node type definition. Be sure to use **2021-01-01-preview** or later for the `apiVersion`.
 
 ```json
 
-"properties": {
-    "isPrimary" : true,
-    "vmInstanceCount": 5,
-    "dataDiskSizeGB": 100,
-    "vmSize": "Standard_D2",
-    "vmImagePublisher" : "MicrosoftWindowsServer",
-    "vmImageOffer" : "WindowsServer",
-    "vmImageSku" : "2019-Datacenter",
-    "vmImageVersion" : "latest",
-    "vmManagedIdentity": {
-        "userAssignedIdentities": [
-            "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName'))]"
-        ]
+ {
+    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+    "apiVersion": "2021-01-01-preview",
+    ...
+    "properties": {
+        "isPrimary" : true,
+        "vmInstanceCount": 5,
+        "dataDiskSizeGB": 100,
+        "vmSize": "Standard_D2_v2",
+        "vmImagePublisher" : "MicrosoftWindowsServer",
+        "vmImageOffer" : "WindowsServer",
+        "vmImageSku" : "2019-Datacenter",
+        "vmImageVersion" : "latest",
+        "vmManagedIdentity": {
+            "userAssignedIdentities": [
+                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName'))]"
+            ]
+        }
     }
 }
 ```
@@ -126,4 +131,4 @@ Failure to properly add a role assignment will be met with the following error o
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Deploy an app to a Service Fabric managed cluster](https://docs.microsoft.com/azure/service-fabric/tutorial-managed-cluster-deploy-app) 
+> [Deploy an app to a Service Fabric managed cluster](./tutorial-managed-cluster-deploy-app.md)

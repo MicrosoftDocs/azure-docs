@@ -22,7 +22,7 @@ In this tutorial, you walk help a driver whose electric vehicle battery is low. 
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> *	Create and run a Jupyter Notebook file on [Azure Notebooks](../notebooks/index.yml) in the cloud.
+> *	Create and run a Jupyter Notebook file on [Azure Notebooks](https://notebooks.azure.com) in the cloud.
 > *	Call Azure Maps REST APIs in Python.
 > *	Search for a reachable range based on the electric vehicle's consumption model.
 > *	Search for electric vehicle charging stations within the reachable range, or isochrone.
@@ -44,7 +44,7 @@ For more information on authentication in Azure Maps, see [manage authentication
 
 To follow along with this tutorial, you need to create an Azure Notebooks project and download and run the Jupyter Notebook file. The Jupyter Notebook file contains Python code, which implements the scenario in this tutorial. To create an Azure Notebooks project and upload the Jupyter Notebook document to it, do the following steps:
 
-1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. For more information, see [Quickstart: Sign in and set a user ID](../notebooks/quickstart-sign-in-azure-notebooks.md).
+1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. For more information, see [Quickstart: Sign in and set a user ID](https://notebooks.azure.com).
 1. At the top of your public profile page, select **My Projects**.
 
     ![The My Projects button](./media/tutorial-ev-routing/myproject.png)
@@ -394,9 +394,13 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 * [Get Route Directions](/rest/api/maps/route/getroutedirections)
 * [Azure Maps REST APIs](./consumption-model.md)
 
+## Clean up resources
+
+There are no resources that require cleanup.
+
 ## Next steps
 
 To learn more about Azure Notebooks, see
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](../notebooks/index.yml)
+> [Azure Notebooks](https://notebooks.azure.com)

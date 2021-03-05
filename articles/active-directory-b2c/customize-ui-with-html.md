@@ -1,7 +1,7 @@
 ---
-title: Customize the user interface
+title: Customize the user interface with HTML templates
 titleSuffix: Azure AD B2C
-description: Learn how to customize the user interface for your applications that use Azure Active Directory B2C.
+description: Learn how to customize the user interface with HTML templates for your applications that use Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -9,21 +9,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Customize the user interface in Azure Active Directory B2C
+# Customize the user interface with HTML templates in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 Branding and customizing the user interface that Azure Active Directory B2C (Azure AD B2C) displays to your customers helps provide a seamless user experience in your application. These experiences include signing up, signing in, profile editing, and password resetting. This article introduces the methods of user interface (UI) customization. 
 
 > [!TIP]
-> If you want to modify only the banner logo, background image, and background color of your user flow pages, you can try the [Company branding](company-branding.md) feature.
+> If you want to modify only the banner logo, background image, and background color of your user flow pages, you can try the [Company branding](customize-ui.md) feature.
 
 ## Custom HTML and CSS overview
 
@@ -383,7 +383,15 @@ To use the sample:
 1. Now modify the policy, pointing to your HTML file, as mentioned previously.
 1. If you see missing fonts, images, or CSS, check your references in the extensions policy and the \*.html files.
 
+## Use company branding assets in custom HTML
+
+To use [company branding](customize-ui.md#configure-company-branding) assets in a custom HTML, add the following tags outside the `<div id="api">` tag. The image source is replaced with that of the background image and banner logo.
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
 ## Next steps
 
 Learn how to enable [client-side JavaScript code](javascript-and-page-layout.md).
-

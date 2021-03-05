@@ -2,12 +2,12 @@
 title: Migrate Batch pool configuration from Cloud Services to Virtual Machines
 description: Learn how to update your pool configuration to the latest and recommended configuration
 ms.topic: how-to
-ms.date: 1/6/2021
+ms.date: 2/16/2021
 ---
 
 # Migrate Batch pool configuration from Cloud Services to Virtual Machines
 
-Batch pools can be created using either [cloudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) or [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration). 'virtualMachineConfiguration' is the recommended configuration as it supports all Batch capabilities. 'cloudServiceConfiguration' pools do not support all features and no new features are planned.
+Batch pools can be created using either [cloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) or [virtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration). 'virtualMachineConfiguration' is the recommended configuration as it supports all Batch capabilities. 'cloudServiceConfiguration' pools do not support all features and no new features are planned.
 
 If you use 'cloudServiceConfiguration' pools, it is highly recommended that you move to use 'virtualMachineConfiguration' pools. This will enable you to benefit from all Batch capabilities, such as an expanded [selection of VM series](batch-pool-vm-sizes.md), Linux VMs, [containers](batch-docker-container-workloads.md), [Azure Resource Manager virtual networks](batch-virtual-network.md), and [node disk encryption](disk-encryption.md).
 
@@ -32,8 +32,21 @@ The following should be considered when updating pool configuration:
 
 - Pool and node startup and delete times may differ slightly between 'cloudServiceConfiguration' pools and 'virtualMachineConfiguration' pools.
 
+## Azure Data Factory custom activity pools
+
+Azure Batch pools can be used to run Data Factory custom activities. Any 'cloudServiceConfiguration' pools used to run custom activities will need to be deleted and new 'virtualMachineConfiguration' pools created.
+
+- Pipelines should be paused before delete/recreate to ensure no executions will be interrupted.
+- The same pool id can be used to avoid linked service configuration changes.
+- Resume pipelines when new pools have been created.
+
+For more information about using Azure Batch to run Data Factory custom activities:
+
+- [Azure Batch linked service](../data-factory/compute-linked-services.md#azure-batch-linked-service)
+- [Custom activities in a Data Factory pipeline](../data-factory/transform-data-using-dotnet-custom-activity.md)
+
 ## Next steps
 
 - Learn more about [pool configurations](nodes-and-pools.md#configurations).
 - Learn more about [pool best practices](best-practices.md#pools).
-- REST API reference for [pool addition](https://docs.microsoft.com/rest/api/batchservice/pool/add) and [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
+- REST API reference for [pool addition](/rest/api/batchservice/pool/add) and [virtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).

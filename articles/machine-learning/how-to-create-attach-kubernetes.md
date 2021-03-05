@@ -65,6 +65,8 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
     - [Manually scale the node count in an AKS cluster](../aks/scale-cluster.md)
     - [Set up cluster autoscaler in AKS](../aks/cluster-autoscaler.md)
 
+- __Do not directly update the cluster by using a YAML configuration__. While Azure Kubernetes Services supports updates via YAML configuration, Azure Machine Learning deployments will override your changes. The only two YAML fields that will not overwritten are __request limits__ and and __cpu and memory__.
+
 ## Azure Kubernetes Service version
 
 Azure Kubernetes Service allows you to create a cluster using a variety of Kubernetes versions. For more information on available versions, see [supported Kubernetes versions in Azure Kubernetes Service](../aks/supported-kubernetes-versions.md).
@@ -86,7 +88,7 @@ When **attaching** an existing AKS cluster, we support all currently supported A
 
 ### Available and default versions
 
-To find the available and default AKS versions, use the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) command [az aks get-versions](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_versions). For example, the following command returns the versions available in the West US region:
+To find the available and default AKS versions, use the [Azure CLI](/cli/azure/install-azure-cli) command [az aks get-versions](/cli/azure/aks#az_aks_get_versions). For example, the following command returns the versions available in the West US region:
 
 ```azurecli-interactive
 az aks get-versions -l westus -o table
@@ -191,7 +193,7 @@ For more information on the classes, methods, and parameters used in this exampl
 az ml computetarget create aks -n myaks
 ```
 
-For more information, see the [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
+For more information, see the [az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
 
 # [Portal](#tab/azure-portal)
 
@@ -203,7 +205,7 @@ For information on creating an AKS cluster in the portal, see [Create compute ta
 
 **Time estimate:** Approximately 5 minutes.
 
-If you already have AKS cluster in your Azure subscription, and it is version 1.17 or lower, you can use it to deploy your image.
+If you already have AKS cluster in your Azure subscription, you can use it with your workspace.
 
 > [!TIP]
 > The existing AKS cluster can be in a Azure region other than your Azure Machine Learning workspace.
@@ -216,8 +218,8 @@ If you already have AKS cluster in your Azure subscription, and it is version 1.
 
 For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
-* [Create an AKS cluster (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&preserve-view=true&toc=%2fazure%2faks%2fTOC.json&view=azure-cli-latest#az-aks-create)
-* [Create an AKS cluster (portal)](../aks/kubernetes-walkthrough-portal.md?preserve-view=true&view=azure-cli-latest)
+* [Create an AKS cluster (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az-aks-create)
+* [Create an AKS cluster (portal)](../aks/kubernetes-walkthrough-portal.md)
 * [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
 The following example demonstrates how to attach an existing AKS cluster to your workspace:
@@ -268,7 +270,7 @@ To attach the existing cluster to your workspace, use the following command. Rep
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-For more information, see the [az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference.
+For more information, see the [az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference.
 
 # [Portal](#tab/azure-portal)
 
@@ -376,7 +378,6 @@ In Azure Machine Learning studio, select __Compute__, __Inference clusters__, an
 ---
 
 ## Troubleshooting
-
 ### Update the cluster
 
 Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. 

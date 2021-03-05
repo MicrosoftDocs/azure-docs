@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2020
+ms.date: 01/29/2021
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -51,8 +51,6 @@ In addition to the universal replica regions, you can create a read replica in t
 If you are using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.  
 
 There are limitations to consider: 
-
-* Regional availability: Azure Database for PostgreSQL is available in France Central, UAE North, and Germany Central. However, their paired regions are not available.
 	
 * Uni-directional pairs: Some Azure regions are paired in one direction only. These regions include West India, Brazil South. 
    This means that a primary server in West India can create a replica in South India. However, a primary server in South India cannot create a replica in West India. This is because West India's secondary region is South India, but South India's secondary region is not West India.

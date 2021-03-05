@@ -35,7 +35,7 @@ Access to management layer is controlled by [Azure role-based access control](..
 
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Reference](/cli/azure/keyvault)<br>[Quickstart](quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](quick-create-powershell.md)|[Reference](/rest/api/keyvault/)|[Reference](/azure/templates/microsoft.keyvault/vaults)|[Reference](/dotnet/api/microsoft.azure.management.keyvault)<br>[Quickstart](https://docs.microsoft.com/azure/key-vault/general/vault-create-template)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Reference](/java/api/com.microsoft.azure.management.keyvault)|[Reference](/javascript/api/@azure/arm-keyvault)|
+|[Reference](/cli/azure/keyvault)<br>[Quickstart](quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](quick-create-powershell.md)|[Reference](/rest/api/keyvault/)|[Reference](/azure/templates/microsoft.keyvault/vaults)<br>[Quickstart](./vault-create-template.md)|[Reference](/dotnet/api/microsoft.azure.management.keyvault)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Reference](/java/api/com.microsoft.azure.management.keyvault)|[Reference](/javascript/api/@azure/arm-keyvault)|
 
 See [Client Libraries](client-libraries.md) for installation packages and source code.
 
@@ -61,14 +61,14 @@ Above authentications scenarios are supported by **Azure Identity client library
 
 For more information about Azure Identity client libarary, see:
 
-### Azure Identity client libraries
+**Azure Identity client libraries**
 
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Azure Identity SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](/javascript/api/overview/azure/identity-readme)|     
 
 >[!Note]
-> [App Authentication library](https://docs.microsoft.com/dotnet/api/overview/azure/service-to-service-authentication) which was recommended for Key Vault .NET SDK version 3, which is currently depracated . Please follow [AppAuthentication to Azure.Identity Migration Guidance](https://docs.microsoft.com/dotnet/api/overview/azure/app-auth-migration) to migrate to Key Vault .NET SDK Version 4.
+> [App Authentication library](/dotnet/api/overview/azure/service-to-service-authentication) which was recommended for Key Vault .NET SDK version 3, which is currently depracated . Please follow [AppAuthentication to Azure.Identity Migration Guidance](/dotnet/api/overview/azure/app-auth-migration) to migrate to Key Vault .NET SDK Version 4.
 
 For tutorials on how to authenticate to Key Vault in applications, see:
 - [Authenticate to Key Vault in application hosted in VM in .NET](./tutorial-net-virtual-machine.md)
@@ -79,22 +79,19 @@ For tutorials on how to authenticate to Key Vault in applications, see:
 
 Access to keys, secrets, and certificates is controlled by data plane. Data plane access control can be done using local vault access policies or Azure RBAC (preview).
 
-**Keys APIs and SDKs**
-
+**Keys API's and SDKs**
 
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Reference](/cli/azure/keyvault/key)<br>[Quickstart](../keys/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault/)<br>[Quickstart](../keys/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#key-operations)|[Reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/keys)<br>[Quickstart](../keys/quick-create-template.md)|[Reference](/dotnet/api/azure.security.keyvault.keys)<br>[Quickstart](../keys/quick-create-net.md)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Quickstart](../keys/quick-create-python.md)|[Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[Quickstart](../keys/quick-create-java.md)|[Reference](/javascript/api/@azure/keyvault-keys/)<br>[Quickstart](../keys/quick-create-node.md)|
+|[Reference](/cli/azure/keyvault/key)<br>[Quickstart](../keys/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault/)<br>[Quickstart](../keys/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#key-operations)|[Reference](/azure/templates/microsoft.keyvault/vaults/keys)<br>[Quickstart](../keys/quick-create-template.md)|[Reference](/dotnet/api/azure.security.keyvault.keys)<br>[Quickstart](../keys/quick-create-net.md)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Quickstart](../keys/quick-create-python.md)|[Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[Quickstart](../keys/quick-create-java.md)|[Reference](/javascript/api/@azure/keyvault-keys/)<br>[Quickstart](../keys/quick-create-node.md)|
 
-**Certificates APIs and SDKs**
-
+**Certificates API's and SDKs**
 
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[Reference](/cli/azure/keyvault/certificate)<br>[Quickstart](../certificates/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](../certificates/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#certificate-operations)|N/A|[Reference](/dotnet/api/azure.security.keyvault.certificates)<br>[Quickstart](../certificates/quick-create-net.md)|[Reference](/python/api/overview/azure/keyvault-certificates-readme)<br>[Quickstart](../certificates/quick-create-python.md)|[Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)<br>[Quickstart](../certificates/quick-create-java.md)|[Reference](/javascript/api/@azure/keyvault-certificates/)<br>[Quickstart](../certificates/quick-create-node.md)|
 
-**Secrets APIs and SDKs**
-
+**Secrets API's and SDKs**
 
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|

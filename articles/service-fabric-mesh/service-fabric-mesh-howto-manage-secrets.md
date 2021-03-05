@@ -8,6 +8,12 @@ ms.custom: devx-track-azurecli
 ---
 
 # Manage Service Fabric Mesh Application Secrets
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Service Fabric Mesh supports Secrets as Azure resources. A Service Fabric Mesh secret can be any sensitive text information such as storage connection strings, passwords, or other values that should be stored and transmitted securely. This article shows how to use the Service Fabric Secure Store Service to deploy and maintain Secrets.
 
 A Mesh application Secret consists of:

@@ -38,7 +38,7 @@
         href: ../containers/index.yml
 - name: Concepts
   items: 
-    - name: Anomaly Detection API best practices
+    - name: Anomaly Detector API best practices
       href: concepts/anomaly-detection-best-practices.md
 - name: Reference
   items:

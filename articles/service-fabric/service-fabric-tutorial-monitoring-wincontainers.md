@@ -225,6 +225,6 @@ In this tutorial, you learned how to:
 Now that you have configured monitoring for your containerized application, try:
 
 * Configuring Azure Monitor logs for a Linux cluster, following similar steps as this tutorial. Reference [this template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) to make changes in your Resource Manager template.
-* Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/platform/alerts-overview.md) to aid in detecting and diagnostics.
+* Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/alerts/alerts-overview.md) to aid in detecting and diagnostics.
 * Explore Service Fabric's list of [recommended performance counters](service-fabric-diagnostics-event-generation-perf.md) to configure for your clusters.
-* Get familiarized with the [log search and querying](../azure-monitor/log-query/log-query-overview.md) features offered as part of Azure Monitor logs.
+* Get familiarized with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs.

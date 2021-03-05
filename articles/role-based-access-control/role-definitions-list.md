@@ -475,4 +475,4 @@ The following shows an example of the output:
 - [Azure built-in roles](built-in-roles.md)
 - [Azure custom roles](custom-roles.md)
 - [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
-- [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.md)

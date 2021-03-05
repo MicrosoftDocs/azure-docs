@@ -4,7 +4,7 @@ description: Use Helm with AKS and Azure Container Registry to package and run a
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 07/28/2020
+ms.date: 01/12/2021
 ms.author: zarhoads
 ---
 
@@ -139,7 +139,7 @@ For example:
 replicaCount: 1
 
 image:
-  repository: *myhelmacr.azurecr.io*/webfrontend
+  repository: myhelmacr.azurecr.io/webfrontend
   pullPolicy: IfNotPresent
 ...
 service:

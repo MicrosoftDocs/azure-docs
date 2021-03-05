@@ -40,18 +40,12 @@
   items:
   - name: Migrate SQL Server
     items: 
-    - name: to Azure SQL Database (offline)
+    - name: to Azure SQL Database
       href: tutorial-sql-server-to-azure-sql.md
-    - name: to Azure SQL Database (online)
-      href: tutorial-sql-server-azure-sql-online.md
     - name: to Azure SQL Managed Instance (offline)
       href: tutorial-sql-server-to-managed-instance.md
     - name: to Azure SQL Managed Instance (online)
       href: tutorial-sql-server-managed-instance-online.md
-  - name: Migrate RDS SQL Server
-    items: 
-    - name: to Azure SQL Database or SQL Managed Instance
-      href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
   - name: Migrate MySQL
     items: 
     - name: to Azure Database for MySQL
@@ -95,8 +89,10 @@
     items: 
     - name: SQL Server to SQL Database
       href: howto-sql-server-to-azure-sql-powershell.md
-    - name: SQL Server to SQL Managed Instance 
-      href: howto-sql-server-to-azure-sql-mi-powershell.md
+    - name: SQL Server to SQL MI (online)
+      href: howto-sql-server-to-azure-sql-managed-instance-powershell-online.md
+    - name: SQL Server to SQL MI (offline)
+      href: howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md
   - name: Redeploy SSIS package to
     items: 
     - name: Azure SQL Database
@@ -144,17 +140,15 @@
         href: known-issues-dms-hybrid-mode.md
     - name: Known migration issues
       items:     
-      - name: to SQL Database
-        href: known-issues-azure-sql-online.md
       - name: SQL Managed Instance
         href: known-issues-azure-sql-db-managed-instance-online.md
-      - name: to Azure DB for MySQL
+      - name: Azure DB for MySQL
         href: known-issues-azure-mysql-online.md
-      - name: from PostgreSQL to Azure DB for PostgreSQL
+      - name: PostgreSQL to Azure DB for PostgreSQL
         href: known-issues-azure-postgresql-online.md
-      - name: from Oracle to Azure DB for PostgreSQL
+      - name: Oracle to Azure DB for PostgreSQL
         href: known-issues-oracle-azure-postgresql-online.md
-      - name: from MongoDB to Azure Cosmos DB's API for MongoDB
+      - name: MongoDB to Azure Cosmos DB API for MongoDB
         href: known-issues-mongo-cosmos-db.md
 
   - name: Videos

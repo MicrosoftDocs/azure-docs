@@ -160,6 +160,6 @@ $job.State
 
 Create a VM from a [generalized](vm-generalized-image-version-powershell.md) or a [specialized](vm-specialized-image-version-powershell.md) image version.
 
-[Azure Image Builder (preview)](./linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 
+[Azure Image Builder (preview)](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 
 
 For information about how to supply purchase plan information, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).

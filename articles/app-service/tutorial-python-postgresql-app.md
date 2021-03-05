@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Python Django app with Postgres'
 description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework and the app is hosted on Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 02/02/2021
 ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli]
 ---
 # Tutorial: Deploy a Django web app with PostgreSQL in Azure App Service
@@ -27,7 +27,7 @@ You can also use the [Azure portal version of this tutorial](/azure/developer/py
 
 1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Install <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a>.
-1. Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher, with which you run commands in any shell to provision and configure Azure resources.
+1. Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.18.0 or higher, with which you run commands in any shell to provision and configure Azure resources.
 
 Open a terminal window and check your Python version is 3.6 or higher:
 
@@ -51,11 +51,13 @@ py -3 --version
 
 ---
 
-Check that your Azure CLI version is 2.0.80 or higher:
+Check that your Azure CLI version is 2.18.0 or higher:
 
 ```azurecli
 az --version
 ```
+
+If you need to upgrade, try the `az upgrade` command (requires version 2.11+) or see <a href="/cli/azure/install-azure-cli" target="_blank">Install the Azure CLI</a>.
 
 Then sign in to Azure through the CLI:
 
@@ -217,7 +219,7 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 
     Replace `<app-name>` with the name used earlier in the `az webapp up` command.
 
-    On macOS and Linux, you can alternately connect to an SSH session with the [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) command.
+    You can alternately connect to an SSH session with the [`az webapp ssh`](/cli/azure/webapp#az_webapp_ssh) command. On Windows, this command requires the Azure CLI 2.18.0 or higher.
 
     If you cannot connect to the SSH session, then the app itself has failed to start. [Check the diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you haven't created the necessary app settings in the previous section, the logs will indicate `KeyError: 'DBNAME'`.
 
@@ -227,8 +229,11 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
     # Change to the app folder
     cd $APP_PATH
     
-    # Activate the venv (requirements.txt is installed automatically)
+    # Activate the venv
     source /antenv/bin/activate
+
+    # Install requirements
+    pip install -r requirements.txt
 
     # Run database migrations
     python manage.py migrate
@@ -386,6 +391,7 @@ Open an SSH session again in the browser by navigating to `https://<app-name>.sc
 ```
 cd $APP_PATH
 source /antenv/bin/activate
+pip install -r requirements.txt
 python manage.py migrate
 ```
 

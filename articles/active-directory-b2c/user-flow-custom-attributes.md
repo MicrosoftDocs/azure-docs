@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -27,7 +27,7 @@ Your Azure AD B2C directory comes with a [built-in set of attributes](user-profi
 * An identity provider has a unique user identifier, **uniqueUserGUID**, that must be persisted.
 * A custom user journey needs to persist the state of the user, **migrationStatus**, for other logic to operate on.
 
-Azure AD B2C allows you to extend the set of attributes stored on each user account. You can also read and write these attributes by using the [Microsoft Graph API](manage-user-accounts-graph-api.md).
+Azure AD B2C allows you to extend the set of attributes stored on each user account. You can also read and write these attributes by using the [Microsoft Graph API](microsoft-graph-operations.md).
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ The custom attribute is now available in the list of **User attributes** and for
 1. Select **Application claims** and then select the custom attribute.
 1. Click **Save**.
 
-Once you've created a new user using a user flow which uses the newly created custom attribute, the object can be queried in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Alternatively you can use the [Run user flow](./tutorial-create-user-flows.md) feature on the user flow to verify the customer experience. You should now see **ShoeSize** in the list of attributes collected during the sign-up journey, and see it in the token sent back to your application.
+Once you've created a new user using a user flow, which uses the newly created custom attribute, the object can be queried in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Alternatively you can use the [Run user flow](./tutorial-create-user-flows.md) feature on the user flow to verify the customer experience. You should now see **ShoeSize** in the list of attributes collected during the sign-up journey, and see it in the token sent back to your application.
 
 ::: zone-end
 
@@ -93,22 +93,27 @@ To enable custom attributes in your policy, provide **Application ID** and Appli
 
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Find the ClaimsProviders element. Add a new ClaimsProvider to the ClaimsProviders element.
-1. Replace `ApplicationObjectId` with the Object ID that you previously recorded. Then replace `ClientId` with the Application ID that you previously recorded in the below snippet.
+1. Insert the **Application ID** that you previously recorded, between the opening `<Item Key="ClientId">` and closing `</Item>` elements.
+1. Insert the **Application ObjectID** that you previously recorded, between the opening `<Item Key="ApplicationObjectId">` and closing `</Item>` elements.
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Azure Active Directory</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="AAD-Common">
-          <Metadata>
-            <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
-            <Item Key="ClientId"></Item>
-            <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
-            <Item Key="ApplicationObjectId"></Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles> 
-    </ClaimsProvider>
+    <!-- 
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Azure Active Directory</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="AAD-Common">
+            <Metadata>
+              <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
+              <Item Key="ClientId"></Item>
+              <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
+              <Item Key="ApplicationObjectId"></Item>
+            </Metadata>
+          </TechnicalProfile>
+        </TechnicalProfiles> 
+      </ClaimsProvider>
+    <!-- 
+    </ClaimsProviders> -->
     ```
 
 ## Upload your custom policy
@@ -131,7 +136,7 @@ You can create these attributes by using the portal UI before or after you use t
 |Name     |Used in |
 |---------|---------|
 |`extension_loyaltyId`  | Custom policy|
-|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](manage-user-accounts-graph-api.md)|
+|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](microsoft-graph-operations.md)|
 
 The following example demonstrates the use of custom attributes in an Azure AD B2C custom policy claim definition.
 

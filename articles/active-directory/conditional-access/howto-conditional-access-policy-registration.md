@@ -31,6 +31,8 @@ The following policy applies to all selected users, who attempt to register usin
    > [!WARNING]
    > Users must be enabled for the [combined registration](../authentication/howto-registration-mfa-sspr-combined.md).
 
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   1. Select **Done**.
 1. Under **Cloud apps or actions**, select **User actions**, check **Register security information**.
 1. Under **Conditions** > **Locations**.
    1. Configure **Yes**.

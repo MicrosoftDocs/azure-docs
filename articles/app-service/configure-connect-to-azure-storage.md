@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-containers-windows-linux
 
 ::: zone pivot="container-windows"
 
-This guide shows how to attach Azure Storage Files as a network share to a windows container in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-cli.md) and [Premium Files Shares](../storage/files/storage-how-to-create-premium-fileshare.md) are supported. Benefits include secured content, content portability, access to multiple apps, and multiple transferring methods.
+This guide shows how to attach Azure Storage Files as a network share to a windows container in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-cli.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. Benefits include secured content, content portability, access to multiple apps, and multiple transferring methods.
 
 > [!NOTE]
 >Azure Storage in App Service is **in preview** and **not supported** for **production scenarios**.
@@ -34,7 +34,7 @@ This guide shows how to attach Azure Storage to a Linux container App Service. B
 
 - [An existing Windows Container app in Azure App Service](quickstart-custom-container.md)
 - [Create Azure file share](../storage/files/storage-how-to-use-files-cli.md)
-- [Upload files to Azure File share](../storage/files/storage-files-deployment-guide.md)
+- [Upload files to Azure File share](../storage/files/storage-how-to-create-file-share.md)
 
 ::: zone-end
 

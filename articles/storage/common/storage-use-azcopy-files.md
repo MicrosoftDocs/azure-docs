@@ -119,7 +119,7 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pa
 
 You can also exclude files by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
-The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
+The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `--recursive` option to get the entire directory tree, and then use the `--include-pattern` and specify `*.txt` to get all of the text files.
 
 #### Upload files that were modified after a date and time 
 
@@ -214,7 +214,7 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pa
 
 You can also exclude files by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
-The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
+The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `--recursive` option to get the entire directory tree, and then use the `--include-pattern` and specify `*.txt` to get all of the text files.
 
 #### Download files that were modified after a date and time 
 
@@ -230,7 +230,7 @@ For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) refere
 
 #### Download from a share snapshot
 
-You can download a specific version of a file or directory by referencing the **DateTime** value of a share snapshot. To learn more about share snapshots see [Overview of share snapshots for Azure Files](/azure/storage/files/storage-snapshots-files). 
+You can download a specific version of a file or directory by referencing the **DateTime** value of a share snapshot. To learn more about share snapshots see [Overview of share snapshots for Azure Files](../files/storage-snapshots-files.md). 
 
 |    |     |
 |--------|-----------|
@@ -245,7 +245,7 @@ You can use AzCopy to copy files to other storage accounts. The copy operation i
 
 AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer. You can increase the throughput of these operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Optimize throughput](storage-use-azcopy-configure.md#optimize-throughput).
 
-You can also copy specific versions of a files by referencing the **DateTime** value of a share snapshot. To learn more about share snapshots see [Overview of share snapshots for Azure Files](/azure/storage/files/storage-snapshots-files). 
+You can also copy specific versions of a files by referencing the **DateTime** value of a share snapshot. To learn more about share snapshots see [Overview of share snapshots for Azure Files](../files/storage-snapshots-files.md). 
 
 This section contains the following examples:
 

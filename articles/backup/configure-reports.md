@@ -12,7 +12,7 @@ A common requirement for backup admins is to obtain insights on backups based on
 - Auditing of backups and restores.
 - Identifying key trends at different levels of granularity.
 
-Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azure-monitor/log-query/log-analytics-tutorial.md) and [Azure workbooks](../azure-monitor/platform/workbooks-overview.md). These resources help you get rich insights on your backups across your entire backup estate. This article explains how to configure and view Azure Backup reports.
+Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azure-monitor/logs/log-analytics-tutorial.md) and [Azure workbooks](../azure-monitor/visualize/workbooks-overview.md). These resources help you get rich insights on your backups across your entire backup estate. This article explains how to configure and view Azure Backup reports.
 
 ## Supported scenarios
 
@@ -35,9 +35,9 @@ Follow these steps to start using the reports.
 
 Set up one or more Log Analytics workspaces to store your Backup reporting data. The location and subscription where this Log Analytics workspace can be created is independent of the location and subscription where your vaults exist.
 
-To set up a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md).
+To set up a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
-By default, the data in a Log Analytics workspace is retained for 30 days. To see data for a longer time horizon, change the retention period of the Log Analytics workspace. To change the retention period, see [Manage usage and costs with Azure Monitor logs](../azure-monitor/platform/manage-cost-storage.md).
+By default, the data in a Log Analytics workspace is retained for 30 days. To see data for a longer time horizon, change the retention period of the Log Analytics workspace. To change the retention period, see [Manage usage and costs with Azure Monitor logs](../azure-monitor/logs/manage-cost-storage.md).
 
 ### 2. Configure diagnostics settings for your vaults
 
@@ -104,7 +104,7 @@ Use this tab to view information on all of your active policies, such as the num
 
 Use this tab to gain visibility into potential cost-optimization opportunities for your backups. Following are the scenarios for which the Optimize tab currently provides insights:
 
-###### Inactive Resources
+###### Inactive resources
 
 Using this view, you can identify those backup items that haven't had a successful backup for a significant duration of time. This could either mean that the underlying machine that's being backed up doesn't exist anymore (and so is resulting in failed backups), or there's some issue with the machine that's preventing backups from being taken reliably.
 
@@ -133,6 +133,20 @@ Selecting the **Policy Optimizations** tile followed by the **Backup Schedule Op
 The **Backup Management Type** filter at the top of the tab should have the items **SQL in Azure VM** and **SAP HANA in Azure VM** selected, for the grid to be able to display database workloads as expected.
 
 ![Optimize tab - Backup Schedule Optimizations](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
+
+###### Policy adherence
+
+Using this tab, you can identify whether all of your backup instances have had at least one successful backup every day. You can view policy adherence by time period, or by backup instance.
+
+###### Email Azure Backup reports
+
+Using the **Email Report** feature available in Backup Reports, you can create automated tasks to receive periodic reports via email. This feature works by deploying a logic app in your Azure environment that queries data from your selected Log Analytics (LA) workspaces, based on the inputs that you provide.
+
+Once the logic app is created, you'll need to authorize connections to Azure Monitor Logs and Office 365. To do this, navigate to **Logic Apps** in the Azure portal and search for the name of the task you've created. Selecting the **API connections** menu item opens up the list of API connections that you need to authorize.
+
+###### Customize Azure Backup reports
+
+Backup Reports uses functions on Azure Monitor logs. These functions operate on data in the raw Azure Backup tables in LA and return formatted data that helps you easily retrieve information of all your backup-related entities, using simple queries.
 
 ## Export to Excel
 

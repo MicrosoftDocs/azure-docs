@@ -62,7 +62,7 @@ You can use this information to learn. For example:
 
 - Users signed in to devices
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="Data table on the asset inventory screen.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="Data table on the device inventory screen.":::
 
 You can integrate data by either:
 
@@ -126,13 +126,13 @@ Work with Defender for IoT API commands to retrieve and integrate this informati
 
 You can filter the device inventory to show columns of interest. For example, you can view PLC device information.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Screenshot of the asset inventory.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Screenshot of the device inventory.":::
 
 The filter is cleared when you leave the window.
 
 To use the same filter multiple times, you can save a filter or a combination of filters that you need. You can open a left pane and view the filters that you've saved:
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Asset inventories screen.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Device inventories screen.":::
 
 To filter the device inventory:
 
@@ -182,7 +182,7 @@ The following tools are available for viewing devices and device information fro
 
 - **View device properties**: For example, the sensor that's monitoring the device and basic device properties. Right-click the device to view the device properties.
 
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="Screenshot of the Asset Properties view.":::
+  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="Screenshot of the Device Properties view.":::
 
 - **Alert associated with a device:** Right-click the device to view related alerts.
 

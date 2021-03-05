@@ -13,9 +13,7 @@ ms.date: 01/13/2021
 This article describes how to set up [Data-in Replication](concepts-data-in-replication.md) in Azure Database for MySQL by configuring the source and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
 > [!NOTE]
-> Bias-free communication
->
-> Microsoft supports a diverse and inclusionary environment. This article contains references to the words _master_ and _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes these as exclusionary words. The words are used in this article for consistency because they are currently the words that appears in the software. When the software is updated to remove the words, this article will be updated to be in alignment.
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 >
 
 To create a replica in the Azure Database for MySQL service, [Data-in Replication](concepts-data-in-replication.md)  synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services. Data-in Replication is based on the binary log (binlog) file position-based replication native to MySQL. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
@@ -98,9 +96,23 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    ```
 
    If the variable [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) is returned with the value "ON", binary logging is enabled on your server.
-
-   If `log_bin` is returned with the value "OFF", turn on binary logging by editing your my.cnf file so that `log_bin=ON` and restart your server for the change to take effect.
-
+   
+    If `log_bin` is returned with the value "OFF" and your source server is running on-premises or on virtual machines where you can access the configuration file (my.cnf), you can follow the steps below:
+   1. Locate your MySQL configuration file (my.cnf) in the source server. For example: /etc/my.cnf
+   2. Open the configuration file to edit it and locate **mysqld** section in the file.
+   3.  In the mysqld section, add following line
+   
+       ```bash
+       log-bin=mysql-bin.log
+       ```
+     
+   4. Restart the MySQL source server for the changes to take effect.
+   5. Once the server is restarted, verify that binary logging is enabled by running the same query as before:
+   
+      ```sql
+      SHOW VARIABLES LIKE 'log_bin';
+      ```
+   
 4. Source server settings
 
    Data-in Replication requires parameter `lower_case_table_names` to be consistent between the source and replica servers. This parameter is 1 by default in Azure Database for MySQL.

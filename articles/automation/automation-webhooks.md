@@ -145,7 +145,7 @@ You can extend a webhook that has not reached its expiration time. To extend a w
 The following sample runbook accepts the webhook data and starts the virtual machines specified in the request body. To test this runbook, in your Automation account under **Runbooks**, click **Create a runbook**. If you don't know how to create a runbook, see [Creating a runbook](automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> For non-graphical PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
+> For non-graphical PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
 
 ```powershell
 param

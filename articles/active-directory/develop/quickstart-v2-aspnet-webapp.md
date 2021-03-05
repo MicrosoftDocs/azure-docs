@@ -35,7 +35,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application for you in one click.
 >
@@ -44,19 +44,20 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application, for example `ASPNET-Quickstart`. Users of your app might see this name, and you can change it later.
 > 1. Add `https://localhost:44368/` in **Redirect URI**, and select **Register**.
 > 1. Under **Manage**, select **Authentication**.
-> 1. Under the **Implicit Grant** sub-section, select **ID tokens**.
+> 1. In the **Implicit grant and hybrid flows** section, select **ID tokens**.
 > 1. Select **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
-> For the code sample for this quickstart to work, you need to add a reply URL as `https://localhost:44368/`.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `https://localhost:44368/`.
+
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -143,8 +144,8 @@ public void Configuration(IAppBuilder app)
             // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it is using the home page
             PostLogoutRedirectUri = redirectUri,
             Scope = OpenIdConnectScope.OpenIdProfile,
-            // ResponseType is set to request the id_token - which contains basic information about the signed-in user
-            ResponseType = OpenIdConnectResponseType.IdToken,
+            // ResponseType is set to request the code id_token - which contains basic information about the signed-in user
+            ResponseType = OpenIdConnectResponseType.CodeIdToken,
             // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
             // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
             // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
@@ -166,16 +167,16 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | Application ID from the application registered in the Azure portal |
 > | `Authority`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}/v2.0` for public cloud, where {tenant} is the name of your tenant, your tenant Id, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
-> | `RedirectUri`  | URL where users are sent after authentication against Microsoft identity platform endpoint |
+> | `RedirectUri`  | URL where users are sent after authentication against the Microsoft identity platform |
 > | `PostLogoutRedirectUri`     | URL where users are sent after signing-off |
 > | `Scope`     | The list of scopes being requested, separated by spaces |
-> | `ResponseType`     | Request that the response from authentication contains an ID token |
+> | `ResponseType`     | Request that the response from authentication contains an Authorization Code and an ID token |
 > | `TokenValidationParameters`     | A list of parameters for token validation. In this case, `ValidateIssuer` is set to `false` to indicate that it can accept sign-ins from any personal, or work or school account types |
 > | `Notifications`     | A list of delegates that can be executed on different *OpenIdConnect* messages |
 
 
 > [!NOTE]
-> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer.
+> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications, validate the issuer.
 > See the samples to understand how to do that.
 
 ### Initiate an authentication challenge

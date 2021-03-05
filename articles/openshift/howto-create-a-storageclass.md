@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Files StorageClass on Azure Red Hat OpenShift 4
 description: Learn how to create an Azure Files StorageClass on Azure Red Hat OpenShift
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 10/16/2020
 author: grantomation
@@ -19,7 +19,7 @@ In this article, you’ll create a StorageClass for Azure Red Hat OpenShift 4 th
 > * Setup the prerequisites and install the necessary tools
 > * Create an Azure Red Hat OpenShift 4 StorageClass with the Azure File provisioner
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Before you begin
 

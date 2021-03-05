@@ -10,6 +10,11 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
 ---
+
+## Download Code
+
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/Trusted%20Authentication%20Service)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -65,13 +70,13 @@ We'll now proceed to install Azure Communication Services libraries.
 
 ### Install communication services libraries
 
-We'll use the `Administration` library to generate `User Access Tokens`.
+We'll use the `Identity` library to generate `User Access Tokens`.
 
 Use the `npm install` command to install the Azure Communication Services Administration client library for JavaScript.
 
 ```console
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 ```
 
@@ -80,7 +85,7 @@ The `--save` option lists the library as a dependency in your **package.json** f
 At the top of the `index.js` file, import the interface for the `CommunicationIdentityClient`
 
 ```javascript
-const { CommunicationIdentityClient } = require('@azure/communication-administration');
+const { CommunicationIdentityClient } = require('@azure/communication-identity');
 ```
 
 ## Access token generation
@@ -127,7 +132,7 @@ Open the URL on your browser and you should see a response body with the Communi
 
 To deploy your Azure Function, you can follow [step by step instructions](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#sign-in-to-azure)
 
-Generally, you will need to:
+In summary, you will need to:
 1. Sign in to Azure from Visual Studio
 2. Publish your project to your Azure account. Here you will need to choose an existing subscription.
 3. Create a new Azure Function resource using the Visual Studio wizard or use an existing resource. For a new resource, you will need to configure it to your desired region, runtime and unique identifier.

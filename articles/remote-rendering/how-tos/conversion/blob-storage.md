@@ -9,7 +9,7 @@ ms.topic: how-to
 
 # Use Azure Blob Storage for model conversion
 
-The [model conversion](model-conversion.md) service requires access to Azure blob storage so it can retrieve input data and store output data. This article describes how to do the most common steps.
+The [model conversion](model-conversion.md) service requires access to Azure Blob Storage so it can retrieve input data and store output data. This article describes how to do the most common steps.
 
 ## Prepare Azure Storage accounts
 
@@ -23,7 +23,7 @@ The [model conversion](model-conversion.md) service requires access to Azure blo
 The creation of the storage account and the blob containers can be done with one of the following tools:
 
 - [Azure portal](https://portal.azure.com)
-- [az command line](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [az command line](/cli/azure/install-azure-cli)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python ... )
 
@@ -47,7 +47,7 @@ A SAS URI can be generated using one of:
 
 - az PowerShell module
   - see the [example PowerShell scripts](../../samples/powershell-example-scripts.md)
-- [az command line](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [az command line](/cli/azure/install-azure-cli)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
   - right click on container "Get Shared Access Signature" (read, list access for input container, write access for output container)
 - SDKs (C#, Python ... )

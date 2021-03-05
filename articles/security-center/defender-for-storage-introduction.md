@@ -3,7 +3,7 @@ title: Azure Defender for Storage - the benefits and features
 description: Learn about the benefits and features of Azure Defender for Storage.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 02/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -11,7 +11,6 @@ manager: rkarlin
 ---
 
 # Introduction to Azure Defender for Storage
-
 
 **Azure Defender for Storage** is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It utilizes the advanced capabilities of security AI and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) to provide contextual security alerts and recommendations.
 
@@ -21,8 +20,8 @@ Security alerts are triggered when anomalies in activity occur. These  alerts ar
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
-|Pricing:|**Azure Defender for Storage** is billed as shown on [the pricing page](security-center-pricing.md)|
+|Release state:|General Availability (GA)|
+|Pricing:|**Azure Defender for Storage** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Protected storage types:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure Files](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
 |||
@@ -50,7 +49,7 @@ Security alerts are triggered when there's:
 Alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats. Alerts can be exported to Azure Sentinel or any other third-party SIEM or any other external tool.
 
 > [!TIP]
-> It's a best practice to [configure Azure Defender for Storage](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center) on the subscription level, but you may also [configure it on individual storage accounts](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-portal).
+> It's a best practice to [configure Azure Defender for Storage](../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center) on the subscription level, but you may also [configure it on individual storage accounts](../storage/common/azure-defender-storage-configure.md?tabs=azure-portal).
 
 
 ## What is hash reputation analysis for malware?
@@ -64,7 +63,40 @@ When a file is suspected to contain malware, Security Center displays an alert a
 >
 > You can enable **Azure Defender for Storage** at either the subscription level or resource level.
 
+## Trigger a test alert for Azure Defender for Storage
 
+To test the security alerts from Azure Defender for Storage in your environment, generate the alert "Access from a Tor exit node to a storage account" with the following steps:
+
+1. Open a storage account with Azure Defender for Storage enabled.
+1. From the sidebar, select “Containers” and open an existing container or create a new one.
+
+    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Opening a blob container from an Azure Storage account" lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
+
+1. Upload a file to that container.
+
+    > [!CAUTION]
+    > Don't upload a file containing sensitive data.
+
+1. Use the context menu on the uploaded file to select “Generate SAS”.
+
+    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="The generate SAS option for a file in a blob container":::
+
+1. Leave the default options and select **Generate SAS token and URL**.
+
+1. Copy the generated SAS URL.
+
+1. On your local machine, open the Tor browser.
+
+    > [!TIP]
+    > You can download Tor from the Tor Project site [https://www.torproject.org/download/](https://www.torproject.org/download/).
+
+1. In the Tor browser, navigate to the SAS URL.
+
+1. Download the file you uploaded in step 3.
+
+    Within two hours you'll get the following security alert from Security Center:
+
+    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Security alert regarding access from a Tor exit node":::
 
 ## Next steps
 

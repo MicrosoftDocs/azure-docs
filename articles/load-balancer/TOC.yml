@@ -33,8 +33,14 @@
     href: tutorial-load-balancer-standard-public-zonal-portal.md
   - name: Configure port forwarding in Load Balancer
     href: tutorial-load-balancer-port-forwarding-portal.md
-  - name: Create cross-region load balancer - Portal
-    href: tutorial-cross-region-portal.md
+  - name: Cross-region load balancer
+    items:
+    - name: Create cross-region load balancer - Portal
+      href: tutorial-cross-region-portal.md
+    - name: Create cross-region load balancer - PowerShell
+      href: tutorial-cross-region-powershell.md
+    - name: Create cross-region load balancer - Azure CLI
+      href: tutorial-cross-region-cli.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -79,6 +85,8 @@
     href: load-balancer-standard-availability-zones.md
   - name: Floating IP configuration
     href: load-balancer-floating-ip.md
+  - name: Distribution modes
+    href: distribution-mode-concepts.md
   - name: Security
     items:
     - name: Security baseline
@@ -87,6 +95,8 @@
     href: backend-pool-management.md
   - name: Standard Load Balancer and Virtual Machine Scale Sets
     href: load-balancer-standard-virtual-machine-scale-sets.md
+  - name: Retrieve information using the Azure Instance Metadata Service
+    href: instance-metadata-service-load-balancer.md
 - name: How-to
   items:
   - name: Portal settings
@@ -142,6 +152,8 @@
       href: move-across-regions-internal-load-balancer-powershell.md
   - name: Outbound-only load balancer configuration
     href: egress-only.md
+  - name: Retrieve metadata using the Azure IMDS
+    href: howto-load-balancer-imds.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer
@@ -150,8 +162,6 @@
       href: load-balancer-troubleshoot-health-probe-status.md  
     - name: Backend pool (VM) traffic
       href: load-balancer-troubleshoot-backend-traffic.md         
-    - name: Common deployment errors
-      href: load-balancer-common-deployment-errors.md
     - name: Common outbound connection issues
       href: troubleshoot-outbound-connection.md
     - name: Resource health and inbound availability issues
@@ -179,6 +189,10 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.network/loadbalancers
     displayName: ARM
+  - name: Common error codes for Azure Instance Metadata Service (IMDS)
+    href: troubleshoot-load-balancer-imds.md
+  - name: Common deployment errors
+    href: load-balancer-common-deployment-errors.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
