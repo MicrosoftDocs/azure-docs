@@ -13,21 +13,21 @@ ms.author: alkohli
 
 # Create a Wi-Fi profile to use with Azure Stack Edge Mini R devices
 
-This article describes how to create wireless network (Wi-Fi) profiles for Azure Stack Edge Mini R devices. You'll need to add a profile to your Azure Stack Edge Mini R device for each wireless network you use to connect to the device.
+<!--Add customer intent statement to metadata.-->This article describes how to create wireless network (Wi-Fi) profiles for Azure Stack Edge Mini R devices. You'll need to add a Wi-Fi profile to your Azure Stack Edge Mini R device for each wireless network you connect the device to.
 
-Wireless connections are configured via a Wi-Fi profile that is added to the device:
+TRANSITION:
 
-- On a simple home network, you may be able to download and use an existing wireless profile. 
+- On a personal network, you may be able to download and use an existing wireless profile.<!--Introduce Wi-Fi Protected Access 2 (WPA2) - Personal network.-->
 
-- In a high-security enterprise environment, each client computer will have a distinct profile and be authenticated via certificates. You'll need to work with the network administrators to determine the required configuration.<!--Introduce WPA2 - Personal vs. WPA2 - Enterprise here.-->
+- In a high-security enterprise environment, each client computer will have a distinct profile and will be authenticated via certificates. You'll need to work with your network administrator to determine the required configuration.<!--Introduce WPA2 - Enterprise network.-->
 
-In either case, it's very important to make sure the profile complies with the security requirements of your organization before you test or use the profile with your device.
+In either case, it's very important to make sure the profile complies with the security requirements of your organization before you test or use the profile with your device. <!--We will talk more about each type of network.-->
 
 ## About Wi-Fi profiles
 
 A wireless network (Wi-Fi) profile contains the SSID (service set identifier, or **network name**), password key, and security information to be able to connect your Azure Stack Edge Mini R device to a wireless network.
 
-The following code example shows basic settings for a profile to use with a typical wireless network:<!--Compare with the sample in Shourja's overview.-->
+The following code example shows basic settings for a profile to use with a typical wireless network:
 
 * `SSID` is the network name.<!--This is a hexadecimal value? Always?-->  
 
@@ -81,10 +81,11 @@ If you work in more than one physical location at the workplace, the network adm
 
 On an enterprise network, we recommend that you not change settings in the Wi-Fi profiles that your network administrator provides. The only adjustment you may want to make is to the auto-connect settings. For more information, see [Basic profile](/mem/intune/configuration/wi-fi-settings-windows#basic-profile) in Wi-Fi settings for Windows 10 and newer devices.<!--Also applies to home networks.-->
 
-<!--REMOVE THESE? Not recommended? - You may be able to use an existing wireless network profile as a template:
-* You can download the corporate wireless network profile from your work computer. For instructions, see [Download a Wi-Fi profile](#download-a-wi-fi-profile),below.
+In a high-security enterprise environment, you may be able to use an existing wireless network profile as a template:
 
-* If others in your organization are already connecting to their Azure Stack Edge Mini R devices over a wireless network, they can download the Wi-Fi profile from their device. For instructions, see **Download Wi-Fi profile** in [Manage Wi-Fi](./azure-stack-edge-mini-r-manage-wifi.md#download-wi-fi-profile).-->
+* You can download the corporate wireless network profile from your work computer. For instructions, see [Download a Wi-Fi profile](#download-a-wi-fi-profile), below.
+
+* If others in your organization are already connecting to their Azure Stack Edge Mini R devices over a wireless network, they can download the Wi-Fi profile from their device. For instructions, see **Download Wi-Fi profile** in [Manage Wi-Fi](./azure-stack-edge-mini-r-manage-wifi.md#download-wi-fi-profile).
 
 ## Export a Wi-Fi profile
 
@@ -125,24 +126,6 @@ To export a profile for the Wi-Fi interface on your computer, do these steps:
    Interface profile "ContosoFTINET" is saved in file "c:Downloads\ContosoFTINET.xml" successfully.
    ```
 
-<!--## Check for site-specific profiles
-
-If your Azure Stack Edge Mini R device will move between sites in your workplace - say, between Site A and Site B - and the sites have different WiFi networks, each network will have a distinct SSID, and you'll need a different profile for each site.
-
-To find out whether you need a different Wi-Fi profile for each site, do these steps:
-
-1. Connect your laptop to the wireless network from Site A.
-
-1. From a command line, run the `netsh export` command to export the profile for that wireless network. For steps and command parameters, see [Download a Wi-Fi profile](#download-a-wifi-profile), above.  
-
-1. Check the profile for any settings that are specific to the client computer. For example, the authentication mode (`authMode`) for the Wi-Fi protocol is is `machine`.
-
-   - If the profile doesn't have any machine-specific component, you can use the same profile for Site B.
-
-   - If the profile has a machine-specific component, you'll need to get multiple profiles from the network administrators.
-
-You may be able to set **Autoconnect** (`connectionMode` = `auto`) on multiple wireless networks if the device won't be on more than one of those networks at the same time.-->
-
 ## Add certificate, Wi-Fi profile to device
 
 When you have the Wi-Fi profiles and certificates that you need, do these steps to configure your Azure Stack Edge Mini R device for wireless connections:
@@ -154,6 +137,12 @@ When you have the Wi-Fi profiles and certificates that you need, do these steps 
 1. Upload the Wi-Fi profile(s) to the Mini R device following the guidance in [Add, connect to new profile](./azure-stack-edge-mini-r-manage-wifi.md#add-connect-to-wi-fi-profile).
 
 1. Connect to the wireless network to verify that your wireless connection is working. ADD VERIFICATION STEP, with screenshot, performed through the local web UI?  
+ 
+<!--Connect text:
+
+After the wireless network profile is successfully loaded, connect to this profile. Select **Connect to Wi-Fi profile**. 
+
+    ![Local web UI "Port Wi-Fi Network settings" 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-4.png)-->
 
 ## Next steps
 
