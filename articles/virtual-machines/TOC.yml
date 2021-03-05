@@ -280,28 +280,26 @@
       href: ./linux/spot-template.md
     - name: Error codes
       href: error-codes-spot.md
-  - name: Purchasing options
+  - name: Azure Hybrid Benefit
     items:
-    - name: Azure Hybrid Benefit
+    - name: Linux
+      href: ./linux/azure-hybrid-benefit-linux.md
+    - name: Windows
       items:
-      - name: Linux
-        href: ./linux/azure-hybrid-benefit-linux.md
-      - name: Windows
-        items:
-        - name: Use Azure Hybrid Benefit license
-          href: ./windows/hybrid-use-benefit-licensing.md
-        - name: Use Multitenant Hosting Rights for Windows 10
-          href: ./windows/windows-desktop-multitenant-hosting-deployment.md
-    - name: Reserved instances
-      items:
-      - name: Prepay for VMs
-        href: ./prepay-reserved-vm-instances.md
-      - name: Prepay for Dedicated Hosts
-        href: prepay-dedicated-hosts-reserved-instances.md
-      - name: What are Azure reservations?
-        href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
-      - name: VM instance size flexibility
-        href: reserved-vm-instance-size-flexibility.md
+      - name: Use Azure Hybrid Benefit license
+        href: ./windows/hybrid-use-benefit-licensing.md
+      - name: Use Multitenant Hosting Rights for Windows 10
+        href: ./windows/windows-desktop-multitenant-hosting-deployment.md
+  - name: Reserved instances
+    items:
+    - name: Prepay for VMs
+      href: ./prepay-reserved-vm-instances.md
+    - name: Prepay for Dedicated Hosts
+      href: prepay-dedicated-hosts-reserved-instances.md
+    - name: What are Azure reservations?
+      href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
+    - name: VM instance size flexibility
+      href: reserved-vm-instance-size-flexibility.md
   - name: Create Linux VMs
     items:
     - name: Endorsed distros
@@ -793,7 +791,7 @@
       href: ./windows/tutorial-availability-sets.md
     - name: Change availability set
       href: ./windows/change-availability-set.md
-  - name: Availability Zones
+  - name: Availability zones
     items: 
     - name: Overview
       href: ../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context
@@ -813,14 +811,16 @@
       href: ./windows/proximity-placement-groups-portal.md
     - name: Create a proximity placement group - PowerShell
       href: ./windows/proximity-placement-groups.md
-  - name: Scale sets
+  - name: Virtual Machine Scale Sets
     items: 
     - name: Overview
       href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
     - name: Autoscale
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-  - name: States and lifecycle
-    href: states-lifecycle.md
+    - name: Orchestration modes
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes?context=/azure/virtual-machines/context/context
+    - name: States and lifecycle
+      href: states-lifecycle.md
 - name: Disks
   items:
   - name: Introduction to managed disks
