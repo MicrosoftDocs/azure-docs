@@ -8,7 +8,7 @@ ms.author: trbye
 
 :::row:::
     :::column span="3":::
-        The C++ Speech SDK is available on Windows, Linux, and macOS. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+        The C++ Speech SDK is available on Windows, Linux, and macOS. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -28,4 +28,4 @@ Install-Package Microsoft.CognitiveServices.Speech
 
 #### Additional resources
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp" target="_blank">Windows, Linux, and macOS quickstart C++ source code <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp" target="_blank">Windows, Linux, and macOS quickstart C++ source code </a>

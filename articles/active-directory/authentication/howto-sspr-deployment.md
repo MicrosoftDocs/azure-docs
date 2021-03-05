@@ -75,6 +75,7 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 | Videos| [Empower your users with better IT scalability](https://youtu.be/g9RpRnylxS8) 
 | |[What is self-service password reset?](https://youtu.be/hc97Yx5PJiM)|
 | |[Deploying self-service password reset](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
+| |[How to enable and configure SSPR in Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ)|
 | |[How to configure self-service password reset for users in Azure AD?](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
 | |[How to [prepare users to] register [their] security information for Azure Active Directory](https://youtu.be/gXuh0XS18wA) |
 | Online courses|[Managing Identities in Microsoft Azure Active Directory](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) Use SSPR to give your users a modern, protected experience. See especially the "[Managing Azure Active Directory Users and Groups](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)" module. |
