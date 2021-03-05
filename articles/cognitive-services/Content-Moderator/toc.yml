@@ -87,11 +87,11 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/contentmoderator
     - name: Node.js
-      href: /javascript/api/@azure/cognitiveservices-contentmoderator/?view=azure-node-latest
+      href: /javascript/api/@azure/cognitiveservices-contentmoderator/
     - name: Python
       href: /python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python
     - name: Go

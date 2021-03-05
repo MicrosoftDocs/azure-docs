@@ -5,7 +5,7 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick 
 ms.subservice: spark
@@ -31,13 +31,13 @@ When a Spark instance starts up, these libraries will automatically be included.
 Once you have identified the Python libraries that you would like to use for your Spark application, you can install them into a Spark pool. Pool-level libraries are available to all notebooks and jobs running on the pool.
 
 There are two primary ways to install a library on a cluster:
--  Install a workspace library that has been uploaded as a Workspace package.
+-  Install a workspace library that has been uploaded as a workspace package.
 -  Provide a *requirements.txt* or *Conda environment.yml* environment specification to install packages from repositories like PyPI, Conda-Forge, and more.
 
 > [!IMPORTANT]
 > - If the package you are installing is large or takes a long time to install, this affects the Spark instance start up time.
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
-> - Installing packages from PyPI is not supported within DEP-enabled workspaces.
+> - Installing packages from external repositories like PyPI, Conda-Forge, or the default Conda channels is not supported within DEP-enabled workspaces.
 
 ### Install Python packages
 Python packages can be installed from repositories like PyPI and Conda-Forge by providing an environment specification file. 
@@ -135,9 +135,6 @@ To add workspace packages:
 
 ![Screenshot that highlights workspace packages.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "View workspace packages")
 
-> [!IMPORTANT]
-> Installing Workspace packages is currently not yet supported within data exfiltration protected (DEP) workspaces.
-
 ### Storage account
 Custom-built wheel packages can be installed on the Apache Spark pool by uploading all the wheel files into the Azure Data Lake Storage (Gen2) account that is linked with the Synapse workspace. 
 
@@ -153,10 +150,10 @@ You may need to add the ```python``` folder within the ```libraries``` folder if
 > To install custom libraries using the Azure DataLake Storage method, you must have the **Storage Blob Data Contributor** or **Storage Blob Data Owner** permissions on the primary Gen2 Storage account that is linked to the Azure Synapse Analytics workspace.
 
 >[!WARNING]
-> When providing custom wheel files, users cannot provide wheel files in both the storage account and in the workspace library interface. If both are provided, only the wheel files specified in the Workspace packages list will be installed. 
+> When providing custom wheel files, users cannot provide wheel files in both the storage account and in the workspace library interface. If both are provided, only the wheel files specified in the workspace packages list will be installed. 
 
-## Session-scoped libraries (preview)
-In addition to pool level libraries, you can also specify session-scoped libraries at the beginning of a notebook session.  Session-scoped libraries let you specify and use custom Python environments within a notebook session. 
+## Session-scoped packages (preview)
+In addition to pool level packages, you can also specify session-scoped libraries at the beginning of a notebook session.  Session-scoped libraries let you specify and use custom Python environments within a notebook session. 
 
 When using session-scoped libraries, it is important to keep the following points in mind:
    - When you install session-scoped libraries, only the current notebook has access to the specified libraries. 
@@ -183,3 +180,4 @@ In some cases, to view the package versions from Conda, you may need to inspect 
 ## Next steps
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
 - Troubleshoot library installation errors: [Troubleshoot library errors](apache-spark-troubleshoot-library-errors.md)
+- Create a private Conda channel using your Azure Data Lake Storage Account: [Conda private channels](./spark/../apache-spark-custom-conda-channel.md)

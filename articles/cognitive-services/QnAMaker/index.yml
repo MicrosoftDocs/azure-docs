@@ -114,11 +114,11 @@ landingContent:
           - text: Generate Answer APIs
             url: /rest/api/cognitiveservices/qnamaker4.0/Runtime
           - text: .Net SDK reference documentation
-            url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+            url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: /cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+            url: /cli/azure/cognitiveservices#az-cognitiveservices-list
 
   - title: Help and feedback
     linkLists:

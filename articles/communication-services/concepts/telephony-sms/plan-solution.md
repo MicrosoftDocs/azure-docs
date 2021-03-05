@@ -21,6 +21,7 @@ ms.service: azure-communication-services
 > [!IMPORTANT]
 > Phone number availability is currently restricted to paid Azure subscriptions that have a billing address in the United States and Communication Services resources that have a US data location. Phone numbers cannot be acquired on trial accounts or using Azure free credits. For more information, visit the [subscription eligibility](#azure-subscriptions-eligibility) section of this document.
 
+
 Azure Communication Services allows you to use phone numbers to make voice calls and send SMS messages with the public-switched telephone network (PSTN). In this document, we'll review the phone number types, configuration options, and region availability for planning your telephony and SMS solution using Communication Services.
 
 ## Azure Subscriptions eligibility
