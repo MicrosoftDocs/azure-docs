@@ -314,17 +314,21 @@ Before you can create your logic app, create a local project so that you can man
 
    1. When you're done, make sure that you save your changes.
 
-<a name="enable-custom-connectors"></a>
+<a name="enable-built-in-connector-authoring"></a>
 
-## Enable custom connectors
+## Enable built-in connector authoring
 
-By default, custom connectors aren't enabled in Visual Studio Code. To use custom connectors, you have to convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET).
+You can create your own built-in connectors for any service you need by using the [preview release's extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these built-in connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the preview runtime.
+
+By default, this capability isn't enabled in Visual Studio Code, so to create these connectors, you need to first convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET).
 
 1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to Nuget-based Logic App project**.
 
    ![Screenshot that shows that shows Explorer pane with the project's shortcut menu opened from a blank area in the project window.](./media/create-stateful-stateless-workflows-visual-studio-code/convert-logic-app-project.png)
 
 1. When the prompt appears, confirm the project conversion.
+
+1. To continue, review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 <a name="open-workflow-definition-designer"></a>
 

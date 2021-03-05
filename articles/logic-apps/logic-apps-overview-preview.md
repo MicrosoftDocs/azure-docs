@@ -122,7 +122,11 @@ Azure Logic Apps Preview includes many current and additional capabilities, for 
 
 * Create logic apps and their workflows from [390+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
-  * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to the built-in triggers and actions that are native to the Azure Logic Apps Preview runtime, for example, the Request trigger and HTTP action. For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+  * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to the built-in triggers and actions that are native to the Azure Logic Apps Preview runtime, for example, the Request trigger and HTTP action.
+
+  * Create your own built-in connectors for any service you need by using the [preview release's extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these built-in connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the preview runtime.
+
+    To use this capability, [switch your project from extension bundle-based (Node.js) to NuGet package-based (.NET)](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring). For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
   * You can use the B2B actions for Liquid Operations and XML Operations without an integration account. To use these actions, you need to have Liquid maps, XML maps, or XML schemas that you can upload through the respective actions in the Azure portal or add to your Visual Studio Code project's **Artifacts** folder using the respective **Maps** and **Schemas** folders.
 
@@ -198,8 +202,6 @@ In Azure Logic Apps Preview, these capabilities have changed, or they are curren
   * These triggers and actions have either changed or are currently limited, unsupported, or unavailable:
 
     * [On-premises data gateway *triggers*](../connectors/apis-list.md#on-premises-connectors) are unavailable, but gateway actions *are* available.
-
-    * By default, [custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) aren't enabled in Visual Studio Code. To use custom connectors, [switch your project from extension bundle-based (Node.js) to NuGet package-based (.NET)](create-stateful-stateless-workflows-visual-studio-code.md#enable-custom-connectors).
 
     * The built-in action, [Azure Functions - Choose an Azure function](logic-apps-azure-functions.md) is now **Azure Function Operations - Call an Azure function**. This action currently works only for functions that are created from the **HTTP Trigger** template.
 
