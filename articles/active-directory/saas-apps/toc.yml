@@ -2123,6 +2123,8 @@
         href: bonusly-provisioning-tutorial.md
       - name: Box
         href: box-userprovisioning-tutorial.md
+      - name: Bpanda
+        href: bpanda-provisioning-tutorial.md
       - name: Brivo Onair Identity Connector
         href: brivo-onair-identity-connector-provisioning-tutorial.md       
       - name: Cerner Central
