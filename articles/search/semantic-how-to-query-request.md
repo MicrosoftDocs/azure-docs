@@ -97,7 +97,7 @@ While content in a search index can be composed in multiple languages, the query
 
 #### Step 2: Set searchFields
 
-This parameter is optional, but strongly recommended for both captions and answers. In a simple or full Lucene query, searchFields is used to scope the query to specific fields, and fields can be listed in arbitrary order.
+This parameter is optional, but strongly recommended for both captions and answers. In simple or full Lucene queries, the searchFields parameter scopes the query to specific fields, which can be listed in arbitrary order.
 
 In a semantic query, the searchFields parameter determines which fields are evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank, as the model requires a hint as to which fields are the most important to process.
 
