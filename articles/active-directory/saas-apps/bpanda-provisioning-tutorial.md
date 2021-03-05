@@ -38,8 +38,6 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A cloud subscription process space in Bpanda. For on-premises, see our installation documentation.
-* The URL to you authentificaton endpoint in Bpanda. Contact support@mid.de for more information.
-* A client secret for further generating access tokens. This must have been transmitted to you in a secure way. Contact support@mid.de, if you have concerns.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
@@ -47,10 +45,14 @@ The scenario outlined in this tutorial assumes that you already have the followi
 3. Determine what data to [map between Azure AD and Bpanda](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
 ## Step 2. Configure Bpanda to support provisioning with Azure AD
-For establishing a successful connection between Azure AD and Bpanda, an access token must be retrieved in either of the following ways.
+1. Reach out to support@mid.de for more information on your authentication Tenant URL.
+
+2. A client secret for further generating access tokens. This must have been transmitted to you in a secure way. Reach out to support@mid.de for more information.
+
+3. For establishing a successful connection between Azure AD and Bpanda, an access token must be retrieved in either of the following ways.
 
 Use this command on **Linux**
-
+```
 curl -u scim:{Your client secret} --location --request POST '{Your tenant specific authentication endpoint}/protocol/openid-connect/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials'
@@ -62,6 +64,7 @@ $headers=@{}
 $headers.Add("Content-Type", "application/x-www-form-urlencoded")  
 $headers.Add("Authorization", "Basic {0}" -f $base64AuthInfo)  
 $response = Invoke-WebRequest -Uri "{Your tenant specific authentication endpoint}/protocol/openid-connect/token" -Method POST -Headers $headers -ContentType 'application/x-www-form-urlencoded' -Body 'grant_type=client_credentials' 
+```
 
 This value will be entered in the **Secret Token** field in the Provisioning tab of your Bpanda application in the Azure portal.
 
