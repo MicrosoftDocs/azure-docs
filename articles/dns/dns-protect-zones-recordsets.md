@@ -211,7 +211,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-The equivalent command is also [available via the Azure CLI](/cli/azure/lock?view=azure-cli-latest#az-lock-create):
+The equivalent command is also [available via the Azure CLI](/cli/azure/lock#az-lock-create):
 
 ```azurecli
 # Lock a DNS zone
