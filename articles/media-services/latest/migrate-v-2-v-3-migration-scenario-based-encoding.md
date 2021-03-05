@@ -36,7 +36,11 @@ Take a few minutes to look at the flowcharts below for a visual comparison of th
 
 Click on the image below to see a larger version.
 
-[ ![Encoding workflow for V2](./media/migration-guide/V2-pretty.svg) ](./media/migration-guide/V2-pretty.svg#lightbox)
+<!--[![Encoding workflow for V2](./media/migration-guide/V2-pretty.svg) ](./media/migration-guide/V2-pretty.svg#lightbox)-->
+
+<Token>
+<object data="./media/migration-guide/V2-pretty.svg"></object>
+</Token>
 
 1. Setup
     1. Create an asset or use and existing asset. If using a new asset, upload content to that asset. If using an existing asset, you should be encoding files that already exist in the asset.
@@ -79,17 +83,6 @@ Click on the image below to see a larger version.
 If your V2 code called the Standard Encoder with a custom preset, you first need to create a new transform with the custom Standard Encoder preset before submitting a job.
 
 Custom presets are now JSON and no longer XML based. Recreate your preset in JSON following the custom preset schema as defined in the [Transform Open API (Swagger)](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/examples/transforms-create.json) documentation.
-
-
-<!-- removed because this is covered in the tutorials
-Common custom [encoding](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json) scenarios:
-        1. Create a custom Single Bitrate MP4 encode
-        1. Create a custom [Adaptive Bitrate Encoding Ladder](autogen-bitrate-ladder.md)
-        1. Creating Sprite Thumbnails
-        1. Creating Thumbnails (see below for your preferred method)
-        1. [Sub Clipping](subclip-video-rest-howto.md)
-        1. Cropping
--->
 
 ## Input and output metadata files from an encoding job
 
