@@ -25,7 +25,7 @@ To get started, you'll need:
 * A completed [**Document Translation (Preview) form**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) to enable your Azure subscription to use the new Document Translation feature.
 
 > [!NOTE]
-> Document Translation is currently only supported in the Translator (single-service) resource, **not** the Cognitive Services (multi-service) resource.
+> Generally, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key or a single service subscription key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
 
 ## Get your custom domain name and subscription key
 
@@ -67,9 +67,9 @@ You'll need to  [**create containers**](../../../storage/blobs/storage-quickstar
 * **Target container**. This container is where your translated files will be stored (required).  
 * **Glossary container**. This container is where you upload your glossary files (optional).  
 
-*See* **Create SAS access tokens for Document Translation**
+### **Create SAS access tokens for Document Translation**
 
-The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs.
+The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Document Translation process**](create-sas-tokens.md).
 
 * Your **source** container or blob must have designated  **read** and **list** access.
 * Your **target** container or blob must have designated  **write** and **list** access.
@@ -275,13 +275,21 @@ The following headers are included with each Document Translator API request:
 >> * `glossaryURL`
 >> * `id`  (job ID)
 >>
-> Where to finding the `id` value:
-> * You can find the job `id`  in the The POST method's  response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**.  
-> * You can also use a GET Jobs request to retrieve the  job `id`  for a Document Translation operation.
->
 > For the code samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  
 >
 > See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
+
+#### Locating  the `id` value
+
+* You'll find the job `id`  in the The POST method's  response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**.  
+
+|**Response header**|**Result URL**|
+|-----------------------|----------------|
+Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
+
+* You can also use a **GET Jobs** request to retrieve a Document Translation  job `id` .
+
+>
 
 ## _POST Document Translation_ request
 
