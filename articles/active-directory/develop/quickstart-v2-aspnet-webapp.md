@@ -101,9 +101,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
 >   - If your application supports **All Microsoft account users**, replace this value with `common`
 >
->  
->  - To find the values of *Application ID*, *Directory (tenant) ID*, and *Supported account types*, go to the **Overview** page
->  - Ensure the value for `redirectUri` in the **Web.config** corresponds with the **Redirect URI** defined for the App Registration in Azure AD (if not, navigate to the **Authentication** menu for the App Registration and update the **REDIRECT URI** to match)
+> To find the values of *Application ID*, *Directory (tenant) ID*, and *Supported account types*, go to the **Overview** page
+> Ensure the value for `redirectUri` in the **Web.config** corresponds with the **Redirect URI** defined for the App Registration in Azure AD (if not, navigate to the **Authentication** menu for the App Registration and update the **REDIRECT URI** to match)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]

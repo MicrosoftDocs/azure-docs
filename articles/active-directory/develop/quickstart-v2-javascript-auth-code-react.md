@@ -75,8 +75,6 @@ This quickstart uses MSAL React with the authorization code flow. For a similar 
 > [!div renderon="docs"]
 > To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/ms-identity-javascript-react-spa/archive/main.zip).
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
-
 > [!div renderon="portal" class="sxs-lookup"]
 > Run the project with a web server by using Node.js
 
@@ -115,6 +113,8 @@ This quickstart uses MSAL React with the authorization code flow. For a similar 
 > Modify the values in the `msalConfig` section as described here:
 >
 > - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
+>
+> To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
 > - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter `https://login.microsoftonline.com/`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` is set to one of the following:
 >   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
@@ -129,8 +129,6 @@ This quickstart uses MSAL React with the authorization code flow. For a similar 
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
-
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
 > We have configured your project with values of your app's properties.

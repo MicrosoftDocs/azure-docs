@@ -73,8 +73,6 @@ This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/
 
 > [!div renderon="docs"]
 > [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
-
->[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 >
 > You can run the provided project in either Visual Studio or Visual Studio for Mac.
 
@@ -83,6 +81,8 @@ This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/
 > Run the project using Visual Studio 2019.
 > [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]

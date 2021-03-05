@@ -78,8 +78,6 @@ To run this sample, you need:
 > [!div renderon="docs"]
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
-
 > [!div class="sxs-lookup" renderon="portal"]
 > Download the project and extract the .zip file into a folder near the root of your drive. For example, *C:\Azure-Samples*.
 >
