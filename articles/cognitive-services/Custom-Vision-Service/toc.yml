@@ -68,7 +68,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/customvision
     - name: Node.js - Training
       href: /javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest
     - name: Node.js - Prediction
@@ -87,10 +87,6 @@
     href: /samples/browse/?products=azure&term=vision
   - name: Limits and quotas
     href: limits-and-quotas.md
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability

@@ -63,6 +63,8 @@
       href: front-end-frameworks.md
     - name: Create private endpoint access
       href: private-link.md
+    - name: Reset deployment tokens
+      href: deployment-token-management.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator

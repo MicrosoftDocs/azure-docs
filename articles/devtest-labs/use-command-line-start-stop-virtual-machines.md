@@ -61,7 +61,7 @@ else {
 
 
 ## Azure CLI
-The [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) is another way to automate the starting and stopping of DevTest Labs VMs. Azure CLI can be [installed](/cli/azure/install-azure-cli?view=azure-cli-latest) on different operating systems. The following script gives you commands for starting and stopping a VM in a lab. 
+The [Azure CLI](/cli/azure/get-started-with-azure-cli) is another way to automate the starting and stopping of DevTest Labs VMs. Azure CLI can be [installed](/cli/azure/install-azure-cli) on different operating systems. The following script gives you commands for starting and stopping a VM in a lab. 
 
 ```azurecli
 # Sign in to Azure

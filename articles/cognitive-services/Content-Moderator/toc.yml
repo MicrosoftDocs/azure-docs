@@ -89,7 +89,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/contentmoderator
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-contentmoderator/?view=azure-node-latest
     - name: Python
@@ -116,14 +116,8 @@
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/559960-content-moderator
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator
   - name: Language support
     href: language-support.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure roadmap

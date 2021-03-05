@@ -20,6 +20,7 @@ Learn more about the Azure AD integration flow on the [Azure Active Directory in
 ## Limitations 
 
 * AKS-managed Azure AD integration can't be disabled
+* Changing a AKS-managed Azure AD integrated cluster to legacy AAD is not supported
 * non-Kubernetes RBAC enabled clusters aren't supported for AKS-managed Azure AD integration
 * Changing the Azure AD tenant associated with AKS-managed Azure AD integration isn't supported
 
@@ -310,8 +311,8 @@ Make sure the admin of the security group has given your account an *Active* ass
 [azure-rbac-integration]: manage-azure-rbac.md
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show

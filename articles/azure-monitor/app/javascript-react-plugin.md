@@ -157,7 +157,11 @@ It will operate like the higher-order component, but respond to Hooks life-cycle
 
 ### `useTrackEvent`
 
-The `useTrackEvent` Hook is used to track any custom event that an application may need to track, such as a button click or other API call. It takes two arguments, the first is the Application Insights instance (which can be obtained from the `useAppInsightsContext` Hook), and a name for the event.
+The `useTrackEvent` Hook is used to track any custom event that an application may need to track, such as a button click or other API call. It takes four arguments:
+-   Application Insights instance (which can be obtained from the `useAppInsightsContext` Hook).
+-   Name for the event.
+-   Event data object that encapsulates the changes that has to be tracked.
+-   skipFirstRun (optional) flag to skip calling the `trackEvent` call on initialization. Default value is set to `true`.
 
 ```javascript
 import React, { useState, useEffect } from "react";

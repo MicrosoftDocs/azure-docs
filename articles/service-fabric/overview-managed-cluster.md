@@ -64,7 +64,7 @@ The latest features for Service Fabric managed clusters preview include support 
 * [Deploying applications using ARM templates](how-to-managed-cluster-app-deployment-template.md)
 * [Automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
 * [Disk encryption](how-to-enable-managed-cluster-disk-encryption.md)
-* [Applying NSG rules](how-to-managed-cluster-configuration.md#apply-nsg-rules)
+* [Applying NSG rules](how-to-managed-cluster-networking.md)
 
 Features to be added in upcoming releases include:
 

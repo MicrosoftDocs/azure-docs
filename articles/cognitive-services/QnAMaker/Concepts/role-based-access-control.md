@@ -20,7 +20,7 @@ This Azure RBAC feature includes:
 * Quickly add authors and editors to all knowledge bases in the resource because control is at the resource level, not at the knowledge base level.
 
 > [!NOTE]
-> Make sure to add a custom subdomain for the resource. [Custom Subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) should be present by default, but if not, please add it
+> Make sure to add a custom subdomain for the resource. [Custom Subdomain](../../cognitive-services-custom-subdomains.md) should be present by default, but if not, please add it
 
 ## Access is provided by a defined role
 

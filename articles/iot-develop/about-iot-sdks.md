@@ -55,7 +55,7 @@ Your options to get started depend on what kind of device you have:
 These SDKs are specialized to run on devices with limited compute or memory resources. To learn more about common device types, see [Overview of Azure IoT device types](concepts-iot-device-types.md).
 
 #### Embedded C SDK
-* [GitHub Repository](https://github.com/Azure/azure-sdk-for-c/tree/1.0.0/sdk/docs/iot)
+* [GitHub Repository](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot)
 * [Samples](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/README.md)
 * [Reference Documentation](https://azure.github.io/azure-sdk-for-c/)
 * [How to build the Embedded C SDK](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#build)
@@ -63,7 +63,7 @@ These SDKs are specialized to run on devices with limited compute or memory reso
 
 #### Azure RTOS Middleware
 
-* [GitHub Repository](https://github.com/azure-rtos/threadx)
+* [GitHub Repository](https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot)
 * [Getting Started Guides](https://github.com/azure-rtos/getting-started) and [more samples](https://github.com/azure-rtos/samples)
 * [Reference Documentation](/azure/rtos/threadx/)
 
