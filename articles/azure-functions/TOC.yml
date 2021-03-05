@@ -454,7 +454,7 @@
         - name: Azure PowerShell
           href: /powershell/module/az.functions
         - name: Java
-          href: /java/api/overview/azure/functions/runtime?view=azure-java-stable
+          href: /java/api/overview/azure/functions/runtime
         - name: Python
           href: /python/api/azure-functions/azure.functions?view=azure-python
     - name: App settings reference

@@ -71,7 +71,7 @@ landingContent:
           - text: Java client library
             url: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html
           - text: Node.js client library
-            url: /javascript/api/@azure/keyvault-keys/?view=azure-node-latest
+            url: /javascript/api/@azure/keyvault-keys/
 
 
   # Card
