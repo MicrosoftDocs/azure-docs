@@ -19,7 +19,8 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 ## March 2021
 
 ### Computer Vision 3.2 Public Preview update
-The Computer Vision API v3.2 public preview has been updated. This release brings together the latest iterations of the Read API and all other Computer Vision features in a single version.
+
+The Computer Vision API v3.2 public preview has been updated. The preview release has all Computer Vision features along with updated Read and Analyze APIs.
 
 > [!div class="nextstepaction"]
 > [See Computer Vision v3.2 public preview 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
