@@ -28,19 +28,19 @@
     - name: Transparency notes
       items:
       - name: Spatial Analysis use cases
-        href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+        href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/cognitive-services/computer-vision/context/context
       - name: Characteristics and limitations
-        href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+        href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
     - name: Integration and responsible use
       items:
       - name: Responsible use in AI deployment 
-        href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+        href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/computer-vision/context/context
       - name: Disclosure design guidelines
-        href: /legal/cognitive-services/computer-vision/disclosure-design?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+        href: /legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/computer-vision/context/context
       - name: Research insights
-        href: /legal/cognitive-services/computer-vision/research-insights?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+        href: /legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/computer-vision/context/context
     - name: Data, privacy, and security
-      href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+      href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/computer-vision/context/context
 - name: How-to guides
   items:
   - name: Call the Computer Vision API
@@ -48,13 +48,13 @@
   - name: Analyze videos in real time
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
   - name: How to configure virtual networks
-    href: https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-virtual-networks?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+    href: https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
   - name: Upgrade from Read 2.x to Read 3.x
     href: upgrade-api-versions.md
   - name: How to configure AAD Authentication
-    href: https://docs.microsoft.com/en-us/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+    href: https://docs.microsoft.com/en-us/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory?context=/azure/cognitive-services/computer-vision/context/context
   - name: How to use customer managed keys
-    href: https://docs.microsoft.com/en-us/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+    href: https://docs.microsoft.com/en-us/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
 - name: Deploy Computer Vision
   items:
   - name: Containers
