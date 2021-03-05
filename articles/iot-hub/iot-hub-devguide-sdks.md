@@ -70,14 +70,14 @@ Azure IoT Hub device SDK for Java:
 * Add to [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk) project
 * [Source code](https://github.com/Azure/azure-iot-sdk-java)
 * [API reference](/java/api/com.microsoft.azure.sdk.iot.device)
-* [Module reference](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable&preserve-view=true)
+* [Module reference](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)
 
 Azure IoT Hub device SDK for Node.js:
 
 * Install from [npm](https://www.npmjs.com/package/azure-iot-device)
 * [Source code](https://github.com/Azure/azure-iot-sdk-node)
 * [API reference](/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest&preserve-view=true)
-* [Module reference](/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest&preserve-view=true)
+* [Module reference](/javascript/api/azure-iot-device/moduleclient)
 
 Azure IoT Hub device SDK for Python:
 
@@ -157,12 +157,12 @@ Azure Provisioning device and service SDKs for Java:
 
 * Add to [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk) project
 * [Source code](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning)
-* [API reference](/java/api/com.microsoft.azure.sdk.iot.provisioning.device?view=azure-java-stable&preserve-view=true)
+* [API reference](/java/api/com.microsoft.azure.sdk.iot.provisioning.device)
 
 Azure Provisioning device and service SDKs for Node.js:
 
 * [Source code](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning)
-* [API reference](/javascript/api/overview/azure/iothubdeviceprovisioning?view=azure-node-latest&preserve-view=true)
+* [API reference](/javascript/api/overview/azure/iothubdeviceprovisioning)
 * Download [Device SDK](https://badge.fury.io/js/azure-iot-provisioning-device) and [Service SDK](https://badge.fury.io/js/azure-iot-provisioning-service) from npm
 
 Azure Provisioning device and service SDKs for Python:
