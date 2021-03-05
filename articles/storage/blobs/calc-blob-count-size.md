@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 03/03/2021
+ms.date: 03/05/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to

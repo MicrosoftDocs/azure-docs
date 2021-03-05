@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.service: storage
-ms.date: 12/03/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: mhopkins
 ms.reviewer: yzheng
