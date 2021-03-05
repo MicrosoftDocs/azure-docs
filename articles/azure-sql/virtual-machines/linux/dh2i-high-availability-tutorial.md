@@ -39,7 +39,7 @@ In this tutorial, we are going to set up a DxEnterprise cluster using [DxAdmin C
 - A valid DxEnterprise license with availability group management features enabled will be required. For more information, see [DxEnterprise Free Trial](https://dh2i.com/trial/) about how you can obtain a free trial.
 
 ## Install SQL Server on all the Azure VMs that will be part of the availability group
- 
+
 In this tutorial, we are setting up a three node Linux-based cluster running the availability group. Follow the documentation for [SQL Server installation on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview#install) based on the choice of your Linux platform. We also recommend you install the [SQL Server tools](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) for this tutorial.
  
 > [!NOTE]
@@ -52,7 +52,7 @@ For this tutorial, we are not going to install SQL Server on the Windows VM, as 
 After you complete this step, you should have SQL Server and [SQL Server tools](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) (optionally) installed on all three Linux-based VMs that will participate in the availability group.
  
 ## Install DxEnterprise on all the VMs and Configure the cluster
- 
+
 In this step, we are going to install DH2i DxEnterprise for Linux on the three Linux VMs. The following table describes the role each server plays in the cluster:
 
 | Number of VMs | DH2i DxEnterprise   role | Microsoft SQL   Server availability group replica role |
@@ -68,45 +68,45 @@ To install DxEnterprise on the three Linux-based nodes, follow the DH2i DxEnterp
 - **Ubuntu**
     - [Repo Installation Quick Start Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-ubuntu-installation-quick-start-guide/)
     - [Extension Quick Start Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-extension-quick-start-guide/)
-    - [Marketplace Image Quick Start Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-marketplace-image-for-linux-quick-start-guide/)]
+    - [Marketplace Image Quick Start Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-marketplace-image-for-linux-quick-start-guide/)
 - **RHEL**
     - [Repo Installation Quick Start Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-rhel-centos-installation-quick-start-guide/)
     - [Extension Quick Start Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-extension-quick-start-guide/)
-    - [Marketplace Image Quick Start Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-marketplace-image-for-linux-quick-start-guide/)]
+    - [Marketplace Image Quick Start Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-marketplace-image-for-linux-quick-start-guide/)
 
 To install just the DxAdmin client tool on the Windows VM, follow [DxAdmin Client UI Quick Start Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-dxadmin-client-ui-quick-start-guide/).
 
 After this step, you should have the DxEnterprise cluster created on the Linux VMs, and DxAdmin client installed on the Windows Client machine. 
- 
+
 > [!NOTE]
 > You can also create a three node cluster where one of the node is added as *configuration-only mode*, as described [here](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-modes-always-on-availability-groups#SupportedAvModes) to enable automatic failover. 
 
-## Create the virtual hosts to provide failover support and high availability, add an availability group and add a database to the availability group.
- 
+## Create the virtual hosts to provide failover support and high availability
+
 In this step, we're going to create a virtual host, availability group, and then add a database, all using the DxAdmin UI.   
- 
+
 > [!NOTE]
 > During this step, the SQL Server instances will be restarted to enable Always On. 
 
 Connect to the Windows client machine running DxAdmin to connect to the cluster created in the step above. Follow the steps documented at [MSSQL Availability Groups with DxAdmin](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-mssql-availability-groups-with-dxadmin-quick-start-guide/) to enable Always On and create the virtual host and availability group. 
- 
+
 > [!TIP]
 > Before adding the databases, ensure the database is created and backed up on the primary instance of SQL Server.  
- 
+
 ## Create the Internal Azure Load balancer for Listener (optional)
- 
+
 In this optional step, you can create and configure the Azure Load balancer that holds the IP addresses for the availability group listeners. For more information on Azure Load Balancer, refer [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). To configure the Azure load balancer and availability group listener using DxAdmin, follow the DxEnterprise [Azure Load Balancer Quick Start Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-load-balancer-quick-start-guide/).
 
 After this step, you should have an availability group listener created and mapped to the Internal Azure load balancer.
- 
+
 ## Test manual or automatic failover
- 
+
 For the automatic failover test, you can go ahead and bring down the primary replica (power off the virtual machine from the Azure portal). This will replicate the sudden unavailability of the primary node. The expected behavior is:
 - The cluster manager promotes one of the secondary replicas in the availability group to primary.
 - The failed primary replica automatically joins the cluster after it is back up. The cluster manager promotes it to secondary replica.
-  
+
  
- You could also perform a manual failover by following the below mentioned steps:
+You could also perform a manual failover by following the below mentioned steps:
 
 1. Connect to the cluster via DxAdmin   
 1. Expand the virtual host for the availability group
@@ -115,7 +115,7 @@ For the automatic failover test, you can go ahead and bring down the primary rep
 For more information on more operations within DxEnterprise, access the [DxEnterprise Admin Guide](https://dh2i.com/wp-content/uploads/DxEnterprise-v20-Admin-Guide.pdf) and [DxEnterprise DxCLI Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-software-dxcli-guide/)
 
 ## Next Steps
- 
+
 - Learn more about [Availability Groups on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-availability-group-overview)
 - [Quickstart: Create Linux virtual machine in Azure portal](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 - [Quickstart: Create a Windows virtual machine in the Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
