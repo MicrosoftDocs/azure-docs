@@ -57,9 +57,9 @@ Keep the project console running for the rest of the steps in this tutorial.
 
 Now that the Azure Digital Twins instance and sample app are set up, you can begin building a graph of a scenario. 
 
-The first step in creating an Azure Digital Twins solution is defining twin [**models**](../articles/digital-twins/concepts-models.md) for your environment. 
+The first step in creating an Azure Digital Twins solution is defining twin [**models**](concepts-models.md) for your environment. 
 
-Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](../articles/digital-twins/concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *relationships*, and *components*.
+Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *relationships*, and *components*.
 
 > [!NOTE]
 > DTDL also allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service.

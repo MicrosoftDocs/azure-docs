@@ -53,7 +53,7 @@ To get the files on your machine, use the navigation links above and copy the fi
 
 To work with Azure Digital Twins in this article, you first need to **set up an Azure Digital Twins instance** and the required permissions for using it. If you already have an Azure Digital Twins instance set up from previous work, you can use that instance.
 
-Otherwise, follow the instructions in [*How-to: Set up an instance and authentication*](../articles/digital-twins/how-to-set-up-instance-cli.md). The instructions also contain steps to verify that you've completed each step successfully and are ready to move on to using your new instance.
+Otherwise, follow the instructions in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-cli.md). The instructions also contain steps to verify that you've completed each step successfully and are ready to move on to using your new instance.
 
 After you set up your Azure Digital Twins instance, make a note of the following values that you'll need to connect to the instance later:
 * the instance's **_host name_**
@@ -71,9 +71,9 @@ az dt show -n <ADT_instance_name>
 
 Now that the CLI and Azure Digital Twins instance are set up, you can begin building a graph of a scenario. 
 
-The first step in creating an Azure Digital Twins solution is defining twin [**models**](../articles/digital-twins/concepts-models.md) for your environment. 
+The first step in creating an Azure Digital Twins solution is defining twin [**models**](concepts-models.md) for your environment. 
 
-Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](../articles/digital-twins/concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *relationships*, and *components*.
+Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *relationships*, and *components*.
 
 > [!NOTE]
 > DTDL also allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
