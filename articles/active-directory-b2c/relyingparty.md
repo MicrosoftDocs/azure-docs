@@ -217,7 +217,7 @@ The **Protocol** element contains the following attribute:
 
 ### Metadata
 
-When the protocol is `SAML`, a metadata element contains the following elements. For more information, see [Options for registering a SAML application in Azure AD B2C](saml-service-provider-options.md)
+When the protocol is `SAML`, a metadata element contains the following elements. For more information, see [Options for registering a SAML application in Azure AD B2C](saml-service-provider-options.md).
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
