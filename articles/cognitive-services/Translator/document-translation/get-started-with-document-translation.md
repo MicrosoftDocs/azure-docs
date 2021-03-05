@@ -22,6 +22,8 @@ To get started, you'll need:
 
 * An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account.
 
+* A completed [**Document Translation (Preview) form**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) to enable your Azure subscription to use the new Document Translation feature.
+
 > [!NOTE]
 > Document Translation is currently only supported in the Translator (single-service) resource, **not** the Cognitive Services (multi-service) resource.
 
@@ -59,7 +61,7 @@ Requests to the Translator service require a read-only key for authenticating ac
 
 ## Create your Azure blob storage containers
 
-You'll need to  [**create containers**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source, target, and optional glossary files.
+You'll need to  [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source, target, and optional glossary files.
 
 * **Source container**. This container is where you upload your files for translation (required).
 * **Target container**. This container is where your translated files will be stored (required).  
@@ -196,26 +198,7 @@ The following headers are included with each Document Translator API request:
 >[!NOTE]
 > If a file with the same name already exists in the destination, it will be overwritten.
 
-### POST a translation request
-
-> [!IMPORTANT]
->
-> * For the code samples, below, you may need to update the following fields, depending upon the operation:
-
->> [!div class="checklist"]
->>
->> * `endpoint`
->> * `subscriptionKey`
->> * `sourceURL`
->> * `targetURL`
->> * `glossaryURL`
->> * `id`  (job ID)
->>
-> * You can find the job `id`  in the The POST method's  response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**.  
-> * You can also use a GET Jobs request to retrieve the  job `id`  for a Document Translation operation.
-> * For the samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  
->
-> See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
+## POST a translation request
 
 <!-- markdownlint-disable MD024 -->
 ### POST request body without optional glossaryURL
@@ -281,7 +264,26 @@ The following headers are included with each Document Translator API request:
 }
 ```
 
-## _POST Document Translation_ request code samples
+> [!IMPORTANT]
+>
+> For the code samples, below, you may need to update the following fields, depending upon the operation:
+>>>
+>> * `endpoint`
+>> * `subscriptionKey`
+>> * `sourceURL`
+>> * `targetURL`
+>> * `glossaryURL`
+>> * `id`  (job ID)
+>>
+> Where to finding the `id` value:
+> * You can find the job `id`  in the The POST method's  response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**.  
+> * You can also use a GET Jobs request to retrieve the  job `id`  for a Document Translation operation.
+>
+> For the code samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  
+>
+> See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
+
+## _POST Document Translation_ request
 
 Submit a batch Document Translation request to the translation service.
 
@@ -514,7 +516,7 @@ if err != nil {
 
 ---
 
-## _GET file formats_ code samples
+## _GET file formats_ 
 
 Retrieve a list of supported file formats. If successful, this method returns a `200 OK` response code.
 
@@ -691,7 +693,7 @@ func main() {
 
 ---
 
-## _GET job status_ code samples
+## _GET job status_ 
 
 Get the current status for a single job and a summary of all jobs in a Document Translation request. If successful, this method returns a `200 OK` response code.
 <!-- markdownlint-disable MD024 -->
@@ -870,7 +872,7 @@ func main() {
 
 ---
 
-## _GET document status_ code samples
+## _GET document status_
 
 ### Brief overview
 
@@ -1050,7 +1052,7 @@ func main() {
 
 ---
 
-## _DELETE job_ code samples
+## _DELETE job_ 
 
 ### Brief overview
 
@@ -1249,7 +1251,7 @@ The table below lists the limits for data that you send to Document Translation.
 
 * [Translator v3 API reference](../reference/v3-0-reference.md)
 * [Language support](../language-support.md)
-* [Subscriptions in Azure API Management](/azure/api-management/api-management-subscriptions).
+* [Subscriptions in Azure API Management](../../../api-management/api-management-subscriptions.md).
 
 ## Next steps
 

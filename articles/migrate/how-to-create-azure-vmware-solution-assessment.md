@@ -34,7 +34,7 @@ There are two types of assessments you can create using Azure Migrate: Server As
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
-> Azure VMware Solution (AVS) assessment is currently in preview and can be created for VMware VMs only.
+> Azure VMware Solution (AVS) assessment can be created for VMware VMs only.
 
 
 There are two types of sizing criteria that you can use to create Azure VMware Solution (AVS) assessments:
@@ -47,37 +47,70 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 ## Run an Azure VMware Solution (AVS) assessment
 
-Run an Azure VMware Solution (AVS) assessment as follows:
+1. On the **Servers** page > **Windows and Linux servers**, click **Assess and migrate servers**.
 
-1. Review the [best practices](best-practices-assessment.md) for creating assessments.
+   ![Location of Assess and migrate servers button](./media/tutorial-assess-vmware-azure-vmware-solution/assess.png)
 
-2. In the **Servers** tab, in **Azure Migrate: Server Assessment** tile, click **Assess**.
+1. In **Azure Migrate: Server Assessment**, click **Assess**.
 
-    ![Screenshot shows Azure Migrate Servers with Assess selected under Assessment tools.](./media/how-to-create-assessment/assess.png)
+1. In **Assess servers** > **Assessment type**, select **Azure VMware Solution (AVS)**.
 
-3. In **Assess servers**, select the assessment type as "Azure VMware Solution (AVS)", select the discovery source.
+1. In **Discovery source**:
 
-    :::image type="content" source="./media/how-to-create-avs-assessment/assess-servers-avs.png" alt-text="Add assessment basics":::
+    - If you discovered machines using the appliance, select **Machines discovered from Azure Migrate appliance**.
+    - If you discovered machines using an imported CSV file, select **Imported machines**. 
+    
+1. Click **Edit** to review the assessment properties.
 
-4. Click **Edit** to review the assessment properties.
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Page for selecting the assessment settings":::
+ 
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Location of the Edit button to review assessment properties":::
+1. In **Assessment properties** > **Target Properties**:
+
+    - In **Target location**, specify the Azure region to which you want to migrate.
+       - Size and cost recommendations are based on the location that you specify.
+   - The **Storage type** is defaulted to **vSAN**. This is the default storage type for an AVS private cloud.
+   - **Reserved Instances** aren't currently supported for AVS nodes.
+1. In **VM Size**:
+    - The **Node type** is defaulted to **AV36**. Azure Migrate recommends the node of nodes needed to migrate the VMs to AVS.
+    - In **FTT setting, RAID level**, select the Failure to Tolerate and RAID combination.  The selected FTT option, combined with the on-premises VM disk requirement, determines the total vSAN storage required in AVS.
+    - In **CPU Oversubscription**, specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.
+    - In **Memory overcommit factor**, specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5 for example is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
+    - In **Dedupe and compression factor**, specify the anticipated dedupe and compression factor for your workloads. Actual value can be obtained from on-premises vSAN or storage config and this may vary by workload. A value of 3 would mean 3x so for 300GB disk only 100GB storage would be used. A value of 1 would mean no dedupe or compression. You can only add values from 1 to 10 up to one decimal place.
+1. In **Node Size**: 
+    - In **Sizing criterion**, select if you want to base the assessment on static metadata, or on performance-based data. If you use performance data:
+        - In **Performance history**, indicate the data duration on which you want to base the assessment
+        - In **Percentile utilization**, specify the percentile value you want to use for the performance sample. 
+    - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
+    
+        **Component** | **Effective utilization** | **Add comfort factor (2.0)**
+        --- | --- | ---
+        Cores | 2  | 4
+        Memory | 8 GB | 16 GB  
+
+1. In **Pricing**:
+    - In **Offer**, [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in is displayed Server Assessment estimates the cost for that offer.
+    - In **Currency**, select the billing currency for your account.
+    - In **Discount (%)**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
+
+1. Click **Save** if you make changes.
+
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all.png" alt-text="Assessment properties":::
+
+1. In **Assess Servers**, click **Next**.
 
 1. In **Select machines to assess** > **Assessment name** > specify a name for the assessment. 
  
-1. In **Select or create a group** > select **Create New** and specify a group name. A group gathers one or more VMs together for assessment.
+1. In **Select or create a group** > select **Create New** and specify a group name. 
     
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Add VMs to a group":::
+ 
+1. Select the appliance, and select the VMs you want to add to the group. Then click **Next**.
 
-1. In **Add machines to the group**, select VMs to add to the group.
+1. In **Review + create assessment**, review the assessment details, and click **Create Assessment** to create the group and run the assessment.
 
-1. Click **next** to **Review + create assessment** to review the assessment details.
-
-1. Click **Create Assessment** to create the group, and run the assessment.
-
-1. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
-
-1. Click **Export assessment**, to download it as an Excel file.
+    > [!NOTE]
+    > For performance-based assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high-confidence rating.
 
 
 ## Review an Azure VMware Solution (AVS) assessment
@@ -90,8 +123,6 @@ An Azure VMware Solution (AVS) assessment describes:
     - Utilization includes up front factoring in the following cluster management overheads such as the vCenter Server, NSX Manager (large),
 NSX Edge, if HCX is deployed also the HCX Manager and IX appliance consuming ~ 44vCPU (11 CPU), 75GB of RAM and 722GB of storage before 
 compression and deduplication.
-    - Memory, dedupe and compression are currently set to 100% utilization for memory and 1.5 dedupe and compression which will be a user defined
-input in coming releases further allowing user to fine tune their required sizing.
 - **Monthly cost estimation**: The estimated monthly costs for all Azure VMware Solution (AVS) nodes running the on-premises VMs.
 
 
@@ -114,12 +145,10 @@ input in coming releases further allowing user to fine tune their required sizin
     - **Readiness unknown**: Azure Migrate couldn't determine the readiness of the machine because of insufficient metadata collected from the on-premises environment.
 
 3. Review the Suggested tool:
-    - **VMware HCX or Enterprise**: For VMware machines, VMWare Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+    - **VMware HCX or Enterprise**: For VMware machines, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
     - **Unknown**: For machines imported via a CSV file, the default migration tool is unknown. Though for VMware machines, it is suggested to use the VMware Hybrid Cloud Extension (HCX) solution. 
 
 4. Click on an **AVS readiness** status. You can view VM readiness details, and drill down to see VM details, including compute, storage, and network settings.
-
-
 
 ### Review cost details
 
@@ -129,7 +158,7 @@ This view shows the estimated cost of running VMs in Azure VMware Solution (AVS)
 
     - Cost estimates are based on the number of AVS nodes required considering the resource requirements of all the  VMs in total.
     - As the pricing for Azure VMware Solution (AVS) is per node, the total cost does not have compute cost and storage cost distribution.
-    - The cost estimation is for running the on-premises VMs in AVS. Azure Migrate Server Assessment doesn't consider PaaS or SaaS costs.
+    - The cost estimation is for running the on-premises VMs in AVS. AVS assessment doesn't consider PaaS or SaaS costs.
     
 2. You can review monthly storage cost estimates. This view shows aggregated storage costs for the assessed group, split over different types of storage disks.
 
