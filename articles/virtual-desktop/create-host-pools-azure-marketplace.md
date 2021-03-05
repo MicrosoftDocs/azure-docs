@@ -97,10 +97,10 @@ To set up your virtual machine within the host pool setup process:
 
 2. Choose the **Virtual machine location** where you want to create the virtual machines. They can be the same or different from the region you selected for the host pool.
    
-3. Next, choose the availability option that best suit your needs. To learn more about which option is right for you, see [Availability options for virtual machines in Azure](../virtual-machines/availability.md) and [our FAQ](faq.md).
+3. Next, choose the availability option that best suit your needs. To learn more about which option is right for you, see [Availability options for virtual machines in Azure](../virtual-machines/availability.md) and [our FAQ](faq.md#which-availability-option-is-best-for-me?).
    
    > [!div class="mx-imgBorder"]
-   > [A screenshot of the availability zone drop-down menu. The "availability zone" option is highlighted.](media/availablility-zone.png)
+   > [A screenshot of the availability zone drop-down menu. The "availability zone" option is highlighted.](media/availability-zone.png)
 
 4. After that, choose the **Virtual machine size** you want to use. You can either keep the default size as-is or select **Change size** to change the size. If you select **Change size**, in the window that appears, choose the size of the virtual machine suitable for your workload.
 
@@ -133,7 +133,7 @@ To set up your virtual machine within the host pool setup process:
 
     - If you choose **Storage Blob**, you can use your own image build through Hyper-V or on an Azure VM. All you have to do is enter the location of the image in the storage blob as a URI.
    
-   The image's location is independent of the availability option, but the image’s zone resiliency determines whether that image can be used with availability zone. If you select an availability zone while creating your image, make sure you're using an image from the gallery with zone resiliency enabled. To learn more about which zone resiliency option you should use, see [the FAQ](faq.md).
+   The image's location is independent of the availability option, but the image’s zone resiliency determines whether that image can be used with availability zone. If you select an availability zone while creating your image, make sure you're using an image from the gallery with zone resiliency enabled. To learn more about which zone resiliency option you should use, see [the FAQ](faq.md#which-availability-option-is-best-for-me?).
 
 8. Choose what kind of OS disks you want your VMs to use: Standard SSD, Premium SSD, or Standard HDD.
 
