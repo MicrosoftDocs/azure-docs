@@ -26,10 +26,12 @@ When you're finished, you'll have an Azure <abbr title="A logical container for 
 
 <details>
 <summary>Already have Visual Studio 2019?</summary>
-  If you've installed Visual Studio 2019 already:
+If you've installed Visual Studio 2019 already:
 
-  - **Install the latest updates** in Visual Studio by selecting **Help** > **Check for Updates**. The latest updates contain the .NET 5.0 SDK.
-  - **Add the workload** by selecting **Tools** > **Get Tools and Features**.
+<ul>
+<li><strong>Install the latest updates</strong> in Visual Studio by selecting <strong>Help</strong> &gt; <strong>Check for Updates</strong>. The latest updates contain the .NET 5.0 SDK.</li>
+<li><strong>Add the workload</strong> by selecting <strong>Tools</strong> &gt; <strong>Get Tools and Features</strong>.</li>
+</ul>
 </details>
 
 <hr/> 

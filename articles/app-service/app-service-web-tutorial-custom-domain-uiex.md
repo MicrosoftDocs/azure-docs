@@ -30,7 +30,7 @@ In this tutorial, you'll learn how to:
 
     <details>
         <summary>What do I need to edit DNS records?</summary>
-        Requires access to the DNS registry for your domain provider, such as GoDaddy. For example, to add DNS entries for contoso.com and www.contoso.com, you must be able to configure the DNS settings for the contoso.com root domain.
+        Requires access to the DNS registry for your domain provider, such as GoDaddy. For example, to add DNS entries for <code>contoso.com</code> and <code>www.contoso.com</code>, you must be able to configure the DNS settings for the <code>contoso.com</code> root domain.
     </details>
 
 ## 2. Prepare the app
@@ -94,7 +94,7 @@ To add a custom domain to your app, you need to verify your ownership of the dom
 
     <details>
         <summary>Why do I need this?</summary>
-        Adding domain verification IDs to your custom domain can prevent dangling DNS entries and help to avoid subdomain takeovers. For custom domains you previously configured without this verification ID, you should protect them from the same risk by adding the verification ID to your DNS record. For more information on this common high-severity threat, see [Subdomain takeover](../security/fundamentals/subdomain-takeover.md).
+        Adding domain verification IDs to your custom domain can prevent dangling DNS entries and help to avoid subdomain takeovers. For custom domains you previously configured without this verification ID, you should protect them from the same risk by adding the verification ID to your DNS record. For more information on this common high-severity threat, see <a href="/azure/security/fundamentals/subdomain-takeover">Subdomain takeover</a>.
     </details>
     
 <a name="info"></a>
@@ -204,7 +204,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
 <details>
     <summary>My changes are erased after I leave the page.</summary>
-    For certain providers, such as GoDaddy, changes to DNS records don't become effective until you select a separate **Save Changes** link.
+    For certain providers, such as GoDaddy, changes to DNS records don't become effective until you select a separate <strong>Save Changes</strong> link.
 </details>
     
 ## 5. Enable the mapping in your app
