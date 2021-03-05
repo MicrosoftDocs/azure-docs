@@ -278,8 +278,8 @@ Extended policy with WHERE clause support for additional filtering:
 
 ### Using Azure CLI
 
-- [Manage a server's auditing policy](/cli/azure/sql/server/audit-policy?view=azure-cli-latest)
-- [Manage a database's auditing policy](/cli/azure/sql/db/audit-policy?view=azure-cli-latest)
+- [Manage a server's auditing policy](/cli/azure/sql/server/audit-policy)
+- [Manage a database's auditing policy](/cli/azure/sql/db/audit-policy)
 
 ### Using Azure Resource Manager templates
 

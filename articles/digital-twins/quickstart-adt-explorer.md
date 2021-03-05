@@ -58,13 +58,13 @@ The rest of this section walks you through these steps.
 
 The Azure Digital Twins Explorer application uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (part of the `Azure.Identity` library) to authenticate users with the Azure Digital Twins instance when you run it on your local machine. For more information on different ways a client app can authenticate with Azure Digital Twins, see [Write app authentication code](how-to-authenticate-client.md).
 
-With this type of authentication, Azure Digital Twins Explorer will search for credentials within your local environment, such as an Azure sign-in in a local [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) or in Visual Studio or Visual Studio Code. For this reason, you should *sign in to Azure locally* through one of these mechanisms to set up credentials for the Azure Digital Twins Explorer app.
+With this type of authentication, Azure Digital Twins Explorer will search for credentials within your local environment, such as an Azure sign-in in a local [Azure CLI](/cli/azure/install-azure-cli) or in Visual Studio or Visual Studio Code. For this reason, you should *sign in to Azure locally* through one of these mechanisms to set up credentials for the Azure Digital Twins Explorer app.
 
 If you're already signed in to Azure through one of these ways, you can skip to the [next section](#run-and-configure-azure-digital-twins-explorer).
 
 Otherwise, you can install the local Azure CLI with these steps:
 
-1. Follow the process at [this installation link](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to complete the installation that matches your OS.
+1. Follow the process at [this installation link](/cli/azure/install-azure-cli) to complete the installation that matches your OS.
 1. Open a console window on your machine.
 1. Run `az login`, and follow the authentication prompts to sign in to your Azure account.
 1. Possible last step: If you use multiple Azure subscriptions under this account, set the authentication context to the Azure subscription that contains your Azure Digital Twins instance by running `az account set --subscription "<your-subscription-name-or-ID>"` (either the name or ID value of the subscription will work).

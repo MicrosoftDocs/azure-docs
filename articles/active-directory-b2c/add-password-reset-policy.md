@@ -297,5 +297,3 @@ Custom policies are a set of XML files you upload to your Azure AD B2C tenant to
 ## Next steps
 
 Set up a [force password reset](force-password-reset.md).
-
-

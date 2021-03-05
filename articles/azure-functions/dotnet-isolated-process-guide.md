@@ -110,7 +110,7 @@ While the full middleware registration set of APIs is not yet exposed, middlewar
 
 Bindings are defined by using attributes on methods, parameters, and return types. A function method is a method with a `Function` and a trigger attribute applied to an input parameter, as shown in the following example:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="13-16" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="11-14" :::
 
 The trigger attribute specifies the trigger type and binds input data to a method parameter. The previous example function is triggered by a queue message, and the queue message is passed to the method in the `myQueueItem` parameter.
 
@@ -128,7 +128,7 @@ A function can have zero or more input bindings that can pass data to a function
 
 To write to an output binding, you must apply an output binding attribute to the function method, which defined how to write to the bound service. The value returned by the method is written to the output binding. For example, the following example writes a string value to a message queue named `functiontesting2` by using an output binding:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="13-23" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="11-21" :::
 
 ### Multiple output bindings
 
@@ -144,7 +144,7 @@ Likewise, the function returns an `HttpReponseData` object, which provides data 
 
 The following code is an HTTP trigger 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="15-30" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="13-27" :::
 
 ## Logging
 
@@ -152,7 +152,7 @@ In .NET isolated, you can write to logs by using an [`ILogger`](/dotnet/api/micr
 
 The following example shows how to get an `ILogger` and write logs inside a function:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="19-20" ::: 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="17-18" ::: 
 
 Use various methods of `ILogger` to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
 
