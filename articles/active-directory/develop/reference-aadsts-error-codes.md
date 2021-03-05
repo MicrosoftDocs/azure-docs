@@ -91,7 +91,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS50000 | TokenIssuanceError - There's an issue with the sign-in service. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) to resolve this issue. |
 | AADSTS50001 | InvalidResource - The resource is disabled or does not exist. Check your app's code to ensure that you have specified the exact resource URL for the resource you are trying to access.  |
 | AADSTS50002 | NotAllowedTenant - Sign-in failed because of a restricted proxy access on the tenant. If it's your own tenant policy, you can change your restricted tenant settings to fix this issue. |
-| AADSTS500021 | Access to '{tenant}' tenant is denied. AADSTS500021 indicates that the tenant restriction feature is configured and that the user is trying to access a tenant that is not in the list of allowed tenants specified in the header `Restrict-Access-To-Tenant`. For more information, see [Use tenant restrictions to manage access to SaaS cloud applications](/azure/active-directory/manage-apps/tenant-restrictions).|
+| AADSTS500021 | Access to '{tenant}' tenant is denied. AADSTS500021 indicates that the tenant restriction feature is configured and that the user is trying to access a tenant that is not in the list of allowed tenants specified in the header `Restrict-Access-To-Tenant`. For more information, see [Use tenant restrictions to manage access to SaaS cloud applications](../manage-apps/tenant-restrictions.md).|
 | AADSTS50003 | MissingSigningKey - Sign-in failed because of a missing signing key or certificate. This might be because there was no signing key configured in the app. Check out the resolutions outlined at [../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). If you still see issues, contact the app owner or an app admin. |
 | AADSTS50005 | DevicePolicyError - User tried to log in to a device from a platform that's currently not supported through Conditional Access policy. |
 | AADSTS50006 | InvalidSignature - Signature verification failed because of an invalid signature. |
@@ -183,6 +183,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS53002 | ApplicationUsedIsNotAnApprovedApp - The app used is not an approved app for Conditional Access. User needs to use one of the apps from the list of approved apps to use in order to get access. |
 | AADSTS53003 | BlockedByConditionalAccess - Access has been blocked by Conditional Access policies. The access policy does not allow token issuance. |
 | AADSTS53004 | ProofUpBlockedDueToRisk - User needs to complete the multi-factor authentication registration process before accessing this content. User should register for multi-factor authentication. |
+| AADSTS53011 | User blocked due to risk on home tenant. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. |
 | AADSTS65004 | UserDeclinedConsent - User declined to consent to access the app. Have the user retry the sign-in and consent to the app|

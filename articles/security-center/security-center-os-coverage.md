@@ -31,7 +31,7 @@ For an Azure environment activated on an Azure subscription, Azure Security Cent
 
 ## Supported operating systems
 
-Security Center depends on the [Log Analytics Agent](../azure-monitor/agents/agents-overview.md#log-analytics-agent). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
+Security Center depends on the [Log Analytics agent](../azure-monitor/agents/agents-overview.md#log-analytics-agent). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
 
 * [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 * [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)

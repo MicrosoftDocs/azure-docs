@@ -299,7 +299,7 @@ The name of your VM has already been registered and is probably a duplicate.
 To resolve this issue:
 1. Follow the steps in the [Remove the session host from the host pool](#step-2-remove-the-session-host-from-the-host-pool) section.
 2. [Create another VM](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Make sure to choose a unique name for this VM.
-3. Go to the Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM was in. 
+3. Go to the [Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM was in. 
 4. Open the **Session Hosts** tab and check to make sure all session hosts are in that host pool.
 5. Wait for 5-10 minutes for the session host status to say **Available**.
 
