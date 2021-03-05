@@ -44,31 +44,20 @@ Availability Zones protect against the failure of an entire datacenter, with eac
 When creating Azure VMs, you must choose between configuring Availability Sets vs Availability Zones.  An Azure Vm cannot participate in both.
 
 
-## Connectivity 
 
-In a traditional on-premises deployment, clients connect to the availability group listener using the virtual network name (VNN), and the listener routes traffic to the appropriate SQL Server replica in the availability group. However, there is an extra requirement to route traffic on the Azure network. 
+## Connectivity
 
-With SQL Server on Azure VMs, configure a [load balancer](availability-group-vnn-azure-load-balancer-configure.md) to route traffic to your availability group listener, or, if you're on SQL Server 2019 CU8 and later, you can configure a [distributed network name (DNN) listener](availability-group-distributed-network-name-dnn-listener-configure.md) to replace the traditional VNN availability group listener. 
+You can configure a virtual network name, or a distributed network name for an availability group. [Review the differences between the two](hadr-compare-virtual-distributed-network-name.md) and then deploy either a [distributed network name](availability-group-distributed-network-name-dnn-listener-configure.md) or a [virtual network name](availability-group-vnn-azure-load-balancer-configure.md) for your availability group. 
 
-For more details about cluster connectivity options, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#connectivity). 
+If you are using DNN or if your AG spans across multiple subnets like multiple Azure regions and you are using client libraries that support the MultiSubnetFailover connection option in the connection string, you can optimize availability group failover to a different subnet by setting MultiSubnetFailover to "True" or "Yes. The MultiSubnetFailover connection option only works with the TCP network protocol.
 
-### VNN listener 
+### Basic availability group
 
-Use an [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) to route traffic from the client to the traditional availability group virtual network name (VNN) listener on the Azure network. 
+As basic AG does not allow to have more than one secondary replica and there is no read access to the secondary replica, you can use Database mirroring connection strings for Basic AG. This eliminates the need to have listeners. This is more helpful for AG on Azure VM as this eliminates the need of load balancer or adding additional IPs to the load balancer, for multiple listeners for additional databases. 
 
-The load balancer holds the IP addresses for the VNN listener. If you have more than one availability group, each group requires a VNN listener. One load balancer can support multiple listeners.
+For example, to explicitly connect using TCP/IP to the AG database AdventureWorks on either Replica_A or Replica_B of a Basic AG (or any AG that that has only one secondary replica and the read access is not allowed in the secondary replica), a client application could supply the following database mirroring connection string to successfully connect to the AG:
+"Server=Replica_A; Failover_Partner=Replica_B; Database=AdventureWorks; Network=dbmssocn
 
-To get started, see [configure a load balancer](availability-group-vnn-azure-load-balancer-configure.md). 
-
-### DNN listener
-
-SQL Server 2019 CU8 introduces support for the distributed network name (DNN) listener. The DNN listener replaces the traditional availability group listener, negating the need for an Azure Load Balancer to route traffic on the Azure network. 
-
-The DNN listener is the recommended HADR connectivity solution in Azure as it simplifies deployment, reduces maintenance and cost, and reduces failover time in the event of a failure. 
-
-Use the DNN listener to replace an existing VNN listener, or alternatively, use it in conjunction with an existing VNN listener so that your availability group has two distinct connection points - one using the VNN listener name (and port if non-default), and one using the DNN listener name and port. This could be useful for customers who want to avoid the load balancer failover latency but still take advantage of SQL Server features that depend on the VNN listener, such as distributed availability groups, service broker or filestream. To learn more, see [DNN listener and SQL Server feature interoperability](availability-group-dnn-interoperability.md)
-
-To get started, see [configure a DNN listener](availability-group-distributed-network-name-dnn-listener-configure.md).
 
 
 ## Deployment 
@@ -95,6 +84,15 @@ The following table provides a comparison of the options available:
 |**Distributed AG with no cluster** |No|No|No|Yes|
 
 For more information, see [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md), and [Manual](availability-group-manually-configure-prerequisites-tutorial.md).
+
+## Lease mechanism 
+
+For SQL Server, the AG resource DLL determines the health of the AG based on the AG lease mechanism and Always On health detection. The AG resource DLL exposes the resource health through the IsAlive operation. The resource monitor polls IsAlive at the cluster heartbeat interval, which is set by the CrossSubnetDelay and SameSubnetDelay cluster-wide values. On a primary node, the cluster service initiates failovers whenever the IsAlive call to the resource DLL returns that the AG is not healthy.
+
+The Always On resource DLL monitors the status of internal SQL Server components. sp_server_diagnostics reports the health of these components SQL Server on an interval controlled by HealthCheckTimeout.
+
+Unlike other failover mechanisms, the SQL Server instance plays an active role in the lease mechanism. The lease mechanism is used as a Looks-Alive validation between the Cluster resource host and the SQL Server process. The mechanism is used to ensure that the two sides (the Cluster Service and SQL Server service) are in frequent contact, checking each other's state and ultimately preventing a split-brain scenario.
+
 
 ## Considerations 
 
