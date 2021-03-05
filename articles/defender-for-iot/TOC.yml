@@ -27,12 +27,12 @@
     - name: Onboard to Defender for IoT agent-based solution
       displayName: IoT Hub, existing, enable
       href: quickstart-onboard-iot-hub.md
-    - name: Install Defender for IoT micro agent (Preview)
+    - name: Install Defender for IoT micro agent 
       displayName: package, authentication, methods, certificate, authenticate, version
       href: quickstart-standalone-agent-binary-installation.md
-    - name: Create a Defender IoT micro agent module twin (Preview)
+    - name: Create a Defender IoT micro agent module twin 
       href: quickstart-create-micro-agent-module-twin.md
-    - name: Build the Defender for IoT micro agent from source code (Preview)
+    - name: Build the Defender for IoT micro agent from source code 
       displayName: baseline, configuration, customize, distribution
       href: quickstart-building-the-defender-micro-agent-from-source.md
     - name: Configure security module for Azure RTOS
@@ -56,18 +56,18 @@
       href: concept-key-concepts.md    
   - name: Agent-based solution for Device Builders
     items:
-    - name: Agent portfolio overview and OS support (Preview)                     
+    - name: Agent portfolio overview and OS support                      
       displayName: standalone agent, micro agent, RTOS
       href: concept-agent-portfolio-overview-os-support.md
-    - name: Standalone micro agent overview (Preview) 
+    - name: Standalone micro agent overview  
       displayName: endpoint, posture, distribution, flexible, model 
       href: concept-standalone-micro-agent-overview.md
-    - name: Security agent authentication (Preview)
+    - name: Security agent authentication 
       displayName: connection string, certificate, authentication
       href: concept-security-agent-authentication.md
     - name: Security posture - CIS benchmark
       href: concept-security-posture.md
-    - name: Event aggregation (Preview)
+    - name: Event aggregation 
       displayName: process events, network connection
       href: concept-event-aggregation.md
     - name: Built-in alerts for IoT Hub
@@ -249,9 +249,6 @@
       displayName: data, collection, geolocation, log analytics, raw events
       href: how-to-configure-agent-based-solution.md
     - name: Investigate CIS benchmark recommendation
-      displayName: investigation, queries, investigate
-      href: how-to-configure-agent-based-solution.md
-    - name: Investigate CIS benchmark recommendation
       href: how-to-investigate-cis-benchmark.md
     - name: Create custom alerts
       displayName: security group
@@ -301,7 +298,7 @@
         href: how-to-investigate-device.md
 - name: Troubleshooting
   items:
-  - name: Defender IoT micro agent troubleshooting (Preview)
+  - name: Defender IoT micro agent troubleshooting 
     displayName: service status, review logs
     href: troubleshoot-defender-micro-agent.md
 - name: Feature support and retirement

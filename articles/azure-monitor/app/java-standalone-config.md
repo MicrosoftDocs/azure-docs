@@ -220,7 +220,7 @@ These are the valid `level` values that you can specify in the `applicationinsig
 | ALL               | ALL    | ALL     | ALL     |
 
 > [!NOTE]
-> If an exception is passed to the logger, then the log message (and exception)
+> If an exception object is passed to the logger, then the log message (and exception object details)
 > will show up in the Azure portal under the `exceptions` table instead of the `traces` table.
 
 ## Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)

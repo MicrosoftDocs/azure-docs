@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/28/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -83,7 +83,7 @@ The following sections list available claim resolvers.
 | {Context:CorrelationId} | The correlation ID.  | 00000000-0000-0000-0000-000000000000 |
 | {Context:DateTimeInUtc} |The date time in UTC.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |The policy deployment mode.  | Production |
-| {Context:HostName} | The host name for the current request.  | contoso.b2clogin.com |
+| {Context:HostName} | The host name of the current request.  | contoso.b2clogin.com |
 | {Context:IPAddress} | The user IP address. | 11.111.111.11 |
 | {Context:KMSI} | Indicates whether [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) checkbox is selected. |  true |
 
