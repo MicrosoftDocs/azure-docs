@@ -33,7 +33,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 In this quickstart, you'll create an Azure Virtual WAN multi-hub deployment, including all gateways and VNet connections. The list of input parameters has been purposely kept at a minimum. The IP addressing scheme can be changed by modifying the variables inside of the template. The scenario is explained further in the [Scenario: Shared services VNet](scenario-shared-services-vnet.md) article.
 
-:::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="Deployment architecture":::
+:::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="Deployment architecture" lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
 
 This template creates a fully functional Azure Virtual WAN environment with the following resources:
 
