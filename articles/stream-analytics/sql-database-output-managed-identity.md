@@ -118,7 +118,7 @@ For more information, review the following article for background on Azure AD in
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
    
-To verify if you have added the contained database user correctly, run the following command in SSMS under the pertaining database and check if your *ASA_JOB_NAME* is under the “name” column.
+    To verify if you have added the contained database user correctly, run the following command in SSMS under the pertaining database and check if your *ASA_JOB_NAME* is under the “name” column.
 
    ```sql
    SELECT * FROM <SQL_DB_NAME>.sys.database_principals 
