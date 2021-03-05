@@ -3,13 +3,13 @@ title: Language support - Form Recognizer (Preview)
 titleSuffix: Azure Cognitive Services
 description: Learn more about the human languages that are available with Form Recognizer.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 11/23/2020
-ms.author: erhopf
+ms.date: 03/15/2021
+ms.author: lajanuar
 ---
 
 # Language support for Form Recognizer
