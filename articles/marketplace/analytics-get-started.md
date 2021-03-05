@@ -1,5 +1,5 @@
 ---
-title: Get Started with programmatic access to analytics data
+title: Get started with programmatic access to analytics data
 description: Learn how to use the API for accessing commercial marketplace analytics data. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,7 +9,7 @@ ms.author: sroy
 ms.date: 3/08/2021
 ---
 
-# Get Started with programmatic access to analytics data
+# Get started with programmatic access to analytics data
 
 This guide helps you get on-boarded to programmatic access to Commercial Marketplace Analytics data. You’ll learn how to programmatically access analytic reports to monitor sales, evaluate performance, and optimize offers in the commercial marketplace. The improved analytics tools enable you to act on performance results and maintain better relationships with your customers and resellers.
 

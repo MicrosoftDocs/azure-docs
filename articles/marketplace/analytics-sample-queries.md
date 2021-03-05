@@ -15,9 +15,9 @@ This article provides sample queries for the Microsoft commercial marketplace Or
 
 For details about the column names, attributes, and descriptions, refer to the following tables:
 
+- [Customer details table](https://review.docs.microsoft.com/en-us/azure/marketplace/customer-dashboard?branch=pr-en-us-146484#customer-details-table)
 - [Orders details table](https://review.docs.microsoft.com/en-us/azure/marketplace/orders-dashboard?branch=pr-en-us-146484#orders-details-table)
 - [Usage details table](https://review.docs.microsoft.com/en-us/azure/marketplace/usage-dashboard?branch=pr-en-us-146484#usage-details-table)
-- [Customer details table](https://review.docs.microsoft.com/en-us/azure/marketplace/customer-dashboard?branch=pr-en-us-146484#customer-details-table)
 
 ## Customers report queries
 
