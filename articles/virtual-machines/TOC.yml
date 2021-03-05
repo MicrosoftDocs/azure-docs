@@ -807,11 +807,11 @@
     items: 
     - name: Overview
       href: co-location.md
-    - name: Create a PPG - CLI
+    - name: Create using CLI
       href: ./linux/proximity-placement-groups.md
-    - name: Create a PPG - PowerShell
+    - name: Create using PowerShell
       href: ./windows/proximity-placement-groups.md
-    - name: Create a PPG - Portal
+    - name: Create using the Azure portal
       href: ./windows/proximity-placement-groups-portal.md
   - name: Virtual Machine Scale Sets
     items: 
