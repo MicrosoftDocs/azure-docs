@@ -29,7 +29,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 
 > [!IMPORTANT]
-> If you plan to use a key vault in which access is restricted using a virtual network with a [Key Vault firewall](../key-vault/general/network-security.md), extra configuration steps are needed. See [Advanced scenario: Key Vault firewall](#advanced-scenario-key-vault-firewall) in this article.
+> If you plan to store the registry encryption key in an existing Azure key vault that denies public access and allows only private endpoint or selected virtual networks, extra configuration steps are needed. See [Advanced scenario: Key Vault firewall](#advanced-scenario-key-vault-firewall) in this article.
 
 ## Automatic or manual update of key versions
 
@@ -515,7 +515,7 @@ Revoking the key effectively blocks access to all registry data, since the regis
 
 ## Advanced scenario: Key Vault firewall
 
-You might want to store the encryption key using an existing Azure key vault that's deployed in a virtual network with a Key Vault firewall. 
+You might want to store the encryption key using an existing Azure key vault configured with a [Key Vault firewall](../key-vault/general/network-security.md), which denies public access and allows only private endpoint or selected virtual networks. 
 
 For this scenario, first create a new user-assigned identity, key vault, and container registry encrypted with a customer-managed key, using the [Azure CLI](#enable-customer-managed-key---cli), [portal](#enable-customer-managed-key---portal), or [template](#enable-customer-managed-key---template). Detailed steps are in preceding sections in this article.
    > [!NOTE]
@@ -560,6 +560,7 @@ After completing the preceding steps, rotate to a key that's stored in the key v
 
 1. In the portal, navigate to your registry.
 1. Under **Settings**, select **Encryption** > **Change key**.
+1. In **Identity**, select **System Assigned**.
 1. Select **Select from Key Vault**, and select the name of the key vault that's behind a firewall.
 1. Select an existing key, or **Create new**. The key you select is non-versioned and enables automatic key rotation.
 1. Complete the key selection and select **Save**.
