@@ -24,8 +24,8 @@ Review [this article](server-migrate-overview.md) to figure out which method you
 
 ## Migration limitations
 
-- You can select up to 10 VMs at once for replication. If you want to migrate more machines, then replicate in groups of 10.
-- For VMware agentless migration, you can run up to 300 replications simultaneously.
+- You can select up to 10 VMs at once for replication through the Azure portal. If you want to migrate more machines, then replicate in groups of 10. There's no limit on the number of VMs that can be replicated through PowerShell cmdlets. Our recommendation is to replicate not more than 500 VMs at a time from a single vCenter through PowerShell to ensure optimal performance.
+- For VMware agentless migration, you can run up to 500 replications simultaneously from each vCenter Server.
 
 ## Agentless migration 
 
@@ -51,7 +51,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 --- | ---
 **Supported operating systems** | You can migrate [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](../virtual-machines/linux/endorsed-distros.md) operating systems that are supported by Azure.
 **Windows VMs in Azure** | You might need to [make some changes](prepare-for-migration.md#verify-required-changes-before-migrating) on VMs before migration. 
-**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> For other operating systems you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
+**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8, 9 <br/> Oracle Linux 7.7, 7.7-CI<br/> For other operating systems you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
 **Linux boot** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs. 
 **Disk size** | 2 TB OS disk;  32 TB for data disks.
@@ -67,7 +67,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
-**Simultaneous replication** | 300 VMs per vCenter Server. If you have more, migrate them in batches of 300.
+**Simultaneous replication** | 500 VMs per vCenter Server. If you have more, migrate them in batches of 500.
 **Automatic installation of Azure VM agent (Windows Agent)** | Supported for Windows Server 2008 R2 onwards.
 
 ### Appliance requirements (agentless)

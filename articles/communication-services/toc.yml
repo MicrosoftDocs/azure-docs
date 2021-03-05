@@ -5,6 +5,8 @@
   items:
   - name: What is Azure Communication Services?
     href: overview.md
+  - name: Support and Help Options
+    href: support.md
 - name: Quickstarts
   expanded: true
   items:
@@ -36,6 +38,8 @@
     items:
     - name: Add voice calling to your app
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
+    - name: Add video calling to your app (JavaScript)
+      href: quickstarts/voice-video-calling/get-started-with-video-calling.md
     - name: Use the calling client library
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling app to a Teams meeting
@@ -74,7 +78,7 @@
         href: concepts/telephony-sms/concepts.md
       - name: Telephony Concepts 
         href: concepts/telephony-sms/telephony-concept.md
-      - name: Phone number types in Azure Communication Services 
+      - name: Phone number types
         href: concepts/telephony-sms/plan-solution.md
       - name: SIP Interface infrastructure requirements 
         href: concepts/telephony-sms/sip-interface-infrastructure.md

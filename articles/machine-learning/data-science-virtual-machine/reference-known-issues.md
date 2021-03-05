@@ -3,9 +3,7 @@ title: 'Reference: Known issues & troubleshooting'
 titleSuffix: Azure Data Science Virtual  Machine
 description: Get a list of the known issues, workarounds, and troubleshooting for Azure Data Science Virtual Machine
 services: machine-learning
-
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
 author: gvashishtha
 ms.author: gopalv

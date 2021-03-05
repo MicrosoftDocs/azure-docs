@@ -53,7 +53,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme?view=azure-dotnet
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/bingautosuggest
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
     - name: Node.js

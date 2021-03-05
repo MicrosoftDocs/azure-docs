@@ -1,7 +1,6 @@
 ---
 title: Using Log Analytics Alert REST API
 description: The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics, which is part of Log Analytics.  This article provides details of the API and several examples for performing different operations.
-ms.subservice: logs
 ms.topic: conceptual
 ms.date: 09/22/2020
 
@@ -17,7 +16,7 @@ The Log Analytics Alert REST API allows you to create and manage alerts in Log A
 The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager REST API. In this document, you will find examples where the API is accessed from a PowerShell command line using  [ARMClient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the Log Analytics Search API. With these tools, you can utilize the RESTful Azure Resource Manager API to make calls to Log Analytics workspaces and perform search commands within them. The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.
 
 ## Prerequisites
-Currently, alerts can only be created with a saved search in Log Analytics.  You can refer to the [Log Search REST API](../log-query/log-query-overview.md) for more information.
+Currently, alerts can only be created with a saved search in Log Analytics.  You can refer to the [Log Search REST API](../logs/log-query-overview.md) for more information.
 
 ## Schedules
 A saved search can have one or more schedules. The schedule defines how often the search is run and the time interval over which the criteria is identified.
@@ -384,7 +383,6 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 
 ## Next steps
 
-* Use the [REST API to perform log searches](../log-query/log-query-overview.md) in Log Analytics.
+* Use the [REST API to perform log searches](../logs/log-query-overview.md) in Log Analytics.
 * Learn about [log alerts in Azure monitor](./alerts-unified-log.md)
 * How to [create, edit or manage log alert rules in Azure monitor](./alerts-log.md)
-

@@ -1,7 +1,6 @@
 ---
 title: Manage Log Analytics workspaces in Azure Monitor | Microsoft Docs
 description: You can manage access to data stored in a Log Analytics workspace in Azure Monitor using resource, workspace, or table-level permissions. This article details how to complete.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -116,7 +115,7 @@ The following activities also require Azure permissions:
 
 ## Manage access using Azure permissions
 
-To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md). For example custom roles, see [Example custom roles](#custom-role-examples)
+To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md). For example custom roles, see [Example custom roles](#custom-role-examples)
 
 Azure has two built-in user roles for Log Analytics workspaces:
 
@@ -281,7 +280,7 @@ The examples above define a list of tables that are allowed. This example shows 
 
 ### Custom logs
 
- Custom logs are created from data sources such as custom logs and HTTP Data Collector API. The easiest way to identify the type of log is by checking the tables listed under [Custom Logs in the log schema](../log-query/log-analytics-tutorial.md#table-schema).
+ Custom logs are created from data sources such as custom logs and HTTP Data Collector API. The easiest way to identify the type of log is by checking the tables listed under [Custom Logs in the log schema](./log-analytics-tutorial.md#table-schema).
 
  You can't grant access to individual custom logs, but you can grant access to all custom logs. To create a role with access to all custom logs, create a custom role using the following actions:
 
@@ -308,4 +307,4 @@ Sometimes custom logs come from sources that are not directly associated to a sp
 
 * See [Log Analytics agent overview](../agents/log-analytics-agent.md) to gather data from computers in your datacenter or other cloud environment.
 
-* See [Collect data about Azure virtual machines](../learn/quick-collect-azurevm.md) to configure data collection from Azure VMs.
+* See [Collect data about Azure virtual machines](../vm/quick-collect-azurevm.md) to configure data collection from Azure VMs.
