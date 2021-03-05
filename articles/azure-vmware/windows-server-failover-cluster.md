@@ -2,7 +2,7 @@
 title: Windows Server Failover Cluster on Azure VMware Solution vSAN with native shared disks
 description: Set up Windows Server Failover Cluster (WSFC) on Azure VMware Solution and take advantage of solutions requiring WSFC capability.
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 03/08/2021
 ---
 
 # Windows Server Failover Cluster on Azure VMware Solution vSAN with native shared disks
@@ -125,7 +125,7 @@ The following activities aren't supported and might cause WSFC node failover:
 5. Enable and configure the Windows Server Failover Cluster feature on each VM.
 6. Configure a Cluster Witness for quorum (a file share witness works fine).
 7. Power off all nodes of the WSFC cluster.
-8. Add one or multiple Paravirtual SCSI controllers (up to four) to each VM part of the WSFC. Use the settings per the previous paragraphs.
+8. Add one or more Paravirtual SCSI controllers (up to four) to each VM part of the WSFC. Use the settings per the previous paragraphs.
 9. On the first cluster node, add all needed shared disks using **Add New Device** > **Hard Disk**. Disk sharing should be left as **Unspecified** (default) and Disk mode as **Independent - Persistent**. Attach it to the controller(s) created in the previous steps.
 10. Continue with the remaining WSFC nodes. Add the disks created in the previous step by selecting **Add New Device** > **Existing Hard Disk**. Be sure to maintain the same disk SCSI IDs on all WSFC nodes.
 11. Power on the first WSFC node; sign in and open the disk management console (mmc). Make sure the added shared disks can be managed by the OS and are initialized. Format the disks and assign a drive letter.
@@ -134,16 +134,16 @@ The following activities aren't supported and might cause WSFC node failover:
 14. Test a failover using the **Move disk wizard** and make sure the WSFC cluster with shared disks works properly.
 15. Run the **Validation Cluster wizard** to confirm whether the cluster and its nodes are working properly.
 
-It's important to keep the following specific items from the Cluster Validation test in mind:
+    It's important to keep the following specific items from the Cluster Validation test in mind:
 
-1. **Validate Storage Spaces Persistent Reservation**. If you aren't using Storage Spaces with your cluster (such as on Azure VMware Solution vSAN), this test isn't applicable. You can ignore any results of the Validate Storage Spaces Persistent Reservation test including this warning. To avoid warnings, you can exclude this test.
+       - **Validate Storage Spaces Persistent Reservation**. If you aren't using Storage Spaces with your cluster (such as on Azure VMware Solution vSAN), this test isn't applicable. You can ignore any results of the Validate Storage Spaces Persistent Reservation test including this warning. To avoid warnings, you can exclude this test.
+        
+      - **Validate Network Communication**. The Cluster Validation test will throw a warning that only one network interface per cluster node is available. You may ignore this warning. Azure VMware Solution provides the required availability and performance needed, since the nodes are connected to one of the NSX-T segments. However, keep this item as part of the Cluster Validation test, as it will validate other aspects of network communication.
 
-2. **Validate Network Communication**. The Cluster Validation test will throw a warning that only one network interface per cluster node is available. You may ignore this warning. Azure VMware Solution provides the required availability and performance needed, since the nodes are connected to one of the NSX-T segments. However, keep this item as part of the Cluster Validation test, as it will validate other aspects of network communication.
+16. Create a DRS rule to separate the WSFC VMs cross Azure VMware Solution nodes. Use the following rules: one host-to-VM affinity and one VM-to-VM anti-affinity rule. This way cluster nodes won't run on the same Azure VMware Solution host.
 
-3. Create a DRS rule to separate the WSFC VMs cross Azure VMware Solution nodes. Use the following rules: one host-to-VM affinity and one VM-to-VM anti-affinity rule. This way cluster nodes will not run on the same Azure VMware Solution host.
-
->[!NOTE]
-> For this you need to create a Support Request ticket. Our Azure support organization will be able to help you with this.
+    >[!NOTE]
+    > For this you need to create a Support Request ticket. Our Azure support organization will be able to help you with this.
 
 ## Related information
 
