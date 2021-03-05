@@ -108,7 +108,7 @@ Map each `userMri` with the corresponding avatar.
 
 ```java
 @Override
-public void requestForAvatar(String userIdentifier, MeetingAvatarAvailableCallback meetingAvatarAvailableCallback) {
+public void provideAvatarFor(String userIdentifier, MeetingIdentityProviderCallback meetingIdentityProviderCallback) {
     Drawable myAvatar = null;
     try {
         System.out.println("MicrosoftTeamsSDKIdentityProvider.requestForAvatar called for userIdentifier: " + userIdentifier);
@@ -116,15 +116,15 @@ public void requestForAvatar(String userIdentifier, MeetingAvatarAvailableCallba
             // get and provide avatar picture asynchronously with long fetching/decoding delay.
             System.out.println("update avatar for Anonymous user");
             String imageUrl = "https://mlccdn.blob.core.windows.net/dev/LWA/qingy/doughboy_36x36.png";
-            updateAvatarFromUrl(this, imageUrl, meetingAvatarAvailableCallback);
+            updateAvatarFromUrl(imageUrl, meetingIdentityProviderCallback);
         } else if (userIdentifier.startsWith("8:orgid:")) {
             System.out.println("update avatar for OrgID user");
             String imageUrl = "https://mlccdn.blob.core.windows.net/dev/LWA/qingy/qingy_120.jpg";
-            updateAvatarFromUrl(this, imageUrl, meetingAvatarAvailableCallback);
+            updateAvatarFromUrl(imageUrl, meetingIdentityProviderCallback);
         } else if (userIdentifier.startsWith("8:acs:")) {
             System.out.println("update avatar for ACS user");
             String imageUrl = "https://mlccdn.blob.core.windows.net/dev/LWA/qingy/msudan.png";
-            updateAvatarFromUrl(this, imageUrl, meetingAvatarAvailableCallback);
+            updateAvatarFromUrl(imageUrl, meetingIdentityProviderCallback);
         }
     } catch (Exception e) {
         System.out.println("MicrosoftTeamsSDKIdentityProvider: Exception while requestForAvatar for userIdentifier: " + userIdentifier + e.getMessage());
@@ -138,9 +138,9 @@ public void requestForAvatar(String userIdentifier, MeetingAvatarAvailableCallba
     *                 String imageUrl = "https://mlccdn.blob.core.windows.net/dev/LWA/qingy/qingy_120.jpg";
     *                 String imageUrl = "https://mlccdn.blob.core.windows.net/dev/LWA/qingy/msudan.png";
     */
-private void updateAvatarFromUrl (Context context, String url, MeetingAvatarAvailableCallback observer) {
+private void updateAvatarFromUrl(String url, MeetingIdentityProviderCallback meetingIdentityProviderCallback) {
     String urlImage = url;
-    WeakReference<MeetingAvatarAvailableCallback> weakReferenceObserver = new WeakReference<MeetingAvatarAvailableCallback>(observer);
+    WeakReference<MeetingIdentityProviderCallback> weakReferenceObserver = new WeakReference<>(meetingIdentityProviderCallback);
     new AsyncTask<String, Integer, Drawable>(){
         @Override
         protected Drawable doInBackground(String... strings) {
@@ -158,7 +158,7 @@ private void updateAvatarFromUrl (Context context, String url, MeetingAvatarAvai
         }
         protected void onPostExecute(Drawable myAvatar) {
             // provide avatar when it is available.
-            MeetingAvatarAvailableCallback callback = weakReferenceObserver.get();
+            MeetingIdentityProviderCallback callback = weakReferenceObserver.get();
             if (callback != null) {
                 System.out.println("invoke the callback method with fetched avatar");
                 callback.onAvatarAvailable(myAvatar);
