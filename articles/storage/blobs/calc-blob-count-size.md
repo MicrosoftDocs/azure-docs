@@ -15,8 +15,7 @@ ms.topic: how-to
 
 This article uses the Azure Blob Storage inventory feature and Azure Synapse to calculate the blob count and total size of blobs per container. These values are useful when estimating storage billing costs.
 
-> [!NOTE]
-> Blob metadata is not included in this method. The Azure Blob Storage inventory feature uses the [List Blobs](/rest/api/storageservices/list-blobs) REST API with default parameters. So, the example doesn’t support snapshots, '$' containers, and so on.
+Blob metadata is not included in this method. The Azure Blob Storage inventory feature uses the [List Blobs](/rest/api/storageservices/list-blobs) REST API with default parameters. So, the example doesn’t support snapshots, '$' containers, and so on.
 
 ## Enable inventory reports
 
@@ -28,7 +27,7 @@ Next, [create a Synapse workspace](/azure/synapse-analytics/get-started-create-w
 
 ## Create the SQL query
 
-After you create your Synapse workspace,
+After you create your Azure Synapse workspace, do the following steps.
 
 1. Navigate to [https://web.azuresynapse.net](https://web.azuresynapse.net).
 1. Select the **Develop** tab on the left edge.
