@@ -18,13 +18,12 @@ Encryption scopes (preview) enable you to manage encryption at the level of an i
 
 This article shows how to create an encryption scope. It also shows how to specify an encryption scope when you create a blob or container.
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
 > [!IMPORTANT]
->
 > Encryption scopes are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## Create an encryption scope
 
