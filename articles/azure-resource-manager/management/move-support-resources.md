@@ -361,7 +361,7 @@ Jump to a resource provider namespace:
 > | b2cdirectories | Yes | Yes |
 > | b2ctenants | No | No |
 
-## Microsoft.AzureArcData
+## Microsoft.AzureData
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |

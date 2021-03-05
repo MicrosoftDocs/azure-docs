@@ -390,7 +390,7 @@ Jump to a resource provider namespace:
 > | b2ctenants | No | No |
 > | guestUsages | Yes | Yes |
 
-## Microsoft.AzureArcData
+## Microsoft.AzureData
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |

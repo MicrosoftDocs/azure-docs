@@ -392,7 +392,7 @@ Jump to a resource provider namespace:
 > | b2ctenants | No |
 > | guestUsages | Yes |
 
-## Microsoft.AzureArcData
+## Microsoft.AzureData
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |

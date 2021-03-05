@@ -352,7 +352,7 @@ Jump to a resource provider namespace:
 > | b2cdirectories | No | 
 > | b2ctenants | No | 
 
-## Microsoft.AzureArcData
+## Microsoft.AzureData
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
