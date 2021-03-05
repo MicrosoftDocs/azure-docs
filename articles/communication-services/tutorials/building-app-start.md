@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 - [Node.js](https://nodejs.org/en/) to install and manage dependencies like Azure Communication Services client libraries and webpack.
 - [nvm and npm](/windows/nodejs/setup-on-windows) to handle version control.
 - The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. You need this extension to publish your application in Azure Storage. [Read more about hosting static websites in Azure Storage](../../storage/blobs/storage-blob-static-website.md).
-- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The extension allows deploying websites with the option to configure the fully managed continuous integration and continuous delivery (CI/CD).
+- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The extension allows deploying websites with the option to configure fully managed continuous integration and continuous delivery (CI/CD).
 - The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to build your own serverless applications. For example, you can host your authentication application in Azure Functions.
 - An active Communication Services resource and connection string. [Learn how to create a Communication Services resource](../quickstarts/create-communication-resource.md).
 - A user access token. For instructions, see the [quickstart for creating and managing access tokens](../quickstarts/access-tokens.md?pivots=programming-language-javascript) or the [tutorial for building a trusted authentication service](./trusted-service-tutorial.md).
@@ -52,7 +52,7 @@ Your local development environment will be configured like this:
 
 We'll use Node.js to download and install various dependencies that we need for our client-side application. We'll use it to generate static files that we'll then host in Azure, so you don't need to worry about configuring it on your server.
 
-Windows developers can follow [this NodeJS tutorial](/windows/nodejs/setup-on-windows) to configure Node, nvm, and npm. 
+Windows developers can follow [this Node.js tutorial](/windows/nodejs/setup-on-windows) to configure Node, nvm, and npm. 
 
 This tutorial is based on the LTS 12.20.0 version. After you install nvm, use the following PowerShell command to deploy the version that you want to use:
 
@@ -145,7 +145,7 @@ Let's start with the development environment. First, you need to install `webpac
 npm install --save-dev webpack-merge
 ```
 
-In your `package.json` file, you can see one more dependencies added to `devDependencies`.
+In your `package.json` file, you can see one more dependency added to `devDependencies`.
 
 Next, create a file called `webpack.common.js` and add the following code:
 
@@ -363,7 +363,7 @@ In the terminal, run:
 npm run build:prod
 ```
 
-The command creates a `dist` folder and production-ready `app.js` static file in it. 
+The command creates a `dist` folder and a production-ready `app.js` static file in it. 
 
 :::image type="content" source="./media/step-one-pic-21.png" alt-text="Screenshot that shows the production build.":::
  
@@ -440,7 +440,7 @@ Go to the [Azure portal](https://portal.azure.com/#home), select your resource g
 
 :::image type="content" source="./media/step-one-pic-31.png" alt-text="Screenshot that shows static website selection.":::
 
-Under **Blob service**, select **Containers**. The list shows two containers created, one for logs (`$logs`) and one for content of your website (`$web`).
+Under **Blob service**, select **Containers**. The list shows two containers created, one for logs (`$logs`) and one for the content of your website (`$web`).
 
 :::image type="content" source="./media/step-one-pic-32.png" alt-text="Screenshot that shows the container configuration.":::
 
