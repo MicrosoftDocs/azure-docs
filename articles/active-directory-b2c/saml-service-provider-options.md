@@ -90,7 +90,7 @@ The following example shows the `EncryptedAssertion` section of a SAML assertion
 </saml:EncryptedAssertion>
 ```
 
-You can change the format of the encrypted assertions. To configure the encryption format, set the `UseDetachedKeys` metadata key within the relying party. Possible values: `true`, or `false` (default). When the value is set to `true`, the detached keys adds the encrypted assertion as a child of the `EncrytedAssertion` as opposed to the `EncryptedData`.
+You can change the format of the encrypted assertions. To configure the encryption format, set the `UseDetachedKeys` metadata key within the relying party. Possible values: `true`, or `false` (default). When the value is set to `true`, the detached keys add the encrypted assertion as a child of the `EncrytedAssertion` as opposed to the `EncryptedData`.
 
 Configure the encryption method and format, use the metadata keys within the [relying party technical profile](relyingparty.md#technicalprofile):
 
@@ -221,7 +221,7 @@ For example, when the `TokenNotBeforeSkewInSeconds` is set to `120` seconds:
 
 ## Remove milliseconds from date and time
 
-You can specify whether the milliseconds will be removed from datetime values within the SAML response (these include IssueInstant, NotBefore, NotOnOrAfter and AuthnInstant). To remove the milliseconds, set the `RemoveMillisecondsFromDateTime
+You can specify whether the milliseconds will be removed from datetime values within the SAML response (these include IssueInstant, NotBefore, NotOnOrAfter, and AuthnInstant). To remove the milliseconds, set the `RemoveMillisecondsFromDateTime
 ` metadata key within the relying party. Possible values: `false` (default) or `true`.
 
 ```xml
