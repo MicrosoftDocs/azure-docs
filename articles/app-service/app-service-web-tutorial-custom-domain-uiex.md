@@ -166,13 +166,28 @@ For a root domain like `contoso.com`, create two records according to the follow
 <summary>What if I want to map a subdomain with an A record?</summary>
 To map a subdomain like `www.contoso.com` with an A record instead of a recommended CNAME record, your A record and TXT record should look like the following table instead:
 
-| Record type | Host | Value |
-| - | - | - |
-| A | `<subdomain>` (for example, `www`) | IP address from [Copy the app's IP address](#info) |
-| TXT | `asuid.<subdomain>` (for example, `asuid.www`) | [The verification ID you got earlier](#3-get-a-domain-verification-id) |
+<div class="table-scroll-wrapper"><table class="table"><caption class="visually-hidden">Table 3</caption>
+<thead>
+<tr>
+<th>Record type</th>
+<th>Host</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td><code>&lt;subdomain&gt;</code> (for example, <code>www</code>)</td>
+<td>IP address from <a href="#info" data-linktype="self-bookmark">Copy the app's IP address</a></td>
+</tr>
+<tr>
+<td>TXT</td>
+<td><code>asuid.&lt;subdomain&gt;</code> (for example, <code>asuid.www</code>)</td>
+<td><a href="#3-get-a-domain-verification-id" data-linktype="self-bookmark">The verification ID you got earlier</a></td>
+</tr>
+</tbody>
+</table></div>
 </details>
-
-.
 
 # [Wildcard (CNAME)](#tab/wildcard)
 
