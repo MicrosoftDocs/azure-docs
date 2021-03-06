@@ -47,7 +47,7 @@ You can migrate following the steps below:
 2. Follow the guidelines on the "Temporarily move pagefile.sys to C drive" section of  [Use the D: drive as a data drive on a Windows VM](./windows/change-drive-letter.md) to move page file from the local temporary disk (D: drive) to C: drive
 
  > [!NOTE]
- > Make sure you follow the guidelines in the documentation, deviation from the steps outlined will lead to the error message - "Unable to resize the VM since changing from resource disk to non-resource disk VM size and vice-versa is not allowed."
+ > Follow the guidelines on the "Temporarily move pagefile.sys to C drive" section of Use the D: drive as a data drive on a Windows VM to move page file from the local temporary disk (D: drive) to C: drive. **Deviation from the steps outlined will lead to the error message - "Unable to resize the VM since changing from resource disk to non-resource disk VM size and vice-versa is not allowed.**
 
 3. Take a snapshot of the VM following the steps outlined here [Create a snapshot using the portal or Azure CLI](./linux/snapshot-copy-managed-disk.md). 
 4. Use snapshot to create a new diskless VM (e.g. Dv4, Dsv4, Ev4, Esv4 series)[Azure VM sizes with no local temporary disk](azure-vms-no-temp-disk.md) following the steps outlined here [Create a virtual machine from a snapshot with CLI](./scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md). 
