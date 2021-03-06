@@ -7,85 +7,21 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 12/09/2020
 ms.topic: how-to
 ---
 
-# Backup and restore for Azure Arc enabled PostgreSQL Hyperscale server groups
+# Back up and restore Azure Arc enabled PostgreSQL Hyperscale server groups
 
-You can do full backup/restore of your Azure Arc enabled PostgreSQL Hyperscale server group. When you do so, the entire set of databases on all the nodes of your Azure Arc enabled PostgreSQL Hyperscale server group is backed-up and/or restored.
-To take a backup and restore it, you need to make sure that a backup storage class is configured for your server group. For now, you need to indicate a backup storage class at the time you create the server group. It is not yet possible to configure your server group to use a backup storage class after it has been created.
+[!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-> [!CAUTION]
-> Preview does not support backup/restore for the version 11 of the Postgres engine. It only supports backup/restore for Postgres version 12.
+When you back up or restore your Azure Arc enabled PostgreSQL Hyperscale server group, the entire set of databases on all the PostgreSQL nodes of your server group is backed-up and/or restored.
 
-## Verify configuration
-
-First, verify if your existing server group has been configured to use backup storage class.
-
-Run the following command after setting the name of your server group:
-```console
- azdata arc postgres server show -n postgres01
-```
-Look at the storage section of the output:
-```console
-...
-"storage": {
-      "backups": {
-        "className": "local-storage"
-      },
-      "data": {
-        "className": "local-storage",
-        "size": "5Gi"
-      },
-      "logs": {
-        "className": "local-storage",
-        "size": "5Gi"
-      }
-    }
-...
-```
-If you see  the name of a storage class indicated in the "backups" section of the output of that command, it means your server group has been configured to use a backup storage class and is ready for you to take backups and do restores. If you do not see a section "backups", you need to delete and recreate your server group to configure backup storage class. At this point, it is not yet possible to configure a backup storage class after the server group has been created.
-
->[!IMPORTANT]
->If your server group is already configured to use a backup storage class, skip the next step and go directly to step "Take manual full backup".
-
-## Create a server group 
-
-Next, create a server group configured for backup/restore.
-
-In order to be able to take backups and restore them, you need to create a server that is configured with a storage class.
-
-To get a list of the storage classes available on your Kubernetes cluster, run the following command:
-
-```console
-kubectl get sc
-```
-
-<!--The general format of create server group command is documented [here](create-postgresql-instances.md)-->
-
-```console
-azdata arc postgres server create -n <name> --workers 2 --storage-class-backups <storage class name> [--storage-class-data <storage class name>] [--storage-class-logs <storage class name>]
-```
-
-For example if you have created a simple environment based on kubeadm:
-```console
-azdata arc postgres server create -n postgres01 --workers 2 --storage-class-backups local-storage
-```
-
-## Take manual full backup
-
-
-Next, take a manual full backup.
-
-> [!CAUTION]
-> **For users of Azure Kubernetes Service (AKS) only:** we are aware of an issue with taking backups of a server group hosted on Azure Kubernetes Service (AKS). We are already working on fixing it. Until the update is deployed in a future release/update, before you take a backup, you need to delete the pods of your server groups. For each of the pods of your server group (you list the pods by running **kubectl get pods -n \<namespace name>**) delete them by running  **kubectl delete pod \<server group pod name> -n \<namespace name>**. Do not delete pods that are not part of your server group. Deleting pods is not putting your data at risk. Wait until all pods are back online and in STATUS=RUNNING before taking a backup. The status of the pod is provided in the output of the kubectl get pods command above.
-
+## Take a manual full backup
 
 To take a full backup of the entire data and log folders of your server group, run the following command:
-
 ```console
 azdata arc postgres backup create [--name <backup name>] --server-name <server group name> [--no-wait] 
 ```
@@ -97,18 +33,22 @@ Where:
 This command will coordinate a distributed full backup across all the nodes that constitute your Azure Arc enabled PostgreSQL Hyperscale server group. In other words, it will backup all data in your Coordinator and Worker nodes.
 
 For example:
+
 ```console
-azdata arc postgres backup create --name MyBackup_Aug31_0730amPST --server-name postgres01
+azdata arc postgres backup create --name backup12082020-0250pm --server-name postgres01
 ```
 
-When the backup completes, the ID, name, and state of the backup will be returned. For example:
+When the backup completes, the ID, name, size, state and timestamp of the backup will be returned. For example:
 ```console
 {
-  "ID": "d134f51aa87f4044b5fb07cf95cf797f",
-  "name": "MyBackup_Aug31_0730amPS",
-  "state": "Done"
+  "ID": "8085723fcbae4aafb24798c1458f4bb7",
+  "name": "backup12082020-0250pm",
+  "size": "9.04 MiB",
+  "state": "Done",
+  "timestamp": "2020-12-08 22:50:22+00:00"
 }
 ```
+`+xx:yy` indicates the timezone for the time at which the backup was taken. In this example, "+00:00" means UTC time (UTC + 00 hour 00 minutes).
 
 > [!NOTE]
 > It is not yet possible to:
@@ -117,8 +57,6 @@ When the backup completes, the ID, name, and state of the backup will be returne
 
 ## List backups
 
-List the backups that are available to restore.
-
 To list the backups that are available to restore, run the following command:
 
 ```console
@@ -126,55 +64,125 @@ azdata arc postgres backup list --server-name <servergroup name>
 ```
 
 For example:
+
 ```console
 azdata arc postgres backup list --server-name postgres01
 ```
 
-It will return an output like:
-```console
-ID                                Name                      State    Timestamp
---------------------------------  ------------------------  -------  ------------------------------
-d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done     2020-08-31 14:30:00:00+00:00
+Returns an output like:
+
+```output
+ID                                Name                   Size       State    Timestamp
+--------------------------------  ---------------------  ---------  -------  -------------------------
+d744303b1b224ef48be9cba4f58c7cb9  backup12072020-0731pm  13.83 MiB  Done     2020-12-08 03:32:09+00:00
+c4f964d28da34318a420e6d14374bd36  backup12072020-0819pm  9.04 MiB   Done     2020-12-08 04:19:49+00:00
+a304c6ef99694645a2a90ce339e94714  backup12072020-0822pm  9.1 MiB    Done     2020-12-08 04:22:26+00:00
+47d1f57ec9014328abb0d8fe56020760  backup12072020-0827pm  9.06 MiB   Done     2020-12-08 04:27:22+00:00
+8085723fcbae4aafb24798c1458f4bb7  backup12082020-0250pm  9.04 MiB   Done     2020-12-08 22:50:22+00:00
 ```
 
-Timestamp indicates the point in time UTC at which the backup was taken.
+The Timestamp column indicates the point in time UTC at which the backup was taken.
 
 ## Restore a backup
+In this section we are showing you how to do a full restore or a point in time restore. When you restore a full backup, you restore the entire content of the backup. When you do a point in time restore, you restore up to the point in time you indicate. Any transaction that was done later than this point in time is not restored.
 
-To restore the backup of an entire server group, run the command:
-
+### Restore a full backup
+To restore the entire content of a backup run the command:
 ```console
-azdata arc postgres backup restore --server-name <server group name> --backup-id <backup id>
+azdata arc postgres backup restore --server-name <target server group name> [--source-server-name <source server group name> --backup-id <backup id>]
+or
+azdata arc postgres backup restore -sn <target server group name> [-ssn <source server group name> --backup-id <backup id>]
 ```
+<!--To read the general format of restore command, run: azdata arc postgres backup restore --help -->
 
 Where:
-- __backup-id__ is the ID of the backup shown in the list backup command (refer to Step 3).
+- __backup-id__ is the ID of the backup shown in the list backup command shown above.
 This will coordinate a distributed full restore across all the nodes that constitute your Azure Arc enabled PostgreSQL Hyperscale server group. In other words, it will restore all data in your Coordinator and Worker nodes.
 
-For example:
+#### Examples:
+
+__Restore the server group postgres01 onto itself:__
+
 ```console
-azdata arc postgres backup restore --server-name postgres01 --backup-id d134f51aa87f4044b5fb07cf95cf797f
+azdata arc postgres backup restore -sn postgres01 --backup-id d134f51aa87f4044b5fb07cf95cf797f
 ```
 
-When the restore operation is complete, it will return an output like this to the command line:
+This operation is only supported for PostgreSQL version 12 and higher.
+
+__Restore the server group postgres01 to a different server group postgres02:__
+
 ```console
+azdata arc postgres backup restore -sn postgres02 -ssn postgres01 --backup-id d134f51aa87f4044b5fb07cf95cf797f
+```
+This operation is supported for any version of PostgreSQL starting version 11. The target server group must be created before the restore operation, must be of the same configuration and must be using the same backup PVC as the source server group.
+
+When the restore operation is complete, it will return an output like this to the command line:
+
+```json
 {
   "ID": "d134f51aa87f4044b5fb07cf95cf797f",
   "state": "Done"
 }
 ```
+
 > [!NOTE]
 > It is not yet possible to:
 > - Restore a backup by indicating its name
-> - Restore a server group under a different name or on a different server group
+> - Show the progress of a restore operation
+
+
+### Do a point in time restore
+
+To restore a server group up to a specific point time, run the command:
+```console
+azdata arc postgres backup restore --server-name <target server group name> --source-server-name <source server group name> --time <point in time to restore to>
+or
+azdata arc postgres backup restore -sn <target server group name> -ssn <source server group name> -t <point in time to restore to>
+```
+
+To read the general format of restore command, run: `azdata arc postgres backup restore --help`.
+
+Where `time` is the point in time to restore to. Provide either a timestamp or a number and suffix (`m` for minutes, `h` for hours, `d` for days, or `w` for weeks). For example `1.5h` goes back 90 minutes.
+
+#### Examples:
+__Do a point in time restore of the server group postgres01 onto itself:__
+
+It is not yet possible to do point in time restore of a server group onto itself.
+
+__Do a point in time restore of the server group postgres01 to a different server group postgres02 to a specific timestamp:__
+```console
+azdata arc postgres backup restore -sn postgres02 -ssn postgres01 -t "2020-12-08 04:23:48.751326+00"
+``` 
+
+This example restores into server group postgres02 the state at which server group postgres01 was on December 8th 2020 at 04:23:48.75 UTC. Note that "+00" indicates the timezone of the point in time you indicate. If you do not indicate a timezone, the timezone of the client from which you run the restore operation will be used.
+
+For example:
+- `2020-12-08 04:23:48.751326+00` is interpreted as `2020-12-08 04:23:48.751326` UTC
+- if you are in the Pacific Standard Time zone (PST = UTC+08), `2020-12-08 04:23:48.751326` is interpreted as `2020-12-08 12:23:48.751326` UTC
+This operation is supported for any version of PostgreSQL starting version 11. The target server group must be created before the restore operation and must be using the same backup PVC as the source server group.
+
+
+__Do a point in time restore of the server group postgres01 to a different server group postgres02 to a specific amount of time in the past:__
+```console
+azdata arc postgres backup restore -sn postgres02 -ssn postgres01 -t "22m"
+```
+
+This example restores into server group postgres02 the state at which server group postgres01 was 22 minutes ago.
+This operation is supported for any version of PostgreSQL starting version 11. The target server group must be created before the restore operation and must be using the same backup PVC as the source server group.
+
+> [!NOTE]
+> It is not yet possible to:
 > - Show the progress of a restore operation
 
 ## Delete backups
+
 Backup retention cannot be set in Preview. However you can manually delete backups that you do not need.
 The general command to delete backups is:
+
 ```console
 azdata arc postgres backup delete  [--server-name, -sn] {[--name, -n], -id}
 ```
+
 where:
 - `--server-name` is the name of the server group from which the user wants to delete a backup
 - `--name` is the name of the backup to delete
@@ -183,17 +191,8 @@ where:
 > [!NOTE]
 > `--name` and `-id` are mutually exclusive.
 
-You can retrieve the name and the ID of your backups by running the list backup command as explained in the previous paragraph.
+For example:
 
-For example, consider you have the following backups listed:
-```console
-azdata arc postgres backup list -sn postgres01
-ID                                Name                    State
---------------------------------  ----------------------  -------
-5b0481dfc1c94b4cac79dd56a1bb21f4  MyBackup091720200110am  Done
-0cf39f1e92344e6db4cfa285d36c7b14  MyBackup091720200111am  Done
-```
-and you want to delete the first of them, you would run the following command:
 ```console
 azdata arc postgres backup delete -sn postgres01 -n MyBackup091720200110am
 {
@@ -202,15 +201,11 @@ azdata arc postgres backup delete -sn postgres01 -n MyBackup091720200110am
   "state": "Done"
 }
 ```
-If you were to list the backups at that point, you would get the following output:
-```console
-azdata arc postgres backup list -sn postgres01
-ID                                Name                    State
---------------------------------  ----------------------  -------
-0cf39f1e92344e6db4cfa285d36c7b14  MyBackup091720200111am  Done
-```
+
+You can retrieve the name and the ID of your backups by running the list backup command as explained in the previous paragraph.
 
 For more details about the delete command, run:
+
 ```console
 azdata arc postgres backup delete --help
 ```

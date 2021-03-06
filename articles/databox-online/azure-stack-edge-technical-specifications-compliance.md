@@ -29,7 +29,7 @@ A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge Pro
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).|
+| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](../machine-learning/how-to-deploy-fpga-web-service.md#fpga-support-in-azure).|
 
 ## Power supply unit specifications
 

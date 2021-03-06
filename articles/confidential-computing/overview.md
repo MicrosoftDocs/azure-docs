@@ -79,7 +79,7 @@ Build applications on top of confidential compute IaaS offerings in Azure.
 
 ### Azure Security 
 Ensure your workloads are secure through verification methods and hardware-bound key management. 
-- Attestation: [Microsoft Azure Attestation (Preview)](https://docs.microsoft.com/azure/attestation/overview)
+- Attestation: [Microsoft Azure Attestation (Preview)](../attestation/overview.md)
 - Key Management: Managed-HSM (Preview)
 
 ### Develop

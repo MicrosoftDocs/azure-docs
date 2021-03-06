@@ -15,7 +15,6 @@ ms.date: 06/12/2020
 
 # Deploy a model to Azure Container Instances
 
-
 Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Container Instances (ACI). Use Azure Container Instances if one of the following conditions is true:
 
 - You need to quickly deploy and validate your model. You do not need to create ACI containers ahead of time. They are created as part of the deployment process.
@@ -24,7 +23,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on Az
 For information on quota and region availability for ACI, see [Quotas and region availability for Azure Container Instances](../container-instances/container-instances-quotas.md) article.
 
 > [!IMPORTANT]
-> It is highly advised to debug locally before deploying to the web service, for more information see [Debug Locally](./how-to-troubleshoot-deployment.md#debug-locally)
+> It is highly advised to debug locally before deploying to the web service, for more information see [Debug Locally](./how-to-troubleshoot-deployment-local.md)
 >
 > You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -90,7 +89,7 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aci-deploy-config.md)]
 
-For more information, see the [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference. 
+For more information, see the [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) reference. 
 
 ## Using VS Code
 

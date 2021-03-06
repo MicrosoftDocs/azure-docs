@@ -1,9 +1,9 @@
 ---
-author: craigktreasure
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 8/13/2020
-ms.author: crtreasu
+ms.date: 11/20/2020
+ms.author: parkerra
 ---
 ## Configure the account information
 

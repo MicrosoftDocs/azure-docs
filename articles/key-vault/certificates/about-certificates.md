@@ -40,9 +40,18 @@ When a Key Vault certificate is created, it can be retrieved from the addressabl
 
 The addressable key becomes more relevant with non-exportable KV certificates. The addressable KV key's operations are mapped from *keyusage* field of the KV certificate policy used to create the KV Certificate.  
 
+The type of key pair to supported for certificates
+
  - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype))
    Exportable is only allowed with RSA, EC. HSM keys would be non-exportable.
 
+|Key type|About|Security|
+|--|--|--|
+|**RSA**| "Software-protected" RSA key|FIPS 140-2 Level 1|
+|**RSA-HSM**| "HSM-protected" RSA key (Premium SKU only)|FIPS 140-2 Level 2 HSM|
+|**EC**| "Software-protected" Elliptic Curve key|FIPS 140-2 Level 1|
+|**EC-HSM**| "HSM-protected" Elliptic Curve key (Premium SKU only)|FIPS 140-2 Level 2 HSM|
+|||
 
 ## Certificate Attributes and Tags
 

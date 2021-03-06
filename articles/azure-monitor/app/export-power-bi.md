@@ -27,7 +27,7 @@ To import your Application Insights query, you use the desktop version of Power 
 Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### Export an Analytics query
-1. [Open Analytics and write your query](../log-query/get-started-portal.md).
+1. [Open Analytics and write your query](../logs/log-analytics-tutorial.md).
 2. Test and refine the query until you're happy with the results. Make sure that the query runs correctly in Analytics before you export it.
 3. On the **Export** menu, choose **Power BI (M)**. Save the text file.
    
@@ -142,5 +142,4 @@ After the initial import, the dashboard and the reports continue to update daily
 
 ## Next steps
 * [Power BI - Learn](https://www.powerbi.com/learning/)
-* [Analytics tutorial](../log-query/get-started-portal.md)
-
+* [Analytics tutorial](../logs/log-analytics-tutorial.md)

@@ -127,7 +127,7 @@ Cohorts and filters are different. Suppose you have a cohort of users from the U
 
 ## Learn more
 
-* [Analytics query language](../log-query/get-started-portal.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+* [Analytics query language](../logs/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Users, sessions, events](usage-segmentation.md)
 * [User flows](usage-flows.md)
 * [Usage overview](usage-overview.md)

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 01/19/2021
 ms.author: chmutali
 ---
 # Tutorial: Configure Workday for automatic user provisioning
@@ -19,7 +19,6 @@ The objective of this tutorial is to show the steps you need to perform to provi
 >Use this tutorial, if the users you want to provision from Workday need an on-premises AD account and an Azure AD account. 
 >* If the users from Workday only need Azure AD account (cloud-only users), then please refer to the tutorial on [configure Workday to Azure AD](workday-inbound-cloud-only-tutorial.md) user provisioning. 
 >* To configure writeback of attributes such as email address, username and phone number from Azure AD to Workday, please refer to the tutorial on [configure Workday writeback](workday-writeback-tutorial.md).
-
 
 ## Overview
 
@@ -36,11 +35,11 @@ The [Azure Active Directory user provisioning service](../app-provisioning/user-
 ### What's new
 This section captures recent Workday integration enhancements. For a list of comprehensive updates, planned changes and archives, please visit the page [What's new in Azure Active Directory?](../fundamentals/whats-new.md) 
 
+* **Oct 2020 - Enabled provision on demand for Workday:** Using [on-demand provisioning](../app-provisioning/provision-on-demand.md) you can now test end-to-end provisioning for a specific user profile in Workday to verify your attribute mapping and expression logic.   
+
 * **May 2020 - Ability to writeback phone numbers to Workday:** In addition to email and username, you can now writeback work phone number and mobile phone number from Azure AD to Workday. For more details, refer to the [writeback app tutorial](workday-writeback-tutorial.md).
 
 * **April 2020 - Support for the latest version of Workday Web Services (WWS) API:** Twice a year in March and September, Workday delivers feature-rich updates that help you meet your business goals and changing workforce demands. To keep up with the new features delivered by Workday you can now directly specify the WWS API version that you would like to use in the connection URL. For details on how to specify the Workday API version, refer to the section on [configuring Workday connectivity](#part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory). 
-
-* **Jan 2020 - Ability to set AD accountExpires attribute:** Using the function [NumFromDate](../app-provisioning/functions-for-customizing-application-data.md#numfromdate) you can now map Workday date fields such as *EndContractDate* or *StatusTerminationDate*. 
 
 ### Who is this user provisioning solution best suited for?
 
@@ -106,7 +105,7 @@ A common requirement of all the Workday provisioning connectors is that they req
    >[!div class="mx-imgBorder"] 
    >![Create user](./media/workday-inbound-tutorial/wd_isu_01.png "Create user")
 2. Complete the **Create Integration System User** task by supplying a user name and password for a new Integration System User.  
-  
+
    * Leave the **Require New Password at Next Sign In** option unchecked, because this user will be logging on programmatically.
    * Leave the **Session Timeout Minutes** with its default value of 0, which will prevent the user's sessions from timing out prematurely.
    * Select the option **Do Not Allow UI Sessions** as it provides an added layer of security that prevents a user with the password of the integration system from logging into Workday.
@@ -146,51 +145,37 @@ In this step, you'll grant "domain security" policy permissions for the worker d
 
 **To configure domain security policy permissions:**
 
-1. Enter **Domain Security Configuration** in the search box, and then click on the link **Domain Security Configuration Report**.  
+1. Enter **Security Group Membership and Access** in the search box and click on the report link.
    >[!div class="mx-imgBorder"]
-   >![Screenshot that shows "domain security configuration" in the search box, with "Domain Security Configuration - Report" displayed in the results.](./media/workday-inbound-tutorial/wd_isu_06.png "Domain Security Policies")  
-2. In the **Domain** text box, search for the following domains and add them to the filter one by one.  
+   >![Search Security Group Membership](./media/workday-inbound-tutorial/security-group-membership-access.png)
+
+1. Search and select the security group created in the previous step. 
+   >[!div class="mx-imgBorder"]
+   >![Select Security Group](./media/workday-inbound-tutorial/select-security-group-workday.png)
+
+1. Click on the ellipsis (...) next to the group name and from the menu, select **Security Group > Maintain Domain Permissions for Security Group**
+   >[!div class="mx-imgBorder"]
+   >![Select Maintain Domain Permissions](./media/workday-inbound-tutorial/select-maintain-domain-permissions.png)
+
+1. Under **Integration Permissions**, add the following domains to the list **Domain Security Policies permitting Put access**
    * *External Account Provisioning*
+   * *Worker Data: Public Worker Reports* 
+   * *Person Data: Work Contact Information* (required if you plan to writeback contact data from Azure AD to Workday)
+   * *Workday Accounts* (required if you plan to writeback username/UPN from Azure AD to Workday)
+
+1. Under **Integration Permissions**, add the following domains to the list **Domain Security Policies permitting Get access**
    * *Worker Data: Workers*
-   * *Worker Data: Public Worker Reports*
-   * *Person Data: Work Contact Information*
    * *Worker Data: All Positions*
    * *Worker Data: Current Staffing Information*
    * *Worker Data: Business Title on Worker Profile*
-   * *Workday Accounts*
-   
-     >[!div class="mx-imgBorder"]
-     >![Screenshot that shows the Domain Security Configuration report with the "External Account" in the "Domain" text box.](./media/workday-inbound-tutorial/wd_isu_07.png "Domain Security Policies")  
+   * *Worker Data: Qualified Workers* (Optional - add this to retrieve worker qualification data for provisioning)
+   * *Worker Data: Skills and Experience* (Optional - add this to retrieve worker skills data for provisioning)
 
-     >[!div class="mx-imgBorder"]
-     >![Screenshot that shows the Domain Security Configuration report with a list of domains selected.](./media/workday-inbound-tutorial/wd_isu_08.png "Domain Security Policies") 
-
-     Click **OK**.
-
-3. In the report that shows up, select the ellipsis (...) that appears next to **External Account Provisioning** and click on the menu option **Domain -> Edit Security Policy Permissions**
+1. After completing above steps, the permissions screen will appear as shown below:
    >[!div class="mx-imgBorder"]
-   >![Domain Security Policies](./media/workday-inbound-tutorial/wd_isu_09.png "Domain Security Policies")  
+   >![All Domain Security Permissions](./media/workday-inbound-tutorial/all-domain-security-permissions.png)
 
-4. On the **Edit Domain Security Policy Permissions** page, scroll down to the section **Integration Permissions**. Click on the "+" sign to add the integration system group to the list of security groups with **Get** and **Put** integration permissions.
-   >[!div class="mx-imgBorder"]
-   >![Screenshot that shows the "Integration Permissons" section highlighted.](./media/workday-inbound-tutorial/wd_isu_10.png "Edit Permission")  
-
-5. Click on the "+" sign to add the integration system group to the list of security groups with **Get** and **Put** integration permissions.
-
-   >[!div class="mx-imgBorder"]
-   >![Edit Permission](./media/workday-inbound-tutorial/wd_isu_11.png "Edit Permission")  
-
-6. Repeat steps 3-5 above for each of these remaining security policies:
-
-   | Operation | Domain Security Policy |
-   | ---------- | ---------- |
-   | Get and Put | Worker Data: Public Worker Reports |
-   | Get and Put | Person Data: Work Contact Information |
-   | Get | Worker Data: Workers |
-   | Get | Worker Data: All Positions |
-   | Get | Worker Data: Current Staffing Information |
-   | Get | Worker Data: Business Title on Worker Profile |
-   | Get and Put | Workday Accounts |
+1. Click **OK** and **Done** on the next screen to complete the configuration. 
 
 ### Configuring business process security policy permissions
 
@@ -212,7 +197,7 @@ In this step, you'll grant "business process security" policy permissions for th
    >![Screenshot that shows the "Edit Business Process Security Policy" page and "Work Contact Change" selected in the "Business Process Type" menu.](./media/workday-inbound-tutorial/wd_isu_13.png "Business Process Security Policies")  
 
 3. On the **Edit Business Process Security Policy** page, scroll to the **Change Work Contact Information (Web Service)** section.
-    
+
 
 4. Select and add the new integration system security group to the list of security groups that can initiate the web services request. 
 
@@ -235,36 +220,9 @@ In this step, you'll grant "business process security" policy permissions for th
    >[!div class="mx-imgBorder"]
    >![Activate Pending Security](./media/workday-inbound-tutorial/wd_isu_18.png "Activate Pending Security")  
 
-## Configure Active Directory service account
+## Provisioning Agent installation prerequisites
 
-This section describes the AD service account permissions required to install and configure the Azure AD Connect Provisioning Agent.
-
-### Permissions required to run the Provisioning Agent Installer
-Once you have identified the Windows Server that will host the Provisioning Agent, login to the server host using either local admin or domain admin credentials. The agent setup process creates secure key store credential files and updates the service profile configuration on the host server. This requires admin access on the server hosting the agent. 
-
-### Permissions required to configure the Provisioning Agent service
-Use the steps below to setup a service account that can be used for provisioning agent operations. 
-1.	On your AD Domain Controller, open *Active Directory Users and Computers* snap-in. 
-2.	Create a new domain user (example: *provAgentAdmin*)  
-3.	Right click the OU or domain name and select *Delegate Control* which will open the *Delegation of Control Wizard*. 
-
-> [!NOTE] 
-> If you want to limit the provisioning agent to only create and read users from a certain OU for testing purposes, then we recommend delegating the control at the appropriate OU level during test runs.
-
-4. Click **Next** on the welcome screen. 
-5. On the **Select Users or Groups** screen, add the domain user you created in step 2. Click **Next**.
-   >[!div class="mx-imgBorder"]
-   >![Add Screen](./media/workday-inbound-tutorial/delegation-wizard-01.png "Add Screen")
-
-6. On the **Tasks to Delegate** screen, select the following tasks: 
-   * Create, delete and manage user accounts
-   * Read all user information
-
-   >[!div class="mx-imgBorder"]
-   >![Tasks Screen](./media/workday-inbound-tutorial/delegation-wizard-02.png "Tasks Screen")
-
-7. Click **Next** and **Save** the configuration
-
+Review the [provisioning agent installation prerequisites](../cloud-sync/how-to-prerequisites.md) before proceeding to the next section. 
 
 ## Configuring user provisioning from Workday to Active Directory
 
@@ -299,75 +257,11 @@ This section provides steps for user account provisioning from Workday to each A
    >[!div class="mx-imgBorder"]
    >![Download Agent](./media/workday-inbound-tutorial/pa-download-agent.png "Download Agent Screen")
 
-
 ### Part 2: Install and configure on-premises Provisioning Agent(s)
 
-To provision to Active Directory on-premises, the Provisioning agent must be installed on a server that has .NET 4.7.1+ Framework and network access to the desired Active Directory domain(s).
+To provision to Active Directory on-premises, the Provisioning agent must be installed on a domain-joined server that has network access to the desired Active Directory domain(s).
 
-> [!TIP]
-> You can check the version of the .NET framework on your server using the instructions provided [here](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
-> If the server does not have .NET 4.7.1 or higher installed, you can download it from [here](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
-
-Transfer the downloaded agent installer to the server host and follow the steps given below to complete the agent configuration.
-
-1. Sign in to the Windows Server where you want to install the new agent.
-
-1. Launch the Provisioning Agent installer, agree to the terms, and click on the **Install** button.
-
-   >[!div class="mx-imgBorder"]
-   >![Install Screen](./media/workday-inbound-tutorial/pa_install_screen_1.png "Install Screen")
-   
-1. After installation is complete, the wizard will launch and you will see the **Connect Azure AD** screen. Click on the **Authenticate** button to connect to your Azure AD instance.
-
-   >[!div class="mx-imgBorder"]
-   >![Connect Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Connect Azure AD")
-   
-1. Authenticate to your Azure AD instance using Hybrid Identity Administrator Credentials.
-
-   >[!div class="mx-imgBorder"]
-   >![Admin Auth](./media/workday-inbound-tutorial/pa_install_screen_3.png "Admin Auth")
-
-   > [!NOTE]
-   > The Azure AD admin credentials is used only to connect to your Azure AD tenant. The agent does not store the credentials locally on the server.
-
-1. After successful authentication with Azure AD, you will see the **Connect Active Directory** screen. In this step, enter your AD domain name and click on the **Add Directory** button.
-
-   >[!div class="mx-imgBorder"]
-   >![Add Directory](./media/workday-inbound-tutorial/pa_install_screen_4.png "Add Directory")
-  
-1. You will now be prompted to enter the credentials required to connect to the AD Domain. On the same screen, you can use the **Select domain controller priority** to specify domain controllers that the agent should use for sending provisioning requests.
-
-   >[!div class="mx-imgBorder"]
-   >![Domain Credentials](./media/workday-inbound-tutorial/pa_install_screen_5.png)
-   
-1. After configuring the domain, the installer displays a list of configured domains. On this screen, you can repeat step #5 and #6 to add more domains or click on **Next** to proceed to agent registration.
-
-   >[!div class="mx-imgBorder"]
-   >![Configured Domains](./media/workday-inbound-tutorial/pa_install_screen_6.png "Configured Domains")
-
-   > [!NOTE]
-   > If you have multiple AD domains (e.g. na.contoso.com, emea.contoso.com), then please add each domain individually to the list.
-   > Only adding the parent domain (e.g. contoso.com) is not sufficient. You must register each child domain with the agent.
-   
-1. Review the configuration details and click on **Confirm** to register the agent.
-  
-   >[!div class="mx-imgBorder"]
-   >![Confirm Screen](./media/workday-inbound-tutorial/pa_install_screen_7.png "Confirm Screen")
-   
-1. The configuration wizard displays the progress of the agent registration.
-  
-   >[!div class="mx-imgBorder"]
-   >![Agent Registration](./media/workday-inbound-tutorial/pa_install_screen_8.png "Agent Registration")
-   
-1. Once the agent registration is successful, you can click on **Exit** to exit the Wizard.
-
-   >[!div class="mx-imgBorder"]
-   >![Exit Screen](./media/workday-inbound-tutorial/pa_install_screen_9.png "Exit Screen")
-   
-1. Verify the installation of the Agent and make sure it is running by opening the "Services" Snap-In and look for the Service named "Microsoft Azure AD Connect Provisioning Agent"
-
-   >[!div class="mx-imgBorder"]
-   >![Screenshot of the Microsoft Azure AD Connect Provisioning Agent running in Services.](./media/workday-inbound-tutorial/services.png)
+Transfer the downloaded agent installer to the server host and follow the steps listed [in the **Install agent** section](../cloud-sync/how-to-install.md) to complete the agent configuration.
 
 ### Part 3: In the provisioning app, configure connectivity to Workday and Active Directory
 In this step, we establish connectivity with Workday and Active Directory in the Azure portal. 
@@ -381,7 +275,7 @@ In this step, we establish connectivity with Workday and Active Directory in the
    * **Workday password –** Enter the password of the Workday integration system account
 
    * **Workday Web Services API URL –** Enter the URL to the Workday web services endpoint for your tenant. The URL determines the version of the Workday Web Services API used by the connector. 
-   
+
      | URL format | WWS API version used | XPATH changes required |
      |------------|----------------------|------------------------|
      | https://####.workday.com/ccx/service/tenantName | v21.1 | No |
@@ -397,7 +291,7 @@ In this step, we establish connectivity with Workday and Active Directory in the
 
    * **Active Directory Container -** Enter the container DN where the agent should create user accounts by default.
         Example: *OU=Standard Users,OU=Users,DC=contoso,DC=test*
-        
+
      > [!NOTE]
      > This setting only comes into play for user account creations if the *parentDistinguishedName* attribute is not configured in the attribute mappings. This setting is not used for user search or update operations. The entire domain sub tree falls in the scope of the search operation.
 
@@ -437,11 +331,11 @@ In this section, you will configure how user data flows from Workday to Active D
       * Operator: IS NOT NULL
 
    > [!TIP]
-   > When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using the scoping filters under **Source Object Scope** to test your mappings with a few test users from Workday. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
+   > When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using [scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) under **Source Object Scope** and [on-demand provisioning](../app-provisioning/provision-on-demand.md) to test your mappings with a few test users from Workday. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
 
    > [!CAUTION] 
    > The default behavior of the provisioning engine is to disable/delete users that go out of scope. This may not be desirable in your Workday to AD integration. To override this default behavior refer to the article [Skip deletion of user accounts that go out of scope](../app-provisioning/skip-out-of-scope-deletions.md)
-  
+
 1. In the **Target Object Actions** field, you can globally filter what actions are performed on Active Directory. **Create** and **Update** are most common.
 
 1. In the **Attribute mappings** section, you can define how individual Workday attributes map to Active Directory attributes.
@@ -515,40 +409,34 @@ In this section, you will configure how user data flows from Workday to Active D
 | **LocalReference** |  preferredLanguage  |     |  Create + update |                                               
 | **Switch(\[Municipality\], "OU=Default Users,DC=contoso,DC=com", "Dallas", "OU=Dallas,OU=Users,DC=contoso,DC=com", "Austin", "OU=Austin,OU=Users,DC=contoso,DC=com", "Seattle", "OU=Seattle,OU=Users,DC=contoso,DC=com", "London", "OU=London,OU=Users,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Create + update |
 
-Once your attribute mapping configuration is complete, you can now [enable and launch the user provisioning service](#enable-and-launch-user-provisioning).
+Once your attribute mapping configuration is complete, you can test provisioning for a single user using [on-demand provisioning](../app-provisioning/provision-on-demand.md) and then [enable and launch the user provisioning service](#enable-and-launch-user-provisioning).
 
 ## Enable and launch user provisioning
 
-Once the Workday provisioning app configurations have been completed, you can turn on the provisioning service in the Azure portal.
+Once the Workday provisioning app configurations have been completed and you have verified provisioning for a single user with [on-demand provisioning](../app-provisioning/provision-on-demand.md), you can turn on the provisioning service in the Azure portal.
 
 > [!TIP]
-> By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or Workday data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.
+> By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or Workday data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users using [on-demand provisioning](../app-provisioning/provision-on-demand.md) before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.
 
-1. In the **Provisioning** tab, set the **Provisioning Status** to **On**.
+1. Go to the **Provisioning** blade and click on **Start provisioning**.
 
-2. Click **Save**.
+1. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in the Workday tenant. You can check the progress bar to the track the progress of the sync cycle. 
 
-3. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in the Workday tenant. 
+1. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. Refer to the Troubleshooting section for instructions on how to review the audit logs and fix provisioning errors.
 
-4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. Refer to the Troubleshooting section for instructions on how to review the audit logs and fix provisioning errors.
-
-5. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
+1. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
    > [!div class="mx-imgBorder"]
    > ![Provisioning progress bar](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
-
-
 
 ## Frequently Asked Questions (FAQ)
 
 * **Solution capability questions**
   * [When processing a new hire from Workday, how does the solution set the password for the new user account in Active Directory?](#when-processing-a-new-hire-from-workday-how-does-the-solution-set-the-password-for-the-new-user-account-in-active-directory)
   * [Does the solution support sending email notifications after provisioning operations complete?](#does-the-solution-support-sending-email-notifications-after-provisioning-operations-complete)
-  * [How do I manage delivery of passwords for new hires and securely provide a mechanism to reset their password?](#how-do-i-manage-delivery-of-passwords-for-new-hires-and-securely-provide-a-mechanism-to-reset-their-password)
   * [Does the solution cache Workday user profiles in the Azure AD cloud or at the provisioning agent layer?](#does-the-solution-cache-workday-user-profiles-in-the-azure-ad-cloud-or-at-the-provisioning-agent-layer)
   * [Does the solution support assigning on-premises AD groups to the user?](#does-the-solution-support-assigning-on-premises-ad-groups-to-the-user)
   * [Which Workday APIs does the solution use to query and update Workday worker profiles?](#which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles)
   * [Can I configure my Workday HCM tenant with two Azure AD tenants?](#can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants)
-  * [Why "Workday to Azure AD" user provisioning app is not supported if we have deployed Azure AD Connect?](#why-workday-to-azure-ad-user-provisioning-app-is-not-supported-if-we-have-deployed-azure-ad-connect)
   * [How do I suggest improvements or request new features related to Workday and Azure AD integration?](#how-do-i-suggest-improvements-or-request-new-features-related-to-workday-and-azure-ad-integration)
 
 * **Provisioning Agent questions**
@@ -560,7 +448,7 @@ Once the Workday provisioning app configurations have been completed, you can tu
   * [How do I ensure that the Provisioning Agent is able to communicate with the Azure AD tenant and no firewalls are blocking ports required by the agent?](#how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent)
   * [How do I de-register the domain associated with my Provisioning Agent?](#how-do-i-de-register-the-domain-associated-with-my-provisioning-agent)
   * [How do I uninstall the Provisioning Agent?](#how-do-i-uninstall-the-provisioning-agent)
-  
+
 * **Workday to AD attribute mapping and configuration questions**
   * [How do I back up or export a working copy of my Workday Provisioning Attribute Mapping and Schema?](#how-do-i-back-up-or-export-a-working-copy-of-my-workday-provisioning-attribute-mapping-and-schema)
   * [I have custom attributes in Workday and Active Directory. How do I configure the solution to work with my custom attributes?](#i-have-custom-attributes-in-workday-and-active-directory-how-do-i-configure-the-solution-to-work-with-my-custom-attributes)
@@ -580,19 +468,13 @@ When the on-premises provisioning agent gets a request to create a new AD accoun
 
 No, sending email notifications after completing provisioning operations is not supported in the current release.
 
-#### How do I manage delivery of passwords for new hires and securely provide a mechanism to reset their password?
-
-One of the final steps involved in new AD account provisioning is the delivery of the temporary password assigned to the user's AD account. Many enterprises still use the traditional approach of delivering the temporary password to the user's manager, who then hands over the password to the new hire/contingent worker. This process has an inherent security flaw and there is an option available to implement a better approach using Azure AD capabilities.
-
-As part of the hiring process, HR teams usually run a background check and vet the mobile number of the new hire. With the Workday to AD User Provisioning integration, you can build on top of this fact and rollout a self-service password reset capability for the user on Day 1. This is accomplished by propagating the "Mobile Number" attribute of the new hire from Workday to AD and then from AD to Azure AD using Azure AD Connect. Once the "Mobile Number" is present in Azure AD, you can enable the [Self-Service Password Reset (SSPR)](../authentication/howto-sspr-authenticationdata.md) for the user's account, so that on Day 1, a new hire can use the registered and verified mobile number for authentication.
-
 #### Does the solution cache Workday user profiles in the Azure AD cloud or at the provisioning agent layer?
 
 No, the solution does not maintain a cache of user profiles. The Azure AD provisioning service simply acts as a data processor, reading data from Workday and writing to the target Active Directory or Azure AD. See the section [Managing personal data](#managing-personal-data) for details related to user privacy and data retention.
 
 #### Does the solution support assigning on-premises AD groups to the user?
 
-This functionality is not supported currently. Recommended workaround is to deploy a PowerShell script that queries the Microsoft Graph API endpoint for [audit log data](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) and use that to trigger scenarios such as group assignment. This PowerShell script can be attached to a task scheduler and deployed on the same box running the provisioning agent.  
+This functionality is not supported currently. Recommended workaround is to deploy a PowerShell script that queries the Microsoft Graph API endpoint for [audit log data](/graph/api/resources/azure-ad-auditlog-overview) and use that to trigger scenarios such as group assignment. This PowerShell script can be attached to a task scheduler and deployed on the same box running the provisioning agent.  
 
 #### Which Workday APIs does the solution use to query and update Workday worker profiles?
 
@@ -602,7 +484,7 @@ The solution currently uses the following Workday APIs:
   * If the URL format is: https://\#\#\#\#\.workday\.com/ccx/service/tenantName , then API v21.1 is used. 
   * If the URL format is: https://\#\#\#\#\.workday\.com/ccx/service/tenantName/Human\_Resources , then API v21.1 is used 
   * If the URL format is: https://\#\#\#\#\.workday\.com/ccx/service/tenantName/Human\_Resources/v\#\#\.\# , then the specified API version is used. (Example: if v34.0 is specified, then it is used.)  
-   
+
 * Workday Email Writeback feature uses Change_Work_Contact_Information (v30.0) 
 * Workday Username Writeback feature uses Update_Workday_Account (v31.2) 
 
@@ -614,10 +496,6 @@ Yes, this configuration is supported. Here are the high level steps to configure
 * Deploy provisioning agent #2 and register it with Azure AD tenant #2.
 * Based on the "Child Domains" that each Provisioning Agent will manage, configure each agent with the domain(s). One agent can handle multiple domains.
 * In Azure portal, setup the Workday to AD User Provisioning App in each tenant and configure it with the respective domains.
-
-#### Why "Workday to Azure AD" user provisioning app is not supported if we have deployed Azure AD Connect?
-
-When Azure AD is used in hybrid mode (where it contains a mix of cloud + on-premises users), it's important to have a clear definition of "source of authority". Typically hybrid scenarios require deployment of Azure AD Connect. When Azure AD Connect is deployed, on-premises AD is the source of authority. Introducing the Workday to Azure AD connector into the mix can lead to a situation where Workday attribute values could potentially overwrite the values set by Azure AD Connect. Hence use of "Workday to Azure AD" provisioning app is not supported when Azure AD Connect is enabled. In such situations, we recommend using "Workday to AD User" provisioning app for getting users into on-premises AD and then syncing them into Azure AD using Azure AD Connect.
 
 #### How do I suggest improvements or request new features related to Workday and Azure AD integration?
 
@@ -779,7 +657,7 @@ Here is how you can handle such requirements for constructing *CN* or *displayNa
      | PreferredLastName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:Last_Name/text() |
      | Company | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Company']/wd:Organization_Reference/@wd:Descriptor |
      | SupervisoryOrganization | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data/wd:Organization_Data[wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Supervisory']/wd:Organization_Name/text() |
-  
+
    Confirm with your Workday team that the API expression above is valid for your Workday tenant configuration. If necessary, you can edit them as described in the section [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
 
 * Similarly the country/region information present in Workday is retrieved using the following XPATH: *wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference*
@@ -851,35 +729,69 @@ This section provides specific guidance on how to troubleshoot provisioning issu
 
 This section covers the following aspects of troubleshooting:
 
+* [Configure provisioning agent to emit Event Viewer logs](#configure-provisioning-agent-to-emit-event-viewer-logs)
 * [Setting up Windows Event Viewer for agent troubleshooting](#setting-up-windows-event-viewer-for-agent-troubleshooting)
 * [Setting up Azure portal Audit Logs for service troubleshooting](#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 * [Understanding logs for AD User Account create operations](#understanding-logs-for-ad-user-account-create-operations)
 * [Understanding logs for Manager update operations](#understanding-logs-for-manager-update-operations)
 * [Resolving commonly encountered errors](#resolving-commonly-encountered-errors)
 
+### Configure provisioning agent to emit Event Viewer logs
+1. Sign in to the Windows Server machine where the provisioning agent is deployed
+1. Stop the service **Microsoft Azure AD Connect Provisioning Agent**.
+1. Create a copy of the original config file: *C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config*.
+1. Replace the existing `<system.diagnostics>` section with the following. 
+   * The listener config **etw** emits messages to the EventViewer logs
+   * The listener config **textWriterListener** sends trace messages to the file *ProvAgentTrace.log*. Uncomment the lines related to textWriterListener only for advanced troubleshooting. 
+
+   ```xml
+     <system.diagnostics>
+         <sources>
+         <source name="AAD Connect Provisioning Agent">
+             <listeners>
+             <add name="console"/>
+             <add name="etw"/>
+             <!-- <add name="textWriterListener"/> -->
+             </listeners>
+         </source>
+         </sources>
+         <sharedListeners>
+         <add name="console" type="System.Diagnostics.ConsoleTraceListener" initializeData="false"/>
+         <add name="etw" type="System.Diagnostics.EventLogTraceListener" initializeData="Azure AD Connect Provisioning Agent">
+             <filter type="System.Diagnostics.EventTypeFilter" initializeData="All"/>
+         </add>
+         <!-- <add name="textWriterListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log"/> -->
+         </sharedListeners>
+     </system.diagnostics>
+
+   ```
+1. Start the service **Microsoft Azure AD Connect Provisioning Agent**.
+
 ### Setting up Windows Event Viewer for agent troubleshooting
 
-* Sign in to the Windows Server machine where the Provisioning Agent is deployed
-* Open **Windows Server Event Viewer** desktop app.
-* Select **Windows Logs > Application**.
-* Use the **Filter Current Log…** option to view all events logged under the source **AAD.Connect.ProvisioningAgent** and exclude events with Event ID "5", by specifying the filter "-5" as shown below.
+1. Sign in to the Windows Server machine where the Provisioning Agent is deployed
+1. Open **Windows Server Event Viewer** desktop app.
+1. Select **Windows Logs > Application**.
+1. Use the **Filter Current Log…** option to view all events logged under the source **Azure AD Connect Provisioning Agent** and exclude events with Event ID "5", by specifying the filter "-5" as shown below.
+   > [!NOTE]
+   > Event ID 5 captures agent bootstrap messages to the Azure AD cloud service and hence we filter it while analyzing the log files. 
 
-  ![Windows Event Viewer](media/workday-inbound-tutorial/wd_event_viewer_01.png))
+   ![Windows Event Viewer](media/workday-inbound-tutorial/wd_event_viewer_01.png)
 
-* Click **OK** and sort the result view by **Date and Time** column.
+1. Click **OK** and sort the result view by **Date and Time** column.
 
 ### Setting up Azure portal Audit Logs for service troubleshooting
 
-* Launch the [Azure portal](https://portal.azure.com), and navigate to the **Audit logs** section of your Workday provisioning application.
-* Use the **Columns** button on the Audit Logs page to display only the following columns in the view (Date, Activity, Status, Status Reason). This configuration ensures that you focus only on data that is relevant for troubleshooting.
+1. Launch the [Azure portal](https://portal.azure.com), and navigate to the **Audit logs** section of your Workday provisioning application.
+1. Use the **Columns** button on the Audit Logs page to display only the following columns in the view (Date, Activity, Status, Status Reason). This configuration ensures that you focus only on data that is relevant for troubleshooting.
 
-  ![Audit log columns](media/workday-inbound-tutorial/wd_audit_logs_00.png)
+   ![Audit log columns](media/workday-inbound-tutorial/wd_audit_logs_00.png)
 
-* Use the **Target** and **Date Range** query parameters to filter the view. 
-  * Set the **Target** query parameter to the "Worker ID" or "Employee ID" of the Workday worker object.
-  * Set the **Date Range** to an appropriate time period over which you want to investigate for errors or issues with the provisioning.
+1. Use the **Target** and **Date Range** query parameters to filter the view. 
+   * Set the **Target** query parameter to the "Worker ID" or "Employee ID" of the Workday worker object.
+   * Set the **Date Range** to an appropriate time period over which you want to investigate for errors or issues with the provisioning.
 
-  ![Audit log filters](media/workday-inbound-tutorial/wd_audit_logs_01.png)
+   ![Audit log filters](media/workday-inbound-tutorial/wd_audit_logs_01.png)
 
 ### Understanding logs for AD User Account create operations
 
@@ -996,7 +908,6 @@ If the provisioning service is unable to connect to Workday or Active Directory,
 |--|---|---|---|
 |1.| When you click on **Test Connection**, you get the error message: *There was an error connecting to Active Directory. Please ensure that the on-premises Provisioning Agent is running and it is configured with the correct Active Directory domain.* | This error usually shows up if the provisioning agent is not running or there is a firewall blocking communication between Azure AD and the provisioning agent. You may also see this error, if the domain is not configured in the Agent Wizard. | Open the *Services* console on the Windows server to confirm that the agent is running. Open the provisioning agent wizard and confirm that the right domain is registered with the agent.  |
 |2.| The provisioning job goes into quarantine state over the weekends (Fri-Sat) and we get an email notification that there is an error with the synchronization. | One of the common causes for this error is the planned Workday downtime. If you are using a Workday implementation tenant, please note that Workday has scheduled down time for its implementation tenants over weekends (usually from Friday evening to Saturday morning) and during that period the Workday provisioning apps may go into quarantine state as it is not able to connect to Workday. It gets back to normal state once the Workday implementation tenant is back online. In rare cases, you may also see this error, if the password of the Integration System User changed due to tenant refresh or if the account is in locked or expired state. | Check with your Workday administrator or integration partner to see when Workday schedules downtime to ignore alert messages during the downtime period and confirm availability once Workday instance is back online.  |
-
 
 #### AD user account creation errors
 
@@ -1155,7 +1066,8 @@ With respect to data retention, the Azure AD provisioning service does not gener
 
 ## Next steps
 
+* [Learn more about Azure AD and Workday integration scenarios and web service calls](../app-provisioning/workday-integration-reference.md)
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 * [Learn how to configure single sign-on between Workday and Azure Active Directory](workday-tutorial.md)
-* [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
+* [Learn how to configure Workday Writeback](workday-writeback-tutorial.md)
 * [Learn how to use Microsoft Graph APIs to manage provisioning configurations](/graph/api/resources/synchronization-overview)

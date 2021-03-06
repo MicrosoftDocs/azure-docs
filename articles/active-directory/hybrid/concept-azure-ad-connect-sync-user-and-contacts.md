@@ -37,7 +37,7 @@ Important points to be aware of when synchronizing groups from Active Directory 
 
 * Azure AD Connect does not support synchronizing [Primary Group memberships](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11)) to Azure AD.
 
-* Azure AD Connect does not support synchronizing [Dynamic Distribution Group memberships](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019) to Azure AD.
+* Azure AD Connect does not support synchronizing [Dynamic Distribution Group memberships](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups) to Azure AD.
 
 * To synchronize an Active Directory group to Azure AD as a mail-enabled group:
 

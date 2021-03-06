@@ -32,7 +32,7 @@ A deployment template contains all the Azure resources that comprise your soluti
 - **Test drive Azure Resource Manager template** – Upload the .zip containing your Azure Resource Manager template. Learn more about creating an Azure Resource Manager template in the quickstart article [Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     > [!note]
-    > To publish successfully, it is important to validate the formatting of the ARM template. Two ways to do this are (1) by using an [online API tool](https://docs.microsoft.com/rest/api/resources/deployments/validate) or (2) with a [test deployment](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
+    > To publish successfully, it is important to validate the formatting of the ARM template. Two ways to do this are (1) by using an [online API tool](/rest/api/resources/deployments/validate) or (2) with a [test deployment](../azure-resource-manager/templates/deploy-portal.md).
 
 - **Test drive duration** (required) – Enter the number of hours the test drive will stay active. The test drive terminates automatically after this time period ends. Use only whole numbers (for example, "2" hours is valid, "1.5" is not).
 
@@ -70,7 +70,7 @@ You can use any valid name for your parameters; test drive recognizes parameter 
 
 | Metadata Type   | Parameter Type  | Description     | Sample Value    |
 |---|---|---|---|
-| **baseuri**     | string          | Base URI of your deployment package| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **baseuri**     | string          | Base URI of your deployment package| `https://<..>.blob.core.windows.net/<..>` |
 | **username**    | string          | New random user name.| admin68876      |
 | **password**    | secure string    | New random password | Lp!ACS\^2kh     |
 | **session id**   | string          | Unique test drive session ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |

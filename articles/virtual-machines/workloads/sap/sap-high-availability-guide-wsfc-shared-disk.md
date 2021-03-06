@@ -8,10 +8,8 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.assetid: f6fb85f8-c77a-4af1-bde8-1de7e4425d2e
-ms.service: virtual-machines-windows
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -50,7 +48,7 @@ The Azure Load Balancer service provides an *internal load balancer* for Azure. 
 Deploy the internal load balancer in the resource group that contains the cluster nodes. Then, configure all necessary port forwarding rules by using the probe ports of the internal load balancer. Clients can connect via the virtual host name. The DNS server resolves the cluster IP address, and the internal load balancer handles port forwarding to the active node of the cluster.
 
 > [!IMPORTANT]
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). If you need additional IP address for the VM, deploy a second NIC.  
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
 
 ![Figure 1: Windows failover clustering configuration in Azure without a shared disk][sap-ha-guide-figure-1001]
 
@@ -121,7 +119,7 @@ _SAP ASCS/SCS HA architecture with shared disk_
 
 There are two options for shared disk in a windows failover cluster in Azure:
 
-- [Azure shared disks](../../windows/disks-shared.md) - feature, that allows to attach Azure managed disk to multiple VMs simultaneously. 
+- [Azure shared disks](../../disks-shared.md) - feature, that allows to attach Azure managed disk to multiple VMs simultaneously. 
 - Using 3rd-party software [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster) to create a mirrored storage that simulates cluster shared storage. 
 
 When selecting the technology for for shared disk, keep in mind the following considerations:
@@ -130,7 +128,7 @@ When selecting the technology for for shared disk, keep in mind the following co
 - Allows you to attach Azure managed disk to multiple VMs simultaneously without the need for additional software to maintain and operate 
 - You will be operating with a single Azure shared disk on one storage cluster. That has an impacts on the reliability of your SAP solution.
 - Currently the only supported deployment is with Azure shared Premium disk in Availability set. Azure Shared Disk is not supported in zonal deployment.     
-- Make sure to provision Azure Premium disk with a minimum disk size as specified in [Premium SSD ranges](../../windows/disks-shared.md#disk-sizes) to be able to attach to the required number of VMs simultaneously (typically 2 for SAP ASCS Windows Failover cluster ). 
+- Make sure to provision Azure Premium disk with a minimum disk size as specified in [Premium SSD ranges](../../disks-shared.md#disk-sizes) to be able to attach to the required number of VMs simultaneously (typically 2 for SAP ASCS Windows Failover cluster ). 
 - Azure shared Ultra disk is not supported for SAP workloads, as it doesn't support deployment in Availability set or zonal deployment.  
  
 **SIOS**
@@ -141,7 +139,7 @@ When selecting the technology for for shared disk, keep in mind the following co
 
 ### Shared Disk using Azure shared disk
 
-Microsoft is offering [Azure shared disks](../../windows/disks-shared.md), which can be used to implement SAP ASCS/SCS High Availability with a shared disk option.
+Microsoft is offering [Azure shared disks](../../disks-shared.md), which can be used to implement SAP ASCS/SCS High Availability with a shared disk option.
 
 #### Prerequisites and limitations
 
@@ -149,12 +147,12 @@ Currently you can use Azure Premium SSD disks as an Azure shared disk for the SA
 The following limitations are currently in place:
 
 -  [Azure Ultra disk](../../disks-types.md#ultra-disk) is not supported as Azure Shared Disk for SAP workloads. Currently it is not possible to place Azure VMs, using Azure Ultra Disk in Availability Set
--  [Azure Shared disk](../../windows/disks-shared.md) with Premium SSD disks is only supported with VMs in Availability Set. It is not supported in Availability Zones deployment. 
+-  [Azure Shared disk](../../disks-shared.md) with Premium SSD disks is only supported with VMs in Availability Set. It is not supported in Availability Zones deployment. 
 -  Azure shared disk value [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. Typically for SAP ASCS/SCS instance you will configure two nodes in Windows Failover Cluster, therefore the value for `maxShares` must be set to two.
 -  All SAP ASCS/SCS cluster VMs must be deployed in the same [Azure proximity placement group](../../windows/proximity-placement-groups.md).   
    Although, you can deploy Windows cluster  VMs in Availability Set with Azure shared disk without PPG, PPG will ensure close physical proximity of Azure shared disks and the cluster VMs, therefore achieving lower latency between the VMs and the storage layer.    
 
-For further details on limitations for Azure shared disk, please review very carefully the [Limitations](../../linux/disks-shared.md#limitations) section of Azure Shared Disk documentation.
+For further details on limitations for Azure shared disk, please review very carefully the [Limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.
 
 > [!IMPORTANT]
 > When deploying SAP ASCS/SCS Windows Failover cluster with Azure shared disk, be aware that your deployment will be operating with a single shared disk in one storage cluster. Your SAP ASCS/SCS instance would be impacted, in case of issues with the storage cluster, where the Azure shared disk is deployed.    

@@ -1,7 +1,7 @@
 ---
-title: Create Connection Monitor Preview - ARMClient
+title: Create Connection Monitor - ARM template
 titleSuffix: Azure Network Watcher
-description: Learn how to create Connection Monitor (Preview) using the ARMClient.
+description: Learn how to create Connection Monitor using the ARMClient.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -10,19 +10,23 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 07/30/2020
+ms.date: 01/07/2021
 ms.author: vinigam
-#Customer intent: I need to create a connection montior preview to monitor communication between one VM and another.
+#Customer intent: I need to create a connection monitor to monitor communication between one VM and another.
 ---
-# Create a Connection Monitor (Preview) using the ARMClient
+# Create a Connection Monitor using the ARM template
 
-Learn how to create Connection Monitor (Preview) to monitor communication between your resources using the ARMClient. It supports hybrid and Azure cloud deployments.
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You will also not be able to add new connection monitors in Connection Monitor (classic). You can continue to use the tests and connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) or  [migrate from Connection Monitor (classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection Monitor in Azure Network Watcher before 29 February 2024.
+
+Learn how to create Connection Monitor to monitor communication between your resources using the ARMClient. It supports hybrid and Azure cloud deployments.
+
 
 ## Before you begin 
 
-In connection monitors that you create in Connection Monitor (Preview), you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or any other URL or IP.
+In connection monitors that you create in Connection Monitor, you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or any other URL or IP.
 
-Connection Monitor (Preview) includes the following entities:
+Connection Monitor includes the following entities:
 
 * **Connection monitor resource** – A region-specific Azure resource. All of the following entities are properties of a connection monitor resource.
 * **Endpoint** – A source or destination that participates in connectivity checks. Examples of endpoints include Azure VMs, on-premises agents, URLs, and IPs.
@@ -354,7 +358,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * Endpoints
 	* name – Unique name for each endpoint
-	* resourceId – For Azure endpoints, resource ID refers to the Azure resource manager resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the Azure resource manager resource ID for the Log Analytics workspace linked to non-Azure agents.
+	* resourceId – For Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for the Log Analytics workspace linked to non-Azure agents.
 	* address – Applicable only when either resource ID is not specified or if resource ID is Log Analytics workspace. If used with Log Analytics resource ID, this refers to the FQDN of the agent that can be used for monitoring. If used without resource ID, this can be the URL or IP of any public endpoint.
 	* filter – For non-Azure endpoints, use filter to select agents from Log Analytics workspace that will be used for monitoring in Connection monitor resource. If filters are not set, all agents belonging to the Log Analytics workspace can be used for monitoring
 		* type – Set type as “Agent Address”
@@ -363,7 +367,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 * Test Groups
 	* name - Name your test group.
 	* testConfigurations - Test Configurations based on which source endpoints connect to destination endpoints
-	* sources - Choose from endpoints created above. Azure based source endpoints need to have Azure Network Watcher extension installed and nonAzure based source endpoints need to haveAzure Log Analytics agent installed. To install an agent for your source, see [Install monitoring agents](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+	* sources - Choose from endpoints created above. Azure based source endpoints need to have Azure Network Watcher extension installed and nonAzure based source endpoints need to haveAzure Log Analytics agent installed. To install an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
 	* destinations -  Choose from endpoints created above. You can monitor connectivity to Azure VMs or any endpoint (a public IP, URL, or FQDN) by specifying them as destinations. In a single test group, you can add Azure VMs, Office 365 URLs, Dynamics 365 URLs, and custom endpoints.
 	* disable - Use this field to disable monitoring for all sources and destinations that the test group specifies.
 
@@ -395,5 +399,5 @@ Connection monitors have the following scale limits:
 
 ## Next steps
 
-* Learn [how to analyze monitoring data and set alerts](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)
-* Learn [how to diagnose issues in your network](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)
+* Learn [how to analyze monitoring data and set alerts](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
+* Learn [how to diagnose issues in your network](./connection-monitor-overview.md#diagnose-issues-in-your-network)

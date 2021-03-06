@@ -1,16 +1,21 @@
 ---
-title: 'Tutorial: Use Creator to create indoor maps'
-description: Tutorial on how to use Azure Maps Creator to create indoor maps
+title: 'Tutorial: Use Microsoft Azure Maps Creator (Preview) to create indoor maps'
+description: Tutorial on how to use Microsoft Azure Maps Creator (Preview) to create indoor maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/22/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Tutorial: Use Creator to create indoor maps
+# Tutorial: Use Creator (Preview) to create indoor maps
+
+> [!IMPORTANT]
+> Azure Maps Creator services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This tutorial shows you how to create indoor maps. In this tutorial, you'll learn how to use the API to:
 
@@ -29,7 +34,7 @@ To create indoor maps:
 
 1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
-3. [Create a Creator resource](how-to-manage-creator.md)
+3. [Create a Creator (Preview) resource](how-to-manage-creator.md)
 4. Download the [Sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip).
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
@@ -106,7 +111,8 @@ The Data Upload API is a long running transaction that implements the pattern de
     ```
 
     >[!IMPORTANT]
-    > The API urls in this document may have to be adjusted according to the location of your Creator resource. For more details, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
+    > The API urls in this document may have to be adjusted according to the location of your Creator resource. For more details, see [Access to Creator services (Preview) ](how-to-manage-creator.md#access-to-creator-services).
+    > If you receive an error with code `"RequiresCreatorResource"`, make sure that you have [provisioned an Azure Maps Creator resource](how-to-manage-creator.md) in you Azure Maps account.
 
 3. Click the **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response, and look for the **Location** key. Copy the value of the **Location** key, which is the `status URL` for the conversion request. You will use this in the next step.
 
@@ -305,7 +311,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **Body**, provide the styles below to reflect changes to the `occupied` and `temperature` *states*. When you're done, click **Send**.
+3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **Body**, provide the raw json styles below to reflect changes to the `occupied` and `temperature` *states*. When you're done, click **Send**.
 
     ```json
     {
@@ -399,7 +405,11 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 The [Feature Get States API](/rest/api/maps/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature `ID`. You can also delete the stateset and its resources by using the [Feature State Delete API](/rest/api/maps/featurestate/deletestatesetpreview).
 
-To learn more about the different Azure Maps Creator services discussed in this article see, [Creator Indoor Maps](creator-indoor-maps.md).
+To learn more about the different Azure Maps Creator services (Preview) discussed in this article see, [Creator Indoor Maps](creator-indoor-maps.md).
+
+## Clean up resources
+
+There are no resources that require cleanup.
 
 ## Next steps
 

@@ -18,9 +18,9 @@ This sample script creates an app in App Service with its related resources, and
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.28 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
+ - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -33,7 +33,7 @@ az group create --name myResourceGroup --location francecentral
 ## Create an App Service Plan
 
 You need to create an App Service Plan to host your Web App.
-Create an App Service Plan with [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).
+Create an App Service Plan with [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create).
 This example creates App Service Plan named *myAppServicePlan* in the *francecentral* location with *P1V2* sku and only one worker: 
 
 ```azurecli-interactive
@@ -48,7 +48,7 @@ az appservice plan create \
 ## Create a Web App
 
 Now that you have an App Service Plan you can deploy a Web App.
-Create a Web App with [az appservice plan create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create.
+Create a Web App with [az appservice plan create](/cli/azure/webapp#az-webapp-create.
 This example creates a Web App named *mySiteName* in the Plan named *myAppServicePlan*
 
 ```azurecli-interactive
@@ -74,7 +74,7 @@ az network vnet create \
 
 ## Configure the Subnet 
 
-You need to update the subnet to disable private endpoint network policies. Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+You need to update the subnet to disable private endpoint network policies. Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \

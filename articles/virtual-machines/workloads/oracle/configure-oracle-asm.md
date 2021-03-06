@@ -2,11 +2,12 @@
 title: Set up Oracle ASM on an Azure Linux virtual machine | Microsoft Docs
 description: Quickly get Oracle ASM up and running in your Azure environment.
 author: dbakevlar
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.reviewer: cynthn
 
 ---
 
@@ -340,7 +341,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
 
 To download and prepare the Oracle Grid Infrastructure software, complete the following steps:
 
-1. Download Oracle Grid Infrastructure from the [Oracle ASM download page](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
+1. Download Oracle Grid Infrastructure from the [Oracle ASM download page](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html). 
 
    Under the download titled **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64**, download the two .zip files.
 

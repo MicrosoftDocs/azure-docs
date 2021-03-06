@@ -3,7 +3,7 @@ title: Manage Change Tracking and Inventory in Azure Automation
 description: This article tells how to use Change Tracking and Inventory to track software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/02/2020
+ms.date: 12/10/2020
 ms.topic: conceptual
 ---
 
@@ -94,6 +94,7 @@ Use the following steps to configure file tracking on Linux computers:
 File content tracking allows you to view the contents of a file before and after a tracked change. The feature saves the file contents to a [storage account](../../storage/common/storage-account-overview.md) after each change occurs. Here are some rules to follow for tracking file contents:
 
 * A standard storage account using the Resource Manager deployment model is required for storing file content.
+* By default, storage accounts accept connections from clients on any network. If you have secured your storage account to allow only certain traffic, you need to modify your configuration rules to allow your Automation account to connect to it. See [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 * Don't use premium and classic deployment model storage accounts. See [About Azure Storage accounts](../../storage/common/storage-account-create.md).
 * You can connect the storage account to only one Automation account.
 * Change Tracking and Inventory must be enabled in your Automation account.
@@ -161,7 +162,7 @@ You can do various searches against the Azure Monitor logs for change records. W
 ## Next steps
 
 * For information about scope configurations, see [Limit Change Tracking and Inventory deployment scope](manage-scope-configurations.md).
-* If you need to search logs stored in Azure Monitor Logs, see [Log searches in Azure Monitor Logs](../../azure-monitor/log-query/log-query-overview.md).
+* If you need to search logs stored in Azure Monitor Logs, see [Log searches in Azure Monitor Logs](../../azure-monitor/logs/log-query-overview.md).
 * If finished with deployments, see [Remove Change Tracking and Inventory](remove-feature.md).
 * To delete your VMs from Change Tracking and Inventory, see [Remove VMs from Change Tracking and Inventory](remove-vms-from-change-tracking.md).
 * To troubleshoot feature errors, see [Troubleshoot Change Tracking and Inventory issues](../troubleshoot/change-tracking.md).

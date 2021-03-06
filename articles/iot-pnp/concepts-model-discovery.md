@@ -35,10 +35,10 @@ A solution can get the model ID of the IoT Plug and Play device by using one of 
 
 ### Get Device Twin API
 
-The solution can use the [Get Device Twin](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?preserve-view=true&view=azure-java-stable) API to retrieve model ID of the IoT Plug and Play device.
+The solution can use the [Get Device Twin](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin) API to retrieve model ID of the IoT Plug and Play device.
 
 > [!TIP]
-> For modules and IoT Edge modules, use [ModuleClient.getTwin](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?preserve-view=true&view=azure-java-stable).
+> For modules and IoT Edge modules, use [ModuleClient.getTwin](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin).
 
 In the following device twin response snippet, `modelId` contains the model ID of an IoT Plug and Play device:
 
@@ -120,7 +120,7 @@ After you identify the model ID for a new device connection, follow these steps:
 
 1. Using the model definition of the connected device, you can enumerate the capabilities of the device.
 
-1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](quickstart-service-node.md).
+1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](quickstart-service.md).
 
 ### Custom store
 
@@ -132,12 +132,12 @@ After you identify the model ID for a new device connection, follow these steps:
 
 1. Using the model definition of the connected device, you can enumerate the capabilities of the device. 
 
-1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](quickstart-service-node.md).  
+1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](quickstart-service.md).  
 
 ## Next steps
 
 Now that you've learned how to integrate IoT Plug and Play models in an IoT solution, some suggested next steps are:
 
-- [Interact with a device from your solution](quickstart-service-node.md)
+- [Interact with a device from your solution](quickstart-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT explorer](howto-use-iot-explorer.md)

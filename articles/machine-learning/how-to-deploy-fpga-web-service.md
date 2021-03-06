@@ -10,7 +10,7 @@ ms.author: jordane
 author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2, devx-track-python, deploy
+ms.custom: how-to, contperf-fy21q2, devx-track-python, deploy
 ---
 
 # Deploy ML models to field-programmable gate arrays (FPGAs) with Azure Machine Learning 
@@ -28,7 +28,7 @@ You can reconfigure FPGAs for different types of machine learning models. This f
 
 |Processor| Abbreviation |Description|
 |---|:-------:|------|
-|Application-specific integrated circuits|ASICs|Custom circuits, such as Google's TensorFlow Processor Units (TPU), provide the highest efficiency. They can't be reconfigured as your needs change.|
+|Application-specific integrated circuits|ASICs|Custom circuits, such as Google's Tensor Processor Units (TPU), provide the highest efficiency. They can't be reconfigured as your needs change.|
 |Field-programmable gate arrays|FPGAs|FPGAs, such as those available on Azure, provide performance close to ASICs. They are also flexible and reconfigurable over time, to implement new logic.|
 |Graphics processing units|GPUs|A popular choice for AI computations. GPUs offer parallel processing capabilities, making it faster at image rendering than CPUs.|
 |Central processing units|CPUs|General-purpose processors, the performance of which isn't ideal for graphics and video processing.|
@@ -63,7 +63,7 @@ In this example, you create a TensorFlow graph to preprocess the input image, ma
  
 - The hardware-accelerated models package:  `pip install --upgrade azureml-accel-models[cpu]`    
     
-- The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+- The [Azure CLI](/cli/azure/install-azure-cli)
 
 - FPGA quota. Submit a [request for quota](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2nac9-PZhBDnNSV2ITz0LNUN0U5S0hXRkNITk85QURTWk9ZUUFUWkkyTC4u), or run this CLI command to check quota: 
 

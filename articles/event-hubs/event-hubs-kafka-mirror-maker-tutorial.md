@@ -2,18 +2,22 @@
 title: Use Apache Kafka MirrorMaker - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Kafka MirrorMaker to mirror a Kafka cluster in AzureEvent Hubs.
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 01/04/2021
 ---
 
-# Use Kafka MirrorMaker with Event Hubs for Apache Kafka
+# Use Apache Kafka MirrorMaker with Event Hubs
 
-This tutorial shows how to mirror a Kafka broker in an event hub using Kafka MirrorMaker.
+This tutorial shows how to mirror a Kafka broker into an Azure Event Hub using Kafka MirrorMaker. If you are hosting Apache Kafka on 
+Kubernetes using the CNCF Strimzi operator, you can refer to the tutorial in [this blog post](https://strimzi.io/blog/2020/06/09/mirror-maker-2-eventhub/) 
+to learn how to set up Kafka with Strimzi and Mirror Maker 2. 
 
    ![Kafka MirrorMaker with Event Hubs](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
 
+> [!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -24,9 +28,12 @@ In this tutorial, you learn how to:
 > * Run Kafka MirrorMaker
 
 ## Introduction
-One major consideration for modern cloud scale apps is the ability to update, improve, and change infrastructure without interrupting service. This tutorial shows how an event hub and Kafka MirrorMaker can integrate an existing Kafka pipeline into Azure by "mirroring" the Kafka input stream in the Event Hubs service. 
+This tutorial shows how an event hub and Kafka MirrorMaker can integrate an existing Kafka pipeline into Azure by "mirroring" the Kafka input stream in the Event Hubs service, which allows for 
+integration of Apache Kafka streams using several [federation patterns](event-hubs-federation-overview.md). 
 
-An Azure Event Hubs Kafka endpoint enables you to connect to Azure Event Hubs using the Kafka protocol (that is, Kafka clients). By making minimal changes to a Kafka application, you can connect to Azure Event Hubs and enjoy the benefits of the Azure ecosystem. Event Hubs currently supports Kafka versions 1.0 and later.
+An Azure Event Hubs Kafka endpoint enables you to connect to Azure Event Hubs using the Kafka protocol (that is, Kafka clients). By making minimal changes to a Kafka application, you can connect to Azure Event Hubs and enjoy the benefits of the Azure ecosystem. Event Hubs currently supports the protocol of Apache Kafka versions 1.0 and later.
+
+You can use Apache Kafka's MirrorMaker 1 unidirectionally from Apache Kafka to Event Hubs. MirrorMaker 2 can be used in both directions, but the [`MirrorCheckpointConnector` and `MirrorHeartbeatConnector` that are configurable in MirrorMaker 2](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0) must both be configured to point to the Apache Kafka broker and not to Event Hubs. This tutorial shows configuring MirrorMaker 1.
 
 ## Prerequisites
 

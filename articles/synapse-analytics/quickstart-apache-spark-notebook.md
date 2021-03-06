@@ -13,7 +13,7 @@ ms.date: 10/16/2020
 
 # Quickstart: Create a serverless Apache Spark pool in Azure Synapse Analytics using web tools
 
-In this quickstart, you learn how to create a serverless Apache Spark pool (preview) in Azure Synapse using web tools. You then learn to connect to the Apache Spark pool and run Spark SQL queries against files and tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark in Azure Synapse, see [Overview: Apache Spark on Azure Synapse](./spark/apache-spark-overview.md).
+In this quickstart, you learn how to create a serverless Apache Spark pool in Azure Synapse using web tools. You then learn to connect to the Apache Spark pool and run Spark SQL queries against files and tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark in Azure Synapse, see [Overview: Apache Spark on Azure Synapse](./spark/apache-spark-overview.md).
 
 > [!IMPORTANT]
 > Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the **Clean up resources** section of this article.
@@ -143,7 +143,7 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 In this quickstart, you learned how to create a serverless Apache Spark pool and run a basic Spark SQL query.
 
 - [Azure Synapse Analytics](overview-what-is.md)
-- [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [.NET for Apache Spark documentation](/dotnet/spark)
 
 
 

@@ -4,7 +4,7 @@ description: How to publish on-premises ASP.NET applications that accept ADFS cl
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Working with claims-aware apps in Application Proxy
-[Claims-aware apps](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) perform a redirection to the Security Token Service (STS). The STS requests credentials from the user in exchange for a token and then redirects the user to the application. There are a few ways to enable Application Proxy to work with these redirects. Use this article to configure your deployment for claims-aware apps. 
+[Claims-aware apps](/previous-versions/windows/desktop/legacy/bb736227(v=vs.85)) perform a redirection to the Security Token Service (STS). The STS requests credentials from the user in exchange for a token and then redirects the user to the application. There are a few ways to enable Application Proxy to work with these redirects. Use this article to configure your deployment for claims-aware apps. 
 
 ## Prerequisites
 Make sure that the STS that the claims-aware app redirects to is available outside of your on-premises network. You can make the STS available by exposing it through a proxy or by allowing outside connections. 
@@ -51,5 +51,3 @@ If all the internal URLs for your applications are fully qualified domain names 
 
 ## Next steps
 * [Enable native client apps to interact with proxy applications](application-proxy-configure-native-client-application.md)
-
-

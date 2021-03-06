@@ -30,7 +30,7 @@ The [Azure Storage security guide](../../storage/blobs/security-recommendations.
 This article addresses the following best practices:
 
 - Shared access signatures (SAS)
-- Role-based access control (RBAC)
+- Azure role-based access control (Azure RBAC)
 - Client side encryption for high value data
 - Storage Service Encryption
 
@@ -51,16 +51,16 @@ SAS allows you to share content the way you want to share it without giving away
 
 To learn more about shared access signature, see [Using shared access signatures](../../storage/common/storage-sas-overview.md). 
 
-## Use role-based access control
-Another way to manage access is to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). With RBAC, you focus on giving employees the exact permissions they need, based on the need to know and least privilege security principles. Too many permissions can expose an account to attackers. Too few permissions means that employees can't get their work done efficiently. RBAC helps address this problem by offering fine-grained access management for Azure. This is imperative for organizations that want to enforce security policies for data access.
+## Use Azure role-based access control
+Another way to manage access is to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). With Azure RBAC, you focus on giving employees the exact permissions they need, based on the need to know and least privilege security principles. Too many permissions can expose an account to attackers. Too few permissions means that employees can't get their work done efficiently. Azure RBAC helps address this problem by offering fine-grained access management for Azure. This is imperative for organizations that want to enforce security policies for data access.
 
 You can use Azure built-in roles in Azure to assign privileges to users. For example, use Storage Account Contributor for cloud operators that need to manage storage accounts and Classic Storage Account Contributor role to manage classic storage accounts. For cloud operators that need to manage VMs but not the virtual network or storage account to which they are connected, you can add them to the Virtual Machine Contributor role.
 
-Organizations that do not enforce data access control by using capabilities such as RBAC may be giving more privileges than necessary for their users. This can lead to data compromise by allowing some users access to data they shouldn’t have in the first place.
+Organizations that do not enforce data access control by using capabilities such as Azure RBAC may be giving more privileges than necessary for their users. This can lead to data compromise by allowing some users access to data they shouldn’t have in the first place.
 
-To learn more about RBAC see:
+To learn more about Azure RBAC see:
 
-- [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
 - [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
 - [Azure Storage security guide](../../storage/blobs/security-recommendations.md) 
 

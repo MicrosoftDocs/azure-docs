@@ -22,7 +22,7 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
 
 ## Recommended steps
 
-1. Download the [Storage Analytics logs](./storage-analytics-logging.md#download-storage-logging-log-data).
+1. Download the [Storage Analytics logs](./manage-storage-analytics-logs.md#download-storage-logging-log-data).
 
 2. Use the following PowerShell script to convert the raw format logs into tabular format:
 

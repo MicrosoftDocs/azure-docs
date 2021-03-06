@@ -1,17 +1,18 @@
 ---
-title: Azure Service Bus SQLFilter syntax reference | Microsoft Docs
-description: This article provides details about SQLFilter grammar. A SqlFilter supports a subset of the SQL-92 standard.  
+title: Azure Service Bus Subscription Rule SQL Filter syntax | Microsoft Docs
+description: This article provides details about SQL filter grammar. A SQL filter supports a subset of the SQL-92 standard.  
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 11/24/2020
 ---
 
-# SQLFilter syntax
+# Subscription Rule SQL Filter Syntax
 
-A *SqlFilter* object is an instance of the [SqlFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), and represents a SQL language-based filter expression that is evaluated against a [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). A SqlFilter supports a subset of the SQL-92 standard.  
+A *SQL filter* is one of the available filter types for Service Bus topic subscriptions. It's a text expression that leans on a subset of the SQL-92 standard. Filter expressions are used with the `sqlExpression` element of the 'sqlFilter' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) argument, and several SDK functions that allow managing subscription rules.
+
+Service Bus Premium also supports the [JMS SQL message selector syntax](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) through the JMS 2.0 API.
+
   
- This topic lists details about SqlFilter grammar.  
-  
-```  
+``` 
 <predicate ::=  
       { NOT <predicate> }  
       | <predicate> AND <predicate>  
@@ -44,11 +45,11 @@ A *SqlFilter* object is an instance of the [SqlFilter class](/dotnet/api/microso
   
 ## Arguments  
   
--   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
+-   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` isn't specified.  
   
 ## Remarks
 
-An attempt to access a non-existent system property is an error, while an attempt to access a non-existent user property is not an error. Instead, a non-existent user property is internally evaluated as an unknown value. An unknown value is treated specially during operator evaluation.  
+An attempt to access a non-existent system property is an error, while an attempt to access a non-existent user property isn't an error. Instead, a non-existent user property is internally evaluated as an unknown value. An unknown value is treated specially during operator evaluation.  
   
 ## property_name  
   
@@ -76,7 +77,7 @@ This grammar means any string that starts with a letter and is followed by one o
   
 `[:IsDigit:]` means any Unicode character that is categorized as a decimal digit. `System.Char.IsDigit(c)` returns `true` if `c` is a Unicode digit.  
   
-A `<regular_identifier>` cannot be a reserved keyword.  
+A `<regular_identifier>` can't be a reserved keyword.  
   
 `<delimited_identifier>` is any string that is enclosed with left/right square brackets ([]). A right square bracket is represented as two right square brackets. The following are examples of `<delimited_identifier>`:  
   
@@ -86,7 +87,7 @@ A `<regular_identifier>` cannot be a reserved keyword.
   
 ```  
   
-`<quoted_identifier>` is any string that is enclosed with double quotation marks. A double quotation mark in identifier is represented as two double quotation marks. It is not recommended to use quoted identifiers because it can easily be confused with a string constant. Use a delimited identifier if possible. The following is an example of `<quoted_identifier>`:  
+`<quoted_identifier>` is any string that is enclosed with double quotation marks. A double quotation mark in identifier is represented as two double quotation marks. It isn't recommended to use quoted identifiers because it can easily be confused with a string constant. Use a delimited identifier if possible. Here's an example of `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
@@ -101,7 +102,7 @@ A `<regular_identifier>` cannot be a reserved keyword.
   
 ### Remarks
   
-`<pattern>` must be an expression that is evaluated as a string. It is used as a pattern for the LIKE operator.      It can contain the following wildcard characters:  
+`<pattern>` must be an expression that is evaluated as a string. It's used as a pattern for the LIKE operator.      It can contain the following wildcard characters:  
   
 -   `%`:  Any string of zero or more characters.  
   
@@ -116,7 +117,7 @@ A `<regular_identifier>` cannot be a reserved keyword.
   
 ### Remarks  
 
-`<escape_char>` must be an expression that is evaluated as a string of length 1. It is used as an escape character for the LIKE operator.  
+`<escape_char>` must be an expression that is evaluated as a string of length 1. It's used as an escape character for the LIKE operator.  
   
  For example, `property LIKE 'ABC\%' ESCAPE '\'` matches `ABC%` rather than a string that starts with `ABC`.  
   
@@ -129,18 +130,18 @@ A `<regular_identifier>` cannot be a reserved keyword.
   
 ### Arguments  
   
--   `<integer_constant>` is a string of numbers that are not enclosed in quotation marks and do not contain decimal points. The values are stored as `System.Int64` internally, and follow the same range.  
+-   `<integer_constant>` is a string of numbers that aren't enclosed in quotation marks and don't contain decimal points. The values are stored as `System.Int64` internally, and follow the same range.  
   
-     These are examples of long constants:  
+     Here are examples of long constants:  
   
     ```  
     1894  
     2  
     ```  
   
--   `<decimal_constant>` is a string of numbers that are not enclosed in quotation marks, and contain a decimal point. The values are stored as `System.Double` internally, and follow the same range/precision.  
+-   `<decimal_constant>` is a string of numbers that aren't enclosed in quotation marks, and contain a decimal point. The values are stored as `System.Double` internally, and follow the same range/precision.  
   
-     In a future version, this number might be stored in a different data type to support exact number semantics, so you should not rely on the fact the underlying data type is `System.Double` for `<decimal_constant>`.  
+     In a future version, this number might be stored in a different data type to support exact number semantics, so you shouldn't rely on the fact the underlying data type is `System.Double` for `<decimal_constant>`.  
   
      The following are examples of decimal constants:  
   
@@ -187,7 +188,7 @@ String constants are enclosed in single quotation marks and include any valid Un
   
 ### Remarks
   
-The `newid()` function returns a **System.Guid** generated by the `System.Guid.NewGuid()` method.  
+The `newid()` function returns a `System.Guid` generated by the `System.Guid.NewGuid()` method.  
   
 The `property(name)` function returns the value of the property referenced by `name`. The `name` value can be any valid expression that returns a string value.  
   
@@ -209,17 +210,17 @@ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sq
   
 - An attempt to evaluate a non-existent system property throws a [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) exception.  
   
-- A property that does not exist is internally evaluated as **unknown**.  
+- A property that doesn't exist is internally evaluated as **unknown**.  
   
   Unknown evaluation in arithmetic operators:  
   
-- For binary operators, if either the left and/or right side of operands is evaluated as **unknown**, then the result is **unknown**.  
+- For binary operators, if either the left or right side of operands is evaluated as **unknown**, then the result is **unknown**.  
   
 - For unary operators, if an operand is evaluated as **unknown**, then the result is **unknown**.  
   
   Unknown evaluation in binary comparison operators:  
   
-- If either the left and/or right side of operands is evaluated as **unknown**, then the result is **unknown**.  
+- If either the left or right side of operands is evaluated as **unknown**, then the result is **unknown**.  
   
   Unknown evaluation in `[NOT] LIKE`:  
   
@@ -263,8 +264,14 @@ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sq
   
 -   Arithmetic operators such as `+`, `-`, `*`, `/`, and `%` follow the same semantics as the C# operator binding in data type promotions and implicit conversions.
 
+## Examples
+For examples, see [Service Bus filter examples](service-bus-filter-examples.md).
+
 ## Next steps
 
 - [SQLFilter class (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [SQLFilter class (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
-- [SQLRuleAction class](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SqlFilter class (Java)](/java/api/com.microsoft.azure.servicebus.rules.SqlFilter)
+- [SqlRuleFilter (JavaScript)](/javascript/api/@azure/service-bus/sqlrulefilter)
+- [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

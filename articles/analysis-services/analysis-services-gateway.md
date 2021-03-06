@@ -51,7 +51,7 @@ The following are fully qualified domain names used by the gateway.
 | *.frontend.clouddatahub.net |443 |HTTPS |
 | *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
-| *.msftncsi.com |443 |Used to test internet connectivity if the gateway is unreachable by the Power BI service. |
+| *.msftncsi.com |80 |Used to test internet connectivity if the gateway is unreachable by the Power BI service. |
 | *.microsoftonline-p.com |443 |Used for authentication depending on configuration. |
 | dc.services.visualstudio.com    |443 |Used by AppInsights to collect telemetry. |
 

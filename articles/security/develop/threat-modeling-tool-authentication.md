@@ -26,7 +26,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **Web Application**    | <ul><li>[Consider using a standard authentication mechanism to authenticate to Web Application](#standard-authn-web-app)</li><li>[Applications must handle failed authentication scenarios securely](#handle-failed-authn)</li><li>[Enable step up or adaptive authentication](#step-up-adaptive-authn)</li><li>[Ensure that administrative interfaces are appropriately locked down](#admin-interface-lockdown)</li><li>[Implement forgot password functionalities securely](#forgot-pword-fxn)</li><li>[Ensure that password and account policy are implemented](#pword-account-policy)</li><li>[Implement controls to prevent username enumeration](#controls-username-enum)</li></ul> |
 | **Database** | <ul><li>[When possible, use Windows Authentication for connecting to SQL Server](#win-authn-sql)</li><li>[When possible use Azure Active Directory Authentication for Connecting to SQL Database](#aad-authn-sql)</li><li>[When SQL authentication mode is used, ensure that account and password policy are enforced on SQL server](#authn-account-pword)</li><li>[Do not use SQL Authentication in contained databases](#autn-contained-db)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Use per device authentication credentials using SaS tokens](#authn-sas-tokens)</li></ul> |
-| **Azure Trust Boundary** | <ul><li>[Enable Azure Multi-Factor Authentication for Azure Administrators](#multi-factor-azure-admin)</li></ul> |
+| **Azure Trust Boundary** | <ul><li>[Enable Azure AD Multi-Factor Authentication for Azure Administrators](#multi-factor-azure-admin)</li></ul> |
 | **Service Fabric Trust Boundary** | <ul><li>[Restrict anonymous access to Service Fabric Cluster](#anon-access-cluster)</li><li>[Ensure that Service Fabric client-to-node certificate is different from node-to-node certificate](#fabric-cn-nn)</li><li>[Use AAD to authenticate clients to service fabric clusters](#aad-client-fabric)</li><li>[Ensure that service fabric certificates are obtained from an approved Certificate Authority (CA)](#fabric-cert-ca)</li></ul> |
 | **Identity Server** | <ul><li>[Use standard authentication scenarios supported by Identity Server](#standard-authn-id)</li><li>[Override the default Identity Server token cache with a scalable alternative](#override-token)</li></ul> |
 | **Machine Trust Boundary** | <ul><li>[Ensure that deployed application's binaries are digitally signed](#binaries-signed)</li></ul> |
@@ -169,7 +169,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **References**              | [Event Hubs authentication and security model overview](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Steps** | <p>The Event Hubs security model is based on a combination of Shared Access Signature (SAS) tokens and event publishers. The publisher name represents the DeviceID that receives the token. This would help associate the tokens generated with the respective devices.</p><p>All messages are tagged with originator on service side allowing detection of in-payload origin spoofing attempts. When authenticating devices, generate a per device SaS token scoped to a unique publisher.</p>|
 
-## <a id="multi-factor-azure-admin"></a>Enable Azure Multi-Factor Authentication for Azure Administrators
+## <a id="multi-factor-azure-admin"></a>Enable Azure AD Multi-Factor Authentication for Azure Administrators
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -177,7 +177,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [What is Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md) |
+| **References**              | [What is Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md) |
 | **Steps** | <p>Multi-factor authentication (MFA) is a method of authentication that requires more than one verification method and adds a critical second layer of security to user sign-ins and transactions. It works by requiring any two or more of the following verification methods:</p><ul><li>Something you know (typically a password)</li><li>Something you have (a trusted device that is not easily duplicated, like a phone)</li><li>Something you are (biometrics)</li><ul>|
 
 ## <a id="anon-access-cluster"></a>Restrict anonymous access to Service Fabric Cluster

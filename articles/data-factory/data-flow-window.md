@@ -3,11 +3,10 @@ title: Window transformation in mapping data flow
 description: Azure Data Factory mapping data flow Window Transformation
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/30/2019
+ms.date: 11/16/2020
 ---
 
 # Window transformation in mapping data flow
@@ -17,6 +16,8 @@ ms.date: 01/30/2019
 The Window transformation is where you will define window-based aggregations of columns in your data streams. In the Expression Builder, you can define different types of aggregations that are based on data or time windows (SQL OVER clause) such as LEAD, LAG, NTILE, CUMEDIST, RANK, etc.). A new field will be generated in your output that includes these aggregations. You can also include optional group-by fields.
 
 ![Screenshot shows Windowing selected from the menu.](media/data-flow/windows1.png "windows 1")
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IAVu]
 
 ## Over
 Set the partitioning of column data for your window transformation. The SQL equivalent is the ```Partition By``` in the Over clause in SQL. If you wish to create a calculation or create an expression to use for the partitioning, you can do that by hovering over the column name and select "computed column".

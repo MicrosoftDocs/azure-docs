@@ -8,47 +8,59 @@
 - name: Tutorials
   expanded: true
   items:
-    - name: 1 - Create an Azure Red Hat OpenShift 4 cluster
+    - name: 1 - Create an ARO cluster
       href: tutorial-create-cluster.md
-    - name: 2 - Connect to an Azure Red Hat OpenShift 4 cluster
+    - name: 2 - Connect to an ARO cluster
       href: tutorial-connect-cluster.md
-    - name: 3 - Delete an Azure Red Hat OpenShift 4 cluster
+    - name: 3 - Delete an ARO cluster
       href: tutorial-delete-cluster.md
 - name: How-to guides
   items:
-    - name: Create a private Azure Red Hat OpenShift 4 cluster
-      href: howto-create-private-cluster-4x.md
-    - name: Create an Azure Files StorageClass on Azure Red Hat OpenShift 4
-      href: howto-create-a-storageclass.md
-    - name: Update pull secret for an Azure Red Hat OpenShift 4 cluster
-      href: howto-add-update-pull-secret.md
-    - name: Configure DNS forwarding for an Azure Red Hat OpenShift 4 cluster
-      href: dns-forwarding.md
-    - name: Configure built-in container registry for Azure Red Hat OpenShift 4
-      href: built-in-container-registry.md
-    - name: Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster
+    - name: Cluster operations
+      items:
+        - name: Upgrade an ARO cluster
+          href: howto-upgrade.md 
+    - name: Networking
+      items:
+        - name: Create a private ARO cluster
+          href: howto-create-private-cluster-4x.md
+        - name: Configure DNS forwarding
+          href: dns-forwarding.md
+    - name: Storage
+      items:
+        - name: Encrypt PVCs with customer-managed key (preview)
+          href: howto-encrypt-data-disks.md
+        - name: Create an Azure Files Storageclass
+          href: howto-create-a-storageclass.md
+        - name: Use the built-in container registry
+          href: built-in-container-registry.md
+        - name: Use Azure Container registry
+          href: howto-use-acr-with-aro.md
+    - name: Security and authentication
       items:
         - name: Configure Azure Active Directory authentication (CLI)
           href: configure-azure-ad-cli.md
         - name: Configure Azure Active Directory authentication (Portal)
           href: configure-azure-ad-ui.md
-    - name: Create a backup and restore an application with Velero
+        - name: Update pull secret for an ARO cluster
+          href: howto-add-update-pull-secret.md
+    - name: Backup and restore
       items:
         - name: Create a backup of a cluster application with Velero
           href: howto-create-a-backup.md
         - name: Create a restore of a cluster application with Velero
           href: howto-create-a-restore.md
-    - name: Monitoring and logging for Azure Red Hat OpenShift 4
+    - name: Monitoring and logging 
       items:
-        - name: Azure Monitor for containers in Azure Red Hat OpenShift 4 (preview)
+        - name: Azure Monitor for containers
           items:
-            - name: Configure Azure Monitor for containers for Azure Red Hat OpenShift 4 (preview)
+            - name: Configure Azure Monitor for containers for ARO 4 (preview)
               href : ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
-            - name: Disable Azure Monitor for containers in Azure Red Hat OpenShift 3.11 (preview)
-              href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
-    - name: Open Liberty/WebSphere Liberty on Azure Red Hat OpenShift 4 cluster
+            - name: Disable Azure Monitor for containers in ARO 4 (preview)
+              href: ../azure-monitor/containers/container-insights-optout-openshift-v4.md
+    - name: Develop and run applications
       items:
-        - name: Deploy an Open Liberty/WebSphere Liberty app on an Azure Red Hat OpenShift 4 cluster
+        - name: Deploy an Open Liberty/WebSphere Liberty app
           href: howto-deploy-java-liberty-app.md
     - name: Azure Red Hat OpenShift 3.11
       items:
@@ -70,10 +82,10 @@
             - name: Azure Monitor for containers in Azure Red Hat OpenShift 3.11 (preview)
               items:
                 - name: Configure Azure Monitor for containers in Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+                  href: ../azure-monitor/containers/container-insights-azure-redhat-setup.md
                   maintainContext: true
                 - name: Disable Azure Monitor for containers in Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-optout-openshift-v3.md
+                  href: ../azure-monitor/containers/container-insights-optout-openshift-v3.md
                   maintainContext: true
         - name: Run privileged containers in Azure Red Hat OpenShift 3.11
           href: howto-run-privileged-containers.md
@@ -85,9 +97,9 @@
               href: cluster-administration-security-context-constraints.md
 - name: Concepts
   items:
-    - name: Networking in Azure Red Hat OpenShift 4 clusters
+    - name: Networking
       href: concepts-networking.md
-    - name: Migrate from an Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
+    - name: Migrate from ARO 3.11 to ARO 4
       href: migration.md 
 - name: Reference
   items:
@@ -101,17 +113,15 @@
       href: openshift-faq.md
     - name: Troubleshooting
       href: troubleshoot.md
-    - name: Supported resources for Azure Red Hat OpenShift 3.11
-      href: supported-resources.md
-    - name: Supported resources for Azure Red Hat OpenShift 4.3
+    - name: Support policies for ARO 4
       href: support-policies-v4.md
-    - name: Support lifecycle for Azure Red Hat OpenShift 4 
+    - name: Support lifecycle for ARO 4 
       href: support-lifecycle.md
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
-    - name: Azure Red Hat OpenShift 4.3 documentation
+    - name: Red Hat OpenShift 4 documentation
       href: https://docs.openshift.com/aro/4/welcome/index.html
-    - name: Azure Red Hat OpenShift 3.11 documentation
-      href: https://docs.openshift.com/aro/3/welcome/index.html
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
+    - name: ARO Roadmap
+      href: https://github.com/Azure/OpenShift/projects/1

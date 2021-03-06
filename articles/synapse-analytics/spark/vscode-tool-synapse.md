@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Spark & Hive Tools for VSCode (Spark application)
-description: Tutorial - Use the Spark & Hive Tools for VSCode to develop Spark applications, which are written in Python, and submit them to a serverless Apache Spark pool (preview).
+description: Tutorial - Use the Spark & Hive Tools for VSCode to develop Spark applications, which are written in Python, and submit them to a serverless Apache Spark pool.
 services: synapse-analytics 
-author: hrasheed-msft
+author: jejiang
 ms.author: jejiang
 ms.reviewer: jrasnick 
 ms.service: synapse-analytics

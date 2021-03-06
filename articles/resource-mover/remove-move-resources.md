@@ -5,7 +5,7 @@ manager: evansma
 author: rayne-wiselman 
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 11/30/2020
 ms.author: raynew
 #Customer intent: As an Azure admin,  I want remove resources I've added to a move collection.
 
@@ -39,12 +39,11 @@ Remove a resource (in our example the PSDemoVM machines) from a collection using
 
 ```azurepowershell-interactive
 # Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus - Name PSDemoVM
+Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus -Name PSDemoVM
 ```
 **Expected output**
+
 ![Output text after removing a resource from a move collection](./media/remove-move-resources/remove-resource.png)
-
-
 
 ## Remove a collection (PowerShell)
 
@@ -55,9 +54,10 @@ Remove an entire move collection using PowerShell, as follows:
 
     ```azurepowershell-interactive
     # Remove a resource using the resource ID
-    Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
+    Remove-AzResourceMoverMoveCollection -SubscriptionId <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus -MoveCollectionName MoveCollection-centralus-westcentralus
     ```
     **Expected output**
+    
     ![Output text after removing a move collection](./media/remove-move-resources/remove-collection.png)
 
 ## VM resource state after removing

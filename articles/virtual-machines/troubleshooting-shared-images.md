@@ -48,9 +48,13 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: You've tried to delete a gallery that contains at least one existing image definition. A gallery must be empty before it can be deleted.  
 **Workaround**: Delete all image definitions inside the gallery and then proceed to delete the gallery. If the image definition contains image versions, you must delete the image versions before you delete the image definitions.
 
+*The gallery name '<galleryName\>' is not unique within the subscription '<subscriptionId>'. Please pick another gallery name.*  
+**Cause**: You have an existing gallery with the same name and have tried to create another gallery with the same name.  
+**Workaround**: Choose a different name for the gallery.
+
 *The resource <galleryName\> already exists in location <region\_1\> in resource group <resourceGroup\>. A resource with the same name cannot be created in location <region\_2\>. Please select a new resource name.*  
-**Cause**: You have an existing gallery in the resource group with the same name and have tried to create another gallery with the same name but in a different region.  
-**Workaround**: Either use a different gallery or use a different resource group.
+**Cause**: You have an existing gallery with the same name and have tried to create another gallery with the same name.  
+**Workaround**: Choose a different name for the gallery.
 
 ## Creating or modifying image definitions ##
 
@@ -66,14 +70,14 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: The <imageDefinitionName\> name ends with a period or underscore.  
 **Workaround**: Choose a name for the image definition that meets the following conditions: 
 - Has an 80-character limit
-- Contains only English letters, numbers, underscores, and periods
+- Contains only English letters, numbers, underscores, hyphens, and periods
 - Starts and ends with English letters or numbers.
 
 *The entity name <imageDefinitionName\> is invalid according to its validation rule: ^[^\_\\W][\\w-.\_]{0,79}(?<![-.])$"*  
 **Cause**: The <imageDefinitionName\> name ends with a period or underscore.  
 **Workaround**: Choose a name for the image definition that meets the following conditions: 
 - Has an 80-character limit
-- Contains only English letters, numbers, underscores, and periods
+- Contains only English letters, numbers, underscores, hyphens, and periods
 - Starts and ends with English letters or numbers
 
 *Asset name galleryImage.properties.identifier.<property\> is not valid. It cannot be empty. Allowed characters are uppercase or lowercase letters, digits, hyphen(-), period (.), underscore (\_). Names are not allowed to end with period(.). The length of the name cannot exceed <number\> characters.*  
@@ -133,7 +137,7 @@ If you have problems performing any operations on shared image galleries, image 
 
 *ZRS storage account type is not supported in this region.*  
 **Cause**: You've chosen standard zone-redundant storage (ZRS) in a region that does not yet support it.  
-**Workaround**: Change the storage account type to **Premium\_LRS** or **Standard\_LRS**. Check our documentation for the latest [list of regions](/azure/storage/common/storage-redundancy#zone-redundant-storage) with ZRS preview enabled.
+**Workaround**: Change the storage account type to **Premium\_LRS** or **Standard\_LRS**. Check our documentation for the latest [list of regions](../storage/common/storage-redundancy.md#zone-redundant-storage) with ZRS preview enabled.
 
 ## Creating or updating image versions ##
 
@@ -339,4 +343,4 @@ Use the **--expand ReplicationStatus** flag to check if the replication to all t
 
 ## Next steps
 
-Learn more about [shared image galleries](./linux/shared-image-galleries.md).
+Learn more about [shared image galleries](./shared-image-galleries.md).

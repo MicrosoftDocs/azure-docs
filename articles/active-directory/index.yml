@@ -13,7 +13,7 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 10/22/2020
+  ms.date: 12/01/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -26,16 +26,16 @@ highlightedContent:
       url: ./fundamentals/whats-new.md
     - title: Secure your remote workforce
       itemType: get-started
-      url: https://docs.microsoft.com/enterprise-mobility-security/remote-work/
+      url: /enterprise-mobility-security/remote-work/
     - title: Assign roles to users
       itemType: how-to-guide
       url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
     - title: Azure AD deployment checklist
       itemType: concept
       url: ./fundamentals/active-directory-deployment-checklist-p2.md
-    - title: Add a subscription to your tenant
-      itemType: how-to-guide
-      url: ./fundamentals/active-directory-how-subscriptions-associated-directory.md
+    - title: Build resilience into identity and access management with Azure AD
+      itemType: overview
+      url: ./fundamentals/resilience-overview.md
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -80,24 +80,24 @@ conceptualContent:
           text: Enable self-service password reset
         - url: ./authentication/tutorial-enable-azure-mfa.md
           itemType: tutorial
-          text: Enable Azure Multi-Factor Authentication
+          text: Enable Azure AD Multi-Factor Authentication
       footerLink:
         url: ./authentication/index.yml
         text: See more
 
-    - title: Cloud provisioning
+    - title: Cloud sync
       links:
-        - url: ./cloud-provisioning/what-is-cloud-provisioning.md
+        - url: ./cloud-sync/what-is-cloud-sync.md
           itemType: overview
-          text:  What is cloud provisioning?
-        - url: ./cloud-provisioning/tutorial-single-forest.md
+          text:  What is cloud sync?
+        - url: ./cloud-sync/tutorial-single-forest.md
           itemType: tutorial
           text:  Integrate a single forest with a single Azure AD tenant
-        - url: ./cloud-provisioning/how-to-install.md
+        - url: ./cloud-sync/how-to-install.md
           itemType: how-to-guide
-          text:  Install Azure AD Connect cloud provisioning agent
+          text:  Install Azure AD Connect provisioning agent
       footerLink:
-        url: ./cloud-provisioning/index.yml
+        url: ./cloud-sync/index.yml
         text: See more
 
     - title: Conditional Access
@@ -105,7 +105,7 @@ conceptualContent:
         - url: ./conditional-access/overview.md
           itemType: overview
           text:  What is Conditional Access?
-        - url: ./conditional-access/app-based-mfa.md
+        - url: ./authentication/tutorial-enable-azure-mfa.md
           itemType: quickstart
           text:  Require MFA for specific apps
         - url: ./conditional-access/location-condition.md
@@ -132,13 +132,13 @@ conceptualContent:
 
     - title: Domain services
       links:
-        - url: ../active-directory-domain-services/active-directory-ds-overview.md
+        - url: ../active-directory-domain-services/overview.md
           itemType: overview
           text:  What is Azure AD Domain Services?
-        - url: ../active-directory-domain-services/active-directory-ds-getting-started.md
+        - url: ../active-directory-domain-services/tutorial-create-instance.md
           itemType: quickstart
           text:  Enable Azure AD Domain Services
-        - url: ../active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy.md
+        - url: ../active-directory-domain-services/manage-group-policy.md
           itemType: how-to-guide
           text:  Administer group policy
       footerLink:
@@ -162,17 +162,17 @@ conceptualContent:
 
     - title: External Identities
       links:
-        - url: ./b2b/compare-with-b2c.md
+        - url: ./external-identities/compare-with-b2c.md
           itemType: overview
           text: Compare solutions for external users
-        - url: ../active-directory-b2c/active-directory-b2c-overview.md
+        - url: ../active-directory-b2c/overview.md
           itemType: overview
           text:  Scale your apps to consumers (B2C)
-        - url: ./b2b/what-is-b2b.md
+        - url: ./external-identities/what-is-b2b.md
           itemType: overview
           text: Collaborate with users outside your org (B2B)
       footerLink:
-        url: ./b2b/index.yml
+        url: ./external-identities/index.yml
         text: See more
 
     - title: Hybrid identity
@@ -283,9 +283,9 @@ conceptualContent:
     - title: Roles
       links:
         - url: ./roles/groups-assign-role.md
-          itemType: how-to-guide
-          text:  Assign a role to a cloud group
-        - url: ./roles/custom-create.md
+          itemType: concept
+          text:  Understand Azure AD roles
+        - url: ./roles/concept-understand-roles.md
           itemType: how-to-guide
           text:  Create a custom role
         - url: ./roles/groups-view-assignments.md
@@ -315,10 +315,10 @@ additionalContent:
     - items:
       - title: Microsoft 365
         summary: Explore Microsoft 365, a complete solution that includes Azure AD.
-        url: https://docs.microsoft.com/microsoft-365/
+        url: /microsoft-365/
       - title: Azure AD PowerShell
         summary: Learn how to install and use the Azure AD PowerShell module.
-        url: https://docs.microsoft.com/powershell/module/azuread/
+        url: /powershell/module/azuread/
       - title: Azure CLI commands for Azure AD
         summary: Find the Azure AD commands in the CLI reference.
-        url: https://docs.microsoft.com/cli/azure/ad
+        url: /cli/azure/ad

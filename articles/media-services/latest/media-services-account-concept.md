@@ -1,9 +1,7 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Manage Azure Media Services v3 accounts | Microsoft Docs
+title: Manage Azure Media Services v3 accounts 
 description: To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account. This article explains how to manage Azure Media Services v3 accounts. 
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
@@ -11,7 +9,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/05/2020
 ms.author: inhenkel
 ---
 
@@ -20,6 +18,8 @@ ms.author: inhenkel
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account. When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account. The Media Services account and all associated storage accounts must be in the same Azure subscription. For more information, see [Storage accounts](storage-account-concept.md).
+
+[!INCLUDE [account creation note](./includes/note-2020-05-01-account-creation.md)]
 
 ## Moving a Media Services account between subscriptions 
 
@@ -36,7 +36,7 @@ If you need to move a Media Services account to a new subscription, you need to 
 > [!IMPORTANT]
 > Do not start the Streaming Endpoint until the move completes successfully.
 
-### Troubleshoot 
+### Troubleshoot
 
 If a Media Services account or an associated Azure Storage account become "disconnected" following the resource group move, try rotating the Storage Account keys. If rotating the Storage Account keys does not resolve the "disconnected" status of the Media Services account, file a new support request from the "Support + troubleshooting" menu in the Media Services account.  
 

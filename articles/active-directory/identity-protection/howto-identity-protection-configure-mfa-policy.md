@@ -15,20 +15,20 @@ ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---
-# How To: Configure the Azure Multi-Factor Authentication registration policy
+# How To: Configure the Azure AD Multi-Factor Authentication registration policy
 
-Azure AD Identity Protection helps you manage the roll-out of Azure Multi-Factor Authentication (MFA) registration by configuring a Conditional Access policy to require MFA registration no matter what modern authentication app you are signing in to.
+Azure AD Identity Protection helps you manage the roll-out of Azure AD Multi-Factor Authentication (MFA) registration by configuring a Conditional Access policy to require MFA registration no matter what modern authentication app you are signing in to.
 
-## What is the Azure Multi-Factor Authentication registration policy?
+## What is the Azure AD Multi-Factor Authentication registration policy?
 
-Azure Multi-Factor Authentication provides a means to verify who you are using more than just a username and password. It provides a second layer of security to user sign-ins. In order for users to be able to respond to MFA prompts, they must first register for Azure Multi-Factor Authentication.
+Azure AD Multi-Factor Authentication provides a means to verify who you are using more than just a username and password. It provides a second layer of security to user sign-ins. In order for users to be able to respond to MFA prompts, they must first register for Azure AD Multi-Factor Authentication.
 
-We recommend that you require Azure Multi-Factor Authentication for user sign-ins because it:
+We recommend that you require Azure AD Multi-Factor Authentication for user sign-ins because it:
 
 - Delivers strong authentication through a range of verification options.
 - Plays a key role in preparing your organization to self-remediate from risk detections in Identity Protection.
 
-For more information on Azure Multi-Factor Authentication, see [What is Azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
+For more information on Azure AD Multi-Factor Authentication, see [What is Azure AD Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
 
 ## Policy configuration
 
@@ -38,7 +38,7 @@ For more information on Azure Multi-Factor Authentication, see [What is Azure Mu
       1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
          1. Optionally you can choose to exclude users from the policy.
    1. Under **Controls**
-      1. Ensure the checkbox **Require Azure MFA registration** is checked and choose **Select**.
+      1. Ensure the checkbox **Require Azure AD MFA registration** is checked and choose **Select**.
    1. **Enforce Policy** - **On**
    1. **Save**
 
@@ -56,4 +56,4 @@ For an overview of the related user experience, see:
 
 - [Enable Azure AD self-service password reset](../authentication/howto-sspr-deployment.md)
 
-- [Enable Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Enable Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

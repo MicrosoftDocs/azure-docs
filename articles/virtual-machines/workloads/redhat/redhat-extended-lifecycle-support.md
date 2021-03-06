@@ -2,11 +2,12 @@
 title: Red Hat Enterprise Linux Extended Lifecycle Support 
 description: Learn about adding Red Hat Enterprise Extended Lifecycle support add on
 author: mathapli
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
-ms.reviewer: cynthn
 
 ---
 
@@ -17,6 +18,14 @@ This article provides information on Extended Lifecycle Support for the Red Hat 
 ## Red Hat Enterprise Linux 6 Lifecycle
 Starting on 30 November 2020, Red Hat Enterprise Linux 6 will reach end of maintenance phase. The maintenance phase is followed by the Extended Life Phase. As Red Hat Enterprise Linux 6 transitions out of the Full/Maintenance Phases, it is strongly recommended upgrading to Red Hat Enterprise Linux 7 or 8. If customers must stay on Red Hat Enterprise Linux 6, it's recommended to add the Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On.
 
+## Steps to add Extended Lifecycle Support on Marketplace Pay-As-You-Go VMs
+1. Fill the [ELS form available here](https://aka.ms/els-form) with your contact details and subscription information of VMs you want to add ELS support for. The add on pricing  details are available in the form as well.
+1. Azure Red Hat Enterprise Linux team will reach out to you with list of VMs for ELS support add on within 1-2 business days. Please review the list and respond agreeing to the add on pricing.
+1. Azure Red Hat Enterprise Linux team will share the steps to add the ELS client package to the VMs. Follow the steps, which will provided in the email, to continue to receive software maintenance (bug and security fixes) and  support for Red Hat Enterprise Linux 6.
+
+> [!Note]
+> Do not share the steps for using RHEL ELS add on with anyone outside your organization. Reach out to AzureRedHatELS@microsoft.com to get support or for any additional questions.
+
 ## Frequently Asked Questions
 
 #### I'm running Red Hat Enterprise Linux 6 and can’t migrate to a later version at this time. What options do I have?
@@ -24,19 +33,14 @@ Starting on 30 November 2020, Red Hat Enterprise Linux 6 will reach end of maint
 * Migrate to Red Hat Enterprise Linux 7 or 8 as soon as you can.
 
 #### What is the additional charge for using Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On?
+The costs related to Extended Lifecycle support can be found with the [ELS form](https://aka.ms/els-form)
 
-|VM size|Additional charge time frame|Additional dollar amount (USD)| Notes|
-|---|---|---|---|
-| Small virtual guest (<=4 cores) | Hourly additional charge | TBC | |
-|  | Monthly additional charge | TBC | For Reserved instances |
-|  | Annual additional charge | TBC | For Reserved instances |
-| Large virtual guest (>4 cores) | Hourly additional charge | TBC | |
-|  | Monthly additional charge | TBC | For Reserved instances |
-|  | Annual additional charge | TBC | For Reserved instances |
+#### I've deployed a VM by using custom image. How can I add Extended Lifecycle support to this VM?
+You need to contact Red Hat directly and get support directly from them.
 
-#### What is the process to add Extended Life Cycle Support (ELS) repositories to continue to receive software maintenance (bug and security fixes) and  support for Red Hat Enterprise Linux 6?
+#### I've deployed a VM by using custom image. Can I convert this VM to a PAYG VM?
+No, you cannot. The conversion is not supported on Azure currently.
 
-The end to end process of signing up for the ELS will be available soon here (latest by 15 November, 2020).
 
 ## Next steps
 

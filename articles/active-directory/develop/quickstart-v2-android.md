@@ -13,12 +13,14 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-#Customer intent: As an application developer, I want to learn how Android native apps can call protected APIs that require login and access tokens using the Microsoft identity platform endpoint.
+#Customer intent: As an application developer, I want to learn how Android native apps can call protected APIs that require login and access tokens using the Microsoft identity platform.
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an Android app
 
-This quickstart uses a code sample to demonstrate how an Android application can sign in personal, work, or school accounts using the Microsoft identity platform, and then get an access token and call the Microsoft Graph API. (See [How the sample works](#how-the-sample-works) for an illustration.)
+In this quickstart, you download and run a code sample that demonstrates how an Android application can sign in users and get an access token to call the Microsoft Graph API. 
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 Applications must be represented by an app object in Azure Active Directory so that the Microsoft identity platform can provide tokens to your application.
 
@@ -30,7 +32,7 @@ Applications must be represented by an app object in Azure Active Directory so t
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### Step 1: Configure your application in the Azure portal
->  For the code sample for this quickstart to work, you need to add a redirect URI compatible with the Auth broker.
+> For the code sample in this quickstart to work, add a **Redirect URI** compatible with the Auth broker.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >

@@ -2,7 +2,7 @@
 title: Resolve service principal alerts in Azure AD Domain Services | Microsoft Docs
 description: Learn how to troubleshoot service principal configuration alerts for Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Known issues: Service principal alerts in Azure Active Directory Domain Services
@@ -95,7 +95,7 @@ To recreate the Azure AD application used for credential synchronization, use Az
 2. Now delete the old application and object using the following PowerShell cmdlets:
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $spObject

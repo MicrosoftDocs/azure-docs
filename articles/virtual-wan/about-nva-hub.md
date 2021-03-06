@@ -13,7 +13,7 @@ Customer intent: As someone with a networking background, I want to learn about 
 
 Azure Virtual WAN has worked with networking partners to build automation that makes it easy to connect their Customer Premise Equipment (CPE) to an Azure VPN gateway in the virtual hub. Azure is working with select networking partners to enable customers to deploy a third-party Network Virtual Appliance (NVA) directly into the virtual hub. This allows customers who want to connect their branch CPE to the same brand NVA in the virtual hub so that they can take advantage of proprietary end-to-end SD-WAN capabilities.
 
-Barracuda Networks is the first partner to provide an NVA offering that can be deployed directly to the Virtual WAN hub with their [Barracuda CloudGen WAN](https://www.barracuda.com/products/cloudgenwan) product. Azure is working with more partner so expect to see other offerings follow.
+Barracuda Networks and Cisco Systems are the first partners to provide the NVAs that can be deployed directly to the Virtual WAN hub.  See [Barracuda CloudGen WAN](https://www.barracuda.com/products/cloudgenwan) and [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) for their respective product documentation. Azure is working with more partners so expect to see other offerings follow.
 
 > [!NOTE]
 > Only NVA offers that are available to be deployed into the Virtual WAN hub can deployed into the Virtual WAN hub. They cannot be deployed into an arbitrary virtual network in Azure.
@@ -87,11 +87,11 @@ Unfortunately, we do not have capacity to on-board any new partner offers at thi
 
 ### Can I deploy any NVA from Azure Marketplace into the Virtual WAN hub?
 
-No. At this time, only [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer) is available to be deployed into the Virtual WAN hub.
+At this time, only [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer) and [Cisco Cloud vWAN Application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) are available to be deployed into the Virtual WAN hub.
 
 ### What is the cost of the NVA?
 
-You must purchase a license for your Barracuda CloudGen WAN NVA from Barracuda. For more information on licensing, see [Barracuda's CloudGen WAN page](https://www.barracuda.com/products/cloudgenwan). In addition, you will also incur charges from Microsoft for the NVA Infrastructure Units you consume, and any other resources you use. For more information, see [Pricing Concepts](pricing-concepts.md).
+You must purchase a license for the NVA from the NVA vendor.  For your Barracuda CloudGen WAN NVA from Barracuda license, see [Barracuda's CloudGen WAN page](https://www.barracuda.com/products/cloudgenwan). Cisco currently only offers BYOL (Bring Your Own License) licensing model that needs to be procured directly from Cisco. In addition, you will also incur charges from Microsoft for the NVA Infrastructure Units you consume, and any other resources you use. For more information, see [Pricing Concepts](pricing-concepts.md).
 
 ### Can I deploy an NVA to a Basic hub?
 
@@ -103,7 +103,7 @@ Yes. Barracuda CloudGen WAN can be deployed into a hub with Azure Firewall.
 
 ### Can I connect any CPE device in my branch office to Barracuda CloudGen WAN NVA in the hub?
 
-No. Barracuda CloudGen WAN is only compatible with Barracuda CPE devices. To learn more about CloudGen WAN requirements, see [Barracuda's CloudGen WAN page](https://www.barracuda.com/products/cloudgenwan).
+No. Barracuda CloudGen WAN is only compatible with Barracuda CPE devices. To learn more about CloudGen WAN requirements, see [Barracuda's CloudGen WAN page](https://www.barracuda.com/products/cloudgenwan). For Cisco, there a several SD-WAN CPE devices that are compatable. Please see [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) documenation for compatable CPEs.
 
 ### What routing scenarios are supported with NVA in the hub?
 

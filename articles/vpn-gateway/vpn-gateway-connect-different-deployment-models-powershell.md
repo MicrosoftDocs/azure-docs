@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/17/2018
+ms.date: 02/10/2021
 ms.author: cherylmc
 
 ---
@@ -31,7 +31,7 @@ The following steps walk you through the settings necessary to configure a dynam
 
 ### <a name="pre"></a>Prerequisites
 
-* Both VNets have already been created. If you need to create a resource manager virtual network, see [Create a resource group and a virtual network](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). To create a classic virtual network, see [Create a classic VNet](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
+* Both VNets have already been created. If you need to create a resource manager virtual network, see [Create a resource group and a virtual network](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). To create a classic virtual network, see [Create a classic VNet](/previous-versions/azure/virtual-network/create-virtual-network-classic).
 * The address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
 * You have installed the latest PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/) for more information. Make sure you install both the Service Management (SM) and the Resource Manager (RM) cmdlets. 
 
@@ -86,7 +86,7 @@ Gateway IP addressing configuration = gwipconfig
    ```azurepowershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-3. Open the .xml file that you downloaded to edit it. For an example of the network configuration file, see the [Network Configuration Schema](https://msdn.microsoft.com/library/jj157100.aspx).
+3. Open the .xml file that you downloaded to edit it. For an example of the network configuration file, see the [Network Configuration Schema](/previous-versions/azure/reference/jj157100(v=azure.100)).
 
 ### 2. Verify the gateway subnet
 In the **VirtualNetworkSites** element, add a gateway subnet to your VNet if one has not already been created. When working with the network configuration file, the gateway subnet MUST be named "GatewaySubnet" or Azure cannot recognize and use it as a gateway subnet.

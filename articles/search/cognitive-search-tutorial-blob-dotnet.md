@@ -8,7 +8,7 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 01/23/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -19,8 +19,8 @@ If you have unstructured text or images in Azure Blob storage, an [AI enrichment
 In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
-> * Set up a development environment.
-> * Define a pipeline that over blobs using OCR, language detection, entity and key phrase recognition.
+> * Set up a development environment
+> * Define a pipeline that uses OCR, language detection, and entity and key phrase recognition.
 > * Execute the pipeline to invoke transformations, and to create and load a search index.
 > * Explore results using full text search and a rich query syntax.
 
@@ -28,9 +28,11 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## Overview
 
-This tutorial uses C# and the **Azure.Search.Documents** client library to create a data source, index, indexer, and skillset.
+This tutorial uses C# and the [**Azure.Search.Documents** client library](/dotnet/api/overview/azure/search.documents-readme) to create a data source, index, indexer, and skillset.
 
-The skillset uses built-in skills based on Cognitive Services APIs. Steps in the pipeline include Optical Character Recognition (OCR) on images, language detection on text, key phrase extraction, and entity recognition (organizations). New information is stored in new fields that you can leverage in queries, facets, and filters.
+The indexer connects to a blob container that's specified in the data source object, and sends all indexed content to an existing search index.
+
+The skillset is attached to the indexer. It uses built-in skills from Microsoft to find and extract information. Steps in the pipeline include Optical Character Recognition (OCR) on images, language detection on text, key phrase extraction, and entity recognition (organizations). New information created by the pipeline is stored in new fields in an index. Once the index is populated, you can use the fields in queries, facets, and filters.
 
 ## Prerequisites
 

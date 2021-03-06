@@ -3,13 +3,13 @@ title: Customize a Person model with Video Indexer website
 titleSuffix: Azure Media Services
 description: Learn how to customize a Person model with the Video Indexer website.
 services: media-services
-author: anikaz
-manager: johndeu
+author: Juliako
+manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/06/2020
-ms.author: kumud
+ms.date: 12/16/2020
+ms.author: juliako
 ---
 
 # Customize a Person model with the Video Indexer website
@@ -21,34 +21,27 @@ You can use the Video Indexer website to edit faces that were detected in a vide
 ## Central management of Person models in your account
 
 1. To view, edit, and delete the Person models in your account, browse to the Video Indexer website and sign in.
+1. Select the content model customization button on the left of the page.
 
-2. Select the content model customization button on the top-right corner of the page.
-
-    ![Screenshot shows the Video Indexer with the content model customization button selected.](./media/customize-face-model/content-model-customization.png)
-
-3. Select the People tab.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Customize content model":::
+1. Select the People tab.
 
     You'll see the Default Person model in your account. The Default Person model holds any faces you may have edited or changed in the insights of your videos for which you didn't specify a custom Person model during indexing.
 
     If you created other Person models, they'll also be listed on this page.
 
-    ![Screenshot shows the Content model customization dialog box.](./media/customize-face-model/content-model-customization-people-tab.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/customize-face-model/content-model-customization-people-tab.png" alt-text="Customize people":::
 
 ## Create a new Person model
 
-1. Select the **+ Add model** button.
+1. Select the **+ Add model** button on the right.
+1. Enter the name of the model. You can now add new people and faces to the new Person model.
+1. Select the list menu button and choose **+ Add person**.
 
-    ![Screenshot shows the Content model customization dialog box with the People tab selected.](./media/customize-face-model/add-new-person.png)
-
-2. Enter the name of the model and select the check button next to the name.
-
-    ![Screenshot shows the Content model customization dialog box with a name entered for the model.](./media/customize-face-model/add-new-person2.png)
-
-    You've created a new Person model. You can now add faces to the new Person model.
-
-3. Select the list menu button and choose **+ Add person**.
-
-    ![Screenshot shows the Content model customization dialog box with a contextual menu for your new model with the option to Add person.](./media/customize-face-model/add-new-person3.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/customize-face-model/add-new-person.png" alt-text="Add a peron":::
 
 ## Add a new person to a Person model
 
@@ -56,14 +49,9 @@ You can use the Video Indexer website to edit faces that were detected in a vide
 > Video Indexer allows you to add multiple people with the same name in a Person model. However, it's recommended you give unique names to each person in your model for usability and clarity.
 
 1. To add a new face to a Person model, select the list menu button next to the Person model that you want to add the face to.
-
 1. Select **+ Add person** from the menu.
 
-    ![Screenshot shows the Content model customization dialog box ready to add a person with the contextual menu.](./media/customize-face-model/add-new-face.png)
-
     A pop-up will prompt you to fill out the Person's details. Type in the name of the person and select the check button.
-
-    ![Screenshot shows a person's details.](./media/customize-face-model/add-new-face2.png)
 
     You can then choose from your file explorer or drag and drop the face images of the face. Video Indexer will take all standard image file types (ex: JPG, PNG, and more).
 
@@ -74,15 +62,9 @@ You can use the Video Indexer website to edit faces that were detected in a vide
 You can rename any Person model in your account including the Default Person model. Even if you rename your default Person model, it will still serve as the Default person model in your account.
 
 1. Select the list menu button next to the Person model that you want to rename.
-2. Select **Rename** from the menu.
-
-    ![Screenshot shows the Content model customization dialog box with a contextual menu with the option to rename a person model. ](./media/customize-face-model/rename-person.png)
-
-3. Select the current name of the model and type in your new name.
-
-    ![Screenshot shows the renamed person model.](./media/customize-face-model/rename-person2.png)
-
-4. Select the check button for your model to be renamed.
+1. Select **Rename** from the menu.
+1. Select the current name of the model and type in your new name.
+1. Select the check button for your model to be renamed.
 
 ## Delete a Person model
 
@@ -90,12 +72,7 @@ You can delete any Person model that you created in your account. However, you c
 
 1. Select **Delete** from the menu.
 
-    ![Screenshot shows the Content model customization dialog box with a contextual menu with the option to delete a person model.](./media/customize-face-model/delete-person.png)
-
     A pop-up will show up and notify you that this action will delete the Person model and all of the people and files that it contains. This action can't be undone.
-
-    ![Screenshot shows a confirm dialog box for deleting the person model.](./media/customize-face-model/delete-person2.png)
-
 1. If you're sure, select delete again.
 
 > [!NOTE]
@@ -144,19 +121,10 @@ You can use a Person model to index your new video by assigning the Person model
 
 To use your Person model on a new video, do the following steps:
 
-1. Select the **Upload** button on the top of the page.
-
-    ![Screenshot shows the Upload button.](./media/customize-face-model/upload.png)
-
-1. Drop your video file in the circle or browse for your file.
+1. Select the **Upload** button on the right of the page.
+1. Drop your video file or browse for your file.
 1. Select the **Advanced options** arrow.
-
-    ![Screenshot shows an Upload your media file dialog box.](./media/customize-face-model/upload2.png)
-
 1. Select the drop-down and select the Person model that you created.
-
-    ![Screenshot shows an Upload your media file dialog box with Default selected for People model in the Advanced options.](./media/customize-face-model/upload3.png)
-
 1. Select the **Upload** option in the bottom of the page, and your new video will be indexed using your Person model.
 
 If you don't specify a Person model during the upload, Video Indexer will index the video using the Default Person model in your account.
@@ -173,9 +141,6 @@ You see options to edit, delete, and reindex your video.
 
     You can now select the Person model to reindex your video with.
 1. Select the drop-down and select the Person model that you want to use.
-
-    ![Screenshot shows options for a video, including selecting a People model.](./media/customize-face-model/reindex2.png)
-
 1. Select the **Reindex** button and your video will be reindexed using your Person model.
 
 Any new edits that you make to the faces detected and recognized in the video that you just reindexed will be saved in the Person model that you used to reindex the video.
@@ -206,15 +171,11 @@ If you don't assign a Person model to the video during upload, your edit is save
 
 If you name a face with the name of an existing person in the Person model that the video is using, the detected face images from this video of that person will merge with what already exists in the model. If you name a face with a new name, a new Person entry is created in the Person model that the video is using.
 
-![Screenshot shows a face with a name added.](./media/customize-face-model/edit-face2.png)
-
 ### Delete a face
 
 To delete a detected face in your video, go to the Insights pane and select the pencil icon in the top-right corner of the pane. Select the **Delete** option underneath the name of the face. This action removes the detected face from the video. The person's face will still be detected in the other videos in which it appears, but you can delete the face from those videos as well after they've been indexed.
 
 The person, if they had been named, will also continue to exist in the Person model that was used to index the video from which you deleted the face unless you specifically delete the person from the Person model.
-
-![Delete a face in your video](./media/customize-face-model/delete-face.png)
 
 ## Next steps
 

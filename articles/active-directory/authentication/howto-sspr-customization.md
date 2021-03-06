@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/17/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 
@@ -88,4 +88,4 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwor
 
 To understand the usage of SSPR in your environment, see [Reporting options for Azure AD password management](howto-sspr-reporting.md).
 
-If you or users have problems with SSPR, see [Troubleshoot self-service password reset](active-directory-passwords-troubleshoot.md)
+If you or users have problems with SSPR, see [Troubleshoot self-service password reset](./troubleshoot-sspr.md)

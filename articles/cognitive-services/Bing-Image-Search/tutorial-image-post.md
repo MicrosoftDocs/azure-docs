@@ -16,11 +16,11 @@ ms.custom: devx-track-js
 # Tutorial: Extract image details using the Bing Image Search API and C#
 
 > [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-There are multiple [endpoints](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint) available through the Bing Image Search API. The `/details` endpoint accepts a POST request with an image, and can return a variety of details about the image. This C# application sends an image using this API, and displays the details returned by Bing, which are JSON objects, such as the following:
+There are multiple [endpoints](./image-search-endpoint.md) available through the Bing Image Search API. The `/details` endpoint accepts a POST request with an image, and can return a variety of details about the image. This C# application sends an image using this API, and displays the details returned by Bing, which are JSON objects, such as the following:
 
 ![[JSON results]](media/cognitive-services-bing-images-api/jsonResult.jpg)
 

@@ -21,7 +21,7 @@ Planning your Conditional Access deployment is critical to achieving your organi
 
 In a mobile-first, cloud-first world, your users access your organization's resources from anywhere using a variety of devices and apps. As a result, focusing on who can access a resource is no longer enough. You also need to consider where the user is, the device being used, the resource being accessed, and more. 
 
-Azure Active Directory (Azure AD) Conditional Access (CA) analyses signals such as user, device, and location to automate decisions and enforce organizational access policies for resource. You can use CA policies to apply access controls like Multi-Factor Authentication (MFA). CA policies allow you to prompt users for MFA when needed for security, and stay out of users’ way when not needed.
+Azure Active Directory (Azure AD) Conditional Access analyses signals such as user, device, and location to automate decisions and enforce organizational access policies for resource. You can use Conditional Access policies to apply access controls like Multi-Factor Authentication (MFA). Conditional Access policies allow you to prompt users for MFA when needed for security, and stay out of users’ way when not needed.
 
 ![Conditional Access overview](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
@@ -35,7 +35,7 @@ Before you begin, make sure you understand how [Conditional Access](overview.md)
 
 The benefits of deploying Conditional Access are:
 
-* Increase productivity. Only interrupt users with a sign-in condition like MFA when one or more signals warrants it. CA policies allow you to control when users are prompted for MFA, when access is blocked, and when they must use a trusted device.
+* Increase productivity. Only interrupt users with a sign-in condition like MFA when one or more signals warrants it. Conditional Access policies allow you to control when users are prompted for MFA, when access is blocked, and when they must use a trusted device.
 
 * Manage risk. Automating risk assessment with policy conditions means risky sign-ins are at once identified and remediated or blocked. Coupling Conditional Access with [Identity Protection](../identity-protection/overview-identity-protection.md), which detects anomalies and suspicious events, allows you to target when access to resources is blocked or gated. 
 
@@ -68,9 +68,10 @@ The following resources may be useful as you learn about Conditional Access:
 
 * [What is Conditional Access?](https://youtu.be/ffMAw2IVO7A)
 * [How to deploy Conditional Access?](https://youtu.be/c_izIRNJNuk)
-* [How to roll out CA policies to end users?](https://youtu.be/0_Fze7Zpyvc)
+* [How to roll out Conditional Access policies to end users?](https://youtu.be/0_Fze7Zpyvc)
+* [How to include or exclude users from Conditional Access policies](https://youtu.be/5DsW1hB3Jqs)
 * [Conditional Access with device controls](https://youtu.be/NcONUf-jeS4)
-* [Conditional Access with Azure MFA](https://youtu.be/Tbc-SU97G-w)
+* [Conditional Access with Azure AD MFA](https://youtu.be/Tbc-SU97G-w)
 * [Conditional Access in Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)
 
 
@@ -99,13 +100,13 @@ When new policies are ready for your environment, deploy them in phases in the p
 > [!NOTE]
 > For rolling out new policies not specific to administrators, exclude all administrators. This ensures that administrators can still access the policy and make changes or revoke it if there's a significant impact. Always validate the policy with smaller user groups before you apply to all users.
 
-## Understand CA policy components
-CA policies are if-then statements: If an assignment is met, then apply these access controls.
+## Understand Conditional Access policy components
+Conditional Access policies are if-then statements: If an assignment is met, then apply these access controls.
 
-When configuring CA policies, conditions are called *assignments*. CA policies allow you to enforce access controls on your organization’s apps based on certain assignments.
+When configuring Conditional Access policies, conditions are called *assignments*. Conditional Access policies allow you to enforce access controls on your organization’s apps based on certain assignments.
 
 
-For more information, see [Building a CA policy](concept-conditional-access-policies.md).
+For more information, see [Building a Conditional Access policy](concept-conditional-access-policies.md).
 
 ![create policy screen](media/plan-conditional-access/create-policy.png)
 
@@ -192,7 +193,7 @@ It’s important to understand how access tokens are issued.
 ![Access token issuance diagram](media/plan-conditional-access/CA-policy-token-issuance.png)
 
 > [!NOTE]
-> If no assignment is required, and no CA policy is in effect, that the default behavior is to issue an access token. 
+> If no assignment is required, and no Conditional Access policy is in effect, that the default behavior is to issue an access token. 
 
 For example, consider a policy where:
 
@@ -204,14 +205,14 @@ If a user not in Group 1 attempts to access the app no “if’ condition is met
 
 The Conditional Access framework provides you with a great configuration flexibility. However, great flexibility also means you should carefully review each configuration policy before releasing it to avoid undesirable results.
 
-### Apply CA policies to every app
+### Apply Conditional Access policies to every app
 
-Access tokens are by default issued if a CA Policy condition does not trigger an access control. Ensure that every app has at least one conditional access policy applied
+Access tokens are by default issued if a Conditional Access policy condition does not trigger an access control. Ensure that every app has at least one conditional access policy applied
 
 > [!IMPORTANT]
 > Be very careful in using block and all apps in a single policy. This could lock admins out of the Azure Administration Portal, and exclusions cannot be configured for important end-points such as Microsoft Graph.
 
-### Minimize the number of CA policies
+### Minimize the number of Conditional Access policies
 
 Creating a policy for each app isn't efficient and leads to difficult administration. Conditional Access will only apply the first 195 policies per user. We recommend that you analyze your apps and group them into applications that have the same resource requirements for the same users. For example, if all Microsoft 365 apps or all HR apps have the same requirements for the same users, create a single policy and include all of the apps to which it applies. 
 
@@ -221,14 +222,6 @@ If you misconfigure a policy, it can lock the organizations out of the Azure por
 
 * Create a user account dedicated to policy administration and excluded from all your policies.
 
-* Break glass scenario for hybrid environments:
-
-  * Create an on-premises security group and sync it to Azure AD. The security group should contain your dedicated policy administration account. 
-
-   * EXEMPT this security group form all CA policies.
-
-   * When a service outage occurs, add your other administrators to the on-premises group as appropriate, and force a sync. This animates their exemption to CA policies.
-
 ### Set up report-only mode
 
 It can be difficult to predict the number and names of users affected by common deployment initiatives such as:
@@ -237,9 +230,9 @@ It can be difficult to predict the number and names of users affected by common 
 * requiring MFA
 * implementing sign-in risk policies
 
-[Report-only mode ](concept-conditional-access-report-only.md) allows administrators to evaluate the impact of CA policies before enabling them in their environment.
+[Report-only mode ](concept-conditional-access-report-only.md) allows administrators to evaluate the impact of Conditional Access policies before enabling them in their environment.
 
-Learn how to [configure report-only mode on a CA policy](howto-conditional-access-insights-reporting.md).
+Learn how to [configure report-only mode on a Conditional Access policy](howto-conditional-access-insights-reporting.md).
 
 ### Plan for disruption
 
@@ -292,7 +285,7 @@ When new policies are ready for your environment, make sure that you review each
 
 ## Common policies
 
-When planning your CA policy solution, assess whether you need to create policies to achieve the following outcomes.
+When planning your Conditional Access policy solution, assess whether you need to create policies to achieve the following outcomes.
 
 * [Require MFA](#require-mfa)
 * [Respond to potentially compromised accounts](#respond-to-potentially-compromised-accounts)
@@ -316,7 +309,7 @@ Common use cases to require MFA access:
 
 ### Respond to potentially compromised accounts
 
-With CA policies, you can implement automated responses to sign-ins by potentially compromised identities. The probability that an account is compromised is expressed in the form of risk levels. There are two risk levels calculated by Identity Protection: sign-in risk and user risk. The following three default policies that can be enabled.
+With Conditional Access policies, you can implement automated responses to sign-ins by potentially compromised identities. The probability that an account is compromised is expressed in the form of risk levels. There are two risk levels calculated by Identity Protection: sign-in risk and user risk. The following three default policies that can be enabled.
 
 * [Require all users to register for MFA](howto-conditional-access-policy-risk.md)
 
@@ -371,7 +364,7 @@ Some organizations have test tenants for this purpose. However, it can be diffic
 
 ### Create a test plan
 
-The test plan is important to have a comparison between the expected results and the actual results. You should always have an expectation before testing something. The following table outlines example test cases. Adjust the scenarios and expected results based on how your CA policies are configured.
+The test plan is important to have a comparison between the expected results and the actual results. You should always have an expectation before testing something. The following table outlines example test cases. Adjust the scenarios and expected results based on how your Conditional Access policies are configured.
 
 | Policy| Scenario| Expected Result |
 | - | - | - |
@@ -386,9 +379,9 @@ The test plan is important to have a comparison between the expected results and
 
 ### Configure the test policy
 
-In the [Azure portal](https://portal.azure.com/), you configure CA policies under Azure Active Directory > Security > Conditional Access.
+In the [Azure portal](https://portal.azure.com/), you configure Conditional Access policies under Azure Active Directory > Security > Conditional Access.
 
-If you want to learn more about how to create CA policies, see this example: [CA policy to prompt for MFA when a user signs in to the Azure portal](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). This quickstart helps you to:
+If you want to learn more about how to create Conditional Access policies, see this example: [Conditional Access policy to prompt for MFA when a user signs in to the Azure portal](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). This quickstart helps you to:
 
 * Become familiar with the user interface
 
@@ -412,7 +405,7 @@ You can view the aggregate impact of your Conditional Access policies in the Ins
 Another way to validate your Conditional Access policy is by using the [what-if tool](troubleshoot-conditional-access-what-if.md), which simulates which policies would apply to a user signing in under hypothetical circumstances. Select the sign-in attributes you want to test (such as user, application, device platform, and location) and see which policies would apply.
 
 > [!NOTE] 
-> While a simulated run gives you a good idea of the impact a CA policy has, it does not replace an actual test run.
+> While a simulated run gives you a good idea of the impact a Conditional Access policy has, it does not replace an actual test run.
 
 ### Test your policy
 
@@ -439,14 +432,14 @@ In case you need to roll back your newly implemented policies, use one or more o
 
 ## Manage access to cloud apps
 
-Use the following Manage options to control and manage your CA policies:
+Use the following Manage options to control and manage your Conditional Access policies:
 
 ![Screenshot shows the MANAGE options for C A policies, including Named locations, Custom controls, Terms of use, V P N connectivity, and the selected Classic policies.](media/plan-conditional-access/manage-access.png)
 
 
 ### Named locations
 
-The location condition of a CA policy enables you to tie access controls settings to the network locations of your users. With [Named Locations](location-condition.md), you can create logical groupings of IP address ranges or countries and regions.
+The location condition of a Conditional Access policy enables you to tie access controls settings to the network locations of your users. With [Named Locations](location-condition.md), you can create logical groupings of IP address ranges or countries and regions.
 
 ### Custom controls
 
@@ -458,7 +451,7 @@ Before accessing certain cloud apps in your environment, you can get consent fro
 
 ## Troubleshoot Conditional Access
 
-When a user is having an issue with a CA policy, collect the following information to facilitate troubleshooting.
+When a user is having an issue with a Conditional Access policy, collect the following information to facilitate troubleshooting.
 
 * User principle Name
 
@@ -490,4 +483,4 @@ Once you have collected the information, See the following resources:
 
 [Learn more about Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Manage CA policies with Microsoft Graph API](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Manage Conditional Access policies with Microsoft Graph API](/graph/api/resources/conditionalaccesspolicy)

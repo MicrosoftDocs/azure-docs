@@ -13,7 +13,7 @@ ms.custom: legacy, devx-track-azurecli
 
 This article shows you how to create a copy of your Azure virtual machine (VM) running Linux by using the Azure CLI. To copy, create, store and share VM images at scale, see [Shared Image Galleries](../shared-images-cli.md).
 
-You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You can also [upload and create a VM from a VHD](upload-vhd.md).
 
 ## Prerequisites
 

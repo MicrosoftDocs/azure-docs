@@ -1,7 +1,6 @@
 ---
 title: Azure Networking Analytics solution in Azure Monitor | Microsoft Docs
 description: You can use the Azure Networking Analytics solution in Azure Monitor to review Azure network security group logs and Azure Application Gateway logs.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -33,14 +32,20 @@ The [Network Performance Monitor](../../networking/network-monitoring-overview.m
 
 For more information, see [Network Performance Monitor](../../networking/network-monitoring-overview.md).
 
-## Azure Application Gateway and Network Security Group analytics
-To use the solutions:
+## Network Security Group analytics
+
 1. Add the management solution to Azure Monitor, and
 2. Enable diagnostics to direct the diagnostics to a Log Analytics workspace in Azure Monitor. It is not necessary to write the logs to Azure Blob storage.
 
-You can enable diagnostics and the corresponding solution for either one or both of Application Gateway and Networking Security Groups.
+If diagnostic logs are not enabled, the dashboard blades for that resource are blank and display an error message.
 
-If you do not enable diagnostic resource logging for a particular resource type, but install the solution, the dashboard blades for that resource are blank and display an error message.
+## Azure Application Gateway analytics
+
+1. Enable diagnostics to direct the diagnostics to a Log Analytics workspace in Azure Monitor.
+2. Consume the detailed summary for your resource using the workbook template for Application Gateway.
+
+If diagnostic logs are not enabled for Application Gateway, only the default metric data would be populated within the workbook.
+
 
 > [!NOTE]
 > In January 2017, the supported way of sending logs from Application Gateways and Network Security Groups to a Log Analytics workspace changed. If you see the **Azure Networking Analytics (deprecated)** solution, refer to [migrating from the old Networking Analytics solution](#migrating-from-the-old-networking-analytics-solution) for steps you need to follow.
@@ -57,37 +62,15 @@ The following table shows data collection methods and other details about how da
 | Azure |  |  |&#8226; |  |  |when logged |
 
 
-## Azure Application Gateway analytics solution in Azure Monitor
-
-![Azure Application Gateway Analytics symbol](media/azure-networking-analytics/azure-analytics-symbol.png)
-
-The following logs are supported for Application Gateways:
-
-* ApplicationGatewayAccessLog
-* ApplicationGatewayPerformanceLog
-* ApplicationGatewayFirewallLog
-
-The following metrics are supported for Application Gateways:again
-
-
-* 5 minute throughput
-
-### Install and configure the solution
-Use the following instructions to install and configure the Azure Application Gateway analytics solution:
-
-1. Enable the Azure Application Gateway analytics solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) or by using the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md).
-2. Enable diagnostics logging for the [Application Gateways](../../application-gateway/application-gateway-diagnostics.md) you want to monitor.
-
-#### Enable Azure Application Gateway diagnostics in the portal
+### Enable Azure Application Gateway diagnostics in the portal
 
 1. In the Azure portal, navigate to the Application Gateway resource to monitor.
-2. Select *Diagnostics logs* to open the following page.
+2. Select *Diagnostics Settings* to open the following page.
 
-   ![Screenshot of the Diagnostics logs page for an Application Gateway resource showing the option to Turn on diagnostics.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
-3. Click *Turn on diagnostics* to open the following page.
+   ![Screenshot of the Diagnostics Settings config for Application Gateway resource.](media/azure-networking-analytics/diagnostic-settings-1.png)
 
-   ![Screenshot of the page for configuring Diagnostics settings. The option for Send to Log Analytics is selected as are three Log types and a Metric.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
-4. To turn on diagnostics, click *On* under *Status*.
+   [ ![Screenshot of the page for configuring Diagnostics settings.](media/azure-networking-analytics/diagnostic-settings-2.png)](media/azure-networking-analytics/application-gateway-diagnostics-2.png#lightbox)
+
 5. Click the checkbox for *Send to Log Analytics*.
 6. Select an existing Log Analytics workspace, or create a workspace.
 7. Click the checkbox under **Log** for each of the log types to collect.
@@ -105,28 +88,47 @@ $gateway = Get-AzApplicationGateway -Name 'ContosoGateway'
 Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
-### Use Azure Application Gateway analytics
-![image of Azure Application Gateway analytics tile](media/azure-networking-analytics/log-analytics-appgateway-tile.png)
+#### Accessing Azure Application Gateway analytics via Azure Monitor Network insights
 
-After you click the **Azure Application Gateway analytics** tile on the Overview, you can view summaries of your logs and then drill in to details for the following categories:
+Application insights can be accessed via the insights tab within your Application Gateway resource.
 
-* Application Gateway Access logs
-  * Client and server errors for Application Gateway access logs
-  * Requests per hour for each Application Gateway
-  * Failed requests per hour for each Application Gateway
-  * Errors by user agent for Application Gateways
-* Application Gateway performance
-  * Host health for Application Gateway
-  * Maximum and 95th percentile for Application Gateway failed requests
+![Screenshot of Application Gateway insights ](media/azure-networking-analytics/azure-appgw-insights.png
+)
 
-![Screenshot of the Application Gateway Access logs dashboard showing tiles with data for Gateway Errors, Requests, and Failed Requests.](media/azure-networking-analytics/log-analytics-appgateway01.png)
+The "view detailed metrics" tab will open up the pre-populated workbook summarizing the data from your Application Gateway.
 
-![Screenshot of the Application Gateway Access logs dashboard showing tiles with data for Errors by User Agent, Host Health, and Failed Requests.](media/azure-networking-analytics/log-analytics-appgateway02.png)
+[ ![Screenshot of Application Gateway workbook ](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
 
-On the **Azure Application Gateway analytics** dashboard, review the summary information in one of the blades, and then click one to view detailed information on the log search page.
+### New capabilities with Azure Monitor Network Insights workbook
 
-On any of the log search pages, you can view results by time, detailed results, and your log search history. You can also filter by facets to narrow the results.
+> [!NOTE]
+> There are no additional costs associated with Azure Monitor Insights workbook. Log Analytics workspace will continue to be billed as per usage.
 
+The Network Insights workbook allows you to take advantage of the latest capabilities of Azure Monitor and Log Analytics including:
+
+* Centralized console for monitoring and troubleshooting with both [metric](../insights/network-insights-overview.md#resource-health-and-metrics) and log data.
+
+* Flexible canvas to support creation of custom rich [visualizations](../visualize/workbooks-overview.md#visualizations).
+
+* Ability to consume and [share workbook templates](../visualize/workbooks-overview.md#workbooks-versus-workbook-templates) with wider community.
+
+To find more information about the capabilities of the new workbook solution check out [Workbooks-overview](../visualize/workbooks-overview.md)
+
+## Migrating from Azure Gateway analytics solution to Azure Monitor workbooks
+
+> [!NOTE]
+> Azure Monitor Network Insights workbook is the recommended solution for accessing metric and log analytics for your Application Gateway resources.
+
+1. Ensure [diagnostics settings are enabled](#enable-azure-application-gateway-diagnostics-in-the-portal) to store logs into a Log Analytics workspace. If it is already configured, Azure Monitor Network Insights workbook will be able to consume data from the same location and no additional changes are required.
+
+> [!NOTE]
+> All past data is already available within the workbook from the point diagnostic settings were originally enabled. There is no data transfer required.
+
+2. Access the [default insights workbook](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) for your Application Gateway resource. All existing insights supported by the Application Gateway analytics solution will be already present in the workbook. You can extend this by adding custom [visualizations](../visualize/workbooks-overview.md#visualizations) based on metric & log data.
+
+3. After you are able to see all your metric and log insights, to clean up the Azure Gateway analytics solution from your workspace, you can delete the solution from the solution resource page.
+
+[ ![Screenshot of the delete option for Azure Application Gateway analytics solution.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
 
 ## Azure Network Security Group analytics solution in Azure Monitor
 
@@ -225,5 +227,5 @@ Data collected before the change is not visible in the new solution. You can con
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## Next steps
-* Use [Log queries in Azure Monitor](../log-query/log-query-overview.md) to view detailed Azure diagnostics data.
+* Use [Log queries in Azure Monitor](../logs/log-query-overview.md) to view detailed Azure diagnostics data.
 

@@ -27,7 +27,7 @@ The first step to creating a voice assistant is to decide what it should do. The
 |Open-ended conversation with robust skills integration and full deployment control | Azure Bot Service bot with [Direct Line Speech](direct-line-speech.md) channel | <ul><li>"I need to go to Seattle"</li><li>"What kind of pizza can I order?"</li></ul>
 |Voice commanding or simple task-oriented conversations with simplified authoring and hosting | [Custom Commands](custom-commands.md) | <ul><li>"Turn on the overhead light"</li><li>"Make it 5 degrees warmer"</li><li>Other samples [available here](https://speech.microsoft.com/customcommands)</li></ul>
 
-We recommend [Direct Line Speech](direct-line-speech.md) as the best default choice if you aren't yet sure what you'd like your assistant to handle. It offers integration with a rich set of tools and authoring aids such as the [Virtual Assistant Solution and Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) and the [QnA Maker service](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) to build on common patterns and use your existing knowledge sources.
+We recommend [Direct Line Speech](direct-line-speech.md) as the best default choice if you aren't yet sure what you'd like your assistant to handle. It offers integration with a rich set of tools and authoring aids such as the [Virtual Assistant Solution and Enterprise Template](/azure/bot-service/bot-builder-enterprise-template-overview) and the [QnA Maker service](../qnamaker/overview/overview.md) to build on common patterns and use your existing knowledge sources.
 
 [Custom Commands](custom-commands.md) makes it easy to build rich voice commanding apps optimized for voice-first interaction experiences. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity, helping you focus on building the best solution for your voice commanding scenarios.
 
@@ -44,7 +44,7 @@ Whether you choose [Direct Line Speech](direct-line-speech.md) or [Custom Comman
 
 | Category | Features |
 |----------|----------|
-|[Custom keyword](speech-devices-sdk-create-kws.md) | Users can start conversations with assistants with a custom keyword like "Hey Contoso." An app does this with a custom keyword engine in the Speech SDK, which can be configured with a custom keyword [that you can generate here](speech-devices-sdk-create-kws.md). Voice assistants can use service-side keyword verification to improve the accuracy of the keyword activation (versus the device alone).
+|[Custom keyword](./custom-keyword-basics.md) | Users can start conversations with assistants with a custom keyword like "Hey Contoso." An app does this with a custom keyword engine in the Speech SDK, which can be configured with a custom keyword [that you can generate here](./custom-keyword-basics.md). Voice assistants can use service-side keyword verification to improve the accuracy of the keyword activation (versus the device alone).
 |[Speech to text](speech-to-text.md) | Voice assistants convert real-time audio into recognized text using [Speech-to-text](speech-to-text.md) from the Speech service. This text is available, as it's transcribed, to both your assistant implementation and your client application.
 |[Text to speech](text-to-speech.md) | Textual responses from your assistant are synthesized using [Text-to-speech](text-to-speech.md) from the Speech service. This synthesis is then made available to your client application as an audio stream. Microsoft offers the ability to build your own custom, high-quality Neural TTS voice that gives a voice to your brand. To learn more, [contact us](mailto:mstts@microsoft.com).
 
@@ -61,13 +61,13 @@ Sample code for creating a voice assistant is available on GitHub. These samples
 
 * [Voice assistant samples on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
 * [Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK](tutorial-voice-enable-your-bot-speech-sdk.md)
-* [Tutorial: Create a Custom Commands application with simple voice commands](how-to-custom-commands-create-application-with-simple-commands.md)
+* [Tutorial: Create a Custom Commands application with simple voice commands](./how-to-develop-custom-commands-application.md)
 
 ## Customization
 
 Voice assistants built using Azure Speech services can use the full range of customization options.
 
-* [Custom Speech](how-to-custom-speech.md)
+* [Custom Speech](./custom-speech-overview.md)
 * [Custom Voice](how-to-custom-voice.md)
 * [Custom Keyword](custom-keyword-overview.md)
 

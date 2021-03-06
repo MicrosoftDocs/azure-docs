@@ -55,7 +55,7 @@ Follow these steps enable logging for your Azure CDN endpoint:
 To use a storage account to store the logs, follow these steps:
 
  >[!NOTE] 
- >A storage account is required to complete these steps. Refer to: **[Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%252fazure%252fstorage%252fblobs%252ftoc.json)** for more information.
+ >A storage account is required to complete these steps. Refer to: **[Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** for more information.
 	
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
  
@@ -74,7 +74,7 @@ To use a storage account to store the logs, follow these steps:
 To use Log Analytics for the logs, follow these steps:
 
 >[!NOTE] 
->A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md)** for more information.
+>A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md)** for more information.
 	
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
@@ -365,7 +365,7 @@ Example properties:
 
 ## Additional resources
 
-* [Azure Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md)
+* [Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)
 * [Core analytics via Azure CDN supplemental portal](./cdn-analyze-usage-patterns.md)
-* [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md)
+* [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md)
 * [Azure Log Analytics REST API](/rest/api/loganalytics)

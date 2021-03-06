@@ -10,6 +10,7 @@ ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-sql 
 ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
+ms.subservice: migration
 
 ms.topic: how-to
 ms.date: 08/18/2018
@@ -62,7 +63,7 @@ The following table lists each of the primary migration methods and discusses wh
 | [Perform a backup to URL and restore into the Azure virtual machine from the URL](#backup-to-url-and-restore-from-url) |SQL Server 2012 SP1 CU2 or greater | SQL Server 2012 SP1 CU2 or greater | < 12.8 TB for SQL Server 2016, otherwise < 1 TB | This method is just another way to move the backup file to the VM using Azure storage. |
 | [Detach and then copy the data and log files to Azure Blob storage and then attach to SQL Server in Azure virtual machine from URL](#detach-and-attach-from-a-url) | SQL Server 2005 or greater |SQL Server 2014 or greater | [Azure VM storage limit](../../../index.yml) | Use this method when you plan to [store these files using the Azure Blob storage service](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure) and attach them to SQL Server running in an Azure VM, particularly with very large databases |
 | [Convert on-premises machine to Hyper-V VHDs, upload to Azure Blob storage, and then deploy a new virtual machine using uploaded VHD](#convert-to-a-vm-upload-to-a-url-and-deploy-as-a-new-vm) |SQL Server 2005 or greater |SQL Server 2005 or greater |[Azure VM storage limit](../../../index.yml) |Use when [bringing your own SQL Server license](../../../azure-sql/azure-sql-iaas-vs-paas-what-is-overview.md), when migrating a database that you'll run on an older version of SQL Server, or when migrating system and user databases together as part of the migration of database dependent on other user databases and/or system databases. |
-| [Ship hard drive using Windows Import/Export Service](#ship-a-hard-drive) |SQL Server 2005 or greater |SQL Server 2005 or greater |[Azure VM storage limit](../../../index.yml) |Use the [Windows Import/Export Service](../../../storage/common/storage-import-export-service.md) when manual copy method is too slow, such as with very large databases |
+| [Ship hard drive using Windows Import/Export Service](#ship-a-hard-drive) |SQL Server 2005 or greater |SQL Server 2005 or greater |[Azure VM storage limit](../../../index.yml) |Use the [Windows Import/Export Service](../../../import-export/storage-import-export-service.md) when manual copy method is too slow, such as with very large databases |
 | [Use the Add Azure Replica Wizard](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-onprem-availability) |SQL Server 2012 or greater |SQL Server 2012 or greater |[Azure VM storage limit](../../../index.yml) |Minimizes downtime, use when you have an Always On on-premises deployment |
 | [Use SQL Server transactional replication](/sql/relational-databases/replication/transactional/transactional-replication) |SQL Server 2005 or greater |SQL Server 2005 or greater |[Azure VM storage limit](../../../index.yml) |Use when you need to minimize downtime and don't have an Always On on-premises deployment |
 
@@ -77,7 +78,7 @@ Back up your database with compression, copy the backup to the VM, and then rest
 
 ## Backup to URL and Restore from URL
 
-Instead of backing up to a local file, you can use [Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) and then Restore from URL to the VM. SQL Server 2016 supports striped backup sets. They're recommended for performance and required to exceed the size limits per blob. For very large databases, the use of the [Windows Import/Export Service](../../../storage/common/storage-import-export-service.md) is recommended.
+Instead of backing up to a local file, you can use [Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) and then Restore from URL to the VM. SQL Server 2016 supports striped backup sets. They're recommended for performance and required to exceed the size limits per blob. For very large databases, the use of the [Windows Import/Export Service](../../../import-export/storage-import-export-service.md) is recommended.
 
 ## Detach and attach from a URL
 
@@ -100,7 +101,7 @@ Use this method to migrate all system and user databases in an on-premises SQL S
 
 ## Ship a hard drive
 
-Use the [Windows Import/Export Service method](../../../storage/common/storage-import-export-service.md) to transfer large amounts of file data to Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. With this service, you send one or more hard drives containing that data to an Azure data center where your data will be uploaded to your storage account.
+Use the [Windows Import/Export Service method](../../../import-export/storage-import-export-service.md) to transfer large amounts of file data to Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. With this service, you send one or more hard drives containing that data to an Azure data center where your data will be uploaded to your storage account.
 
 ## Next steps
 

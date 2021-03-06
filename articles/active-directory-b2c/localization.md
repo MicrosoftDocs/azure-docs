@@ -4,13 +4,13 @@ description: Specify the Localization element of a custom policy in Azure Active
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: "b2c-support"
 ---
 
 # Localization element
@@ -331,7 +331,7 @@ The UxElement value is used to localize one of the user interface elements. The 
 
 ### DisplayControl
 
-The DisplayControl value is used to localize one of the [display Control](display-controls.md) user interface elements. The following example shows how to localize the send and verify buttons. 
+The DisplayControl value is used to localize one of the [display Control](display-controls.md) user interface elements. When enabled, the display control localizedStrings takes the ***precedence*** over some of the **UxElement** StringIDs like **ver_but_send**, **ver_but_edit**, **ver_but_resend** and **ver_but_verify**. The following example shows how to localize the send and verify buttons. 
 
 ```xml
 <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
@@ -350,5 +350,5 @@ In the Metadata section of a self-asserted technical profile, the referenced Con
 
 See the following articles for localization examples:
 
-- [Language customization with custom policy in Azure Active Directory B2C](custom-policy-localization.md)
-- [Language customization with user flows in Azure Active Directory B2C](user-flow-language-customization.md)
+- [Language customization with custom policy in Azure Active Directory B2C](language-customization.md)
+- [Language customization with user flows in Azure Active Directory B2C](language-customization.md)

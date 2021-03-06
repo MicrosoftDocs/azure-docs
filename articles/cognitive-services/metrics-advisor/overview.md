@@ -58,4 +58,4 @@ The workflow is simple: after onboarding your data, you can fine-tune the anomal
 ## Next steps
 
 * Explore a quickstart: [Monitor your first metric on web](quickstarts/web-portal.md).
-* Explore a quickstart: [Use the REST APIs to customize your solution](quickstarts/rest-api.md).
+* Explore a quickstart: [Use the REST APIs to customize your solution](./quickstarts/rest-api-and-client-library.md).

@@ -1,19 +1,11 @@
 ﻿---
 title: 'Tutorial: Create a pipeline with Copy Activity using .NET API '
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using .NET API.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Tutorial: Create a pipeline with Copy Activity using .NET API
@@ -36,7 +28,7 @@ In this tutorial, you create a pipeline with one activity in it: Copy Activity. 
 A pipeline can have more than one activity. And, you can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. For more information, see [multiple activities in a pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 > [!NOTE] 
-> For complete documentation on .NET API for Data Factory, see [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
+> For complete documentation on .NET API for Data Factory, see [Data Factory .NET API Reference](/dotnet/api/overview/azure/data-factory).
 > 
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
@@ -55,18 +47,18 @@ Create an Azure Active Directory application, create a service principal for the
 1. Launch **PowerShell**.
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 
-	```powershell
-	Connect-AzAccount
+    ```powershell
+    Connect-AzAccount
     ```
 3. Run the following command to view all the subscriptions for this account.
 
-	```powershell
-	Get-AzSubscription
+    ```powershell
+    Get-AzSubscription
     ```
 4. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription.
 
-	```powershell
-	Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
+    ```powershell
+    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
    > [!IMPORTANT]
@@ -74,8 +66,8 @@ Create an Azure Active Directory application, create a service principal for the
 
 5. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.
 
-	```powershell
-	New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```powershell
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
     If the resource group already exists, you specify whether to update it (Y) or keep it as (N).
@@ -83,29 +75,29 @@ Create an Azure Active Directory application, create a service principal for the
     If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
 6. Create an Azure Active Directory application.
 
-	```powershell
-	$azureAdApplication = New-AzADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    ```powershell
+    $azureAdApplication = New-AzADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
     ```
 
     If you get the following error, specify a different URL and run the command again.
-	
-	```powershell
-	Another object with the same value for property identifierUris already exists.
+    
+    ```powershell
+    Another object with the same value for property identifierUris already exists.
     ```
 7. Create the AD service principal.
 
-	```powershell
+    ```powershell
     New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Add service principal to the **Data Factory Contributor** role.
 
-	```powershell
+    ```powershell
     New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Get the application ID.
 
-	```powershell
-	$azureAdApplication	
+    ```powershell
+    $azureAdApplication
     ```
     Note down the application ID (applicationID) from the output.
 
@@ -205,7 +197,7 @@ You should have following four values from these steps:
     );
     ```
 
-	A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run a Hive script to transform input data to product output data. Let's start with creating the data factory in this step.
+    A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run a Hive script to transform input data to product output data. Let's start with creating the data factory in this step.
 8. Add the following code that creates an **Azure Storage linked service** to the **Main** method.
 
    > [!IMPORTANT]
@@ -229,11 +221,11 @@ You should have following four values from these steps:
     );
     ```
 
-	You create linked services in a data factory to link your data stores and compute services to the data factory. In this tutorial, you don't use any compute service such as Azure HDInsight or Azure Data Lake Analytics. You use two data stores of type Azure Storage (source) and Azure SQL Database (destination). 
+    You create linked services in a data factory to link your data stores and compute services to the data factory. In this tutorial, you don't use any compute service such as Azure HDInsight or Azure Data Lake Analytics. You use two data stores of type Azure Storage (source) and Azure SQL Database (destination). 
 
-	Therefore, you create two linked services named AzureStorageLinkedService and AzureSqlLinkedService of types: AzureStorage and AzureSqlDatabase.  
+    Therefore, you create two linked services named AzureStorageLinkedService and AzureSqlLinkedService of types: AzureStorage and AzureSqlDatabase.  
 
-	The AzureStorageLinkedService links your Azure storage account to the data factory. This storage account is the one in which you created a container and uploaded the data as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+    The AzureStorageLinkedService links your Azure storage account to the data factory. This storage account is the one in which you created a container and uploaded the data as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 9. Add the following code that creates an **Azure SQL linked service** to the **Main** method.
 
    > [!IMPORTANT]
@@ -257,7 +249,7 @@ You should have following four values from these steps:
     );
     ```
 
-	AzureSqlLinkedService links Azure SQL Database to the data factory. The data that is copied from the blob storage is stored in this database. You created the emp table in this database as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+    AzureSqlLinkedService links Azure SQL Database to the data factory. The data that is copied from the blob storage is stored in this database. You created the emp table in this database as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 10. Add the following code that creates **input and output datasets** to the **Main** method.
 
     ```csharp
@@ -278,8 +270,8 @@ You should have following four values from these steps:
             {
                 Structure = new List<DataElement>()
                 {
-					new DataElement() { Name = "FirstName", Type = "String" },
-					new DataElement() { Name = "LastName", Type = "String" }
+                    new DataElement() { Name = "FirstName", Type = "String" },
+                    new DataElement() { Name = "LastName", Type = "String" }
                 },
                 LinkedServiceName = "AzureStorageLinkedService",
                 TypeProperties = new AzureBlobDataset()
@@ -316,8 +308,8 @@ You should have following four values from these steps:
                 {
                     Structure = new List<DataElement>()
                     {
-						new DataElement() { Name = "FirstName", Type = "String" },
-						new DataElement() { Name = "LastName", Type = "String" }
+                        new DataElement() { Name = "FirstName", Type = "String" },
+                        new DataElement() { Name = "LastName", Type = "String" }
                     },
                     LinkedServiceName = "AzureSqlLinkedService",
                     TypeProperties = new AzureSqlTableDataset()
@@ -333,16 +325,16 @@ You should have following four values from these steps:
             }
         });
     ```
-	
-	In the previous step, you created linked services to link your Azure Storage account and Azure SQL Database to your data factory. In this step, you define two datasets named InputDataset and OutputDataset that represent input and output data that is stored in the data stores referred by AzureStorageLinkedService and AzureSqlLinkedService respectively.
+    
+    In the previous step, you created linked services to link your Azure Storage account and Azure SQL Database to your data factory. In this step, you define two datasets named InputDataset and OutputDataset that represent input and output data that is stored in the data stores referred by AzureStorageLinkedService and AzureSqlLinkedService respectively.
 
-	The Azure storage linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure storage account. And, the input blob dataset (InputDataset) specifies the container and the folder that contains the input data.  
+    The Azure storage linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure storage account. And, the input blob dataset (InputDataset) specifies the container and the folder that contains the input data.  
 
-	Similarly, the Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to your database. And, the output SQL table dataset (OututDataset) specifies the table in the database to which the data from the blob storage is copied.
+    Similarly, the Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to your database. And, the output SQL table dataset (OututDataset) specifies the table in the database to which the data from the blob storage is copied.
 
-	In this step, you create a dataset named InputDataset that points to a blob file (emp.txt) in the root folder of a blob container (adftutorial) in the Azure Storage represented by the AzureStorageLinkedService linked service. If you don't specify a value for the fileName (or skip it), data from all blobs in the input folder are copied to the destination. In this tutorial, you specify a value for the fileName.    
+    In this step, you create a dataset named InputDataset that points to a blob file (emp.txt) in the root folder of a blob container (adftutorial) in the Azure Storage represented by the AzureStorageLinkedService linked service. If you don't specify a value for the fileName (or skip it), data from all blobs in the input folder are copied to the destination. In this tutorial, you specify a value for the fileName.    
 
-	In this step, you create an output dataset named **OutputDataset**. This dataset points to a SQL table in the database represented by **AzureSqlLinkedService**.
+    In this step, you create an output dataset named **OutputDataset**. This dataset points to a SQL table in the database represented by **AzureSqlLinkedService**.
 11. Add the following code that **creates and activates a pipeline** to the **Main** method. In this step, you create a pipeline with a **copy activity** that uses **InputDataset** as an input and **OutputDataset** as an output.
 
     ```csharp
@@ -400,13 +392,13 @@ You should have following four values from these steps:
         });
     ```
 
-	Note the following points:
+    Note the following points:
    
-	- In the activities section, there is only one activity whose **type** is set to **Copy**. For more information about the copy activity, see [data movement activities](data-factory-data-movement-activities.md). In Data Factory solutions, you can also use [data transformation activities](data-factory-data-transformation-activities.md).
-	- Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**. 
-	- In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. For a complete list of data stores supported by the copy activity as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). To learn how to use a specific supported data store as a source/sink, click the link in the table.  
+    - In the activities section, there is only one activity whose **type** is set to **Copy**. For more information about the copy activity, see [data movement activities](data-factory-data-movement-activities.md). In Data Factory solutions, you can also use [data transformation activities](data-factory-data-transformation-activities.md).
+    - Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**. 
+    - In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. For a complete list of data stores supported by the copy activity as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). To learn how to use a specific supported data store as a source/sink, click the link in the table.  
    
-	Currently, output dataset is what drives the schedule. In this tutorial, output dataset is configured to produce a slice once an hour. The pipeline has a start time and end time that are one day apart, which is 24 hours. Therefore, 24 slices of output dataset are produced by the pipeline.
+    Currently, output dataset is what drives the schedule. In this tutorial, output dataset is configured to produce a slice once an hour. The pipeline has a start time and end time that are one day apart, which is 24 hours. Therefore, 24 slices of output dataset are produced by the pipeline.
 12. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only slice expected in this sample.
 
     ```csharp
@@ -479,19 +471,19 @@ You should have following four values from these steps:
 
 14. Add the following helper method used by the **Main** method to the **Program** class.
 
-	> [!NOTE] 
-	> When you copy and paste the following code, make sure that the copied code is at the same level as the Main method.
+    > [!NOTE] 
+    > When you copy and paste the following code, make sure that the copied code is at the same level as the Main method.
 
     ```csharp
     public static async Task<string> GetAuthorizationHeader()
     {
         AuthenticationContext context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
         ClientCredential credential = new ClientCredential(
-	        ConfigurationManager.AppSettings["ApplicationId"],
-	        ConfigurationManager.AppSettings["Password"]);
+            ConfigurationManager.AppSettings["ApplicationId"],
+            ConfigurationManager.AppSettings["Password"]);
         AuthenticationResult result = await context.AcquireTokenAsync(
-	        resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-	        clientCredential: credential);
+            resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+            clientCredential: credential);
 
         if (result != null)
             return result.AccessToken;
@@ -505,8 +497,8 @@ You should have following four values from these steps:
 17. Confirm that there is at least one file in the **adftutorial** container in your Azure blob storage. If not, create **Emp.txt** file in Notepad with the following content and upload it to the adftutorial container.
 
     ```
-	John, Doe
-	Jane, Doe
+    John, Doe
+    Jane, Doe
     ```
 18. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**.
 19. Use the Azure portal to verify that the data factory **APITutorialFactory** is created with the following artifacts:
@@ -516,7 +508,7 @@ You should have following four values from these steps:
 20. Verify that the two employee records are created in the **emp** table in the specified database.
 
 ## Next steps
-For complete documentation on .NET API for Data Factory, see [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
+For complete documentation on .NET API for Data Factory, see [Data Factory .NET API Reference](/dotnet/api/overview/azure/data-factory).
 
 In this tutorial, you used Azure blob storage as a source data store and Azure SQL Database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
 

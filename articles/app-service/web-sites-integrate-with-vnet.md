@@ -126,6 +126,12 @@ The App Service plan VNet Integration UI shows you all of the VNet integrations 
 * **Sync network**: The sync network operation is used only for the gateway-dependent VNet Integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your VNet, perform a sync network operation. This operation restarts any apps that use this VNet. This operation will not work if you are using an app and a vnet belonging to different subscriptions.
 * **Add routes**: Adding routes drives outbound traffic into your VNet.
 
+The private IP assigned to the instance is exposed via the environment variable, **WEBSITE_PRIVATE_IP**. Kudu console UI also shows the list of environment variables available to the Web App. This IP is assigned from the address range of the integrated subnet. For Regional VNet Integration, the value of WEBSITE_PRIVATE_IP is an IP from the address range of the delegated subnet, and for Gateway-required VNet Integration, the value is an IP from the adress range of the Point-to-site address pool configured on the Virtual Network Gateway. This is the IP that will be used by the Web App to connect to the resources through the Virtual Network. 
+
+> [!NOTE]
+> The value of WEBSITE_PRIVATE_IP is bound to change. However, it will be an IP within the address range of the integration subnet or the point-to-site address range, so you will need to allow access from the entire address range.
+>
+
 ### Gateway-required VNet Integration routing
 The routes that are defined in your VNet are used to direct traffic into your VNet from your app. To send additional outbound traffic into the VNet, add those address blocks here. This capability only works with gateway-required VNet Integration. Route tables don't affect your app traffic when you use gateway-required VNet Integration the way that they do with regional VNet Integration.
 
@@ -147,6 +153,7 @@ Three charges are related to the use of the gateway-required VNet Integration fe
 
 > [!NOTE]
 > VNET integration is not supported for Docker Compose scenarios in App Service.
+> Azure Functions Access Restrictions are ignored if their is a private endpoint present.
 >
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
@@ -231,5 +238,5 @@ For gateway-required VNet Integration, you can integrate App Service with an Azu
 [creategateway]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
 [setp2saddresses]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#addresspool
 [VNETRouteTables]: ../virtual-network/manage-route-table.md
-[installCLI]: /cli/azure/install-azure-cli?view=azure-cli-latest%2f
+[installCLI]: /cli/azure/install-azure-cli
 [privateendpoints]: networking/private-endpoint.md

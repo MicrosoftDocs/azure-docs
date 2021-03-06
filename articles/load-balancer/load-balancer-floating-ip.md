@@ -41,4 +41,4 @@ Without Floating IP, Azure exposes a traditional load balancing IP address mappi
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).
 - Learn about [Health Probes](load-balancer-custom-probe-overview.md).
 - Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
-- Learn more about [Network Security Groups](../virtual-network/security-overview.md).
+- Learn more about [Network Security Groups](../virtual-network/network-security-groups-overview.md).

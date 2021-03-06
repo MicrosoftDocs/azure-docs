@@ -156,7 +156,7 @@ Now submit the configuration to automatically select the algorithm, hyper parame
 
 ```python
 from azureml.core.experiment import Experiment
-experiment = Experiment(ws, 'automl_remote')
+experiment = Experiment(ws, 'Tutorial-automl-remote')
 remote_run = experiment.submit(automl_config, show_output=True)
 ```
 
@@ -217,7 +217,7 @@ If you aren't in a Jupyter notebook, you can display the URL  from the run itsel
 remote_run.get_portal_url()
 ```
 
-The same information is available in your workspace.  To learn more about these results, see [Understand automated machine learning results](how-to-understand-automated-ml.md).
+The same information is available in your workspace.  To learn more about these results, see [Evaluate automated machine learning results](how-to-understand-automated-ml.md).
 
 ## Example
 

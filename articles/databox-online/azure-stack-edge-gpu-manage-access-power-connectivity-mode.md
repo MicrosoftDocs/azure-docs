@@ -7,13 +7,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Manage access, power, and connectivity mode for your Azure Stack Edge Pro GPU
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
 This article describes how to manage the access, power, and connectivity mode for your Azure Stack Edge Pro with GPU device. These operations are performed via the local web UI or the Azure portal.
+
+This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
+
 
 In this article, you learn how to:
 
@@ -27,6 +32,8 @@ In this article, you learn how to:
 ## Manage device access
 
 The access to your Azure Stack Edge Pro device is controlled by the use of a device password. You can change the password via the local web UI. You can also reset the device password in the Azure portal.
+
+The access to data on the device disks is also controlled by encryption-at-rest keys.
 
 ### Change device password
 
@@ -45,10 +52,44 @@ The reset workflow does not require the user to recall the old password and is u
 
 1. In the Azure portal, go to **Overview > Reset admin password**.
 
-    ![Screenshot shows the device with Reset device password selected.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Screenshot shows the device with Reset device password selected.](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Enter the new password and then confirm it. The supplied password must be between 8 and 16 characters. The password must have 3 of the following characters: uppercase, lowercase, numeric, and special characters. Select **Reset**.
+
+    ![Reset password 2](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+
+### Manage access to device data
+
+For the Azure Stack Edge Pro R and Azure Stack Edge Mini R devices, the access to device data is controlled by using encryption-at-rest keys for the device drives. After you have successfully configured the device for encryption-at-rest, the rotate encryption-at-rest keys option becomes available in the local UI of the device. 
+
+This operation lets you change the keys for BitLocker volumes `HcsData` and `HcsInternal` and all the self-encrypting drives on your device.
+
+Follow these steps to rotate the encryption-at-rest keys.
+
+1. In the local UI of the device, go to the **Get started** page. On the **Security** tile, select **Encryption-at-rest: Rotate keys** option. This option is only available after you have successfully configured the encryption-at-rest keys.
+
+    ![Select Rotate keys for Encryption-at-rest in the Get started page](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-1.png)
+
+1. You can use your own BitLocker keys or use the system-generated keys.  
+
+    To provide your own key, enter a 32 character long Base-64 encoded string. The input is similar to what you would provide when you configure the encryption-at-rest for the first time.
+
+    ![Bring your own encryption-at-rest key](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-2.png)
+
+    You can also choose to use a system generated key.
+
+    ![Use system-generated Encryption-at-rest key](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-3.png)
+
+1. Select **Apply**. The key protectors are rotated.
+
+    ![Apply the new encryption-at-rest key](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-4.png)
+
+1. When prompted to download and save the key file, select **Download and continue**. 
+
+    ![Download and continue the key file](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-5.png)
+
+    Save the `.json` key file in a secure location. This file is used to facilitate a potential future recovery of the device.
 
     ![Screenshot shows the Reset device password dialog box.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
@@ -65,7 +106,7 @@ When generating the activation key for the Azure Stack Edge Pro device, or perfo
 
 You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Azure Stack Edge Pro device, creation of a user, configuration of Edge compute role, reset device password will all fail.
 
-For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference).
+For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](/graph/permissions-reference).
 
 ### Register resource providers
 

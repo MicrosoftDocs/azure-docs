@@ -4,8 +4,7 @@ description: Learn about the core Azure security features that help with identit
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 
 ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
 ms.service: security
@@ -14,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+ms.date: 02/05/2021
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ---
@@ -58,9 +57,9 @@ Not only do users not have to manage multiple sets of usernames and passwords, y
 
 Learn more:
 
-* [Overview of single sign-on](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [What is application access and single sign-on with Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Quickstart Series on App Management](../../active-directory/manage-apps/view-applications-portal.md)
+* [Overview on SSO](../../active-directory/manage-apps/what-is-single-sign-on.md)
+* [Video on authentication fundamentals](https://www.youtube.com/watch?v=fbSVgC8nGz4&feature=emb_title)
+* [Quickstart series on application management](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## Reverse proxy
 
@@ -75,13 +74,13 @@ Learn more:
 
 ## Multi-Factor Authentication
 
-Azure Multi-Factor Authentication is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options: phone calls, text messages, or mobile app notifications or verification codes and third-party OAuth tokens.
+Azure AD Multi-Factor Authentication is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options: phone calls, text messages, or mobile app notifications or verification codes and third-party OAuth tokens.
 
 Learn more:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [What is Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [How Azure Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [What is Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [How Azure AD Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## Azure RBAC
 

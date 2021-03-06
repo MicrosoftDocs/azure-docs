@@ -42,8 +42,8 @@ landingContent:
       links:
       - text: Customer leads from your marketplace offer
         url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
-      - text: Co-sell option in Partner Center
-        url: ./partner-center-portal/commercial-marketplace-co-sell.md
+      - text: Co-sell option in the commercial marketplace
+        url: commercial-marketplace-co-sell.md
       - text: Co-sell partner engagement
         url: ./marketplace-co-sell.md
       - text: Make solutions available in Microsoft AppSource and within Office
@@ -58,15 +58,15 @@ landingContent:
     - linkListType: how-to-guide
       links:
       - text: Summary dashboard
-        url: ./partner-center-portal/summary-dashboard.md
+        url: ./summary-dashboard.md
       - text: Marketplace Insights dashboard
-        url: ./partner-center-portal/insights-dashboard.md
+        url: ./insights-dashboard.md
       - text: Usage dashboard
-        url: ./partner-center-portal/usage-dashboard.md
+        url: ./usage-dashboard.md
       - text: Customer dashboard
-        url: ./partner-center-portal/customer-dashboard.md
+        url: ./customer-dashboard.md
       - text: Orders dashboard
-        url: ./partner-center-portal/orders-dashboard.md
+        url: ./orders-dashboard.md
       - text: Downloads dashboard
         url: ./partner-center-portal/downloads-dashboard.md
       - text: Ratings and reviews dashboard
@@ -81,7 +81,7 @@ landingContent:
       - text: Virtual machines offers
         url: ./marketplace-virtual-machines.md
       - text: Azure application offers
-        url: ./partner-center-portal/create-new-azure-apps-offer.md
+        url: ./create-new-azure-apps-offer.md
       - text: Dynamics 365 for Customer Engagement & PowerApps offers
         url: ./partner-center-portal/create-new-customer-engagement-offer.md
       - text: Dynamics 365 Business Central offers
