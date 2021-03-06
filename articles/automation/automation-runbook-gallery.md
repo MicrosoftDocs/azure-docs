@@ -80,7 +80,7 @@ Microsoft encourages you to add runbooks to the PowerShell Gallery that you thin
 1. Select **Modules** under **Shared Resources** to open the list of modules.
 1. Click **Browse gallery** from the top of the page.
 
-      :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="Detailed view of a module from the gallery" lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
+      :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="View of the module gallery" lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
 
 1. On the Browse gallery page, you can use the search box to find matches in any of the following fields:
 
