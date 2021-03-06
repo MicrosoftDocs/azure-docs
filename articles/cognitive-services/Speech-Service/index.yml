@@ -117,9 +117,6 @@ conceptualContent:
         - itemType: how-to-guide
           text: Make text-to-speech sound natural
           url: how-to-audio-content-creation.md              
-        - itemType: quickstart
-          text: Get started with Custom Keyword       
-          url: custom-keyword-basics.md         
     - title: Scenario deep-dives
       links:
         - itemType: overview
