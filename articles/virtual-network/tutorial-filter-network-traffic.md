@@ -1,5 +1,5 @@
 ---
-title: Filter network traffic - tutorial - Azure Portal
+title: Filter network traffic - tutorial - Azure portal
 titlesuffix: Azure Virtual Network
 description: In this tutorial, you learn how to filter network traffic to a subnet, with a network security group, using the Azure portal.
 services: virtual-network
@@ -14,7 +14,9 @@ ms.author: kumud
 
 # Tutorial: Filter network traffic with a network security group using the Azure portal
 
-You can filter network traffic inbound to and outbound from a virtual network subnet with a network security group. Network security groups contain security rules that filter network traffic by IP address, port, and protocol. Security rules are applied to resources deployed in a subnet. 
+You can use a network security group to filter network traffic inbound and outbound from a virtual network subnet.
+
+Network security groups contain security rules that filter network traffic by IP address, port, and protocol. Security rules are applied to resources deployed in a subnet. 
 
 In this tutorial, you learn how to:
 
@@ -124,7 +126,7 @@ A network security group secures network traffic in your virtual network.
 
 ## Associate network security group to subnet
 
-In this section, we will associate the network security group with the subnet of the virtual network we created earlier.
+In this section, we'll associate the network security group with the subnet of the virtual network we created earlier.
 
 1. In the **Search resources, services, and docs** box at the top of the portal, begin typing **myNsg**. When **myNsg** appears in the search results, select it.
 
@@ -161,7 +163,7 @@ In this section, we will associate the network security group with the subnet of
     | Priority | Leave the default of **100**. |
     | Name | Enter **Allow-Web-All**. |
 
-    :::image type="content" source="./media/tutorial-filter-network-traffic/inbound-security-rule.png" alt-text="Associate NSG to subnet." border="true":::
+    :::image type="content" source="./media/tutorial-filter-network-traffic/inbound-security-rule.png" alt-text="Inbound security rule." border="true":::
 
 3. Complete step 2 again, using the following values:
 
@@ -217,7 +219,7 @@ Create two VMs in the virtual network.
     | **Administrator account** |   |
     | Username | Enter a username. |
     | Password | Enter a password. |
-    | Confirm password | Re-enter password. |
+    | Confirm password | Reenter password. |
     | **Inbound port rules** |   |
     | Public inbound ports | Select **None**. |
 
@@ -269,23 +271,25 @@ Add the network interface for each VM to one of the application security groups 
 
 2. Select **Download RDP file**.
 
-3. Open the downloaded rdp file and select **Connect**. Enter the user name and password you specified when creating the VM. You may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM.
+3. Open the downloaded rdp file and select **Connect**. Enter the user name and password you specified when creating the VM.
 
 4. Select **OK**.
 
-5. You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection.
+5. You may receive a certificate warning during the connection process. If you receive the warning, select **Yes** or **Continue**, to continue with the connection.
 
-    The connection succeeds, because port 3389 is allowed inbound from the internet to the **myAsgMgmtServers** application security group that the network interface attached to the **myVMMgmt** VM is in.
+    The connection succeeds, because port 3389 is allowed inbound from the internet to the **myAsgMgmtServers** application security group. 
+    
+    The network interface for **myVMMgmt** is associated with the **myAsgMgmtServers** application security group and allows the connection.
 
-6. Connect to the **myVMWeb** virtual machine from the **myVMMgmt** virtual machine by entering the following command in a PowerShell session:
+6. Open a PowerShell session on **myVMMgmt**. Connect to **myVMWeb** using the following example: 
 
     ```powershell
     mstsc /v:myVmWeb
     ```
 
-    You are able to connect to the **myVMWeb** virtual machine from the **myVMMgmt** virtual machine because VMs in the same virtual network can communicate with each other over any port, by default. 
+    The RDP connection from **myVMMgmt** to **myVMWeb** succeeds because virtual machines in the same network can communicate with each over any port by default.
     
-    You can't however, create a remote desktop connection to the **myVMWeb** virtual machine from the internet, because the security rule for the **myAsgWebServers** doesn't allow port 3389 inbound from the internet and inbound traffic from the Internet is denied to all resources, by default.
+    You can't create an RDP connection to the **myVMWeb** virtual machine from the internet. The security rule for the **myAsgWebServers** prevents connections to port 3389 inbound from the internet. Inbound traffic from the Internet is denied to all resources by default.
 
 7. To install Microsoft IIS on the **myVMWeb** virtual machine, enter the following command from a PowerShell session on the **myVMWeb** virtual machine:
 
@@ -301,7 +305,11 @@ Add the network interface for each VM to one of the application security groups 
 
     :::image type="content" source="./media/tutorial-filter-network-traffic/public-ip-address.png" alt-text="Public IP address." border="true":::
     
-11. To confirm that you can access the **myVMWeb** web server from the internet, open an internet browser on your computer and browse to `http://<public-ip-address-from-previous-step>`. You see the IIS welcome screen, because port 80 is allowed inbound from the internet to the **myAsgWebServers** application security group that the network interface attached to the **myVMWeb** virtual machine is in.
+11. To confirm that you can access the **myVMWeb** web server from the internet, open an internet browser on your computer and browse to `http://<public-ip-address-from-previous-step>`. 
+
+You see the IIS welcome screen, because port 80 is allowed inbound from the internet to the **myAsgWebServers** application security group. 
+
+The network interface attached for **myVMWeb** is associated with the **myAsgWebServers** application security group and allows the connection. 
 
 ## Clean up resources
 
