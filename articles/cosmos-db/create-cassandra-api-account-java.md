@@ -30,7 +30,7 @@ This tutorial covers the following tasks:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin. 
 
-* Get the latest version of [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true). 
+* Get the latest version of [Java Development Kit (JDK)](/java/azure/jdk/). 
 
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) the [Maven](https://maven.apache.org/) binary archive. 
   - On Ubuntu, you can run `apt-get install maven` to install Maven. 
