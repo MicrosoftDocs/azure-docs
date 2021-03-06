@@ -208,8 +208,8 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
 
 | New Table | Details |
 | --- | --- |
-| HDInsightSparkLogs | <ul><li>**Description**: This table contains all logs related to Spark and its related component: Livy and Jupyter.</li><li>**Old table**: log\_livy,log\_jupyter\_CL, log\_spark\_CL, log\_sparkappsexecutors\_CL, log\_sparkappsdrivers\_CL</li></ul>|
-| HDInsightSparkApplicationEvents | <ul><li>**Description**: This table contains event information for Spark Applications including Submission and Completion time, App Id, and AppName. It's useful for keeping track of when applications started and completed. </li></ul>|
+| HDInsightSparkLogs | <ul><li>**Description**: This table contains all logs related to Spark and its related component: Livy and Jupyter.</li><li>**Old table**: log\_livy,\_CL, log\_jupyter\_CL, log\_spark\_CL, log\_sparkappsexecutors\_CL, log\_sparkappsdrivers\_CL</li></ul>|
+| HDInsightSparkApplicationEvents | <ul><li>**Description**: This table contains event information for Spark Applications including Submission and Completion time, App ID, and AppName. It's useful for keeping track of when applications started and completed. </li></ul>|
 | HDInsightSparkBlockManagerEvents | <ul><li>**Description**: This table contains event information related to Spark's Block Manager. It includes information such as executor memory usage.</li></ul>|
 | HDInsightSparkEnvironmentEvents | <ul><li>**Description**: This table contains event information related to the Environment an application executes in including, Spark Deploy Mode, Master, and information about the Executor.</li></ul>|
 | HDInsightSparkExecutorEvents | <ul><li>**Description**: This table contains event information about the Spark Executor usage for by an Application.</li></ul>|
