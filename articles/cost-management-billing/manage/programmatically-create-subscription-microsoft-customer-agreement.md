@@ -65,17 +65,54 @@ The API response lists the billing accounts that you have access to.
 
 Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of the account.  For example, to create a subscription for the `Contoso` billing account, copy `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
 
-<!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts)
 
-we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
--->
+```azurepowershell-interactive
+PS C:\WINDOWS\system32> Get-AzBillingAccount
+```
+You will get back a list of all billing accounts that you have access to 
 
-<!--
+```json
+Name          : 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
+DisplayName   : Contoso
+AccountStatus : Active
+AccountType   : Enterprise
+AgreementType : MicrosoftCustomerAgreement
+HasReadAccess : True
+```
+Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of the account.  For example, to create a subscription for the `Contoso` billing account, copy `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
+
+
 ### [Azure CLI](#tab/azure-cli-getBillingAccounts)
+```azurecli
+> az billing account list
+```
+You will get back a list of all billing accounts that you have access to 
 
-we're still working on enabling CLI SDK for billing APIs. Check back soon.
--->
+```json
+[
+  {
+    "accountStatus": "Active",
+    "accountType": "Enterprise",
+    "agreementType": "MicrosoftCustomerAgreement",
+    "billingProfiles": {
+      "hasMoreResults": false,
+      "value": null
+    },
+    "departments": null,
+    "displayName": "Contoso",
+    "enrollmentAccounts": null,
+    "enrollmentDetails": null,
+    "hasReadAccess": true,
+    "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+    "name": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+    "soldTo": null,
+    "type": "Microsoft.Billing/billingAccounts"
+  }
+]
+```
+
+Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of the account.  For example, to create a subscription for the `Contoso` billing account, copy `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
 
 ---
 
@@ -83,7 +120,7 @@ we're still working on enabling CLI SDK for billing APIs. Check back soon.
 
 The charges for your subscription appear on a section of a billing profile's invoice. Use the following API to get the list of billing profiles and invoice sections on which you have permission to create Azure subscriptions.
 
-First you get the list of billing profiles under the billing account that you have access to.
+First you get the list of billing profiles under the billing account that you have access to (Use the `name` that you got from the previous step)
 
 ### [REST](#tab/rest-getBillingProfiles)
 ```json
@@ -166,17 +203,119 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/5e9
 
 Use the `id` property to identify the invoice section for which you want to create subscriptions. Copy the entire string. For example, `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
 
-<!--
 ### [PowerShell](#tab/azure-powershell-getBillingProfiles)
 
-we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
--->
+```powershell-interactive
+PS C:\WINDOWS\system32> Get-AzBillingProfile -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
+```
 
-<!--
+You will get the list of billing profiles under this account as part of the response.
+
+```json
+Name              : AW4F-xxxx-xxx-xxx
+DisplayName       : Contoso Billing Profile
+Currency          : USD
+InvoiceDay        : 5
+InvoiceEmailOptIn : True
+SpendingLimit     : Off
+Status            : Active
+EnabledAzurePlans : {0002, 0001}
+HasReadAccess     : True
+BillTo            :
+CompanyName       : Contoso
+AddressLine1      : One Microsoft Way
+AddressLine2      : 
+City              : Redmond
+Region            : WA
+Country           : US
+PostalCode        : 98052
+```
+
+Note the `name` of the billing profile from the above response. Next steps is to get the invoice section that you have access to underneath this billing profile. You will need the `name` of the billing account and billing profile
+
+```powershell-interactive
+PS C:\WINDOWS\system32> Get-AzInvoiceSection -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx -BillingProfileName AW4F-xxxx-xxx-xxx
+```
+
+You will get the invoice section returned
+
+```json
+Name        : SH3V-xxxx-xxx-xxx
+DisplayName : Development
+```
+
+The `name` above is the Invoice section name you need to create a subscription under. Construct your billing scope using the format "/providers/Microsoft.Billing/billingAccounts/<BillingAccountName>/billingProfiles/<BillingProfileName>/invoiceSections/<InvoiceSectionName>". In this example, this will equate to `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`.
+
 ### [Azure CLI](#tab/azure-cli-getBillingProfiles)
 
-we're still working on enabling CLI SDK for billing APIs. Check back soon.
--->
+```azurecli-interactive
+> az billing profile list --account-name "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --expand "InvoiceSections"
+```
+This API will return the list of billing profiles and invoice sections under the provided billing account.
+
+```json
+[
+  {
+    "billTo": {
+      "addressLine1": "One Microsoft Way",
+      "addressLine2": "",
+      "addressLine3": null,
+      "city": "Redmond",
+      "companyName": "Contoso",
+      "country": "US",
+      "district": null,
+      "email": null,
+      "firstName": null,
+      "lastName": null,
+      "phoneNumber": null,
+      "postalCode": "98052",
+      "region": "WA"
+    },
+    "billingRelationshipType": "Direct",
+    "currency": "USD",
+    "displayName": "Contoso Billing Profile",
+    "enabledAzurePlans": [
+      {
+        "skuDescription": "Microsoft Azure Plan for DevTest",
+        "skuId": "0002"
+      },
+      {
+        "skuDescription": "Microsoft Azure Plan",
+        "skuId": "0001"
+      }
+    ],
+    "hasReadAccess": true,
+    "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx",
+    "indirectRelationshipInfo": null,
+    "invoiceDay": 5,
+    "invoiceEmailOptIn": true,
+    "invoiceSections": {
+      "hasMoreResults": false,
+      "value": [
+        {
+          "displayName": "Field_Led_Test_Ace",
+          "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx",
+          "labels": null,
+          "name": "SH3V-xxxx-xxx-xxx",
+          "state": "Active",
+          "systemId": "SH3V-xxxx-xxx-xxx",
+          "targetCloud": null,
+          "type": "Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections"
+        }
+      ]
+    },
+    "name": "AW4F-xxxx-xxx-xxx",
+    "poNumber": null,
+    "spendingLimit": "Off",
+    "status": "Warned",
+    "statusReasonCode": "PastDue",
+    "systemId": "AW4F-xxxx-xxx-xxx",
+    "targetClouds": [],
+    "type": "Microsoft.Billing/billingAccounts/billingProfiles"
+  }
+]
+```
+Use the id property under the invoice section object to identify the invoice section for which you want to create subscriptions. Copy the entire string. For example, /providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx.
 
 ---
 
@@ -269,7 +408,7 @@ You get the subscriptionId as part of the response from the command.
 
 First, install the extension by running `az extension add --name account` and `az extension add --name alias`.
 
-Run the [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create&preserve-view=true) following command.
+Run the [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create) following command.
 
 ```azurecli-interactive
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" --display-name "Dev Team Subscription" --workload "Production"

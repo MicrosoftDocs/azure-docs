@@ -16810,6 +16810,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-gpu-2009-release-notes.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-2010-release-notes",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-powershell.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-powershell",
       "redirect_document_id": false
@@ -25622,6 +25627,16 @@
     {
       "source_path_from_root": "/articles/dms/tutorial-sql-server-azure-sql-online.md",
       "redirect_url": "/azure/dms/tutorial-sql-server-to-azure-sql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dms/known-issues-azure-sql-online.md",
+      "redirect_url": "/azure/dms/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md",
+      "redirect_url": "/azure/dms/",
       "redirect_document_id": false
     },
     {
@@ -62270,6 +62285,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/aks/use-pod-security-on-azure-policy.md",
+      "redirect_url": "/azure/aks/use-azure-policy",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/key-vault/secrets/quick-create-github-secret.md",
       "redirect_url": "/azure/developer/github/deploy-to-azure",
       "redirect_document_id": false
@@ -64312,6 +64332,10 @@
     {
         "source_path": "articles/virtual-machines/troubleshooting/windows-update-installation-capacity.md",
         "redirect_url": "/troubleshoot/azure/virtual-machines/windows-update-installation-capacity",
+        "redirect_document_id": false
+    },
+    {   "source_path": "articles/storage/files/storage-sync-cloud-tiering.md",
+        "redirect_url": "/azure/storage/files/storage-sync-cloud-tiering-overview",
         "redirect_document_id": false
     },
     {
