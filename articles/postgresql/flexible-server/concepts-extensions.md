@@ -5,7 +5,7 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/03/2021
+ms.date: 03/05/2021
 ---
 
 # PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
