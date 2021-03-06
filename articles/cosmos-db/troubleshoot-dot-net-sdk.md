@@ -114,7 +114,7 @@ Where the `duration in milliseconds` would show the latency.
 
 # [V2 SDK](#tab/diagnostics-v2)
 
-The diagnostics are available when the client is configured in [direct mode](connection-modes.md), through the `RequestDiagnosticsString` property:
+The diagnostics are available when the client is configured in [direct mode](sql-sdk-connection-modes.md), through the `RequestDiagnosticsString` property:
 
 ```csharp
 ResourceResponse<Document> response = await client.ReadDocumentAsync(documentLink, new RequestOptions() { PartitionKey = new PartitionKey(partitionKey) });
