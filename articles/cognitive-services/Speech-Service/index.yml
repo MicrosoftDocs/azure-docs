@@ -73,6 +73,25 @@ conceptualContent:
       footerLink:
         text: More
         url: index-speech-translation.yml
+    - title: Speaker Recognition
+      links:
+        - itemType: overview
+          text: About Speaker Recognition
+          url: speaker-recognition-overview.md
+        - itemType: quickstart
+          text: Get started with Speaker Recognition          
+          url: ./get-started-speaker-recognition.md
+        - itemType: how-to-guide
+          text: Speaker Recognition API reference
+          url: /rest/api/speakerrecognition/        
+    - title: Custom Keyword
+      links:
+        - itemType: overview
+          text: About Custom Keyword
+          url: custom-keyword-overview.md
+        - itemType: quickstart
+          text: Get started with Custom Keyword       
+          url: custom-keyword-basics.md          
     - title: Intent recognition
       links:
         - itemType: quickstart
@@ -87,25 +106,20 @@ conceptualContent:
       footerLink:
         text: More
         url: index-intent-recognition.yml
-    - title: Speaker Recognition
+    - title: Customization
       links:
         - itemType: overview
-          text: About Speaker Recognition
-          url: speaker-recognition-overview.md
-        - itemType: quickstart
-          text: Get started with Speaker Recognition          
-          url: ./get-started-speaker-recognition.md
+          text: Improve speech-to-text accuracy
+          url: custom-speech-overview.md
+        - itemType: overview
+          text: Create a custom voice
+          url: custom-neural-voice.md    
         - itemType: how-to-guide
-          text: Speaker Recognition API reference
-          url: /rest/api/speakerrecognition/
-    - title: Custom Keyword
-      links:
-        - itemType: overview
-          text: About Custom Keyword
-          url: custom-keyword-overview.md
+          text: Make text-to-speech sound natural
+          url: how-to-audio-content-creation.md              
         - itemType: quickstart
           text: Get started with Custom Keyword       
-          url: custom-keyword-basics.md
+          url: custom-keyword-basics.md         
     - title: Scenario deep-dives
       links:
         - itemType: overview
