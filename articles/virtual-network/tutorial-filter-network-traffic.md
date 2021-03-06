@@ -180,7 +180,6 @@ In this section, we'll associate the network security group with the subnet of t
     | Priority | Leave the default of **110**. |
     | Name | Enter **Allow-RDP-All**. |
 
-
     > [!CAUTION]
     > In this article, RDP (port 3389) is exposed to the internet for the VM that is assigned to the **myAsgMgmtServers** application security group. 
     >
@@ -263,7 +262,7 @@ Add the network interface for each VM to one of the application security groups 
 
     :::image type="content" source="./media/tutorial-filter-network-traffic/select-asgs.png" alt-text="Select application security groups." border="true":::
 
-3. Complete steps 1 and 2 again, searching for the **myVMMgmt** virtual machine and selecting the  **myAsgMgmtServers** ASG.
+5. Complete steps 1 and 2 again, searching for the **myVMMgmt** virtual machine and selecting the  **myAsgMgmtServers** ASG.
 
 ## Test traffic filters
 
