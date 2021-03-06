@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/05/2021
 ---
 
 # Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -146,7 +146,8 @@ To locally build and run your logic app project in Visual Studio Code when using
 
 * To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [Node.js versions 10.x.x, 11.x.x, or 12.x.x](https://nodejs.org/en/download/releases/).
 
-  > [!TIP] For Windows, download the MSI version. If you use the ZIP version instead, you have to 
+  > [!TIP] 
+  > For Windows, download the MSI version. If you use the ZIP version instead, you have to 
   > manually make Node.js available by using a PATH environment variable for your operating system.
 
 * To locally run webhook-based triggers and actions, such as the [built-in HTTP Webhook trigger](../connectors/connectors-native-webhook.md), in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
@@ -288,6 +289,7 @@ Before you can create your logic app, create a local project so that you can man
    1. Replace the `AzureWebJobsStorage` property value with the storage account's connection string that you saved earlier, for example:
 
       Before:
+
       ```json
       {
          "IsEncrypted": false,
@@ -299,6 +301,7 @@ Before you can create your logic app, create a local project so that you can man
       ```
 
       After:
+
       ```json
       {
          "IsEncrypted": false,
@@ -310,6 +313,22 @@ Before you can create your logic app, create a local project so that you can man
       ```
 
    1. When you're done, make sure that you save your changes.
+
+<a name="enable-built-in-connector-authoring"></a>
+
+## Enable built-in connector authoring
+
+You can create your own built-in connectors for any service you need by using the [preview release's extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the preview runtime.
+
+The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, you need to first convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET).
+
+1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to Nuget-based Logic App project**.
+
+   ![Screenshot that shows that shows Explorer pane with the project's shortcut menu opened from a blank area in the project window.](./media/create-stateful-stateless-workflows-visual-studio-code/convert-logic-app-project.png)
+
+1. When the prompt appears, confirm the project conversion.
+
+1. To continue, review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 <a name="open-workflow-definition-designer"></a>
 
@@ -1384,6 +1403,7 @@ When you try to start a debugging session, you get the error, **"Error exists af
 1. In the following task, delete the line, `"dependsOn: "generateDebugSymbols"`, along with the comma that ends the preceding line, for example:
 
    Before:
+
    ```json
     {
       "type": "func",
@@ -1395,6 +1415,7 @@ When you try to start a debugging session, you get the error, **"Error exists af
    ```
 
    After:
+
    ```json
     {
       "type": "func",
