@@ -16830,7 +16830,6 @@
       "redirect_document_id": false
     },
     {
-<<<<<<< HEAD
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-users.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-users",
       "redirect_document_id": false
@@ -16908,10 +16907,6 @@
    {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-create-iot-edge-module.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-iot-edge-module",
-=======
-      "source_path_from_root": "/articles/databox-online/azure-stack-edge-k-series-overview.md",
-      "redirect_url": "/azure/databox-online/azure-stack-edge-mini-r-overview",
->>>>>>> 7e4332e6eaeadb4adbb509871d7be4404bcec250
       "redirect_document_id": false
     },
     {
