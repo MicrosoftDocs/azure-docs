@@ -60,7 +60,7 @@ When the **status** field has the **succeeded** value, the JSON response will in
 ### Sample JSON output
 
 The response to the Get Analyze Invoice Result operation will be the structured representation of the invoice with all the information extracted. 
-See here for a [sample invoice file](./media/sample-invoice.jpg) and its structured output [sample invoice output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/InvoiceResult-sample-invoice-new.pdf.json).
+See here for a [sample invoice file](./media/sample-invoice.jpg) and its structured output [sample invoice output](./media/InvoiceResult-sample-invoice.jpg.json).
 
 The JSON output has 3 parts: 
 * `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 
