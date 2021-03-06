@@ -22,7 +22,20 @@ Blob metadata is not included in this method. The Azure Blob Storage inventory f
 
 ## Enable inventory reports
 
-The first step in this method is to [enable inventory reports](blob-inventory.md#enable-inventory-reports) on your storage account.
+The first step in this method is to [enable inventory reports](blob-inventory.md#enable-inventory-reports) on your storage account. You may have to wait up to 24 hours after enabling inventory reports for your first report to be generated.
+
+When you have an inventory report to analyze, grant yourself blob read access to the container where the report CSV file resides.
+
+1. Navigate to the container with the inventory CSV report file.
+1. Select **Access Control (IAM)**, then **Add role assignments**
+
+    :::image type="content" source="media/calc-blob-count-size/access.png" alt-text="Select add role assignments":::
+
+1. Select **Storage Blob Data Reader** from the **Role** dropdown list.
+
+    :::image type="content" source="media/calc-blob-count-size/add-role-assignment.png" alt-text="Add the Storage Blob Data Reader role from the dropdown":::
+
+1. Enter the email address of the account you're using to run the report in the **Select** field.
 
 ## Create a Synapse workspace
 
@@ -37,7 +50,7 @@ After you create your Azure Synapse workspace, do the following steps.
 1. Select the large plus sign (+) to add an item.
 1. Select **SQL script**.
 
-    :::image type="content" source="media/calc-blob-count-size/synapse-sql-script.png" alt-text="Select script to create a new query.":::
+    :::image type="content" source="media/calc-blob-count-size/synapse-sql-script.png" alt-text="Select SQL script to create a new query":::
 
 ## Run the SQL query
 
@@ -54,7 +67,7 @@ After you create your Azure Synapse workspace, do the following steps.
         format='csv', parser_version='2.0', header_row=true
     ) AS Source
     GROUP BY LEFT([Name], CHARINDEX('/', [Name]) - 1)
-        ```
+    ```
 
 1. Name your SQL query in the properties pane on the right.
 
