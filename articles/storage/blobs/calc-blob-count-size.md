@@ -37,9 +37,9 @@ When you have an inventory report to analyze, grant yourself blob read access to
 
 1. Enter the email address of the account you're using to run the report in the **Select** field.
 
-## Create a Synapse workspace
+## Create an Azure Synapse workspace
 
-Next, [create a Synapse workspace](/azure/synapse-analytics/get-started-create-workspace) where you will execute a SQL query to report the inventory results.
+Next, [create an Azure Synapse workspace](/azure/synapse-analytics/get-started-create-workspace) where you will execute a SQL query to report the inventory results.
 
 ## Create the SQL query
 
