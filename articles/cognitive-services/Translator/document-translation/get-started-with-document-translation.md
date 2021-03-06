@@ -14,6 +14,9 @@ ms.date: 03/05/2021
 
 ## Prerequisites
 
+> [!NOTE]
+> Generally, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key or a single service subscription key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
+
 To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
@@ -24,17 +27,14 @@ To get started, you'll need:
 
 * A completed [**Document Translation (Preview) form**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) to enable your Azure subscription to use the new Document Translation feature.
 
-> [!NOTE]
-> Generally, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key or a single service subscription key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
-
 ## Get your custom domain name and subscription key
 
 > [!IMPORTANT]
 >
-> * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
+> * You won't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
 > * **All API requests to the Document Translation service require a custom domain endpoint**.
 
-### What is the custom domain endpoint? 
+### What is the custom domain endpoint?
 
 The custom domain endpoint is a URL formatted with your resource name, hostname, and Translator subdirectories:
 
@@ -266,7 +266,9 @@ The following headers are included with each Document Translator API request:
 
 > [!IMPORTANT]
 >
-> For the code samples, below, you may need to update the following fields, depending upon the operation:
+> For the code samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
+>
+> You may need to update the following fields, depending upon the operation:
 >>>
 >> * `endpoint`
 >> * `subscriptionKey`
@@ -275,13 +277,10 @@ The following headers are included with each Document Translator API request:
 >> * `glossaryURL`
 >> * `id`  (job ID)
 >>
-> For the code samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  
->
-> See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
 
 #### Locating  the `id` value
 
-* You'll find the job `id`  in the POST method response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**.  
+* You'll find the job `id`  in the POST method response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**:
 
 |**Response header**|**Result URL**|
 |-----------------------|----------------|
