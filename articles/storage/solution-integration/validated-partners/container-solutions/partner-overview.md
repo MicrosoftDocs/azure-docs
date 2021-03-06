@@ -1,7 +1,7 @@
 ---
 title: Storage container solution partners
 titleSuffix: Azure Storage
-description: List of industry system integrators building customer solutions for containers with Azure Storage
+description: List of Microsoft partner companies that build customer solutions for containers with Azure Storage
 
 author: beber-msft
 ms.author: beber

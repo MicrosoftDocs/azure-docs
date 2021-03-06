@@ -41,7 +41,7 @@ Your existing Veeam deployment can easily integrate with Azure by adding an Azur
 
 A little upfront planning will help you use Azure as an offsite backup target and recovery site.
 
-### New to Azure?
+### Get started with Azure
 
 Microsoft offers a framework to follow to get you started with Azure. The [Cloud Adoption Framework](https://docs.microsoft.com/azure/architecture/cloud-adoption/) (CAF) is a detailed approach to enterprise digital transformation and comprehensive guide to planning a production grade cloud adoption. The CAF includes a step-by-step [Azure Setup Guide](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/) to help you get up and running quickly and securely. You can find an interactive version in the [Azure portal](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade). You'll find sample architectures, specific best practices for deploying applications, and free training resources to put you on the path to Azure expertise.
 
@@ -105,7 +105,7 @@ When you use Azure as a backup target, you'll make use of [Azure Blob storage](.
 
 #### Sample backup to Azure cost model
 
-With pay-per-use can be daunting to customers who are new to the cloud. While you pay for only the capacity used, you do also pay for transactions (read and or writes) and [egress for data](https://azure.microsoft.com/pricing/details/bandwidth/) read back to your on-premises environment when [Azure Express Route Direct Local or Express Route Unlimited Data plan](https://azure.microsoft.com/pricing/details/expressroute/) are in use where data egress from Azure is included. You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to perform "what if" analysis. You can base the analysis on list pricing or on [Azure Storage Reserved Capacity pricing](../../../../../cost-management-billing/reservations/save-compute-costs-reservations.md), which can deliver up to 38% savings. Here's an example pricing exercise to model the monthly cost of backing up to Azure. This is only an example. *Your pricing may vary due to activities not captured here.*
+With pay-per-use can be daunting to customers who are new to the cloud. While you pay for only the capacity used, you do also pay for transactions (read and or writes) and [egress for data](https://azure.microsoft.com/pricing/details/bandwidth/) read back to your on-premises environment when [Azure Express Route direct local or Express Route unlimited data plan](https://azure.microsoft.com/pricing/details/expressroute/) are in use where data egress from Azure is included. You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to perform "what if" analysis. You can base the analysis on list pricing or on [Azure Storage Reserved Capacity pricing](../../../../../cost-management-billing/reservations/save-compute-costs-reservations.md), which can deliver up to 38% savings. Here's an example pricing exercise to model the monthly cost of backing up to Azure. This is only an example. *Your pricing may vary due to activities not captured here.*
 
 |Cost factor  |Monthly cost  |
 |---------|---------|
@@ -128,11 +128,11 @@ This section provides a brief guide for how to add Azure Storage to an on-premis
 
       ![Shows where you've typed storage in the search box of the Azure portal.](../media/locate-storage-account.png)
 
-2. Choose to Add an account, select or create a resource group, provide a unique name, choose the region, select **Standard** performance, always leave account kind as **Storage V2**, choose the replication level that meets your SLAs, and the default tier your backup software will apply. An Azure Storage account makes hot, cool, and archive tiers available within a single account and Veeam policies allow you to use multiple tiers to effectively manage the lifecycle of your data.
+2. Select **Create** to add an account. Select or create a resource group, provide a unique name, choose the region, select **Standard** performance, always leave account kind as **Storage V2**, choose the replication level which meets your SLAs, and the default tier your backup software will apply. An Azure Storage account makes hot, cool, and archive tiers available within a single account and Veeam policies allow you to use multiple tiers to effectively manage the lifecycle of your data.
 
     ![Shows storage account settings in the portal](../media/account-create-1.png)
 
-3. Keep the default networking options for now and move on to **Data protection**. Here, you can choose to enable **Blob soft delete**, which allows you to recover an accidentally deleted backup file within the defined retention period and offers protection against accidental or malicious deletion.
+3. Keep the default networking options for now and move on to **Data protection**. Here, you can choose to enable soft delete, which allows you to recover an accidentally deleted backup file within the defined retention period and offers protection against accidental or malicious deletion.
 
     ![Shows the Data Protection settings in the portal.](../media/account-create-2.png)
 
@@ -142,7 +142,7 @@ This section provides a brief guide for how to add Azure Storage to an on-premis
 
 5. Add tags for organization if you use tagging, and create your account.
 
-6. Two quick steps are all that are now required before you can add the account to your Veeam environment. Navigate to the account you created in the Azure portal and select **Containers** under the **Blob Service** menu. Add a container and choose a meaningful name. Then, navigate to the **Access keys** item under **Settings** and copy the **Storage account name** and one of the two access keys. You will need the container name, account name, and access key in the next steps.
+6. Two quick steps are all that are now required before you can add the account to your Veeam environment. Navigate to the account you created in the Azure portal and select **Containers** under the **Blob service** menu. Add a container and choose a meaningful name. Then, navigate to the **Access keys** item under **Settings** and copy the **Storage account name** and one of the two access keys. You will need the container name, account name, and access key in the next steps.
 
     ![Shows container creation in the portal.](../media/container-b.png)
 
@@ -165,7 +165,7 @@ This section provides a brief guide for how to add Azure Storage to an on-premis
 
      1. Configure additional [security best practices](../../../../../storage/blobs/security-recommendations.md).
 
-8. In the Veaam Backup and Replication Management Console, navigate to **Backup Infrastructure** --> right-click in the overview pane and select **Add Backup Repository** to open the configuration wizard. In the dialog box, select **Object storage** --> **Microsoft Azure Blob Storage** --> **Azure Blob Storage**.
+8. In the Veaam Backup and Replication Management Console, navigate to **Backup Infrastructure** -> right-click in the overview pane and select **Add Backup Repository** to open the configuration wizard. In the dialog box, select **Object storage** -> **Microsoft Azure Blob Storage** -> **Azure Blob Storage**.
 
     ![Shows selecting object storage in the Veeam Repository Wizard.](../media/veeam-repo-a.png)
 

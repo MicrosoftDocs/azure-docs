@@ -34,7 +34,7 @@ landingContent:
         links:
           - text: Validated archive and BCDR partners
             url: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
-      - linkListType: quickstart
+      - linkListType: get-started
         links:
           - text: Commvault getting started guide
             url: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md

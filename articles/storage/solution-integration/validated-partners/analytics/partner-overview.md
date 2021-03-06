@@ -1,7 +1,7 @@
 ---
 title: Big data and analytics partners 
 titleSuffix: Azure Storage
-description: Microsoft partners who build customer solutions for big data and analytics with Azure Storage
+description: List of Microsoft partner companies that build customer solutions for big data and analytics with Azure Storage
 
 author: beber-msft
 ms.author: beber
