@@ -119,7 +119,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.network/?view=azps-2.5.0#load_balancer
           - text: Azure CLI
-            url: /cli/azure/network/lb?view=azure-cli-latest
+            url: /cli/azure/network/lb
           - text: ARM templates
             url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates
           - text: Frequently asked Load Balancer questions

@@ -125,7 +125,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |EnableTelemetry |Bool, default is true | Dynamic |This is going to enable or disable telemetry. |
 |FailuresOnlyHttpTelemetry | Bool, default is false | Dynamic | If HTTP telemetry capture is enabled; capture only failed requests. This is to help cut down on the number of events generated for telemetry. |
 |HttpTelemetryCapturePercentage | int, default is 50 | Dynamic | If HTTP telemetry capture is enabled; capture only a random percentage of requests. This is to help cut down on the number of events generated for telemetry. |
-|MaxDiskQuotaInMB |Int, default is 65536 | Dynamic |Disk quota in MB for Windows Fabric log files. |
+|MaxDiskQuotaInMB |Int, default is 65536 | Dynamic |Disk quota in MB for Windows and Linux Fabric log files. |
 |ProducerInstances |String | Dynamic |The list of DCA producer instances. |
 
 ## DnsService

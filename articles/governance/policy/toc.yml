@@ -87,6 +87,8 @@
       href: ./samples/azure-security-benchmark.md
     - name: Azure Security Benchmark v1
       href: ./samples/azure-security-benchmarkv1.md
+    - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
+      href: ./samples/cis-azure-1-3-0.md
     - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
       href: ./samples/cis-azure-1-1-0.md
     - name: CMMC Level 3
@@ -138,9 +140,9 @@
     - name: Azure Policy for Kubernetes
       displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
       href: ./concepts/policy-for-kubernetes.md
-    - name: Secure pods with Azure Policy
+    - name: Secure AKS with Azure Policy
       displayName: aks, psp, rego, opa
-      href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Audit VMs with Guest Configuration
     displayName: provider, tools, definition
     href: ./concepts/guest-configuration.md

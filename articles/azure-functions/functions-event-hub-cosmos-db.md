@@ -380,7 +380,7 @@ mvn archetype:generate --batch-mode ^
     -DarchetypeArtifactId=azure-functions-archetype ^
     -DappName=%FUNCTION_APP% ^
     -DresourceGroup=%RESOURCE_GROUP% ^
-    -DappRegion=%LOCATION% ^ 
+    -DappRegion=%LOCATION% ^
     -DgroupId=com.example ^
     -DartifactId=telemetry-functions
 ```

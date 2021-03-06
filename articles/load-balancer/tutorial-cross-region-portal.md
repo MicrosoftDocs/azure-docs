@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 02/24/2021
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 
@@ -44,22 +44,23 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 In this section, you'll create a cross-region load balancer and public IP address.
 
-1. On the top left-hand side of the screen, select **Create a resource > Networking > Load Balancer**, or search for **Load Balancer** in the search box.
-
-2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
+1. Select **Create a resource**. 
+2. In the search box, enter **Load balancer**. Select **Load balancer** in the search results.
+3. In the **Load balancer** page, select **Create**.
+4. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
     | Resource group         | Select **Create new** and enter **CreateCRLBTutorial-rg** in the text box.|
     | Name                   | Enter **myLoadBalancer-CR**                                   |
-    | Region         | Select **West US**.                                        |
+    | Region         | Select **(US) West US**.                                        |
     | Type          | Select **Public**.                                        |
-    | SKU           | Select **Standard** |
+    | SKU           | Leave the default of **Standard**. |
     | Tier           | Select **Global** |
     | Public IP address | Select **Create new**.|
     | Public IP address name | Type **myPublicIP-CR** in the text box.|
-    | Routing preference| Select **Microsoft network** |
+    | Routing preference| Select **Microsoft network**. </br> For more information on routing preference, see [What is routing preference (preview)?](../virtual-network/routing-preference-overview.md). |
 
     > [!NOTE]
     > Cross region load-balancer can only be deployed in the following home regions: **East US 2, West US, West Europe, Southeast Asia, Central US, North Europe, East Asia**. For more information, see **https://aka.ms/homeregionforglb**.

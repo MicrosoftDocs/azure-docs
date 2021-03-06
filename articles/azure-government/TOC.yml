@@ -45,10 +45,12 @@
     items:
     - name: Export controls
       href: documentation-government-overview-itar.md
-    - name: Justice and Public Safety
+    - name: Justice and public safety
       href: documentation-government-overview-jps.md
     - name: Department of Defense
-      href: documentation-government-overview-dod.md        
+      href: documentation-government-overview-dod.md
+    - name: Worldwide public sector
+      href: documentation-government-overview-wwps.md
 - name: How-to guides
   items: 
   - name: Develop

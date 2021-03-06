@@ -24,7 +24,7 @@ Start deploying a DCsv2-Series VM via the Microsoft commercial marketplace by fo
 
 ### Current available sizes and regions
 
-To get a list of all generally available confidential compute VM sizes in available regions and availability zones, run the following command in the [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
+To get a list of all generally available confidential compute VM sizes in available regions and availability zones, run the following command in the [Azure CLI](/cli/azure/install-azure-cli-windows):
 
 ```azurecli-interactive
 az vm list-skus `
