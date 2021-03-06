@@ -73,5 +73,5 @@ This will result in the routing configuration shown in the following figure:
 
 ## Next steps
 
-* To configure using an ARM template, see [Quickstart: Route to shared services VNets using an ARM template].
+* To configure using an ARM template, see [Quickstart: Route to shared services VNets using an ARM template](quickstart-route-shared-services-vnet-template.md).
 * For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
