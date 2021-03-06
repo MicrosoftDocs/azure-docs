@@ -1,10 +1,10 @@
 ---
 title: Create an Azure Content Delivery Network (CDN) profile and endpoint 
-description: Azure CLI sample to create an Azure CDN profile, endpoint, origin group, and origin. 
+description: Azure CLI samples to create an Azure CDN profile, endpoint, origin group, origin, and custom domain.
 author: asudbring
 ms.author: allensu
 manager: danielgi
-ms.date: 03/03/2021
+ms.date: 03/05/2021
 ms.topic: sample
 ms.service: azure-cdn
 ms.devlang: azurecli 
@@ -13,13 +13,17 @@ ms.custom: devx-track-azurecli
 
 # Create an Azure CDN profile and endpoint
 
-Manage these Azure Content Delivery Network (CDN) operations with sample Azure CLI commands:
+To use Azure CDN to deliver content, you must create at least one CDN profile and one CDN endpoint. Every CDN endpoint represents a specific configuration of content delivery behavior and access. The endpoint must have an origin, which is a host name, to use to deliver content.
+
+Instead of using the Azure portal, you can manage the following essential Azure Content Delivery Network (CDN) operations with Azure CLI commands:
 
 - Create a resource group.
 - Create a CDN profile.
 - Create a CDN endpoint.
 - Create a CDN origin group.
 - Create a CDN origin.
+- Create a custom domain
+- Enable HTTPS on a custom domain.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -32,7 +36,7 @@ The following Azure CLI script creates a resource group, CDN profile, and CDN en
 az group create --name MyResourceGroup --location eastus
 
 # Create a CDN profile
-az cdn profile create --resource-group MyResourceGroup --name MyCDNProfile --sku Standard_Microsoft
+az cdn profile create --resource-group MyResourceGroup --name MyCDNProfile --sku Standard_Verizon
 
 # Create a CDN endpoint
 az cdn endpoint create --resource-group MyResourceGroup --name MyCDNEndpoint --profile-name MyCDNProfile --origin www.contoso.com
@@ -49,6 +53,14 @@ az cdn endpoint update --resource-group MyResourceGroup --name MyCDNEndpoint --p
                            
 # Create another origin for an endpoint
 az cdn origin create --resource-group MyResourceGroup --endpoint-name MyCDNEndpoint --profile-name MyCDNProfile --name origin-1 --host-name example.contoso.com
+```
+
+The following Azure CLI script creates a CDN custom domain and then enables HTTPS on it. Before you can use a custom domain with an Azure CDN endpoint, you must first create a canonical name (CNAME) record with Azure DNS or your DNS provider to point to your CDN endpoint. For more information, see [Create a CNAME DNS record](../../../cdn/cdn-map-content-to-custom-domain.md#create-a-cname-dns-record).
+
+```azurecli
+az cdn custom-domain create --resource-group MyResourceGroup --endpoint-name MyCDNEndpoint --profile-name MyCDNProfile --name MyCustomDomainName --hostname www.example.com
+
+az cdn custom-domain enable-https --resource-group MyResourceGroupCDN --endpoint-name MyCDNEndpoint --profile-name MyCDNProfile  --name custom-domain
 ```
 
 ## Clean up resources
