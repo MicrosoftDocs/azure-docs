@@ -18,7 +18,7 @@ This article covers the "offline migration" route using DataBox. As an alternati
 
 ## Migration goals
 
-The goal is to move the shares that you have on your NAS appliance to a Windows Server. Then utilize Azure File Sync for a hybrid cloud deployment. This migration needs to be done in a way that guarantees the integrity of the production data as well as availability during the migration. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
+The goal is to move the shares that you have on your NAS appliance to a Windows Server. Then utilize Azure File Sync for a hybrid cloud deployment. This migration needs to be done in a way that guarantees the integrity of the production data and availability during the migration. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
 
 ## Migration overview
 
@@ -47,9 +47,9 @@ In this phase, consult the mapping table from Phase 1 and use it to provision th
 
 ## Phase 3: Determine how many Azure DataBox appliances you need
 
-Start this step only, when you have completed the previous phase. Your Azure storage resources (storage accounts and file shares) should be created at this time. During your DataBox order you need to specify into which storage accounts the DataBox is moving data into.
+Start this step only, when you have completed the previous phase. Your Azure storage resources (storage accounts and file shares) should be created at this time. During your DataBox order, you need to specify into which storage accounts the DataBox is moving data.
 
-In this phase you need to map the results of the migration plan from the previous phase to the limits of the available DataBox options. That will help you make a plan for which DataBox options you should choose and how many of them you will need to move your NAS shares to Azure file shares.
+In this phase, you need to map the results of the migration plan from the previous phase to the limits of the available DataBox options. These considerations will help you make a plan for which DataBox options you should choose and how many of them you will need to move your NAS shares to Azure file shares.
 
 To determine how many devices of which type you need, consider these important limits:
 
@@ -60,14 +60,14 @@ Consult your migration plan for the number of storage accounts you have decided 
 
 ### DataBox options
 
-For a standard migration, one or a combination of the these three DataBox options should be chosen: 
+For a standard migration, one or a combination of these three DataBox options should be chosen: 
 
 * DataBox Disks
-  In this smallest of the three options, Azure will send you 1 and up to 8 SSD disks with a capacity of 8TiB each, for a maximum total of 40TiB. You need to allow for file system and encryption overhead. That reduces the usable capacity by about 20%. Refer to the [DataBox Disks documentation](../../databox/data-box-disk-overview.md) to learn more.
+  In this smallest of the three options, Azure will send you one and up to five SSD disks with a capacity of eight TiB each, for a maximum total of 40 TiB. You need to allow for file system and encryption overhead. That reduces the usable capacity by about 20%. Refer to the [DataBox Disks documentation](../../databox/data-box-disk-overview.md) to learn more.
 * DataBox
-  This is the most common option. A ruggedized DataBox appliance, that works similar to a NAS, will be shipped to you. It has 100TiB disk capacity and after file system and encryption overhead, that results in 80TiB of usable capacity. Refer to the [DataBox documentation](../../databox/data-box-overview.md) to learn more.
+  This is the most common option. A ruggedized DataBox appliance, that works similar to a NAS, will be shipped to you. It has 100 TiB disk capacity and after file system and encryption overhead, that results in 80 TiB of usable capacity. Refer to the [DataBox documentation](../../databox/data-box-overview.md) to learn more.
 * DataBox Heavy
-  This option features a ruggedized DataBox appliance on wheels, that works similar to a NAS, with a capacity of 1PiB. You need to allow for file system and encryption overhead. That reduces the usable capacity by about 20%. Refer to the [DataBox Heavy documentation](../../databox/data-box-heavy-overview.md) for more information.
+  This option features a ruggedized DataBox appliance on wheels, that works similar to a NAS, with a capacity of 1 PiB. You need to allow for file system and encryption overhead. That reduces the usable capacity by about 20%. Refer to the [DataBox Heavy documentation](../../databox/data-box-heavy-overview.md) for more information.
 
 ## Phase 4: Provision a suitable Windows Server on-premises
 
@@ -76,7 +76,7 @@ While you wait for your Azure DataBox(es) to arrive, you can already start revie
 * Create a Windows Server 2019 - at a minimum 2012R2 - as a virtual machine or physical server. A Windows Server fail-over cluster is also supported.
 * Provision or add Direct Attached Storage (DAS as compared to NAS, which is not supported).
 
-The resource configuration (compute and RAM) of the Windows Server you deploy depends mostly on the number of items (files and folders) you will be syncing. We recommend going with a higher performance configuration if you have any concerns or are on the higher side of a .
+The resource configuration (compute and RAM) of the Windows Server you deploy depends mostly on the number of items (files and folders) you will be syncing. A higher performance configuration is recommended if you have any concerns.
 
 [Learn how to size a Windows Server based on the number of items (files and folders) you need to sync.](storage-sync-files-planning.md#recommended-system-resources)
 
@@ -85,7 +85,7 @@ The resource configuration (compute and RAM) of the Windows Server you deploy de
 
 ## Phase 5: Copy files onto your DataBox
 
-When your DataBox arrives, you need to setup your DataBox in the line of sight to your NAS appliance. Follow the setup documentation for the DataBox type you ordered.
+When your DataBox arrives, you need to set up your DataBox in the line of sight to your NAS appliance. Follow the setup documentation for the DataBox type you ordered.
 
 * [Set up Data Box](../../databox/data-box-quickstart-portal.md)
 * [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md)
@@ -170,7 +170,7 @@ The following RoboCopy command will copy only the differences (updated files and
 [!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 If you provisioned less storage on your Windows Server than your files take up on the NAS appliance, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](storage-sync-cloud-tiering-overview.md) will kick in and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the NAS appliance. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
-It is possible, that RoboCopy moves needs to move a lot of files, more than you have local storage on the WIndows Server provisioned. On average you can expect RoboCopy to move a lot faster than Azure File Sync can upload your files over and tier them off your local volume. RoboCopy will fail. It is recommended that you work through the shares in a sequence that prevents that. For example, not starting RoboCopy jobs for all shares at the same time, or only moving shares that fit on the current amount of free space on the Windows Server, to mention a few. The good news is that the /MIR switch will only move deltas and once a delta has been moved, a restarted job will not need to move this file again.
+It is possible, that RoboCopy moves needs to move a lot of files, more than you have local storage on the Windows Server provisioned. On average you can expect RoboCopy to move a lot faster than Azure File Sync can upload your files over and tier them off your local volume. RoboCopy will fail. It is recommended that you work through the shares in a sequence that prevents that. For example, not starting RoboCopy jobs for all shares at the same time, or only moving shares that fit on the current amount of free space on the Windows Server, to mention a few. The good news is that the /MIR switch will only move deltas and once a delta has been moved, a restarted job will not need to move this file again.
 
 ### User cut-over
 
