@@ -13,9 +13,9 @@ ms.custom: devx-track-azurecli
 
 # Create an Azure CDN profile and endpoint
 
-To use Azure CDN to deliver content, you must create at least one CDN profile and one CDN endpoint. Every CDN endpoint represents a specific configuration of content delivery behavior and access. The endpoint must have an origin, which is a host name, to use to deliver content.
+To use Azure Content Delivery Network (CDN) to deliver content, you must create at least one CDN profile and one CDN endpoint. An endpoint represents a specific configuration of content delivery behavior and access. To deliver content, an endpoint must have an origin, specified as a host name.
 
-Instead of using the Azure portal, you can manage the following essential Azure Content Delivery Network (CDN) operations with Azure CLI commands:
+Instead of using the Azure portal, you can manage the following CDN operations with Azure CLI commands:
 
 - Create a resource group.
 - Create a CDN profile.
@@ -55,11 +55,13 @@ az cdn endpoint update --resource-group MyResourceGroup --name MyCDNEndpoint --p
 az cdn origin create --resource-group MyResourceGroup --endpoint-name MyCDNEndpoint --profile-name MyCDNProfile --name origin-1 --host-name example.contoso.com
 ```
 
-The following Azure CLI script creates a CDN custom domain and then enables HTTPS on it. Before you can use a custom domain with an Azure CDN endpoint, you must first create a canonical name (CNAME) record with Azure DNS or your DNS provider to point to your CDN endpoint. For more information, see [Create a CNAME DNS record](../../../cdn/cdn-map-content-to-custom-domain.md#create-a-cname-dns-record).
+The following Azure CLI script creates a CDN custom domain, and then enables HTTPS on it. Before you can associate a custom domain with an Azure CDN endpoint, you must first create a canonical name (CNAME) record with Azure DNS or your DNS provider to point to your CDN endpoint. For more information, see [Create a CNAME DNS record](../../../cdn/cdn-map-content-to-custom-domain.md#create-a-cname-dns-record).
 
 ```azurecli
+# Associate a custom domain with an endpoint.
 az cdn custom-domain create --resource-group MyResourceGroup --endpoint-name MyCDNEndpoint --profile-name MyCDNProfile --name MyCustomDomainName --hostname www.example.com
 
+# Enable HTTPS on the custom domain.
 az cdn custom-domain enable-https --resource-group MyResourceGroupCDN --endpoint-name MyCDNEndpoint --profile-name MyCDNProfile  --name custom-domain
 ```
 
@@ -79,3 +81,5 @@ az group delete --name MyResourceGroup
 - [az cdn origin-group create](https://docs.microsoft.com/cli/azure/cdn/origin-group#az_cdn_origin_group_create)
 - [az cdn profile create](https://docs.microsoft.com/cli/azure/cdn/profile#az_cdn_profile_create)
 - [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create)
+- [az cdn custom-domain create](https://docs.microsoft.com/cli/azure/cdn/custom-domain#az_cdn_custom_domain_create)
+- [az cdn custom-domain enable-https](https://docs.microsoft.com/cli/azure/cdn/custom-domain#az_cdn_custom_domain_enable_https)
