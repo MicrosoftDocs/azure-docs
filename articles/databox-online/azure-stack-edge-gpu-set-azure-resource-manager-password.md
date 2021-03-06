@@ -14,7 +14,7 @@ ms.author: alkohli
 
 # Set Azure Resource Manager password on Azure Stack Edge Pro GPU device
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to set your Azure Resource Manager password. You need to set this password when you are connecting to the device local APIs via the Azure Resource Manager.
 

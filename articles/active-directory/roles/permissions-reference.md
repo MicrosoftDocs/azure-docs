@@ -122,10 +122,10 @@ To learn how to assign administrative roles to a user in Azure Active Directory,
 
 Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. Note that users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 
-This role also grants the ability to _consent_ to delegated permissions and application permissions, with the exception of application permissions on the Microsoft Graph API.
+This role also grants the ability to consent for delegated permissions and application permissions, with the exception of application permissions for both Microsoft Graph and Azure AD Graph.
 
 > [!IMPORTANT]
-> This exception means that you can still consent to permissions for _other_ apps (for example, non-Microsoft apps or apps that you have registered), but not to permissions on Azure AD itself. You can still _request_ these permissions as part of the app registration, but _granting_ (that is, consenting to) these permissions requires an Azure AD admin. This means that a malicious user cannot easily elevate their permissions, for example by creating and consenting to an app that can write to the entire directory and through that app's permissions elevate themselves to become a Global Administrator.
+> This exception means that you can still consent to application permissions for _other_ apps (for example, non-Microsoft apps or apps that you have registered). You can still _request_ these permissions as part of the app registration, but _granting_ (that is, consenting to) these permissions requires a more privileged administrator, such as Global Administrator.
 >
 >This role grants the ability to manage application credentials. Users assigned this role can add credentials to an application, and use those credentials to impersonate the application’s identity. If the application’s identity has been granted access to a resource, such as the ability to create or update User or other objects, then a user assigned to this role could perform those actions while impersonating the application. This ability to impersonate the application’s identity may be an elevation of privilege over what the user can do via their role assignments. It is important to understand that assigning a user to the Application Administrator role gives them the ability to impersonate an application’s identity.
 
@@ -175,7 +175,7 @@ This role also grants the ability to _consent_ to delegated permissions and appl
 > | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning syncronization jobs |
 > | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema |
 > | microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Read password single sign-on credentials on service principals |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Grant consent to delegated permissions on behalf of any user or all users |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Grant consent for application permissions and delegated permissions on behalf of any user or all users, except for application permissions for Microsoft Graph and Azure AD Graph |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 > | microsoft.directory/servicePrincipals/audience/update | Update audience properties on service principals |
 > | microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals |
@@ -367,10 +367,14 @@ Makes purchases, manages subscriptions, manages support tickets, and monitors se
 
 ## Cloud Application Administrator
 
-Users in this role have the same permissions as the Application Administrator role, excluding the ability to manage application proxy. This role grants the ability to create and manage all aspects of enterprise applications and application registrations. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph and Azure AD Graph. Users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
+Users in this role have the same permissions as the Application Administrator role, excluding the ability to manage application proxy. This role grants the ability to create and manage all aspects of enterprise applications and application registrations. Users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
+
+This role also grants the ability to consent for delegated permissions and application permissions, with the exception of application permissions for both Microsoft Graph and Azure AD Graph.
 
 > [!IMPORTANT]
-> This role grants the ability to manage application credentials. Users assigned this role can add credentials to an application, and use those credentials to impersonate the application’s identity. If the application’s identity has been granted access to a resource, such as the ability to create or update User or other objects, then a user assigned to this role could perform those actions while impersonating the application. This ability to impersonate the application’s identity may be an elevation of privilege over what the user can do via their role assignments. It is important to understand that assigning a user to the Cloud Application Administrator role gives them the ability to impersonate an application’s identity.
+> This exception means that you can still consent to application permissions for _other_ apps (for example, non-Microsoft apps or apps that you have registered). You can still _request_ these permissions as part of the app registration, but _granting_ (that is, consenting to) these permissions requires a more privileged administrator, such as Global Administrator.
+>
+>This role grants the ability to manage application credentials. Users assigned this role can add credentials to an application, and use those credentials to impersonate the application’s identity. If the application’s identity has been granted access to a resource, such as the ability to create or update User or other objects, then a user assigned to this role could perform those actions while impersonating the application. This ability to impersonate the application’s identity may be an elevation of privilege over what the user can do via their role assignments. It is important to understand that assigning a user to the Application Administrator role gives them the ability to impersonate an application’s identity.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -407,7 +411,7 @@ Users in this role have the same permissions as the Application Administrator ro
 > | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning syncronization jobs |
 > | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema |
 > | microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Read password single sign-on credentials on service principals |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Grant consent to delegated permissions on behalf of any user or all users |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Grant consent for application permissions and delegated permissions on behalf of any user or all users, except for application permissions for Microsoft Graph and Azure AD Graph  |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 > | microsoft.directory/servicePrincipals/audience/update | Update audience properties on service principals |
 > | microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals |
@@ -678,7 +682,7 @@ Users in this role can read and update basic information of users, groups, and s
 > | microsoft.directory/servicePrincipals/synchronizationCredentials/manage | Manage application provisioning secrets and credentials |
 > | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning syncronization jobs |
 > | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant consent to delegated permissions on behalf of a group |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant a service pricipal direct access to a group's data |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 > | microsoft.directory/users/assignLicense | Manage user licenses |
 > | microsoft.directory/users/create | Add users |
@@ -828,8 +832,8 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/serviceAction/enableDirectoryFeature | Can perform the "enable directory feature" service action |
 > | microsoft.directory/serviceAction/getAvailableExtentionProperties | Can perform the Getavailableextentionproperties service action |
 > | microsoft.directory/servicePrincipals/allProperties/allTasks | Create and delete service principals, and read and update all properties |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-company-admin | Grant consent to delegated permissions on behalf of any user or all users |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant consent to delegated permissions on behalf of a group |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-company-admin | Grant consent for any permission to any application |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant a service pricipal direct access to a group's data  |
 > | microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with your service principal |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
 > | microsoft.directory/subscribedSkus/allProperties/allTasks | Buy and manage subscriptions and delete subscriptions |
@@ -939,7 +943,7 @@ Users in this role can create/manage groups and its settings like naming and exp
 > | microsoft.directory/groups/owners/update | Update owners of groups, excluding role-assignable groups |
 > | microsoft.directory/groups/settings/update | Update settings of groups |
 > | microsoft.directory/groups/visibility/update | Update the visibility property of groups |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant consent to delegated permissions on behalf of a group |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant a service pricipal direct access to a group's data  |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
@@ -1431,7 +1435,7 @@ Users with this role can manage role assignments in Azure Active Directory, as w
 > | microsoft.directory/scopedRoleMemberships/allProperties/allTasks | Create and delete scopedRoleMemberships, and read and update all properties |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 > | microsoft.directory/servicePrincipals/permissions/update | Update permissions of service principals |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-company-admin | Grant consent to delegated permissions on behalf of any user or all users |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-company-admin | Grant consent for any permission to any application |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
 ## Reports Reader
@@ -1675,7 +1679,7 @@ Users in this role can manage all aspects of the Microsoft Teams workload via th
 > | microsoft.directory/groups.unified/basic/update | Update basic properties on Microsoft 365 groups with the exclusion of role-assignable groups |
 > | microsoft.directory/groups.unified/members/update | Update members of Microsoft 365 groups with the exclusion of role-assignable groups |
 > | microsoft.directory/groups.unified/owners/update | Update owners of Microsoft 365 groups with the exclusion of role-assignable groups |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant consent to delegated permissions on behalf of a group |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant a service pricipal direct access to a group's data  |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.office365.network/performance/allProperties/read | Read all network performance properties in the Microsoft 365 admin center |

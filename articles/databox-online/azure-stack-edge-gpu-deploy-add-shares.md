@@ -13,7 +13,7 @@ Customer intent: As an IT admin, I need to understand how to add and connect to 
 ---
 # Tutorial: Transfer data via shares with Azure Stack Edge Pro GPU
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This tutorial describes how to add and connect to shares on your Azure Stack Edge Pro device. After you've added the shares, Azure Stack Edge Pro can transfer data to Azure.
 
