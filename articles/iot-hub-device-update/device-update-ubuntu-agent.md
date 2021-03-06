@@ -34,7 +34,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
 * A Device Update instance and account linked to your IoT Hub.
   * Follow the guide to [create and link a device update account](create-device-update-account.md) if you have not done so previously.
-* The [connection string for an IoT Edge device](../iot-edge/how-to-register-device?view=iotedge-2020-11#view-registered-devices-and-retrieve-connection-strings).
+* The [connection string for an IoT Edge device](../iot-edge/how-to-register-device.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-connection-strings).
 
 ## Prepare a device
 ### Using the Automated Deploy to Azure Button
@@ -88,7 +88,7 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
 ### (Optional) Manually prepare a device
 The following manual steps to install and configure the device are equivalent to those that were automated by this [cloud-init script](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt). They can be used to prepare a physical device.
 
-1. Follow the instructions to [Install the Azure IoT Edge runtime](../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11).
+1. Follow the instructions to [Install the Azure IoT Edge runtime](../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11&preserve-view=true).
    > [!NOTE]
    > The Device Update package agent doesn't depend on IoT Edge. But, it does rely on the IoT Identity Service daemon that is installed with IoT Edge (1.2.0 and higher) to obtain an identity and connect to IoT Hub.
    >
