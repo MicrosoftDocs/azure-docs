@@ -47,7 +47,7 @@ You can secure your storage account to only accept connections from your VNet, b
 
 ### Private endpoints for Azure Storage
 
-When creating the private endpoint, you must specify the storage account and the storage service to which it connects. You need a separate private endpoint for each storage service in a storage account that you need to access, namely [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md), or [Static Websites](../blobs/storage-blob-static-website.md).
+When creating the private endpoint, you must specify the storage account and the storage service to which it connects. You need a separate private endpoint for each storage service in a storage account that you need to access, namely [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md), or [Static Websites](../blobs/storage-blob-static-website.md). These storage services are defined on the private endpoint as the **target sub-resource** of the associated storage account.
 
 > [!TIP]
 > Create a separate private endpoint for the secondary instance of the storage service for better read performance on RA-GRS accounts.
@@ -101,16 +101,16 @@ If you are using a custom DNS server on your network, clients must be able to re
 > [!TIP]
 > When using a custom or on-premises DNS server, you should configure your DNS server to resolve the storage account name in the 'privatelink' subdomain to the private endpoint IP address. You can do this by delegating the 'privatelink' subdomain to the private DNS zone of the VNet, or configuring the DNS zone on your DNS server and adding the DNS A records.
 
-The recommended DNS zone names for private endpoints for storage services are:
+The recommended DNS zone names for private endpoints for storage services, and the associated endpoint target sub-resources, are:
 
-| Storage service        | Zone name                            |
-| :--------------------- | :----------------------------------- |
-| Blob service           | `privatelink.blob.core.windows.net`  |
-| Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
-| File service           | `privatelink.file.core.windows.net`  |
-| Queue service          | `privatelink.queue.core.windows.net` |
-| Table service          | `privatelink.table.core.windows.net` |
-| Static Websites        | `privatelink.web.core.windows.net`   |
+| Storage service        | Target sub-resource | Zone name                            |
+| :--------------------- | :------------------ | :----------------------------------- |
+| Blob service           | blob                | `privatelink.blob.core.windows.net`  |
+| Data Lake Storage Gen2 | dfs                 | `privatelink.dfs.core.windows.net`   |
+| File service           | file                | `privatelink.file.core.windows.net`  |
+| Queue service          | queue               | `privatelink.queue.core.windows.net` |
+| Table service          | table               | `privatelink.table.core.windows.net` |
+| Static Websites        | web                 | `privatelink.web.core.windows.net`   |
 
 For more information on configuring your own DNS server to support private endpoints, refer to the following articles:
 
