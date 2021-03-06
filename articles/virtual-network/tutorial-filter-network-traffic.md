@@ -298,7 +298,7 @@ Add the network interface for each VM to one of the application security groups 
 
 8. After the IIS installation is complete, disconnect from the **myVMWeb** virtual machine, which leaves you in the **myVMMgmt** virtual machine remote desktop connection.
 
-9. Disconnect from the **myVmMgmt** VM.
+9. Disconnect from the **myVMMgmt** VM.
 
 10. In the **Search resources, services, and docs** box at the top of the Azure portal, begin typing **myVMWeb** from your computer. When **myVMWeb** appears in the search results, select it. Note the **Public IP address** for your VM. The address shown in the following example is 23.96.39.113, but your address is different:
 
