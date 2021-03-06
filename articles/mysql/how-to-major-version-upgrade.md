@@ -53,7 +53,7 @@ Follow these steps to perform major version upgrade for your Azure Database of M
  
    This upgrade requires version 2.16.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. Run az version to find the version and dependent libraries that are installed. To upgrade to the latest version, run az upgrade.
 
-2. After you sign in, run the [az mysql server upgrade](https://docs.microsoft.com/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_upgrade&preserve-view=true) command:
+2. After you sign in, run the [az mysql server upgrade](/cli/azure/mysql/server#az_mysql_server_upgrade) command:
 
    ```azurecli
    az mysql server upgrade --name testsvr --resource-group testgroup --subscription MySubscription --target-server-version 5.7"
@@ -83,7 +83,7 @@ You can perform minimal downtime major version upgrade from MySQL 5.6 to MySQL 5
 
 1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL 5.6.
 
-2. Create a [read replica](https://docs.microsoft.com/azure/mysql/concepts-read-replicas#create-a-replica) from your primary server.
+2. Create a [read replica](./concepts-read-replicas.md#create-a-replica) from your primary server.
 
 3. [Upgrade your read replica](#perform-major-version-upgrade-from-mysql-56-to-mysql-57-on-read-replica-using-azure-portal) to version 5.7.
 
@@ -99,7 +99,7 @@ You can perform minimal downtime major version upgrade from MySQL 5.6 to MySQL 5
 
    If the state of `Slave_IO_Running` and `Slave_SQL_Running` are "yes" and the value of `Seconds_Behind_Master` is "0", replication is working well. `Seconds_Behind_Master` indicates how late the replica is. If the value isn't "0", it means that the replica is processing updates. Once you confirm `Seconds_Behind_Master` is "0" it's safe to stop replication.
 
-6. Promote your read replica to primary by [stopping replication](https://docs.microsoft.com/azure/mysql/howto-read-replicas-portal#stop-replication-to-a-replica-server).
+6. Promote your read replica to primary by [stopping replication](./howto-read-replicas-portal.md#stop-replication-to-a-replica-server).
 
 7. Point your application to the new primary (former replica) which is running server 5.7. Each server has a unique connection string. Update your application to point to the (former) replica instead of the source.
 

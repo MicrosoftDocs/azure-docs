@@ -17,12 +17,21 @@ ExpressRoute Direct gives you the ability to directly connect to Microsoft's glo
 
 ## Before you begin
 
-Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, send an Email to <ExpressRouteDirect@microsoft.com> with your subscription ID, including the following details:
+Before using ExpressRoute Direct, you must first enroll your subscription. Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, please do the following via Azure PowerShell:
+1.  Sign in to Azure and select the subscription you wish to enroll.
 
-* Scenarios you're looking to accomplish with **ExpressRoute Direct**
-* Location preferences - see [Partners and peering locations](expressroute-locations-providers.md) for a complete list of all locations
-* Timeline for implementation
-* Any other questions
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Register your subscription for Public Preview using the following command:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+Once enrolled, verify that the **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
 
 ## <a name="resources"></a>Create the resource
 

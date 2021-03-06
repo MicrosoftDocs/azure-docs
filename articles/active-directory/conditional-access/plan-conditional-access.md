@@ -69,6 +69,7 @@ The following resources may be useful as you learn about Conditional Access:
 * [What is Conditional Access?](https://youtu.be/ffMAw2IVO7A)
 * [How to deploy Conditional Access?](https://youtu.be/c_izIRNJNuk)
 * [How to roll out Conditional Access policies to end users?](https://youtu.be/0_Fze7Zpyvc)
+* [How to include or exclude users from Conditional Access policies](https://youtu.be/5DsW1hB3Jqs)
 * [Conditional Access with device controls](https://youtu.be/NcONUf-jeS4)
 * [Conditional Access with Azure AD MFA](https://youtu.be/Tbc-SU97G-w)
 * [Conditional Access in Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)

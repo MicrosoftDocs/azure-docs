@@ -1,7 +1,6 @@
 ---
-title: Resource Manager template samples for Azure Monitor for VMs
-description: Sample Azure Resource Manager templates to deploy and configureAzure Monitor for VMs.
-ms.subservice: logs
+title: Resource Manager template samples for VM insights
+description: Sample Azure Resource Manager templates to deploy and configureVM insights.
 ms.topic: sample
 author: bwren
 ms.author: bwren
@@ -9,14 +8,14 @@ ms.date: 05/18/2020
 
 ---
 
-# Resource Manager template samples for Azure Monitor for VMs
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to enable Azure Monitor for VMs on virtual machines. Each sample includes a template file and a parameters file with sample values to provide to the template.
+# Resource Manager template samples for VM insights
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to enable VM insights on virtual machines. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## Configure workspace
-The following sample enables Azure Monitor for VMs for a Log Analytics workspace.
+The following sample enables VM insights for a Log Analytics workspace.
 
 
 ### Template file
@@ -94,7 +93,7 @@ The following sample enables Azure Monitor for VMs for a Log Analytics workspace
 
 
 ## Onboard an Azure virtual machine
-The following sample adds an Azure virtual machine to Azure Monitor for VMs.
+The following sample adds an Azure virtual machine to VM insights.
 
 
 ### Template file
@@ -215,7 +214,7 @@ The following sample adds an Azure virtual machine to Azure Monitor for VMs.
 
 
 ## Onboard an Azure virtual machine scale set
-The following sample adds an Azure virtual machine scale set to Azure Monitor for VMs.
+The following sample adds an Azure virtual machine scale set to VM insights.
 
 
 ### Template file
@@ -336,5 +335,5 @@ The following sample adds an Azure virtual machine scale set to Azure Monitor fo
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](../samples/resource-manager-samples.md).
-* [Learn more about Azure Monitor for VMs](../vm/vminsights-overview.md).
+* [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
+* [Learn more about VM insights](vminsights-overview.md).

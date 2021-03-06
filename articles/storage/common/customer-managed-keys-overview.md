@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 09/15/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -21,7 +21,10 @@ You must use either Azure Key Vault or Azure Key Vault Managed Hardware Security
 
 For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 
-> [!NOTE]
+> [!IMPORTANT]
+>
+> Encryption with customer-managed keys stored in Azure Key Vault Managed HSM is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 > Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration.
 
 ## About customer-managed keys

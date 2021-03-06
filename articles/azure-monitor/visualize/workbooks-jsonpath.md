@@ -18,7 +18,7 @@ Workbooks is able to query data from many sources. Some endpoints, such as [Azur
 
 JSONPath is a query language for JSON that is similar to XPath for XML. Like XPath, JSONPath allows for the extraction and filtration of data out of JSON structure.
 
-By using JSONPath transformation, workbook authors are able to convert JSON into a table structure. The table can then be used to plot [workbook visualizations](../platform/workbooks-overview.md#visualizations).
+By using JSONPath transformation, workbook authors are able to convert JSON into a table structure. The table can then be used to plot [workbook visualizations](./workbooks-overview.md#visualizations).
 
 ## Using JSONPath
 
@@ -80,5 +80,5 @@ Let's assume we are given the above JSON object as a representation of a store's
 ![ Editing query item with JSON data source and JSON Path result format](./media/workbooks-jsonpath/query-jsonpath.png)
 
 ## Next steps
-- [Workbooks Overview](../platform/workbooks-overview.md)
+- [Workbooks Overview](./workbooks-overview.md)
 - [Groups in Azure Monitor Workbooks](workbooks-groups.md)

@@ -6,7 +6,7 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli"
@@ -476,21 +476,10 @@ Log entries are created only if there are requests made against the service endp
 
 - Successful requests
 - Failed requests, including timeout, throttling, network, authorization, and other errors
-- Requests that use a shared access signature (SAS) or OAuth, including failed and successful requests
-- Requests to analytics data (classic log data in the **$logs** container and class metric data in the **$metric** tables)
+- Requests that use Kerberos, NTLM or shared access signature (SAS), including failed and successful requests
+- Requests to analytics data (classic log data in the **$logs** container and classic metric data in the **$metric** tables)
 
 Requests made by the Azure Files service itself, such as log creation or deletion, aren't logged. For a full list of the SMB and REST requests that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
-
-### Log anonymous requests
-
- The following types of anonymous requests are logged:
-
-- Successful requests
-- Server errors
-- Time out errors for both client and server
-- Failed GET requests with the error code 304 (Not Modified)
-
-All other failed anonymous requests aren't logged. For a full list of the SMB and REST requests that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
 ### Accessing logs in a storage account
 
@@ -626,13 +615,12 @@ The following table lists some example scenarios to monitor and the proper metri
    > [!NOTE]
    > If the response types are not listed in the **Dimension values** drop-down, this means the resource has not been throttled. To add the dimension values, next to the **Dimension values** drop-down list, select **Add custom value**, enter the respone type (for example, **SuccessWithThrottling**), select **OK**, and then repeat these steps to add all applicable response types for your file share.
 
-8. Click the **Dimension name** drop-down and select **File Share**.
-9. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
-
+8. For **premium file shares**, click the **Dimension name** drop-down and select **File Share**. For **standard file shares**, skip to **step #10**.
 
    > [!NOTE]
-   > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down will not list the file share(s) because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
+   > If the file share is a standard file share, the **File Share** dimension will not list the file share(s) because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
 
+9. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 10. Define the **alert parameters** (threshold value, operator, aggregation granularity and frequency of evaluation) and click **Done**.
 
     > [!TIP]
@@ -649,12 +637,12 @@ The following table lists some example scenarios to monitor and the proper metri
 3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is `contoso`, select the `contoso/file` resource.
 4. Click **Add condition** to add a condition.
 5. You will see a list of signals supported for the storage account, select the **File Capacity** metric.
-6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **File Share**.
-7. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+6. For **premium file shares**, click the **Dimension name** drop-down and select **File Share**. For **standard file shares**, skip to **step #8**.
 
    > [!NOTE]
-   > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down will not list the file share(s) because per-share metrics are not available for standard file shares. Alerts for standard file shares are based on all file shares in the storage account. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
+   > If the file share is a standard file share, the **File Share** dimension will not list the file share(s) because per-share metrics are not available for standard file shares. Alerts for standard file shares are based on all file shares in the storage account. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
 
+7. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 8. Enter the **Threshold value** in bytes. For example, if the file share size is 100 TiB and you want to receive an alert when the file share size is 80% of capacity, the threshold value in bytes is 87960930222080.
 9. Define the rest of the **alert parameters** (aggregation granularity and frequency of evaluation) and click **Done**.
 10. Click **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
@@ -668,12 +656,12 @@ The following table lists some example scenarios to monitor and the proper metri
 3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is contoso, select the contoso/file resource.
 4. Click **Add condition** to add a condition.
 5. You will see a list of signals supported for the storage account, select the **Egress** metric.
-6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **File Share**.
-7. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+6. For **premium file shares**, click the **Dimension name** drop-down and select **File Share**. For **standard file shares**, skip to **step #8**.
 
    > [!NOTE]
-   > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down will not list the file share(s) because per-share metrics are not available for standard file shares. Alerts for standard file shares are based on all file shares in the storage account. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
+   > If the file share is a standard file share, the **File Share** dimension will not list the file share(s) because per-share metrics are not available for standard file shares. Alerts for standard file shares are based on all file shares in the storage account. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
 
+7. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 8. Enter **536870912000** bytes for Threshold value. 
 9. Click the **Aggregation granularity** drop-down and select **24 hours**.
 10. Select the **Frequency of evaluation** and **click Done**.
