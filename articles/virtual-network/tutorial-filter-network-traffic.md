@@ -265,49 +265,65 @@ Add the network interface for each VM to one of the application security groups 
 
 ## Test traffic filters
 
-1. Connect to the *myVmMgmt* VM. Enter *myVmMgmt* in the search box at the top of the portal. When **myVmMgmt** appears in the search results, select it. Select the **Connect** button.
+1. Connect to the **myVMMgmt** VM. Enter **myVMMgmt** in the search box at the top of the portal. When **myVMMgmt** appears in the search results, select it. Select the **Connect** button.
+
 2. Select **Download RDP file**.
+
 3. Open the downloaded rdp file and select **Connect**. Enter the user name and password you specified when creating the VM. You may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM.
+
 4. Select **OK**.
+
 5. You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection.
 
-    The connection succeeds, because port 3389 is allowed inbound from the internet to the *myAsgMgmtServers* application security group that the network interface attached to the *myVmMgmt* VM is in.
+    The connection succeeds, because port 3389 is allowed inbound from the internet to the **myAsgMgmtServers** application security group that the network interface attached to the **myVMMgmt** VM is in.
 
-6. Connect to the *myVmWeb* VM from the *myVmMgmt* VM by entering the following command in a PowerShell session:
+6. Connect to the **myVMWeb** virtual machine from the **myVMMgmt** virtual machine by entering the following command in a PowerShell session:
 
-    ``` 
+    ```powershell
     mstsc /v:myVmWeb
     ```
 
-    You are able to connect to the myVmWeb VM from the myVmMgmt VM because VMs in the same virtual network can communicate with each other over any port, by default. You can't however, create a remote desktop connection to the *myVmWeb* VM from the internet, because the security rule for the *myAsgWebServers* doesn't allow port 3389 inbound from the internet and inbound traffic from the Internet is denied to all resources, by default.
+    You are able to connect to the **myVMWeb** virtual machine from the **myVMMgmt** virtual machine because VMs in the same virtual network can communicate with each other over any port, by default. 
+    
+    You can't however, create a remote desktop connection to the **myVMWeb** virtual machine from the internet, because the security rule for the **myAsgWebServers** doesn't allow port 3389 inbound from the internet and inbound traffic from the Internet is denied to all resources, by default.
 
-7. To install Microsoft IIS on the *myVmWeb* VM, enter the following command from a PowerShell session on the *myVmWeb* VM:
+7. To install Microsoft IIS on the **myVMWeb** virtual machine, enter the following command from a PowerShell session on the **myVMWeb** virtual machine:
 
     ```powershell
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
     ```
 
-8. After the IIS installation is complete, disconnect from the *myVmWeb* VM, which leaves you in the *myVmMgmt* VM remote desktop connection.
-9. Disconnect from the *myVmMgmt* VM.
-10. In the *Search resources, services, and docs* box at the top of the Azure portal, begin typing *myVmWeb* from your computer. When **myVmWeb** appears in the search results, select it. Note the **Public IP address** for your VM. The address shown in the following picture is 137.135.84.74, but your address is different:
+8. After the IIS installation is complete, disconnect from the **myVMWeb** virtual machine, which leaves you in the **myVMMgmt** virtual machine remote desktop connection.
 
-    ![Public IP address](./media/tutorial-filter-network-traffic/public-ip-address.png)
-  
-11. To confirm that you can access the *myVmWeb* web server from the internet, open an internet browser on your computer and browse to `http://<public-ip-address-from-previous-step>`. You see the IIS welcome screen, because port 80 is allowed inbound from the internet to the *myAsgWebServers* application security group that the network interface attached to the *myVmWeb* VM is in.
+9. Disconnect from the **myVmMgmt** VM.
+
+10. In the **Search resources, services, and docs** box at the top of the Azure portal, begin typing **myVMWeb** from your computer. When **myVMWeb** appears in the search results, select it. Note the **Public IP address** for your VM. The address shown in the following example is 23.96.39.113, but your address is different:
+
+    :::image type="content" source="./media/tutorial-filter-network-traffic/public-ip-address.png" alt-text="Public IP address." border="true":::
+    
+11. To confirm that you can access the **myVMWeb** web server from the internet, open an internet browser on your computer and browse to `http://<public-ip-address-from-previous-step>`. You see the IIS welcome screen, because port 80 is allowed inbound from the internet to the **myAsgWebServers** application security group that the network interface attached to the **myVMWeb** virtual machine is in.
 
 ## Clean up resources
 
 When no longer needed, delete the resource group and all of the resources it contains:
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
+1. Enter **myResourceGroup** in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
 2. Select **Delete resource group**.
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
+3. Enter **myResourceGroup** for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
 
 ## Next steps
 
-In this tutorial, you created a network security group and associated it to a virtual network subnet. To learn more about network security groups, see [Network security group overview](./network-security-groups-overview.md) and [Manage a network security group](manage-network-security-group.md).
+In this tutorial, you:
 
-Azure routes traffic between subnets by default. You may instead, choose to route traffic between subnets through a VM, serving as a firewall, for example. To learn how to create a route table, advance to the next tutorial.
+* Created a network security group and associated it to a virtual network subnet. 
+* Created application security groups for web and management.
+* Created two virtual machines.
+* Tested the application security group network filtering.
 
+To learn more about network security groups, see [Network security group overview](./network-security-groups-overview.md) and [Manage a network security group](manage-network-security-group.md).
+
+Azure routes traffic between subnets by default. You may instead, choose to route traffic between subnets through a VM, serving as a firewall, for example. 
+
+To learn how to create a route table, advance to the next tutorial.
 > [!div class="nextstepaction"]
 > [Create a route table](./tutorial-create-route-table-portal.md)
