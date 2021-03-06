@@ -36,7 +36,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a virtual network
 
-1. Select **Create a resource**. 
+1. Select **Create a resource** in the upper left-hand corner of the portal.
 
 2. In the search box, enter **Virtual Network**. Select **Virtual Network** in the search results.
 
@@ -61,7 +61,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 An application security group enables you to group together servers with similar functions, such as web servers.
 
-1. Select **Create a resource**. 
+1. Select **Create a resource** in the upper left-hand corner of the portal.
 
 2. In the search box, enter **Application security group**. Select **Application security group** in the search results.
 
@@ -99,56 +99,96 @@ An application security group enables you to group together servers with similar
 
 ## Create a network security group
 
-1. On the Azure portal menu or from the **Home** page, select **Create a resource**. 
-2. Select **Networking**, and then select **Network security group**.
-3. Enter, or select, the following information, and then select **Create**:
+A network security group secures network traffic in your virtual network.
 
-    |Setting|Value|
-    |---|---|
-    |Name|myNsg|
-    |Subscription| Select your subscription.|
-    |Resource group | Select **Use existing** and then select *myResourceGroup*.|
-    |Location|East US|
+1. Select **Create a resource** in the upper left-hand corner of the portal.
+
+2. In the search box, enter **Network security group**. Select **Network security group** in the search results.
+
+3. In the **Network security group** page, select **Create**.
+
+4. In **Create network security group**, enter or select this information in the **Basics** tab:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **myResourceGroup**. |
+    | **Instance details** |   |
+    | Name | Enter **myNSG**. |
+    | Location | Select **(US) East US**. | 
+
+5. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+
+6. Select **Create**.
 
 ## Associate network security group to subnet
 
-1. In the *Search resources, services, and docs* box at the top of the portal, begin typing *myNsg*. When **myNsg** appears in the search results, select it.
-2. Under **SETTINGS**, select **Subnets** and then select **+ Associate**, as shown in the following picture:
+In this section, we will associate the network security group with the subnet of the virtual network we created earlier.
 
-    ![Associate NSG to subnet](./media/tutorial-filter-network-traffic/associate-nsg-subnet.png)
+1. In the **Search resources, services, and docs** box at the top of the portal, begin typing **myNsg**. When **myNsg** appears in the search results, select it.
 
-3. Under **Associate subnet**, select **Virtual network** and then select **myVirtualNetwork**. Select **Subnet**, select **mySubnet**, and then select **OK**.
+2. In the overview page of **myNSG**, select **Subnets** in **Settings**.
+
+3. In the **Settings** page, select **Associate**:
+
+    :::image type="content" source="./media/tutorial-filter-network-traffic/associate-nsg-subnet.png" alt-text="Associate NSG to subnet." border="true":::
+
+3. Under **Associate subnet**, select **Virtual network** and then select **myVNet**. 
+
+4. Select **Subnet**, select **default**, and then select **OK**.
 
 ## Create security rules
 
-1. Under **SETTINGS**, select **Inbound security rules** and then select **+ Add**, as shown in the following picture:
+1. In **Settings** of **myNSG**, select **Inbound security rules**.
 
-    ![Add an inbound security rule](./media/tutorial-filter-network-traffic/add-inbound-rule.png)
+2. In **Inbound security rules**, select **+ Add**:
 
-2. Create a security rule that allows ports 80 and 443 to the **myAsgWebServers** application security group. Under **Add inbound security rule**, enter, or select the following values, accept the remaining defaults, and then select **Add**:
+    :::image type="content" source="./media/tutorial-filter-network-traffic/add-inbound-rule.png" alt-text="Add inbound security rule." border="true":::
 
-    | Setting                 | Value                                                                                                           |
-    | ---------               | ---------                                                                                                       |
-    | Destination             | Select **Application security group**, and then select **myAsgWebServers** for **Application security group**.  |
-    | Destination port ranges | Enter 80,443                                                                                                    |
-    | Protocol                | Select TCP                                                                                                      |
-    | Name                    | Allow-Web-All                                                                                                   |
+3. Create a security rule that allows ports 80 and 443 to the **myAsgWebServers** application security group. In **Add inbound security rule**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Source | Leave the default of **Any**. |
+    | Source port ranges | Leave the default of **(*)** |
+    | Destination | Select **Application security group**. |
+    | Destination application security group | Select **myAsgWebServers**. |
+    | Service | Leave the default of **Custom**. |
+    | Destination port ranges | Enter **80,443**. |
+    | Protocol | Select **TCP**. |
+    | Action | Leave the default of **Allow**. |
+    | Priority | Leave the default of **100**. |
+    | Name | Enter **Allow-Web-All**. |
+
+    :::image type="content" source="./media/tutorial-filter-network-traffic/inbound-security-rule.png" alt-text="Associate NSG to subnet." border="true":::
 
 3. Complete step 2 again, using the following values:
 
-    | Setting                 | Value                                                                                                           |
-    | ---------               | ---------                                                                                                       |
-    | Destination             | Select **Application security group**, and then select **myAsgMgmtServers** for **Application security group**. |
-    | Destination port ranges | Enter 3389                                                                                                      |
-    | Protocol                | Select TCP                                                                                                      |
-    | Priority                | Enter 110                                                                                                       |
-    | Name                    | Allow-RDP-All                                                                                                   |
+    | Setting | Value |
+    | ------- | ----- |
+    | Source | Leave the default of **Any**. |
+    | Source port ranges | Leave the default of **(*)** |
+    | Destination | Select **Application security group**. |
+    | Destination application security group | Select **myAsgMgmtServers**. |
+    | Service | Leave the default of **Custom**. |
+    | Destination port ranges | Enter **3389**. |
+    | Protocol | Select **TCP**. |
+    | Action | Leave the default of **Allow**. |
+    | Priority | Leave the default of **110**. |
+    | Name | Enter **Allow-RDP-All**. |
 
-    In this tutorial, RDP (port 3389) is exposed to the internet for the VM that is assigned to the *myAsgMgmtServers* application security group. For production environments, instead of exposing port 3389 to the internet, it's recommended that you connect to Azure resources that you want to manage using a VPN or private network connection.
 
-Once you've completed steps 1-3, review the rules you created. Your list should look like the list in the following picture:
+    > [!CAUTION]
+    > In this article, RDP (port 3389) is exposed to the internet for the VM that is assigned to the **myAsgMgmtServers** application security group. 
+    >
+    > For production environments, instead of exposing port 3389 to the internet, it's recommended that you connect to Azure resources that you want to manage using a VPN, private network connection, or Azure Bastion.
+    >
+    > For more information on Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md).
 
-![Security rules](./media/tutorial-filter-network-traffic/security-rules.png)
+Once you've completed steps 1-3, review the rules you created. Your list should look like the list in the following example:
+
+:::image type="content" source="./media/tutorial-filter-network-traffic/security-rules.png" alt-text="Security rules." border="true":::
 
 ## Create virtual machines
 
@@ -156,46 +196,72 @@ Create two VMs in the virtual network.
 
 ### Create the first VM
 
-1. On the Azure portal menu or from the **Home** page, select **Create a resource**. 
-2. Select **Compute**, and then select **Windows Server 2016 Datacenter**.
-3. Enter, or select, the following information, and accept the defaults for the remaining settings:
+1. Select **Create a resource** in the upper left-hand corner of the portal.
 
-    |Setting|Value|
-    |---|---|
-    |Subscription| Select your subscription.|
-    |Resource group| Select **Use existing** and select **myResourceGroup**.|
-    |Name|myVmWeb|
-    |Location| Select **East US**.|
-    |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+2. Select **Compute**, then select **Virtual machine**.
 
-   
+3. In **Create a virtual machine**, enter or select this information in the **Basics** tab:
 
-4. Select a size for the VM and then select **Select**.
-5. Under **Networking**, select the following values, and accept the remaining defaults:
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **myResourceGroup**. |
+    | **Instance details** |   |
+    | Virtual machine name | Enter **myVMWeb**. |
+    | Region | Select **(US) East US**. |
+    | Availability options | Leave the default of no redundancy required. |
+    | Image | Select **Windows Server 2019 Datacenter - Gen1**. |
+    | Azure Spot instance | Leave the default of unchecked. |
+    | Size | Select **Standard_D2s_V3**. |
+    | **Administrator account** |   |
+    | Username | Enter a username. |
+    | Password | Enter a password. |
+    | Confirm password | Re-enter password. |
+    | **Inbound port rules** |   |
+    | Public inbound ports | Select **None**. |
 
-    |Setting|Value|
-    |---|---|
-    |Virtual network |Select **myVirtualNetwork**.|
-    |NIC network security group |Select **None**.|
-  
+4. Select the **Networking** tab.
 
-6. Select **Review + Create** at the bottom, left corner, select **Create** to start VM deployment.
+5. In the **Networking** tab, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Network interface** |   |
+    | Virtual network | Select **myVNet**. |
+    | Subnet | Select **default (10.0.0.0/24)**. |
+    | Public IP | Leave the default of a new public IP. |
+    | NIC network security group | Select **None**. | 
+
+6. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+
+7. Select **Create**.
 
 ### Create the second VM
 
-Complete steps 1-6 again, but in step 3, name the VM *myVmMgmt*. The VM takes a few minutes to deploy. Do not continue to the next step until the VM is deployed.
+Complete steps 1-7 again, but in step 3, name the VM **myVMMgmt**. The VM takes a few minutes to deploy. 
+
+Don't continue to the next step until the VM is deployed.
 
 ## Associate network interfaces to an ASG
 
-When the portal created the VMs, it created a network interface for each VM, and attached the network interface to the VM. Add the network interface for each VM to one of the application security groups you created previously:
+When the portal created the VMs, it created a network interface for each VM, and attached the network interface to the VM. 
 
-1. In the *Search resources, services, and docs* box at the top of the portal, begin typing *myVmWeb*. When the **myVmWeb** VM appears in the search results, select it.
-2. Under **SETTINGS**, select **Networking**.  Select **Configure the application security groups**, select **myAsgWebServers** for **Application security groups**, and then select **Save**, as shown in the following picture:
+Add the network interface for each VM to one of the application security groups you created previously:
 
-    ![Associate to ASG](./media/tutorial-filter-network-traffic/associate-to-asg.png)
+1. In the **Search resources, services, and docs** box at the top of the portal, begin typing **myVMWeb**. When the **myVMWeb** virtual machine appears in the search results, select it.
 
-3. Complete steps 1 and 2 again, searching for the **myVmMgmt** VM and selecting the  **myAsgMgmtServers** ASG.
+2. In **Settings**, select **Networking**.  
+
+3. Select the **Application security groups** tab, then select **Configure the application security groups**.
+
+    :::image type="content" source="./media/tutorial-filter-network-traffic/configure-app-sec-groups.png" alt-text="Configure application security groups." border="true":::
+
+4. In **Configure the application security groups**, select **myAsgWebServers**. Select **Save**.
+
+    :::image type="content" source="./media/tutorial-filter-network-traffic/select-asgs.png" alt-text="Select application security groups." border="true":::
+
+3. Complete steps 1 and 2 again, searching for the **myVMMgmt** virtual machine and selecting the  **myAsgMgmtServers** ASG.
 
 ## Test traffic filters
 
