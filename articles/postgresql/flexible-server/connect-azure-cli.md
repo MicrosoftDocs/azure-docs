@@ -32,10 +32,10 @@ az postgres flexible-server create --public-access <your-ip-address>
 You can provide additional arguments for this command to customize it. See all arguments for [az postgres flexible-server create](/cli/azure/postgres/flexible-server?view=azure-cli-latest#az_postgres_flexible_server_create).
 
 ## Test database server connection
-Run the following script to test and validate the connection to the server from your development environment.
+You can test and validate the connection to the server from your development environment using the command.
 
 ```azurecli
-az postgres flexible-server connect -n server -u username -p password
+az postgres flexible-server connect -n server -u username -p password -d postgres
 ```
 Here is an example 
 ```azurecli
@@ -56,7 +56,7 @@ If the connection failed, try these solutions:
 - if you have configured your server with private access in virtual networking, make sure your client machine is in the same virtual network.
 
 ## Run Single Query
-Run the following command to execute a single query using ```--query-text``` argument, ```-q```.
+You can execute a single query with the command using ```--query-text``` argument, ```-q```.
 
 ```azurecli
 az postgres flexible-server connect -n <server-name> -u <username> -p <password> -d <database-name> -c 'SELECT id , name FROM table1;'
