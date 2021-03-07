@@ -20,7 +20,7 @@ This quickstart demonstrates how to connect to an Azure Database for PostgreSQL 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
 - Install [Azure CLI](/cli/azure/install-azure-cli) latest version (2.20.0 or above)
 - Login using Azure CLI with ```az login``` command 
-- Turn on parameter persistence with ```az config param-persist on```. Parameter persistence will help you use local context without having to repeat a lot of arguments like resource group or location etc.
+- Turn on parameter persistence with ```az config param-persist on```. Parameter persistence will help you use local context without having to repeat a lot of arguments like resource group or location.
 
 ## Create an PostgreSQL Flexible Server
 
@@ -49,7 +49,7 @@ Local context is turned on. Its information is saved in working directory C:\myd
 Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
 ```
 
-If the connection failed, please check:
+If the connection failed, try these solutions:
 - Check if port 5432 is open on your client machine.
 - if your server administrator user name and password are correct
 - if you have configured firewall rule for your client machine
