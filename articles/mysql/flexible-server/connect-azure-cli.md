@@ -144,5 +144,7 @@ Your preference of  are now saved to local context. To learn more, type in `az l
 ```
 
 ## Next Steps
-[Manage the server](./how-to-manage-server-cli.md)
+
+> [!div class="nextstepaction"]
+> [Manage the server](./how-to-manage-server-cli.md)
 
