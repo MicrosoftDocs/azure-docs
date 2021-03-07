@@ -48,7 +48,7 @@ The following are required to use this feature:
 
 - An Azure Storage account that is [configured to your Stream Analytics job](azure-synapse-analytics-output.md).
 
-- Note: Stream Analytics account storage MSI used in conjunction with Synapse SQL MSI is currently not enabled, but will be soon.
+- Note: Stream Analytics account storage MSI integrated with Synapse SQL MSI is currently unavailable.
 
 ---
 
