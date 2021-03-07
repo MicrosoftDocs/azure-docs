@@ -121,8 +121,4 @@ This mapping may be helpful when you are working with a CEF data source in Azure
 |                              |     OriginalLogSeverity      |                                                            A non-mapped version of   LogSeverity                                                            |   |   |
 ## Next steps
 
-> [!div class="nextstepaction"]
->[On-board Azure Sentinel](quickstart-onboard.md)
-
-> [!div class="nextstepaction"]
->[Get visibility into alerts](quickstart-get-visibility.md)
+For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
