@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2021
+ms.date: 03/07/2021
 ms.author: shhazam
 ---
 
@@ -26,7 +26,7 @@ In an IAR, or other non CMake compilation environment, you must add the `netxduo
 
 Use the following file to configure your device behavior.
 
-**netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/asc_config.h**
+**netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/\<target distribution>/asc_config.h**
 
 In a CMake compilation environment, you must change the default configuration by editing the `netxduo/addons/azure_iot/azure_iot_security_module/configs/<target distribution>.dist` file. Use the following CMake format `set(ASC_XXX ON)`, or the following file `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/asc_config.h` for all other environments. For example, `#define ASC_XXX`.
 
