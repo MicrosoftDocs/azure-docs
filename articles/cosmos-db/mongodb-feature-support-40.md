@@ -578,7 +578,7 @@ Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the docu
 
 ## Transactions
 
-Azure Cosmos DB supports transactions for unsharded collections. The timeout for transactions is a fixed 5 seconds.
+Multi-document transactions are supported within an unsharded collection. Multi-document transactions are not supported across collections or in sharded collections. The timeout for transactions is a fixed 5 seconds.
 
 ## User and role management
 

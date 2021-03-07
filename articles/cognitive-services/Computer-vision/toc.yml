@@ -107,7 +107,7 @@
 - name: Reference
   items: 
   - name: Azure CLI
-    href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+    href: /cli/azure/cognitiveservices#az_cognitiveservices_list
   - name: Azure PowerShell
     href: /powershell/module/azurerm.cognitiveservices/
   - name: Computer Vision API v3.2 preview
@@ -121,15 +121,15 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/client/computervision
     - name: Node.js
-      href: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
+      href: /javascript/api/@azure/cognitiveservices-computervision/
     - name: Python
       href: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/computervision
 - name: Resources
   items: 
   - name: Support & help options

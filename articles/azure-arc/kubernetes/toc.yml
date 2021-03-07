@@ -2,24 +2,28 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Arc enabled Kubernetes
+  - name: About Azure Arc enabled Kubernetes
     href: overview.md
-  - name: Azure Arc Validation Program
+  - name: Azure Arc validation program
     href: validation-program.md
-- name: Tutorials
-  items:
-  - name: Deploy configurations using GitOps
-    href: tutorial-use-gitops-connected-cluster.md
 - name: Quickstarts
   items:
   - name: Connect a cluster to Azure Arc
     href: quickstart-connect-cluster.md
+- name: Tutorials
+  items:
+  - name: Deploy configurations using GitOps
+    href: tutorial-use-gitops-connected-cluster.md
+  - name: Implement CI/CD with GitOps
+    href: tutorial-gitops-ci-cd.md
 - name: Concepts
   items:
   - name: Agent architecture
     href: conceptual-agent-architecture.md
   - name: Configurations and GitOps
     href: conceptual-configurations.md
+  - name: CI/CD workflow using GitOps
+    href: conceptual-gitops-ci-cd.md
   - name: Frequently Asked Questions
     href: faq.md
 - name: How-to guides

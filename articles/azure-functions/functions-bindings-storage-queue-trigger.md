@@ -403,7 +403,7 @@ For examples using these types, see [the GitHub repository for the extension](ht
 
 # [Java](#tab/java)
 
-The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true) annotation gives you access to the queue message that triggered the function.
+The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger) annotation gives you access to the queue message that triggered the function.
 
 # [JavaScript](#tab/javascript)
 

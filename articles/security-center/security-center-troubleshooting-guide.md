@@ -1,10 +1,8 @@
 ---
 title: Azure Security Center Troubleshooting Guide | Microsoft Docs
 description: This guide is for IT professionals, security analysts, and cloud admins who need to troubleshoot Azure Security Center related issues.
-services: security-center
-author: v-miegge
-manager: dcscontentpm
-
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
@@ -137,7 +135,6 @@ Some issues can be identified using the guidelines provided in this article, oth
 In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
 
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) — Learn how to plan and understand the design considerations to adopt Azure Security Center.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts
 * [Understanding security alerts in Azure Security Center](./security-center-alerts-overview.md)
 * [Tutorial: Respond to security incidents](tutorial-security-incident.md)

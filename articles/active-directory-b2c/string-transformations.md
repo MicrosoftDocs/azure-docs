@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/03/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -145,6 +145,42 @@ Use this claims transformation to set a string ClaimType value.
     - **value**: Contoso terms of service...
 - Output claims:
     - **createdClaim**: The TOS ClaimType contains the "Contoso terms of service..." value.
+
+## CopyClaimIfPredicateMatch
+
+Copy value of a claim to another if the value of the input claim matches the output claim predicate. 
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | The claim type, which is to be copied. |
+| OutputClaim | outputClaim | string | The claim type that is produced after this claims transformation has been invoked. The value of the input claim is checked against this claim predicate. |
+
+The following example copies the signInName claim value to phoneNumber claim, only if the signInName is a phone number. For the complete sample, see [Phone number or email sign-in](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/scenarios/phone-number-passwordless/Phone_Email_Base.xml) starter pack policy.
+
+```xml
+<ClaimsTransformation Id="SetPhoneNumberIfPredicateMatch" TransformationMethod="CopyClaimIfPredicateMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example 1
+
+- Input claims:
+    - **inputClaim**: bob@contoso.com
+- Output claims:
+    - **outputClaim**: The output claim won't be changed from its original value.
+
+### Example 2
+
+- Input claims:
+    - **inputClaim**: +11234567890
+- Output claims:
+    - **outputClaim**: +11234567890
 
 ## CompareClaims
 
@@ -460,7 +496,7 @@ The claims transformation looks up the text of the item and returns its value. I
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
   </OutputClaims>
 </ClaimsTransformation>
 ```

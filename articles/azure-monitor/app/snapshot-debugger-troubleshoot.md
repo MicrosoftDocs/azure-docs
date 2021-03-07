@@ -14,6 +14,43 @@ If you enabled Application Insights Snapshot Debugger for your application, but 
 
 There can be many different reasons why snapshots aren't generated. You can start by running the snapshot health check to identify some of the possible common causes.
 
+## Make sure you're using the appropriate Snapshot Debugger Endpoint
+
+Currently the only regions that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+
+For App Service and applications using the Application Insights SDK, you have to update the connection string using the supported overrides for Snapshot Debugger as defined below:
+
+|Connection String Property    | US Government Cloud | China Cloud |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+For more information about other connection overrides, see [Application Insights documentation](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+
+For Function App, you have to update the `host.json` using the supported overrides below:
+
+|Property    | US Government Cloud | China Cloud |   
+|---------------|---------------------|-------------|
+|AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Below is an example of the `host.json` updated with the US Government Cloud agent endpoint:
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
+
 ## Use the snapshot health check
 Several common problems result in the Open Debug Snapshot not showing up. Using an outdated Snapshot Collector, for example; reaching the daily upload limit; or perhaps the snapshot is just taking a long time to upload. Use the Snapshot Health Check to troubleshoot common problems.
 
