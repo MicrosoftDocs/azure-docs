@@ -26,7 +26,7 @@ The [User insights table](#user-insights-table) and the [Device insights table](
 
 Other tables, described under [Activity insights tables](#activity-insights-tables), contain entity information based on the behavioral profiles built by Azure Sentinel's entity behavior analytics. 
 
-User activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which the dynamic baseline is derived. The lookback period is specified in the [**Baseline**](#activity-insights-tables) column in this table.
+<a name="baseline-explained"></a>User activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which the dynamic baseline is derived. The lookback period is specified in the [**Baseline**](#activity-insights-tables) column in this table.
 
 > [!NOTE] 
 > The **Enrichment name** field in the [User insights table](#user-insights-table), [Device insights table](#device-insights-table), and the [Activity insights tables](#activity-insights-tables) displays two rows of information. 
