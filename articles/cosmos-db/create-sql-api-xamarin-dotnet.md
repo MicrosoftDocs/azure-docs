@@ -6,11 +6,11 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/09/2020
+ms.date: 03/07/2021
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-
 ---
+
 # Quickstart: Build a todo app with Xamarin using Azure Cosmos DB SQL API account
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
@@ -19,6 +19,7 @@ ms.custom: devx-track-csharp
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
 > * [Spring Data v3](create-sql-api-spring-data.md)
+> * [Spark](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)

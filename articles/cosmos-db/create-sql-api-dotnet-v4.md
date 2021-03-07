@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 03/07/2021
 ms.custom: devx-track-dotnet
-
 ---
+
 # Quickstart: Build a console app using the .NET V4 SDK to manage Azure Cosmos DB SQL API account resources.
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
@@ -19,6 +19,7 @@ ms.custom: devx-track-dotnet
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
 > * [Spring Data v3](create-sql-api-spring-data.md)
+> * [Spark](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
