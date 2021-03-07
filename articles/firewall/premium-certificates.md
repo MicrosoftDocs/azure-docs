@@ -108,7 +108,7 @@ Following certificate generation deploy them as follows
 - rootCA.crt - Deploy on endpoint machines (Public certificate only).
 - interCA.pfx - Import as certificate on a Key Vault and assign to firewall policy.
 
-**openssl.cnf**
+### **openssl.cnf**
 ```
 [ req ]
 default_bits        = 4096
@@ -145,7 +145,7 @@ keyUsage = critical, digitalSignature
 extendedKeyUsage = serverAuth
 ```
 
-**cert.sh - Linux/Mac Bash Script**
+### **cert.sh - Linux/Mac Bash Script**
 ```
 #!/bin/bash
 
@@ -170,7 +170,7 @@ echo "   - interCA.pfx - Intermediate CA pkcs12 package which could be uploaded 
 echo "================"
 ```
 
-**cert.ps1 - Windows Powershell**
+### **cert.ps1 - Windows Powershell**
 ```
 # Create root CA
 openssl req -x509 -new -nodes -newkey rsa:4096 -keyout rootCA.key -sha256 -days 3650 -out rootCA.crt -subj '/C=US/ST=US/O=Self Signed/CN=Self Signed Root CA' -config openssl.cnf -extensions rootCA_ext
