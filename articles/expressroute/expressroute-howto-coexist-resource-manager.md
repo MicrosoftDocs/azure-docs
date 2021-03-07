@@ -258,11 +258,11 @@ You can follow the steps below to add Point-to-Site configuration to your VPN ga
    $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
    ```
+For more information on Point-to-Site VPN, see [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 
 ## To enable transit routing between ExpressRoute and Azure VPN
 If you want to enable connectivity between one of your local network that is connected to ExpressRoute and another of your local network that is connected to a site-to-site VPN connection, you'll need to set up [Azure Route Server](../route-server/expressroute-vpn-support.md).
 
-For more information on Point-to-Site VPN, see [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 
 ## Next steps
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
