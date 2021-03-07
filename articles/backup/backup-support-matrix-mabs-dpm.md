@@ -178,6 +178,8 @@ NTFS compression isn't supported on DPM/MABS volumes.
 
 BitLocker can only be enabled after you add the disk the storage pool. Don't enable BitLocker before adding it.
 
+Network-attached storage (NAS) isn't supported for use in the DPM storage pool.
+
 **Storage** | **Details**
 --- | ---
 **MBS** | Modern backup storage (MBS) is supported from DPM 2016/MABS v2 and later. It isn't available for MABS v1.
@@ -203,6 +205,39 @@ For information on the various servers and workloads that you can protect with D
 
 - Clustered workloads backed up by DPM/MABS should be in the same domain as DPM/MABS or in a child/trusted domain.
 - You can use NTLM/certificate authentication to back up data in untrusted domains or workgroups.
+
+## Deduplicated volumes support
+
+>[!NOTE]
+> Deduplication support for MABS depends on operating system support.
+
+### For NTFS volumes
+
+|                              |                                       |                    |                      |
+| ------------------------------------------ | ------------------------------------- | ------------------ | -------------------- |
+| **Operating   system of protected server** | **Operating   system of MABS server** | **MABS   version** | **Dedupe   support** |
+| Windows  Server 2019                       | Windows  Server 2019                  | MABS v3            | Y                    |
+| Windows  Server 2016                       | Windows  Server 2019                  | MABS v3            | Y*                   |
+| Windows  Server 2012 R2                    | Windows  Server 2019                  | MABS v3            | N                    |
+| Windows  Server 2012                       | Windows Server  2019                  | MABS v3            | N                    |
+| Windows  Server 2019                       | Windows  Server 2016                  | MABS v3            | Y**                  |
+| Windows  Server 2016                       | Windows  Server 2016                  | MABS v3            | Y                    |
+| Windows  Server 2012 R2                    | Windows  Server 2016                  | MABS v3            | Y                    |
+| Windows  Server 2012                       | Windows  Server 2016                  | MABS v3            | Y                    |
+
+- \* When protecting a WS 2016 NTFS deduped volume with MABS v3 running on WS 2019, the recoveries may be     affected. We have a fix for doing recoveries in a non-deduped way. Reach out to MABS support if you need this fix on MABS v3 UR1.
+- \** When protecting a WS 2019 NTFS deduped volume with MABS v3 on WS 2016, the backups and restores will be non-deduped. This means that the backups will consume more space on the MABS server than the original NTFS deduped volume.
+
+**Issue**: If you upgrade the protected server operating system from Windows Server 2016 to Windows Server 2019, then the backup of the NTFS deduped volume will be affected due to changes in the deduplication logic.
+
+**Workaround**: Reach out to MABS support in case you need this fix for MABS v3 UR1.
+
+### For ReFS Volumes
+
+>[!NOTE]
+> We have identified a few issues with backups of deduplicated ReFS volumes. We are working on fixing these, and will update this section as soon as we have a fix available. Until then, we are removing the support for backup of deduplicated ReFS volumes from MABS v3.
+>
+> MABS v3 UR1 and later continues to support protection and recovery of normal ReFS volumes.
 
 ## Next steps
 
