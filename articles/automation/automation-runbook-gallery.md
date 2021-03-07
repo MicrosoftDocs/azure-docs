@@ -58,7 +58,7 @@ The list below contains a few runbooks that support common scenarios. For a full
 
 1. In the Azure portal, open your Automation account.
 1. Select **Runbooks gallery** under **Process Automation**.
-1. Select **Source: GilHub**.
+1. Select **Source: GitHub**.
 1. You can use the filters above the list to narrow the display by publisher, type, and sort. Locate the gallery item you want and select it to view its details.
 
    :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Browsing the GitHub gallery" lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
