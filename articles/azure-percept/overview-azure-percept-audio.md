@@ -31,26 +31,13 @@ Azure Percept Audio passes the audio input through the speech stack that runs
 
 The processing is done as follows: ​
 
-- Azure Percept Audio: performs beam forming and echo cancellation and processes the incoming audio to optimize for speech and send to the DK.  ​
+- Azure Percept Audio: captures and converts the audio and sends it to the DK and audio jack.
 
-- Azure Percept DK: the speech stack performs the keyword spotting.  ​
+- Azure Percept DK: the speech stack performs beam forming and echo cancellation and processes the incoming audio to optimize for speech. It then performs the keyword spotting.
 
 - Cloud: processes natural language commands and phrases, keyword verification, and retraining. ​
 
 - Offline: if the device is offline, it will detect the keyword and capture internet connection status telemetry. An increased false accept rate for keyword spotting may be observed as keyword verification in the cloud cannot be performed. ​
-
-<!---
-
-## How it works
-
-Azure Percept Audio passes the audio input to the Azure Percept DK carrier board in a hybrid edge-cloud manner. Specifically,
-
-- The Azure Percept Audio device: processes the incoming speech input to the clearest format by executing beam forming and echo cancellation befor sending the input to the Azure Percept DK. 
-- The Azure Percept DK uses edge processing to perform keyword spotting and then sends the relevant inputs to Azure speech services.
-- Cloud: Processing of natural language commands and phrases, in addition to keyword verification and retraining.
-- Offline: If the device is offline it will detect the keyword and capture telemetry that there is no internet connection at the time of the command. It will not be able to weed out false accepts since it cannot perform keyword verification.
-
--->
 
 ## Getting started
 
@@ -60,7 +47,7 @@ Azure Percept Audio passes the audio input to the Azure Percept DK carrier board
 
 ## Build a no-code prototype
 
-Build a [no-code speech solution](./tutorial-no-code-speech.md) using Azure Percept voice assistant templates for hospitality, healthcare, inventory, and automotive scenarios.
+Build a [no-code speech solution](./tutorial-no-code-speech.md) in [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) using Azure Percept voice assistant templates for hospitality, healthcare, inventory, and automotive scenarios.
 
 ### Manage your no-code speech solution
 

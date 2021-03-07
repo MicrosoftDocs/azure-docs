@@ -6,7 +6,7 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/28/2021
+ms.date: 03/04/2021
 ---
 
 # What are security policies, initiatives, and recommendations?
@@ -20,6 +20,7 @@ An Azure policy definition, created in Azure Policy, is a rule about specific se
 
 To implement these policy definitions (whether built-in or custom), you'll need to assign them. You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.
 
+There are different types of policies in Azure Policy. Security Center mainly uses 'Audit' policies that check specific conditions and configurations then report on compliance. There are also "Enforce' policies that can be used to apply secure settings.
 
 ## What is a security initiative?
 
@@ -33,7 +34,7 @@ The default initiative automatically assigned to every subscription in Azure Sec
 
 Security Center offers the following options for working with security initiatives and policies:
 
-- **View and edit the built-in default initiative** - When you enable Security Center, the initiative named 'Azure Security Benchmark' is automatically assigned to all Security Center registered subscriptions. To customize this initiative, you can enable or disable individual policies within it. See the list of [built-in security policies](./policy-reference.md) to understand the options available out-of-the-box.
+- **View and edit the built-in default initiative** - When you enable Security Center, the initiative named 'Azure Security Benchmark' is automatically assigned to all Security Center registered subscriptions. To customize this initiative, you can enable or disable individual policies within it by editing a policy's parameters. See the list of [built-in security policies](./policy-reference.md) to understand the options available out-of-the-box.
 
 - **Add your own custom initiatives** - If you want to customize the security initiatives applied to your subscription, you can do so within Security Center. You'll then receive recommendations if your machines don't follow the policies you create. For instructions on building and assigning custom policies, see [Using custom security initiatives and policies](custom-security-policies.md).
 
@@ -41,9 +42,9 @@ Security Center offers the following options for working with security initiativ
 
 ## What is a security recommendation?
 
-Azure Security Center periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities. A recommendation is the result of assessing your resources against the relevant policies and identifying resources that aren't meeting your defined requirements.
+Using the policies, Security Center periodically analyzes the compliance status of your resources to identify potential security misconfigurations and weaknesses. It then provides you with recommendations on how to remediate those issues. Recommendations are the result of assessing your resources against the relevant policies and identifying resources that aren't meeting your defined requirements.
 
-Azure Security Center makes its security recommendations based on your chosen initiatives. 
+Security Center makes its security recommendations based on your chosen initiatives. When a policy from your initiative is compared against your resources and finds one or more that aren't compliant it is presented as a recommendation in Security Center.
 
 Recommendations are actions for you to take to secure and harden your resources. Each recommendation provides you with the following information:
 
