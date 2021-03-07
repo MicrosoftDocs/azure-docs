@@ -18,6 +18,8 @@ ms.author: shhazam
 
 # Configure and customize Defender-IoT-micro-agent for Azure RTOS GA
 
+This article describes how to configure the Defender-IoT-micro-agent for your Azure RTOS device, to meet your network, bandwidth, and memory requirements.
+
 You must select a target distribution file that has a `*.dist` extension, from the `netxduo/addons/azure_iot/azure_iot_security_module/configs` directory.  
 
 When using a CMake compilation environment, you must set a command line parameter to `IOT_SECURITY_MODULE_DIST_TARGET` for the chosen value. For example, `-DIOT_SECURITY_MODULE_DIST_TARGET=RTOS_BASE`.
