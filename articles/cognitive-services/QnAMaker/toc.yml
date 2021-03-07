@@ -30,13 +30,13 @@
     href: Concepts/azure-resources.md
   - name: Data sources and content
     href: Concepts/data-sources-and-content.md
-  - name: Azure role-based access control (Azure RBAC)	    
-    href: Concepts/role-based-access-control.md	
-  - name: Ranker Process	
-    displayName: DefaultAnswer, Default answer	
-    href: Concepts/query-knowledge-base.md	
-  - name: Development lifecycle	
-    href: Concepts/development-lifecycle-knowledge-base.md	
+  - name: Azure role-based access control (Azure RBAC)
+    href: Concepts/role-based-access-control.md
+  - name: Ranker Process
+    displayName: DefaultAnswer, Default answer
+    href: Concepts/query-knowledge-base.md
+  - name: Development lifecycle
+    href: Concepts/development-lifecycle-knowledge-base.md
     displayName: version control, test, index, publish, monitor usage, create
   - name: Precise answering
     href: reference-precise-answering.md
@@ -50,6 +50,10 @@
   - name: Manage Azure resources
     href: How-To/set-up-qnamaker-service-azure.md
     displayName: azure, resource, key, upgrade, pricing, tier,
+  - name: Configure QnA Maker resources
+    href: How-To/configure-QnA-Maker-resources.md
+  - name: Network Isolation for Azure resources
+    href: How-To/network-isolation.md
   - name: Manage QnA Maker resource access
     href: How-To/manage-qna-maker-app.md
   - name: Manage knowledge base
@@ -92,7 +96,7 @@
     href: Overview/language-support.md
   - name: Limits
     href: limits.md
-  - name: Confidence score	
+  - name: Confidence score
     href: Concepts/confidence-score.md
   - name: Troubleshooting
     href: troubleshooting.md
@@ -109,7 +113,7 @@
     href: reference-private-endpoint.md
   - name: Batch testing format
     href: reference-tsv-format-batch-testing.md
-  - name: Encryption	
+  - name: Encryption
     href: encrypt-data-at-rest.md
   - name: REST API Reference
     items:
@@ -122,7 +126,7 @@
     - name: C#
       items:
       - name: Reference Documentation
-        href: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+        href: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker
       - name: NuGet package
         href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/
       - name: Samples
@@ -138,7 +142,7 @@
     - name: JavaScript
       items:
       - name: Reference Documentation
-        href: /javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest
+        href: /javascript/api/%40azure/cognitiveservices-qnamaker/index
       - name: NPM - Authoring
         href: https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker
       - name: NPM - Query runtime

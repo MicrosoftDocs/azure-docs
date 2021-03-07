@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/01/2020
+ms.date: 03/03/2020
 ms.author: alkohli
 ---
 
@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 ## Reset data from the device
 
-To wipe the data off the data disks of your device, you need to reset your device. 
+To wipe the data off the data disks of your device, you need to reset your device.
 
 Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container.
 
@@ -37,7 +37,7 @@ Before you reset, create a copy of the local data on the device if needed. You c
 
 You can reset your device in the local web UI or in PowerShell. For PowerShell instructions, see [Reset your device](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
-[!INCLUDE] [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)
+[!INCLUDE [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)]
 
 ## Reactivate device
 
@@ -45,11 +45,11 @@ After you reset the device, you'll need to reactivate the device as a new resour
 
 To reactivate your existing device, follow these steps:
 
-1. Create a new order for the existing device by following the steps in [Create a new resource](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#create-a-new-resource). On the **Shipping address** tab, select **I already have a device**.
+1. Create a new order for the existing device by following the steps in [Create a new resource](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource). On the **Shipping address** tab, select **I already have a device**.
 
    ![Specify no new device in Shipping address](./media/azure-stack-edge-reset-reactivate-device/create-resource-with-no-new-device.png)
 
-1. [Get the activation key](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#get-the-activation-key).
+1. [Get the activation key](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#get-the-activation-key).
 
 1. [Connect to the device](azure-stack-edge-gpu-deploy-connect.md).
 
@@ -59,7 +59,7 @@ To reactivate your existing device, follow these steps:
 
 1. [Configure certificates](azure-stack-edge-gpu-deploy-configure-certificates.md).
 
-1. [Activate the device](databox-online/azure-stack-edge-gpu-deploy-activate.md).
+1. [Activate the device](azure-stack-edge-gpu-deploy-activate.md).
 
 ## Next steps
 

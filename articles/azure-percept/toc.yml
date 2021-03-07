@@ -41,12 +41,6 @@
           href: tutorial-nocode-vision.md         
         - name: Build and deploy a no-code speech solution
           href: tutorial-no-code-speech.md         
-    - name: Advanced development
-      items:
-        - name: Advanced development tutorial (cloud)
-          href: advanced-development-cloud.md         
-        - name: Advanced development tutorial (local)
-          href: advanced-development-local.md         
 
 - name: Concepts
   items:
@@ -101,6 +95,8 @@
           href: vision-solution-troubleshooting.md
         - name: Azure Percept Audio troubleshooting
           href: troubleshoot-audio-accessory-speech-module.md
+        - name: Known issues
+          href: known-issues.md
 
 - name: Reference
   items:
@@ -112,6 +108,3 @@
           href: azure-percept-vision-datasheet.md
         - name: Azure Percept Audio datasheet
           href: azure-percept-audio-datasheet.md
-
-- name: Resources
-  items:

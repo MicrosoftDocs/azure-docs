@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/04/2021
+ms.date: 03/04/2021
 ---
 
 # Data transformation expressions in mapping data flow
@@ -1170,7 +1170,74 @@ ___
 
 ## Conversion functions
 
-Conversion functions are used to convert data and data types
+Conversion functions are used to convert data and test for data types
+
+<code>isBoolean</code>
+<code><b>isBoolean(<value1> : string) => boolean</b></code><br/><br/>
+Checks if the string value is a boolean value according to the rules of ``toBoolean()``
+* ``isBoolean('true') -> true``
+* ``isBoolean('no') -> true``
+* ``isBoolean('microsoft') -> false``
+
+<code>isByte</code>
+<code><b>isByte(<value1> : string) => boolean</b></code><br/><br/>
+Checks if the string value is a byte value given an optional format according to the rules of ``toByte()``
+* ``isByte('123') -> true``
+* ``isByte('chocolate') -> false``
+
+<code>isDate</code>
+<code><b>isDate (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+Checks if the input date string is a date using an optional input date format. Refer Java's SimpleDateFormat for available formats. If the input date format is omitted, default format is ``yyyy-[M]M-[d]d``. Accepted formats are ``[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]``
+* ``isDate('2012-8-18') -> true``
+* ``isDate('12/18--234234' -> 'MM/dd/yyyy') -> false``
+
+<code>isShort</code>
+<code><b>isShort (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+Checks of the string value is a short value given an optional format according to the rules of ``toShort()``
+* ``isShort('123') -> true``
+* ``isShort('$123' -> '$###') -> true``
+* ``isShort('microsoft') -> false``
+
+<code>isInteger</code>
+<code><b>isInteger (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+Checks of the string value is a integer value given an optional format according to the rules of ``toInteger()``
+* ``isInteger('123') -> true``
+* ``isInteger('$123' -> '$###') -> true``
+* ``isInteger('microsoft') -> false``
+
+<code>isLong</code>
+<code><b>isLong (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+Checks of the string value is a long value given an optional format according to the rules of ``toLong()``
+* ``isLong('123') -> true``
+* ``isLong('$123' -> '$###') -> true``
+* ``isLong('gunchus') -> false``
+
+<code>isFloat</code>
+<code><b>isFloat (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+Checks of the string value is a float value given an optional format according to the rules of ``toFloat()``
+* ``isFloat('123') -> true``
+* ``isFloat('$123.45' -> '$###.00') -> true``
+* ``isFloat('icecream') -> false``
+
+<code>isDouble</code>
+<code><b>isDouble (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+Checks of the string value is a double value given an optional format according to the rules of ``toDouble()``
+* ``isDouble('123') -> true``
+* ``isDouble('$123.45' -> '$###.00') -> true``
+* ``isDouble('icecream') -> false``
+
+<code>isDecimal</code>
+<code><b>isDecimal (<value1> : string) => boolean</b></code><br/><br/>
+Checks of the string value is a decimal value given an optional format according to the rules of ``toDecimal()``
+* ``isDecimal('123.45') -> true``
+* ``isDecimal('12/12/2000') -> false``
+
+<code>isTimestamp</code>
+<code><b>isTimestamp (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+Checks if the input date string is a timestamp using an optional input timestamp format. Refer to Java's SimpleDateFormat for available formats. If the timestamp is omitted the default pattern ``yyyy-[M]M-[d]d hh:mm:ss[.f...]`` is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. Timestamp supports up to millisecond accuracy with value of 999 Refer to Java's SimpleDateFormat for available formats.
+* ``isTimestamp('2016-12-31 00:12:00') -> true``
+* ``isTimestamp('2016-12-31T00:12:00' -> 'yyyy-MM-dd\\'T\\'HH:mm:ss' -> 'PST') -> true``
+* ``isTimestamp('2012-8222.18') -> false``
 
 ### <code>toBase64</code>
 <code><b>toBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>

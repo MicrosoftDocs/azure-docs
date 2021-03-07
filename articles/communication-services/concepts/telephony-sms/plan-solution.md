@@ -14,10 +14,22 @@ ms.service: azure-communication-services
 ---
 # Phone number types in Azure Communication Services
 
+
+
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
+> [!IMPORTANT]
+> Phone number availability is currently restricted to paid Azure subscriptions that have a billing address in the United States and Communication Services resources that have a US data location. Phone numbers cannot be acquired on trial accounts or using Azure free credits. For more information, visit the [subscription eligibility](#azure-subscriptions-eligibility) section of this document.
+
 
 Azure Communication Services allows you to use phone numbers to make voice calls and send SMS messages with the public-switched telephone network (PSTN). In this document, we'll review the phone number types, configuration options, and region availability for planning your telephony and SMS solution using Communication Services.
+
+## Azure Subscriptions eligibility
+
+To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts or by Azure free credits. 
+
+Phone number availability is currently restricted to Azure subscriptions that have a billing address in the United States and Communication Services resources that have a US data location.
+
 
 ## Number types and features
 Communication Services offers two types of phone numbers: **local** and **toll-free**. 
@@ -65,11 +77,6 @@ The following table shows you where you can acquire different types of phone num
 
 *For more details about call destinations and pricing, refer to the [pricing page](../pricing.md).
 
-## Azure Subscriptions eligibility
-
-To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts or by Azure free credits. 
-
-Currently, phone number availability is restricted to Azure subscriptions that have a billing address in the United States.
 
 ## Next steps
 

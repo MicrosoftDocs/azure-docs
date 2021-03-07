@@ -89,6 +89,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Korean (Korea)                     | `ko-KR` | Audio (20201015)<br>Text                 |      Yes                     |
 | Latvian (Latvia)                   | `lv-LV` | Text                                   |                           |
 | Lithuanian (Lithuania)             | `lt-LT` | Text                                   |                           |
+| Malay(Malaysia)                    | `ms-MY` | Text                                   |                           |
 | Maltese(Malta)                     | `mt-MT` | Text                                   |                           |
 | Marathi (India)                    | `mr-IN` | Text                                   |                           |
 | Norwegian (Bokmål, Norway)         | `nb-NO` | Text                                   |     Yes                      |

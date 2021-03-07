@@ -123,6 +123,8 @@
           href: spring-cloud-howto-enable-system-assigned-managed-identity.md
         - name: Create roles and permissions
           href: spring-cloud-howto-permissions.md
+        - name: Access data plane with Azure AD RBAC
+          href: spring-cloud-howto-access-data-plane-azure-ad-rbac.md
     - name: Integrate
       items:
         - name: Bind an app to Azure CosmosDB
@@ -147,6 +149,8 @@
       items:
         - name: Self diagnose and solve problems
           href: spring-cloud-howto-self-diagnose-solve.md
+        - name: Self diagnose running in VNET
+          href: spring-cloud-howto-self-diagnose-running-in-vnet.md
         - name: Troubleshooting guide
           href: spring-cloud-troubleshoot.md
     - name: Migrate
