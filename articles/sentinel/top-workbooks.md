@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 03/03/2021
+ms.date: 03/07/2021
 ms.author: bagol
 ---
 
@@ -26,12 +26,12 @@ Access workbooks in Azure Sentinel under **Threat Management** > **Workbooks** o
 
 |Workbook name  |Description  |
 |---------|---------|
-|**Analytics Efficiency**     |  Provides insights into the efficacy of your analytics rules to help you achieve better SOC performance.|
+|**Analytics Efficiency**     |  Provides insights into the efficacy of your analytics rules to help you achieve better SOC performance. <br><br>For more information, see [The Toolkit for Data-Driven SOCs](https://techcommunity.microsoft.com/t5/azure-sentinel/the-toolkit-for-data-driven-socs/ba-p/2143152).|
 |**Azure Activity**     |     Provides extensive insight into your organization's Azure activity by analyzing and correlating all user operations and events. <br><br>For more information, see [Auditing with Azure Activity logs](audit-sentinel-data.md#auditing-with-azure-activity-logs).    |
 |**Azure AD Audit logs**     |  Uses Azure Active Directory audit logs to provide insights into Azure AD scenarios. <br><br>For more information, see  [Quickstart: Get started with Azure Sentinel](quickstart-get-visibility.md).     |
 |**Azure AD Audit, Activity and Sign-in logs**     |   Provides insights into Azure Active Directory Audit, Activity, and Sign-in data with one workbook. This workbook can be used by both Security and Azure administrators.      |
 |**Azure AD Sign-in logs**     | Uses the Azure AD sign-in logs to provide insights into Azure AD scenarios.        |
-|**Cybersecurity Maturity Model Certification (CMMC)**     |   Provides a mechanism for viewing log queries aligned to CMMC controls across the Microsoft portfolio, including Microsoft security offerings, Office 365, Teams, Intune, Windows Virtual Desktop, and so on. |
+|**Cybersecurity Maturity Model Certification (CMMC)**     |   Provides a mechanism for viewing log queries aligned to CMMC controls across the Microsoft portfolio, including Microsoft security offerings, Office 365, Teams, Intune, Windows Virtual Desktop, and so on. <br><br>For more information, see [Cybersecurity Maturity Model Certification (CMMC) Workbook in Public Preview](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-cybersecurity-maturity-model-certification-cmmc/ba-p/2111184).|
 |**Data collection health monitoring**     |   Provides insights into your workspace's data ingestion status. View monitors and detect anomalies to help you determine your workspaces data collection health.  <br><br>For more information, see [Monitor the health of your data connectors with this Azure Sentinel workbook](monitor-data-connector-health.md).    |
 |**Event Analyzer**     |  Enables you to explore, audit, and speed up Windows Event Log analysis, including all event details and attributes, such as security, application, system, setup, directory service, DNS, and so on.       |
 |**Exchange Online**     |Provides insights into Microsoft Exchange online by tracing and analyzing all Exchange operations and user activities.         |
