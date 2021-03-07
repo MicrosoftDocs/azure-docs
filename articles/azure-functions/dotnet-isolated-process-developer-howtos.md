@@ -9,6 +9,8 @@ zone_pivot_groups: development-environment-functions
 
 # Develop and publish .NET 5 function using Azure Functions 
 
+_.NET 5.0 support is currently in preview._
+
 This article shows you how to work with C# functions using .NET 5.0, which run out-of-process from the Azure Functions runtime. You'll learn how to create, debug locally, and publish these .NET isolated process functions to Azure. In Azure, these functions run in an isolate process that supports .NET 5.0. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
 
 If you don't need to support .NET 5.0 or run your functions out-of-process, you might want to instead [create a C# class library function](functions-create-your-first-function-visual-studio.md).
@@ -26,10 +28,13 @@ Before you begin, you must have the following:
 
 + [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3320, or a later version.
 
-+ [Azure CLI](/cli/azure/install-azure-cli) version 2.20, or a later version.
-
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.20, or a later version.  
 ::: zone pivot="development-environment-vscode"
++ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).  
 
++ The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
+
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code, version 1.2.2 or newer.
 ::: zone-end
 
 ## Create a local function project
@@ -120,8 +125,8 @@ Visual Studio integrates with Azure Functions Core Tools so that you can test yo
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
->[!NOTE]  
->Visual Studio publishing isn't currently available for .NET isolated process apps. After you've finished developing your project in Visual Studio, you must use the Azure CLI to create the remote Azure resources. Then, you can use Azure Functions Core Tools from the command line to publish your project to Azure.
+> [!NOTE]  
+> Visual Studio publishing isn't currently available for .NET isolated process apps. After you've finished developing your project in Visual Studio, you must use the Azure CLI to create the remote Azure resources. Then, you can use Azure Functions Core Tools from the command line to publish your project to Azure.
 ::: zone-end
 
 ::: zone pivot="development-environment-cli,development-environment-vs" 
