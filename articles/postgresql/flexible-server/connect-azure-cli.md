@@ -14,7 +14,7 @@ ms.date: 03/06/2021
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is currently in public preview.
 
-This quickstart demonstrates how to connect to an Azure Database for PostgreSQL Flexible Server using Azure CLI with ```az postgres flexible-server connect``` command. This command allows you test connectivity to your database server as well as run queries directly against your server.  You can also use run the command in an interactive mode for running multiple queries.
+This quickstart demonstrates how to connect to an Azure Database for PostgreSQL Flexible Server using Azure CLI with ```az postgres flexible-server connect``` command. This command allows you test connectivity to your database server and run queries. You can also run multiple queries using the interactive mode. 
 
 ## Prerequisites
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
