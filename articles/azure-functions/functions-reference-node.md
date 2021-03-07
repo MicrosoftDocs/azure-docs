@@ -4,7 +4,7 @@ description: Understand how to develop functions by using JavaScript.
 
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 03/07/2021
 ms.custom: devx-track-js
 ---
 # Azure Functions JavaScript developer guide
@@ -502,9 +502,9 @@ The following table shows current supported Node.js versions for each major vers
 
 | Functions version | Node version (Windows) | Node Version (Linux) |
 |---|---| --- |
-| 1.x | 6.11.2 (locked by the runtime) | n/a |
+| 3.x (recommended) | `~10`<br/>`~12`<br/>`~14` (recommended) | `node|10`<br/>`node|12`<br/>`node|14` (recommended) |
 | 2.x  | `~8`<br/>`~10` (recommended)<br/>`~12` | `node|8`<br/>`node|10` (recommended)  |
-| 3.x | `~10`<br/>`~12` (recommended)<br/>`~14` (preview)  | `node|10`<br/>`node|12` (recommended)<br/>`node|14` (preview) |
+| 1.x | 6.11.2 (locked by the runtime) | n/a |
 
 You can see the current version that the runtime is using by logging `process.version` from any function.
 
