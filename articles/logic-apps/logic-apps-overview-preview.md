@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/05/2021
 ---
 
 # Overview: Azure Logic Apps Preview
@@ -120,9 +120,13 @@ This table specifies the child workflow's behavior based on whether the parent a
 
 Azure Logic Apps Preview includes many current and additional capabilities, for example:
 
-* Create logic apps and their workflows from [390+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
+* Create logic apps and their workflows from [400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
-  * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to the built-in triggers and actions that are native to the Azure Logic Apps Preview runtime, for example, the Request trigger and HTTP action. For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+  * Some managed connectors, such as Azure Service Bus, Azure Event Hubs, SQL Server, and MQ, run similarly to the built-in triggers and actions that are native to the Azure Logic Apps Preview runtime, for example, the Request trigger and HTTP action.
+
+  * Create your own built-in connectors for any service you need by using the [preview release's extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, but unlike [custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) that aren't currently supported for preview, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the preview runtime.
+
+    The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, [switch your project from extension bundle-based (Node.js) to NuGet package-based (.NET)](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring). For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
   * You can use the B2B actions for Liquid Operations and XML Operations without an integration account. To use these actions, you need to have Liquid maps, XML maps, or XML schemas that you can upload through the respective actions in the Azure portal or add to your Visual Studio Code project's **Artifacts** folder using the respective **Maps** and **Schemas** folders.
 
@@ -153,7 +157,7 @@ Azure Logic Apps Preview includes many current and additional capabilities, for 
 * Regenerate access keys for managed connections used by individual workflows in a **Logic App (Preview)** resource. For this task, [follow the same steps for the **Logic Apps** resource but at the individual workflow level](logic-apps-securing-a-logic-app.md#regenerate-access-keys), not the logic app resource level.
 
 * Add parallel branches in the new designer by following the same steps as the non-preview designer.
- 
+
 For more information, see [Changed, limited, unavailable, and unsupported capabilities](#limited-unavailable-unsupported) and the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 <a name="pricing-model"></a>
@@ -199,8 +203,6 @@ In Azure Logic Apps Preview, these capabilities have changed, or they are curren
 
     * [On-premises data gateway *triggers*](../connectors/apis-list.md#on-premises-connectors) are unavailable, but gateway actions *are* available.
 
-    * [Custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) are unavailable.
-
     * The built-in action, [Azure Functions - Choose an Azure function](logic-apps-azure-functions.md) is now **Azure Function Operations - Call an Azure function**. This action currently works only for functions that are created from the **HTTP Trigger** template.
 
       In the Azure portal, you can select an HTTP trigger function where you have access by creating a connection through the user experience. If you inspect the function action's JSON definition in code view or the **workflow.json** file, the action refers to the function by using a `connectionName` reference. This version abstracts the function's information as a connection, which you can find in your project's **connections.json** file, which is available after you create a connection.
@@ -227,6 +229,8 @@ In Azure Logic Apps Preview, these capabilities have changed, or they are curren
     * Some [built-in B2B triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
+
+* [Custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) aren't currently supported for preview.
 
 * **Hosting plan availability**: Whether you create a new **Logic App (Preview)** resource type in the Azure portal or deploy from Visual Studio Code, you can only use the Premium or App Service hosting plan in Azure. Consumption hosting plans are unavailable and unsupported for deploying this resource type. You can deploy from Visual Studio Code to a Docker container, but not to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 

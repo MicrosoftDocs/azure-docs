@@ -95,4 +95,4 @@ Learn more on the following pages:
 In this article, you learned about the benefits of Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Enable Azure Defender](enable-azure-defender.md)

@@ -12,7 +12,7 @@ ms.custom: "include file"
 
 ## Prepare your repository
 
-To get automatic builds from Azure App Service build server, make sure that your repository root has the correct files in your project.
+To get automated builds from Azure App Service build server, make sure that your repository root has the correct files in your project.
 
 | Runtime | Root directory files |
 |-|-|

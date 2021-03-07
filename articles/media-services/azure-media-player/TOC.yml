@@ -41,7 +41,7 @@
 - name: Reference
   items:
   - name: API
-    href: /javascript/api/azuremediaplayer/?view=azure-node-latest
+    href: /javascript/api/azuremediaplayer/
   - name: API methods
     href: azure-media-player-api-methods.md
   - name: Options
