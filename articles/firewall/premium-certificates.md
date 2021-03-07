@@ -94,7 +94,7 @@ To allow easy deployment and verification of TLS inspection, use the provided sc
 > [!IMPORTANT]
 > In most production cases we encourage you to use your corporate PKI to create an Intermediate CA certificate. Corporate PKI leverages the existing infrastucture and will take care of distribution of the Root CA to all endpoint machines.
 
-We provided two flavours of the script (1) `cert.sh` for linux/mac and (2) `cert.ps1` for windows. Additionaly both scripts consume `openssl.cnf` configuration file.
+We provided two flavours of the script (1) `cert.sh` for linux/mac and (2) `cert.ps1` for windows. Additionaly both scripts consume `openssl.cnf` configuration file. To use the scripts copy the contents of `openssl.cnf, cert.sh, cert.ps1` to your local machines.
 
 The script will generate the following files
 - rootCA.crt/rootCA.key - Root CA public certificate and private key.
@@ -145,7 +145,7 @@ keyUsage = critical, digitalSignature
 extendedKeyUsage = serverAuth
 ```
 
-**cert.sh - Linux/Mac**
+**cert.sh - Linux/Mac Bash Script**
 ```
 #!/bin/bash
 
@@ -170,7 +170,7 @@ echo "   - interCA.pfx - Intermediate CA pkcs12 package which could be uploaded 
 echo "================"
 ```
 
-**cert.ps - Windows**
+**cert.ps1 - Windows Powershell**
 ```
 # Create root CA
 openssl req -x509 -new -nodes -newkey rsa:4096 -keyout rootCA.key -sha256 -days 3650 -out rootCA.crt -subj '/C=US/ST=US/O=Self Signed/CN=Self Signed Root CA' -config openssl.cnf -extensions rootCA_ext
