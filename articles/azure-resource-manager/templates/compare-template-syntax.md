@@ -1,8 +1,8 @@
 ---
-title: Convert Azure Resource Manager templates between JSON and Bicep
-description: Compares Azure Resource Manager templates developed with JSON and Bicep.
+title: Compare syntax for Azure Resource Manager templates in JSON and Bicep
+description: Compares Azure Resource Manager templates developed with JSON and Bicep, and shows how to convert between the languages.
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 03/03/2021
 ---
 # Comparing JSON and Bicep for templates
 
@@ -12,40 +12,21 @@ This article compares Bicep syntax with JSON syntax for Azure Resource Manager t
 
 If you're familiar with using JSON to develop ARM templates, use the following table to learn about the equivalent syntax for Bicep.
 
-| Scenario | ARM template | Bicep |
+| Scenario | Bicep | JSON |
 | -------- | ------------ | ----- |
-| Author an expression | `"[func()]"` | `func()` |
-| Get parameter value | `[parameters('exampleParameter'))]` | `exampleParameter` |
-| Get variable value | `[variables('exampleVar'))]` | `exampleVar` |
-| Concatenate strings | `[concat(parameters('namePrefix'), '-vm')]` | `'${namePrefix}-vm'` |
-| Set resource property | `"sku": "2016-Datacenter",` | `sku: '2016-Datacenter'` |
-| Return the logical AND | `[and(parameter('isMonday'), parameter('isNovember'))]` | `isMonday && isNovember` |
-| Get resource ID of resource in the template | `[resourceId('Microsoft.Network/networkInterfaces', variables('nic1Name'))]` | `nic1.id` |
-| Get property from resource in the template | `[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]` | `diagsAccount.properties.primaryEndpoints.blob` |
-| Conditionally set a value | `[if(parameters('isMonday'), 'valueIfTrue', 'valueIfFalse')]` | `isMonday ? 'valueIfTrue' : 'valueIfFalse'` |
-| Separate a solution into multiple files | Use linked templates | Use modules |
-| Set the target scope of the deployment | `"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#"` | `targetScope = 'subscription'` |
-| Set dependency | `"dependsOn": ["[resourceId('Microsoft.Storage/storageAccounts', 'parameters('storageAccountName'))]"]` | Either rely on automatic detection of dependencies or manually set dependency with `dependsOn: [ stg ]` |
-
-To declare the type and version for a resource, use the following in Bicep:
-
-```bicep
-resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
-  ...
-}
-```
-
-Instead of the equivalent syntax in JSON:
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Compute/virtualMachines",
-    "apiVersion": "2020-06-01",
-    ...
-  }
-]
-```
+| Author an expression | `func()` | `"[func()]"` |
+| Get parameter value | `exampleParameter` | `[parameters('exampleParameter'))]` |
+| Get variable value | `exampleVar` | `[variables('exampleVar'))]` |
+| Concatenate strings | `'${namePrefix}-vm'` | `[concat(parameters('namePrefix'), '-vm')]` |
+| Set resource property | `sku: '2016-Datacenter'` | `"sku": "2016-Datacenter",` |
+| Return the logical AND | `isMonday && isNovember` | `[and(parameter('isMonday'), parameter('isNovember'))]` |
+| Get resource ID of resource in the template | `nic1.id` | `[resourceId('Microsoft.Network/networkInterfaces', variables('nic1Name'))]` |
+| Get property from resource in the template | `diagsAccount.properties.primaryEndpoints.blob` | `[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]` |
+| Conditionally set a value | `isMonday ? 'valueIfTrue' : 'valueIfFalse'` | `[if(parameters('isMonday'), 'valueIfTrue', 'valueIfFalse')]` |
+| Separate a solution into multiple files | Use modules | Use linked templates |
+| Set the target scope of the deployment | `targetScope = 'subscription'` | `"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#"` |
+| Set dependency | Either rely on automatic detection of dependencies or manually set dependency with `dependsOn: [ stg ]` | `"dependsOn": ["[resourceId('Microsoft.Storage/storageAccounts', 'parameters('storageAccountName'))]"]` |
+| Resource declaration | `resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {...}` | `"resources": [ { "type": "Microsoft.Compute/virtualMachines", "apiVersion": "2020-06-01", ... } ]` |
 
 ## Recommendations
 
@@ -57,10 +38,7 @@ Instead of the equivalent syntax in JSON:
 
 The Bicep CLI provides a command to decompile any existing ARM template to a Bicep file. To decompile a JSON file, use: `bicep decompile "path/to/file.json"`
 
-This command provides a starting point for Bicep authoring, but the command doesn't work for all templates. The command may fail or you may have to fix issues after the decompilation. Currently, the command has the following limitations:
-
-* Templates using copy loops can't be decompiled.
-* Nested templates can be decompiled only if they use the 'inner' expression evaluation scope.
+This command provides a starting point for Bicep authoring, but the command doesn't work for all templates. The command may fail or you may have to fix issues after the decompilation. Currently, nested templates can be decompiled only if they use the 'inner' expression evaluation scope.
 
 You can export the template for a resource group, and then pass it directly to the bicep decompile command. The following example shows how to decompile an exported template.
 
@@ -94,4 +72,4 @@ The [Bicep playground](https://aka.ms/bicepdemo) enables you to view equivalent 
 
 ## Next steps
 
-For information about the Bicep project, see [Project Bicep](https://github.com/Azure/bicep).
+For information about the Bicep, see [Bicep tutorial](./bicep-tutorial-create-first-bicep.md).

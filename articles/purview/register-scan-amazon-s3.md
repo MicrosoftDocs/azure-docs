@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/07/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
@@ -57,8 +57,8 @@ The following table maps the regions where you data is stored to the region wher
 | Asia Pacific (Sydney)           | Europe (Frankfurt)                    |
 | Asia Pacific (Tokyo)            | Europe (Frankfurt)                    |
 | Canada (Central)                | US East (Ohio)                        |
-| China (Beijing)                 | Europe (Frankfurt)                    |
-| China (Ningxia)                 | Europe (Frankfurt)                    |
+| China (Beijing)                 | Not supported                    |
+| China (Ningxia)                 | Not supported                   |
 | Europe (Frankfurt)              | Europe (Frankfurt)                    |
 | Europe (Ireland)                | Europe (Frankfurt)                    |
 | Europe (London)                 | Europe (Frankfurt)                    |

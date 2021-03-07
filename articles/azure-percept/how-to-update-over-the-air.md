@@ -87,7 +87,7 @@ Group Tag Requirements:
 1. Confirm that the correct device group is selected as the target device group. Select a **Start date** and **Start time** for your deployment, then click **Create deployment**. 
 
 	>[!CAUTION]
-	>Setting the start time the past will trigger the deployment immediately.
+	>Setting the start time in the past will trigger the deployment immediately.
  
 1. Check the compliance chart. You should see the update is now in progress.
  

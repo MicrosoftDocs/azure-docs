@@ -133,6 +133,14 @@ Azure AD B2C provides a directory that can hold 100 custom attributes per user. 
 
 For more information about accessing Azure AD B2C audit logs, see [Accessing Azure AD B2C audit logs](view-audit-logs.md).
 
+## Conditional Access
+
+- [List all of the Conditional Access policies](/graph/api/resources/conditionalaccessroot-list-policies)
+- [Read properties and relationships of a Conditional Access policy](/graph/api/conditionalaccesspolicy-get)
+- [Create a new Conditional Access policy](/graph/api/resources/application)
+- [Update a Conditional Access policy](/graph/api/conditionalaccesspolicy-update)
+- [Delete a Conditional Access policy](/graph/api/conditionalaccesspolicy-delete)
+
 ## Code sample: How to programmatically manage user accounts
 
 This code sample is a .NET Core console application that uses the [Microsoft Graph SDK](/graph/sdks/sdks-overview) to interact with Microsoft Graph API. Its code demonstrates how to call the API to programmatically manage users in an Azure AD B2C tenant.
