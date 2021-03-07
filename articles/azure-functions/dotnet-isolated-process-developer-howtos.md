@@ -1,16 +1,20 @@
 ---
-title: Develop and publish .NET 5.0 functions using Azure Functions  
+title: Develop and publish .NET 5 functions using Azure Functions  
 description: Learn how to create and debug C# functions using .NET 5.0, then deploy the local project to serverless hosting in Azure Functions.
 ms.date: 03/03/2021
 ms.topic: how-to
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated process so that I can run my function code on current (not LTS) releases of .NET.
+zone_pivot_groups: development-environment-functions
 ---
 
-# Create a C# isolated process function in Azure 
+# Develop and publish .NET 5 function using Azure Functions 
 
-In this article, you learn how to create a C# function using .NET 5.0 that runs out-of-process from the Azure Functions runtime. After verifying the code locally, you deploy it to a function app running .NET 5.0. To learn more about .NET isolated functions, which run out-of-process from the Functions runtime, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+This article shows you how to work with C# functions using .NET 5.0, which run out-of-process from the Azure Functions runtime. You'll learn how to create, debug locally, and publish these .NET isolated process functions to Azure. In Azure, these functions run in an isolate process that supports .NET 5.0. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
 
 If you don't need to support .NET 5.0 or run your functions out-of-process, you might want to instead [create a C# class library function](functions-create-your-first-function-visual-studio.md).
+
+>[!NOTE]
+>Developing .NET isolated process functions in the Azure portal isn't currently supported. You must use either the Azure CLI or Visual Studio Code publishing to create a function app in Azure that supports running .NET 5.0 apps out-of-process.   
 
 ## Configure your local environment
 
@@ -24,9 +28,50 @@ Before you begin, you must have the following:
 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.20, or a later version.
 
+::: zone pivot="development-environment-vscode"
+
+::: zone-end
+
 ## Create a local function project
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
+
+::: zone pivot="development-environment-vs"
+
+>[!NOTE]  
+> At this time, there are no Visual Studio project templates that support creating .NET isolated function projects. This article shows you how to use Core Tools to create project and Visual Studio to run locally, debug, and publish to an existing function app.  
+
+::: zone-end
+
+::: zone pivot="development-environment-vscode"  
+1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, select the **Create new project...** icon.
+
+    ![Choose Create a new project](./media/functions-create-first-function-vs-code/create-new-project.png)
+
+1. Choose a directory location for your project workspace and choose **Select**.
+
+    > [!NOTE]
+    > These steps were designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
+
+1. Provide the following information at the prompts:
+
+    + **Select a language for your function project**: Choose `C#`.
+
+    + **Select a .NET runtime**: Choose `.NET 5 isolated`.
+
+    + **Select a template for your project's first function**: Choose `HTTP trigger`.
+
+    + **Provide a function name**: Type `HttpExample`.
+
+    + **Provide a namespace**: Type `My.Functions`.
+
+    + **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
+
+    + **Select how you would like to open your project**: Choose `Add to workspace`.
+
+1. Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files).
+::: zone-end  
+::: zone pivot="development-environment-cli,development-environment-vs"  
 
 1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj*:  
 
@@ -52,42 +97,79 @@ In Azure Functions, a function project is a container for one or more individual
     ``` 
 
     `func new` creates a HttpExample.cs code file.
+::: zone-end  
 
-### (Optional) Examine the file contents
+::: zone pivot="development-environment-vscode"  
 
-If desired, you can skip to [Run the function locally](#run-the-function-locally) and examine the file contents later.
+[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
-#### HttpExample.cs
-
-*HttpExample.cs* contains a `Run` method that receives request data in the `req` variable is an [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) that's decorated with the **HttpTriggerAttribute**, which defines the trigger behavior.
-
-:::code language="csharp" source="~/azure-functions-templates-v3/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
-
-The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) that returns a response message as either an [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) or a [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bindings-http-webhook.md?tabs=csharp).
+::: zone-end  
+::: zone pivot="development-environment-cli" 
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
 
-[!INCLUDE [functions-create-azure-resources-cli](../../includes/functions-create-azure-resources-cli.md)]
+::: zone-end
+
+::: zone pivot="development-environment-vs"
+
+## Run the function locally
+
+Visual Studio integrates with Azure Functions Core Tools so that you can test your functions locally using the full Azure Functions runtime.  
+
+[!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
+
+After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
+
+>[!NOTE]  
+>Visual Studio publishing isn't currently available for .NET isolated process apps. After you've finished developing your project in Visual Studio, you must use the Azure CLI to create the remote Azure resources. Then, you can use Azure Functions Core Tools from the command line to publish your project to Azure.
+::: zone-end
+
+::: zone pivot="development-environment-cli,development-environment-vs" 
+## Create supporting Azure resources for your function
+
+Before you can deploy your function code to Azure, you need to create three resources:
+
+- A [resource group](../azure-resource-manager/management/overview.md), which is a logical container for related resources.
+- A [Storage account](../storage/common/storage-account-create.md), which is used to maintain state and other information about your functions.
+- A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
+
+Use the following commands to create these items.
+
+1. If you haven't done so already, sign in to Azure:
+
+    ```azurecli
+    az login
+    ```
+
+    The [az login](/cli/azure/reference-index#az_login) command signs you into your Azure account.
+
+1. Create a resource group named `AzureFunctionsQuickstart-rg` in the `westeurope` region:
+
+    ```azurecli
+    az group create --name AzureFunctionsQuickstart-rg --location westeurope
+    ```
+ 
+    The [az group create](/cli/azure/group#az_group_create) command creates a resource group. You generally create your resource group and resources in a region near you, using an available region returned from the `az account list-locations` command.
+
+1. Create a general-purpose storage account in your resource group and region:
+
+    ```azurecli
+    az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
+    ```
+
+    The [az storage account create](/cli/azure/storage/account#az_storage_account_create) command creates the storage account. 
+
+    In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](../articles/azure-functions/storage-considerations.md#storage-account-requirements).
 
 4. Create the function app in Azure:
 
     # [Azure CLI](#tab/azure-cli)
         
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet-isolated --runtime-version 5.0 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     
     The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. 
-    
-    # [Azure PowerShell](#tab/azure-powershell)
-    
-    ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 3 -Location 'West Europe'
-    ```
-    
-    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. 
-    
-    ---
     
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
     
@@ -95,9 +177,59 @@ The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.acti
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
-[!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
+::: zone-end
 
-[!INCLUDE [functions-streaming-logs-cli-qs](../../includes/functions-streaming-logs-cli-qs.md)]
+::: zone pivot="development-environment-vscode"
+
+[!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
+
+## Publish the project to Azure
+
+In this section, you create a function app and related resources in your Azure subscription and then deploy your code.
+
+> [!IMPORTANT]
+> Publishing to an existing function app overwrites the content of that app in Azure.
+
+
+1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app...** button.
+
+    ![Publish your project to Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
+
+1. Provide the following information at the prompts:
+
+    - **Select folder**: Choose a folder from your workspace or browse to one that contains your function app. You won't see this if you already have a valid function app opened.
+
+    - **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
+
+    - **Select Function App in Azure**: Choose `- Create new Function App`. (Don't choose the `Advanced` option, which isn't covered in this article.)
+      
+    - **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.
+    
+    - **Select a runtime stack**: Choose `.NET 5 (non-LTS)`. 
+    
+    - **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you. 
+    
+    The extension shows the status of individual resources as they are being created in Azure in the notification area.
+
+    :::image type="content" source="media/functions-publish-project-vscode/resource-notification.png" alt-text="Notification of Azure resource creation":::
+    
+1.  When completed, the following Azure resources are created in your subscription, using names based on your function app name:
+    
+    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
+
+    A notification is displayed after your function app is created and the deployment package is applied. 
+
+    [!INCLUDE [functions-vs-code-create-tip](../../includes/functions-vs-code-create-tip.md)]
+
+4. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
+
+    ![Create complete notification](../../includes/media/functions-publish-project-vscode/function-create-notifications.png)
+
+::: zone-end
+
+::: zone pivot="development-environment-cli"
+[!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
+::: zone-end
 
 [!INCLUDE [functions-cleanup-resources-cli](../../includes/functions-cleanup-resources-cli.md)]
 
