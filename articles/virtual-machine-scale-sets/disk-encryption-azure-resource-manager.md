@@ -38,6 +38,9 @@ Then follow these steps:
 2. Fill in the required fields then agree to the terms and conditions.
 3. Click **Purchase** to deploy the template.
 
++ #Note:VMSS encryption is supported with API version 2017-03-30 onwards. If you are using templates to enable VMSS encryption, please update API version for VMSS / ADE extension inside the template. Here is a sample template https://github.com/Azure/azure-quickstart-templates/blob/master/201-encrypt-running-vmss-windows/azuredeploy.json
++ 
+
 ## Next steps
 
 - [Azure Disk Encryption for virtual machine scale sets](disk-encryption-overview.md)
