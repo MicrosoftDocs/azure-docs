@@ -239,6 +239,8 @@
         href: manage/ea-pricing-overview.md
       - name: Azure Enterprise REST APIs
         href: manage/ea-portal-rest-apis.md
+      - name: Automate EA tasks with SPNs
+        href: manage/automate-enterprise-agreement-tasks-with-azure-service-principals.md
       - name: Azure EA VM reserved instances
         href: manage/ea-portal-vm-reservations.md
       - name: Azure Marketplace
