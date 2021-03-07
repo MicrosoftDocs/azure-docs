@@ -72,7 +72,7 @@ Log Analytics data export can write append blobs to immutable storage accounts w
 Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all data for defined tables to it.
 
 > [!IMPORTANT]
-> The [number of supported event hubs per namespace is 10](../../event-hubs/event-hubs-quotas#common-limits-for-all-tiers). If you export more than 10 tables, provide your own event hub name to export all your tables to that event hub.
+> The [number of supported event hubs per namespace is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). If you export more than 10 tables, provide your own event hub name to export all your tables to that event hub.
 
 Considerations:
 1. 'Basic' event hub sku supports lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) and some logs in your workspace can exceed it and be dropped. We recommend to use 'Standard' or 'Dedicated' event hub as export destination.
