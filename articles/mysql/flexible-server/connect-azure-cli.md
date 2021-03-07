@@ -58,7 +58,7 @@ Command group 'mysql flexible-server' is in preview and under development. Refer
 Connecting to flexibleserverdb database.
 Successfully connected to mysqldemoserver1.
 ```
-If the connection failed, please check:
+If the connection failed, try these solutions:
 - Check if port 3306 is open on your client machine.
 - if your server administrator user name and password are correct
 - if you have configured firewall rule for your client machine
