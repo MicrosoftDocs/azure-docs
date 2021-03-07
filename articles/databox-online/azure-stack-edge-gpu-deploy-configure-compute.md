@@ -14,7 +14,7 @@ Customer intent: As an IT admin, I need to understand how to configure compute o
 
 # Tutorial: Configure compute on Azure Stack Edge Pro GPU device
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+<!--ALPA WILL VERIFY - [!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This tutorial describes how to configure a compute role and create a Kubernetes cluster on your Azure Stack Edge Pro device. 
 
