@@ -102,7 +102,7 @@ The script will generate the following files
 - interCA.pfx - Intermediate CA pkcs12 package which will be used by firewall
 
 > [!IMPORTANT]
-> rootCA.key should be stored in a secure offline location.
+> rootCA.key should be stored in a secure offline location. Note that the script will generate certificate with validity of 1024 days.
 
 Following certificate generation deploy them as follows
 - rootCA.crt - Deploy on endpoint machines (Public certificate only).
