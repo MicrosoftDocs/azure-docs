@@ -13,13 +13,13 @@ ms.date: 3/08/2021
 
 Before you can programmatically access commercial marketplace analytics data, you need to meet the following requirements.
 
-## Commercial Marketplace enrollment
+## Commercial marketplace enrollment
 
 To access commercial marketplace analytics data programmatically, you need to be enrolled in the commercial marketplace program and have a Partner Center account. To learn how, see [Create a commercial marketplace account in Partner Center](./partner-center-portal/create-account.md).
 
-## Create Azure Active Directory (AAD) application
+## Create Azure Active Directory application
 
-Regular user credentials cannot be used for programmatic access of commercial marketplace analytics data. An Azure Active Directory (AAD) application needs to be created along with a secret to access the analytics APIs. To learn how to create an AAD application and secret, see [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+Regular user credentials cannot be used for programmatic access of commercial marketplace analytics data. An Azure Active Directory (Azure AD) application needs to be created along with a secret to access the analytics APIs. To learn how to create an AAD application and secret, see [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 ## Associate the AAD application to the Partner Center tenant
 
@@ -36,7 +36,7 @@ The AAD application you created in Azure portal needs to be linked to your Partn
 
 ## Generate an AAD token
 
-You need to Generate an AAD token using the Application (client) ID. This ID helps to uniquely identify your client application in the Microsoft identity platform and the client secret from the previous step. For the steps to generate an AAD token, see [Service to service calls using client credentials (shared secret or certificate)](/active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow).
+You need to Generate an AAD token using the Application (client) ID. This ID helps to uniquely identify your client application in the Microsoft identity platform and the client secret from the previous step. For the steps to generate an AAD token, see [Service to service calls using client credentials (shared secret or certificate)](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow).
 
 > [!NOTE]
 > The token is valid for one hour.

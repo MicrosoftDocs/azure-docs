@@ -47,7 +47,7 @@ Running the app will start a local web server and a page will open (`https://loc
 
 This page will make API calls to the webserver running on the local machine, which in turn will make the actual programmatic access API calls.
 
-## Code Snippets
+## Code snippets
 
 The basic structure of the C# code for doing the programmatic access API calls is as follows:
 
