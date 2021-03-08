@@ -70,7 +70,7 @@ We recommend enabling Azure Defender plans at the subscription level and this ca
 1. Under the **Security** heading, select **Security Center**.
 1. Select **Enable Azure Defender for SQL**.
 
-    :::image type="content" source="media/azure-defender-for-sql/enable-azure-defender.png" alt-text="Enable Azure Defender for SQL from within Azure SQL databases":::
+    :::image type="content" source="media/azure-defender-for-sql/enable-azure-defender.png" alt-text="Enable Azure Defender for SQL from within Azure SQL databases.":::
 
 > [!NOTE]
 > A storage account is automatically created and configured to store your **Vulnerability Assessment** scan results. If you've already enabled Azure Defender for another server in the same resource group and region, then the existing storage account is used.
@@ -86,11 +86,11 @@ To view and manage Azure Defender settings:
 
     On this page, you'll see the status of Azure Defender for SQL:
 
-    :::image type="content" source="media/azure-defender-for-sql/status-of-defender-for-sql.png" alt-text="Checking the status of Azure Defender for SQL inside Azure SQL databases":::
+    :::image type="content" source="media/azure-defender-for-sql/status-of-defender-for-sql.png" alt-text="Checking the status of Azure Defender for SQL inside Azure SQL databases.":::
 
 1. If Azure Defender for SQL is enabled, you'll see a **Configure** link as shown in the previous graphic. To edit the settings for Azure Defender for SQL, select **Configure**.
 
-    :::image type="content" source="media/azure-defender-for-sql/security-server-settings.png" alt-text="security server settings":::
+    :::image type="content" source="media/azure-defender-for-sql/security-server-settings.png" alt-text="Settings for Azure Defender for SQL.":::
 
 1. Make the necessary changes and select **Save**.
 
