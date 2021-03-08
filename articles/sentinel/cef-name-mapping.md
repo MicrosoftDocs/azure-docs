@@ -22,8 +22,8 @@ This mapping may be helpful when you are working with a CEF data source in Azure
 
 |CEF field name  |CommonSecurityLog name  |Description  |
 |---------|---------|---------|
-| act    |    DeviceAction     |  The action mentioned in the event       |
-|   app  |    ApplicationProtocol     |  The protocol used in the application <!--?-->       |
+| act    |    DeviceAction     |  The action mentioned in the event.       |
+|   app  |    ApplicationProtocol     |  The protocol used in the application, such as HTTP, HTTPS,SSHv2, Telnet, POP, IMPA, IMAPS, and so on.   |
 | cnt    |    EventCount     |  A count associated with the event, showing how many times the same event was observed.       |
 | | | |
 
@@ -31,33 +31,33 @@ This mapping may be helpful when you are working with a CEF data source in Azure
 
 |CEF field name  |CommonSecurityLog name  |Description  |
 |---------|---------|---------|
-|Device Vendor     |  DeviceVendor       |         |
-|Device Product     |   DeviceProduct      |         |
-|Device Version     |   DeviceVersion      |         |
-|DeviceEventClassID     |   DeviceEventClassID     |   Unique identifier per event type      |
+|Device Vendor     |  DeviceVendor       | String that, together with device product and version definitions, uniquely identifies the type of sending device.       |
+|Device Product     |   DeviceProduct      |   String that, together with device vendor and version definitions, uniquely identifies the type of sending device.        |
+|Device Version     |   DeviceVersion      |      String that, together with device product and vendor definitions, uniquely identifies the type of sending device.     |
+|DeviceEventClassID     |   DeviceEventClassID     |   String or integer that serves as a unique identifier per event type.      |
 | destinationDnsDomain    | DestinationDnsDomain        |   The DNS part of the completely fully-qualified domain name (FQDN).      |
-| destinationServiceName | DestinationServiceName | The service that is targed by the event. |
+| destinationServiceName | DestinationServiceName | The service that is targeted by the event. |
 | destinationTranslatedAddress | DestinationTranslatedAddress | Identifies the translated destination referred to by the event in an IP network. |
 | destinationTranslatedPort | DestinationTranslatedPort | Port, after translation, such as a firewall. <br>Valid port numbers: **0** - **65535** |
-| deviceDirection | CommunicationDirection | Any information about the direction the observed communication has taken. | 
+| deviceDirection | CommunicationDirection | Any information about the direction the observed communication has taken. |
 | deviceDnsDomain | DeviceDnsDomain | The DNS domain part of the full qualified domain name (FQDN) |
 | deviceExternalID | DeviceExternalID | A name that uniquely identifies the device generating the event. |
 | deviceFacility | DeviceFacility | The facility generating the event. |
-| deviceInboundInterface | DeviceInboundInterface |  |
+| deviceInboundInterface | DeviceInboundInterface |The interface on which the packet or data entered the device.  |
 | deviceNtDomain | DeviceNtDomain | The Windows domain of the device address |
-| deviceOutboundInterface | DeviceOutboundInterface | |
-| devicePayloadId |DevicePayloadId | | 
-| deviceProcessName | ProcessName | Process name associated with the event. <br><br>For example, in UNIX, the process generating the syslog entry. | 
-| deviceTranslatedAddress | DeviceTranslatedAddress | Identifies the translated device address that the event refers to, in an IP network. <br><br>The format is an Ipv4 address. | 
+| deviceOutboundInterface | DeviceOutboundInterface |Interface on which the packet or data left the device. |
+| devicePayloadId |DevicePayloadId |Unique identifier for the payload associated with the event. |
+| deviceProcessName | ProcessName | Process name associated with the event. <br><br>For example, in UNIX, the process generating the syslog entry. |
+| deviceTranslatedAddress | DeviceTranslatedAddress | Identifies the translated device address that the event refers to, in an IP network. <br><br>The format is an Ipv4 address. |
 | dhost |DestinationHostName | Destination host name (FQDN) |
 | dmac | DestinationMacAddress | Destination MAC address (FQDN) |
 | dntdom | DestinationNTDomain | Destination NT domain: the WIndows domain name of the destination address |
-| dpid | DestinationProcessId | |
+| dpid | DestinationProcessId |Provides the ID of the destination process associated with the event.|
 | dpriv | DestinationUserPrivileges | Destination user privileges. Valid values: **Admninistrator**, **User**, **Guest** |
-| dproc | DestinationProcessName | Destination process |
-| dpt | DestinationPort | Destination port |
-| dst | DestinationIP | destination address (IPv4) |
-| dtz | DeviceTimeZon | Time zone of the device generating the event |
+| dproc | DestinationProcessName | The name of the event’s destination process, such as **telnetd** or **sshd.** |
+| dpt | DestinationPort | Destination port. Valid values are numbers, between ***0** and **65535** |
+| dst | DestinationIP | The destination IpV4 address that the event refers to, in an IP network. |
+| dtz | DeviceTimeZon | Timezone of the device generating the event |
 | duid |DestinationUserId | Destination user ID |
 | duser | DestinationUserName | Destination user name |
 | dvc | DeviceAddress | IPv4 address of the device generating the event |
@@ -116,7 +116,7 @@ This mapping may be helpful when you are working with a CEF data source in Azure
 | requestMethod | RequestMethod | The method used to access a URL. <br><br>Valid values include methods such as **POST**, **GET**, and so on. |
 | rt | ReceiptTime | The time at which the event related to the activity was received. | 
 | RemoteIP | RemoteIP | Derived from the event's direction value, if possible. |
-|Severity     |  LogSeverity       |  <!-- missing info, what does it mean?-->Valid string values: **Unknown** , **Low**, **Medium**, **High**, **Very-High** <br><br>Valid integer values are: **0**-**3** = Low, **4**-**6** = Medium, **7**-**8** = High, **9**-**10** = Very-High |
+|Severity     |  LogSeverity       |  A string or integer that describes reflects the importance of the event.<br><br> Valid string values: **Unknown** , **Low**, **Medium**, **High**, **Very-High** <br><br>Valid integer values are: **0**-**3** = Low, **4**-**6** = Medium, **7**-**8** = High, **9**-**10** = Very-High |
 | shost    | SourceHostName        |Source host name (FQDN)         |
 | |SimplifiedDeviceAction | A mapped version of [DeviceAction](#d-2), such as **Denied** > **Deny** |
 | smac | SourceMacAddress | Source MAC address |
