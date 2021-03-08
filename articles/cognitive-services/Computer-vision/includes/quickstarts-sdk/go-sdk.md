@@ -73,13 +73,16 @@ cd src
 touch sample-app.go
 ```
 
-Open `sample-app.go` in your preferred IDE or text editor. Then add the package name and import the following libraries:
+> [!TIP]
+> Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go), which contains the code examples in this quickstart.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_imports)]
+Open `sample-app.go` in your preferred IDE or text editor.
 
-Also, declare a context at the root of your script. You'll need this object to execute most Computer Vision function calls:
+Declare a context at the root of your script. You'll need this object to execute most Computer Vision function calls.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_context)]
+Create variables for your Computer Vision subscription key and endpoint. Paste your subscription key and endpoint into the following code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_imports_and_vars)]
 
 Next, you'll begin adding code to carry out different Computer Vision operations.
 
