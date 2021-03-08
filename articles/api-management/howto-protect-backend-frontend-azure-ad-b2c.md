@@ -129,7 +129,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Switch to the 'User Flows' (Under Policies) tab.
 1. Click "New user flow"
 1. Choose the 'Sign up and sign in' user flow type, and select 'Recommended' and then 'Create'
-1. Give the policy a name and record it for later. For this example, you can use "Frontendapp_signupandsignin"
+1. Give the policy a name and record it for later. For this example, you can use "Frontendapp_signupandsignin", note that this will be prefixed with "B2C_1_" to make "B2C_1_Frontendapp_signupandsignin"
 1. Under 'Identity providers' and "Local accounts", check 'Email sign up' (or 'User ID sign up' depending on the config of your B2C tenant) and click OK. This configuration is because we'll be registering local B2C accounts, not deferring to another identity provider (like a social identity provider) to use an user's existing social media account.
 1. Leave the MFA and conditional access settings at their defaults.
 1. Under 'User Attributes and claims', click 'Show More...' then choose the claim options that you want your users to enter and have returned in the token. Check at least 'Display Name' and 'Email Address' to collect, with 'Display Name' and 'Email Addresses' to return (pay careful attention to the fact that you are collecting emailaddress, singular, and asking to return email addresses, multiple), and click 'OK', then click 'Create'.
@@ -350,7 +350,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
         			},
         			api: {
         				scopes: ["{BACKENDAPISCOPE}"], // The scope that we request for the API from B2C, this should be the backend API scope, with the full URI.
-        				backend: "{APIBASEURL}/hello" // The location that we will call for the backend api, this should be hosted in API Management, suffixed with the API name.
+        				backend: "{APIBASEURL}/hello" // The location that we will call for the backend api, this should be hosted in API Management, suffixed with the name of the API operation (in the sample this is '/hello').
         			}
         		}
         		document.getElementById("callapibtn").hidden = true;
@@ -434,7 +434,6 @@ The *authority* value needs to be in the format:- https://{b2ctenantname}.b2clog
 1. Open the Azure AD B2C blade and navigate to the application registration for the JavaScript Frontend Application.
 1. Click 'Redirect URIs' and delete the placeholder 'https://jwt.ms' we entered earlier.
 1. Add a new URI for the primary (storage) endpoint (minus the trailing forward slash).
-1. Set the redirect URL to the one you noted down when you previously set up the static website primary endpoint above.
 
    > [!NOTE]
    > This configuration will result in a client of the frontend application receiving an access token with appropriate claims from Azure AD B2C.  
