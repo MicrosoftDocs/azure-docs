@@ -188,17 +188,38 @@ In today’s cybersecurity landscape, bad actors have almost made a game of tryi
 
 As organizations focus heavily on reactive efforts such as analytics and rules, bad actors are quickly finding ways to evade them. This is where UEBA comes to play by providing risk scoring methodologies and algorithms to figure out what is really happening.
 
-## Commonly used UEBA queries
+## Common methods for using UEBA data
 
-The following table describes commonly used queries that use UEBA analytics data.
+The following sections describes common methods for using UEBA analytics data in your regular workflows.
+### Proactive, routine searches in entity data
 
-|Example |Query description  |
-|---------|---------|
-|**Proactive, routine searches in entity data**     |  We recommend running regular, proactive searches through user activity to create leads for further investigation. <br><br>Use the Azure Sentinel **User and Entity Behavior Analytics** workbook to query your data, such as for: <br>- **Top risky users**, with anomalies or attached incidents <br>- **Data on specific users**, to determine whether subject has indeed been compromised, or whether there is an insider threat due to action deviating from the user's profile. <br><br>Use the **User and Entity Behavior Analytics** workbook to capture non-routine actions and find anomalous activities and potentially non-compliance practices. For example, a user who connects to a VPN when they never have before would be an anomalous activity.|
-|**Use UEBA data to analyze false positives**     |Sometimes, an incident captured in an investigation is a false positive.<br><br> A common example of a false positive is when impossible travel activity is detected, such as a user who signed into an application or portal from both New York and London within the same hour.<br><br>While Azure Sentinel notes the impossible travel as an anomaly, an investigation with the user might clarify that a VPN was used with an alternative location to where the user actually was. <br><br>In such cases, use the user page and timeline to drill down to a specific user with anomalous activity and determine whether the locations capture are included in their commonly known locations.<br><br>**Tips**: <br>- When dealing with an impossible travel detection, you can also use the **Anomalous Geo Location** UEBA hunting query, which picks up any critical information such as user insights, device insights, and activity insights for defined users. <br>- You might also want to run another query to verify whether the user with anomalous location activity has peers who often connect from the same locations. If so, this incident would be more clearly a false positive.   |
-|**Identify password spray and spear phishing attempts**     |   If you are investigating a Potential Password Spray or Spear Phishing incident, you might want to use the built-in **Insights** area on the investigation graph for the relevant user before your restrict the account. <br><br>For even more details, view the full Entity Behavior page for your user, which displays any historical alerts or past sign-in anomalies.        |
-|     |         |
+We recommend running regular, proactive searches through user activity to create leads for further investigation.
 
+Use the Azure Sentinel **User and Entity Behavior Analytics** workbook to query your data, such as for:
+
+- **Top risky users**, with anomalies or attached incidents
+- **Data on specific users**, to determine whether subject has indeed been compromised, or whether there is an insider threat due to action deviating from the user's profile.
+
+Use the **User and Entity Behavior Analytics** workbook to capture non-routine actions and find anomalous activities and potentially non-compliance practices. For example, a user who connects to a VPN when they never have before would be an anomalous activity.
+
+### Use UEBA data to analyze false positives
+
+Sometimes, an incident captured in an investigation is a false positive.
+
+A common example of a false positive is when impossible travel activity is detected, such as a user who signed into an application or portal from both New York and London within the same hour. While Azure Sentinel notes the impossible travel as an anomaly, an investigation with the user might clarify that a VPN was used with an alternative location to where the user actually was.
+
+In such cases, use the user page and timeline to drill down to a specific user with anomalous activity and determine whether the locations capture are included in their commonly known locations.
+
+> [!TIP]
+> - When dealing with an impossible travel detection, you can also use the **Anomalous Geo Location** UEBA hunting query, which picks up any critical information such as user insights, device insights, and activity insights for defined users.
+>
+>- You might also want to run another query to verify whether the user with anomalous location activity has peers who often connect from the same locations. If so, this incident would be more clearly a false positive.
+
+### Identify password spray and spear phishing attempts
+
+If you are investigating a Potential Password Spray or Spear Phishing incident, you might want to use the built-in **Insights** area on the investigation graph for the relevant user before your restrict the account.
+
+For even more details, view the full [Entity Behavior](#entity-pages) page for your user, which displays any historical alerts or past sign-in anomalies.
 
 ## Next steps
 In this document, you learned about Azure Sentinel's entity behavior analytics capabilities. For practical guidance on implementation, and to use the insights you've gained, see the following articles:
