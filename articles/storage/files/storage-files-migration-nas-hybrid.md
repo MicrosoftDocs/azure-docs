@@ -18,7 +18,7 @@ This article covers "online migration" route and describes how to accomplish you
 
 ## Migration goals
 
-The goal is to move the shares that you have on your NAS appliance to a Windows Server. Then utilize Azure File Sync for a hybrid cloud deployment. This migration needs to be done in a way that guarantees the integrity of the production data as well as availability during the migration. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
+The goal is to move the shares that you have on your NAS appliance to a Windows Server. Then utilize Azure File Sync for a hybrid cloud deployment. Generally, migrations need to be done in a way that guaranty the integrity of the production data as well as availability during the migration. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
 
 ## Migration overview
 
@@ -42,7 +42,7 @@ As mentioned in the Azure Files [migration overview article](storage-files-migra
 * Create a Windows Server 2019 - at a minimum 2012R2 - as a virtual machine or physical server. A Windows Server fail-over cluster is also supported.
 * Provision or add Direct Attached Storage (DAS as compared to NAS, which is not supported).
 
-    The amount of storage you provision can be smaller than what you are currently using on your NAS appliance, if you use Azure File Syncs [cloud tiering](storage-sync-cloud-tiering-overview.md) feature.
+    The amount of storage you provision can be smaller than what you are currently using on your NAS appliance. This configuration choice requires that you also make use of Azure File Syncs [cloud tiering](storage-sync-cloud-tiering-overview.md) feature.
     However, when you copy your files from the larger NAS space to the smaller Windows Server volume in a later phase, you will need to work in batches:
 
     1. Move a set of files that fits onto the disk
@@ -124,7 +124,7 @@ The second time it will finish faster, because it only needs to transport change
 
 Repeat this process until you are satisfied that the amount of time it takes to complete a RoboCopy for a specific location is within an acceptable window for downtime.
 
-When you consider the downtime acceptable and you are prepared to take the NAS location offline: In order to take user access offline, you have the option to change ACLs on the share root such that users can no longer access the location or take any other appropriate step that prevents content to change in this folder on your NAS.
+When you consider the downtime acceptable, then you need to remove user access to your NAS-based shares. You can do that by any steps that prevent users from changing the file and folder structure and content. An example is to point your DFS-Namespace to a non-existing location or change the root ACLs on the share.
 
 Run one last RoboCopy round. It will pick up any changes, that might have been missed.
 How long this final step takes, is dependent on the speed of the RoboCopy scan. You can estimate the time (which is equal to your downtime) by measuring how long the previous run took.
@@ -152,7 +152,7 @@ Check the link in the following section for troubleshooting Azure File Sync issu
 
 ## Next steps
 
-There is more to discover about Azure file shares and Azure File Sync. The following articles help understand advanced options, best practices and also contain troubleshooting help. These articles link to [Azure file share documentation](storage-files-introduction.md) as appropriate.
+There is more to discover about Azure file shares and Azure File Sync. The following articles help understand advanced options, best practices, and also contain troubleshooting help. These articles link to [Azure file share documentation](storage-files-introduction.md) as appropriate.
 
 * [AFS overview](./storage-sync-files-planning.md)
 * [AFS deployment guide](./storage-how-to-create-file-share.md)

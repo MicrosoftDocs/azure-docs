@@ -56,7 +56,7 @@ To determine how many devices of which type you need, consider these important l
 * Any Azure DataBox can move data into up to 10 storage accounts. 
 * Each DataBox option comes at their own usable capacity. See [DataBox options](#databox-options).
 
-Consult your migration plan for the number of storage accounts you have decided to create and the shares in each one. Then look at the size of each of the shares on your NAS. Combining these information will allow you to optimize and decide which appliance should be sending data to which storage accounts. You can have two DataBox devices move files into the same storage account, but don't split content of a single file share across 2 DataBoxes.
+Consult your migration plan for the number of storage accounts you have decided to create and the shares in each one. Then look at the size of each of the shares on your NAS. Combining this information will allow you to optimize and decide which appliance should be sending data to which storage accounts. You can have two DataBox devices move files into the same storage account, but don't split content of a single file share across 2 DataBoxes.
 
 ### DataBox options
 
@@ -143,7 +143,7 @@ To tell if your server has completed initial download sync, open Event Viewer on
 The telemetry event log is located in Event Viewer under Applications and Services\Microsoft\FileSync\Agent.
 
 Search for the most recent 9102 event. 
-Event ID 9102 is logged once a sync session completes. In the event text there, is a field for the download sync direction. (HResult needs to be zero and files downloaded as well).
+Event ID 9102 is logged once a sync session completes. In the event text there, is a field for the download sync direction. (`HResult` needs to be zero and files downloaded as well).
  
 You want to see two consecutive events of this type and content to tell that the server has finished downloading the namespace. It's OK if there are different events firing between two 9102 events.
 
@@ -186,7 +186,7 @@ Once the initial run is complete, run the command again.
 
 A second time you run RoboCopy for the same share, it will finish faster, because it only needs to transport changes that happened since the last run. You can run repeated jobs for the same share.
 
-When you consider the downtime acceptable, then you need to remove user access to your NAS-based shares. You can do that by any steps that prevents users from changing the file and folder structure and content. An example is to point your DFS-Namespace to a non-existing location or change the root ACLs on the share.
+When you consider the downtime acceptable, then you need to remove user access to your NAS-based shares. You can do that by any steps that prevent users from changing the file and folder structure and content. An example is to point your DFS-Namespace to a non-existing location or change the root ACLs on the share.
 
 Run one last RoboCopy round. It will pick up any changes, that might have been missed.
 How long this final step takes, is dependent on the speed of the RoboCopy scan. You can estimate the time (which is equal to your downtime) by measuring how long the previous run took.

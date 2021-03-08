@@ -114,7 +114,7 @@ The following table classifies Microsoft tools and their current suitability for
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Supported. Azure file shares can be mounted as network drives. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Natively integrated into Azure file shares. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Storage Migration Service | Indirectly supported. Azure file shares can be mounted as network drives on SMS target servers. | Full fidelity.* |
-|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy </br>version 10.6 | Supported. | Does not support copy of source root ACL, otherwise full fidelity.* </br>[Learn how to use AzCopy with Azure file shares](../common/storage-use-azcopy-files.md) |
+|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy </br>version 10.6 | Supported. | Doesn't support copy of source root ACL, otherwise full fidelity.* </br>[Learn how to use AzCopy with Azure file shares](../common/storage-use-azcopy-files.md) |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Supported. | DataBox fully supports metadata. |
 |![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer </br>version 1.14 | Supported. | Doesn't copy ACLs. Supports timestamps.  |
 |![Not recommended](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Supported. | Doesn't copy metadata. |
@@ -143,7 +143,7 @@ The tested version of the tool is version 4.4.1. It's compatible with cloud-tier
 1. Create a plan for which deployment of Azure file shares (cloud-only or hybrid) you want.
 1. Review the list of available migration guides to find the detailed guide that matches your source and deployment of Azure file shares.
 
-Here is more information about the Azure Files technologies mentioned in this article:
+More information about the Azure Files technologies mentioned in this article:
 
 * [Azure file share overview](storage-files-introduction.md)
 * [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
