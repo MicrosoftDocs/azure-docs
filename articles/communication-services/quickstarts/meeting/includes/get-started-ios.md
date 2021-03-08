@@ -81,6 +81,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 ```
 
+### Add a button to the storyboard
+
+Add a `UIButton` to the storyboard labeled `Join Meeting`.
+
+:::image type="content" source="../media/ios/xcode-add-button.png" alt-text="Screenshot showing adding the button to the storyboard in Xcode.":::
+
+Then add an action outlet for this button in the viewController.
+
+```swift
+@IBAction func joinMeetingTapped(_ sender: UIButton) {
+
+}
+```
+
 ### Set up the app framework
 
 Open your project's **ViewController.swift** file and add an `import` declaration to the top of the file to import the `AzureCommunication library` and the `MeetingUIClient`. 
@@ -96,7 +110,7 @@ Replace the implementation of the `ViewController` class with a simple button to
 ```swift
 class ViewController: UIViewController {
 
-    private var meetingClient: MeetingClient?
+    private var meetingUIClient: MeetingUIClient?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,49 +134,66 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| MeetingClient | The MeetingClient is the main entry point to the Teams Embed library. |
-| MeetingClientDelegate | The meeting client delegate is used to receive events, such as changes in call state. |
+| MeetingUIClient | The MeetingUIClient is the main entry point to the Teams Embed library. |
+| MeetingUIClientDelegate | The MeetingUIClientDelegate is used to receive events, such as changes in call state. |
 | MeetingJoinOptions | MeetingJoinOptions are used for configurable options such as display name. | 
 | CallState | The CallState is used to for reporting call state changes. The options are as follows: connecting, waitingInLobby, connected, and ended. |
 
 ## Create and Authenticate the client
 
-Initialize a `MeetingClient` instance with a User Access Token which will enable us to join meetings. Add the following code to the `viewDidLoad` callback in **ViewController.swift**:
+Initialize a `MeetingUIClient` instance with a User Access Token which will enable us to join meetings. Add the following code to the `viewDidLoad` callback in **ViewController.swift**:
 
 ```swift
-        do {
-            let communicationTokenRefreshOptions = CommunicationTokenRefreshOptions(initialToken: "<USER_ACCESS_TOKEN>", refreshProactively: true, tokenRefresher: fetchTokenAsync(completionHandler:))
-            let credential = try CommunicationTokenCredential(with: communicationTokenRefreshOptions)
-            meetingClient = MeetingUIClient(with: credential)
-        }
-        catch {
-            print("Failed to create communication token credential")
-        }
+do {
+    let communicationTokenRefreshOptions = CommunicationTokenRefreshOptions(initialToken: "<USER_ACCESS_TOKEN>", refreshProactively: true, tokenRefresher: fetchTokenAsync(completionHandler:))
+    let credential = try CommunicationTokenCredential(with: communicationTokenRefreshOptions)
+    meetingUIClient = MeetingUIClient(with: credential)
+}
+catch {
+    print("Failed to create communication token credential")
+}
 ```
 
 You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available.
 
-## Get the Teams meeting link
+### Setup Token refreshing
 
-The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
-The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
-You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+Create a `fetchTokenAsync` method. Then add your fetchToken logic to get the user token.
+
+```swift
+private func fetchTokenAsync(completionHandler: @escaping TokenRefreshOnCompletion) {
+    func getTokenFromServer(completionHandler: @escaping (String) -> Void) {
+        completionHandler(self.acsToken)
+    }
+    getTokenFromServer { newToken in
+        completionHandler(newToken, nil)
+    }
+}
+```
 
 ## Join a meeting
 
-The `joinMeeting` method is set as the action that will be performed when the *Join Meeting* button is tapped. Update the implementation to join a meeting with the `MeetingClient`:
+The `joinMeeting` method is set as the action that will be performed when the *Join Meeting* button is tapped. Update the implementation to join a meeting with the `MeetingUIClient`:
 
 ```swift
 private func joinMeeting() {
     let meetingJoinOptions = MeetingJoinOptions(displayName: "John Smith")
         
-    meetingClient?.join(meetingUrl: meetingURL, meetingJoinOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
+    meetingUIClient?.join(meetingUrl: "<MEETING_URL>", meetingJoinOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
         if (error != nil) {
             print("Join meeting failed: \(error!)")
         }
     })
 }
 ```
+
+Replace `<MEETING URL>` with a teams meeting link.
+
+### Get the Teams meeting link
+
+The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
 ## Run the code
 
