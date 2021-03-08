@@ -349,18 +349,6 @@ For listing your application in the Azure AD app gallery, please read the detail
 
 ---
 
-### New provisioning connectors in the Azure AD Application Gallery - July 2020
-
-**Type:** New feature  
-**Service category:** App Provisioning  
-**Product capability:** 3rd Party Integration
-
-You can now automate creating, updating, and deleting user accounts for the newly integrated app [LinkedIn Learning](../saas-apps/linkedin-learning-provisioning-tutorial.md).
-
-For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
-
----
-
 ### View role assignments across all scopes and ability to download them to a csv file
 
 **Type:** Changed feature  
