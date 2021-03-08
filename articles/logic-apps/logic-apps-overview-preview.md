@@ -248,9 +248,9 @@ In Azure Logic Apps Preview, these capabilities have changed, or they are curren
 
 <a name="firewall-permissions"></a>
 
-## Traffic access strict network and firewalls
+## Permit traffic in strict network and firewall scenarios
 
-If your environment has strict network requirements or firewalls that limit traffic, you have to allow access for any connection-based triggers and actions in your logic app workflows.
+If your environment has strict network requirements or firewalls that limit traffic, you have to allow access for any trigger or action connections in your logic app workflows.
 
 To find the fully qualified domain names (FQDNs) for these connections, review the corresponding sections in these topics:
 
