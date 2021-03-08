@@ -4,7 +4,7 @@ description: How to manage and update Azure HPC Cache using the Azure portal or 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/08/2021
 ms.author: v-erkel
 ---
 
@@ -254,7 +254,7 @@ These charts are part of Azure's built-in monitoring and analytics tools. Additi
 
 If the cache goes into an unhealthy state, check the **Warnings** page. This page shows notifications from the cache software that might help you understand its state.
 
-These notifications do not appear in the activity log because they are not controlled by Azure portal. They are mainly associated with advanced custom settings you might have made.
+These notifications do not appear in the activity log because they are not controlled by Azure portal. They are often associated with custom settings you might have made.
 
 Kinds of warnings you might see here include:
 
@@ -262,7 +262,7 @@ Kinds of warnings you might see here include:
 * The cache failed to download Extended Groups username information
 * Custom DNS settings have changed on a storage target
 
-**???** need screenshot? **???**
+![screenshot of the Monitoring > Warnings page showing a message that extended groups usernames could not be downloaded](media/warnings-page.png)
 
 ## Next steps
 
