@@ -45,8 +45,8 @@ For more information, see [Microsoft 365 Defender integration with Azure Sentine
 Among the properties of resources that can be controlled by policies are the creation and handling of diagnostics and auditing logs. Azure Sentinel now uses Azure Policy to allow you to apply a common set of diagnostics logs settings to all (current and future) resources of a particular type whose logs you want to ingest into Azure Sentinel. Thanks to Azure Policy, you'll no longer have to set diagnostics logs settings resource by resource.
 
 Azure Policy-based connectors are now available for the following Azure services:
-- Azure Key Vault (public preview)
-- Azure Kubernetes Service (public preview)
+- [Azure Key Vault](connect-azure-key-vault.md) (public preview)
+- [Azure Kubernetes Service](connect-azure-kubernetes-service.md) (public preview)
 - Azure SQL databases/servers (GA)
 
 Customers will still be able to send the logs manually for specific instances and don’t have to use the policy engine.
