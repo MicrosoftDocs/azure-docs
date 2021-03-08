@@ -164,7 +164,7 @@ You can now deploy your applications in the namespace, then view those applicati
 
 To remove the Kubernetes cluster, you will need to remove the IoT Edge configuration.
 
-For detailed instructions, go to [Manage IoT Edge configuration](azure-stack-gpu-manage-compute.md#manage-iot-edge-configuration).
+For detailed instructions, go to [Manage IoT Edge configuration](azure-stack-edge-gpu-manage-compute.md#manage-iot-edge-configuration).
    
 
 ## Next steps
