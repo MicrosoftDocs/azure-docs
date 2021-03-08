@@ -61,7 +61,7 @@ Chat threads and messages are retained until explicitly deleted. A fully idle th
 
 ### SMS
 
-Sent and received SMS messages are ephemerally processed by the service and not retained. 
+Sent and received SMS messages are ephemerally processed by the service and not retained.
 
 ### PSTN voice calling
 
