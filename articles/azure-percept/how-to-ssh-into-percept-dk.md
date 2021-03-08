@@ -20,6 +20,7 @@ Follow the steps below to set up an SSH connection to your Azure Percept DK thro
 	- If your host computer runs Windows, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) is an effective SSH client, and will be used throughout this guide.
 	- If your host computer runs Linux or OS X, SSH services are included in those operating systems and can be run without a separate client application. Check your operating system product documentation for more information on how to run SSH services.
 - Azure Percept DK
+- Set up a SSH login account during the [Azure Percept DK on-boarding experience](./quickstart-percept-dk-set-up.md)
 
 ## Initiate the SSH connection
 
@@ -43,15 +44,8 @@ Follow the steps below to set up an SSH connection to your Azure Percept DK thro
 
     :::image type="content" source="./media/how-to-ssh-into-percept-dk/ssh-putty.png" alt-text="Image.":::
 
-1. Log in to the PuTTY terminal. If you set up an SSH username and password during the OOBE, enter those login credentials when prompted. Otherwise, enter the following:  
-
-    1. login as: root
-    1. Password: p@ssw0rd
-
-    :::image type="content" source="./media/how-to-ssh-into-percept-dk/putty-terminal.png" alt-text="PuTTY terminal window.":::  
+1. Log in to the PuTTY terminal with the SSH username and password created during the on-boarding experience.
 
 ## Next steps
 
 After successfully connecting to your Azure Percept DK through SSH, you may perform a variety of tasks, including troubleshooting, USB updates, and running the DiagTool or SoftAP Tool.
-
-

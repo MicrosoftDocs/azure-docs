@@ -1282,6 +1282,8 @@
         href: virtual-machines/linux/rhel-high-availability-stonith-tutorial.md
       - name: Configure availability group listener for SQL Server on RHEL virtual machines in Azure
         href: virtual-machines/linux/rhel-high-availability-listener-tutorial.md
+      - name: Setup Always On availability group with DH2i DxEnterprise
+        href: virtual-machines/linux/dh2i-high-availability-tutorial.md
     - name: Resources
       items:
       - name: FAQ

@@ -54,7 +54,7 @@ To configure account lockout settings, complete the following settings:
 
 ## Block and unblock users
 
-If a user's device has been lost or stolen, you can block Azure AD Multi-Factor Authentication attempts for the associated account. Any Azure AD Multi-Factor Authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
+If a user's device has been lost or stolen, you can block Azure AD Multi-Factor Authentication attempts for the associated account. Any Azure AD Multi-Factor Authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. We have published a video on [how to block and unblock users in your tenant](https://www.youtube.com/watch?v=WdeE1On4S1o) to show you how to do this.
 
 ### Block a user
 

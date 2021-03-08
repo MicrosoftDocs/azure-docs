@@ -110,7 +110,7 @@ conceptualContent:
         - url: ./general/client-libraries.md
           itemType: reference
           text:  Client libraries for Azure Key Vault
-        - url: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+        - url: /dotnet/api/overview/azure/key-vault
           itemType: reference
           text:  .NET Client library
         - url: /python/api/overview/azure/key-vault-index?view=azure-python
@@ -119,7 +119,7 @@ conceptualContent:
         - url: https://azure.github.io/azure-sdk-for-java/keyvault.html
           itemType: reference
           text:  Java Client library
-        - url: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+        - url: /javascript/api/overview/azure/key-vault-index
           itemType: reference
           text:  Node.js Client library
 

@@ -397,7 +397,7 @@ For best practices on identity and resource control, see [Best practices for aut
 [kubectl-run]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#run
 
 <!-- LINKS - internal -->
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
 [azure-ad-aks-cli]: azure-ad-integration-cli.md
 [az-aks-show]: /cli/azure/aks#az-aks-show

@@ -3,7 +3,7 @@ title: "Create an onboarding service principal for Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/09/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -85,4 +85,4 @@ az connectedk8s connect -n myConnectedClusterName -g myResoureGroupName
 
 ## Next steps
 
-* [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)
+Govern your cluster configuration [using Azure Policy](./use-azure-policy.md).
