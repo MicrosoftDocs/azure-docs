@@ -77,7 +77,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 In this section, you are going to create a new function that will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device. You can do this by creating a new project or use your existing project in Visual Studio or any other code editor.
 
-If you are creating a new project, make sure you have a function that updates digital twin information based on IoT Hub data as mentioned in the [prerequisites section](how-to-provision-using-device-provisioning-service.md#Prerequisites).
+If you are creating a new project, make sure you have a function that updates digital twin information based on IoT Hub data as mentioned in the [prerequisites section](#prerequisites).
 
 #### Add a function to use with Device Provisioning Service
 

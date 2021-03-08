@@ -27,8 +27,6 @@ This how-to document walks through the process for writing a function that can i
 
 Before continuing with this example, you'll need to set up the following resources as prerequisites:
 [!INCLUDE [digital-twins-prereq-instance-and-iot-hub.md](../../includes/digital-twins-prereq-instance-and-iot-hub.md)]
-* **A function** with the correct permissions to call your digital twin instance. For instructions, see [*How-to: Set up a function in Azure for processing data*](how-to-create-azure-function.md). 
-
 
 ### Example telemetry scenario
 
