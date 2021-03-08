@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ---
 
-# Expressions and functions in Azure Data Factory
+# How to use expressions and functions in Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-functions-variables.md)
