@@ -75,7 +75,7 @@ The following script provides an example of gathering the required information, 
        -CreateOption Attach
     }
     
-# Add NIC(s) and keep the same NIC as primary
+# Add NIC(s) and keep the same NIC as primary; keep the Private IP too, if it exists. 
     foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {	
     if ($nic.Primary -eq "True")
     {

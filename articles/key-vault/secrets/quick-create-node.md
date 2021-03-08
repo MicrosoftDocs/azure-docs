@@ -164,7 +164,7 @@ const client = new SecretClient(KVUri, credential);
 
 ### Save a secret
 
-Now that your application is authenticated, you can put a secret into your keyvault using the [setSecret method](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#setSecret_string__string__SetSecretOptions_) This requires a name for the secret - we're using "mySecret" in this sample.  
+Now that your application is authenticated, you can put a secret into your keyvault using the [setSecret method](/javascript/api/@azure/keyvault-secrets/secretclient#setSecret_string__string__SetSecretOptions_) This requires a name for the secret - we're using "mySecret" in this sample.  
 
 ```javascript
 await client.setSecret(secretName, secretValue);
@@ -172,7 +172,7 @@ await client.setSecret(secretName, secretValue);
 
 ### Retrieve a secret
 
-You can now retrieve the previously set value with the [getSecret method](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#getSecret_string__GetSecretOptions_).
+You can now retrieve the previously set value with the [getSecret method](/javascript/api/@azure/keyvault-secrets/secretclient#getSecret_string__GetSecretOptions_).
 
 ```javascript
 const retrievedSecret = await client.getSecret(secretName);

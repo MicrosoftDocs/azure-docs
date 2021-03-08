@@ -2,7 +2,7 @@
 title: Collect Spring Cloud Resilience4J Circuit Breaker Metrics 
 description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics. 
 author:  MikeDodaro
-ms.author: brendanm
+ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
