@@ -144,7 +144,7 @@ landingContent:
           - text: Content Moderator API
             url: ./api-reference.md
           - text: .NET SDK
-            url: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
+            url: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
           - text: Python SDK
             url: /python/api/azure-cognitiveservices-vision-contentmoderator/?view=azure-python
           - text: Java SDK
