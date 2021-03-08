@@ -139,7 +139,7 @@ Only a subset of built-in roles are enabled for Administrative Unit scoping. Ref
 GET
 
 ``` HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=principalId eq '<object-id-of-principal>'
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=principalId+eq+'<object-id-of-principal>'
 ```
 
 Response
@@ -169,7 +169,7 @@ HTTP/1.1 200 OK
 GET
 
 ``` HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq '<object-id-or-template-id-of-role-definition>'
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=roleDefinitionId+eq+'<object-id-or-template-id-of-role-definition>'
 ```
 
 Response
@@ -214,7 +214,7 @@ HTTP/1.1 200 OK
 GET
 
 ``` HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=directoryScopeId eq '/d23998b1-8853-4c87-b95f-be97d6c6b610'
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=directoryScopeId+eq+'/d23998b1-8853-4c87-b95f-be97d6c6b610'
 ```
 
 Response
