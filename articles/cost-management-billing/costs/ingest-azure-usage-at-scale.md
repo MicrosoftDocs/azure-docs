@@ -129,8 +129,8 @@ You can invoke the _TransferManager.CopyDirectoryAsync()_ method with the _CopyM
 
 Azure blob storage supports high global transfer rates with its service-side sync transfer feature. Using the feature in .NET applications is straightforward using the Data Movement Library. It's possible for Cost Management exports to reliably copy hundreds of gigabytes of data to a storage account anywhere in less than an hour.
 
-## See Also
+## Next steps
 
-- [Transfer data with the Data Movement library](../../storage/common/storage-use-data-movement-library.md)
-- [AzureDmlBackup sample application](https://github.com/markjbrown/AzureDmlBackup)
-- [High-Throughput with Azure Blob Storage](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage)
+- [Transfer data with the Data Movement library](../../storage/common/storage-use-data-movement-library.md).
+- Read [AzureDmlBackup sample application](https://github.com/markjbrown/AzureDmlBackup).
+- Read [High-Throughput with Azure Blob Storage](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage).
