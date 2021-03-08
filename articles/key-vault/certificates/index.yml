@@ -63,7 +63,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: .NET client library
-            url: /dotnet/api/azure.security.keyvault.certificates?view=azure-dotnet
+            url: /dotnet/api/azure.security.keyvault.certificates
           - text: Python client library
             url: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
           - text: Java client library

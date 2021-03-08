@@ -126,7 +126,7 @@
     - name: C#
       items:
       - name: Reference Documentation
-        href: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+        href: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker
       - name: NuGet package
         href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/
       - name: Samples
