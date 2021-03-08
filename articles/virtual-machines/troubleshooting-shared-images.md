@@ -42,7 +42,7 @@ If you have problems performing any operations on shared image galleries, image 
 
 **Message**: *The provided location <region\> is not available for resource type 'Microsoft.Compute/galleries'. List of available regions for the resource type is …*  
 **Cause**: The region specified for the gallery is incorrect or requires an access request.  
-**Workaround**: Check that the region name is spelled correctly. If the desired region is not in the list, submit [an access request](/troubleshoot/azure/general/region-access-request-process) for the region.
+**Workaround**: Check that the region name is correct. If the region name is correct, submit [an access request](/troubleshoot/azure/general/region-access-request-process) for the region.
 
 **Message**: *Can not delete resource before nested resources are deleted.*  
 **Cause**: You've tried to delete a gallery that contains at least one existing image definition. A gallery must be empty before it can be deleted.  
