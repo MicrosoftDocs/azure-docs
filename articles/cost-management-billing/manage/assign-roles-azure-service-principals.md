@@ -11,7 +11,7 @@ ms.date: 03/07/2021
 ms.author: banders
 ---
 
-# Automate Enterprise Agreement tasks using Azure service principals
+# Assign roles to Azure Enterprise Agreement service principal names
 
 You can manage your Enterprise Agreement (EA) enrollment in the [Azure Enterprise portal](https://ea.azure.com/). You can create different roles to manage your organization, view costs, and create subscriptions. This article helps you automate some of those tasks using Azure PowerShell and REST APIs with Azure service principal names (SPNs).
 
