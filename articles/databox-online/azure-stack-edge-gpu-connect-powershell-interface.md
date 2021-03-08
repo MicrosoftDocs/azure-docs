@@ -529,7 +529,7 @@ While changing the memory and processor usage, follow these guidelines.
 
 - Default memory is 25% of device specification.
 - Default processor count is 30% of device specification.
-- When changing the values for memory and processor counts, we recommend that you vary the values between 15% to 65% of the device memory and the processor count. 
+- When changing the values for memory and processor counts, we recommend that you vary the values between 15% to 60% of the device memory and the processor count. 
 - We recommend an upper limit of 60% is so that there are enough resources for system components. 
 
 ## Connect to BMC
