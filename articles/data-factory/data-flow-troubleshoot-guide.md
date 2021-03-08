@@ -9,6 +9,7 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
 ---
+
 # Troubleshoot mapping data flows in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
