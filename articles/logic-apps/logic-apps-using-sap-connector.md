@@ -756,7 +756,7 @@ You can set up SAP to [send IDocs in packets](https://help.sap.com/viewer/8f3819
 
 Here's an example that shows how to extract individual IDocs from a packet by using the [`xpath()` function](./workflow-definition-language-functions-reference.md#xpath):
 
-1. Before you start, you need a logic app with an SAP trigger. If you don't already have this logic app, follow the previous steps in this topic to [set up a logic app with an SAP trigger](#receive-message-from-sap).
+1. Before you start, you need a logic app with an SAP trigger. If you don't already have this in your logic app, follow the previous steps in this topic to [set up a logic app with an SAP trigger](#receive-message-from-sap).
 
     > [!IMPORTANT]
     > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** when you configure your logic app and SAP server. Otherwise, you might receive the following errors in the tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
@@ -769,6 +769,14 @@ Here's an example that shows how to extract individual IDocs from a packet by us
    For example:
 
    ![Add SAP trigger to logic app](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+1. [Add a response action to your logic app](/azure/connectors/connectors-native-reqres#add-a-response-action) to reply immediately with the status of your SAP request. It's a best practice to add this action immediately after your trigger, to free up the communication channel with your SAP server. Choose one of the following status codes (`statusCode`) to use in your response action:
+
+    * **202 Accepted**, which means the request has been accepted for processing but the processing isn't complete yet.
+
+    * **204 No Content**, which means the server has successfully fulfilled the request and there is no additional content to send in the response payload body. 
+
+    * **200 OK**. This status code always contains a payload, even if the server generates a payload body of zero length. 
 
 1. Get the root namespace from the XML IDoc that your logic app receives from SAP. To extract this namespace from the XML document, add a step that creates a local string variable and stores that namespace by using an `xpath()` expression:
 

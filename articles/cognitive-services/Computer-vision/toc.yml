@@ -111,7 +111,7 @@
   - name: Azure PowerShell
     href: /powershell/module/azurerm.cognitiveservices/
   - name: Computer Vision API v3.2 preview
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b
   - name: Computer Vision API v3.1
     href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
   - name: Computer Vision API v2.1
