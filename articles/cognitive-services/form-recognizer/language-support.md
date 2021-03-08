@@ -48,6 +48,7 @@ This table lists the human languages supported by the Form Recognizer service.
 |Gilbertese    | `gil` | | ✔ |
 |Greenlandic   | `kl` | | ✔ |
 |Haitian Creole  | `ht` | | ✔ |
+|Hani  | `hni` | | |✔ |
 |Hmong Daw (Latin) | `mww` | | ✔ |
 |Hungarian | `hu` | | ✔ |
 |Indonesian   | `id` | | ✔ |
@@ -57,13 +58,13 @@ This table lists the human languages supported by the Form Recognizer service.
 |Italian | `it` |✔ | ✔ |
 |Japanese | `ja` |✔ | ✔ |
 |Javanese | `jv` | | ✔ |
+|K’iche’  | `quc` | | ✔ |
 |Kabuverdianu | `kea` | | ✔ |
 |Kachin (Latin) | `kac` | | ✔ |
 |Kara-Kalpak | `kaa` | | ✔ |
 |Kashubian | `csb` | | ✔ |
 |Khasi  | `kha` | | ✔ |
 |Korean | `ko` | | ✔ |
-|K’iche’  | `quc` | | ✔ |
 |Kurdish (latin) | `kur` | | ✔ |
 |Luxembourgish  | `lb` | | ✔ |
 |Malay (Latin)  | `ms` | | ✔ |
