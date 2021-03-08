@@ -44,7 +44,7 @@ The updater service is healthy if it’s running and there are no errors recorde
 
 To manually upgrade a connector:
 
--  Download the latest version of the connector. (You will find it under Application Proxy on the Azure Portal or just use the direct link in the previously mentioned article.)
+-  Download the latest version of the connector. (You will find it under Application Proxy on the Azure Portal. You can also find the link at [Azure AD Application Proxy: Version release history](application-proxy-release-version-history.md).
 -	The installer restarts the Azure AD Application Proxy Connector services. In some cases, a reboot of the server might be required if the installer cannot replace all the files. Therefore we recommend closing all the applications (i.e. Event Viewer) before you start the upgrade to reduce the possibility of this event.
 -	Run the installer. The upgrade process is quick and does not require providing any credentials and the connector will not be re-registered.
 
