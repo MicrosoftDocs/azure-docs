@@ -164,7 +164,7 @@ Use the following commands to create these items.
 
     The [az storage account create](/cli/azure/storage/account#az_storage_account_create) command creates the storage account. 
 
-    In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](../articles/azure-functions/storage-considerations.md#storage-account-requirements).
+    In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements).
 
 4. Create the function app in Azure:
 
@@ -216,7 +216,7 @@ In this section, you create a function app and related resources in your Azure s
     
     The extension shows the status of individual resources as they are being created in Azure in the notification area.
 
-    :::image type="content" source="media/functions-publish-project-vscode/resource-notification.png" alt-text="Notification of Azure resource creation":::
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Notification of Azure resource creation":::
     
 1.  When completed, the following Azure resources are created in your subscription, using names based on your function app name:
     
