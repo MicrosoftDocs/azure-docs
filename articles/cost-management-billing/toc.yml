@@ -48,6 +48,8 @@
       href: understand/analyze-unexpected-charges.md
     - name: Manage costs with automation
       href: costs/manage-automation.md
+    - name: Retrieve large datasets with exports
+      href: costs/ingest-azure-data-at-scale.md
     - name: Cost Management for partners
       href: costs/get-started-partners.md
     - name: Migrate from EA reporting to Azure Resource Manager APIs
