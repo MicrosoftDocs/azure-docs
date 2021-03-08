@@ -348,7 +348,7 @@
         - name: Transactions
           items:
           - name: Dedicated SQL pool transactions
-            href: sql/develop-transactions
+            href: sql/develop-transactions.md
           - name: Dedicated SQL pool best practices transactions
             displayname: Transaction, best, practices
             href: sql/develop-transaction-best-practices.md
