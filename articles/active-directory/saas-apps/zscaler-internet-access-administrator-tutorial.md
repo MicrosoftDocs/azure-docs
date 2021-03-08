@@ -153,7 +153,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **Administration > Administrator Management** and perform the following steps and click Save:
 
-	![Screenshot shows Administrator Management with options to Enable SAML Authentication, upload S S L Certificate and specify an Issuer.](./media/zscaler-internet-access-administrator-tutorial/Admin.png "Administration")
+	![Screenshot shows Administrator Management with options to Enable SAML Authentication, upload S S L Certificate and specify an Issuer.](./media/zscaler-internet-access-administrator-tutorial/management.png "Administration")
 
 	a. Check **Enable SAML Authentication**.
 
