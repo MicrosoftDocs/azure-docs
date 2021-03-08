@@ -45,11 +45,11 @@ The list below contains a few runbooks that support common scenarios. For a full
 1. Select **Source: PowerShell Gallery**. This shows a list of available runbooks that you can browse.
 1. You can use the search box above the list to narrow the list, or you can use the filters to narrow the display by publisher, type, and sort. Locate the gallery item you want and select it to view its details.
 
-   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-sm.png" alt-text="Browsing the runbook gallery" lightbox="media/automation-runbook-gallery/browse-gallery-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-sm.png" alt-text="Browsing the runbook gallery." lightbox="media/automation-runbook-gallery/browse-gallery-lg.png":::
 
 1. To import an item, click **Import** on the details blade.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-detail-sm.png" alt-text="Show a runbook gallery item detail" lightbox="media/automation-runbook-gallery/gallery-item-detail-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-detail-sm.png" alt-text="Show a runbook gallery item detail." lightbox="media/automation-runbook-gallery/gallery-item-detail-lg.png":::
 
 1. Optionally, change the name of the runbook and then click **OK** to import the runbook.
 1. The runbook appears on the **Runbooks** tab for the Automation account.
@@ -61,11 +61,11 @@ The list below contains a few runbooks that support common scenarios. For a full
 1. Select **Source: GitHub**.
 1. You can use the filters above the list to narrow the display by publisher, type, and sort. Locate the gallery item you want and select it to view its details.
 
-   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Browsing the GitHub gallery" lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Browsing the GitHub gallery." lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
 
 1. To import an item, click **Import** on the details blade.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Detailed view of a runbook from the GitHub gallery" lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Detailed view of a runbook from the GitHub gallery." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
 
 1. Optionally, change the name of the runbook and then click **OK** to import the runbook.
 1. The runbook appears on the **Runbooks** tab for the Automation account.
@@ -80,7 +80,7 @@ Microsoft encourages you to add runbooks to the PowerShell Gallery that you thin
 1. Select **Modules** under **Shared Resources** to open the list of modules.
 1. Click **Browse gallery** from the top of the page.
 
-      :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="View of the module gallery" lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
+      :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="View of the module gallery." lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
 
 1. On the Browse gallery page, you can use the search box to find matches in any of the following fields:
 
@@ -93,7 +93,7 @@ Microsoft encourages you to add runbooks to the PowerShell Gallery that you thin
 
    When you drill into a specific module, you can view more information. This information includes a link back to the PowerShell Gallery, any required dependencies, and all of the cmdlets or DSC resources that the module contains.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-sm.png" alt-text="Detailed view of a module from the gallery" lightbox="media/automation-runbook-gallery/gallery-item-details-blade-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-sm.png" alt-text="Detailed view of a module from the gallery." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-lg.png":::
 
 1. To install the module directly into Azure Automation, click **Import**.
 1. On the Import pane, you can see the name of the module to import. If all the dependencies are installed, the **OK** button is activated. If you're missing dependencies, you need to import those dependencies before you can import this module.
