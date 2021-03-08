@@ -30,7 +30,7 @@ To automate EA actions using an SPN, you need to create an Azure Active Director
 
 Here's an example screenshot showing application registration.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/register-an-application.png" alt-text="Screenshot showing Register an application." lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/register-an-application.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/register-an-application.png" alt-text="Screenshot showing Register an application." lightbox="./media/assign-roles-azure-service-principals/register-an-application.png" :::
 
 ### Find your SPN and Tenant ID
 
@@ -38,15 +38,15 @@ You also need the Object ID of the SPN and the Tenant ID of the app. You need th
 
 You can find the Tenant ID of the Azure AD app on the overview page for the application. To find it in the Azure portal, navigate to Azure Active Directory and select **Enterprise applications**. Search for the app.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/enterprise-application.png" alt-text="Screenshot showing an example enterprise application." lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/enterprise-application.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/enterprise-application.png" alt-text="Screenshot showing an example enterprise application." lightbox="./media/assign-roles-azure-service-principals/enterprise-application.png" :::
 
 Select the app. Here's an example showing the Application ID and Object ID.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/application-id-object-id.png" alt-text="Screenshot showing an application ID and object ID for an enterprise application." lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/application-id-object-id.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/application-id-object-id.png" alt-text="Screenshot showing an application ID and object ID for an enterprise application." lightbox="./media/assign-roles-azure-service-principals/application-id-object-id.png" :::
 
 You can find the Tenant ID on the Microsoft Azure AD Overview page.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/tenant-id.png" alt-text="Screenshot showing where to view your tenant ID." lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/tenant-id.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/tenant-id.png" alt-text="Screenshot showing where to view your tenant ID." lightbox="./media/assign-roles-azure-service-principals/tenant-id.png" :::
 
 Your principal tenant ID is also referred to as Principal ID, SPN, and Object ID in various locations. The value of your Azure AD tenant ID looks like a GUID with the following format: `11111111-1111-1111-1111-111111111111`.
 
@@ -70,7 +70,7 @@ Read the [Role Assignments - Put](/rest/api/billing/2019-10-01-preview/roleassig
 
 While reading the article, select **Try it** to get started using the SPN.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/put-try-it.png" alt-text="Screenshot showing the Try It option in the Put article." lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/put-try-it.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/put-try-it.png" alt-text="Screenshot showing the Try It option in the Put article." lightbox="./media/assign-roles-azure-service-principals/put-try-it.png" :::
 
 Sign in with your account into the tenant that has access to the enrollment where you want to assign access.
 
@@ -80,7 +80,7 @@ Provide the following parameters as part of the API request.
 
 The parameter is the Billing account ID. You can find it in the Azure portal on the Cost Management + Billing overview page.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/billing-account-id.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/assign-roles-azure-service-principals/billing-account-id.png" :::
 
 **billingRoleAssignmentName**
 
@@ -110,7 +110,7 @@ Notice that `24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` is a billing role definition 
 
 Select **Run** to start the command.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/roleassignments-put-try-it-run.png" alt-text="Screenshot showing an example role assignment put Try It with example information ready to run." lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/roleassignments-put-try-it-run.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" alt-text="Screenshot showing an example role assignment put Try It with example information ready to run." lightbox="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" :::
 
 A `200 OK` response shows that the SPN was successfully added.
 
@@ -122,7 +122,7 @@ Before you begin, read the [Enrollment Department Role Assignments - Put](/rest/
 
 While reading the article, select **Try it**.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Department Role Assignments Put article." lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Department Role Assignments Put article." lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
 
 Sign in with your account into the tenant that has access to the enrollment where you want to assign access.
 
@@ -132,7 +132,7 @@ Provide the following parameters as part of the API request.
 
 It's the Billing account ID. You can find it in the Azure portal on the Cost Management + Billing overview page.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/billing-account-id.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/assign-roles-azure-service-principals/billing-account-id.png" :::
 
 **billingRoleAssignmentName**
 
@@ -146,7 +146,7 @@ It's the Department ID. You can see department IDs in the Azure portal. Navigate
 
 For this example, we used the ACE department. The ID for the example is `84819`.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/department-id.png" alt-text="Screenshot showing an example department ID." lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/department-id.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/department-id.png" alt-text="Screenshot showing an example department ID." lightbox="./media/assign-roles-azure-service-principals/department-id.png" :::
 
 **api-version**
 
@@ -168,7 +168,7 @@ The billing role definition ID of `db609904-a47f-4794-9be8-9bd86fbffd8a` is for 
 
 Select **Run** to start the command.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/enrollment-department-role-assignments-put-try-it-run.png" alt-text="Screenshot showing an example Enrollment Department Role Assignments – Put REST Try It with example information ready to run." lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/enrollment-department-role-assignments-put-try-it-run.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it-run.png" alt-text="Screenshot showing an example Enrollment Department Role Assignments – Put REST Try It with example information ready to run." lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it-run.png" :::
 
 A `200 OK` response shows that the SPN was successfully added.
 
@@ -180,7 +180,7 @@ Read the [Enrollment Account Role Assignments - Put](/rest/api/billing/2019-10-0
 
 While reading it, select **Try It** to assign the subscription creator role to the SPN.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Account Role Assignments Put article." lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Account Role Assignments Put article." lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
 
 Sign in with your account into the tenant that has access to the enrollment where you want to assign access.
 
@@ -190,7 +190,7 @@ Provide the following parameters as part of the API request. Read the article at
 
 The parameter is the Billing account ID. You can find it in the Azure portal on the Cost Management + Billing overview page.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/billing-account-id.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/assign-roles-azure-service-principals/billing-account-id.png" :::
 
 **billingRoleAssignmentName**
 
@@ -203,7 +203,7 @@ The parameter is the account ID. Find the account ID for the account name in the
 
 For this example, we used the GTM Test account. The ID is `196987`.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/account-id.png" alt-text="Screenshot showing the account ID." lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/account-id.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/account-id.png" alt-text="Screenshot showing the account ID." lightbox="./media/assign-roles-azure-service-principals/account-id.png" :::
 
 **api-version**
 
@@ -227,7 +227,7 @@ The billing role definition ID of `a0bcee42-bf30-4d1b-926a-48d21664ef71` is for 
 
 Select **Run** to start the command.
 
-:::image type="content" source="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/enrollment-account-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Account Role Assignments - Put article" lightbox="./media/automate-enterprise-agreement-tasks-with-azure-service-principals/enrollment-account-role-assignments-put-try-it.png" :::
+:::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-account-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Account Role Assignments - Put article" lightbox="./media/assign-roles-azure-service-principals/enrollment-account-role-assignments-put-try-it.png" :::
 
 A `200 OK` response shows that the SPN has been successfully added.
 
