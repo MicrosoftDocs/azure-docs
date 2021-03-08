@@ -77,7 +77,7 @@ Your virtual networks will need a storage account that's separate from the one y
 
 1. On the **New** page, search for *storage account*. Then select **Create**.
 
-1. On the **Basics** tab, use the following table to configure the settings. All other settings can keep the default values.
+1. On the **Basics** tab, use the following table to configure the storage account settings. All other settings can keep the default values.
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -94,7 +94,7 @@ Your virtual networks will need a storage account that's separate from the one y
 
 1. On the **New** page, search for *service bus*. Then select **Create**.
 
-1. On the **Basics** tab, use the following table to configure the settings. All other settings can keep the default values.
+1. On the **Basics** tab, use the following table to configure the service bus settings. All other settings can keep the default values.
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -140,15 +140,17 @@ Now, create the virtual network to which the function app integrates.
 
 1. Select **Review + create**. After validation finishes, select **Create**.
 
-## Lock down your storage account with private endpoints
+## Lock down your storage account
 
-Azure Private Endpoints are used to connect to specific Azure resources using a private IP address. This connection ensures that network traffic remains within the chosen virtual network, and access is available only for specific resources. Now, create the private endpoints for Azure File storage and Azure Blob storage with your storage account.
+Azure private endpoints are used to connect to specific Azure resources by using a private IP address. This connection ensures that network traffic remains within the chosen virtual network and access is available only for specific resources. 
 
-1. In your new storage account, select **Networking** in the left menu.
+Create the private endpoints for Azure Files storage and Azure Blob Storage by using your storage account:
 
-1. Select the **Private endpoint connections** tab, and select **Private endpoint**.
+1. In your new storage account, in the menu on the left, select **Networking**.
 
-    :::image type="content" source="./media/functions-create-vnet/2-navigate-private-endpoint-store.png" alt-text="Screenshot of how to navigate to create private endpoints for the storage account.":::
+1. On the **Private endpoint connections** tab, select **Private endpoint**.
+
+    :::image type="content" source="./media/functions-create-vnet/2-navigate-private-endpoint-store.png" alt-text="Screenshot of how to find create private endpoints for the storage account.":::
 
 1. On the **Basics** tab, use the private endpoint settings as specified below:
 
@@ -189,18 +191,18 @@ Now, create the private endpoint for your Azure Service Bus.
 
 1. Select the **Private endpoint connections** tab, and select **Private endpoint**.
 
-    :::image type="content" source="./media/functions-create-vnet/3-navigate-private-endpoint-service-bus.png" alt-text="Screenshot of how to navigate to private endpoints for service bus.":::
+    :::image type="content" source="./media/functions-create-vnet/3-navigate-private-endpoint-service-bus.png" alt-text="Screenshot of how to go to private endpoints for the service bus.":::
 
-1. On the **Basics** tab, use the private endpoint settings as specified below:
+1. On the **Basics** tab, use the private endpoint settings shown in the following table.
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Subscription** | Your subscription | The subscription under which your resources are created. | 
-    | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choose the resource group you created with your function app. |
+    | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | The resource group you created with your function app. |
     | **Name** | sb-endpoint | The name of the private endpoint for files from your storage account. |
-    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Choose the region you created your storage account in. |
+    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | The region you created your storage account in. |
 
-1. On the **Resource** tab, use the private endpoint settings as specified below:
+1. On the **Resource** tab, use the private endpoint settings shown in the following table.
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
