@@ -170,15 +170,15 @@ If your private key is in PuTTY format, which uses the .ppk (PuTTY Private Key) 
 
 ## Considerations
 
-This section describes considerations to review for this connector's triggers and actions.
+This section describes considerations to review when you use this connector's triggers and actions.
 
 <a name="different-folders-trigger-processing-file-storage"></a>
 
-### Avoid using the same folder for trigger processing and file storage
+### Use different SFTP folders for file upload and processing
 
-When you're working with a project in Visual Studio or Visual Studio Code, avoid using the same folder for the trigger to process and store files that you want to upload. Otherwise, the trigger behaves unpredictably, such as skipping a random number of files during upload.
+On your SFTP server, make sure that you use separate folders for where you store uploaded files and where the trigger monitors those files for processing, which means that you need a way to move files between those folders. Otherwise, the trigger won't fire and behaves unpredictably, for example, skipping a random number of files that the trigger processes.
 
-If this problem happens, remove the existing files from the files from the trigger folder, and set up a different folder that stores the files that you want to upload.
+If this problem happens, remove the files from the folder that the trigger monitors, and use a different folder to store the uploaded files.
 
 <a name="create-file"></a>
 
