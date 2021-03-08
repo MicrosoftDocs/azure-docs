@@ -57,7 +57,7 @@ On contrary if isolation is required, our announcement will include the recommen
 **A**: No
 
 ### Q: When are the other isolated sizes going to retire?
-**A**: We will provide reminders 12 months in advance of the official deprecation of the isolated size. Our latest announcement includes isolation fetaure retirement of Standard_G5, Standard_GS5, Standard_E64i_v3 and Standard_E64i_v3.  
+**A**: We will provide reminders 12 months in advance of the official deprecation of the isolated size. Our latest announcement includes isolation feature retirement of Standard_G5, Standard_GS5, Standard_E64i_v3 and Standard_E64i_v3.  
 
 ### Q: I'm an Azure Service Fabric Customer relying on the Silver or Gold Durability Tiers. Does this change impact me?
 **A**: No. The guarantees provided by Service Fabric's [Durability Tiers](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) will continue to function even after this change. If you require physical hardware isolation for other reasons, you may still need to take one of the actions described above. 
@@ -67,20 +67,20 @@ On contrary if isolation is required, our announcement will include the recommen
  
 | Date | Action |
 |---|---| 
-| May 15, 2019<sup>1</sup> | D/DS15_v2 isolation retirement annoucement | 
+| May 15, 2019<sup>1</sup> | D/DS15_v2 isolation retirement announcement| 
 | May 15, 2020 | D/DS15_v2 isolation guarantee removed| 
 
-<sup>1</sup>Existing customer using these sizes will receive an annoucnement email with detailed intructions on the next steps.  
+<sup>1</sup> Existing customer using these sizes will receive an announcement email with detailed instructions on the next steps.  
 
 ### Q: What are the milestones for G5, Gs5, E64i_v3 and E64is_v3 isolation retirement? 
 **A**: 
  
 | Date | Action |
 |---|---|
-| Feb 15, 2020<sup>1</sup> | G5/GS5/E64i_v3/E64is_v3 isolation retirement annoucement |
+| Feb 15, 2020<sup>1</sup> | G5/GS5/E64i_v3/E64is_v3 isolation retirement announcement |
 | Feb 15, 2021 | G5/GS5/E64i_v3/E64is_v3 isolation guarantee removed |
 
-<sup>1</sup>Existing customer using these sizes will receive an annoucnement email with detailed intructions on the next steps.  
+<sup>1</sup> Existing customer using these sizes will receive an announcement email with detailed instructions on the next steps.  
 
 ## Next steps
 
