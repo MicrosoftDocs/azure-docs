@@ -40,7 +40,7 @@ Run the following command to create a database, **newdatabase** if you have not 
 az mysql flexible-server db create -d newdatabase
 ```
 
-## View all the arguments for this command 
+## View all the arguments
 You can view all the arguments for this command with ```--help``` argument. 
 
 ```azurecli
