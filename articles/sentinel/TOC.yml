@@ -265,9 +265,6 @@
       href: livestream.md
   - name: Remove Azure Sentinel
     href: offboard.md
-  - name: Implement advanced RBAC
-    items:
-
 - name: Reference
   items:
   - name: Top Azure Sentinel workbooks
