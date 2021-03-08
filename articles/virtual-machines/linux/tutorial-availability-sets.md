@@ -27,13 +27,6 @@ This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/over
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
-## Overview
-
-An Availability Set is a logical grouping capability that you can use in Azure to ensure that the VM resources you place within it are isolated from each other when they are deployed within an Azure datacenter. Azure ensures that the VMs you place within an Availability Set run across multiple physical servers, compute racks, storage units, and network switches. If a hardware or Azure software failure occurs, only a subset of your VMs are impacted, and your overall application stays up and continues to be available to your customers. Availability Sets are an essential capability when you want to build reliable cloud solutions.
-
-Let’s consider a typical VM-based solution where you might have four front-end web servers and use two back-end VMs that host a database. With Azure, you’d want to define two availability sets before you deploy your VMs: one availability set for the “web” tier and one availability set for the “database” tier. When you create a new VM you can then specify the availability set as a parameter to the az vm create command, and Azure automatically ensures that the VMs you create within the available set are isolated across multiple physical hardware resources. If the physical hardware that one of your Web Server or Database Server VMs is running on has a problem, you know that the other instances of your Web Server and Database VMs remain running because they are on different hardware.
-
-
 ## Create an availability set
 
 You can create an availability set using [az vm availability-set create](/cli/azure/vm/availability-set). In this example, the number of update and fault domains is set to *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
