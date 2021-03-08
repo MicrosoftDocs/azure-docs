@@ -27,7 +27,7 @@ This API executes a Report query statement. The API returns only 10 records that
 
 | **Header** | **Type** | **Description** |
 | --- | --- | --- |
-| Authorization | string | Required. The Azure Active Directory (AAD) access token in the form `Bearer <token>` |
+| Authorization | string | Required. The Azure Active Directory (Azure AD) access token in the form `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
 |||
 

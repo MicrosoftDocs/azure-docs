@@ -23,7 +23,7 @@ This API deletes user-defined queries.
 
 | **Header** | **Type** | **Description** |
 | --- | --- | --- |
-| Authorization | string | Required. The Azure Active Directory (AAD) access token in the form `Bearer <token>` |
+| Authorization | string | Required. The Azure Active Directory (Azure AD) access token in the form `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
 
 **Path Parameter**

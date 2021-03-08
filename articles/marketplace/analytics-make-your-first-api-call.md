@@ -15,7 +15,7 @@ For a list of the APIs for accessing commercial marketplace analytics data, see 
 
 ## Token generation
 
-Before calling any of the methods, you must first obtain an Azure Active Directory (AAD) access token. You need to pass the AAD access token to the Authorization header of each method in the API. After obtaining an access token, you have 60 minutes to use it before it expires. After the token expires, you can refresh the token and continue to use it for further calls to the API.
+Before calling any of the methods, you must first obtain an Azure Active Directory (Azure AD) access token. You need to pass the Azure AD access token to the Authorization header of each method in the API. After obtaining an access token, you have 60 minutes to use it before it expires. After the token expires, you can refresh the token and continue to use it for further calls to the API.
 
 Refer to a sample request below for generating a token. The three values that are required to generate the token are `clientId`, `clientSecret`, and `tenantId`. The `resource` parameter should be set to `https://graph.windows.net`.
 
@@ -45,11 +45,11 @@ curl --location --request POST 'https://login.microsoftonline.com/{TenantId}/oau
 }
 ```
 
-For more information about how to obtain an AAD token for your application, see [Access analytics data using Store services](/windows/uwp/monetize/access-analytics-data-using-windows-store-services.md#step-2-obtain-an-azure-ad-access-token).
+For more information about how to obtain an Azure AD token for your application, see [Access analytics data using Store services](/windows/uwp/monetize/access-analytics-data-using-windows-store-services.md#step-2-obtain-an-azure-ad-access-token).
 
 ## Programmatic API call
 
-After you obtain the AAD Token as described in the previous section, follow these steps to create your first programmatic access report.
+After you obtain the Azure AD Token as described in the previous section, follow these steps to create your first programmatic access report.
 
 Data can be downloaded from the following datasets (datasetName):
 
@@ -75,7 +75,7 @@ The API response provides the dataset name from where you can download the repor
 curl 
 --location 
 --request GET 'https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledDataset ' \ 
---header 'Authorization: Bearer <AADToken>'
+--header 'Authorization: Bearer <AzureADToken>'
 ```
 
 ***Response example***:
@@ -132,7 +132,7 @@ In this step, we'll use the Order ID from the Orders Report to create a custom q
 curl 
 --location 
 --request POST ' https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledQueries' \ 
---header ' Authorization: Bearer <AADToken>' \ 
+--header ' Authorization: Bearer <AzureAD_Token>' \ 
 --header 'Content-Type: application/json' \ 
 --data-raw 
             '{ 
@@ -176,7 +176,7 @@ In this step, we'll use the test query API to get the top 100 rows for the query
 curl 
 --location 
 --request GET 'https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledQueries/testQueryResult?exportQuery=SELECT%20OrderId%20from%20ISVOrder' \ 
---header ' Authorization: Bearer <AADToken>'
+--header ' Authorization: Bearer <AzureADToken>'
 ```
 
 ***Response example***:
@@ -235,7 +235,7 @@ In this step, we'll use the previously generated `QueryId` to create the report.
 curl 
 --location 
 --request POST 'https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledReport' \ 
---header ' Authorization: Bearer <AADToken>' \ 
+--header ' Authorization: Bearer <AzureADToken>' \ 
 --header 'Content-Type: application/json' \ 
 --data-raw 
                  '{
@@ -249,16 +249,18 @@ curl
                   }'
 ```
 
-***Table 1: Description of parameters used in this request example***:
+<br>
+
+_**Table 1: Description of parameters used in this request example**_
 
 | Parameter | Description |
 | ------------ | ------------- |
-| `Description`` | Provide a brief description of the report that’s being generated. |
+| `Description` | Provide a brief description of the report that’s being generated. |
 | `QueryId` | This is the `queryId` that was generated when the query was created in Step 2: Create custom query. |
 | `StartTime` | Time the first execution of the report started. |
-| RecurrenceInterval | Recurrence interval provided during report creation. |
-| RecurrenceCount | Recurrence count provided during report creation. |
-| Format | CSV and TSV file formats are supported. |
+| `RecurrenceInterval` | Recurrence interval provided during report creation. |
+| `RecurrenceCount` | Recurrence count provided during report creation. |
+| `Format` | CSV and TSV file formats are supported. |
 |||
 
 ***Response example***:
@@ -301,7 +303,7 @@ To get the secure location (URL) of the report, we’ll now execute the Report E
 Curl
 --location
 --request GET 'https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledReport/execution/72fa95ab-35f5-4d44-a1ee-503abbc88003' \
---header ' Authorization: Bearer <AADToken>' \
+--header ' Authorization: Bearer <AzureADToken>' \
 ```
 
 ***Response example***:

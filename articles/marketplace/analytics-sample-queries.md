@@ -15,9 +15,9 @@ This article provides sample queries for the Microsoft commercial marketplace Or
 
 For details about the column names, attributes, and descriptions, refer to the following tables:
 
-- [Customer details table](https://review.docs.microsoft.com/en-us/azure/marketplace/customer-dashboard?branch=pr-en-us-146484#customer-details-table)
-- [Orders details table](https://review.docs.microsoft.com/en-us/azure/marketplace/orders-dashboard?branch=pr-en-us-146484#orders-details-table)
-- [Usage details table](https://review.docs.microsoft.com/en-us/azure/marketplace/usage-dashboard?branch=pr-en-us-146484#usage-details-table)
+- [Customer details table](https://review.docs.microsoft.com/azure/marketplace/customer-dashboard?branch=pr-en-us-146484#customer-details-table)
+- [Orders details table](https://review.docs.microsoft.com/azure/marketplace/orders-dashboard?branch=pr-en-us-146484#orders-details-table)
+- [Usage details table](https://review.docs.microsoft.com/azure/marketplace/usage-dashboard?branch=pr-en-us-146484#usage-details-table)
 
 ## Customers report queries
 
@@ -56,5 +56,5 @@ These sample queries apply to the Orders report.
 | Orders report for Azure License Type as “Pay as You Go” for the last 6M | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE AzureLicenseType = ‘Pay as You Go’ TIMESPAN LAST_6_MONTHS` |
 | Orders report for specific offer name for the last 6M | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OfferName = ‘Example Offer Name’ TIMESPAN LAST_6_MONTHS` |
 | Orders report for active orders for the last 6M | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = ‘Active’ TIMESPAN LAST_6_MONTHS` |
-| Orders report for cancelled orders for the last 6M | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = ‘Cancelled’ TIMESPAN LAST_6_MONTHS` |
+| Orders report for canceled orders for the last 6M | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = ‘Cancelled’ TIMESPAN LAST_6_MONTHS` |
 |||

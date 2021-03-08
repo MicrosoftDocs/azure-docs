@@ -1,5 +1,5 @@
 ---
-title: Customers dashboard in Microsoft commercial marketplace analytics on Partner Center, Azure Marketplace and Microsoft AppSource
+title: Customers dashboard in Microsoft commercial marketplace analytics on Partner Center, Azure Marketplace, and Microsoft AppSource
 description: Learn how to access information about your customers, including growth trends, using the Customers dashboard in commercial marketplace analytics.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -139,7 +139,7 @@ _**Table 1: Dictionary of data terms**_
 
 | Column name in<br>user interface | Attribute name | Definition | Column name in programmatic<br>access reports |
 | ------------ | ------------- | ------------- | ------------- |
-| Marketplace Subscription Id | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. For infrastructure offers, this is the customer's Azure subscription GUID. For SaaS offers, this is shown as zeros since SaaS purchases do not require an Azure subscription. | MarketplaceSubscriptionId |
+| Marketplace Subscription ID | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. For infrastructure offers, this is the customer's Azure subscription GUID. For SaaS offers, this is shown as zeros since SaaS purchases do not require an Azure subscription. | MarketplaceSubscriptionId |
 | DateAcquired | Date Acquired | The first date the customer purchased any offer you published. | DateAcquired |
 | DateLost | Date Lost | The last date the customer canceled the last of all previously purchased offers. | DateLost |
 | Provider Name | Provider Name | The name of the provider involved in the relationship between Microsoft and the customer. If the customer is an Enterprise through Reseller, this will be the reseller. If a Cloud Solution Provider (CSP) is involved, this will be the CSP. | ProviderName |
@@ -156,8 +156,8 @@ _**Table 1: Dictionary of data terms**_
 | PromotionalCustomers | Is Promotional Contact Opt In | The value will let you know if the customer proactively opted in for promotional contact from publishers. At this time, we are not presenting the option to customers, so we have indicated "No" across the board. After this feature is deployed, we will start updating accordingly. | PromotionalCustomers |
 | CustomerState | Customer State | The state of residence provided by the customer. State could be different than the state provided in a customer's Azure subscription. | CustomerState |
 | CommerceRootCustomer | Commerce Root Customer | One Billing Account ID can be associated with multiple Customer IDs.<br>One combination of a Billing Account ID and a Customer ID can be associated with multiple commercial marketplace subscriptions.<br>The Commerce Root Customer signifies the name of the subscription’s customer. | CommerceRootCustomer |
-| Customer Id | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerId |
-| Billing Account Id | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
+| Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerId |
+| Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
 |||||
 
 ### Customers page filters

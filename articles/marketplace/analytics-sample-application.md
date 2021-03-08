@@ -1,6 +1,6 @@
 ---
 title: Sample application for accessing commercial marketplace analytics data
-description: Use these sample application to build your own commercial marketplace analytics application. 
+description: Use the sample application to build your own commercial marketplace analytics application. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
@@ -18,12 +18,12 @@ Sample applications are created in C# and JAVA languages and are available on [G
 
 You can choose to take inspiration from the sample application and build your own application in any language.
 
-The sample application achieves the following objectives:
+The sample application achieves the following goals:
 
 - Generates an AAD Token.
 - Gets available datasets.
-- Creates user defined queries.
-- Gets user defined and system queries.
+- Creates user-defined queries.
+- Gets user-defined and system queries.
 - Schedules a report.
 
 The sample application doesn’t cover the method of calling APIs for other functionalities. However, the process of calling other APIs remains the same as outlined above.
@@ -37,7 +37,7 @@ The sample application doesn’t cover the method of calling APIs for other func
     > [!NOTE]
     > For more instructions, refer to the `ProgrammaticExportSampleAppISV/README.md` file in the GitHub [repository](https://github.com/partneranalytics/ProgrammaticExportSampleAppISV.git).
 
-1. To quickly run the app, update the client id and client secret in the **appsettings.Development.json**
+1. To quickly run the app, update the client ID and client secret in the **appsettings.Development.json**
 
     [![Illustrates a snippet of the appsettings.Development.json file.](./media/analytics-programmatic-access/appsettings-development-json.png)](./media/analytics-programmatic-access/appsettings-development-json.png#lightbox)
 

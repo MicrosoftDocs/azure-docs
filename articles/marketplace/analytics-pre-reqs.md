@@ -32,7 +32,7 @@ The AAD application you created in Azure portal needs to be linked to your Partn
 1. Select the AAD application you created on Azure portal and then select **Next**.
 1. Select the **Manager(Windows)** checkbox and then select **Add**.
 
-    [![Illustrates the Create Azure AD application page with the check boxes for selecting roles.](./media/analytics-programmatic-access/azure-ad-roles.png)](./media/analytics-programmatic-access/azure-ad-roles.png#lightbox)
+    :::image type="content" source="./media/analytics-programmatic-access/azure-ad-roles.png" alt-text="Illustrates the Create Azure AD application page with the check boxes for selecting roles.":::
 
 ## Generate an AAD token
 

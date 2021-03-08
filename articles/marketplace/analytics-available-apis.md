@@ -13,12 +13,21 @@ ms.date: 3/08/2021
 
 Following are the list of APIs for accessing commercial marketplace analytics data and their associated functionalities.
 
+- [Dataset pull APIs](#dataset-pull-apis)
+- [Query management APIs](#query-management-apis)
+- [Report management APIs](#report-management-apis)
+- [Report execution pull APIs](#report-execution-pull-apis)
+
+## Dataset pull APIs
+
 ***Table 1: Dataset pull APIs***
 
 | **API** | **Functionality** |
 | --- | --- |
 | [Get all datasets](analytics-api-get-all-datasets.md) | Gets all the available datasets. Datasets list the tables, columns, metrics, and time ranges. |
 |||
+
+## Query management APIs
 
 ***Table 2: Query management APIs***
 
@@ -28,6 +37,8 @@ Following are the list of APIs for accessing commercial marketplace analytics da
 | [GET Report Queries](analytics-api-get-report-queries.md) | Gets all the queries available for use in reports. Gets all the system and user-defined queries by default. |
 | [DELETE Report Queries](analytics-api-delete-report-queries.md) | Deletes user-defined queries. |
 |||
+
+## Report management APIs
 
 ***Table 3: Report management APIs***
 
@@ -41,6 +52,8 @@ Following are the list of APIs for accessing commercial marketplace analytics da
 | [Pause Report Executions](analytics-api-pause-report-executions.md) | Pauses the scheduled execution of reports. |
 | [Resume Report Executions](analytics-api-resume-report-executions.md) | Resumes the scheduled execution of a paused report. |
 |||
+
+## Report execution pull APIs
 
 ***Table 4: Report execution pull APIs***
 

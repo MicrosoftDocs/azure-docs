@@ -23,7 +23,7 @@ The Marketplace Insights dashboard presents an overview of the Azure Marketplace
 
 - Page visits trend
 - Call to actions trend
-- Page visits and Call to actions against offers, referral domains, and campaign ids
+- Page visits and Call to actions against offers, referral domains, and campaign IDs
 - Marketplace Insights by geography
 - Marketplace Insights details table
 

@@ -84,7 +84,7 @@ Response payload:
 | `ReportId` | Unique UUID of the deleted report |
 | `ReportName` | Name given to the report during creation |
 | `Description` | Description given during creation of the report |
-| `QueryId` | Query Id passed at the time the report was created |
+| `QueryId` | Query ID passed at the time the report was created |
 | `Query` | Query text that will be executed for this report |
 | `User` | User ID used to create the report |
 | `CreatedTime` | Time the report was created. The time format is yyyy-MM-ddTHH:mm:ssZ |
