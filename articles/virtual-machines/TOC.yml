@@ -786,7 +786,7 @@
   - name: Availability sets
     items:
     - name: Overview
-      href: avset-overview.md
+      href: availability-set-overview.md
     - name: CLI
       href: ./linux/tutorial-availability-sets.md
     - name: PowerShell

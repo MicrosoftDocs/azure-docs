@@ -29,7 +29,7 @@ Planned maintenance events are periodic updates made by Microsoft to the underly
 To reduce the impact of downtime due to one or more of these events, we recommend the following high availability best practices for your virtual machines:
 
 * Use [Availability Zones](../availability-zones/az-overview.md) to protect from data center failures
-* Configure multiple virtual machines in an [availability set](avset-overview.md) for redundancy
+* Configure multiple virtual machines in an [availability set](availability-set-overview.md) for redundancy
 * Use [scheduled events for Linux](/linux/scheduled-events.md) or [scheduled events for Windows](/windows/scheduled-events.md) to proactively respond to VM impacting events
 * Configure each application tier into separate availability sets
 * Combine a [load balancer](../load-balancer/load-balancer-overview.md) with availability zones or sets
