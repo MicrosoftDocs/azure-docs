@@ -36,7 +36,7 @@ To complete this article, you need the following resources:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Azure AD Domain Services**.
 1. Choose your managed domain, such as *aaddscontoso.com*.
-1. On the left-hand side, select **Security settings**. 
+1. On the left-hand side, select **Security settings**.
 1. Click **Disable** for the following settings:
    - **TLS 1.2 only mode**
    - **NTLM authentication**
