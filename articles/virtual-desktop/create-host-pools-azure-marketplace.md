@@ -4,7 +4,7 @@ description: How to create a Windows Virtual Desktop host pool by using the Azur
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 03/06/2021
+ms.date: 03/08/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -95,23 +95,25 @@ To set up your virtual machine within the host pool setup process:
 
 1. Under **Resource group**, choose the resource group where you want to create the virtual machines. This can be a different resource group than the one you used for the host pool.
 
-2. Choose the **Virtual machine location** where you want to create the virtual machines. They can be the same or different from the region you selected for the host pool.
+2. After that, provide a **Name prefix** to name the virtual machines the setup process creates. The suffix will be `-` with numbers starting from 0.
+
+3. Choose the **Virtual machine location** where you want to create the virtual machines. They can be the same or different from the region you selected for the host pool.
    
-3. Next, choose the availability option that best suit your needs. To learn more about which option is right for you, see [Availability options for virtual machines in Azure](../virtual-machines/availability.md) and [our FAQ](faq.md#which-availability-option-is-best-for-me).
+4. Next, choose the availability option that best suit your needs. To learn more about which option is right for you, see [Availability options for virtual machines in Azure](../virtual-machines/availability.md) and [our FAQ](faq.md#which-availability-option-is-best-for-me).
    
    > [!div class="mx-imgBorder"]
    > [A screenshot of the availability zone drop-down menu. The "availability zone" option is highlighted.](media/availability-zone.png)
 
-4. After that, choose the **Virtual machine size** you want to use. You can either keep the default size as-is or select **Change size** to change the size. If you select **Change size**, in the window that appears, choose the size of the virtual machine suitable for your workload.
+5. Choose what kind of OS disks you want your VMs to use: Standard SSD, Premium SSD, or Standard HDD.
 
-5. Under **Number of VMs**, provide the number of VMs you want to create for your host pool.
+6. After that, choose the **Virtual machine size** you want to use. You can either keep the default size as-is or select **Change size** to change the size. If you select **Change size**, in the window that appears, choose the size of the virtual machine suitable for your workload.
+
+7. Under **Number of VMs**, provide the number of VMs you want to create for your host pool.
 
     >[!NOTE]
     >The setup process can create up to 400 VMs while setting up your host pool, and each VM setup process creates four objects in your resource group. Since the creation process doesn't check your subscription quota, make sure the number of VMs you enter is within the Azure VM and API limits for your resource group and subscription. You can add more VMs after you finish creating your host pool.
 
-6. After that, provide a **Name prefix** to name the virtual machines the setup process creates. The suffix will be `-` with numbers starting from 0.
-
-7. Next, choose the image that needs to be used to create the virtual machine. You can choose either **Gallery** or **Storage blob**.
+8. Next, choose the image that needs to be used to create the virtual machine. You can choose either **Gallery** or **Storage blob**.
 
     - If you choose **Gallery**, select one of the recommended images from the drop-down menu:
 
@@ -135,9 +137,7 @@ To set up your virtual machine within the host pool setup process:
    
    The image's location is independent of the availability option, but the image’s zone resiliency determines whether that image can be used with availability zone. If you select an availability zone while creating your image, make sure you're using an image from the gallery with zone resiliency enabled. To learn more about which zone resiliency option you should use, see [the FAQ](faq.md#which-availability-option-is-best-for-me).
 
-8. Choose what kind of OS disks you want your VMs to use: Standard SSD, Premium SSD, or Standard HDD.
-
-9.  Under Network and security, select the **Virtual network** and **Subnet** where you want to put the virtual machines you create. Make sure the virtual network can connect to the domain controller, since you'll need to join the virtual machines inside the virtual network to the domain. The DNS servers of the virtual network you selected should be configured to use the IP of the domain controller.
+9. Under Network and security, select the **Virtual network** and **Subnet** where you want to put the virtual machines you create. Make sure the virtual network can connect to the domain controller, since you'll need to join the virtual machines inside the virtual network to the domain. The DNS servers of the virtual network you selected should be configured to use the IP of the domain controller.
 
 10. Next, select whether you want a public IP for the virtual machines. We recommend you select **No** because a private IP is more secure.
 
@@ -157,9 +157,9 @@ To set up your virtual machine within the host pool setup process:
 
   - When specifying an OU, make sure you use the full path (Distinguished Name) and without quotation marks.
 
-12. Under Administrator account, enter the credentials for the Active Directory Domain admin of the virtual network you selected. This account can't have multi-factored authentication (MFA) enabled. When joining to an Azure Active Directory Domain Services (Azure AD DS) domain, the account must be part of the Azure AD DC Administrators group and the account password must work in Azure AD DS.
+13. Under Administrator account, enter the credentials for the Active Directory Domain admin of the virtual network you selected. This account can't have multi-factored authentication (MFA) enabled. When joining to an Azure Active Directory Domain Services (Azure AD DS) domain, the account must be part of the Azure AD DC Administrators group and the account password must work in Azure AD DS.
 
-13. Select **Next: Workspace >**.
+14. Select **Next: Workspace >**.
 
 With that, we're ready to start the next phase of setting up your host pool: registering your app group to a workspace.
 
