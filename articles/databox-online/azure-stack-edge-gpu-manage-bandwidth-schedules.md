@@ -18,7 +18,7 @@ This article describes how to manage bandwidth schedules on your Azure Stack Edg
 
 You can add, modify, or delete the bandwidth schedules for your Azure Stack Edge Pro via the Azure portal.
 
-In this article, you learn how to:
+In this article, you learn how to: 
 
 > [!div class="checklist"]
 > * Add a schedule
