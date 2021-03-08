@@ -33,7 +33,7 @@ Get a storage account SAS token or create one using the Azure portal. To create 
     :::image type="content" source="./media/export-cost-data-storage-account-sas-key/storage-shared-access-signature.png" alt-text="Screenshot showing a configured Azure storage shared access signature." lightbox="./media/export-cost-data-storage-account-sas-key/storage-shared-access-signature.png" :::
 1. Configure the token with the same settings as identified in the preceding image.
     1. Select **Blob** for _Allowed services_.
-    1. Select **Service**, **Container**, and **Object** for _Allowed resource rypes_.
+    1. Select **Service**, **Container**, and **Object** for _Allowed resource types_.
     1. Select **Read**, **Write**, **Delete**, **List**, **Add**, and **Create** for _Allowed permissions_.
     1. Choose expiration and dates. Make sure to update your export SAS token before it expires. The longer the time period you configure before expiration, the longer your export runs before needing a new SAS token.
 1. Select **HTTPS only** for _Allowed protocols_.
