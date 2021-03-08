@@ -232,15 +232,49 @@ In this section, you create a function app and related resources in your Azure s
 
 ::: zone-end
 
-::: zone pivot="development-environment-cli"
-[!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
-::: zone-end
+::: zone pivot="development-environment-cli"  
+[!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]  
+::: zone-end  
 
-[!INCLUDE [functions-cleanup-resources-cli](../../includes/functions-cleanup-resources-cli.md)]
+::: zone pivot="development-environment-vscode"  
+[!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]  
+::: zone-end  
+
+## Clean up resources
+
+You created resources to complete this article. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). 
+
+::: zone pivot="development-environment-cli"  
+Use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
+
+```azurecli
+az group delete --name AzureFunctionsQuickstart-rg
+```
+::: zone-end  
+
+::: zone pivot="development-environment-vscode"  
+Use the following steps to delete the function app and its related resources to avoid incurring any further costs.
+
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]  
+::: zone-end  
+::: zone pivot="development-environment-vs"   
+Use the following steps to delete the function app and its related resources to avoid incurring any further costs.
+
+1. In the Cloud Explorer, expand your subscription > **App Services**, right-click your function app, and choose **Open in Portal**. 
+
+1. In the function app page, select the **Overview** tab and then select the link under **Resource group**.
+
+   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Select the resource group to delete from the function app page":::
+
+2. In the **Resource group** page, review the list of included resources, and verify that they're the ones you want to delete.
+ 
+3. Select **Delete resource group**, and follow the instructions.
+
+   Deletion may take a couple of minutes. When it's done, a notification appears for a few seconds. You can also select the bell icon at the top of the page to view the notification.
+::: zone-end
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to an Azure Storage queue]
+> [Learn more about .NET isolated functions](dotnet-isolated-process-guide.md)
 
-[Connect to an Azure Storage queue]: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp
