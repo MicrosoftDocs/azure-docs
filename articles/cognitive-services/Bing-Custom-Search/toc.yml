@@ -75,13 +75,13 @@
     - name: SDKs
       items:
       - name: .NET
-        href: /dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme?view=azure-dotnet
+        href: /dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme
       - name: Java - Custom Search
         href: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch
       - name: Java - Custom Image Search
         href: /java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch
       - name: Python
-        href: /python/api/azure-cognitiveservices-search-customsearch/?view=azure-python
+        href: /python/api/azure-cognitiveservices-search-customsearch/
       - name: Node.js
         href: /javascript/api/@azure/cognitiveservices-customsearch/
       - name: Go - Custom Search

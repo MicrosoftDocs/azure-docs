@@ -121,7 +121,7 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/client/computervision
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-computervision/
     - name: Python
