@@ -279,7 +279,7 @@ TODO: Describe how bounding boxes are represented with 8 numbers and how top-lef
 
 Products in the OneOCR family (including Form Recognizer) use a common term "confidence" across all fields that provide an analog measurement of the certainty of our prediction. For example, in our Layout service the "words" field has the member "confidence" which is a float in the range 0.0 to 1.0. We will explain what this number means and how it can be used.
 
-Confidence values are estimates of certainty of a classification. To interpret this, consider an example prediction of a word with a confidence value of 0.80. What does this value mean? It means that 80% of the time we expect this prediction to be correct. That is a bit abstract when thinking of a single example. Thinking about confidence in the context of a collection of samples can help. Suppose you have 100 words and they all have confidence value greater than 0.80. Then we expect at least 80 of them will be correct.  Furthermore, if they all have confidence value less than, say, 0.85, then we expect less than 85 of them will be correct. Therefore, if they all have confidence value equal to 0.8, we expect 80 to be correct. This may not be true for every collection of 100 words, but will average out to be true across data coming from all OCR domains.
+Confidence values are estimates of certainty of a classification. To interpret this, consider an example prediction of a word with a confidence value of 0.80. What does this value mean? It means that 80% of the time we expect this prediction to be correct. That is a bit abstract when thinking of a single example. Thinking about confidence in the context of a collection of samples can help. Suppose you have 100 words and they all have confidence value greater than 0.80. Then we expect at least 80 of them will be correct. Furthermore, if they all have confidence value less than, say, 0.85, then we expect less than 85 of them will be correct. Therefore, if they all have confidence value equal to 0.8, we expect 80 to be correct. This may not be true for every collection of 100 words, but will average out to be true across data coming from all OCR domains.
 
 How do we provide this? Our confidence values are [calibrated](https://en.wikipedia.org/wiki/Calibration_(statistics)) based on large datasets designed to represent the full range of data our models serve.
 
@@ -287,6 +287,55 @@ Whenever you see the term confidence used in a OneOCR product, this corresponds 
 * Text and selection mark is the confidence of the output value: the word or the selection state.
 * For fields in custom forms, it is the confidence of the choice of value boxes corresponding to the proposed field.
 * Future features may have a distinct level of confidence, which will be documented appropriately.
+
+### Actionable uses of confidence: precision estimates and validation hints
+
+So how can you use this confidence value in your workflow. Here we go through 2 scenarios which our customers can use confidence to manage uncertain in their solutions built in OneOCR.
+
+* Suppose a customer wishes to achieve a fixed "maximum error rate" on a given field (such as word or form recognizer value prediction). Beyond this error rate, the customer will need to employ some human validation to ensure correctness of their solution. Then the confidence score can be used to prioritize the human resources. Here is a worked example:
+  * Suppose a customer has an error tolerance of 3%. So in their application, it is acceptable to permit 3% of the solution output to be incorrect. This could be due to some downstream flexibility or their own SLAs. Then they can use the confidence score to estimate the amount of work necessary to (statistically) ensure they operate within this bound. First, they calculate the confidence scores of all samples in their data set. Then, they choose some precision level with which to bin the samples (we bind ours with stepsize 0.02 during calibration). For each sample that falls within that bin range, we will conservatively apply the lower confidence value to those samples. For each bin range b_i, indexed by the lower bound b_i, the predicted number of incorrect samples is (1.0 - b_i) * N_i. For example, if we look at bin (0.40, 0.42) where b_i = 0.4 and suppose N_i = 1000. Then we expect (1-0.4) * 1000 = 600 incorrect samples from this bin. For each bin, this calculation is done and an estimate is obtained for the total number of incorrect samples. They could then divide this number by the total number to get the estimated error rate of the straight-through solution. If this fall well below their requirement of 3%, they can safely bypass human validation. 
+  * If error rate for the customer in the above example falls well above their target 3%, then they can choose an optimal cutoff for human-assisted validation. Let's say they allow the first 2% of error through and will use human validation for everything beyond that, aiming for a 1% error rate by the validators. Then they would choose a threshold b_j such that the weighted error sum for all bins above b_j is as close to (but less than) 2% as possible. This can be done on a holdout set of images from the customer's domain. 
+* Suppose a new customer wishes to estimate the accuracy of our OCR predictions on their data, but they do not have a hand-labeled dataset with which to do so. Then the confidence score can be used as a proxy for the precision of our model on the dataset. Note that it cannot be used to estimate recall, since the confidence only applies to the words we have detected and returned.
+  * The customer can compute the empirical confidence mean by the method described above: sum over i of b_i * N_i. This produces the estimated number of correct responses. We can divide this total by the total number of returned words to get an estimate of the precision. For example, in the example of the text in this textline we see that if we use bins of size 0.2 (for example) we will get bins starting at 0.0, 0.2, 0.4, 0.6, 0.8. The 0.0 bin contains "de", the 0.4 bin contains "Lehrer" and "Dema." and the 0.6 bin contains "E-mailLuc". So the calculation is: 1 * 0.0 + 0 * 0.2 + 2 * 0.4 + 1 * 0.6 + 0 * 0.8 = 1.4, which gives an estimate precision of 0.35 on this small dataset. In reality, 2 of the 4 predictions are correct (E-mailLuc is missing a space and Dema should be @sma) so the precision is 0.5.
+
+![Confidence example](media/confidence_example2.PNG)
+
+```json
+[
+    {
+    "boundingBox": [
+        ...
+    ],
+    "text": "E-mailLuc",
+    "confidence": 0.743
+    },
+    {
+    "boundingBox": [
+        ...
+    ],
+    "text": "Lehrer",
+    "confidence": 0.434
+    },
+    {
+    "boundingBox": [
+        ...
+    ],
+    "text": "Dema.",
+    "confidence": 0.413
+    },
+    {
+    "boundingBox": [
+        ...
+    ],
+    "text": "de",
+    "confidence": 0.094
+    }
+]
+```
+
+# Limitations of confidence
+
+As mentioned above, our confidence values are calibrated to estimate the confidence of each prediction based on Microsoft's datasets. These are built to reflect our customers' diversity, but they do not conform to any single customer's exact scenario. Thus, different customers may see different rates of validation failures than the confidence value suggests. It should be used as a guideline, from which a customer may base validation management decisions. Furthermore, for some customers with particularly challenging scenarios, we may not be "confident enough" in our predictions to meet their desired validation goals. We continually work to improve our products. As our products improve, we expect to enable more and more customers to achieve their goals, including with use of the confidence score.
 
 ### Elements
 TODO: Describe JsonPoint references
