@@ -62,7 +62,9 @@ This documentation includes sections that explain how to get started and leverag
     * [Troubleshoot](spring-cloud-howto-self-diagnose-solve.md): Azure Spring Cloud diagnostics provide an interactive experience to help troubleshoot apps. No configuration is required. When you find issues, Azure Spring Cloud diagnostics identifies problems and guides you to information that helps troubleshoot and resolve issues.
     * [Migrate](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud): How to migrate an existing Spring Cloud application or Spring Boot application to run on Azure Spring Cloud.
 
+ To get started, see:
+
 > [!div class="nextstepaction"]
-> To get started, complete the [Spring Cloud quickstart](spring-cloud-quickstart.md)
+> [Spring Cloud quickstart](spring-cloud-quickstart.md)
 
 Samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/).
