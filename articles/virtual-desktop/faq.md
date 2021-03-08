@@ -3,7 +3,7 @@ title: Windows Virtual Desktop FAQ - Azure
 description: Frequently asked questions and best practices for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/06/2021
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -151,5 +151,5 @@ The availability option you should use for your VMs depends on your image's loca
 | Availability set with managed SKU (managed disk) | Gallery | Disabled with "Yes" as default |
 | Availability set with managed SKU (managed disk) | Blob storage | Enabled with "No" as default |
 | Availability set with managed SKU (managed disk) | Blob storage (Gallery option disabled) | Disabled with "No" as default |
-| Availability set | Gallery | Disabled with "Yes" as default |
-| Availablilty set | Blob storage | Enabled with "No" as default |
+| Availability set (new and created by user) | Gallery | Disabled with "Yes" as default |
+| Availablilty set (newly created by user) | Blob storage | Enabled with "No" as default |

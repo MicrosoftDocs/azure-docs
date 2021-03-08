@@ -4,7 +4,7 @@ description: How to create a Windows Virtual Desktop host pool by using the Azur
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 03/08/2021
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
 ---
