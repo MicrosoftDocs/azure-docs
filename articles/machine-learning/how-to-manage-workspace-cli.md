@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 09/30/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
 ---
@@ -21,7 +21,7 @@ In this article, you learn how to create an Azure Machine Learning workspace usi
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
 
     If you use the [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), the CLI is accessed through the browser and lives in the cloud.
 
@@ -44,7 +44,7 @@ If the CLI can open your default browser, it will do so and load a sign-in page.
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
+For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Install the machine learning extension
 
@@ -104,7 +104,7 @@ The response from this command is similar to the following JSON:
 }
 ```
 
-For more information on working with resource groups, see [az group](/cli/azure/group?preserve-view=true&view=azure-cli-latest).
+For more information on working with resource groups, see [az group](/cli/azure/group).
 
 ### Automatically create required resources
 
@@ -143,7 +143,7 @@ The output of this command is similar to the following JSON:
 ### Virtual network and private endpoint
 
 > [!IMPORTANT]
-> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions or Azure China 21Vianet regions.
+> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions.
 
 If you want to restrict access to your workspace to a virtual network, you can use the following parameters:
 
@@ -286,7 +286,7 @@ The output of this command is similar to the following JSON:
 ]
 ```
 
-For more information, see the [az ml workspace list](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-list) documentation.
+For more information, see the [az ml workspace list](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-list) documentation.
 
 ## Get workspace information
 
@@ -319,7 +319,7 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-For more information, see the [az ml workspace show](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-show) documentation.
+For more information, see the [az ml workspace show](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-show) documentation.
 
 ## Update a workspace
 
@@ -352,7 +352,7 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-For more information, see the [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-update) documentation.
+For more information, see the [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-update) documentation.
 
 ## Share a workspace with another user
 
@@ -364,7 +364,7 @@ az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user>
 
 For more information on Azure role-based access control (Azure RBAC) with Azure Machine Learning, see [Manage users and roles](how-to-assign-roles.md).
 
-For more information, see the [az ml workspace share](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share) documentation.
+For more information, see the [az ml workspace share](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-share) documentation.
 
 ## Sync keys for dependent resources
 
@@ -376,7 +376,7 @@ az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 
 For more information on changing keys, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
 
-For more information, see the [az ml workspace sync-keys](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-sync-keys) documentation.
+For more information, see the [az ml workspace sync-keys](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-sync-keys) documentation.
 
 ## Delete a workspace
 
@@ -395,7 +395,7 @@ You can also delete the resource group, which deletes the workspace and all othe
 az group delete -g <resource-group-name>
 ```
 
-For more information, see the [az ml workspace delete](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) documentation.
+For more information, see the [az ml workspace delete](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-delete) documentation.
 
 ## Troubleshooting
 
@@ -416,4 +416,4 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 
 ## Next steps
 
-For more information on the Azure CLI extension for machine learning, see the [az ml](/cli/azure/ext/azure-cli-ml/ml?preserve-view=true&view=azure-cli-latest) documentation.
+For more information on the Azure CLI extension for machine learning, see the [az ml](/cli/azure/ext/azure-cli-ml/ml) documentation.

@@ -31,7 +31,7 @@ Azure Private Link enables you to connect to your workspace using a private endp
 * You must have an existing virtual network to create the private endpoint in. You must also [disable network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) before adding the private endpoint.
 ## Limitations
 
-* Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions or Azure China 21Vianet regions.
+* Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions.
 * If you enable public access for a workspace secured with private link and use Azure Machine Learning studio over the public internet, some features such as the designer may fail to access your data. This problem happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account.
 
 ## Create a workspace that uses a private endpoint
@@ -61,7 +61,7 @@ ws = Workspace.create(name='myworkspace',
 
 # [Azure CLI](#tab/azure-cli)
 
-The [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace create](/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_create) command. The following parameters for this command can be used to create a workspace with a private network, but it requires an existing virtual network:
+The [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace create](/cli/azure/ext/azure-cli-ml/ml/workspace#ext_azure_cli_ml_az_ml_workspace_create) command. The following parameters for this command can be used to create a workspace with a private network, but it requires an existing virtual network:
 
 * `--pe-name`: The name of the private endpoint that is created.
 * `--pe-auto-approval`: Whether private endpoint connections to the workspace should be automatically approved.
@@ -111,7 +111,7 @@ For more information on the classes and methods used in this example, see [Priva
 
 # [Azure CLI](#tab/azure-cli)
 
-The [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint add](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add) command.
+The [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint add](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add) command.
 
 ```azurecli
 az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval true --pe-vnet-name myvnet
@@ -148,7 +148,7 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 # [Azure CLI](#tab/azure-cli)
 
-The [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint delete](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete) command.
+The [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint delete](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete) command.
 
 # [Portal](#tab/azure-portal)
 
@@ -187,7 +187,7 @@ ws.update(allow_public_access_when_behind_vnet=True)
 
 # [Azure CLI](#tab/azure-cli)
 
-The [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_update) command. To enable public access to the workspace, add the parameter `--allow-public-access true`.
+The [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace#ext_azure_cli_ml_az_ml_workspace_update) command. To enable public access to the workspace, add the parameter `--allow-public-access true`.
 
 # [Portal](#tab/azure-portal)
 
