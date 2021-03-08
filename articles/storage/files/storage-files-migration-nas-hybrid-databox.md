@@ -9,7 +9,7 @@ ms.author: fauhse
 ms.subservice: files
 ---
 
-# Migrate from Network Attached Storage (NAS) to a hybrid cloud deployment with Azure File Sync
+# Use DataBox to migrate from Network Attached Storage (NAS) to a hybrid cloud deployment with Azure File Sync
 
 Azure File Sync works on Direct Attached Storage (DAS) locations and does not support sync to Network Attached Storage (NAS) locations.
 This fact makes a migration of your files necessary and this article guides you through the planning and execution of such a migration.
@@ -56,18 +56,18 @@ To determine how many devices of which type you need, consider these important l
 * Any Azure DataBox can move data into up to 10 storage accounts. 
 * Each DataBox option comes at their own usable capacity. See [DataBox options](#databox-options).
 
-Consult your migration plan for the number of storage accounts you have decided to create and the shares in each one. Then look at the size of each of the shares on your NAS. That will allow you to optimize and decide which appliance should be sending data to which storage accounts. You can have two DataBox devices move files into the same storage account, but don't split content of a single file share across 2 DataBoxes.
+Consult your migration plan for the number of storage accounts you have decided to create and the shares in each one. Then look at the size of each of the shares on your NAS. Combining these information will allow you to optimize and decide which appliance should be sending data to which storage accounts. You can have two DataBox devices move files into the same storage account, but don't split content of a single file share across 2 DataBoxes.
 
 ### DataBox options
 
 For a standard migration, one or a combination of these three DataBox options should be chosen: 
 
 * DataBox Disks
-  In this smallest of the three options, Azure will send you one and up to five SSD disks with a capacity of eight TiB each, for a maximum total of 40 TiB. You need to allow for file system and encryption overhead. That reduces the usable capacity by about 20%. Refer to the [DataBox Disks documentation](../../databox/data-box-disk-overview.md) to learn more.
+  Microsoft will send you one and up to five SSD disks with a capacity of 8 TiB each, for a maximum total of 40 TiB. The usable capacity is about 20% less, due to encryption and file system overhead. For more information, see [DataBox Disks documentation](../../databox/data-box-disk-overview.md).
 * DataBox
-  This is the most common option. A ruggedized DataBox appliance, that works similar to a NAS, will be shipped to you. It has 100 TiB disk capacity and after file system and encryption overhead, that results in 80 TiB of usable capacity. Refer to the [DataBox documentation](../../databox/data-box-overview.md) to learn more.
+  This is the most common option. A ruggedized DataBox appliance, that works similar to a NAS, will be shipped to you. It has 80 TiB usable capacity. For more information, see [DataBox documentation](../../databox/data-box-overview.md).
 * DataBox Heavy
-  This option features a ruggedized DataBox appliance on wheels, that works similar to a NAS, with a capacity of 1 PiB. You need to allow for file system and encryption overhead. That reduces the usable capacity by about 20%. Refer to the [DataBox Heavy documentation](../../databox/data-box-heavy-overview.md) for more information.
+  This option features a ruggedized DataBox appliance on wheels, that works similar to a NAS, with a capacity of 1 PiB. The usable capacity is about 20% less, due to encryption and file system overhead. For more information, see [DataBox Heavy documentation](../../databox/data-box-heavy-overview.md).
 
 ## Phase 4: Provision a suitable Windows Server on-premises
 
@@ -91,7 +91,7 @@ When your DataBox arrives, you need to set up your DataBox in the line of sight 
 * [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md)
 * [Set up Data Box Heavy](../../databox/data-box-heavy-quickstart-portal.md)
 
-Depending on the DataBox type, there maybe DataBox copy tools available to you. At this point they are not recommended for migrations to Azure file shares as they do not copy your files with full fidelity to the DataBox. Use RoboCopy instead.
+Depending on the DataBox type, there maybe DataBox copy tools available to you. At this point, they are not recommended for migrations to Azure file shares as they do not copy your files with full fidelity to the DataBox. Use RoboCopy instead.
 
 When your DataBox arrives, it will have pre-provisioned SMB shares available for each storage account you specified at the time of ordering it.
 
@@ -143,7 +143,7 @@ To tell if your server has completed initial download sync, open Event Viewer on
 The telemetry event log is located in Event Viewer under Applications and Services\Microsoft\FileSync\Agent.
 
 Search for the most recent 9102 event. 
-Event ID 9102 is logged once a sync session completes. In the event text there is a field for the download sync direction. (HResult needs to be zero and files downloaded as well).
+Event ID 9102 is logged once a sync session completes. In the event text there, is a field for the download sync direction. (HResult needs to be zero and files downloaded as well).
  
 You want to see two consecutive events of this type and content to tell that the server has finished downloading the namespace. It's OK if there are different events firing between two 9102 events.
 
@@ -170,7 +170,7 @@ The following RoboCopy command will copy only the differences (updated files and
 [!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 If you provisioned less storage on your Windows Server than your files take up on the NAS appliance, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](storage-sync-cloud-tiering-overview.md) will kick in and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the NAS appliance. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
-It is possible, that RoboCopy moves needs to move a lot of files, more than you have local storage on the Windows Server provisioned. On average you can expect RoboCopy to move a lot faster than Azure File Sync can upload your files over and tier them off your local volume. RoboCopy will fail. It is recommended that you work through the shares in a sequence that prevents that. For example, not starting RoboCopy jobs for all shares at the same time, or only moving shares that fit on the current amount of free space on the Windows Server, to mention a few. The good news is that the /MIR switch will only move deltas and once a delta has been moved, a restarted job will not need to move this file again.
+It is possible, that RoboCopy needs to move numerous files, more than you have local storage for on the Windows Server. On average, you can expect RoboCopy to move a lot faster than Azure File Sync can upload your files over and tier them off your local volume. RoboCopy will fail. It is recommended that you work through the shares in a sequence that prevents that. For example, not starting RoboCopy jobs for all shares at the same time, or only moving shares that fit on the current amount of free space on the Windows Server, to mention a few. The good news is that the /MIR switch will only move deltas and once a delta has been moved, a restarted job will not need to move this file again.
 
 ### User cut-over
 
@@ -186,7 +186,7 @@ Once the initial run is complete, run the command again.
 
 A second time you run RoboCopy for the same share, it will finish faster, because it only needs to transport changes that happened since the last run. You can run repeated jobs for the same share.
 
-When you consider the downtime acceptable and you are prepared to take the NAS location offline: In order to take user access offline, you have the option to change ACLs on the share root such that users can no longer access the location or take any other appropriate step that prevents content to change in this folder on your NAS.
+When you consider the downtime acceptable, then you need to remove user access to your NAS-based shares. You can do that by any steps that prevents users from changing the file and folder structure and content. An example is to point your DFS-Namespace to a non-existing location or change the root ACLs on the share.
 
 Run one last RoboCopy round. It will pick up any changes, that might have been missed.
 How long this final step takes, is dependent on the speed of the RoboCopy scan. You can estimate the time (which is equal to your downtime) by measuring how long the previous run took.
@@ -209,7 +209,7 @@ Check the link in the following section for troubleshooting Azure File Sync issu
 
 ## Next steps
 
-There is more to discover about Azure file shares and Azure File Sync. The following articles help understand advanced options, best practices and also contain troubleshooting help. These articles link to [Azure file share documentation](storage-files-introduction.md) as appropriate.
+There is more to discover about Azure file shares and Azure File Sync. The following articles help understand advanced options, best practices, and also contain troubleshooting help. These articles link to [Azure file share documentation](storage-files-introduction.md) as appropriate.
 
 * [Migration overview](storage-files-migration-overview.md)
 * [AFS overview](./storage-sync-files-planning.md)

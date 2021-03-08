@@ -114,9 +114,9 @@ The following table classifies Microsoft tools and their current suitability for
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Supported. Azure file shares can be mounted as network drives. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Natively integrated into Azure file shares. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Storage Migration Service | Indirectly supported. Azure file shares can be mounted as network drives on SMS target servers. | Full fidelity.* |
-|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, version 10.6 or later| Supported. | Does not support copy of source root ACL, otherwise full fidelity.* |
-|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Supported. | DataBox now fully supports metadata. [Data Box can also be used in combination with Azure File Sync](storage-sync-offline-data-transfer.md). |
-|![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer, version 1.14 | Supported. | Doesn't copy ACLs. Supports timestamps.  |
+|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy </br>version 10.6 | Supported. | Does not support copy of source root ACL, otherwise full fidelity.* </br>[Learn how to use AzCopy with Azure file shares](../common/storage-use-azcopy-files.md) |
+|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Supported. | DataBox fully supports metadata. |
+|![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer </br>version 1.14 | Supported. | Doesn't copy ACLs. Supports timestamps.  |
 |![Not recommended](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Supported. | Doesn't copy metadata. |
 |||||
 
