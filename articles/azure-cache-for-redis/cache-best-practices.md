@@ -27,6 +27,8 @@ By following these best practices, you can help maximize the performance and cos
 
  * **Reuse connections.**  Creating new connections is expensive and increases latency, so reuse connections as much as possible. If you choose to create new connections, make sure to close the old connections before you release them (even in managed memory languages like .NET or Java).
 
+* **Use pipelining.**  Try to choose a Redis client that supports [Redis pipelining](https://redis.io/topics/pipelining) in order to make most efficient use of the network to get the best throughput you can.
+
  * **Configure your client library to use a *connect timeout* of at least 15 seconds**, giving the system time to connect even under higher CPU conditions.  A small connection timeout value doesn't guarantee that the connection is established in that time frame.  If something goes wrong (high client CPU, high server CPU, and so on), then a short connection timeout value will cause the connection attempt to fail. This behavior often makes a bad situation worse.  Instead of helping, shorter timeouts aggravate the problem by forcing the system to restart the process of trying to reconnect, which can lead to a *connect -> fail -> retry* loop. We generally recommend that you leave your connection Timeout at 15 seconds or higher. It's better to let your connection attempt succeed after 15 or 20 seconds than to have it fail quickly only to retry. Such a retry loop can cause your outage to last longer than if you let the system just take longer initially.  
      > [!NOTE]
      > This guidance is specific to the *connection attempt* and not related to the time you're willing to wait for an *operation* like GET or SET to complete.
