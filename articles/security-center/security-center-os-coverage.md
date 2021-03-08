@@ -1,16 +1,10 @@
 ---
 title: Platforms supported by Azure Security Center | Microsoft Docs
 description: This document provides a list of platforms supported by Azure Security Center.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
 ---
@@ -31,10 +25,10 @@ For an Azure environment activated on an Azure subscription, Azure Security Cent
 
 ## Supported operating systems
 
-Security Center depends on the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
+Security Center depends on the [Log Analytics agent](../azure-monitor/agents/agents-overview.md#log-analytics-agent). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
 
-* [Log Analytics agent for Windows supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
-* [Log Analytics agent for Linux supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 Also ensure your Log Analytics agent is [properly configured to send data to Security Center](security-center-enable-data-collection.md#manual-agent)
 

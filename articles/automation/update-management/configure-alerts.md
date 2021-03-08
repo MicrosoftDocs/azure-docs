@@ -13,7 +13,7 @@ Alerts in Azure proactively notify you of results from runbook jobs, service hea
 
 ## Available metrics
 
-Azure Automation creates two distinct platform metrics related to Update Management that are collected and forwarded to Azure Monitor. These metric are available for analysis using [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) and for alerting using a [metrics alert rule](../../azure-monitor/platform/alerts-metric.md).
+Azure Automation creates two distinct platform metrics related to Update Management that are collected and forwarded to Azure Monitor. These metric are available for analysis using [Metrics Explorer](../../azure-monitor/essentials/metrics-charts.md) and for alerting using a [metrics alert rule](../../azure-monitor/alerts/alerts-metric.md).
 
 The two metrics emitted are:
 
@@ -29,7 +29,7 @@ When used for alerts, both metrics support dimensions that carry additional info
 
 ## Create alert
 
-Follow the steps below to set up alerts to let you know the status of an update deployment. If you are new to Azure alerts, see [Azure Alerts overview](../../azure-monitor/platform/alerts-overview.md).
+Follow the steps below to set up alerts to let you know the status of an update deployment. If you are new to Azure alerts, see [Azure Alerts overview](../../azure-monitor/alerts/alerts-overview.md).
 
 1. In your Automation account, select **Alerts** under **Monitoring**, and then select **New alert rule**.
 
@@ -57,7 +57,7 @@ Follow the steps below to set up alerts to let you know the status of an update 
 
 ## Configure action groups for your alerts
 
-Once you have your alerts configured, you can set up an action group, which is a group of actions to use across multiple alerts. The actions can include email notifications, runbooks, webhooks, and much more. To learn more about action groups, see [Create and manage action groups](../../azure-monitor/platform/action-groups.md).
+Once you have your alerts configured, you can set up an action group, which is a group of actions to use across multiple alerts. The actions can include email notifications, runbooks, webhooks, and much more. To learn more about action groups, see [Create and manage action groups](../../azure-monitor/alerts/action-groups.md).
 
 1. Select an alert and then select **Create New** under **Action Groups**.
 
@@ -81,8 +81,8 @@ Once you have your alerts configured, you can set up an action group, which is a
 
 ## Next steps
 
-* Learn more about [alerts in Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
+* Learn more about [alerts in Azure Monitor](../../azure-monitor/alerts/alerts-overview.md).
 
-* Learn about [log queries](../../azure-monitor/log-query/log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
+* Learn about [log queries](../../azure-monitor/logs/log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
 
-* Manage [usage and costs with Azure Monitor Logs](../../azure-monitor/platform/manage-cost-storage.md) describes how to control your costs by changing your data retention period, and how to analyze and alert on your data usage.
+* Manage [usage and costs with Azure Monitor Logs](../../azure-monitor/logs/manage-cost-storage.md) describes how to control your costs by changing your data retention period, and how to analyze and alert on your data usage.

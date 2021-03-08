@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 02/22/2021
 
 ms.author: justinha
 author: justinha
@@ -54,7 +54,7 @@ To configure account lockout settings, complete the following settings:
 
 ## Block and unblock users
 
-If a user's device has been lost or stolen, you can block Azure AD Multi-Factor Authentication attempts for the associated account. Any Azure AD Multi-Factor Authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
+If a user's device has been lost or stolen, you can block Azure AD Multi-Factor Authentication attempts for the associated account. Any Azure AD Multi-Factor Authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. We have published a video on [how to block and unblock users in your tenant](https://www.youtube.com/watch?v=WdeE1On4S1o) to show you how to do this.
 
 ### Block a user
 
@@ -62,9 +62,7 @@ To block a user, complete the following steps:
 
 1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
 1. Select **Add** to block a user.
-1. Select the **Replication Group**, then choose *Azure Default*.
-
-    Enter the username for the blocked user as `username\@domain.com`, then provide a comment in the *Reason* field.
+1. Enter the username for the blocked user as `username@domain.com`, then provide a comment in the *Reason* field.
 1. When ready, select **OK** to block the user.
 
 ### Unblock a user
@@ -119,8 +117,6 @@ Azure AD supports the use of OATH-TOTP SHA-1 tokens that refresh codes every 30 
 OATH TOTP hardware tokens typically come with a secret key, or seed, pre-programmed in the token. These keys must be input into Azure AD as described in the following steps. Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret key can only contain the characters *a-z* or *A-Z* and digits *1-7*, and must be encoded in *Base32*.
 
 Programmable OATH TOTP hardware tokens that can be reseeded can also be set up with Azure AD in the software token setup flow.
-
-OATH hardware tokens are supported as part of a public preview. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ![Uploading OATH tokens to the MFA OATH tokens blade](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 

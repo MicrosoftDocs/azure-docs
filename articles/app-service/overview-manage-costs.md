@@ -34,7 +34,7 @@ Depending on which feature you use in App Service, the following cost-accruing r
 - **App Service plan**  Required to host an App Service app.
 - **Isolated tier**  A [Virtual Network](../virtual-network/index.yml) is required for an App Service environment.
 - **Backup**  A [Storage account](../storage/index.yml) is required to make backups.
-- **Diagnostic logs**  You can select [Storage account](../storage/index.yml) as the logging option, or integrate with [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
+- **Diagnostic logs**  You can select [Storage account](../storage/index.yml) as the logging option, or integrate with [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
 - **App Service certificates**  Certificates you purchase in Azure must be maintained in [Azure Key Vault](../key-vault/index.yml).
 
 Other cost resources for App Service are (see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/) for details):
@@ -110,7 +110,7 @@ Production workloads come with the recommendation of the dedicated **Standard** 
 > [!NOTE]
 > **Premium V3** supports both Windows containers and Linux containers. 
 
-Once you choose the pricing tier you want, you should minimize the idle instances. In a scale-out deployment, you can waste money on underutilized compute instances. You should [configure autoscaling](../azure-monitor/platform/autoscale-get-started.md), available in **Standard** tier and above. By creating scale-out schedules, as well as metric-based scale-out rules, you only pay for the instances you really need at any given time.
+Once you choose the pricing tier you want, you should minimize the idle instances. In a scale-out deployment, you can waste money on underutilized compute instances. You should [configure autoscaling](../azure-monitor/autoscale/autoscale-get-started.md), available in **Standard** tier and above. By creating scale-out schedules, as well as metric-based scale-out rules, you only pay for the instances you really need at any given time.
 
 ### Azure Reservations
 
@@ -121,7 +121,7 @@ If you plan to utilize a known minimum number of compute instances for one year 
 
 The reserved instance pricing applies to the applicable instances in your subscription, up to the number of instances that you reserve. The reserved instances are a billing matter and are not tied to specific compute instances. If you run fewer instances than you reserve at any point during the reservation period, you still pay for the reserved instances. If you run more instances than you reserve at any point during the reservation period, you pay the normal accrued cost for the additional instances.
 
-The **Isolated** tier (App Service environment) also supports 1-year and 3-year reservations at reduced pricing. For more information, see [How reservation discounts apply to Azure App Service Isolated Stamps](../cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp.md).
+The **Isolated** tier (App Service environment) also supports 1-year and 3-year reservations at reduced pricing. For more information, see [How reservation discounts apply to Azure App Service](../cost-management-billing/reservations/reservation-discount-app-service.md).
 
 ## Monitor costs
 

@@ -21,7 +21,7 @@ There is one important exception to this restriction. If a user has opted-in to 
 You can configure [Key Vault firewalls and virtual networks](network-security.md) to deny access to traffic from all networks (including internet traffic) by default. You can grant access to traffic from specific Azure virtual networks and public internet IP address ranges, allowing you to build a secure network boundary for your applications.
 
 > [!NOTE]
-> Key Vault firewalls and virtual network rules only apply to the [data plane](secure-your-key-vault.md#data-plane-access-control) of Key Vault. Key Vault control plane operations (such as create, delete, and modify operations, setting access policies, setting firewalls, and virtual network rules) are not affected by firewalls and virtual network rules.
+> Key Vault firewalls and virtual network rules only apply to the [data plane](secure-your-key-vault.md#data-plane-access-control) of Key Vault. Key Vault control plane operations (such as create, delete, and modify operations, setting access policies, setting firewalls, and virtual network rules and deployment of secrets or keys through ARM templates) are not affected by firewalls and virtual network rules.
 
 Here are some examples of how you might use service endpoints:
 
@@ -37,7 +37,6 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | --- | --- |
 |Azure Virtual Machines deployment service|[Deploy certificates to VMs from customer-managed Key Vault](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault).|
 |Azure Resource Manager template deployment service|[Pass secure values during deployment](../../azure-resource-manager/templates/key-vault-parameter.md).|
-|Azure Application Gateway v2 SKU|[TLS termination with Key Vault certificates](../../application-gateway/key-vault-certs.md)|
 |Azure Disk Encryption volume encryption service|Allow access to BitLocker Key (Windows VM) or DM Passphrase (Linux VM), and Key Encryption Key, during virtual machine deployment. This enables [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).|
 |Azure Backup|Allow backup and restore of relevant keys and secrets during Azure Virtual Machines backup, by using [Azure Backup](../../backup/backup-overview.md).|
 |Exchange Online & SharePoint Online|Allow access to customer key for Azure Storage Service Encryption with [Customer Key](/microsoft-365/compliance/customer-key-overview).|
@@ -46,6 +45,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 |Azure SQL Database|[Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Azure Synapse Analytics](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&preserve-view=true&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Storage Service Encryption using customer-managed keys in Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Azure Data Lake Store|[Encryption of data in Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) with a customer-managed key.|
+|Azure Synapse Analytics|[Encryption of data using customer-managed keys in Azure Key Vault](../../synapse-analytics/security/workspaces-encryption.md)|
 |Azure Databricks|[Fast, easy, and collaborative Apache Spark–based analytics service](/azure/databricks/scenarios/what-is-azure-databricks)|
 |Azure API Management|[Deploy certificates for Custom Domain from Key Vault using MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Azure Data Factory|[Fetch data store credentials in Key Vault from Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|

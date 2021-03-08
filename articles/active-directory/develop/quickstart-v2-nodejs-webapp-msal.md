@@ -24,9 +24,6 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node) with the authorization code flow.
 
-> [!IMPORTANT]
-> MSAL Node [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
-
 ## Prerequisites
 
 * Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -38,7 +35,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 >
 > #### Step 1: Register your application
 >
-> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.

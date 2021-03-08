@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 10/09/2019
+ ms.date: 03/03/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -25,9 +25,9 @@ You can check the links in this section for more information about services offe
 |[Nuage/Nokia](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|[Nuage and Azure Virtual WAN Deployment Guide](https://onestore.nokia.com/asset/210073)|
 |[Open Systems]( https://open-systems.com/solutions/microsoft-azure-virtual-wan)|[Open Systems and Azure Virtual WAN Deployment Guide](https://open-systems.com/wp-content/uploads/2020/07/Azure-Virtual-WAN-UserGuide.pdf)|
 |[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |[Palo Alto Networks Azure Virtual WAN Deployment Guide](https://github.com/PaloAltoNetworks/microsoft_azure_virtual_wan)|
-|[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|* |
+|[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|[Azure Virtual WAN & SteelConnect EX](https://www.riverbed.com/partners/microsoft-azure-virtual-wan.html) |
 |[Silver-Peak]( https://www.silver-peak.com/silver-peak-expands-integration-with-microsoft-cloud-services)|[EdgeConnect and Microsoft Azure Virtual WAN Integration Guide](https://www.silver-peak.com/documentation/edgeconnect-and-azure-vwan-integration-guide)|
-|[Velocloud-VMWare]( https://wan.velocloud.com/rs/098-RBR-178/images/sdwan-654-connect-azure-vwan-so-0819.pdf)|[Azure Virtual WAN Velocloud Deployment Guide](https://kb.vmware.com/s/article/79000)|
+|[VMware SD-WAN]( https://wan.velocloud.com/rs/098-RBR-178/images/sdwan-654-connect-azure-vwan-so-0819.pdf)|[Azure Virtual WAN VMware SD-WAN Deployment Guide](https://kb.vmware.com/s/article/79000)|
 | [Versa](https://www.versa-networks.com/partners/microsoft-azure-virtual-WAN) | [Configuring Versa SD-WAN and Microsoft Azure vWAN (Available for registered customers)](https://docs.versa-networks.com/Versa_Director/Versa_Director_Configuration/Integrate_Director_and_Azure_Virtual_WAN) |
 
 *\* Direct link unavailable. Please contact partner company for support.*

@@ -1,21 +1,11 @@
 ---
 title: Move data from Amazon Redshift by using Azure Data Factory 
 description: Learn how to move data from Amazon Redshift by using Azure Data Factory Copy Activity.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data From Amazon Redshift using Azure Data Factory

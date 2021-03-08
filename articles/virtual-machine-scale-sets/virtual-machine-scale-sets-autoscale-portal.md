@@ -120,4 +120,4 @@ In this article, you learned how to use autoscale rules to scale horizontally an
 
 For information on how to manage your VM instances, see [Manage virtual machine scale sets with Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
-To learn how to generate alerts when your autoscale rules trigger, see [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). You can also [Use audit logs to send email and webhook alert notifications in Azure Monitor](../azure-monitor/platform/alerts-log-webhook.md).
+To learn how to generate alerts when your autoscale rules trigger, see [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../azure-monitor/autoscale/autoscale-webhook-email.md). You can also [Use audit logs to send email and webhook alert notifications in Azure Monitor](../azure-monitor/alerts/alerts-log-webhook.md).

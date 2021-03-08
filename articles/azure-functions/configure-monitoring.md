@@ -225,6 +225,8 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 --setting-names SCALE_CONTROLLER_LOGGING_ENABLED
 ```
 
+With scale controller logging enabled, you are now able to [query your scale controller logs](analyze-telemetry-data.md#query-scale-controller-logs). 
+
 ## Enable Application Insights integration
 
 For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**.
@@ -267,30 +269,6 @@ If an Application Insights resource wasn't created with your function app, use t
 
 > [!NOTE]
 > Early versions of Functions used built-in monitoring, which is no longer recommended. When enabling Application Insights integration for such a function app, you must also [disable built-in logging](#disable-built-in-logging).  
-
-## Query Scale Controller logs
-
-After enabling both Scale Controller logging and Application Insights integration, you can use the Application Insights log search to query for the emitted scale controller logs. Scale controller logs are saved in the `traces` collection under the **ScaleControllerLogs** category.
-
-The following query can be used to search for all scale controller logs for the current function app within the specified time period:
-
-```kusto
-traces 
-| extend CustomDimensions = todynamic(tostring(customDimensions))
-| where CustomDimensions.Category == "ScaleControllerLogs"
-```
-
-The following query expands on the previous query to show how to get only logs indicating a change in scale:
-
-```kusto
-traces 
-| extend CustomDimensions = todynamic(tostring(customDimensions))
-| where CustomDimensions.Category == "ScaleControllerLogs"
-| where message == "Instance count changed"
-| extend Reason = CustomDimensions.Reason
-| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
-| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
-```
 
 ## Disable built-in logging
 

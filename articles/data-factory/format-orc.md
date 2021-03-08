@@ -2,10 +2,7 @@
 title: ORC format in Azure Data Factory 
 description: 'This topic describes how to deal with ORC format in Azure Data Factory.'
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
@@ -117,9 +114,9 @@ The associated data flow script of an ORC source configuration is:
 
 ```
 source(allowSchemaDrift: true,
-	validateSchema: false,
-	rowUrlColumn: 'fileName',
-	format: 'orc') ~> OrcSource
+    validateSchema: false,
+    rowUrlColumn: 'fileName',
+    format: 'orc') ~> OrcSource
 ```
 
 ### Sink properties
@@ -140,13 +137,13 @@ The associated data flow script of an ORC sink configuration is:
 
 ```
 OrcSource sink(
-	format: 'orc',
-	filePattern:'output[n].orc',
-	truncate: true,
+    format: 'orc',
+    filePattern:'output[n].orc',
+    truncate: true,
     allowSchemaDrift: true,
-	validateSchema: false,
-	skipDuplicateMapInputs: true,
-	skipDuplicateMapOutputs: true) ~> OrcSink
+    validateSchema: false,
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> OrcSink
 ```
 
 ## Using Self-hosted Integration Runtime

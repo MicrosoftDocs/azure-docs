@@ -36,7 +36,8 @@ To open the SAML-based single sign-on configuration page:
 1. Select SAML-based SSO.
 
 ## Application not found in directory
-`Error AADSTS70001: Application with Identifier 'https:\//contoso.com' was not found in the directory.`
+
+`Error AADSTS70001: Application with Identifier 'https://contoso.com' was not found in the directory.`
 
 **Possible cause**
 
@@ -49,7 +50,7 @@ Ensure that the `Issuer` attribute in the SAML request matches the Identifier va
 On the SAML-based SSO configuration page, in the **Basic SAML configuration** section, verify that the value in the Identifier textbox matches the value for the identifier value displayed in the error.
 
 ## The reply address does not match the reply addresses configured for the application
-`Error AADSTS50011: The reply address 'https:\//contoso.com' does not match the reply addresses configured for the application.`
+`Error AADSTS50011: The reply URL specified in the request does not match the reply URLs configured for the application: '{application identifier}'.`
 
 **Possible cause**
 
@@ -64,7 +65,7 @@ Verify or update the value in the Reply URL textbox to match the `AssertionConsu
 After you've updated the Reply URL value in Azure AD, and it matches the value sent by the application in the SAML request, you should be able to sign in to the application.
 
 ## User not assigned a role
-`Error AADSTS50105: The signed in user 'brian\@contoso.com' is not assigned to a role for the application.`
+`Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application.`
 
 **Possible cause**
 

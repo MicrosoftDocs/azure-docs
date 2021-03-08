@@ -252,7 +252,7 @@ Parameters of the `Publish-GuestConfigurationPackage` cmdlet:
 The example below publishes the package to a storage container name 'guestconfiguration'.
 
 ```azurepowershell-interactive
-Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
+Publish-GuestConfigurationPackage -Path ./AuditFilePathExists/AuditFilePathExists.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
 ```
 
 Once a Guest Configuration custom policy package has been created and uploaded, create the Guest
@@ -390,8 +390,9 @@ $PolicyParameterInfo = @(
 
 # The hashtable also supports a property named 'AllowedValues' with an array of strings to limit input to a list
 
-New-GuestConfigurationPolicy
-    -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
+$uri = 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D'
+
+New-GuestConfigurationPolicy -ContentUri $uri `
     -DisplayName 'Audit Linux file path.' `
     -Description 'Audit that a file path exists on a Linux machine.' `
     -Path './policies' `

@@ -6,7 +6,7 @@ author: tamram
 services: storage
 ms.author: tamram
 ms.reviewer: ozgun
-ms.date: 11/13/2020
+ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: common 
@@ -29,6 +29,9 @@ Azure CLI commands for reading and writing queue data include the optional `--au
 
 To use the `--auth-mode` parameter, make sure that you have installed Azure CLI v2.0.46 or later. Run `az --version` to check your installed version.
 
+> [!NOTE]
+> When a storage account is locked with an Azure Resource Manager **ReadOnly** lock, the [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is not permitted for that storage account. **List Keys** is a POST operation, and all POST operations are prevented when a **ReadOnly** lock is configured for the account. For this reason, when the account is locked with a **ReadOnly** lock, users users who do not already possess the account keys must use Azure AD credentials to access queue data.
+
 > [!IMPORTANT]
 > If you omit the `--auth-mode` parameter or set it to `key`, then the Azure CLI attempts to use the account access key for authorization. In this case, Microsoft recommends that you provide the access key either on the command or in the `AZURE_STORAGE_KEY` environment variable. For more information about environment variables, see the section titled [Set environment variables for authorization parameters](#set-environment-variables-for-authorization-parameters).
 >
@@ -36,7 +39,7 @@ To use the `--auth-mode` parameter, make sure that you have installed Azure CLI 
 
 ## Authorize with Azure AD credentials
 
-When you sign in to Azure CLI with Azure AD credentials, an OAuth 2.0 access token is returned. That token is automatically used by Azure CLI to authorize subsequent data operations against Blob Storage or Queue Storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
+When you sign in to Azure CLI with Azure AD credentials, an OAuth 2.0 access token is returned. That token is automatically used by Azure CLI to authorize subsequent data operations against Queue Storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
 You can assign permissions to queue data to an Azure AD security principal via Azure role-based access control (Azure RBAC). For more information about Azure roles in Azure Storage, see [Manage access rights to Azure Storage data with Azure RBAC](../common/storage-auth-aad-rbac-portal.md).
 
@@ -50,7 +53,7 @@ For details about the permissions required for each Azure Storage operation on a
 
 The following example shows how to create a queue from Azure CLI using your Azure AD credentials. To create the queue, you'll need to log in to the Azure CLI, and you'll need a resource group and a storage account.
 
-1. Before you create the queue, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-portal.md).
+1. Before you create the queue, assign the [Storage Queue Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-portal.md).
 
     > [!IMPORTANT]
     > Azure role assignments may take a few minutes to propagate.

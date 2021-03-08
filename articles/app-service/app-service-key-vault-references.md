@@ -4,7 +4,7 @@ description: Learn how to set up Azure App Service and Azure Functions to use Az
 author: mattchenderson
 
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
 
@@ -37,24 +37,24 @@ A Key Vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 > [!div class="mx-tdBreakAll"]
 > | Reference string                                                            | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | The **SecretUri** should be the full data-plane URI of a secret in Key Vault, including a version, e.g., https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** should the name of your Key Vault resource. The **SecretName** should be the name of the target secret. The **SecretVersion** should be the version of the secret to use. |
+> | SecretUri=_secretUri_                                                       | The **SecretUri** should be the full data-plane URI of a secret in Key Vault, optionally including a version, e.g., `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`  |
+> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** is required and should the name of your Key Vault resource. The **SecretName** is required and should be the name of the target secret. The **SecretVersion** is optional but if present indicates the version of the secret to use. |
 
-> [!NOTE] 
-> Versions are currently required. When rotating secrets, you will need to update the version in your application configuration.
 For example, a complete reference would look like the following:
 
-
 ```
-@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
+@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
 ```
 
 Alternatively:
 
 ```
-@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret;SecretVersion=ec96f02080254f109c51a1f14cdb1931)
+@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret)
 ```
 
+## Rotation
+
+If a version is not specified in the reference, then the app will use the latest version that exists in Key Vault. When newer versions become available, such as with a rotation event, the app will automatically update and begin using the latest version within one day. Any configuration changes made to the app will cause an immediate update to the latest versions of all referenced secrets.
 
 ## Source Application Settings from Key Vault
 

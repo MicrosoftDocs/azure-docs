@@ -31,8 +31,10 @@
     href: durable-functions-sequence.md
   - name: Fan-in/fan-out
     href: durable-functions-cloud-backup.md
-  - name: Monitors
+  - name: Monitors (C#, JavaScript)
     href: durable-functions-monitor.md
+  - name: Monitors (Python)
+    href: durable-functions-monitor-python.md
   - name: Human interaction
     href: durable-functions-phone-verification.md
   - name: Publish to Event Grid
@@ -79,6 +81,8 @@
     href: durable-functions-perf-and-scale.md
   - name: High availability
     href: durable-functions-disaster-recovery-geo-distribution.md
+  - name: Data persistence and serialization
+    href: durable-functions-serialization-and-persistence.md
 - name: Reference
   items:
   - name: Host.json settings
@@ -88,11 +92,11 @@
   - name: HTTP API
     href: durable-functions-http-api.md
   - name: .NET API
-    href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet
+    href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask
   - name: Node.js API
-    href: /javascript/api/durable-functions/?view=azure-node-latest
+    href: /javascript/api/durable-functions/
   - name: Python API
-    href: /python/api/azure-functions-durable/azure.durable_functions?view=azure-python
+    href: /python/api/azure-functions-durable/azure.durable_functions
 - name: How-to guides
   items:
   - name: Develop

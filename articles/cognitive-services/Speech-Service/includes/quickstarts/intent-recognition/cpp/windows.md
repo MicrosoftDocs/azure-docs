@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-set-two
 
 Before you get started:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp" target="_blank">Install the Speech SDK for your development environment and create an empty sample project<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp" target="_blank">Install the Speech SDK for your development environment and create an empty sample project</a>.
 
 ## Create a LUIS app for intent recognition
 

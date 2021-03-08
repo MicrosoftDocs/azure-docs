@@ -65,7 +65,7 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB
 > - Geo-redundancy
 > - Multi-region Writes
    
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="The new account page for Azure Cosmos DB":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail-2.png" alt-text="The new account page for Azure Cosmos DB":::
 
 1. Select **Review + create**. You can skip the **Network** and **Tags** sections.
 
