@@ -298,6 +298,8 @@
       href: /azure/data-explorer/kql-quick-reference
   - name: UEBA enrichments
     href: ueba-enrichments.md
+  - name: CEF log field mapping
+    href: cef-name-mapping.md
 - name: Resources
   items:
   - name: Useful resources
