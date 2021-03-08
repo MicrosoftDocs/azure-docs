@@ -1,11 +1,12 @@
 ---
-title: Availability Overview 
-description: Learn about the availability features for running virtual machines in Azure
-author: cynthn
-ms.author: cynthn
+title: Availability options for Azure Virtual Machines
+description: Learn about the availability options for running virtual machines in Azure
+author: mimckitt
+ms.author: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/08/2021
+ms.reviewer: cynthn
 ---
     
 # Availability options for Azure Virtual Machines

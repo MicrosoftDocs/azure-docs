@@ -1,11 +1,11 @@
 ---
 title: Proximity Placement Groups 
-description: Learn about how co-locating Azure VM resources for improved latency.
+description: Learn about using proximity placement groups in Azure.
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 3/07/2021
 ms.reviewer: zivr
 ---
 

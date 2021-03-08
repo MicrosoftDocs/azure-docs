@@ -1,14 +1,14 @@
 ---
-title: High availability for Linux VMs in Azure 
+title: Deploy VMs in an availability set using Azure CLI
 description: In this tutorial, you learn how to use the Azure CLI to deploy highly available virtual machines in Availability Sets
 documentationcenter: ''
 services: virtual-machines
-author: cynthn
+author: mimckitt
 ms.service: virtual-machines
-ms.workload: infrastructure-services
-ms.topic: tutorial
-ms.date: 01/17/2020
-ms.author: cynthn
+ms.topic: how-to
+ms.date: 3/8/2021
+ms.author: mimckitt
+ms.reviewer: mimckitt
 ms.custom: 
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: Understand VM reboots
 description: Understand VM reboots - maintenance vs downtime
-author: cynthn
+author: mimckitt
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.author: cynthn
+ms.date: 03/08/2021
+ms.author: mimckitt
+ms.reviewer: cynthn
 
 ---
 
