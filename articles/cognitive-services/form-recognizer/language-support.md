@@ -48,7 +48,7 @@ This table lists the human languages supported by the Form Recognizer service.
 |Gilbertese    | `gil` | | ✔ |
 |Greenlandic   | `kl` | | ✔ |
 |Haitian Creole  | `ht` | | ✔ |
-|Hani  | `hni` | | |✔ |
+|Hani  | `hni` | | ✔ |
 |Hmong Daw (Latin) | `mww` | | ✔ |
 |Hungarian | `hu` | | ✔ |
 |Indonesian   | `id` | | ✔ |
