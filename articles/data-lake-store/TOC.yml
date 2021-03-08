@@ -164,7 +164,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.datalakestore
   - name: .NET
-    href: /dotnet/api/overview/azure/data-lake-store?view=azure-dotnet
+    href: /dotnet/api/overview/azure/data-lake-store
   - name: Java
     href: /java/api/overview/azure/datalake
   - name: Node.js

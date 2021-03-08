@@ -26,7 +26,7 @@ ms.author: trbye
 
 :::row:::
     :::column span="3":::
-        Xamarin.Android exposes the complete Android SDK for .NET developers. Build fully native Android apps using C# or F# in Visual Studio. For more information, see <a href="https://docs.microsoft.com/xamarin/android/" target="_blank">Xamarin.Android <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+        Xamarin.Android exposes the complete Android SDK for .NET developers. Build fully native Android apps using C# or F# in Visual Studio. For more information, see <a href="https://docs.microsoft.com/xamarin/android/" target="_blank">Xamarin.Android </a>
     :::column-end:::
     :::column:::
         <br>
