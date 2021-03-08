@@ -87,7 +87,7 @@ To configure a CA certificate in your Firewall Premium policy, select your polic
    :::image type="content" source="media/premium-certificates/secret-permissions.png" alt-text="Azure Key Vault Access policy":::
 
 
-## Create your own self-signed CA Certificate
+## Create your own self-signed CA certificate
 
 To help you test and verify TLS inspection, you can use the following scripts to create your own self-signed Root CA and Intermediate CA.
 
