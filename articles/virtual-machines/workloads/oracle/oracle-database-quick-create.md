@@ -217,12 +217,12 @@ The Oracle software is already installed on the Marketplace image. Create a samp
 1.  Switch to the **oracle** user:
 
     ```bash
-    $ sudo su - oracle
+    sudo su - oracle
     ```
 2. Start the database listener
 
    ```bash
-   $ lsnrctl start
+   lsnrctl start
    ```
    The output is similar to the following:
   

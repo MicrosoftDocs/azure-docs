@@ -23,6 +23,8 @@ landingContent:
         links:
           - text: Client library options
             url: concepts/sdk-options.md
+          - text: Teams Interop
+            url: concepts/teams-interop.md
   - title: Get started
     linkLists:
       - linkListType: quickstart

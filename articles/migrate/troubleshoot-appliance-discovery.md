@@ -163,6 +163,19 @@ If discovered VMs don't appear in the portal or if the VM data is outdated, wait
 
 If you delete VMs and they still appear in the portal, wait 30 minutes. If they still appear, refresh as described above.
 
+## Discovered applications and SQL Server instances and databases not in portal
+
+After you have initiated discovery on the appliance, it may take up to 24 hours to start showing the inventory data in the portal.
+
+If you have not provided Windows authentication or SQL Server authentication credentials on the appliance configuration manager, then add the credentials so that the appliance can use them to connect to respective SQL Server instances.
+
+Once connected, appliance gathers configuration and performance data of SQL Server instances and databases. The SQL Server configuration data is updated once every 24 hours and the performance data is captured every 30 seconds. Hence any change to the properties of the SQL Server instance and databases such as database status, compatibility level etc. can take up to 24 hours to update on the portal.
+
+## SQL Server instance is showing up in "Not connected" state on portal
+To view the issues encountered during discovery of SQL Server instances and databases please click on "Not connected" status in connection status column on 'Discovered servers' page in your project.
+
+Creating assessment on top of servers containing SQL instances that were not discovered completely or are in not connected state, may lead to readiness being marked as "unknown".
+
 ## I do not see performance data for some network adapters on my physical servers
 
 This can happen if the physical server has Hyper-V virtualization enabled. Due to a product gap, the network throughput is captured on the virtual network adapters discovered.
@@ -195,9 +208,9 @@ Typical app discovery errors are summarized in the table.
 
 | **Error** | **Cause** | **Action** |
 |--|--|--|
-| 9000: VMware tool status cannot be detected. | VMWare tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
-| 9001: VMware tools is not installed. | VMWare tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
-| 9002: VMware tools is not running. | VMWare tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
+| 9000: VMware tool status cannot be detected. | VMware tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
+| 9001: VMware tools is not installed. | VMware tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
+| 9002: VMware tools is not running. | VMware tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
 | 9003: Operating system type not supported for guest VM discovery. | Operating system running on the server is neither Windows nor Linux. | Supported operating system types are Windows and Linux only. If the server is indeed Windows or Linux, check the operating system type specified in vCenter Server. |
 | 9004: VM is not running. | VM is powered off. | Ensure the VM is powered on. |
 | 9005: Operating system type not supported for guest VM discovery. | Operating system type not supported for guest VM discovery. | Supported operating system types are Windows and Linux only. |
@@ -211,12 +224,12 @@ Typical app discovery errors are summarized in the table.
 | 9013: A new temporary profile is created for every login. | A new temporary profile is created for every login to the VMware VM. | Contact Microsoft Support for a resolution. |
 | 9014: Unable to retrieve metadata from guest VM file system. | No connectivity to ESXi host | Ensure the appliance can connect to port 443 on the ESXi host running the VM |
 | 9015: Guest Operations role is not enabled on the vCenter user account | Guest Operations role is not enabled on the vCenter user account. | Ensure Guest Operations role is enabled on the vCenter user account. |
-| 9016: Unable to discover as guest operations agent is out of date. | Vmware tools is not properly installed or is not up to date. | Ensure the VMware  tools is properly installed and up to date. |
+| 9016: Unable to discover as guest operations agent is out of date. | VMware tools is not properly installed or is not up to date. | Ensure the VMware  tools is properly installed and up to date. |
 | 9017: File with discovered metadata is not found on the VM. | The issue can occur due to an internal error. | Contact Microsoft Support for a resolution. |
 | 9018: PowerShell is not installed in the Guest VMs. | PowerShell is not available in the guest VM. | Install PowerShell in the guest VM. |
 | 9019: Unable to discover due to guest VM operation failures. | VMware Guest operation failed on the VM. | Ensure that the VM credentials are valid and user name provided in the guest VM credentials is in UPN format. |
 | 9020: File creation permission is denied. | The role associated to the user or the group policy is restricting the user from creating the file in folder | Check if the guest user provided has create permission for the file in folder. See **Notifications** in Server Assessment for the name of the folder. |
-| 9021: Unable to create file in System Temp path. | VMware tool reports System Temp path instead of Users Temp Path. | Upgrade your vmware tool version above 10287 (NGC/VI Client format). |
+| 9021: Unable to create file in System Temp path. | VMware tool reports System Temp path instead of Users Temp Path. | Upgrade your VMware tool version above 10287 (NGC/VI Client format). |
 | 9022: Access to WMI object is denied. | The role associated to the user or the group policy is restricting the user from accessing WMI object. | Please contact Microsoft Support. |
 | 9023: Unable to run PowerShell as SystemRoot environment variable value is empty. | The value of SystemRoot environment variable is empty for the guest VM. | Contact Microsoft Support for a resolution. |
 | 9024: Unable to discover as TEMP environment variable value is empty. | The value of TEMP environment variable is empty for the guest VM. | Please contact Microsoft Support. |
@@ -224,13 +237,13 @@ Typical app discovery errors are summarized in the table.
 | 9026: Unable to run guest operations on the VM. | VM state does not allow guest operations to be run on the VM. | Contact Microsoft Support for a resolution. |
 | 9027: Guest operations agent is not running in the VM. | Failed to contact the guest operations agent running inside the virtual machine. | Contact Microsoft Support for a resolution. |
 | 9028: File cannot be created due to insufficient disk storage in VM. | Not enough space on the disk. | Ensure enough space is available in the disk storage of the VM. |
-| 9029: No access to powershell on the guest VM credential provided. | Access to Powershell is not available for the user. | Ensure the user added on appliance can access PowerShell on the guest VM. |
+| 9029: No access to PowerShell on the guest VM credential provided. | Access to PowerShell is not available for the user. | Ensure the user added on appliance can access PowerShell on the guest VM. |
 | 9030: Unable to gather discovered metadata as ESXi host is disconnected. | The ESXi host is in a disconnected state. | Ensure the ESXi host running the VM is connected. |
 | 9031: Unable to gather discovered metadata as the ESXi host is not responding. | Remote host is in Invalid state. | Ensure the ESXi host running the VM is running and connected. |
 | 9032: Unable to discover due to an internal error. | The issue can occur due to an internal error. | Contact Microsoft Support for a resolution. |
 | 9033: Unable to discover as the VM username contains invalid characters. | Invalid characters were detected in the username. | Provide the VM credential again ensuring there are no invalid characters. |
 | 9034: Username provided is not in UPN format. | Username is not in UPN format. | Ensure that the username is in User Principal Name (UPN) format. |
-| 9035: Unable to discover as Powershell language mode is not set to 'Full Language'. | Language mode for Powershell in guest VM is not set to full language. | Ensure that PowerShell language mode is set to 'Full Language'. |
+| 9035: Unable to discover as PowerShell language mode is not set to 'Full Language'. | Language mode for PowerShell in guest VM is not set to full language. | Ensure that PowerShell language mode is set to 'Full Language'. |
 | 9037: Data collection paused temporarily as VM response time is too high. | The discovered VM is taking too long to respond | No action required. A retry will be attempted in 24 hours for application discovery and 3 hours for dependency analysis (agentless). |
 | 10000: Operating system type is not supported. | Operating system running on the server is neither Windows nor Linux. | Supported operating system types are Windows and Linux only. |
 | 10001: Script for server discovery is not found on the appliance. | Discovery is not working as expected. | Contact Microsoft Support for a resolution. |
