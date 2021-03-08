@@ -324,7 +324,7 @@ Following example generates an integer random value between 0 and 1000. The valu
 
 ## FormatLocalizedString
 
-Format multiple claims according to the provided localized format string. This transformation uses the C# `String.Format` method.
+Format multiple claims according to a provided localized format string. This transformation uses the C# `String.Format` method.
 
 
 | Item | TransformationClaimType | Data Type | Notes |
@@ -345,9 +345,7 @@ To use the FormatLocalizedString claims transformation:
 1. In a [self-asserted technical profile](self-asserted-technical-profile.md), or a [display control](display-controls.md) input or output claims transformation, make a reference to your claims transformation.
 
 
-The following example generates an error message when an account is already in directory.
-
-Define localized strings for English (default) and Spanish.
+The following example generates an error message when an account is already in the directory. The example defines localized strings for English (default) and Spanish.
 
 ```xml
 <Localization Enabled="true">
@@ -369,7 +367,7 @@ Define localized strings for English (default) and Spanish.
 </Localization>
 ```
 
-The following claims transformation creates a response message. The message contains the user's email address embedded into a localized sting *ResponseMessge_EmailExists*.
+The claims transformation creates a response message based on the localized string. The message contains the user's email address embedded into the localized sting *ResponseMessge_EmailExists*.
 
 ```xml
 <ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
@@ -388,11 +386,11 @@ The following claims transformation creates a response message. The message cont
 ### Example
 
 - Input claims:
-    - **inputClaim**: sara@contoso.com
+    - **inputClaim**: sarah@contoso.com
 - Input parameters:
     - **stringFormat**:  ResponseMessge_EmailExists
 - Output claims:
-  - **outputClaim**: The email 'sara@contoso.com' is already an account in this organization. Click Next to sign in with that account.
+  - **outputClaim**: The email 'sarah@contoso.com' is already an account in this organization. Click Next to sign in with that account.
 
 
 ## FormatStringClaim

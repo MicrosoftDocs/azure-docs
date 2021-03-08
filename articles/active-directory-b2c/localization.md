@@ -231,7 +231,7 @@ The following example shows how to localize the UserMessageIfClaimsPrincipalAlre
 
 ### FormatLocalizedStringTransformationClaimType
 
-The FormatLocalizedStringTransformationClaimType value is used to format claims into a localized string. For more information, see [FormatLocalizedString claims transformation](string-transformations.md#formatcocalizedstring)
+The FormatLocalizedStringTransformationClaimType value is used to format claims into a localized string. For more information, see [FormatLocalizedString claims transformation](string-transformations.md#formatlocalizedstring)
 
 
 ```xml
