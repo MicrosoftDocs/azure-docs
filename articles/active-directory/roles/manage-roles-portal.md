@@ -1,6 +1,6 @@
 ---
-title: Assign Azure AD roles - Azure Active Directory
-description: Learn how to grant access in Azure Active Directory by assigning Azure AD roles.
+title: Assign Azure AD roles to users - Azure Active Directory
+description: Learn how to grant access to users in Azure Active Directory by assigning Azure AD roles.
 services: active-directory
 author: rolyon
 manager: daveba
@@ -15,7 +15,7 @@ ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
 ---
-# Assign Azure AD roles
+# Assign Azure AD roles to users
 
 You can now see and manage all the members of the administrator roles in the Azure AD admin center. If you frequently manage role assignments, you will probably prefer this experience. This article describes how to assign Azure AD roles using the Azure AD admin center.
 
@@ -31,7 +31,7 @@ You can now see and manage all the members of the administrator roles in the Azu
 
 1. Select a role to see its assignments.
 
-1. Select **Add assignments** and then select the users or role-assignable groups you want to assign to this role.
+1. Select **Add assignments** and then select the users you want to assign to this role.
 
     If you see something different from the following picture, read the Note in [Privileged role assignments](#privileged-role-assignments) to verify whether using Azure AD Privileged Identity Management (PIM).
 
