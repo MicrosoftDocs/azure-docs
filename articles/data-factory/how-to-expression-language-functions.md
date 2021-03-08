@@ -298,9 +298,9 @@ These functions are useful inside conditions, they can be used to evaluate any t
 | [ticks](control-flow-expression-language-functions.md#ticks) | Return the `ticks` property value for a specified timestamp. |
 | [utcNow](control-flow-expression-language-functions.md#utcNow) | Return the current timestamp as a string. |
 
-## Detailed Azure data factory Copy pipeline with parameters 
+## Detailed Azure data factory copy pipeline with parameters 
 
-This [Azure Data Factory Copy pipeline parameter passing tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.
+This [Azure Data factory copy pipeline parameter passing tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.
 
 ## Detailed  Mapping data flow pipeline with parameters 
 
