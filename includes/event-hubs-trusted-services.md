@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 01/05/2021
+ms.date: 03/08/2021
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -20,3 +20,4 @@ When you enable the **Allow trusted Microsoft services to bypass this fir
 | Azure Monitor (Diagnostic Settings) | Allows Azure Monitor to send diagnostic information to event hubs in your Event Hubs namespace. Azure Monitor can read from the event hub and also write data to the event hub. |
 | Azure Stream Analytics | Allows an Azure Stream Analytics job to read data from ([input](../articles/stream-analytics/stream-analytics-add-inputs.md)) or write data to ([output](../articles/stream-analytics/event-hubs-output.md)) event hubs in your Event Hubs namespace. <p>**Important**: The Stream Analytics job should be configured to use a **managed identity** to access the event hub. For more information, see [Use managed identities to access Event Hub from an Azure Stream Analytics job (Preview)](../articles/stream-analytics/event-hubs-managed-identity.md). </p>|
 | Azure IoT Hub | Allows IoT Hub to send messages to event hubs in your Event Hub namespace. You also need to do the following steps: <ul><li>Enable system-assigned identity for your IoT hub</li><li>Add the identity to the Azure Event Hubs Data Sender role on the Event Hubs namespace.</li><li>Then, configure the IoT Hub that uses an event hub as a custom endpoint to use the identity-based authentication.</li></ul>
+| Azure API Management | <ul><li>[Send-Request policy](../articles/api-management/api-management-sample-send-request.md). <p>The API Management service allows you to send a HTTP request to any external service using the send-request policy. Azure Event Hubs is one of the supported sinks that's often used to log requests. If the event hub is behind a firewall, enable the **Allow trusted Microsoft services to bypass this firewall** option.</p></li><li>[Log to EventHub policy](../articles/api-management/api-management-howto-log-event-hubs.md). <p>With this policy, the API Management instance wiull use a system-assigned identity to log request to an event hub. It would allow the API Management service to connect to an event hub behind a firewall. Also, it doesn't require a key to connect to the event hub. Therefore, you don't need to worry about rotating keys/secrets used between the API Management service and Azure Event Hubs.</p></li>| 
