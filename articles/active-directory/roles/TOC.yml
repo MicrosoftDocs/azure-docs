@@ -74,7 +74,7 @@
     items: 
     - name: Create a custom role
       href: custom-create.md
-    - name: Assign custom roles for enterprise apps
+    - name: Create custom roles for enterprise apps
       href: custom-enterprise-apps.md
     - name: Create unlimited app registrations
       href: quickstart-app-registration-limits.md

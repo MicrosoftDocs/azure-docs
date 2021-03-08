@@ -1,6 +1,6 @@
 ---
 title: Assign Azure AD roles - Azure Active Directory
-description: You can now see and manage members of an Azure AD administrator role in the portal. For those who frequently manage role assignments.
+description: Learn how to grant access in Azure Active Directory by assigning Azure AD roles.
 services: active-directory
 author: rolyon
 manager: daveba
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 03/07/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -17,27 +17,33 @@ ms.collection: M365-identity-device-management
 ---
 # Assign Azure AD roles
 
-You can now see and manage all the members of the administrator roles in the Azure Active Directory portal. If you frequently manage role assignments, you will probably prefer this experience. And if you ever wondered “What the heck do these roles really do?”, you can see a detailed list of permissions for each of the Azure AD administrator roles.
+You can now see and manage all the members of the administrator roles in the Azure AD admin center. If you frequently manage role assignments, you will probably prefer this experience. This article describes how to assign Azure AD roles using the Azure AD admin center.
 
 ## Assign a role
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with Global Administrator or Privileged Role Administrator permissions and select **Azure Active Directory**.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Global Administrator or Privileged Role Administrator permissions.
+
+1. Select **Azure Active Directory**.
 
 1. Select **Roles and administrators** to see the list of all available roles.
 
+    ![Screenshot of the Roles and administrators page](./media/manage-roles-portal/roles-and-administrators.png)
+
 1. Select a role to see its assignments.
 
-    ![Screenshot that shows the "User administrator - Assignments" page with the "Manage in PIM" action selected.](./media/manage-roles-portal/member-list.png)
+1. Select **Add assignments** and then select the users or role-assignable groups you want to assign to this role.
 
-1. Select **Add assignments** and select the roles you want to assign. You can select **Manage in PIM** for additional management capabilities. If you see something different from the following picture, read the Note in [View assignments for privileged roles](#view-assignments-for-privileged-roles) to verify whether you're in PIM.
+    If you see something different from the following picture, read the Note in [Privileged role assignments](#privileged-role-assignments) to verify whether using Azure AD Privileged Identity Management (PIM).
 
-    ![list of permissions for an admin role](./media/manage-roles-portal/directory-role-select-role.png)
+    ![list of permissions for an admin role](./media/manage-roles-portal/add-assignments.png)
 
-## Role assignments for privileged roles
+1. Select **Add** to assign the role.
+
+## Privileged role assignments
 
 You can select **Manage in PIM** for additional management capabilities. Privileged Role Administrators can change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have Privileged Identity Management, you can still select **Manage in PIM** to sign up for a trial. Privileged Identity Management requires an [Azure AD Premium P2 license plan](../privileged-identity-management/subscription-requirements.md).
 
-![list of members of an admin role](./media/manage-roles-portal/member-list.png)
+![Screenshot that shows the "User administrator - Assignments" page with the "Manage in PIM" action selected](./media/manage-roles-portal/member-list-pim.png)
 
 If you are a Global Administrator or a Privileged Role Administrator, you can easily add or remove members, filter the list, or select a member to see their active assigned roles.
 
@@ -49,5 +55,5 @@ If you are a Global Administrator or a Privileged Role Administrator, you can ea
 ## Next steps
 
 * Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* For more about roles and Administrator role assignment, see [Assign administrator roles](permissions-reference.md).
+* For more about roles, see [Azure AD built-in roles](permissions-reference.md).
 * For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md).

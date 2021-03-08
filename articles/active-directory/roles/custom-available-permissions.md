@@ -165,4 +165,4 @@ Grants the same permissions as microsoft.directory/applications/permissions/upda
 ## Next steps
 
 - Create custom roles using [the Azure portal, Azure AD PowerShell, and Graph API](custom-create.md)
-- [View the assignments for a custom role](custom-view-assignments.md)
+- [List role assignments](view-assignments.md)
