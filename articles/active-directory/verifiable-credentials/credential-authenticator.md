@@ -1,5 +1,5 @@
 ---
-title: Using the Microsoft Authenticator app with Azure Verifiable Credentials
+title: Using the Microsoft Authenticator app with Azure Verifiable Credentials (preview)
 description: Download and install the Microsoft Authenticator app with Azure Verifiable Credentials
 services: active-directory
 author: barclayn

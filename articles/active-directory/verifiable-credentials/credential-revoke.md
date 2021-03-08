@@ -1,5 +1,5 @@
 ---
-title: Credential revocation 
+title: Credential revocation (preview)
 description: This article shows you how you can revoke a credential
 services: active-directory
 author: barclayn
@@ -15,6 +15,11 @@ ms.author: barclayn
 # Credential revocation when working with Azure Verifiable credentials
 
 After Verifiable Credentials have been issued to your users, you can invalidate credentials by using the Azure portal.
+
+> [!IMPORTANT]
+> Azure Verifiable Credentials is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Revoke an individual credential
 

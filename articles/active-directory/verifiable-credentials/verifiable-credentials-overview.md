@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Verifiable Credentials
+title: Introduction to Azure Active Directory Verifiable Credentials (preview)
 description: An overview Azure Verifiable Credentials.
 services: active-directory
 author: barclayn

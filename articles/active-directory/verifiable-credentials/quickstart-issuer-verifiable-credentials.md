@@ -1,5 +1,5 @@
 ---
-title: Quickstart- Issue verifiable credentials using a sample app (Preview)
+title: Quickstart- Issue verifiable credentials using a sample app (preview)
 description: In this quickstart you learn how Issue Verifiable Credentials using a sample app
 ms.service: identity
 ms.subservice: verifiable-credentials

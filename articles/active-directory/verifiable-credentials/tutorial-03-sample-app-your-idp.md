@@ -1,5 +1,5 @@
 ---
-title: Set up Verifiable Credentials issuer in your own Azure AD?
+title: Set up Verifiable Credentials issuer in your own Azure AD? (preview)
 description: Change the Verifiable Credential code sample to work with your Azure tenant
 documentationCenter: ''
 author: barclayn
@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/04/2021
+ms.date: 03/08/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using verifiable credentials in my own Azure AD

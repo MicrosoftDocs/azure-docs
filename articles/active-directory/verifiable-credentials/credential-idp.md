@@ -1,5 +1,5 @@
 ---
-title: Configure your IDP with verifiable credentials
+title: Configure your IDP with verifiable credentials (preview)
 description: This article shows you how to set up your identity provider with your issuer service
 services: active-directory
 author: barclayn

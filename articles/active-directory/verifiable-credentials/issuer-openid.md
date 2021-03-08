@@ -1,5 +1,5 @@
 ---
-title: Issuer service communication examples
+title: Issuer service communication examples (preview)
 description: Details of communication between identity provider and issuer service
 author: barclayn
 manager: davba
@@ -7,7 +7,7 @@ ms.service: identity
 ms.subservice: verifiable-credentials
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/08/2021
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -17,9 +17,14 @@ ms.author: barclayn
 
 Updated: June 23, 2020
 
-<hr>
 
 The Verifiable Credential issuer service transforms security tokens output by your organization's OpenID compliant identity provider. This article instructs you on how to set up your identity provider to communicate with the issuer service.
+
+> [!IMPORTANT]
+> Azure Verifiable Credentials is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+
 
 ![issue process](media/issuer-openid/idp-transform-diagram.png)
 

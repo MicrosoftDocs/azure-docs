@@ -1,12 +1,12 @@
 ---
-title: Frequently asked questions - Azure Verifiable Credentials
+title: Frequently asked questions - Azure Verifiable Credentials (preview)
 description: Find answers to common questions about Verifiable Credentials
 author: barclayn
 manager: davba
 ms.service: identity
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/08/2021
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---

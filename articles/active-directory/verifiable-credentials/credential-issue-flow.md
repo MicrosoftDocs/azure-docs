@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Credential issue flow 
+title: Tutorial - Credential issue flow (preview)
 description: This article describes how to get your NodeJS app or website configured to issue Verifiable Credentials VC using a verifiable credentials NPM package
 services: active-directory
 documentationCenter: ''
@@ -20,6 +20,11 @@ ms.author: barclayn
 Updated: September 25, 2020
 
 This article describes how to get your NodeJS app or website configured to issue Verifiable Credentials VC using a verifiable credentials NPM package. A [code sample](https://github.com/Azure-Samples/active-directory-verifiable-credentials) is also available on GitHub for your reference.
+
+> [!IMPORTANT]
+> Azure Verifiable Credentials is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Set up access to Azure Key Vault
 

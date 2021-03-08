@@ -1,5 +1,5 @@
 ---
-title: How to customize your verifiable credentials
+title: How to customize your verifiable credentials (preview)
 description: This article shows you how you can customize your credentials
 services: active-directory
 author: barclayn

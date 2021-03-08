@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Connect your IDP to a new verifiable credential instance
+title: Tutorial - Connect your IDP to a new verifiable credential instance (preview)
 description: Learn how you can set up your own verifiable credentials issuer in Azure
 services: active-directory
 documentationCenter: ''
@@ -27,6 +27,11 @@ In this article you will learn how to:
 - Upload Rules and Display files
 - Set up Issuer service to Azure Key Vault
 - Update Sample Code with your tenant
+
+> [!IMPORTANT]
+> Azure Verifiable Credentials is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Connect your IDP 
 

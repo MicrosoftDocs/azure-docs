@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting - Azure Verifiable Credentials
+title: Troubleshooting - Azure Verifiable Credentials (preview)
 description: Find answers to common errors when working with Azure Verifiable Credentials
 author: barclayn
 manager: davba

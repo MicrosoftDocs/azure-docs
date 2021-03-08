@@ -1,5 +1,5 @@
 ---
-title: Step 4 - Update Sample with your IDP VC and to use your Keyvault
+title: Step 4 - Update Sample with your IDP VC and to use your Keyvault (preview)
 description: Set up your own verifiable credentials issuer in Azure
 documentationCenter: ''
 author: barclayn
@@ -11,7 +11,7 @@ ms.date: 03/08/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using verifiable credentials in my own Azure AD
-#Source: https://hackmd.io/elQohpzlQaqj4ttZCicEfw
+
 ---
 
 # Update Sample with your IDP VC and to use your Keyvault

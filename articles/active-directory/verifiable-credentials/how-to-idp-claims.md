@@ -1,5 +1,5 @@
 ---
-title: Customizing claims in ID tokens - Azure AD
+title: Customizing claims in ID tokens - Azure AD (preview)
 description: Learn how you can add a claim to your tokens, and use that claim can be used to populate attributes in your verifiable credentials
 documentationCenter: ''
 author: barclayn

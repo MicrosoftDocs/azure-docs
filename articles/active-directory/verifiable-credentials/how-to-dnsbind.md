@@ -1,5 +1,5 @@
 ---
-title: How to DNS Bind- Azure AD
+title: How to DNS Bind- Azure AD (preview)
 description: Learn how to DNS Bind?
 documentationCenter: ''
 author: barclayn

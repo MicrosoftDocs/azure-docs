@@ -1,11 +1,11 @@
 ---
-title: What's new for Azure Verifiable Credentials
+title: What's new for Azure Verifiable Credentials (preview)
 description: Recent updates for Azure Verifiable Credentials
 author: barclayn
 ms.service: identity
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 02/18/2021
+ms.date: 03/08/2021
 ms.author: barclayn
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
