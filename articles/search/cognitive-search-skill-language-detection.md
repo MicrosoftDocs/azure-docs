@@ -36,7 +36,7 @@ Parameters are case-sensitive.
 
 | Inputs | Description |
 |---------------------|-------------|
-| `defaultCountryHint` | (Optional) An ISO 3166-1 alpha-2 two letter country code can be provided to use as a hint to the language detection model if it cannot disambiguate the language. See [the Text Analytics documentation](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection#ambiguous-content) on this topic for more details. Specifically, the `defaultCountryHint` parameter is used with documents that don't specify the `countryHint` input explicitly.  |
+| `defaultCountryHint` | (Optional) An ISO 3166-1 alpha-2 two letter country code can be provided to use as a hint to the language detection model if it cannot disambiguate the language. See [the Text Analytics documentation](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md#ambiguous-content) on this topic for more details. Specifically, the `defaultCountryHint` parameter is used with documents that don't specify the `countryHint` input explicitly.  |
 | `modelVersion`   | (Optional) The version of the model to use when calling the Text Analytics service. It will default to the latest available when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details. |
 
 ## Skill inputs
@@ -46,7 +46,7 @@ Parameters are case-sensitive.
 | Inputs	 | Description |
 |--------------------|-------------|
 | `text` | The text to be analyzed.|
-| `countryHint` | An ISO 3166-1 alpha-2 two letter country code to use as a hint to the language detection model if it cannot disambiguate the language. See [the Text Analytics documentation](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection#ambiguous-content) on this topic for more details. |
+| `countryHint` | An ISO 3166-1 alpha-2 two letter country code to use as a hint to the language detection model if it cannot disambiguate the language. See [the Text Analytics documentation](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md#ambiguous-content) on this topic for more details. |
 
 ## Skill outputs
 
