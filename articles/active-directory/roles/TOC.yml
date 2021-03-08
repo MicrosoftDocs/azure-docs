@@ -1,17 +1,14 @@
 - name: Azure AD roles documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: What is Azure AD RBAC?
     href: custom-overview.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Assign users to admin roles
     href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Concepts
-  expanded: true
   items:
   - name: Compare roles
     items:
@@ -42,7 +39,6 @@
   - name: Administrative units  
     href: administrative-units.md
 - name: How-to guides
-  expanded: true
   items:
   - name: List role definitions
     href: role-definitions-list.md
@@ -111,7 +107,6 @@
     - name: Get support for Azure AD
       href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Reference
-  expanded: true
   items:
   - name: Graph API
     href: /graph/api/resources/directoryrole?view=graph-rest-1.0
