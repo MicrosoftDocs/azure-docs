@@ -31,13 +31,20 @@ az postgres flexible-server create --public-access <your-ip-address>
 ```
 You can provide additional arguments for this command to customize it. See all arguments for [az postgres flexible-server create](/cli/azure/postgres/flexible-server?view=azure-cli-latest#az_postgres_flexible_server_create).
 
-## Test database server connection
-You can test and validate the connection to the server from your development environment using the command.
+## View all the arguments for this command 
+You can view all the arguments for this command with ```--help``` argument. 
 
 ```azurecli
-az postgres flexible-server connect -n server -u username -p password -d postgres
+az postgresql flexible-server connect --help
 ```
-Here is an example 
+
+## Test database server connection
+You can test and validate the connection to the database from your development environment using the command.
+
+```azurecli
+az postgres flexible-server connect -n <servername> -u <username> -p "<password>" -d <databasename>
+```
+**Example:** 
 ```azurecli
 az postgres flexible-server connect -n postgresdemoserver -u dbuser -p "dbpassword" -d postgres
 ```
@@ -56,22 +63,24 @@ If the connection failed, try these solutions:
 - if you have configured your server with private access in virtual networking, make sure your client machine is in the same virtual network.
 
 ## Run Single Query
-You can execute a single query with the command using ```--query-text``` argument, ```-q```.
+You can execute a single query with the command using ```--querytext``` argument, ```-q```.
 
 ```azurecli
-az postgres flexible-server connect -n <server-name> -u <username> -p <password> -d <database-name> -c 'SELECT id , name FROM table1;'
+az postgres flexible-server connect -n <server-name> -u <username> -p "<password>" -d <database-name> -q "<query-text>"
 ```
 
-Here is an example for running a SELECT command 
+**Example:** 
 ```azurecli
 az postgresql flexible-server connect -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -q "select * from table1;" --output table
 ```
+
 You will see an output as shown below:
+
 ```output
 Command group 'postgres flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
 Successfully connected to postgresdemoserver.
 Ran Database Query: 'select * from table1;'
-Retrieving first 30 rows of query output.
+Retrieving first 30 rows of query output, if applicable.
 Closed the connection postgresdemoserver.
 Local context is turned on. Its information is saved in working directory C:\mydir. You can run `az local-context off` to turn it off.
 Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
@@ -90,15 +99,17 @@ test   200
 You can run multiple queries using the **interactive** mode . To enable interactive mode, run the following command
 
 ```azurecli
-az postgres flexible-server connect -n <server-name> -u <username> -p <password> --interactive
+az postgres flexible-server connect -n <servername> -u <username> -p "<password>" -d <databasename>
 ```
 
-Here is an example
+**Example:**
+
 ```azurecli
 az postgresql flexible-server connect -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb --interactive
 ```
 
-You will see the **MySQL** shell experience as shown below:
+You will see the **psql** shell experience as shown below:
+
 ```bash
 Command group 'postgres flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
 Password for earthyTurtle7:
@@ -114,6 +125,7 @@ Goodbye!
 Local context is turned on. Its information is saved in working directory C:\sunitha. You can run `az local-context off` to turn it off.
 Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
 ```
+
 
 ## Next Steps
 
