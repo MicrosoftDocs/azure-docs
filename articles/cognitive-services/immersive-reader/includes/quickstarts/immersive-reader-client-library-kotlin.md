@@ -609,4 +609,4 @@ Use Android Studio to run the app on a device emulator. When you select **Immers
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Customize the Immersive Reader launch button](../../how-to-customize-launch-button.md)
+> [Edit the Immersive Reader launch button](../../how-to-customize-launch-button.md)

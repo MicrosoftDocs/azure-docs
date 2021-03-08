@@ -18,7 +18,7 @@
     href: how-to-create-immersive-reader.md
   - name: Launch the Immersive Reader
     href: how-to-launch-immersive-reader.md
-  - name: Customize the Immersive Reader button
+  - name: Edit the Immersive Reader launch button
     href: how-to-customize-launch-button.md
   - name: Cache the authentication token
     href: how-to-cache-token.md
