@@ -33,13 +33,13 @@ You can now see and manage all the members of the administrator roles in the Azu
 
 1. Select **Add assignments** and then select the users you want to assign to this role.
 
-    If you see something different from the following picture, read the Note in [Privileged role assignments](#privileged-role-assignments) to verify whether using Azure AD Privileged Identity Management (PIM).
+    If you see something different from the following picture, read the Note in [Privileged Identity Management (PIM)](#privileged-identity-management-pim) to verify whether you are using PIM.
 
     ![list of permissions for an admin role](./media/manage-roles-portal/add-assignments.png)
 
 1. Select **Add** to assign the role.
 
-## Privileged role assignments
+## Privileged Identity Management (PIM)
 
 You can select **Manage in PIM** for additional management capabilities. Privileged Role Administrators can change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have Privileged Identity Management, you can still select **Manage in PIM** to sign up for a trial. Privileged Identity Management requires an [Azure AD Premium P2 license plan](../privileged-identity-management/subscription-requirements.md).
 
