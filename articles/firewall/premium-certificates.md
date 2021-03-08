@@ -87,24 +87,28 @@ To configure a CA certificate in your Firewall Premium policy, select your polic
    :::image type="content" source="media/premium-certificates/secret-permissions.png" alt-text="Azure Key Vault Access policy":::
 
 
-## Create you own self-signed CA Certificate
+## Create your own self-signed CA Certificate
 
-To allow easy deployment and verification of TLS inspection, use the provided script to create your own self-signed Root CA and Intermediate CA.
+To help you test and verify TLS inspection, you can use the following scripts to create your own self-signed Root CA and Intermediate CA.
 
 > [!IMPORTANT]
-> In most production cases we encourage you to use your corporate PKI to create an Intermediate CA certificate. Corporate PKI leverages the existing infrastucture and will take care of distribution of the Root CA to all endpoint machines.
+> For production, you should use your corporate PKI to create an Intermediate CA certificate. A corporate PKI leverages the existing infrastructure and handles the Root CA distribution to all endpoint machines.
 
-We provided two flavours of the script (1) `cert.sh` for linux/mac and (2) `cert.ps1` for windows. Additionaly both scripts consume `openssl.cnf` configuration file. To use the scripts copy the contents of `openssl.cnf, cert.sh, cert.ps1` to your local machines.
+There are two versions of this script:
+- a bash script `cert.sh` 
+- a PowerShell script `cert.ps1` 
 
-The script will generate the following files
+ Also, both scripts use the `openssl.cnf` configuration file. To use the scripts, copy the contents of `openssl.cnf`, and `cert.sh` or `cert.ps1` to your local computer.
+
+The scripts generate the following files:
 - rootCA.crt/rootCA.key - Root CA public certificate and private key.
 - interCA.crt/interCA.key - Intermediate CA public certificate and private key
 - interCA.pfx - Intermediate CA pkcs12 package which will be used by firewall
 
 > [!IMPORTANT]
-> rootCA.key should be stored in a secure offline location. Note that the script will generate certificate with validity of 1024 days.
+> rootCA.key should be stored in a secure offline location. The scripts generate a certificate with validity of 1024 days.
 
-Following certificate generation deploy them as follows
+After the certificates are created, deploy them to the following locations:
 - rootCA.crt - Deploy on endpoint machines (Public certificate only).
 - interCA.pfx - Import as certificate on a Key Vault and assign to firewall policy.
 
@@ -145,8 +149,8 @@ keyUsage = critical, digitalSignature
 extendedKeyUsage = serverAuth
 ```
 
-### **cert.sh - Linux/Mac Bash Script**
-```
+###  Bash script - cert.sh 
+```bash
 #!/bin/bash
 
 # Create root CA
@@ -170,8 +174,8 @@ echo "   - interCA.pfx - Intermediate CA pkcs12 package which could be uploaded 
 echo "================"
 ```
 
-### **cert.ps1 - Windows Powershell**
-```
+### PowerShell - cert.ps1
+```powershell
 # Create root CA
 openssl req -x509 -new -nodes -newkey rsa:4096 -keyout rootCA.key -sha256 -days 3650 -out rootCA.crt -subj '/C=US/ST=US/O=Self Signed/CN=Self Signed Root CA' -config openssl.cnf -extensions rootCA_ext
 
