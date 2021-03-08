@@ -16,6 +16,7 @@ A geo-replicated registry provides the following benefits:
 * Improve performance and reliability of regional deployments with network-close registry access
 * Reduce data transfer costs by pulling image layers from a local, replicated registry in the same or nearby region as your container host
 * Single management of a registry across multiple regions
+* Registry resilience if a regional outage occurs
 
 > [!NOTE]
 > If you need to maintain copies of container images in more than one Azure container registry, Azure Container Registry also supports [image import](container-registry-import-images.md). For example, in a DevOps workflow, you can import an image from a development registry to a production registry, without needing to use Docker commands.
