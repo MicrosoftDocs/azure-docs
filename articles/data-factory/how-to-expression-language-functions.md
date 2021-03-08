@@ -18,9 +18,11 @@ ms.date: 11/25/2019
 
 In this article, we will primarily focus on learning concepts with examples and tutorials on exploring the ability to create parameterized data pipelines within Azure Data Factory. Parameterization and dynamic expressions are such notable additions to ADF because it can save a tremendous amount of time and allow for a much more flexible Extract, Transform, Load (ETL) or Extract, Load, Transform (ELT) solution, which will dramatically reduce the cost of solution maintenance and speed up the implementation of new features into existing pipelines. These gains are because parameterization minimizes the amount of hard coding and increases the number of reusable objects and processes in a solution.
 
-## Expression Concepts 
+## Parameter and expression concepts 
 
-JSON values in the definition can be literal or expressions that are evaluated at runtime. For example:  
+You can use parameters to pass external values into pipelines, datasets, linked services, and data flows. Once the parameter has been passed into the resource, it cannot be changed. By parameterizing resources, you can reuse them with different values each time. Parameters can be used individually or as a part of expressions. JSON values in the definition can be literal or expressions that are evaluated at runtime.
+
+For example:  
   
 ```json
 "name": "value"
