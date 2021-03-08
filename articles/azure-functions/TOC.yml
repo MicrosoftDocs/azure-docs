@@ -456,7 +456,7 @@
         - name: Java
           href: /java/api/overview/azure/functions/runtime
         - name: Python
-          href: /python/api/azure-functions/azure.functions?view=azure-python
+          href: /python/api/azure-functions/azure.functions
     - name: App settings reference
       href: functions-app-settings.md
     - name: Triggers and bindings
