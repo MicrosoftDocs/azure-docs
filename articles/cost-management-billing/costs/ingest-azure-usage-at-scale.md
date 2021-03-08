@@ -73,7 +73,7 @@ Request URL: `PUT https://management.azure.com/{scope}/providers/Microsoft.CostM
 
 ## Copy large Azure storage blobs
 
-You can use Cost Management to schedule exports of your Azure usage details into your Azure Storage accounts as blobs. The resulting blob sizes could over gigabytes in size. The Azure Cost Management team worked with the Azure Storage team to test copying large Azure storage blobs. The results are documented in the following sections. You can expect to have similar results as you copy storage blobs from one Azure region to another.
+You can use Cost Management to schedule exports of your Azure usage details into your Azure Storage accounts as blobs. The resulting blob sizes could be over gigabytes in size. The Azure Cost Management team worked with the Azure Storage team to test copying large Azure storage blobs. The results are documented in the following sections. You can expect to have similar results as you copy storage blobs from one Azure region to another.
 
 To test its performance, the team transferred blobs from storage accounts in the US West region to the same and other regions. The team measured speeds that ranged from 2 GB per second in the same region to 150 MB per second to storage accounts in the South East Asia region.
 
