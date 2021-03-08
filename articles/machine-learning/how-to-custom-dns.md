@@ -41,11 +41,7 @@ The following list contains the fully qualified domain names (FQDN) used by your
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
-* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
-
-    > [!NOTE]
-    > The workspace name for this FQDN may be truncated. Truncation is done to keep the FQDN less than or equal to 63 characters.
-
+* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
 * If you create a compute instance, you must also add an entry for `<instance-name>.<region>.instances.azureml.ms` with the private IP of the workspace private endpoint.
 
     > [!NOTE]
@@ -68,7 +64,10 @@ The following FQDNs are for Azure China 21Vianet regions:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.ml.azure.cn`
 * `<workspace-GUID>.workspace.<region>.api.ml.azure.cn`
-* `ml-<workspace-name, truncated to 12 characters>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
+
+    > [!NOTE]
+    > The workspace name for this FQDN may be truncated. Truncation is done to keep the FQDN less than or equal to 63 characters.
 * `<instance-name>.<region>.instances.ml.azure.cn`
 ## Find the IP addresses
 
