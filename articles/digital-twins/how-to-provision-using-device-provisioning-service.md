@@ -112,7 +112,7 @@ While going through that flow, make sure you select the following options to lin
 
 Next, choose *Select a new function* button to link your function app to the enrollment group.
 
-* *Subscription*: Choose your Azure subscription 
+* *Subscription*: Your Azure subscription is auto populated. Make sure it is the right subscription 
 * *Function App*: Choose your function app name 
 * *Function*: Choose DpsAdtAllocationFunc 
 
@@ -130,9 +130,15 @@ This sample uses a device simulator that includes provisioning using the Device 
 
 The device simulator is a thermostat-type device that uses the following model: [*ThermostatModel.json*](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/ThermostatModel.json). You'll need to upload this model to Azure Digital Twins before you can create a twin of this type for the device.
 
-First, get the model file on your machine by navigating to the model link above and copying the file body into a local .json file on your machine.
+First, get the model file on your machine by navigating to the model link above and copying the file body into a local .json file on your machine, and rename it to *ThermostatModel.json*.
 
-Then, upload the model file to Azure Digital Twins with the following Azure CLI command:
+1. If you are using [Azure Cloud Shell](https://shell.azure.com) to run the commands, you'll need to upload your json file to the cloud shell and use the following Azure CLI command to upload the model.
+
+```azurecli-interactive
+az dt model create -n <your-Azure-digital-twins-instance-name> --models ThermostatModel.json
+```
+
+2. If you are using local Azure CLI, use the command:
 
 ```azurecli-interactive
 az dt model create -n <your-Azure-digital-twins-instance-name> --models <file_path>
