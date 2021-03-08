@@ -77,21 +77,23 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### Create an Azure function
 
-In this section, you are going to create a new function that will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device. You can do this by using an existing project or a new project in your Visual Studio or any other code editor.
+In this section, you are going to create a new function that will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device. You can do this by using an existing project or creating a new project in your Visual Studio or any other code editor.
 
 #### Use an existing project
 
-You can open your existing project with your function that you created in the prerequisites section, and add a new function inside your function app will be used by the Device Provisioning Service.
+You can open existing project with your function that you created in the prerequisites section, and add a new function inside your function app that will be used by the Device Provisioning Service.
 
 #### Create a new project
 
 You can create a new project in your code editor of your choice and create a new function app that will be used by the Device Provisioning Service.
 
+#### Add a function to use with Device Provisioning Service
+
 Inside your function app project, do the following steps:
 
 1. Add a new function of type *HTTP request-triggered* and rename the function to *DpsAdtAllocationFunc*.
 2. Add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add additional packages to your project as well, if the packages used in the code aren't part of the project already.
-3. In the newly created function code file, paste in the following code and save the file
+3. In the newly created function code file, paste in the following code and save the file.
 :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
 4. Publish your function app. For instructions on publishing the function app, see the [*Publish the app*](tutorial-end-to-end.md#publish-the-app) section of the Azure Digital Twins *Tutorial: Connect an end-to-end solution.*
 
