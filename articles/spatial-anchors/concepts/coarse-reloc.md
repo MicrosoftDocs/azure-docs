@@ -1,6 +1,6 @@
 ---
-title: Coarse Relocalization
-description: Learn about using Coarse relocalization to find anchors near you.
+title: Coarse relocalization
+description: Learn how and when to use coarse relocalization. Coarse relocalization helps you find anchors that are near you. 
 author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
@@ -13,56 +13,60 @@ ms.custom: devx-track-csharp
 ---
 # Coarse relocalization
 
-Coarse relocalization is a feature that enables large-scale localization by providing an approximate but fast answer to the question: *Where is my device now / What content should I be observing?* The response isn't precise, but instead is in the form: *You're close to these anchors; try locating one of them*.
+Coarse relocalization is a feature that enables large-scale localization by providing an approximate but fast answer to these questions: 
+- *Where is my device now?* 
+- *What content should I be observing?* 
+ 
+The response isn't precise. It's in this form: *You're close to these anchors. Try to locate one of them*.
 
-Coarse relocalization works by tagging anchors with various on-device sensor readings that are later used for fast querying. For outdoor scenarios, the sensor data is typically the GPS (Global Positioning System) position of the device. When GPS is not available or unreliable (such as indoors), the sensor data consists of the WiFi access points and Bluetooth beacons in range. The collected sensor data contributes to maintaining a spatial index used by Azure Spatial Anchors to quickly determine which anchors are in proximity of your device.
+Coarse relocalization works by tagging anchors with various on-device sensor readings that are later used for fast querying. For outdoor scenarios, the sensor data is typically the GPS (Global Positioning System) position of the device. When GPS is unavailable or unreliable, like when you're indoors, the sensor data consists of the Wi-Fi access points and Bluetooth beacons in range. The collected sensor data contributes to maintaining a spatial index used by Azure Spatial Anchors to quickly determine which anchors are close to your device.
 
 ## When to use coarse relocalization
 
-If you are planning to handle more than 35 spatial anchors in a space larger than a tennis court, you will likely benefit from coarse relocalization spatial indexing.
+If you're planning to handle more than 35 spatial anchors in a space larger than a tennis court, you'll probably benefit from coarse relocalization spatial indexing.
 
-The fast look-up of anchors enabled by coarse relocalization is designed to simplify the development of applications backed by world-scale collections of (say, millions of geo-distributed) anchors. The complexity of spatial indexing is all hidden away, allowing you to focus on your application logic. All the anchor heavy-lifting is done for you behind the scenes by Azure Spatial Anchors.
+The fast lookup of anchors enabled by coarse relocalization is designed to simplify the development of applications backed by world-scale collections of, say, millions of geo-distributed anchors. The complexity of spatial indexing is all hidden, so you can focus on your application logic. All the difficult work is done behind the scenes by Azure Spatial Anchors.
 
 ## Using coarse relocalization
 
-The typical workflow to create and query Azure Spatial Anchors with coarse relocalization is:
-1.  Create and configure a sensor fingerprint provider to collect sensor data of your choice.
-2.  Start an Azure Spatial Anchor Session and create anchors. Because sensor fingerprinting is enabled, the anchors are spatially indexed by coarse relocalization.
-3.  Query surrounding anchors using coarse relocalization, using the dedicated search criteria in the Azure Spatial Anchor session.
+Here's the typical workflow to create and query Azure Spatial Anchors with coarse relocalization:
+1.  Create and configure a sensor fingerprint provider to collect the sensor data that you want.
+2.  Start an Azure Spatial Anchors session and create the anchors. Because sensor fingerprinting is enabled, the anchors are spatially indexed by coarse relocalization.
+3.  Query surrounding anchors by using coarse relocalization via the dedicated search criteria in the Azure Spatial Anchors session.
 
-You can refer to the corresponding following tutorial to set up coarse relocalization in your application:
-* [Coarse Relocalization in Unity](../how-tos/set-up-coarse-reloc-unity.md)
-* [Coarse Relocalization in Objective-C](../how-tos/set-up-coarse-reloc-objc.md)
-* [Coarse Relocalization in Swift](../how-tos/set-up-coarse-reloc-swift.md)
-* [Coarse Relocalization in Java](../how-tos/set-up-coarse-reloc-java.md)
-* [Coarse Relocalization in C++/NDK](../how-tos/set-up-coarse-reloc-cpp-ndk.md)
-* [Coarse Relocalization in C++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md)
+You can refer to one of these tutorials to set up coarse relocalization in your application:
+* [Coarse relocalization in Unity](../how-tos/set-up-coarse-reloc-unity.md)
+* [Coarse relocalization in Objective-C](../how-tos/set-up-coarse-reloc-objc.md)
+* [Coarse relocalization in Swift](../how-tos/set-up-coarse-reloc-swift.md)
+* [Coarse relocalization in Java](../how-tos/set-up-coarse-reloc-java.md)
+* [Coarse relocalization in C++/NDK](../how-tos/set-up-coarse-reloc-cpp-ndk.md)
+* [Coarse relocalization in C++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md)
 
 ## Sensors and platforms
 
 ### Platform availability
 
-The types of sensor data that you can send to the anchor service are:
+You can send these types of sensor data to the anchor service:
 
-* GPS position: latitude, longitude, altitude.
-* Signal strength of WiFi access points in range.
-* Signal strength of Bluetooth beacons in range.
+* GPS position: latitude, longitude, altitude
+* Signal strength of Wi-Fi access points in range
+* Signal strength of Bluetooth beacons in range
 
-The table below summarizes the availability of the sensor data on supported platforms, along with any platform-specific caveats:
+This table summarizes the availability of the sensor data on supported platforms and provides information that you should be aware of:
 
 |                 | HoloLens | Android | iOS |
 |-----------------|----------|---------|-----|
-| **GPS**         | NO<sup>1</sup>  | YES<sup>2</sup> | YES<sup>3</sup> |
-| **WiFi**        | YES<sup>4</sup> | YES<sup>5</sup> | NO  |
-| **BLE beacons** | YES<sup>6</sup> | YES<sup>6</sup> | YES<sup>6</sup>|
+| **GPS**         | No<sup>1</sup>  | Yes<sup>2</sup> | Yes<sup>3</sup> |
+| **Wi-Fi**        | Yes<sup>4</sup> | Yes<sup>5</sup> | No  |
+| **BLE beacons** | Yes<sup>6</sup> | Yes<sup>6</sup> | Yes<sup>6</sup>|
 
 
-<sup>1</sup> An external GPS device can be associated with HoloLens. Contact [our support](../spatial-anchor-support.md) if you would be willing to use HoloLens with a GPS tracker.<br/>
-<sup>2</sup> Supported through [LocationManager][3] APIs (both GPS and NETWORK)<br/>
-<sup>3</sup> Supported through [CLLocationManager][4] APIs<br/>
-<sup>4</sup> Supported at a rate of approximately one scan every 3 seconds <br/>
+<sup>1</sup> An external GPS device can be associated with HoloLens. Contact [our support](../spatial-anchor-support.md) if you'd be willing to use HoloLens with a GPS tracker.<br/>
+<sup>2</sup> Supported through [LocationManager][3] APIs (both GPS and NETWORK).<br/>
+<sup>3</sup> Supported through [CLLocationManager][4] APIs.<br/>
+<sup>4</sup> Supported at a rate of approximately one scan every 3 seconds. <br/>
 <sup>5</sup> Starting with API level 28, WiFi scans are throttled to 4 calls every 2 minutes. From Android 10, the throttling can be disabled from the Developer settings menu. For more information, see the [Android documentation][5].<br/>
-<sup>6</sup> Limited to [Eddystone][1] and [iBeacon][2]
+<sup>6</sup> Limited to [Eddystone][1] and [iBeacon][2].
 
 ### Which sensor to enable
 
