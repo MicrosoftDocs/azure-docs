@@ -386,12 +386,6 @@ You can also add filters to filter the views. For example, add the following fil
 </filter>
 ```
 
-In Data Factory, you can use a **Lookup** activity with above query to get the underlying FetchXML query of the view, then pass the output to the subsequent **Copy** activity as query to get the data. As an example: in Lookup activity, specify the FetchXML query to get the view info:
-
-![Dynamics get view info](./media/connector-dynamics-crm-office-365/connector-dynamics-get-view-info.png)
-
-In Copy activity, configure the query as the Lookup activity output, e.g. `@activity('GetDynamicsViewInfo').output.firstRow.fetchxml` in above example. In addition, you need to specify column mapping for the copy activity, otherwise it is not guaranteed that all columns can be retrieved as noted [here](#dynamics-as-a-source-type).
-
 ## Data type mapping for Dynamics
 
 When you copy data from Dynamics, the following table shows mappings from Dynamics data types to Data Factory interim data types. To learn how a copy activity maps to a source schema and a data type maps to a sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
