@@ -25,10 +25,9 @@ Azure Defender for IoT agent self-starts immediately after installation. The age
 
 In this troubleshooting guide you'll learn how to:
 
-> [!div class="checklist"]
-> * Validate if the security agent is running
-> * Get security agent errors
-> * Understand and remediate security agent errors
+- Validate if the security agent is running
+- Get security agent errors
+- Understand and remediate security agent errors
 
 ## Validate if the security agent is running
 
