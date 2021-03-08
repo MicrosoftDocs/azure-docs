@@ -53,11 +53,14 @@
     - name: View service provider activity
       displayName: monitor, log, customer, visibility, transparency, control
       href: ./how-to/view-service-provider-activity.md
-  - name: Delegation management
+  - name: Onboarding and delegation management
     items:
     - name: Onboard customers
       displayName: ARM, template, delegation, authorization, resource management
       href: ./how-to/onboard-customer.md
+    - name: Publish Managed Service offers to Azure Marketplace 
+      displayName: managed services offer, azure marketplace, publish, marketplace
+      href: ./how-to/publish-managed-services-offers.md
     - name: Update delegations
       displayName: upgrade
       href: ./how-to/update-delegation.md
@@ -67,9 +70,6 @@
     - name: Monitor delegation changes
       displayName: activity log
       href: ./how-to/monitor-delegation-changes.md
-  - name: Publish Managed Service offers to Azure Marketplace 
-    displayName: managed services offer, azure marketplace, publish, marketplace
-    href: ./how-to/publish-managed-services-offers.md
   - name: View and manage customers 
     displayName: my customers
     href: ./how-to/view-manage-customers.md
