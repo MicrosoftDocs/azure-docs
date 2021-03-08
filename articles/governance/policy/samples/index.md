@@ -33,6 +33,7 @@ The following are the [Regulatory Compliance](../concepts/regulatory-compliance.
 
 - [Azure Security Benchmark v2](./azure-security-benchmark.md)
 - [Azure Security Benchmark v1](./azure-security-benchmarkv1.md)
+- [CIS Microsoft Azure Foundations Benchmark v1.3.0](./cis-azure-1-3-0.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
 - [CMMC Level 3](./cmmc-l3.md)
 - [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md)

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -199,10 +199,28 @@ In your user journey, you can represent the Forgot Password sub journey as a **C
     ```xml
     <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
     ```
+    
+1. Add the following orchestration step between the current step, and the next step. The new orchestration step you add, checks whether the `isForgotPassword` claim exists. If the claim exists, it invokes the [password reset sub journey](#add-the-password-reset-sub-journey). 
+
+    ```xml
+    <OrchestrationStep Order="3" Type="InvokeSubJourney">
+      <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+          <Value>isForgotPassword</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <JourneyList>
+        <Candidate SubJourneyReferenceId="PasswordReset" />
+      </JourneyList>
+    </OrchestrationStep>
+    ```
+    
+1. After you add the new orchestration step, renumber the steps sequentially without skipping any integers from 1 to N.
 
 ### Set the user journey to be executed
 
-Now that you've modified or created a user journey, in the **Relying Party** section specify the journey that Azure AD B2C will execute for this custom policy. Within the [RelyingParty](../articles/active-directory-b2c/relyingparty.md) element, find the **DefaultUserJourney** element. Update the  **DefaultUserJourney ReferenceId** to match the ID of the user journey in which you added the **ClaimsProviderSelections**.
+Now that you've modified or created a user journey, in the **Relying Party** section specify the journey that Azure AD B2C will execute for this custom policy. Within the [RelyingParty](relyingparty.md) element, find the **DefaultUserJourney** element. Update the  **DefaultUserJourney ReferenceId** to match the ID of the user journey in which you added the **ClaimsProviderSelections**.
 
 ```xml
 <RelyingParty>
@@ -258,7 +276,7 @@ In the following diagram:
 1. The user selects the **Forgot your password?** link. Azure AD B2C returns the AADB2C90118 error code to the application.
 1. The application handles the error code and initiates a new authorization request. The authorization request specifies the password reset policy name, such as **B2C_1_pwd_reset**.
 
-![Password reset flow](./media/add-password-reset-policy/password-reset-flow-legacy.png)
+![Legacy password reset user flow](./media/add-password-reset-policy/password-reset-flow-legacy.png)
 
 To see an example, take a look at a [simple ASP.NET sample](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI), which demonstrates the linking of user flows.
 
@@ -297,5 +315,3 @@ Custom policies are a set of XML files you upload to your Azure AD B2C tenant to
 ## Next steps
 
 Set up a [force password reset](force-password-reset.md).
-
-

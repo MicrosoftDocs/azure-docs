@@ -29,7 +29,7 @@ For more information on the concepts and terms in this article, see [Manage, dep
 
 * The [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
 
-* The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
+* The [Azure CLI](/cli/azure/install-azure-cli) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 
 * A trained model. The model must be persisted to one or more files on your development environment. <br><br>To demonstrate registering a model trained, the example code in this article uses the models from [Paolo Ripamonti's Twitter sentiment analysis project](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
 
@@ -56,7 +56,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 > [!TIP]
 > You can also set add `tags` and `properties` dictionary objects to the registered model. These values can be used later to help identify a specific model. For example, the framework used, training parameters, etc.
 
-For more information, see the [az ml model register](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register) reference.
+For more information, see the [az ml model register](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-register) reference.
 
 
 For more information on model registration in general, see [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
@@ -263,7 +263,7 @@ To deploy the model from the CLI, use the following command. This command deploy
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json
 ```
 
-For more information, see the [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference.
+For more information, see the [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) reference.
 
 For more information on deployment, see [How and where to deploy models](how-to-deploy-and-where.md).
 
