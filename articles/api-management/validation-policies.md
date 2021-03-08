@@ -7,13 +7,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 02/25/2021
+ms.date: 03/08/2021
 ms.author: apimpm
 ---
 
 # API Management policies to validate requests and responses
 
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+This article provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
 Use validation policies to validate API requests and responses against an OpenAPI schema and protect from vulnerabilities such as injection of headers or payload. While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that are not covered by security products that rely on static, predefined rules.
 
@@ -41,7 +41,7 @@ Available actions:
 
 ## Logs
 
-Details about the validation errors during policy execution are logged to the property specified in the `errors-variable-name` attribute in the root element of the policy. When configured in a `prevent` action, a validation error blocks further request or response processing and is also propagated to the `context.LastError` property. 
+Details about the validation errors during policy execution are logged to the variable in `context.Variables` specified in the `errors-variable-name` attribute in the policy's root element. When configured in a `prevent` action, a validation error blocks further request or response processing and is also propagated to the `context.LastError` property. 
 
 To investigate errors, use a [trace](api-management-advanced-policies.md#Trace) policy to log the errors from context variables to [Application Insights](api-management-howto-app-insights.md).
 
@@ -50,18 +50,18 @@ To investigate errors, use a [trace](api-management-advanced-policies.md#Trace) 
 Adding validation policies may affect API throughput. The following general principles apply:
 * The larger the API schema size, the lower the throughput will be. 
 * The larger the payload in a request or response, the lower the throughput will be. 
-* Generally, the size of the API schema size has a larger impact on performance than the size of the payload. 
-* Validation against an API schema that is several megabytes in size may cause request or response timeouts under some conditions. The effect is more pronounced in the lower tiers of the service such as **Consumption** and **Developer**. 
+* The size of the API schema has a larger impact on performance than the size of the payload. 
+* Validation against an API schema that is several megabytes in size may cause request or response timeouts under some conditions. The effect is more pronounced in the  **Consumption** and **Developer** tiers of the service. 
 
 ## Validate content
 
-The `validate-content` policy validates the size or content type of a request or response body against the API schema. The policy validates content in the JSON format only.
+The `validate-content` policy validates the size or JSON schema of a request or response body against the API schema. Formats other than JSON aren't supported.
 
 ### Policy statement
 
 ```xml
 <validate-content unspecified-content-type-action="ignore|prevent|detect" max-size="size in bytes" size-exceeded-action="ignore|prevent|detect" errors-variable-name="variable name">
-    <content type="content type strinb, for example: application/json, application/hal+json" validate-as="json" action="ignore|prevent|detect" />
+    <content type="content type string, for example: application/json, application/hal+json" validate-as="json" action="ignore|prevent|detect" />
 </validate-content>
 ```
 
@@ -135,6 +135,7 @@ In this example, all query and path parameters are validated in the prevention m
         <parameter name="User-Agent" action="ignore" />
         <parameter name="Host" action="ignore" />
         <parameter name="Referrer" action="ignore" />
+</validate-parameters>
 ```
 
 ### Elements
@@ -152,7 +153,7 @@ In this example, all query and path parameters are validated in the prevention m
 | Name                       | Description                                                                                                                                                            | Required | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | specified-parameter-action | [Action](#actions) to perform for request parameters specified in the API schema. <br/><br/> When provided in a `headers`, `query`, or `path` element, the value overrides the value of `specified-parameter-action` in the `validate-parameters` element.  |  Yes     | N/A   |
-| unspecified-parameter-action | [Action](#actions) to perform for request parameters that are not specified in the API schema. <br/><br/>When provided in a `headers`, `query`, or `path` element, the value overrides the value of `unspecified-parameter-action` in the `validate-parameters` element. |  Yes     | N/A   |
+| unspecified-parameter-action | [Action](#actions) to perform for request parameters that are not specified in the API schema. <br/><br/>When provided in a `headers`or `query` element, the value overrides the value of `unspecified-parameter-action` in the `validate-parameters` element. |  Yes     | N/A   |
 | errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   Yes    | N/A   |
 | name | Name of the parameter to override validation action for. This value is case insensitive.  | Yes | N/A |
 | action | [Action](#actions) to perform for the parameter with the matching name. If the parameter is specified in the API schema, this value overrides the higher-level `specified-parameter-action` configuration. If the parameter isn’t specified in the API schema, this value overrides the higher-level `unspecified-parameter-action` configuration.| Yes | N/A | 
@@ -251,7 +252,10 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 
 ## Validation errors
-The following table lists all possible errors:
+The following table lists all possible errors of the validation policies. 
+
+* **Details** - Can be used to investigate errors. Not meant to be shared publicly.
+* **Public response** - Error returned to the client. Does not leak implementation details.
 
 | **Name**                             | **Type**                                                        | **Validation rule** | **Details**                                                                                                                                       | **Public response**                                                                                                                       | **Action**           |
 |----|----|---|---|---|----|
@@ -301,7 +305,7 @@ The following table lists all the possible Reason values of a validation error a
 
 ## Next steps
 
-For more information working with policies, see:
+For more information about working with policies, see:
 
 -   [Policies in API Management](api-management-howto-policies.md)
 -   [Transform APIs](transform-api.md)
