@@ -19,6 +19,9 @@ Use Azure Machine Learning pipeline endpoints to make predictions, retrain model
 
 This article is part of the Studio (classic) to Azure Machine Learning migration series. For more information on migrating to Azure Machine Learning, see the [migration overview article](migrate-overview.md).
 
+> [!NOTE]
+> The migration series focuses on the designer since the drag-and-drop experience is similar to Studio (classic). For more information on deploying models programmatically, see [Deploy machine learning models in Azure](../how-to-deploy-and-where.md)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
