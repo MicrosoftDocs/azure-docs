@@ -25,6 +25,8 @@
     href: tutorial-respond-threats-playbook.md
 - name: Concepts
   items:
+  - name: Classify data using entities
+    href: entities-in-azure-sentinel.md
   - name: Manage access
     items:
     - name: Permissions in Azure Sentinel
@@ -33,18 +35,20 @@
       href: resource-context-rbac.md
   - name: Advanced multistage attack detection
     href: fusion.md
-  - name: Bring your own machine learning platform
-    href: bring-your-own-ml.md
-  - name: Extend Azure Sentinel across workspaces and tenants
-    href: extend-sentinel-across-workspaces-tenants.md
   - name: Identify advanced threats with UEBA
     href: identify-threats-with-entity-behavior-analytics.md
   - name: Import threat intelligence into Azure Sentinel
     href: import-threat-intelligence.md
+  - name: Bring your own machine learning platform
+    href: bring-your-own-ml.md
   - name: Integrate Microsoft 365 Defender with Azure Sentinel
     href: microsoft-365-defender-sentinel-integration.md
   - name: Use external data with watchlists
     href: watchlists.md
+  - name: Assign permissions using roles
+    href: roles.md
+  - name: Extend Azure Sentinel across workspaces and tenants
+    href: extend-sentinel-across-workspaces-tenants.md
   - name: Normalize your data across tables
     href: normalization.md
   - name: Security
@@ -84,7 +88,7 @@
         href: connect-office-365-advanced-threat-protection.md
       - name: Azure Defender alerts from ASC
         href: connect-azure-security-center.md
-      - name: Azure Defender (formerly ASC) for IoT
+      - name: Defender for IoT (formerly ASC for IoT)
         href: connect-asc-iot.md
       - name: Azure DDoS Protection
         href: connect-azure-ddos-protection.md
@@ -242,12 +246,16 @@
       href: monitor-data-connector-health.md
   - name: Enable user and entity behavior analytics
     href: enable-entity-behavior-analytics.md
+  - name: Map data fields to entities
+    href: map-data-fields-to-entities.md
   - name: Manage multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
   - name: Work with incidents in multiple workspaces
     href: multiple-workspace-view.md
   - name: Set up customer-managed keys (CMK)
     href: customer-managed-keys.md
+  - name: Surface custom details in alerts
+    href: surface-custom-details-in-alerts.md
   - name: Create incidents from alerts
     href: create-incidents-from-alerts.md
   - name: Manage your SOC better with incident metrics
@@ -285,6 +293,8 @@
       href: watchlist-with-rest-api.md
   - name: Azure Sentinel Logic Apps connector
     href: /connectors/azuresentinel/
+  - name: Entities reference
+    href: entities-reference.md
   - name: Network normalization schema
     href: normalization-schema.md
   - name: Data source schema reference
