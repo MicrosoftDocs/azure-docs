@@ -38,7 +38,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 * You are familiar with [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-* You are familiar with using Azure PowerShell. Azure PowerShell is required to collect the network prefixes in ExpressRoute gateway. For more information about Azure PowerShell in general, see the [Azure PowerShell documentation](/powershell/azure/?view=azps-4.1.0).
+* You are familiar with using Azure PowerShell. Azure PowerShell is required to collect the network prefixes in ExpressRoute gateway. For more information about Azure PowerShell in general, see the [Azure PowerShell documentation](/powershell/azure/).
 
 ### <a name="limitations"></a>Notes and limitations
 
