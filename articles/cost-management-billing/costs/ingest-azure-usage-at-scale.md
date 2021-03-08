@@ -131,6 +131,7 @@ Azure blob storage supports high global transfer rates with its service-side syn
 
 ## Next steps
 
+- See the [Microsoft Azure Storage Data Movement Library](https://github.com/Azure/azure-storage-net-data-movement) source.
 - [Transfer data with the Data Movement library](../../storage/common/storage-use-data-movement-library.md).
-- Read [AzureDmlBackup sample application](https://github.com/markjbrown/AzureDmlBackup).
+- See the [AzureDmlBackup sample application](https://github.com/markjbrown/AzureDmlBackup) source sample.
 - Read [High-Throughput with Azure Blob Storage](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage).
