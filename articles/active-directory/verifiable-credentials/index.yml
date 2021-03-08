@@ -40,7 +40,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Set up VCs in your tenant
-            url: tutorial-sample-app-your-idp.md
+            url: tutorial-01-verifiable-credentials-issuer.md
       - linkListType: concept
         links:
           - text: Define key pair values
