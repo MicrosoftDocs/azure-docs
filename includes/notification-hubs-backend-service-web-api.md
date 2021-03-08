@@ -255,7 +255,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     ```
 
     > [!NOTE]
-    > This class contains the tokenized notification payloads for the generic and silent notifications required by this scenario. The payloads are defined outside of the [Installation](/dotnet/api/microsoft.azure.notificationhubs.installation?view=azure-dotnet) to allow experimentation without having to update existing installations via the service. Handling changes to installations in this way is out of scope for this tutorial. For production, consider [custom templates](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+    > This class contains the tokenized notification payloads for the generic and silent notifications required by this scenario. The payloads are defined outside of the [Installation](/dotnet/api/microsoft.azure.notificationhubs.installation) to allow experimentation without having to update existing installations via the service. Handling changes to installations in this way is out of scope for this tutorial. For production, consider [custom templates](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 1. Select **General** > **Empty Class**, enter *DeviceInstallation.cs* for the **Name**, then click **New** adding the following implementation.
 
