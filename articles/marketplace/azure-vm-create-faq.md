@@ -49,8 +49,8 @@ This issue usually appears if you created a VM from a VHD that has a lock on it.
 
 You can deploy hidden preview images using quickstart templates.
 To deploy a Linux preview image, 
-1. Goto this [quick-start template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux), select "Deploy to Azure". This should take you to Azure Portal
-2. In Azure Portal, select "Edit template".
+1. Goto this [quick-start template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux), select "Deploy to Azure". This should take you to Azure portal
+2. In Azure portal, select "Edit template".
 3. In the JSON template, search for imageReference and update the publisherid, offerid, skuid, and version of the image. To test preview image, append "-PREVIEW" to the offerid.
  ![image](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)
 4. Click Save
