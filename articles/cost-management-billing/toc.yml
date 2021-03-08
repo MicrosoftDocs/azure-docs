@@ -293,6 +293,8 @@
       href: manage/mca-check-azure-credits-balance.md
     - name: Migrate from EA to MCA APIs
       href: costs/migrate-cost-management-api.md
+    - name: Assign roles to SPNs
+      href: manage/assign-roles-azure-service-principals.md
   - name: Purchase and administer reservations
     items:
     - name: Determine what to purchase
