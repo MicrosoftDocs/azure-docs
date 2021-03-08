@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -199,6 +199,24 @@ In your user journey, you can represent the Forgot Password sub journey as a **C
     ```xml
     <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
     ```
+    
+1. Add the following orchestration step between the current step, and the next step. The new orchestration step you add, checks whether the `isForgotPassword` exists. If the claim exists, it invokes the [password reset sub journey](#add-the-password-reset-sub-journey). 
+
+    ```xml
+    <OrchestrationStep Order="3" Type="InvokeSubJourney">
+      <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+          <Value>isForgotPassword</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <JourneyList>
+        <Candidate SubJourneyReferenceId="PasswordReset" />
+      </JourneyList>
+    </OrchestrationStep>
+    ```
+    
+1. After you add the new orchestration steps, renumber the steps sequentially without skipping any integers from 1 to N.
 
 ### Set the user journey to be executed
 
