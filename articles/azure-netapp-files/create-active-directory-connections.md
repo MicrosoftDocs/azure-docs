@@ -203,14 +203,14 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
      * **Security privilege users**   <!-- SMB CA share feature -->   
-        You can grant security privilege to users that require elevated security privilege to access the computer account created for use with Azure NetApp files. The specified accounts will be allowed to perform certain actions on Azure NetApp Files shares that require security privilege not assigned by default to domain users.   
+        You can grant security privilege (`SeSecurityPrivilege`) to users that require elevated privilege to access the Azure NetApp Files volumes. The specified user accounts will be allowed to perform certain actions on Azure NetApp Files SMB shares that require security privilege not assigned by default to domain users.   
 
-        For example, user accounts used for installing SQL Server in certain scenarios must be granted elevated security privilege. If you are using a non-administrator (domain) account to install SQL Server and the account does not have the security privilege assigned, you should add security privilege to the account. <!-- See [TR link] --> 
+        For example, user accounts used for installing SQL Server in certain scenarios must be granted elevated security privilege. If you are using a non-administrator (domain) account to install SQL Server and the account does not have the security privilege assigned, you should add security privilege to the account.  
 
         > [!IMPORTANT]
-        > The domain account used for installing SQL Server must already exist before you add it to the **Security privilege users** field. When you add the **Security privilege users** privilege to the SQL Server installer's account, the Azure NetApp Files service might validate the account by contacting the domain controller. The command might fail if it cannot contact the domain controller.  
+        > The domain account used for installing SQL Server must already exist before you add it to the **Security privilege users** field. When you add the SQL Server installer's account to **Security privilege users**, the Azure NetApp Files service might validate the account by contacting the domain controller. The command might fail if it cannot contact the domain controller.  
 
-        For more information about `SeSecurityPrivilege` and SQL Server, see [SQL Server installation fails if the Setup account doesn't have certain user rights](https://docs.microsoft.com/troubleshoot/sql/install/installation-fails-if-remove-user-right).
+        For more information about `SeSecurityPrivilege` and SQL Server, see [SQL Server installation fails if the Setup account doesn't have certain user rights](/troubleshoot/sql/install/installation-fails-if-remove-user-right).
 
         ![Screenshot showing the Security privilege users box of Active Directory connections window](../media/azure-netapp-files/security-privilege-users.png) 
 
