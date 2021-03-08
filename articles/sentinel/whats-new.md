@@ -107,7 +107,7 @@ Our collection of third-party integrations continues to grow, with thirty connec
 - [Symantec Endpoint Protection](connect-data-sources.md)
 - [Thycotic Secret Server](connect-thycotic-secret-server.md)
 - [Trend Micro XDR](connect-data-sources.md)
-- [VMWare ESXi](connect-vmware-esxi.md)
+- [VMware ESXi](connect-vmware-esxi.md)
 
 ### UEBA insights in the entity page
 
