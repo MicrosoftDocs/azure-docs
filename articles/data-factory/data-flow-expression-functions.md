@@ -1403,7 +1403,7 @@ Returns a hex string representation of a binary value
 ___
 ### <code>unhex</code>
 <code><b>unhex(<value1>: string) => binary</b></code><br/><br/>
-Unhexes a binary value from its string representation. This can be used in conjuction with sha2, md5 to convert from string to binary representation
+Unhexes a binary value from its string representation. This can be used in conjunction with sha2, md5 to convert from string to binary representation
 *	``unhex('1fadbe') -> toBinary([toByte(0x1f), toByte(0xad), toByte(0xbe)])``
 *	``unhex(md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))) -> toBinary([toByte(0x4c),toByte(0xe8),toByte(0xa8),toByte(0x80),toByte(0xbd),toByte(0x62),toByte(0x1a),toByte(0x1f),toByte(0xfa),toByte(0xd0),toByte(0xbc),toByte(0xa9),toByte(0x05),toByte(0xe1),toByte(0xbc),toByte(0x5a)])``
 
