@@ -22,7 +22,7 @@ This guide explains how to install and deploy the Defender for IoT C-based secur
 
 - Install
 - Verify deployment
--Uninstall the agent
+- Uninstall the agent
 - Troubleshoot
 
 ## Prerequisites
