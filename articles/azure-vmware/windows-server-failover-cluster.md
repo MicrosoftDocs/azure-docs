@@ -7,7 +7,7 @@ ms.date: 03/08/2021
 
 # Windows Server Failover Cluster on Azure VMware Solution vSAN with native shared disks
 
-In this article, we'll walk through setting up Windows Server Failover Cluster on Azure VMware Solution. The implementation in this article is for proof of concept and pilot purposes. Full support for placement policies is planned.
+In this article, we'll walk through setting up Windows Server Failover Cluster on Azure VMware Solution. The implementation in this article is for proof of concept and pilot purposes.
 
 Windows Server Failover Cluster (WSFC), previously known as Microsoft Service Cluster Service (MSCS), is a feature of the Windows Server Operating System (OS). WSFC is a business-critical feature, and for many applications is required. For example, WSFC is required for the following configurations:
 
@@ -25,7 +25,7 @@ It's important to deploy a supported WSFC configuration. You'll want your soluti
 Clustering and Microsoft
 Cluster Service](https://docs.vmware.com/en/VMware-vSphere/6.7/vsphere-esxi-vcenter-server-67-setup-mscs.pdf).
 
-This article focuses on WSFC on Windows Server 2016 and Windows Server 2019. Older Windows Server versions are out of [mainstream support](https://support.microsoft.com/en-us/lifecycle/search?alpha=windows%20server) and so we don't consider them here.
+This article focuses on WSFC on Windows Server 2016 and Windows Server 2019. Older Windows Server versions are out of [mainstream support](https://support.microsoft.com/lifecycle/search?alpha=windows%20server) and so we don't consider them here.
 
 You'll need to first [create a WSFC](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster). For more information on WSFC, see [Failover Clustering in Windows Server](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview). Use the information we provide in this article for the specifics of a WSFC deployment on Azure VMware Solution.
 
@@ -34,7 +34,7 @@ You'll need to first [create a WSFC](https://docs.microsoft.com/windows-server/f
 - Azure VMware Solution environment
 - Microsoft Windows Server OS installation media
 
-## Reference Architecture
+## Reference architecture
 
 Azure VMware Solution provides native support for virtualized WSFC. It supports SCSI-3 Persistent Reservations (SCSI3PR) on a virtual disk level. This support is required by WSFC to arbitrate access to a shared disk between nodes. Support of SCSI3PRs enables configuration of WSFC with a disk resource shared between VMs natively on vSAN datastores.
 
@@ -116,7 +116,7 @@ The following activities aren't supported and might cause WSFC node failover:
 - Memory over-commitment leading to ESXi swapping or VM memory ballooning
 - Hot Extend Local VMDK file, even if it isn't associated with SCSI bus sharing controller
 
-## Steps to configure WSFC with shared disks on Azure VMware Solution vSAN
+## Configure WSFC with shared disks on Azure VMware Solution vSAN
 
 1. Ensure that an Active Directory environment is available.
 2. Create virtual machines (VMs) on the vSAN datastore.
