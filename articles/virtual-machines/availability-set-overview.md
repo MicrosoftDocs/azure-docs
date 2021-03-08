@@ -1,5 +1,5 @@
 ---
-title: Availability sets Overview 
+title: Availability sets overview 
 description: Learn about the availability sets in Azure
 author: mimckitt
 ms.author: mimckitt
@@ -9,7 +9,7 @@ ms.date: 02/18/2021
 
 ---
 
-# Availability sets
+# Availability sets overview
 
 This article provides you with an overview of the availability features of Azure virtual machines (VMs).
 

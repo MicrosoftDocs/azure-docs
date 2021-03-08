@@ -1,5 +1,5 @@
 ---
-title: Proximity Placement Groups 
+title: Proximity placement groups 
 description: Learn about using proximity placement groups in Azure.
 author: cynthn
 ms.author: cynthn
