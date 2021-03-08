@@ -54,7 +54,7 @@ Follow these steps to remotely connect from a Windows client.
     If you see an error related to trust relationship, then check if the signing chain of the node certificate uploaded to your device is also installed on the client accessing your device.
 
     > [!NOTE] 
-    > When you use the `-UseSSL` option, you are remoting via PowerShell over *https*. We recommend that you do not use *http* to remotely connect via PowerShell.
+    > When you use the `-UseSSL` option, you are remoting via PowerShell over *https*. We recommend that you always use *https* to remotely connect via PowerShell. Although an *http* session is not the most secure connection method, it is acceptable on trusted networks.
 
 6. Provide the password when prompted. Use the same password that is used to sign into the local web UI. The default local web UI password is *Password1*. When you successfully connect to the device using remote PowerShell, you see the following sample output:  
 

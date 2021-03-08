@@ -125,7 +125,7 @@ Before you begin, you must have:
 - Compute network configured. See [Tutorial: Configure network for Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 - Compute role configured on your device.
     
-On an Azure Stack Edge Pro device that has the compute role configured, you can troubleshoot or monitor the device using two different set of commands.
+On an Azure Stack Edge Pro device that has the compute role configured, you can troubleshoot or monitor the device using two different sets of commands.
 
 - Using `iotedge` commands. These commands are available for basic operations for your device.
 - Using `kubectl` commands. These commands are available for an extensive set of operations for your device.
@@ -210,7 +210,7 @@ For a comprehensive list of the `kubectl` commands, go to [`kubectl` cheatsheet]
 
 #### To get IP of service or module exposed outside of Kubernetes cluster
 
-To get the IP of a load balancing service or modules exposed outside of the Kubernetes, run the following command:
+To get the IP of a load-balancing service or modules exposed outside of the Kubernetes, run the following command:
 
 `kubectl get svc -n iotedge`
 
@@ -339,7 +339,7 @@ To get the logs for a module, run the following command from the PowerShell inte
 
 `kubectl logs <pod_name> -n <namespace> --all-containers` 
 
-Because `all-containers` flag will dumps all the logs for all the containers, a good way to see the recent errors is to use the option `--tail 10`.
+Because `all-containers` flag dumps all the logs for all the containers, a good way to see the recent errors is to use the option `--tail 10`.
 
 Following is a sample output. 
 
