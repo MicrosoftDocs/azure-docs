@@ -8,14 +8,14 @@ ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 02/04/2021
+ms.date: 03/08/2021
 ---
 
 # Migrate to Azure Machine Learning
 
 In this article, you learn how to migrate Studio (classic) assets to Azure Machine Learning. At this time, to migrate resources, you must manually rebuild your experiments.
 
-Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches. To learn more about the differences between Studio (classic) and Azure Machine Learning, see the [Prepare for migration](#step-1-assess-azure-machine-learning) section.
+Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches. To learn more about the differences between Studio (classic) and Azure Machine Learning, see the [Assess Azure Machine Learning](#step-1-assess-azure-machine-learning) section.
 
 
 ## Recommended approach
@@ -33,14 +33,17 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 ## Step 1: Assess Azure Machine Learning
 1. Learn about [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/); it's benefits, costs, and architecture.
 
-1. [Compare the capabilities](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) of Azure Machine Learning and Studio (classic).
-    
+1. Compare the capabilities of Azure Machine Learning and Studio (classic).
+
     >[!NOTE]
-    > The **designer** feature in Azure Machine Learning provides a similar drag-and-drop experience to Studio (classic). However, Azure Machine Learning also provides robust [code-first workflows](../concept-model-management-and-deployment.md) as an alternative. This migration series focuses on the designer, since it's the most similar to Studio (classic) experience.
+    > The **designer** feature in Azure Machine Learning provides a similar drag-and-drop experience to Studio (classic). However, Azure Machine Learning also provides robust [code-first workflows](../concept-model-management-and-deployment.md) as an alternative. This migration series focuses on the designer, since it's most similar to the Studio (classic) experience.
 
-1. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer module-mapping](#studio-classic-and-designer-module-mapping) table.
+[!INCLUDE [aml-compare-classic](../../../includes/machine-learning-compare-classic-aml.md)]
 
-1. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md?tabs=azure-porta).
+
+1. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer module-mapping](#studio-classic-and-designer-module-mapping) table below.
+
+1. [Create an Azure Machine Learning workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace?tabs=azure-portal).
 
 ## Step 2: Create a migration plan
 
@@ -61,11 +64,11 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 ## Step 4: Integrate client apps
 
-1. Cut over client applications that use Studio (classic) web services to your new [Azure Machine Learning endpoints](migrate-rebuild-integrate-with-client-app.md).
+1. Modify client applications that invoke Studio (classic) web services to modify your new [Azure Machine Learning endpoints](migrate-rebuild-integrate-with-client-app.md).
 
 ## Step 5: Cleanup Studio (classic) assets
 
-1. [Clean up your Studio (classic) assets](export-delete-personal-data-dsr.md) to avoid extra charges. You may want to retain Studio (classic) assets for fallback until you have validated Azure Machine Learning workloads.
+1. [Clean up Studio (classic) assets](export-delete-personal-data-dsr.md) to avoid extra charges. You may want to retain assets for fallback until you have validated Azure Machine Learning workloads.
 
 ## Studio (classic) and designer module-mapping
 

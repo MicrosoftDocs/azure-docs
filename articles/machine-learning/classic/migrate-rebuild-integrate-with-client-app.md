@@ -8,14 +8,12 @@ ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 02/04/2021
+ms.date: 03/08/2021
 ---
 
 # Consume pipeline endpoints from client applications
 
 In this article, you learn how to integrate client applications with Azure Machine Learning endpoints.
-
-Use Azure Machine Learning pipeline endpoints to make predictions, retrain models, or run any generic pipeline. The REST endpoint lets you run pipelines from any platform. 
 
 This article is part of the Studio (classic) to Azure Machine Learning migration series. For more information on migrating to Azure Machine Learning, see [the migration overview article](migrate-overview.md).
 
@@ -41,7 +39,7 @@ If you deployed your model as a **real-time endpoint**, you can find its REST en
 
 ## Consume a pipeline endpoint
 
-If your model is deployed as a **pipeline endpoint**, there are two ways to consume the pipeline endpoint:
+There are two ways to consume a pipeline endpoint:
 
 - REST API calls
 - Integration with Azure Data Factory
@@ -63,8 +61,9 @@ You can call your Azure Machine Learning pipeline as a step in an Azure Data Fac
 
 ## Next steps
 
-In this article, you learned how to integrate client applications with pipeline endpoints.
+In this article, you learned how to find schema and sample code for your pipeline endpoints. For more more information on consuming endpoints from the client application, see [Consume an Azure Machine Learning endpoint](../how-to-consume-web-service.md).
 
+See the rest of the articles in the Azure Machine Learning migration series: 
 1. [Migration overview](migrate-overview.md).
 1. [Migrate dataset](migrate-register-dataset.md).
 1. [Rebuild a Studio (classic) training pipeline](migrate-rebuild-experiment.md).
