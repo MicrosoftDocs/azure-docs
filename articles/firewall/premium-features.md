@@ -57,7 +57,7 @@ The Azure Firewall signatures/rulesets include:
 - Over 35,000 rules in over 50 categories.
     - The categories include malware command and control, DoS attacks, botnets, informational events, exploits, vulnerabilities, SCADA network protocols, exploit kit activity, and more.
 - 20 to 40+ new rules are released each day.
-- Very low false positive rating through the use of state-of-the-art malware sandbox and global sensor network feedback loop.
+- Low false positive rating by using state-of-the-art malware sandbox and global sensor network feedback loop.
 
 IDPS allows you to detect attacks in all ports and protocols for non-encrypted traffic. However, when HTTPS traffic needs to be inspected, Azure Firewall can use its TLS inspection capability to decrypt the traffic and better detect malicious activities.  
 
