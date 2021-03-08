@@ -25,6 +25,32 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 > 
 
+## March 2021
+
+- [Microsoft 365 Defender incident integration](#microsoft-365-defender-incident-integration) (public preview)
+- [New Microsoft service connectors using Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
+
+### Microsoft 365 Defender incident integration
+
+Azure Sentinel's [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) incident integration allows you to stream all M365D incidents into Azure Sentinel and keep them synchronized between both portals. Incidents from M365D (formerly known as Microsoft Threat Protection or MTP) include all associated alerts, entities, and relevant information, providing you with enough context to perform triage and preliminary investigation in Azure Sentinel. Once in Sentinel, Incidents will remain bi-directionally synced with M365D, allowing you to take advantage of the benefits of both portals in your incident investigation.
+
+Using both Azure Sentinel and Microsoft 365 Defender together gives you the best of both worlds. You get the breadth of insight that a SIEM gives you across your organization's entire scope of information resources, and also the depth of customized and tailored investigative power that an XDR delivers to protect your Microsoft 365 resources, both of these coordinated and synchronized for seamless SOC operation.
+
+For more information, see [Microsoft 365 Defender integration with Azure Sentinel](microsoft-365-defender-sentinel-integration.md).
+
+### New Microsoft service connectors using Azure Policy
+
+[Azure Policy](../governance/policy/overview.md) is an Azure service which allows you to use policies to enforce and control the properties of a resource. The use of policies ensures that resources stay compliant with your IT governance standards.
+
+Among the properties of resources that can be controlled by policies are the creation and handling of diagnostics and auditing logs. Azure Sentinel now uses Azure Policy to allow you to apply a common set of diagnostics logs settings to all (current and future) resources of a particular type whose logs you want to ingest into Azure Sentinel. Thanks to Azure Policy, you'll no longer have to set diagnostics logs settings resource by resource.
+
+Azure Policy-based connectors are now available for the following Azure services:
+- [Azure Key Vault](connect-azure-key-vault.md) (public preview)
+- [Azure Kubernetes Service](connect-azure-kubernetes-service.md) (public preview)
+- Azure SQL databases/servers (GA)
+
+Customers will still be able to send the logs manually for specific instances and don’t have to use the policy engine.
+
 ## February 2021
 
 - [Cybersecurity Maturity Model Certification (CMMC) workbook](#cybersecurity-maturity-model-certification-cmmc-workbook)
@@ -81,7 +107,7 @@ Our collection of third-party integrations continues to grow, with thirty connec
 - [Symantec Endpoint Protection](connect-data-sources.md)
 - [Thycotic Secret Server](connect-thycotic-secret-server.md)
 - [Trend Micro XDR](connect-data-sources.md)
-- [VMWare ESXi](connect-vmware-esxi.md)
+- [VMware ESXi](connect-vmware-esxi.md)
 
 ### UEBA insights in the entity page
 

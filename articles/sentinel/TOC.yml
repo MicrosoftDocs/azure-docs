@@ -66,40 +66,46 @@
         href: connect-aws.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
-      - name: Office 365 (now with Teams!)
-        href: connect-office-365.md
-      - name: Dynamics 365 (new!)
-        href: connect-dynamics-365.md
-      - name: Cloud App Security
-        href: connect-cloud-app-security.md
       - name: Azure Activity Log
         href: connect-azure-activity.md
       - name: Azure AD Identity Protection
         href: connect-azure-ad-identity-protection.md
-      - name: Azure Information Protection
-        href: connect-azure-information-protection.md
-      - name: Microsoft 365 Defender
-        href: connect-microsoft-365-defender.md
-      - name: Microsoft Defender for Endpoint (formerly MDATP)
-        href: connect-microsoft-defender-advanced-threat-protection.md
-      - name: Microsoft Defender for Identity (formerly Azure ATP)
-        href: connect-azure-atp.md
-      - name: Microsoft Defender for Office 365 (formerly Office 365 ATP)
-        href: connect-office-365-advanced-threat-protection.md
       - name: Azure Defender alerts from ASC
         href: connect-azure-security-center.md
-      - name: Defender for IoT (formerly ASC for IoT)
-        href: connect-asc-iot.md
       - name: Azure DDoS Protection
         href: connect-azure-ddos-protection.md
       - name: Azure Firewall
         href: connect-azure-firewall.md
-      - name: Azure Web Application Firewall (WAF)
-        href: connect-azure-waf.md
+      - name: Azure Information Protection
+        href: connect-azure-information-protection.md
+      - name: Azure Key Vault
+        href: connect-azure-key-vault.md
+      - name: Azure Kubernetes Service (AKS)
+        href: connect-azure-kubernetes-service.md
       - name: Azure SQL database logs
         href: connect-azure-sql-logs.md
+      - name: Azure Web Application Firewall (WAF)
+        href: connect-azure-waf.md
+      - name: Defender for IoT (formerly ASC for IoT)
+        href: connect-asc-iot.md
       - name: Domain name server
         href: connect-dns.md
+      - name: Dynamics 365 (new!)
+        href: connect-dynamics-365.md
+      - name: Microsoft 365 Defender
+        href: connect-microsoft-365-defender.md
+        expanded: true
+        items:
+        - name: Cloud App Security
+          href: connect-cloud-app-security.md
+        - name: Microsoft Defender for Endpoint (formerly MDATP)
+          href: connect-microsoft-defender-advanced-threat-protection.md
+        - name: Microsoft Defender for Identity (formerly Azure ATP)
+          href: connect-azure-atp.md
+        - name: Microsoft Defender for Office 365 (formerly Office 365 ATP)
+          href: connect-office-365-advanced-threat-protection.md
+      - name: Office 365 (now with Teams!)
+        href: connect-office-365.md
       - name: Windows firewall
         href: connect-windows-firewall.md
       - name: Windows security events
