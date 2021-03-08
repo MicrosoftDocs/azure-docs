@@ -31,7 +31,7 @@ In Xcode, create a new iOS project and select the **App** template. We will be u
 
 ### Install the package and dependencies with CocoaPods
 
-1. Create a Podfile for your application, like this:
+1. Create a Podfile for your application:
 
     ```
     platform :ios, '12.0'
@@ -43,7 +43,7 @@ In Xcode, create a new iOS project and select the **App** template. We will be u
     ```
 
 2. Run `pod install`.
-3. Open the `.xcworkspace` with Xcode.
+3. Open the generated `.xcworkspace` with Xcode.
 
 ### Request access to the microphone
 
@@ -58,9 +58,18 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 
 ### Add the Teams Embed framework
 
-Download the framework from the latest release. Add the framework to the project target under the general tab.
+1. Download the framework from the latest release. [You can find the latest version of the Teams Embed Framework here.](https://github.com/Azure/communication-preview)
+2. Create a `Frameworks` folder in the the project root. Ex. `\TeamsEmbedGettingStarted\Frameworks\`
+3. Copy the downloaded `TeamsAppSDK.framework` and `MeetingUIClient.framework` frameworks to this folder.
+4. Add the `TeamsAppSDK.framework` and the `MeetingUIClient.framework` to the project target under the general tab. Use the 'Add Other' Option to specify the file location.
 
-< Add more here once we have private preview released >
+:::image type="content" source="../media/ios/xcode-add-frameworks.png" alt-text="Screenshot showing the added frameworks in Xcode.":::
+
+5. Add `$(PROJECT_DIR)/Frameworks` to `Framework Search Paths` under the project target build settings tab.
+
+:::image type="content" source="../media/ios/xcode-add-framework-search-path.png" alt-text="Screenshot showing the framework search path in Xcode.":::
+
+
 
 ### Add a window reference to AppDelegate
 
