@@ -33,7 +33,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >
 > ### Option 1 (express): Register and automatically configure the app, and then download the code sample
 >
-> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/AngularSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application, and then select **Register**.
 > 1. Go to the quickstart pane and view the Angular quickstart. Follow the instructions to download and automatically configure your new application.
 >
