@@ -71,7 +71,7 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
     - name: Python
       href: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
     - name: Java

@@ -4,6 +4,8 @@
   items:
   - name: About Azure VMware Solution
     href: introduction.md
+  - name: Platform updates
+    href: azure-vmware-solution-platform-updates.md
 - name: Quick start
   items:
     - name: 0 - Plan the deployment

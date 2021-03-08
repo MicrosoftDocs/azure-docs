@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -219,6 +219,7 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
 1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **Contoso** to sign in with Contoso account.
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
