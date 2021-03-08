@@ -98,7 +98,7 @@ The query statement has the following clauses: SelectClause, FromClause, WhereCl
     - **LimitClause**: **LIMIT** [0-9]+
     - **TimeSpan**: **TIMESPAN** ( TODAY | YESTERDAY | LAST_7_DAYS | LAST_14_DAYS | LAST_30_DAYS | LAST_90_DAYS | LAST_180_DAYS | LAST_365_DAYS | LAST_MONTH | LAST_3_MONTHS | LAST_6_MONTHS | LAST_1_YEAR | LIFETIME)
 
-### Query Structure
+### Query structure
 
 A Report query is made up of multiple parts:
 

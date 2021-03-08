@@ -39,7 +39,7 @@ The sample application doesn’t cover the method of calling APIs for other func
 
 1. To quickly run the app, update the client ID and client secret in the **appsettings.Development.json**
 
-    [![Illustrates a snippet of the appsettings.Development.json file.](./media/analytics-programmatic-access/appsettings-development-json.png)](./media/analytics-programmatic-access/appsettings-development-json.png#lightbox)
+    :::image type="content" source="./media/analytics-programmatic-access/appsettings-development-json.png" alt-text="Illustrates a snippet of the appsettings.Development.json file.":::
 
 Running the app will start a local web server and a page will open (`https://localhost:44365/ProgrammaticExportSampleApp/sample`).
 
@@ -51,4 +51,4 @@ This page will make API calls to the webserver running on the local machine, whi
 
 The basic structure of the C# code for doing the programmatic access API calls is as follows:
 
-[![Alt-Text.](./media/analytics-programmatic-access/code-snippets.png)](./media/analytics-programmatic-access/code-snippets.png#lightbox)
+:::image type="content" source="./media/analytics-programmatic-access/code-snippets.png" alt-text="Screenshot of API calls.":::
