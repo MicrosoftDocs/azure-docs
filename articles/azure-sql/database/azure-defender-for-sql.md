@@ -1,7 +1,6 @@
 ---
 title: Azure Defender for SQL
 description: Learn about functionality for managing your database vulnerabilities and detecting anomalous activities that could indicate a threat to your database in Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse.
-services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
 ms.devlang: 
@@ -10,7 +9,7 @@ ms.topic: conceptual
 ms.author: memildin
 manager: rkarlin
 author: memildin
-ms.date: 02/02/2021
+ms.date: 03/08/2021
 ---
 # Azure Defender for SQL
 
@@ -29,7 +28,7 @@ Enable Azure Defender for SQL once to enable all these included features. With o
 For more information about Azure Defender for SQL pricing, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Enable Azure Defender 
-There are multiple ways to enable Azure Defender plans. You can enable it at the subscription level (recommended) from:
+There are multiple ways to enable Azure Defender plans. You can enable it at the subscription level (**recommended**) from:
 
 - [Azure Security Center](#enable-azure-defender-for-azure-sql-database-at-the-subscription-level-from-azure-security-center)
 - [Programatically with the REST API, Azure CLI, PowerShell, or Azure Policy](#enable-azure-defender-plans-programatically)
@@ -78,10 +77,6 @@ We recommend enabling Azure Defender plans at the subscription level and this ca
 >
 > The cost of Azure Defender is aligned with Azure Security Center standard tier pricing per node, where a node is the entire server or managed instance. You are thus paying only once for protecting all databases on the server or managed instance with Azure Defender. You can try Azure Defender out initially with a free trial.
 
-
-## Track vulnerabilities and investigate threat alerts
-
-Click the **Vulnerability Assessment** card to view and manage vulnerability scans and reports, and to track your security stature. If security alerts have been received, click the **Advanced Threat Protection** card to view details of the alerts and to see a consolidated report on all alerts in your Azure subscription via the Azure Security Center security alerts page.
 
 ## Manage Azure Defender settings
 
