@@ -75,7 +75,7 @@ keyVaultId="$(az keyvault show --name $vaultName --query [id] -o tsv)"
 keyVaultKeyUrl="$(az keyvault key show --vault-name $vaultName --name $vaultKeyName  --query [key.kid] -o tsv)"
 
 # Create an Azure disk encryption set
-az disk-encryption-set create -n $desName -g $myRG --source-vault $keyVaultId --key-url $keyVaultKeyUrl -o table
+az disk-encryption-set create -n $desName -g $buildRG --source-vault $keyVaultId --key-url $keyVaultKeyUrl -o table
 ```
 
 ## Grant the disk encryption set access to Key Vault
@@ -83,17 +83,17 @@ Use the disk encryption set we created in the prior steps and grant the disk enc
 
 ```azurecli-interactive
 # First, find the disk encryption set's AppId value.
-desIdentity="$(az disk-encryption-set show -n $desName -g $myRG --query [identity.principalId] -o tsv)"
+desIdentity="$(az disk-encryption-set show -n $desName -g $buildRG --query [identity.principalId] -o tsv)"
 
 # Next, update the Key Vault security policy settings to allow access to the disk encryption set.
-az keyvault set-policy -n $vaultName -g $myRG --object-id $desIdentity --key-permissions wrapkey unwrapkey get -o table
+az keyvault set-policy -n $vaultName -g $buildRG --object-id $desIdentity --key-permissions wrapkey unwrapkey get -o table
 
 # Now, ensure the disk encryption set can read the contents of the Azure Key Vault.
 az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId -o jsonc
 ```
 
 ### Obtain other IDs required for role assignments
-We need to allow the ARO cluster to use the disk encryption set to encrypt the persistent volume claims (PVCs) in the ARO cluster. To do this, we'll create a new Managed Service Identity (MSI). We will also set other permissions for the ARO MSI and for the disk encryption set.
+We need to allow the ARO cluster to use the disk encryption set to encrypt the persistent volume claims (PVCs) in the ARO cluster. To do this, we will create a new Managed Service Identity (MSI). We will also set other permissions for the ARO MSI and for the disk encryption set.
 ```
 # First, get the application ID of the service principal used in the ARO cluster.
 aroSPAppId="$(oc get secret azure-credentials -n kube-system -o jsonpath='{.data.azure_client_id}' | base64 --decode)"
@@ -105,13 +105,13 @@ aroSPObjId="$(az ad sp show --id $aroSPAppId -o tsv --query [objectId])"
 msiName="$aroCluster-msi"
 
 # Create the Managed Service Identity (MSI) required for disk encryption.
-az identity create -g $myRG -n $msiName -o jsonc
+az identity create -g $buildRG -n $msiName -o jsonc
 
 # Get the ARO Managed Service Identity application ID.
-aroMSIAppId="$(az identity show -n $msiName -g $myRG -o tsv --query [clientId])"
+aroMSIAppId="$(az identity show -n $msiName -g $buildRG -o tsv --query [clientId])"
 
 # Get the resource ID for the disk encryption set and the Key Vault resource group.
-myRGResourceId="$(az group show -n $myRG -o tsv --query [id])"
+buildRGResourceId="$(az group show -n $buildRG -o tsv --query [id])"
 ```
 
 ### Implement other role assignments required for CMK encryption
@@ -122,10 +122,10 @@ Apply the required role assignments using the variables obtained in the previous
 az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId -o jsonc
 
 # Assign the MSI AppID 'Reader' permission over the disk encryption set & Key Vault resource group.
-az role assignment create --assignee $aroMSIAppId --role Reader --scope $myRGResourceId -o jsonc
+az role assignment create --assignee $aroMSIAppId --role Reader --scope $buildRGResourceId -o jsonc
 
 # Assign the ARO Service Principal 'Contributor' permission over the disk encryption set & Key Vault Resource Group.
-az role assignment create --assignee $aroSPObjId --role Contributor --scope $myRGResourceId -o jsonc
+az role assignment create --assignee $aroSPObjId --role Contributor --scope $buildRGResourceId -o jsonc
 ```
 
 ## Create a k8s Storage Class for encrypted Premium & Ultra disks (optional)
@@ -141,8 +141,8 @@ provisioner: kubernetes.io/azure-disk
 parameters:
   skuname: Premium_LRS
   kind: Managed
-  diskEncryptionSetID: "/subscriptions/$subId/resourceGroups/$myRG/providers/Microsoft.Compute/diskEncryptionSets/$desName"
-  resourceGroup: $myRG
+  diskEncryptionSetID: "/subscriptions/$subId/resourceGroups/$buildRG/providers/Microsoft.Compute/diskEncryptionSets/$desName"
+  resourceGroup: $buildRG
 reclaimPolicy: Delete
 allowVolumeExpansion: true
 volumeBindingMode: WaitForFirstConsumer
@@ -158,8 +158,8 @@ provisioner: kubernetes.io/azure-disk
 parameters:
   skuname: UltraSSD_LRS
   kind: Managed
-  diskEncryptionSetID: "/subscriptions/$subId/resourceGroups/$myRG/providers/Microsoft.Compute/diskEncryptionSets/$desName"
-  resourceGroup: $myRG
+  diskEncryptionSetID: "/subscriptions/$subId/resourceGroups/$buildRG/providers/Microsoft.Compute/diskEncryptionSets/$desName"
+  resourceGroup: $buildRG
   cachingmode: None
   diskIopsReadWrite: "2000"  # minimum value: 2 IOPS/GiB
   diskMbpsReadWrite: "320"   # minimum value: 0.032/GiB
@@ -225,6 +225,8 @@ pvcUid="$(oc apply -f test-pvc.yaml -o jsonpath='{.items[0].metadata.uid}')"
 # Determine the full Azure Disk name.
 pvName="$(oc get pv pvc-$pvcUid -o jsonpath='{.spec.azureDisk.diskName}')"
 ```
+> [!NOTE]
+> On occasion there is a slight delay when applying role assignments within Azure Active Directory. Depending upon the speed that these commands are executed the command to "Determine the full Azure Disk name" may not succeed. If this occurs, view the output of **oc describe pvc mypod-with-cmk-encryption-pvc** to ensure that the disk was successfully provisioned. If the role assignment propagation has not completed you will need to *delete* and *apply* the Pod & PVC YAML.
 ### Verify PVC disk is configured with "EncryptionAtRestWithCustomerKey" 
 The Pod should create a persistent volume claim that references the CMK storage class. Running the following command will validate that the PVC has been deployed as expected:
 ```azurecli-interactive
@@ -232,7 +234,7 @@ The Pod should create a persistent volume claim that references the CMK storage 
 oc describe pvc
 
 # Verify with Azure that the disk is encrypted with a customer-managed key
-az disk show -n $pvName -g $myRG -o json --query [encryption]
+az disk show -n $pvName -g $buildRG -o json --query [encryption]
 ```
 
 <!-- LINKS - external -->
