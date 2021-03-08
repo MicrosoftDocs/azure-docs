@@ -240,4 +240,4 @@ For more help with troubleshooting, see these resources:
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
->>>>>>> 1650dbf3de79e58a70b2112d005cb3f4dedda907
+
