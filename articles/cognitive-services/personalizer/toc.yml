@@ -62,6 +62,8 @@
       displayName: learning policy, Counterfactual, features
     - name: Feature evaluation
       href: concept-feature-evaluation.md
+    - name: Auto-optimize
+      href: concept-auto-optimize.md
   - name: Scalability and performance
     href: concepts-scalability-performance.md
 - name: How-to guides
