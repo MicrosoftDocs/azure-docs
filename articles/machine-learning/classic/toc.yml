@@ -146,11 +146,11 @@
       href: migrate-overview.md
     - name: Migrate datasets
       href: migrate-register-dataset.md
-    - name: Migrate/rebuild experiments
+    - name: Rebuild experiments
       href: migrate-rebuild-experiment.md
-    - name: Migrate/rebuild web services
+    - name: Rebuild web services
       href: migrate-rebuild-web-service.md
-    - name: Migrate Execute R Script
+    - name: Rebuild Execute R Script modules
       href: migrate-execute-r-script.md      
 - name: Reference
   items:
