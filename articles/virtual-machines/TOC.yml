@@ -787,9 +787,9 @@
     items:
     - name: Overview
       href: avset-overview.md
-    - name: Create using CLI
+    - name: CLI
       href: ./linux/tutorial-availability-sets.md
-    - name: Create using PowerShell
+    - name: PowerShell
       href: ./windows/tutorial-availability-sets.md
     - name: Change an availability set
       href: ./windows/change-availability-set.md
@@ -797,21 +797,21 @@
     items: 
     - name: Overview
       href: ../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context
-    - name: Create using CLI
+    - name: CLI
       href: ./linux/create-cli-availability-zone.md
-    - name: Create using PowerShell
+    - name: PowerShell
       href: ./windows/create-powershell-availability-zone.md
-    - name: Create using the Azure portal
+    - name: Portal
       href: ./windows/create-portal-availability-zone.md
   - name: Proximity Placement Groups
     items: 
     - name: Overview
       href: co-location.md
-    - name: Create using CLI
+    - name: CLI
       href: ./linux/proximity-placement-groups.md
-    - name: Create using PowerShell
+    - name: PowerShell
       href: ./windows/proximity-placement-groups.md
-    - name: Creating using the Azure portal
+    - name: Portal
       href: ./windows/proximity-placement-groups-portal.md
   - name: Virtual Machine Scale Sets
     items: 
