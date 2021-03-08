@@ -6,9 +6,9 @@ ms.date: 05/06/2019
 ms.author: wolfma
 ---
 
-### Standard voices
+### Standard and neural voices
 
-Use this table to determine availability of standard voices by region/endpoint:
+Use this table to determine **availability of standard voices** by region/endpoint:
 
 | Region | Endpoint |
 |--------|----------|
@@ -36,9 +36,7 @@ Use this table to determine availability of standard voices by region/endpoint:
 > [!TIP]
 > [Voices in preview](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) are only available in these 3 regions: East US, West Europe and Southeast Asia.
 
-### Neural voices
-
-Use this table to determine availability of neural voices by region/endpoint:
+Use this table to determine **availability of neural voices** by region/endpoint:
 
 | Region | Endpoint |
 |--------|----------|
