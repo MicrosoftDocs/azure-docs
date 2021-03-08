@@ -258,6 +258,8 @@
         - name: Use Resource Manager template
           displayName: arm
           href: how-to-create-workspace-template.md
+        - name: Link to Azure Synapse Analytics workspace
+          href: how-to-link-synapse-ml-workspaces.md
     - name: Create & manage compute resources
       items: 
         - name: Compute instance
