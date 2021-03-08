@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 
-=======
 ---
 title: Troubleshoot mapping data flows
 description: Learn how to troubleshoot data flow problems in Azure Data Factory.
