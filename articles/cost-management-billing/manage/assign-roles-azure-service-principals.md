@@ -1,6 +1,6 @@
 ---
-title: Automate Enterprise Agreement tasks using Azure service principals
-description: This article helps you automate Enterprise Agreement administrative tasks using PowerShell and REST APIs with Azure service principals.
+title: Assign roles to Azure Enterprise Agreement service principal names
+description: This article helps you assign roles to service principal names using PowerShell and REST APIs.
 author: bandersmsft
 ms.reviewer: ruturajd
 tags: billing
@@ -13,7 +13,7 @@ ms.author: banders
 
 # Automate Enterprise Agreement tasks using Azure service principals
 
-You can manage your Enterprise Agreement (EA) enrollment in the [Azure Enterprise portal](https://ea.azure.com/). You can create different roles to manage your organization, view costs, and create subscriptions. This article helps you automate some of those tasks using Azure PowerShell and REST APIs with Azure service principals.
+You can manage your Enterprise Agreement (EA) enrollment in the [Azure Enterprise portal](https://ea.azure.com/). You can create different roles to manage your organization, view costs, and create subscriptions. This article helps you automate some of those tasks using Azure PowerShell and REST APIs with Azure service principal names (SPNs).
 
 Before you begin, ensure that you're familiar with the following articles:
 
@@ -23,7 +23,7 @@ Before you begin, ensure that you're familiar with the following articles:
 
 ## Create and authenticate your service principal
 
-To automate EA actions using a service principal name (SPN), you need to create an Azure Active Directory (Azure AD) application. It can authenticate in an automated manner. Read the following articles and following the steps in them to create and authenticate your service principal.
+To automate EA actions using an SPN, you need to create an Azure Active Directory (Azure AD) application. It can authenticate in an automated manner. Read the following articles and following the steps in them to create and authenticate your service principal.
 
 1. [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 2. [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)
