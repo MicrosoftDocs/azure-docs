@@ -145,10 +145,10 @@ Open **Views/Home/Index.cshtml**, the view specific to the Home controller.  Rep
                     <div class="col-xs-8">
                         <button class="btn btn-success text-left btn-block" ng-click="add(vote.key)">
                             <span class="pull-left">
-                                {{vote.key}}
+                                {{vote.Key}}
                             </span>
                             <span class="badge pull-right">
-                                {{vote.value}} Votes
+                                {{vote.Value}} Votes
                             </span>
                         </button>
                     </div>

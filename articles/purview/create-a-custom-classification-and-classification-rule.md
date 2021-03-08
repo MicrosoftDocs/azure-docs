@@ -120,24 +120,50 @@ To create a custom classification rule:
 
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/newclassificationrule.png" alt-text="Add new classification rule" border="true":::
 
-5. The **New classification rule** dialog box opens. Fill in the configuration information for your new rule.
+5. The **New classification rule** dialog box opens. Fill in the fields and decide whether to create a **regular expression rule** or a **dictionary rule**.
 
-    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/createclassificationrule.png" alt-text="Create new classification rule" border="true":::
+    |Field     |Description  |
+    |---------|---------|
+    |Name   |    Required. The maximum is 100 characters.    |
+    |Description      |Optional. The maximum is 256 characters.    |
+    |Classification Name    | Required. Select the name of the classification from the drop-down list to tell the scanner to apply it if a match is found.        |
+    |State   |  Required. The options are enabled or disabled. Enabled is the default.    |
 
-|Field     |Description  |
-|---------|---------|
-|Name   |    Required. The maximum is 100 characters.    |
-|Description      |Optional. The maximum is 256 characters.    |
-|Classification Name    | Required. Select the name of the classification from the drop-down list to tell the scanner to apply it if a match is found.        |
-|State   |  Required. The options are enabled or disabled. Enabled is the default.    |
-|Data Pattern    |Optional. A regular expression that represents the data that's stored in the data field. The limit is very large. In the previous example, the data patterns test for an employee ID that's literally the word `Employee{GUID}`.  |
-|Column Pattern    |Optional. A regular expression that represents the column names that you want to match. The limit is very large.          |
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-classification-rule.png" alt-text="Create new classification rule" border="true":::
 
-Under **Data Pattern**, there are two options:
+### Creating a Regular Expression Rule
 
-- **Distinct match threshold**: The total number of distinct data values that need to be found in a column before the scanner runs the data pattern on it. The suggested value is 8. This value can be manually adjusted in a range from 2 to 32. The system requires this value to make sure that the column contains enough data for the scanner to accurately classify it. For example, a column that contains multiple rows that all contain the value 1 won't be classified. Columns that contain one row with a value and the rest of the rows have null values also won't get classified. If you specify multiple patterns, this value applies to each of them.
+1. If creating a regular expression rule, you will see the following screen. You may optionally upload a file that will be used to **generate suggested regex patterns** for your rule.
 
-- **Minimum match threshold**: You can use this setting to set the minimum percentage of data value matches in a column that must be found by the scanner for the classification to be applied. The suggested value is 60%. You need to be careful with this setting. If you reduce the level below 60%, you might introduce false-positive classifications into your catalog. If you specify multiple data patterns, this setting is disabled and the value is fixed at 60%.
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Create new regex rule" border="true":::
+
+1. If you decide to generate a suggested regex pattern, after uploading a file, select one of the suggested patterns and click **Add to Patterns** to use the suggested data and column patterns. You can tweak the suggested patterns or you may also type your own patterns without uploading a file.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/suggested-regex.png" alt-text="Generate suggested regex" border="true":::
+
+    |Field     |Description  |
+    |---------|---------|
+    |Data Pattern    |Optional. A regular expression that represents the data that's stored in the data field. The limit is very large. In the previous example, the data patterns test for an employee ID that's literally the word `Employee{GUID}`.  |
+    |Column Pattern    |Optional. A regular expression that represents the column names that you want to match. The limit is very large.          |
+
+1. Under **Data Pattern**, there are two thresholds you can set:
+
+    - **Distinct match threshold**: The total number of distinct data values that need to be found in a column before the scanner runs the data pattern on it. The suggested value is 8. This value can be manually adjusted in a range from 2 to 32. The system requires this value to make sure that the column contains enough data for the scanner to accurately classify it. For example, a column that contains multiple rows that all contain the value 1 won't be classified. Columns that contain one row with a value and the rest of the rows have null values also won't get classified. If you specify multiple patterns, this value applies to each of them.
+
+    - **Minimum match threshold**: You can use this setting to set the minimum percentage of the distinct data value matches in a column that must be found by the scanner for the classification to be applied. The suggested value is 60%. You need to be careful with this setting. If you reduce the level below 60%, you might introduce false-positive classifications into your catalog. If you specify multiple data patterns, this setting is disabled and the value is fixed at 60%.
+
+1. You can now verify your rule and **create** it.
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Verify rule before creating" border="true":::
+
+### Creating a Dictionary Rule
+
+1.	If creating a dictionary rule, you will see the following screen. Upload a file that contains all possible values for the classification you’re creating in a single column.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="Create dictionary rule" border="true":::
+
+1.	After the dictionary is generated, you can adjust the distinct match and minimum match thresholds and submit the rule.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Create dictionary rule" border="true":::
 
 ## Next steps
 

@@ -26,7 +26,7 @@ Azure file shares are fully managed file shares that live in the cloud. This art
     - [Configure a Site-to-Site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
     - Configure [ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
 ## Register the NFS 4.1 protocol
 If you're using the Azure PowerShell module or the Azure CLI, register your feature using the following commands:

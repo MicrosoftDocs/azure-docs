@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 tags: connectors
 ---
 
 # Connect to SAP systems from Azure Logic Apps
 
-This article explains how you can access your SAP resources from Logic Apps using the [SAP connector](https://docs.microsoft.com/connectors/sap/).
+This article explains how you can access your SAP resources from Logic Apps using the [SAP connector](/connectors/sap/).
 
 ## Prerequisites
 
@@ -477,6 +477,23 @@ Your logic app is now ready to receive messages from your SAP system.
 > The SAP trigger isn't a polling trigger but is a webhook-based trigger instead. 
 > If you're using the data gateway, the trigger is called from the data gateway only when a message exists, so no polling is necessary.
 
+If you receive a **500 Bad Gateway** error with a message similar to **service 'sapgw00' unknown**, replace your gateway service name in your API connection and trigger configuration with its port number. In the following example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`. 
+
+```json
+"body": {
+   "error": {
+      "code": 500,
+      "source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
+      "clientRequestId": "00000000-0000-0000-0000-000000000000",
+      "message": "BadGateway",
+      "innerError": {
+         "error": {
+            "code": "UnhandledException",
+            "message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
+         }
+      }
+```
+
 #### Parameters
 
 Along with simple string and number inputs, the SAP connector accepts the following table parameters (`Type=ITAB` inputs):
@@ -551,14 +568,14 @@ For on-premises data gateway releases from April 2020 and earlier, logs are disa
 
 If you use an [on-premises data gateway for Logic Apps](../logic-apps/logic-apps-gateway-install.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files. 
 
-You can [export all of your gateway's configuration and service logs](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
+You can [export all of your gateway's configuration and service logs](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
 
 > [!NOTE]
 > Extended logging might affect your logic apps' performance when always enabled. It's a best practice to turn off extended log files after you're finished with analyzing and troubleshooting an issue.
 
 #### Capture ETW events
 
-Optionally, advanced users can capture ETW events directly. You can then [consume your data in Azure Diagnostics in Event Hubs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs) or [collect your data to Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs). For more information, see the [best practices for collecting and storing data](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#collecting-and-storing-data). You can use [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) to work with the resulting ETL files, or you can write your own program. This walkthrough uses PerfView:
+Optionally, advanced users can capture ETW events directly. You can then [consume your data in Azure Diagnostics in Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) or [collect your data to Azure Monitor Logs](/azure/azure-monitor/agents/diagnostics-extension-logs). For more information, see the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). You can use [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) to work with the resulting ETL files, or you can write your own program. This walkthrough uses PerfView:
 
 1. In the PerfView menu, select **Collect** &gt; **Collect** to capture the events.
 
@@ -1360,7 +1377,7 @@ For detailed examples of how to use the Call BAPI action, see the [XML samples o
 
 ### Send IDoc action
 
-The [Send IDoc (`SendIDoc`)](https://docs.microsoft.com/connectors/sap/#send-idoc-(preview)) action sends the IDoc message to your SAP server.
+The [Send IDoc (`SendIDoc`)](/connectors/sap/) action sends the IDoc message to your SAP server.
 
 You must use the following parameters with your call: 
 

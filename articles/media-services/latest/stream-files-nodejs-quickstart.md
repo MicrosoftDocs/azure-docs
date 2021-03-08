@@ -125,15 +125,15 @@ az group delete --name amsResourceGroup
 
 ## More developer documentation for Node.js on Azure
 
-- [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Azure for JavaScript & Node.js developers](/azure/developer/javascript/)
 - [Media Services source code in the @azure/azure-sdk-for-js Git Hub repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
-- [Azure Package Documentation for Node.js developers](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+- [Azure Package Documentation for Node.js developers](/javascript/api/overview/azure/)
 
 ## See also
 
 - [Job error codes](/rest/api/media/jobs/get#joberrorcode).
 - [npm install @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
-- [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Azure for JavaScript & Node.js developers](/azure/developer/javascript/)
 - [Media Services source code in the @azure/azure-sdk-for-js repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
 ## Next steps
