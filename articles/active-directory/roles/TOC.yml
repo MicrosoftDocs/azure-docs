@@ -6,7 +6,7 @@
     href: custom-overview.md
 - name: Quickstarts
   items:
-  - name: Assign users to admin roles
+  - name: Assign roles to users
     href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Concepts
   items:
@@ -16,7 +16,7 @@
       href: concept-understand-roles.md
     - name: Compare Azure and Azure AD roles    
       href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-    - name: Microsoft 365 role documentation
+    - name: Microsoft 365 roles
       href: m365-workload-docs.md
   - name: Built-in roles
     items:
