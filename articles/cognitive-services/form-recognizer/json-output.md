@@ -276,8 +276,17 @@ For each prebuilt doc type, link/include semantic schema (similar to https://doc
 TODO: Describe how bounding boxes are represented with 8 numbers and how top-left is defined.  Include example picture with tilted bounding box.
 
 ### Confidence
-TODO:
-* Mention that confidence for semantic fields is currently at bounding box level.  Text/selectionMark is text level.  Not sure about key-value pairs.
+
+Products in the OneOCR family (including Form Recognizer) use a common term "confidence" across all fields that provide an analog measurement of the certainty of our prediction. For example, in our Layout service the "words" field has the member "confidence" which is a float in the range 0.0 to 1.0. We will explain what this number means and how it can be used.
+
+Confidence values are estimates of certainty of a classification. To interpret this, consider an example prediction of a word with a confidence value of 0.80. What does this value mean? It means that 80% of the time we expect this prediction to be correct. That is a bit abstract when thinking of a single example. Thinking about confidence in the context of a collection of samples can help. Suppose you have 100 words and they all have confidence value greater than 0.80. Then we expect at least 80 of them will be correct.  Furthermore, if they all have confidence value less than, say, 0.85, then we expect less than 85 of them will be correct. Therefore, if they all have confidence value equal to 0.8, we expect 80 to be correct. This may not be true for every collection of 100 words, but will average out to be true across data coming from all OCR domains.
+
+How do we provide this? Our confidence values are [calibrated](https://en.wikipedia.org/wiki/Calibration_(statistics)) based on large datasets designed to represent the full range of data our models serve.
+
+Whenever you see the term confidence used in a OneOCR product, this corresponds to a calibrated confidence value, and you can use it in that way. Depending on the output field, the confidence may refer to a different level of prediction:
+* Text and selection mark is the confidence of the output value: the word or the selection state.
+* For fields in custom forms, it is the confidence of the choice of value boxes corresponding to the proposed field.
+* Future features may have a distinct level of confidence, which will be documented appropriately.
 
 ### Elements
 TODO: Describe JsonPoint references
