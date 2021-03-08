@@ -162,15 +162,15 @@ In this step, you will run RoboCopy jobs to catch up your cloud shares with the 
 This catch-up RoboCopy may finish quickly or take a while, depending on the amount of churn that happened on your NAS shares.
 
 > [!WARNING]
-> Due to a regressed RoboCopy behavior in Windows Server 2019, /MIR switch of RoboCopy is not compatible with a tiered target directory. You must not use Windows Server 2019 or Windows 10 client for this Phase of the migration. Use RoboCopy on an intermediate Windows Server 2016. This warning will be removed when a patch for Windows Server 2019 is available.
+> Due to a regressed RoboCopy behavior in Windows Server 2019, /MIR switch of RoboCopy is not compatible with a tiered target directory. You must not use Windows Server 2019 or Windows 10 client for this Phase of the migration. Use RoboCopy on an intermediate Windows Server 2016.
 
 The basic migration approach is a RoboCopy from your NAS appliance to your Windows Server, and Azure File Sync to Azure file shares.
 
 Run the first local copy to your Windows Server target folder:
 
-* Identify the first location on your NAS appliance.
-* Identify the matching folder on the Windows Server, that already has Azure File Sync configured on it.
-* Start the copy using RoboCopy
+1 Identify the first location on your NAS appliance.
+1 Identify the matching folder on the Windows Server, that already has Azure File Sync configured on it.
+1 Start the copy using RoboCopy
 
 The following RoboCopy command will copy only the differences (updated files and folders) from your NAS storage to your Windows Server target folder. The Windows Server will then sync them to the Azure file share(s). 
 
