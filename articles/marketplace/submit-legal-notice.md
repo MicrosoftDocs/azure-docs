@@ -13,7 +13,7 @@ ms.date: 03/08/2021
 
 ## Overview
 
-Legal notices to Microsoft regarding the Microsoft Publisher Agreement must be submitted through a support ticket to ensure tracking and proper action. Follow these steps to submit a notice.  
+Submit legal notices to Microsoft regarding the Microsoft Publisher Agreement through a support ticket to ensure proper action and tracking. Follow these steps to submit a notice.  
 
 1. Go to the [Contractual or legal questions](https://partner.microsoft.com/support/?stage=2&topicid=05a1a389-1256-d441-89c9-a140217de6b9) section of Partner Center support.
 
