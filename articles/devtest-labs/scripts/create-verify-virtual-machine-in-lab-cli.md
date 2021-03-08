@@ -33,8 +33,8 @@ This script uses the following commands:
 | Command | Notes |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az lab vm create](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-create) | Creates a virtual machine (VM) in a lab. |
-| [az lab vm show](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-show) | Displays the status of the VM in a lab. |
+| [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create) | Creates a virtual machine (VM) in a lab. |
+| [az lab vm show](/cli/azure/lab/vm#az-lab-vm-show) | Displays the status of the VM in a lab. |
 
 ## Next steps
 
