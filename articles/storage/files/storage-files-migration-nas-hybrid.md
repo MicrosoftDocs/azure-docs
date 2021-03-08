@@ -18,7 +18,7 @@ This article covers "online migration" route and describes how to accomplish you
 
 ## Migration goals
 
-The goal is to move the shares that you have on your NAS appliance to a Windows Server. Then utilize Azure File Sync for a hybrid cloud deployment. Generally, migrations need to be done in a way that guaranty the integrity of the production data as well as availability during the migration. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
+The goal is to move the shares that you have on your NAS appliance to a Windows Server. Then utilize Azure File Sync for a hybrid cloud deployment. Generally, migrations need to be done in a way that guaranty the integrity of the production data and it's availability during the migration. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
 
 ## Migration overview
 
@@ -49,7 +49,7 @@ As mentioned in the Azure Files [migration overview article](storage-files-migra
     2. let file sync and cloud tiering engage
     3. when more free space is created on the volume, proceed with the next batch of files. 
     
-    You can avoid this batching approach by provisioning the equivalent space on the Windows Server that your files occupy on the NAS appliance. Consider deduplication on NAS / Windows. If you don't want to permanently commit this high amount of storage to your Windows Server, you can reduce the volume size after the migration and before adjusting the cloud tiering policies. That creates a smaller on-premises cache of your Azure file shares.
+    You can avoid this batching approach by provisioning the equivalent space on the Windows Server that your files occupy on the NAS appliance. Consider deduplication on NAS / Windows. If you don't want to permanently commit this high amount of storage to your Windows Server, you can reduce the volume size after the migration and before you adjust the cloud tiering policies. That creates a smaller on-premises cache of your Azure file shares.
 
 The resource configuration (compute and RAM) of the Windows Server you deploy depends mostly on the number of items (files and folders) you will be syncing. We recommend going with a higher performance configuration if you have any concerns.
 

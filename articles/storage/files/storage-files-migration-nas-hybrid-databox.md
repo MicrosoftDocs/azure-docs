@@ -65,7 +65,7 @@ For a standard migration, one or a combination of these three DataBox options sh
 * DataBox Disks
   Microsoft will send you one and up to five SSD disks with a capacity of 8 TiB each, for a maximum total of 40 TiB. The usable capacity is about 20% less, due to encryption and file system overhead. For more information, see [DataBox Disks documentation](../../databox/data-box-disk-overview.md).
 * DataBox
-  This is the most common option. A ruggedized DataBox appliance, that works similar to a NAS, will be shipped to you. It has 80 TiB usable capacity. For more information, see [DataBox documentation](../../databox/data-box-overview.md).
+  This is the most common option. A ruggedized DataBox appliance, that works similar to a NAS, will be shipped to you. It has a usable capacity of 80 TiB. For more information, see [DataBox documentation](../../databox/data-box-overview.md).
 * DataBox Heavy
   This option features a ruggedized DataBox appliance on wheels, that works similar to a NAS, with a capacity of 1 PiB. The usable capacity is about 20% less, due to encryption and file system overhead. For more information, see [DataBox Heavy documentation](../../databox/data-box-heavy-overview.md).
 
