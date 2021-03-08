@@ -76,7 +76,7 @@
   - name: Link your partner ID
     displayName: partner earned credit, pec, mpn
     href: ./how-to/partner-earned-credit.md
-    name: Azure service integration
+  - name: Azure service integration
     items:
     - name: Azure Arc integration
       displayName: server, kubernetes, hybrid, infrastructure
