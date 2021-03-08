@@ -825,6 +825,8 @@
     href: understand-vm-reboots.md
   - name: States and lifecycle
     href: states-lifecycle.md
+  - name: Azure Regions
+    href: regions.md
 - name: Disks
   items:
   - name: Introduction to managed disks
