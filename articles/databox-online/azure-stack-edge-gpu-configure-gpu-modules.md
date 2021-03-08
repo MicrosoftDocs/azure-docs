@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
 ---
 # Configure and run a module on GPU on Azure Stack Edge Pro device
@@ -50,15 +50,15 @@ To configure a module to use the GPU on your Azure Stack Edge Pro device to run 
 
    When you finish the settings, select **Review + Create**. Review the settings for your IoT Hub resource, and select **Create**.
 
-   ![Get started with compute 2](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-3.png)
+   ![Get started with compute 2](./media/azure-stack-edge-gpu-configure-gpu-modules/configure-compute-3.png)
 
    Resource creation for an IoT Hub resource takes several minutes. After the resource is created, the **Overview** indicates the IoT Edge service is now running.
 
-   ![Get started with compute 3](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-4.png)
+   ![Get started with compute 3](./media/azure-stack-edge-gpu-configure-gpu-modules/configure-compute-4.png)
 
 5. To confirm the Edge compute role has been configured, select **Properties**.
 
-   ![Get started with compute 4](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-5.png)
+   ![Get started with compute 4](./media/azure-stack-edge-gpu-configure-gpu-modules/configure-compute-5.png)
 
 6. In **Properties**, select the link for **IoT Edge device**.
 

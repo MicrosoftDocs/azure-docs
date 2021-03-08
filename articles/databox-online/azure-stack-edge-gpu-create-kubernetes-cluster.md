@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
 ---
 # Connect to and manage a Kubernetes cluster via kubectl on your Azure Stack Edge Pro GPU device
@@ -164,7 +164,7 @@ You can now deploy your applications in the namespace, then view those applicati
 
 To remove the Kubernetes cluster, you will need to remove the IoT Edge configuration.
 
-For detailed instructions, go to [Remove IoT Edge configuration](azure-stack-gpu-manage-compute.md#remove-iot-edge-service).
+For detailed instructions, go to [Manage IoT Edge configuration](azure-stack-gpu-manage-compute.md#manage-iot-edge-configuration).
    
 
 ## Next steps
