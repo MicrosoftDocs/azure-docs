@@ -42,7 +42,7 @@ To complete this article, you need the following resources:
    - **NTLM authentication**
    - **NTLM password synchronization from on-premises**
 
-   [Screenshot of Security settings to disable weak ciphers and NTLM password hash sync](media/secure-your-domain/security-settings.png)
+   ![Screenshot of Security settings to disable weak ciphers and NTLM password hash sync](media/secure-your-domain/security-settings.png)
 
 ## Use PowerShell to disable weak ciphers and NTLM password hash sync
 
