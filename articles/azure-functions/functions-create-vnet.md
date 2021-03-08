@@ -213,57 +213,57 @@ Now, create the private endpoint for your Azure Service Bus.
 
 1. On the **Configuration** tab, choose **default** for the Subnet setting.
 
-1. Select **Review + create**. After validation completes, select **Create**. Resources in the virtual network can now talk to service bus.
+1. Select **Review + create**. After validation finishes, select **Create**. Resources in the virtual network can now communicate with the service bus.
 
 ## Create a file share
 
-1. In the storage account you created, select **File shares** in the left menu.
+1. In the storage account you created, in the menu on the left, select **File shares**.
 
-1. Select **+ File shares**. Provide **files** as the name for the file share for the purposes of this tutorial.
+1. Select **+ File shares**. For the purposes of this tutorial, name the file share *files*.
 
     :::image type="content" source="./media/functions-create-vnet/4-create-file-share.png" alt-text="Screenshot of how to create a file share in the storage account.":::
 
-## Get storage account connection string
+## Get the storage account connection string
 
-1. In the storage account you created, select **Access keys** in the left menu.
+1. In the storage account you created, in the menu on the left, select **Access keys**.
 
-1. Select **Show keys**. Copy the connection string of key1, and save it. We'll need this connection string later when configuring the app settings.
+1. Select **Show keys**. Copy and save the connection string of **key1**. You'll need this connection string when you configure the app settings.
 
     :::image type="content" source="./media/functions-create-vnet/5-get-store-connection-string.png" alt-text="Screenshot of how to get a storage account connection string.":::
 
 ## Create a queue
 
-This will be the queue for which your Azure Functions Service Bus Trigger will get events from.
+Create the queue where your Azure Functions service bus trigger will get events:
 
-1. In your service bus, select **Queues** in the left menu.
+1. In your service bus, in the menu on the left, select **Queues**.
 
-1. Select **Shared access policies**. Provide **queue** as the name for the queue for the purposes of this tutorial.
+1. Select **Shared access policies**. For the purposes of this tutorial, name the queue *queue*.
 
     :::image type="content" source="./media/functions-create-vnet/6-create-queue.png" alt-text="Screenshot of how to create a service bus queue.":::
 
-## Get service bus connection string
+## Get a service bus connection string
 
-1. In your service bus, select **Shared access policies** in the left menu.
+1. In your service bus, in the menu on the left, select **Shared access policies**.
 
-1. Select **RootManageSharedAccessKey**. Copy the **Primary Connection String**, and save it. We'll need this connection string later when configuring the app settings.
+1. Select **RootManageSharedAccessKey**. Copy and save the **Primary Connection String**. You'll need this connection string when you configure the app settings.
 
     :::image type="content" source="./media/functions-create-vnet/7-get-service-bus-connection-string.png" alt-text="Screenshot of how to get a service bus connection string.":::
 
-## Integrate function app with your virtual network
+## Integrate the function app
 
-To use your function app with virtual networks, you'll need to join it to a subnet. We use a specific subnet for the Azure Functions virtual network integration and the default sub net for all other private endpoints created in this tutorial.
+To use your function app with virtual networks, you need to join it to a subnet. You'll use a specific subnet for the Azure Functions virtual network integration. You'll use the default subnet for other private endpoints you create in this tutorial.
 
-1. In your function app, select **Networking** in the left menu.
+1. In your function app, in the menu on the left, select **Networking**.
 
-1. Select **Click here to configure** under VNet Integration.
+1. Under **VNet Integration**, select **Click here to configure**.
 
-    :::image type="content" source="./media/functions-create-vnet/8-connect-app-vnet.png" alt-text="Screenshot of how to navigate to virtual network integration.":::
+    :::image type="content" source="./media/functions-create-vnet/8-connect-app-vnet.png" alt-text="Screenshot of how to go to virtual network integration.":::
 
-1. Select **Add VNet**
+1. Select **Add VNet**.
 
-1. In the blade that opens up under **Virtual Network**, select the virtual network you created earlier.
+1. Under **Virtual Network**, select the virtual network you created earlier.
 
-1. Select the **Subnet** we created earlier called **functions**. Your function app is now integrated with your virtual network!
+1. Select the **functions** subnet you created earlier. Your function app is now integrated with your virtual network!
 
     :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="Screenshot of how to connect a function app to a subnet.":::
 
