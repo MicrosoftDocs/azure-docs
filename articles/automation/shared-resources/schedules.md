@@ -120,7 +120,7 @@ New-AzAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th
 
 In this example, we use an Automation Resource Manager (ARM) template that creates a new job schedule. For general information about this template to manage Automation job schedules, see [Microsoft.Automation automationAccounts/jobSchedules template reference](/templates/microsoft.automation/automationaccounts/jobschedules#quickstart-templates).
 
-In a text editor, copy this template file:
+Copy this template file into a text editor:
 
 ```json
 {
@@ -145,12 +145,12 @@ Edit the following parameter values and save the template as a JSON file:
 * Job schedule object name: A GUID (Globally Unique Identifier) is used as the name of the job schedule object.
 
    >[!IMPORTANT]
-   For each job schedule deployed with an ARM template, the GUID must be unique. Even if you're rescheduling an existing schedule, you'll need to change the GUID. This applies even if you've previously deleted an existing job schedule that was created with the same template. Reusing the same GUID results in a failed deployment.
+   > For each job schedule deployed with an ARM template, the GUID must be unique. Even if you're rescheduling an existing schedule, you'll need to change the GUID. This applies even if you've previously deleted an existing job schedule that was created with the same template. Reusing the same GUID results in a failed deployment.
 
 * Schedule name: Represents the name of the Automation job schedule that will be linked to the specified runbook.
 * Runbook name: Represents the name of the Automation runbook the job schedule is to be associated with.
 
-You can then create the runbook job schedule with the following command. The command uses the `TemplateFile` parameter to specify the template.
+Once the file has been saved, you can create the runbook job schedule with the following PowerShell command. The command uses the `TemplateFile` parameter to specify the path and filename of the template.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "<path>\RunbookJobSchedule.json"
